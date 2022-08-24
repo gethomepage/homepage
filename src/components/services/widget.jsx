@@ -2,12 +2,14 @@ import Sonarr from "./widgets/sonarr";
 import Radarr from "./widgets/radarr";
 import Ombi from "./widgets/ombi";
 import Portainer from "./widgets/portainer";
+import Emby from "./widgets/emby";
 
 const widgetMappings = {
   sonarr: Sonarr,
   radarr: Radarr,
   ombi: Ombi,
   portainer: Portainer,
+  emby: Emby,
 };
 
 export default function Widget({ service }) {
