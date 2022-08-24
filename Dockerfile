@@ -26,9 +26,6 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Since we run in a local environment, we need to accept self signed certificates
-ENV NODE_TLS_REJECT_UNAUTHORIZED 0
-
 USER nextjs
 EXPOSE 3000
 ENV PORT 3000
