@@ -8,7 +8,9 @@ export default function Emby({ service }) {
     return `${url}/emby/${endpoint}?api_key=${key}`;
   }
 
-  const { data: sessionsData, error: sessionsError } = useSWR(buildApiUrl(`Sessions`));
+  const { data: sessionsData, error: sessionsError } = useSWR(buildApiUrl(`Sessions`), {
+    refreshInterval: 1000,
+  });
 
   if (sessionsError) {
     return (
