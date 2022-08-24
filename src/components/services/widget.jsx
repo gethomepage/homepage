@@ -3,6 +3,7 @@ import Radarr from "./widgets/radarr";
 import Ombi from "./widgets/ombi";
 import Portainer from "./widgets/portainer";
 import Emby from "./widgets/emby";
+import Nzbget from "./widgets/nzbget";
 
 const widgetMappings = {
   sonarr: Sonarr,
@@ -10,6 +11,7 @@ const widgetMappings = {
   ombi: Ombi,
   portainer: Portainer,
   emby: Emby,
+  nzbget: Nzbget,
 };
 
 export default function Widget({ service }) {
