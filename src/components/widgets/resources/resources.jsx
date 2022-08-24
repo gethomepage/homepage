@@ -4,12 +4,9 @@ import { FaMemory } from "react-icons/fa";
 import { BiError } from "react-icons/bi";
 
 export default function Resources({ options }) {
-  const { data, error } = useSWR(
-    `/api/widgets/resources?disk=${options.disk}`,
-    {
-      refreshInterval: 1500,
-    }
-  );
+  const { data, error } = useSWR(`/api/widgets/resources?disk=${options.disk}`, {
+    refreshInterval: 1500,
+  });
 
   if (error) {
     return (
@@ -30,12 +27,8 @@ export default function Resources({ options }) {
           <div className="flex-none flex flex-row items-center justify-center mr-5">
             <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
             <div className="flex flex-col ml-3 text-left font-mono">
-              <span className="text-theme-800 dark:text-theme-200 text-xs">
-                - GB free
-              </span>
-              <span className="text-theme-800 dark:text-theme-200 text-xs">
-                - GB used
-              </span>
+              <span className="text-theme-800 dark:text-theme-200 text-xs">- GB free</span>
+              <span className="text-theme-800 dark:text-theme-200 text-xs">- GB used</span>
             </div>
           </div>
         )}
@@ -44,12 +37,8 @@ export default function Resources({ options }) {
           <div className="flex-none flex flex-row items-center justify-center mr-5">
             <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
             <div className="flex flex-col ml-3 text-left font-mono">
-              <span className="text-theme-800 dark:text-theme-200 text-xs">
-                - Usage
-              </span>
-              <span className="text-theme-800 dark:text-theme-200 text-xs">
-                - Load
-              </span>
+              <span className="text-theme-800 dark:text-theme-200 text-xs">- Usage</span>
+              <span className="text-theme-800 dark:text-theme-200 text-xs">- Load</span>
             </div>
           </div>
         )}
@@ -58,12 +47,8 @@ export default function Resources({ options }) {
           <div className="flex-none flex flex-row items-center justify-center mr-5">
             <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
             <div className="flex flex-col ml-3 text-left font-mono">
-              <span className="text-theme-800 dark:text-theme-200 text-xs">
-                - GB Used
-              </span>
-              <span className="text-theme-800 dark:text-theme-200 text-xs">
-                - GB Free
-              </span>
+              <span className="text-theme-800 dark:text-theme-200 text-xs">- GB Used</span>
+              <span className="text-theme-800 dark:text-theme-200 text-xs">- GB Free</span>
             </div>
           </div>
         )}
@@ -81,12 +66,8 @@ export default function Resources({ options }) {
         <div className="flex-none flex flex-row items-center justify-center mr-5">
           <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
           <div className="flex flex-col ml-3 text-left font-mono">
-            <span className="text-theme-800 dark:text-theme-200 text-xs">
-              {Math.round(data.drive.freeGb)} GB free
-            </span>
-            <span className="text-theme-800 dark:text-theme-200 text-xs">
-              {Math.round(data.drive.totalGb)} GB used
-            </span>
+            <span className="text-theme-800 dark:text-theme-200 text-xs">{Math.round(data.drive.freeGb)} GB free</span>
+            <span className="text-theme-800 dark:text-theme-200 text-xs">{Math.round(data.drive.usedGb)} GB used</span>
           </div>
         </div>
       )}
@@ -95,9 +76,7 @@ export default function Resources({ options }) {
         <div className="flex-none flex flex-row items-center justify-center mr-5">
           <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
           <div className="flex flex-col ml-3 text-left font-mono">
-            <span className="text-theme-800 dark:text-theme-200 text-xs">
-              {Math.round(data.cpu.usage)}% Usage
-            </span>
+            <span className="text-theme-800 dark:text-theme-200 text-xs">{Math.round(data.cpu.usage)}% Usage</span>
             <span className="text-theme-800 dark:text-theme-200 text-xs">
               {Math.round(data.cpu.load * 100) / 100} Load
             </span>
