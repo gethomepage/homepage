@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { FiHardDrive, FiCpu } from "react-icons/fi";
 import { FaMemory } from "react-icons/fa";
+import { BiError } from "react-icons/bi";
 
 export default function Resources({ options }) {
   const { data, error } = useSWR(
@@ -11,7 +12,15 @@ export default function Resources({ options }) {
   );
 
   if (error) {
-    return <div>failed to load</div>;
+    return (
+      <div className="flex-none flex flex-row items-center justify-center mr-5">
+        <BiError className="text-theme-800 dark:text-theme-200 w-5 h-5" />
+        <div className="flex flex-col ml-3 text-left font-mono">
+          <span className="text-theme-800 dark:text-theme-200 text-xs">Resources</span>
+          <span className="text-theme-800 dark:text-theme-200 text-xs">Error</span>
+        </div>
+      </div>
+    );
   }
 
   if (!data) {
