@@ -1,0 +1,10 @@
+# Docker host configuration, used for docker integrations
+# Can be either a host and port (e.g. 127.0.0.1:2375),
+# or a unix socket path (e.g. /var/run/docker.sock)
+
+my-docker:
+  host: 127.0.0.1
+  port: 2375
+
+other-docker:
+  socket: /var/run/docker.sock

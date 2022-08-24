@@ -1,0 +1,34 @@
+- Developer: # Bookmark group title
+    - Github: # Bookmark title
+        - abbr: GH # Two letter abbrivation for the bookmark
+          href: https://github.com/ # URL to link out to
+
+    - StackOverflow:
+        - abbr: SO
+          href: https://stackoverflow.com/
+
+    - DEV:
+        - abbr: DT
+          href: https://dev.to/
+
+- Social:
+    - LinkedIn:
+        - abbr: LI
+          href: https://linkedin.com/
+
+    - Twitter:
+        - abbr: TW
+          href: https://twitter.com/
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/
+
+    - Netflix:
+        - abbr: NF
+          href: https://netflix.com/
+
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com/

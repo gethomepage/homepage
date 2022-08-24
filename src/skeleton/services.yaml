@@ -1,0 +1,53 @@
+- Media: # Services Group Title
+    - Emby: # Service Title
+        icon: emby.png # Icon, see: https://github.com/walkxcode/dashboard-icons or public/icons
+        href: http://emby.home/ # Link to the service
+        description: Media server # Description of the service
+        server: my-docker # Docker server the service is running on
+        container: emby # Docker container the service is running on
+
+    - Radarr:
+        icon: radarr.png
+        href: http://radarr.home/
+        description: Movie management
+        server: my-docker
+        container: radarr
+        widget: # Service widget configuration
+          type: radarr # Widget type, currently supports types radarr, sonarr, ombi or portainer
+          url: http://radarr.home # Base URL of the service, where the API is located
+          key: apikeyapikeyapikeyapikey # API key of the service
+
+- Documents & Files:
+    - ruTorrent:
+        icon: rutorrent.png
+        href: http://rutorrent.home/
+        description: Torrent downloader
+        server: my-docker
+        container: rutorrent
+
+    - File Browser:
+        icon: filebrowser.png
+        href: "#"
+        description: Media File Management
+        server: my-docker
+        container: filebrowser
+
+- Utilities:
+    - Media Portainer:
+        icon: portainer.png
+        href: http://portainer.home:9443/
+        description: Container management
+        server: my-docker
+        container: portainer
+        widget:
+          type: portainer
+          url: https://portainer.home:9443
+          env: 2
+          key: accesskeyaccesskeyaccesskeyaccesskey
+
+    - Traefik:
+        icon: traefik.png
+        href: http://traefik.home/
+        description: Reverse Proxy
+        server: my-docker
+        container: traefik

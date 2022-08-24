@@ -1,0 +1,11 @@
+- weather: # type of the widget
+    latitude: 51.5072 # widget configuration
+    longitude: 0.1275
+    units: metric
+    apiKey: weather_api_key # get from https://www.weatherapi.com/
+    cache: 5 # cache time in minutes
+
+- resources:
+    cpu: true
+    memory: true
+    disk: / # disk (path) to show usage for
