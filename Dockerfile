@@ -1,7 +1,7 @@
 # Install dependencies only when needed
 FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
-RUN apk add --no-cache --virtual .gyp python make g++
+RUN apk add --no-cache --virtual .gyp python3 make g++
 WORKDIR /app
 COPY package.json pnpm-lock.yaml* ./
 RUN yarn global add pnpm
