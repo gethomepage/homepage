@@ -6,6 +6,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml* ./
 RUN yarn global add pnpm
 RUN pnpm install
+RUN apk del .gyp
 
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
@@ -13,7 +14,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
-RUN apk del .gyp
 
 # Production image, copy all the files and run next
 FROM node:16-alpine AS runner
