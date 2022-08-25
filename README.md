@@ -8,7 +8,7 @@
     - Docker Integration
       - Status light + CPU, Memory & Network Reporting
     - Service Integration
-      - Currently supports Sonarr, Radarr, Ombi, Emby, NZBGet & Portainer
+      - Currently supports Sonarr, Radarr, Ombi, Emby, NZBGet, ruTorrent, Portainer & PiHole
   * Homepage Widgets
     - System Stats (Disk, CPU, Memory)
     - Weather (via weatherapi.com)
