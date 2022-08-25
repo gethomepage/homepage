@@ -1,52 +1,16 @@
 import https from "https";
-import http from "http";
+import getRawBody from "raw-body";
 
-function httpsRequest(params) {
-  return new Promise(function (resolve, reject) {
-    var request = https.request(params, function (response) {
-      let data = "";
+import { httpRequest, httpsRequest } from "utils/http";
 
-      response.on("data", (chunk) => {
-        data = data + chunk.toString();
-      });
-
-      response.on("end", () => {
-        resolve([response.statusCode, data]);
-      });
-    });
-
-    request.on("error", (error) => {
-      reject([500, error]);
-    });
-
-    request.end();
-  });
-}
-
-function httpRequest(params) {
-  return new Promise(function (resolve, reject) {
-    var request = http.request(params, function (response) {
-      let data = "";
-
-      response.on("data", (chunk) => {
-        data = data + chunk.toString();
-      });
-
-      response.on("end", () => {
-        resolve([response.statusCode, data]);
-      });
-    });
-
-    request.on("error", (error) => {
-      reject([500, error]);
-    });
-
-    request.end();
-  });
-}
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 export default async function handler(req, res) {
-  const headers = ["X-API-Key", "Content-Type", "Authorization"].reduce((obj, key) => {
+  const headers = ["X-API-Key", "Authorization"].reduce((obj, key) => {
     if (req.headers && req.headers.hasOwnProperty(key.toLowerCase())) {
       obj[key] = req.headers[key.toLowerCase()];
     }
@@ -69,7 +33,12 @@ export default async function handler(req, res) {
       agent: httpsAgent,
       method: req.method,
       headers: headers,
-      body: req.method == "GET" || req.method == "HEAD" ? null : req.body,
+      body:
+        req.method == "GET" || req.method == "HEAD"
+          ? null
+          : await getRawBody(req, {
+              encoding: "utf8",
+            }),
     });
 
     return res.status(status).send(data);
@@ -80,7 +49,12 @@ export default async function handler(req, res) {
       port: url.port,
       method: req.method,
       headers: headers,
-      body: req.method == "GET" || req.method == "HEAD" ? null : req.body,
+      body:
+        req.method == "GET" || req.method == "HEAD"
+          ? null
+          : await getRawBody(req, {
+              encoding: "utf8",
+            }),
     });
 
     return res.status(status).send(data);
