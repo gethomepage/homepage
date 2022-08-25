@@ -1,5 +1,20 @@
 ![Homepage Preview](/images/preview.png)
 
+
+## Features
+
+  * Web Bookmarks
+  * Service Bookmarks
+    - Docker Integration
+      - Status light + CPU, Memory & Network Reporting
+    - Service Integration
+      - Currently supports Sonarr, Radarr, Ombi, Emby, NZBGet & Portainer
+  * Homepage Widgets
+    - System Stats (Disk, CPU, Memory)
+    - Weather (via weatherapi.com)
+  * Customizable
+    - 21 theme colors with light and dark mode support
+
 ## Getting Started
 
 Using docker compose:
