@@ -2,12 +2,11 @@ import Image from "next/future/image";
 import { useState } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
 
-import StatsList from "./stats/list";
 import Status from "./status";
 import Widget from "./widget";
+import Docker from "./widgets/service/docker";
 
 export default function Item({ service }) {
-  const [statsOpen, setStatsOpen] = useState(false);
   return (
     <li key={service.name} className="">
       <Disclosure>
@@ -46,7 +45,7 @@ export default function Item({ service }) {
 
           <Disclosure.Panel>
             <div className="w-full">
-              <StatsList service={service} />
+              <Docker service={{ widget: { container: service.container, server: service.server } }} />
             </div>
           </Disclosure.Panel>
 

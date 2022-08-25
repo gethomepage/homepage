@@ -1,11 +1,13 @@
-import Sonarr from "./widgets/sonarr";
-import Radarr from "./widgets/radarr";
-import Ombi from "./widgets/ombi";
-import Portainer from "./widgets/portainer";
-import Emby from "./widgets/emby";
-import Nzbget from "./widgets/nzbget";
+import Sonarr from "./widgets/service/sonarr";
+import Radarr from "./widgets/service/radarr";
+import Ombi from "./widgets/service/ombi";
+import Portainer from "./widgets/service/portainer";
+import Emby from "./widgets/service/emby";
+import Nzbget from "./widgets/service/nzbget";
+import Docker from "./widgets/service/docker";
 
 const widgetMappings = {
+  docker: Docker,
   sonarr: Sonarr,
   radarr: Radarr,
   ombi: Ombi,
