@@ -1,3 +1,5 @@
+![Homepage Preview](/images/preview.png)
+
 ## Getting Started
 
 Using docker compose:
