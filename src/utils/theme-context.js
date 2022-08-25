@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 const getInitialTheme = () => {
   if (typeof window !== "undefined" && window.localStorage) {
-    const storedPrefs = window.localStorage.getItem("color-theme");
+    const storedPrefs = window.localStorage.getItem("theme-mode");
     if (typeof storedPrefs === "string") {
       return storedPrefs;
     }
@@ -13,7 +13,7 @@ const getInitialTheme = () => {
     }
   }
 
-  return "light"; // light theme as the default;
+  return "dark"; // dark as the default mode
 };
 
 export const ThemeContext = createContext();
@@ -28,7 +28,7 @@ export const ThemeProvider = ({ initialTheme, children }) => {
     root.classList.remove(isDark ? "light" : "dark");
     root.classList.add(rawTheme);
 
-    localStorage.setItem("color-theme", rawTheme);
+    localStorage.setItem("theme-mode", rawTheme);
   };
 
   if (initialTheme) {
@@ -39,9 +39,5 @@ export const ThemeProvider = ({ initialTheme, children }) => {
     rawSetTheme(theme);
   }, [theme]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };
