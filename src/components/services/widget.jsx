@@ -5,6 +5,7 @@ import Portainer from "./widgets/service/portainer";
 import Emby from "./widgets/service/emby";
 import Nzbget from "./widgets/service/nzbget";
 import Docker from "./widgets/service/docker";
+import Pihole from "./widgets/service/pihole";
 
 const widgetMappings = {
   docker: Docker,
@@ -14,6 +15,7 @@ const widgetMappings = {
   portainer: Portainer,
   emby: Emby,
   nzbget: Nzbget,
+  pihole: Pihole,
 };
 
 export default function Widget({ service }) {
