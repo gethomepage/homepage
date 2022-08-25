@@ -17,6 +17,10 @@
 
 ## Getting Started
 
+You can run the homepage from a docker container or locally using node.
+
+### With Docker
+
 Using docker compose:
 
 ```yaml
@@ -35,6 +39,27 @@ or docker run:
 
 ```bash
 docker run -p 3000:3000 -v /path/to/config:/app/config ghcr.io/benphelps/homepage:main
+```
+
+### With Node
+
+First, clone the repository:
+
+```bash
+git clone https://github.com/benphelps/homepage.git
+```
+
+Then install dependencies and build the production bundle (I'm using pnpm here, you can use npm or yarn if you like):
+
+```bash
+pnpm install
+pnpm build
+```
+
+Finally, run the server:
+
+```bash
+pnpm start
 ```
 
 ## Configuration
@@ -59,3 +84,5 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to start.
+
+This is a [Next.js](https://nextjs.org/) application, see their doucmentation for more information:
