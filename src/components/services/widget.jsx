@@ -6,6 +6,7 @@ import Emby from "./widgets/service/emby";
 import Nzbget from "./widgets/service/nzbget";
 import Docker from "./widgets/service/docker";
 import Pihole from "./widgets/service/pihole";
+import Rutorrent from "./widgets/service/rutorrent";
 
 const widgetMappings = {
   docker: Docker,
@@ -16,6 +17,7 @@ const widgetMappings = {
   emby: Emby,
   nzbget: Nzbget,
   pihole: Pihole,
+  rutorrent: Rutorrent,
 };
 
 export default function Widget({ service }) {
