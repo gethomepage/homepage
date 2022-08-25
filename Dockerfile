@@ -1,6 +1,7 @@
 # Install dependencies only when needed
 FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache --virtual .gyp python make g++
 WORKDIR /app
 COPY package.json pnpm-lock.yaml* ./
 RUN yarn global add pnpm
@@ -11,8 +12,8 @@ FROM node:16-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
 RUN npm run build
+RUN apk del .gyp
 
 # Production image, copy all the files and run next
 FROM node:16-alpine AS runner
