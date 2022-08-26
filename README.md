@@ -1,5 +1,6 @@
 ![Homepage Preview](/images/preview.png)
 
+[![Docker](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml)
 
 ## Features
 
@@ -8,12 +9,18 @@
     - Docker Integration
       - Status light + CPU, Memory & Network Reporting
     - Service Integration
-      - Currently supports Sonarr, Radarr, Ombi, Emby, NZBGet, ruTorrent, Portainer & PiHole
+      - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, NZBGet, ruTorrent, Portainer & PiHole
   * Homepage Widgets
     - System Stats (Disk, CPU, Memory)
     - Weather (via weatherapi.com)
   * Customizable
     - 21 theme colors with light and dark mode support
+
+## Support & Suggestions
+
+If you have any questions, suggestions, or general issues, please start a discussion on the [Discussions](https://github.com/benphelps/homepage/discussions) page.
+
+If you have a more specific issue, please open an issue on the [Issues](https://github.com/benphelps/homepage/issues) page.
 
 ## Getting Started
 
