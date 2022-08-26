@@ -7,6 +7,7 @@ import Nzbget from "./widgets/service/nzbget";
 import Docker from "./widgets/service/docker";
 import Pihole from "./widgets/service/pihole";
 import Rutorrent from "./widgets/service/rutorrent";
+import Jellyfin from "./widgets/service/jellyfin";
 
 const widgetMappings = {
   docker: Docker,
@@ -15,6 +16,7 @@ const widgetMappings = {
   ombi: Ombi,
   portainer: Portainer,
   emby: Emby,
+  jellyfin: Jellyfin,
   nzbget: Nzbget,
   pihole: Pihole,
   rutorrent: Rutorrent,

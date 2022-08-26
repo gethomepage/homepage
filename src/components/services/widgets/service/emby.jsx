@@ -3,7 +3,7 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
-export default function Emby({ service }) {
+export default function Emby({ service, title = "Emby" }) {
   const config = service.widget;
 
   function buildApiUrl(endpoint) {
@@ -16,7 +16,7 @@ export default function Emby({ service }) {
   });
 
   if (sessionsError) {
-    return <Widget error="Emby API Error" />;
+    return <Widget error={`${title} API Error`} />;
   }
 
   if (!sessionsData) {
