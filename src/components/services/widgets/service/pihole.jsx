@@ -7,7 +7,13 @@ export default function Pihole({ service }) {
   const config = service.widget;
 
   function buildApiUrl(endpoint) {
-    const { url } = config;
+    const { url, proxy } = config;
+
+    if (proxy) {
+      const fullUrl = `${url}/admin/${endpoint}`;
+      return "/api/proxy?url=" + encodeURIComponent(fullUrl);
+    }
+
     return `${url}/admin/${endpoint}`;
   }
 
