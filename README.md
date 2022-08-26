@@ -7,7 +7,7 @@
   * Web Bookmarks
   * Service Bookmarks
     - Docker Integration
-      - Status light + CPU, Memory & Network Reporting
+      - Status light + CPU, Memory & Network Reporting *(click on the status light)*
     - Service Integration
       - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, NZBGet, ruTorrent, Portainer & PiHole
   * Homepage Widgets
@@ -40,12 +40,13 @@ services:
             - 3000:3000
         volumes:
             - /path/to/config:/app/config
+            - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
 ```
 
 or docker run:
 
 ```bash
-docker run -p 3000:3000 -v /path/to/config:/app/config ghcr.io/benphelps/homepage:main
+docker run -p 3000:3000 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:main
 ```
 
 ### With Node
