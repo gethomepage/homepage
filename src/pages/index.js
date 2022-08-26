@@ -32,9 +32,17 @@ export default function Home() {
           <div className="flex flex-wrap m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200">
             {widgets && (
               <>
-                {widgets.map((widget) => (
-                  <Widget key={widget.type} widget={widget} />
-                ))}
+                {widgets
+                  .filter((widget) => widget.type !== "weather")
+                  .map((widget, i) => (
+                    <Widget key={i} widget={widget} />
+                  ))}
+                <div className="grow"></div>
+                {widgets
+                  .filter((widget) => widget.type === "weather")
+                  .map((widget, i) => (
+                    <Widget key={i} widget={widget} />
+                  ))}
               </>
             )}
           </div>

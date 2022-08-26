@@ -13,7 +13,9 @@ export default async function handler(req, res) {
 
   try {
     const docker = new Docker(await getDockerArguments(containerServer));
-    const containers = await docker.listContainers();
+    const containers = await docker.listContainers({
+      all: true,
+    });
 
     // bad docker connections can result in a <Buffer ...> object?
     // in any case, this ensures the result is the expected array
@@ -29,7 +31,7 @@ export default async function handler(req, res) {
     const containerExists = containerNames.includes(containerName);
 
     if (!containerExists) {
-      return res.status(404).send({
+      return res.status(200).send({
         error: "not found",
       });
     }
