@@ -25,7 +25,7 @@ export default function Portainer({ service }) {
     return await res.json();
   };
 
-  const { data: containersData, error: containersError } = useSWR(buildApiUrl(`docker/containers/json`), fetcher);
+  const { data: containersData, error: containersError } = useSWR(buildApiUrl(`docker/containers/json?all=1`), fetcher);
 
   if (containersError) {
     return <Widget error="Portainer API Error" />;

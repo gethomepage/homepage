@@ -1,9 +1,9 @@
 import https from "https";
 import http from "http";
 
-export function httpsRequest(params) {
+export function httpsRequest(url, params) {
   return new Promise(function (resolve, reject) {
-    var request = https.request(params, function (response) {
+    var request = https.request(url, params, function (response) {
       let data = "";
 
       response.on("data", (chunk) => {
@@ -11,7 +11,7 @@ export function httpsRequest(params) {
       });
 
       response.on("end", () => {
-        resolve([response.statusCode, data]);
+        resolve([response.statusCode, response.headers["content-type"], data]);
       });
     });
 
@@ -23,9 +23,9 @@ export function httpsRequest(params) {
   });
 }
 
-export function httpRequest(params) {
+export function httpRequest(url, params) {
   return new Promise(function (resolve, reject) {
-    var request = http.request(params, function (response) {
+    var request = http.request(url, params, function (response) {
       let data = "";
 
       response.on("data", (chunk) => {
@@ -33,7 +33,7 @@ export function httpRequest(params) {
       });
 
       response.on("end", () => {
-        resolve([response.statusCode, data]);
+        resolve([response.statusCode, response.headers["content-type"], data]);
       });
     });
 

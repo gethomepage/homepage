@@ -26,10 +26,7 @@ export default async function handler(req, res) {
       rejectUnauthorized: false,
     });
 
-    const [status, data] = await httpsRequest({
-      hostname: url.hostname,
-      path: url.pathname,
-      port: url.port,
+    const [status, contentType, data] = await httpsRequest(url, {
       agent: httpsAgent,
       method: req.method,
       headers: headers,
@@ -41,12 +38,10 @@ export default async function handler(req, res) {
             }),
     });
 
+    res.setHeader("Content-Type", contentType);
     return res.status(status).send(data);
   } else {
-    const [status, data] = await httpRequest({
-      hostname: url.hostname,
-      path: url.pathname,
-      port: url.port,
+    const [status, contentType, data] = await httpRequest(url, {
       method: req.method,
       headers: headers,
       body:
@@ -57,6 +52,7 @@ export default async function handler(req, res) {
             }),
     });
 
+    res.setHeader("Content-Type", contentType);
     return res.status(status).send(data);
   }
 }
