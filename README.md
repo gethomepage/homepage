@@ -25,7 +25,7 @@ If you have a more specific issue, please open an issue on the [Issues](https://
 
 ## Getting Started
 
-You can run the homepage from a docker container or locally using node.
+For configuration options, examples and more, [please check out the Wiki](https://github.com/benphelps/homepage/wiki).
 
 ### With Docker
 
