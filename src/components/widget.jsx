@@ -1,9 +1,10 @@
-import Weather from "components/widgets/weather/weather";
+import WeatherApi from "components/widgets/weather/weather";
 import OpenWeatherMap from "components/widgets/openweathermap/weather";
 import Resources from "components/widgets/resources/resources";
 
 const widgetMappings = {
-  weather: Weather,
+  weather: WeatherApi, // This key will be deprecated in the future
+  weatherapi: WeatherApi,
   openweathermap: OpenWeatherMap,
   resources: Resources,
 };

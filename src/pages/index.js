@@ -17,6 +17,8 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
   ssr: false,
 });
 
+const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather"];
+
 export default function Home() {
   const { data: services, error: servicesError } = useSWR("/api/services");
   const { data: bookmarks, error: bookmarksError } = useSWR("/api/bookmarks");
@@ -33,13 +35,13 @@ export default function Home() {
             {widgets && (
               <>
                 {widgets
-                  .filter((widget) => widget.type !== "weather")
+                  .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
                     <Widget key={i} widget={widget} />
                   ))}
                 <div className="grow"></div>
                 {widgets
-                  .filter((widget) => widget.type === "weather")
+                  .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
                     <Widget key={i} widget={widget} />
                   ))}
