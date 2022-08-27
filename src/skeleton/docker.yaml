@@ -1,6 +1,5 @@
-# Docker host configuration, used for docker integrations
-# Can be either a host and port (e.g. 127.0.0.1:2375),
-# or a unix socket path (e.g. /var/run/docker.sock)
+# For configuration options and examples, please see:
+# https://github.com/benphelps/homepage/wiki/Docker-Integration
 
 my-docker:
   host: 127.0.0.1

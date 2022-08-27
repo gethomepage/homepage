@@ -1,34 +1,17 @@
-- Developer: # Bookmark group title
-    - Github: # Bookmark title
-        - abbr: GH # Two letter abbrivation for the bookmark
-          href: https://github.com/ # URL to link out to
+# For configuration options and examples, please see:
+# https://github.com/benphelps/homepage/wiki/Bookmarks
 
-    - StackOverflow:
-        - abbr: SO
-          href: https://stackoverflow.com/
-
-    - DEV:
-        - abbr: DT
-          href: https://dev.to/
+- Developer:
+    - Github:
+        - abbr: GH
+          href: https://github.com/
 
 - Social:
-    - LinkedIn:
-        - abbr: LI
-          href: https://linkedin.com/
-
-    - Twitter:
-        - abbr: TW
-          href: https://twitter.com/
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com/
 
 - Entertainment:
     - YouTube:
         - abbr: YT
           href: https://youtube.com/
-
-    - Netflix:
-        - abbr: NF
-          href: https://netflix.com/
-
-    - Reddit:
-        - abbr: RE
-          href: https://reddit.com/
