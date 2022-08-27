@@ -29,7 +29,7 @@ export default function Home() {
           <title>Welcome</title>
         </Head>
         <div className="w-full container m-auto flex flex-col h-screen justify-between">
-          <div className="flex flex-wrap m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200">
+          <div className="flex flex-wrap space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200">
             {widgets && (
               <>
                 {widgets

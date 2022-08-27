@@ -5,7 +5,7 @@ import Memory from "./memory";
 export default function Resources({ options }) {
   return (
     <>
-      <div className="pr-2 flex flex-col mr-2">
+      <div className="pr-2 flex flex-col">
         <div className="flex flex-row space-x-4">
           {options.disk && <Disk options={options} />}
           {options.cpu && <Cpu />}
