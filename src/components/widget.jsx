@@ -1,8 +1,10 @@
 import Weather from "components/widgets/weather/weather";
+import OpenWeatherMap from "components/widgets/openweathermap/weather";
 import Resources from "components/widgets/resources/resources";
 
 const widgetMappings = {
   weather: Weather,
+  openweathermap: OpenWeatherMap,
   resources: Resources,
 };
 
