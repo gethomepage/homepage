@@ -9,6 +9,7 @@ import Pihole from "./widgets/service/pihole";
 import Rutorrent from "./widgets/service/rutorrent";
 import Jellyfin from "./widgets/service/jellyfin";
 import Speedtest from "./widgets/service/speedtest";
+import Traefik from "./widgets/service/traefik";
 
 const widgetMappings = {
   docker: Docker,
@@ -22,6 +23,7 @@ const widgetMappings = {
   pihole: Pihole,
   rutorrent: Rutorrent,
   speedtest: Speedtest,
+  traefik: Traefik,
 };
 
 export default function Widget({ service }) {
