@@ -9,7 +9,7 @@ function resolveIcon(icon) {
   if (icon.startsWith("http")) {
     return `/api/proxy?url=${encodeURIComponent(icon)}`;
   } else if (icon.startsWith("/")) {
-    return `/icons${icon}`;
+    return icon;
   } else {
     if (icon.endsWith(".png")) {
       return `https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/${icon}`;
