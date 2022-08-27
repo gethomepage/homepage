@@ -1,3 +1,6 @@
+// Code primarely based on Flame's ConditionMap class
+// https://github.com/pawelmalak/flame/blob/master/client/src/components/UI/Icons/WeatherIcon/IconMapping.ts
+
 import * as Icons from "react-icons/wi";
 
 const conditions = [
@@ -340,9 +343,7 @@ const conditions = [
 ];
 
 export default function mapIcon(weatherStatusCode, timeOfDay) {
-  const mapping = conditions.find(
-    (condition) => condition.code === weatherStatusCode
-  );
+  const mapping = conditions.find((condition) => condition.code === weatherStatusCode);
 
   if (mapping) {
     if (timeOfDay === "day") {
