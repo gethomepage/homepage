@@ -4,14 +4,14 @@ import http from "http";
 export function httpsRequest(url, params) {
   return new Promise(function (resolve, reject) {
     var request = https.request(url, params, function (response) {
-      let data = "";
+      var data = [];
 
       response.on("data", (chunk) => {
-        data = data + chunk.toString();
+        data.push(chunk);
       });
 
       response.on("end", () => {
-        resolve([response.statusCode, response.headers["content-type"], data]);
+        resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data)]);
       });
     });
 
@@ -26,14 +26,14 @@ export function httpsRequest(url, params) {
 export function httpRequest(url, params) {
   return new Promise(function (resolve, reject) {
     var request = http.request(url, params, function (response) {
-      let data = "";
+      var data = [];
 
       response.on("data", (chunk) => {
-        data = data + chunk.toString();
+        data.push(chunk);
       });
 
       response.on("end", () => {
-        resolve([response.statusCode, response.headers["content-type"], data]);
+        resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data)]);
       });
     });
 
