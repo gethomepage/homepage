@@ -35,7 +35,7 @@ Using docker compose:
 version: '3.3'
 services:
     homepage:
-        image: ghcr.io/benphelps/homepage:main
+        image: ghcr.io/benphelps/homepage:latest
         container_name: homepage
         ports:
             - 3000:3000
@@ -47,7 +47,7 @@ services:
 or docker run:
 
 ```bash
-docker run -p 3000:3000 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:main
+docker run -p 3000:3000 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:latest
 ```
 
 ### With Node
