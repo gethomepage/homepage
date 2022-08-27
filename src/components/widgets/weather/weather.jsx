@@ -31,15 +31,17 @@ export default function Weather({ options }) {
   return (
     <div className=" flex flex-col">
       <div className="flex flex-row items-center justify-end">
-        <Icon condition={data.current.condition.code} timeOfDay={data.current.is_day ? "day" : "night"} />
+        <div className="flex flex-col items-center">
+          <Icon condition={data.current.condition.code} timeOfDay={data.current.is_day ? "day" : "night"} />
+        </div>
         <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-sm">
+            {options.label && `${options.label}, `}
             {options.units === "metric" ? data.current.temp_c : data.current.temp_f}&deg;
           </span>
           <span className="text-theme-800 dark:text-theme-200 text-xs">{data.current.condition.text}</span>
         </div>
       </div>
-      {options.label && <div className="text-right text-theme-800 dark:text-theme-200 text-xs">{options.label}</div>}
     </div>
   );
 }
