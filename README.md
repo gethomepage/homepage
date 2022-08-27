@@ -13,7 +13,7 @@
       - Portainer, Traefik, Speedtest Tracker, PiHole
   * Homepage Widgets
     - System Stats (Disk, CPU, Memory)
-    - Weather (via weatherapi.com)
+    - Weather via WeatherAPI.com or OpenWeatherMap ([thanks to AlexFullmoon](https://github.com/benphelps/homepage/pull/25))
   * Customizable
     - 21 theme colors with light and dark mode support
 
