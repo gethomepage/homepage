@@ -10,6 +10,7 @@ import Rutorrent from "./widgets/service/rutorrent";
 import Jellyfin from "./widgets/service/jellyfin";
 import Speedtest from "./widgets/service/speedtest";
 import Traefik from "./widgets/service/traefik";
+import Jellyseerr from "./widgets/service/jellyseerr";
 
 const widgetMappings = {
   docker: Docker,
@@ -24,6 +25,7 @@ const widgetMappings = {
   rutorrent: Rutorrent,
   speedtest: Speedtest,
   traefik: Traefik,
+  jellyseerr: Jellyseerr
 };
 
 export default function Widget({ service }) {
