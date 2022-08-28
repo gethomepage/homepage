@@ -49,8 +49,12 @@ export default function Docker({ service }) {
     <Widget>
       <Block label="CPU" value={`${calculateCPUPercent(statsData.stats)}%`} />
       <Block label="MEM" value={formatBytes(statsData.stats.memory_stats.usage, 0)} />
-      <Block label="RX" value={formatBytes(statsData.stats.networks.eth0.rx_bytes, 0)} />
-      <Block label="TX" value={formatBytes(statsData.stats.networks.eth0.tx_bytes, 0)} />
+      {statsData.stats.networks && (
+        <>
+          <Block label="RX" value={formatBytes(statsData.stats.networks.eth0.rx_bytes, 0)} />
+          <Block label="TX" value={formatBytes(statsData.stats.networks.eth0.tx_bytes, 0)} />
+        </>
+      )}
     </Widget>
   );
 }
