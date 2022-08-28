@@ -1,18 +1,7 @@
-- weather: # type of the widget
-    latitude: 51.5072 # widget configuration
-    longitude: 0.1275
-    units: metric
-    apiKey: weather_api_key # get from https://www.weatherapi.com/
-    cache: 5 # cache time in minutes
-
-- openweathermap:
-    latitude: 51.5072 # widget configuration
-    longitude: 0.1275
-    units: metric
-    apiKey: openweathermap_api_key # get from https://openweathermap.org/api
-    cache: 10 # cache time in minutes
+# For configuration options and examples, please see:
+# https://github.com/benphelps/homepage/wiki/Information-Widgets
 
 - resources:
     cpu: true
     memory: true
-    disk: / # disk (path) to show usage for
+    disk: /
