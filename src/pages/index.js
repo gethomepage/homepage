@@ -8,6 +8,7 @@ import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widget";
 import { ColorProvider } from "utils/color-context";
+import Search from "components/widgets/search/search";
 
 const ThemeToggle = dynamic(() => import("components/theme-toggle"), {
   ssr: false,
@@ -17,7 +18,7 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
   ssr: false,
 });
 
-const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather"];
+const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search"];
 
 export default function Home() {
   const { data: services, error: servicesError } = useSWR("/api/services");
@@ -31,7 +32,7 @@ export default function Home() {
           <title>Welcome</title>
         </Head>
         <div className="w-full container m-auto flex flex-col h-screen justify-between">
-          <div className="flex flex-wrap space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200">
+          <div className="flex flex-wrap space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between">
             {widgets && (
               <>
                 {widgets
@@ -39,12 +40,21 @@ export default function Home() {
                   .map((widget, i) => (
                     <Widget key={i} widget={widget} />
                   ))}
-                <div className="grow"></div>
+                {widgets
+                  .filter((widget) => widget.type === "search")
+                  .map(
+                    (widget, i) =>
+                      <Search options={widget.options} classN={"hidden sm:block"} /> ?? <div className="grow"></div>
+                  )}
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
-                  .map((widget, i) => (
-                    <Widget key={i} widget={widget} />
-                  ))}
+                  .map((widget, i) =>
+                    widget.type === "search" ? (
+                      <Search options={widget.options} classN={"block sm:hidden !ml-0 sm:!ml-1"} />
+                    ) : (
+                      <Widget key={i} widget={widget} />
+                    )
+                  )}
               </>
             )}
           </div>
