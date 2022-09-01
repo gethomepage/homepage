@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { SiDuckduckgo } from "react-icons/si";

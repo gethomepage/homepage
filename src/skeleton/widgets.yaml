@@ -5,10 +5,9 @@
     cpu: true
     memory: true
     disk: /
-
-- search: # Searchbar in widgets area
-    provider: custom # Can be google, duckduckgo, bing or custom.
-    target: _blank # Can be _blank, _top, _self or _parent.
-    customdata:
-      url: https://startpage.com/search?q= # Required for custom provider. Remember to add the q param as per your provider.
-      abbr: G # Can be omitted. Only the first 2 characters will be considered.
+# - search: # Searchbar in widgets area
+#     provider: custom # Can be google, duckduckgo, bing or custom.
+#     target: _blank # Can be _blank, _top, _self or _parent.
+#     customdata:
+#       url: https://startpage.com/search?q= # Required for custom provider. Remember to add the q param as per your provider.
+#       abbr: G # Can be omitted. Only the first 2 characters will be considered.
