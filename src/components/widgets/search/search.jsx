@@ -55,7 +55,7 @@ export default function Search({ options, classN }) {
         type="search"
         autoFocus
         className={`block ${
-          options.customdata.abbr.length > 1 ? "pl-12" : "pl-10"
+          options.customdata && options.customdata.abbr && options.customdata.abbr.length > 1 ? "pl-12" : "pl-10"
         } w-full text-sm text-gray-900 bg-gray-50 rounded-full border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 h-full`}
         placeholder="Search..."
         onChange={(s) => setQuery(s.currentTarget.value)}
