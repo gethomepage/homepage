@@ -3,7 +3,7 @@
 
 - My First Group:
     - My First Service:
-        href: http://localhosdt/
+        href: http://localhost/
         description: Homepage is awesome
         widget:
           type: npm # npm for NGINX Proxy Manager
@@ -13,10 +13,10 @@
 
 - My Second Group:
     - My Second Service:
-        href: http://localhosdt/
+        href: http://localhost/
         description: Homepage is the best
 
 - My Third Group:
     - My Third Service:
-        href: http://localhosdt/
+        href: http://localhost/
         description: Homepage is 😎
