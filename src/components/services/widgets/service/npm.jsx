@@ -2,49 +2,35 @@ import useSWR from "swr";
 
 import Widget from "../widget";
 import Block from "../block";
-import { useState } from "react";
 
 export default function Npm({ service }) {
   const config = service.widget;
   const { url } = config;
 
-  const [token, setToken] = useState();
-
   const fetcher = async (reqUrl) => {
-    const { url, email, password } = config;
-    const urlConstructed = `${url}/api/tokens`;
-    const body = { identity: email, secret: password };
+    const { url, username, password } = config;
+    const loginUrl = `${url}/api/tokens`;
+    const body = { identity: username, secret: password };
 
-    if (!token) {
-      const res = await fetch(urlConstructed, {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then(
-          async (data) =>
-            await fetch(reqUrl, {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer " + data.token,
-              },
-            })
-        );
-      return res.json();
-    } else {
-      const resp = await fetch(reqUrl, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-      });
-      return resp.json();
-    }
+    const res = await fetch(loginUrl, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(
+        async (data) =>
+          await fetch(reqUrl, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + data.token,
+            },
+          })
+      );
+    return res.json();
   };
 
   const { data: infoData, error: infoError } = useSWR(`${url}/api/nginx/proxy-hosts`, fetcher);
