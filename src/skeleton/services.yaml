@@ -3,15 +3,15 @@
 
 - My First Group:
     - My First Service:
-        href: http://localhosdt/
+        href: http://localhost/
         description: Homepage is awesome
 
 - My Second Group:
     - My Second Service:
-        href: http://localhosdt/
+        href: http://localhost/
         description: Homepage is the best
 
 - My Third Group:
     - My Third Service:
-        href: http://localhosdt/
+        href: http://localhost/
         description: Homepage is 😎
