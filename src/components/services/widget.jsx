@@ -11,6 +11,7 @@ import Jellyfin from "./widgets/service/jellyfin";
 import Speedtest from "./widgets/service/speedtest";
 import Traefik from "./widgets/service/traefik";
 import Jellyseerr from "./widgets/service/jellyseerr";
+import Npm from "./widgets/service/npm";
 
 const widgetMappings = {
   docker: Docker,
@@ -25,7 +26,8 @@ const widgetMappings = {
   rutorrent: Rutorrent,
   speedtest: Speedtest,
   traefik: Traefik,
-  jellyseerr: Jellyseerr
+  jellyseerr: Jellyseerr,
+  npm: Npm,
 };
 
 export default function Widget({ service }) {
