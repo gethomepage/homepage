@@ -33,7 +33,7 @@ export default function OpenWeatherMap({ options }) {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col justify-center">
       <div className="flex flex-row items-center justify-end">
         <div className="flex flex-col items-center">
           <Icon

@@ -33,7 +33,7 @@ export default function WeatherApi({ options }) {
   }
 
   return (
-    <div className="flex flex-col justify-center md:justify-start mt-2 lg:mt-0 !-ml-1 lg:!ml-2">
+    <div className="flex flex-col justify-center">
       <div className="flex flex-row items-center justify-end">
         <div className="flex flex-col items-center">
           <Icon condition={data.current.condition.code} timeOfDay={data.current.is_day ? "day" : "night"} />

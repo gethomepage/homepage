@@ -19,6 +19,7 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
 });
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search"];
+const expandedWidgets = ["search"];
 
 export default function Home() {
   const { data: services, error: servicesError } = useSWR("/api/services");
@@ -32,7 +33,7 @@ export default function Home() {
           <title>Welcome</title>
         </Head>
         <div className="w-full container m-auto flex flex-col h-screen justify-between">
-          <div className="flex flex-wrap space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between">
+          <div className="flex flex-row flex-wrap space-x-0 sm:space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between md:justify-start">
             {widgets && (
               <>
                 {widgets
@@ -40,21 +41,14 @@ export default function Home() {
                   .map((widget, i) => (
                     <Widget key={i} widget={widget} />
                   ))}
-                {widgets
-                  .filter((widget) => widget.type === "search")
-                  .map(
-                    (widget, i) =>
-                      <Search options={widget.options} classN={"hidden sm:block"} /> ?? <div className="grow"></div>
-                  )}
-                {widgets
-                  .filter((widget) => rightAlignedWidgets.includes(widget.type))
-                  .map((widget, i) =>
-                    widget.type === "search" ? (
-                      <Search options={widget.options} classN={"block sm:hidden !ml-0 sm:!ml-1"} />
-                    ) : (
+
+                <div className="flex flex-wrap basis-full space-x-0 sm:space-x-4 grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
+                  {widgets
+                    .filter((widget) => rightAlignedWidgets.includes(widget.type))
+                    .map((widget, i) => (
                       <Widget key={i} widget={widget} />
-                    )
-                  )}
+                    ))}
+                </div>
               </>
             )}
           </div>
