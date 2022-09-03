@@ -35,7 +35,7 @@ export default function Radarr({ service }) {
     <Widget>
       <Block label="Wanted" value={wanted.length} />
       <Block label="Queued" value={queuedData.totalCount} />
-      <Block label="Movies" value={moviesData.length} />
+      <Block label="Movies" value={have.length} />
     </Widget>
   );
 }
