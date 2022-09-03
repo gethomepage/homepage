@@ -9,11 +9,12 @@
     - Docker Integration
       - Status light + CPU, Memory & Network Reporting *(click on the status light)*
     - Service Integration
-      - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Jellyseerr ([thanks to ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
-      - Portainer, Traefik, Speedtest Tracker, PiHole
+      - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Jellyseerr ([by ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
+      - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([by aidenpwnz](https://github.com/benphelps/homepage/pull/45))
   * Homepage Widgets
     - System Stats (Disk, CPU, Memory)
-    - Weather via WeatherAPI.com or OpenWeatherMap ([thanks to AlexFullmoon](https://github.com/benphelps/homepage/pull/25))
+    - Weather via WeatherAPI.com or OpenWeatherMap ([by AlexFullmoon](https://github.com/benphelps/homepage/pull/25))
+    - Search Bar ([by aidenpwnz](https://github.com/benphelps/homepage/pull/45))
   * Customizable
     - 21 theme colors with light and dark mode support
 
