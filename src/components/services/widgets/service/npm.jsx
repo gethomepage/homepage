@@ -44,8 +44,8 @@ export default function Npm({ service }) {
   if (!infoData) {
     return (
       <Widget>
-        <Block label="Running" />
-        <Block label="Stopped" />
+        <Block label="Enabled" />
+        <Block label="Disabled" />
         <Block label="Total" />
       </Widget>
     );
