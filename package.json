@@ -14,6 +14,7 @@
     "dockerode": "^3.3.3",
     "js-yaml": "^4.1.0",
     "json-rpc-2.0": "^1.3.0",
+    "lodash": "^4.17.21",
     "memory-cache": "^0.2.0",
     "next": "12.2.5",
     "node-os-utils": "^1.3.7",

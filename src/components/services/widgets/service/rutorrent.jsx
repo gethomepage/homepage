@@ -1,32 +1,15 @@
 import useSWR from "swr";
-import RuTorrent from "rutorrent-promise";
-
-import { formatBytes } from "utils/stats-helpers";
 
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+import { formatBytes } from "utils/stats-helpers";
+
 export default function Rutorrent({ service }) {
   const config = service.widget;
 
-  function buildApiUrl() {
-    const { url, username, password } = config;
-
-    const options = {
-      url: `${url}/plugins/httprpc/action.php`,
-    };
-
-    if (username && password) {
-      options.username = username;
-      options.password = password;
-    }
-
-    const params = new URLSearchParams(options);
-
-    return `/api/widgets/rutorrent?${params.toString()}`;
-  }
-
-  const { data: statusData, error: statusError } = useSWR(buildApiUrl());
+  const { data: statusData, error: statusError } = useSWR(formatApiUrl(config));
 
   if (statusError) {
     return <Widget error="Nzbget API Error" />;

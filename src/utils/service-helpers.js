@@ -1,11 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import checkAndCopyConfig from "utils/config";
 
-export default async function handler(req, res) {
-  checkAndCopyConfig("services.yaml");
-
+export async function getServiceWidget(group, service) {
   const servicesYaml = path.join(process.cwd(), "config", "services.yaml");
   const fileContents = await fs.readFile(servicesYaml, "utf8");
   const services = yaml.load(fileContents);
@@ -15,26 +12,22 @@ export default async function handler(req, res) {
     return {
       name: Object.keys(group)[0],
       services: group[Object.keys(group)[0]].map((entries) => {
-        const { widget, ...service } = entries[Object.keys(entries)[0]];
-        let res = {
+        return {
           name: Object.keys(entries)[0],
-          ...service,
+          ...entries[Object.keys(entries)[0]],
         };
-
-        if (widget) {
-          const { type } = widget;
-
-          res.widget = {
-            type: type,
-            service_group: Object.keys(group)[0],
-            service_name: Object.keys(entries)[0],
-          };
-        }
-
-        return res;
       }),
     };
   });
 
-  res.send(servicesArray);
+  const serviceGroup = servicesArray.find((g) => g.name === group);
+  if (serviceGroup) {
+    const serviceEntry = serviceGroup.services.find((s) => s.name === service);
+    if (serviceEntry) {
+      const { widget } = serviceEntry;
+      return widget;
+    }
+  }
+
+  return false;
 }

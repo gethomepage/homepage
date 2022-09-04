@@ -1,9 +1,9 @@
 import useSWR from "swr";
 
-import { calculateCPUPercent, formatBytes } from "utils/stats-helpers";
-
 import Widget from "../widget";
 import Block from "../block";
+
+import { calculateCPUPercent, formatBytes } from "utils/stats-helpers";
 
 export default function Docker({ service }) {
   const config = service.widget;
@@ -11,14 +11,14 @@ export default function Docker({ service }) {
   const { data: statusData, error: statusError } = useSWR(
     `/api/docker/status/${config.container}/${config.server || ""}`,
     {
-      refreshInterval: 1500,
+      refreshInterval: 5000,
     }
   );
 
   const { data: statsData, error: statsError } = useSWR(
     `/api/docker/stats/${config.container}/${config.server || ""}`,
     {
-      refreshInterval: 1500,
+      refreshInterval: 5000,
     }
   );
 

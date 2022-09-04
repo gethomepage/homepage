@@ -1,44 +1,15 @@
 import useSWR from "swr";
-import { JSONRPCClient } from "json-rpc-2.0";
-
-import { formatBytes } from "utils/stats-helpers";
 
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+import { formatBytes } from "utils/stats-helpers";
+
 export default function Nzbget({ service }) {
   const config = service.widget;
 
-  const constructedUrl = new URL(config.url);
-  constructedUrl.pathname = "jsonrpc";
-
-  const client = new JSONRPCClient((jsonRPCRequest) =>
-    fetch(constructedUrl.toString(), {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Basic ${btoa(`${config.username}:${config.password}`)}`,
-      },
-      body: JSON.stringify(jsonRPCRequest),
-    }).then(async (response) => {
-      if (response.status === 200) {
-        const jsonRPCResponse = await response.json();
-        return client.receive(jsonRPCResponse);
-      } else if (jsonRPCRequest.id !== undefined) {
-        return Promise.reject(new Error(response.statusText));
-      }
-    })
-  );
-
-  const { data: statusData, error: statusError } = useSWR(
-    "status",
-    (resource) => {
-      return client.request(resource).then((response) => response);
-    },
-    {
-      refreshInterval: 1000,
-    }
-  );
+  const { data: statusData, error: statusError } = useSWR(formatApiUrl(config, "status"));
 
   if (statusError) {
     return <Widget error="Nzbget API Error" />;

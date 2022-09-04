@@ -3,29 +3,12 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Portainer({ service }) {
   const config = service.widget;
 
-  function buildApiUrl(endpoint) {
-    const { url, env } = config;
-    const reqUrl = new URL(`/api/endpoints/${env}/${endpoint}`, url);
-    return `/api/proxy?url=${encodeURIComponent(reqUrl)}`;
-  }
-
-  const fetcher = async (url) => {
-    const res = await fetch(url, {
-      method: "GET",
-      withCredentials: true,
-      credentials: "include",
-      headers: {
-        "X-API-Key": `${config.key}`,
-        "Content-Type": "application/json",
-      },
-    });
-    return await res.json();
-  };
-
-  const { data: containersData, error: containersError } = useSWR(buildApiUrl(`docker/containers/json?all=1`), fetcher);
+  const { data: containersData, error: containersError } = useSWR(formatApiUrl(config, `docker/containers/json?all=1`));
 
   if (containersError) {
     return <Widget error="Portainer API Error" />;

@@ -44,3 +44,20 @@ export function httpRequest(url, params) {
     request.end();
   });
 }
+
+export function httpProxy(url, params = {}) {
+  const constructedUrl = new URL(url);
+
+  if (constructedUrl.protocol === "https:") {
+    const httpsAgent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+
+    return httpsRequest(constructedUrl, {
+      agent: httpsAgent,
+      ...params,
+    });
+  } else {
+    return httpRequest(constructedUrl, params);
+  }
+}

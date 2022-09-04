@@ -3,17 +3,12 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Emby({ service, title = "Emby" }) {
   const config = service.widget;
 
-  function buildApiUrl(endpoint) {
-    const { url, key } = config;
-    return `${url}/emby/${endpoint}?api_key=${key}`;
-  }
-
-  const { data: sessionsData, error: sessionsError } = useSWR(buildApiUrl(`Sessions`), {
-    refreshInterval: 1000,
-  });
+  const { data: sessionsData, error: sessionsError } = useSWR(formatApiUrl(config, "Sessions"));
 
   if (sessionsError) {
     return <Widget error={`${title} API Error`} />;

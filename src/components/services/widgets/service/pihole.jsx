@@ -3,21 +3,12 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Pihole({ service }) {
   const config = service.widget;
 
-  function buildApiUrl(endpoint) {
-    const { url, proxy } = config;
-
-    if (proxy) {
-      const fullUrl = `${url}/admin/${endpoint}`;
-      return "/api/proxy?url=" + encodeURIComponent(fullUrl);
-    }
-
-    return `${url}/admin/${endpoint}`;
-  }
-
-  const { data: piholeData, error: piholeError } = useSWR(buildApiUrl("api.php"));
+  const { data: piholeData, error: piholeError } = useSWR(formatApiUrl(config, "api.php"));
 
   if (piholeError) {
     return <Widget error="PiHole API Error" />;

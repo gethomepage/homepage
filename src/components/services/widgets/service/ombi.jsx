@@ -3,27 +3,12 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Ombi({ service }) {
   const config = service.widget;
 
-  function buildApiUrl(endpoint) {
-    const { url } = config;
-    return `${url}/api/v1/${endpoint}`;
-  }
-
-  const fetcher = (url) => {
-    return fetch(url, {
-      method: "GET",
-      withCredentials: true,
-      credentials: "include",
-      headers: {
-        ApiKey: `${config.key}`,
-        "Content-Type": "application/json",
-      },
-    }).then((res) => res.json());
-  };
-
-  const { data: statsData, error: statsError } = useSWR(buildApiUrl(`Request/count`), fetcher);
+  const { data: statsData, error: statsError } = useSWR(formatApiUrl(config, `Request/count`));
 
   if (statsError) {
     return <Widget error="Ombi API Error" />;

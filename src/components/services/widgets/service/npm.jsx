@@ -3,39 +3,12 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Npm({ service }) {
   const config = service.widget;
-  const { url } = config;
 
-  const fetcher = async (reqUrl) => {
-    const { url, username, password } = config;
-    const loginUrl = `${url}/api/tokens`;
-    const body = { identity: username, secret: password };
-
-    const res = await fetch(loginUrl, {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then(
-        async (data) =>
-          await fetch(reqUrl, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + data.token,
-            },
-          })
-      );
-    return res.json();
-  };
-
-  const { data: infoData, error: infoError } = useSWR(`${url}/api/nginx/proxy-hosts`, fetcher);
-
-  console.log(infoData);
+  const { data: infoData, error: infoError } = useSWR(formatApiUrl(config, "nginx/proxy-hosts"));
 
   if (infoError) {
     return <Widget error="NGINX Proxy Manager API Error" />;

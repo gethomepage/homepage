@@ -3,16 +3,13 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Radarr({ service }) {
   const config = service.widget;
 
-  function buildApiUrl(endpoint) {
-    const { url, key } = config;
-    return `${url}/api/v3/${endpoint}?apikey=${key}`;
-  }
-
-  const { data: moviesData, error: moviesError } = useSWR(buildApiUrl("movie"));
-  const { data: queuedData, error: queuedError } = useSWR(buildApiUrl("queue/status"));
+  const { data: moviesData, error: moviesError } = useSWR(formatApiUrl(config, "movie"));
+  const { data: queuedData, error: queuedError } = useSWR(formatApiUrl(config, "queue/status"));
 
   if (moviesError || queuedError) {
     return <Widget error="Radarr API Error" />;

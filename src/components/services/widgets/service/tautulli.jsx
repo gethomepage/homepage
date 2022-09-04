@@ -3,18 +3,12 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Tautulli({ service }) {
   const config = service.widget;
 
-  function buildApiUrl(endpoint) {
-    const { url, key } = config;
-    const fullUrl = `${url}/api/v2?apikey=${key}&cmd=${endpoint}`;
-    return "/api/proxy?url=" + encodeURIComponent(fullUrl);
-  }
-
-  const { data: statsData, error: statsError } = useSWR(buildApiUrl("get_activity"), {
-    refreshInterval: 1000,
-  });
+  const { data: statsData, error: statsError } = useSWR(formatApiUrl(config, "get_activity"));
 
   if (statsError) {
     return <Widget error="Tautulli API Error" />;

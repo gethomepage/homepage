@@ -3,17 +3,14 @@ import useSWR from "swr";
 import Widget from "../widget";
 import Block from "../block";
 
+import { formatApiUrl } from "utils/api-helpers";
+
 export default function Sonarr({ service }) {
   const config = service.widget;
 
-  function buildApiUrl(endpoint) {
-    const { url, key } = config;
-    return `${url}/api/v3/${endpoint}?apikey=${key}`;
-  }
-
-  const { data: wantedData, error: wantedError } = useSWR(buildApiUrl("wanted/missing"));
-  const { data: queuedData, error: queuedError } = useSWR(buildApiUrl("queue"));
-  const { data: seriesData, error: seriesError } = useSWR(buildApiUrl("series"));
+  const { data: wantedData, error: wantedError } = useSWR(formatApiUrl(config, "wanted/missing"));
+  const { data: queuedData, error: queuedError } = useSWR(formatApiUrl(config, "queue"));
+  const { data: seriesData, error: seriesError } = useSWR(formatApiUrl(config, "series"));
 
   if (wantedError || queuedError || seriesError) {
     return <Widget error="Sonar API Error" />;
