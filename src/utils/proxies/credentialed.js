@@ -19,7 +19,7 @@ export default async function credentialedProxyHandler(req, res) {
         },
       });
 
-      res.setHeader("Content-Type", contentType);
+      if (contentType) res.setHeader("Content-Type", contentType);
       return res.status(status).send(data);
     }
   }

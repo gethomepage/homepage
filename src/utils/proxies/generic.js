@@ -12,7 +12,7 @@ export default async function genericProxyHandler(req, res) {
       const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
       const [status, contentType, data] = await httpProxy(url);
 
-      res.setHeader("Content-Type", contentType);
+      if (contentType) res.setHeader("Content-Type", contentType);
       return res.status(status).send(data);
     }
   }
