@@ -4,9 +4,7 @@ import { BiError } from "react-icons/bi";
 import Icon from "./icon";
 
 export default function OpenWeatherMap({ options }) {
-  const { data, error } = useSWR(
-    `/api/widgets/openweathermap?lat=${options.latitude}&lon=${options.longitude}&apiKey=${options.apiKey}&duration=${options.cache}&units=${options.units}`
-  );
+  const { data, error } = useSWR(`/api/widgets/openweathermap?${new URLSearchParams(options).toString()}`);
 
   if (error || data?.cod == 401) {
     return (

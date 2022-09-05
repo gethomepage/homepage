@@ -1,9 +1,28 @@
 import cachedFetch from "utils/cached-fetch";
+import { getSettings } from "utils/config";
 
 export default async function handler(req, res) {
-  const { lat, lon, apiKey, duration } = req.query;
+  const { latitude, longitude, provider, cache } = req.query;
+  let { apiKey } = req.query;
 
-  const api_url = `http://api.weatherapi.com/v1/current.json?q=${lat},${lon}&key=${apiKey}`;
+  if (!apiKey && !provider) {
+    return res.status(400).json({ error: "Missing API key or provider" });
+  }
 
-  res.send(await cachedFetch(api_url, duration));
+  if (!apiKey && provider !== "weatherapi") {
+    return res.status(400).json({ error: "Invalid provider for endpoint" });
+  }
+
+  if (!apiKey && provider) {
+    const settings = await getSettings();
+    apiKey = settings?.providers?.weatherapi;
+  }
+
+  if (!apiKey) {
+    return res.status(400).json({ error: "Missing API key" });
+  }
+
+  const api_url = `http://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}`;
+
+  res.send(await cachedFetch(api_url, cache));
 }
