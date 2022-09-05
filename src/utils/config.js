@@ -1,7 +1,5 @@
-import { join } from "path";
-import { existsSync, copyFile } from "fs";
-import { promises as fs } from "fs";
-import path from "path";
+import { join, path } from "path";
+import { existsSync, copyFile, promises as fs } from "fs";
 import yaml from "js-yaml";
 
 export default function checkAndCopyConfig(config) {
