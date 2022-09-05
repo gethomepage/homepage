@@ -5,12 +5,16 @@ FROM node:16-alpine AS deps
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml* ./
+COPY --link package.json pnpm-lock.yaml* ./
 
 RUN <<EOF
     set -xe
     apk add --no-cache libc6-compat
     apk add --no-cache --virtual .gyp python3 make g++
+EOF
+
+RUN <<EOF
+    set -xe
     yarn global add pnpm
     pnpm install
 EOF
@@ -18,8 +22,10 @@ EOF
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+
+COPY --link --from=deps /app/node_modules ./node_modules/
 COPY . .
+
 RUN <<EOF
     set -xe
     yarn next telemetry disable
@@ -39,10 +45,10 @@ ENV NODE_ENV production
 
 WORKDIR /app
 
-COPY --from=builder /app/next.config.js /app/.next/standalone ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/.next/static ./.next/static
+COPY --link --from=builder /app/next.config.js /app/.next/standalone ./
+COPY --link --from=builder /app/public ./public/
+COPY --link --from=builder /app/package.json ./package.json
+COPY --link --from=builder /app/.next/static ./.next/static/
 
 EXPOSE 3000
 ENV PORT 3000
