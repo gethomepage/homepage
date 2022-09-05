@@ -1,7 +1,10 @@
 var http = require("http");
+
+const PORT = process.env.PORT || "3000";
+
 var options = {
   host: "localhost",
-  port: "3000",
+  port: PORT,
   timeout: 2000,
 };
 var request = http.request(options, (res) => {
