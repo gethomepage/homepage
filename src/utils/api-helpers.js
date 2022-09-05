@@ -1,5 +1,6 @@
 const formats = {
   emby: `{url}/emby/{endpoint}?api_key={key}`,
+  jellyfin: `{url}/emby/{endpoint}?api_key={key}`,
   pihole: `{url}/admin/{endpoint}`,
   radarr: `{url}/api/v3/{endpoint}?apikey={key}`,
   sonarr: `{url}/api/v3/{endpoint}?apikey={key}`,

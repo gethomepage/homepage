@@ -7,6 +7,7 @@ import npmProxyHandler from "utils/proxies/npm";
 const serviceProxyHandlers = {
   // uses query param auth
   emby: genericProxyHandler,
+  jellyfin: genericProxyHandler,
   pihole: genericProxyHandler,
   radarr: genericProxyHandler,
   sonarr: genericProxyHandler,
