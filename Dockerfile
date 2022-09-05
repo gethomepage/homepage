@@ -45,10 +45,17 @@ ENV NODE_ENV production
 
 WORKDIR /app
 
-COPY --link --from=builder /app/next.config.js /app/.next/standalone ./
-COPY --link --from=builder /app/public ./public/
-COPY --link --from=builder /app/package.json ./package.json
-COPY --link --from=builder /app/.next/static ./.next/static/
+# Copy files from context
+COPY --link package.json next.config.js ./
+COPY --link --chmod=755 healthcheck.js ./
+COPY --link /public ./public
+
+# Copy files from builder
+COPY --link --from=builder /app/.next/standalone ./
+COPY --link --from=builder /app/.next/static/ ./.next/static/
+
+HEALTHCHECK --interval=12s --timeout=12s --start-period=30s \  
+    CMD node ./healthcheck.js
 
 EXPOSE 3000
 ENV PORT 3000
