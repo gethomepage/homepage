@@ -1,5 +1,6 @@
 import { join } from "path";
-import { existsSync, copyFile } from "fs";
+import { existsSync, copyFile, promises as fs } from "fs";
+import yaml from "js-yaml";
 
 export default function checkAndCopyConfig(config) {
   const configYaml = join(process.cwd(), "config", config);
@@ -13,4 +14,12 @@ export default function checkAndCopyConfig(config) {
       console.info("%s was copied to the config folder", config);
     });
   }
+}
+
+export async function getSettings() {
+  checkAndCopyConfig("settings.yaml");
+
+  const settingsYaml = join(process.cwd(), "config", "settings.yaml");
+  const fileContents = await fs.readFile(settingsYaml, "utf8");
+  return yaml.load(fileContents);
 }

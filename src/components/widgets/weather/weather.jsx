@@ -4,9 +4,8 @@ import { BiError } from "react-icons/bi";
 import Icon from "./icon";
 
 export default function WeatherApi({ options }) {
-  const { data, error } = useSWR(
-    `/api/widgets/weather?lat=${options.latitude}&lon=${options.longitude}&apiKey=${options.apiKey}&duration=${options.cache}`
-  );
+  console.log(options);
+  const { data, error } = useSWR(`/api/widgets/weather?${new URLSearchParams(options).toString()}`);
 
   if (error) {
     return (
