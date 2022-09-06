@@ -53,8 +53,8 @@ COPY --link /public ./public
 COPY --link --from=builder /app/.next/standalone ./
 COPY --link --from=builder /app/.next/static/ ./.next/static/
 
-EXPOSE 3000
 ENV PORT 3000
+EXPOSE $PORT
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://localhost:$PORT/api/healthcheck || exit 1
