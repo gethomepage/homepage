@@ -7,17 +7,17 @@ WORKDIR /app
 
 COPY --link package.json pnpm-lock.yaml* ./
 
-RUN <<EOF
+RUN --mount=type=cache,id=apk,sharing=locked,target=/var/cache/apk \
+    <<EOF
     set -xe
-    apk add --no-cache libc6-compat
-    apk add --no-cache --virtual .gyp python3 make g++
+    apk add libc6-compat
+    apk add --virtual .gyp python3 make g++
+    yarn global add pnpm
 EOF
 
-RUN <<EOF
-    set -xe
-    yarn global add pnpm
-    pnpm install
-EOF
+RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
+
+RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm install -r --offline
 
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
@@ -45,9 +45,8 @@ ENV NODE_ENV production
 
 WORKDIR /app
 
-# Copy files from context
+# Copy files from context (this allows the files to copy before the builder stage is done).
 COPY --link package.json next.config.js ./
-COPY --link --chmod=755 healthcheck.js ./
 COPY --link /public ./public
 
 # Copy files from builder
@@ -55,9 +54,9 @@ COPY --link --from=builder /app/.next/standalone ./
 COPY --link --from=builder /app/.next/static/ ./.next/static/
 
 EXPOSE 3000
-ENV PORT='3000'
+ENV PORT 3000
 
-HEALTHCHECK --interval=12s --timeout=12s --start-period=30s \  
-    CMD node ./healthcheck.js
+HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
+  CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://localhost:$PORT/api/healthcheck || exit 1
 
 CMD ["node", "server.js"]
