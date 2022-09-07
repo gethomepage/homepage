@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:latest
 
 # Install dependencies only when needed
-FROM node:current AS deps
+FROM node:current-alpine AS deps
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm f
 RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm install -r --offline
 
 # Rebuild the source code only when needed
-FROM node:current AS builder
+FROM node:current-alpine AS builder
 WORKDIR /app
 
 COPY --link --from=deps /app/node_modules ./node_modules/
@@ -32,7 +32,7 @@ RUN <<EOF
 EOF
 
 # Production image, copy all the files and run next
-FROM node:current AS runner
+FROM node:current-alpine AS runner
 LABEL org.opencontainers.image.title "Homepage"
 LABEL org.opencontainers.image.description "A self-hosted services landing page, with docker and service integrations."
 LABEL org.opencontainers.image.url="https://github.com/benphelps/homepage"
