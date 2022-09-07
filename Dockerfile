@@ -1,4 +1,39 @@
-FROM node:16-alpine AS base
+# syntax = docker/dockerfile:latest
+
+# Install dependencies only when needed
+FROM node:16-alpine AS deps
+
+WORKDIR /app
+
+COPY --link package.json pnpm-lock.yaml* ./
+
+RUN --mount=type=cache,id=apk,sharing=locked,target=/var/cache/apk \
+    <<EOF
+    set -xe
+    apk add libc6-compat
+    apk add --virtual .gyp python3 make g++
+    yarn global add pnpm
+EOF
+
+RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
+
+RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm install -r --offline
+
+# Rebuild the source code only when needed
+FROM node:16-alpine AS builder
+WORKDIR /app
+
+COPY --link --from=deps /app/node_modules ./node_modules/
+COPY . .
+
+RUN <<EOF
+    set -xe
+    yarn next telemetry disable
+    npm run build
+EOF
+
+# Production image, copy all the files and run next
+FROM node:16-alpine AS runner
 LABEL org.opencontainers.image.title "Homepage"
 LABEL org.opencontainers.image.description "A self-hosted services landing page, with docker and service integrations."
 LABEL org.opencontainers.image.url="https://github.com/benphelps/homepage"
@@ -6,33 +41,22 @@ LABEL org.opencontainers.image.documentation='https://github.com/benphelps/homep
 LABEL org.opencontainers.image.source='https://github.com/benphelps/homepage'
 LABEL org.opencontainers.image.licenses='Apache-2.0'
 
-# Install dependencies only when needed
-FROM node:16-alpine AS deps
-RUN apk add --no-cache libc6-compat
-RUN apk add --no-cache --virtual .gyp python3 make g++
-WORKDIR /app
-COPY package.json pnpm-lock.yaml* ./
-RUN yarn global add pnpm
-RUN pnpm install
-RUN apk del .gyp
-
-# Rebuild the source code only when needed
-FROM node:16-alpine AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-RUN npm run build
-
-# Production image, copy all the files and run next
-FROM node:16-alpine AS runner
-WORKDIR /app
 ENV NODE_ENV production
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
 
-EXPOSE 3000
+WORKDIR /app
+
+# Copy files from context (this allows the files to copy before the builder stage is done).
+COPY --link package.json next.config.js ./
+COPY --link /public ./public
+
+# Copy files from builder
+COPY --link --from=builder /app/.next/standalone ./
+COPY --link --from=builder /app/.next/static/ ./.next/static/
+
 ENV PORT 3000
+EXPOSE $PORT
+
+HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
+  CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://localhost:$PORT/api/healthcheck || exit 1
+
 CMD ["node", "server.js"]
