@@ -24,9 +24,9 @@ export default function Emby({ service, title = "Emby" }) {
     );
   }
 
-  const playing = sessionsData.filter((session) => session.hasOwnProperty("NowPlayingItem"));
+  const playing = sessionsData.filter((session) => session?.NowPlayingItem);
   const transcoding = sessionsData.filter(
-    (session) => session.hasOwnProperty("PlayState") && session.PlayState.PlayMethod === "Transcode"
+    (session) => session?.PlayState && session.PlayState.PlayMethod === "Transcode"
   );
   const bitrate = playing.reduce((acc, session) => acc + session.NowPlayingItem.Bitrate, 0);
 

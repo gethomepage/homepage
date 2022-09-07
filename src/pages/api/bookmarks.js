@@ -1,6 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
+
 import yaml from "js-yaml";
+
 import checkAndCopyConfig from "utils/config";
 
 export default async function handler(req, res) {
@@ -11,17 +13,13 @@ export default async function handler(req, res) {
   const bookmarks = yaml.load(fileContents);
 
   // map easy to write YAML objects into easy to consume JS arrays
-  const bookmarksArray = bookmarks.map((group) => {
-    return {
-      name: Object.keys(group)[0],
-      bookmarks: group[Object.keys(group)[0]].map((entries) => {
-        return {
-          name: Object.keys(entries)[0],
-          ...entries[Object.keys(entries)[0]][0],
-        };
-      }),
-    };
-  });
+  const bookmarksArray = bookmarks.map((group) => ({
+    name: Object.keys(group)[0],
+    bookmarks: group[Object.keys(group)[0]].map((entries) => ({
+      name: Object.keys(entries)[0],
+      ...entries[Object.keys(entries)[0]][0],
+    })),
+  }));
 
   res.send(bookmarksArray);
 }

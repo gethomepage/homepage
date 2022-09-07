@@ -1,5 +1,6 @@
 import { JSONRPCClient } from "json-rpc-2.0";
-import { getServiceWidget } from "utils/service-helpers";
+
+import getServiceWidget from "utils/service-helpers";
 
 export default async function nzbgetProxyHandler(req, res) {
   const { group, service, endpoint } = req.query;
@@ -25,9 +26,9 @@ export default async function nzbgetProxyHandler(req, res) {
           if (response.status === 200) {
             const jsonRPCResponse = await response.json();
             return client.receive(jsonRPCResponse);
-          } else if (jsonRPCRequest.id !== undefined) {
-            return Promise.reject(new Error(response.statusText));
           }
+
+          return Promise.reject(new Error(response.statusText));
         })
       );
 

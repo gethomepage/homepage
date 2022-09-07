@@ -30,7 +30,7 @@ export default function Search({ options }) {
   const [query, setQuery] = useState("");
 
   if (!provider) {
-    return <></>;
+    return null;
   }
 
   function handleSubmit(event) {
@@ -49,11 +49,10 @@ export default function Search({ options }) {
 
   return (
     <form className="flex-col relative h-8 my-4 min-w-full md:min-w-fit grow" onSubmit={handleSubmit}>
-      <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-theme-200"></div>
+      <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-theme-200" />
       <input
         type="search"
-        autoFocus
-        className={`overflow-hidden w-full placeholder-theme-900 text-xs text-theme-900 bg-theme-50 rounded-md border border-theme-300 focus:ring-theme-500 focus:border-theme-500 dark:bg-theme-800 dark:border-theme-600 dark:placeholder-theme-400 dark:text-white dark:focus:ring-theme-500 dark:focus:border-theme-500 h-full`}
+        className="overflow-hidden w-full placeholder-theme-900 text-xs text-theme-900 bg-theme-50 rounded-md border border-theme-300 focus:ring-theme-500 focus:border-theme-500 dark:bg-theme-800 dark:border-theme-600 dark:placeholder-theme-400 dark:text-white dark:focus:ring-theme-500 dark:focus:border-theme-500 h-full"
         placeholder="Search..."
         onChange={(s) => setQuery(s.currentTarget.value)}
         required

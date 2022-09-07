@@ -6,7 +6,7 @@ import Icon from "./icon";
 export default function OpenWeatherMap({ options }) {
   const { data, error } = useSWR(`/api/widgets/openweathermap?${new URLSearchParams(options).toString()}`);
 
-  if (error || data?.cod == 401) {
+  if (error || data?.cod === 401) {
     return (
       <div className="flex flex-col">
         <div className="flex flex-row items-center justify-end">
@@ -23,11 +23,11 @@ export default function OpenWeatherMap({ options }) {
   }
 
   if (!data) {
-    return <div className="flex flex-row items-center"></div>;
+    return <div className="flex flex-row items-center" />;
   }
 
   if (data.error) {
-    return <div className="flex flex-row items-center"></div>;
+    return <div className="flex flex-row items-center" />;
   }
 
   return (

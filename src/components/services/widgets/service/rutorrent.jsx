@@ -25,13 +25,9 @@ export default function Rutorrent({ service }) {
     );
   }
 
-  const upload = statusData.reduce((acc, torrent) => {
-    return acc + parseInt(torrent["d.get_up_rate"]);
-  }, 0);
+  const upload = statusData.reduce((acc, torrent) => acc + parseInt(torrent["d.get_up_rate"], 10), 0);
 
-  const download = statusData.reduce((acc, torrent) => {
-    return acc + parseInt(torrent["d.get_down_rate"]);
-  }, 0);
+  const download = statusData.reduce((acc, torrent) => acc + parseInt(torrent["d.get_down_rate"], 10), 0);
 
   const active = statusData.filter((torrent) => torrent["d.get_state"] === "1");
 

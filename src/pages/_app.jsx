@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { SWRConfig } from "swr";
 import "styles/globals.css";
 import "styles/weather-icons.css";

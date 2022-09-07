@@ -4,7 +4,6 @@ import { BiError } from "react-icons/bi";
 import Icon from "./icon";
 
 export default function WeatherApi({ options }) {
-  console.log(options);
   const { data, error } = useSWR(`/api/widgets/weather?${new URLSearchParams(options).toString()}`);
 
   if (error) {
@@ -24,11 +23,11 @@ export default function WeatherApi({ options }) {
   }
 
   if (!data) {
-    return <div className="flex flex-row items-center justify-end"></div>;
+    return <div className="flex flex-row items-center justify-end" />;
   }
 
   if (data.error) {
-    return <div className="flex flex-row items-center justify-end"></div>;
+    return <div className="flex flex-row items-center justify-end" />;
   }
 
   return (

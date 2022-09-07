@@ -2,13 +2,11 @@ import useSWR from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-import { ThemeProvider } from "utils/theme-context";
-
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widget";
 import { ColorProvider } from "utils/color-context";
-import Search from "components/widgets/search/search";
+import { ThemeProvider } from "utils/theme-context";
 
 const ThemeToggle = dynamic(() => import("components/theme-toggle"), {
   ssr: false,
@@ -19,12 +17,11 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
 });
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search"];
-const expandedWidgets = ["search"];
 
 export default function Home() {
-  const { data: services, error: servicesError } = useSWR("/api/services");
-  const { data: bookmarks, error: bookmarksError } = useSWR("/api/bookmarks");
-  const { data: widgets, error: widgetsError } = useSWR("/api/widgets");
+  const { data: services } = useSWR("/api/services");
+  const { data: bookmarks } = useSWR("/api/bookmarks");
+  const { data: widgets } = useSWR("/api/widgets");
 
   return (
     <ColorProvider>
@@ -38,15 +35,15 @@ export default function Home() {
               <>
                 {widgets
                   .filter((widget) => !rightAlignedWidgets.includes(widget.type))
-                  .map((widget, i) => (
-                    <Widget key={i} widget={widget} />
+                  .map((widget) => (
+                    <Widget key={widget} widget={widget} />
                   ))}
 
                 <div className="flex flex-wrap basis-full space-x-0 sm:space-x-4 grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
                   {widgets
                     .filter((widget) => rightAlignedWidgets.includes(widget.type))
-                    .map((widget, i) => (
-                      <Widget key={i} widget={widget} />
+                    .map((widget) => (
+                      <Widget key={widget} widget={widget} />
                     ))}
                 </div>
               </>

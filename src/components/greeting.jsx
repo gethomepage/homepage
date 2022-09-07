@@ -1,5 +1,4 @@
 export default function Greeting() {
-  const name = process.env.NEXT_PUBLIC_DISPLAY_NAME;
   const hour = new Date().getHours();
 
   let day = "day";
@@ -12,9 +11,5 @@ export default function Greeting() {
     day = "evening";
   }
 
-  return (
-    <div className="self-end grow text-2xl font-thin text-theme-800 dark:text-theme-200">
-      Good {day}
-    </div>
-  );
+  return <div className="self-end grow text-2xl font-thin text-theme-800 dark:text-theme-200">Good {day}</div>;
 }

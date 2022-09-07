@@ -24,7 +24,7 @@ export default function Tautulli({ service }) {
     );
   }
 
-  const data = statsData.response.data;
+  const { data } = statsData.response;
 
   return (
     <Widget>

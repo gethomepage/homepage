@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { FaMemory } from "react-icons/fa";
 import { BiError } from "react-icons/bi";
+
 import { formatBytes } from "utils/stats-helpers";
 
 export default function Memory() {

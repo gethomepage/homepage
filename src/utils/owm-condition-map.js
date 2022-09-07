@@ -135,7 +135,7 @@ const conditions = [
       night: Icons.WiNightAltShowers,
     },
   },
- 
+
   {
     code: 500,
     icon: {
@@ -393,18 +393,17 @@ const conditions = [
       night: Icons.WiCloudy,
     },
   },
-
 ];
 
 export default function mapIcon(weatherStatusCode, timeOfDay) {
-  const mapping = conditions.find(
-    (condition) => condition.code === weatherStatusCode
-  );
+  const mapping = conditions.find((condition) => condition.code === weatherStatusCode);
 
   if (mapping) {
     if (timeOfDay === "day") {
       return mapping.icon.day;
-    } else if (timeOfDay === "night") {
+    }
+
+    if (timeOfDay === "night") {
       return mapping.icon.night;
     }
   }

@@ -1,4 +1,5 @@
 import Docker from "dockerode";
+
 import getDockerArguments from "utils/docker";
 
 export default async function handler(req, res) {
@@ -25,9 +26,7 @@ export default async function handler(req, res) {
       });
     }
 
-    const containerNames = containers.map((container) => {
-      return container.Names[0].replace(/^\//, "");
-    });
+    const containerNames = containers.map((container) => container.Names[0].replace(/^\//, ""));
     const containerExists = containerNames.includes(containerName);
 
     if (!containerExists) {

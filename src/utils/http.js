@@ -1,10 +1,11 @@
+/* eslint-disable prefer-promise-reject-errors */
 import https from "https";
 import http from "http";
 
 export function httpsRequest(url, params) {
-  return new Promise(function (resolve, reject) {
-    var request = https.request(url, params, function (response) {
-      var data = [];
+  return new Promise((resolve, reject) => {
+    const request = https.request(url, params, (response) => {
+      const data = [];
 
       response.on("data", (chunk) => {
         data.push(chunk);
@@ -24,9 +25,9 @@ export function httpsRequest(url, params) {
 }
 
 export function httpRequest(url, params) {
-  return new Promise(function (resolve, reject) {
-    var request = http.request(url, params, function (response) {
-      var data = [];
+  return new Promise((resolve, reject) => {
+    const request = http.request(url, params, (response) => {
+      const data = [];
 
       response.on("data", (chunk) => {
         data.push(chunk);
@@ -57,7 +58,6 @@ export function httpProxy(url, params = {}) {
       agent: httpsAgent,
       ...params,
     });
-  } else {
-    return httpRequest(constructedUrl, params);
   }
+  return httpRequest(constructedUrl, params);
 }

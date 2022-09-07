@@ -33,5 +33,5 @@ export default async function handler(req, res) {
     return serviceProxyHandler(req, res);
   }
 
-  res.status(403).json({ error: "Unkown proxy service type" });
+  return res.status(403).json({ error: "Unkown proxy service type" });
 }

@@ -1,4 +1,5 @@
 import Docker from "dockerode";
+
 import getDockerArguments from "utils/docker";
 
 export default async function handler(req, res) {
@@ -21,30 +22,30 @@ export default async function handler(req, res) {
     // bad docker connections can result in a <Buffer ...> object?
     // in any case, this ensures the result is the expected array
     if (!Array.isArray(containers)) {
-      return res.status(500).send({
+      res.status(500).send({
         error: "query failed",
       });
+      return;
     }
 
-    const containerNames = containers.map((container) => {
-      return container.Names[0].replace(/^\//, "");
-    });
+    const containerNames = containers.map((container) => container.Names[0].replace(/^\//, ""));
     const containerExists = containerNames.includes(containerName);
 
     if (!containerExists) {
-      return res.status(200).send({
+      res.status(200).send({
         error: "not found",
       });
+      return;
     }
 
     const container = docker.getContainer(containerName);
     const stats = await container.stats({ stream: false });
 
-    return res.status(200).json({
-      stats: stats,
+    res.status(200).json({
+      stats,
     });
   } catch {
-    return res.status(500).send({
+    res.status(500).send({
       error: "unknown error",
     });
   }

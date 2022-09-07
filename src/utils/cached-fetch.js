@@ -5,9 +5,9 @@ export default async function cachedFetch(url, duration) {
 
   if (cached) {
     return cached;
-  } else {
-    const data = await fetch(url).then((res) => res.json());
-    cache.put(url, data, duration * 1000 * 60);
-    return data;
   }
+
+  const data = await fetch(url).then((res) => res.json());
+  cache.put(url, data, duration * 1000 * 60);
+  return data;
 }

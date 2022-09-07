@@ -1,6 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
+
 import yaml from "js-yaml";
+
 import checkAndCopyConfig from "utils/config";
 
 export default async function handler(req, res) {
@@ -11,30 +13,28 @@ export default async function handler(req, res) {
   const services = yaml.load(fileContents);
 
   // map easy to write YAML objects into easy to consume JS arrays
-  const servicesArray = services.map((group) => {
-    return {
-      name: Object.keys(group)[0],
-      services: group[Object.keys(group)[0]].map((entries) => {
-        const { widget, ...service } = entries[Object.keys(entries)[0]];
-        let res = {
-          name: Object.keys(entries)[0],
-          ...service,
+  const servicesArray = services.map((group) => ({
+    name: Object.keys(group)[0],
+    services: group[Object.keys(group)[0]].map((entries) => {
+      const { widget, ...service } = entries[Object.keys(entries)[0]];
+      const result = {
+        name: Object.keys(entries)[0],
+        ...service,
+      };
+
+      if (widget) {
+        const { type } = widget;
+
+        result.widget = {
+          type,
+          service_group: Object.keys(group)[0],
+          service_name: Object.keys(entries)[0],
         };
+      }
 
-        if (widget) {
-          const { type } = widget;
-
-          res.widget = {
-            type: type,
-            service_group: Object.keys(group)[0],
-            service_name: Object.keys(entries)[0],
-          };
-        }
-
-        return res;
-      }),
-    };
-  });
+      return result;
+    }),
+  }));
 
   res.send(servicesArray);
 }

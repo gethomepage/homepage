@@ -348,7 +348,9 @@ export default function mapIcon(weatherStatusCode, timeOfDay) {
   if (mapping) {
     if (timeOfDay === "day") {
       return mapping.icon.day;
-    } else if (timeOfDay === "night") {
+    }
+
+    if (timeOfDay === "night") {
       return mapping.icon.night;
     }
   }

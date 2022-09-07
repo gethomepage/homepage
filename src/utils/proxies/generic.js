@@ -1,4 +1,4 @@
-import { getServiceWidget } from "utils/service-helpers";
+import getServiceWidget from "utils/service-helpers";
 import { formatApiCall } from "utils/api-helpers";
 import { httpProxy } from "utils/http";
 

@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing API key" });
   }
 
-  const api_url = `http://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}`;
+  const apiUrl = `http://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}`;
 
-  res.send(await cachedFetch(api_url, cache));
+  return res.send(await cachedFetch(apiUrl, cache));
 }

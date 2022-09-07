@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useMemo } from "react";
 
 let lastColor = false;
 
@@ -16,7 +16,7 @@ const getInitialColor = () => {
 
 export const ColorContext = createContext();
 
-export const ColorProvider = ({ initialTheme, children }) => {
+export function ColorProvider({ initialTheme, children }) {
   const [color, setColor] = useState(getInitialColor);
 
   const rawSetColor = (rawColor) => {
@@ -38,5 +38,7 @@ export const ColorProvider = ({ initialTheme, children }) => {
     rawSetColor(color);
   }, [color]);
 
-  return <ColorContext.Provider value={{ color, setColor }}>{children}</ColorContext.Provider>;
-};
+  const value = useMemo(() => ({ color, setColor }), [color]);
+
+  return <ColorContext.Provider value={value}>{children}</ColorContext.Provider>;
+}

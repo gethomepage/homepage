@@ -15,13 +15,13 @@ const formats = {
 };
 
 export function formatApiCall(api, args) {
-  const match = /\{.*?\}/g;
+  const find = /\{.*?\}/g;
   const replace = (match) => {
     const key = match.replace(/\{|\}/g, "");
     return args[key];
   };
 
-  return formats[api].replace(match, replace);
+  return formats[api].replace(find, replace);
 }
 
 export function formatApiUrl(widget, endpoint) {

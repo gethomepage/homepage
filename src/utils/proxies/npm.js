@@ -1,4 +1,4 @@
-import { getServiceWidget } from "utils/service-helpers";
+import getServiceWidget from "utils/service-helpers";
 import { formatApiCall } from "utils/api-helpers";
 
 export default async function npmProxyHandler(req, res) {
@@ -25,7 +25,7 @@ export default async function npmProxyHandler(req, res) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + authResponse.token,
+          Authorization: `Bearer ${authResponse.token}`,
         },
       }).then((response) => response.json());
 

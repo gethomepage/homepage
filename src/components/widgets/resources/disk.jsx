@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { FiHardDrive } from "react-icons/fi";
 import { BiError } from "react-icons/bi";
+
 import { formatBytes } from "utils/stats-helpers";
 
 export default function Disk({ options }) {
