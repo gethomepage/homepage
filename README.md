@@ -4,6 +4,7 @@
 
 ## Features
 
+  * AMD64, ARM64, ARMv7 and ARMv6 support (thanks to [schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62) for impvoed build support)
   * Web Bookmarks
   * Service Bookmarks
     - Docker Integration
