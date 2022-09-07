@@ -11,9 +11,7 @@ export default function Resources({ options }) {
         {options.disk && <Disk options={options} />}
       </div>
       {options.label && (
-        <div className="border-t-2 border-theme-800 dark:border-theme-200 mt-1 pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">
-          {options.label}
-        </div>
+        <div className="ml-6 pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">{options.label}</div>
       )}
     </div>
   );
