@@ -7,8 +7,7 @@ WORKDIR /app
 
 COPY --link package.json pnpm-lock.yaml* ./
 
-RUN --mount=type=cache,id=apk,sharing=locked,target=/var/cache/apk \
-    <<EOF
+RUN <<EOF
     set -xe
     apk add libc6-compat
     apk add --virtual .gyp python3 make g++
