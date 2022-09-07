@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: "standalone",
-  // swcMinify: false,
+  swcMinify: false,
   experimental: { images: { allowFutureImage: true, unoptimized: true } },
   images: {
     domains: ["cdn.jsdelivr.net"],
