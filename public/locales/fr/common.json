@@ -1,87 +1,98 @@
 {
-  "widget":{
-     "missing_type":"Type de widget manquant: {{type}}",
-     "api_error":"Erreur de l'API",
-     "status":"Statut"
-  },
-  "search":{
-     "placeholder":"Chercher…"
-  },
-  "resources":{
-     "total":"Totale",
-     "free":"Libre",
-     "used":"Utilisée"
-  },
-  "docker":{
-     "rx":"Rx",
-     "tx":"TX",
-     "mem":"Mem",
-     "cpu":"CPU",
-     "offline":"Hors ligne"
-  },
-  "emby":{
-     "playing":"En jouant",
-     "transcoding":"Transcoding",
-     "bitrate":"Débiter"
-  },
-  "tautulli":{
-     "playing":"En jouant",
-     "transcoding":"Transcoding",
-     "bitrate":"Débiter"
-  },
-  "nzbget":{
-     "rate":"Évaluer",
-     "remaining":"Restante",
-     "downloaded":"Téléchargé"
-  },
-  "rutorrent":{
-     "active":"Active",
-     "upload":"Télécharger",
-     "download":"Télécharger"
-  },
-  "sonarr":{
-     "wanted":"Recherchée",
-     "queued":"En queue",
-     "series":"Série"
-  },
-  "radarr":{
-     "wanted":"Recherchée",
-     "queued":"En queue",
-     "movies":"Films"
-  },
-  "ombi":{
-     "pending":"En attente",
-     "approved":"Approuvée",
-     "available":"Disponible"
-  },
-  "jellyseerr":{
-     "pending":"En attente",
-     "approved":"Approuvée",
-     "available":"Disponible"
-  },
-  "pihole":{
-     "queries":"Requêtes",
-     "blocked":"Bloquée",
-     "gravity":"La gravité"
-  },
-  "speedtest":{
-     "upload":"Télécharger",
-     "download":"Télécharger",
-     "ping":"Ping-ping"
-  },
-  "portainer":{
-     "running":"Fonctionnement",
-     "stopped":"Arrêté",
-     "total":"Totale"
-  },
-  "traefik":{
-     "routers":"Routeurs",
-     "services":"Prestations de service",
-     "middleware":"Middleware"
-  },
-  "npm":{
-     "enabled":"Activé",
-     "disabled":"Handicapée",
-     "total":"Totale"
-  }
+    "widget": {
+        "missing_type": "Type de widget manquant: {{type}}",
+        "api_error": "Erreur de l'API",
+        "status": "Statut"
+    },
+    "search": {
+        "placeholder": "Chercher…"
+    },
+    "resources": {
+        "total": "Totale",
+        "free": "Libre",
+        "used": "Utilisée"
+    },
+    "docker": {
+        "rx": "Rx",
+        "tx": "TX",
+        "mem": "Mem",
+        "cpu": "CPU",
+        "offline": "Hors ligne"
+    },
+    "emby": {
+        "playing": "En jouant",
+        "transcoding": "Transcoding",
+        "bitrate": "Débiter"
+    },
+    "tautulli": {
+        "playing": "En jouant",
+        "transcoding": "Transcoding",
+        "bitrate": "Débiter"
+    },
+    "nzbget": {
+        "rate": "Évaluer",
+        "remaining": "Restante",
+        "downloaded": "Téléchargé"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Télécharger",
+        "download": "Télécharger"
+    },
+    "sonarr": {
+        "wanted": "Recherchée",
+        "queued": "En queue",
+        "series": "Série"
+    },
+    "radarr": {
+        "wanted": "Recherchée",
+        "queued": "En queue",
+        "movies": "Films"
+    },
+    "ombi": {
+        "pending": "En attente",
+        "approved": "Approuvée",
+        "available": "Disponible"
+    },
+    "jellyseerr": {
+        "pending": "En attente",
+        "approved": "Approuvée",
+        "available": "Disponible"
+    },
+    "pihole": {
+        "queries": "Requêtes",
+        "blocked": "Bloquée",
+        "gravity": "La gravité"
+    },
+    "speedtest": {
+        "upload": "Télécharger",
+        "download": "Télécharger",
+        "ping": "Ping-ping"
+    },
+    "portainer": {
+        "running": "Fonctionnement",
+        "stopped": "Arrêté",
+        "total": "Totale"
+    },
+    "traefik": {
+        "routers": "Routeurs",
+        "services": "Prestations de service",
+        "middleware": "Middleware"
+    },
+    "npm": {
+        "enabled": "Activé",
+        "disabled": "Handicapée",
+        "total": "Totale"
+    },
+    "common": {
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbits": "{{value, bytes(bits: true, binary: true)}}",
+        "number": "{{value, number}}",
+        "byterate": "{{value, bytes}}",
+        "bitrate": "{{value, bytes(bits: true)}}",
+        "percent": "{{value, percent}}",
+        "ms": "{{value, number}}"
+    }
 }
