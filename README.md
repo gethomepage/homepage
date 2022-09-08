@@ -1,10 +1,14 @@
 ![Homepage Preview](/images/preview.png)
 
 [![Docker](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml)
+[![Weblate](https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg)](https://hosted.weblate.org/engage/homepage/)
 
 ## Features
 
-  * AMD64, ARM64, ARMv7 and ARMv6 support (thanks to [schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62) for impvoed build support)
+  * Full i18n support with automatic language detection.
+    - Human translations for English
+    - Machine translations for Spanish, Portuguese, French, German, Russian and Chinese (simplified).
+  * AMD64, ARM64, ARMv7 and ARMv6 support (thanks to [schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62) for impvoed build & docker support)
   * Web Bookmarks
   * Service Bookmarks
     - Docker Integration
