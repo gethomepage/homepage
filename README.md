@@ -6,20 +6,20 @@
 ## Features
 
   * Full i18n support with automatic language detection.
-    - Human translations for English and Norwegian Bokmål (thanks to [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)).
+    - Human translations for English, Norwegian Bokmål ([comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)) and Spanish ([AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves)).
     - Machine translations for Spanish, Portuguese, French, German, Russian and Chinese (simplified).
-  * AMD64, ARM64, ARMv7 and ARMv6 support (thanks to [schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62) for impvoed build & docker support)
+  * Complete Docker support, including AMD64, ARM64, ARMv7 and ARMv6 support ([schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62))
   * Web Bookmarks
   * Service Bookmarks
     - Docker Integration
       - Status light + CPU, Memory & Network Reporting *(click on the status light)*
     - Service Integration
-      - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Jellyseerr ([by ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
-      - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([by aidenpwnz](https://github.com/benphelps/homepage/pull/45))
+      - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Jellyseerr ([ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
+      - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
   * Homepage Widgets
     - System Stats (Disk, CPU, Memory)
-    - Weather via WeatherAPI.com or OpenWeatherMap ([by AlexFullmoon](https://github.com/benphelps/homepage/pull/25))
-    - Search Bar ([by aidenpwnz](https://github.com/benphelps/homepage/pull/45))
+    - Weather via WeatherAPI.com or OpenWeatherMap ([AlexFullmoon](https://github.com/benphelps/homepage/pull/25))
+    - Search Bar ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
   * Customizable
     - 21 theme colors with light and dark mode support
 
@@ -83,6 +83,8 @@ Configuration files will be genereted and placed on the first request.
 
 Configuration is done in the /config directory using .yaml files.  Refer to each config for
 the specific configuration options.
+
+You may also check [the wiki](https://github.com/benphelps/homepage/wiki) for detailed configuration instructions, examples and more.
 
 ## Development
 
