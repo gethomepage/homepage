@@ -6,7 +6,7 @@
 ## Features
 
   * Full i18n support with automatic language detection.
-    - Human translations for English
+    - Human translations for English and Norwegian Bokmål (thanks to [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)).
     - Machine translations for Spanish, Portuguese, French, German, Russian and Chinese (simplified).
   * AMD64, ARM64, ARMv7 and ARMv6 support (thanks to [schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62) for impvoed build & docker support)
   * Web Bookmarks
