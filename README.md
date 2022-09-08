@@ -10,7 +10,7 @@
     - Docker Integration
       - Status light + CPU, Memory & Network Reporting *(click on the status light)*
     - Service Integration
-      - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Jellyseerr ([by ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
+      - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Jellyseerr ([by ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
       - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([by aidenpwnz](https://github.com/benphelps/homepage/pull/45))
   * Homepage Widgets
     - System Stats (Disk, CPU, Memory)
