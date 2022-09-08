@@ -26,7 +26,7 @@ export default function Docker({ service }) {
   );
 
   if (statsError || statusError) {
-    return <Widget error={t("docker.api_error")} />;
+    return <Widget error={t("widget.api_error")} />;
   }
 
   if (statusData && statusData.status !== "running") {

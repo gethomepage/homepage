@@ -14,7 +14,7 @@ export default function Emby({ service }) {
   const { data: sessionsData, error: sessionsError } = useSWR(formatApiUrl(config, "Sessions"));
 
   if (sessionsError) {
-    return <Widget error={t("docker.api_error")} />;
+    return <Widget error={t("widget.api_error")} />;
   }
 
   if (!sessionsData) {
