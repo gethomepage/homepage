@@ -1,0 +1,98 @@
+{
+  "common": {
+    "bytes": "{{value, bytes}}",
+    "bits": "{{value, bytes(bits: true)}}",
+    "bbytes": "{{value, bytes(binary: true)}}",
+    "bbits": "{{value, bytes(bits: true, binary: true)}}",
+    "byterate": "{{value, bytes}}",
+    "bitrate": "{{value, bytes(bits: true)}}",
+    "percent": "{{value, percent}}",
+    "number": "{{value, number}}",
+    "ms": "{{value, number}}"
+  },
+  "widget":{
+     "missing_type":"Отсутствует тип виджета: {{type}}",
+     "api_error":"Ошибка API",
+     "status":"Статус"
+  },
+  "search":{
+     "placeholder":"Поиск..."
+  },
+  "resources":{
+     "total":"Общий",
+     "free":"Свободно",
+     "used":"Использовал"
+  },
+  "docker":{
+     "rx":"Rx",
+     "tx":"Техас",
+     "mem":"Мем",
+     "cpu":"Процессор",
+     "offline":"Не в сети"
+  },
+  "emby":{
+     "playing":"Игра",
+     "transcoding":"Транскодирование",
+     "bitrate":"Битрейт"
+  },
+  "tautulli":{
+     "playing":"Игра",
+     "transcoding":"Транскодирование",
+     "bitrate":"Битрейт"
+  },
+  "nzbget":{
+     "rate":"Оценивать",
+     "remaining":"Оставшийся",
+     "downloaded":"Загружен"
+  },
+  "rutorrent":{
+     "active":"Активный",
+     "upload":"Загрузить",
+     "download":"Скачать"
+  },
+  "sonarr":{
+     "wanted":"Хотел",
+     "queued":"В очереди",
+     "series":"Серии"
+  },
+  "radarr":{
+     "wanted":"Хотел",
+     "queued":"В очереди",
+     "movies":"Фильмы"
+  },
+  "ombi":{
+     "pending":"В ожидании",
+     "approved":"Одобренный",
+     "available":"Доступный"
+  },
+  "jellyseerr":{
+     "pending":"В ожидании",
+     "approved":"Одобренный",
+     "available":"Доступный"
+  },
+  "pihole":{
+     "queries":"Запросы",
+     "blocked":"Заблокированный",
+     "gravity":"Сила тяжести"
+  },
+  "speedtest":{
+     "upload":"Загрузить",
+     "download":"Скачать",
+     "ping":"пинг"
+  },
+  "portainer":{
+     "running":"Бег",
+     "stopped":"Остановился",
+     "total":"Общий"
+  },
+  "traefik":{
+     "routers":"Маршрутизаторы",
+     "services":"Услуги",
+     "middleware":"Промежуточное программное обеспечение"
+  },
+  "npm":{
+     "enabled":"Включено",
+     "disabled":"Неполноценный",
+     "total":"Общий"
+  }
+}

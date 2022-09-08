@@ -1,0 +1,98 @@
+{
+  "common": {
+    "bytes": "{{value, bytes}}",
+    "bits": "{{value, bytes(bits: true)}}",
+    "bbytes": "{{value, bytes(binary: true)}}",
+    "bbits": "{{value, bytes(bits: true, binary: true)}}",
+    "byterate": "{{value, bytes}}",
+    "bitrate": "{{value, bytes(bits: true)}}",
+    "percent": "{{value, percent}}",
+    "number": "{{value, number}}",
+    "ms": "{{value, number}}"
+  },
+  "widget":{
+     "missing_type":"Tipo de widget faltante: {{type}}",
+     "api_error":"Error de API",
+     "status":"Estado"
+  },
+  "search":{
+     "placeholder":"Búsqueda..."
+  },
+  "resources":{
+     "total":"Total",
+     "free":"Libre",
+     "used":"Usó"
+  },
+  "docker":{
+     "rx":"Rx",
+     "tx":"Tx",
+     "mem":"Memorando",
+     "cpu":"UPC",
+     "offline":"Desconectada"
+  },
+  "emby":{
+     "playing":"Jugando",
+     "transcoding":"Transcodificación",
+     "bitrate":"Tasa de bits"
+  },
+  "tautulli":{
+     "playing":"Jugando",
+     "transcoding":"Transcodificación",
+     "bitrate":"Tasa de bits"
+  },
+  "nzbget":{
+     "rate":"Velocidad",
+     "remaining":"Restante",
+     "downloaded":"Descargada"
+  },
+  "rutorrent":{
+     "active":"Activa",
+     "upload":"Subir",
+     "download":"Descargar"
+  },
+  "sonarr":{
+     "wanted":"Querida",
+     "queued":"Puesto en cola",
+     "series":"Serie"
+  },
+  "radarr":{
+     "wanted":"Querida",
+     "queued":"Puesto en cola",
+     "movies":"Películas"
+  },
+  "ombi":{
+     "pending":"Pendiente",
+     "approved":"Aprobada",
+     "available":"Disponible"
+  },
+  "jellyseerr":{
+     "pending":"Pendiente",
+     "approved":"Aprobada",
+     "available":"Disponible"
+  },
+  "pihole":{
+     "queries":"Consultas",
+     "blocked":"Obstruida",
+     "gravity":"Gravedad"
+  },
+  "speedtest":{
+     "upload":"Subir",
+     "download":"Descargar",
+     "ping":"Silbido"
+  },
+  "portainer":{
+     "running":"Correr",
+     "stopped":"Detenida",
+     "total":"Total"
+  },
+  "traefik":{
+     "routers":"Enrutadores",
+     "services":"Servicios",
+     "middleware":"Middleware"
+  },
+  "npm":{
+     "enabled":"Activada",
+     "disabled":"Desactivada",
+     "total":"Total"
+  }
+}

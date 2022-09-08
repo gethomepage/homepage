@@ -1,0 +1,98 @@
+{
+  "common": {
+    "bytes": "{{value, bytes}}",
+    "bits": "{{value, bytes(bits: true)}}",
+    "bbytes": "{{value, bytes(binary: true)}}",
+    "bbits": "{{value, bytes(bits: true, binary: true)}}",
+    "byterate": "{{value, bytes}}",
+    "bitrate": "{{value, bytes(bits: true)}}",
+    "percent": "{{value, percent}}",
+    "number": "{{value, number}}",
+    "ms": "{{value, number}}"
+  },
+  "widget":{
+     "missing_type":"Fehlender Widget-Typ: {{type}}",
+     "api_error":"API-Fehler",
+     "status":"Status"
+  },
+  "search":{
+     "placeholder":"Suche..."
+  },
+  "resources":{
+     "total":"Gesamt",
+     "free":"Frei",
+     "used":"Gebraucht"
+  },
+  "docker":{
+     "rx":"Rx",
+     "tx":"Tx",
+     "mem":"Mem",
+     "cpu":"Zentralprozessor",
+     "offline":"Offline"
+  },
+  "emby":{
+     "playing":"Spielen",
+     "transcoding":"Transcodierung",
+     "bitrate":"Bitrate"
+  },
+  "tautulli":{
+     "playing":"Spielen",
+     "transcoding":"Transcodierung",
+     "bitrate":"Bitrate"
+  },
+  "nzbget":{
+     "rate":"Rate",
+     "remaining":"Verblieben",
+     "downloaded":"Heruntergeladen"
+  },
+  "rutorrent":{
+     "active":"Aktiv",
+     "upload":"Hochladen",
+     "download":"Download"
+  },
+  "sonarr":{
+     "wanted":"Gesucht",
+     "queued":"In Warteschlange",
+     "series":"Serie"
+  },
+  "radarr":{
+     "wanted":"Gesucht",
+     "queued":"In Warteschlange",
+     "movies":"Filme"
+  },
+  "ombi":{
+     "pending":"Ausstehend",
+     "approved":"Genehmigt",
+     "available":"Verfügbar"
+  },
+  "jellyseerr":{
+     "pending":"Ausstehend",
+     "approved":"Genehmigt",
+     "available":"Verfügbar"
+  },
+  "pihole":{
+     "queries":"Abfragen",
+     "blocked":"verstopft",
+     "gravity":"Schwere"
+  },
+  "speedtest":{
+     "upload":"Hochladen",
+     "download":"Download",
+     "ping":"Klingeln"
+  },
+  "portainer":{
+     "running":"Betrieb",
+     "stopped":"Gestoppt",
+     "total":"Gesamt"
+  },
+  "traefik":{
+     "routers":"Router",
+     "services":"Dienstleistungen",
+     "middleware":"Middleware"
+  },
+  "npm":{
+     "enabled":"Ermöglicht",
+     "disabled":"Deaktiviert",
+     "total":"Gesamt"
+  }
+}
