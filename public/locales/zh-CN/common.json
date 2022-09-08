@@ -1,15 +1,4 @@
 {
-  "common": {
-    "bytes": "{{value, bytes}}",
-    "bits": "{{value, bytes(bits: true)}}",
-    "bbytes": "{{value, bytes(binary: true)}}",
-    "bbits": "{{value, bytes(bits: true, binary: true)}}",
-    "byterate": "{{value, bytes}}",
-    "bitrate": "{{value, bytes(bits: true)}}",
-    "percent": "{{value, percent}}",
-    "number": "{{value, number}}",
-    "ms": "{{value, number}}"
-  },
   "widget":{
      "missing_type":"缺少小部件类型：{{type}}",
      "api_error":"API错误",
