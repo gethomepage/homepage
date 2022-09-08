@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import useSWR from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
@@ -35,15 +36,15 @@ export default function Home() {
               <>
                 {widgets
                   .filter((widget) => !rightAlignedWidgets.includes(widget.type))
-                  .map((widget) => (
-                    <Widget key={widget} widget={widget} />
+                  .map((widget, i) => (
+                    <Widget key={i} widget={widget} />
                   ))}
 
                 <div className="flex flex-wrap basis-full space-x-0 sm:space-x-4 grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
                   {widgets
                     .filter((widget) => rightAlignedWidgets.includes(widget.type))
-                    .map((widget) => (
-                      <Widget key={widget} widget={widget} />
+                    .map((widget, i) => (
+                      <Widget key={i} widget={widget} />
                     ))}
                 </div>
               </>
