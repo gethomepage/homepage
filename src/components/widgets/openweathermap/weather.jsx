@@ -1,10 +1,15 @@
 import useSWR from "swr";
 import { BiError } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 import Icon from "./icon";
 
 export default function OpenWeatherMap({ options }) {
-  const { data, error } = useSWR(`/api/widgets/openweathermap?${new URLSearchParams(options).toString()}`);
+  const { t, i18n } = useTranslation();
+
+  const { data, error } = useSWR(
+    `/api/widgets/openweathermap?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`
+  );
 
   if (error || data?.cod === 401) {
     return (
@@ -30,6 +35,8 @@ export default function OpenWeatherMap({ options }) {
     return <div className="flex flex-row items-center" />;
   }
 
+  const unit = options.units === "metric" ? "celsius" : "fahrenheit";
+
   return (
     <div className="flex flex-col justify-center">
       <div className="flex flex-row items-center justify-end">
@@ -42,11 +49,9 @@ export default function OpenWeatherMap({ options }) {
         <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-sm">
             {options.label && `${options.label}, `}
-            {data.main.temp.toFixed(1)}&deg;
+            {t("common.number", { value: data.main.temp, style: "unit", unit })}
           </span>
-          <span className="text-theme-800 dark:text-theme-200 text-xs">
-            {data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1)}
-          </span>
+          <span className="text-theme-800 dark:text-theme-200 text-xs">{data.weather[0].description}</span>
         </div>
       </div>
     </div>

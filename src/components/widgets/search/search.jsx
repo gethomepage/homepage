@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FiSearch } from "react-icons/fi";
 import { SiDuckduckgo, SiMicrosoftbing, SiGoogle } from "react-icons/si";
 
@@ -26,6 +27,8 @@ const providers = {
 };
 
 export default function Search({ options }) {
+  const { t } = useTranslation();
+
   const provider = providers[options.provider];
   const [query, setQuery] = useState("");
 
@@ -53,7 +56,7 @@ export default function Search({ options }) {
       <input
         type="search"
         className="overflow-hidden w-full placeholder-theme-900 text-xs text-theme-900 bg-theme-50 rounded-md border border-theme-300 focus:ring-theme-500 focus:border-theme-500 dark:bg-theme-800 dark:border-theme-600 dark:placeholder-theme-400 dark:text-white dark:focus:ring-theme-500 dark:focus:border-theme-500 h-full"
-        placeholder="Search..."
+        placeholder={t("search.placeholder")}
         onChange={(s) => setQuery(s.currentTarget.value)}
         required
       />

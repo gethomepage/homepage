@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { useTranslation } from "react-i18next";
 
 import Widget from "../widget";
 import Block from "../block";
@@ -6,20 +7,22 @@ import Block from "../block";
 import { formatApiUrl } from "utils/api-helpers";
 
 export default function Tautulli({ service }) {
+  const { t } = useTranslation();
+
   const config = service.widget;
 
   const { data: statsData, error: statsError } = useSWR(formatApiUrl(config, "get_activity"));
 
   if (statsError) {
-    return <Widget error="Tautulli API Error" />;
+    return <Widget error={t("widget.api_error")} />;
   }
 
   if (!statsData) {
     return (
       <Widget>
-        <Block label="Playing" />
-        <Block label="Transcoding" />
-        <Block label="Bitrate" />
+        <Block label={t("tautulli.playing")} />
+        <Block label={t("tautulli.transcoding")} />
+        <Block label={t("tautulli.bitrate")} />
       </Widget>
     );
   }
@@ -28,10 +31,9 @@ export default function Tautulli({ service }) {
 
   return (
     <Widget>
-      <Block label="Playing" value={data.stream_count} />
-      <Block label="Transcoding" value={data.stream_count_transcode} />
-      {/* We divide by 1000 here because thats how Tautulli reports it on its own dashboard */}
-      <Block label="Bitrate" value={`${Math.round((data.total_bandwidth / 1000) * 100) / 100} Mbps`} />
+      <Block label={t("tautulli.playing")} value={data.stream_count} />
+      <Block label={t("tautulli.transcoding")} value={data.stream_count_transcode} />
+      <Block label={t("tautulli.bitrate")} value={t("common.bitrate", { value: data.total_bandwidth })} />
     </Widget>
   );
 }

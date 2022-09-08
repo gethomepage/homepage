@@ -1,10 +1,15 @@
 import useSWR from "swr";
 import { BiError } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 import Icon from "./icon";
 
 export default function WeatherApi({ options }) {
-  const { data, error } = useSWR(`/api/widgets/weather?${new URLSearchParams(options).toString()}`);
+  const { t, i18n } = useTranslation();
+
+  const { data, error } = useSWR(
+    `/api/widgets/weather?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`
+  );
 
   if (error) {
     return (
@@ -30,6 +35,8 @@ export default function WeatherApi({ options }) {
     return <div className="flex flex-row items-center justify-end" />;
   }
 
+  const unit = options.units === "metric" ? "celsius" : "fahrenheit";
+
   return (
     <div className="flex flex-col justify-center">
       <div className="flex flex-row items-center justify-end">
@@ -39,7 +46,11 @@ export default function WeatherApi({ options }) {
         <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-sm">
             {options.label && `${options.label}, `}
-            {options.units === "metric" ? data.current.temp_c : data.current.temp_f}&deg;
+            {t("common.number", {
+              value: options.units === "metric" ? data.current.temp_c : data.current.temp_f,
+              style: "unit",
+              unit,
+            })}
           </span>
           <span className="text-theme-800 dark:text-theme-200 text-xs">{data.current.condition.text}</span>
         </div>

@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import Sonarr from "./widgets/service/sonarr";
 import Radarr from "./widgets/service/radarr";
 import Ombi from "./widgets/service/ombi";
@@ -33,6 +35,8 @@ const widgetMappings = {
 };
 
 export default function Widget({ service }) {
+  const { t } = useTranslation("common");
+
   const ServiceWidget = widgetMappings[service.widget.type];
 
   if (ServiceWidget) {
@@ -41,9 +45,7 @@ export default function Widget({ service }) {
 
   return (
     <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-col items-center justify-center p-1">
-      <div className="font-thin text-sm">
-        Missing Widget Type: <strong>{service.widget.type}</strong>
-      </div>
+      <div className="font-thin text-sm">{t("widget.missing_type", { type: service.widget.type })}</div>
     </div>
   );
 }

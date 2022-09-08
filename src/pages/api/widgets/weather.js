@@ -2,7 +2,7 @@ import cachedFetch from "utils/cached-fetch";
 import { getSettings } from "utils/config";
 
 export default async function handler(req, res) {
-  const { latitude, longitude, provider, cache } = req.query;
+  const { latitude, longitude, provider, cache, lang } = req.query;
   let { apiKey } = req.query;
 
   if (!apiKey && !provider) {
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing API key" });
   }
 
-  const apiUrl = `http://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}`;
+  const apiUrl = `http://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}&lang=${lang}`;
 
   return res.send(await cachedFetch(apiUrl, cache));
 }

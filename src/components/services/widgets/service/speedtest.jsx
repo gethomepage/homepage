@@ -1,35 +1,46 @@
 import useSWR from "swr";
+import { useTranslation } from "react-i18next";
 
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatBits } from "utils/stats-helpers";
 import { formatApiUrl } from "utils/api-helpers";
 
 export default function Speedtest({ service }) {
+  const { t } = useTranslation();
+
   const config = service.widget;
 
   const { data: speedtestData, error: speedtestError } = useSWR(formatApiUrl(config, "speedtest/latest"));
 
   if (speedtestError) {
-    return <Widget error="Speedtest API Error" />;
+    return <Widget error={t("widget.api_error")} />;
   }
 
   if (!speedtestData) {
     return (
       <Widget>
-        <Block label="Download" />
-        <Block label="Upload" />
-        <Block label="Ping" />
+        <Block label={t("speedtest.download")} />
+        <Block label={t("speedtest.upload")} />
+        <Block label={t("speedtest.ping")} />
       </Widget>
     );
   }
 
   return (
     <Widget>
-      <Block label="Download" value={`${formatBits(speedtestData.data.download * 1024 * 1024, 0)}ps`} />
-      <Block label="Upload" value={`${formatBits(speedtestData.data.upload * 1024 * 1024, 0)}ps`} />
-      <Block label="Ping" value={`${speedtestData.data.ping} ms`} />
+      <Block
+        label={t("speedtest.download")}
+        value={t("common.bitrate", { value: speedtestData.data.download * 1024 * 1024 })}
+      />
+      <Block
+        label={t("speedtest.upload")}
+        value={t("common.bitrate", { value: speedtestData.data.upload * 1024 * 1024 })}
+      />
+      <Block
+        label={t("speedtest.ping")}
+        value={t("common.ms", { value: speedtestData.data.ping, style: "unit", unit: "millisecond" })}
+      />
     </Widget>
   );
 }

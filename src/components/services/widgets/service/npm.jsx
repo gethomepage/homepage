@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import { useTranslation } from "react-i18next";
 
 import Widget from "../widget";
 import Block from "../block";
@@ -6,20 +7,22 @@ import Block from "../block";
 import { formatApiUrl } from "utils/api-helpers";
 
 export default function Npm({ service }) {
+  const { t } = useTranslation();
+
   const config = service.widget;
 
   const { data: infoData, error: infoError } = useSWR(formatApiUrl(config, "nginx/proxy-hosts"));
 
   if (infoError) {
-    return <Widget error="NGINX Proxy Manager API Error" />;
+    return <Widget error={t("widget.api_error")} />;
   }
 
   if (!infoData) {
     return (
       <Widget>
-        <Block label="Enabled" />
-        <Block label="Disabled" />
-        <Block label="Total" />
+        <Block label={t("npm.enabled")} />
+        <Block label={t("npm.disabled")} />
+        <Block label={t("npm.total")} />
       </Widget>
     );
   }
@@ -30,9 +33,9 @@ export default function Npm({ service }) {
 
   return (
     <Widget>
-      <Block label="Enabled" value={enabled} />
-      <Block label="Disabled" value={disabled} />
-      <Block label="Total" value={total} />
+      <Block label={t("npm.enabled")} value={enabled} />
+      <Block label={t("npm.disabled")} value={disabled} />
+      <Block label={t("npm.total")} value={total} />
     </Widget>
   );
 }
