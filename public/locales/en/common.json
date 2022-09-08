@@ -4,8 +4,8 @@
         "bits": "{{value, bytes(bits: true)}}",
         "bbytes": "{{value, bytes(binary: true)}}",
         "bbits": "{{value, bytes(bits: true, binary: true)}}",
-        "byterate": "{{value, bytes}}",
-        "bitrate": "{{value, bytes(bits: true)}}",
+        "byterate": "{{value, rate}}",
+        "bitrate": "{{value, rate(bits: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}"
