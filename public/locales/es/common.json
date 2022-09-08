@@ -1,87 +1,87 @@
 {
-  "widget":{
-     "missing_type":"Tipo de widget faltante: {{type}}",
-     "api_error":"Error de API",
-     "status":"Estado"
-  },
-  "search":{
-     "placeholder":"Búsqueda…"
-  },
-  "resources":{
-     "total":"Total",
-     "free":"Libre",
-     "used":"Usó"
-  },
-  "docker":{
-     "rx":"Rx",
-     "tx":"Tx",
-     "mem":"Memorando",
-     "cpu":"UPC",
-     "offline":"Desconectada"
-  },
-  "emby":{
-     "playing":"Jugando",
-     "transcoding":"Transcodificación",
-     "bitrate":"Tasa de bits"
-  },
-  "tautulli":{
-     "playing":"Jugando",
-     "transcoding":"Transcodificación",
-     "bitrate":"Tasa de bits"
-  },
-  "nzbget":{
-     "rate":"Velocidad",
-     "remaining":"Restante",
-     "downloaded":"Descargada"
-  },
-  "rutorrent":{
-     "active":"Activa",
-     "upload":"Subir",
-     "download":"Descargar"
-  },
-  "sonarr":{
-     "wanted":"Querida",
-     "queued":"Puesto en cola",
-     "series":"Serie"
-  },
-  "radarr":{
-     "wanted":"Querida",
-     "queued":"Puesto en cola",
-     "movies":"Películas"
-  },
-  "ombi":{
-     "pending":"Pendiente",
-     "approved":"Aprobada",
-     "available":"Disponible"
-  },
-  "jellyseerr":{
-     "pending":"Pendiente",
-     "approved":"Aprobada",
-     "available":"Disponible"
-  },
-  "pihole":{
-     "queries":"Consultas",
-     "blocked":"Obstruida",
-     "gravity":"Gravedad"
-  },
-  "speedtest":{
-     "upload":"Subir",
-     "download":"Descargar",
-     "ping":"Silbido"
-  },
-  "portainer":{
-     "running":"Correr",
-     "stopped":"Detenida",
-     "total":"Total"
-  },
-  "traefik":{
-     "routers":"Enrutadores",
-     "services":"Servicios",
-     "middleware":"Middleware"
-  },
-  "npm":{
-     "enabled":"Activada",
-     "disabled":"Desactivada",
-     "total":"Total"
-  }
+    "widget": {
+        "missing_type": "Tipo de widget faltante: {{type}}",
+        "api_error": "Error de API",
+        "status": "Estado"
+    },
+    "search": {
+        "placeholder": "Buscar…"
+    },
+    "resources": {
+        "total": "Total",
+        "free": "Libre",
+        "used": "Usado"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "Memoria",
+        "cpu": "Procesador",
+        "offline": "Desconectado"
+    },
+    "emby": {
+        "playing": "En ejecución",
+        "transcoding": "Transcodificando",
+        "bitrate": "Tasa de Bits"
+    },
+    "tautulli": {
+        "playing": "En ejecución",
+        "transcoding": "Transcodificación",
+        "bitrate": "Tasa de bits"
+    },
+    "nzbget": {
+        "rate": "Velocidad",
+        "remaining": "Restante",
+        "downloaded": "Descargado"
+    },
+    "rutorrent": {
+        "active": "Activo",
+        "upload": "Subir",
+        "download": "Descargar"
+    },
+    "sonarr": {
+        "wanted": "Más deseado",
+        "queued": "Puesto en cola",
+        "series": "Series"
+    },
+    "radarr": {
+        "wanted": "Más deseado",
+        "queued": "Puesto en cola",
+        "movies": "Películas"
+    },
+    "ombi": {
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "available": "Disponible"
+    },
+    "jellyseerr": {
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "available": "Disponible"
+    },
+    "pihole": {
+        "queries": "Consultas",
+        "blocked": "Bloqueado",
+        "gravity": "Gravedad"
+    },
+    "speedtest": {
+        "upload": "Subir",
+        "download": "Descargar",
+        "ping": "Ping"
+    },
+    "portainer": {
+        "running": "En ejecución",
+        "stopped": "Detenido",
+        "total": "Total"
+    },
+    "traefik": {
+        "routers": "Enrutadores",
+        "services": "Servicios",
+        "middleware": "Middleware"
+    },
+    "npm": {
+        "enabled": "Activado",
+        "disabled": "Desactivado",
+        "total": "Total"
+    }
 }
