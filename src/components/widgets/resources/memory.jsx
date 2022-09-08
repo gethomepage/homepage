@@ -14,7 +14,7 @@ export default function Memory() {
     return (
       <div className="flex-none flex flex-row items-center justify-center">
         <BiError className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-        <div className="flex flex-col ml-3 text-left font-mono">
+        <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-xs">{t("widget.api_error")}</span>
         </div>
       </div>
@@ -25,7 +25,7 @@ export default function Memory() {
     return (
       <div className="flex-none flex flex-row items-center justify-center">
         <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-        <div className="flex flex-col ml-3 text-left font-mono">
+        <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-xs">-</span>
         </div>
       </div>
@@ -37,7 +37,7 @@ export default function Memory() {
   return (
     <div className="flex-none flex flex-row items-center justify-center group">
       <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-      <div className="flex flex-col ml-3 text-left font-mono">
+      <div className="flex flex-col ml-3 text-left">
         <span className="text-theme-800 dark:text-theme-200 text-xs group-hover:hidden">
           {t("common.bytes", { value: data.memory.freeMemMb * 1024 * 1024 })} {t("resources.free")}
         </span>
