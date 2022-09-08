@@ -1,87 +1,87 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
+        "missing_type": "Manglende miniprogramstype: {{type}}",
+        "api_error": "API-feil",
         "status": "Status"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Søk …"
     },
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "total": "Totalt",
+        "free": "Ledig",
+        "used": "Brukt"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "offline": "Offline"
+        "rx": "Mottatt",
+        "tx": "Sendt",
+        "mem": "Minne",
+        "cpu": "Prosessor",
+        "offline": "Frakoblet"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Spiller",
+        "transcoding": "Transkoding",
         "bitrate": "Bitrate"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Spiller",
+        "transcoding": "Transkoding",
         "bitrate": "Bitrate"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Takt",
+        "remaining": "Gjenstående",
+        "downloaded": "Nedlastet"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktiv",
+        "upload": "Opplasting",
+        "download": "Nedlasting"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Ønsket",
+        "queued": "I kø",
+        "series": "Serie"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Ønsket",
+        "queued": "I kø",
+        "movies": "Filmer"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Venter",
+        "approved": "Godkjent",
+        "available": "Tilgjengelig"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Venter",
+        "approved": "Godkjent",
+        "available": "Tilgjengelig"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Spørringer",
+        "blocked": "Blokkert",
+        "gravity": "Gravitet"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "Opplasting",
+        "download": "Nedlasting",
+        "ping": "Ekkoforespørsel"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Kjører",
+        "stopped": "Stoppet",
+        "total": "Totalt"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Rutere",
+        "services": "Tjenester",
+        "middleware": "Midtvare"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Påskrudd",
+        "disabled": "Avskrudd",
+        "total": "Totalt"
     }
 }
