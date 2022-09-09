@@ -83,5 +83,11 @@
         "enabled": "Påskrudd",
         "disabled": "Avskrudd",
         "total": "Totalt"
+    },
+    "weather": {
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait",
+        "current": "Current Location"
     }
 }
