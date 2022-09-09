@@ -15,6 +15,10 @@ export async function servicesFromConfig() {
   const fileContents = await fs.readFile(servicesYaml, "utf8");
   const services = yaml.load(fileContents);
 
+  if (!services) {
+    return [];
+  }
+
   // map easy to write YAML objects into easy to consume JS arrays
   const servicesArray = services.map((servicesGroup) => ({
     name: Object.keys(servicesGroup)[0],
@@ -33,6 +37,10 @@ export async function servicesFromDocker() {
   const dockerYaml = path.join(process.cwd(), "config", "docker.yaml");
   const dockerFileContents = await fs.readFile(dockerYaml, "utf8");
   const servers = yaml.load(dockerFileContents);
+
+  if (!servers) {
+    return [];
+  }
 
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
