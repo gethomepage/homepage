@@ -85,9 +85,9 @@
         "total": "Totalt"
     },
     "weather": {
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait",
-        "current": "Current Location"
+        "allow": "Klikk for å tillate",
+        "updating": "Oppdaterer …",
+        "wait": "Vent litt …",
+        "current": "Nåværende posisjon"
     }
 }
