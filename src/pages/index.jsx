@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widget";
+import Revalidate from "components/revalidate";
+import { getSettings } from "utils/config";
 import { ColorProvider } from "utils/color-context";
 import { ThemeProvider } from "utils/theme-context";
 
@@ -19,18 +21,34 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search"];
 
-export default function Home() {
+export async function getStaticProps() {
+  const settings = await getSettings();
+
+  return {
+    props: {
+      settings,
+    },
+  };
+}
+export default function Home({ settings }) {
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
+
+  const wrappedStyle = {};
+  if (settings.background) {
+    wrappedStyle.backgroundImage = `url(${settings.background})`;
+    wrappedStyle.backgroundSize = "cover";
+  }
 
   return (
     <ColorProvider>
       <ThemeProvider>
         <Head>
-          <title>Welcome</title>
+          <title>{settings.title || "Homepage"}</title>
         </Head>
-        <div className="w-full container m-auto flex flex-col h-screen justify-between">
+        <div className="fixed w-full h-full m-0 p-0" style={wrappedStyle} />
+        <div className="relative w-full container m-auto flex flex-col h-screen justify-between">
           <div className="flex flex-row flex-wrap space-x-0 sm:space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between md:justify-start">
             {widgets && (
               <>
@@ -69,6 +87,7 @@ export default function Home() {
 
           <div className="rounded-full flex p-8 w-full justify-between">
             <ColorToggle />
+            <Revalidate />
             <ThemeToggle />
           </div>
         </div>

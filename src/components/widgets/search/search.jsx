@@ -52,19 +52,33 @@ export default function Search({ options }) {
 
   return (
     <form className="flex-col relative h-8 my-4 min-w-full md:min-w-fit grow" onSubmit={handleSubmit}>
-      <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-theme-200" />
+      <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
       <input
-        type="search"
-        className="overflow-hidden w-full placeholder-theme-900 text-xs text-theme-900 bg-theme-50 rounded-md border border-theme-300 focus:ring-theme-500 focus:border-theme-500 dark:bg-theme-800 dark:border-theme-600 dark:placeholder-theme-400 dark:text-white dark:focus:ring-theme-500 dark:focus:border-theme-500 h-full"
+        type="text"
+        className="
+          overflow-hidden w-full h-full rounded-md
+          text-xs text-theme-900 dark:text-white
+          placeholder-theme-900 dark:placeholder-white/80
+          bg-white/50 dark:bg-white/10
+          focus:ring-theme-500 dark:focus:ring-white/50
+          focus:border-theme-500 dark:focus:border-white/50
+          border border-theme-300 dark:border-theme-200/50"
         placeholder={t("search.placeholder")}
         onChange={(s) => setQuery(s.currentTarget.value)}
         required
+        autoCapitalize="off"
+        autoCorrect="off"
+        autoComplete="off"
       />
       <button
         type="submit"
-        className="text-white absolute right-0.5 bottom-0.5 bg-theme-700 hover:bg-theme-800 border-1 focus:ring-2 focus:ring-theme-300 font-medium rounded-r-md text-sm px-4 py-2 dark:bg-theme-600 dark:hover:bg-theme-700 dark:focus:ring-theme-500"
+        className="
+        absolute right-0.5 bottom-0.5 rounded-r-md px-4 py-2 border-1
+        text-white font-medium text-sm
+        bg-theme-600/40 dark:bg-white/10
+        focus:ring-theme-500 dark:focus:ring-white/50"
       >
-        <provider.icon className="text-theme-800 dark:text-theme-200 w-3 h-3" />
+        <provider.icon className="text-white w-3 h-3" />
       </button>
     </form>
   );

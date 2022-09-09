@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { FiCpu } from "react-icons/fi";
 import { BiError } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+import UsageBar from "./usage-bar";
 
 export default function Cpu() {
   const { t } = useTranslation();
@@ -41,14 +42,7 @@ export default function Cpu() {
         <div className="text-theme-800 dark:text-theme-200 text-xs">
           {t("common.number", { value: data.cpu.usage, style: "unit", unit: "percent", maximumFractionDigits: 0 })}
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
-          <div
-            className="bg-theme-600 h-1 rounded-full dark:bg-theme-500"
-            style={{
-              width: `${percent}%`,
-            }}
-          />
-        </div>
+        <UsageBar percent={percent} />
       </div>
     </div>
   );

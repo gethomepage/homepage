@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { FiHardDrive } from "react-icons/fi";
 import { BiError } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+import UsageBar from "./usage-bar";
 
 export default function Disk({ options }) {
   const { t } = useTranslation();
@@ -44,14 +45,7 @@ export default function Disk({ options }) {
         <span className="text-theme-800 dark:text-theme-200 text-xs hidden group-hover:block">
           {t("common.bytes", { value: data.drive.totalGb * 1024 * 1024 * 1024 })} {t("resources.total")}
         </span>
-        <div className="w-full bg-gray-200 rounded-full h-1 dark:bg-gray-700">
-          <div
-            className="bg-theme-600 h-1 rounded-full dark:bg-theme-500"
-            style={{
-              width: `${percent}%`,
-            }}
-          />
-        </div>
+        <UsageBar percent={percent} />
       </div>
     </div>
   );

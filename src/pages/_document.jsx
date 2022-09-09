@@ -11,7 +11,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="w-full h-full bg-theme-50 dark:bg-theme-800 transition duration-150 ease-in-out">
+      <body className="relative w-full h-full bg-theme-50 dark:bg-theme-800 transition duration-150 ease-in-out">
         <Main />
         <NextScript />
       </body>

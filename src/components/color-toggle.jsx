@@ -27,6 +27,7 @@ const colors = [
   "pink",
   "rose",
   "red",
+  "white",
 ];
 
 export default function ColorToggle() {
@@ -56,13 +57,13 @@ export default function ColorToggle() {
         >
           <Popover.Panel className="absolute -top-[75px] left-0">
             <div className="rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="relative grid gap-2 p-2 grid-cols-11 shadow-theme-900/10 dark:shadow-theme-900 rounded-md shadow-md">
+              <div className="relative grid gap-2 p-2 grid-cols-11 bg-white/50 dark:bg-white/10 shadow-black/10 dark:shadow-black/20 rounded-md shadow-md">
                 {colors.map((color) => (
                   <button type="button" onClick={() => setColor(color)} key={color}>
                     <div
                       className={classNames(
                         active === color ? "border-2" : "border-0",
-                        `rounded-md w-5 h-5 border-black/50 dark:border-white/50 theme-${color} bg-theme-500`
+                        `rounded-md w-5 h-5 border-black/50 dark:border-white/50 theme-${color} bg-theme-400`
                       )}
                     />
                   </button>
