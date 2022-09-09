@@ -83,5 +83,11 @@
         "enabled": "Enabled",
         "disabled": "Disabled",
         "total": "Total"
+    },
+    "weather": {
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
     }
 }
