@@ -1,43 +1,43 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Thiếu loại Widget: {{type}}",
+        "api_error": "Lỗi API",
+        "status": "Trạng thái"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Tìm kiếm…"
     },
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "total": "Tổng",
+        "free": "Dư",
+        "used": "Đã dùng"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "BỘ NHỚ",
         "cpu": "CPU",
-        "offline": "Offline"
+        "offline": "Ngoại tuyến"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Đang chơi",
+        "transcoding": "Chuyển định dạng",
         "bitrate": "Bitrate"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Đang chơi",
+        "transcoding": "Chuyển định dạng",
         "bitrate": "Bitrate"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "remaining": "Còn lại",
+        "downloaded": "Đã tải"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Hoạt động",
+        "upload": "Tải lên",
+        "download": "Tải xuống"
     },
     "sonarr": {
         "wanted": "Wanted",
