@@ -15,6 +15,12 @@
         "api_error": "API Error",
         "status": "Status"
     },
+    "weather": {
+      "current": "Current Location",
+      "allow": "Click to allow",
+      "updating": "Updating",
+      "wait": "Please wait"
+    },
     "search": {
         "placeholder": "Search…"
     },
