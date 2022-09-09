@@ -1,3 +1,5 @@
+import { existsSync } from "fs";
+
 import { cpu, drive, mem } from "node-os-utils";
 
 export default async function handler(req, res) {
@@ -13,6 +15,12 @@ export default async function handler(req, res) {
   }
 
   if (type === "disk") {
+    if (!existsSync(target)) {
+      return res.status(404).json({
+        error: "Target not found",
+      });
+    }
+
     return res.status(200).json({
       drive: await drive.info(target || "/"),
     });
