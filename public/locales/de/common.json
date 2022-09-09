@@ -16,7 +16,7 @@
         "rx": "Rx",
         "tx": "Tx",
         "mem": "Mem",
-        "cpu": "Zentralprozessor",
+        "cpu": "Prozessor",
         "offline": "Offline"
     },
     "emby": {
@@ -61,13 +61,13 @@
     },
     "pihole": {
         "queries": "Abfragen",
-        "blocked": "verstopft",
-        "gravity": "Schwere"
+        "blocked": "Blockiert",
+        "gravity": "Gravity"
     },
     "speedtest": {
-        "upload": "Hochladen",
+        "upload": "Upload",
         "download": "Download",
-        "ping": "Klingeln"
+        "ping": "Ping"
     },
     "portainer": {
         "running": "Betrieb",
@@ -76,18 +76,18 @@
     },
     "traefik": {
         "routers": "Router",
-        "services": "Dienstleistungen",
+        "services": "Services",
         "middleware": "Middleware"
     },
     "npm": {
-        "enabled": "Ermöglicht",
+        "enabled": "Aktiviert",
         "disabled": "Deaktiviert",
         "total": "Gesamt"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Aktueller Standort",
+        "allow": "Zum Zulassen anklicken",
+        "updating": "Aktualisieren",
+        "wait": "Bitte warten"
     }
 }
