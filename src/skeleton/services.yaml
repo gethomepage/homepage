@@ -5,11 +5,6 @@
     - My First Service:
         href: http://localhost/
         description: Homepage is awesome
-        # widget:
-        #   type: npm # npm for NGINX Proxy Manager
-        #   url: http://localhost # no slash at the end
-        #   username: email@example.com # your email
-        #   password: secretpassword # your password
 
 - My Second Group:
     - My Second Service:
