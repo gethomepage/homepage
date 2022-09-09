@@ -83,5 +83,11 @@
         "enabled": "Включено",
         "disabled": "Неполноценный",
         "total": "Общий"
+    },
+    "weather": {
+        "wait": "Please wait",
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating"
     }
 }
