@@ -28,7 +28,7 @@ COPY . .
 RUN <<EOF
     set -xe
     yarn next telemetry disable
-    mkdir config
+    mkdir config && echo '-' > config/settings.yaml
     npm run build
 EOF
 
