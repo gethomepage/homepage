@@ -1,87 +1,93 @@
 {
-  "widget":{
-     "missing_type":"缺少小部件类型：{{type}}",
-     "api_error":"API错误",
-     "status":"地位"
-  },
-  "search":{
-     "placeholder":"搜索…"
-  },
-  "resources":{
-     "total":"全部的",
-     "free":"自由的",
-     "used":"用过的"
-  },
-  "docker":{
-     "rx":"rx",
-     "tx":"TX",
-     "mem":"mem",
-     "cpu":"中央处理器",
-     "offline":"离线"
-  },
-  "emby":{
-     "playing":"玩",
-     "transcoding":"转码",
-     "bitrate":"比特率"
-  },
-  "tautulli":{
-     "playing":"玩",
-     "transcoding":"转码",
-     "bitrate":"比特率"
-  },
-  "nzbget":{
-     "rate":"速度",
-     "remaining":"其余的",
-     "downloaded":"下载"
-  },
-  "rutorrent":{
-     "active":"积极的",
-     "upload":"上传",
-     "download":"下载"
-  },
-  "sonarr":{
-     "wanted":"通缉",
-     "queued":"排队",
-     "series":"系列"
-  },
-  "radarr":{
-     "wanted":"通缉",
-     "queued":"排队",
-     "movies":"电影"
-  },
-  "ombi":{
-     "pending":"待办的",
-     "approved":"得到正式认可的",
-     "available":"可用的"
-  },
-  "jellyseerr":{
-     "pending":"待办的",
-     "approved":"得到正式认可的",
-     "available":"可用的"
-  },
-  "pihole":{
-     "queries":"查询",
-     "blocked":"阻止",
-     "gravity":"重力"
-  },
-  "speedtest":{
-     "upload":"上传",
-     "download":"下载",
-     "ping":"ping"
-  },
-  "portainer":{
-     "running":"跑步",
-     "stopped":"停了下来",
-     "total":"全部的"
-  },
-  "traefik":{
-     "routers":"路由器",
-     "services":"服务",
-     "middleware":"中间件"
-  },
-  "npm":{
-     "enabled":"已启用",
-     "disabled":"禁用",
-     "total":"全部的"
-  }
+    "widget": {
+        "missing_type": "缺少小部件类型：{{type}}",
+        "api_error": "API错误",
+        "status": "地位"
+    },
+    "search": {
+        "placeholder": "搜索…"
+    },
+    "resources": {
+        "total": "全部的",
+        "free": "自由的",
+        "used": "用过的"
+    },
+    "docker": {
+        "rx": "rx",
+        "tx": "TX",
+        "mem": "mem",
+        "cpu": "中央处理器",
+        "offline": "离线"
+    },
+    "emby": {
+        "playing": "玩",
+        "transcoding": "转码",
+        "bitrate": "比特率"
+    },
+    "tautulli": {
+        "playing": "玩",
+        "transcoding": "转码",
+        "bitrate": "比特率"
+    },
+    "nzbget": {
+        "rate": "速度",
+        "remaining": "其余的",
+        "downloaded": "下载"
+    },
+    "rutorrent": {
+        "active": "积极的",
+        "upload": "上传",
+        "download": "下载"
+    },
+    "sonarr": {
+        "wanted": "通缉",
+        "queued": "排队",
+        "series": "系列"
+    },
+    "radarr": {
+        "wanted": "通缉",
+        "queued": "排队",
+        "movies": "电影"
+    },
+    "ombi": {
+        "pending": "待办的",
+        "approved": "得到正式认可的",
+        "available": "可用的"
+    },
+    "jellyseerr": {
+        "pending": "待办的",
+        "approved": "得到正式认可的",
+        "available": "可用的"
+    },
+    "pihole": {
+        "queries": "查询",
+        "blocked": "阻止",
+        "gravity": "重力"
+    },
+    "speedtest": {
+        "upload": "上传",
+        "download": "下载",
+        "ping": "ping"
+    },
+    "portainer": {
+        "running": "跑步",
+        "stopped": "停了下来",
+        "total": "全部的"
+    },
+    "traefik": {
+        "routers": "路由器",
+        "services": "服务",
+        "middleware": "中间件"
+    },
+    "npm": {
+        "enabled": "已启用",
+        "disabled": "禁用",
+        "total": "全部的"
+    },
+    "weather": {
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
+    }
 }
