@@ -30,7 +30,6 @@ RUN <<EOF
     yarn next telemetry disable
     mkdir config
     npm run build
-    rm -rf config
 EOF
 
 # Production image, copy all the files and run next
