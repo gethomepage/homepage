@@ -1,15 +1,15 @@
 import path from "path";
-import { promises as fs } from "fs";
+import { readFileSync } from "fs";
 
 import yaml from "js-yaml";
 
 import checkAndCopyConfig from "utils/config";
 
-export default async function getDockerArguments(server) {
+export default function getDockerArguments(server) {
   checkAndCopyConfig("docker.yaml");
 
   const configFile = path.join(process.cwd(), "config", "docker.yaml");
-  const configData = await fs.readFile(configFile, "utf8");
+  const configData = readFileSync(configFile, "utf8");
   const servers = yaml.load(configData);
 
   if (!server) {

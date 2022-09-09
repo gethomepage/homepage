@@ -1,40 +1,26 @@
-import { promises as fs } from "fs";
-import path from "path";
-
-import yaml from "js-yaml";
-
-import checkAndCopyConfig from "utils/config";
+import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/service-helpers";
 
 export default async function handler(req, res) {
-  checkAndCopyConfig("services.yaml");
+  const discoveredServices = cleanServiceGroups(await servicesFromDocker());
+  const configuredServices = cleanServiceGroups(await servicesFromConfig());
 
-  const servicesYaml = path.join(process.cwd(), "config", "services.yaml");
-  const fileContents = await fs.readFile(servicesYaml, "utf8");
-  const services = yaml.load(fileContents);
+  const mergedGroupsNames = [
+    ...new Set([discoveredServices.map((group) => group.name), configuredServices.map((group) => group.name)].flat()),
+  ];
 
-  // map easy to write YAML objects into easy to consume JS arrays
-  const servicesArray = services.map((group) => ({
-    name: Object.keys(group)[0],
-    services: group[Object.keys(group)[0]].map((entries) => {
-      const { widget, ...service } = entries[Object.keys(entries)[0]];
-      const result = {
-        name: Object.keys(entries)[0],
-        ...service,
-      };
+  const mergedGroups = [];
 
-      if (widget) {
-        const { type } = widget;
+  mergedGroupsNames.forEach((groupName) => {
+    const discoveredGroup = discoveredServices.find((group) => group.name === groupName) || { services: [] };
+    const configuredGroup = configuredServices.find((group) => group.name === groupName) || { services: [] };
 
-        result.widget = {
-          type,
-          service_group: Object.keys(group)[0],
-          service_name: Object.keys(entries)[0],
-        };
-      }
+    const mergedGroup = {
+      name: groupName,
+      services: [...discoveredGroup.services, ...configuredGroup.services].filter((service) => service),
+    };
 
-      return result;
-    }),
-  }));
+    mergedGroups.push(mergedGroup);
+  });
 
-  res.send(servicesArray);
+  res.send(mergedGroups);
 }
