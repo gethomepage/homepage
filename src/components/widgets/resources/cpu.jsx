@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { FiCpu } from "react-icons/fi";
 import { BiError } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+
 import UsageBar from "./usage-bar";
 
 export default function Cpu() {
