@@ -27,8 +27,6 @@ export default function Jellyfin({ service }) {
     );
   }
 
-  console.log(sessionsData);
-
   const playing = sessionsData.filter((session) => session?.NowPlayingItem);
   const transcoding = sessionsData.filter(
     (session) => session?.PlayState && session.PlayState.PlayMethod === "Transcode"
