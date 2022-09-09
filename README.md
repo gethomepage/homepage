@@ -20,6 +20,7 @@
   * Information & Utility Widgets
     - System Stats (Disk, CPU, Memory)
     - Weather via WeatherAPI.com or OpenWeatherMap ([AlexFullmoon](https://github.com/benphelps/homepage/pull/25))
+      - Automatic location detection (with HTTPS), or manual location selection
     - Search Bar ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
   * Customizable
     - 21 theme colors with light and dark mode support
