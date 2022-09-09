@@ -5,7 +5,7 @@
         "status": "Status"
     },
     "search": {
-        "placeholder": "Procurar…"
+        "placeholder": "Pesquisar…"
     },
     "resources": {
         "total": "Total",
@@ -20,32 +20,32 @@
         "offline": "Desligada"
     },
     "emby": {
-        "playing": "Jogando",
+        "playing": "A reproduzir",
         "transcoding": "Transcodificação",
         "bitrate": "Taxa de bits"
     },
     "tautulli": {
-        "playing": "Jogando",
+        "playing": "Reproduzindo",
         "transcoding": "Transcodificação",
         "bitrate": "Taxa de bits"
     },
     "nzbget": {
         "rate": "Avaliar",
-        "remaining": "Remanescente",
+        "remaining": "Em falta",
         "downloaded": "Baixada"
     },
     "rutorrent": {
         "active": "Ativa",
         "upload": "Envio",
-        "download": "Download"
+        "download": "ReceçãoDownload"
     },
     "sonarr": {
         "wanted": "Desejada",
-        "queued": "Enfileiradas",
-        "series": "Series"
+        "queued": "Em fila",
+        "series": "Séries"
     },
     "radarr": {
-        "wanted": "Desejada",
+        "wanted": "Desejado",
         "queued": "Enfileiradas",
         "movies": "Filmes"
     },
@@ -96,9 +96,9 @@
         "percent": "{{value, percent}}"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Localização atual",
+        "allow": "Clicar para permitir",
+        "updating": "A atualizar",
+        "wait": "Por favor aguarde"
     }
 }
