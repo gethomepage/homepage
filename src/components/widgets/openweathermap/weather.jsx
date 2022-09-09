@@ -96,6 +96,8 @@ export default function OpenWeatherMap({ options }) {
     );
   };
 
+  if (!requesting && !location) requestLocation();
+
   if (!location) {
     return (
       <button type="button" onClick={() => requestLocation()} className="flex flex-col justify-center">

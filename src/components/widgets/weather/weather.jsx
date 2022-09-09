@@ -75,7 +75,7 @@ export default function WeatherApi({ options }) {
   const [location, setLocation] = useState(false);
   const [requesting, setRequesting] = useState(false);
 
-  if (options.latitude && options.longitude) {
+  if (!location && options.latitude && options.longitude) {
     setLocation({ latitude: options.latitude, longitude: options.longitude });
   }
 
@@ -96,6 +96,8 @@ export default function WeatherApi({ options }) {
       }
     );
   };
+
+  if (!requesting && !location) requestLocation();
 
   if (!location) {
     return (
