@@ -94,5 +94,11 @@
         "ms": "{{value, number}}",
         "bitrate": "{{value, bytes(bits: true)}}",
         "percent": "{{value, percent}}"
+    },
+    "weather": {
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
     }
 }
