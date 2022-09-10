@@ -13,8 +13,8 @@
         "used": "Usado"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
+        "rx": "Recibido",
+        "tx": "Transmitido",
         "mem": "Memoria",
         "cpu": "Procesador",
         "offline": "Desconectado"
@@ -85,9 +85,9 @@
         "total": "Total"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Ubicación Actual",
+        "allow": "Haga clic para permitir",
+        "updating": "Actualizando",
+        "wait": "Espere, por favor"
     }
 }
