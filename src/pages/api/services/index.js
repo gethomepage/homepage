@@ -1,8 +1,23 @@
+/* eslint-disable no-console */
 import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/service-helpers";
 
 export default async function handler(req, res) {
-  const discoveredServices = cleanServiceGroups(await servicesFromDocker());
-  const configuredServices = cleanServiceGroups(await servicesFromConfig());
+  let discoveredServices;
+  let configuredServices;
+
+  try {
+    discoveredServices = cleanServiceGroups(await servicesFromDocker());
+  } catch {
+    console.error("Failed to discover services, please check docker.yaml for errors");
+    discoveredServices = [];
+  }
+
+  try {
+    configuredServices = cleanServiceGroups(await servicesFromConfig());
+  } catch {
+    console.error("Failed to load services.yaml, please check for errors");
+    configuredServices = [];
+  }
 
   const mergedGroupsNames = [
     ...new Set([discoveredServices.map((group) => group.name), configuredServices.map((group) => group.name)].flat()),

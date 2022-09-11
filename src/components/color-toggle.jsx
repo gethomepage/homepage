@@ -56,7 +56,7 @@ export default function ColorToggle() {
           leaveTo="opacity-0 translate-y-1"
         >
           <Popover.Panel className="absolute -top-[75px] left-0">
-            <div className="rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="rounded-md shadow-lg ring-1 ring-black ring-opacity-5 w-[85vw] sm:w-full">
               <div className="relative grid gap-2 p-2 grid-cols-11 bg-white/50 dark:bg-white/10 shadow-black/10 dark:shadow-black/20 rounded-md shadow-md">
                 {colors.map((color) => (
                   <button type="button" onClick={() => setColor(color)} key={color}>

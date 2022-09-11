@@ -10,29 +10,31 @@
     "resources": {
         "total": "Общий",
         "free": "Свободно",
-        "used": "Использовал"
+        "used": "Использовано"
     },
     "docker": {
         "rx": "Rx",
-        "tx": "Техас",
-        "mem": "Мем",
+        "tx": "Тx",
+        "mem": "Память",
         "cpu": "Процессор",
         "offline": "Не в сети"
     },
     "emby": {
-        "playing": "Игра",
+        "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
-        "bitrate": "Битрейт"
+        "bitrate": "Битрейт",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
-        "playing": "Игра",
+        "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
-        "bitrate": "Битрейт"
+        "bitrate": "Битрейт",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
-        "rate": "Оценивать",
-        "remaining": "Оставшийся",
-        "downloaded": "Загружен"
+        "rate": "Оценка",
+        "remaining": "Осталось",
+        "downloaded": "Загружено"
     },
     "rutorrent": {
         "active": "Активный",
@@ -50,45 +52,50 @@
         "movies": "Фильмы"
     },
     "ombi": {
-        "pending": "В ожидании",
-        "approved": "Одобренный",
-        "available": "Доступный"
+        "pending": "Ожидание",
+        "approved": "Одобрено",
+        "available": "Доступно"
     },
     "jellyseerr": {
-        "pending": "В ожидании",
-        "approved": "Одобренный",
-        "available": "Доступный"
+        "pending": "Ожидание",
+        "approved": "Одобрено",
+        "available": "Доступно"
     },
     "pihole": {
         "queries": "Запросы",
-        "blocked": "Заблокированный",
+        "blocked": "Заблокировано",
         "gravity": "Сила тяжести"
     },
     "speedtest": {
-        "upload": "Загрузить",
+        "upload": "Загрузка",
         "download": "Скачать",
         "ping": "пинг"
     },
     "portainer": {
-        "running": "Бег",
-        "stopped": "Остановился",
-        "total": "Общий"
+        "running": "Запущено",
+        "stopped": "Остановлено",
+        "total": "Всего"
     },
     "traefik": {
         "routers": "Маршрутизаторы",
-        "services": "Услуги",
+        "services": "Сервисы",
         "middleware": "Промежуточное программное обеспечение"
     },
     "npm": {
         "enabled": "Включено",
-        "disabled": "Неполноценный",
-        "total": "Общий"
+        "disabled": "Отключено",
+        "total": "Всего"
     },
     "weather": {
-        "wait": "Please wait",
-        "current": "Current Location",
+        "wait": "Пожалуйста подождите",
+        "current": "Текущее местоположение",
         "allow": "Click to allow",
-        "updating": "Updating"
+        "updating": "Обновление"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "gotify": {
         "apps": "Aplicações",

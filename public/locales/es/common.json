@@ -13,8 +13,8 @@
         "used": "Usado"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
+        "rx": "Recibido",
+        "tx": "Transmitido",
         "mem": "Memoria",
         "cpu": "Procesador",
         "offline": "Desconectado"
@@ -22,12 +22,14 @@
     "emby": {
         "playing": "En ejecución",
         "transcoding": "Transcodificando",
-        "bitrate": "Tasa de Bits"
+        "bitrate": "Tasa de Bits",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "En ejecución",
         "transcoding": "Transcodificación",
-        "bitrate": "Tasa de bits"
+        "bitrate": "Tasa de bits",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Velocidad",
@@ -85,10 +87,15 @@
         "total": "Total"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Ubicación Actual",
+        "allow": "Haga clic para permitir",
+        "updating": "Actualizando",
+        "wait": "Espere, por favor"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "gotify": {
         "apps": "Aplicaciones",

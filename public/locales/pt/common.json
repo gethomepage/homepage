@@ -22,12 +22,14 @@
     "emby": {
         "playing": "A reproduzir",
         "transcoding": "Transcodificação",
-        "bitrate": "Taxa de bits"
+        "bitrate": "Taxa de bits",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "Reproduzindo",
         "transcoding": "Transcodificação",
-        "bitrate": "Taxa de bits"
+        "bitrate": "Taxa de bits",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Avaliar",
@@ -100,6 +102,11 @@
         "allow": "Clicar para permitir",
         "updating": "A atualizar",
         "wait": "Por favor aguarde"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "gotify": {
         "apps": "Aplicações",

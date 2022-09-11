@@ -22,12 +22,14 @@
     "emby": {
         "playing": "Spiller",
         "transcoding": "Transkoding",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "Spiller",
         "transcoding": "Transkoding",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Takt",
@@ -89,6 +91,11 @@
         "updating": "Oppdaterer …",
         "wait": "Vent litt …",
         "current": "Nåværende posisjon"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "gotify": {
         "apps": "Applications",

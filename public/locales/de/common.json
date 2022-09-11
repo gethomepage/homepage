@@ -22,12 +22,14 @@
     "emby": {
         "playing": "Spielen",
         "transcoding": "Transcodierung",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "Spielen",
         "transcoding": "Transcodierung",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Rate",
@@ -89,6 +91,11 @@
         "allow": "Zum Zulassen anklicken",
         "updating": "Aktualisieren",
         "wait": "Bitte warten"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "gotify": {
         "apps": "Anwendungen",

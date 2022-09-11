@@ -51,7 +51,7 @@ export default function Search({ options }) {
   }
 
   return (
-    <form className="flex-col relative h-8 my-4 min-w-full md:min-w-fit grow" onSubmit={handleSubmit}>
+    <form className="flex-col relative h-8 my-4 min-w-full md:min-w-fit grow mr-4" onSubmit={handleSubmit}>
       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
       <input
         type="text"
@@ -62,7 +62,8 @@ export default function Search({ options }) {
           bg-white/50 dark:bg-white/10
           focus:ring-theme-500 dark:focus:ring-white/50
           focus:border-theme-500 dark:focus:border-white/50
-          border border-theme-300 dark:border-theme-200/50"
+          border border-theme-300 dark:border-theme-200/50
+          backdrop-blur-md"
         placeholder={t("search.placeholder")}
         onChange={(s) => setQuery(s.currentTarget.value)}
         required

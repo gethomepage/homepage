@@ -18,6 +18,7 @@ const serviceProxyHandlers = {
   gotify: credentialedProxyHandler,
   portainer: credentialedProxyHandler,
   jellyseerr: credentialedProxyHandler,
+  overseerr: credentialedProxyHandler,
   ombi: credentialedProxyHandler,
   // super specific handlers
   rutorrent: rutorrentProxyHandler,

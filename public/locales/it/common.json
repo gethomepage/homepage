@@ -9,12 +9,14 @@
     "emby": {
         "playing": "Playing",
         "transcoding": "Transcoding",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "Playing",
         "transcoding": "Transcoding",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "speedtest": {
         "upload": "Upload",
@@ -89,6 +91,11 @@
         "allow": "Click to allow",
         "updating": "Updating",
         "wait": "Please wait"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "gotify": {
         "apps": "Applications",

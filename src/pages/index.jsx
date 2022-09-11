@@ -49,7 +49,7 @@ export default function Home({ settings }) {
         </Head>
         <div className="fixed w-full h-full m-0 p-0" style={wrappedStyle} />
         <div className="relative w-full container m-auto flex flex-col h-screen justify-between">
-          <div className="flex flex-row flex-wrap space-x-0 sm:space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between md:justify-start">
+          <div className="flex flex-row flex-wrap m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between">
             {widgets && (
               <>
                 {widgets
@@ -58,7 +58,7 @@ export default function Home({ settings }) {
                     <Widget key={i} widget={widget} />
                   ))}
 
-                <div className="flex flex-wrap basis-full space-x-0 sm:space-x-4 grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
+                <div className="ml-4 flex flex-wrap basis-full grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
                   {widgets
                     .filter((widget) => rightAlignedWidgets.includes(widget.type))
                     .map((widget, i) => (
