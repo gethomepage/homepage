@@ -6,14 +6,16 @@
 ## Features
 
   * Fast! The entire site is statically generated at build time, so you can expect instant load times.
+  * Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6 ([schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62))
+    - Supports all Raspberry Pi's & Apple Silicon
   * Full i18n support with automatic language detection.
-    - Human translations for English, Norwegian Bokmål ([comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)) and Spanish ([AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves)).
-    - Machine translations for Portuguese, French, German, Russian and Chinese (simplified).
+    - Human translations for English, Norwegian Bokmål ([comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)), Spanish ([AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves)), French (J. Lavoie), Dutch ([deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony)) and Chinese ([nicedc](https://github.com/nicedc)).
+    - Machine translations for Portuguese, German and Russian.
     - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/).
-  * Complete Docker support, including AMD64, ARM64, ARMv7 and ARMv6 support ([schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62))
   * Service & Web Bookmarks
   * Docker Integration
-    - Status light + CPU, Memory & Network Reporting *(click on the status light)*
+    - Container status (Running / Stopped) & statistics (CPU, Memory, Network)
+    - Automatic service discovery (via labels)
   * Service Integration
     - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Jellyseerr ([ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
     - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
