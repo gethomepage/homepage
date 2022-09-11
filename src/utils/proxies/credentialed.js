@@ -11,6 +11,7 @@ export default async function credentialedProxyHandler(req, res) {
     if (widget) {
       const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
       const [status, contentType, data] = await httpProxy(url, {
+        method: req.method,
         withCredentials: true,
         credentials: "include",
         headers: {
