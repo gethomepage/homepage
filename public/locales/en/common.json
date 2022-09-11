@@ -78,6 +78,11 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "overseerr": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "available": "Available"
+  },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",

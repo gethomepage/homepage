@@ -17,6 +17,7 @@ const serviceProxyHandlers = {
   // uses X-API-Key header auth
   portainer: credentialedProxyHandler,
   jellyseerr: credentialedProxyHandler,
+  overseerr: credentialedProxyHandler,
   ombi: credentialedProxyHandler,
   // super specific handlers
   rutorrent: rutorrentProxyHandler,

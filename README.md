@@ -17,7 +17,7 @@
     - Container status (Running / Stopped) & statistics (CPU, Memory, Network)
     - Automatic service discovery (via labels)
   * Service Integration
-    - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Jellyseerr ([ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
+    - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Overseerr, Jellyseerr ([ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
     - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
   * Information & Utility Widgets
     - System Stats (Disk, CPU, Memory)

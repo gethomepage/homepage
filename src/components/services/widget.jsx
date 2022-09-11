@@ -13,6 +13,7 @@ import Jellyfin from "./widgets/service/jellyfin";
 import Speedtest from "./widgets/service/speedtest";
 import Traefik from "./widgets/service/traefik";
 import Jellyseerr from "./widgets/service/jellyseerr";
+import Overseerr from "./widgets/service/overseerr";
 import Npm from "./widgets/service/npm";
 import Tautulli from "./widgets/service/tautulli";
 
@@ -30,6 +31,7 @@ const widgetMappings = {
   speedtest: Speedtest,
   traefik: Traefik,
   jellyseerr: Jellyseerr,
+  overseerr: Overseerr,
   npm: Npm,
   tautulli: Tautulli,
 };
