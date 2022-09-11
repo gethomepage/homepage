@@ -91,5 +91,10 @@
         "allow": "Zum Zulassen anklicken",
         "updating": "Aktualisieren",
         "wait": "Bitte warten"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     }
 }
