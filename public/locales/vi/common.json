@@ -22,12 +22,14 @@
     "emby": {
         "playing": "Đang chơi",
         "transcoding": "Chuyển định dạng",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "Đang chơi",
         "transcoding": "Chuyển định dạng",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Rate",
