@@ -22,12 +22,14 @@
     "emby": {
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
-        "bitrate": "Битрейт"
+        "bitrate": "Битрейт",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
-        "bitrate": "Битрейт"
+        "bitrate": "Битрейт",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Оценка",
