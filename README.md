@@ -9,8 +9,8 @@
   * Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6 ([schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62))
     - Supports all Raspberry Pi's, most SBCs & Apple Silicon
   * Full i18n support with automatic language detection.
-    - Human translations for English, Norwegian Bokmål ([comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)), Spanish ([AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves)), French (J. Lavoie), Dutch ([deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony)) and Chinese ([nicedc](https://github.com/nicedc)).
-    - Machine translations for Portuguese, German and Russian.
+    - Human translations for English, Norwegian Bokmål ([comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)), Spanish ([AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves)), French (J. Lavoie), Dutch ([deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony)), Chinese ([nicedc](https://github.com/nicedc)) and Russian ([desolaris](https://github.com/benphelps/homepage/commits?author=desolaris)).
+    - Machine translations for Portuguese and German.
     - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/).
   * Service & Web Bookmarks
   * Docker Integration
