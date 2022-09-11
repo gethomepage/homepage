@@ -14,7 +14,7 @@ export default function Disk({ options }) {
 
   if (error || data?.error) {
     return (
-      <div className="flex-none flex flex-row items-center justify-center">
+      <div className="flex-none flex flex-row items-center mr-3 py-1.5">
         <BiError className="text-theme-800 dark:text-theme-200 w-5 h-5" />
         <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-xs">{t("widget.api_error")}</span>
@@ -25,7 +25,7 @@ export default function Disk({ options }) {
 
   if (!data) {
     return (
-      <div className="flex-none flex flex-row items-center justify-center">
+      <div className="flex-none flex flex-row items-center mr-3 py-1.5">
         <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
         <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-xs">-</span>
@@ -37,7 +37,7 @@ export default function Disk({ options }) {
   const percent = Math.round((data.drive.usedGb / data.drive.totalGb) * 100);
 
   return (
-    <div className="flex-none flex flex-row items-center justify-center group">
+    <div className="flex-none flex flex-row items-center mr-3 py-1.5 group">
       <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
       <div className="flex flex-col ml-3 text-left min-w-[80px]">
         <span className="text-theme-800 dark:text-theme-200 text-xs group-hover:hidden">
