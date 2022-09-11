@@ -8,28 +8,28 @@
         "placeholder": "Recherche…"
     },
     "resources": {
-        "total": "Totale",
+        "total": "Total",
         "free": "Libre",
         "used": "Utilisée"
     },
     "docker": {
         "rx": "Rx",
-        "tx": "TX",
-        "mem": "Mem",
-        "cpu": "CPU",
+        "tx": "Tx",
+        "mem": "Mém",
+        "cpu": "Cpu",
         "offline": "Hors ligne"
     },
     "emby": {
-        "playing": "En jouant",
-        "transcoding": "Transcoding",
-        "bitrate": "Débiter",
-        "no_active": "No Active Streams"
+        "playing": "En lecture",
+        "transcoding": "Transcodage",
+        "bitrate": "Débit",
+        "no_active": "Aucun flux actif"
     },
     "tautulli": {
-        "playing": "En jouant",
-        "transcoding": "Transcoding",
-        "bitrate": "Débiter",
-        "no_active": "No Active Streams"
+        "playing": "En lecture",
+        "transcoding": "Transcodage",
+        "bitrate": "Débit",
+        "no_active": "Aucun flux actif"
     },
     "nzbget": {
         "rate": "Évaluer",
@@ -49,7 +49,7 @@
     "sonarr": {
         "wanted": "Recherchée",
         "queued": "En queue",
-        "series": "Série"
+        "series": "Séries"
     },
     "radarr": {
         "wanted": "Recherchée",
@@ -84,7 +84,7 @@
     "portainer": {
         "running": "Fonctionnement",
         "stopped": "Arrêté",
-        "total": "Totale"
+        "total": "Total"
     },
     "traefik": {
         "routers": "Routeurs",
@@ -93,8 +93,8 @@
     },
     "npm": {
         "enabled": "Activé",
-        "disabled": "Handicapée",
-        "total": "Totale"
+        "disabled": "Désactivé",
+        "total": "Total"
     },
     "common": {
         "bbytes": "{{value, bytes(binary: true)}}",
@@ -114,8 +114,8 @@
         "wait": "Veuillez patienter"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "En attente",
+        "approved": "Approuvée",
+        "available": "Disponible"
     }
 }
