@@ -22,12 +22,14 @@
     "emby": {
         "playing": "En ejecución",
         "transcoding": "Transcodificando",
-        "bitrate": "Tasa de Bits"
+        "bitrate": "Tasa de Bits",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "En ejecución",
         "transcoding": "Transcodificación",
-        "bitrate": "Tasa de bits"
+        "bitrate": "Tasa de bits",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Velocidad",
