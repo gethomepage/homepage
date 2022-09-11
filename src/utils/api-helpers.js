@@ -12,6 +12,7 @@ const formats = {
   jellyseerr: `{url}/api/v1/{endpoint}`,
   ombi: `{url}/api/v1/{endpoint}`,
   npm: `{url}/api/{endpoint}`,
+  gotify: `{url}/{endpoint}`,
 };
 
 export function formatApiCall(api, args) {

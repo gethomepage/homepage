@@ -89,5 +89,10 @@
         "current": "Current Location",
         "allow": "Click to allow",
         "updating": "Updating"
+    },
+    "gotify": {
+        "apps": "Aplicações",
+        "clients": "Clientes",
+        "messages": "Mensagens"
     }
 }

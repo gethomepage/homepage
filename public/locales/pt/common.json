@@ -100,5 +100,10 @@
         "allow": "Clicar para permitir",
         "updating": "A atualizar",
         "wait": "Por favor aguarde"
+    },
+    "gotify": {
+        "apps": "Aplicações",
+        "clients": "Clientes",
+        "messages": "Mensagens"
     }
 }

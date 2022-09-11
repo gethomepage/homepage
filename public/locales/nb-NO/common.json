@@ -89,5 +89,10 @@
         "updating": "Oppdaterer …",
         "wait": "Vent litt …",
         "current": "Nåværende posisjon"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
     }
 }

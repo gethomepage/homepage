@@ -100,5 +100,10 @@
         "enabled": "Enabled",
         "disabled": "Disabled",
         "total": "Total"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
     }
 }

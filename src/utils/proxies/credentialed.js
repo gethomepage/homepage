@@ -8,15 +8,19 @@ export default async function credentialedProxyHandler(req, res) {
   if (group && service) {
     const widget = await getServiceWidget(group, service);
 
+    var headersData
+    if(widget.type == "gotify"){
+      headersData = {"X-gotify-Key": `${widget.key}`,"Content-Type": "application/json",}
+    }else{
+      headersData = {"X-API-Key": `${widget.key}`,"Content-Type": "application/json",}
+    }
+
     if (widget) {
       const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
       const [status, contentType, data] = await httpProxy(url, {
         withCredentials: true,
         credentials: "include",
-        headers: {
-          "X-API-Key": `${widget.key}`,
-          "Content-Type": "application/json",
-        },
+        headers: headersData,
       });
 
       if (contentType) res.setHeader("Content-Type", contentType);
