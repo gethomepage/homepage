@@ -91,5 +91,10 @@
         "enabled": "Ingeschakeld",
         "disabled": "Uitgeschakeld",
         "total": "Totaal"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     }
 }
