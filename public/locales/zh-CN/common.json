@@ -22,12 +22,14 @@
     "emby": {
         "playing": "玩",
         "transcoding": "转码",
-        "bitrate": "比特率"
+        "bitrate": "比特率",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "玩",
         "transcoding": "转码",
-        "bitrate": "比特率"
+        "bitrate": "比特率",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "速度",
