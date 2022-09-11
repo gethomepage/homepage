@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/service-helpers";
 
 export default async function handler(req, res) {
@@ -7,12 +8,14 @@ export default async function handler(req, res) {
   try {
     discoveredServices = cleanServiceGroups(await servicesFromDocker());
   } catch {
+    console.error("Failed to discover services, please check docker.yaml for errors");
     discoveredServices = [];
   }
 
   try {
     configuredServices = cleanServiceGroups(await servicesFromConfig());
   } catch {
+    console.error("Failed to load services.yaml, please check for errors");
     configuredServices = [];
   }
 
