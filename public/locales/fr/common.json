@@ -22,12 +22,14 @@
     "emby": {
         "playing": "En jouant",
         "transcoding": "Transcoding",
-        "bitrate": "Débiter"
+        "bitrate": "Débiter",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "En jouant",
         "transcoding": "Transcoding",
-        "bitrate": "Débiter"
+        "bitrate": "Débiter",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Évaluer",
