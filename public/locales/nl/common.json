@@ -5,9 +5,9 @@
         "status": "Status"
     },
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "total": "Totaal",
+        "free": "Vrij",
+        "used": "Gebruikt"
     },
     "docker": {
         "rx": "RX",
@@ -18,8 +18,8 @@
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "remaining": "Overgebleven",
+        "downloaded": "Gedownload"
     },
     "speedtest": {
         "upload": "Upload",
@@ -27,57 +27,57 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Draaiend",
+        "stopped": "Gestopt",
+        "total": "Totaal"
     },
     "weather": {
-        "updating": "Updating",
-        "wait": "Please wait",
-        "current": "Current Location",
-        "allow": "Click to allow"
+        "updating": "Updaten",
+        "wait": "Even geduld",
+        "current": "Huidige Locatie",
+        "allow": "Klik om toe te staan"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Zoeken…"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate"
+        "playing": "Afspelen",
+        "transcoding": "Transcodering",
+        "bitrate": "Bitsnelheid"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate"
+        "playing": "Afspelen",
+        "transcoding": "Transcodering",
+        "bitrate": "Bitsnelheid"
     },
     "rutorrent": {
-        "active": "Active",
+        "active": "Actief",
         "upload": "Upload",
         "download": "Download"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Gezocht",
+        "queued": "In de wachtrij",
         "series": "Series"
     },
     "radarr": {
-        "movies": "Movies",
-        "wanted": "Wanted",
-        "queued": "Queued"
+        "movies": "Films",
+        "wanted": "Gezocht",
+        "queued": "In de wachtrij"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "In afwachting",
+        "approved": "Goedgekeurd",
+        "available": "Beschikbaar"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "In afwachting",
+        "approved": "Goedgekeurd",
+        "available": "Beschikbaar"
     },
     "pihole": {
         "queries": "Queries",
-        "blocked": "Blocked",
+        "blocked": "Geblokkeerd",
         "gravity": "Gravity"
     },
     "traefik": {
@@ -86,8 +86,8 @@
         "middleware": "Middleware"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Ingeschakeld",
+        "disabled": "Uitgeschakeld",
+        "total": "Totaal"
     }
 }

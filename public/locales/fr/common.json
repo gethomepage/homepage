@@ -5,7 +5,7 @@
         "status": "Statut"
     },
     "search": {
-        "placeholder": "Chercher…"
+        "placeholder": "Recherche…"
     },
     "resources": {
         "total": "Totale",
@@ -36,7 +36,7 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Télécharger",
+        "upload": "Téléverser",
         "download": "Télécharger"
     },
     "sonarr": {
@@ -65,8 +65,8 @@
         "gravity": "La gravité"
     },
     "speedtest": {
-        "upload": "Télécharger",
-        "download": "Télécharger",
+        "upload": "Téléversement",
+        "download": "Téléchargement",
         "ping": "Ping-ping"
     },
     "portainer": {
@@ -96,9 +96,9 @@
         "ms": "{{value, number}}"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Localisation actuelle",
+        "allow": "Cliquez pour autoriser",
+        "updating": "Mise à jour",
+        "wait": "Veuillez patienter"
     }
 }
