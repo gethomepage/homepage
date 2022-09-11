@@ -39,7 +39,7 @@ export default function Memory() {
   return (
     <div className="flex-none flex flex-row items-center justify-center group">
       <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-      <div className="flex flex-col ml-3 text-left">
+      <div className="flex flex-col ml-3 text-left min-w-[80px]">
         <span className="text-theme-800 dark:text-theme-200 text-xs group-hover:hidden">
           {t("common.bytes", { value: data.memory.freeMemMb * 1024 * 1024 })} {t("resources.free")}
         </span>
