@@ -91,5 +91,10 @@
         "updating": "Oppdaterer …",
         "wait": "Vent litt …",
         "current": "Nåværende posisjon"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     }
 }
