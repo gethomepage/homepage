@@ -7,7 +7,7 @@
 
   * Fast! The entire site is statically generated at build time, so you can expect instant load times.
   * Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6 ([schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62))
-    - Supports all Raspberry Pi's & Apple Silicon
+    - Supports all Raspberry Pi's, most SBCs & Apple Silicon
   * Full i18n support with automatic language detection.
     - Human translations for English, Norwegian Bokmål ([comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)), Spanish ([AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves)), French (J. Lavoie), Dutch ([deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony)) and Chinese ([nicedc](https://github.com/nicedc)).
     - Machine translations for Portuguese, German and Russian.
