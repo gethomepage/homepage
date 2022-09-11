@@ -22,12 +22,14 @@
     "emby": {
         "playing": "Spiller",
         "transcoding": "Transkoding",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "tautulli": {
         "playing": "Spiller",
         "transcoding": "Transkoding",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Takt",
