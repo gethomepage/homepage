@@ -1,8 +1,20 @@
 import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/service-helpers";
 
 export default async function handler(req, res) {
-  const discoveredServices = cleanServiceGroups(await servicesFromDocker());
-  const configuredServices = cleanServiceGroups(await servicesFromConfig());
+  let discoveredServices;
+  let configuredServices;
+
+  try {
+    discoveredServices = cleanServiceGroups(await servicesFromDocker());
+  } catch {
+    discoveredServices = [];
+  }
+
+  try {
+    configuredServices = cleanServiceGroups(await servicesFromConfig());
+  } catch {
+    configuredServices = [];
+  }
 
   const mergedGroupsNames = [
     ...new Set([discoveredServices.map((group) => group.name), configuredServices.map((group) => group.name)].flat()),
