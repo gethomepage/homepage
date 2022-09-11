@@ -19,6 +19,10 @@ export default async function credentialedProxyHandler(req, res) {
         },
       });
 
+      if (status === 204 || status === 304) {
+        return res.status(status).end();
+      }
+
       if (contentType) res.setHeader("Content-Type", contentType);
       return res.status(status).send(data);
     }
