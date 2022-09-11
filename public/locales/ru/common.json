@@ -91,5 +91,10 @@
         "current": "Текущее местоположение",
         "allow": "Click to allow",
         "updating": "Обновление"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     }
 }
