@@ -91,5 +91,10 @@
         "allow": "Click to allow",
         "updating": "Updating",
         "wait": "Please wait"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     }
 }
