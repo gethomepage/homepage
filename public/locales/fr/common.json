@@ -117,5 +117,8 @@
         "remaining": "Remaining",
         "downloaded": "Downloaded",
         "rate": "Rate"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track"
     }
 }
