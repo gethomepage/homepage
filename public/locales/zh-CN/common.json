@@ -10,7 +10,8 @@
     "resources": {
         "total": "共",
         "free": "空闲",
-        "used": "已用"
+        "used": "已用",
+        "load": "Load"
     },
     "docker": {
         "rx": "接收",
