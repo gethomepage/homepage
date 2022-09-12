@@ -8,13 +8,6 @@ export default async function credentialedProxyHandler(req, res) {
   if (group && service) {
     const widget = await getServiceWidget(group, service);
 
-    var headersData
-    if(widget.type == "gotify"){
-      headersData = {"X-gotify-Key": `${widget.key}`,"Content-Type": "application/json",}
-    }else{
-      headersData = {"X-API-Key": `${widget.key}`,"Content-Type": "application/json",}
-    }
-
     if (widget) {
       const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
 
@@ -24,6 +17,9 @@ export default async function credentialedProxyHandler(req, res) {
 
       if (widget.type === "coinmarketcap") {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
+      } 
+      if(widget.type === "gotify"){
+        headers["X-gotify-Key"] = `${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

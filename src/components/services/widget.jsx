@@ -42,7 +42,7 @@ const widgetMappings = {
   npm: Npm,
   tautulli: Tautulli,
   gotify: Gotify,
-  sabnzbd: Sabnzbd
+  sabnzbd: SABnzbd
 };
 
 export default function Widget({ service }) {
