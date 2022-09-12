@@ -7,16 +7,16 @@
         "rx": "RX"
     },
     "emby": {
-        "playing": "Playing",
+        "playing": "In riproduzione",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Nessuno Stream Attivo"
     },
     "tautulli": {
-        "playing": "Playing",
+        "playing": "In riproduzione",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Nessuno Stream Attivo"
     },
     "speedtest": {
         "upload": "Upload",
@@ -24,42 +24,52 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "In esecuzione",
+        "stopped": "Fermati",
+        "total": "Totali"
     },
     "traefik": {
         "routers": "Routers",
-        "services": "Services",
+        "services": "Servizi",
         "middleware": "Middleware"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "api_error": "Errore API",
+        "status": "Stato"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Cerca…"
     },
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "total": "Totale",
+        "free": "Libero",
+        "used": "In utilizzo"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Rimanente",
+        "downloaded": "Scaricato"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
     },
     "rutorrent": {
-        "active": "Active",
+        "active": "Attivo",
         "upload": "Upload",
         "download": "Download"
     },
     "sonarr": {
-        "series": "Series",
-        "wanted": "Wanted",
-        "queued": "Queued"
+        "series": "Serie",
+        "wanted": "Rchiesti",
+        "queued": "In coda"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Richiesti",
+        "queued": "In coda",
+        "movies": "Film"
     },
     "readarr": {
         "wanted": "Wanted",
@@ -67,34 +77,34 @@
         "books": "Books"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "In attesa",
+        "approved": "Approvati",
+        "available": "Disponibili"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "In attesa",
+        "approved": "Approvati",
+        "available": "Disponibili"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Richieste",
+        "blocked": "Bloccati",
+        "gravity": "Severità"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Attivi",
+        "disabled": "Disabilitati",
+        "total": "Totali"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Posizione Attuale",
+        "allow": "Clicca per consentire",
+        "updating": "Aggiornamento in corso",
+        "wait": "Attendi per favore"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "In attesa",
+        "approved": "Approvati",
+        "available": "Disponibili"
     }
 }

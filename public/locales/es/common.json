@@ -23,13 +23,13 @@
         "playing": "En ejecución",
         "transcoding": "Transcodificando",
         "bitrate": "Tasa de Bits",
-        "no_active": "No Active Streams"
+        "no_active": "No hay streams activos"
     },
     "tautulli": {
         "playing": "En ejecución",
         "transcoding": "Transcodificación",
         "bitrate": "Tasa de bits",
-        "no_active": "No Active Streams"
+        "no_active": "No hay streams activos"
     },
     "rutorrent": {
         "active": "Activo",
@@ -93,8 +93,8 @@
         "wait": "Espere, por favor"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "available": "Disponible"
     }
 }
