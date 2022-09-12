@@ -11,9 +11,11 @@ const serviceProxyHandlers = {
   pihole: genericProxyHandler,
   radarr: genericProxyHandler,
   sonarr: genericProxyHandler,
+  readarr: genericProxyHandler,
   speedtest: genericProxyHandler,
   tautulli: genericProxyHandler,
   traefik: genericProxyHandler,
+  sabnzbd: genericProxyHandler,
   // uses X-API-Key header auth
   portainer: credentialedProxyHandler,
   jellyseerr: credentialedProxyHandler,

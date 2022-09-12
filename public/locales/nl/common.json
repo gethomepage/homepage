@@ -21,6 +21,11 @@
         "remaining": "Overgebleven",
         "downloaded": "Gedownload"
     },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
     "speedtest": {
         "upload": "Upload",
         "download": "Download",
@@ -66,6 +71,11 @@
         "movies": "Films",
         "wanted": "Gezocht",
         "queued": "In de wachtrij"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "In afwachting",

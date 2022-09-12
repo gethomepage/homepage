@@ -36,6 +36,11 @@
         "remaining": "Restante",
         "downloaded": "Téléchargé"
     },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
     "rutorrent": {
         "active": "Active",
         "upload": "Téléverser",
@@ -50,6 +55,11 @@
         "wanted": "Recherchée",
         "queued": "En queue",
         "movies": "Films"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "En attente",
