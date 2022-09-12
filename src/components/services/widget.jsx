@@ -16,6 +16,7 @@ import Jellyseerr from "./widgets/service/jellyseerr";
 import Overseerr from "./widgets/service/overseerr";
 import Npm from "./widgets/service/npm";
 import Tautulli from "./widgets/service/tautulli";
+import CoinMarketCap from "./widgets/service/coinmarketcap";
 
 const widgetMappings = {
   docker: Docker,
@@ -32,6 +33,7 @@ const widgetMappings = {
   traefik: Traefik,
   jellyseerr: Jellyseerr,
   overseerr: Overseerr,
+  coinmarketcap: CoinMarketCap,
   npm: Npm,
   tautulli: Tautulli,
 };

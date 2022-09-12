@@ -1,111 +1,114 @@
 {
-    "common": {
-        "bytes": "{{value, bytes}}",
-        "bits": "{{value, bytes(bits: true)}}",
-        "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true, binary: true)}}",
-        "byterate": "{{value, rate}}",
-        "bitrate": "{{value, rate(bits: true)}}",
-        "percent": "{{value, percent}}",
-        "number": "{{value, number}}",
-        "ms": "{{value, number}}"
-    },
-    "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
-    },
-    "weather": {
-      "current": "Current Location",
-      "allow": "Click to allow",
-      "updating": "Updating",
-      "wait": "Please wait"
-    },
-    "search": {
-        "placeholder": "Search…"
-    },
-    "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
-    },
-    "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "offline": "Offline"
-    },
-    "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
-    },
-    "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
-    },
-    "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
-    },
-    "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
-    },
-    "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
-    },
-    "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
-    },
-    "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
-    },
-    "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
-    },
-    "overseerr": {
-      "pending": "Pending",
-      "approved": "Approved",
-      "available": "Available"
+  "common": {
+    "bytes": "{{value, bytes}}",
+    "bits": "{{value, bytes(bits: true)}}",
+    "bbytes": "{{value, bytes(binary: true)}}",
+    "bbits": "{{value, bytes(bits: true, binary: true)}}",
+    "byterate": "{{value, rate}}",
+    "bitrate": "{{value, rate(bits: true)}}",
+    "percent": "{{value, percent}}",
+    "number": "{{value, number}}",
+    "ms": "{{value, number}}"
   },
-    "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
-    },
-    "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
-    },
-    "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
-    },
-    "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
-    },
-    "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
-    }
+  "widget": {
+    "missing_type": "Missing Widget Type: {{type}}",
+    "api_error": "API Error",
+    "status": "Status"
+  },
+  "weather": {
+    "current": "Current Location",
+    "allow": "Click to allow",
+    "updating": "Updating",
+    "wait": "Please wait"
+  },
+  "search": {
+    "placeholder": "Search…"
+  },
+  "resources": {
+    "total": "Total",
+    "free": "Free",
+    "used": "Used"
+  },
+  "docker": {
+    "rx": "RX",
+    "tx": "TX",
+    "mem": "MEM",
+    "cpu": "CPU",
+    "offline": "Offline"
+  },
+  "emby": {
+    "playing": "Playing",
+    "transcoding": "Transcoding",
+    "bitrate": "Bitrate",
+    "no_active": "No Active Streams"
+  },
+  "tautulli": {
+    "playing": "Playing",
+    "transcoding": "Transcoding",
+    "bitrate": "Bitrate",
+    "no_active": "No Active Streams"
+  },
+  "nzbget": {
+    "rate": "Rate",
+    "remaining": "Remaining",
+    "downloaded": "Downloaded"
+  },
+  "rutorrent": {
+    "active": "Active",
+    "upload": "Upload",
+    "download": "Download"
+  },
+  "sonarr": {
+    "wanted": "Wanted",
+    "queued": "Queued",
+    "series": "Series"
+  },
+  "radarr": {
+    "wanted": "Wanted",
+    "queued": "Queued",
+    "movies": "Movies"
+  },
+  "ombi": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "available": "Available"
+  },
+  "jellyseerr": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "available": "Available"
+  },
+  "overseerr": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "available": "Available"
+  },
+  "pihole": {
+    "queries": "Queries",
+    "blocked": "Blocked",
+    "gravity": "Gravity"
+  },
+  "speedtest": {
+    "upload": "Upload",
+    "download": "Download",
+    "ping": "Ping"
+  },
+  "portainer": {
+    "running": "Running",
+    "stopped": "Stopped",
+    "total": "Total"
+  },
+  "traefik": {
+    "routers": "Routers",
+    "services": "Services",
+    "middleware": "Middleware"
+  },
+  "npm": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "total": "Total"
+  },
+  "coinmarketcap": {
+    "configure": "Configure one or more crypto currencies to track"
+  }
 }

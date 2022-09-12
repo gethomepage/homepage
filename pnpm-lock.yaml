@@ -5,6 +5,7 @@ specifiers:
   '@tailwindcss/forms': ^0.5.3
   autoprefixer: ^10.4.8
   classnames: ^2.3.1
+  currency-symbol-map: ^5.1.0
   dockerode: ^3.3.4
   eslint: 8.22.0
   eslint-config-airbnb: ^19.0.4
@@ -41,6 +42,7 @@ dependencies:
   '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.1.8
   classnames: 2.3.1
+  currency-symbol-map: 5.1.0
   dockerode: 3.3.4
   i18next: 21.9.1
   i18next-browser-languagedetector: 6.1.5
@@ -698,6 +700,10 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  /currency-symbol-map/5.1.0:
+    resolution: {integrity: sha512-LO/lzYRw134LMDVnLyAf1dHE5tyO6axEFkR3TXjQIOmMkAM9YL6QsiUwuXzZAmFnuDJcs4hayOgyIYtViXFrLw==}
+    dev: false
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}

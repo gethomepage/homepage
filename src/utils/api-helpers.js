@@ -13,6 +13,7 @@ const formats = {
   overseerr: `{url}/api/v1/{endpoint}`,
   ombi: `{url}/api/v1/{endpoint}`,
   npm: `{url}/api/{endpoint}`,
+  coinmarketcap: `{url}/{endpoint}`,
 };
 
 export function formatApiCall(api, args) {
