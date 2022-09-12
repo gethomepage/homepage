@@ -101,5 +101,11 @@
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
+    },
+    "sabnzbd": {
+        "status": "Status",
+        "speed": "Speed",
+        "remaining": "Remaining",
+        "timeleft": "Time left"
     }
 }

@@ -112,5 +112,11 @@
         "apps": "Aplicações",
         "clients": "Clientes",
         "messages": "Mensagens"
+    },
+    "sabnzbd": {
+        "status": "Status",
+        "speed": "Speed",
+        "remaining": "Remaining",
+        "timeleft": "Time left"
     }
 }

@@ -101,5 +101,11 @@
         "apps": "Aplicaciones",
         "clients": "Clientela",
         "messages": "Mensajes"
+    },
+    "sabnzbd": {
+        "status": "Status",
+        "speed": "Speed",
+        "remaining": "Remaining",
+        "timeleft": "Time left"
     }
 }

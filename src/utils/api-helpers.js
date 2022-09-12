@@ -14,6 +14,7 @@ const formats = {
   ombi: `{url}/api/v1/{endpoint}`,
   npm: `{url}/api/{endpoint}`,
   gotify: `{url}/{endpoint}`,
+  sabnzbd: `{url}/api?output=json&apikey={key}&{endpoint}`,
 };
 
 export function formatApiCall(api, args) {

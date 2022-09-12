@@ -17,6 +17,7 @@ import Overseerr from "./widgets/service/overseerr";
 import Npm from "./widgets/service/npm";
 import Tautulli from "./widgets/service/tautulli";
 import Gotify from "./widgets/service/gotify";
+import Sabnzbd from "./widgets/service/sabnzbd";
 
 const widgetMappings = {
   docker: Docker,
@@ -36,6 +37,7 @@ const widgetMappings = {
   npm: Npm,
   tautulli: Tautulli,
   gotify: Gotify,
+  sabnzbd: Sabnzbd
 };
 
 export default function Widget({ service }) {
