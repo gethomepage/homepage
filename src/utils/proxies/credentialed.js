@@ -17,8 +17,7 @@ export default async function credentialedProxyHandler(req, res) {
 
       if (widget.type === "coinmarketcap") {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
-      } 
-      if(widget.type === "gotify"){
+      } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
