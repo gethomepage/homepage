@@ -16,7 +16,7 @@ function Widget({ options }) {
 
   if (error || data?.cod === 401 || data?.error) {
     return (
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center first:ml-0 ml-4">
         <div className="flex flex-row items-center justify-end">
           <div className="flex flex-col items-center">
             <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
@@ -32,7 +32,7 @@ function Widget({ options }) {
 
   if (!data) {
     return (
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center first:ml-0 ml-4">
         <div className="flex flex-row items-center justify-end">
           <div className="flex flex-col items-center">
             <WiCloudDown className="w-8 h-8 text-theme-800 dark:text-theme-200" />
@@ -49,7 +49,7 @@ function Widget({ options }) {
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center first:ml-0 ml-4">
       <div className="flex flex-row items-center justify-end">
         <div className="flex flex-col items-center">
           <Icon
@@ -100,7 +100,7 @@ export default function OpenWeatherMap({ options }) {
 
   if (!location) {
     return (
-      <button type="button" onClick={() => requestLocation()} className="flex flex-col justify-center">
+      <button type="button" onClick={() => requestLocation()} className="flex flex-col justify-center first:ml-0 ml-4">
         <div className="flex flex-row items-center justify-end">
           <div className="flex flex-col items-center">
             {requesting ? (
