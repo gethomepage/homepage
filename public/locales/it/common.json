@@ -46,16 +46,6 @@
         "free": "Libero",
         "used": "In utilizzo"
     },
-    "nzbget": {
-        "rate": "Rate",
-        "remaining": "Rimanente",
-        "downloaded": "Scaricato"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
     "rutorrent": {
         "active": "Attivo",
         "upload": "Upload",
