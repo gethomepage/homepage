@@ -36,6 +36,11 @@
         "remaining": "Còn lại",
         "downloaded": "Đã tải"
     },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
     "rutorrent": {
         "active": "Hoạt động",
         "upload": "Tải lên",
@@ -50,6 +55,11 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "movies": "Movies"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "Pending",
