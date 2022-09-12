@@ -23,6 +23,7 @@ const serviceProxyHandlers = {
   overseerr: credentialedProxyHandler,
   ombi: credentialedProxyHandler,
   coinmarketcap: credentialedProxyHandler,
+  prowlarr: credentialedProxyHandler,
   // super specific handlers
   rutorrent: rutorrentProxyHandler,
   nzbget: nzbgetProxyHandler,
