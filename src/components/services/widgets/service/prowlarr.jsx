@@ -37,10 +37,10 @@ export default function Prowlarr({ service }) {
   let numberOfFailedGrabs = 0
   let numberOfFailedQueries = 0
   grabsData?.indexers?.forEach(element => {
-    numberOfGrabs = numberOfGrabs + element.numberOfGrabs;
-    numberOfQueries = numberOfQueries + element.numberOfQueries;
-    numberOfFailedGrabs = numberOfFailedGrabs + element.numberOfFailedGrabs;
-    numberOfFailedQueries = numberOfFailedQueries + element.numberOfFailedQueries;
+    numberOfGrabs += element.numberOfGrabs;
+    numberOfQueries += element.numberOfQueries;
+    numberOfFailedGrabs += numberOfFailedGrabs + element.numberOfFailedGrabs;
+    numberOfFailedQueries += numberOfFailedQueries + element.numberOfFailedQueries;
   });
 
   return (
