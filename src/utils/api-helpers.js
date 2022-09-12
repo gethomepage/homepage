@@ -15,6 +15,7 @@ const formats = {
   npm: `{url}/api/{endpoint}`,
   readarr: `{url}/api/v1/{endpoint}?apikey={key}`,
   sabnzbd: `{url}/api/?apikey={key}&output=json&mode={endpoint}`,
+  coinmarketcap: `{url}/{endpoint}`,
 };
 
 export function formatApiCall(api, args) {

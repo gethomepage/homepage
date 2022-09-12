@@ -3,6 +3,7 @@ import credentialedProxyHandler from "utils/proxies/credentialed";
 import rutorrentProxyHandler from "utils/proxies/rutorrent";
 import nzbgetProxyHandler from "utils/proxies/nzbget";
 import npmProxyHandler from "utils/proxies/npm";
+import coinMarketCapProxyHandler from "utils/proxies/coinmarketcap";
 
 const serviceProxyHandlers = {
   // uses query param auth
@@ -22,6 +23,7 @@ const serviceProxyHandlers = {
   overseerr: credentialedProxyHandler,
   ombi: credentialedProxyHandler,
   // super specific handlers
+  coinmarketcap: coinMarketCapProxyHandler,
   rutorrent: rutorrentProxyHandler,
   nzbget: nzbgetProxyHandler,
   npm: npmProxyHandler,
