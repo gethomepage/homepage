@@ -10,7 +10,8 @@
     "resources": {
         "total": "Tổng",
         "free": "Dư",
-        "used": "Đã dùng"
+        "used": "Đã dùng",
+        "load": "Load"
     },
     "docker": {
         "rx": "RX",
