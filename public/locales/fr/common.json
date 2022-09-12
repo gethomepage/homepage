@@ -65,7 +65,7 @@
     "pihole": {
         "queries": "Requêtes",
         "blocked": "Bloqué",
-        "gravity": "La gravité"
+        "gravity": "Listes dom. bloqués"
     },
     "speedtest": {
         "upload": "Téléversement",
