@@ -46,16 +46,6 @@
         "free": "Free",
         "used": "Used"
     },
-    "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
     "rutorrent": {
         "active": "Active",
         "upload": "Upload",

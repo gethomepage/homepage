@@ -31,16 +31,6 @@
         "bitrate": "Débiter",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "Évaluer",
-        "remaining": "Restante",
-        "downloaded": "Téléchargé"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
     "rutorrent": {
         "active": "Active",
         "upload": "Téléverser",

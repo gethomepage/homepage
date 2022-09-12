@@ -16,16 +16,6 @@
         "cpu": "CPU",
         "offline": "Offline"
     },
-    "nzbget": {
-        "rate": "Rate",
-        "remaining": "Overgebleven",
-        "downloaded": "Gedownload"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
     "speedtest": {
         "upload": "Upload",
         "download": "Download",

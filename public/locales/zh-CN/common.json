@@ -31,16 +31,6 @@
         "bitrate": "比特率",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "速度",
-        "remaining": "其余的",
-        "downloaded": "下载"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
     "rutorrent": {
         "active": "积极的",
         "upload": "上传",

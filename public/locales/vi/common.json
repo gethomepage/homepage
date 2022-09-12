@@ -31,16 +31,6 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "Rate",
-        "remaining": "Còn lại",
-        "downloaded": "Đã tải"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
     "rutorrent": {
         "active": "Hoạt động",
         "upload": "Tải lên",

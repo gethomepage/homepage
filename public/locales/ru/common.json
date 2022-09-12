@@ -31,16 +31,6 @@
         "bitrate": "Битрейт",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "Оценка",
-        "remaining": "Осталось",
-        "downloaded": "Загружено"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
     "rutorrent": {
         "active": "Активный",
         "upload": "Загрузить",
