@@ -53,6 +53,11 @@
         "remaining": "Remaining",
         "downloaded": "Downloaded"
     },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
     "rutorrent": {
         "active": "Active",
         "upload": "Upload",
@@ -67,6 +72,11 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "movies": "Movies"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "Pending",
@@ -108,15 +118,12 @@
         "disabled": "Disabled",
         "total": "Total"
     },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track"
+    },
     "gotify": {
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
     },
-    "sabnzbd": {
-        "status": "Status",
-        "speed": "Speed",
-        "remaining": "Remaining",
-        "timeleft": "Time left"
-    }
 }

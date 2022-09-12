@@ -31,11 +31,6 @@
         "bitrate": "比特率",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "速度",
-        "remaining": "其余的",
-        "downloaded": "下载"
-    },
     "rutorrent": {
         "active": "积极的",
         "upload": "上传",
@@ -50,6 +45,11 @@
         "wanted": "通缉",
         "queued": "排队",
         "movies": "电影"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "待办的",
@@ -97,15 +97,22 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track"
+    },
     "gotify": {
         "apps": "Aplicações",
         "clients": "Clientes",
         "messages": "Mensagens"
     },
-    "sabnzbd": {
-        "status": "Status",
-        "speed": "Speed",
-        "remaining": "Remaining",
-        "timeleft": "Time left"
-    }
 }

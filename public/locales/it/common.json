@@ -7,16 +7,16 @@
         "rx": "RX"
     },
     "emby": {
-        "playing": "Playing",
+        "playing": "In riproduzione",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Nessuno Stream Attivo"
     },
     "tautulli": {
-        "playing": "Playing",
+        "playing": "In riproduzione",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Nessuno Stream Attivo"
     },
     "speedtest": {
         "upload": "Upload",
@@ -24,88 +24,95 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "In esecuzione",
+        "stopped": "Fermati",
+        "total": "Totali"
     },
     "traefik": {
         "routers": "Routers",
-        "services": "Services",
+        "services": "Servizi",
         "middleware": "Middleware"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "api_error": "Errore API",
+        "status": "Stato"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Cerca…"
     },
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "total": "Totale",
+        "free": "Libero",
+        "used": "In utilizzo"
+    },
+    "rutorrent": {
+        "active": "Attivo",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "sonarr": {
+        "series": "Serie",
+        "wanted": "Rchiesti",
+        "queued": "In coda"
+    },
+    "radarr": {
+        "wanted": "Richiesti",
+        "queued": "In coda",
+        "movies": "Film"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
+    },
+    "ombi": {
+        "pending": "In attesa",
+        "approved": "Approvati",
+        "available": "Disponibili"
+    },
+    "jellyseerr": {
+        "pending": "In attesa",
+        "approved": "Approvati",
+        "available": "Disponibili"
+    },
+    "pihole": {
+        "queries": "Richieste",
+        "blocked": "Bloccati",
+        "gravity": "Severità"
+    },
+    "npm": {
+        "enabled": "Attivi",
+        "disabled": "Disabilitati",
+        "total": "Totali"
+    },
+    "weather": {
+        "current": "Posizione Attuale",
+        "allow": "Clicca per consentire",
+        "updating": "Aggiornamento in corso",
+        "wait": "Attendi per favore"
+    },
+    "overseerr": {
+        "pending": "In attesa",
+        "approved": "Approvati",
+        "available": "Disponibili"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
     },
     "nzbget": {
         "rate": "Rate",
         "remaining": "Remaining",
         "downloaded": "Downloaded"
     },
-    "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
-    },
-    "sonarr": {
-        "series": "Series",
-        "wanted": "Wanted",
-        "queued": "Queued"
-    },
-    "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
-    },
-    "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
-    },
-    "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
-    },
-    "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
-    },
-    "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
-    },
-    "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track"
     },
     "gotify": {
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
     },
-    "sabnzbd": {
-        "status": "Status",
-        "speed": "Speed",
-        "remaining": "Remaining",
-        "timeleft": "Time left"
-    }
 }

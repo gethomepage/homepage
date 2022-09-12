@@ -31,11 +31,6 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "Takt",
-        "remaining": "Gjenstående",
-        "downloaded": "Nedlastet"
-    },
     "rutorrent": {
         "active": "Aktiv",
         "upload": "Opplasting",
@@ -50,6 +45,11 @@
         "wanted": "Ønsket",
         "queued": "I kø",
         "movies": "Filmer"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "Venter",
@@ -97,15 +97,22 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "downloaded": "Downloaded",
+        "remaining": "Remaining"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track"
+    },
     "gotify": {
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
     },
-    "sabnzbd": {
-        "status": "Status",
-        "speed": "Speed",
-        "remaining": "Remaining",
-        "timeleft": "Time left"
-    }
 }

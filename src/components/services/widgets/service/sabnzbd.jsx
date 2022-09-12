@@ -6,22 +6,22 @@ import Block from "../block";
 
 import { formatApiUrl } from "utils/api-helpers";
 
-export default function Sabnzbd({ service }) {
-  const { t } = useTranslation("common");
+export default function SABnzbd({ service }) {
+  const { t } = useTranslation();
 
   const config = service.widget;
-  const { data: statusData, error: statusError } = useSWR(formatApiUrl(config, "mode=queue"));
 
-  if (statusError) {
+  const { data: queueData, error: queueError } = useSWR(formatApiUrl(config, "queue"));
+
+  if (queueError) {
     return <Widget error={t("widget.api_error")} />;
   }
 
-  if (!statusData) {
+  if (!queueData) {
     return (
       <Widget>
-        <Block label={t("sabnzbd.status")} />
-        <Block label={t("sabnzbd.speed")} />
-        <Block label={t("sabnzbd.remaining")} />
+        <Block label={t("sabnzbd.rate")} />
+        <Block label={t("sabnzbd.queue")} />
         <Block label={t("sabnzbd.timeleft")} />
       </Widget>
     );
@@ -29,13 +29,9 @@ export default function Sabnzbd({ service }) {
 
   return (
     <Widget>
-      <Block label={t("sabnzbd.status")} value={statusData?.queue?.status } />
-      <Block label={t("sabnzbd.speed")} value={statusData?.queue?.speed } />
-      <Block
-        label={t("sabnzbd.remaining")}
-        value={t("common.bytes", { value: statusData?.queue?.mbleft * 1024 * 1024 })}
-      />
-      <Block label={t("sabnzbd.timeleft")} value={statusData?.queue?.timeleft} />
+      <Block label={t("sabnzbd.rate")} value={`${queueData.queue.speed}bps`} />
+      <Block label={t("sabnzbd.queue")} value={queueData.queue.noofslots} />
+      <Block label={t("sabnzbd.timeleft")} value={queueData.queue.timeleft} />
     </Widget>
   );
 }

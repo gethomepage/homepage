@@ -2,10 +2,12 @@ import { useTranslation } from "react-i18next";
 
 import Sonarr from "./widgets/service/sonarr";
 import Radarr from "./widgets/service/radarr";
+import Readarr from "./widgets/service/readarr";
 import Ombi from "./widgets/service/ombi";
 import Portainer from "./widgets/service/portainer";
 import Emby from "./widgets/service/emby";
 import Nzbget from "./widgets/service/nzbget";
+import SABnzbd from "./widgets/service/sabnzbd";
 import Docker from "./widgets/service/docker";
 import Pihole from "./widgets/service/pihole";
 import Rutorrent from "./widgets/service/rutorrent";
@@ -16,24 +18,27 @@ import Jellyseerr from "./widgets/service/jellyseerr";
 import Overseerr from "./widgets/service/overseerr";
 import Npm from "./widgets/service/npm";
 import Tautulli from "./widgets/service/tautulli";
+import CoinMarketCap from "./widgets/service/coinmarketcap";
 import Gotify from "./widgets/service/gotify";
-import Sabnzbd from "./widgets/service/sabnzbd";
 
 const widgetMappings = {
   docker: Docker,
   sonarr: Sonarr,
   radarr: Radarr,
+  readarr: Readarr,
   ombi: Ombi,
   portainer: Portainer,
   emby: Emby,
   jellyfin: Jellyfin,
   nzbget: Nzbget,
+  sabnzbd: SABnzbd,
   pihole: Pihole,
   rutorrent: Rutorrent,
   speedtest: Speedtest,
   traefik: Traefik,
   jellyseerr: Jellyseerr,
   overseerr: Overseerr,
+  coinmarketcap: CoinMarketCap,
   npm: Npm,
   tautulli: Tautulli,
   gotify: Gotify,

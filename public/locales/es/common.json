@@ -23,18 +23,13 @@
         "playing": "En ejecución",
         "transcoding": "Transcodificando",
         "bitrate": "Tasa de Bits",
-        "no_active": "No Active Streams"
+        "no_active": "No hay streams activos"
     },
     "tautulli": {
         "playing": "En ejecución",
         "transcoding": "Transcodificación",
         "bitrate": "Tasa de bits",
-        "no_active": "No Active Streams"
-    },
-    "nzbget": {
-        "rate": "Velocidad",
-        "remaining": "Restante",
-        "downloaded": "Descargado"
+        "no_active": "No hay streams activos"
     },
     "rutorrent": {
         "active": "Activo",
@@ -50,6 +45,11 @@
         "wanted": "Más deseado",
         "queued": "Puesto en cola",
         "movies": "Películas"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "Pendiente",
@@ -93,19 +93,26 @@
         "wait": "Espere, por favor"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
-    },
-    "gotify": {
-        "apps": "Aplicaciones",
-        "clients": "Clientela",
-        "messages": "Mensajes"
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "available": "Disponible"
     },
     "sabnzbd": {
-        "status": "Status",
-        "speed": "Speed",
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "nzbget": {
+        "rate": "Rate",
         "remaining": "Remaining",
-        "timeleft": "Time left"
-    }
+        "downloaded": "Downloaded"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
+    },
 }

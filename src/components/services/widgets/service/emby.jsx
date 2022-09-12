@@ -27,6 +27,7 @@ function ticksToString(ticks) {
 }
 
 function SingleSessionEntry({ playCommand, session }) {
+  console.log(session);
   const {
     NowPlayingItem: { Name, SeriesName, RunTimeTicks },
     PlayState: { PositionTicks, IsPaused, IsMuted },
@@ -175,7 +176,7 @@ export default function Emby({ service }) {
 
   if (playing.length === 0) {
     return (
-      <div className="flex flex-col pb-1">
+      <div className="flex flex-col pb-1 mx-1">
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
         </div>
@@ -189,7 +190,7 @@ export default function Emby({ service }) {
   if (playing.length === 1) {
     const session = playing[0];
     return (
-      <div className="flex flex-col pb-1">
+      <div className="flex flex-col pb-1 mx-1">
         <SingleSessionEntry
           playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
           session={session}
@@ -199,7 +200,7 @@ export default function Emby({ service }) {
   }
 
   return (
-    <div className="flex flex-col pb-1">
+    <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
         <SessionEntry
           key={session.Id}

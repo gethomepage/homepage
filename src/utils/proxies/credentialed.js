@@ -17,11 +17,22 @@ export default async function credentialedProxyHandler(req, res) {
 
     if (widget) {
       const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
+
+      const headers = {
+        "Content-Type": "application/json",
+      };
+
+      if (widget.type === "coinmarketcap") {
+        headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
+      } else {
+        headers["X-API-Key"] = `${widget.key}`;
+      }
+
       const [status, contentType, data] = await httpProxy(url, {
         method: req.method,
         withCredentials: true,
         credentials: "include",
-        headers: headersData,
+        headers,
       });
 
       if (status === 204 || status === 304) {
