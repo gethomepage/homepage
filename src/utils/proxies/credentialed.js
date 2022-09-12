@@ -3,13 +3,13 @@ import { formatApiCall } from "utils/api-helpers";
 import { httpProxy } from "utils/http";
 
 export default async function credentialedProxyHandler(req, res) {
-  let headersData
   const { group, service, endpoint } = req.query;
 
   if (group && service) {
     const widget = await getServiceWidget(group, service);
 
-    if(widget.type === "gotify"){
+    var headersData
+    if(widget.type == "gotify"){
       headersData = {"X-gotify-Key": `${widget.key}`,"Content-Type": "application/json",}
     }else{
       headersData = {"X-API-Key": `${widget.key}`,"Content-Type": "application/json",}
