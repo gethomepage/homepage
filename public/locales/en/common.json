@@ -27,7 +27,8 @@
     "resources": {
         "total": "Total",
         "free": "Free",
-        "used": "Used"
+        "used": "Used",
+        "load": "Load"
     },
     "docker": {
         "rx": "RX",
