@@ -3,7 +3,6 @@ import credentialedProxyHandler from "utils/proxies/credentialed";
 import rutorrentProxyHandler from "utils/proxies/rutorrent";
 import nzbgetProxyHandler from "utils/proxies/nzbget";
 import npmProxyHandler from "utils/proxies/npm";
-import coinMarketCapProxyHandler from "utils/proxies/coinmarketcap";
 
 const serviceProxyHandlers = {
   // uses query param auth
@@ -17,13 +16,13 @@ const serviceProxyHandlers = {
   tautulli: genericProxyHandler,
   traefik: genericProxyHandler,
   sabnzbd: genericProxyHandler,
-  // uses X-API-Key header auth
+  // uses X-API-Key (or similar) header auth
   portainer: credentialedProxyHandler,
   jellyseerr: credentialedProxyHandler,
   overseerr: credentialedProxyHandler,
   ombi: credentialedProxyHandler,
+  coinmarketcap: credentialedProxyHandler,
   // super specific handlers
-  coinmarketcap: coinMarketCapProxyHandler,
   rutorrent: rutorrentProxyHandler,
   nzbget: nzbgetProxyHandler,
   npm: npmProxyHandler,
