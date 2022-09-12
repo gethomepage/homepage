@@ -36,7 +36,7 @@ export default function Item({ service }) {
         <div
           className={`${
             hasLink ? "cursor-pointer " : " "
-          }transition-all h-15 mb-3 p-1 rounded-md font-medium text-theme-700 hover:text-theme-700/70 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-black/10 dark:shadow-black/20 bg-white/50 hover:bg-theme-300/20 dark:bg-white/10 dark:hover:bg-white/20 backdrop-blur-md`}
+          }transition-all h-15 mb-3 p-1 rounded-md font-medium text-theme-700 hover:text-theme-700/70 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-black/10 dark:shadow-black/20 bg-white/50 hover:bg-theme-300/20 dark:bg-white/10 dark:hover:bg-white/20`}
         >
           <div className="flex select-none">
             {service.icon &&
