@@ -5,26 +5,27 @@
 
 ## Features
 
-  * Fast! The entire site is statically generated at build time, so you can expect instant load times.
-  * Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6 ([schklom](https://github.com/benphelps/homepage/pull/3) and [modem7](https://github.com/benphelps/homepage/pull/62))
+  * Fast! The entire site is statically generated at build time, so you can expect instant load times
+  * Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
     - Supports all Raspberry Pi's, most SBCs & Apple Silicon
-  * Full i18n support with automatic language detection.
-    - Human translations for English, Norwegian Bokmål ([comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu)), Spanish ([AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves)), French (J. Lavoie), Dutch ([deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony)), Chinese ([nicedc](https://github.com/nicedc)) and Russian ([desolaris](https://github.com/benphelps/homepage/commits?author=desolaris)).
-    - Machine translations for Portuguese and German.
-    - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/).
+  * Full i18n support with automatic language detection
+    - Human translations for Chinese, Dutch, French, German, Norwegian Bokmål, Portuguese, Russian and Spanish
+    - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
   * Service & Web Bookmarks
   * Docker Integration
     - Container status (Running / Stopped) & statistics (CPU, Memory, Network)
     - Automatic service discovery (via labels)
   * Service Integration
-    - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Overseerr, Jellyseerr ([ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
-    - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
-    - Readarr, SABnzbd ([JazzFisch]())
+    - Sonarr, Radarr, Readarr, Emby, Jellyfin, Tautulli (Plex)
+    - Ombi, Overseerr, Jellyseerr, NZBGet, SABnzbd, ruTorrent
+    - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager, Gotify
+  * Information Providers
+    - Coin Market Cap
   * Information & Utility Widgets
     - System Stats (Disk, CPU, Memory)
-    - Weather via WeatherAPI.com or OpenWeatherMap ([AlexFullmoon](https://github.com/benphelps/homepage/pull/25))
+    - Weather via WeatherAPI.com or OpenWeatherMap
       - Automatic location detection (with HTTPS), or manual location selection
-    - Search Bar ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
+    - Search Bar
   * Customizable
     - 21 theme colors with light and dark mode support
     - Background image support
@@ -109,3 +110,25 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) to start.
 
 This is a [Next.js](https://nextjs.org/) application, see their doucmentation for more information:
+
+## Contributors
+
+Huge thanks to the all the contributors who have helped make this project what it is today!  In alphabetical order:
+
+  * [aidenpwnz](https://github.com/benphelps/homepage/commits?author=aidenpwnz) - Nginx Proxy Manager, Search Bar Widget
+  * [AlexFullmoon](https://github.com/benphelps/homepage/commits?author=AlexFullmoon) - OpenWeatherMap Widget
+  * [AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves) - Spanish Translation
+  * [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German Translation
+  * [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål
+  * [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch Translation
+  * [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian Translation
+  * [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
+  * [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
+  * [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese Translation
+  * [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, SABnzbd Integrations
+  * [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
+  * [nicedc](https://github.com/benphelps/homepage/commits?author=nicedc) - Chinese Translation
+  * [Nonoss117](https://github.com/benphelps/homepage/commits?author=Nonoss117) - French Translation
+  * [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
+  * [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
+  * [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify Integration
