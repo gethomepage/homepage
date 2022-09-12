@@ -114,5 +114,12 @@
         "apps": "Aplicaciones",
         "clients": "Clientes",
         "messages": "Mensajes"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries"
     }
 }
