@@ -10,7 +10,8 @@
     "resources": {
         "total": "Totalt",
         "free": "Ledig",
-        "used": "Brukt"
+        "used": "Brukt",
+        "load": "Load"
     },
     "docker": {
         "rx": "Mottatt",
