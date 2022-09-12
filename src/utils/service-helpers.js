@@ -110,13 +110,18 @@ export function cleanServiceGroups(groups) {
       const cleanedService = { ...service };
 
       if (cleanedService.widget) {
-        const { type } = cleanedService.widget;
+        const { type, server, container } = cleanedService.widget;
 
         cleanedService.widget = {
           type,
           service_name: service.name,
           service_group: serviceGroup.name,
         };
+
+        if (type === "docker") {
+          cleanedService.widget.server = server;
+          cleanedService.widget.container = container;
+        }
       }
 
       return cleanedService;
