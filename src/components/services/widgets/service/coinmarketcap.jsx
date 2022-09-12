@@ -11,8 +11,8 @@ export default function CoinMarketCap({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
-  const symbols = [...service.symbols];
-  const currencyCode = service.currency ?? "USD";
+  const currencyCode = config.currency ?? "USD";
+  const { symbols } = config;
 
   const { data: statsData, error: statsError } = useSWR(
     formatApiUrl(config, `v1/cryptocurrency/quotes/latest?symbol=${symbols.join(",")}&convert=${currencyCode}`)
@@ -41,24 +41,31 @@ export default function CoinMarketCap({ service }) {
   const { data } = statsData;
   const currencySymbol = getSymbolFromCurrency(currencyCode);
 
-  return symbols.map((key) => (
-    <Widget key={data[key].symbol}>
-      <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1">
-        <div className="font-thin text-sm">{data[key].name}</div>
-        <div className="flex flex-col text-right">
-          <div className="font-bold text-xs">
-            {currencySymbol}
-            {data[key].quote[currencyCode].price.toFixed(2)}
-          </div>
+  return (
+    <Widget>
+      <div className="flex flex-col w-full">
+        {symbols.map((key) => (
           <div
-            className={`font-bold text-xs ${
-              data[key].quote[currencyCode].percent_change_1h > 0 ? "text-emerald-300" : "text-rose-300"
-            }`}
+            key={data[key].symbol}
+            className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
           >
-            {data[key].quote[currencyCode].percent_change_1h.toFixed(2)}%
+            <div className="font-thin pl-2">{data[key].name}</div>
+            <div className="flex flex-row text-right">
+              <div className="font-bold mr-2">
+                {currencySymbol}
+                {data[key].quote[currencyCode].price.toFixed(2)}
+              </div>
+              <div
+                className={`font-bold w-10 mr-2 ${
+                  data[key].quote[currencyCode].percent_change_1h > 0 ? "text-emerald-300" : "text-rose-300"
+                }`}
+              >
+                {data[key].quote[currencyCode].percent_change_1h.toFixed(2)}%
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </Widget>
-  ));
+  );
 }

@@ -110,10 +110,19 @@ export function cleanServiceGroups(groups) {
       const cleanedService = { ...service };
 
       if (cleanedService.widget) {
-        const { type, server, container } = cleanedService.widget;
+        // whitelisted set of keys to pass to the frontend
+        const {
+          type, // all widgets
+          server, // docker widget
+          container,
+          currency, // coinmarketcap widget
+          symbols,
+        } = cleanedService.widget;
 
         cleanedService.widget = {
           type,
+          currency,
+          symbols,
           service_name: service.name,
           service_group: serviceGroup.name,
         };
