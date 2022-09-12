@@ -19,6 +19,7 @@ import Overseerr from "./widgets/service/overseerr";
 import Npm from "./widgets/service/npm";
 import Tautulli from "./widgets/service/tautulli";
 import CoinMarketCap from "./widgets/service/coinmarketcap";
+import Gotify from "./widgets/service/gotify";
 
 const widgetMappings = {
   docker: Docker,
@@ -30,7 +31,6 @@ const widgetMappings = {
   emby: Emby,
   jellyfin: Jellyfin,
   nzbget: Nzbget,
-  sabnzbd: SABnzbd,
   pihole: Pihole,
   rutorrent: Rutorrent,
   speedtest: Speedtest,
@@ -40,6 +40,8 @@ const widgetMappings = {
   coinmarketcap: CoinMarketCap,
   npm: Npm,
   tautulli: Tautulli,
+  gotify: Gotify,
+  sabnzbd: SABnzbd
 };
 
 export default function Widget({ service }) {

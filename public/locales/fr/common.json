@@ -120,5 +120,10 @@
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
     }
 }

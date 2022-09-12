@@ -17,6 +17,7 @@ const serviceProxyHandlers = {
   traefik: genericProxyHandler,
   sabnzbd: genericProxyHandler,
   // uses X-API-Key (or similar) header auth
+  gotify: credentialedProxyHandler,
   portainer: credentialedProxyHandler,
   jellyseerr: credentialedProxyHandler,
   overseerr: credentialedProxyHandler,
