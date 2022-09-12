@@ -19,6 +19,7 @@
   * Service Integration
     - Currently supports Sonarr, Radarr, Ombi, Emby, Jellyfin, Tautulli (Plex), Overseerr, Jellyseerr ([ilusi0n](https://github.com/benphelps/homepage/pull/34)), NZBGet, ruTorrent
     - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager ([aidenpwnz](https://github.com/benphelps/homepage/pull/45))
+    - Readarr, SABnzbd ([JazzFisch]())
   * Information & Utility Widgets
     - System Stats (Disk, CPU, Memory)
     - Weather via WeatherAPI.com or OpenWeatherMap ([AlexFullmoon](https://github.com/benphelps/homepage/pull/25))

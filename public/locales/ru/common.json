@@ -31,11 +31,6 @@
         "bitrate": "Битрейт",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "Оценка",
-        "remaining": "Осталось",
-        "downloaded": "Загружено"
-    },
     "rutorrent": {
         "active": "Активный",
         "upload": "Загрузить",
@@ -50,6 +45,11 @@
         "wanted": "Хотел",
         "queued": "В очереди",
         "movies": "Фильмы"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "Ожидание",
@@ -96,5 +96,15 @@
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
     }
 }

@@ -31,11 +31,6 @@
         "bitrate": "Taxa de bits",
         "no_active": "No Active Streams"
     },
-    "nzbget": {
-        "rate": "Avaliar",
-        "remaining": "Em falta",
-        "downloaded": "Baixada"
-    },
     "rutorrent": {
         "active": "Ativa",
         "upload": "Envio",
@@ -50,6 +45,11 @@
         "wanted": "Desejado",
         "queued": "Enfileiradas",
         "movies": "Filmes"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "ombi": {
         "pending": "Pendente",
@@ -107,5 +107,15 @@
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
     }
 }
