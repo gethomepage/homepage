@@ -9,7 +9,7 @@
   * Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
     - Supports all Raspberry Pi's, most SBCs & Apple Silicon
   * Full i18n support with automatic language detection
-    - Human translations for Chinese, Dutch, French, German, Norwegian Bokmål, Portuguese, Russian and Spanish
+    - Translations for Chinese, Dutch, French, German, Norwegian Bokmål, Portuguese, Russian and Spanish
     - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
   * Service & Web Bookmarks
   * Docker Integration
