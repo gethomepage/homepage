@@ -119,7 +119,7 @@ Huge thanks to the all the contributors who have helped make this project what i
   * [AlexFullmoon](https://github.com/benphelps/homepage/commits?author=AlexFullmoon) - OpenWeatherMap Widget
   * [AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves) - Spanish Translation
   * [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German Translation
-  * [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål
+  * [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål Translation
   * [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch Translation
   * [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian Translation
   * [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
