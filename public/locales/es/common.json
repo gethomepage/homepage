@@ -10,7 +10,8 @@
     "resources": {
         "total": "Total",
         "free": "Libre",
-        "used": "Usado"
+        "used": "Usado",
+        "load": "Load"
     },
     "docker": {
         "rx": "Recibido",
