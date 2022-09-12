@@ -96,5 +96,15 @@
         "pending": "Pendiente",
         "approved": "Aprobado",
         "available": "Disponible"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
     }
 }
