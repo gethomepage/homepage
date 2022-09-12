@@ -31,7 +31,6 @@ const widgetMappings = {
   emby: Emby,
   jellyfin: Jellyfin,
   nzbget: Nzbget,
-  sabnzbd: SABnzbd,
   pihole: Pihole,
   rutorrent: Rutorrent,
   speedtest: Speedtest,
