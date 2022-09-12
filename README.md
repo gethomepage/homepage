@@ -78,6 +78,8 @@ pnpm install
 pnpm build
 ```
 
+If this is your first time starting, copy the `src/skeleton` directory to `config/` to populate initial example config files.
+
 Finally, run the server:
 
 ```bash
