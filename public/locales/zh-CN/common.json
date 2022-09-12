@@ -8,31 +8,31 @@
         "placeholder": "搜索…"
     },
     "resources": {
-        "total": "全部的",
-        "free": "自由的",
-        "used": "用过的"
+        "total": "共",
+        "free": "空闲",
+        "used": "已用"
     },
     "docker": {
-        "rx": "rx",
-        "tx": "TX",
-        "mem": "mem",
-        "cpu": "中央处理器",
+        "rx": "接收",
+        "tx": "发送",
+        "mem": "内存",
+        "cpu": "处理器",
         "offline": "离线"
     },
     "emby": {
-        "playing": "玩",
+        "playing": "正在播放",
         "transcoding": "转码",
         "bitrate": "比特率",
-        "no_active": "No Active Streams"
+        "no_active": "暂无播放"
     },
     "tautulli": {
-        "playing": "玩",
+        "playing": "正在播放",
         "transcoding": "转码",
         "bitrate": "比特率",
-        "no_active": "No Active Streams"
+        "no_active": "暂无播放"
     },
     "rutorrent": {
-        "active": "积极的",
+        "active": "活动中",
         "upload": "上传",
         "download": "下载"
     },
@@ -42,18 +42,18 @@
         "series": "系列"
     },
     "radarr": {
-        "wanted": "通缉",
-        "queued": "排队",
+        "wanted": "订阅",
+        "queued": "队列",
         "movies": "电影"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "订阅",
+        "queued": "队列",
+        "books": "书籍"
     },
     "ombi": {
         "pending": "待办的",
-        "approved": "得到正式认可的",
+        "approved": "已批准",
         "available": "可用的"
     },
     "jellyseerr": {
@@ -72,9 +72,9 @@
         "ping": "ping"
     },
     "portainer": {
-        "running": "跑步",
-        "stopped": "停了下来",
-        "total": "全部的"
+        "running": "运行中",
+        "stopped": "已停止",
+        "total": "总计"
     },
     "traefik": {
         "routers": "路由器",
@@ -87,32 +87,32 @@
         "total": "全部的"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "当前位置",
+        "allow": "点击并允许",
+        "updating": "更新中",
+        "wait": "请等待"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "待办",
+        "approved": "已批准",
+        "available": "可用"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "速率",
+        "queue": "队列",
+        "timeleft": "剩余时间"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "速率",
+        "remaining": "剩余",
+        "downloaded": "下载"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track"
+        "configure": "配置一个或多个需要追踪的加密"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "应用",
+        "clients": "客户端",
+        "messages": "信息"
     }
 }
