@@ -16,7 +16,7 @@
     - Container status (Running / Stopped) & statistics (CPU, Memory, Network)
     - Automatic service discovery (via labels)
   * Service Integration
-    - Sonarr, Radarr, Readarr, Emby, Jellyfin, Tautulli (Plex)
+    - Sonarr, Radarr, Readarr, Prowlarr, Emby, Jellyfin, Tautulli (Plex)
     - Ombi, Overseerr, Jellyseerr, NZBGet, SABnzbd, ruTorrent
     - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager, Gotify
   * Information Providers
@@ -131,4 +131,4 @@ Huge thanks to the all the contributors who have helped make this project what i
   * [Nonoss117](https://github.com/benphelps/homepage/commits?author=Nonoss117) - French Translation
   * [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
   * [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
-  * [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify Integration
+  * [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
