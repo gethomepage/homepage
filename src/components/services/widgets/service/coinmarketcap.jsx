@@ -19,7 +19,11 @@ export default function CoinMarketCap({ service }) {
   );
 
   if (!symbols || symbols.length === 0) {
-    return <Widget error="Not tracking any symbols" />;
+    return (
+      <Widget>
+        <Block value={t("coinmarketcap.configure")} />
+      </Widget>
+    );
   }
 
   if (statsError) {
