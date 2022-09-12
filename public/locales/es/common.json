@@ -47,9 +47,9 @@
         "movies": "Películas"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Más deseado",
+        "queued": "Puesto en cola",
+        "books": "Libros"
     },
     "ombi": {
         "pending": "Pendiente",
@@ -98,21 +98,21 @@
         "available": "Disponible"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Tasa de descarga",
+        "queue": "Puesto en cola",
+        "timeleft": "Tiempo Restante"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Tasa de descarga",
+        "remaining": "Restante",
+        "downloaded": "Descargado"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track"
+        "configure": "Configurar una o varias criptomonedas para su seguimiento"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Aplicaciones",
+        "clients": "Clientes",
+        "messages": "Mensajes"
     }
 }
