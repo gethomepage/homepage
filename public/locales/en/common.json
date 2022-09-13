@@ -64,6 +64,12 @@
         "upload": "Upload",
         "download": "Download"
     },
+    "transmission": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",

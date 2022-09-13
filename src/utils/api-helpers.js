@@ -9,6 +9,7 @@ const formats = {
   traefik: `{url}/api/{endpoint}`,
   portainer: `{url}/api/endpoints/{env}/{endpoint}`,
   rutorrent: `{url}/plugins/httprpc/action.php`,
+  transmission: `{url}/transmission/rpc`,
   jellyseerr: `{url}/api/v1/{endpoint}`,
   overseerr: `{url}/api/v1/{endpoint}`,
   ombi: `{url}/api/v1/{endpoint}`,
