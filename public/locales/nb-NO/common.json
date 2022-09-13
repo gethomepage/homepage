@@ -122,5 +122,11 @@
         "numberOfQueries": "Spørringer",
         "numberOfFailGrabs": "Mislykkede hentinger",
         "numberOfFailQueries": "Mislykkede spørringer"
+    },
+    "transmission": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
