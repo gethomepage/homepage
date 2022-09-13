@@ -133,5 +133,11 @@
         "numberOfQueries": "Demandes",
         "numberOfFailGrabs": "Capture échouée",
         "numberOfFailQueries": "Demande échouée"
+    },
+    "transmission": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
