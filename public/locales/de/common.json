@@ -109,11 +109,7 @@
         "downloaded": "Downloaded"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Configure one or more crypto currencies to track"
   },
     "gotify": {
         "apps": "Applications",
