@@ -3,6 +3,7 @@ import credentialedProxyHandler from "utils/proxies/credentialed";
 import rutorrentProxyHandler from "utils/proxies/rutorrent";
 import nzbgetProxyHandler from "utils/proxies/nzbget";
 import npmProxyHandler from "utils/proxies/npm";
+import transmissionProxyHandler from "utils/proxies/transmission";
 
 const serviceProxyHandlers = {
   // uses query param auth
@@ -27,6 +28,7 @@ const serviceProxyHandlers = {
   rutorrent: rutorrentProxyHandler,
   nzbget: nzbgetProxyHandler,
   npm: npmProxyHandler,
+  transmission: transmissionProxyHandler,
 };
 
 export default async function handler(req, res) {

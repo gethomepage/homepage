@@ -12,13 +12,17 @@ export function httpsRequest(url, params) {
       });
 
       response.on("end", () => {
-        resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data)]);
+        resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data), response.headers]);
       });
     });
 
     request.on("error", (error) => {
       reject([500, error]);
     });
+
+    if (params.body) {
+      request.write(params.body);
+    }
 
     request.end();
   });
@@ -34,13 +38,17 @@ export function httpRequest(url, params) {
       });
 
       response.on("end", () => {
-        resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data)]);
+        resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data), response.headers]);
       });
     });
 
     request.on("error", (error) => {
       reject([500, error]);
     });
+
+    if (params.body) {
+      request.write(params.body);
+    }
 
     request.end();
   });

@@ -8,6 +8,7 @@ import Portainer from "./widgets/service/portainer";
 import Emby from "./widgets/service/emby";
 import Nzbget from "./widgets/service/nzbget";
 import SABnzbd from "./widgets/service/sabnzbd";
+import Transmission from "./widgets/service/transmission";
 import Docker from "./widgets/service/docker";
 import Pihole from "./widgets/service/pihole";
 import Rutorrent from "./widgets/service/rutorrent";
@@ -31,6 +32,8 @@ const widgetMappings = {
   emby: Emby,
   jellyfin: Jellyfin,
   nzbget: Nzbget,
+  sabnzbd: SABnzbd,
+  transmission: Transmission,
   pihole: Pihole,
   rutorrent: Rutorrent,
   speedtest: Speedtest,
@@ -41,7 +44,6 @@ const widgetMappings = {
   npm: Npm,
   tautulli: Tautulli,
   gotify: Gotify,
-  sabnzbd: SABnzbd
 };
 
 export default function Widget({ service }) {
