@@ -45,16 +45,16 @@ const widgetMappings = {
   npm: Npm,
   tautulli: Tautulli,
   gotify: Gotify,
-  prowlarr: Prowlarr
+  prowlarr: Prowlarr,
 };
 
-export default function Widget({ service }) {
+export default function Widget({ service, state }) {
   const { t } = useTranslation("common");
 
   const ServiceWidget = widgetMappings[service.widget.type];
 
   if (ServiceWidget) {
-    return <ServiceWidget service={service} />;
+    return <ServiceWidget state={state} service={service} />;
   }
 
   return (

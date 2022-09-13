@@ -1,9 +1,11 @@
 import Image from "next/future/image";
 import { Disclosure } from "@headlessui/react";
+import { useState } from "react";
 
 import Status from "./status";
 import Widget from "./widget";
 import Docker from "./widgets/service/docker";
+import Dropdown from "./dropdown";
 
 function resolveIcon(icon) {
   if (icon.startsWith("http")) {
@@ -26,6 +28,19 @@ export default function Item({ service }) {
     if (service.href && service.href !== "#") {
       window.open(service.href, "_blank").focus();
     }
+  };
+
+  const cmcValues = [
+    { label: "1 Hour", value: "1h" },
+    { label: "1 Day", value: "24h" },
+    { label: "7 Days", value: "7d" },
+    { label: "30 Days", value: "30d" },
+  ];
+
+  const [cmcV, cmcSet] = useState(cmcValues[0]);
+
+  const states = {
+    coinmarketcap: { value: cmcV, set: cmcSet },
   };
 
   const hasLink = service.href && service.href !== "#";
@@ -82,6 +97,7 @@ export default function Item({ service }) {
                 <Status service={service} />
               </Disclosure.Button>
             )}
+            {service?.widget?.type === "coinmarketcap" && <Dropdown state={states.coinmarketcap} options={cmcValues} />}
           </div>
 
           <Disclosure.Panel>
@@ -90,7 +106,7 @@ export default function Item({ service }) {
             </div>
           </Disclosure.Panel>
 
-          {service.widget && <Widget service={service} />}
+          {service.widget && <Widget state={states[service?.widget?.type]} service={service} />}
         </div>
       </Disclosure>
     </li>

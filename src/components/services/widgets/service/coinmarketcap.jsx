@@ -1,13 +1,12 @@
 import useSWR from "swr";
 import { useTranslation } from "react-i18next";
-import getSymbolFromCurrency from "currency-symbol-map";
 
 import Widget from "../widget";
 import Block from "../block";
 
 import { formatApiUrl } from "utils/api-helpers";
 
-export default function CoinMarketCap({ service }) {
+export default function CoinMarketCap({ service, state }) {
   const { t } = useTranslation();
 
   const config = service.widget;
@@ -39,7 +38,6 @@ export default function CoinMarketCap({ service }) {
   }
 
   const { data } = statsData;
-  const currencySymbol = getSymbolFromCurrency(currencyCode);
 
   return (
     <Widget>
@@ -52,15 +50,20 @@ export default function CoinMarketCap({ service }) {
             <div className="font-thin pl-2">{data[key].name}</div>
             <div className="flex flex-row text-right">
               <div className="font-bold mr-2">
-                {currencySymbol}
-                {data[key].quote[currencyCode].price.toFixed(2)}
+                {t("common.number", {
+                  value: data[key].quote[currencyCode].price,
+                  style: "currency",
+                  currency: currencyCode,
+                })}
               </div>
               <div
                 className={`font-bold w-10 mr-2 ${
-                  data[key].quote[currencyCode].percent_change_1h > 0 ? "text-emerald-300" : "text-rose-300"
+                  data[key].quote[currencyCode][`percent_change_${state.value.value}`] > 0
+                    ? "text-emerald-300"
+                    : "text-rose-300"
                 }`}
               >
-                {data[key].quote[currencyCode].percent_change_1h.toFixed(2)}%
+                {data[key].quote[currencyCode][`percent_change_${state.value.value}`].toFixed(2)}%
               </div>
             </div>
           </div>
