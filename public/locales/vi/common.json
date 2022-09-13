@@ -10,7 +10,8 @@
     "resources": {
         "total": "Tổng",
         "free": "Dư",
-        "used": "Đã dùng"
+        "used": "Đã dùng",
+        "load": "Load"
     },
     "docker": {
         "rx": "RX",
@@ -114,5 +115,12 @@
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
+    },
+    "prowlarr": {
+        "numberOfFailGrabs": "Fail Grabs",
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries",
+        "numberOfFailQueries": "Fail Queries"
     }
 }

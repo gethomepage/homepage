@@ -18,6 +18,7 @@ const formats = {
   sabnzbd: `{url}/api/?apikey={key}&output=json&mode={endpoint}`,
   coinmarketcap: `https://pro-api.coinmarketcap.com/{endpoint}`,
   gotify: `{url}/{endpoint}`,
+  prowlarr: `{url}/api/v1/{endpoint}`,
 };
 
 export function formatApiCall(api, args) {

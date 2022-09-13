@@ -10,7 +10,8 @@
     "resources": {
         "total": "Total",
         "free": "Libre",
-        "used": "Utilisée"
+        "used": "Utilisé",
+        "load": "Charge"
     },
     "docker": {
         "rx": "Rx",
@@ -32,53 +33,53 @@
         "no_active": "Aucun flux actif"
     },
     "rutorrent": {
-        "active": "Active",
+        "active": "Actif",
         "upload": "Téléverser",
         "download": "Télécharger"
     },
     "sonarr": {
-        "wanted": "Recherchée",
+        "wanted": "Demandé",
         "queued": "En queue",
         "series": "Séries"
     },
     "radarr": {
-        "wanted": "Recherchée",
+        "wanted": "Demandé",
         "queued": "En queue",
         "movies": "Films"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Demandé",
+        "queued": "En Queue",
+        "books": "Livres"
     },
     "ombi": {
         "pending": "En attente",
-        "approved": "Approuvée",
+        "approved": "Validé",
         "available": "Disponible"
     },
     "jellyseerr": {
         "pending": "En attente",
-        "approved": "Approuvée",
+        "approved": "Validé",
         "available": "Disponible"
     },
     "pihole": {
         "queries": "Requêtes",
-        "blocked": "Bloquée",
+        "blocked": "Bloqué",
         "gravity": "La gravité"
     },
     "speedtest": {
         "upload": "Téléversement",
         "download": "Téléchargement",
-        "ping": "Ping-ping"
+        "ping": "Ping"
     },
     "portainer": {
-        "running": "Fonctionnement",
+        "running": "Démarré",
         "stopped": "Arrêté",
         "total": "Total"
     },
     "traefik": {
         "routers": "Routeurs",
-        "services": "Prestations de service",
+        "services": "Services",
         "middleware": "Middleware"
     },
     "npm": {
@@ -105,25 +106,32 @@
     },
     "overseerr": {
         "pending": "En attente",
-        "approved": "Approuvée",
+        "approved": "Validé",
         "available": "Disponible"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Taux",
         "queue": "Queue",
-        "timeleft": "Time Left"
+        "timeleft": "Temps restant"
     },
     "nzbget": {
-        "remaining": "Remaining",
-        "downloaded": "Downloaded",
-        "rate": "Rate"
+        "remaining": "Restant",
+        "downloaded": "Téléchargé",
+        "rate": "Évaluer"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track"
+        "configure": "Configurer une ou plusieurs crypto-monnaies à suivre"
     },
     "gotify": {
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexeurs",
+        "numberOfGrabs": "Capture",
+        "numberOfQueries": "Demandes",
+        "numberOfFailGrabs": "Capture échouée",
+        "numberOfFailQueries": "Demande échouée"
     }
 }

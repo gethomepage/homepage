@@ -62,8 +62,7 @@ export default function Search({ options }) {
           bg-white/50 dark:bg-white/10
           focus:ring-theme-500 dark:focus:ring-white/50
           focus:border-theme-500 dark:focus:border-white/50
-          border border-theme-300 dark:border-theme-200/50
-          backdrop-blur-md"
+          border border-theme-300 dark:border-theme-200/50"
         placeholder={t("search.placeholder")}
         onChange={(s) => setQuery(s.currentTarget.value)}
         required

@@ -10,7 +10,8 @@
     "resources": {
         "total": "Gesamt",
         "free": "Frei",
-        "used": "Gebraucht"
+        "used": "Gebraucht",
+        "load": "Load"
     },
     "docker": {
         "rx": "Rx",
@@ -114,5 +115,12 @@
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries"
     }
 }

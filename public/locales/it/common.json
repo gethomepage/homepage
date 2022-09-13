@@ -44,7 +44,8 @@
     "resources": {
         "total": "Totale",
         "free": "Libero",
-        "used": "In utilizzo"
+        "used": "In utilizzo",
+        "load": "Load"
     },
     "rutorrent": {
         "active": "Attivo",
@@ -114,5 +115,12 @@
         "apps": "Applications",
         "clients": "Clients",
         "messages": "Messages"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries"
     }
 }

@@ -10,7 +10,8 @@
     "resources": {
         "total": "Totalt",
         "free": "Ledig",
-        "used": "Brukt"
+        "used": "Brukt",
+        "load": "Last inn"
     },
     "docker": {
         "rx": "Mottatt",
@@ -23,13 +24,13 @@
         "playing": "Spiller",
         "transcoding": "Transkoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Ingen aktive strømmer"
     },
     "tautulli": {
         "playing": "Spiller",
         "transcoding": "Transkoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Ingen aktive strømmer"
     },
     "rutorrent": {
         "active": "Aktiv",
@@ -93,26 +94,33 @@
         "current": "Nåværende posisjon"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Venter",
+        "approved": "Godkjent",
+        "available": "Tilgjengelig"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Takt",
+        "queue": "Kø",
+        "timeleft": "Gjenstående tid"
     },
     "nzbget": {
-        "rate": "Rate",
-        "downloaded": "Downloaded",
-        "remaining": "Remaining"
+        "rate": "Takt",
+        "downloaded": "Nedlastet",
+        "remaining": "Gjenstående"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track"
+        "configure": "Sett opp én eller flere kryptovalutaer å holde øye med"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Programmer",
+        "clients": "Klienter",
+        "messages": "Meldinger"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indekserere",
+        "numberOfGrabs": "Hentninger",
+        "numberOfQueries": "Spørringer",
+        "numberOfFailGrabs": "Mislykkede hentinger",
+        "numberOfFailQueries": "Mislykkede spørringer"
     }
 }
