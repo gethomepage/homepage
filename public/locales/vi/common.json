@@ -122,5 +122,11 @@
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
         "numberOfFailQueries": "Fail Queries"
+    },
+    "transmission": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
