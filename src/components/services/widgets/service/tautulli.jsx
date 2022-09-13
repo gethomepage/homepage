@@ -48,10 +48,10 @@ function SingleSessionEntry({ session }) {
         />
         <div className="text-xs z-10 self-center ml-1">
           {state === "paused" && (
-            <BsFillPlayFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
+            <BsPauseFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
           )}
           {state !== "paused" && (
-            <BsPauseFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
+            <BsFillPlayFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
           )}
         </div>
         <div className="grow " />
@@ -76,10 +76,10 @@ function SessionEntry({ session }) {
       />
       <div className="text-xs z-10 self-center ml-1">
         {state === "paused" && (
-          <BsFillPlayFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
+          <BsPauseFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
         )}
         {state !== "paused" && (
-          <BsPauseFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
+          <BsFillPlayFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
         )}
         <span>{full_title}</span>
       </div>
