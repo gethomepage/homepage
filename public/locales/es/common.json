@@ -11,7 +11,7 @@
         "total": "Total",
         "free": "Libre",
         "used": "Usado",
-        "load": "Load"
+        "load": "Carga"
     },
     "docker": {
         "rx": "Recibido",
@@ -34,8 +34,8 @@
     },
     "rutorrent": {
         "active": "Activo",
-        "upload": "Subir",
-        "download": "Descargar"
+        "upload": "Subida",
+        "download": "Descarga"
     },
     "sonarr": {
         "wanted": "Más deseado",
@@ -69,7 +69,7 @@
     },
     "speedtest": {
         "upload": "Subir",
-        "download": "Descargar",
+        "download": "Descarga",
         "ping": "Ping"
     },
     "portainer": {
@@ -117,16 +117,16 @@
         "messages": "Mensajes"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indexadores",
+        "numberOfGrabs": "Capturas",
+        "numberOfQueries": "Consultas",
+        "numberOfFailGrabs": "Capturas Fallidas",
+        "numberOfFailQueries": "Consultas Fallidas"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Egoístas (Leech)",
+        "seed": "Semillas"
     }
 }
