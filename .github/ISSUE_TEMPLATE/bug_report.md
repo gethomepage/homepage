@@ -17,6 +17,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Configuration**
+If applicable,
 ```yaml
 # Please provide your service, widget or otherwise related configuration here
 ```
