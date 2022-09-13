@@ -22,9 +22,7 @@ If applicable, add screenshots to help explain your problem.
 ```
 
 **Additional context**
-Add any other context about the problem here.
-
-This includes things like:
+Add any other context about the problem here. This includes things like:
  - Service version or API version
  - Docker version
  - Deployment method
