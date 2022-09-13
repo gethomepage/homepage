@@ -1,6 +1,7 @@
 import Image from "next/future/image";
 import { Disclosure } from "@headlessui/react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Status from "./status";
 import Widget from "./widget";
@@ -24,6 +25,8 @@ function resolveIcon(icon) {
 }
 
 export default function Item({ service }) {
+  const { t } = useTranslation();
+
   const handleOnClick = () => {
     if (service.href && service.href !== "#") {
       window.open(service.href, "_blank").focus();
@@ -31,10 +34,10 @@ export default function Item({ service }) {
   };
 
   const cmcValues = [
-    { label: "1 Hour", value: "1h" },
-    { label: "1 Day", value: "24h" },
-    { label: "7 Days", value: "7d" },
-    { label: "30 Days", value: "30d" },
+    { label: t("coinmarketcap.1hour"), value: "1h" },
+    { label: t("coinmarketcap.1day"), value: "24h" },
+    { label: t("coinmarketcap.7days"), value: "7d" },
+    { label: t("coinmarketcap.30days"), value: "30d" },
   ];
 
   const [cmcV, cmcSet] = useState(cmcValues[0]);
