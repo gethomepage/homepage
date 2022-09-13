@@ -1,6 +1,5 @@
 import { httpProxy } from "utils/http";
 import { formatApiCall } from "utils/api-helpers";
-
 import getServiceWidget from "utils/service-helpers";
 
 export default async function transmissionProxyHandler(req, res) {
@@ -20,6 +19,7 @@ export default async function transmissionProxyHandler(req, res) {
   const csrfHeaderName = "x-transmission-session-id";
 
   const method = "POST";
+  const auth = `${widget.username}:${widget.password}`;
   const body = JSON.stringify({
     method: "torrent-get",
     arguments: {
@@ -27,27 +27,27 @@ export default async function transmissionProxyHandler(req, res) {
     }
   });
 
-  const reqHeaders = {
+  const headers = {
     "content-type": "application/json",
   };
 
   let [status, contentType, data, responseHeaders] = await httpProxy(url, {
-    method: method,
-    auth: `${widget.username}:${widget.password}`,
-    body: body,
-    headers: reqHeaders,
+    method,
+    auth,
+    body,
+    headers,
   });
 
   if (status === 409) {
     // Transmission is rejecting the request, but returning a CSRF token
-    reqHeaders[csrfHeaderName] = responseHeaders[csrfHeaderName];
+    headers[csrfHeaderName] = responseHeaders[csrfHeaderName];
 
     // retry the request, now with the CSRF token
-    [status, contentType, data] = await httpProxy(url, {
-      method: method,
-      auth: `${widget.username}:${widget.password}`,
-      body: body,
-      headers: reqHeaders,
+    [status, contentType, data, responseHeaders] = await httpProxy(url, {
+      method,
+      auth,
+      body,
+      headers,
     });
   }
 

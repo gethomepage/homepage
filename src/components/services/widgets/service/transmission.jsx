@@ -28,16 +28,17 @@ export default function Transmission({ service }) {
     );
   }
 
-  const torrents = torrentData.arguments.torrents;
+  const { torrents } = torrentData.arguments;
   let rateDl = 0;
   let rateUl = 0;
   let completed = 0;
 
-  for (let torrent of torrents) {
+  for (let i = 0; i < torrents.length; i += 1) {
+    const torrent = torrents[i];
     rateDl += torrent.rateDownload;
     rateUl += torrent.rateUpload;
     if (torrent.percentDone  === 1) {
-      completed++;
+      completed += 1;
     }
   }
 
