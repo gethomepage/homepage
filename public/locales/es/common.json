@@ -109,7 +109,11 @@
         "downloaded": "Descargado"
     },
     "coinmarketcap": {
-        "configure": "Configurar una o varias criptomonedas para su seguimiento"
+        "configure": "Configurar una o varias criptomonedas para su seguimiento",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
     },
     "gotify": {
         "apps": "Aplicaciones",
