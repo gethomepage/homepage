@@ -1,136 +1,136 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Falta el tipus de widget: {{type}}",
+        "api_error": "Error d'API",
+        "status": "Estat"
     },
     "weather": {
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait",
-        "current": "Current Location"
+        "allow": "Feu clic per permetre",
+        "updating": "Actualitzant",
+        "wait": "Si us plau, espereu",
+        "current": "Localització actual"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Cercar…"
     },
     "transmission": {
-        "seed": "Seed",
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech"
+        "seed": "Llavors",
+        "download": "Descàrrega",
+        "upload": "Càrrega",
+        "leech": "Companys"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Volgut",
+        "queued": "En cua",
+        "series": "Sèries"
     },
     "speedtest": {
         "ping": "Ping",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Càrrega",
+        "download": "Descàrrega"
     },
     "resources": {
         "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "free": "Lliure",
+        "used": "Usat",
+        "load": "Càrrega"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Offline"
+        "offline": "Fora de línia"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Reproduint",
+        "transcoding": "Transcodificant",
+        "bitrate": "Taxa de bits",
+        "no_active": "Sense transmissions actives"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Reproduint",
+        "transcoding": "Transcodificant",
+        "bitrate": "Taxa de bits",
+        "no_active": "Sense transmissions actives"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Taxa",
+        "remaining": "Restant",
+        "downloaded": "Descarregat"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Taxa",
+        "queue": "Cua",
+        "timeleft": "Temps restant"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Actiu",
+        "upload": "Càrrega",
+        "download": "Descàrrega"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Volgut",
+        "queued": "En cua",
+        "movies": "Pel·lícules"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Volgut",
+        "queued": "En cua",
+        "books": "Llibres"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendent",
+        "approved": "Aprovat",
+        "available": "Disponible"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendent",
+        "approved": "Aprovat",
+        "available": "Disponible"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendent",
+        "approved": "Aprovat",
+        "available": "Disponible"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Consultes",
+        "blocked": "Bloquejat",
+        "gravity": "Gravetat"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
+        "running": "Executant",
+        "stopped": "Aturat",
         "total": "Total"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
+        "routers": "Encaminadors",
+        "services": "Serveis",
         "middleware": "Middleware"
     },
     "npm": {
         "total": "Total",
-        "enabled": "Enabled",
-        "disabled": "Disabled"
+        "enabled": "Activat",
+        "disabled": "Desactivat"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Configura una o més criptomonedes per fer el seguiment",
+        "1hour": "1 Hora",
+        "1day": "1 Dia",
+        "7days": "7 Dies",
+        "30days": "30 Dies"
     },
     "gotify": {
-        "apps": "Applications",
+        "apps": "Aplicacions",
         "clients": "Clients",
-        "messages": "Messages"
+        "messages": "Missatges"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indexadors",
+        "numberOfGrabs": "Captures",
+        "numberOfQueries": "Consultes",
+        "numberOfFailGrabs": "Captures fallides",
+        "numberOfFailQueries": "Consultes fallides"
     }
 }
