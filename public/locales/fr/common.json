@@ -145,7 +145,7 @@
         "seed": "Seed"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configuré",
+        "errored": "En erreur"
     }
 }
