@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "telemetry": "next telemetry disable"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.0",
