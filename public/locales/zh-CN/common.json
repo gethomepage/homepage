@@ -109,7 +109,11 @@
         "downloaded": "下载"
     },
     "coinmarketcap": {
-        "configure": "配置一个或多个需要追踪的加密"
+        "configure": "配置一个或多个需要追踪的加密",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
     },
     "gotify": {
         "apps": "应用",
