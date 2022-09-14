@@ -45,7 +45,7 @@ const widgetMappings = {
   npm: Npm,
   tautulli: Tautulli,
   gotify: Gotify,
-  prowlarr: Prowlarr
+  prowlarr: Prowlarr,
 };
 
 export default function Widget({ service }) {
