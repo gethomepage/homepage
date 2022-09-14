@@ -128,9 +128,9 @@
         "numberOfFailQueries": "Fail Queries"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "下载",
+        "upload": "上传",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "做种"
     }
 }
