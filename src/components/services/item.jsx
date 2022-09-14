@@ -33,19 +33,6 @@ export default function Item({ service }) {
     }
   };
 
-  const cmcValues = [
-    { label: t("coinmarketcap.1hour"), value: "1h" },
-    { label: t("coinmarketcap.1day"), value: "24h" },
-    { label: t("coinmarketcap.7days"), value: "7d" },
-    { label: t("coinmarketcap.30days"), value: "30d" },
-  ];
-
-  const [cmcV, cmcSet] = useState(cmcValues[0]);
-
-  const states = {
-    coinmarketcap: { value: cmcV, set: cmcSet },
-  };
-
   const hasLink = service.href && service.href !== "#";
 
   return (
@@ -100,7 +87,6 @@ export default function Item({ service }) {
                 <Status service={service} />
               </Disclosure.Button>
             )}
-            {service?.widget?.type === "coinmarketcap" && <Dropdown state={states.coinmarketcap} options={cmcValues} />}
           </div>
 
           <Disclosure.Panel>
@@ -109,7 +95,7 @@ export default function Item({ service }) {
             </div>
           </Disclosure.Panel>
 
-          {service.widget && <Widget state={states[service?.widget?.type]} service={service} />}
+          {service.widget && <Widget service={service} />}
         </div>
       </Disclosure>
     </li>

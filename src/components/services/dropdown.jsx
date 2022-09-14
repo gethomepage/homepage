@@ -1,14 +1,15 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { BiCog } from "react-icons/bi";
+import classNames from "classnames";
 
-export default function Dropdown({ options, state }) {
+export default function Dropdown({ options, value, setValue }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-theme-600/40 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-theme-600/40 focus:outline-none">
-          {state.value.label}
-          <BiCog className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+        <Menu.Button className="text-xs inline-flex w-full items-center rounded bg-theme-200/50 dark:bg-theme-900/20 px-3 py-1.5">
+          {options.find((option) => option.value === value).label}
+          <BiCog className="-mr-1 ml-2 h-4 w-4" aria-hidden="true" />
         </Menu.Button>
       </div>
 
@@ -21,18 +22,21 @@ export default function Dropdown({ options, state }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-theme-600/40 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-theme-200/50 dark:bg-theme-900/50 backdrop-blur shadow-md focus:outline-none text-theme-700 dark:text-theme-200">
           <div className="py-1">
-            {options.map((i) => (
-              <Menu.Item key={i.value}>
+            {options.map((option) => (
+              <Menu.Item key={option.value} as={Fragment}>
                 <button
                   onClick={() => {
-                    state.set(i);
+                    setValue(option.value);
                   }}
                   type="button"
-                  className="text-white block px-4 py-2 text-sm"
+                  className={classNames(
+                    value === option.value ? "bg-theme-300/40 dark:bg-theme-900/40" : "",
+                    "w-full block px-3 py-1.5 text-sm hover:bg-theme-300/70 hover:dark:bg-theme-900/70 text-left"
+                  )}
                 >
-                  {i.label}
+                  {option.label}
                 </button>
               </Menu.Item>
             ))}

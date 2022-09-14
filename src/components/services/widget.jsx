@@ -48,13 +48,13 @@ const widgetMappings = {
   prowlarr: Prowlarr,
 };
 
-export default function Widget({ service, state }) {
+export default function Widget({ service }) {
   const { t } = useTranslation("common");
 
   const ServiceWidget = widgetMappings[service.widget.type];
 
   if (ServiceWidget) {
-    return <ServiceWidget state={state} service={service} />;
+    return <ServiceWidget service={service} />;
   }
 
   return (
