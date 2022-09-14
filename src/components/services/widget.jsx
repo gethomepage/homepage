@@ -22,6 +22,7 @@ import Tautulli from "./widgets/service/tautulli";
 import CoinMarketCap from "./widgets/service/coinmarketcap";
 import Gotify from "./widgets/service/gotify";
 import Prowlarr from "./widgets/service/prowlarr";
+import Jackett from "./widgets/service/jackett";
 
 const widgetMappings = {
   docker: Docker,
@@ -45,7 +46,8 @@ const widgetMappings = {
   npm: Npm,
   tautulli: Tautulli,
   gotify: Gotify,
-  prowlarr: Prowlarr
+  prowlarr: Prowlarr,
+  jackett: Jackett
 };
 
 export default function Widget({ service }) {

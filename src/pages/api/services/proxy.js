@@ -17,6 +17,7 @@ const serviceProxyHandlers = {
   tautulli: genericProxyHandler,
   traefik: genericProxyHandler,
   sabnzbd: genericProxyHandler,
+  jackett: genericProxyHandler,
   // uses X-API-Key (or similar) header auth
   gotify: credentialedProxyHandler,
   portainer: credentialedProxyHandler,
