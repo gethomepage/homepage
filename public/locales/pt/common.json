@@ -143,5 +143,9 @@
         "upload": "Envio",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
     }
 }
