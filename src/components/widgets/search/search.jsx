@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiSearch } from "react-icons/fi";
 import { SiDuckduckgo, SiMicrosoftbing, SiGoogle } from "react-icons/si";
@@ -29,6 +29,8 @@ const providers = {
 export default function Search({ options }) {
   const { t } = useTranslation();
 
+  const autoFocus = useCallback((el) => (options?.focus ? el.focus() : null), [options]);
+
   const provider = providers[options.provider];
   const [query, setQuery] = useState("");
 
@@ -54,6 +56,7 @@ export default function Search({ options }) {
     <form className="flex-col relative h-8 my-4 min-w-full md:min-w-fit grow first:ml-0 ml-4" onSubmit={handleSubmit}>
       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
       <input
+        ref={autoFocus}
         type="text"
         className="
           overflow-hidden w-full h-full rounded-md
