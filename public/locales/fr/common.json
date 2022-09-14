@@ -110,21 +110,21 @@
         "available": "Disponible"
     },
     "sabnzbd": {
-        "rate": "Taux",
+        "rate": "Débit",
         "queue": "Queue",
         "timeleft": "Temps restant"
     },
     "nzbget": {
         "remaining": "Restant",
         "downloaded": "Téléchargé",
-        "rate": "Évaluer"
+        "rate": "Débit"
     },
     "coinmarketcap": {
         "configure": "Configurer une ou plusieurs crypto-monnaies à suivre",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "1hour": "1 Heure",
+        "1day": "1 Jour",
+        "7days": "7 Jours",
+        "30days": "30 Jours"
     },
     "gotify": {
         "apps": "Applications",
