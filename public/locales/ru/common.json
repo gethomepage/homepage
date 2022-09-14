@@ -8,7 +8,7 @@
         "placeholder": "Поиск…"
     },
     "resources": {
-        "total": "Общий",
+        "total": "Всего",
         "free": "Свободно",
         "used": "Использовано",
         "load": "Load"
@@ -89,8 +89,8 @@
     },
     "weather": {
         "wait": "Пожалуйста подождите",
-        "current": "Текущее местоположение",
-        "allow": "Click to allow",
+        "current": "Текущая локация",
+        "allow": "Нажмите, чтобы разрешить",
         "updating": "Обновление"
     },
     "overseerr": {
