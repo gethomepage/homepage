@@ -120,7 +120,11 @@
         "downloaded": "Downloaded"
     },
     "coinmarketcap": {
-        "configure": "Configurar uma ou mais moedas"
+        "configure": "Configurar uma ou mais moedas",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
     },
     "gotify": {
         "apps": "Aplicações",
