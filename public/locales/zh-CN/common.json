@@ -132,5 +132,9 @@
         "upload": "上传",
         "leech": "Leech",
         "seed": "做种"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
     }
 }
