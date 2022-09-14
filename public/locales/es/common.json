@@ -132,5 +132,9 @@
         "upload": "Subida",
         "leech": "Egoístas (Leech)",
         "seed": "Semillas"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
     }
 }
