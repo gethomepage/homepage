@@ -1,6 +1,6 @@
 {
     "widget": {
-        "missing_type": "Tipo de widget faltante: {{type}}",
+        "missing_type": "Falta el tipo de widget: {{type}}",
         "api_error": "Error de API",
         "status": "Estado"
     },
