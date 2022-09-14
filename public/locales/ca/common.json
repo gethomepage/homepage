@@ -132,5 +132,9 @@
         "numberOfQueries": "Consultes",
         "numberOfFailGrabs": "Captures fallides",
         "numberOfFailQueries": "Consultes fallides"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
     }
 }
