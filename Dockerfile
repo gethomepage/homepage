@@ -44,6 +44,8 @@ LABEL org.opencontainers.image.licenses='Apache-2.0'
 ENV NODE_ENV production
 WORKDIR /app
 
+ADD docker-entrypoint.sh docker-entrypoint.sh
+
 # Copy files from context (this allows the files to copy before the builder stage is done).
 COPY --link package.json next.config.js ./
 COPY --link /public ./public
@@ -58,5 +60,4 @@ EXPOSE $PORT
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://localhost:$PORT/api/healthcheck || exit 1
 
-USER $PUID:$PGID
-CMD ["node", "server.js"]
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
