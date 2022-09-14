@@ -5,13 +5,17 @@ import { Cookie, CookieJar } from 'tough-cookie';
 
 const cookieJar = new CookieJar();
 
-function addCookieHandler(url, params) {
+function setCookieHeader(url, params) {
   // add cookie header, if we have one in the jar
   const existingCookie = cookieJar.getCookieStringSync(url.toString());
   if (existingCookie) {
     params.headers = params.headers ?? {};
     params.headers.Cookie = existingCookie;
   }
+}
+
+function addCookieHandler(url, params) {
+  setCookieHeader(url, params);
 
   // handle cookies during redirects
   params.beforeRedirect = (options, responseInfo) => {
@@ -30,9 +34,7 @@ function addCookieHandler(url, params) {
       cookieJar.setCookieSync(cookies[i], options.href);
     }
 
-    const cookie = cookieJar.getCookieStringSync(options.href);
-    options.headers = options.headers ?? {};
-    options.headers.Cookie = cookie;
+    setCookieHeader(options.href, options);
   };
 }
 
