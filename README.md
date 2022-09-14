@@ -17,7 +17,7 @@
     - Automatic service discovery (via labels)
   * Service Integration
     - Sonarr, Radarr, Readarr, Prowlarr, Emby, Jellyfin, Tautulli (Plex)
-    - Ombi, Overseerr, Jellyseerr, NZBGet, SABnzbd, ruTorrent
+    - Ombi, Overseerr, Jellyseerr, NZBGet, SABnzbd, ruTorrent, Transmission
     - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager, Gotify
   * Information Providers
     - Coin Market Cap
@@ -127,7 +127,7 @@ Huge thanks to the all the contributors who have helped make this project what i
   * [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
   * [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
   * [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese Translation
-  * [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, SABnzbd Integrations
+  * [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, SABnzbd & Transmission Integrations
   * [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
   * [nicedc](https://github.com/benphelps/homepage/commits?author=nicedc) - Chinese Translation
   * [Nonoss117](https://github.com/benphelps/homepage/commits?author=Nonoss117) - French Translation

@@ -1,12 +1,9 @@
 import Image from "next/future/image";
 import { Disclosure } from "@headlessui/react";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
 
 import Status from "./status";
 import Widget from "./widget";
 import Docker from "./widgets/service/docker";
-import Dropdown from "./dropdown";
 
 function resolveIcon(icon) {
   if (icon.startsWith("http")) {
@@ -25,25 +22,10 @@ function resolveIcon(icon) {
 }
 
 export default function Item({ service }) {
-  const { t } = useTranslation();
-
   const handleOnClick = () => {
     if (service.href && service.href !== "#") {
       window.open(service.href, "_blank").focus();
     }
-  };
-
-  const cmcValues = [
-    { label: t("coinmarketcap.1hour"), value: "1h" },
-    { label: t("coinmarketcap.1day"), value: "24h" },
-    { label: t("coinmarketcap.7days"), value: "7d" },
-    { label: t("coinmarketcap.30days"), value: "30d" },
-  ];
-
-  const [cmcV, cmcSet] = useState(cmcValues[0]);
-
-  const states = {
-    coinmarketcap: { value: cmcV, set: cmcSet },
   };
 
   const hasLink = service.href && service.href !== "#";
@@ -100,7 +82,6 @@ export default function Item({ service }) {
                 <Status service={service} />
               </Disclosure.Button>
             )}
-            {service?.widget?.type === "coinmarketcap" && <Dropdown state={states.coinmarketcap} options={cmcValues} />}
           </div>
 
           <Disclosure.Panel>
@@ -109,7 +90,7 @@ export default function Item({ service }) {
             </div>
           </Disclosure.Panel>
 
-          {service.widget && <Widget state={states[service?.widget?.type]} service={service} />}
+          {service.widget && <Widget service={service} />}
         </div>
       </Disclosure>
     </li>

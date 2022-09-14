@@ -19,6 +19,7 @@ const formats = {
   coinmarketcap: `https://pro-api.coinmarketcap.com/{endpoint}`,
   gotify: `{url}/{endpoint}`,
   prowlarr: `{url}/api/v1/{endpoint}`,
+  jackett: `{url}/api/v2.0/{endpoint}?apikey={key}&configured=true`
 };
 
 export function formatApiCall(api, args) {

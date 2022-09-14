@@ -22,6 +22,7 @@ import Tautulli from "./widgets/service/tautulli";
 import CoinMarketCap from "./widgets/service/coinmarketcap";
 import Gotify from "./widgets/service/gotify";
 import Prowlarr from "./widgets/service/prowlarr";
+import Jackett from "./widgets/service/jackett";
 
 const widgetMappings = {
   docker: Docker,
@@ -46,15 +47,16 @@ const widgetMappings = {
   tautulli: Tautulli,
   gotify: Gotify,
   prowlarr: Prowlarr,
+  jackett: Jackett,
 };
 
-export default function Widget({ service, state }) {
+export default function Widget({ service }) {
   const { t } = useTranslation("common");
 
   const ServiceWidget = widgetMappings[service.widget.type];
 
   if (ServiceWidget) {
-    return <ServiceWidget state={state} service={service} />;
+    return <ServiceWidget service={service} />;
   }
 
   return (
