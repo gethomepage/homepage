@@ -1,6 +1,6 @@
 {
     "widget": {
-        "missing_type": "Tipo de widget ausente: {{type}}",
+        "missing_type": "Widget ausente: {{type}}",
         "api_error": "Erro da API",
         "status": "Status"
     },
@@ -10,7 +10,7 @@
     "resources": {
         "total": "Total",
         "free": "Livre",
-        "used": "Usada",
+        "used": "Usado",
         "load": "Load"
     },
     "docker": {
@@ -18,22 +18,22 @@
         "tx": "Tx",
         "mem": "Mem",
         "cpu": "CPU",
-        "offline": "Desligada"
+        "offline": "Desligado"
     },
     "emby": {
         "playing": "A reproduzir",
         "transcoding": "Transcodificação",
-        "bitrate": "Taxa de bits",
-        "no_active": "No Active Streams"
+        "bitrate": "Bitrate",
+        "no_active": "Sem streams ativas"
     },
     "tautulli": {
         "playing": "Reproduzindo",
         "transcoding": "Transcodificação",
         "bitrate": "Taxa de bits",
-        "no_active": "No Active Streams"
+        "no_active": "Sem streams ativas"
     },
     "rutorrent": {
-        "active": "Ativa",
+        "active": "Ativo",
         "upload": "Envio",
         "download": "ReceçãoDownload"
     },
@@ -44,13 +44,13 @@
     },
     "radarr": {
         "wanted": "Desejado",
-        "queued": "Enfileiradas",
+        "queued": "Fila",
         "movies": "Filmes"
     },
     "readarr": {
         "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "queued": "Em fila",
+        "books": "Livros"
     },
     "ombi": {
         "pending": "Pendente",
@@ -65,7 +65,7 @@
     "pihole": {
         "queries": "Consultas",
         "blocked": "Bloqueado",
-        "gravity": "Gravidade"
+        "gravity": "Gravity"
     },
     "speedtest": {
         "upload": "Envio",
@@ -73,18 +73,18 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Corrida",
-        "stopped": "Parou",
+        "running": "A correr",
+        "stopped": "Parado",
         "total": "Total"
     },
     "traefik": {
-        "routers": "Roteadores",
+        "routers": "Routers",
         "services": "Serviços",
         "middleware": "Middleware"
     },
     "npm": {
-        "enabled": "Habilitada",
-        "disabled": "Desabilitada",
+        "enabled": "Ativo",
+        "disabled": "Desabilitado",
         "total": "Total"
     },
     "common": {
@@ -105,22 +105,26 @@
         "wait": "Por favor aguarde"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendente",
+        "approved": "Aprovado",
+        "available": "Disponível"
     },
     "sabnzbd": {
         "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "queue": "Fila",
+        "timeleft": "Tempo restante"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Remaining",
+        "remaining": "Restante",
         "downloaded": "Downloaded"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track"
+        "configure": "Configurar uma ou mais moedas",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
     },
     "gotify": {
         "apps": "Aplicações",
@@ -131,12 +135,12 @@
         "enableIndexers": "Indexers",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailGrabs": "Falhados",
+        "numberOfFailQueries": "Pesquisas falhadas"
     },
     "transmission": {
         "download": "Download",
-        "upload": "Upload",
+        "upload": "Envio",
         "leech": "Leech",
         "seed": "Seed"
     }

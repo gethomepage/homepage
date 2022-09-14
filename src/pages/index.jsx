@@ -46,6 +46,8 @@ export default function Home({ settings }) {
       <ThemeProvider>
         <Head>
           <title>{settings.title || "Homepage"}</title>
+          {settings.base && <base href={settings.base} />}
+          {settings.favicon && <link rel="icon" href={settings.favicon} />}
         </Head>
         <div className="fixed w-full h-full m-0 p-0" style={wrappedStyle} />
         <div className="relative w-full container m-auto flex flex-col h-screen justify-between">

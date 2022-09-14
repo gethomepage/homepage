@@ -1,46 +1,73 @@
 {
     "widget": {
-        "missing_type": "Thiếu loại Widget: {{type}}",
-        "api_error": "Lỗi API",
-        "status": "Trạng thái"
+        "missing_type": "Missing Widget Type: {{type}}",
+        "api_error": "API Error",
+        "status": "Status"
+    },
+    "weather": {
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait",
+        "current": "Current Location"
     },
     "search": {
-        "placeholder": "Tìm kiếm…"
+        "placeholder": "Search…"
     },
-    "resources": {
-        "total": "Tổng",
-        "free": "Dư",
-        "used": "Đã dùng",
-        "load": "Load"
-    },
-    "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "BỘ NHỚ",
-        "cpu": "CPU",
-        "offline": "Ngoại tuyến"
-    },
-    "emby": {
-        "playing": "Đang chơi",
-        "transcoding": "Chuyển định dạng",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
-    },
-    "tautulli": {
-        "playing": "Đang chơi",
-        "transcoding": "Chuyển định dạng",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
-    },
-    "rutorrent": {
-        "active": "Hoạt động",
-        "upload": "Tải lên",
-        "download": "Tải xuống"
+    "transmission": {
+        "seed": "Seed",
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
         "series": "Series"
+    },
+    "speedtest": {
+        "ping": "Ping",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "resources": {
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "load": "Load"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "offline": "Offline"
+    },
+    "emby": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
+    },
+    "tautulli": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Upload",
+        "download": "Download"
     },
     "radarr": {
         "wanted": "Wanted",
@@ -62,15 +89,15 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
         "gravity": "Gravity"
-    },
-    "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
     },
     "portainer": {
         "running": "Running",
@@ -83,30 +110,9 @@
         "middleware": "Middleware"
     },
     "npm": {
+        "total": "Total",
         "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
-    },
-    "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
-    "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "disabled": "Disabled"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -121,16 +127,10 @@
         "messages": "Messages"
     },
     "prowlarr": {
-        "numberOfFailGrabs": "Fail Grabs",
         "enableIndexers": "Indexers",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
-    },
-    "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
     }
 }

@@ -6,13 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "telemetry": "next telemetry disable"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.0",
     "@tailwindcss/forms": "^0.5.3",
     "classnames": "^2.3.1",
-    "currency-symbol-map": "^5.1.0",
     "dockerode": "^3.3.4",
     "follow-redirects": "^1.15.2",
     "i18next": "^21.9.1",

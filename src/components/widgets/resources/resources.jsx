@@ -3,7 +3,6 @@ import Cpu from "./cpu";
 import Memory from "./memory";
 
 export default function Resources({ options }) {
-  console.log(options);
   const { expanded } = options;
   return (
     <div className="flex flex-col max-w:full sm:basis-auto self-center m-auto flex-wrap">

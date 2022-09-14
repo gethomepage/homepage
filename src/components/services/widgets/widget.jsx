@@ -7,5 +7,5 @@ export default function Widget({ error = false, children }) {
     );
   }
 
-  return <div className="flex flex-row w-full">{children}</div>;
+  return <div className="relative flex flex-row w-full">{children}</div>;
 }
