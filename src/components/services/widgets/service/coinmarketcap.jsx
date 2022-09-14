@@ -1,13 +1,13 @@
 import useSWR from "swr";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import classNames from "classnames";
 
 import Widget from "../widget";
 import Block from "../block";
 
 import Dropdown from "components/services/dropdown";
 import { formatApiUrl } from "utils/api-helpers";
-import classNames from "classnames";
 
 export default function CoinMarketCap({ service }) {
   const { t } = useTranslation();

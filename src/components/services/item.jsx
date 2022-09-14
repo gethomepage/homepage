@@ -1,12 +1,9 @@
 import Image from "next/future/image";
 import { Disclosure } from "@headlessui/react";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
 
 import Status from "./status";
 import Widget from "./widget";
 import Docker from "./widgets/service/docker";
-import Dropdown from "./dropdown";
 
 function resolveIcon(icon) {
   if (icon.startsWith("http")) {
@@ -25,8 +22,6 @@ function resolveIcon(icon) {
 }
 
 export default function Item({ service }) {
-  const { t } = useTranslation();
-
   const handleOnClick = () => {
     if (service.href && service.href !== "#") {
       window.open(service.href, "_blank").focus();
