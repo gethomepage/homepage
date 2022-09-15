@@ -147,5 +147,9 @@
     "jackett": {
         "configured": "Configuré",
         "errored": "En erreur"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
     }
 }
