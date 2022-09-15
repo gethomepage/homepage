@@ -151,5 +151,10 @@
     "bazarr": {
         "missingEpisodes": "Missing Episodes",
         "missingMovies": "Missing Movies"
+    },
+    "lidarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "albums": "Albums"
     }
 }
