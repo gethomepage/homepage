@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import Sonarr from "./widgets/service/sonarr";
 import Radarr from "./widgets/service/radarr";
+import Lidarr from "./widgets/service/lidarr";
 import Readarr from "./widgets/service/readarr";
 import Bazarr from "./widgets/service/bazarr";
 import Ombi from "./widgets/service/ombi";
@@ -29,6 +30,7 @@ const widgetMappings = {
   docker: Docker,
   sonarr: Sonarr,
   radarr: Radarr,
+  lidarr: Lidarr,
   readarr: Readarr,
   bazarr: Bazarr,
   ombi: Ombi,

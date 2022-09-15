@@ -80,6 +80,11 @@
         "queued": "Queued",
         "movies": "Movies"
     },
+    "lidarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "albums": "Albums"
+    },
     "readarr": {
         "wanted": "Wanted",
         "queued": "Queued",
