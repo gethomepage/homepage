@@ -36,7 +36,7 @@ function SingleSessionEntry({ session }) {
         <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
           <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
         </div>
-        <div className="self-center text-xs flex justify-end mr-1">
+        <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
           {video_decision === "copy" && audio_decision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
           {video_decision !== "copy" && audio_decision !== "copy" && <BsFillCpuFill className="opacity-50" />}
           {video_decision === "copy" && audio_decision !== "copy" && <BsCpu className="opacity-50" />}
@@ -59,7 +59,7 @@ function SingleSessionEntry({ session }) {
           )}
         </div>
         <div className="grow " />
-        <div className="self-center text-xs flex justify-end mr-2">
+        <div className="self-center text-xs flex justify-end mr-2 z-10">
           {millisecondsToString(view_offset)}
           <span className="mx-0.5 text-[8px]">/</span>
           {millisecondsToString(duration)}
@@ -91,14 +91,12 @@ function SessionEntry({ session }) {
       <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
       </div>
-      <div className="self-center text-xs flex justify-end mr-1">
+      <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10">
         {video_decision === "copy" && audio_decision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
         {video_decision !== "copy" && audio_decision !== "copy" && <BsFillCpuFill className="opacity-50" />}
         {video_decision === "copy" && audio_decision !== "copy" && <BsCpu className="opacity-50" />}
       </div>
-
-      <div className="grow " />
-      <div className="self-center text-xs flex justify-end mr-2">{millisecondsToString(view_offset)}</div>
+      <div className="self-center text-xs flex justify-end mr-2 z-10">{millisecondsToString(view_offset)}</div>
     </div>
   );
 }

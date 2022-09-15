@@ -50,7 +50,7 @@ function SingleSessionEntry({ playCommand, session }) {
             {SeriesName && ` - ${SeriesName}`}
           </div>
         </div>
-        <div className="self-center text-xs flex justify-end mr-1">
+        <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
           {IsVideoDirect && <MdOutlineSmartDisplay className="opacity-50" />}
           {!IsVideoDirect && (!VideoDecoderIsHardware || !VideoEncoderIsHardware) && <BsCpu className="opacity-50" />}
           {!IsVideoDirect && VideoDecoderIsHardware && VideoEncoderIsHardware && (
@@ -140,7 +140,7 @@ function SessionEntry({ playCommand, session }) {
       </div>
       <div className="self-center text-xs flex justify-end mr-1 z-10">{IsMuted && <BsVolumeMuteFill />}</div>
       <div className="self-center text-xs flex justify-end mr-1 z-10">{ticksToString(PositionTicks)}</div>
-      <div className="self-center items-center text-xs flex justify-end mr-2 z-10">
+      <div className="self-center items-center text-xs flex justify-end mr-1.5 pl-1 z-10">
         {IsVideoDirect && <MdOutlineSmartDisplay className="opacity-50" />}
         {!IsVideoDirect && (!VideoDecoderIsHardware || !VideoEncoderIsHardware) && <BsCpu className="opacity-50" />}
         {!IsVideoDirect && VideoDecoderIsHardware && VideoEncoderIsHardware && <BsFillCpuFill className="opacity-50" />}
