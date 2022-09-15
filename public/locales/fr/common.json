@@ -106,7 +106,7 @@
     },
     "overseerr": {
         "pending": "En attente",
-        "approved": "Validé",
+        "approved": "Demande",
         "available": "Disponible"
     },
     "sabnzbd": {
