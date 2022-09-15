@@ -134,16 +134,16 @@
         "numberOfFailQueries": "Consultes fallides"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configurat",
+        "errored": "Amb errors"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Episodis que falten",
+        "missingMovies": "Pel·lícules que falten"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Volgut",
+        "queued": "En cua",
+        "albums": "Àlbums"
     }
 }
