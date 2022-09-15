@@ -45,16 +45,16 @@
     "radarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "movies": "Movies"
+        "movies": "Phim"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Đang tìm",
+        "queued": "Đang chờ",
+        "books": "Sách"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
+        "pending": "Đang xử lý",
+        "approved": "Đã duyệt",
         "available": "Available"
     },
     "jellyseerr": {
@@ -88,25 +88,25 @@
         "total": "Total"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Vị trí hiện tại",
+        "allow": "Bấm để đồng ý",
+        "updating": "Đang cập nhật",
+        "wait": "Vui lòng chờ"
     },
     "overseerr": {
         "pending": "Pending",
-        "approved": "Approved",
+        "approved": "Đã duyệt",
         "available": "Available"
     },
     "sabnzbd": {
         "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "queue": "Hàng chờ",
+        "timeleft": "Thời gian còn lại"
     },
     "nzbget": {
         "rate": "Rate",
         "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "downloaded": "Đã tải"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -136,5 +136,9 @@
     "jackett": {
         "configured": "Configured",
         "errored": "Errored"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
     }
 }

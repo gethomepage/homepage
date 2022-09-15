@@ -2,6 +2,8 @@
 import useSWR from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
@@ -30,7 +32,10 @@ export async function getStaticProps() {
     },
   };
 }
+
 export default function Home({ settings }) {
+  const { i18n } = useTranslation();
+
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
@@ -40,6 +45,12 @@ export default function Home({ settings }) {
     wrappedStyle.backgroundImage = `url(${settings.background})`;
     wrappedStyle.backgroundSize = "cover";
   }
+
+  useEffect(() => {
+    if (settings.language) {
+      i18n.changeLanguage(settings.language);
+    }
+  }, [i18n, settings.language]);
 
   return (
     <ColorProvider>

@@ -16,6 +16,7 @@ const formats = {
   npm: `{url}/api/{endpoint}`,
   lidarr: `{url}/api/v1/{endpoint}?apikey={key}`,
   readarr: `{url}/api/v1/{endpoint}?apikey={key}`,
+  bazarr: `{url}/api/{endpoint}/wanted?apikey={key}`,
   sabnzbd: `{url}/api/?apikey={key}&output=json&mode={endpoint}`,
   coinmarketcap: `https://pro-api.coinmarketcap.com/{endpoint}`,
   gotify: `{url}/{endpoint}`,

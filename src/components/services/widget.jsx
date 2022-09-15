@@ -4,6 +4,7 @@ import Sonarr from "./widgets/service/sonarr";
 import Radarr from "./widgets/service/radarr";
 import Lidarr from "./widgets/service/lidarr";
 import Readarr from "./widgets/service/readarr";
+import Bazarr from "./widgets/service/bazarr";
 import Ombi from "./widgets/service/ombi";
 import Portainer from "./widgets/service/portainer";
 import Emby from "./widgets/service/emby";
@@ -31,6 +32,7 @@ const widgetMappings = {
   radarr: Radarr,
   lidarr: Lidarr,
   readarr: Readarr,
+  bazarr: Bazarr,
   ombi: Ombi,
   portainer: Portainer,
   emby: Emby,

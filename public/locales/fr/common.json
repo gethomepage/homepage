@@ -145,7 +145,11 @@
         "seed": "Seed"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configuré",
+        "errored": "En erreur"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
     }
 }

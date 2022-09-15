@@ -14,6 +14,7 @@ const serviceProxyHandlers = {
   sonarr: genericProxyHandler,
   lidarr: genericProxyHandler,
   readarr: genericProxyHandler,
+  bazarr: genericProxyHandler,
   speedtest: genericProxyHandler,
   tautulli: genericProxyHandler,
   traefik: genericProxyHandler,

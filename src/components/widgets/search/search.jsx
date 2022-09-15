@@ -69,6 +69,8 @@ export default function Search({ options }) {
         autoCapitalize="off"
         autoCorrect="off"
         autoComplete="off"
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus={options.focus}
       />
       <button
         type="submit"

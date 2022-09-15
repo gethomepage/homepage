@@ -90,6 +90,10 @@
         "queued": "Queued",
         "books": "Books"
     },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
+    },
     "ombi": {
         "pending": "Pending",
         "approved": "Approved",
