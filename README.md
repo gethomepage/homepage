@@ -16,8 +16,8 @@
   - Container status (Running / Stopped) & statistics (CPU, Memory, Network)
   - Automatic service discovery (via labels)
 - Service Integration
-  - Sonarr, Radarr, Readarr, Prowlarr, Emby, Jellyfin, Tautulli (Plex)
-  - Ombi, Overseerr, Jellyseerr, NZBGet, SABnzbd, ruTorrent, Transmission
+  - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
+  - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission
   - Portainer, Traefik, Speedtest Tracker, PiHole, Nginx Proxy Manager, Gotify
 - Information Providers
   - Coin Market Cap
