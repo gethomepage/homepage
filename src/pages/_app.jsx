@@ -6,6 +6,8 @@ import "styles/weather-icons.css";
 import "styles/theme.css";
 
 import "utils/i18n";
+import { ColorProvider } from "utils/color-context";
+import { ThemeProvider } from "utils/theme-context";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,7 +16,11 @@ function MyApp({ Component, pageProps }) {
         fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
       }}
     >
-      <Component {...pageProps} />
+      <ColorProvider>
+        <ThemeProvider>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </ColorProvider>
     </SWRConfig>
   );
 }
