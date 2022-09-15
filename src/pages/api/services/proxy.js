@@ -12,6 +12,7 @@ const serviceProxyHandlers = {
   pihole: genericProxyHandler,
   radarr: genericProxyHandler,
   sonarr: genericProxyHandler,
+  lidarr: genericProxyHandler,
   readarr: genericProxyHandler,
   speedtest: genericProxyHandler,
   tautulli: genericProxyHandler,

@@ -14,6 +14,7 @@ const formats = {
   overseerr: `{url}/api/v1/{endpoint}`,
   ombi: `{url}/api/v1/{endpoint}`,
   npm: `{url}/api/{endpoint}`,
+  lidarr: `{url}/api/v1/{endpoint}?apikey={key}`,
   readarr: `{url}/api/v1/{endpoint}?apikey={key}`,
   sabnzbd: `{url}/api/?apikey={key}&output=json&mode={endpoint}`,
   coinmarketcap: `https://pro-api.coinmarketcap.com/{endpoint}`,
