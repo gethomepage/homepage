@@ -134,16 +134,16 @@
         "seed": "Semillas"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configurado",
+        "errored": "Errores"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Episodios perdidos",
+        "missingMovies": "Películas perdidas"
     },
     "lidarr": {
-        "queued": "Queued",
-        "wanted": "Wanted",
-        "albums": "Albums"
+        "queued": "Puesto en cola",
+        "wanted": "Más deseado",
+        "albums": "Álbumes"
     }
 }
