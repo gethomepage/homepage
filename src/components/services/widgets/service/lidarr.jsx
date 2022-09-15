@@ -29,7 +29,7 @@ export default function Lidarr({ service }) {
     );
   }
 
-  const have = albumsData.filter((album) => album.statistics.trackFileCount > 0);
+  const have = albumsData.filter((album) => album.statistics.percentOfTracks === 100);
 
   return (
     <Widget>
