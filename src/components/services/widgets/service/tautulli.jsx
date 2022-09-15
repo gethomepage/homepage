@@ -1,7 +1,8 @@
 /* eslint-disable camelcase */
 import useSWR from "swr";
 import { useTranslation } from "react-i18next";
-import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
+import { BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
+import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import Widget from "../widget";
 
@@ -27,16 +28,19 @@ function millisecondsToString(milliseconds) {
 }
 
 function SingleSessionEntry({ session }) {
-  const { full_title, duration, view_offset, progress_percent, state, year, grandparent_year } = session;
+  const { full_title, duration, view_offset, progress_percent, state, video_decision, audio_decision } = session;
 
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
-        <div className="text-xs z-10 self-center ml-2">
-          <span>{full_title}</span>
+        <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
+          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
         </div>
-        <div className="grow" />
-        <div className="self-center text-xs flex justify-end mr-2">{year || grandparent_year}</div>
+        <div className="self-center text-xs flex justify-end mr-1">
+          {video_decision === "copy" && audio_decision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
+          {video_decision !== "copy" && audio_decision !== "copy" && <BsFillCpuFill className="opacity-50" />}
+          {video_decision === "copy" && audio_decision !== "copy" && <BsCpu className="opacity-50" />}
+        </div>
       </div>
 
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -56,7 +60,9 @@ function SingleSessionEntry({ session }) {
         </div>
         <div className="grow " />
         <div className="self-center text-xs flex justify-end mr-2">
-          {millisecondsToString(view_offset)} / {millisecondsToString(duration)}
+          {millisecondsToString(view_offset)}
+          <span className="mx-0.5 text-[8px]">/</span>
+          {millisecondsToString(duration)}
         </div>
       </div>
     </>
@@ -64,7 +70,7 @@ function SingleSessionEntry({ session }) {
 }
 
 function SessionEntry({ session }) {
-  const { full_title, view_offset, progress_percent, state } = session;
+  const { full_title, view_offset, progress_percent, state, video_decision, audio_decision } = session;
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -81,8 +87,16 @@ function SessionEntry({ session }) {
         {state !== "paused" && (
           <BsFillPlayFill className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80" />
         )}
-        <span>{full_title}</span>
       </div>
+      <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
+        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
+      </div>
+      <div className="self-center text-xs flex justify-end mr-1">
+        {video_decision === "copy" && audio_decision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
+        {video_decision !== "copy" && audio_decision !== "copy" && <BsFillCpuFill className="opacity-50" />}
+        {video_decision === "copy" && audio_decision !== "copy" && <BsCpu className="opacity-50" />}
+      </div>
+
       <div className="grow " />
       <div className="self-center text-xs flex justify-end mr-2">{millisecondsToString(view_offset)}</div>
     </div>

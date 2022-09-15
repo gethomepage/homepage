@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { useTranslation } from "react-i18next";
-import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill } from "react-icons/bs";
+import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
+import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import Widget from "../widget";
 
@@ -27,24 +28,35 @@ function ticksToString(ticks) {
 }
 
 function SingleSessionEntry({ playCommand, session }) {
-  console.log(session);
   const {
     NowPlayingItem: { Name, SeriesName, RunTimeTicks },
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
+
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {
+    IsVideoDirect: true,
+    VideoDecoderIsHardware: true,
+    VideoEncoderIsHardware: true,
+  };
+
   const percent = (PositionTicks / RunTimeTicks) * 100;
 
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
-        <div className="text-xs z-10 self-center ml-2">
-          <span>
+        <div className="grow text-xs z-10 self-center ml-2 relative w-full h-4 mr-2">
+          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
             {Name}
             {SeriesName && ` - ${SeriesName}`}
-          </span>
+          </div>
         </div>
-        <div className="grow" />
-        <div className="self-center text-xs flex justify-end mr-1">{IsMuted && <BsVolumeMuteFill />}</div>
+        <div className="self-center text-xs flex justify-end mr-1">
+          {IsVideoDirect && <MdOutlineSmartDisplay className="opacity-50" />}
+          {!IsVideoDirect && (!VideoDecoderIsHardware || !VideoEncoderIsHardware) && <BsCpu className="opacity-50" />}
+          {!IsVideoDirect && VideoDecoderIsHardware && VideoEncoderIsHardware && (
+            <BsFillCpuFill className="opacity-50" />
+          )}
+        </div>
       </div>
 
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -73,7 +85,12 @@ function SingleSessionEntry({ playCommand, session }) {
           )}
         </div>
         <div className="grow " />
-        <div className="self-center text-xs flex justify-end mr-2">{ticksToString(PositionTicks)}</div>
+        <div className="self-center text-xs flex justify-end mr-1 z-10">{IsMuted && <BsVolumeMuteFill />}</div>
+        <div className="self-center text-xs flex justify-end mr-2 z-10">
+          {ticksToString(PositionTicks)}
+          <span className="mx-0.5 text-[8px]">/</span>
+          {ticksToString(RunTimeTicks)}
+        </div>
       </div>
     </>
   );
@@ -84,6 +101,9 @@ function SessionEntry({ playCommand, session }) {
     NowPlayingItem: { Name, SeriesName, RunTimeTicks },
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
+
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {};
+
   const percent = (PositionTicks / RunTimeTicks) * 100;
 
   return (
@@ -111,14 +131,20 @@ function SessionEntry({ playCommand, session }) {
             className="inline-block w-4 h-4 cursor-pointer -mt-[1px] mr-1 opacity-80"
           />
         )}
-        <span>
+      </div>
+      <div className="grow text-xs z-10 self-center relative w-full h-4">
+        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
           {Name}
           {SeriesName && ` - ${SeriesName}`}
-        </span>
+        </div>
       </div>
-      <div className="grow " />
-      <div className="self-center text-xs flex justify-end mr-1">{IsMuted && <BsVolumeMuteFill />}</div>
-      <div className="self-center text-xs flex justify-end mr-2">{ticksToString(PositionTicks)}</div>
+      <div className="self-center text-xs flex justify-end mr-1 z-10">{IsMuted && <BsVolumeMuteFill />}</div>
+      <div className="self-center text-xs flex justify-end mr-1 z-10">{ticksToString(PositionTicks)}</div>
+      <div className="self-center items-center text-xs flex justify-end mr-2 z-10">
+        {IsVideoDirect && <MdOutlineSmartDisplay className="opacity-50" />}
+        {!IsVideoDirect && (!VideoDecoderIsHardware || !VideoEncoderIsHardware) && <BsCpu className="opacity-50" />}
+        {!IsVideoDirect && VideoDecoderIsHardware && VideoEncoderIsHardware && <BsFillCpuFill className="opacity-50" />}
+      </div>
     </div>
   );
 }
