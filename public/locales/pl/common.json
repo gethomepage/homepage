@@ -1,57 +1,57 @@
 {
     "weather": {
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait",
-        "current": "Current Location"
+        "allow": "Kliknij, aby zezwolić",
+        "updating": "Aktualizacja",
+        "wait": "Proszę czekać",
+        "current": "Aktualna lokalizacja"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Szukaj…"
     },
     "resources": {
-        "used": "Used",
-        "load": "Load",
-        "total": "Total",
-        "free": "Free"
+        "used": "Użyte",
+        "load": "Obciążenie",
+        "total": "Całkowite",
+        "free": "Wolne"
     },
     "emby": {
-        "no_active": "No Active Streams",
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "no_active": "Brak aktywnych strumieni",
+        "playing": "Odtwarzanie",
+        "transcoding": "Transkodowanie",
         "bitrate": "Bitrate"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Odtwarzanie",
+        "transcoding": "Transkodowanie",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Brak aktywnych strumieni"
     },
     "speedtest": {
-        "download": "Download",
+        "download": "Pobieranie",
         "ping": "Ping",
-        "upload": "Upload"
+        "upload": "Wysyłanie"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Działające",
+        "stopped": "Zatrzymane",
+        "total": "Ogólnie"
     },
     "coinmarketcap": {
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days",
-        "1hour": "1 Hour",
-        "configure": "Configure one or more crypto currencies to track"
+        "1day": "1 dzień",
+        "7days": "7 dni",
+        "30days": "30 dni",
+        "1hour": "1 godzina",
+        "configure": "Wybierz jedną lub więcej kryptowalut do śledzenia"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Aplikacje",
+        "clients": "Klienci",
+        "messages": "Wiadomości"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Brakujący typ widżetu: {{type}}",
+        "api_error": "Błąd API",
+        "status": "Stan"
     },
     "docker": {
         "rx": "RX",
@@ -61,89 +61,89 @@
         "offline": "Offline"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Szybkość",
+        "remaining": "Pozostało",
+        "downloaded": "Pobrano"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Szybkość",
+        "queue": "Kolejka",
+        "timeleft": "Pozostało"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktywny",
+        "upload": "Wysyłanie",
+        "download": "Pobieranie"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Poszukiwane",
+        "queued": "W kolejce",
+        "series": "Seriale"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Poszukiwane",
+        "queued": "W kolejce",
+        "movies": "Filmy"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Poszukiwane",
+        "queued": "W kolejce",
+        "albums": "Albumy"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Poszukiwane",
+        "queued": "W kolejce",
+        "books": "Książki"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Brakujące odcinki",
+        "missingMovies": "Brakujące filmy"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Oczekiwane",
+        "approved": "Zaakceptowane",
+        "available": "Dostępne"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Oczekiwane",
+        "approved": "Zaakceptowane",
+        "available": "Dostępne"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Oczekiwane",
+        "approved": "Zaakceptowane",
+        "available": "Dostępne"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "Zapytania",
+        "blocked": "Zablokowane",
         "gravity": "Gravity"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Routery",
+        "services": "Serwisy",
+        "middleware": "Pośrednicy"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Włączone",
+        "disabled": "Wyłączone",
+        "total": "Ogólnie"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indeksery",
+        "numberOfGrabs": "Pochwycenia",
+        "numberOfQueries": "Zapytania",
+        "numberOfFailGrabs": "Nieudane pochwycenia",
+        "numberOfFailQueries": "Nieudane zapytania"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Skonfigurowane",
+        "errored": "Błędne"
     }
 }
