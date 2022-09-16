@@ -1,20 +1,20 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
+        "missing_type": "Saknar Widget-typ: {{type}}",
+        "api_error": "API-fel",
         "status": "Status"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Nuvarande plats",
+        "allow": "Klicka för att tillåta",
+        "updating": "Uppdaterar",
+        "wait": "Vänligen vänta"
     },
     "resources": {
-        "load": "Load",
+        "load": "Laddar",
         "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "free": "Ledigt",
+        "used": "Använt"
     },
     "docker": {
         "rx": "RX",
@@ -24,126 +24,126 @@
         "offline": "Offline"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Sök…"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Spelar",
+        "transcoding": "Omkodning",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Inga aktiva strömmar"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Spelar",
+        "transcoding": "Omkodning",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Inga aktiva strömmar"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Hastighet",
+        "remaining": "Återstående",
+        "downloaded": "Nedladdat"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Hastighet",
+        "queue": "Kö",
+        "timeleft": "Tid kvar"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktiva",
+        "upload": "Uppladdning",
+        "download": "Nedladdning"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Nedladdning",
+        "upload": "Uppladdning",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Eftersöker",
+        "queued": "I kö",
+        "series": "Serier"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Eftersöker",
+        "queued": "I kö",
+        "movies": "Filmer"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Eftersöker",
+        "queued": "I kö",
+        "albums": "Album"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Eftersökt",
+        "queued": "I kö",
+        "books": "Böcker"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Saknade program",
+        "missingMovies": "Saknade filmer"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Avvaktar",
+        "approved": "Godkända",
+        "available": "Tillgänglig"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Avvaktar",
+        "approved": "Godkända",
+        "available": "Tillgänglig"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Avvaktar",
+        "approved": "Godkända",
+        "available": "Tillgänglig"
     },
     "pihole": {
-        "blocked": "Blocked",
-        "queries": "Queries",
+        "blocked": "Blockerad",
+        "queries": "Förfrågningar",
         "gravity": "Gravity"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "Uppladdning",
+        "download": "Nedladdning",
+        "ping": "Svarstid"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Körs",
+        "stopped": "Stoppade",
+        "total": "Totalt"
     },
     "traefik": {
         "routers": "Routers",
-        "services": "Services",
+        "services": "Tjänster",
         "middleware": "Middleware"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Aktiverad",
+        "disabled": "Inaktiverad",
+        "total": "Totalt"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Konfigurera en eller flera kryptovalutor att följa",
+        "1hour": "1 timme",
+        "1day": "1 dag",
+        "7days": "7 dagar",
+        "30days": "30 dagar"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Program",
+        "clients": "Klienter",
+        "messages": "Meddelande"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
+        "enableIndexers": "Indexerare",
+        "numberOfGrabs": "Hämtningar",
         "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailGrabs": "Misslyckade hämtningar",
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Konfigurerade",
+        "errored": "Felaktiga"
     }
 }
