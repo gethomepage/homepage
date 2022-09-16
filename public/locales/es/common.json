@@ -14,10 +14,10 @@
         "load": "Carga"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
+        "rx": "Recibido",
+        "tx": "Transmitido",
+        "mem": "Memoria",
+        "cpu": "Procesador",
         "offline": "Desconectado"
     },
     "emby": {
@@ -38,12 +38,12 @@
         "download": "Descarga"
     },
     "sonarr": {
-        "wanted": "Querido",
+        "wanted": "Más deseado",
         "queued": "En cola",
         "series": "Series"
     },
     "radarr": {
-        "wanted": "Querido",
+        "wanted": "Más deseado",
         "queued": "En cola",
         "movies": "Películas"
     },
