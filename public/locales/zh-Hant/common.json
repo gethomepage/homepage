@@ -145,5 +145,11 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "albums": "Albums"
+    },
+    "adguard": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
     }
 }
