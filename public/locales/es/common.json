@@ -14,37 +14,37 @@
         "load": "Carga"
     },
     "docker": {
-        "rx": "Recibido",
-        "tx": "Transmitido",
-        "mem": "Memoria",
-        "cpu": "Procesador",
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
         "offline": "Desconectado"
     },
     "emby": {
-        "playing": "En ejecución",
+        "playing": "Reproduciendo",
         "transcoding": "Transcodificando",
-        "bitrate": "Tasa de Bits",
-        "no_active": "No hay streams activos"
+        "bitrate": "Tasa de bits",
+        "no_active": "Sin transmisiones activas"
     },
     "tautulli": {
-        "playing": "En ejecución",
-        "transcoding": "Transcodificación",
+        "playing": "Reproduciendo",
+        "transcoding": "Transcodificando",
         "bitrate": "Tasa de bits",
-        "no_active": "No hay streams activos"
+        "no_active": "Sin transmisiones activas"
     },
     "rutorrent": {
         "active": "Activo",
-        "upload": "Subida",
+        "upload": "Carga",
         "download": "Descarga"
     },
     "sonarr": {
-        "wanted": "Más deseado",
-        "queued": "Puesto en cola",
+        "wanted": "Querido",
+        "queued": "En cola",
         "series": "Series"
     },
     "radarr": {
-        "wanted": "Más deseado",
-        "queued": "Puesto en cola",
+        "wanted": "Querido",
+        "queued": "En cola",
         "movies": "Películas"
     },
     "readarr": {
@@ -88,7 +88,7 @@
         "total": "Total"
     },
     "weather": {
-        "current": "Ubicación Actual",
+        "current": "Ubicación actual",
         "allow": "Haga clic para permitir",
         "updating": "Actualizando",
         "wait": "Espere, por favor"
@@ -99,12 +99,12 @@
         "available": "Disponible"
     },
     "sabnzbd": {
-        "rate": "Tasa de descarga",
-        "queue": "Puesto en cola",
-        "timeleft": "Tiempo Restante"
+        "rate": "Tasa",
+        "queue": "Cola",
+        "timeleft": "Tiempo restante"
     },
     "nzbget": {
-        "rate": "Tasa de descarga",
+        "rate": "Tasa",
         "remaining": "Restante",
         "downloaded": "Descargado"
     },
@@ -129,8 +129,8 @@
     },
     "transmission": {
         "download": "Descarga",
-        "upload": "Subida",
-        "leech": "Egoístas (Leech)",
+        "upload": "Carga",
+        "leech": "Compañeros",
         "seed": "Semillas"
     },
     "jackett": {
