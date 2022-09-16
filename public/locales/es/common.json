@@ -48,8 +48,8 @@
         "movies": "Películas"
     },
     "readarr": {
-        "wanted": "Más deseado",
-        "queued": "Puesto en cola",
+        "wanted": "Querido",
+        "queued": "En cola",
         "books": "Libros"
     },
     "ombi": {
@@ -68,12 +68,12 @@
         "gravity": "Gravedad"
     },
     "speedtest": {
-        "upload": "Subir",
+        "upload": "Carga",
         "download": "Descarga",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "En ejecución",
+        "running": "Ejecutando",
         "stopped": "Detenido",
         "total": "Total"
     },
@@ -109,11 +109,11 @@
         "downloaded": "Descargado"
     },
     "coinmarketcap": {
-        "configure": "Configurar una o varias criptomonedas para su seguimiento",
+        "configure": "Configurar una o más criptomonedas para rastrear",
         "1hour": "1 Hora",
         "1day": "1 Día",
-        "7days": "7 Dias",
-        "30days": "30 Dias"
+        "7days": "7 Días",
+        "30days": "30 Días"
     },
     "gotify": {
         "apps": "Aplicaciones",
@@ -124,8 +124,8 @@
         "enableIndexers": "Indexadores",
         "numberOfGrabs": "Capturas",
         "numberOfQueries": "Consultas",
-        "numberOfFailGrabs": "Capturas Fallidas",
-        "numberOfFailQueries": "Consultas Fallidas"
+        "numberOfFailGrabs": "Capturas fallidas",
+        "numberOfFailQueries": "Consultas fallidas"
     },
     "transmission": {
         "download": "Descarga",
@@ -135,15 +135,15 @@
     },
     "jackett": {
         "configured": "Configurado",
-        "errored": "Errores"
+        "errored": "Con errores"
     },
     "bazarr": {
         "missingEpisodes": "Episodios perdidos",
         "missingMovies": "Películas perdidas"
     },
     "lidarr": {
-        "queued": "Puesto en cola",
-        "wanted": "Más deseado",
+        "queued": "En cola",
+        "wanted": "Querido",
         "albums": "Álbumes"
     }
 }
