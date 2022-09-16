@@ -145,5 +145,11 @@
         "wanted": "Volgut",
         "queued": "En cua",
         "albums": "Àlbums"
+    },
+    "adguard": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
     }
 }
