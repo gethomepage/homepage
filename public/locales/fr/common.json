@@ -158,9 +158,9 @@
         "albums": "Albums"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Requêtes",
+        "blocked": "Bloquées",
+        "filtered": "Filtrées",
+        "latency": "Latence"
     }
 }
