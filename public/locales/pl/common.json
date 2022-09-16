@@ -145,5 +145,11 @@
     "jackett": {
         "configured": "Skonfigurowane",
         "errored": "Błędne"
+    },
+    "adguard": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
     }
 }
