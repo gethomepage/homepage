@@ -5,6 +5,16 @@ import nzbgetProxyHandler from "utils/proxies/nzbget";
 import npmProxyHandler from "utils/proxies/npm";
 import transmissionProxyHandler from "utils/proxies/transmission";
 
+function simpleArrayMapper(endpoint, targetEndpoint, data, mapper) {
+  if ((data?.length > 0) && (endpoint === targetEndpoint)) {
+    const json = JSON.parse(data.toString());
+    if (json instanceof Array) {
+      return json.map(mapper);
+    }
+  }
+  return data;
+}
+
 const serviceProxyHandlers = {
   // uses query param auth
   emby: genericProxyHandler,
@@ -13,7 +23,9 @@ const serviceProxyHandlers = {
   radarr: genericProxyHandler,
   sonarr: genericProxyHandler,
   lidarr: genericProxyHandler,
-  readarr: genericProxyHandler,
+  readarr: { proxy: genericProxyHandler, mapper: (endpoint, data) =>
+    simpleArrayMapper(endpoint, "book", data, d => ({ statistics: { bookFileCount: d.statistics.bookFileCount } }))
+  },
   bazarr: genericProxyHandler,
   speedtest: genericProxyHandler,
   tautulli: genericProxyHandler,
@@ -42,7 +54,14 @@ export default async function handler(req, res) {
   const serviceProxyHandler = serviceProxyHandlers[type];
 
   if (serviceProxyHandler) {
-    return serviceProxyHandler(req, res);
+    if (serviceProxyHandler instanceof Function) {
+      return serviceProxyHandler(req, res);
+    }
+
+    const { proxy, mapper } = serviceProxyHandler;
+    if (proxy) {
+      return proxy(req, res, mapper);
+    }
   }
 
   return res.status(403).json({ error: "Unkown proxy service type" });
