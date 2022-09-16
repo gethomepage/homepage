@@ -127,9 +127,9 @@
         "30days": "30 Jours"
     },
     "gotify": {
-        "apps": "Applications",
+        "apps": "Applis",
         "clients": "Clients",
-        "messages": "Messages"
+        "messages": "Msg"
     },
     "prowlarr": {
         "enableIndexers": "Indexeurs",
