@@ -108,7 +108,7 @@
       "pending": "Pending",
       "approved": "Approved",
       "available": "Available"
-  },
+    },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
