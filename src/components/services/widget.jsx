@@ -25,6 +25,7 @@ import CoinMarketCap from "./widgets/service/coinmarketcap";
 import Gotify from "./widgets/service/gotify";
 import Prowlarr from "./widgets/service/prowlarr";
 import Jackett from "./widgets/service/jackett";
+import AdGuard from "./widgets/service/adguard";
 
 const widgetMappings = {
   docker: Docker,
@@ -52,6 +53,7 @@ const widgetMappings = {
   gotify: Gotify,
   prowlarr: Prowlarr,
   jackett: Jackett,
+  adguard: AdGuard,
 };
 
 export default function Widget({ service }) {
