@@ -21,7 +21,7 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
   ssr: false,
 });
 
-const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search"];
+const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
 
 export async function getStaticProps() {
   const settings = await getSettings();
