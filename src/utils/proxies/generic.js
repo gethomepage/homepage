@@ -10,8 +10,17 @@ export default async function genericProxyHandler(req, res) {
 
     if (widget) {
       const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
+
+      let headers;
+      if (widget.username && widget.password) {
+        headers = {
+          Authorization: `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`,
+        };
+      }
+
       const [status, contentType, data] = await httpProxy(url, {
         method: req.method,
+        headers,
       });
 
       if (contentType) res.setHeader("Content-Type", contentType);
