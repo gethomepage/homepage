@@ -34,7 +34,7 @@
     },
     "rutorrent": {
         "active": "Activo",
-        "upload": "Carga",
+        "upload": "Subida",
         "download": "Descarga"
     },
     "sonarr": {
@@ -48,7 +48,7 @@
         "movies": "Películas"
     },
     "readarr": {
-        "wanted": "Querido",
+        "wanted": "Más deseado",
         "queued": "En cola",
         "books": "Libros"
     },
@@ -68,12 +68,12 @@
         "gravity": "Gravedad"
     },
     "speedtest": {
-        "upload": "Carga",
+        "upload": "Subida",
         "download": "Descarga",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Ejecutando",
+        "running": "En ejecución",
         "stopped": "Detenido",
         "total": "Total"
     },
@@ -100,7 +100,7 @@
     },
     "sabnzbd": {
         "rate": "Tasa",
-        "queue": "Cola",
+        "queue": "En cola",
         "timeleft": "Tiempo restante"
     },
     "nzbget": {
@@ -129,7 +129,7 @@
     },
     "transmission": {
         "download": "Descarga",
-        "upload": "Carga",
+        "upload": "Subida",
         "leech": "Compañeros",
         "seed": "Semillas"
     },
@@ -143,7 +143,7 @@
     },
     "lidarr": {
         "queued": "En cola",
-        "wanted": "Querido",
+        "wanted": "Más deseado",
         "albums": "Álbumes"
     }
 }
