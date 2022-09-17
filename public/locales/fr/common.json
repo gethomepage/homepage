@@ -162,5 +162,11 @@
         "blocked": "Bloquées",
         "filtered": "Filtrées",
         "latency": "Latence"
+    },
+    "qbittorrent": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
