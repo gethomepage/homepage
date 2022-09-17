@@ -10,6 +10,7 @@ const formats = {
   portainer: `{url}/api/endpoints/{env}/{endpoint}`,
   rutorrent: `{url}/plugins/httprpc/action.php`,
   transmission: `{url}/transmission/rpc`,
+  qbittorrent: `{url}/api/v2/{endpoint}`,
   jellyseerr: `{url}/api/v1/{endpoint}`,
   overseerr: `{url}/api/v1/{endpoint}`,
   ombi: `{url}/api/v1/{endpoint}`,

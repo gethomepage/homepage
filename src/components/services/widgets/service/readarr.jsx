@@ -33,9 +33,9 @@ export default function Readarr({ service }) {
 
   return (
     <Widget>
-      <Block label={t("readarr.wanted")} value={wantedData.totalRecords} />
-      <Block label={t("readarr.queued")} value={queueData.totalCount} />
-      <Block label={t("readarr.books")} value={have.length} />
+      <Block label={t("readarr.wanted")} value={t("common.number", { value: wantedData.totalRecords })} />
+      <Block label={t("readarr.queued")} value={t("common.number", { value: queueData.totalCount })} />
+      <Block label={t("readarr.books")} value={t("common.number", { value: have.length })} />
     </Widget>
   );
 }

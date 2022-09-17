@@ -30,7 +30,7 @@ export default function SABnzbd({ service }) {
   return (
     <Widget>
       <Block label={t("sabnzbd.rate")} value={`${queueData.queue.speed}B/s`} />
-      <Block label={t("sabnzbd.queue")} value={queueData.queue.noofslots} />
+      <Block label={t("sabnzbd.queue")} value={t("common.number", { value: queueData.queue.noofslots })} />
       <Block label={t("sabnzbd.timeleft")} value={queueData.queue.timeleft} />
     </Widget>
   );
