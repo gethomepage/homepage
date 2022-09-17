@@ -28,14 +28,11 @@ export default function Radarr({ service }) {
     );
   }
 
-  const wanted = moviesData.filter((movie) => movie.isAvailable === false);
-  const have = moviesData.filter((movie) => movie.isAvailable === true);
-
   return (
     <Widget>
-      <Block label={t("radarr.wanted")} value={wanted.length} />
+      <Block label={t("radarr.wanted")} value={moviesData.wanted} />
       <Block label={t("radarr.queued")} value={queuedData.totalCount} />
-      <Block label={t("radarr.movies")} value={have.length} />
+      <Block label={t("radarr.movies")} value={moviesData.have} />
     </Widget>
   );
 }

@@ -33,7 +33,7 @@ export default function Sonarr({ service }) {
     <Widget>
       <Block label={t("sonarr.wanted")} value={wantedData.totalRecords} />
       <Block label={t("sonarr.queued")} value={queuedData.totalRecords} />
-      <Block label={t("sonarr.series")} value={seriesData.length} />
+      <Block label={t("sonarr.series")} value={seriesData.total} />
     </Widget>
   );
 }

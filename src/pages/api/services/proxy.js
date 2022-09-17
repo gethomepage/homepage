@@ -16,16 +16,63 @@ function jsonArrayMapper(data, map) {
   return data;
 }
 
+function asJson(data) {
+  if (data?.length > 0) {
+    const json = JSON.parse(data.toString());
+    return json;
+  }
+  return data;
+}
+
 const serviceProxyHandlers = {
   // uses query param auth
   emby: genericProxyHandler,
   jellyfin: genericProxyHandler,
   pihole: genericProxyHandler,
-  radarr: genericProxyHandler,
-  sonarr: genericProxyHandler,
-  lidarr: genericProxyHandler,
-  readarr: genericProxyHandler,
-  bazarr: genericProxyHandler,
+  radarr: {
+    proxy: genericProxyHandler,
+    maps: {
+      movie: (data) => ({
+        wanted: jsonArrayMapper(data, (item) => item.isAvailable === false).length,
+        have: jsonArrayMapper(data, (item) => item.isAvailable === true).length,
+      }),
+    },
+  },
+  sonarr: {
+    proxy: genericProxyHandler,
+    maps: {
+      series: (data) => ({
+        total: asJson(data.toString()).length,
+      }),
+    },
+  },
+  lidarr: {
+    proxy: genericProxyHandler,
+    maps: {
+      album: (data) => ({
+        have: jsonArrayMapper(data, (item) => item.statistics.percentOfTracks === 100).length,
+      }),
+    },
+  },
+  readarr: {
+    proxy: genericProxyHandler,
+    maps: {
+      book: (data) => ({
+        have: jsonArrayMapper(data, (item) => item.statistics.bookFileCount > 0).length,
+      }),
+    },
+  },
+  bazarr: {
+    proxy: genericProxyHandler,
+    maps: {
+      movies: (data) => ({
+        total: asJson(data.toString()).total,
+      }),
+      episodes: (data) => ({
+        total: asJson(data.toString()).total,
+      }),
+    },
+  },
   speedtest: genericProxyHandler,
   tautulli: genericProxyHandler,
   traefik: genericProxyHandler,

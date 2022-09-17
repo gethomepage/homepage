@@ -29,13 +29,11 @@ export default function Lidarr({ service }) {
     );
   }
 
-  const have = albumsData.filter((album) => album.statistics.percentOfTracks === 100);
-
   return (
     <Widget>
       <Block label={t("lidarr.wanted")} value={t("common.number", { value: wantedData.totalRecords })} />
       <Block label={t("lidarr.queued")} value={t("common.number", { value: queueData.totalCount })} />
-      <Block label={t("lidarr.albums")} value={t("common.number", { value: have.length })} />
+      <Block label={t("lidarr.albums")} value={t("common.number", { value: albumsData.have })} />
     </Widget>
   );
 }
