@@ -2,7 +2,7 @@
 import useSWR from "swr";
 import { useTranslation } from "react-i18next";
 import { BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
-import { MdOutlineSmartDisplay } from "react-icons/md";
+import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 
 import Widget from "../widget";
 
@@ -37,9 +37,16 @@ function SingleSessionEntry({ session }) {
           <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
         </div>
         <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
+          {video_decision === "direct play" && audio_decision === "direct play" && (
+            <MdSmartDisplay className="opacity-50" />
+          )}
           {video_decision === "copy" && audio_decision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
-          {video_decision !== "copy" && audio_decision !== "copy" && <BsFillCpuFill className="opacity-50" />}
-          {video_decision === "copy" && audio_decision !== "copy" && <BsCpu className="opacity-50" />}
+          {video_decision !== "copy" &&
+            video_decision !== "direct play" &&
+            (audio_decision !== "copy" || audio_decision !== "direct play") && <BsFillCpuFill className="opacity-50" />}
+          {(video_decision === "copy" || video_decision === "direct play") &&
+            audio_decision !== "copy" &&
+            audio_decision !== "direct play" && <BsCpu className="opacity-50" />}
         </div>
       </div>
 
@@ -92,9 +99,16 @@ function SessionEntry({ session }) {
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10">
+        {video_decision === "direct play" && audio_decision === "direct play" && (
+          <MdSmartDisplay className="opacity-50" />
+        )}
         {video_decision === "copy" && audio_decision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
-        {video_decision !== "copy" && audio_decision !== "copy" && <BsFillCpuFill className="opacity-50" />}
-        {video_decision === "copy" && audio_decision !== "copy" && <BsCpu className="opacity-50" />}
+        {video_decision !== "copy" &&
+          video_decision !== "direct play" &&
+          (audio_decision !== "copy" || audio_decision !== "direct play") && <BsFillCpuFill className="opacity-50" />}
+        {(video_decision === "copy" || video_decision === "direct play") &&
+          audio_decision !== "copy" &&
+          audio_decision !== "direct play" && <BsCpu className="opacity-50" />}
       </div>
       <div className="self-center text-xs flex justify-end mr-2 z-10">{millisecondsToString(view_offset)}</div>
     </div>
