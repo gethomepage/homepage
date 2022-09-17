@@ -24,7 +24,7 @@ export default async function genericProxyHandler(req, res, maps) {
       });
 
       let resultData = data;
-      if (maps[endpoint]) {
+      if (maps?.[endpoint]) {
         resultData = maps[endpoint](data);
       }
 
