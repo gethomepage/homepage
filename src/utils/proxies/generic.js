@@ -2,7 +2,7 @@ import getServiceWidget from "utils/service-helpers";
 import { formatApiCall } from "utils/api-helpers";
 import { httpProxy } from "utils/http";
 
-export default async function genericProxyHandler(req, res, mapper) {
+export default async function genericProxyHandler(req, res, maps) {
   const { group, service, endpoint } = req.query;
 
   if (group && service) {
@@ -24,8 +24,8 @@ export default async function genericProxyHandler(req, res, mapper) {
       });
 
       let resultData = data;
-      if (mapper) {
-        resultData = mapper(endpoint, data);
+      if (maps[endpoint]) {
+        resultData = maps[endpoint](data);
       }
 
       if (contentType) res.setHeader("Content-Type", contentType);

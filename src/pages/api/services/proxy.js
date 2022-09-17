@@ -5,11 +5,11 @@ import nzbgetProxyHandler from "utils/proxies/nzbget";
 import npmProxyHandler from "utils/proxies/npm";
 import transmissionProxyHandler from "utils/proxies/transmission";
 
-function simpleArrayMapper(endpoint, targetEndpoint, data, mapper) {
-  if ((data?.length > 0) && (endpoint === targetEndpoint)) {
+function jsonArrayMapper(data, map) {
+  if (data?.length > 0) {
     const json = JSON.parse(data.toString());
     if (json instanceof Array) {
-      return json.map(mapper);
+      return json.map(map);
     }
   }
   return data;
@@ -23,8 +23,11 @@ const serviceProxyHandlers = {
   radarr: genericProxyHandler,
   sonarr: genericProxyHandler,
   lidarr: genericProxyHandler,
-  readarr: { proxy: genericProxyHandler, mapper: (endpoint, data) =>
-    simpleArrayMapper(endpoint, "book", data, d => ({ statistics: { bookFileCount: d.statistics.bookFileCount } }))
+  readarr: {
+    proxy: genericProxyHandler,
+    maps: {
+      book: (data) => jsonArrayMapper(data, (d) => ({ statistics: { bookFileCount: d.statistics.bookFileCount } })),
+    },
   },
   bazarr: genericProxyHandler,
   speedtest: genericProxyHandler,
@@ -58,9 +61,9 @@ export default async function handler(req, res) {
       return serviceProxyHandler(req, res);
     }
 
-    const { proxy, mapper } = serviceProxyHandler;
+    const { proxy, maps } = serviceProxyHandler;
     if (proxy) {
-      return proxy(req, res, mapper);
+      return proxy(req, res, maps);
     }
   }
 
