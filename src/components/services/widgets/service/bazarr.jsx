@@ -29,8 +29,8 @@ export default function Bazarr({ service }) {
 
   return (
     <Widget>
-      <Block label={t("bazarr.missingEpisodes")} value={episodesData.total} />
-      <Block label={t("bazarr.missingMovies")} value={moviesData.total} />
+      <Block label={t("bazarr.missingEpisodes")} value={t("common.number", { value: episodesData.total })} />
+      <Block label={t("bazarr.missingMovies")} value={t("common.number", { value: moviesData.total })} />
     </Widget>
   );
 }

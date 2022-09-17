@@ -61,9 +61,9 @@ export default function Transmission({ service }) {
 
   return (
     <Widget>
-      <Block label={t("transmission.leech")} value={leech} />
+      <Block label={t("transmission.leech")} value={t("common.number", { value: leech })} />
       <Block label={t("transmission.download")} value={`${rateDl.toFixed(2)} ${unitsDl}`} />
-      <Block label={t("transmission.seed")} value={completed} />
+      <Block label={t("transmission.seed")} value={t("common.number", { value: completed })} />
       <Block label={t("transmission.upload")} value={`${rateUl.toFixed(2)} ${unitsUl}`} />
     </Widget>
   );

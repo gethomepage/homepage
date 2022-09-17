@@ -30,8 +30,8 @@ export default function Jackett({ service }) {
 
   return (
     <Widget>
-      <Block label={t("jackett.configured")} value={indexersData.length} />
-      <Block label={t("jackett.errored")} value={errored.length} />
+      <Block label={t("jackett.configured")} value={t("common.number", { value: indexersData.length })} />
+      <Block label={t("jackett.errored")} value={t("common.number", { value: errored.length })} />
     </Widget>
   );
 }
