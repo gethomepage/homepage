@@ -151,5 +151,11 @@
     "jackett": {
         "configured": "Configured",
         "errored": "Errored"
+    },
+    "qbittorrent": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
