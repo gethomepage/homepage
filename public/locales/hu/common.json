@@ -1,9 +1,9 @@
 {
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "total": "Összes",
+        "free": "Szabad",
+        "used": "Használt",
+        "load": "Terhelés"
     },
     "docker": {
         "rx": "RX",
@@ -13,149 +13,149 @@
         "offline": "Offline"
     },
     "lidarr": {
-        "albums": "Albums",
-        "wanted": "Wanted",
-        "queued": "Queued"
+        "albums": "Albumok",
+        "wanted": "Keresett",
+        "queued": "Sorban áll"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Keresett",
+        "queued": "Sorban áll",
+        "books": "Könyvek"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Hiányzó epizódok",
+        "missingMovies": "Hiányzó filmek"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Hiányzó Widget Típus: {{type}}",
+        "api_error": "API Hiba",
+        "status": "Státusz"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Aktuális hely",
+        "allow": "Kattints az engedélyezéshez",
+        "updating": "Frissítés",
+        "wait": "Kérlek várj"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Keresés…"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Lejátszás",
+        "transcoding": "Átkódolás",
+        "bitrate": "Bitráta",
+        "no_active": "Nincs aktív lejátszás"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Lejátszás folyamatban",
+        "transcoding": "Átkódolás",
+        "bitrate": "Bitráta",
+        "no_active": "Nincs aktív lejátszás"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Ráta",
+        "remaining": "Hátralévő",
+        "downloaded": "Letöltött"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Ráta",
+        "queue": "Sor",
+        "timeleft": "Hátralévő idő"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktív",
+        "upload": "Feltöltés",
+        "download": "Letöltés"
     },
     "transmission": {
-        "leech": "Leech",
-        "seed": "Seed",
-        "download": "Download",
-        "upload": "Upload"
+        "leech": "Leechelés",
+        "seed": "Seedelés",
+        "download": "Letöltés",
+        "upload": "Feltöltés"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Letöltés",
+        "upload": "Feltöltés",
+        "leech": "Leechelés",
+        "seed": "Seedelés"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Keresett",
+        "queued": "Sorban áll",
+        "series": "Sorozat"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Keresett",
+        "queued": "Sorban áll",
+        "movies": "Filmek"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Függőben",
+        "approved": "Engedélyezett",
+        "available": "Elérhető"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Függőben",
+        "approved": "Engedélyezett",
+        "available": "Elérhető"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Függőben",
+        "approved": "Engedélyezett",
+        "available": "Elérhető"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Lekérdezések",
+        "blocked": "Blokkolt",
+        "gravity": "Gravitáció"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Lekérdezések",
+        "blocked": "Blokkolt",
+        "filtered": "Szűrt",
+        "latency": "Késleltetés"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Feltöltés",
+        "download": "Letöltés",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Futó",
+        "stopped": "Megállított",
+        "total": "Összes"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Routerek",
+        "services": "Folyamatok",
+        "middleware": "Közvetítő"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Bekapcsolva",
+        "disabled": "Kikapcsolva",
+        "total": "Összes"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Állíts be egy vagy több Cryptovalutát a követéshez",
+        "1hour": "1 Óra",
+        "1day": "1 Nap",
+        "7days": "7 Nap",
+        "30days": "30 Nap"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Applikációk",
+        "clients": "Kliensek",
+        "messages": "Üzenetek"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indexerek",
+        "numberOfGrabs": "Fogott",
+        "numberOfFailGrabs": "Hibás fogások",
+        "numberOfQueries": "Lekérdezések",
+        "numberOfFailQueries": "Hibás lekérdezések"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Beállított",
+        "errored": "Hibás"
     }
 }
