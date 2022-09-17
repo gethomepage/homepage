@@ -46,6 +46,7 @@ export default function Home({ settings }) {
   if (settings.background) {
     wrappedStyle.backgroundImage = `url(${settings.background})`;
     wrappedStyle.backgroundSize = "cover";
+    wrappedStyle.opacity = settings.backgroundOpacity ?? 1;
   }
 
   useEffect(() => {

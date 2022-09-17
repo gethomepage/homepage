@@ -6,6 +6,16 @@ import npmProxyHandler from "utils/proxies/npm";
 import transmissionProxyHandler from "utils/proxies/transmission";
 import qbittorrentProxyHandler from "utils/proxies/qbittorrent";
 
+function jsonArrayMapper(data, map) {
+  if (data?.length > 0) {
+    const json = JSON.parse(data.toString());
+    if (json instanceof Array) {
+      return json.map(map);
+    }
+  }
+  return data;
+}
+
 const serviceProxyHandlers = {
   // uses query param auth
   emby: genericProxyHandler,
@@ -44,7 +54,14 @@ export default async function handler(req, res) {
   const serviceProxyHandler = serviceProxyHandlers[type];
 
   if (serviceProxyHandler) {
-    return serviceProxyHandler(req, res);
+    if (serviceProxyHandler instanceof Function) {
+      return serviceProxyHandler(req, res);
+    }
+
+    const { proxy, maps } = serviceProxyHandler;
+    if (proxy) {
+      return proxy(req, res, maps);
+    }
   }
 
   return res.status(403).json({ error: "Unkown proxy service type" });
