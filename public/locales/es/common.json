@@ -153,9 +153,9 @@
         "latency": "Latencia"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Compañeros",
+        "seed": "Semillas"
     }
 }
