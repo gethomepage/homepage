@@ -50,7 +50,6 @@ services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
     container_name: homepage
-    user: 1000:1000 # Optional, change to your user and group IDs for permissions
     ports:
       - 3000:3000
     volumes:
