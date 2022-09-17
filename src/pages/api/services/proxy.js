@@ -23,12 +23,7 @@ const serviceProxyHandlers = {
   radarr: genericProxyHandler,
   sonarr: genericProxyHandler,
   lidarr: genericProxyHandler,
-  readarr: {
-    proxy: genericProxyHandler,
-    maps: {
-      book: (data) => jsonArrayMapper(data, (d) => ({ statistics: { bookFileCount: d.statistics.bookFileCount } })),
-    },
-  },
+  readarr: genericProxyHandler,
   bazarr: genericProxyHandler,
   speedtest: genericProxyHandler,
   tautulli: genericProxyHandler,
