@@ -7,15 +7,17 @@ export default async function handler(req, res) {
 
   try {
     discoveredServices = cleanServiceGroups(await servicesFromDocker());
-  } catch {
-    console.error("Failed to discover services, please check docker.yaml for errors");
+  } catch (e) {
+    console.error("Failed to discover services, please check docker.yaml for errors or remove example entries.");
+    console.error(e);
     discoveredServices = [];
   }
 
   try {
     configuredServices = cleanServiceGroups(await servicesFromConfig());
-  } catch {
+  } catch (e) {
     console.error("Failed to load services.yaml, please check for errors");
+    console.error(e);
     configuredServices = [];
   }
 
