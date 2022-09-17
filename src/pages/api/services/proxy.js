@@ -23,7 +23,7 @@ function jsonArrayTransform(data, transform) {
 }
 
 function jsonArrayFilter(data, filter) {
-  return jsonArrayTransform(data, items => items.filter(filter));
+  return jsonArrayTransform(data, (items) => items.filter(filter));
 }
 
 const serviceProxyHandlers = {
@@ -36,8 +36,8 @@ const serviceProxyHandlers = {
     maps: {
       movie: (data) => ({
         wanted: jsonArrayFilter(data, (item) => item.isAvailable === false).length,
-        have: jsonArrayFilter(data, (item) => item.isAvailable === true).length
-      })
+        have: jsonArrayFilter(data, (item) => item.isAvailable === true).length,
+      }),
     },
   },
   sonarr: {
@@ -52,7 +52,7 @@ const serviceProxyHandlers = {
     proxy: genericProxyHandler,
     maps: {
       album: (data) => ({
-        have: jsonArrayFilter(data, (item) => item.statistics.percentOfTracks === 100).length,
+        have: jsonArrayFilter(data, (item) => item?.statistics?.percentOfTracks === 100).length,
       }),
     },
   },
@@ -60,7 +60,7 @@ const serviceProxyHandlers = {
     proxy: genericProxyHandler,
     maps: {
       book: (data) => ({
-        have: jsonArrayFilter(data, (item) => item.statistics.bookFileCount > 0).length,
+        have: jsonArrayFilter(data, (item) => item?.statistics?.bookFileCount > 0).length,
       }),
     },
   },
