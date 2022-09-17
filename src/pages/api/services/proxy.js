@@ -6,22 +6,24 @@ import npmProxyHandler from "utils/proxies/npm";
 import transmissionProxyHandler from "utils/proxies/transmission";
 import qbittorrentProxyHandler from "utils/proxies/qbittorrent";
 
-function jsonArrayMapper(data, map) {
-  if (data?.length > 0) {
-    const json = JSON.parse(data.toString());
-    if (json instanceof Array) {
-      return json.map(map);
-    }
-  }
-  return data;
-}
-
 function asJson(data) {
   if (data?.length > 0) {
     const json = JSON.parse(data.toString());
     return json;
   }
   return data;
+}
+
+function jsonArrayTransform(data, transform) {
+  const json = asJson(data);
+  if (json instanceof Array) {
+    return transform(json);
+  }
+  return json;
+}
+
+function jsonArrayFilter(data, filter) {
+  return jsonArrayTransform(data, items => items.filter(filter));
 }
 
 const serviceProxyHandlers = {
@@ -33,16 +35,16 @@ const serviceProxyHandlers = {
     proxy: genericProxyHandler,
     maps: {
       movie: (data) => ({
-        wanted: jsonArrayMapper(data, (item) => item.isAvailable === false).length,
-        have: jsonArrayMapper(data, (item) => item.isAvailable === true).length,
-      }),
+        wanted: jsonArrayFilter(data, (item) => item.isAvailable === false).length,
+        have: jsonArrayFilter(data, (item) => item.isAvailable === true).length
+      })
     },
   },
   sonarr: {
     proxy: genericProxyHandler,
     maps: {
       series: (data) => ({
-        total: asJson(data.toString()).length,
+        total: asJson(data).length,
       }),
     },
   },
@@ -50,7 +52,7 @@ const serviceProxyHandlers = {
     proxy: genericProxyHandler,
     maps: {
       album: (data) => ({
-        have: jsonArrayMapper(data, (item) => item.statistics.percentOfTracks === 100).length,
+        have: jsonArrayFilter(data, (item) => item.statistics.percentOfTracks === 100).length,
       }),
     },
   },
@@ -58,7 +60,7 @@ const serviceProxyHandlers = {
     proxy: genericProxyHandler,
     maps: {
       book: (data) => ({
-        have: jsonArrayMapper(data, (item) => item.statistics.bookFileCount > 0).length,
+        have: jsonArrayFilter(data, (item) => item.statistics.bookFileCount > 0).length,
       }),
     },
   },
@@ -66,10 +68,10 @@ const serviceProxyHandlers = {
     proxy: genericProxyHandler,
     maps: {
       movies: (data) => ({
-        total: asJson(data.toString()).total,
+        total: asJson(data).total,
       }),
       episodes: (data) => ({
-        total: asJson(data.toString()).total,
+        total: asJson(data).total,
       }),
     },
   },
