@@ -34,8 +34,8 @@
     },
     "rutorrent": {
         "active": "Actif",
-        "upload": "Téléverser",
-        "download": "Télécharger"
+        "upload": "Envoi",
+        "download": "Réception"
     },
     "sonarr": {
         "wanted": "Demandé",
@@ -164,8 +164,8 @@
         "latency": "Latence"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Réception",
+        "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
     }
