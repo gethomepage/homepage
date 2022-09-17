@@ -17,7 +17,7 @@
   - Automatic service discovery (via labels)
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
-  - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission
+  - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
   - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify
 - Information Providers
   - Coin Market Cap
@@ -127,7 +127,7 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
 - [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
 - [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese Translation
-- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd & Transmission Integrations
+- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd, Transmission & qBittorrent Integrations
 - [juanmanuelbc](https://github.com/benphelps/homepage/commits?author=juanmanuelbc) - Spanish and Catalan Translations
 - [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
 - [nicedc](https://github.com/benphelps/homepage/commits?author=nicedc) - Chinese Translation
@@ -138,3 +138,4 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
 - [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish Translation
 - [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
+- [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
