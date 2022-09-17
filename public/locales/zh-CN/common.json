@@ -2,7 +2,7 @@
     "widget": {
         "missing_type": "缺少小部件类型：{{type}}",
         "api_error": "API错误",
-        "status": "地位"
+        "status": "状态"
     },
     "search": {
         "placeholder": "搜索…"
@@ -88,7 +88,7 @@
         "total": "全部的"
     },
     "weather": {
-        "current": "当前位置",
+        "current": "当前定位",
         "allow": "点击并允许",
         "updating": "更新中",
         "wait": "请等待"
