@@ -9,7 +9,7 @@
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - Translations for Chinese, Dutch, French, German, Norwegian Bokmål, Polish, Portuguese, Russian, Spanish and Swedish
+  - Translations for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Russian, Spanish and Swedish
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
@@ -139,3 +139,5 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish Translation
 - [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
 - [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
+- Daniel Varga - German & Hungarian Translation
+- [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew Translation
