@@ -69,7 +69,7 @@
     },
     "speedtest": {
         "upload": "Envoi",
-        "download": "Récept.",
+        "download": "Récep.",
         "ping": "Ping"
     },
     "portainer": {
@@ -164,7 +164,7 @@
         "latency": "Latence"
     },
     "qbittorrent": {
-        "download": "Réception",
+        "download": "Récep.",
         "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
