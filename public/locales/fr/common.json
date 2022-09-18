@@ -68,8 +68,8 @@
         "gravity": "Listes dom. bloqués"
     },
     "speedtest": {
-        "upload": "Téléversement",
-        "download": "Téléchargement",
+        "upload": "Envoi",
+        "download": "Récept.",
         "ping": "Ping"
     },
     "portainer": {
