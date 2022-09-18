@@ -20,7 +20,7 @@ export default async function credentialedProxyHandler(req, res) {
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (widget.type === "authentik") {
-        headers["Authorization"] = `Bearer ${widget.key}`;
+        headers.Authorization = `Bearer ${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
