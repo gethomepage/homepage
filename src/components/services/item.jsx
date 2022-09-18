@@ -35,7 +35,12 @@ export default function Item({ service }) {
           <div className="flex select-none">
             {service.icon &&
               (hasLink ? (
-                <a type="button" href={service.href} className="flex-shrink-0 flex items-center justify-center w-12 ">
+                <a
+                  href={service.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-shrink-0 flex items-center justify-center w-12 "
+                >
                   <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
                 </a>
               ) : (
@@ -45,16 +50,17 @@ export default function Item({ service }) {
               ))}
 
             {hasLink ? (
-              <button
-                type="button"
+              <a
                 href={service.href}
+                target="_blank"
+                rel="noreferrer"
                 className="flex-1 flex items-center justify-between rounded-r-md "
               >
                 <div className="flex-1 px-2 py-2 text-sm text-left">
                   {service.name}
                   <p className="text-theme-500 dark:text-theme-400 text-xs font-extralight">{service.description}</p>
                 </div>
-              </button>
+              </a>
             ) : (
               <div className="flex-1 flex items-center justify-between rounded-r-md ">
                 <div className="flex-1 px-2 py-2 text-sm text-left">
