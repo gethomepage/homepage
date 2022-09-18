@@ -21,13 +21,13 @@
         "offline": "离线"
     },
     "emby": {
-        "playing": "正在播放",
+        "playing": "播放中",
         "transcoding": "转码",
         "bitrate": "比特率",
         "no_active": "暂无播放"
     },
     "tautulli": {
-        "playing": "正在播放",
+        "playing": "播放中",
         "transcoding": "转码",
         "bitrate": "比特率",
         "no_active": "暂无播放"
@@ -38,12 +38,12 @@
         "download": "下载"
     },
     "sonarr": {
-        "wanted": "通缉",
+        "wanted": "想看",
         "queued": "排队",
         "series": "系列"
     },
     "radarr": {
-        "wanted": "订阅",
+        "wanted": "想看",
         "queued": "队列",
         "movies": "电影"
     },
@@ -74,7 +74,7 @@
     },
     "portainer": {
         "running": "运行中",
-        "stopped": "已停止",
+        "stopped": "停止",
         "total": "总计"
     },
     "traefik": {
@@ -91,7 +91,7 @@
         "current": "当前定位",
         "allow": "点击并允许",
         "updating": "更新中",
-        "wait": "请等待"
+        "wait": "请稍后"
     },
     "overseerr": {
         "pending": "待办",
@@ -110,10 +110,10 @@
     },
     "coinmarketcap": {
         "configure": "配置一个或多个需要追踪的加密",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "1hour": "1小时",
+        "1day": "1天",
+        "7days": "7天",
+        "30days": "30天"
     },
     "gotify": {
         "apps": "应用",
@@ -121,41 +121,41 @@
         "messages": "信息"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "索引器",
+        "numberOfGrabs": "抓取",
+        "numberOfQueries": "查询",
+        "numberOfFailGrabs": "抓取失败",
+        "numberOfFailQueries": "查询失败"
     },
     "transmission": {
         "download": "下载",
         "upload": "上传",
-        "leech": "Leech",
+        "leech": "吸血",
         "seed": "做种"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "已配置",
+        "errored": "出错了"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "缺少的剧集",
+        "missingMovies": "缺少的电影"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "订阅",
+        "queued": "队列",
+        "albums": "相册"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "查询",
+        "blocked": "阻止",
+        "filtered": "过滤",
+        "latency": "延迟"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下载",
+        "upload": "上传",
+        "leech": "吸血",
+        "seed": "做种"
     }
 }

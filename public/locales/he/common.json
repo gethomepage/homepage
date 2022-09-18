@@ -1,0 +1,161 @@
+{
+    "widget": {
+        "missing_type": "סוג ווידג'ט חסר: {{type}}",
+        "api_error": "שגיאת API",
+        "status": "סטטוס"
+    },
+    "weather": {
+        "current": "מיקום נוכחי",
+        "allow": "יש ללחוץ כדי לאשר",
+        "updating": "מעדכן",
+        "wait": "המתן בבקשה"
+    },
+    "search": {
+        "placeholder": "חיפוש…"
+    },
+    "resources": {
+        "total": "סה\"כ",
+        "free": "פנוי",
+        "used": "בשימוש",
+        "load": "עומס"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "זיכרון",
+        "cpu": "מעבד",
+        "offline": "כבוי"
+    },
+    "emby": {
+        "playing": "מנגן",
+        "transcoding": "מקודד",
+        "bitrate": "סיביות",
+        "no_active": "אין הזרמות פעילות"
+    },
+    "tautulli": {
+        "playing": "מנגן",
+        "transcoding": "מקודד",
+        "bitrate": "סיביות",
+        "no_active": "אין הזרמות פעילות"
+    },
+    "nzbget": {
+        "rate": "יחס",
+        "remaining": "נותר",
+        "downloaded": "הורד"
+    },
+    "sabnzbd": {
+        "rate": "יחס",
+        "queue": "תור",
+        "timeleft": "זמן שנותר"
+    },
+    "rutorrent": {
+        "active": "פעיל",
+        "upload": "העלאה",
+        "download": "הורדה"
+    },
+    "transmission": {
+        "download": "הורדה",
+        "upload": "העלאה",
+        "leech": "בהורדה",
+        "seed": "בשיתוף"
+    },
+    "qbittorrent": {
+        "download": "הורדה",
+        "upload": "העלאה",
+        "leech": "בהורדה",
+        "seed": "בשיתוף"
+    },
+    "sonarr": {
+        "wanted": "מבוקש",
+        "queued": "בתור",
+        "series": "סדרות"
+    },
+    "radarr": {
+        "wanted": "מבוקש",
+        "queued": "בתור",
+        "movies": "סרטים"
+    },
+    "lidarr": {
+        "wanted": "מבוקש",
+        "queued": "בתור",
+        "albums": "אלבומים"
+    },
+    "readarr": {
+        "wanted": "מבוקש",
+        "queued": "בתור",
+        "books": "ספרים"
+    },
+    "bazarr": {
+        "missingEpisodes": "פרקים חסרים",
+        "missingMovies": "סרטים חסרים"
+    },
+    "ombi": {
+        "pending": "ממתין",
+        "approved": "מאושר",
+        "available": "זמין"
+    },
+    "jellyseerr": {
+        "pending": "ממתין",
+        "approved": "מאושר",
+        "available": "זמין"
+    },
+    "overseerr": {
+        "pending": "ממתין",
+        "approved": "מאושר",
+        "available": "זמין"
+    },
+    "pihole": {
+        "queries": "שאילתות",
+        "blocked": "נחסם",
+        "gravity": "Gravity"
+    },
+    "adguard": {
+        "queries": "שאילתות",
+        "blocked": "נחסם",
+        "filtered": "מסונן",
+        "latency": "השהיה"
+    },
+    "speedtest": {
+        "upload": "העלאה",
+        "download": "הורדה",
+        "ping": "פינג"
+    },
+    "portainer": {
+        "running": "פעיל",
+        "stopped": "נעצר",
+        "total": "סה\"כ"
+    },
+    "traefik": {
+        "routers": "ניתובים",
+        "services": "שירותים",
+        "middleware": "מתווך"
+    },
+    "npm": {
+        "enabled": "מופעל",
+        "disabled": "מבוטל",
+        "total": "סה\"כ"
+    },
+    "coinmarketcap": {
+        "configure": "קבע את התצורה של מטבע קריפטו אחד או יותר למעקב",
+        "1hour": "שעה אחת",
+        "1day": "יום 1",
+        "7days": "7 יום",
+        "30days": "30 יום"
+    },
+    "gotify": {
+        "apps": "אפליקציות",
+        "clients": "לקוחות",
+        "messages": "הודעות"
+    },
+    "prowlarr": {
+        "enableIndexers": "אינדקסים",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "שאילתות",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries"
+    },
+    "jackett": {
+        "configured": "מוגדר",
+        "errored": "שגיאה"
+    }
+}

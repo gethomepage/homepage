@@ -9,7 +9,7 @@
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - Translations for Chinese, Dutch, French, German, Norwegian Bokmål, Polish, Portuguese, Russian, Spanish and Swedish
+  - Translations for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Russian, Spanish and Swedish
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
@@ -17,7 +17,7 @@
   - Automatic service discovery (via labels)
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
-  - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission
+  - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
   - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify
 - Information Providers
   - Coin Market Cap
@@ -120,14 +120,16 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [aidenpwnz](https://github.com/benphelps/homepage/commits?author=aidenpwnz) - Nginx Proxy Manager, Search Bar Widget
 - [AlexFullmoon](https://github.com/benphelps/homepage/commits?author=AlexFullmoon) - OpenWeatherMap Widget
 - [AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves) - Spanish Translation
+- [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
 - [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German Translation
 - [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål Translation
+- [Daniel Varga] - German & Hungarian Translation
 - [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch Translation
 - [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian Translation
 - [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
 - [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
 - [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese Translation
-- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd & Transmission Integrations
+- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd, Transmission & qBittorrent Integrations
 - [juanmanuelbc](https://github.com/benphelps/homepage/commits?author=juanmanuelbc) - Spanish and Catalan Translations
 - [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
 - [nicedc](https://github.com/benphelps/homepage/commits?author=nicedc) - Chinese Translation
@@ -136,5 +138,6 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [psychodracon](https://github.com/benphelps/homepage/commits?author=psychodracon) - Polish Translation
 - [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
 - [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
+- [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew Translation
 - [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish Translation
 - [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration

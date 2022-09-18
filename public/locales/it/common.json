@@ -99,14 +99,14 @@
         "available": "Disponibili"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Rapporto",
+        "queue": "Coda",
+        "timeleft": "Tempo Rimanente"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Rapporto",
+        "remaining": "Rimanente",
+        "downloaded": "Scaricato"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -116,9 +116,9 @@
         "30days": "30 Days"
     },
     "gotify": {
-        "apps": "Applications",
+        "apps": "Applicazioni",
         "clients": "Clients",
-        "messages": "Messages"
+        "messages": "Messaggi"
     },
     "prowlarr": {
         "enableIndexers": "Indexers",

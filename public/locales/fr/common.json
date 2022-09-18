@@ -34,8 +34,8 @@
     },
     "rutorrent": {
         "active": "Actif",
-        "upload": "Téléverser",
-        "download": "Télécharger"
+        "upload": "Envoi",
+        "download": "Réception"
     },
     "sonarr": {
         "wanted": "Demandé",
@@ -68,8 +68,8 @@
         "gravity": "Listes dom. bloqués"
     },
     "speedtest": {
-        "upload": "Téléversement",
-        "download": "Téléchargement",
+        "upload": "Envoi",
+        "download": "Récep.",
         "ping": "Ping"
     },
     "portainer": {
@@ -164,8 +164,8 @@
         "latency": "Latence"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Récep.",
+        "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
     }

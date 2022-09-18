@@ -88,8 +88,8 @@
         "total": "Total"
     },
     "weather": {
-        "current": "Ubicación actual",
-        "allow": "Haga clic para permitir",
+        "current": "Localización Actual",
+        "allow": "Clic para permitir",
         "updating": "Actualizando",
         "wait": "Espere, por favor"
     },
@@ -153,9 +153,9 @@
         "latency": "Latencia"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Compañeros",
+        "seed": "Semillas"
     }
 }

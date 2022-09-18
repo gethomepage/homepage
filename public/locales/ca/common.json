@@ -97,7 +97,7 @@
     "pihole": {
         "queries": "Consultes",
         "blocked": "Bloquejat",
-        "gravity": "Gravetat"
+        "gravity": "Gravity"
     },
     "portainer": {
         "running": "Executant",
@@ -147,14 +147,14 @@
         "albums": "Àlbums"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Consultes",
+        "blocked": "Bloquejat",
+        "filtered": "Filtrat",
+        "latency": "Latència"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Descàrrega",
+        "upload": "Càrrega",
         "leech": "Leech",
         "seed": "Seed"
     }

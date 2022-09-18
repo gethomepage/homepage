@@ -11,7 +11,7 @@
         "total": "Gesamt",
         "free": "Frei",
         "used": "Gebraucht",
-        "load": "Load"
+        "load": "Belastung"
     },
     "docker": {
         "rx": "Rx",
@@ -24,13 +24,13 @@
         "playing": "Spielen",
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Keine aktive Streams"
     },
     "tautulli": {
         "playing": "Spielen",
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Keine aktiven streamen"
     },
     "rutorrent": {
         "active": "Aktiv",

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { join } from "path";
-import { existsSync, copyFile, promises as fs } from "fs";
+import { existsSync, copyFile, readFileSync } from "fs";
 
 import yaml from "js-yaml";
 
@@ -15,13 +15,22 @@ export default function checkAndCopyConfig(config) {
       }
       console.info("%s was copied to the config folder", config);
     });
+
+    return true;
+  }
+
+  try {
+    yaml.load(readFileSync(configYaml, "utf8"));
+    return true;
+  } catch (e) {
+    return { ...e, config };
   }
 }
 
-export async function getSettings() {
+export function getSettings() {
   checkAndCopyConfig("settings.yaml");
 
   const settingsYaml = join(process.cwd(), "config", "settings.yaml");
-  const fileContents = await fs.readFile(settingsYaml, "utf8");
+  const fileContents = readFileSync(settingsYaml, "utf8");
   return yaml.load(fileContents);
 }
