@@ -27,6 +27,7 @@ import Gotify from "./widgets/service/gotify";
 import Prowlarr from "./widgets/service/prowlarr";
 import Jackett from "./widgets/service/jackett";
 import AdGuard from "./widgets/service/adguard";
+import Authentik from "./widgets/service/authentik";
 
 const widgetMappings = {
   docker: Docker,
@@ -56,6 +57,7 @@ const widgetMappings = {
   prowlarr: Prowlarr,
   jackett: Jackett,
   adguard: AdGuard,
+  authentik: Authentik,
 };
 
 export default function Widget({ service }) {

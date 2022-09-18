@@ -19,12 +19,14 @@ export default async function credentialedProxyHandler(req, res) {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
+      } else if (widget.type === "authentik") {
+        headers["Authorization"] = `Bearer ${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
 
       const [status, contentType, data] = await httpProxy(url, {
-        method: req.method,
+        method: "GET",  // disallow a client SWR call to set a destructive HTTP verb
         withCredentials: true,
         credentials: "include",
         headers,

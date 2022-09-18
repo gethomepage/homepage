@@ -24,6 +24,7 @@ const formats = {
   prowlarr: `{url}/api/v1/{endpoint}`,
   jackett: `{url}/api/v2.0/{endpoint}?apikey={key}&configured=true`,
   adguard: `{url}/control/{endpoint}`,
+  authentik: `{url}/api/v3/{endpoint}`,
 };
 
 export function formatApiCall(api, args) {

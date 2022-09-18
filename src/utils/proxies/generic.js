@@ -19,7 +19,7 @@ export default async function genericProxyHandler(req, res, maps) {
       }
 
       const [status, contentType, data] = await httpProxy(url, {
-        method: req.method,
+        method: "GET",  // disallow a client SWR call to set a destructive HTTP verb
         headers,
       });
 
