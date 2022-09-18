@@ -21,13 +21,13 @@
         "offline": "离线"
     },
     "emby": {
-        "playing": "正在播放",
+        "playing": "播放中",
         "transcoding": "转码",
         "bitrate": "比特率",
         "no_active": "暂无播放"
     },
     "tautulli": {
-        "playing": "正在播放",
+        "playing": "播放中",
         "transcoding": "转码",
         "bitrate": "比特率",
         "no_active": "暂无播放"
@@ -38,12 +38,12 @@
         "download": "下载"
     },
     "sonarr": {
-        "wanted": "通缉",
+        "wanted": "想看",
         "queued": "排队",
         "series": "系列"
     },
     "radarr": {
-        "wanted": "订阅",
+        "wanted": "想看",
         "queued": "队列",
         "movies": "电影"
     },
@@ -74,7 +74,7 @@
     },
     "portainer": {
         "running": "运行中",
-        "stopped": "已停止",
+        "stopped": "停止",
         "total": "总计"
     },
     "traefik": {
@@ -91,7 +91,7 @@
         "current": "当前定位",
         "allow": "点击并允许",
         "updating": "更新中",
-        "wait": "请等待"
+        "wait": "请稍后"
     },
     "overseerr": {
         "pending": "待办",
