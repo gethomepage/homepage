@@ -120,8 +120,10 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [aidenpwnz](https://github.com/benphelps/homepage/commits?author=aidenpwnz) - Nginx Proxy Manager, Search Bar Widget
 - [AlexFullmoon](https://github.com/benphelps/homepage/commits?author=AlexFullmoon) - OpenWeatherMap Widget
 - [AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves) - Spanish Translation
+- [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
 - [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German Translation
 - [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål Translation
+- [Daniel Varga] - German & Hungarian Translation
 - [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch Translation
 - [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian Translation
 - [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
@@ -136,8 +138,6 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [psychodracon](https://github.com/benphelps/homepage/commits?author=psychodracon) - Polish Translation
 - [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
 - [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
+- [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew Translation
 - [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish Translation
 - [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
-- [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
-- Daniel Varga - German & Hungarian Translation
-- [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew Translation
