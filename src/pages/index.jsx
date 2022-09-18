@@ -4,6 +4,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useTranslation } from "react-i18next";
 import { useEffect, useContext } from "react";
+import { BiError } from "react-icons/bi";
 
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
@@ -23,17 +24,54 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
 
-export async function getStaticProps() {
-  const settings = await getSettings();
-
-  return {
-    props: {
-      settings,
-    },
-  };
+export function getStaticProps() {
+  try {
+    const settings = getSettings();
+    return {
+      props: {
+        settings,
+      },
+    };
+  } catch (e) {
+    return {
+      props: {
+        settings: {},
+      },
+    };
+  }
 }
 
-export default function Home({ settings }) {
+export default function Index({ settings }) {
+  const { data: errorsData } = useSWR("/api/validate");
+
+  if (errorsData && errorsData.length > 0) {
+    return (
+      <div className="w-full container m-auto justify-center p-10">
+        <div className="flex flex-col">
+          {errorsData.map((error, i) => (
+            <div
+              className="basis-1/2 bg-theme-500 dark:bg-theme-600 text-theme-600 dark:text-theme-300 m-2 rounded-md font-mono shadow-md border-4 border-transparent"
+              key={i}
+            >
+              <div className="bg-amber-200 text-amber-800 dark:text-amber-200 dark:bg-amber-800 p-2 rounded-md font-bold">
+                <BiError className="float-right w-6 h-6" />
+                {error.config}
+              </div>
+              <div className="p-2 text-theme-100 dark:text-theme-200">
+                <pre className="opacity-50 font-bold pb-2">{error.reason}</pre>
+                <pre className="text-sm">{error.mark.snippet}</pre>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  return <Home settings={settings} />;
+}
+
+function Home({ settings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);

@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   if (!apiKey && provider) {
-    const settings = await getSettings();
+    const settings = getSettings();
     apiKey = settings?.providers?.openweathermap;
   }
 
