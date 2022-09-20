@@ -81,6 +81,7 @@ const serviceProxyHandlers = {
   sabnzbd: genericProxyHandler,
   jackett: genericProxyHandler,
   adguard: genericProxyHandler,
+  strelaysrv: genericProxyHandler,
   // uses X-API-Key (or similar) header auth
   gotify: credentialedProxyHandler,
   portainer: credentialedProxyHandler,

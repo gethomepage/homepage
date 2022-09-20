@@ -168,5 +168,10 @@
     "jackett": {
         "configured": "Configured",
         "errored": "Errored"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Data Relayed"
     }
 }
