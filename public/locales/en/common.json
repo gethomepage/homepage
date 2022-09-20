@@ -172,6 +172,7 @@
     "strelaysrv": {
         "numActiveSessions": "Sessions",
         "numConnections": "Connections",
-        "dataRelayed": "Data Relayed"
+        "dataRelayed": "Data Relayed",
+        "transferRate": "Transfer Rate"
     }
 }
