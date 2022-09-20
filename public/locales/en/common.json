@@ -173,5 +173,10 @@
         "user_count": "Users",
         "status_count": "Posts",
         "domain_count": "Domains"
+    },
+    "peertube": {
+        "totalUsers": "Users",
+        "totalVideos": "Videos",
+        "totalLocalVideoFilesSize": "Video Storaged"
     }
 }

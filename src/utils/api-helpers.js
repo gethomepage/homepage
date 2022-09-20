@@ -25,6 +25,7 @@ const formats = {
   jackett: `{url}/api/v2.0/{endpoint}?apikey={key}&configured=true`,
   adguard: `{url}/control/{endpoint}`,
   mastodon: `{url}/api/v1/{endpoint}`,
+  peertube: `{url}/api/v1/{endpoint}`,
 };
 
 export function formatApiCall(api, args) {
