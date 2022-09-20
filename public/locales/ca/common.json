@@ -155,7 +155,7 @@
     "qbittorrent": {
         "download": "Descàrrega",
         "upload": "Càrrega",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Companys",
+        "seed": "Llavors"
     }
 }
