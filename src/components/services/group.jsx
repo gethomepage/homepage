@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import List from "components/services/list";
 
-export default function ServicesGroup({ services, target, layout }) {
+export default function ServicesGroup({ services, layout }) {
   return (
     <div
       key={services.name}
@@ -12,7 +12,7 @@ export default function ServicesGroup({ services, target, layout }) {
       )}
     >
       <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium">{services.name}</h2>
-      <List services={services.services} target={target} layout={layout} />
+      <List services={services.services} layout={layout} />
     </div>
   );
 }

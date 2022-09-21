@@ -14,7 +14,7 @@ const columnMap = [
   "grid-cols-1 md:grid-cols-2 lg:grid-cols-8",
 ];
 
-export default function List({ services, target, layout }) {
+export default function List({ services, layout }) {
   return (
     <ul
       className={classNames(
@@ -23,7 +23,7 @@ export default function List({ services, target, layout }) {
       )}
     >
       {services.map((service) => (
-        <Item key={service.name} target={target} service={service} />
+        <Item key={service.name} service={service} />
       ))}
     </ul>
   );

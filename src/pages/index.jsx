@@ -13,6 +13,7 @@ import Revalidate from "components/revalidate";
 import { getSettings } from "utils/config";
 import { ColorContext } from "utils/color-context";
 import { ThemeContext } from "utils/theme-context";
+import { SettingsContext } from "utils/settings-context";
 
 const ThemeToggle = dynamic(() => import("components/theme-toggle"), {
   ssr: false,
@@ -26,22 +27,23 @@ const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search"
 
 export function getStaticProps() {
   try {
-    const settings = getSettings();
+    const { providers, ...settings } = getSettings();
+
     return {
       props: {
-        settings,
+        initialSettings: settings,
       },
     };
   } catch (e) {
     return {
       props: {
-        settings: {},
+        initialSettings: {},
       },
     };
   }
 }
 
-export default function Index({ settings }) {
+export default function Index({ initialSettings }) {
   const { data: errorsData } = useSWR("/api/validate");
 
   if (errorsData && errorsData.length > 0) {
@@ -68,20 +70,25 @@ export default function Index({ settings }) {
     );
   }
 
-  return <Home settings={settings} />;
+  return <Home initialSettings={initialSettings} />;
 }
 
-function Home({ settings }) {
+function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);
+  const { settings, setSettings } = useContext(SettingsContext);
+
+  if (initialSettings) {
+    setSettings(initialSettings);
+  }
 
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
   const wrappedStyle = {};
-  if (settings.background) {
+  if (settings && settings.background) {
     wrappedStyle.backgroundImage = `url(${settings.background})`;
     wrappedStyle.backgroundSize = "cover";
     wrappedStyle.opacity = settings.backgroundOpacity ?? 1;
@@ -133,12 +140,7 @@ function Home({ settings }) {
         {services && (
           <div className="flex flex-wrap p-8 items-start">
             {services.map((group) => (
-              <ServicesGroup
-                key={group.name}
-                services={group}
-                target={settings?.target}
-                layout={settings.layout?.[group.name]}
-              />
+              <ServicesGroup key={group.name} services={group} layout={settings.layout?.[group.name]} />
             ))}
           </div>
         )}
@@ -146,7 +148,7 @@ function Home({ settings }) {
         {bookmarks && (
           <div className="grow flex flex-wrap pt-0 p-8">
             {bookmarks.map((group) => (
-              <BookmarksGroup key={group.name} group={group} target={settings?.target} />
+              <BookmarksGroup key={group.name} group={group} />
             ))}
           </div>
         )}
