@@ -157,5 +157,10 @@
         "upload": "Subida",
         "leech": "Compañeros",
         "seed": "Semillas"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
     }
 }
