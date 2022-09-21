@@ -19,6 +19,10 @@
 .DS_Store
 *.pem
 
+# log files
+error.log
+homepage.log
+
 # debug
 npm-debug.log*
 yarn-debug.log*
