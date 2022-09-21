@@ -1,4 +1,8 @@
+import { join } from "path";
+
 import winston from "winston";
+
+const configPath = join(process.cwd(), "config");
 
 function messageFormatter(logInfo) {
   if (logInfo.stack) {
@@ -33,7 +37,7 @@ const logger = winston.createLogger({
 
     new winston.transports.File({
       format: fileFormat,
-      filename: 'homepage.log',
+      filename: `${configPath}/logs/homepage.log`,
       handleExceptions: true,
       handleRejections: true
     }),
