@@ -82,6 +82,7 @@ const serviceProxyHandlers = {
   sabnzbd: genericProxyHandler,
   jackett: genericProxyHandler,
   adguard: genericProxyHandler,
+  strelaysrv: genericProxyHandler,
   mastodon: genericProxyHandler,
   // uses X-API-Key (or similar) header auth
   gotify: credentialedProxyHandler,

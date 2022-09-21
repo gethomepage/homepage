@@ -169,6 +169,12 @@
         "configured": "Configured",
         "errored": "Errored"
     },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
     "mastodon": {
         "user_count": "Users",
         "status_count": "Posts",

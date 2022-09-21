@@ -27,6 +27,7 @@ import Gotify from "./widgets/service/gotify";
 import Prowlarr from "./widgets/service/prowlarr";
 import Jackett from "./widgets/service/jackett";
 import AdGuard from "./widgets/service/adguard";
+import StRelaySrv from "./widgets/service/strelaysrv";
 import Mastodon from "./widgets/service/mastodon";
 
 const widgetMappings = {
@@ -57,6 +58,7 @@ const widgetMappings = {
   prowlarr: Prowlarr,
   jackett: Jackett,
   adguard: AdGuard,
+  strelaysrv: StRelaySrv,
   mastodon: Mastodon,
 };
 
