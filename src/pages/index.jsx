@@ -79,9 +79,9 @@ function Home({ initialSettings }) {
   const { color, setColor } = useContext(ColorContext);
   const { settings, setSettings } = useContext(SettingsContext);
 
-  if (initialSettings) {
+  useEffect(() => {
     setSettings(initialSettings);
-  }
+  }, [initialSettings, setSettings]);
 
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
