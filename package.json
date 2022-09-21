@@ -32,6 +32,7 @@
     "rutorrent-promise": "^2.0.0",
     "shvl": "^3.0.0",
     "swr": "^1.3.0",
+    "tailwind-scrollbar": "^2.0.1",
     "tough-cookie": "^4.1.2",
     "winston": "^3.8.2"
   },
