@@ -162,5 +162,11 @@
         "user_count": "Users",
         "status_count": "Posts",
         "domain_count": "Domains"
+    },
+    "strelaysrv": {
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate",
+        "numActiveSessions": "Sessions"
     }
 }
