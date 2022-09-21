@@ -18,9 +18,9 @@
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
   - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
-  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify
+  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server
 - Information Providers
-  - Coin Market Cap
+  - Coin Market Cap, Mastodon
 - Information & Utility Widgets
   - System Stats (Disk, CPU, Memory)
   - Weather via WeatherAPI.com or OpenWeatherMap
@@ -123,9 +123,10 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
 - [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German Translation
 - [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål Translation
-- [Daniel Varga] - German & Hungarian Translation
+- Daniel Varga - German & Hungarian Translation
 - [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch Translation
 - [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian Translation
+- [DevPGSV](https://github.com/benphelps/homepage/commits?author=DevPGSV) - Syncthing Relay Server & Mastodon widgets
 - [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
 - [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
 - [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese Translation
