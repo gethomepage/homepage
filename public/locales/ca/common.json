@@ -155,7 +155,12 @@
     "qbittorrent": {
         "download": "Descàrrega",
         "upload": "Càrrega",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Companys",
+        "seed": "Llavors"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
     }
 }

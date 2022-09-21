@@ -1,9 +1,12 @@
 import Image from "next/future/image";
+import { useContext } from "react";
 import { Disclosure } from "@headlessui/react";
 
 import Status from "./status";
 import Widget from "./widget";
 import Docker from "./widgets/service/docker";
+
+import { SettingsContext } from "utils/settings-context";
 
 function resolveIcon(icon) {
   if (icon.startsWith("http")) {
@@ -23,6 +26,7 @@ function resolveIcon(icon) {
 
 export default function Item({ service }) {
   const hasLink = service.href && service.href !== "#";
+  const { settings } = useContext(SettingsContext);
 
   return (
     <li key={service.name}>
@@ -37,7 +41,7 @@ export default function Item({ service }) {
               (hasLink ? (
                 <a
                   href={service.href}
-                  target="_blank"
+                  target={settings.target ?? "_blank"}
                   rel="noreferrer"
                   className="flex-shrink-0 flex items-center justify-center w-12 "
                 >
@@ -52,7 +56,7 @@ export default function Item({ service }) {
             {hasLink ? (
               <a
                 href={service.href}
-                target="_blank"
+                target={settings.target ?? "_blank"}
                 rel="noreferrer"
                 className="flex-1 flex items-center justify-between rounded-r-md "
               >

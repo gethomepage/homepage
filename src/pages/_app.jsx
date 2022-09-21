@@ -8,6 +8,7 @@ import "styles/theme.css";
 import "utils/i18n";
 import { ColorProvider } from "utils/color-context";
 import { ThemeProvider } from "utils/theme-context";
+import { SettingsProvider } from "utils/settings-context";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,7 +19,9 @@ function MyApp({ Component, pageProps }) {
     >
       <ColorProvider>
         <ThemeProvider>
-          <Component {...pageProps} />
+          <SettingsProvider>
+            <Component {...pageProps} />
+          </SettingsProvider>
         </ThemeProvider>
       </ColorProvider>
     </SWRConfig>
