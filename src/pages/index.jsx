@@ -133,7 +133,12 @@ function Home({ settings }) {
         {services && (
           <div className="flex flex-wrap p-8 items-start">
             {services.map((group) => (
-              <ServicesGroup key={group.name} services={group} layout={settings.layout?.[group.name]} />
+              <ServicesGroup
+                key={group.name}
+                services={group}
+                target={settings?.target}
+                layout={settings.layout?.[group.name]}
+              />
             ))}
           </div>
         )}
@@ -141,7 +146,7 @@ function Home({ settings }) {
         {bookmarks && (
           <div className="grow flex flex-wrap pt-0 p-8">
             {bookmarks.map((group) => (
-              <BookmarksGroup key={group.name} group={group} />
+              <BookmarksGroup key={group.name} group={group} target={settings?.target} />
             ))}
           </div>
         )}

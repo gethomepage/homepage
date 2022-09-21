@@ -21,7 +21,7 @@ function resolveIcon(icon) {
   return `https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/${icon}.png`;
 }
 
-export default function Item({ service }) {
+export default function Item({ service, target = "_blank" }) {
   const hasLink = service.href && service.href !== "#";
 
   return (
@@ -37,7 +37,7 @@ export default function Item({ service }) {
               (hasLink ? (
                 <a
                   href={service.href}
-                  target="_blank"
+                  target={target}
                   rel="noreferrer"
                   className="flex-shrink-0 flex items-center justify-center w-12 "
                 >
@@ -52,7 +52,7 @@ export default function Item({ service }) {
             {hasLink ? (
               <a
                 href={service.href}
-                target="_blank"
+                target={target}
                 rel="noreferrer"
                 className="flex-1 flex items-center justify-between rounded-r-md "
               >

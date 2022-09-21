@@ -1,11 +1,12 @@
-export default function Item({ bookmark }) {
+export default function Item({ bookmark, target = "_blank" }) {
   const { hostname } = new URL(bookmark.href);
 
   return (
     <li key={bookmark.name}>
-      <button
-        type="button"
-        onClick={() => window.open(bookmark.href, "_blank").focus()}
+      <a
+        href={bookmark.href}
+        title={bookmark.name}
+        target={target}
         className="w-full text-left mb-3 cursor-pointer rounded-md font-medium text-theme-700 hover:text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-black/10 dark:shadow-black/20 bg-white/50 hover:bg-theme-300/10 dark:bg-white/10 dark:hover:bg-white/20"
       >
         <div className="flex">
@@ -17,7 +18,7 @@ export default function Item({ bookmark }) {
             <div className="px-2 py-2 truncate text-theme-500 dark:text-theme-400 opacity-50 text-xs">{hostname}</div>
           </div>
         </div>
-      </button>
+      </a>
     </li>
   );
 }
