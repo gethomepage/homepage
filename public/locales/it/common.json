@@ -157,5 +157,10 @@
         "leech": "Leech",
         "upload": "Upload",
         "seed": "Seed"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
     }
 }
