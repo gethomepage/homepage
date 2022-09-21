@@ -130,7 +130,7 @@
     "transmission": {
         "download": "下载",
         "upload": "上传",
-        "leech": "吸血",
+        "leech": "下载中",
         "seed": "做种"
     },
     "jackett": {
@@ -155,7 +155,7 @@
     "qbittorrent": {
         "download": "下载",
         "upload": "上传",
-        "leech": "吸血",
+        "leech": "下载中",
         "seed": "做种"
     },
     "mastodon": {
