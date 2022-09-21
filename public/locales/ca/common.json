@@ -159,14 +159,14 @@
         "seed": "Llavors"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Usuaris",
+        "status_count": "Publicacions",
+        "domain_count": "Dominis"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numConnections": "Connexions",
+        "dataRelayed": "Transmès",
+        "transferRate": "Velocitat"
     }
 }
