@@ -10,6 +10,7 @@ import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widget";
 import Revalidate from "components/revalidate";
+import createLogger from "utils/logger";
 import { getSettings } from "utils/config";
 import { ColorContext } from "utils/color-context";
 import { ThemeContext } from "utils/theme-context";
@@ -26,7 +27,9 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
 
 export function getStaticProps() {
+  let logger;
   try {
+    logger = createLogger('index');
     const { providers, ...settings } = getSettings();
 
     return {
@@ -35,6 +38,7 @@ export function getStaticProps() {
       },
     };
   } catch (e) {
+    if (logger) { logger.error(e); }
     return {
       props: {
         initialSettings: {},

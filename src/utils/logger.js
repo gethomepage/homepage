@@ -1,80 +1,88 @@
+/* eslint-disable no-console */
 import { join } from "path";
+import { format as utilFormat } from "node:util"
 
 import winston from "winston";
 
-const configPath = join(process.cwd(), "config");
+let winstonLogger;
 
-function messageFormatter(logInfo) {
-  if (logInfo.stack) {
-    return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.stack}`;
+function init() {
+  const configPath = join(process.cwd(), "config");
+
+  function combineMessageAndSplat() {
+    return {
+      // eslint-disable-next-line no-unused-vars
+      transform: (info, opts) => {
+        // combine message and args if any
+        // eslint-disable-next-line no-param-reassign
+        info.message =  utilFormat(info.message, ...info[Symbol.for('splat')]  ||  []);
+        return info;
+      }
+    }
   }
-  return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.message}`;
-};
 
-const consoleFormat = winston.format.combine(
-  winston.format.errors({ stack: true }),
-  winston.format.splat(),
-  winston.format.timestamp(),
-  winston.format.colorize(),
-  winston.format.printf(messageFormatter)
-);
+  function messageFormatter(logInfo) {
+    if (logInfo.label) {
+      if (logInfo.stack) {
+        return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.stack}`;
+      }
+      return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.message}`;
+    }
 
-const fileFormat = winston.format.combine(
-  winston.format.errors({ stack: true }),
-  winston.format.splat(),
-  winston.format.timestamp(),
-  winston.format.printf(messageFormatter)
-);
+    if (logInfo.stack) {
+      return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.stack}`;
+    }
+    return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.message}`;
+  };
 
-const logger = winston.createLogger({
-  level: process.env.LOG_LEVEL || 'info',
-  transports: [
-    new winston.transports.Console({
-      format: consoleFormat,
-      handleExceptions: true,
-      handleRejections: true
-    }),
+  winstonLogger = winston.createLogger({
+    level: process.env.LOG_LEVEL || 'info',
+    transports: [
+      new winston.transports.Console({
+        format: winston.format.combine(
+          winston.format.errors({ stack: true}),
+          combineMessageAndSplat(),
+          winston.format.timestamp(),
+          winston.format.colorize(),
+          winston.format.printf(messageFormatter)
+        ),
+        handleExceptions: true,
+        handleRejections: true
+      }),
 
-    new winston.transports.File({
-      format: fileFormat,
-      filename: `${configPath}/logs/homepage.log`,
-      handleExceptions: true,
-      handleRejections: true
-    }),
-  ]
-});
+      new winston.transports.File({
+        format: winston.format.combine(
+          winston.format.errors({ stack: true}),
+          combineMessageAndSplat(),
+          winston.format.timestamp(),
+          winston.format.printf(messageFormatter)
+        ),
+        filename: `${configPath}/logs/homepage.log`,
+        handleExceptions: true,
+        handleRejections: true
+      }),
+    ]
+  });
 
-function debug(message, ...args) {
-  logger.debug(message, ...args);
+  // patch the console log mechanism to use our logger
+  const consoleMethods = ['log', 'debug', 'info', 'warn', 'error']
+  consoleMethods.forEach(method => {
+    // workaround for https://github.com/winstonjs/winston/issues/1591
+    switch (method) {
+      case 'log':
+        console[method] = winstonLogger.info.bind(winstonLogger);
+        break;
+      default:
+        console[method] = winstonLogger[method].bind(winstonLogger);
+        break;
+    }
+  })
 }
 
-function verbose(message, ...args) {
-  logger.verbose(message, ...args);
+export default function createLogger(label) {
+  if (!winstonLogger) {
+    init();
+  }
+
+  return winstonLogger.child({ label });
 }
-
-function info(message, ...args) {
-  logger.info(message, ...args);
-}
-
-function warn(message, ...args) {
-  logger.warn(message, ...args);
-}
-
-function error(message, ...args) {
-  logger.error(message, ...args);
-}
-
-function crit(message, ...args) {
-  logger.crit(message, ...args);
-}
-
-const thisModule = {
-  debug,
-  verbose,
-  info,
-  warn,
-  error,
-  crit
-};
-
-export default thisModule;
