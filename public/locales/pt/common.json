@@ -11,7 +11,7 @@
         "total": "Total",
         "free": "Livre",
         "used": "Usado",
-        "load": "Load"
+        "load": "Carregar"
     },
     "docker": {
         "rx": "Rx",
@@ -23,7 +23,7 @@
     "emby": {
         "playing": "A reproduzir",
         "transcoding": "Transcodificação",
-        "bitrate": "Bitrate",
+        "bitrate": "Taxa de bits",
         "no_active": "Sem streams ativas"
     },
     "tautulli": {
@@ -34,8 +34,8 @@
     },
     "rutorrent": {
         "active": "Ativo",
-        "upload": "Envio",
-        "download": "ReceçãoDownload"
+        "upload": "Enviando",
+        "download": "Baixando"
     },
     "sonarr": {
         "wanted": "Desejada",
@@ -48,7 +48,7 @@
         "movies": "Filmes"
     },
     "readarr": {
-        "wanted": "Wanted",
+        "wanted": "Desejados",
         "queued": "Em fila",
         "books": "Livros"
     },
@@ -65,7 +65,7 @@
     "pihole": {
         "queries": "Consultas",
         "blocked": "Bloqueado",
-        "gravity": "Gravity"
+        "gravity": "Gravidade"
     },
     "speedtest": {
         "upload": "Envio",
@@ -78,7 +78,7 @@
         "total": "Total"
     },
     "traefik": {
-        "routers": "Routers",
+        "routers": "Roteadores",
         "services": "Serviços",
         "middleware": "Middleware"
     },
@@ -110,21 +110,21 @@
         "available": "Disponível"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Taxa",
         "queue": "Fila",
         "timeleft": "Tempo restante"
     },
     "nzbget": {
-        "rate": "Rate",
+        "rate": "Taxa",
         "remaining": "Restante",
-        "downloaded": "Downloaded"
+        "downloaded": "Baixado"
     },
     "coinmarketcap": {
         "configure": "Configurar uma ou mais moedas",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "1hour": "1 Hora",
+        "1day": "1 Dia",
+        "7days": "7 Dias",
+        "30days": "30 Dias"
     },
     "gotify": {
         "apps": "Aplicações",
@@ -132,52 +132,52 @@
         "messages": "Mensagens"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
+        "enableIndexers": "Indexadores",
+        "numberOfGrabs": "Agarrados",
+        "numberOfQueries": "Consultas",
         "numberOfFailGrabs": "Falhados",
         "numberOfFailQueries": "Pesquisas falhadas"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Envio",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Baixando",
+        "upload": "Enviando",
+        "leech": "Sanguessugas",
+        "seed": "Semeadores"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configurado",
+        "errored": "Errado"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Episódios Faltantes",
+        "missingMovies": "Filmes Faltantes"
     },
     "lidarr": {
-        "queued": "Queued",
-        "wanted": "Wanted",
-        "albums": "Albums"
+        "queued": "Enfileirado",
+        "wanted": "Desejado",
+        "albums": "Álbuns"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Consultas",
+        "blocked": "Bloqueado",
+        "filtered": "Filtrado",
+        "latency": "Latência"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Baixando",
+        "upload": "Enviando",
+        "leech": "Sanguessugas",
+        "seed": "Semeadores"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Usuários",
+        "status_count": "Postagens",
+        "domain_count": "Domínios"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Sessões",
+        "numConnections": "Conexões",
+        "dataRelayed": "Retransmitido",
+        "transferRate": "Taxa"
     }
 }
