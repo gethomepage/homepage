@@ -1,7 +1,15 @@
 ![Homepage Preview](/images/preview.png)
 
-[![Docker](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml)
-[![Weblate](https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg)](https://hosted.weblate.org/engage/homepage/)
+<p align="center">
+  <a href="https://discord.gg/k4ruYNrudu"><img src="https://img.shields.io/badge/Discord - Chat-blue?logo=discord&logoColor=white" /></a>
+  <a href="https://paypal.me/phelpsben" title="Donate"><img src="https://img.shields.io/badge/PayPal - Donate-blue?logo=paypal&logoColor=white" alt="Linkedin - phelpsben"></a>
+</p>
+
+<p align="center">
+<a href="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml"><img src="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg" alt="Docker"></a>
+<a href="https://hosted.weblate.org/engage/homepage/"><img src="https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg" alt="Weblate"></a>
+</p>
+
 
 ## Features
 
