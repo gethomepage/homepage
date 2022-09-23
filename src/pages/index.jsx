@@ -24,12 +24,16 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
   ssr: false,
 });
 
+const Version = dynamic(() => import("components/version"), {
+  ssr: false,
+});
+
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
 
 export function getStaticProps() {
   let logger;
   try {
-    logger = createLogger('index');
+    logger = createLogger("index");
     const { providers, ...settings } = getSettings();
 
     return {
@@ -38,7 +42,9 @@ export function getStaticProps() {
       },
     };
   } catch (e) {
-    if (logger) { logger.error(e); }
+    if (logger) {
+      logger.error(e);
+    }
     return {
       props: {
         initialSettings: {},
@@ -157,10 +163,14 @@ function Home({ initialSettings }) {
           </div>
         )}
 
-        <div className="rounded-full flex p-8 w-full justify-end">
+        <div className="flex p-8 pb-0 w-full justify-end">
           {!settings?.color && <ColorToggle />}
           <Revalidate />
           {!settings?.theme && <ThemeToggle />}
+        </div>
+
+        <div className="flex p-8 pt-4 w-full justify-end">
+          <Version />
         </div>
       </div>
     </>

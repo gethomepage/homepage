@@ -5,6 +5,7 @@ specifiers:
   '@tailwindcss/forms': ^0.5.3
   autoprefixer: ^10.4.9
   classnames: ^2.3.1
+  compare-versions: ^5.0.1
   dockerode: ^3.3.4
   eslint: ^8.23.1
   eslint-config-airbnb: ^19.0.4
@@ -45,6 +46,7 @@ dependencies:
   '@headlessui/react': 1.7.0_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.1.8
   classnames: 2.3.1
+  compare-versions: 5.0.1
   dockerode: 3.3.4
   follow-redirects: 1.15.2
   i18next: 21.9.1
@@ -713,6 +715,10 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: false
+
+  /compare-versions/5.0.1:
+    resolution: {integrity: sha512-v8Au3l0b+Nwkp4G142JcgJFh1/TUhdxut7wzD1Nq1dyp5oa3tXaqb03EXOAB6jS4gMlalkjAUPZBMiAfKUixHQ==}
     dev: false
 
   /concat-map/0.0.1:
