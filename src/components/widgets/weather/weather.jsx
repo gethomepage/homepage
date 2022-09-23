@@ -11,8 +11,9 @@ function Widget({ options }) {
   const { t, i18n } = useTranslation();
 
   const { data, error } = useSWR(
-    `/api/widgets/weather?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`
-  );
+    `/api/widgets/weather?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`, {
+      refreshInterval: null
+    });
 
   if (error || data?.error) {
     return (

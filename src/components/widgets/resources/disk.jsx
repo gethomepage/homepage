@@ -8,9 +8,7 @@ import UsageBar from "./usage-bar";
 export default function Disk({ options, expanded }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/resources?type=disk&target=${options.disk}`, {
-    refreshInterval: 1500,
-  });
+  const { data, error } = useSWR(`/api/widgets/resources?type=disk&target=${options.disk}`);
 
   if (error || data?.error) {
     return (

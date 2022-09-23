@@ -8,9 +8,7 @@ import UsageBar from "./usage-bar";
 export default function Memory({ expanded }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/resources?type=memory`, {
-    refreshInterval: 1500,
-  });
+  const { data, error } = useSWR(`/api/widgets/resources?type=memory`);
 
   if (error || data?.error) {
     return (
