@@ -62,14 +62,14 @@ export default function Item({ service }) {
               >
                 <div className="flex-1 px-2 py-2 text-sm text-left">
                   {service.name}
-                  <p className="text-theme-500 dark:text-theme-400 text-xs font-extralight">{service.description}</p>
+                  <p className="text-theme-500 dark:text-theme-400 text-xs font-light">{service.description}</p>
                 </div>
               </a>
             ) : (
               <div className="flex-1 flex items-center justify-between rounded-r-md ">
                 <div className="flex-1 px-2 py-2 text-sm text-left">
                   {service.name}
-                  <p className="text-theme-500 dark:text-theme-400 text-xs font-extralight">{service.description}</p>
+                  <p className="text-theme-500 dark:text-theme-400 text-xs font-light">{service.description}</p>
                 </div>
               </div>
             )}

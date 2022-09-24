@@ -1,0 +1,172 @@
+{
+    "resources": {
+        "used": "Used",
+        "load": "Load",
+        "total": "Total",
+        "free": "Free"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "offline": "Offline"
+    },
+    "jellyseerr": {
+        "approved": "Approved",
+        "available": "Available",
+        "pending": "Pending"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
+    "pihole": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "gravity": "Gravity"
+    },
+    "adguard": {
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "queries": "Queries",
+        "latency": "Latency"
+    },
+    "traefik": {
+        "services": "Services",
+        "middleware": "Middleware",
+        "routers": "Routers"
+    },
+    "npm": {
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Total"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
+    },
+    "weather": {
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "current": "Current Location",
+        "wait": "Please wait"
+    },
+    "widget": {
+        "missing_type": "Lipsește Tipul de Widget: {{type}}",
+        "api_error": "Eroare API",
+        "status": "Status"
+    },
+    "search": {
+        "placeholder": "Search…"
+    },
+    "tautulli": {
+        "no_active": "No Active Streams",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
+    },
+    "emby": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "transmission": {
+        "leech": "Leech",
+        "seed": "Seed",
+        "download": "Download",
+        "upload": "Upload"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "qbittorrent": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "sonarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
+    },
+    "radarr": {
+        "queued": "Queued",
+        "wanted": "Wanted",
+        "movies": "Movies"
+    },
+    "lidarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "albums": "Albums"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
+    },
+    "ombi": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
+    "speedtest": {
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
+    },
+    "portainer": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "total": "Total"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
+    },
+    "prowlarr": {
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries",
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
+    }
+}

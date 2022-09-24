@@ -2,8 +2,8 @@
 import { SWRConfig } from "swr";
 
 import "styles/globals.css";
-import "styles/weather-icons.css";
 import "styles/theme.css";
+import "styles/manrope.css";
 
 import "utils/i18n";
 import { ColorProvider } from "utils/color-context";
