@@ -173,5 +173,16 @@
         "users": "Users",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
     }
 }

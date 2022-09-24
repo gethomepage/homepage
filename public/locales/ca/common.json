@@ -155,7 +155,18 @@
     "qbittorrent": {
         "download": "Descàrrega",
         "upload": "Càrrega",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Companys",
+        "seed": "Llavors"
+    },
+    "mastodon": {
+        "user_count": "Usuaris",
+        "status_count": "Publicacions",
+        "domain_count": "Dominis"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connexions",
+        "dataRelayed": "Transmès",
+        "transferRate": "Velocitat"
     }
 }

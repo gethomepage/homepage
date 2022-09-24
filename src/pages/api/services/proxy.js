@@ -1,3 +1,4 @@
+import logger from "utils/logger";
 import genericProxyHandler from "utils/proxies/generic";
 import credentialedProxyHandler from "utils/proxies/credentialed";
 import rutorrentProxyHandler from "utils/proxies/rutorrent";
@@ -81,6 +82,8 @@ const serviceProxyHandlers = {
   sabnzbd: genericProxyHandler,
   jackett: genericProxyHandler,
   adguard: genericProxyHandler,
+  strelaysrv: genericProxyHandler,
+  mastodon: genericProxyHandler,
   // uses X-API-Key (or similar) header auth
   gotify: credentialedProxyHandler,
   portainer: credentialedProxyHandler,
@@ -99,20 +102,27 @@ const serviceProxyHandlers = {
 };
 
 export default async function handler(req, res) {
-  const { type } = req.query;
+  try {
+    const { type } = req.query;
 
-  const serviceProxyHandler = serviceProxyHandlers[type];
+    const serviceProxyHandler = serviceProxyHandlers[type];
 
-  if (serviceProxyHandler) {
-    if (serviceProxyHandler instanceof Function) {
-      return serviceProxyHandler(req, res);
+    if (serviceProxyHandler) {
+      if (serviceProxyHandler instanceof Function) {
+        return serviceProxyHandler(req, res);
+      }
+  
+      const { proxy, maps } = serviceProxyHandler;
+      if (proxy) {
+        return proxy(req, res, maps);
+      }
     }
 
-    const { proxy, maps } = serviceProxyHandler;
-    if (proxy) {
-      return proxy(req, res, maps);
-    }
+    logger.debug("Unknown proxy service type: %s", type);
+    return res.status(403).json({ error: "Unkown proxy service type" });
   }
-
-  return res.status(403).json({ error: "Unkown proxy service type" });
+  catch (ex) {
+    logger.error(ex);
+    return res.status(500).send({ error: "Unexpected error" });
+  }
 }

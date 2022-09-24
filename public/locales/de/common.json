@@ -48,9 +48,9 @@
         "movies": "Filme"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Gesucht",
+        "queued": "In Warteschlange",
+        "books": "Bücher"
     },
     "ombi": {
         "pending": "Ausstehend",
@@ -79,8 +79,8 @@
     },
     "traefik": {
         "routers": "Router",
-        "services": "Services",
-        "middleware": "Middleware"
+        "services": "Dienste",
+        "middleware": "Zwischenanwendung"
     },
     "npm": {
         "enabled": "Aktiviert",
@@ -94,68 +94,79 @@
         "wait": "Bitte warten"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Ausstehend",
+        "approved": "Genehmigt",
+        "available": "Verfügbar"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Geschwindigkeit",
+        "queue": "Warteschlange",
+        "timeleft": "Verbleibende Zeit"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Geschwindigkeit",
+        "remaining": "Verbleibend",
+        "downloaded": "Heruntergeladen"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Konfiguriere eine oder mehrere Kryptowährungen zur Verfolgung",
+        "1hour": "1 Stunde",
+        "1day": "1 Tag",
+        "7days": "7 Tage",
+        "30days": "30 Tage"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Programme",
+        "clients": "Benutzer",
+        "messages": "Nachrichten"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indexer",
+        "numberOfGrabs": "Abrufungen",
+        "numberOfQueries": "Anfragen",
+        "numberOfFailGrabs": "Fehlgeschlagene Abrufungen",
+        "numberOfFailQueries": "Fehlgeschlagene Anfragen"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Herunterladen",
+        "upload": "Hochladen",
         "leech": "Leech",
         "seed": "Seed"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Konfiguriert",
+        "errored": "Fehlerhaft"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Fehlende Episoden",
+        "missingMovies": "Fehlende Filme"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Gesucht",
+        "queued": "In Warteschlange",
+        "albums": "Alben"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Anfragen",
+        "blocked": "Blockiert",
+        "filtered": "Gefiltert",
+        "latency": "Latenz"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Herunterladen",
+        "upload": "Hochladen",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
     }
 }

@@ -168,5 +168,16 @@
         "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "mastodon": {
+        "user_count": "Utilisateurs",
+        "status_count": "Messages",
+        "domain_count": "Domaines"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
     }
 }

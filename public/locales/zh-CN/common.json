@@ -157,5 +157,16 @@
         "upload": "上传",
         "leech": "吸血",
         "seed": "做种"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "dataRelayed": "Relayed",
+        "numConnections": "Connections",
+        "transferRate": "Rate"
     }
 }

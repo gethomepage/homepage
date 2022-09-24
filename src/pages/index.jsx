@@ -13,6 +13,7 @@ import Revalidate from "components/revalidate";
 import { getSettings } from "utils/config";
 import { ColorContext } from "utils/color-context";
 import { ThemeContext } from "utils/theme-context";
+import { SettingsContext } from "utils/settings-context";
 
 const ThemeToggle = dynamic(() => import("components/theme-toggle"), {
   ssr: false,
@@ -26,22 +27,23 @@ const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search"
 
 export function getStaticProps() {
   try {
-    const settings = getSettings();
+    const { providers, ...settings } = getSettings();
+
     return {
       props: {
-        settings,
+        initialSettings: settings,
       },
     };
   } catch (e) {
     return {
       props: {
-        settings: {},
+        initialSettings: {},
       },
     };
   }
 }
 
-export default function Index({ settings }) {
+export default function Index({ initialSettings }) {
   const { data: errorsData } = useSWR("/api/validate");
 
   if (errorsData && errorsData.length > 0) {
@@ -68,20 +70,25 @@ export default function Index({ settings }) {
     );
   }
 
-  return <Home settings={settings} />;
+  return <Home initialSettings={initialSettings} />;
 }
 
-function Home({ settings }) {
+function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);
+  const { settings, setSettings } = useContext(SettingsContext);
+
+  useEffect(() => {
+    setSettings(initialSettings);
+  }, [initialSettings, setSettings]);
 
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
   const wrappedStyle = {};
-  if (settings.background) {
+  if (settings && settings.background) {
     wrappedStyle.backgroundImage = `url(${settings.background})`;
     wrappedStyle.backgroundSize = "cover";
     wrappedStyle.opacity = settings.backgroundOpacity ?? 1;

@@ -157,5 +157,16 @@
         "upload": "Subida",
         "leech": "Compañeros",
         "seed": "Semillas"
+    },
+    "mastodon": {
+        "user_count": "Usuarios",
+        "status_count": "Publicaciones",
+        "domain_count": "Dominios"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sesiones",
+        "numConnections": "Conexiones",
+        "dataRelayed": "Transmitido",
+        "transferRate": "Velocidad"
     }
 }

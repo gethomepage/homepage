@@ -1,7 +1,15 @@
 ![Homepage Preview](/images/preview.png)
 
-[![Docker](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml)
-[![Weblate](https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg)](https://hosted.weblate.org/engage/homepage/)
+<p align="center">
+  <a href="https://discord.gg/k4ruYNrudu"><img src="https://img.shields.io/badge/Discord - Chat-blue?logo=discord&logoColor=white" /></a>
+  <a href="https://paypal.me/phelpsben" title="Donate"><img src="https://img.shields.io/badge/PayPal - Donate-blue?logo=paypal&logoColor=white" alt="Linkedin - phelpsben"></a>
+</p>
+
+<p align="center">
+<a href="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml"><img src="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg" alt="Docker"></a>
+<a href="https://hosted.weblate.org/engage/homepage/"><img src="https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg" alt="Weblate"></a>
+</p>
+
 
 ## Features
 
@@ -18,9 +26,9 @@
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
   - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
-  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify
+  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server
 - Information Providers
-  - Coin Market Cap
+  - Coin Market Cap, Mastodon
 - Information & Utility Widgets
   - System Stats (Disk, CPU, Memory)
   - Weather via WeatherAPI.com or OpenWeatherMap
@@ -123,9 +131,10 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
 - [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German Translation
 - [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål Translation
-- [Daniel Varga] - German & Hungarian Translation
+- Daniel Varga - German & Hungarian Translation
 - [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch Translation
 - [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian Translation
+- [DevPGSV](https://github.com/benphelps/homepage/commits?author=DevPGSV) - Syncthing Relay Server & Mastodon widgets
 - [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
 - [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
 - [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese Translation
