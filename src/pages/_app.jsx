@@ -2,7 +2,6 @@
 import { SWRConfig } from "swr";
 
 import "styles/globals.css";
-import "styles/weather-icons.css";
 import "styles/theme.css";
 
 import "utils/i18n";
