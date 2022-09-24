@@ -22,6 +22,10 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm i
 FROM node:current-alpine AS builder
 WORKDIR /app
 
+ARG BUILDTIME
+ARG VERSION
+ARG REVISION
+
 COPY --link --from=deps /app/node_modules ./node_modules/
 COPY . .
 
@@ -29,7 +33,7 @@ RUN <<EOF
     set -xe
     yarn next telemetry disable
     mkdir config && echo '-' > config/settings.yaml
-    npm run build
+    NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
 EOF
 
 # Production image, copy all the files and run next

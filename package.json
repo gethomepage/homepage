@@ -13,6 +13,7 @@
     "@headlessui/react": "^1.7.0",
     "@tailwindcss/forms": "^0.5.3",
     "classnames": "^2.3.1",
+    "compare-versions": "^5.0.1",
     "dockerode": "^3.3.4",
     "follow-redirects": "^1.15.2",
     "i18next": "^21.9.1",

@@ -1,4 +1,4 @@
-import logger from "utils/logger";
+import createLogger from "utils/logger";
 import genericProxyHandler from "utils/proxies/generic";
 import credentialedProxyHandler from "utils/proxies/credentialed";
 import rutorrentProxyHandler from "utils/proxies/rutorrent";
@@ -6,6 +6,8 @@ import nzbgetProxyHandler from "utils/proxies/nzbget";
 import npmProxyHandler from "utils/proxies/npm";
 import transmissionProxyHandler from "utils/proxies/transmission";
 import qbittorrentProxyHandler from "utils/proxies/qbittorrent";
+
+const logger = createLogger('servicesProxy');
 
 function asJson(data) {
   if (data?.length > 0) {

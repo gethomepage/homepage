@@ -159,14 +159,14 @@
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Nutzer",
+        "status_count": "Beiträge",
+        "domain_count": "Domänen"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Sitzungen",
+        "numConnections": "Verbindungen",
+        "dataRelayed": "Weitergeleitet",
+        "transferRate": "Bewerten"
     }
 }

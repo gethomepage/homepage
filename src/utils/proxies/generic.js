@@ -1,7 +1,9 @@
 import getServiceWidget from "utils/service-helpers";
 import { formatApiCall } from "utils/api-helpers";
 import { httpProxy } from "utils/http";
-import logger from "utils/logger";
+import createLogger from "utils/logger";
+
+const logger = createLogger('genericProxyHandler');
 
 export default async function genericProxyHandler(req, res, maps) {
   const { group, service, endpoint } = req.query;

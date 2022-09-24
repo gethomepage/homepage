@@ -138,34 +138,34 @@
     "prowlarr": {
         "enableIndexers": "Indexerare",
         "numberOfGrabs": "Hämtningar",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "Hämtningar",
         "numberOfFailGrabs": "Misslyckade hämtningar",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailQueries": "Misslyckade hämtningar"
     },
     "jackett": {
         "configured": "Konfigurerade",
         "errored": "Felaktiga"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Förfrågningar",
+        "blocked": "Blockerad",
+        "filtered": "Filtrerad",
+        "latency": "Svarstid"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Nedladdning",
+        "upload": "Uppladdning",
         "leech": "Leech",
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Användare",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
+        "numActiveSessions": "Sessioner",
+        "numConnections": "Anslutningar",
         "dataRelayed": "Relayed",
         "transferRate": "Rate"
     }

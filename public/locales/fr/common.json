@@ -38,18 +38,18 @@
         "download": "Réception"
     },
     "sonarr": {
-        "wanted": "Demandé",
-        "queued": "En queue",
+        "wanted": "Demande",
+        "queued": "En attente",
         "series": "Séries"
     },
     "radarr": {
-        "wanted": "Demandé",
-        "queued": "En queue",
+        "wanted": "Demande",
+        "queued": "En attente",
         "movies": "Films"
     },
     "readarr": {
-        "wanted": "Demandé",
-        "queued": "En Queue",
+        "wanted": "Demande",
+        "queued": "Attente",
         "books": "Livres"
     },
     "ombi": {
@@ -132,11 +132,11 @@
         "messages": "Msg"
     },
     "prowlarr": {
-        "enableIndexers": "Indexeurs",
+        "enableIndexers": "Indexeur",
         "numberOfGrabs": "Capture",
-        "numberOfQueries": "Demandes",
-        "numberOfFailGrabs": "Capture échouée",
-        "numberOfFailQueries": "Demande échouée"
+        "numberOfQueries": "Demande",
+        "numberOfFailGrabs": "Capt. échouée",
+        "numberOfFailQueries": "Dem. échouée"
     },
     "transmission": {
         "download": "Réception",
@@ -176,8 +176,8 @@
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numConnections": "Cnx",
+        "dataRelayed": "Relayé",
+        "transferRate": "Débit"
     }
 }
