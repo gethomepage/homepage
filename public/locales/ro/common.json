@@ -57,8 +57,8 @@
         "wait": "Please wait"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
+        "missing_type": "Lipsește Tipul de Widget: {{type}}",
+        "api_error": "Eroare API",
         "status": "Status"
     },
     "search": {
