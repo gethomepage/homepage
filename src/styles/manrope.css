@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "Manrope";
+  font-weight: 200;
+  src: local("Manrope"), url("./font/Manrope.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 300;
+  src: local("Manrope"), url("./font/Manrope.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 400;
+  src: local("Manrope"), url("./font/Manrope.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 500;
+  src: local("Manrope"), url("./font/Manrope.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 600;
+  src: local("Manrope"), url("./font/Manrope.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 700;
+  src: local("Manrope"), url("./font/Manrope.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-weight: 800;
+  src: local("Manrope"), url("./font/Manrope.woff2") format("woff2");
+}
