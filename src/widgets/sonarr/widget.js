@@ -6,19 +6,19 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "series": {
+    series: {
       endpoint: "series",
       map: (data) => ({
         total: asJson(data).length,
       }),
     },
-    "queue": {
+    queue: {
       endpoint: "queue",
     },
     "wanted/missing": {
-        endpoint: "wanted/missing",
-      },
+      endpoint: "wanted/missing",
     },
+  },
 };
 
 export default widget;

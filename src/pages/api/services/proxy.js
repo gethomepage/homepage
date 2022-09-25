@@ -1,5 +1,3 @@
-import { URLSearchParams } from "next/dist/compiled/@edge-runtime/primitives/url";
-
 import createLogger from "utils/logger";
 import genericProxyHandler from "utils/proxies/generic";
 import widgets from "widgets/widgets";
@@ -35,10 +33,9 @@ export default async function handler(req, res) {
 
       if (req.query.params) {
         const queryParams = JSON.parse(req.query.params);
-        const query = new URLSearchParams(mappingParams.map(p => [p, queryParams[p]]));
+        const query = new URLSearchParams(mappingParams.map((p) => [p, queryParams[p]]));
         req.query.endpoint = `${endpoint}?${query}`;
-      }
-      else {
+      } else {
         req.query.endpoint = endpoint;
       }
 
