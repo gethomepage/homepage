@@ -1,6 +1,10 @@
 import adguard from "./adguard/widget";
 import bazarr from "./bazarr/widget";
 import coinmarketcap from "./coinmarketcap/widget";
+import emby from "./emby/widget";
+import gotify from "./gotify/widget";
+import jackett from "./jackett/widget";
+import jellyseerr from "./jellyseerr/widget";
 import overseerr from "./overseerr/widget";
 import portainer from "./portainer/widget";
 import prowlarr from "./prowlarr/widget";
@@ -20,6 +24,11 @@ const widgets = {
   adguard,
   bazarr,
   coinmarketcap,
+  emby,
+  gotify,
+  jackett,
+  jellyfin: emby,
+  jellyseerr,
   overseerr,
   portainer,
   prowlarr,

@@ -32,15 +32,28 @@ export function formatApiCall(url, args) {
   return url.replace(find, replace);
 }
 
-export function formatProxyUrl(widget, endpoint, endpointParams) {
+function getURLSearchParams(widget, endpoint) {
   const params = new URLSearchParams({
     type: widget.type,
     group: widget.service_group,
     service: widget.service_name,
     endpoint,
   });
-  if (endpointParams) {
-    params.append("params", JSON.stringify(endpointParams));
+  return params;
+}
+
+export function formatProxyUrlWithSegments(widget, endpoint, segments) {
+  const params = getURLSearchParams(widget, endpoint);
+  if (segments) {
+    params.append("segments", JSON.stringify(segments))
+  }
+  return `/api/services/proxy?${params.toString()}`;
+}
+
+export function formatProxyUrl(widget, endpoint, queryParams) {
+  const params = getURLSearchParams(widget, endpoint);
+  if (queryParams) {
+    params.append("query", JSON.stringify(queryParams));
   }
   return `/api/services/proxy?${params.toString()}`;
 }

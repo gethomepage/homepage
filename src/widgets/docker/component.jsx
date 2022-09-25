@@ -1,12 +1,12 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "../widget";
-import Block from "../block";
+import calculateCPUPercent from "./stats-helpers";
 
-import calculateCPUPercent from "widgets/docker/stats-helpers";
+import Widget from "components/services/widgets/widget";
+import Block from "components/services/widgets/block";
 
-export default function Docker({ service }) {
+export default function Component({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;

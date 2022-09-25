@@ -1,3 +1,4 @@
+import { formatApiCall } from "utils/api-helpers";
 import createLogger from "utils/logger";
 import genericProxyHandler from "utils/proxies/generic";
 import widgets from "widgets/widgets";
@@ -31,12 +32,15 @@ export default async function handler(req, res) {
         return res.status(403).json({ error: "Unsupported service endpoint" });
       }
 
-      if (req.query.params) {
-        const queryParams = JSON.parse(req.query.params);
+      req.query.endpoint = endpoint;
+      if (req.query.segments) {
+        const segments = JSON.parse(req.query.segments);
+        req.query.endpoint = formatApiCall(endpoint, segments);
+      }
+      if (req.query.query) {
+        const queryParams = JSON.parse(req.query.query);
         const query = new URLSearchParams(mappingParams.map((p) => [p, queryParams[p]]));
-        req.query.endpoint = `${endpoint}?${query}`;
-      } else {
-        req.query.endpoint = endpoint;
+        req.query.endpoint = `${req.query.endpoint}?${query}`;
       }
 
       if (endpointProxy instanceof Function) {
