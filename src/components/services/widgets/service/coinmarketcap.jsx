@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import classNames from "classnames";
 
 import Widget from "../widget";

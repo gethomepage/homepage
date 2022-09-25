@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 

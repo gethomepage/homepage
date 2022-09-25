@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 import Widget from "../widget";
 import Block from "../block";

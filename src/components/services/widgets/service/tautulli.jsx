@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import useSWR from "swr";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 

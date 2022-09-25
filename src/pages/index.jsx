@@ -2,9 +2,10 @@
 import useSWR from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { useEffect, useContext } from "react";
 import { BiError } from "react-icons/bi";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
@@ -30,7 +31,7 @@ const Version = dynamic(() => import("components/version"), {
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
 
-export function getStaticProps() {
+export async function getStaticProps() {
   let logger;
   try {
     logger = createLogger("index");
@@ -39,6 +40,7 @@ export function getStaticProps() {
     return {
       props: {
         initialSettings: settings,
+        ...(await serverSideTranslations(settings.language ?? "en")),
       },
     };
   } catch (e) {
@@ -48,6 +50,7 @@ export function getStaticProps() {
     return {
       props: {
         initialSettings: {},
+        ...(await serverSideTranslations("en")),
       },
     };
   }

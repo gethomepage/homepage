@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { FaMemory } from "react-icons/fa";
 import { BiError } from "react-icons/bi";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 import UsageBar from "./usage-bar";
 

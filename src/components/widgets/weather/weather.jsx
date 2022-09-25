@@ -3,7 +3,7 @@ import { useState } from "react";
 import { BiError } from "react-icons/bi";
 import { WiCloudDown } from "react-icons/wi";
 import { MdLocationDisabled, MdLocationSearching } from "react-icons/md";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 
 import Icon from "./icon";
 

@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import useSWR from "swr";
 import { compareVersions } from "compare-versions";
 import { MdNewReleases } from "react-icons/md";

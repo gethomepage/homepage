@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
 import dynamic from "next/dynamic";
+import { useTranslation } from "next-i18next";
 
 const Sonarr = dynamic(() => import("./widgets/service/sonarr"));
 const Radarr = dynamic(() => import("./widgets/service/radarr"));
