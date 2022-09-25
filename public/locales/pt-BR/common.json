@@ -1,75 +1,75 @@
 {
     "sabnzbd": {
-        "timeleft": "Time Left",
-        "rate": "Rate",
-        "queue": "Queue"
+        "timeleft": "Tempo restante",
+        "rate": "Taxa",
+        "queue": "Fila"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
+        "active": "Ativo",
+        "upload": "Envio",
         "download": "Download"
     },
     "portainer": {
         "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped"
+        "running": "Funcionando",
+        "stopped": "Parado"
     },
     "coinmarketcap": {
-        "7days": "7 Days",
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "30days": "30 Days"
+        "7days": "7 Dias",
+        "configure": "Configure uma ou mais criptomoedas para rastrear",
+        "1hour": "1 Hora",
+        "1day": "1 Dia",
+        "30days": "30 Dias"
     },
     "strelaysrv": {
-        "numConnections": "Connections",
-        "numActiveSessions": "Sessions",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numConnections": "Conexões",
+        "numActiveSessions": "Sessões",
+        "dataRelayed": "Retransmitido",
+        "transferRate": "Taxa"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
+        "missing_type": "Tipo de Widget ausente: {{type}}",
+        "api_error": "Erro da API",
         "status": "Status"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Localização atual",
+        "allow": "Clique para permitir",
+        "updating": "Atualizando",
+        "wait": "Aguarde, por favor"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Buscar…"
     },
     "resources": {
         "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "free": "Livre",
+        "used": "Usado",
+        "load": "Carregamento"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
+        "rx": "Rx",
+        "tx": "Tx",
+        "mem": "Mem",
         "cpu": "CPU",
-        "offline": "Offline"
+        "offline": "Desligado"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Reproduzindo",
+        "transcoding": "Transcodificando",
+        "bitrate": "Taxa de bits",
+        "no_active": "Sem transmissões ativas"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Reproduzindo",
+        "transcoding": "Transcodificando",
+        "bitrate": "Taxa de bits",
+        "no_active": "Sem transmissões ativas"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Taxa",
+        "remaining": "Restando",
+        "downloaded": "Baixado"
     },
     "transmission": {
         "download": "Download",
@@ -84,89 +84,89 @@
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Desejado",
+        "queued": "Na fila",
+        "series": "Séries"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Desejado",
+        "queued": "Na fila",
+        "movies": "Filmes"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Desejado",
+        "queued": "Na fila",
+        "albums": "Álbuns"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Desejado",
+        "queued": "Na fila",
+        "books": "Livros"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Episódios Ausentes",
+        "missingMovies": "Filmes Ausentes"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendente",
+        "approved": "Aprovado",
+        "available": "Disponível"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendente",
+        "approved": "Aprovado",
+        "available": "Disponível"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendente",
+        "approved": "Aprovado",
+        "available": "Disponível"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "Consultas",
+        "blocked": "Bloquado",
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Consultas",
+        "blocked": "Bloqueado",
+        "filtered": "Filtrado",
+        "latency": "Latência"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Envio",
+        "download": "Receber",
         "ping": "Ping"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
+        "routers": "Rotas",
+        "services": "Serviços",
         "middleware": "Middleware"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "Habilitado",
+        "disabled": "Desabilitado",
         "total": "Total"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Aplicações",
+        "clients": "Clientes",
+        "messages": "Mensagens"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "Indexadores",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
         "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configurado",
+        "errored": "Erro"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Usuários",
+        "status_count": "Postagens",
+        "domain_count": "Domínios"
     }
 }
