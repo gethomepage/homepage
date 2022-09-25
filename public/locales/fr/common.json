@@ -87,17 +87,6 @@
         "disabled": "Désactivé",
         "total": "Total"
     },
-    "common": {
-        "bbytes": "{{value, bytes(binary: true)}}",
-        "bytes": "{{value, bytes}}",
-        "bits": "{{value, bytes(bits: true)}}",
-        "bbits": "{{value, bytes(bits: true, binary: true)}}",
-        "number": "{{value, number}}",
-        "byterate": "{{value, bytes}}",
-        "bitrate": "{{value, bytes(bits: true)}}",
-        "percent": "{{value, percent}}",
-        "ms": "{{value, number}}"
-    },
     "weather": {
         "current": "Localisation actuelle",
         "allow": "Cliquez pour autoriser",
