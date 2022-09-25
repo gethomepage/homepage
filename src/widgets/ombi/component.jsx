@@ -1,12 +1,11 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "../widget";
-import Block from "../block";
-
+import Widget from "components/services/widgets/widget";
+import Block from "components/services/widgets/block";
 import { formatProxyUrl } from "utils/api-helpers";
 
-export default function Ombi({ service }) {
+export default function Component({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;

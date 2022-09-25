@@ -4,8 +4,8 @@ import { useContext, useState } from "react";
 
 import Status from "./status";
 import Widget from "./widget";
-import Docker from "./widgets/service/docker";
 
+import Docker from "widgets/docker/component";
 import { SettingsContext } from "utils/settings-context";
 
 function resolveIcon(icon) {
