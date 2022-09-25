@@ -1,9 +1,9 @@
 {
     "resources": {
-        "used": "Used",
-        "load": "Load",
+        "used": "Utilizați",
+        "load": "Sarcină",
         "total": "Total",
-        "free": "Free"
+        "free": "Disponibili"
     },
     "docker": {
         "rx": "RX",
@@ -13,48 +13,48 @@
         "offline": "Offline"
     },
     "jellyseerr": {
-        "approved": "Approved",
-        "available": "Available",
-        "pending": "Pending"
+        "approved": "Aprobate",
+        "available": "Disponibile",
+        "pending": "În așteptare"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "În așteptare",
+        "approved": "Aprobate",
+        "available": "Disponibile"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "Cereri",
+        "blocked": "Blocate",
         "gravity": "Gravity"
     },
     "adguard": {
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "queries": "Queries",
-        "latency": "Latency"
+        "blocked": "Blocate",
+        "filtered": "Filtrate",
+        "queries": "Cereri",
+        "latency": "Latentă"
     },
     "traefik": {
-        "services": "Services",
+        "services": "Servicii",
         "middleware": "Middleware",
-        "routers": "Routers"
+        "routers": "Routere"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "Activat",
+        "disabled": "Dezactivat",
         "total": "Total"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Configurați una sau mai multe criptomonede pe care să le urmăriți",
+        "1hour": "1 Oră",
+        "1day": "1 Zi",
+        "7days": "7 Zile",
+        "30days": "30 Zile"
     },
     "weather": {
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "current": "Current Location",
-        "wait": "Please wait"
+        "allow": "Click pentru a permite",
+        "updating": "Se actualizează",
+        "current": "Locația Curentă",
+        "wait": "Va rugăm așteptați"
     },
     "widget": {
         "missing_type": "Lipsește Tipul de Widget: {{type}}",
@@ -62,111 +62,111 @@
         "status": "Status"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Caută…"
     },
     "tautulli": {
-        "no_active": "No Active Streams",
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "no_active": "Niciun stream activ",
+        "playing": "Activ",
+        "transcoding": "Transcodare",
         "bitrate": "Bitrate"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Rată",
+        "remaining": "Rămas",
+        "downloaded": "Descărcat"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Activ",
+        "transcoding": "Transcodare",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Niciun stream activ"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Rată",
+        "queue": "Coadă",
+        "timeleft": "Timp rămas"
     },
     "transmission": {
         "leech": "Leech",
         "seed": "Seed",
-        "download": "Download",
-        "upload": "Upload"
+        "download": "Descarcă",
+        "upload": "Încarcă"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Activ",
+        "upload": "Încarcă",
+        "download": "Descarcă"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Descarcă",
+        "upload": "Încarcă",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Dorite",
+        "queued": "În coadă",
+        "series": "Seriale"
     },
     "radarr": {
-        "queued": "Queued",
-        "wanted": "Wanted",
-        "movies": "Movies"
+        "queued": "În coadă",
+        "wanted": "Dorite",
+        "movies": "Filme"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Dorite",
+        "queued": "În coadă",
+        "albums": "Albume"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Dorite",
+        "queued": "În coadă",
+        "books": "Cărți"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Episoade lipsă",
+        "missingMovies": "Filme lipsă"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "În așteptare",
+        "approved": "Aprobate",
+        "available": "Disponibile"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Încarcă",
+        "download": "Descarcă",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
+        "running": "Activ",
+        "stopped": "Oprit",
         "total": "Total"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Aplicații",
+        "clients": "Clienți",
+        "messages": "Mesaje"
     },
     "prowlarr": {
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries",
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries"
+        "numberOfFailGrabs": "Descărcări eșuate",
+        "numberOfFailQueries": "Cereri eșuate",
+        "enableIndexers": "Indexatori",
+        "numberOfGrabs": "Descărcate",
+        "numberOfQueries": "Cereri"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configurat",
+        "errored": "Cu erori"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Sesiuni",
+        "numConnections": "Conexiuni",
+        "dataRelayed": "Retransmise",
+        "transferRate": "Rată"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Utilizatori",
+        "status_count": "Postări",
+        "domain_count": "Domenii"
     }
 }

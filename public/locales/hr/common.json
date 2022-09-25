@@ -1,172 +1,172 @@
 {
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Tranutačna lokacija",
+        "allow": "Pritisni za dozvoljavanje",
+        "updating": "Aktualiziranje",
+        "wait": "Pričekaj"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Traži …"
     },
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "total": "Ukupno",
+        "free": "Slobodno",
+        "used": "Korišteno",
+        "load": "Opterećenje"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Stopa",
+        "queue": "Red",
+        "timeleft": "Preostalo vrijeme"
     },
     "overseerr": {
-        "available": "Available",
-        "pending": "Pending",
-        "approved": "Approved"
+        "available": "Dostupno",
+        "pending": "Predstoji",
+        "approved": "Odobreno"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Upiti",
+        "blocked": "Blokirano",
+        "gravity": "Ozbiljnost"
     },
     "adguard": {
-        "latency": "Latency",
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered"
+        "latency": "Kašnjenje",
+        "queries": "Upiti",
+        "blocked": "Blokirano",
+        "filtered": "Filtrirano"
     },
     "npm": {
-        "total": "Total",
-        "enabled": "Enabled",
-        "disabled": "Disabled"
+        "total": "Ukupno",
+        "enabled": "Aktivirano",
+        "disabled": "Deaktivirano"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Konfiguriraj jednu ili više kripto valuta za praćenje",
+        "1hour": "1 sat",
+        "1day": "1 dan",
+        "7days": "7 dana",
+        "30days": "30 dana"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indeksatori",
+        "numberOfGrabs": "Dohvaćanja",
+        "numberOfQueries": "Upiti",
+        "numberOfFailGrabs": "Neuspjela dohvaćanja",
+        "numberOfFailQueries": "Neuspjeli upiti"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Nedostajuća vrsta widgeta: {{type}}",
+        "api_error": "API greška",
+        "status": "Stanje"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Offline"
+        "offline": "Odspojen"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Reprodukcija",
+        "transcoding": "Prekodiranje",
+        "bitrate": "Brzina prijenosa",
+        "no_active": "Nema aktivnih prijenosa"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Reprodukcija",
+        "transcoding": "Prekodiranje",
+        "bitrate": "Brzina prijenosa",
+        "no_active": "Nema aktivnih prijenosa"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Stopa",
+        "remaining": "Preostalo",
+        "downloaded": "Preuzeto"
     },
     "rutorrent": {
-        "upload": "Upload",
-        "download": "Download",
-        "active": "Active"
+        "upload": "Prijenos",
+        "download": "Preuzimanje",
+        "active": "Aktivno"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
+        "leech": "Krvopija",
+        "seed": "Prijenos preuzetog sadržaja"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Željeno",
+        "queued": "U redu čekanja",
+        "series": "Serije"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Željeno",
+        "queued": "U redu čekanja",
+        "movies": "Filmovi"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Željeno",
+        "queued": "U redu čekanja",
+        "albums": "Albumi"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Željeno",
+        "queued": "U redu čekanja",
+        "books": "Knjige"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Nedostajuće epizode",
+        "missingMovies": "Nedostajući filmovi"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Predstoji",
+        "approved": "Odobreno",
+        "available": "Dostupno"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Predstoji",
+        "approved": "Odobreno",
+        "available": "Dostupno"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Prijenos",
+        "download": "Preuzimanje",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Pokrenuto",
+        "stopped": "Prekinuto",
+        "total": "Ukupno"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
+        "routers": "Ruteri",
+        "services": "Usluge",
         "middleware": "Middleware"
     },
     "gotify": {
-        "clients": "Clients",
-        "messages": "Messages",
-        "apps": "Applications"
+        "clients": "Klijenti",
+        "messages": "Poruke",
+        "apps": "Programi"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Konfigurirano",
+        "errored": "S greškom"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
+        "leech": "Krvopija",
+        "seed": "Prijenos preuzetog sadržaja"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Korisnici",
+        "status_count": "Objave",
+        "domain_count": "Domene"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Sesije",
+        "numConnections": "Veze",
+        "dataRelayed": "Proslijeđeno",
+        "transferRate": "Stopa"
     }
 }
