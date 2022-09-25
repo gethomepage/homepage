@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function AdGuard({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: adguardData, error: adguardError } = useSWR(formatApiUrl(config, "stats"));
+  const { data: adguardData, error: adguardError } = useSWR(formatProxyUrl(config, "stats"));
 
   if (adguardError) {
     return <Widget error={t("widget.api_error")} />;

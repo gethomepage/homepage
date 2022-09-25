@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Npm({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: infoData, error: infoError } = useSWR(formatApiUrl(config, "nginx/proxy-hosts"));
+  const { data: infoData, error: infoError } = useSWR(formatProxyUrl(config, "nginx/proxy-hosts"));
 
   if (infoError) {
     return <Widget error={t("widget.api_error")} />;

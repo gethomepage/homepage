@@ -4,16 +4,16 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Sonarr({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: wantedData, error: wantedError } = useSWR(formatApiUrl(config, "wanted/missing"));
-  const { data: queuedData, error: queuedError } = useSWR(formatApiUrl(config, "queue"));
-  const { data: seriesData, error: seriesError } = useSWR(formatApiUrl(config, "series"));
+  const { data: wantedData, error: wantedError } = useSWR(formatProxyUrl(config, "wanted/missing"));
+  const { data: queuedData, error: queuedError } = useSWR(formatProxyUrl(config, "queue"));
+  const { data: seriesData, error: seriesError } = useSWR(formatProxyUrl(config, "series"));
 
   if (wantedError || queuedError || seriesError) {
     return <Widget error={t("widget.api_error")} />;

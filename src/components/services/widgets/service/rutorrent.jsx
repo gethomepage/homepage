@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Rutorrent({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: statusData, error: statusError } = useSWR(formatApiUrl(config));
+  const { data: statusData, error: statusError } = useSWR(formatProxyUrl(config));
 
   if (statusError) {
     return <Widget error={t("widget.api_error")} />;

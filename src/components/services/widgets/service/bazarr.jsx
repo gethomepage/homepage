@@ -4,15 +4,15 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Bazarr({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: episodesData, error: episodesError } = useSWR(formatApiUrl(config, "episodes"));
-  const { data: moviesData, error: moviesError } = useSWR(formatApiUrl(config, "movies"));
+  const { data: episodesData, error: episodesError } = useSWR(formatProxyUrl(config, "episodes"));
+  const { data: moviesData, error: moviesError } = useSWR(formatProxyUrl(config, "movies"));
 
   if (episodesError || moviesError) {
     return <Widget error={t("widget.api_error")} />;

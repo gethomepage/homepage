@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Jellyseerr({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: statsData, error: statsError } = useSWR(formatApiUrl(config, `request/count`));
+  const { data: statsData, error: statsError } = useSWR(formatProxyUrl(config, `request/count`));
 
   if (statsError) {
     return <Widget error={t("widget.api_error")} />;

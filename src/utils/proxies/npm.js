@@ -1,5 +1,6 @@
 import getServiceWidget from "utils/service-helpers";
 import { formatApiCall } from "utils/api-helpers";
+import widgets from "widgets/widgets";
 
 export default async function npmProxyHandler(req, res) {
   const { group, service, endpoint } = req.query;
@@ -7,8 +8,12 @@ export default async function npmProxyHandler(req, res) {
   if (group && service) {
     const widget = await getServiceWidget(group, service);
 
+    if (!widgets?.[widget.type]?.api) {
+      return res.status(403).json({ error: "Service does not support API calls" });
+    }
+
     if (widget) {
-      const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
+      const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
       const loginUrl = `${widget.url}/api/tokens`;
       const body = { identity: widget.username, secret: widget.password };

@@ -4,16 +4,16 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Prowlarr({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: indexersData, error: indexersError } = useSWR(formatApiUrl(config, "indexer"));
-  const { data: grabsData, error: grabsError } = useSWR(formatApiUrl(config, "indexerstats"));
-  
+  const { data: indexersData, error: indexersError } = useSWR(formatProxyUrl(config, "indexer"));
+  const { data: grabsData, error: grabsError } = useSWR(formatProxyUrl(config, "indexerstats"));
+
   if (indexersError || grabsError) {
     return <Widget error={t("widget.api_error")} />;
   }
@@ -32,11 +32,11 @@ export default function Prowlarr({ service }) {
 
   const indexers = indexersData?.filter((indexer) => indexer.enable === true);
 
-  let numberOfGrabs = 0
-  let numberOfQueries = 0
-  let numberOfFailedGrabs = 0
-  let numberOfFailedQueries = 0
-  grabsData?.indexers?.forEach(element => {
+  let numberOfGrabs = 0;
+  let numberOfQueries = 0;
+  let numberOfFailedGrabs = 0;
+  let numberOfFailedQueries = 0;
+  grabsData?.indexers?.forEach((element) => {
     numberOfGrabs += element.numberOfGrabs;
     numberOfQueries += element.numberOfQueries;
     numberOfFailedGrabs += numberOfFailedGrabs + element.numberOfFailedGrabs;

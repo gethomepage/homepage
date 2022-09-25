@@ -12,15 +12,15 @@ async function login(widget, params) {
   return fetch(loginUrl, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: loginBody
+    body: loginBody,
   })
-  .then(async response => {
-    addCookieToJar(loginUrl, response.headers);
-    setCookieHeader(loginUrl, params);
-    const data = await response.text();
-    return ([response.status, data]);
-  })
-  .catch(err => ([500, err]));
+    .then(async (response) => {
+      addCookieToJar(loginUrl, response.headers);
+      setCookieHeader(loginUrl, params);
+      const data = await response.text();
+      return [response.status, data];
+    })
+    .catch((err) => [500, err]);
 }
 
 export default async function qbittorrentProxyHandler(req, res) {
@@ -46,7 +46,7 @@ export default async function qbittorrentProxyHandler(req, res) {
     if (status !== 200) {
       return res.status(status).end(data);
     }
-    if (data.toString() !== 'Ok.') {
+    if (data.toString() !== "Ok.") {
       return res.status(401).end(data);
     }
   }

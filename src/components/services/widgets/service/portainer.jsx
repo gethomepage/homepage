@@ -4,14 +4,16 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Portainer({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: containersData, error: containersError } = useSWR(formatApiUrl(config, `docker/containers/json?all=1`));
+  const { data: containersData, error: containersError } = useSWR(
+    formatProxyUrl(config, `docker/containers/json?all=1`)
+  );
 
   if (containersError) {
     return <Widget error={t("widget.api_error")} />;

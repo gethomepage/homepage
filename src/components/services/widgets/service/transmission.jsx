@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Transmission({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: torrentData, error: torrentError } = useSWR(formatApiUrl(config));
+  const { data: torrentData, error: torrentError } = useSWR(formatProxyUrl(config));
 
   if (torrentError) {
     return <Widget error={t("widget.api_error")} />;
@@ -37,7 +37,7 @@ export default function Transmission({ service }) {
     const torrent = torrents[i];
     rateDl += torrent.rateDownload;
     rateUl += torrent.rateUpload;
-    if (torrent.percentDone  === 1) {
+    if (torrent.percentDone === 1) {
       completed += 1;
     }
   }

@@ -4,16 +4,16 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Gotify({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: appsData, error: appsError } = useSWR(formatApiUrl(config, `application`));
-  const { data: messagesData, error: messagesError } = useSWR(formatApiUrl(config, `message`));
-  const { data: clientsData, error: clientsError } = useSWR(formatApiUrl(config, `client`));
+  const { data: appsData, error: appsError } = useSWR(formatProxyUrl(config, `application`));
+  const { data: messagesData, error: messagesError } = useSWR(formatProxyUrl(config, `message`));
+  const { data: clientsData, error: clientsError } = useSWR(formatProxyUrl(config, `client`));
 
   if (appsError || messagesError || clientsError) {
     return <Widget error={t("widget.api_error")} />;

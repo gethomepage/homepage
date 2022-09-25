@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Speedtest({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: speedtestData, error: speedtestError } = useSWR(formatApiUrl(config, "speedtest/latest"));
+  const { data: speedtestData, error: speedtestError } = useSWR(formatProxyUrl(config, "speedtest/latest"));
 
   if (speedtestError) {
     return <Widget error={t("widget.api_error")} />;

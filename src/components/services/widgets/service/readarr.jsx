@@ -4,16 +4,16 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Readarr({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: booksData, error: booksError } = useSWR(formatApiUrl(config, "book"));
-  const { data: wantedData, error: wantedError } = useSWR(formatApiUrl(config, "wanted/missing"));
-  const { data: queueData, error: queueError } = useSWR(formatApiUrl(config, "queue/status"));
+  const { data: booksData, error: booksError } = useSWR(formatProxyUrl(config, "book"));
+  const { data: wantedData, error: wantedError } = useSWR(formatProxyUrl(config, "wanted/missing"));
+  const { data: queueData, error: queueError } = useSWR(formatProxyUrl(config, "queue/status"));
 
   if (booksError || wantedError || queueError) {
     return <Widget error={t("widget.api_error")} />;

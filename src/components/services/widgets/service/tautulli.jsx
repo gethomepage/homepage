@@ -6,7 +6,7 @@ import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 
 import Widget from "../widget";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 function millisecondsToTime(milliseconds) {
   const seconds = Math.floor((milliseconds / 1000) % 60);
@@ -120,7 +120,7 @@ export default function Tautulli({ service }) {
 
   const config = service.widget;
 
-  const { data: activityData, error: activityError } = useSWR(formatApiUrl(config, "get_activity"), {
+  const { data: activityData, error: activityError } = useSWR(formatProxyUrl(config, "get_activity"), {
     refreshInterval: 5000,
   });
 

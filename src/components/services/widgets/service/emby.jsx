@@ -5,7 +5,7 @@ import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import Widget from "../widget";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 function ticksToTime(ticks) {
   const milliseconds = ticks / 10000;
@@ -158,12 +158,12 @@ export default function Emby({ service }) {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useSWR(formatApiUrl(config, "Sessions"), {
+  } = useSWR(formatProxyUrl(config, "Sessions"), {
     refreshInterval: 5000,
   });
 
   async function handlePlayCommand(session, command) {
-    const url = formatApiUrl(config, `Sessions/${session.Id}/Playing/${command}`);
+    const url = formatProxyUrl(config, `Sessions/${session.Id}/Playing/${command}`);
     await fetch(url, {
       method: "POST",
     }).then(() => {

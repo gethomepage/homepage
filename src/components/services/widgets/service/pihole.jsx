@@ -4,14 +4,14 @@ import { useTranslation } from "next-i18next";
 import Widget from "../widget";
 import Block from "../block";
 
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function Pihole({ service }) {
   const { t } = useTranslation();
 
   const config = service.widget;
 
-  const { data: piholeData, error: piholeError } = useSWR(formatApiUrl(config, "api.php"));
+  const { data: piholeData, error: piholeError } = useSWR(formatProxyUrl(config, "api.php"));
 
   if (piholeError) {
     return <Widget error={t("widget.api_error")} />;

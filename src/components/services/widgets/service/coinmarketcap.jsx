@@ -7,7 +7,7 @@ import Widget from "../widget";
 import Block from "../block";
 
 import Dropdown from "components/services/dropdown";
-import { formatApiUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/api-helpers";
 
 export default function CoinMarketCap({ service }) {
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ export default function CoinMarketCap({ service }) {
   const { symbols } = config;
 
   const { data: statsData, error: statsError } = useSWR(
-    formatApiUrl(config, `v1/cryptocurrency/quotes/latest?symbol=${symbols.join(",")}&convert=${currencyCode}`)
+    formatProxyUrl(config, `v1/cryptocurrency/quotes/latest?symbol=${symbols.join(",")}&convert=${currencyCode}`)
   );
 
   if (!symbols || symbols.length === 0) {

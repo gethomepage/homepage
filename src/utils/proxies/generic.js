@@ -2,17 +2,22 @@ import getServiceWidget from "utils/service-helpers";
 import { formatApiCall } from "utils/api-helpers";
 import { httpProxy } from "utils/http";
 import createLogger from "utils/logger";
+import widgets from "widgets/widgets";
 
-const logger = createLogger('genericProxyHandler');
+const logger = createLogger("genericProxyHandler");
 
-export default async function genericProxyHandler(req, res, maps) {
+export default async function genericProxyHandler(req, res, map) {
   const { group, service, endpoint } = req.query;
 
   if (group && service) {
     const widget = await getServiceWidget(group, service);
 
+    if (!widgets?.[widget.type]?.api) {
+      return res.status(403).json({ error: "Service does not support API calls" });
+    }
+
     if (widget) {
-      const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
+      const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
       let headers;
       if (widget.username && widget.password) {
@@ -27,8 +32,8 @@ export default async function genericProxyHandler(req, res, maps) {
       });
 
       let resultData = data;
-      if ((status === 200) && (maps?.[endpoint])) {
-        resultData = maps[endpoint](data);
+      if (status === 200 && map) {
+        resultData = map(data);
       }
 
       if (contentType) res.setHeader("Content-Type", contentType);
