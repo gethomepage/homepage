@@ -179,5 +179,10 @@
         "user_count": "Users",
         "status_count": "Posts",
         "domain_count": "Domains"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
     }
 }

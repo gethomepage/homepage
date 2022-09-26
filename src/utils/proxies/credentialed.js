@@ -1,7 +1,10 @@
 import getServiceWidget from "utils/service-helpers";
 import { formatApiCall } from "utils/api-helpers";
 import { httpProxy } from "utils/http";
+import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
+
+const logger = createLogger("credentialedProxyHandler");
 
 export default async function credentialedProxyHandler(req, res) {
   const { group, service, endpoint } = req.query;
@@ -24,6 +27,8 @@ export default async function credentialedProxyHandler(req, res) {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
+      } else if (widget.type === "authentik") {
+        headers.Authorization = `Bearer ${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
@@ -39,10 +44,15 @@ export default async function credentialedProxyHandler(req, res) {
         return res.status(status).end();
       }
 
+      if (status >= 400) {
+        logger.debug("HTTP Error %d calling %s//%s%s...", status, url.protocol, url.hostname, url.pathname);
+      }
+
       if (contentType) res.setHeader("Content-Type", contentType);
       return res.status(status).send(data);
     }
   }
 
+  logger.debug("Invalid or missing proxy service type '%s' in group '%s'", service, group);
   return res.status(400).json({ error: "Invalid proxy service type" });
 }

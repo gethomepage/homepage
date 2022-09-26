@@ -1,4 +1,5 @@
 import adguard from "./adguard/widget";
+import authentik from "./authentik/widget";
 import bazarr from "./bazarr/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import emby from "./emby/widget";
@@ -27,6 +28,7 @@ import transmission from "./transmission/widget";
 
 const widgets = {
   adguard,
+  authentik,
   bazarr,
   coinmarketcap,
   emby,
