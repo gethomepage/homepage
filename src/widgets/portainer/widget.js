@@ -1,8 +1,8 @@
-import genericProxyHandler from "utils/proxies/generic";
+import credentialedProxyHandler from "utils/proxies/credentialed";
 
 const widget = {
   api: "{url}/api/endpoints/{env}/{endpoint}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: credentialedProxyHandler,
 
   mappings: {
     "docker/containers/json": {
