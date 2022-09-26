@@ -2,7 +2,7 @@ import https from "https";
 
 import getRawBody from "raw-body";
 
-import { httpRequest, httpsRequest } from "utils/http";
+import { httpRequest, httpsRequest } from "utils/proxy/http";
 
 export const config = {
   api: {

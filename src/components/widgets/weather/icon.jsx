@@ -1,4 +1,4 @@
-import mapIcon from "utils/condition-map";
+import mapIcon from "utils/weather/condition-map";
 
 export default function Icon({ condition, timeOfDay }) {
   const IconComponent = mapIcon(condition, timeOfDay);

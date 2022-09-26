@@ -6,7 +6,7 @@ import classNames from "classnames";
 import Widget from "components/services/widgets/widget";
 import Block from "components/services/widgets/block";
 import Dropdown from "components/services/dropdown";
-import { formatProxyUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -27,7 +27,7 @@ export default function Component({ service }) {
   const { data: statsData, error: statsError } = useSWR(
     formatProxyUrl(config, "v1/cryptocurrency/quotes/latest", {
       symbol: `${symbols.join(",")}`,
-      convert: `${currencyCode}`
+      convert: `${currencyCode}`,
     })
   );
 

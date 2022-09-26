@@ -1,5 +1,5 @@
-import { httpProxy } from "utils/http";
-import { formatApiCall } from "utils/api-helpers";
+import { httpProxy } from "utils/proxy/http";
+import { formatApiCall } from "utils/proxy/api-helpers";
 import getServiceWidget from "utils/service-helpers";
 
 export default async function transmissionProxyHandler(req, res) {
@@ -23,8 +23,8 @@ export default async function transmissionProxyHandler(req, res) {
   const body = JSON.stringify({
     method: "torrent-get",
     arguments: {
-      fields: ["percentDone", "status", "rateDownload", "rateUpload"]
-    }
+      fields: ["percentDone", "status", "rateDownload", "rateUpload"],
+    },
   });
 
   const headers = {

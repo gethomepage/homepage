@@ -1,6 +1,6 @@
-import { formatApiCall } from "utils/api-helpers";
+import { formatApiCall } from "utils/proxy/api-helpers";
 import createLogger from "utils/logger";
-import genericProxyHandler from "utils/proxies/generic";
+import genericProxyHandler from "utils/proxy/handlers/generic";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("servicesProxy");

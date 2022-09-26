@@ -4,7 +4,7 @@ import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } f
 import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import Widget from "components/services/widgets/widget";
-import { formatProxyUrl, formatProxyUrlWithSegments } from "utils/api-helpers";
+import { formatProxyUrl, formatProxyUrlWithSegments } from "utils/proxy/api-helpers";
 
 function ticksToTime(ticks) {
   const milliseconds = ticks / 10000;
@@ -164,7 +164,7 @@ export default function Component({ service }) {
   async function handlePlayCommand(session, command) {
     const url = formatProxyUrlWithSegments(config, "PlayControl", {
       sessionId: session.Id,
-      command
+      command,
     });
     await fetch(url).then(() => {
       sessionMutate();

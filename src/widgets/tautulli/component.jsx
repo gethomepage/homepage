@@ -5,7 +5,7 @@ import { BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/b
 import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 
 import Widget from "components/services/widgets/widget";
-import { formatProxyUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 function millisecondsToTime(milliseconds) {
   const seconds = Math.floor((milliseconds / 1000) % 60);

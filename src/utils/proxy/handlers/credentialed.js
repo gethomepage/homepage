@@ -1,6 +1,6 @@
 import getServiceWidget from "utils/service-helpers";
-import { formatApiCall } from "utils/api-helpers";
-import { httpProxy } from "utils/http";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 

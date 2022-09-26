@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 
 import Widget from "components/services/widgets/widget";
 import Block from "components/services/widgets/block";
-import { formatProxyUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
   const { t } = useTranslation();

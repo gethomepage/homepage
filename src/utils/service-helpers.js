@@ -121,15 +121,16 @@ export function cleanServiceGroups(groups) {
 
         cleanedService.widget = {
           type,
-          currency,
-          symbols,
           service_name: service.name,
           service_group: serviceGroup.name,
         };
 
+        if (currency) cleanedService.widget.currency = currency;
+        if (symbols) cleanedService.widget.symbols = symbols;
+
         if (type === "docker") {
-          cleanedService.widget.server = server;
-          cleanedService.widget.container = container;
+          if (server) cleanedService.widget.server = server;
+          if (container) cleanedService.widget.container = container;
         }
       }
 

@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 
 import Widget from "components/services/widgets/widget";
 import Block from "components/services/widgets/block";
-import { formatProxyUrl } from "utils/api-helpers";
+import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -30,11 +30,13 @@ export default function Component({ service }) {
 
   const yesterday = new Date(Date.now()).setHours(-24);
   const loginsLast24H = loginsData.reduce(
-    (total, current) => current.x_cord >= yesterday ? total + current.y_cord : total
-  , 0);
+    (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
+    0
+  );
   const failedLoginsLast24H = failedLoginsData.reduce(
-    (total, current) => current.x_cord >= yesterday ? total + current.y_cord : total
-  , 0);
+    (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
+    0
+  );
 
   return (
     <Widget>

@@ -7,9 +7,9 @@ import "styles/theme.css";
 import "styles/manrope.css";
 import nextI18nextConfig from "../../next-i18next.config";
 
-import { ColorProvider } from "utils/color-context";
-import { ThemeProvider } from "utils/theme-context";
-import { SettingsProvider } from "utils/settings-context";
+import { ColorProvider } from "utils/contexts/color";
+import { ThemeProvider } from "utils/contexts/theme";
+import { SettingsProvider } from "utils/contexts/settings";
 
 function MyApp({ Component, pageProps }) {
   return (

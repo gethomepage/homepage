@@ -6,7 +6,7 @@ import Status from "./status";
 import Widget from "./widget";
 
 import Docker from "widgets/docker/component";
-import { SettingsContext } from "utils/settings-context";
+import { SettingsContext } from "utils/contexts/settings";
 
 function resolveIcon(icon) {
   if (icon.startsWith("http")) {
@@ -85,14 +85,16 @@ export default function Item({ service }) {
           )}
         </div>
 
-        <div
-          className={classNames(
-            statsOpen ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
-            "w-full overflow-hidden transition-all duration-300 ease-in-out"
-          )}
-        >
-          <Docker service={{ widget: { container: service.container, server: service.server } }} />
-        </div>
+        {service.container && service.server && (
+          <div
+            className={classNames(
+              statsOpen ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
+              "w-full overflow-hidden transition-all duration-300 ease-in-out"
+            )}
+          >
+            <Docker service={{ widget: { container: service.container, server: service.server } }} />
+          </div>
+        )}
 
         {service.widget && <Widget service={service} />}
       </div>

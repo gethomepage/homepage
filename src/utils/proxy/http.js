@@ -2,7 +2,7 @@
 /* eslint-disable no-param-reassign */
 import { http, https } from "follow-redirects";
 
-import { addCookieToJar, setCookieHeader } from "utils/cookie-jar";
+import { addCookieToJar, setCookieHeader } from "./cookie-jar";
 
 function addCookieHandler(url, params) {
   setCookieHeader(url, params);

@@ -1,4 +1,4 @@
-import genericProxyHandler from "utils/proxies/generic";
+import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
   api: "{url}/api/?apikey={key}&output=json&mode={endpoint}",

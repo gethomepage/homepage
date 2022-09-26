@@ -1,4 +1,4 @@
-import cachedFetch from "utils/cached-fetch";
+import cachedFetch from "utils/proxy/cached-fetch";
 import { getSettings } from "utils/config";
 
 export default async function handler(req, res) {

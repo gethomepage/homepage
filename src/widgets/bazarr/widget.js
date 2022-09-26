@@ -1,18 +1,18 @@
-import genericProxyHandler from "utils/proxies/generic";
-import { asJson } from "utils/api-helpers";
+import genericProxyHandler from "utils/proxy/handlers/generic";
+import { asJson } from "utils/proxy/api-helpers";
 
 const widget = {
   api: "{url}/api/{endpoint}/wanted?apikey={key}",
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "movies": {
+    movies: {
       endpoint: "movies",
       map: (data) => ({
         total: asJson(data).total,
       }),
     },
-    "episodes": {
+    episodes: {
       endpoint: "episodes",
       map: (data) => ({
         total: asJson(data).total,

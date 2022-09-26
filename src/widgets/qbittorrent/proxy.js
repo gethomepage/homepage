@@ -1,6 +1,6 @@
-import { formatApiCall } from "utils/api-helpers";
-import { addCookieToJar, setCookieHeader } from "utils/cookie-jar";
-import { httpProxy } from "utils/http";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
+import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/service-helpers";
 
 async function login(widget, params) {

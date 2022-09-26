@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import useSWR from "swr";
+import useSWR, { SWRConfig } from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useTranslation } from "next-i18next";
@@ -13,9 +13,10 @@ import Widget from "components/widget";
 import Revalidate from "components/revalidate";
 import createLogger from "utils/logger";
 import { getSettings } from "utils/config";
-import { ColorContext } from "utils/color-context";
-import { ThemeContext } from "utils/theme-context";
-import { SettingsContext } from "utils/settings-context";
+import { ColorContext } from "utils/contexts/color";
+import { ThemeContext } from "utils/contexts/theme";
+import { SettingsContext } from "utils/contexts/settings";
+import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 
 const ThemeToggle = dynamic(() => import("components/theme-toggle"), {
   ssr: false,
@@ -37,9 +38,18 @@ export async function getStaticProps() {
     logger = createLogger("index");
     const { providers, ...settings } = getSettings();
 
+    const services = await servicesResponse();
+    const bookmarks = await bookmarksResponse();
+    const widgets = await widgetsResponse();
+
     return {
       props: {
         initialSettings: settings,
+        fallback: {
+          "/api/services": services,
+          "/api/bookmarks": bookmarks,
+          "/api/widgets": widgets,
+        },
         ...(await serverSideTranslations(settings.language ?? "en")),
       },
     };
@@ -56,7 +66,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Index({ initialSettings }) {
+export default function Index({ initialSettings, fallback }) {
   const { data: errorsData } = useSWR("/api/validate");
 
   if (errorsData && errorsData.length > 0) {
@@ -83,7 +93,11 @@ export default function Index({ initialSettings }) {
     );
   }
 
-  return <Home initialSettings={initialSettings} />;
+  return (
+    <SWRConfig value={{ fallback, fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()) }}>
+      <Home initialSettings={initialSettings} />
+    </SWRConfig>
+  );
 }
 
 function Home({ initialSettings }) {

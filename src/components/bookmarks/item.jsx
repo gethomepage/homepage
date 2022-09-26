@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { SettingsContext } from "utils/settings-context";
+import { SettingsContext } from "utils/contexts/settings";
 
 export default function Item({ bookmark }) {
   const { hostname } = new URL(bookmark.href);

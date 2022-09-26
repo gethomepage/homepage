@@ -80,20 +80,22 @@ export default function OpenWeatherMap({ options }) {
 
   const requestLocation = () => {
     setRequesting(true);
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-        setRequesting(false);
-      },
-      () => {
-        setRequesting(false);
-      },
-      {
-        enableHighAccuracy: true,
-        maximumAge: 1000 * 60 * 60 * 3,
-        timeout: 1000 * 30,
-      }
-    );
+    if (typeof window !== "undefined") {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+          setRequesting(false);
+        },
+        () => {
+          setRequesting(false);
+        },
+        {
+          enableHighAccuracy: true,
+          maximumAge: 1000 * 60 * 60 * 3,
+          timeout: 1000 * 30,
+        }
+      );
+    }
   };
 
   if (!requesting && !location) requestLocation();

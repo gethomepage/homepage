@@ -3,7 +3,7 @@ import { IoColorPalette } from "react-icons/io5";
 import { Popover, Transition } from "@headlessui/react";
 import classNames from "classnames";
 
-import { ColorContext } from "utils/color-context";
+import { ColorContext } from "utils/contexts/color";
 
 const colors = [
   "slate",

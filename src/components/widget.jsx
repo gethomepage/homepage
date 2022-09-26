@@ -1,18 +1,12 @@
-import WeatherApi from "components/widgets/weather/weather";
-import OpenWeatherMap from "components/widgets/openweathermap/weather";
-import Resources from "components/widgets/resources/resources";
-import Search from "components/widgets/search/search";
-import Greeting from "components/widgets/greeting/greeting";
-import DateTime from "components/widgets/datetime/datetime";
+import dynamic from "next/dynamic";
 
 const widgetMappings = {
-  weather: WeatherApi, // This key will be deprecated in the future
-  weatherapi: WeatherApi,
-  openweathermap: OpenWeatherMap,
-  resources: Resources,
-  search: Search,
-  greeting: Greeting,
-  datetime: DateTime,
+  weatherapi: dynamic(() => import("components/widgets/weather/weather")),
+  openweathermap: dynamic(() => import("components/widgets/openweathermap/weather")),
+  resources: dynamic(() => import("components/widgets/resources/resources")),
+  search: dynamic(() => import("components/widgets/search/search")),
+  greeting: dynamic(() => import("components/widgets/greeting/greeting")),
+  datetime: dynamic(() => import("components/widgets/datetime/datetime")),
 };
 
 export default function Widget({ widget }) {

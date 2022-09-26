@@ -1,18 +1,18 @@
-import genericProxyHandler from "utils/proxies/generic";
+import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
   api: "{url}/emby/{endpoint}?api_key={key}",
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "Sessions": {
+    Sessions: {
       endpoint: "Sessions",
     },
-    "PlayControl": {
+    PlayControl: {
       method: "POST",
       enpoint: "Sessions/{sessionId}/Playing/{command}",
-      segments: ["sessionId", "command"]
-    }
+      segments: ["sessionId", "command"],
+    },
   },
 };
 

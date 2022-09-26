@@ -12,18 +12,10 @@ export default function Component({ service }) {
   const config = service.widget;
 
   const { data: statusData, error: statusError } = useSWR(
-    `/api/docker/status/${config.container}/${config.server || ""}`,
-    {
-      refreshInterval: 5000,
-    }
+    `/api/docker/status/${config.container}/${config.server || ""}`
   );
 
-  const { data: statsData, error: statsError } = useSWR(
-    `/api/docker/stats/${config.container}/${config.server || ""}`,
-    {
-      refreshInterval: 5000,
-    }
-  );
+  const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${config.container}/${config.server || ""}`);
 
   if (statsError || statusError) {
     return <Widget error={t("widget.api_error")} />;

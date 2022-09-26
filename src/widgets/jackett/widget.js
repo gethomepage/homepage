@@ -1,12 +1,12 @@
-import genericProxyHandler from "utils/proxies/generic";
+import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
   api: "{url}/api/v2.0/{endpoint}?apikey={key}&configured=true",
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "indexers": {
-      endpoint: "indexers"
+    indexers: {
+      endpoint: "indexers",
     },
   },
 };
