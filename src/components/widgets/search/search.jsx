@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiSearch } from "react-icons/fi";
-import { SiDuckduckgo, SiMicrosoftbing, SiGoogle } from "react-icons/si";
+import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu } from "react-icons/si";
 
 const providers = {
   google: {
