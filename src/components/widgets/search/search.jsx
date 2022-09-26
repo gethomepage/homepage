@@ -19,6 +19,11 @@ const providers = {
     url: "https://www.bing.com/search?q=",
     icon: SiMicrosoftbing,
   },
+  baidu: {
+    name: "Baidu",
+    url: "https://www.baidu.com/s?wd=",
+    icon: SiBaidu,
+  },
   custom: {
     name: "Custom",
     url: false,
