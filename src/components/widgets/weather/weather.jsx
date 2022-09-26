@@ -99,7 +99,7 @@ export default function WeatherApi({ options }) {
     }
   };
 
-  if (!requesting && !location) requestLocation();
+  // if (!requesting && !location) requestLocation();
 
   if (!location) {
     return (

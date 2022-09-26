@@ -20,7 +20,7 @@ export default function Item({ bookmark }) {
           </div>
           <div className="flex-1 flex items-center justify-between rounded-r-md ">
             <div className="flex-1 grow pl-3 py-2 text-xs">{bookmark.name}</div>
-            <div className="px-2 py-2 truncate text-theme-500 dark:text-theme-400 opacity-50 text-xs">{hostname}</div>
+            <div className="px-2 py-2 truncate text-theme-500 dark:text-theme-400 text-xs">{hostname}</div>
           </div>
         </div>
       </a>

@@ -4,7 +4,10 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta description="A highly customizable homepage (or startpage / application dashboard) with Docker and service API integrations." />
+        <meta
+          name="description"
+          content="A highly customizable homepage (or startpage / application dashboard) with Docker and service API integrations."
+        />
       </Head>
       <body className="relative w-full h-full bg-theme-50 dark:bg-theme-800 transition duration-150 ease-in-out">
         <Main />

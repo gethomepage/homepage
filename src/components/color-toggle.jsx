@@ -45,6 +45,7 @@ export default function ColorToggle() {
             className="h-5 w-5 text-theme-800 dark:text-theme-200 transition duration-150 ease-in-out"
             aria-hidden="true"
           />
+          <span className="sr-only">Change color</span>
         </Popover.Button>
         <Transition
           as={Fragment}
@@ -67,6 +68,7 @@ export default function ColorToggle() {
                         `rounded-md w-5 h-5 border-black/50 dark:border-white/50 theme-${color} bg-theme-400`
                       )}
                     />
+                    <span className="sr-only">{color}</span>
                   </button>
                 ))}
               </div>

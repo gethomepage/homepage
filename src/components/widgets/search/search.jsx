@@ -81,6 +81,7 @@ export default function Search({ options }) {
         focus:ring-theme-500 dark:focus:ring-white/50"
       >
         <provider.icon className="text-white w-3 h-3" />
+        <span className="sr-only">{t("search.search")}</span>
       </button>
     </form>
   );

@@ -98,7 +98,7 @@ export default function OpenWeatherMap({ options }) {
     }
   };
 
-  if (!requesting && !location) requestLocation();
+  // if (!requesting && !location) requestLocation();
 
   if (!location) {
     return (

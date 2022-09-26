@@ -93,6 +93,7 @@ export default function Item({ service }) {
               className="flex-shrink-0 flex items-center justify-center w-12 cursor-pointer"
             >
               <Status service={service} />
+              <span className="sr-only">View container stats</span>
             </button>
           )}
         </div>
