@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -15,14 +15,14 @@ export default function Component({ service }) {
   const { data: clientsData, error: clientsError } = useSWR(formatProxyUrl(config, `client`));
 
   if (appsError || messagesError || clientsError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("gotify.apps")} value={appsData?.length} />
       <Block label={t("gotify.clients")} value={clientsData?.length} />
       <Block label={t("gotify.messages")} value={messagesData?.messages?.length} />
-    </Widget>
+    </Container>
   );
 }

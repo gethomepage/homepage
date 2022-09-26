@@ -1,4 +1,4 @@
-import checkAndCopyConfig from "utils/config";
+import checkAndCopyConfig from "utils/config/config";
 
 const configs = ["docker.yaml", "settings.yaml", "services.yaml", "bookmarks.yaml"];
 

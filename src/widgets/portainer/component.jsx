@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -17,21 +17,21 @@ export default function Component({ service }) {
   );
 
   if (containersError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!containersData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("portainer.running")} />
         <Block label={t("portainer.stopped")} />
         <Block label={t("portainer.total")} />
-      </Widget>
+      </Container>
     );
   }
 
   if (containersData.error) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   const running = containersData.filter((c) => c.State === "running").length;
@@ -39,10 +39,10 @@ export default function Component({ service }) {
   const total = containersData.length;
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("portainer.running")} value={running} />
       <Block label={t("portainer.stopped")} value={stopped} />
       <Block label={t("portainer.total")} value={total} />
-    </Widget>
+    </Container>
   );
 }

@@ -1,7 +1,7 @@
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
 import { httpProxy } from "utils/proxy/http";
-import getServiceWidget from "utils/service-helpers";
+import getServiceWidget from "utils/config/service-helpers";
 
 async function login(widget, params) {
   const loginUrl = new URL(`${widget.url}/api/v2/auth/login`);

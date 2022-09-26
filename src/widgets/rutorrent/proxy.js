@@ -1,6 +1,6 @@
 import RuTorrent from "rutorrent-promise";
 
-import getServiceWidget from "utils/service-helpers";
+import getServiceWidget from "utils/config/service-helpers";
 
 export default async function rutorrentProxyHandler(req, res) {
   const { group, service } = req.query;

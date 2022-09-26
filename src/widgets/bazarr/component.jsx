@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -14,22 +14,22 @@ export default function Component({ service }) {
   const { data: moviesData, error: moviesError } = useSWR(formatProxyUrl(config, "movies"));
 
   if (episodesError || moviesError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!episodesData || !moviesData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("bazarr.missingEpisodes")} />
         <Block label={t("bazarr.missingMovies")} />
-      </Widget>
+      </Container>
     );
   }
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("bazarr.missingEpisodes")} value={t("common.number", { value: episodesData.total })} />
       <Block label={t("bazarr.missingMovies")} value={t("common.number", { value: moviesData.total })} />
-    </Widget>
+    </Container>
   );
 }

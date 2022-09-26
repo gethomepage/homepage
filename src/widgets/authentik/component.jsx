@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -15,16 +15,16 @@ export default function Component({ service }) {
   const { data: failedLoginsData, error: failedLoginsError } = useSWR(formatProxyUrl(config, "login_failed"));
 
   if (usersError || loginsError || failedLoginsError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!usersData || !loginsData || !failedLoginsData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("authentik.users")} />
         <Block label={t("authentik.loginsLast24H")} />
         <Block label={t("authentik.failedLoginsLast24H")} />
-      </Widget>
+      </Container>
     );
   }
 
@@ -39,10 +39,10 @@ export default function Component({ service }) {
   );
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("authentik.users")} value={t("common.number", { value: usersData.pagination.count })} />
       <Block label={t("authentik.loginsLast24H")} value={t("common.number", { value: loginsLast24H })} />
       <Block label={t("authentik.failedLoginsLast24H")} value={t("common.number", { value: failedLoginsLast24H })} />
-    </Widget>
+    </Container>
   );
 }

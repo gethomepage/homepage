@@ -1,4 +1,4 @@
-import getServiceWidget from "utils/service-helpers";
+import getServiceWidget from "utils/config/service-helpers";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";

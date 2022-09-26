@@ -1,6 +1,6 @@
 import { httpProxy } from "utils/proxy/http";
 import { formatApiCall } from "utils/proxy/api-helpers";
-import getServiceWidget from "utils/service-helpers";
+import getServiceWidget from "utils/config/service-helpers";
 
 export default async function transmissionProxyHandler(req, res) {
   const { group, service, endpoint } = req.query;

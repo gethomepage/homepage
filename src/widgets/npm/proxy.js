@@ -1,4 +1,4 @@
-import getServiceWidget from "utils/service-helpers";
+import getServiceWidget from "utils/config/service-helpers";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import widgets from "widgets/widgets";
 

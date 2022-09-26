@@ -9,20 +9,20 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
-import Widget from "components/widget";
-import Revalidate from "components/revalidate";
+import Widget from "components/widgets/widget";
+import Revalidate from "components/toggles/revalidate";
 import createLogger from "utils/logger";
-import { getSettings } from "utils/config";
+import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 
-const ThemeToggle = dynamic(() => import("components/theme-toggle"), {
+const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
 });
 
-const ColorToggle = dynamic(() => import("components/color-toggle"), {
+const ColorToggle = dynamic(() => import("components/toggles/color"), {
   ssr: false,
 });
 

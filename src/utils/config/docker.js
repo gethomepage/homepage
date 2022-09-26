@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config";
+import checkAndCopyConfig from "utils/config/config";
 
 export default function getDockerArguments(server) {
   checkAndCopyConfig("docker.yaml");

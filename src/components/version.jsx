@@ -26,7 +26,7 @@ export default function Version() {
 
   return (
     <div className="flex flex-row items-center">
-      <span className="text-xs text-theme-500">
+      <span className="text-xs text-theme-500 dark:text-theme-400">
         {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
       </span>
       {version === "main" || version === "dev" || version === "nightly"
@@ -37,7 +37,7 @@ export default function Version() {
               href={latestRelease.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 text-xs text-theme-500 flex flex-row items-center"
+              className="ml-2 text-xs text-theme-500 dark:text-theme-400 flex flex-row items-center"
             >
               <MdNewReleases className="mr-1" /> {t("Update Available")}
             </a>

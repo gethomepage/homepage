@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -15,24 +15,24 @@ export default function Component({ service }) {
   const { data: queueData, error: queueError } = useSWR(formatProxyUrl(config, "queue/status"));
 
   if (booksError || wantedError || queueError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!booksData || !wantedData || !queueData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("readarr.wanted")} />
         <Block label={t("readarr.queued")} />
         <Block label={t("readarr.books")} />
-      </Widget>
+      </Container>
     );
   }
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("readarr.wanted")} value={t("common.number", { value: wantedData.totalRecords })} />
       <Block label={t("readarr.queued")} value={t("common.number", { value: queueData.totalCount })} />
       <Block label={t("readarr.books")} value={t("common.number", { value: booksData.have })} />
-    </Widget>
+    </Container>
   );
 }

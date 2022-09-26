@@ -3,8 +3,8 @@ import { useTranslation } from "next-i18next";
 
 import calculateCPUPercent from "./stats-helpers";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -18,30 +18,30 @@ export default function Component({ service }) {
   const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${config.container}/${config.server || ""}`);
 
   if (statsError || statusError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (statusData && statusData.status !== "running") {
     return (
-      <Widget>
+      <Container>
         <Block label={t("widget.status")} value={t("docker.offline")} />
-      </Widget>
+      </Container>
     );
   }
 
   if (!statsData || !statusData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("docker.cpu")} />
         <Block label={t("docker.mem")} />
         <Block label={t("docker.rx")} />
         <Block label={t("docker.tx")} />
-      </Widget>
+      </Container>
     );
   }
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("docker.cpu")} value={t("common.percent", { value: calculateCPUPercent(statsData.stats) })} />
       <Block label={t("docker.mem")} value={t("common.bytes", { value: statsData.stats.memory_stats.usage })} />
       {statsData.stats.networks && (
@@ -50,6 +50,6 @@ export default function Component({ service }) {
           <Block label={t("docker.tx")} value={t("common.bytes", { value: statsData.stats.networks.eth0.tx_bytes })} />
         </>
       )}
-    </Widget>
+    </Container>
   );
 }

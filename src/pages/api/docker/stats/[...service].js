@@ -1,6 +1,6 @@
 import Docker from "dockerode";
 
-import getDockerArguments from "utils/docker";
+import getDockerArguments from "utils/config/docker";
 
 export default async function handler(req, res) {
   const { service } = req.query;

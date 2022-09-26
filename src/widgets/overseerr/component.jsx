@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -13,24 +13,24 @@ export default function Component({ service }) {
   const { data: statsData, error: statsError } = useSWR(formatProxyUrl(config, "request/count"));
 
   if (statsError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!statsData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("overseerr.pending")} />
         <Block label={t("overseerr.approved")} />
         <Block label={t("overseerr.available")} />
-      </Widget>
+      </Container>
     );
   }
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("overseerr.pending")} value={statsData.pending} />
       <Block label={t("overseerr.approved")} value={statsData.approved} />
       <Block label={t("overseerr.available")} value={statsData.available} />
-    </Widget>
+    </Container>
   );
 }

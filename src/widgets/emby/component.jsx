@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 
-import Widget from "components/services/widgets/widget";
+import Container from "components/services/widget/container";
 import { formatProxyUrl, formatProxyUrlWithSegments } from "utils/proxy/api-helpers";
 
 function ticksToTime(ticks) {
@@ -172,7 +172,7 @@ export default function Component({ service }) {
   }
 
   if (sessionsError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!sessionsData) {

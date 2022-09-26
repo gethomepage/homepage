@@ -1,5 +1,5 @@
 import cachedFetch from "utils/proxy/cached-fetch";
-import { getSettings } from "utils/config";
+import { getSettings } from "utils/config/config";
 
 export default async function handler(req, res) {
   const { latitude, longitude, provider, cache, lang } = req.query;

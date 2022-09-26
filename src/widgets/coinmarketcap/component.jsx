@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import classNames from "classnames";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import Dropdown from "components/services/dropdown";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
@@ -33,28 +33,28 @@ export default function Component({ service }) {
 
   if (!symbols || symbols.length === 0) {
     return (
-      <Widget>
+      <Container>
         <Block value={t("coinmarketcap.configure")} />
-      </Widget>
+      </Container>
     );
   }
 
   if (statsError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!statsData || !dateRange) {
     return (
-      <Widget>
+      <Container>
         <Block value={t("coinmarketcap.configure")} />
-      </Widget>
+      </Container>
     );
   }
 
   const { data } = statsData;
 
   return (
-    <Widget>
+    <Container>
       <div className={classNames(service.description ? "-top-10" : "-top-8", "absolute right-1")}>
         <Dropdown options={dateRangeOptions} value={dateRange} setValue={setDateRange} />
       </div>
@@ -87,6 +87,6 @@ export default function Component({ service }) {
           </div>
         ))}
       </div>
-    </Widget>
+    </Container>
   );
 }

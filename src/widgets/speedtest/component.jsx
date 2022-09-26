@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -13,21 +13,21 @@ export default function Component({ service }) {
   const { data: speedtestData, error: speedtestError } = useSWR(formatProxyUrl(config, "speedtest/latest"));
 
   if (speedtestError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!speedtestData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("speedtest.download")} />
         <Block label={t("speedtest.upload")} />
         <Block label={t("speedtest.ping")} />
-      </Widget>
+      </Container>
     );
   }
 
   return (
-    <Widget>
+    <Container>
       <Block
         label={t("speedtest.download")}
         value={t("common.bitrate", { value: speedtestData.data.download * 1024 * 1024 })}
@@ -40,6 +40,6 @@ export default function Component({ service }) {
         label={t("speedtest.ping")}
         value={t("common.ms", { value: speedtestData.data.ping, style: "unit", unit: "millisecond" })}
       />
-    </Widget>
+    </Container>
   );
 }

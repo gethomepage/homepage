@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -13,16 +13,16 @@ export default function Component({ service }) {
   const { data: infoData, error: infoError } = useSWR(formatProxyUrl(config, "nginx/proxy-hosts"));
 
   if (infoError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!infoData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("npm.enabled")} />
         <Block label={t("npm.disabled")} />
         <Block label={t("npm.total")} />
-      </Widget>
+      </Container>
     );
   }
 
@@ -31,10 +31,10 @@ export default function Component({ service }) {
   const total = infoData.length;
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("npm.enabled")} value={enabled} />
       <Block label={t("npm.disabled")} value={disabled} />
       <Block label={t("npm.total")} value={total} />
-    </Widget>
+    </Container>
   );
 }

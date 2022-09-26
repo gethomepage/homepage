@@ -5,8 +5,8 @@ import yaml from "js-yaml";
 import Docker from "dockerode";
 import * as shvl from "shvl";
 
-import checkAndCopyConfig from "utils/config";
-import getDockerArguments from "utils/docker";
+import checkAndCopyConfig from "utils/config/config";
+import getDockerArguments from "utils/config/docker";
 
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");

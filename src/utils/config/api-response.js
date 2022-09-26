@@ -4,8 +4,8 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config";
-import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/service-helpers";
+import checkAndCopyConfig from "utils/config/config";
+import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/config/service-helpers";
 
 export async function bookmarksResponse() {
   checkAndCopyConfig("bookmarks.yaml");

@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -13,17 +13,17 @@ export default function Component({ service }) {
   const { data: torrentData, error: torrentError } = useSWR(formatProxyUrl(config));
 
   if (torrentError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!torrentData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("transmission.leech")} />
         <Block label={t("transmission.download")} />
         <Block label={t("transmission.seed")} />
         <Block label={t("transmission.upload")} />
-      </Widget>
+      </Container>
     );
   }
 
@@ -59,11 +59,11 @@ export default function Component({ service }) {
   }
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("transmission.leech")} value={t("common.number", { value: leech })} />
       <Block label={t("transmission.download")} value={`${rateDl.toFixed(2)} ${unitsDl}`} />
       <Block label={t("transmission.seed")} value={t("common.number", { value: completed })} />
       <Block label={t("transmission.upload")} value={`${rateUl.toFixed(2)} ${unitsUl}`} />
-    </Widget>
+    </Container>
   );
 }

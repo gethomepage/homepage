@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
-import Widget from "components/services/widgets/widget";
-import Block from "components/services/widgets/block";
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -15,24 +15,24 @@ export default function Component({ service }) {
   const { data: seriesData, error: seriesError } = useSWR(formatProxyUrl(config, "series"));
 
   if (wantedError || queuedError || seriesError) {
-    return <Widget error={t("widget.api_error")} />;
+    return <Container error={t("widget.api_error")} />;
   }
 
   if (!wantedData || !queuedData || !seriesData) {
     return (
-      <Widget>
+      <Container>
         <Block label={t("sonarr.wanted")} />
         <Block label={t("sonarr.queued")} />
         <Block label={t("sonarr.series")} />
-      </Widget>
+      </Container>
     );
   }
 
   return (
-    <Widget>
+    <Container>
       <Block label={t("sonarr.wanted")} value={wantedData.totalRecords} />
       <Block label={t("sonarr.queued")} value={queuedData.totalRecords} />
       <Block label={t("sonarr.series")} value={seriesData.total} />
-    </Widget>
+    </Container>
   );
 }
