@@ -1,7 +1,3 @@
-// const formats = {
-//   lidarr: `{url}/api/v1/{endpoint}?apikey={key}`,
-// };
-
 export function formatApiCall(url, args) {
   const find = /\{.*?\}/g;
   const replace = (match) => {
