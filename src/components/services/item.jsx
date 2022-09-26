@@ -28,6 +28,18 @@ export default function Item({ service }) {
   const hasLink = service.href && service.href !== "#";
   const { settings } = useContext(SettingsContext);
   const [statsOpen, setStatsOpen] = useState(false);
+  const [statsClosing, setStatsClosing] = useState(false);
+
+  // set stats to closed after 300ms
+  const closeStats = () => {
+    if (statsOpen) {
+      setStatsClosing(true);
+      setTimeout(() => {
+        setStatsOpen(false);
+        setStatsClosing(false);
+      }, 300);
+    }
+  };
 
   return (
     <li key={service.name}>
@@ -77,7 +89,7 @@ export default function Item({ service }) {
           {service.container && (
             <button
               type="button"
-              onClick={() => setStatsOpen(!statsOpen)}
+              onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
               className="flex-shrink-0 flex items-center justify-center w-12 cursor-pointer"
             >
               <Status service={service} />
@@ -88,11 +100,11 @@ export default function Item({ service }) {
         {service.container && service.server && (
           <div
             className={classNames(
-              statsOpen ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
+              statsOpen && !statsClosing ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
               "w-full overflow-hidden transition-all duration-300 ease-in-out"
             )}
           >
-            <Docker service={{ widget: { container: service.container, server: service.server } }} />
+            {statsOpen && <Docker service={{ widget: { container: service.container, server: service.server } }} />}
           </div>
         )}
 
