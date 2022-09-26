@@ -87,26 +87,7 @@ function prettyBytes(number, options) {
 module.exports = {
   i18n: {
     defaultLocale: "en",
-    locales: [
-      "en",
-      "ca",
-      "de",
-      "es",
-      "fr",
-      "he",
-      "hr",
-      "hu",
-      "it",
-      "nb-NO",
-      "nl",
-      "pl",
-      "pt",
-      "ro",
-      "ru",
-      "sv",
-      "vi",
-      "zh-CN",
-    ],
+    locales: ["en"],
   },
   serializeConfig: false,
   use: [
