@@ -20,34 +20,38 @@ export default async function handler(req, res) {
 
     if (serviceProxyHandler instanceof Function) {
       // map opaque endpoints to their actual endpoint
-      const mapping = widget?.mappings?.[req.query.endpoint];
-      const mappingParams = mapping.params;
-      const map = mapping?.map;
-      const endpoint = mapping?.endpoint;
-      const endpointProxy = mapping?.proxyHandler || serviceProxyHandler;
-      req.method = mapping?.method || "GET";
+      if (widget?.mappings) {
+        const mapping = widget?.mappings?.[req.query.endpoint];
+        const mappingParams = mapping.params;
+        const map = mapping?.map;
+        const endpoint = mapping?.endpoint;
+        const endpointProxy = mapping?.proxyHandler || serviceProxyHandler;
+        req.method = mapping?.method || "GET";
 
-      if (!endpoint) {
-        logger.debug("Unsupported service endpoint: %s", type);
-        return res.status(403).json({ error: "Unsupported service endpoint" });
+        if (!endpoint) {
+          logger.debug("Unsupported service endpoint: %s", type);
+          return res.status(403).json({ error: "Unsupported service endpoint" });
+        }
+
+        req.query.endpoint = endpoint;
+        if (req.query.segments) {
+          const segments = JSON.parse(req.query.segments);
+          req.query.endpoint = formatApiCall(endpoint, segments);
+        }
+        if (req.query.query) {
+          const queryParams = JSON.parse(req.query.query);
+          const query = new URLSearchParams(mappingParams.map((p) => [p, queryParams[p]]));
+          req.query.endpoint = `${req.query.endpoint}?${query}`;
+        }
+
+        if (endpointProxy instanceof Function) {
+          return endpointProxy(req, res, map);
+        }
+
+        return serviceProxyHandler(req, res, map);
       }
 
-      req.query.endpoint = endpoint;
-      if (req.query.segments) {
-        const segments = JSON.parse(req.query.segments);
-        req.query.endpoint = formatApiCall(endpoint, segments);
-      }
-      if (req.query.query) {
-        const queryParams = JSON.parse(req.query.query);
-        const query = new URLSearchParams(mappingParams.map((p) => [p, queryParams[p]]));
-        req.query.endpoint = `${req.query.endpoint}?${query}`;
-      }
-
-      if (endpointProxy instanceof Function) {
-        return endpointProxy(req, res, map);
-      }
-
-      return serviceProxyHandler(req, res, map);
+      return serviceProxyHandler(req, res);
     }
 
     logger.debug("Unknown proxy service type: %s", type);
