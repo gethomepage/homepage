@@ -3,7 +3,7 @@ import useSWR, { SWRConfig } from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useTranslation } from "next-i18next";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -17,6 +17,7 @@ import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
+import useWindowFocus from "utils/hooks/window-focus";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -49,6 +50,7 @@ export async function getStaticProps() {
           "/api/services": services,
           "/api/bookmarks": bookmarks,
           "/api/widgets": widgets,
+          "/api/hash": false,
         },
         ...(await serverSideTranslations(settings.language ?? "en")),
       },
@@ -67,7 +69,47 @@ export async function getStaticProps() {
 }
 
 export default function Index({ initialSettings, fallback }) {
+  const windowFocused = useWindowFocus();
+  const [stale, setStale] = useState(false);
   const { data: errorsData } = useSWR("/api/validate");
+  const { data: hashData, mutate: mutateHash } = useSWR("/api/hash");
+
+  useEffect(() => {
+    if (windowFocused) {
+      mutateHash();
+    }
+  }, [windowFocused, mutateHash]);
+
+  useEffect(() => {
+    if (hashData) {
+      if (typeof window !== "undefined") {
+        const previousHash = localStorage.getItem("hash");
+
+        if (!previousHash) {
+          localStorage.setItem("hash", hashData.hash);
+        }
+
+        if (previousHash && previousHash !== hashData.hash) {
+          setStale(true);
+          localStorage.setItem("hash", hashData.hash);
+
+          fetch("/api/revalidate").then((res) => {
+            if (res.ok) {
+              window.location.reload();
+            }
+          });
+        }
+      }
+    }
+  }, [hashData]);
+
+  if (stale) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-24 h-24 border-2 border-theme-400 border-solid rounded-full animate-spin border-t-transparent" />
+      </div>
+    );
+  }
 
   if (errorsData && errorsData.length > 0) {
     return (
