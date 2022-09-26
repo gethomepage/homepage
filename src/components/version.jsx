@@ -29,7 +29,7 @@ export default function Version() {
       <span className="text-xs text-theme-500">
         {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
       </span>
-      {version === "main" || version === "dev"
+      {version === "main" || version === "dev" || version === "nightly"
         ? null
         : releaseData &&
           compareVersions(latestRelease.tag_name, version) > 0 && (
