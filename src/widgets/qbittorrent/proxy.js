@@ -4,7 +4,6 @@ import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 
 async function login(widget, params) {
-  console.log("Doing login");
   const loginUrl = new URL(`${widget.url}/api/v2/auth/login`).toString();
   const loginBody = `username=${encodeURI(widget.username)}&password=${encodeURI(widget.password)}`;
 
