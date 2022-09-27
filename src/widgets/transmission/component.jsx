@@ -27,42 +27,18 @@ export default function Component({ service }) {
   }
 
   const { torrents } = torrentData.arguments;
-  let rateDl = 0;
-  let rateUl = 0;
-  let completed = 0;
 
-  for (let i = 0; i < torrents.length; i += 1) {
-    const torrent = torrents[i];
-    rateDl += torrent.rateDownload;
-    rateUl += torrent.rateUpload;
-    if (torrent.percentDone === 1) {
-      completed += 1;
-    }
-  }
-
+  const rateDl = torrents.reduce((acc, torrent) => acc + torrent.rateDownload, 0);
+  const rateUl = torrents.reduce((acc, torrent) => acc + torrent.rateUpload, 0);
+  const completed = torrents.filter((torrent) => torrent.percentDone === 1);
   const leech = torrents.length - completed;
-
-  let unitsDl = "KB/s";
-  let unitsUl = "KB/s";
-  rateDl /= 1024;
-  rateUl /= 1024;
-
-  if (rateDl > 1024) {
-    rateDl /= 1024;
-    unitsDl = "MB/s";
-  }
-
-  if (rateUl > 1024) {
-    rateUl /= 1024;
-    unitsUl = "MB/s";
-  }
 
   return (
     <Container>
       <Block label={t("transmission.leech")} value={t("common.number", { value: leech })} />
-      <Block label={t("transmission.download")} value={`${rateDl.toFixed(2)} ${unitsDl}`} />
+      <Block label={t("transmission.download")} value={t("common.bitrate", { value: rateDl * 8 })} />
       <Block label={t("transmission.seed")} value={t("common.number", { value: completed })} />
-      <Block label={t("transmission.upload")} value={`${rateUl.toFixed(2)} ${unitsUl}`} />
+      <Block label={t("transmission.upload")} value={t("common.bitrate", { value: rateUl * 8 })} />
     </Container>
   );
 }

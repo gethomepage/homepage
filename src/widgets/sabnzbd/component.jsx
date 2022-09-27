@@ -4,6 +4,16 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+function fromUnits(value) {
+  const units = ["B", "K", "M", "G", "T", "P"];
+  const [number, unit] = value.split(" ");
+  const index = units.indexOf(unit);
+  if (index === -1) {
+    return 0;
+  }
+  return parseFloat(number) * 1024 ** index;
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
@@ -27,7 +37,7 @@ export default function Component({ service }) {
 
   return (
     <Container>
-      <Block label={t("sabnzbd.rate")} value={`${queueData.queue.speed}B/s`} />
+      <Block label={t("sabnzbd.rate")} value={t("common.bitrate", { value: fromUnits(queueData.queue.speed) * 8 })} />
       <Block label={t("sabnzbd.queue")} value={t("common.number", { value: queueData.queue.noofslots })} />
       <Block label={t("sabnzbd.timeleft")} value={queueData.queue.timeleft} />
     </Container>
