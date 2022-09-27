@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { Cookie, CookieJar } from 'tough-cookie';
+import { Cookie, CookieJar } from "tough-cookie";
 
 const cookieJar = new CookieJar();
 
@@ -13,19 +13,24 @@ export function setCookieHeader(url, params) {
 }
 
 export function addCookieToJar(url, headers) {
-  let cookieHeader = headers['set-cookie'];
+  let cookieHeader = headers["set-cookie"];
   if (headers instanceof Headers) {
-    cookieHeader = headers.get('set-cookie');
+    cookieHeader = headers.get("set-cookie");
   }
 
   if (!cookieHeader || cookieHeader.length === 0) return;
 
   let cookies = null;
   if (cookieHeader instanceof Array) {
-    cookies = cookieHeader.map(Cookie.parse);
-  }
-  else {
-    cookies = [Cookie.parse(cookieHeader)];
+    cookies = cookieHeader.map((c) => {
+      const cookie = Cookie.parse(c);
+      cookie.setMaxAge(60 * 60);
+      return cookie;
+    });
+  } else {
+    const cookie = Cookie.parse(cookieHeader);
+    cookie.setMaxAge(60 * 60);
+    cookies = [cookie];
   }
 
   for (let i = 0; i < cookies.length; i += 1) {
