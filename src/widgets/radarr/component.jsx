@@ -1,17 +1,16 @@
-import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import { formatProxyUrl } from "utils/proxy/api-helpers";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  const config = service.widget;
+  const { widget } = service;
 
-  const { data: moviesData, error: moviesError } = useSWR(formatProxyUrl(config, "movie"));
-  const { data: queuedData, error: queuedError } = useSWR(formatProxyUrl(config, "queue/status"));
+  const { data: moviesData, error: moviesError } = useWidgetAPI(widget, "movie");
+  const { data: queuedData, error: queuedError } = useWidgetAPI(widget, "queue/status");
 
   if (moviesError || queuedError) {
     return <Container error={t("widget.api_error")} />;

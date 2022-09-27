@@ -1,16 +1,15 @@
-import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import { formatProxyUrl } from "utils/proxy/api-helpers";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  const config = service.widget;
+  const { widget } = service;
 
-  const { data: torrentData, error: torrentError } = useSWR(formatProxyUrl(config, "torrents/info"));
+  const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents/info");
 
   if (torrentError) {
     return <Container error={t("widget.api_error")} />;
@@ -42,27 +41,12 @@ export default function Component({ service }) {
 
   const leech = torrentData.length - completed;
 
-  let unitsDl = "KB/s";
-  let unitsUl = "KB/s";
-  rateDl /= 1024;
-  rateUl /= 1024;
-
-  if (rateDl > 1024) {
-    rateDl /= 1024;
-    unitsDl = "MB/s";
-  }
-
-  if (rateUl > 1024) {
-    rateUl /= 1024;
-    unitsUl = "MB/s";
-  }
-
   return (
     <Container>
       <Block label={t("qbittorrent.leech")} value={t("common.number", { value: leech })} />
-      <Block label={t("qbittorrent.download")} value={`${rateDl.toFixed(2)} ${unitsDl}`} />
+      <Block label={t("qbittorrent.download")} value={t("common.bitrate", { value: rateDl })} />
       <Block label={t("qbittorrent.seed")} value={t("common.number", { value: completed })} />
-      <Block label={t("qbittorrent.upload")} value={`${rateUl.toFixed(2)} ${unitsUl}`} />
+      <Block label={t("qbittorrent.upload")} value={t("common.bitrate", { value: rateUl })} />
     </Container>
   );
 }

@@ -1,18 +1,17 @@
-import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import { formatProxyUrl } from "utils/proxy/api-helpers";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  const config = service.widget;
+  const { widget } = service;
 
-  const { data: booksData, error: booksError } = useSWR(formatProxyUrl(config, "book"));
-  const { data: wantedData, error: wantedError } = useSWR(formatProxyUrl(config, "wanted/missing"));
-  const { data: queueData, error: queueError } = useSWR(formatProxyUrl(config, "queue/status"));
+  const { data: booksData, error: booksError } = useWidgetAPI(widget, "book");
+  const { data: wantedData, error: wantedError } = useWidgetAPI(widget, "wanted/missing");
+  const { data: queueData, error: queueError } = useWidgetAPI(widget, "queue/status");
 
   if (booksError || wantedError || queueError) {
     return <Container error={t("widget.api_error")} />;

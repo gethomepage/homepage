@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import classNames from "classnames";
@@ -6,7 +5,7 @@ import classNames from "classnames";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import Dropdown from "components/services/dropdown";
-import { formatProxyUrl } from "utils/proxy/api-helpers";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -20,16 +19,14 @@ export default function Component({ service }) {
 
   const [dateRange, setDateRange] = useState(dateRangeOptions[0].value);
 
-  const config = service.widget;
-  const currencyCode = config.currency ?? "USD";
-  const { symbols } = config;
+  const { widget } = service;
+  const { symbols } = widget;
+  const currencyCode = widget.currency ?? "USD";
 
-  const { data: statsData, error: statsError } = useSWR(
-    formatProxyUrl(config, "v1/cryptocurrency/quotes/latest", {
-      symbol: `${symbols.join(",")}`,
-      convert: `${currencyCode}`,
-    })
-  );
+  const { data: statsData, error: statsError } = useWidgetAPI(widget, "v1/cryptocurrency/quotes/latest", {
+    symbol: `${symbols.join(",")}`,
+    convert: `${currencyCode}`,
+  });
 
   if (!symbols || symbols.length === 0) {
     return (

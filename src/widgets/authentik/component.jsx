@@ -1,18 +1,17 @@
-import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import { formatProxyUrl } from "utils/proxy/api-helpers";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  const config = service.widget;
+  const { widget } = service;
 
-  const { data: usersData, error: usersError } = useSWR(formatProxyUrl(config, "users"));
-  const { data: loginsData, error: loginsError } = useSWR(formatProxyUrl(config, "login"));
-  const { data: failedLoginsData, error: failedLoginsError } = useSWR(formatProxyUrl(config, "login_failed"));
+  const { data: usersData, error: usersError } = useWidgetAPI(widget, "users");
+  const { data: loginsData, error: loginsError } = useWidgetAPI(widget, "login");
+  const { data: failedLoginsData, error: failedLoginsError } = useWidgetAPI(widget, "login_failed");
 
   if (usersError || loginsError || failedLoginsError) {
     return <Container error={t("widget.api_error")} />;

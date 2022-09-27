@@ -151,18 +151,18 @@ function SessionEntry({ playCommand, session }) {
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  const config = service.widget;
+  const { widget } = service;
 
   const {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useSWR(formatProxyUrl(config, "Sessions"), {
+  } = useSWR(formatProxyUrl(widget, "Sessions"), {
     refreshInterval: 5000,
   });
 
   async function handlePlayCommand(session, command) {
-    const url = formatProxyUrlWithSegments(config, "PlayControl", {
+    const url = formatProxyUrlWithSegments(widget, "PlayControl", {
       sessionId: session.Id,
       command,
     });

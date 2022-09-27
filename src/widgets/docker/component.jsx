@@ -9,13 +9,13 @@ import Block from "components/services/widget/block";
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  const config = service.widget;
+  const { widget } = service;
 
   const { data: statusData, error: statusError } = useSWR(
-    `/api/docker/status/${config.container}/${config.server || ""}`
+    `/api/docker/status/${widget.container}/${widget.server || ""}`
   );
 
-  const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${config.container}/${config.server || ""}`);
+  const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${widget.container}/${widget.server || ""}`);
 
   if (statsError || statusError) {
     return <Container error={t("widget.api_error")} />;

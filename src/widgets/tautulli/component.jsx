@@ -117,9 +117,9 @@ function SessionEntry({ session }) {
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  const config = service.widget;
+  const { widget } = service;
 
-  const { data: activityData, error: activityError } = useSWR(formatProxyUrl(config, "get_activity"), {
+  const { data: activityData, error: activityError } = useSWR(formatProxyUrl(widget, "get_activity"), {
     refreshInterval: 5000,
   });
 
