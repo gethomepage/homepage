@@ -1,4 +1,9 @@
-![Homepage Preview](/images/preview.png)
+<p align="center">
+  <img src="images/1.png" />
+  <br>
+  <img src="images/2.png" />
+  <img src="images/3.png" />
+</p>
 
 <p align="center">
   <a href="https://discord.gg/k4ruYNrudu"><img src="https://img.shields.io/badge/Discord - Chat-blue?logo=discord&logoColor=white" /></a>
@@ -9,7 +14,6 @@
 <a href="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml"><img src="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg" alt="Docker"></a>
 <a href="https://hosted.weblate.org/engage/homepage/"><img src="https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg" alt="Weblate"></a>
 </p>
-
 
 ## Features
 
