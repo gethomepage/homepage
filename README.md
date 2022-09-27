@@ -4,7 +4,7 @@
     <source media="(prefers-color-scheme: dark)" srcset="images/homepage-dark.png">
     <img src="images/homepage-light.png" width="65%">
   </picture>
-  <br>
+  <br><br>
   <img src="images/1.png" />
   <br>
   <img src="images/2.png" width="19%" />
