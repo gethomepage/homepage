@@ -4,7 +4,8 @@ import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 
 async function login(widget, params) {
-  const loginUrl = new URL(`${widget.url}/api/v2/auth/login`);
+  console.log("Doing login");
+  const loginUrl = new URL(`${widget.url}/api/v2/auth/login`).toString();
   const loginBody = `username=${encodeURI(widget.username)}&password=${encodeURI(widget.password)}`;
 
   // using fetch intentionally, for login only, as the httpProxy method causes qBittorrent to
@@ -36,8 +37,9 @@ export default async function qbittorrentProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const url = new URL(formatApiCall(widget.type, { endpoint, ...widget }));
+  const url = new URL(formatApiCall("{url}/api/v2/{endpoint}", { endpoint, ...widget }));
   const params = { method: "GET", headers: {} };
+
   setCookieHeader(url, params);
 
   if (!params.headers.Cookie) {
@@ -46,6 +48,7 @@ export default async function qbittorrentProxyHandler(req, res) {
     if (status !== 200) {
       return res.status(status).end(data);
     }
+
     if (data.toString() !== "Ok.") {
       return res.status(401).end(data);
     }
