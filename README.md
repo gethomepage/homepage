@@ -1,8 +1,16 @@
 <p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/homepage-dark.png">
+    <img src="images/homepage-light.png">
+  </picture>
+  <br><br>
   <img src="images/1.png" />
   <br>
-  <img src="images/2.png" />
-  <img src="images/3.png" />
+  <img src="images/2.png" width="19%" />
+  <img src="images/3.png" width="19%" />
+  <img src="images/4.png" width="19%" />
+  <img src="images/5.png" width="19%" />
+  <img src="images/6.png" width="19%" />
 </p>
 
 <p align="center">
