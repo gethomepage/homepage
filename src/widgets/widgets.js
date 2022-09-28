@@ -6,6 +6,7 @@ import emby from "./emby/widget";
 import gotify from "./gotify/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
+import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
@@ -36,6 +37,7 @@ const widgets = {
   jackett,
   jellyfin: emby,
   jellyseerr,
+  lidarr,
   mastodon,
   npm,
   nzbget,
