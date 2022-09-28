@@ -20,9 +20,11 @@ export async function servicesFromConfig() {
   }
 
   // map easy to write YAML objects into easy to consume JS arrays
-  const servicesArray = services.map((servicesGroup) => ({
+  const servicesArray = services.map((servicesGroup) => (
+    {
     name: Object.keys(servicesGroup)[0],
-    services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) => ({
+    icon: Object.prototype.hasOwnProperty.call(servicesGroup[Object.keys(servicesGroup)[0]], 'icon') ? servicesGroup[Object.keys(servicesGroup)[0]].icon : '',
+    services: servicesGroup[Object.keys(servicesGroup)[0]].services.map((entries) => ({
       name: Object.keys(entries)[0],
       ...entries[Object.keys(entries)[0]],
     })),
@@ -106,6 +108,7 @@ export async function servicesFromDocker() {
 export function cleanServiceGroups(groups) {
   return groups.map((serviceGroup) => ({
     name: serviceGroup.name,
+    icon: serviceGroup.icon,
     services: serviceGroup.services.map((service) => {
       const cleanedService = { ...service };
 

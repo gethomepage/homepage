@@ -74,6 +74,7 @@ export async function servicesResponse() {
 
     const mergedGroup = {
       name: groupName,
+      icon: configuredGroup.icon,
       services: [...discoveredGroup.services, ...configuredGroup.services].filter((service) => service),
     };
 

@@ -3,16 +3,21 @@
 # https://github.com/benphelps/homepage/wiki/Services
 
 - My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
-
+    icon: 'https://cdn-icons-png.flaticon.com/512/252/252035.png'
+    services:
+        - My First Service:
+            icon: "https://cdn-icons-png.flaticon.com/512/1835/1835948.png"
+            href: http://localhost/
+            description: Homepage is awesome
 - My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
+    services:
+        - My Second Service:
+            href: http://localhost/
+            description: Homepage is the best
 
 - My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+    icon: 'https://cdn-icons-png.flaticon.com/512/2382/2382533.png'
+    services:
+        - My Third Service:
+            href: http://localhost/
+            description: Homepage is 😎
