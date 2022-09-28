@@ -4,6 +4,10 @@ import { http, https } from "follow-redirects";
 
 import { addCookieToJar, setCookieHeader } from "./cookie-jar";
 
+import createLogger from "utils/logger";
+
+const logger = createLogger("httpProxy");
+
 function addCookieHandler(url, params) {
   setCookieHeader(url, params);
 
@@ -70,18 +74,30 @@ export function httpRequest(url, params) {
   });
 }
 
-export function httpProxy(url, params = {}) {
+export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
 
+  let request = null;
   if (constructedUrl.protocol === "https:") {
     const httpsAgent = new https.Agent({
       rejectUnauthorized: false,
     });
 
-    return httpsRequest(constructedUrl, {
+    request = httpsRequest(constructedUrl, {
       agent: httpsAgent,
       ...params,
     });
+  } else {
+    request = httpRequest(constructedUrl, params);
   }
-  return httpRequest(constructedUrl, params);
+
+  try {
+    const [status, contentType, data, responseHeaders] = await request;
+    return [status, contentType, data, responseHeaders];
+  }
+  catch (err) {
+    logger.error("Error calling %s//%s%s...", url.protocol, url.hostname, url.pathname);
+    logger.error(err);
+    return [500, "application/json", { error: "Unexpected error" }, null];
+  }
 }
