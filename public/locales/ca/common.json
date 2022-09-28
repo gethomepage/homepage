@@ -168,5 +168,10 @@
         "numConnections": "Connexions",
         "dataRelayed": "Transmès",
         "transferRate": "Velocitat"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
     }
 }
