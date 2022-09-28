@@ -62,6 +62,12 @@ export async function getStaticProps() {
     return {
       props: {
         initialSettings: {},
+        fallback: {
+          "/api/services": [],
+          "/api/bookmarks": [],
+          "/api/widgets": [],
+          "/api/hash": false,
+        },
         ...(await serverSideTranslations("en")),
       },
     };
