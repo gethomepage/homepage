@@ -179,5 +179,10 @@
         "numConnections": "Conexões",
         "dataRelayed": "Retransmitido",
         "transferRate": "Taxa"
+    },
+    "authentik": {
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)",
+        "users": "Users"
     }
 }
