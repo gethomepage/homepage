@@ -168,5 +168,10 @@
         "user_count": "Utilizatori",
         "status_count": "Postări",
         "domain_count": "Domenii"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
     }
 }
