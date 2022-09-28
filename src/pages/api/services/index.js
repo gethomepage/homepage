@@ -33,11 +33,12 @@ export default async function handler(req, res) {
 
     const mergedGroup = {
       name: groupName,
+      icon: configuredGroup.icon,
       services: [...discoveredGroup.services, ...configuredGroup.services].filter((service) => service),
     };
 
     mergedGroups.push(mergedGroup);
   });
-
+  
   res.send(mergedGroups);
 }

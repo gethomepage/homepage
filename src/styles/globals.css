@@ -12,3 +12,8 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+.h2-title-noicon {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
