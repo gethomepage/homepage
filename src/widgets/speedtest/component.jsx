@@ -37,7 +37,12 @@ export default function Component({ service }) {
       />
       <Block
         label={t("speedtest.ping")}
-        value={t("common.ms", { value: speedtestData.data.ping, style: "unit", unit: "millisecond" })}
+        value={t("common.ms", {
+          value: speedtestData.data.ping,
+          style: "unit",
+          unit: "millisecond",
+          unitDisplay: "narrow",
+        })}
       />
     </Container>
   );
