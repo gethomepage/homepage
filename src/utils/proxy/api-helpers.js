@@ -5,7 +5,7 @@ export function formatApiCall(url, args) {
     return args[key];
   };
 
-  return url.replace(find, replace);
+  return url.replace(/\/+$/, "").replace(find, replace);
 }
 
 function getURLSearchParams(widget, endpoint) {
