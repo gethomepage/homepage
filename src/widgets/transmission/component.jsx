@@ -30,8 +30,8 @@ export default function Component({ service }) {
 
   const rateDl = torrents.reduce((acc, torrent) => acc + torrent.rateDownload, 0);
   const rateUl = torrents.reduce((acc, torrent) => acc + torrent.rateUpload, 0);
-  const completed = torrents.filter((torrent) => torrent.percentDone === 1);
-  const leech = torrents.length - completed;
+  const completed = torrents.filter((torrent) => torrent.percentDone === 1)?.length || 0;
+  const leech = torrents.length - completed || 0;
 
   return (
     <Container>
