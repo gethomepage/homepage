@@ -168,5 +168,10 @@
         "numConnections": "Verbindungen",
         "dataRelayed": "Weitergeleitet",
         "transferRate": "Bewerten"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
     }
 }
