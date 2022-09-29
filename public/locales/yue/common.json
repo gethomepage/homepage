@@ -170,8 +170,8 @@
         "domain_count": "域"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "用戶",
+        "loginsLast24H": "登錄（ 24小时）",
+        "failedLoginsLast24H": "登錄失敗（ 24鐘頭）"
     }
 }
