@@ -14,6 +14,8 @@ export async function bookmarksResponse() {
   const fileContents = await fs.readFile(bookmarksYaml, "utf8");
   const bookmarks = yaml.load(fileContents);
 
+  if (!bookmarks) return [];
+
   // map easy to write YAML objects into easy to consume JS arrays
   const bookmarksArray = bookmarks.map((group) => ({
     name: Object.keys(group)[0],
@@ -32,6 +34,8 @@ export async function widgetsResponse() {
   const widgetsYaml = path.join(process.cwd(), "config", "widgets.yaml");
   const fileContents = await fs.readFile(widgetsYaml, "utf8");
   const widgets = yaml.load(fileContents);
+
+  if (!widgets) return [];
 
   // map easy to write YAML objects into easy to consume JS arrays
   const widgetsArray = widgets.map((group) => ({

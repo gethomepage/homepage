@@ -170,8 +170,8 @@
         "transferRate": "Débit"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Utilisateurs",
+        "loginsLast24H": "Cnx. (24h)",
+        "failedLoginsLast24H": "Cnx. échouées (24h)"
     }
 }
