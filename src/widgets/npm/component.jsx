@@ -17,10 +17,10 @@ export default function Component({ service }) {
 
   if (!infoData) {
     return (
-      <Container>
-        <Block label={t("npm.enabled")} />
-        <Block label={t("npm.disabled")} />
-        <Block label={t("npm.total")} />
+      <Container service={service}>
+        <Block label="npm.enabled" />
+        <Block label="npm.disabled" />
+        <Block label="npm.total" />
       </Container>
     );
   }
@@ -30,10 +30,10 @@ export default function Component({ service }) {
   const total = infoData.length;
 
   return (
-    <Container>
-      <Block label={t("npm.enabled")} value={enabled} />
-      <Block label={t("npm.disabled")} value={disabled} />
-      <Block label={t("npm.total")} value={total} />
+    <Container service={service}>
+      <Block label="npm.enabled" value={enabled} />
+      <Block label="npm.disabled" value={disabled} />
+      <Block label="npm.total" value={total} />
     </Container>
   );
 }

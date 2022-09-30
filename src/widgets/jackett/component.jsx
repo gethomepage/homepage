@@ -17,9 +17,9 @@ export default function Component({ service }) {
 
   if (!indexersData) {
     return (
-      <Container>
-        <Block label={t("jackett.configured")} />
-        <Block label={t("jackett.errored")} />
+      <Container service={service}>
+        <Block label="jackett.configured" />
+        <Block label="jackett.errored" />
       </Container>
     );
   }
@@ -27,9 +27,9 @@ export default function Component({ service }) {
   const errored = indexersData.filter((indexer) => indexer.last_error);
 
   return (
-    <Container>
-      <Block label={t("jackett.configured")} value={t("common.number", { value: indexersData.length })} />
-      <Block label={t("jackett.errored")} value={t("common.number", { value: errored.length })} />
+    <Container service={service}>
+      <Block label="jackett.configured" value={t("common.number", { value: indexersData.length })} />
+      <Block label="jackett.errored" value={t("common.number", { value: errored.length })} />
     </Container>
   );
 }

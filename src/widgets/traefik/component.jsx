@@ -17,19 +17,19 @@ export default function Component({ service }) {
 
   if (!traefikData) {
     return (
-      <Container>
-        <Block label={t("traefik.routers")} />
-        <Block label={t("traefik.services")} />
-        <Block label={t("traefik.middleware")} />
+      <Container service={service}>
+        <Block label="traefik.routers" />
+        <Block label="traefik.services" />
+        <Block label="traefik.middleware" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("traefik.routers")} value={traefikData.http.routers.total} />
-      <Block label={t("traefik.services")} value={traefikData.http.services.total} />
-      <Block label={t("traefik.middleware")} value={traefikData.http.middlewares.total} />
+    <Container service={service}>
+      <Block label="traefik.routers" value={traefikData.http.routers.total} />
+      <Block label="traefik.services" value={traefikData.http.services.total} />
+      <Block label="traefik.middleware" value={traefikData.http.middlewares.total} />
     </Container>
   );
 }

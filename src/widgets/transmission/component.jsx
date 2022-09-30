@@ -17,11 +17,11 @@ export default function Component({ service }) {
 
   if (!torrentData) {
     return (
-      <Container>
-        <Block label={t("transmission.leech")} />
-        <Block label={t("transmission.download")} />
-        <Block label={t("transmission.seed")} />
-        <Block label={t("transmission.upload")} />
+      <Container service={service}>
+        <Block label="transmission.leech" />
+        <Block label="transmission.download" />
+        <Block label="transmission.seed" />
+        <Block label="transmission.upload" />
       </Container>
     );
   }
@@ -34,11 +34,11 @@ export default function Component({ service }) {
   const leech = torrents.length - completed || 0;
 
   return (
-    <Container>
-      <Block label={t("transmission.leech")} value={t("common.number", { value: leech })} />
-      <Block label={t("transmission.download")} value={t("common.bitrate", { value: rateDl * 8 })} />
-      <Block label={t("transmission.seed")} value={t("common.number", { value: completed })} />
-      <Block label={t("transmission.upload")} value={t("common.bitrate", { value: rateUl * 8 })} />
+    <Container service={service}>
+      <Block label="transmission.leech" value={t("common.number", { value: leech })} />
+      <Block label="transmission.download" value={t("common.bitrate", { value: rateDl * 8 })} />
+      <Block label="transmission.seed" value={t("common.number", { value: completed })} />
+      <Block label="transmission.upload" value={t("common.bitrate", { value: rateUl * 8 })} />
     </Container>
   );
 }

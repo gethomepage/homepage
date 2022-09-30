@@ -17,19 +17,19 @@ export default function Component({ service }) {
 
   if (!statsData) {
     return (
-      <Container>
-        <Block label={t("ombi.pending")} />
-        <Block label={t("ombi.approved")} />
-        <Block label={t("ombi.available")} />
+      <Container service={service}>
+        <Block label="ombi.pending" />
+        <Block label="ombi.approved" />
+        <Block label="ombi.available" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("ombi.pending")} value={statsData.pending} />
-      <Block label={t("ombi.approved")} value={statsData.approved} />
-      <Block label={t("ombi.available")} value={statsData.available} />
+    <Container service={service}>
+      <Block label="ombi.pending" value={statsData.pending} />
+      <Block label="ombi.approved" value={statsData.approved} />
+      <Block label="ombi.available" value={statsData.available} />
     </Container>
   );
 }

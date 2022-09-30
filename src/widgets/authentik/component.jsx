@@ -19,10 +19,10 @@ export default function Component({ service }) {
 
   if (!usersData || !loginsData || !failedLoginsData) {
     return (
-      <Container>
-        <Block label={t("authentik.users")} />
-        <Block label={t("authentik.loginsLast24H")} />
-        <Block label={t("authentik.failedLoginsLast24H")} />
+      <Container service={service}>
+        <Block label="authentik.users" />
+        <Block label="authentik.loginsLast24H" />
+        <Block label="authentik.failedLoginsLast24H" />
       </Container>
     );
   }
@@ -38,10 +38,10 @@ export default function Component({ service }) {
   );
 
   return (
-    <Container>
-      <Block label={t("authentik.users")} value={t("common.number", { value: usersData.pagination.count })} />
-      <Block label={t("authentik.loginsLast24H")} value={t("common.number", { value: loginsLast24H })} />
-      <Block label={t("authentik.failedLoginsLast24H")} value={t("common.number", { value: failedLoginsLast24H })} />
+    <Container service={service}>
+      <Block label="authentik.users" value={t("common.number", { value: usersData.pagination.count })} />
+      <Block label="authentik.loginsLast24H" value={t("common.number", { value: loginsLast24H })} />
+      <Block label="authentik.failedLoginsLast24H" value={t("common.number", { value: failedLoginsLast24H })} />
     </Container>
   );
 }

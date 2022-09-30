@@ -19,19 +19,19 @@ export default function Component({ service }) {
 
   if (!booksData || !wantedData || !queueData) {
     return (
-      <Container>
-        <Block label={t("readarr.wanted")} />
-        <Block label={t("readarr.queued")} />
-        <Block label={t("readarr.books")} />
+      <Container service={service}>
+        <Block label="readarr.wanted" />
+        <Block label="readarr.queued" />
+        <Block label="readarr.books" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("readarr.wanted")} value={t("common.number", { value: wantedData.totalRecords })} />
-      <Block label={t("readarr.queued")} value={t("common.number", { value: queueData.totalCount })} />
-      <Block label={t("readarr.books")} value={t("common.number", { value: booksData.have })} />
+    <Container service={service}>
+      <Block label="readarr.wanted" value={t("common.number", { value: wantedData.totalRecords })} />
+      <Block label="readarr.queued" value={t("common.number", { value: queueData.totalCount })} />
+      <Block label="readarr.books" value={t("common.number", { value: booksData.have })} />
     </Container>
   );
 }

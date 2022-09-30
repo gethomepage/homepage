@@ -30,7 +30,7 @@ export default function Component({ service }) {
 
   if (!symbols || symbols.length === 0) {
     return (
-      <Container>
+      <Container service={service}>
         <Block value={t("coinmarketcap.configure")} />
       </Container>
     );
@@ -42,7 +42,7 @@ export default function Component({ service }) {
 
   if (!statsData || !dateRange) {
     return (
-      <Container>
+      <Container service={service}>
         <Block value={t("coinmarketcap.configure")} />
       </Container>
     );
@@ -51,7 +51,7 @@ export default function Component({ service }) {
   const { data } = statsData;
 
   return (
-    <Container>
+    <Container service={service}>
       <div className={classNames(service.description ? "-top-10" : "-top-8", "absolute right-1")}>
         <Dropdown options={dateRangeOptions} value={dateRange} setValue={setDateRange} />
       </div>

@@ -17,10 +17,10 @@ export default function Component({ service }) {
 
   if (!statusData) {
     return (
-      <Container>
-        <Block label={t("rutorrent.active")} />
-        <Block label={t("rutorrent.upload")} />
-        <Block label={t("rutorrent.download")} />
+      <Container service={service}>
+        <Block label="rutorrent.active" />
+        <Block label="rutorrent.upload" />
+        <Block label="rutorrent.download" />
       </Container>
     );
   }
@@ -32,10 +32,10 @@ export default function Component({ service }) {
   const active = statusData.filter((torrent) => torrent["d.get_state"] === "1");
 
   return (
-    <Container>
-      <Block label={t("rutorrent.active")} value={active.length} />
-      <Block label={t("rutorrent.upload")} value={t("common.bitrate", { value: upload })} />
-      <Block label={t("rutorrent.download")} value={t("common.bitrate", { value: download })} />
+    <Container service={service}>
+      <Block label="rutorrent.active" value={active.length} />
+      <Block label="rutorrent.upload" value={t("common.bitrate", { value: upload })} />
+      <Block label="rutorrent.download" value={t("common.bitrate", { value: download })} />
     </Container>
   );
 }
