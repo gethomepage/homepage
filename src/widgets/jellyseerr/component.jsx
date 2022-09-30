@@ -17,19 +17,19 @@ export default function Component({ service }) {
 
   if (!statsData) {
     return (
-      <Container>
-        <Block label={t("jellyseerr.pending")} />
-        <Block label={t("jellyseerr.approved")} />
-        <Block label={t("jellyseerr.available")} />
+      <Container service={service}>
+        <Block label="jellyseerr.pending" />
+        <Block label="jellyseerr.approved" />
+        <Block label="jellyseerr.available" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("jellyseerr.pending")} value={statsData.pending} />
-      <Block label={t("jellyseerr.approved")} value={statsData.approved} />
-      <Block label={t("jellyseerr.available")} value={statsData.available} />
+    <Container service={service}>
+      <Block label="jellyseerr.pending" value={statsData.pending} />
+      <Block label="jellyseerr.approved" value={statsData.approved} />
+      <Block label="jellyseerr.available" value={statsData.available} />
     </Container>
   );
 }

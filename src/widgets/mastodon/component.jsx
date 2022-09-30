@@ -17,19 +17,19 @@ export default function Component({ service }) {
 
   if (!statsData) {
     return (
-      <Container>
-        <Block label={t("mastodon.user_count")} />
-        <Block label={t("mastodon.status_count")} />
-        <Block label={t("mastodon.domain_count")} />
+      <Container service={service}>
+        <Block label="mastodon.user_count" />
+        <Block label="mastodon.status_count" />
+        <Block label="mastodon.domain_count" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("mastodon.user_count")} value={t("common.number", { value: statsData.stats.user_count })} />
-      <Block label={t("mastodon.status_count")} value={t("common.number", { value: statsData.stats.status_count })} />
-      <Block label={t("mastodon.domain_count")} value={t("common.number", { value: statsData.stats.domain_count })} />
+    <Container service={service}>
+      <Block label="mastodon.user_count" value={t("common.number", { value: statsData.stats.user_count })} />
+      <Block label="mastodon.status_count" value={t("common.number", { value: statsData.stats.status_count })} />
+      <Block label="mastodon.domain_count" value={t("common.number", { value: statsData.stats.domain_count })} />
     </Container>
   );
 }

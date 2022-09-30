@@ -19,19 +19,19 @@ export default function Component({ service }) {
 
   if (!wantedData || !queuedData || !seriesData) {
     return (
-      <Container>
-        <Block label={t("sonarr.wanted")} />
-        <Block label={t("sonarr.queued")} />
-        <Block label={t("sonarr.series")} />
+      <Container service={service}>
+        <Block label="sonarr.wanted" />
+        <Block label="sonarr.queued" />
+        <Block label="sonarr.series" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("sonarr.wanted")} value={wantedData.totalRecords} />
-      <Block label={t("sonarr.queued")} value={queuedData.totalRecords} />
-      <Block label={t("sonarr.series")} value={seriesData.total} />
+    <Container service={service}>
+      <Block label="sonarr.wanted" value={wantedData.totalRecords} />
+      <Block label="sonarr.queued" value={queuedData.totalRecords} />
+      <Block label="sonarr.series" value={seriesData.total} />
     </Container>
   );
 }

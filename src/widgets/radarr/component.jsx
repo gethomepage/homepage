@@ -18,19 +18,19 @@ export default function Component({ service }) {
 
   if (!moviesData || !queuedData) {
     return (
-      <Container>
-        <Block label={t("radarr.wanted")} />
-        <Block label={t("radarr.queued")} />
-        <Block label={t("radarr.movies")} />
+      <Container service={service}>
+        <Block label="radarr.wanted" />
+        <Block label="radarr.queued" />
+        <Block label="radarr.movies" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("radarr.wanted")} value={moviesData.wanted} />
-      <Block label={t("radarr.queued")} value={queuedData.totalCount} />
-      <Block label={t("radarr.movies")} value={moviesData.have} />
+    <Container service={service}>
+      <Block label="radarr.wanted" value={moviesData.wanted} />
+      <Block label="radarr.queued" value={queuedData.totalCount} />
+      <Block label="radarr.movies" value={moviesData.have} />
     </Container>
   );
 }

@@ -17,19 +17,19 @@ export default function Component({ service }) {
 
   if (!piholeData) {
     return (
-      <Container>
-        <Block label={t("pihole.queries")} />
-        <Block label={t("pihole.blocked")} />
-        <Block label={t("pihole.gravity")} />
+      <Container service={service}>
+        <Block label="pihole.queries" />
+        <Block label="pihole.blocked" />
+        <Block label="pihole.gravity" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("pihole.queries")} value={t("common.number", { value: piholeData.dns_queries_today })} />
-      <Block label={t("pihole.blocked")} value={t("common.number", { value: piholeData.ads_blocked_today })} />
-      <Block label={t("pihole.gravity")} value={t("common.number", { value: piholeData.domains_being_blocked })} />
+    <Container service={service}>
+      <Block label="pihole.queries" value={t("common.number", { value: piholeData.dns_queries_today })} />
+      <Block label="pihole.blocked" value={t("common.number", { value: piholeData.ads_blocked_today })} />
+      <Block label="pihole.gravity" value={t("common.number", { value: piholeData.domains_being_blocked })} />
     </Container>
   );
 }

@@ -19,10 +19,10 @@ export default function Component({ service }) {
 
   if (!containersData) {
     return (
-      <Container>
-        <Block label={t("portainer.running")} />
-        <Block label={t("portainer.stopped")} />
-        <Block label={t("portainer.total")} />
+      <Container service={service}>
+        <Block label="portainer.running" />
+        <Block label="portainer.stopped" />
+        <Block label="portainer.total" />
       </Container>
     );
   }
@@ -36,10 +36,10 @@ export default function Component({ service }) {
   const total = containersData.length;
 
   return (
-    <Container>
-      <Block label={t("portainer.running")} value={running} />
-      <Block label={t("portainer.stopped")} value={stopped} />
-      <Block label={t("portainer.total")} value={total} />
+    <Container service={service}>
+      <Block label="portainer.running" value={running} />
+      <Block label="portainer.stopped" value={stopped} />
+      <Block label="portainer.total" value={total} />
     </Container>
   );
 }

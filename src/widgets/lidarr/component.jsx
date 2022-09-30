@@ -19,19 +19,19 @@ export default function Component({ service }) {
 
   if (!albumsData || !wantedData || !queueData) {
     return (
-      <Container>
-        <Block label={t("lidarr.wanted")} />
-        <Block label={t("lidarr.queued")} />
-        <Block label={t("lidarr.albums")} />
+      <Container service={service}>
+        <Block label="lidarr.wanted" />
+        <Block label="lidarr.queued" />
+        <Block label="lidarr.albums" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("lidarr.wanted")} value={t("common.number", { value: wantedData.totalRecords })} />
-      <Block label={t("lidarr.queued")} value={t("common.number", { value: queueData.totalCount })} />
-      <Block label={t("lidarr.albums")} value={t("common.number", { value: albumsData.have })} />
+    <Container service={service}>
+      <Block label="lidarr.wanted" value={t("common.number", { value: wantedData.totalRecords })} />
+      <Block label="lidarr.queued" value={t("common.number", { value: queueData.totalCount })} />
+      <Block label="lidarr.albums" value={t("common.number", { value: albumsData.have })} />
     </Container>
   );
 }

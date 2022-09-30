@@ -17,11 +17,11 @@ export default function Component({ service }) {
 
   if (!adguardData) {
     return (
-      <Container>
-        <Block label={t("adguard.queries")} />
-        <Block label={t("adguard.blocked")} />
-        <Block label={t("adguard.filtered")} />
-        <Block label={t("adguard.latency")} />
+      <Container service={service}>
+        <Block label="adguard.queries" />
+        <Block label="adguard.blocked" />
+        <Block label="adguard.filtered" />
+        <Block label="adguard.latency" />
       </Container>
     );
   }
@@ -30,12 +30,12 @@ export default function Component({ service }) {
     adguardData.num_replaced_safebrowsing + adguardData.num_replaced_safesearch + adguardData.num_replaced_parental;
 
   return (
-    <Container>
-      <Block label={t("adguard.queries")} value={t("common.number", { value: adguardData.num_dns_queries })} />
-      <Block label={t("adguard.blocked")} value={t("common.number", { value: adguardData.num_blocked_filtering })} />
-      <Block label={t("adguard.filtered")} value={t("common.number", { value: filtered })} />
+    <Container service={service}>
+      <Block label="adguard.queries" value={t("common.number", { value: adguardData.num_dns_queries })} />
+      <Block label="adguard.blocked" value={t("common.number", { value: adguardData.num_blocked_filtering })} />
+      <Block label="adguard.filtered" value={t("common.number", { value: filtered })} />
       <Block
-        label={t("adguard.latency")}
+        label="adguard.latency"
         value={t("common.ms", { value: adguardData.avg_processing_time * 1000, style: "unit", unit: "millisecond" })}
       />
     </Container>
