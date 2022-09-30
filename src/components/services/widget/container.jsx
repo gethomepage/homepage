@@ -14,9 +14,5 @@ export default function Container({ error = false, children, service }) {
     visibleChildren = children.filter(child => fields.some(field => `${type}.${field}` === child.props?.label));
   }
 
-  return (
-    <div className="relative flex flex-row w-full">
-      {visibleChildren}
-    </div>
-  );
+  return <div className="relative flex flex-row w-full">{visibleChildren}</div>;
 }
