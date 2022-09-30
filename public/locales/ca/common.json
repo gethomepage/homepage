@@ -170,8 +170,8 @@
         "transferRate": "Velocitat"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Usuaris",
+        "loginsLast24H": "Inicis de sessió (24h)",
+        "failedLoginsLast24H": "Errors d'inici de sessió (24h)"
     }
 }
