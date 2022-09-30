@@ -38,17 +38,17 @@
         "download": "Bajada"
     },
     "sonarr": {
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "queued": "En cola",
         "series": "Series"
     },
     "radarr": {
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "queued": "En cola",
         "movies": "Películas"
     },
     "readarr": {
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "queued": "En cola",
         "books": "Libros"
     },
@@ -143,7 +143,7 @@
     },
     "lidarr": {
         "queued": "En cola",
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "albums": "Álbumes"
     },
     "adguard": {
@@ -170,8 +170,8 @@
         "transferRate": "Velocidad"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Usuarios",
+        "loginsLast24H": "Accesos (24h)",
+        "failedLoginsLast24H": "Accesos Fallidos (24h)"
     }
 }
