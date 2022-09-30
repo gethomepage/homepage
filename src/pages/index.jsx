@@ -2,6 +2,7 @@
 import useSWR, { SWRConfig } from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import { useEffect, useContext, useState } from "react";
 import { BiError } from "react-icons/bi";
@@ -12,12 +13,12 @@ import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
 import Revalidate from "components/toggles/revalidate";
 import createLogger from "utils/logger";
+import useWindowFocus from "utils/hooks/window-focus";
 import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
-import useWindowFocus from "utils/hooks/window-focus";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -74,7 +75,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Index({ initialSettings, fallback }) {
+function Index({ initialSettings, fallback }) {
   const windowFocused = useWindowFocus();
   const [stale, setStale] = useState(false);
   const { data: errorsData } = useSWR("/api/validate");
@@ -119,7 +120,7 @@ export default function Index({ initialSettings, fallback }) {
 
   if (errorsData && errorsData.length > 0) {
     return (
-      <div className="w-full container m-auto justify-center p-10">
+      <div className="w-full h-screen container m-auto justify-center p-10 pointer-events-none">
         <div className="flex flex-col">
           {errorsData.map((error, i) => (
             <div
@@ -163,10 +164,10 @@ function Home({ initialSettings }) {
   const { data: widgets } = useSWR("/api/widgets");
 
   const wrappedStyle = {};
-  if (settings && settings.background) {
-    wrappedStyle.backgroundImage = `url(${settings.background})`;
+  if (initialSettings && initialSettings.background) {
+    wrappedStyle.backgroundImage = `url(${initialSettings.background})`;
     wrappedStyle.backgroundSize = "cover";
-    wrappedStyle.opacity = settings.backgroundOpacity ?? 1;
+    wrappedStyle.opacity = initialSettings.backgroundOpacity ?? 1;
   }
 
   useEffect(() => {
@@ -186,12 +187,12 @@ function Home({ initialSettings }) {
   return (
     <>
       <Head>
-        <title>{settings.title || "Homepage"}</title>
-        {settings.base && <base href={settings.base} />}
-        {settings.favicon && <link rel="icon" href={settings.favicon} />}
+        <title>{initialSettings.title || "Homepage"}</title>
+        {initialSettings.base && <base href={initialSettings.base} />}
+        {initialSettings.favicon && <link rel="icon" href={initialSettings.favicon} />}
       </Head>
-      <div className="fixed w-full h-full m-0 p-0" style={wrappedStyle} />
-      <div className="relative w-full container m-auto flex flex-col h-screen justify-between">
+      <div className="fixed w-screen h-screen m-0 p-0 z-0 pointer-events-none" style={wrappedStyle} />
+      <div className="relative container m-auto flex flex-col justify-between z-10">
         <div className="flex flex-row flex-wrap m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between">
           {widgets && (
             <>
@@ -215,7 +216,7 @@ function Home({ initialSettings }) {
         {services && (
           <div className="flex flex-wrap p-8 items-start">
             {services.map((group) => (
-              <ServicesGroup key={group.name} services={group} layout={settings.layout?.[group.name]} />
+              <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
             ))}
           </div>
         )}
@@ -229,9 +230,9 @@ function Home({ initialSettings }) {
         )}
 
         <div className="flex p-8 pb-0 w-full justify-end">
-          {!settings?.color && <ColorToggle />}
+          {!initialSettings?.color && <ColorToggle />}
           <Revalidate />
-          {!settings?.theme && <ThemeToggle />}
+          {!initialSettings?.theme && <ThemeToggle />}
         </div>
 
         <div className="flex p-8 pt-4 w-full justify-end">
@@ -239,5 +240,25 @@ function Home({ initialSettings }) {
         </div>
       </div>
     </>
+  );
+}
+
+export default function Wrapper({ initialSettings, fallback }) {
+  return (
+    <div
+      id="page_wrapper"
+      className={classNames(
+        "relative w-full h-full",
+        initialSettings.theme && initialSettings.theme,
+        initialSettings.color && `theme-${initialSettings.color}`
+      )}
+    >
+      <div
+        id="page_container"
+        className="fixed overflow-auto w-full h-full bg-theme-50 dark:bg-theme-800 transition-all"
+      >
+        <Index initialSettings={initialSettings} fallback={fallback} />
+      </div>
+    </div>
   );
 }

@@ -9,33 +9,50 @@
   padding: 0;
 }
 
+html,
 body {
   font-family: Manrope, "Manrope-Fallback", Arial, sans-serif;
+  overflow: hidden;
+}
+
+#page_wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   overflow: overlay;
 }
 
-.light body::-webkit-scrollbar {
+.light #page_container {
+  scrollbar-color: rgb(var(--color-300)) rgb(var(--color-200));
+}
+
+.dark #page_container {
+  scrollbar-color: rgb(var(--color-600)) rgb(var(--color-700));
+}
+
+.light ::-webkit-scrollbar {
   width: 0.75em;
 }
 
-.light body::-webkit-scrollbar-track {
+.light ::-webkit-scrollbar-track {
   background-color: rgb(var(--color-200));
 }
 
-.light body::-webkit-scrollbar-thumb {
+.light ::-webkit-scrollbar-thumb {
   background-color: rgb(var(--color-300));
   border-radius: 0.25em;
 }
 
-.dark body::-webkit-scrollbar {
+.dark ::-webkit-scrollbar {
   width: 0.75em;
 }
 
-.dark body::-webkit-scrollbar-track {
+.dark ::-webkit-scrollbar-track {
   background-color: rgb(var(--color-700));
 }
 
-.dark body::-webkit-scrollbar-thumb {
+.dark ::-webkit-scrollbar-thumb {
   background-color: rgb(var(--color-600));
   border-radius: 0.25em;
 }
