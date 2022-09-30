@@ -163,13 +163,6 @@ function Home({ initialSettings }) {
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
-  const wrappedStyle = {};
-  if (initialSettings && initialSettings.background) {
-    wrappedStyle.backgroundImage = `url(${initialSettings.background})`;
-    wrappedStyle.backgroundSize = "cover";
-    wrappedStyle.opacity = initialSettings.backgroundOpacity ?? 1;
-  }
-
   useEffect(() => {
     if (settings.language) {
       i18n.changeLanguage(settings.language);
@@ -191,7 +184,6 @@ function Home({ initialSettings }) {
         {initialSettings.base && <base href={initialSettings.base} />}
         {initialSettings.favicon && <link rel="icon" href={initialSettings.favicon} />}
       </Head>
-      <div className="fixed w-screen h-screen m-0 p-0 z-0 pointer-events-none" style={wrappedStyle} />
       <div className="relative container m-auto flex flex-col justify-between z-10">
         <div className="flex flex-row flex-wrap m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between">
           {widgets && (
@@ -244,11 +236,27 @@ function Home({ initialSettings }) {
 }
 
 export default function Wrapper({ initialSettings, fallback }) {
+  const wrappedStyle = {};
+  if (initialSettings && initialSettings.background) {
+    // wrappedStyle.backgroundImage = `url(${initialSettings.background})`;
+    // wrappedStyle.backgroundSize = "cover";
+    const opacity = initialSettings.backgroundOpacity ?? 1;
+    const opacityValue = 1 - opacity;
+    wrappedStyle.backgroundImage = `
+      linear-gradient(
+        rgb(var(--bg-color) / ${opacityValue}),
+        rgb(var(--bg-color) / ${opacityValue})
+      ),
+      url(${initialSettings.background})`;
+    wrappedStyle.backgroundPosition = "center";
+    wrappedStyle.backgroundSize = "cover";
+  }
+
   return (
     <div
       id="page_wrapper"
       className={classNames(
-        "relative w-full h-full",
+        "relative",
         initialSettings.theme && initialSettings.theme,
         initialSettings.color && `theme-${initialSettings.color}`
       )}
@@ -256,6 +264,7 @@ export default function Wrapper({ initialSettings, fallback }) {
       <div
         id="page_container"
         className="fixed overflow-auto w-full h-full bg-theme-50 dark:bg-theme-800 transition-all"
+        style={wrappedStyle}
       >
         <Index initialSettings={initialSettings} fallback={fallback} />
       </div>
