@@ -14,10 +14,10 @@
         "load": "Carga"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
+        "rx": "RECIBIDO",
+        "tx": "TRANSMITIDO",
+        "mem": "MEMORIA",
+        "cpu": "PROCESADOR",
         "offline": "Desconectado"
     },
     "emby": {
