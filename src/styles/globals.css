@@ -13,6 +13,9 @@ html,
 body {
   font-family: Manrope, "Manrope-Fallback", Arial, sans-serif;
   overflow: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #page_wrapper {
