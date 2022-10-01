@@ -1,12 +1,19 @@
 <p align="center">
-  <br>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="images/homepage-dark.png">
     <img src="images/homepage-light.png" width="65%">
   </picture>
-  <br><br>
+</p>
+
+<p align="center">
+  A modern <em>(fully static, fast)</em>, secure (fully proxied), highly customizable application dashboard with integrations for more than 25 services and s for 15 languages. Easily configured via YAML files (or discovery via docker labels).
+</p>
+
+<p align="center">
   <img src="images/1.png" />
-  <br>
+</p>
+
+<p align="center">
   <img src="images/2.png" width="19%" />
   <img src="images/3.png" width="19%" />
   <img src="images/4.png" width="19%" />
@@ -20,17 +27,18 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml"><img src="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg" alt="Docker"></a>
-<a href="https://hosted.weblate.org/engage/homepage/"><img src="https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg" alt="Weblate"></a>
+  <a href="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml"><img src="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml/badge.svg" alt="Docker"></a>
+  <a href="https://hosted.weblate.org/engage/homepage/"><img src="https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg" alt="Weblate"></a>
 </p>
 
 ## Features
 
-- Fast! The entire site is statically generated at build time, so you can expect instant load times
+- **Fast!** The entire site is statically generated at build time, so you can expect instant load times
+- **Secure!** Every API request to backend services goes through a proxy server, so your API keys are never exposed to the frontend client.
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - Translations for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Russian, Spanish and Swedish
+  - s for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romainian, Russian, Spanish, Swedish and Yue
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
@@ -39,17 +47,17 @@
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
   - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
-  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server
+  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentic
 - Information Providers
   - Coin Market Cap, Mastodon
 - Information & Utility Widgets
   - System Stats (Disk, CPU, Memory)
   - Weather via WeatherAPI.com or OpenWeatherMap
-    - Automatic location detection (with HTTPS), or manual location selection
   - Search Bar
 - Customizable
   - 21 theme colors with light and dark mode support
   - Background image support
+  - Column and Row layout options
 
 ## Support & Suggestions
 
@@ -140,26 +148,41 @@ Huge thanks to the all the contributors who have helped make this project what i
 
 - [aidenpwnz](https://github.com/benphelps/homepage/commits?author=aidenpwnz) - Nginx Proxy Manager, Search Bar Widget
 - [AlexFullmoon](https://github.com/benphelps/homepage/commits?author=AlexFullmoon) - OpenWeatherMap Widget
-- [AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves) - Spanish Translation
 - [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
-- [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German Translation
-- [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål Translation
-- Daniel Varga - German & Hungarian Translation
-- [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch Translation
-- [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian Translation
 - [DevPGSV](https://github.com/benphelps/homepage/commits?author=DevPGSV) - Syncthing Relay Server & Mastodon widgets
 - [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
 - [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
-- [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese Translation
-- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd, Transmission & qBittorrent Integrations
-- [juanmanuelbc](https://github.com/benphelps/homepage/commits?author=juanmanuelbc) - Spanish and Catalan Translations
+- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd, Transmission, qBittorrent Integrations & countless more improvements
+- [josways](https://github.com/benphelps/homepage/commits?author=josways) - Baidu search provider
+- [mauricio-kalil](https://github.com/benphelps/homepage/commits?author=mauricio-kalil) - Portuguese (Brazil)
 - [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
-- [nicedc](https://github.com/benphelps/homepage/commits?author=nicedc) - Chinese Translation
-- [Nonoss117](https://github.com/benphelps/homepage/commits?author=Nonoss117) - French Translation
-- [pacoculebras](https://github.com/benphelps/homepage/commits?author=pacoculebras) - Catalan Translation
-- [psychodracon](https://github.com/benphelps/homepage/commits?author=psychodracon) - Polish Translation
 - [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
 - [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
-- [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew Translation
-- [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish Translation
 - [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
+
+### Translators
+
+- [3vilson](https://github.com/benphelps/homepage/commits?author=3vilson) - German
+- [4lenz1](https://github.com/benphelps/homepage/commits?author=4lenz1) - Chinese
+- [AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves) - Spanish
+- [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German
+- [brunoccr](https://github.com/benphelps/homepage/commits?author=brunoccr) - Portuguese (Brazil)
+- [C8opmBM](https://github.com/benphelps/homepage/commits?author=C8opmBM) - Romainian
+- [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål
+- Daniel Varga - German & Hungarian
+- [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch
+- [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian
+- [ericlokz](https://github.com/benphelps/homepage/commits?author=ericlokz) - Yue
+- [FunsKiTo](https://github.com/benphelps/homepage/commits?author=FunsKiTo) - Spanish
+- [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese
+- [juanmanuelbc](https://github.com/benphelps/homepage/commits?author=juanmanuelbc) - Spanish and Catalan
+- [ling0412](https://github.com/benphelps/homepage/commits?author=ling0412) - Chinese
+- [milotype](https://github.com/benphelps/homepage/commits?author=milotype) - Croatian
+- [nicedc](https://github.com/benphelps/homepage/commits?author=nicedc) - Chinese
+- [Nonoss117](https://github.com/benphelps/homepage/commits?author=Nonoss117) - French
+- [pacoculebras](https://github.com/benphelps/homepage/commits?author=pacoculebras) - Catalan
+- [Prilann](https://github.com/benphelps/homepage/commits?author=Prilann) - German
+- [psychodracon](https://github.com/benphelps/homepage/commits?author=psychodracon) - Polish
+- Sascha Jelinek - German
+- [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew
+- [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish
