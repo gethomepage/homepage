@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  A modern <em>(fully static, fast)</em>, secure <em>(fully proxied)</em>, highly customizable application dashboard with integrations for more than 25 services and s for 15 languages. Easily configured via YAML files (or discovery via docker labels).
+  A modern <em>(fully static, fast)</em>, secure <em>(fully proxied)</em>, highly customizable application dashboard with integrations for more than 25 services and translations for 15 languages. Easily configured via YAML files (or discovery via docker labels).
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - s for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romainian, Russian, Spanish, Swedish and Yue
+  - Translantions for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romainian, Russian, Spanish, Swedish and Yue
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
