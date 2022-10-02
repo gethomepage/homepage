@@ -14,9 +14,9 @@
         "load": "Carga"
     },
     "docker": {
-        "rx": "RECIBIDO",
-        "tx": "TRANSMITIDO",
-        "mem": "MEMORIA",
+        "rx": "Recibido",
+        "tx": "Transmitido",
+        "mem": "Memoria",
         "cpu": "PROCESADOR",
         "offline": "Desconectado"
     },
