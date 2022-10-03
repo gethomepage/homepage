@@ -13,7 +13,7 @@ export default function Component({ service }) {
   const { data: moviesData, error: moviesError } = useWidgetAPI(widget, "movies");
 
   if (episodesError || moviesError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error="widget.api_error" />;
   }
 
   if (!episodesData || !moviesData) {
