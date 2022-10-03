@@ -30,7 +30,7 @@ export default function Cpu({ expanded }) {
         <div className="flex flex-col ml-3 text-left min-w-[85px]">
           <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
             <div className="pl-0.5">-</div>
-            <div className="pr-1">{t("docker.cpu")}</div>
+            <div className="pr-1">{t("resources.cpu")}</div>
           </div>
           {expanded && (
             <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
@@ -59,7 +59,7 @@ export default function Cpu({ expanded }) {
               maximumFractionDigits: 0,
             })}
           </div>
-          <div className="pr-1">{t("docker.cpu")}</div>
+          <div className="pr-1">{t("resources.cpu")}</div>
         </div>
         {expanded && (
           <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
