@@ -10,7 +10,7 @@ import { SettingsContext } from "utils/contexts/settings";
 
 function resolveIcon(icon) {
   if (icon.startsWith("http")) {
-    return `/api/proxy?url=${encodeURIComponent(icon)}`;
+    return icon;
   }
 
   if (icon.startsWith("/")) {
