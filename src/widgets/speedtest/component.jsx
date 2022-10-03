@@ -11,7 +11,7 @@ export default function Component({ service }) {
 
   const { data: speedtestData, error: speedtestError } = useWidgetAPI(widget, "speedtest/latest");
 
-  if (speedtestError) {
+  if (speedtestError || (speedtestData && !speedtestData.data)) {
     return <Container error={t("widget.api_error")} />;
   }
 
@@ -31,10 +31,7 @@ export default function Component({ service }) {
         label="speedtest.download"
         value={t("common.bitrate", { value: speedtestData.data.download * 1024 * 1024 })}
       />
-      <Block
-        label="speedtest.upload"
-        value={t("common.bitrate", { value: speedtestData.data.upload * 1024 * 1024 })}
-      />
+      <Block label="speedtest.upload" value={t("common.bitrate", { value: speedtestData.data.upload * 1024 * 1024 })} />
       <Block
         label="speedtest.ping"
         value={t("common.ms", {
