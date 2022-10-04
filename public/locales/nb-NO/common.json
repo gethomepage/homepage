@@ -11,7 +11,8 @@
         "total": "Totalt",
         "free": "Ledig",
         "used": "Brukt",
-        "load": "Last inn"
+        "load": "Last inn",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "Mottatt",
