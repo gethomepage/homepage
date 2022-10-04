@@ -1,1 +1,178 @@
-{}
+{
+    "widget": {
+        "missing_type": "Missing Widget Type: {{type}}",
+        "api_error": "API Error",
+        "status": "Status"
+    },
+    "weather": {
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
+    },
+    "search": {
+        "placeholder": "Search…"
+    },
+    "resources": {
+        "cpu": "CPU",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "load": "Load"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "offline": "Offline"
+    },
+    "emby": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
+    },
+    "tautulli": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "transmission": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qbittorrent": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "sonarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
+    },
+    "radarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "movies": "Movies"
+    },
+    "lidarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "albums": "Albums"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
+    },
+    "ombi": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
+    "jellyseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
+    "pihole": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "gravity": "Gravity"
+    },
+    "adguard": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
+    },
+    "speedtest": {
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
+    },
+    "portainer": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "total": "Total"
+    },
+    "traefik": {
+        "routers": "Routers",
+        "services": "Services",
+        "middleware": "Middleware"
+    },
+    "npm": {
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Total"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
+    }
+}
