@@ -11,7 +11,8 @@
         "total": "Всего",
         "free": "Свободно",
         "used": "Использовано",
-        "load": "Load"
+        "load": "Load",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "Rx",
