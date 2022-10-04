@@ -12,7 +12,8 @@
         "used": "Użyte",
         "load": "Obciążenie",
         "total": "Całkowite",
-        "free": "Wolne"
+        "free": "Wolne",
+        "cpu": "CPU"
     },
     "emby": {
         "no_active": "Brak aktywnych strumieni",
