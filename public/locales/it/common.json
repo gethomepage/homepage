@@ -45,7 +45,8 @@
         "total": "Totale",
         "free": "Libero",
         "used": "In utilizzo",
-        "load": "Load"
+        "load": "Load",
+        "cpu": "CPU"
     },
     "rutorrent": {
         "active": "Attivo",
