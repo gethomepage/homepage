@@ -1,178 +1,178 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Puuttuva härpäkkeen tyyppi: {{type}}",
+        "api_error": "API-virhe",
+        "status": "Tila"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Nykyinen sijainti",
+        "allow": "Klikkaa salliaksesi",
+        "updating": "Päivitetään",
+        "wait": "Odota, ole hyvä"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Hae…"
     },
     "resources": {
         "cpu": "CPU",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "total": "Yhteensä",
+        "free": "Vapaana",
+        "used": "Käytetty",
+        "load": "Kuorma"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "offline": "Offline"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Toistaa",
+        "transcoding": "Transkoodaa",
+        "bitrate": "Bittinopeus",
+        "no_active": "Ei aktiivisia striimejä"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Toistaa",
+        "transcoding": "Transkoodaa",
+        "bitrate": "Bittinopeus",
+        "no_active": "Ei aktiivisia striimejä"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Nopeus",
+        "remaining": "Jäljellä",
+        "downloaded": "Ladattu"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Nopeus",
+        "queue": "Jono",
+        "timeleft": "Aikaa jäljellä"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktiivinen",
+        "upload": "Lähetys",
+        "download": "Lataus"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Lataus",
+        "upload": "Lähetys",
+        "leech": "Lataajia",
+        "seed": "Lähettäjiä"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Lataus",
+        "upload": "Lähetys",
+        "leech": "Lataajia",
+        "seed": "Lähettäjiä"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Haluttu",
+        "queued": "Jonossa",
+        "series": "Sarja"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Haluttu",
+        "queued": "Jonossa",
+        "movies": "Elokuvia"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Haluttu",
+        "queued": "Jonossa",
+        "albums": "Albumeja"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Haluttu",
+        "queued": "Jonossa",
+        "books": "Kirjoja"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Puuttuvia jaksoja",
+        "missingMovies": "Puuttuvia elokuvia"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Vireillä",
+        "approved": "Hyväksytty",
+        "available": "Saatavilla"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Vireillä",
+        "approved": "Hyväksytty",
+        "available": "Saatavilla"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Vireillä",
+        "approved": "Hyväksytty",
+        "available": "Saatavilla"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Kyselyjä",
+        "blocked": "Estetty",
+        "gravity": "Vakavuus"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Kyselyjä",
+        "blocked": "Estetty",
+        "filtered": "Suodatettu",
+        "latency": "Viive"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "Lähetys",
+        "download": "Lataus",
+        "ping": "Viive"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Käynnissä",
+        "stopped": "Pysäytetty",
+        "total": "Yhteensä"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Reitittimiä",
+        "services": "Palveluja",
+        "middleware": "Middlewareja"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Käytössä",
+        "disabled": "Poissa käytöstä",
+        "total": "Yhteensä"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Määritä yksi tai useampi kryptovaluutta seurattavaksi",
+        "1hour": "1 tunti",
+        "1day": "1 päivä",
+        "7days": "7 päivää",
+        "30days": "30 päivää"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Sovelluksia",
+        "clients": "Asiakasohjelmia",
+        "messages": "Viestejä"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indeksoijia",
+        "numberOfGrabs": "Nappauksia",
+        "numberOfQueries": "Hakuja",
+        "numberOfFailGrabs": "Epäonnistuneita nappauksia",
+        "numberOfFailQueries": "Epäonnistuneita kyselyjä"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Määritettyjä",
+        "errored": "Virheellisiä"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Istuntoja",
+        "numConnections": "Yhteyksiä",
+        "dataRelayed": "Välitetty",
+        "transferRate": "Nopeus"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Käyttäjiä",
+        "status_count": "Kirjoituksia",
+        "domain_count": "Verkkotunnuksia"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Käyttäjiä",
+        "loginsLast24H": "Kirjautumisia (24h)",
+        "failedLoginsLast24H": "Epäonnistuneita kirjautumisia (24h)"
     }
 }
