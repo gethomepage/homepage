@@ -12,7 +12,8 @@
         "total": "Ukupno",
         "free": "Slobodno",
         "used": "Korišteno",
-        "load": "Opterećenje"
+        "load": "Opterećenje",
+        "cpu": "CPU"
     },
     "sabnzbd": {
         "rate": "Stopa",
