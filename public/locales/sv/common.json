@@ -14,7 +14,8 @@
         "load": "Laddar",
         "total": "Total",
         "free": "Ledigt",
-        "used": "Använt"
+        "used": "Använt",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "RX",
