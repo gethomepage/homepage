@@ -3,7 +3,8 @@
         "total": "Összes",
         "free": "Szabad",
         "used": "Használt",
-        "load": "Terhelés"
+        "load": "Terhelés",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "RX",
