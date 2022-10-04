@@ -41,7 +41,8 @@
         "total": "Total",
         "free": "Free",
         "used": "Used",
-        "load": "Load"
+        "load": "Load",
+        "cpu": "CPU"
     },
     "nzbget": {
         "rate": "Rate",
