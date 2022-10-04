@@ -35,7 +35,8 @@
         "total": "全部",
         "free": "剩餘",
         "used": "用咗",
-        "load": "負荷"
+        "load": "負荷",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "接收",
