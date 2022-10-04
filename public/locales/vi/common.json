@@ -11,7 +11,8 @@
         "total": "Tổng",
         "free": "Dư",
         "used": "Đã dùng",
-        "load": "Load"
+        "load": "Load",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "RX",
