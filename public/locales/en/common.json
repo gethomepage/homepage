@@ -25,6 +25,7 @@
         "placeholder": "Search…"
     },
     "resources": {
+        "cpu": "CPU",
         "total": "Total",
         "free": "Free",
         "used": "Used",
