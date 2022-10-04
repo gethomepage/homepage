@@ -18,7 +18,7 @@
         "rx": "Recibido",
         "tx": "Transmitido",
         "mem": "Memoria",
-        "cpu": "CPU",
+        "cpu": "Procesador",
         "offline": "Desconectado"
     },
     "emby": {
