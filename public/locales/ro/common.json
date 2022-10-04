@@ -3,7 +3,8 @@
         "used": "Utilizați",
         "load": "Sarcină",
         "total": "Total",
-        "free": "Disponibili"
+        "free": "Disponibili",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "RX",
