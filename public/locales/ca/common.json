@@ -33,7 +33,8 @@
         "total": "Total",
         "free": "Lliure",
         "used": "Usat",
-        "load": "Càrrega"
+        "load": "Càrrega",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "RX",
