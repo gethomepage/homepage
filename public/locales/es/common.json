@@ -11,7 +11,8 @@
         "total": "Total",
         "free": "Libre",
         "used": "Usado",
-        "load": "Carga"
+        "load": "Carga",
+        "cpu": "CPU"
     },
     "docker": {
         "rx": "Recibido",
