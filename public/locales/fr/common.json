@@ -176,9 +176,9 @@
         "failedLoginsLast24H": "Cnx. échouées (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
-        "lxc": "LXC",
+        "mem": "Mém",
+        "cpu": "Cpu",
+        "lxc": "LxC",
         "vms": "VMs"
     }
 }
