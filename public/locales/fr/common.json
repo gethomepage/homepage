@@ -174,5 +174,11 @@
         "users": "Utilisateurs",
         "loginsLast24H": "Cnx. (24h)",
         "failedLoginsLast24H": "Cnx. échouées (24h)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
     }
 }
