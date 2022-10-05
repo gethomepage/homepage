@@ -174,5 +174,11 @@
         "users": "Utilizatori",
         "loginsLast24H": "Autentificări (24h)",
         "failedLoginsLast24H": "Conectări eșuate (24h)"
+    },
+    "proxmox": {
+        "vms": "VMs",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC"
     }
 }
