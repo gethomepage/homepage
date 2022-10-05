@@ -174,5 +174,11 @@
         "users": "Benutzer",
         "loginsLast24H": "Anmeldungen (24h)",
         "failedLoginsLast24H": "fehlerhafte Anmeldungen (24h)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
     }
 }
