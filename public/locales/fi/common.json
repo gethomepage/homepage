@@ -174,5 +174,11 @@
         "users": "Käyttäjiä",
         "loginsLast24H": "Kirjautumisia (24h)",
         "failedLoginsLast24H": "Epäonnistuneita kirjautumisia (24h)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
     }
 }
