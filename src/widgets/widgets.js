@@ -15,6 +15,7 @@ import overseerr from "./overseerr/widget";
 import pihole from "./pihole/widget";
 import portainer from "./portainer/widget";
 import prowlarr from "./prowlarr/widget";
+import proxmox from "./proxmox/widget";
 import qbittorrent from "./qbittorrent/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
@@ -46,6 +47,7 @@ const widgets = {
   pihole,
   portainer,
   prowlarr,
+  proxmox,
   qbittorrent,
   radarr,
   readarr,
