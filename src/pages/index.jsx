@@ -8,7 +8,6 @@ import { useEffect, useContext, useState } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import ErrorBoundary from "components/errorboundry";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
@@ -20,6 +19,7 @@ import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
+import ErrorBoundary from "components/errorboundry";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -145,7 +145,9 @@ function Index({ initialSettings, fallback }) {
 
   return (
     <SWRConfig value={{ fallback, fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()) }}>
-      <Home initialSettings={initialSettings} />
+      <ErrorBoundary>
+        <Home initialSettings={initialSettings} />
+      </ErrorBoundary>
     </SWRConfig>
   );
 }
@@ -192,14 +194,14 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <ErrorBoundary key={i}><Widget key={i} widget={widget} /></ErrorBoundary>
+                  <Widget key={i} widget={widget} />
                 ))}
 
               <div className="ml-4 flex flex-wrap basis-full grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <ErrorBoundary key={i}><Widget key={i} widget={widget} /></ErrorBoundary>
+                    <Widget key={i} widget={widget} />
                   ))}
               </div>
             </>
@@ -209,7 +211,7 @@ function Home({ initialSettings }) {
         {services && (
           <div className="flex flex-wrap p-8 items-start">
             {services.map((group) => (
-              <ErrorBoundary key={group.name}><ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} /></ErrorBoundary>
+              <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
             ))}
           </div>
         )}
@@ -217,7 +219,7 @@ function Home({ initialSettings }) {
         {bookmarks && (
           <div className="grow flex flex-wrap pt-0 p-8">
             {bookmarks.map((group) => (
-              <ErrorBoundary key={group.name}><BookmarksGroup key={group.name} group={group} /></ErrorBoundary>
+              <BookmarksGroup key={group.name} group={group} />
             ))}
           </div>
         )}

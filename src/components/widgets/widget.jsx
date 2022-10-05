@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 
+import ErrorBoundary from "components/errorboundry";
+
 const widgetMappings = {
   weatherapi: dynamic(() => import("components/widgets/weather/weather")),
   openweathermap: dynamic(() => import("components/widgets/openweathermap/weather")),
@@ -13,7 +15,11 @@ export default function Widget({ widget }) {
   const InfoWidget = widgetMappings[widget.type];
 
   if (InfoWidget) {
-    return <InfoWidget options={widget.options} />;
+    return (
+      <ErrorBoundary>
+        <InfoWidget options={widget.options} />
+      </ErrorBoundary>
+    );
   }
 
   return (

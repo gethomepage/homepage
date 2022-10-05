@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -10,8 +10,8 @@ export default class ErrorBoundary extends React.Component {
     // Catch errors in any components below and re-render with error message
     this.setState({
       error,
-      errorInfo
-    })
+      errorInfo,
+    });
 
     // You can also log error messages to an error reporting service here
     // eslint-disable-next-line no-console
@@ -23,11 +23,10 @@ export default class ErrorBoundary extends React.Component {
     if (errorInfo) {
       // Error path
       return (
-        <div>
-          <h2>Something went wrong.</h2>
-          <details style={{ whiteSpace: 'pre-wrap' }}>
-            {error && error.toString()}
-            <br />
+        <div className="inline-block text-sm bg-rose-100 text-rose-900 dark:bg-rose-900 dark:text-rose-100 rounded-md p-2 m-1">
+          <div className="font-medium mb-1">Something went wrong.</div>
+          <details className="text-xs font-mono whitespace-pre">
+            <summary>{error && error.toString()}</summary>
             {errorInfo.componentStack}
           </details>
         </div>

@@ -1,6 +1,5 @@
 import classNames from "classnames";
 
-import ErrorBoundary from "components/errorboundry";
 import Item from "components/services/item";
 
 const columnMap = [
@@ -24,7 +23,7 @@ export default function List({ services, layout }) {
       )}
     >
       {services.map((service) => (
-        <ErrorBoundary key={service.name}><Item key={service.name} service={service} /></ErrorBoundary>
+        <Item key={service.name} service={service} />
       ))}
     </ul>
   );
