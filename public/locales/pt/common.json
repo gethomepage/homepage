@@ -185,5 +185,11 @@
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)",
         "users": "Users"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
     }
 }
