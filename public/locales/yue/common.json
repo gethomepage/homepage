@@ -174,5 +174,11 @@
         "users": "用戶",
         "loginsLast24H": "登錄（ 24小时）",
         "failedLoginsLast24H": "登錄失敗（ 24鐘頭）"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
     }
 }
