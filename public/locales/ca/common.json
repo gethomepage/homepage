@@ -174,5 +174,11 @@
         "users": "Usuaris",
         "loginsLast24H": "Inicis de sessió (24h)",
         "failedLoginsLast24H": "Errors d'inici de sessió (24h)"
+    },
+    "proxmox": {
+        "vms": "VMs",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC"
     }
 }
