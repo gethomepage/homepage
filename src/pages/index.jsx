@@ -8,6 +8,7 @@ import { useEffect, useContext, useState } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+import ErrorBoundary from "components/errorboundry";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
@@ -191,14 +192,14 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <Widget key={i} widget={widget} />
+                  <ErrorBoundary key={i}><Widget key={i} widget={widget} /></ErrorBoundary>
                 ))}
 
               <div className="ml-4 flex flex-wrap basis-full grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} />
+                    <ErrorBoundary key={i}><Widget key={i} widget={widget} /></ErrorBoundary>
                   ))}
               </div>
             </>
@@ -208,7 +209,7 @@ function Home({ initialSettings }) {
         {services && (
           <div className="flex flex-wrap p-8 items-start">
             {services.map((group) => (
-              <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
+              <ErrorBoundary key={group.name}><ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} /></ErrorBoundary>
             ))}
           </div>
         )}
@@ -216,7 +217,7 @@ function Home({ initialSettings }) {
         {bookmarks && (
           <div className="grow flex flex-wrap pt-0 p-8">
             {bookmarks.map((group) => (
-              <BookmarksGroup key={group.name} group={group} />
+              <ErrorBoundary key={group.name}><BookmarksGroup key={group.name} group={group} /></ErrorBoundary>
             ))}
           </div>
         )}

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 
+import ErrorBoundary from "components/errorboundry";
 import List from "components/services/list";
 
 export default function ServicesGroup({ services, layout }) {
@@ -12,7 +13,7 @@ export default function ServicesGroup({ services, layout }) {
       )}
     >
       <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium">{services.name}</h2>
-      <List services={services.services} layout={layout} />
+      <ErrorBoundary><List services={services.services} layout={layout} /></ErrorBoundary>
     </div>
   );
 }
