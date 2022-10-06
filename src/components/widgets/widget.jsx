@@ -9,6 +9,7 @@ const widgetMappings = {
   search: dynamic(() => import("components/widgets/search/search")),
   greeting: dynamic(() => import("components/widgets/greeting/greeting")),
   datetime: dynamic(() => import("components/widgets/datetime/datetime")),
+  unifi_console: dynamic(() => import("components/widgets/unifi_console/unifi_console")),
 };
 
 export default function Widget({ widget }) {

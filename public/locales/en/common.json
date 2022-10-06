@@ -31,6 +31,13 @@
         "used": "Used",
         "load": "Load"
     },
+    "unifi": {
+        "users": "Users",
+        "status": "Status",
+        "days": "Days",
+        "wan": "WAN",
+        "wait": "Please wait"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
