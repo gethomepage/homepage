@@ -52,7 +52,7 @@ export default function Widget({ options }) {
           </div>
         </div>
         <div className="flex flex-row ml-3 text-[10px] justify-between">
-          <div className="flex flex-row">
+          <div className="flex flex-row" title={t("unifi.uptime")}>
             <div className="pr-0.5 text-theme-800 dark:text-theme-200">
               {t("common.number", {
                 value: data.uptime / 86400,

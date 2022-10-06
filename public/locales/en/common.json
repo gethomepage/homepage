@@ -33,7 +33,7 @@
     },
     "unifi": {
         "users": "Users",
-        "status": "Status",
+        "uptime": "System Uptime",
         "days": "Days",
         "wan": "WAN",
         "wait": "Please wait"
