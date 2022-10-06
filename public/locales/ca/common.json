@@ -177,8 +177,8 @@
     },
     "proxmox": {
         "vms": "VMs",
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Memòria",
+        "cpu": "Processador",
         "lxc": "LXC"
     }
 }
