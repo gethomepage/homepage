@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { BiError, BiWifi, BiCheckCircle } from "react-icons/bi";
+import { BiError, BiWifi, BiCheckCircle, BiXCircle } from "react-icons/bi";
 import { MdSettingsEthernet } from "react-icons/md";
 import { useTranslation } from "next-i18next";
 import { SiUbiquiti } from "react-icons/si";
@@ -63,7 +63,10 @@ export default function Widget({ options }) {
           </div>
           <div className="flex flex-row">
             <div className="pr-1 text-theme-800 dark:text-theme-200">{t("unifi.wan")}</div>
-            <BiCheckCircle className="text-theme-800 dark:text-theme-200 h-4 w-3" />
+            { data.up
+              ? <BiCheckCircle className="text-theme-800 dark:text-theme-200 h-4 w-3" />
+              : <BiXCircle className="text-theme-800 dark:text-theme-200 h-4 w-3" />
+            }
           </div>
         </div>
       </div>
