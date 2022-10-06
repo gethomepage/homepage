@@ -176,8 +176,8 @@
         "failedLoginsLast24H": "Inicios de sesión fallidos (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Memoria",
+        "cpu": "Procesador",
         "lxc": "LXC",
         "vms": "VMs"
     }
