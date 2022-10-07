@@ -176,9 +176,9 @@
         "failedLoginsLast24H": "Epäonnistuneita kirjautumisia (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "VKt"
     }
 }
