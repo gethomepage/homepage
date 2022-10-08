@@ -153,6 +153,13 @@ function Index({ initialSettings, fallback }) {
   );
 }
 
+const headerStyles = {
+  boxed:
+    "m-4 mb-0 sm:m-8 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+  underlined: "m-4 mb-0 sm:m-8 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
+  clean: "m-4 mb-0 sm:m-8 sm:mb-0",
+};
+
 function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
@@ -198,7 +205,12 @@ function Home({ initialSettings }) {
         <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
       <div className="relative container m-auto flex flex-col justify-between z-10">
-        <div className="flex flex-row flex-wrap m-4 mb-0 sm:m-8 sm:mb-0 pb-6  border-b-2 border-theme-800 dark:border-theme-400 justify-between">
+        <div
+          className={classNames(
+            "flex flex-row flex-wrap  justify-between",
+            headerStyles[initialSettings.headerStyle || "underlined"]
+          )}
+        >
           {widgets && (
             <>
               {widgets
@@ -219,7 +231,7 @@ function Home({ initialSettings }) {
         </div>
 
         {services && (
-          <div className="flex flex-wrap p-4 sm:p-8 items-start pb-2">
+          <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
             {services.map((group) => (
               <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
             ))}
