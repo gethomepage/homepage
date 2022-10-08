@@ -38,17 +38,22 @@ async function getWidget(req) {
 }
 
 async function login(widget) {
-  logger.debug("Unifi isn't logged in or is rejecting the reqeust, logging in.");
+  let endpoint = widget.udmp ? "auth/login" : "login";
+  widget.prefix = ""; // never use prefix for login
+  const api = widgets?.[widget.type]?.api;
+  const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
 
   const loginBody = { username: widget.username, password: widget.password, remember: true };
-  let loginUrl = `${widget.url}/api`;
-  if (widget.version === "udm-pro") {
-    loginUrl += "/auth"
-  }
-  loginUrl += "/login";
 
-  const loginParams = { method: "POST", body: JSON.stringify(loginBody) };
-  const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, loginParams);
+  const headers = {
+    "Content-Type": "application/json"
+  };
+
+  const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
+    method: "POST",
+    body: JSON.stringify(loginBody),
+    headers 
+  });
   return [status, contentType, data, responseHeaders];
 }
 
@@ -62,9 +67,22 @@ export default async function unifiProxyHandler(req, res) {
   if (!api) {
     return res.status(403).json({ error: "Service does not support API calls" });
   }
+  
+  // determine if udm-pro from base url
+  let [status, contentType, data, responseHeaders] = await httpProxy(`https://${widget.host}`);
+  if (responseHeaders['x-csrf-token']) {
+    widget.udmp = true
+  }
 
-  widget.prefx = "";
-  if (widget.version === "udm-pro") {
+  if (!widget.port) {
+    widget.port = 8443;
+    if (widget.udmp) {
+      widget.port = 443
+    }
+  }
+
+  widget.prefix = "";
+  if (widget.udmp) {
     widget.prefix = "/proxy/network"
   }
 
@@ -73,29 +91,32 @@ export default async function unifiProxyHandler(req, res) {
   const params = { method: "GET", headers: {} };
   setCookieHeader(url, params);
 
-  let [status, contentType, data, responseHeaders] = await httpProxy(url, params);
+  [status, contentType, data, responseHeaders] = await httpProxy(url, params);
   if (status === 401) {
+    logger.debug("Unifi isn't logged in or rejected the reqeust, attempting login.");  
     [status, contentType, data, responseHeaders] = await login(widget);
 
     if (status !== 200) {
-      logger.error("HTTP %d logging in to Unifi.  Data: %s", status, data);
+      logger.error("HTTP %d logging in to Unifi. Data: %s", status, data);
       return res.status(status).end(data);
     }
 
     const json = JSON.parse(data.toString());
-    if (json?.meta?.rc !== "ok") {
+    if (!(json?.meta?.rc === "ok" || json.login_time)) {
       logger.error("Error logging in to Unifi: Data: %s", data);
       return res.status(401).end(data);
     }
 
     addCookieToJar(url, responseHeaders);
     setCookieHeader(url, params);
+
+    logger.debug("Retrying Unifi reqeust after login.");  
+    [status, contentType, data, responseHeaders] = await httpProxy(url, params);
   }
 
-  [status, contentType, data] = await httpProxy(url, params);
 
   if (status !== 200) {
-    logger.error("HTTP %d getting data from Unifi.  Data: %s", status, data);
+    logger.error("HTTP %d getting data from Unifi endpoint %s. Data: %s", status, url.href, data);
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);
