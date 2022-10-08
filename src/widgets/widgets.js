@@ -27,6 +27,7 @@ import strelaysrv from "./strelaysrv/widget";
 import tautulli from "./tautulli/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
+import unifi from "./unifi/widget";
 
 const widgets = {
   adguard,
@@ -59,6 +60,8 @@ const widgets = {
   tautulli,
   traefik,
   transmission,
+  unifi,
+  unifi_console: unifi
 };
 
 export default widgets;

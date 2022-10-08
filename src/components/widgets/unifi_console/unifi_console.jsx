@@ -1,17 +1,18 @@
-import useSWR from "swr";
 import { BiError, BiWifi, BiCheckCircle, BiXCircle } from "react-icons/bi";
 import { MdSettingsEthernet } from "react-icons/md";
 import { useTranslation } from "next-i18next";
 import { SiUbiquiti } from "react-icons/si";
 
+import useWidgetAPI from "utils/proxy/use-widget-api";
+
 export default function Widget({ options }) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
-  const { data, error } = useSWR(
-    `/api/widgets/unifi?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`
-  );
+  // eslint-disable-next-line no-param-reassign
+  options.type = "unifi_console";
+  const { data: statsData, error: statsError } = useWidgetAPI(options, "stat/sites");
 
-  if (error || data?.error) {
+  if (statsError || statsData?.error) {
     return (
       <div className="flex flex-col justify-center first:ml-0 ml-4">
         <div className="flex flex-row items-center justify-end">
@@ -27,7 +28,9 @@ export default function Widget({ options }) {
     );
   }
 
-  if (!data) {
+  const defaultSite = statsData?.data?.find(s => s.name === "default");
+
+  if (!defaultSite) {
     return (
       <div className="flex flex-col justify-center first:ml-0 ml-4">
         <div className="flex flex-row items-center justify-end">
@@ -41,6 +44,23 @@ export default function Widget({ options }) {
       </div>
     );
   }
+
+  const wan = defaultSite.health.find(h => h.subsystem === "wan");
+  const lan = defaultSite.health.find(h => h.subsystem === "lan");
+  const wlan = defaultSite.health.find(h => h.subsystem === "wlan");
+  const data = {
+    name: wan.gw_name,
+    uptime: wan["gw_system-stats"].uptime,
+    up: wan.status === 'ok',
+    wlan: {
+      users: wlan.num_user,
+      status: wlan.status
+    },
+    lan: {
+      users: lan.num_user,
+      status: lan.status
+    }
+  };
 
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">

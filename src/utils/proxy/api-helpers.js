@@ -2,7 +2,7 @@ export function formatApiCall(url, args) {
   const find = /\{.*?\}/g;
   const replace = (match) => {
     const key = match.replace(/\{|\}/g, "");
-    return args[key];
+    return args[key] || "";
   };
 
   return url.replace(/\/+$/, "").replace(find, replace);
