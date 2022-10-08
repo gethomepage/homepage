@@ -43,12 +43,9 @@ async function getWidget(req) {
 }
 
 async function login(widget) {
-  let loginUrl = `${widget.url}/api`;
-  if (widget.prefix === udmpPrefix) {
-    loginUrl += "/auth"
-  }
-  loginUrl += "/login";
-
+  const endpoint = (widget.prefix === udmpPrefix) ? "auth/login" : "login";
+  const api = widgets?.[widget.type]?.api?.replace("{prefix}", ""); // no prefix for login url
+  const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
   const loginBody = { username: widget.username, password: widget.password, remember: true };
   const headers = { "Content-Type": "application/json" };
   const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
@@ -84,6 +81,13 @@ export default async function unifiProxyHandler(req, res) {
   }
 
   widget.prefix = prefix;
+
+  if (!widget.port) {
+    widget.port = 8443;
+    if (widget.prefix == udmpPrefix) {
+      widget.port = 443
+    }
+  }
 
   const { endpoint } = req.query;
   const url = new URL(formatApiCall(api, { endpoint, ...widget }));
