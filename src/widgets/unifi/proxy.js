@@ -1,3 +1,5 @@
+import cache from "memory-cache";
+
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
@@ -6,7 +8,10 @@ import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
-const logger = createLogger("unifiProxyHandler");
+const udmpPrefix = "/proxy/network";
+const proxyName = "unifiProxyHandler";
+const prefixCacheKey = `${proxyName}__prefix`;
+const logger = createLogger(proxyName);
 
 async function getWidget(req) {
   const { group, service, type } = req.query;
@@ -38,21 +43,18 @@ async function getWidget(req) {
 }
 
 async function login(widget) {
-  let endpoint = widget.udmp ? "auth/login" : "login";
-  widget.prefix = ""; // never use prefix for login
-  const api = widgets?.[widget.type]?.api;
-  const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
+  let loginUrl = `${widget.url}/api`;
+  if (widget.prefix === udmpPrefix) {
+    loginUrl += "/auth"
+  }
+  loginUrl += "/login";
 
   const loginBody = { username: widget.username, password: widget.password, remember: true };
-
-  const headers = {
-    "Content-Type": "application/json"
-  };
-
+  const headers = { "Content-Type": "application/json" };
   const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify(loginBody),
-    headers 
+    headers,
   });
   return [status, contentType, data, responseHeaders];
 }
@@ -67,24 +69,21 @@ export default async function unifiProxyHandler(req, res) {
   if (!api) {
     return res.status(403).json({ error: "Service does not support API calls" });
   }
-  
-  // determine if udm-pro from base url
-  let [status, contentType, data, responseHeaders] = await httpProxy(`https://${widget.host}`);
-  if (responseHeaders['x-csrf-token']) {
-    widget.udmp = true
-  }
 
-  if (!widget.port) {
-    widget.port = 8443;
-    if (widget.udmp) {
-      widget.port = 443
+  let [status, contentType, data, responseHeaders] = [];
+  let prefix = cache.get(prefixCacheKey);
+  if (prefix === null) {
+    // auto detect if we're talking to a UDM Pro, and cache the result so that we
+    // don't make two requests each time data from Unifi is required
+    [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
+    prefix = "";
+    if (responseHeaders["x-csrf-token"]) {
+      prefix = udmpPrefix;
     }
+    cache.put(prefixCacheKey, prefix);
   }
 
-  widget.prefix = "";
-  if (widget.udmp) {
-    widget.prefix = "/proxy/network"
-  }
+  widget.prefix = prefix;
 
   const { endpoint } = req.query;
   const url = new URL(formatApiCall(api, { endpoint, ...widget }));
@@ -110,10 +109,9 @@ export default async function unifiProxyHandler(req, res) {
     addCookieToJar(url, responseHeaders);
     setCookieHeader(url, params);
 
-    logger.debug("Retrying Unifi reqeust after login.");  
+    logger.debug("Retrying Unifi request after login.");
     [status, contentType, data, responseHeaders] = await httpProxy(url, params);
   }
-
 
   if (status !== 200) {
     logger.error("HTTP %d getting data from Unifi endpoint %s. Data: %s", status, url.href, data);

@@ -45,12 +45,16 @@ export default function Component({ service }) {
         }
     };
 
+    const uptime = `${t("common.number", { value: data.uptime / 86400, maximumFractionDigits: 1 })} ${t("unifi.days")}`;
+    const lanUsers = `${t("common.number", { value: data.lan.users })} ${t("unifi.users")}`;
+    const wanUsers = `${t("common.number", { value: data.wlan.users })} ${t("unifi.users")}`;
+
     return (
         <Container service={service}>
-            <Block label="unifi.uptime" value={t("common.number", { value: data.uptime / 86400, maximumFractionDigits: 1 }) + " " + t("unifi.days")} />
+            <Block label="unifi.uptime" value={ uptime } />
             <Block label="unifi.wan" value={ data.up ? t("unifi.up") : t("unifi.down") } />
-            <Block label="unifi.lan" value={t("common.number", { value: data.lan.users }) + " " + t("unifi.users")} />
-            <Block label="unifi.wlan" value={t("common.number", { value: data.wlan.users }) + " " + t("unifi.users")} />
+            <Block label="unifi.lan" value={ lanUsers } />
+            <Block label="unifi.wlan" value={ wanUsers } />
         </Container>
     );
 }
