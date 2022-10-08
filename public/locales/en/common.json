@@ -36,6 +36,10 @@
         "uptime": "System Uptime",
         "days": "Days",
         "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "up": "UP",
+        "down": "DOWN",
         "wait": "Please wait"
     },
     "docker": {
