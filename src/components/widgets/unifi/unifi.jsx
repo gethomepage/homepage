@@ -9,7 +9,7 @@ export default function Widget({ options }) {
   const { t } = useTranslation();
 
   // eslint-disable-next-line no-param-reassign
-  options.type = "unifi_console";
+  options.type = "unifi";
   const { data: statsData, error: statsError } = useWidgetAPI(options, "stat/sites");
 
   if (statsError || statsData?.error) {

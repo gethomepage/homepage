@@ -61,7 +61,6 @@ const widgets = {
   traefik,
   transmission,
   unifi,
-  unifi_console: unifi
 };
 
 export default widgets;
