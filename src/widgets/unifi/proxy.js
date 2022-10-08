@@ -17,7 +17,7 @@ async function getWidget(req) {
   const { group, service, type } = req.query;
 
   let widget = null;
-  if (type === 'unifi_console') {
+  if (type === "unifi_console") {
     const settings = getSettings();
     widget = settings.unifi_console;
     if (!widget) {
