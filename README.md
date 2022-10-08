@@ -1,12 +1,12 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="images/homepage-dark.png">
-    <img src="images/homepage-light.png" width="65%">
+    <source media="(prefers-color-scheme: dark)" srcset="images/banner_light@2x.png">
+    <img src="images/banner_dark@2x.png" width="65%">
   </picture>
 </p>
 
 <p align="center">
-  A modern <em>(fully static, fast)</em>, secure <em>(fully proxied)</em>, highly customizable application dashboard with integrations for more than 25 services and translations for 15 languages. Easily configured via YAML files (or discovery via docker labels).
+  A modern <em>(fully static, fast)</em>, secure <em>(fully proxied)</em>, highly customizable application dashboard with integrations for more than 25 services and translations for over 15 languages. Easily configured via YAML files (or discovery via docker labels).
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - Translantions for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romainian, Russian, Spanish, Swedish and Yue
+  - Translantions for Chinese, Dutch, Finnish, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romainian, Russian, Spanish, Swedish and Yue
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
@@ -47,7 +47,7 @@
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
   - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
-  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentic
+  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentic, Proxmox
 - Information Providers
   - Coin Market Cap, Mastodon
 - Information & Utility Widgets
@@ -152,10 +152,11 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [DevPGSV](https://github.com/benphelps/homepage/commits?author=DevPGSV) - Syncthing Relay Server & Mastodon widgets
 - [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
 - [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
-- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd, Transmission, qBittorrent Integrations & countless more improvements
+- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd, Transmission, qBittorrent, Proxmox Integrations & countless more improvements
 - [josways](https://github.com/benphelps/homepage/commits?author=josways) - Baidu search provider
 - [mauricio-kalil](https://github.com/benphelps/homepage/commits?author=mauricio-kalil) - Portuguese (Brazil)
 - [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
+- [MountainGod2](https://github.com/benphelps/homepage/discussions/243) - Homepage Logo
 - [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
 - [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
 - [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
@@ -186,3 +187,4 @@ Huge thanks to the all the contributors who have helped make this project what i
 - Sascha Jelinek - German
 - [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew
 - [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish
+- [kaihu](https://github.com/benphelps/homepage/commits?author=kaihu) - Finnish
