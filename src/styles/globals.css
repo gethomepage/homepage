@@ -39,7 +39,6 @@ body {
 
 #page_container {
   overflow: auto;
-  overflow: overlay;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 

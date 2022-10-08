@@ -20,6 +20,7 @@ import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
+import themes from "utils/styles/themes";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -185,10 +186,19 @@ function Home({ initialSettings }) {
       <Head>
         <title>{initialSettings.title || "Homepage"}</title>
         {initialSettings.base && <base href={initialSettings.base} />}
-        {initialSettings.favicon && <link rel="icon" href={initialSettings.favicon} />}
+        {initialSettings.favicon ? (
+          <link rel="icon" href={initialSettings.favicon} />
+        ) : (
+          <link rel="shortcut icon" href="/homepage.ico" />
+        )}
+        <meta
+          name="msapplication-TileColor"
+          content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]}
+        />
+        <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
       <div className="relative container m-auto flex flex-col justify-between z-10">
-        <div className="flex flex-row flex-wrap m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between">
+        <div className="flex flex-row flex-wrap m-4 mb-0 sm:m-8 sm:mb-0 pb-6  border-b-2 border-theme-800 dark:border-theme-400 justify-between">
           {widgets && (
             <>
               {widgets
@@ -197,7 +207,7 @@ function Home({ initialSettings }) {
                   <Widget key={i} widget={widget} />
                 ))}
 
-              <div className="ml-4 flex flex-wrap basis-full grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
+              <div className="m-auto sm:ml-2 flex flex-wrap grow sm:basis-auto justify-between md:justify-end">
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
@@ -209,7 +219,7 @@ function Home({ initialSettings }) {
         </div>
 
         {services && (
-          <div className="flex flex-wrap p-8 items-start">
+          <div className="flex flex-wrap p-4 sm:p-8 items-start pb-2">
             {services.map((group) => (
               <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
             ))}
@@ -217,7 +227,7 @@ function Home({ initialSettings }) {
         )}
 
         {bookmarks && (
-          <div className="grow flex flex-wrap pt-0 p-8">
+          <div className="grow flex flex-wrap pt-0 p-4 sm:p-8">
             {bookmarks.map((group) => (
               <BookmarksGroup key={group.name} group={group} />
             ))}

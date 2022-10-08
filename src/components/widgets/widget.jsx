@@ -9,6 +9,7 @@ const widgetMappings = {
   search: dynamic(() => import("components/widgets/search/search")),
   greeting: dynamic(() => import("components/widgets/greeting/greeting")),
   datetime: dynamic(() => import("components/widgets/datetime/datetime")),
+  logo: dynamic(() => import("components/widgets/logo/logo"), { ssr: false }),
 };
 
 export default function Widget({ widget }) {

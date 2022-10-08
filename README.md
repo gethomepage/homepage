@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="images/homepage-dark.png">
-    <img src="images/homepage-light.png" width="65%">
+    <source media="(prefers-color-scheme: dark)" srcset="images/banner_light@2x.png">
+    <img src="images/banner_dark@2x.png" width="65%">
   </picture>
 </p>
 
@@ -38,7 +38,7 @@
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - Translantions for Chinese, Dutch, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romainian, Russian, Spanish, Swedish and Yue
+  - Translantions for Chinese, Dutch, Finnish, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romainian, Russian, Spanish, Swedish and Yue
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
@@ -156,6 +156,7 @@ Huge thanks to the all the contributors who have helped make this project what i
 - [josways](https://github.com/benphelps/homepage/commits?author=josways) - Baidu search provider
 - [mauricio-kalil](https://github.com/benphelps/homepage/commits?author=mauricio-kalil) - Portuguese (Brazil)
 - [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
+- [MountainGod2](https://github.com/benphelps/homepage/discussions/243) - Homepage Logo
 - [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
 - [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
 - [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
@@ -186,3 +187,4 @@ Huge thanks to the all the contributors who have helped make this project what i
 - Sascha Jelinek - German
 - [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew
 - [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish
+- [kaihu](https://github.com/benphelps/homepage/commits?author=kaihu) - Finnish

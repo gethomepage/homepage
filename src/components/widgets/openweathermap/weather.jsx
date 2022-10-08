@@ -16,9 +16,9 @@ function Widget({ options }) {
 
   if (error || data?.cod === 401 || data?.error) {
     return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4">
+      <div className="flex flex-col justify-center first:ml-auto ml-4">
         <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-col items-center">
+          <div className="hidden sm:flex flex-col items-center">
             <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
             <div className="flex flex-col ml-3 text-left">
               <span className="text-theme-800 dark:text-theme-200 text-sm">{t("widget.api_error")}</span>
@@ -32,9 +32,9 @@ function Widget({ options }) {
 
   if (!data) {
     return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4">
+      <div className="flex flex-col justify-center first:ml-auto ml-4">
         <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-col items-center">
+          <div className="hidden sm:flex flex-col items-center">
             <WiCloudDown className="w-8 h-8 text-theme-800 dark:text-theme-200" />
           </div>
           <div className="flex flex-col ml-3 text-left">
@@ -49,9 +49,9 @@ function Widget({ options }) {
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
 
   return (
-    <div className="flex flex-col justify-center first:ml-0 ml-4">
+    <div className="flex flex-col justify-center first:ml-auto ml-2">
       <div className="flex flex-row items-center justify-end">
-        <div className="flex flex-col items-center">
+        <div className="hidden sm:flex flex-col items-center">
           <Icon
             condition={data.weather[0].id}
             timeOfDay={data.dt > data.sys.sunrise && data.dt < data.sys.sundown ? "day" : "night"}
@@ -102,9 +102,13 @@ export default function OpenWeatherMap({ options }) {
 
   if (!location) {
     return (
-      <button type="button" onClick={() => requestLocation()} className="flex flex-col justify-center first:ml-0 ml-4">
+      <button
+        type="button"
+        onClick={() => requestLocation()}
+        className="flex flex-col justify-center first:ml-auto ml-4"
+      >
         <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-col items-center">
+          <div className="hidden sm:flex flex-col items-center">
             {requesting ? (
               <MdLocationSearching className="w-6 h-6 text-theme-800 dark:text-theme-200 animate-pulse" />
             ) : (
