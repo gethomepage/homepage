@@ -59,7 +59,7 @@ export async function servicesFromDocker() {
         let constructedService = null;
 
         Object.keys(container.Labels).forEach((label) => {
-          if (label.startsWith("homepage")) {
+          if (label.startsWith("homepage.")) {
             if (!constructedService) {
               constructedService = {
                 container: container.Names[0].replace(/^\//, ""),
