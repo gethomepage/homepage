@@ -1,16 +1,36 @@
 import checkAndCopyConfig, { getSettings } from "utils/config/config";
 import themes from "utils/styles/themes";
+import { servicesResponse, bookmarksResponse } from "utils/config/api-response";
 
 export async function getServerSideProps({ res }) {
   checkAndCopyConfig("settings.yaml");
   const settings = getSettings();
+  const services = await servicesResponse();
+  const bookmarks = await bookmarksResponse();
 
   const color = settings.color || "slate";
   const theme = settings.theme || "dark";
 
+  const serviceShortcuts = services.map((group) =>
+    group.services.map((service) => ({
+      name: service.name,
+      url: service.href,
+      description: service.description,
+    }))
+  );
+
+  const bookmarkShortcuts = bookmarks.map((group) =>
+    group.bookmarks.map((service) => ({
+      name: service.name,
+      url: service.href,
+    }))
+  );
+
+  const shortcuts = [...serviceShortcuts, ...bookmarkShortcuts].flat();
+
   const manifest = {
-    name: "Homepage",
-    short_name: "Homepage",
+    name: settings.title || "Homepage",
+    short_name: settings.title || "Homepage",
     icons: [
       {
         src: "/android-chrome-192x192.png?v=2",
@@ -23,6 +43,7 @@ export async function getServerSideProps({ res }) {
         type: "image/png",
       },
     ],
+    shortcuts,
     theme_color: themes[color][theme],
     background_color: themes[color][theme],
     display: "standalone",
