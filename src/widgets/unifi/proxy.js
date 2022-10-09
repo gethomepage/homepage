@@ -17,11 +17,11 @@ async function getWidget(req) {
   const { group, service, type } = req.query;
 
   let widget = null;
-  if (type === "unifi") {
+  if (type === "unifi_console") {
     const settings = getSettings();
-    widget = settings.unifi;
+    widget = settings.unifi_console;
     if (!widget) {
-      logger.debug("There is no unifi section in settings.yaml");
+      logger.debug("There is no unifi_console section in settings.yaml");
       return null;
     }
     widget.type = "unifi";
