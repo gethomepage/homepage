@@ -15,8 +15,8 @@ export default function Component({ service }) {
         return <Container error={t("widget.api_error")} />;
     }
 
-    const wlanLabel = t("unifi.wlan") + " " + t("unifi.users")
-    const lanLabel = t("unifi.lan") + " " + t("unifi.users")
+    const wlanLabel = `${t("unifi.wlan")} ${t("unifi.users")}`
+    const lanLabel = `${t("unifi.lan")} ${t("unifi.users")}`
 
     const defaultSite = statsData?.data?.find(s => s.name === "default");
 
