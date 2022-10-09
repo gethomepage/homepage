@@ -263,8 +263,6 @@ function Home({ initialSettings }) {
 export default function Wrapper({ initialSettings, fallback }) {
   const wrappedStyle = {};
   if (initialSettings && initialSettings.background) {
-    // wrappedStyle.backgroundImage = `url(${initialSettings.background})`;
-    // wrappedStyle.backgroundSize = "cover";
     const opacity = initialSettings.backgroundOpacity ?? 1;
     const opacityValue = 1 - opacity;
     wrappedStyle.backgroundImage = `
