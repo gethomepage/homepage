@@ -4,7 +4,7 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { getSettings } from "utils/config/config";
 import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
@@ -46,6 +46,7 @@ export async function widgetsResponse() {
 export async function servicesResponse() {
   let discoveredServices;
   let configuredServices;
+  let initialSettings;
 
   try {
     discoveredServices = cleanServiceGroups(await servicesFromDocker());
@@ -61,6 +62,14 @@ export async function servicesResponse() {
     console.error("Failed to load services.yaml, please check for errors");
     if (e) console.error(e);
     configuredServices = [];
+  }
+
+  try {
+    initialSettings = await getSettings();
+  } catch (e) {
+    console.error("Failed to load settings.yaml, please check for errors");
+    if (e) console.error(e);
+    initialSettings = {};
   }
 
   const mergedGroupsNames = [
@@ -81,5 +90,18 @@ export async function servicesResponse() {
     mergedGroups.push(mergedGroup);
   });
 
-  return mergedGroups;
+  let sortedServices = [];
+
+  const layouts = Object.keys(initialSettings.layout);
+  layouts.forEach((currentServer) => {
+    if (initialSettings.layout[currentServer]?.sort) {
+      const idx = mergedGroups.findIndex((service) => service.name === currentServer);
+      sortedServices.push(...mergedGroups.splice(idx, 1));
+    }
+  });
+  if (mergedGroups.length) {
+    sortedServices = sortedServices.concat(mergedGroups);
+  }
+
+  return sortedServices;
 }

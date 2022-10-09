@@ -177,20 +177,6 @@ function Home({ initialSettings }) {
   
   const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
 
-  // sort layout
-  const layouts = Object.keys(initialSettings.layout);
-  let sortedServices = [];
-  const copiedServices = services.slice();
-  layouts.forEach((currentServer) => {
-    if (initialSettings.layout[currentServer]?.sort) {
-      const idx = copiedServices.findIndex((service) => service.name === currentServer);
-      sortedServices.push(...copiedServices.splice(idx, 1));
-    }
-  });
-
-  if (copiedServices.length) {
-    sortedServices = sortedServices.concat(copiedServices);
-  }
 
   useEffect(() => {
     if (settings.language) {
@@ -278,9 +264,9 @@ function Home({ initialSettings }) {
           )}
         </div>
 
-        {sortedServices && (
+        {services && (
           <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
-            {sortedServices.map((group) => (
+            {services.map((group) => (
               <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
             ))}
           </div>
