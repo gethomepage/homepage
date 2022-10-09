@@ -82,13 +82,6 @@ export default async function unifiProxyHandler(req, res) {
 
   widget.prefix = prefix;
 
-  if (!widget.port) {
-    widget.port = 8443;
-    if (widget.prefix == udmpPrefix) {
-      widget.port = 443
-    }
-  }
-
   const { endpoint } = req.query;
   const url = new URL(formatApiCall(api, { endpoint, ...widget }));
   const params = { method: "GET", headers: {} };

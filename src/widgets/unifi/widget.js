@@ -1,7 +1,7 @@
 import unifiProxyHandler from "./proxy";
 
 const widget = {
-  api: "{url}:{port}{prefix}/api/{endpoint}",
+  api: "{url}{prefix}/api/{endpoint}",
   proxyHandler: unifiProxyHandler,
 
   mappings: {
