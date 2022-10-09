@@ -177,7 +177,6 @@ function Home({ initialSettings }) {
   
   const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
 
-
   useEffect(() => {
     if (settings.language) {
       i18n.changeLanguage(settings.language);
