@@ -180,5 +180,16 @@
         "cpu": "Cpu",
         "lxc": "LxC",
         "vms": "VMs"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
+        "wan": "WAN",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait"
     }
 }
