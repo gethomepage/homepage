@@ -31,9 +31,9 @@
         "placeholder": "వెతకండి…"
     },
     "resources": {
-        "cpu": "సీ పి యూ",
+        "cpu": "సీపియూ",
         "total": "మొత్తం",
-        "free": "ఉచిత",
+        "free": "మిగిలి ఉంది",
         "used": "ఉపయోగించబడిన",
         "load": "లోడ్"
     },
@@ -41,7 +41,7 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "CPU",
+        "cpu": "సీపియూ",
         "offline": "ఆఫ్‌లైన్"
     },
     "emby": {
@@ -139,7 +139,7 @@
     },
     "npm": {
         "enabled": "ప్రారంభించబడింది",
-        "disabled": "Disabled",
+        "disabled": "డిసేబ్లెడ్",
         "total": "మొత్తం"
     },
     "coinmarketcap": {
@@ -177,24 +177,24 @@
     },
     "proxmox": {
         "mem": "MEM",
-        "cpu": "CPU",
+        "cpu": "సీపియూ",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "విఎంలు"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "వినియోగదారులు",
+        "uptime": "సిస్టమ్ సమయము",
+        "days": "రోజులు",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "lan_users": "LAN వినియోగదారులు",
+        "wlan_users": "WLAN వినియోగదారులు",
+        "up": "అప్",
+        "down": "డౌన్",
+        "wait": "దయచేసి వేచి ఉండండి"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
+        "movies": "సినిమాలు",
+        "tv": "దూరదర్శిని కార్యక్రమాలు"
     }
 }
