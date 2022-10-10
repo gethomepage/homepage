@@ -191,5 +191,10 @@
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
     }
 }
