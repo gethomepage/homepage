@@ -18,6 +18,7 @@ const components = {
   ombi: dynamic(() => import("./ombi/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   pihole: dynamic(() => import("./pihole/component")),
+  plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),
   prowlarr: dynamic(() => import("./prowlarr/component")),
   proxmox: dynamic(() => import("./proxmox/component")),
