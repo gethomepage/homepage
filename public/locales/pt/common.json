@@ -202,5 +202,10 @@
         "up": "UP",
         "down": "DOWN",
         "wait": "Please wait"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
     }
 }
