@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
+
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
