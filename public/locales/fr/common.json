@@ -182,19 +182,19 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Utilisateurs",
+        "uptime": "Disponibilité du système",
+        "days": "Jours",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_users": "Utilisateurs LAN",
+        "wlan_users": "Utilisateurs WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait"
+        "wait": "Merci de patienter"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Flux actif",
+        "movies": "Films",
+        "tv": "Séries TV"
     }
 }
