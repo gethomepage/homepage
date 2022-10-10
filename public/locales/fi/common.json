@@ -191,5 +191,10 @@
         "wan": "WAN",
         "up": "UP",
         "down": "DOWN"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
     }
 }
