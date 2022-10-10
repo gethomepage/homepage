@@ -1,4 +1,7 @@
 import { httpProxy } from "utils/proxy/http";
+import createLogger from "utils/logger";
+
+const logger = createLogger("glances");
 
 export default async function handler(req, res) {
   const { url } = req.query;
@@ -12,7 +15,7 @@ export default async function handler(req, res) {
     "Accept-Encoding": "application/json"
   } };
 
-  const [status, contentType, data, responseHeaders] = await httpProxy(apiUrl, params);
+  const [status, contentType, data] = await httpProxy(apiUrl, params);
 
   if (status !== 200) {
     logger.error("HTTP %d getting data from glances API %s. Data: %s", status, apiUrl, data);

@@ -1,5 +1,4 @@
 import useSWR from "swr";
-
 import { BiError } from "react-icons/bi";
 import { FaMemory } from "react-icons/fa";
 import { FiCpu } from "react-icons/fi";
