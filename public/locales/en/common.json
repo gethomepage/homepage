@@ -66,6 +66,11 @@
         "remaining": "Remaining",
         "downloaded": "Downloaded"
     },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
+    },
     "sabnzbd": {
         "rate": "Rate",
         "queue": "Queue",
