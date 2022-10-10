@@ -58,15 +58,15 @@ export default function Item({ service }) {
                 className="flex-shrink-0 flex items-center justify-center w-12 "
               >
                 {service.icon.startsWith("mdi") ? (
-                  <span class={service.icon + " scale-150"}></span>
-                ) : (
+                  <span class={`scale-150 ${service.icon}`}/>
+                  ) : (
                   <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
                 )}
               </a>
             ) : (
               <div className="flex-shrink-0 flex items-center justify-center w-12 ">
                 {service.icon.startsWith("mdi") ? (
-                  <span class={service.icon + " scale-150"}></span>
+                  <span class={`scale-150 ${service.icon}`}/>
                 ) : (
                   <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
                 )}
