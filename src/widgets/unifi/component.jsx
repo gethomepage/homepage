@@ -15,9 +15,6 @@ export default function Component({ service }) {
         return <Container error={t("widget.api_error")} />;
     }
 
-    const wlanLabel = `${t("unifi.wlan")} ${t("unifi.users")}`
-    const lanLabel = `${t("unifi.lan")} ${t("unifi.users")}`
-
     const defaultSite = statsData?.data?.find(s => s.name === "default");
 
     if (!defaultSite) {
@@ -25,8 +22,8 @@ export default function Component({ service }) {
         <Container service={service}>
             <Block label="unifi.uptime" />
             <Block label="unifi.wan" />
-            <Block label={ lanLabel } />
-            <Block label={ wlanLabel } />
+            <Block label="unifi.lan_users" />
+            <Block label="unifi.wlan_users" />
         </Container>
         );
     }
@@ -45,7 +42,7 @@ export default function Component({ service }) {
         lan: {
             users: lan.num_user,
             status: lan.status
-        }
+        },
     };
 
     const uptime = `${t("common.number", { value: data.uptime / 86400, maximumFractionDigits: 1 })} ${t("unifi.days")}`;
@@ -54,8 +51,8 @@ export default function Component({ service }) {
         <Container service={service}>
             <Block label="unifi.uptime" value={ uptime } />
             <Block label="unifi.wan" value={ data.up ? t("unifi.up") : t("unifi.down") } />
-            <Block label={ lanLabel } value={t("common.number", { value: data.lan.users })} />
-            <Block label={ wlanLabel } value={t("common.number", { value: data.wlan.users })} />
+            <Block label="unifi.lan_users" value={ t("common.number", { value: data.lan.users }) } />
+            <Block label="unifi.wlan_users" value={ t("common.number", { value: data.wlan.users }) } />
         </Container>
     );
 }
