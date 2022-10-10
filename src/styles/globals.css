@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("@mdi/font/css/materialdesignicons.css");
+
+
 #__next {
   width: 100%;
   height: 100%;

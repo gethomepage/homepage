@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.2",
+    "@mdi/font": "^7.0.96",
     "classnames": "^2.3.2",
     "compare-versions": "^5.0.1",
     "dockerode": "^3.3.4",

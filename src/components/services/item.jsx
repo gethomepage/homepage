@@ -57,11 +57,19 @@ export default function Item({ service }) {
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 "
               >
-                <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
+                {service.icon.startsWith("mdi") ? (
+                  <span class={service.icon + " scale-150"}></span>
+                ) : (
+                  <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
+                )}
               </a>
             ) : (
               <div className="flex-shrink-0 flex items-center justify-center w-12 ">
-                <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
+                {service.icon.startsWith("mdi") ? (
+                  <span class={service.icon + " scale-150"}></span>
+                ) : (
+                  <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
+                )}
               </div>
             ))}
 
