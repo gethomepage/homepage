@@ -1,77 +1,77 @@
 {
     "sabnzbd": {
-        "queue": "Queue",
-        "timeleft": "Time Left",
+        "queue": "Опашка",
+        "timeleft": "Оставащо Време",
         "rate": "Rate"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Акитивен",
+        "upload": "Споделяне",
+        "download": "Сваляне"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Липсваща приставка: {{type}}",
+        "api_error": "API Грешка",
+        "status": "Статус"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Текущо местоположение",
+        "allow": "Разреши",
+        "updating": "Обновяване",
+        "wait": "Моля изчакайте"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Търсене…"
     },
     "resources": {
         "cpu": "CPU",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "total": "Общо",
+        "free": "Свободни",
+        "used": "Заети",
+        "load": "Натоварване"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Потребители",
+        "uptime": "Активен от",
+        "days": "Дни",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_users": "LAN Потребители",
+        "wlan_users": "WLAN Потребители",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait"
+        "wait": "Моля изчакайте"
     },
     "docker": {
-        "offline": "Offline",
+        "offline": "Изключен",
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Възпроизвежда",
+        "transcoding": "Конвертира",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Няма активни потоци"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Възпроизвежда",
+        "transcoding": "Конвертира",
+        "bitrate": "Честота",
+        "no_active": "Няма активни потоци"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "remaining": "Остава",
+        "downloaded": "Изтеглени"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Активни Потоци",
+        "movies": "Филми",
+        "tv": "Сериали"
     },
     "transmission": {
-        "download": "Download",
+        "download": "Сваляне",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
