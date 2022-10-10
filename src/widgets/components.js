@@ -32,6 +32,7 @@ const components = {
   tautulli: dynamic(() => import("./tautulli/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
+  unifi: dynamic(() => import("./unifi/component")),
 };
 
 export default components;

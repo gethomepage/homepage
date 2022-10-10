@@ -176,9 +176,20 @@
         "failedLoginsLast24H": "Epäonnistuneita kirjautumisia (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "VKt"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "wait": "Please wait",
+        "days": "Days",
+        "wan": "WAN",
+        "up": "UP",
+        "down": "DOWN"
     }
 }

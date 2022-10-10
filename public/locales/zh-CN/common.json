@@ -162,23 +162,34 @@
     "mastodon": {
         "user_count": "用户",
         "status_count": "Posts",
-        "domain_count": "Domains"
+        "domain_count": "域"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "dataRelayed": "Relayed",
-        "numConnections": "Connections",
-        "transferRate": "Rate"
+        "numActiveSessions": "会话",
+        "dataRelayed": "中继",
+        "numConnections": "连接",
+        "transferRate": "速度"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "用户",
+        "loginsLast24H": "登录 (24h)",
+        "failedLoginsLast24H": "登录失败 (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "内存",
+        "cpu": "处理器",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
+        "wan": "WAN",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait"
     }
 }

@@ -177,8 +177,19 @@
     },
     "proxmox": {
         "vms": "VMs",
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Memòria",
+        "cpu": "Processador",
         "lxc": "LXC"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
+        "wan": "WAN",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait"
     }
 }

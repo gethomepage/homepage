@@ -1,0 +1,195 @@
+{
+    "readarr": {
+        "books": "పుస్తకాలు",
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్"
+    },
+    "adguard": {
+        "blocked": "నిరోధించబడింది",
+        "filtered": "ఫిల్టర్ చేయబడింది",
+        "latency": "జాప్యం",
+        "queries": "ప్రశ్నలు"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "సెషన్స్",
+        "numConnections": "కనెక్షన్లు",
+        "dataRelayed": "రెలయెడఁ",
+        "transferRate": "రేటు"
+    },
+    "widget": {
+        "missing_type": "విడ్జెట్ లేదు: {{type}}",
+        "api_error": "API లోపం",
+        "status": "హోదా"
+    },
+    "weather": {
+        "current": "ప్రస్తుత స్తలం",
+        "allow": "అనుమతించడానికి క్లిక్ చేయండి",
+        "updating": "నవీకరిస్తోంది",
+        "wait": "దయచేసి వేచి ఉండండి"
+    },
+    "search": {
+        "placeholder": "వెతకండి…"
+    },
+    "resources": {
+        "cpu": "సీ పి యూ",
+        "total": "మొత్తం",
+        "free": "ఉచిత",
+        "used": "ఉపయోగించబడిన",
+        "load": "లోడ్"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "offline": "ఆఫ్‌లైన్"
+    },
+    "emby": {
+        "playing": "ఆడుతున్నారు",
+        "transcoding": "ట్రాన్స్‌కోడింగ్",
+        "bitrate": "బిట్రేట్",
+        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు"
+    },
+    "tautulli": {
+        "playing": "ఆడుతున్నారు",
+        "transcoding": "ట్రాన్స్‌కోడింగ్",
+        "bitrate": "బిట్రేట్",
+        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు"
+    },
+    "nzbget": {
+        "rate": "రేట్",
+        "remaining": "మిగిలింది",
+        "downloaded": "డౌన్‌లోడ్ చేయబడింది"
+    },
+    "sabnzbd": {
+        "rate": "రేట్",
+        "queue": "వరుస",
+        "timeleft": "మిగిలి వున్న సమయం"
+    },
+    "rutorrent": {
+        "active": "చురుకుగా",
+        "upload": "అప్‌లోడ్",
+        "download": "డౌన్‌లోడ్"
+    },
+    "transmission": {
+        "download": "డౌన్‌లోడ్",
+        "upload": "అప్‌లోడ్",
+        "leech": "జలగ",
+        "seed": "సీడ్"
+    },
+    "qbittorrent": {
+        "download": "డౌన్‌లోడ్",
+        "upload": "అప్లోడ్",
+        "leech": "లీచ్",
+        "seed": "సీడ్"
+    },
+    "sonarr": {
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్",
+        "series": "సిరీస్"
+    },
+    "radarr": {
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్",
+        "movies": "సినిమాలు"
+    },
+    "lidarr": {
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్",
+        "albums": "ఆల్బములు"
+    },
+    "bazarr": {
+        "missingEpisodes": "ఎపిసోడ్‌లు లేవు",
+        "missingMovies": "సినిమాలు లేవు"
+    },
+    "ombi": {
+        "pending": "పెండింగ్",
+        "approved": "ఆమోదించబడింది",
+        "available": "అందుబాటులో వున్నవి"
+    },
+    "jellyseerr": {
+        "pending": "పెండింగ్",
+        "approved": "ఆమోదించబడింది",
+        "available": "అందుబాటులో"
+    },
+    "overseerr": {
+        "pending": "పెండింగ్",
+        "approved": "ఆమోదించబడింది",
+        "available": "అందుబాటులో"
+    },
+    "pihole": {
+        "queries": "ప్రశ్నలు",
+        "blocked": "నిరోధించబడింది",
+        "gravity": "గురుత్వాకర్షణ"
+    },
+    "speedtest": {
+        "upload": "అప్లోడ్",
+        "download": "డౌన్‌లోడ్",
+        "ping": "పింగ్"
+    },
+    "portainer": {
+        "running": "నడుస్తోంది",
+        "stopped": "ఆగిపోయింది",
+        "total": "మొత్తం"
+    },
+    "traefik": {
+        "routers": "రౌటర్లు",
+        "services": "సేవలు",
+        "middleware": "మిడిల్వేర్"
+    },
+    "npm": {
+        "enabled": "ప్రారంభించబడింది",
+        "disabled": "Disabled",
+        "total": "మొత్తం"
+    },
+    "coinmarketcap": {
+        "configure": "ట్రాక్ చేయడానికి ఒకటి లేదా అంతకంటే ఎక్కువ క్రిప్టో కరెన్సీలను కాన్ఫిగర్ చేయండి",
+        "1hour": "1 గంట",
+        "1day": "1 రోజు",
+        "7days": "7 రోజులు",
+        "30days": "30 రోజులు"
+    },
+    "gotify": {
+        "apps": "అప్లికేషన్లు",
+        "clients": "ఖాతాదారులు",
+        "messages": "సందేశాలు"
+    },
+    "prowlarr": {
+        "enableIndexers": "సూచికలు",
+        "numberOfGrabs": "గ్రాబ్స్",
+        "numberOfQueries": "ప్రశ్నలు",
+        "numberOfFailGrabs": "ఫెయిల్ గ్రాబ్స్",
+        "numberOfFailQueries": "విఫలమైన ప్రశ్నలు"
+    },
+    "jackett": {
+        "configured": "కాన్ఫిగర్ చేయబడింది",
+        "errored": "పొరపాటు జరిగింది"
+    },
+    "mastodon": {
+        "user_count": "వినియోగదారులు",
+        "status_count": "పోస్ట్‌లు",
+        "domain_count": "డొమైన్‌లు"
+    },
+    "authentik": {
+        "users": "వినియోగదారులు",
+        "loginsLast24H": "లాగిన్లు (24గం)",
+        "failedLoginsLast24H": "విఫలమైన లాగిన్‌లు (24గం)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
+        "wan": "WAN",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait"
+    }
+}
