@@ -3,8 +3,7 @@ import cache from "memory-cache";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
-import { getSettings } from "utils/config/config";
-import getServiceWidget from "utils/config/service-helpers";
+import getServiceWidget, { getPrivateWidgetOptions } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
@@ -15,13 +14,13 @@ const logger = createLogger(proxyName);
 
 async function getWidget(req) {
   const { group, service, type } = req.query;
-
+  
   let widget = null;
-  if (type === "unifi_console") {
-    const settings = getSettings();
-    widget = settings.unifi_console;
+  if (type === "unifi_console") { // info widget
+    const index = req.query?.query ? JSON.parse(req.query.query).index : undefined;
+    widget = await getPrivateWidgetOptions(type, index);
     if (!widget) {
-      logger.debug("There is no unifi_console section in settings.yaml");
+      logger.debug("Error retrieving settings for this Unifi widget");
       return null;
     }
     widget.type = "unifi";
