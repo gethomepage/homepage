@@ -92,7 +92,7 @@
         "current": "当前定位",
         "allow": "点击并允许",
         "updating": "更新中",
-        "wait": "请稍后"
+        "wait": "请稍候"
     },
     "overseerr": {
         "pending": "待办",
@@ -190,7 +190,7 @@
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait"
+        "wait": "请稍候"
     },
     "plex": {
         "streams": "Active Streams",
