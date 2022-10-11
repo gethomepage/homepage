@@ -5,24 +5,35 @@ import { getSettings } from "utils/config/config";
 const logger = createLogger("glances");
 
 export default async function handler(req, res) {
-  const settings = getSettings()?.glances;
-  if (!settings) {
-    logger.error("There is no glances section in settings.yaml");
-    return res.status(400).json({ error: "There is no glances section in settings.yaml" });
+  const { id } = req.query;
+
+  let errorMessage;
+
+  let instanceID = "glances";
+  if (id) { // multiple instances
+    instanceID = id;
+  }
+  const settings = getSettings();
+  const instanceSettings = settings[instanceID];
+  if (!instanceSettings) {
+    errorMessage = id ? `There is no glances section with id '${id}' in settings.yaml` : "There is no glances section in settings.yaml";
+    logger.error(errorMessage);
+    return res.status(400).json({ error: errorMessage });
   }
   
-  const url = settings?.url;
+  const url = instanceSettings?.url;
   if (!url) {
-    logger.error("Missing Glances URL");
-    return res.status(400).json({ error: "Missing Glances URL" });
+    errorMessage = "Missing Glances URL";
+    logger.error(errorMessage);
+    return res.status(400).json({ error: errorMessage });
   }
 
   const apiUrl = `${url}/api/3/quicklook`;
   const headers = {
     "Accept-Encoding": "application/json"
   };
-  if (settings.username && settings.password) {
-    headers.Authorization = `Basic ${Buffer.from(`${settings.username}:${settings.password}`).toString("base64")}`
+  if (instanceSettings.username && instanceSettings.password) {
+    headers.Authorization = `Basic ${Buffer.from(`${instanceSettings.username}:${instanceSettings.password}`).toString("base64")}`
   }
   const params = { method: "GET", headers };
 
