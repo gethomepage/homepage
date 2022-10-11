@@ -18,14 +18,22 @@ export default async function handler(req, res) {
   }
 
   const apiUrl = `${url}/api/3/quicklook`;
-  const params = { method: "GET", headers: {
+  const headers = {
     "Accept-Encoding": "application/json"
-  } };
+  };
+  if (settings.username && settings.password) {
+    headers.Authorization = `Basic ${Buffer.from(`${settings.username}:${settings.password}`).toString("base64")}`
+  }
+  const params = { method: "GET", headers };
 
   const [status, contentType, data] = await httpProxy(apiUrl, params);
 
+  if (status === 401) {
+    logger.error("Authorization failure getting data from glances API. Data: %s", data);
+  }
+
   if (status !== 200) {
-    logger.error("HTTP %d getting data from glances API %s. Data: %s", status, apiUrl, data);
+    logger.error("HTTP %d getting data from glances API. Data: %s", status, data);
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);
