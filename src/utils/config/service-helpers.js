@@ -5,7 +5,7 @@ import yaml from "js-yaml";
 import Docker from "dockerode";
 import * as shvl from "shvl";
 
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { sanitizePrivateOptions } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 
 export async function servicesFromConfig() {
@@ -166,3 +166,22 @@ export default async function getServiceWidget(group, service) {
 
   return false;
 }
+
+export async function getPrivateWidgetOptions(type, index) {
+  checkAndCopyConfig("widgets.yaml");
+
+  const widgetsYaml = path.join(process.cwd(), "config", "widgets.yaml");
+  const fileContents = await fs.readFile(widgetsYaml, "utf8");
+  const widgets = yaml.load(fileContents);
+
+  if (!widgets) return [];
+
+  const privateOptions = widgets.map((group, widgetIndex) => ({
+    type: Object.keys(group)[0],
+    index: widgetIndex,
+    options: sanitizePrivateOptions(group[Object.keys(group)[0]], true),
+  }));
+
+  return (type !== undefined && index !== undefined) ? privateOptions.find(o => o.type === type && o.index === parseInt(index, 10))?.options : privateOptions;
+}
+  

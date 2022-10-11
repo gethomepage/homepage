@@ -4,7 +4,7 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { sanitizePrivateOptions } from "utils/config/config";
 import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/config/service-helpers";
 
 export async function bookmarksResponse() {
@@ -38,9 +38,12 @@ export async function widgetsResponse() {
   if (!widgets) return [];
 
   // map easy to write YAML objects into easy to consume JS arrays
-  const widgetsArray = widgets.map((group) => ({
+  const widgetsArray = widgets.map((group, index) => ({
     type: Object.keys(group)[0],
-    options: { ...group[Object.keys(group)[0]] },
+    options: {
+      index,
+      ...sanitizePrivateOptions(group[Object.keys(group)[0]])
+    },
   }));
 
   return widgetsArray;
