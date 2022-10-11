@@ -1,12 +1,19 @@
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { getSettings } from "utils/config/config";
 
 const logger = createLogger("glances");
 
 export default async function handler(req, res) {
-  const { url } = req.query;
+  const settings = getSettings()?.glances;
+  if (!settings) {
+    logger.error("There is no glances section in settings.yaml");
+    return res.status(400).json({ error: "There is no glances section in settings.yaml" });
+  }
   
+  const url = settings?.url;
   if (!url) {
+    logger.error("Missing Glances URL");
     return res.status(400).json({ error: "Missing Glances URL" });
   }
 
