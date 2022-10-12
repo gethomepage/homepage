@@ -34,16 +34,3 @@ export function getSettings() {
   const fileContents = readFileSync(settingsYaml, "utf8");
   return yaml.load(fileContents);
 }
-
-export function sanitizePrivateOptions(options, privateOnly = false) {
-  const privateOptions = ["url", "username", "password", "key"];
-  const sanitizedOptions = {};
-  Object.keys(options).forEach((key) => { 
-    if (!privateOnly && !privateOptions.includes(key)) {
-      sanitizedOptions[key] = options[key];
-    } else if (privateOnly && privateOptions.includes(key)) {
-      sanitizedOptions[key] = options[key];
-    }
-  });
-  return sanitizedOptions;
-}

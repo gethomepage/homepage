@@ -3,7 +3,8 @@ import cache from "memory-cache";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
-import getServiceWidget, { getPrivateWidgetOptions } from "utils/config/service-helpers";
+import getServiceWidget from "utils/config/service-helpers";
+import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 

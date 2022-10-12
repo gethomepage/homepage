@@ -1,6 +1,6 @@
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
-import { getPrivateWidgetOptions } from "utils/config/service-helpers";
+import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 
 const logger = createLogger("glances");
 
