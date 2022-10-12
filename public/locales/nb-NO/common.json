@@ -196,5 +196,10 @@
         "streams": "Active Streams",
         "movies": "Movies",
         "tv": "TV Shows"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "wait": "Please wait"
     }
 }
