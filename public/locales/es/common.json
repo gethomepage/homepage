@@ -178,28 +178,28 @@
     "proxmox": {
         "mem": "Memoria",
         "cpu": "Procesador",
-        "lxc": "LXC",
-        "vms": "VMs"
+        "lxc": "Contenedores Linux",
+        "vms": "Máquinas Virtuales"
     },
     "unifi": {
-        "up": "UP",
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
-        "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "up": "LEVANTADO",
+        "users": "Usuarios",
+        "uptime": "Tiempo de actividad",
+        "days": "Días",
+        "wan": "Red WAN",
+        "lan_users": "Usuarios LAN",
+        "wlan_users": "Usuarios WLAN",
+        "down": "CAÍDO",
+        "wait": "Espere por favor"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Transmisiones Activas",
+        "movies": "Peliculas",
+        "tv": "Programas TV"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "Procesador",
+        "mem": "Memoria",
+        "wait": "Espere por favor"
     }
 }
