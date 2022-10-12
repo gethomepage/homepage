@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 
 import Status from "./status";
 import Widget from "./widget";
+import Ping from "./ping";
 
 import Docker from "widgets/docker/component";
 import { SettingsContext } from "utils/contexts/settings";
@@ -102,11 +103,18 @@ export default function Item({ service }) {
             </div>
           )}
 
+          {service.ping && (
+            <div className="flex-shrink-0 flex items-center justify-center w-5 mr-4 cursor-pointer">
+              <Ping service={service} />
+              <span className="sr-only">Ping status</span>
+            </div>
+          )}
+
           {service.container && (
             <button
               type="button"
               onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-              className="flex-shrink-0 flex items-center justify-center w-12 cursor-pointer"
+              className="flex-shrink-0 flex items-center justify-center w-5 mr-4 cursor-pointer"
             >
               <Status service={service} />
               <span className="sr-only">View container stats</span>
