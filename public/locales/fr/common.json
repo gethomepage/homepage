@@ -196,5 +196,10 @@
         "streams": "Flux actif",
         "movies": "Films",
         "tv": "Séries TV"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "wait": "Please wait"
     }
 }
