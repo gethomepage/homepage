@@ -13,7 +13,7 @@ const textSizes = {
 };
 
 export default function DateTime({ options }) {
-  const { text_size: textSize, format } = options;
+  const { text_size: textSize, locale, format } = options;
   const { i18n } = useTranslation();
   const [date, setDate] = useState(new Date());
 
@@ -23,8 +23,9 @@ export default function DateTime({ options }) {
     }, 1000);
     return () => clearInterval(interval);
   }, [setDate]);
-
-  const dateFormat = new Intl.DateTimeFormat(i18n.language, { ...format });
+  
+  let region = locale !=== null ? locale : i18n.language
+  const dateFormat = new Intl.DateTimeFormat(region, { ...format });
 
   return (
     <div className="flex flex-row items-center grow justify-end">
