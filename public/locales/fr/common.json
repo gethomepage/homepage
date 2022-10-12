@@ -198,8 +198,8 @@
         "tv": "Séries TV"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "Cpu",
+        "mem": "Mém",
+        "wait": "Merci de patienter"
     }
 }
