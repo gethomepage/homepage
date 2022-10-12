@@ -196,5 +196,10 @@
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "wait": "Please wait"
     }
 }
