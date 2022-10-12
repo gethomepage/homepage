@@ -13,6 +13,7 @@ import nzbget from "./nzbget/widget";
 import ombi from "./ombi/widget";
 import overseerr from "./overseerr/widget";
 import pihole from "./pihole/widget";
+import plex from "./plex/widget";
 import portainer from "./portainer/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
@@ -46,6 +47,7 @@ const widgets = {
   ombi,
   overseerr,
   pihole,
+  plex,
   portainer,
   prowlarr,
   proxmox,

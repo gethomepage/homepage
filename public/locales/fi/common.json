@@ -191,5 +191,15 @@
         "wan": "WAN",
         "up": "UP",
         "down": "DOWN"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
+    },
+    "glances": {
+        "wait": "Please wait",
+        "cpu": "CPU",
+        "mem": "MEM"
     }
 }

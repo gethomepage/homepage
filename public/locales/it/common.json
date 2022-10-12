@@ -191,5 +191,15 @@
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "wait": "Please wait"
     }
 }
