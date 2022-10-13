@@ -1,6 +1,7 @@
 import adguard from "./adguard/widget";
 import authentik from "./authentik/widget";
 import bazarr from "./bazarr/widget";
+import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import emby from "./emby/widget";
 import gotify from "./gotify/widget";
@@ -34,6 +35,7 @@ const widgets = {
   adguard,
   authentik,
   bazarr,
+  changedetectionio,
   coinmarketcap,
   emby,
   gotify,
@@ -63,7 +65,7 @@ const widgets = {
   traefik,
   transmission,
   unifi,
-  unifi_console: unifi
+  unifi_console: unifi,
 };
 
 export default widgets;
