@@ -1,4 +1,3 @@
-import { servicesFromConfig } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
 
@@ -17,6 +16,6 @@ export default async function handler(req, res) {
     const [status] = await httpProxy(pingURL);
 
     return res.status(200).json({
-      status: status,
+      status,
     });
 }
