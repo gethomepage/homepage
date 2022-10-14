@@ -161,7 +161,7 @@
     },
     "mastodon": {
         "user_count": "用户",
-        "status_count": "Posts",
+        "status_count": "帖子",
         "domain_count": "域"
     },
     "strelaysrv": {
@@ -182,24 +182,24 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
-        "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
+        "users": "用户",
+        "uptime": "系统运行时间",
+        "days": "天",
+        "wan": "广域网",
+        "lan_users": "局域网用户",
+        "wlan_users": "无线局域网用户",
+        "up": "向上",
+        "down": "向下",
         "wait": "请稍候"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "活动流",
+        "movies": "电影",
+        "tv": "电视节目"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "处理器",
+        "mem": "内存",
+        "wait": "请稍等"
     }
 }
