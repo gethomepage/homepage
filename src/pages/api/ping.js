@@ -13,7 +13,9 @@ export default async function handler(req, res) {
         });
     }
 
-    const [status] = await httpProxy(pingURL);
+    const [status] = await httpProxy(pingURL, {
+      method: "HEAD"
+    });
 
     return res.status(200).json({
       status,
