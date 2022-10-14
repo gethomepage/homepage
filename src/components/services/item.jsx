@@ -104,6 +104,13 @@ export default function Item({ service }) {
           )}
 
           <div className="absolute top-0 right-0 w-1/2 flex flex-row justify-end gap-2 mr-2">
+              {service.ping && (
+                <div className="flex-shrink-0 flex items-center justify-center cursor-pointer">
+                  <Ping service={service} />
+                  <span className="sr-only">Ping status</span>
+                </div>
+              )}
+
               {service.container && (
                 <button
                   type="button"
@@ -113,13 +120,6 @@ export default function Item({ service }) {
                   <Status service={service} />
                   <span className="sr-only">View container stats</span>
                 </button>
-              )}
-              
-              {service.ping && (
-                <div className="flex-shrink-0 flex items-center justify-center cursor-pointer">
-                  <Ping service={service} />
-                  <span className="sr-only">Ping status</span>
-                </div>
               )}
           </div>
         </div>
