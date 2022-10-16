@@ -11,7 +11,7 @@
         "total": "Gesamt",
         "free": "Frei",
         "used": "Gebraucht",
-        "load": "Belastung",
+        "load": "Last",
         "cpu": "CPU"
     },
     "docker": {
@@ -25,13 +25,13 @@
         "playing": "Spielen",
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
-        "no_active": "Keine aktive Streams"
+        "no_active": "Keine aktiven Streams"
     },
     "tautulli": {
         "playing": "Spielen",
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
-        "no_active": "Keine aktiven streamen"
+        "no_active": "Keine aktiven Streams"
     },
     "rutorrent": {
         "active": "Aktiv",
@@ -41,7 +41,7 @@
     "sonarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
-        "series": "Serie"
+        "series": "Serien"
     },
     "radarr": {
         "wanted": "Gesucht",
@@ -176,30 +176,30 @@
         "failedLoginsLast24H": "fehlerhafte Anmeldungen (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Benutzer",
+        "uptime": "System-Betriebszeit",
+        "days": "Tage",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "lan_users": "LAN Benutzer",
+        "wlan_users": "WLAN Benutzer",
+        "up": "SENDEN",
+        "down": "EMPFANGEN",
+        "wait": "Bitte warten"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Aktive Streams",
+        "movies": "Filme",
+        "tv": "TV Sendungen"
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "mem": "RAM",
+        "wait": "Bitte warten"
     }
 }
