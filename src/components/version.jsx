@@ -31,7 +31,23 @@ export default function Version() {
   return (
     <div className="flex flex-row items-center">
       <span className="text-xs text-theme-500 dark:text-theme-400">
-        {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
+        {version === "main" || version === "dev" || version === "nightly" ? (
+          <>
+            {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
+          </>
+        ) : (
+          releaseData &&
+          compareVersions(latestRelease.tag_name, version) > 0 && (
+            <a
+              href={`https://github.com/benphelps/homepage/releases/tag/${version}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 text-xs text-theme-500 dark:text-theme-400 flex flex-row items-center"
+            >
+              {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
+            </a>
+          )
+        )}
       </span>
       {version === "main" || version === "dev" || version === "nightly"
         ? null

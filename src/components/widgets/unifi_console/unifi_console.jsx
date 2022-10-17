@@ -10,7 +10,7 @@ export default function Widget({ options }) {
 
   // eslint-disable-next-line no-param-reassign
   options.type = "unifi_console";
-  const { data: statsData, error: statsError } = useWidgetAPI(options, "stat/sites");
+  const { data: statsData, error: statsError } = useWidgetAPI(options, "stat/sites", { index: options.index });
 
   if (statsError || statsData?.error) {
     return (
