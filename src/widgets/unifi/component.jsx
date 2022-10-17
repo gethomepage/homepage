@@ -41,7 +41,7 @@ export default function Component({ service }) {
     return (
         <Container service={service}>
             {uptime && <Block label="unifi.uptime" value={ uptime } />}
-            {wan.show && <Block label="unifi.wan" value={ wan.up ? t("unifi.up") : t("unifi.down") } />}
+            {wan.show && <Block label="unifi.wan" value={ wan.status === "ok" ? t("unifi.up") : t("unifi.down") } />}
             
             {lan.show && <Block label="unifi.lan_users" value={ t("common.number", { value: lan.num_user }) } />}
             {lan.show && !wlan.show && <Block label="unifi.lan_devices" value={ t("common.number", { value: lan.num_adopted }) } />}

@@ -58,7 +58,7 @@ export default function Widget({ options }) {
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">
       <div className="flex flex-col">
-        <div className="flex flex-row ml-3">
+        <div className="flex flex-row ml-3 mb-0.5">
           <SiUbiquiti className="text-theme-800 dark:text-theme-200 w-3 h-3 mr-1" />
           <div className="text-theme-800 dark:text-theme-200 text-xs font-bold flex flex-row justify-between">
             {name}
