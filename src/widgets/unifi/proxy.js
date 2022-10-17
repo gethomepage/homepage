@@ -98,7 +98,7 @@ export default async function unifiProxyHandler(req, res) {
     }
 
     const json = JSON.parse(data.toString());
-    if (!(json?.meta?.rc === "ok" || json.login_time)) {
+    if (!(json?.meta?.rc === "ok" || json?.login_time || json?.update_time)) {
       logger.error("Error logging in to Unifi: Data: %s", data);
       return res.status(401).end(data);
     }
