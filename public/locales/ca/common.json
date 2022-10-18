@@ -182,24 +182,24 @@
         "lxc": "LXC"
     },
     "unifi": {
-        "users": "Users",
+        "users": "Usuaris",
         "uptime": "System Uptime",
-        "days": "Days",
+        "days": "Días",
         "wan": "WAN",
         "lan_users": "LAN Users",
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait"
+        "wait": "Si us plau, espereu"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Transmissions actives",
+        "movies": "Pel·lícules",
+        "tv": "Programes de TV"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "Processador",
+        "mem": "Memòria",
+        "wait": "Si us plau, espereu"
     }
 }
