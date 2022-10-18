@@ -171,9 +171,9 @@
         "transferRate": "Rate"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Användare",
+        "loginsLast24H": "Inloggningar (24h)",
+        "failedLoginsLast24H": "Misslyckade inloggningar (24h)"
     },
     "proxmox": {
         "mem": "MEM",
@@ -182,24 +182,24 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Användare",
+        "uptime": "Upptid",
+        "days": "Dagar",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "lan_users": "LAN-användare",
+        "wlan_users": "WLAN-användare",
+        "up": "SKICKAT",
+        "down": "MOTTAGIT",
+        "wait": "Vänligen vänta"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Aktiva strömmar",
+        "movies": "Filmer",
+        "tv": "TV-serier"
     },
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Vänligen vänta"
     }
 }
