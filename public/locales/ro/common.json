@@ -4,7 +4,7 @@
         "load": "Sarcină",
         "total": "Total",
         "free": "Disponibili",
-        "cpu": "CPU"
+        "cpu": "Procesor"
     },
     "docker": {
         "rx": "RX",
@@ -176,30 +176,30 @@
         "failedLoginsLast24H": "Conectări eșuate (24h)"
     },
     "proxmox": {
-        "vms": "VMs",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "lxc": "LXC"
+        "vms": "Masini Virtuale",
+        "mem": "Memorie",
+        "cpu": "Procesor",
+        "lxc": "Container"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Utilizatori",
+        "uptime": "Timp de funcționare a sistemului",
+        "days": "Zile",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "lan_users": "Utilizatori LAN",
+        "wlan_users": "Utilizatori WLAN",
+        "up": "Pornit",
+        "down": "Oprit",
+        "wait": "Va rugam asteptati"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Fluxuri active",
+        "movies": "Filme",
+        "tv": "Seriale"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "Procesor",
+        "mem": "Memorie",
+        "wait": "Te rugam sa astepti"
     }
 }
