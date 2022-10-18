@@ -193,9 +193,9 @@
         "wait": "Espere por favor"
     },
     "plex": {
-        "streams": "Transmisiones Activas",
-        "movies": "Peliculas",
-        "tv": "Programas TV"
+        "streams": "Transmisiones activas",
+        "movies": "Películas",
+        "tv": "Programas de TV"
     },
     "glances": {
         "cpu": "Procesador",
