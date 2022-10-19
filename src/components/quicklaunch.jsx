@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { resolveIcon } from "./services/item";
 
-export default function QuickLaunch({bookmarksAndServices, searchString, setSearchString, isOpen, close}) {
+export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close}) {
   const { t } = useTranslation();
 
   const searchField = useRef();
@@ -53,13 +53,13 @@ export default function QuickLaunch({bookmarksAndServices, searchString, setSear
   useEffect(() => {
     if (searchString.length === 0) setResults([]);
     else {
-      const newResults = bookmarksAndServices.filter(r => r.name.toLowerCase().includes(searchString));
+      const newResults = servicesAndBookmarks.filter(r => r.name.toLowerCase().includes(searchString));
       setResults(newResults);
       if (newResults.length) {
         setCurrentItemIndex(0);
       }
     }
-  }, [searchString, bookmarksAndServices])
+  }, [searchString, servicesAndBookmarks])
 
 
   const [hidden, setHidden] = useState(true);

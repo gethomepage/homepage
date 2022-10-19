@@ -175,7 +175,7 @@ function Home({ initialSettings }) {
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
   
-  const bookmarksAndServices = [...bookmarks.map(bg => bg.bookmarks).flat(), ...services.map(sg => sg.services).flat()]
+  const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
 
   useEffect(() => {
     if (settings.language) {
@@ -236,7 +236,7 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
-          <QuickLaunch bookmarksAndServices={bookmarksAndServices} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
+          <QuickLaunch servicesAndBookmarks={servicesAndBookmarks} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
           {widgets && (
             <>
               {widgets
