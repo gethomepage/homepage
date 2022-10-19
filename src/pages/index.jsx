@@ -21,6 +21,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
+import Search from "components/search";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -160,6 +161,11 @@ const headerStyles = {
   clean: "m-4 mb-0 sm:m-8 sm:mb-0",
 };
 
+function handleChange(event) {
+  // this.setState({value: event.target.value});
+  console.log(event);
+}
+
 function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
@@ -188,6 +194,29 @@ function Home({ initialSettings }) {
     }
   }, [i18n, settings, color, setColor, theme, setTheme]);
 
+  const [searching, setSearching] = useState(false);
+  const [searchString, setSearchString] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+
+    function handleKeyDown(e) {
+      console.log(e.target.tagName, e.key, e);
+      if (e.target.tagName === "BODY") {
+        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e. altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+          setSearching(true);
+        } else if (e.key === "Escape") {
+          setSearchString("");
+          setSearching(false);
+        }
+      }
+    }
+
+    return function cleanup() {
+        document.removeEventListener('keydown', handleKeyDown);
+    }
+  })
+
   return (
     <>
       <Head>
@@ -211,6 +240,7 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
+          <Search services={services} bookmarks={bookmarks} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
           {widgets && (
             <>
               {widgets
