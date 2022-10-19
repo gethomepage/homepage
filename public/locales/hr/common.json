@@ -1,12 +1,12 @@
 {
     "weather": {
-        "current": "Tranutačna lokacija",
+        "current": "Trenutna lokacija",
         "allow": "Pritisni za dozvoljavanje",
         "updating": "Aktualiziranje",
-        "wait": "Pričekaj"
+        "wait": "Molimo pričekajte"
     },
     "search": {
-        "placeholder": "Traži …"
+        "placeholder": "Traži…"
     },
     "resources": {
         "total": "Ukupno",
@@ -65,7 +65,7 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Odspojen"
+        "offline": "Izvan mreže"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -182,15 +182,15 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Korisnici",
+        "uptime": "Vrijeme rada sustava",
+        "days": "Dani",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "lan_users": "LAN Korisnici",
+        "wlan_users": "WLAN Korisnici",
+        "up": "Upaljen",
+        "down": "Ugašen",
+        "wait": "Molimo pričekajte"
     },
     "plex": {
         "streams": "Active Streams",
