@@ -21,7 +21,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
-import HomepageSearch from "components/search";
+import QuickLaunch from "components/quicklaunch";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -236,7 +236,7 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
-          <HomepageSearch bookmarksAndServices={bookmarksAndServices} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
+          <QuickLaunch bookmarksAndServices={bookmarksAndServices} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
           {widgets && (
             <>
               {widgets

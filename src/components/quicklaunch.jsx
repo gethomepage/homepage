@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { resolveIcon } from "./services/item";
 
-export default function HomepageSearch({bookmarksAndServices, searchString, setSearchString, isOpen, close}) {
+export default function QuickLaunch({bookmarksAndServices, searchString, setSearchString, isOpen, close}) {
   const { t } = useTranslation();
 
   const searchField = useRef();
@@ -35,6 +35,10 @@ export default function HomepageSearch({bookmarksAndServices, searchString, setS
       setCurrentItemIndex(currentItemIndex - 1);
       event.preventDefault();
     }
+  }
+
+  function handleItemHover(event) {
+    setCurrentItemIndex(parseInt(event.target?.dataset?.index));
   }
 
   function handleItemClick() {
@@ -84,9 +88,9 @@ export default function HomepageSearch({bookmarksAndServices, searchString, setS
             {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto">
               {results.map((r, i) => (
                 <li key={r.name}>
-                  <a className={classNames(
+                  <a data-index={i} onMouseEnter={handleItemHover} className={classNames(
                     i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
-                    "flex flex-row items-center justify-between rounded-md text-sm md:text-xl m-2 py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 hover:bg-theme-200/50 dark:hover:bg-theme-900/30",
+                    "flex flex-row items-center justify-between rounded-md text-sm md:text-xl m-2 py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
                     )} href={r.href} target="_blank" rel="noreferrer" onClick={handleItemClick}>
                     <div className="flex flex-row items-center mr-4">
                       <div className="w-5 text-xs mr-4">
