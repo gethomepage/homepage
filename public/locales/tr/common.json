@@ -1,168 +1,168 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "Kayıp Araç Türü: {{type}}",
+        "api_error": "API Hatası",
+        "status": "Durum"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Mevcut Konum",
+        "allow": "İzin vermek için tıklayın",
+        "updating": "Güncelleniyor",
+        "wait": "Lütfen bekleyin"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Ara…"
     },
     "resources": {
-        "cpu": "CPU",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "cpu": "İşlemci",
+        "total": "Toplam",
+        "free": "Boşta",
+        "used": "Kullanımda",
+        "load": "Yük"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Kullanıcılar",
+        "uptime": "Çalışma Süresi",
+        "days": "Günler",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "lan_users": "LAN Kullanıcıları",
+        "wlan_users": "WLAN Kullanıcıları",
+        "up": "Yukarı",
+        "down": "Aşağı",
+        "wait": "Lütfen bekleyin"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "offline": "Offline"
+        "rx": "Gelen Veri",
+        "tx": "Giden Veri",
+        "mem": "Bellek",
+        "cpu": "İşlemci",
+        "offline": "Çevrimdışı"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Oynatılıyor",
+        "transcoding": "Dönüştürülüyor",
+        "bitrate": "Bit Oranı",
+        "no_active": "Aktif akış yok"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Oynatılıyor",
+        "transcoding": "Dönüştürülüyor",
+        "bitrate": "Bit Oranı",
+        "no_active": "Aktif akış yok"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Oran",
+        "remaining": "Kalan",
+        "downloaded": "İndirilen"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Aktif Akış",
+        "movies": "Filmler",
+        "tv": "TV Showları"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Oran",
+        "queue": "Kuyruk",
+        "timeleft": "Kalan Zaman"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktif",
+        "upload": "Yükleme",
+        "download": "İndirme"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "İndirme",
+        "upload": "Yükleme",
+        "leech": "İsteyen",
+        "seed": "Sunan"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "İndirme",
+        "upload": "Yükleme",
+        "leech": "İsteyen",
+        "seed": "Sunan"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "series": "Seriler"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "movies": "Filmler"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "albums": "Albümler"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "books": "Kitaplar"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Kayıp Bölümler",
+        "missingMovies": "Kayıp Filmler"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Sorgular",
+        "blocked": "Engellenen",
+        "gravity": "Yer Çekimi"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Sorgular",
+        "blocked": "Engellenen",
+        "filtered": "Filtrelenen",
+        "latency": "Gecikme"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Yükleme",
+        "download": "İndirme",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Çalışıyor",
+        "stopped": "Durduruldu",
+        "total": "Toplam"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Yönlendiriciler",
+        "services": "Hizmetler",
+        "middleware": "Ara Katman"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Etkin",
+        "disabled": "Devre Dışı",
+        "total": "Toplam"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "İzleme için bir veya daha fazla kripto para birimi yapılandırın",
+        "1hour": "1 Saat",
+        "1day": "1 Gün",
+        "7days": "7 Gün",
+        "30days": "30 Gün"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Uygulamalar",
+        "clients": "Alıcılar",
+        "messages": "İletiler"
     },
     "prowlarr": {
         "enableIndexers": "Indexers",
