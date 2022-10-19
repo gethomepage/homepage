@@ -161,11 +161,6 @@ const headerStyles = {
   clean: "m-4 mb-0 sm:m-8 sm:mb-0",
 };
 
-function handleChange(event) {
-  // this.setState({value: event.target.value});
-  console.log(event);
-}
-
 function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
@@ -179,6 +174,8 @@ function Home({ initialSettings }) {
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
+  
+  const bookmarksAndServices = [...bookmarks.map(bg => bg.bookmarks).flat(), ...services.map(sg => sg.services).flat()]
 
   useEffect(() => {
     if (settings.language) {
@@ -198,10 +195,7 @@ function Home({ initialSettings }) {
   const [searchString, setSearchString] = useState("");
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-
     function handleKeyDown(e) {
-      console.log(e.target.tagName, e.key, e);
       if (e.target.tagName === "BODY") {
         if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e. altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
           setSearching(true);
@@ -211,6 +205,8 @@ function Home({ initialSettings }) {
         }
       }
     }
+
+    document.addEventListener('keydown', handleKeyDown);
 
     return function cleanup() {
         document.removeEventListener('keydown', handleKeyDown);
@@ -240,7 +236,7 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
-          <HomepageSearch services={services} bookmarks={bookmarks} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
+          <HomepageSearch bookmarksAndServices={bookmarksAndServices} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
           {widgets && (
             <>
               {widgets
