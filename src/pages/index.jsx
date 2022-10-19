@@ -21,7 +21,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
-import Search from "components/search";
+import HomepageSearch from "components/search";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -195,7 +195,7 @@ function Home({ initialSettings }) {
   }, [i18n, settings, color, setColor, theme, setTheme]);
 
   const [searching, setSearching] = useState(false);
-  const [searchString, setSearchString] = useState(false);
+  const [searchString, setSearchString] = useState("");
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
@@ -240,7 +240,7 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
-          <Search services={services} bookmarks={bookmarks} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
+          <HomepageSearch services={services} bookmarks={bookmarks} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
           {widgets && (
             <>
               {widgets

@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef } from "react";
 import classNames from "classnames";
+import { resolveIcon } from "./services/item";
 
-export default function Search({bookmarks, services, searchString, setSearchString, isOpen, close}) {
+export default function HomepageSearch({bookmarks, services, searchString, setSearchString, isOpen, close}) {
   const { t, i18n } = useTranslation();
   const all = [...bookmarks.map(bg => bg.bookmarks).flat(), ...services.map(sg => sg.services).flat()];
 
@@ -23,7 +24,6 @@ export default function Search({bookmarks, services, searchString, setSearchStri
       setSearchString("");
       close(false);
       const result = results[currentItemIndex];
-      console.log("go to", result);
       window.open(result.href, '_blank');
     } else if (event.key == "ArrowDown" && results[currentItemIndex + 1]) {
       setCurrentItemIndex(currentItemIndex + 1);
@@ -68,24 +68,33 @@ export default function Search({bookmarks, services, searchString, setSearchStri
       <div className="fixed inset-0 bg-gray-500 bg-opacity-50"></div>
       <div className="fixed inset-0 z-10 overflow-y-auto">
         <div className="flex min-h-full min-w-full items-start justify-center text-center">
-            <div className="mt-[10%] p-4 min-w-[50%] rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
-              <div className="text-center">
-                <input placeholder="Search" className="rounded-md text-xl min-w-full text-theme-700 dark:text-theme-200 bg-theme-60 dark:bg-theme-800" type="text" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
+            <div className="mt-[10%] min-w-[80%] md:min-w-[40%] rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
+                <input placeholder="Search" className={classNames(
+                  results.length > 0 && "rounded-t-md",
+                  results.length === 0 && "rounded-md",
+                  "w-full p-4 m-0 border-0 border-b border-slate-700 focus:border-slate-700 focus:outline-0 focus:ring-0 text-sm md:text-xl text-theme-700 dark:text-theme-200 bg-theme-60 dark:bg-theme-800"
+                  )} type="text" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
                 <ul>
-                  {results.map((w, i) => {
+                  {results.map((r, i) => {
                     return (
                       <li className={classNames(
-                        i === currentItemIndex && "bg-theme-60/50 dark:bg-theme-700/50",
-                        i !== currentItemIndex && "bg-theme-50/50 dark:bg-theme-800/50",
-                        "text-xl py-3 cursor-pointer text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 hover:bg-theme-900/50 dark:hover:bg-theme-900/50",
-                        )} key={w.name}>
-                          {w.name}
+                        i === 0 && "mt-4",
+                        i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
+                        "flex flex-row items-center justify-between rounded-md text-sm md:text-xl m-2 py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 hover:bg-theme-200/50 dark:hover:bg-theme-900/30",
+                        )} key={r.name}>
+                          <div className="flex flex-row items-center mr-4">
+                            <div className="w-5 text-xs mr-4">
+                              {r.icon && resolveIcon(r.icon)}
+                              {r.abbr && r.abbr}
+                            </div>
+                            {r.name}
+                          </div>
+                          <div className="text-xs text-theme-600">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>
                       </li>)
                   })
                   }
                 </ul>
                 </div>
-              </div>
           </div>
         </div>
       </div>
