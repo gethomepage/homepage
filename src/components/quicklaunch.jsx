@@ -12,6 +12,11 @@ export default function QuickLaunch({bookmarksAndServices, searchString, setSear
   const [results, setResults] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
 
+  function openCurrentItem() {
+    const result = results[currentItemIndex];
+    window.open(result.href, '_blank');
+  }
+
   function resetAndClose() {
     setSearchString("");
     close(false);
@@ -26,8 +31,7 @@ export default function QuickLaunch({bookmarksAndServices, searchString, setSear
       resetAndClose();
     } else if (event.key === "Enter" && results.length) {
       resetAndClose();
-      const result = results[currentItemIndex];
-      window.open(result.href, '_blank');
+      openCurrentItem();
     } else if (event.key === "ArrowDown" && results[currentItemIndex + 1]) {
       setCurrentItemIndex(currentItemIndex + 1);
       event.preventDefault();
@@ -43,6 +47,7 @@ export default function QuickLaunch({bookmarksAndServices, searchString, setSear
 
   function handleItemClick() {
     resetAndClose();
+    openCurrentItem();
   }
 
   useEffect(() => {
@@ -85,22 +90,22 @@ export default function QuickLaunch({bookmarksAndServices, searchString, setSear
               results.length === 0 && "rounded-md",
               "w-full p-4 m-0 border-0 border-b border-slate-700 focus:border-slate-700 focus:outline-0 focus:ring-0 text-sm md:text-xl text-theme-700 dark:text-theme-200 bg-theme-60 dark:bg-theme-800"
               )} type="text" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
-            {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto">
+            {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto m-2">
               {results.map((r, i) => (
                 <li key={r.name}>
-                  <a data-index={i} onMouseEnter={handleItemHover} className={classNames(
+                  <button data-index={i} onMouseEnter={handleItemHover} className={classNames(
+                    "flex flex-row w-full items-center justify-between rounded-md text-sm md:text-xl py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
                     i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
-                    "flex flex-row items-center justify-between rounded-md text-sm md:text-xl m-2 py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
-                    )} href={r.href} target="_blank" rel="noreferrer" onClick={handleItemClick}>
-                    <div className="flex flex-row items-center mr-4">
+                    )} onClick={handleItemClick}>
+                    <div className="flex flex-row items-center mr-4 pointer-events-none">
                       <div className="w-5 text-xs mr-4">
                         {r.icon && resolveIcon(r.icon)}
                         {r.abbr && r.abbr}
                       </div>
                       {r.name}
                     </div>
-                    <div className="text-xs text-theme-600">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>
-                  </a>
+                    <div className="text-xs text-theme-600 pointer-events-none">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>
+                  </button>
                 </li>
               ))}
             </ul>}
