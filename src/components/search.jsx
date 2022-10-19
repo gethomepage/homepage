@@ -12,17 +12,20 @@ export default function HomepageSearch({bookmarksAndServices, searchString, setS
   const [results, setResults] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
 
+  function resetAndClose() {
+    setSearchString("");
+    close(false);
+  }
+
   function handleSearchChange(event) {
     setSearchString(event.target.value.toLowerCase())
   }
 
   function handleSearchKeyDown(event) {
     if (event.key === "Escape") {
-      setSearchString("");
-      close(false);
+      resetAndClose();
     } else if (event.key === "Enter" && results.length) {
-      setSearchString("");
-      close(false);
+      resetAndClose();
       const result = results[currentItemIndex];
       window.open(result.href, '_blank');
     } else if (event.key === "ArrowDown" && results[currentItemIndex + 1]) {
@@ -32,6 +35,10 @@ export default function HomepageSearch({bookmarksAndServices, searchString, setS
       setCurrentItemIndex(currentItemIndex - 1);
       event.preventDefault();
     }
+  }
+
+  function handleItemClick() {
+    resetAndClose();
   }
 
   useEffect(() => {
@@ -76,18 +83,20 @@ export default function HomepageSearch({bookmarksAndServices, searchString, setS
               )} type="text" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
             {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto">
               {results.map((r, i) => (
-                <li className={classNames(
-                  i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
-                  "flex flex-row items-center justify-between rounded-md text-sm md:text-xl m-2 py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 hover:bg-theme-200/50 dark:hover:bg-theme-900/30",
-                  )} key={r.name}>
-                  <div className="flex flex-row items-center mr-4">
-                    <div className="w-5 text-xs mr-4">
-                      {r.icon && resolveIcon(r.icon)}
-                      {r.abbr && r.abbr}
+                <li key={r.name}>
+                  <a className={classNames(
+                    i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
+                    "flex flex-row items-center justify-between rounded-md text-sm md:text-xl m-2 py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 hover:bg-theme-200/50 dark:hover:bg-theme-900/30",
+                    )} href={r.href} target="_blank" rel="noreferrer" onClick={handleItemClick}>
+                    <div className="flex flex-row items-center mr-4">
+                      <div className="w-5 text-xs mr-4">
+                        {r.icon && resolveIcon(r.icon)}
+                        {r.abbr && r.abbr}
+                      </div>
+                      {r.name}
                     </div>
-                    {r.name}
-                  </div>
-                  <div className="text-xs text-theme-600">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>
+                    <div className="text-xs text-theme-600">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>
+                  </a>
                 </li>
               ))}
             </ul>}
