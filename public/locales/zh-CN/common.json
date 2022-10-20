@@ -190,7 +190,12 @@
         "wlan_users": "无线局域网用户",
         "up": "向上",
         "down": "向下",
-        "wait": "请稍候"
+        "wait": "请稍候",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "plex": {
         "streams": "活动流",
