@@ -17,7 +17,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
-    window.open(result.href, newWindow ? "_blank" : settings.target ?? "_blank");
+    window.open(result.href, newWindow ? "_blank" : result.target ?? settings.target ?? "_blank");
   }
 
   const closeAndReset = useCallback(() => {
