@@ -190,7 +190,12 @@
         "wlan_users": "WLAN-användare",
         "up": "SKICKAT",
         "down": "MOTTAGIT",
-        "wait": "Vänligen vänta"
+        "wait": "Vänligen vänta",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "plex": {
         "streams": "Aktiva strömmar",
