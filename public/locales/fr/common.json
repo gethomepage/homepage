@@ -190,7 +190,12 @@
         "wlan_users": "Utilisateurs WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Merci de patienter"
+        "wait": "Merci de patienter",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "plex": {
         "streams": "Flux actif",
