@@ -193,9 +193,9 @@
         "wait": "Merci de patienter",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Équipt.",
+        "lan_devices": "Équipt. LAN",
+        "wlan_devices": "Équipt. WLAN"
     },
     "plex": {
         "streams": "Flux actif",
