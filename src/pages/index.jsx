@@ -197,7 +197,7 @@ function Home({ initialSettings }) {
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY") {
-        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e. altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");

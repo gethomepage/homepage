@@ -1,28 +1,32 @@
 import { useTranslation } from "react-i18next";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
 
 import { resolveIcon } from "./services/item";
 
+import { SettingsContext } from "utils/contexts/settings";
+
 export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close}) {
   const { t } = useTranslation();
+  const { settings } = useContext(SettingsContext);
 
   const searchField = useRef();
 
   const [results, setResults] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
 
-  function openCurrentItem() {
+  function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
-    window.open(result.href, '_blank');
+    window.open(result.href, newWindow ? "_blank" : settings.target ?? "_blank");
   }
 
   const closeAndReset = useCallback(() => {
     close(false);
     setTimeout(() => {
       setSearchString("");
+      setCurrentItemIndex(null);
     }, 200); // delay a little for animations
-  }, [close, setSearchString]);
+  }, [close, setSearchString, setCurrentItemIndex]);
 
   function handleSearchChange(event) {
     setSearchString(event.target.value.toLowerCase())
@@ -33,7 +37,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       closeAndReset();
     } else if (event.key === "Enter" && results.length) {
       closeAndReset();
-      openCurrentItem();
+      openCurrentItem(event.metaKey);
     } else if (event.key === "ArrowDown" && results[currentItemIndex + 1]) {
       setCurrentItemIndex(currentItemIndex + 1);
       event.preventDefault();
@@ -47,9 +51,9 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
     setCurrentItemIndex(parseInt(event.target?.dataset?.index, 10));
   }
 
-  function handleItemClick() {
+  function handleItemClick(event) {
     closeAndReset();
-    openCurrentItem();
+    openCurrentItem(event.metaKey);
   }
 
   useEffect(() => {
