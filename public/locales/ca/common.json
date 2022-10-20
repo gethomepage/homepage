@@ -190,7 +190,12 @@
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Si us plau, espereu"
+        "wait": "Si us plau, espereu",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "plex": {
         "streams": "Transmissions actives",
