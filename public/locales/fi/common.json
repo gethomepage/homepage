@@ -190,7 +190,12 @@
         "days": "Days",
         "wan": "WAN",
         "up": "UP",
-        "down": "DOWN"
+        "down": "DOWN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "wlan_devices": "WLAN Devices"
     },
     "plex": {
         "streams": "Active Streams",
