@@ -190,7 +190,12 @@
         "wlan_users": "WLAN వినియోగదారులు",
         "up": "అప్",
         "down": "డౌన్",
-        "wait": "దయచేసి వేచి ఉండండి"
+        "wait": "దయచేసి వేచి ఉండండి",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "plex": {
         "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
