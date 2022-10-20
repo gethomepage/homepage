@@ -10,7 +10,8 @@ const widget = {
       endpoint: "movie",
       map: (data) => ({
         wanted: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile && item.isAvailable).length,
-        all: jsonArrayFilter(data, (item) => item.isAvailable).length,
+        have: jsonArrayFilter(data, (item) => item.hasFile).length,
+        missing: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile).length,
       }),
     },
     "queue/status": {
