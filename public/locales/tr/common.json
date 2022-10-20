@@ -29,7 +29,12 @@
         "wlan_users": "WLAN Kullanıcıları",
         "up": "Yukarı",
         "down": "Aşağı",
-        "wait": "Lütfen bekleyin"
+        "wait": "Lütfen bekleyin",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "docker": {
         "rx": "Gelen Veri",
