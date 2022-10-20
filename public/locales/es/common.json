@@ -190,7 +190,12 @@
         "lan_users": "Usuarios LAN",
         "wlan_users": "Usuarios WLAN",
         "down": "CAÍDO",
-        "wait": "Espere por favor"
+        "wait": "Espere por favor",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "plex": {
         "streams": "Transmisiones activas",
