@@ -30,7 +30,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="radarr.wanted" value={moviesData.wanted} />
       <Block label="radarr.queued" value={queuedData.totalCount} />
-      <Block label="radarr.movies" value={moviesData.have} />
+      <Block label="radarr.movies" value={moviesData.all} />
     </Container>
   );
 }
