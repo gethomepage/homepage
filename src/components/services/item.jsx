@@ -71,7 +71,7 @@ export default function Item({ service }) {
             (hasLink ? (
               <a
                 href={service.href}
-                target={settings.target ?? "_blank"}
+                target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 "
               >
@@ -84,7 +84,7 @@ export default function Item({ service }) {
           {hasLink ? (
             <a
               href={service.href}
-              target={settings.target ?? "_blank"}
+              target={service.target ?? settings.target ?? "_blank"}
               rel="noreferrer"
               className="flex-1 flex items-center justify-between rounded-r-md "
             >
