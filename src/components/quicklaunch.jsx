@@ -6,7 +6,7 @@ import { resolveIcon } from "./services/item";
 
 import { SettingsContext } from "utils/contexts/settings";
 
-export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close}) {
+export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close, searchDescriptions}) {
   const { t } = useTranslation();
   const { settings } = useContext(SettingsContext);
 
@@ -59,13 +59,27 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
   useEffect(() => {
     if (searchString.length === 0) setResults([]);
     else {
-      const newResults = servicesAndBookmarks.filter(r => r.name.toLowerCase().includes(searchString));
+      let newResults = servicesAndBookmarks.filter(r => {
+        const nameMatch = r.name.toLowerCase().includes(searchString);
+        let descriptionMatch;
+        if (searchDescriptions) {
+          descriptionMatch = r.description?.toLowerCase().includes(searchString)
+          r.priority = nameMatch ? 2 * (+nameMatch) : +descriptionMatch; // eslint-disable-line no-param-reassign
+        }
+        return nameMatch || descriptionMatch;
+      });
+
+      if (searchDescriptions) {
+        newResults = newResults.sort((a, b) => b.priority - a.priority);
+      }
+
       setResults(newResults);
+
       if (newResults.length) {
         setCurrentItemIndex(0);
       }
     }
-  }, [searchString, servicesAndBookmarks]);
+  }, [searchString, servicesAndBookmarks, searchDescriptions]);
 
 
   const [hidden, setHidden] = useState(true);
@@ -86,6 +100,11 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
     }
 
   }, [isOpen, closeAndReset]);
+
+  function highlightText(text) {
+    const parts = text.split(new RegExp(`(${searchString})`, 'gi'));
+    return <span>{parts.map(part => part.toLowerCase() === searchString.toLowerCase() ? <span className="bg-theme-300/10">{part}</span> : part)}</span>;
+  }
 
   return (
     <div className={classNames(
@@ -117,7 +136,11 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                       </div>
                       <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
                         <span className="mr-4">{r.name}</span>
-                        {r.description && <span className="text-xs text-theme-600 text-light">{r.description}</span>}
+                        {r.description && 
+                          <span className="text-xs text-theme-600 text-light">
+                            {searchDescriptions && r.priority < 2 ? highlightText(r.description) : r.description}
+                          </span>
+                        }
                       </div>
                     </div>
                     <div className="text-xs text-theme-600 font-bold pointer-events-none">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>

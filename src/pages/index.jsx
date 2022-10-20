@@ -236,7 +236,14 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
-          <QuickLaunch servicesAndBookmarks={servicesAndBookmarks} searchString={searchString} setSearchString={setSearchString} isOpen={searching} close={setSearching} />
+          <QuickLaunch
+            servicesAndBookmarks={servicesAndBookmarks}
+            searchString={searchString}
+            setSearchString={setSearchString}
+            isOpen={searching}
+            close={setSearching}
+            searchDescriptions={settings.quicklook?.searchDescriptions}
+          />
           {widgets && (
             <>
               {widgets
