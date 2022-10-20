@@ -209,7 +209,7 @@ function Home({ initialSettings }) {
     document.addEventListener('keydown', handleKeyDown);
 
     return function cleanup() {
-        document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
     }
   })
 

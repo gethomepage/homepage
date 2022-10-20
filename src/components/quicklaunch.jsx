@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import classNames from "classnames";
 
 import { resolveIcon } from "./services/item";
@@ -17,10 +17,12 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
     window.open(result.href, '_blank');
   }
 
-  function resetAndClose() {
-    setSearchString("");
+  const closeAndReset = useCallback(() => {
     close(false);
-  }
+    setTimeout(() => {
+      setSearchString("");
+    }, 200); // delay a little for animations
+  }, [close, setSearchString]);
 
   function handleSearchChange(event) {
     setSearchString(event.target.value.toLowerCase())
@@ -28,9 +30,9 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   function handleSearchKeyDown(event) {
     if (event.key === "Escape") {
-      resetAndClose();
+      closeAndReset();
     } else if (event.key === "Enter" && results.length) {
-      resetAndClose();
+      closeAndReset();
       openCurrentItem();
     } else if (event.key === "ArrowDown" && results[currentItemIndex + 1]) {
       setCurrentItemIndex(currentItemIndex + 1);
@@ -46,7 +48,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
   }
 
   function handleItemClick() {
-    resetAndClose();
+    closeAndReset();
     openCurrentItem();
   }
 
@@ -59,20 +61,27 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
         setCurrentItemIndex(0);
       }
     }
-  }, [searchString, servicesAndBookmarks])
+  }, [searchString, servicesAndBookmarks]);
 
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
+    function handleBackdropClick(event) {
+      if (event.target?.tagName === "DIV") closeAndReset();
+    }
+    
     if (isOpen) {
       searchField.current.focus();
+      document.body.addEventListener('click', handleBackdropClick);
       setHidden(false);
     } else {
+      document.body.removeEventListener('click', handleBackdropClick);
       setTimeout(() => {
         setHidden(true);
       }, 300); // disable on close
     }
-  }, [isOpen])
+
+  }, [isOpen, closeAndReset]);
 
   return (
     <div className={classNames(
@@ -84,12 +93,12 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       <div className="fixed inset-0 bg-gray-500 bg-opacity-50" />
       <div className="fixed inset-0 z-10 overflow-y-auto">
         <div className="flex min-h-full min-w-full items-start justify-center text-center">
-          <div className="mt-[10%] min-w-[80%] max-w-[90%] md:min-w-[40%] rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
+          <dialog className="mt-[10%] min-w-[80%] max-w-[90%] md:min-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
             <input placeholder="Search" className={classNames(
               results.length > 0 && "rounded-t-md",
               results.length === 0 && "rounded-md",
               "w-full p-4 m-0 border-0 border-b border-slate-700 focus:border-slate-700 focus:outline-0 focus:ring-0 text-sm md:text-xl text-theme-700 dark:text-theme-200 bg-theme-60 dark:bg-theme-800"
-              )} type="text" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
+              )} type="text" autoCorrect="false" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
             {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto m-2">
               {results.map((r, i) => (
                 <li key={r.name}>
@@ -112,7 +121,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                 </li>
               ))}
             </ul>}
-          </div>
+          </dialog>
         </div>
       </div>
     </div>
