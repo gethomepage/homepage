@@ -39,7 +39,12 @@
         "wlan_users": "WLAN Потребители",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Моля изчакайте"
+        "wait": "Моля изчакайте",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices"
     },
     "docker": {
         "offline": "Изключен",
