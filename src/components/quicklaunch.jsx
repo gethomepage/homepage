@@ -42,7 +42,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
   }
 
   function handleItemHover(event) {
-    setCurrentItemIndex(parseInt(event.target?.dataset?.index));
+    setCurrentItemIndex(parseInt(event.target?.dataset?.index, 10));
   }
 
   function handleItemClick() {
@@ -84,7 +84,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       <div className="fixed inset-0 bg-gray-500 bg-opacity-50" />
       <div className="fixed inset-0 z-10 overflow-y-auto">
         <div className="flex min-h-full min-w-full items-start justify-center text-center">
-          <div className="mt-[10%] min-w-[80%] md:min-w-[40%] rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
+          <div className="mt-[10%] min-w-[80%] max-w-[90%] md:min-w-[40%] rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
             <input placeholder="Search" className={classNames(
               results.length > 0 && "rounded-t-md",
               results.length === 0 && "rounded-md",
@@ -93,7 +93,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
             {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto m-2">
               {results.map((r, i) => (
                 <li key={r.name}>
-                  <button data-index={i} onMouseEnter={handleItemHover} className={classNames(
+                  <button type="button" data-index={i} onMouseEnter={handleItemHover} className={classNames(
                     "flex flex-row w-full items-center justify-between rounded-md text-sm md:text-xl py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
                     i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
                     )} onClick={handleItemClick}>
@@ -102,9 +102,12 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                         {r.icon && resolveIcon(r.icon)}
                         {r.abbr && r.abbr}
                       </div>
-                      {r.name}
+                      <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
+                        <span className="mr-4">{r.name}</span>
+                        {r.description && <span className="text-xs text-theme-600 text-light">{r.description}</span>}
+                      </div>
                     </div>
-                    <div className="text-xs text-theme-600 pointer-events-none">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>
+                    <div className="text-xs text-theme-600 font-bold pointer-events-none">{r.abbr ? t("homepagesearch.bookmark") : t("homepagesearch.service")}</div>
                   </button>
                 </li>
               ))}
