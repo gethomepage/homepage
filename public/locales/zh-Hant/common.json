@@ -62,7 +62,8 @@
     "radarr": {
         "movies": "Movies",
         "wanted": "Wanted",
-        "queued": "Queued"
+        "queued": "Queued",
+        "missing": "Missing"
     },
     "sonarr": {
         "wanted": "Wanted",
