@@ -91,7 +91,8 @@
     "radarr": {
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
-        "movies": "సినిమాలు"
+        "movies": "సినిమాలు",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "కావలెను",
