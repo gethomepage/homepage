@@ -68,7 +68,8 @@
     "radarr": {
         "wanted": "Eftersöker",
         "queued": "I kö",
-        "movies": "Filmer"
+        "movies": "Filmer",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "Eftersöker",
