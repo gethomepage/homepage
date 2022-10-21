@@ -208,9 +208,6 @@
         "mem": "MEM",
         "wait": "Please wait"
     },
-    "homepagesearch": {
-        "service": "Service"
-    },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
@@ -272,5 +269,9 @@
         "85-night": "Snow Showers",
         "86-day": "Snow Showers",
         "86-night": "Snow Showers"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }
