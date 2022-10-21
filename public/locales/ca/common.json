@@ -73,7 +73,8 @@
     "radarr": {
         "wanted": "Volgut",
         "queued": "En cua",
-        "movies": "Pel·lícules"
+        "movies": "Pel·lícules",
+        "missing": "Missing"
     },
     "readarr": {
         "wanted": "Volgut",
