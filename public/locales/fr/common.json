@@ -271,6 +271,7 @@
         "96-day": "Thunderstorm With Hail",
         "96-night": "Thunderstorm With Hail",
         "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "99-night": "Thunderstorm With Hail",
+        "0-day": "Ensoleillé"
     }
 }
