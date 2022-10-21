@@ -208,9 +208,6 @@
         "mem": "Mém",
         "wait": "Merci de patienter"
     },
-    "homepagesearch": {
-        "service": "Service"
-    },
     "changedetectionio": {
         "totalObserved": "Total Observé",
         "diffsDetected": "Diffs Detectées"
@@ -272,5 +269,9 @@
         "99-day": "Orage avec grêle",
         "99-night": "Orage avec grêle",
         "0-day": "Ensoleillé"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }
