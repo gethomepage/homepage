@@ -12,6 +12,7 @@ const widgetMappings = {
   logo: dynamic(() => import("components/widgets/logo/logo"), { ssr: false }),
   unifi_console: dynamic(() => import("components/widgets/unifi_console/unifi_console")),
   glances: dynamic(() => import("components/widgets/glances/glances")),
+  openmeteo: dynamic(() => import("components/widgets/openmeteo/openmeteo")),
 };
 
 export default function Widget({ widget }) {
