@@ -208,9 +208,6 @@
         "mem": "MEM",
         "wait": "Vänligen vänta"
     },
-    "homepagesearch": {
-        "service": "Service"
-    },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
@@ -272,5 +269,9 @@
         "95-night": "Thunderstorm",
         "99-night": "Thunderstorm With Hail",
         "96-day": "Thunderstorm With Hail"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }
