@@ -208,9 +208,6 @@
         "mem": "Bellek",
         "wait": "Lütfen bekleyiniz"
     },
-    "homepagesearch": {
-        "service": "Hizmet"
-    },
     "changedetectionio": {
         "totalObserved": "Toplam Gözlenen",
         "diffsDetected": "Farklar Algılandı"
@@ -272,5 +269,9 @@
         "96-day": "Thunderstorm With Hail",
         "96-night": "Thunderstorm With Hail",
         "99-night": "Thunderstorm With Hail"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }
