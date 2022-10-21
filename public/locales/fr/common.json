@@ -209,11 +209,11 @@
         "wait": "Merci de patienter"
     },
     "homepagesearch": {
-        "bookmark": "Bookmark",
+        "bookmark": "Signet",
         "service": "Service"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Total Observé",
+        "diffsDetected": "Diffs Detectées"
     }
 }
