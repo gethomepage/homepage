@@ -46,7 +46,8 @@
     "radarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "movies": "Phim"
+        "movies": "Phim",
+        "missing": "Missing"
     },
     "readarr": {
         "wanted": "Đang tìm",
