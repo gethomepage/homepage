@@ -61,7 +61,8 @@
     "radarr": {
         "wanted": "Richiesti",
         "queued": "In coda",
-        "movies": "Film"
+        "movies": "Film",
+        "missing": "Missing"
     },
     "readarr": {
         "wanted": "Wanted",
