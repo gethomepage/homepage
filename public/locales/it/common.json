@@ -34,7 +34,7 @@
         "middleware": "Middleware"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
+        "missing_type": "Tipo del Widget Mancante: {{type}}",
         "api_error": "Errore API",
         "status": "Stato"
     },
@@ -45,7 +45,7 @@
         "total": "Totale",
         "free": "Libero",
         "used": "In utilizzo",
-        "load": "Load",
+        "load": "Carica",
         "cpu": "CPU"
     },
     "rutorrent": {
@@ -55,19 +55,19 @@
     },
     "sonarr": {
         "series": "Serie",
-        "wanted": "Rchiesti",
+        "wanted": "Richiesti",
         "queued": "In coda"
     },
     "radarr": {
         "wanted": "Richiesti",
         "queued": "In coda",
         "movies": "Film",
-        "missing": "Missing"
+        "missing": "Mancanti"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Richiesti",
+        "queued": "In coda",
+        "books": "Libri"
     },
     "ombi": {
         "pending": "In attesa",
@@ -111,11 +111,11 @@
         "downloaded": "Scaricato"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "1hour": "1 Hour",
-        "30days": "30 Days"
+        "configure": "Configurare una o più criptomonete da seguire",
+        "1day": "1 Giorno",
+        "7days": "7 Giorni",
+        "1hour": "1 Ora",
+        "30days": "30 Giorni"
     },
     "gotify": {
         "apps": "Applicazioni",
@@ -136,23 +136,23 @@
         "seed": "Seed"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configurato",
+        "errored": "Errore"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Episodi Mancanti",
+        "missingMovies": "Film Mancanti"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Mancanti",
+        "queued": "In coda",
         "albums": "Albums"
     },
     "adguard": {
         "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "blocked": "Bloccati",
+        "filtered": "Filtrati",
+        "latency": "Latenza"
     },
     "qbittorrent": {
         "download": "Download",
@@ -161,56 +161,56 @@
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Utenti",
         "status_count": "Posts",
-        "domain_count": "Domains"
+        "domain_count": "Domini"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Sessioni",
+        "numConnections": "Connessioni",
+        "dataRelayed": "Ritrasmettessi",
+        "transferRate": "Velocità"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Utenti",
+        "loginsLast24H": "Accessi (24h)",
+        "failedLoginsLast24H": "Accessi Falliti (24h)"
     },
     "proxmox": {
         "mem": "MEM",
         "cpu": "CPU",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "Macchine Virtuali"
     },
     "unifi": {
-        "users": "Users",
+        "users": "Utenti",
         "uptime": "System Uptime",
-        "days": "Days",
+        "days": "Giorni",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wait": "Please wait",
-        "wlan_users": "WLAN Users",
+        "lan_users": "Utenti LAN",
+        "wait": "Attendere prego",
+        "wlan_users": "Utenti WLAN",
         "up": "UP",
         "down": "DOWN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Dispositivi",
+        "lan_devices": "Dispositivi LAN",
+        "wlan_devices": "Dispositivi WLAN"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Trasmissioni attive",
+        "movies": "Film",
+        "tv": "Programma televisivo"
     },
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Attendere prego"
     },
     "homepagesearch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Servizio"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
@@ -218,32 +218,32 @@
     },
     "wmo": {
         "65-day": "Heavy Rain",
-        "2-night": "Partly Cloudy",
-        "0-day": "Sunny",
+        "2-night": "Parzialmente Nuvoloso",
+        "0-day": "Solleggiato",
         "0-night": "Clear",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
+        "2-day": "Parzialmente Nuvoloso",
         "3-day": "Cloudy",
         "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
+        "45-day": "Nebbioso",
+        "45-night": "Nebbioso",
+        "48-day": "Nebbioso",
+        "48-night": "Nebbioso",
+        "51-day": "Pioggerella Leggera",
+        "51-night": "Pioggerella Leggera",
+        "53-day": "Pioggerella",
+        "53-night": "Pioggerella",
+        "55-day": "Pioggerella Pesante",
+        "55-night": "Pioggerella Pesante",
         "56-day": "Light Freezing Drizzle",
         "56-night": "Light Freezing Drizzle",
         "57-day": "Freezing Drizzle",
         "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
+        "61-day": "Pioggia Leggera",
+        "61-night": "Pioggia Leggera",
+        "63-day": "Pioggia",
+        "63-night": "Pioggia",
         "65-night": "Heavy Rain",
         "66-day": "Freezing Rain",
         "66-night": "Freezing Rain",
@@ -251,8 +251,8 @@
         "67-night": "Freezing Rain",
         "71-day": "Light Snow",
         "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
+        "73-day": "Neve",
+        "73-night": "Neve",
         "75-day": "Heavy Snow",
         "75-night": "Heavy Snow",
         "77-day": "Snow Grains",
