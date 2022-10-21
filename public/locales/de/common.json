@@ -46,7 +46,8 @@
     "radarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
-        "movies": "Filme"
+        "movies": "Filme",
+        "missing": "Missing"
     },
     "readarr": {
         "wanted": "Gesucht",
