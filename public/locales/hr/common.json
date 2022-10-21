@@ -103,7 +103,8 @@
     "radarr": {
         "wanted": "Željeno",
         "queued": "U redu čekanja",
-        "movies": "Filmovi"
+        "movies": "Filmovi",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "Željeno",
