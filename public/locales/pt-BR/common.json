@@ -92,7 +92,8 @@
     "radarr": {
         "wanted": "Desejado",
         "queued": "Na fila",
-        "movies": "Filmes"
+        "movies": "Filmes",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "Desejado",
