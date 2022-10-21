@@ -46,7 +46,8 @@
     "radarr": {
         "wanted": "想看",
         "queued": "队列",
-        "movies": "电影"
+        "movies": "电影",
+        "missing": "Missing"
     },
     "readarr": {
         "wanted": "订阅",
