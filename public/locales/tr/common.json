@@ -95,7 +95,8 @@
     "radarr": {
         "wanted": "Aranan",
         "queued": "Kuyrukta",
-        "movies": "Filmler"
+        "movies": "Filmler",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "Aranan",
