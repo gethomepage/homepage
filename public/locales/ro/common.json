@@ -112,7 +112,8 @@
     "radarr": {
         "queued": "În coadă",
         "wanted": "Dorite",
-        "movies": "Filme"
+        "movies": "Filme",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "Dorite",
