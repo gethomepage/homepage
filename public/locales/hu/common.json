@@ -88,7 +88,8 @@
     "radarr": {
         "wanted": "Keresett",
         "queued": "Sorban áll",
-        "movies": "Filmek"
+        "movies": "Filmek",
+        "missing": "Missing"
     },
     "ombi": {
         "pending": "Függőben",
