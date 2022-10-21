@@ -32,9 +32,9 @@
         "wait": "Lütfen bekleyin",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Aygıtlar",
+        "lan_devices": "LAN Aygıtları",
+        "wlan_devices": "WLAN Aygıtları"
     },
     "docker": {
         "rx": "Gelen Veri",
@@ -96,7 +96,7 @@
         "wanted": "Aranan",
         "queued": "Kuyrukta",
         "movies": "Filmler",
-        "missing": "Missing"
+        "missing": "Kayıp"
     },
     "lidarr": {
         "wanted": "Aranan",
@@ -171,49 +171,49 @@
         "messages": "İletiler"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Dizin Oluşturucular",
+        "numberOfGrabs": "Yakalama Sayısı",
+        "numberOfQueries": "Sorgu Sayısı",
+        "numberOfFailGrabs": "Başarısız Yakalama Sayısı",
+        "numberOfFailQueries": "Başarısız Sorgu Sayısı"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Yapılandırılmış",
+        "errored": "Hatalı"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Aktif Sezonlar",
+        "numConnections": "Bağlantı Sayısı",
+        "dataRelayed": "Aktarılan",
+        "transferRate": "Oran"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Kullanıcılar",
+        "status_count": "Gönderiler",
+        "domain_count": "Etki Alanları"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Kullanıcılar",
+        "loginsLast24H": "Girişler (24 Saat)",
+        "failedLoginsLast24H": "Başarısız Girişler (24 Saat)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Bellek",
+        "cpu": "İşlemci",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "Sanal Makineler"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "İşlemci",
+        "mem": "Bellek",
+        "wait": "Lütfen bekleyiniz"
     },
     "homepagesearch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "Yer İşareti",
+        "service": "Hizmet"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Toplam Gözlenen",
+        "diffsDetected": "Farklar Algılandı"
     }
 }
