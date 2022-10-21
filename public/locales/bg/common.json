@@ -95,7 +95,8 @@
     "radarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "movies": "Movies"
+        "movies": "Movies",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "Wanted",
