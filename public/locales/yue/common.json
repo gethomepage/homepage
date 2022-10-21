@@ -74,7 +74,8 @@
     "radarr": {
         "wanted": "想睇",
         "queued": "排緊隊",
-        "movies": "電影"
+        "movies": "電影",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "想睇",
