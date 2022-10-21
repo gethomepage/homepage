@@ -161,20 +161,20 @@
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Użytkownicy",
         "status_count": "Posts",
-        "domain_count": "Domains"
+        "domain_count": "Domeny"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
+        "numActiveSessions": "Sesje",
+        "numConnections": "Połączenia",
         "dataRelayed": "Relayed",
         "transferRate": "Rate"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Użytkownicy",
+        "loginsLast24H": "Logowania (24h)",
+        "failedLoginsLast24H": "Nieudane logowania (24h)"
     },
     "proxmox": {
         "mem": "MEM",
@@ -183,9 +183,9 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Użytkownicy",
+        "uptime": "Czas pracy systemu",
+        "days": "Dni",
         "wan": "WAN",
         "lan_users": "LAN Users",
         "wlan_users": "WLAN Users",
@@ -218,7 +218,7 @@
     },
     "wmo": {
         "77-day": "Snow Grains",
-        "0-day": "Sunny",
+        "0-day": "Słoneczny",
         "0-night": "Clear",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
