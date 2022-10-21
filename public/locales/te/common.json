@@ -92,7 +92,7 @@
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
         "movies": "సినిమాలు",
-        "missing": "Missing"
+        "missing": "మిస్సింగ్"
     },
     "lidarr": {
         "wanted": "కావలెను",
@@ -192,11 +192,11 @@
         "up": "అప్",
         "down": "డౌన్",
         "wait": "దయచేసి వేచి ఉండండి",
-        "lan": "LAN",
+        "lan": "లాన్",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "పరికరాలు",
+        "lan_devices": "LAN పరికరాలు",
+        "wlan_devices": "WLAN పరికరాలు"
     },
     "plex": {
         "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
