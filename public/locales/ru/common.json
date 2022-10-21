@@ -46,7 +46,8 @@
     "radarr": {
         "wanted": "Хотел",
         "queued": "В очереди",
-        "movies": "Фильмы"
+        "movies": "Фильмы",
+        "missing": "Missing"
     },
     "readarr": {
         "wanted": "Wanted",
