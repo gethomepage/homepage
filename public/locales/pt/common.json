@@ -46,7 +46,8 @@
     "radarr": {
         "wanted": "Desejado",
         "queued": "Fila",
-        "movies": "Filmes"
+        "movies": "Filmes",
+        "missing": "Missing"
     },
     "readarr": {
         "wanted": "Desejados",
