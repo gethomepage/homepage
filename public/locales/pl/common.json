@@ -211,5 +211,9 @@
     "homepagesearch": {
         "bookmark": "Bookmark",
         "service": "Service"
+    },
+    "changedetectionio": {
+        "diffsDetected": "Diffs Detected",
+        "totalObserved": "Total Observed"
     }
 }
