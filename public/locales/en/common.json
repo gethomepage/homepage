@@ -16,10 +16,10 @@
         "status": "Status"
     },
     "weather": {
-      "current": "Current Location",
-      "allow": "Click to allow",
-      "updating": "Updating",
-      "wait": "Please wait"
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
     },
     "search": {
         "placeholder": "Search…"
@@ -59,6 +59,10 @@
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observed",
+        "diffsDetected": "Diffs Detected"
     },
     "tautulli": {
         "playing": "Playing",
@@ -134,9 +138,9 @@
         "available": "Available"
     },
     "overseerr": {
-      "pending": "Pending",
-      "approved": "Approved",
-      "available": "Available"
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "pihole": {
         "queries": "Queries",
@@ -144,10 +148,10 @@
         "gravity": "Gravity"
     },
     "adguard": {
-      "queries": "Queries",
-      "blocked": "Blocked",
-      "filtered": "Filtered",
-      "latency": "Latency"
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
     },
     "speedtest": {
         "upload": "Upload",
@@ -181,7 +185,7 @@
         "clients": "Clients",
         "messages": "Messages"
     },
-    "prowlarr":{
+    "prowlarr": {
         "enableIndexers": "Indexers",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
