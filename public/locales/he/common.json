@@ -74,7 +74,8 @@
     "radarr": {
         "wanted": "מבוקש",
         "queued": "בתור",
-        "movies": "סרטים"
+        "movies": "סרטים",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "מבוקש",
