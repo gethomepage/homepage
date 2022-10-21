@@ -74,7 +74,8 @@
     "radarr": {
         "wanted": "Haluttu",
         "queued": "Jonossa",
-        "movies": "Elokuvia"
+        "movies": "Elokuvia",
+        "missing": "Missing"
     },
     "lidarr": {
         "wanted": "Haluttu",
