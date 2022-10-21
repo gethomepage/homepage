@@ -47,7 +47,7 @@
         "wanted": "Demande",
         "queued": "En attente",
         "movies": "Films",
-        "missing": "Missing"
+        "missing": "Manquant"
     },
     "readarr": {
         "wanted": "Demande",
@@ -207,5 +207,9 @@
         "cpu": "Cpu",
         "mem": "Mém",
         "wait": "Merci de patienter"
+    },
+    "homepagesearch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }

@@ -8,7 +8,7 @@ import Widget from "./widget";
 import Docker from "widgets/docker/component";
 import { SettingsContext } from "utils/contexts/settings";
 
-function resolveIcon(icon) {
+export function resolveIcon(icon) {
   // direct or relative URLs
   if (icon.startsWith("http") || icon.startsWith("/")) {
     return <Image src={`${icon}`} width={32} height={32} alt="logo" />;

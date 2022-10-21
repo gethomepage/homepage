@@ -207,5 +207,9 @@
         "cpu": "处理器",
         "mem": "内存",
         "wait": "请稍等"
+    },
+    "homepagesearch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }

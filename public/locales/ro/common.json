@@ -207,5 +207,9 @@
         "cpu": "Procesor",
         "mem": "Memorie",
         "wait": "Te rugam sa astepti"
+    },
+    "homepagesearch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }

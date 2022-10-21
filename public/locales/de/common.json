@@ -207,5 +207,9 @@
         "cpu": "CPU",
         "mem": "RAM",
         "wait": "Bitte warten"
+    },
+    "homepagesearch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }

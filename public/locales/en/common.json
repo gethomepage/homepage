@@ -219,6 +219,10 @@
         "mem": "MEM",
         "wait": "Please wait"
     },
+    "homepagesearch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
+    },
     "wmo": {
         "0-day": "Sunny",
         "0-night": "Clear",

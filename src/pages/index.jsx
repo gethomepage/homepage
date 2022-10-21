@@ -21,6 +21,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
+import QuickLaunch from "components/quicklaunch";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -173,6 +174,8 @@ function Home({ initialSettings }) {
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
+  
+  const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
 
   useEffect(() => {
     if (settings.language) {
@@ -187,6 +190,28 @@ function Home({ initialSettings }) {
       setColor(settings.color);
     }
   }, [i18n, settings, color, setColor, theme, setTheme]);
+
+  const [searching, setSearching] = useState(false);
+  const [searchString, setSearchString] = useState("");
+
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.target.tagName === "BODY") {
+        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+          setSearching(true);
+        } else if (e.key === "Escape") {
+          setSearchString("");
+          setSearching(false);
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return function cleanup() {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  })
 
   return (
     <>
@@ -211,6 +236,14 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
+          <QuickLaunch
+            servicesAndBookmarks={servicesAndBookmarks}
+            searchString={searchString}
+            setSearchString={setSearchString}
+            isOpen={searching}
+            close={setSearching}
+            searchDescriptions={settings.quicklook?.searchDescriptions}
+          />
           {widgets && (
             <>
               {widgets
