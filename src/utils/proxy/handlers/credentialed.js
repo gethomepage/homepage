@@ -29,6 +29,8 @@ export default async function credentialedProxyHandler(req, res) {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (widget.type === "authentik") {
         headers.Authorization = `Bearer ${widget.key}`;
+      } else if (widget.type === "proxmox") {
+        headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

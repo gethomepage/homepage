@@ -2,6 +2,7 @@
 import useSWR, { SWRConfig } from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import { useEffect, useContext, useState } from "react";
 import { BiError } from "react-icons/bi";
@@ -12,12 +13,15 @@ import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
 import Revalidate from "components/toggles/revalidate";
 import createLogger from "utils/logger";
+import useWindowFocus from "utils/hooks/window-focus";
 import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
-import useWindowFocus from "utils/hooks/window-focus";
+import ErrorBoundary from "components/errorboundry";
+import themes from "utils/styles/themes";
+import QuickLaunch from "components/quicklaunch";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -74,7 +78,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Index({ initialSettings, fallback }) {
+function Index({ initialSettings, fallback }) {
   const windowFocused = useWindowFocus();
   const [stale, setStale] = useState(false);
   const { data: errorsData } = useSWR("/api/validate");
@@ -119,7 +123,7 @@ export default function Index({ initialSettings, fallback }) {
 
   if (errorsData && errorsData.length > 0) {
     return (
-      <div className="w-full container m-auto justify-center p-10">
+      <div className="w-full h-screen container m-auto justify-center p-10 pointer-events-none">
         <div className="flex flex-col">
           {errorsData.map((error, i) => (
             <div
@@ -143,10 +147,19 @@ export default function Index({ initialSettings, fallback }) {
 
   return (
     <SWRConfig value={{ fallback, fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()) }}>
-      <Home initialSettings={initialSettings} />
+      <ErrorBoundary>
+        <Home initialSettings={initialSettings} />
+      </ErrorBoundary>
     </SWRConfig>
   );
 }
+
+const headerStyles = {
+  boxed:
+    "m-4 mb-0 sm:m-8 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+  underlined: "m-4 mb-0 sm:m-8 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
+  clean: "m-4 mb-0 sm:m-8 sm:mb-0",
+};
 
 function Home({ initialSettings }) {
   const { i18n } = useTranslation();
@@ -161,13 +174,8 @@ function Home({ initialSettings }) {
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
-
-  const wrappedStyle = {};
-  if (settings && settings.background) {
-    wrappedStyle.backgroundImage = `url(${settings.background})`;
-    wrappedStyle.backgroundSize = "cover";
-    wrappedStyle.opacity = settings.backgroundOpacity ?? 1;
-  }
+  
+  const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
 
   useEffect(() => {
     if (settings.language) {
@@ -183,16 +191,59 @@ function Home({ initialSettings }) {
     }
   }, [i18n, settings, color, setColor, theme, setTheme]);
 
+  const [searching, setSearching] = useState(false);
+  const [searchString, setSearchString] = useState("");
+
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.target.tagName === "BODY") {
+        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+          setSearching(true);
+        } else if (e.key === "Escape") {
+          setSearchString("");
+          setSearching(false);
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return function cleanup() {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  })
+
   return (
     <>
       <Head>
-        <title>{settings.title || "Homepage"}</title>
-        {settings.base && <base href={settings.base} />}
-        {settings.favicon && <link rel="icon" href={settings.favicon} />}
+        <title>{initialSettings.title || "Homepage"}</title>
+        {initialSettings.base && <base href={initialSettings.base} />}
+        {initialSettings.favicon ? (
+          <link rel="icon" href={initialSettings.favicon} />
+        ) : (
+          <link rel="shortcut icon" href="/homepage.ico" />
+        )}
+        <meta
+          name="msapplication-TileColor"
+          content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]}
+        />
+        <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
-      <div className="fixed w-full h-full m-0 p-0" style={wrappedStyle} />
-      <div className="relative w-full container m-auto flex flex-col h-screen justify-between">
-        <div className="flex flex-row flex-wrap m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200 justify-between">
+      <div className="relative container m-auto flex flex-col justify-between z-10">
+        <div
+          className={classNames(
+            "flex flex-row flex-wrap  justify-between",
+            headerStyles[initialSettings.headerStyle || "underlined"]
+          )}
+        >
+          <QuickLaunch
+            servicesAndBookmarks={servicesAndBookmarks}
+            searchString={searchString}
+            setSearchString={setSearchString}
+            isOpen={searching}
+            close={setSearching}
+            searchDescriptions={settings.quicklaunch?.searchDescriptions}
+          />
           {widgets && (
             <>
               {widgets
@@ -201,7 +252,7 @@ function Home({ initialSettings }) {
                   <Widget key={i} widget={widget} />
                 ))}
 
-              <div className="ml-4 flex flex-wrap basis-full grow sm:basis-auto justify-between md:justify-end mt-2 md:mt-0">
+              <div className="m-auto sm:ml-2 flex flex-wrap grow sm:basis-auto justify-between md:justify-end">
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
@@ -213,15 +264,15 @@ function Home({ initialSettings }) {
         </div>
 
         {services && (
-          <div className="flex flex-wrap p-8 items-start">
+          <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
             {services.map((group) => (
-              <ServicesGroup key={group.name} services={group} layout={settings.layout?.[group.name]} />
+              <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
             ))}
           </div>
         )}
 
         {bookmarks && (
-          <div className="grow flex flex-wrap pt-0 p-8">
+          <div className="grow flex flex-wrap pt-0 p-4 sm:p-8">
             {bookmarks.map((group) => (
               <BookmarksGroup key={group.name} group={group} />
             ))}
@@ -229,9 +280,9 @@ function Home({ initialSettings }) {
         )}
 
         <div className="flex p-8 pb-0 w-full justify-end">
-          {!settings?.color && <ColorToggle />}
+          {!initialSettings?.color && <ColorToggle />}
           <Revalidate />
-          {!settings?.theme && <ThemeToggle />}
+          {!initialSettings?.theme && <ThemeToggle />}
         </div>
 
         <div className="flex p-8 pt-4 w-full justify-end">
@@ -239,5 +290,40 @@ function Home({ initialSettings }) {
         </div>
       </div>
     </>
+  );
+}
+
+export default function Wrapper({ initialSettings, fallback }) {
+  const wrappedStyle = {};
+  if (initialSettings && initialSettings.background) {
+    const opacity = initialSettings.backgroundOpacity ?? 1;
+    const opacityValue = 1 - opacity;
+    wrappedStyle.backgroundImage = `
+      linear-gradient(
+        rgb(var(--bg-color) / ${opacityValue}),
+        rgb(var(--bg-color) / ${opacityValue})
+      ),
+      url(${initialSettings.background})`;
+    wrappedStyle.backgroundPosition = "center";
+    wrappedStyle.backgroundSize = "cover";
+  }
+
+  return (
+    <div
+      id="page_wrapper"
+      className={classNames(
+        "relative",
+        initialSettings.theme && initialSettings.theme,
+        initialSettings.color && `theme-${initialSettings.color}`
+      )}
+    >
+      <div
+        id="page_container"
+        className="fixed overflow-auto w-full h-full bg-theme-50 dark:bg-theme-800 transition-all"
+        style={wrappedStyle}
+      >
+        <Index initialSettings={initialSettings} fallback={fallback} />
+      </div>
+    </div>
   );
 }

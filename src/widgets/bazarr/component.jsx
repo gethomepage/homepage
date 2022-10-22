@@ -13,22 +13,22 @@ export default function Component({ service }) {
   const { data: moviesData, error: moviesError } = useWidgetAPI(widget, "movies");
 
   if (episodesError || moviesError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error="widget.api_error" />;
   }
 
   if (!episodesData || !moviesData) {
     return (
-      <Container>
-        <Block label={t("bazarr.missingEpisodes")} />
-        <Block label={t("bazarr.missingMovies")} />
+      <Container service={service}>
+        <Block label="bazarr.missingEpisodes" />
+        <Block label="bazarr.missingMovies" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("bazarr.missingEpisodes")} value={t("common.number", { value: episodesData.total })} />
-      <Block label={t("bazarr.missingMovies")} value={t("common.number", { value: moviesData.total })} />
+    <Container service={service}>
+      <Block label="bazarr.missingEpisodes" value={t("common.number", { value: episodesData.total })} />
+      <Block label="bazarr.missingMovies" value={t("common.number", { value: moviesData.total })} />
     </Container>
   );
 }

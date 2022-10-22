@@ -5,7 +5,7 @@ import Memory from "./memory";
 export default function Resources({ options }) {
   const { expanded } = options;
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center m-auto flex-wrap">
+    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
       <div className="flex flex-row self-center flex-wrap justify-between">
         {options.cpu && <Cpu expanded={expanded} />}
         {options.memory && <Memory expanded={expanded} />}

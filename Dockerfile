@@ -11,7 +11,7 @@ RUN <<EOF
     set -xe
     apk add libc6-compat
     apk add --virtual .gyp python3 make g++
-    yarn global add pnpm
+    npm install -g pnpm
 EOF
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
@@ -31,7 +31,7 @@ COPY . .
 
 RUN <<EOF
     set -xe
-    yarn next telemetry disable
+    npm run telemetry
     mkdir config && echo '-' > config/settings.yaml
     NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
 EOF

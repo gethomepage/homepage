@@ -56,7 +56,7 @@ export default function Search({ options }) {
   }
 
   return (
-    <form className="flex-col relative h-8 my-4 min-w-full md:min-w-fit grow first:ml-0 ml-4" onSubmit={handleSubmit}>
+    <form className="flex-col relative h-8 my-4 min-w-fit grow first:ml-0 ml-4" onSubmit={handleSubmit}>
       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
       <input
         type="text"

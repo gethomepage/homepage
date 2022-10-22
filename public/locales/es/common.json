@@ -11,13 +11,14 @@
         "total": "Total",
         "free": "Libre",
         "used": "Usado",
-        "load": "Carga"
+        "load": "Carga",
+        "cpu": "CPU"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
+        "rx": "Recibido",
+        "tx": "Transmitido",
+        "mem": "Memoria",
+        "cpu": "Procesador",
         "offline": "Desconectado"
     },
     "emby": {
@@ -38,17 +39,18 @@
         "download": "Bajada"
     },
     "sonarr": {
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "queued": "En cola",
         "series": "Series"
     },
     "radarr": {
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "queued": "En cola",
-        "movies": "Películas"
+        "movies": "Películas",
+        "missing": "No Encontrado"
     },
     "readarr": {
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "queued": "En cola",
         "books": "Libros"
     },
@@ -143,7 +145,7 @@
     },
     "lidarr": {
         "queued": "En cola",
-        "wanted": "Más deseado",
+        "wanted": "Buscando",
         "albums": "Álbumes"
     },
     "adguard": {
@@ -170,8 +172,106 @@
         "transferRate": "Velocidad"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Usuarios",
+        "loginsLast24H": "Inicios de sesión (24h)",
+        "failedLoginsLast24H": "Inicios de sesión fallidos (24h)"
+    },
+    "proxmox": {
+        "mem": "Memoria",
+        "cpu": "Procesador",
+        "lxc": "Contenedores Linux",
+        "vms": "Máquinas Virtuales"
+    },
+    "unifi": {
+        "up": "LEVANTADO",
+        "users": "Usuarios",
+        "uptime": "Tiempo de actividad",
+        "days": "Días",
+        "wan": "Red WAN",
+        "lan_users": "Usuarios LAN",
+        "wlan_users": "Usuarios WLAN",
+        "down": "CAÍDO",
+        "wait": "Espere por favor",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Dispositivos",
+        "lan_devices": "Dispositivos LAN",
+        "wlan_devices": "Dispositivos WLAN"
+    },
+    "plex": {
+        "streams": "Transmisiones activas",
+        "movies": "Películas",
+        "tv": "Programas de TV"
+    },
+    "glances": {
+        "cpu": "Procesador",
+        "mem": "Memoria",
+        "wait": "Espere por favor"
+    },
+    "changedetectionio": {
+        "totalObserved": "Observados en Total",
+        "diffsDetected": "Diffs Detected"
+    },
+    "wmo": {
+        "48-night": "Niebla",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "2-day": "Parcialmente Nuboso",
+        "0-day": "Soleado",
+        "0-night": "Despejado",
+        "1-day": "Mayormente Soleado",
+        "1-night": "Mayormente Despejado",
+        "2-night": "Parcialmente Nuboso",
+        "3-day": "Nubaldo",
+        "3-night": "Nublado",
+        "45-day": "Niebla",
+        "45-night": "Niebla",
+        "48-day": "Niebla",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "67-day": "Granizo",
+        "63-day": "Rain",
+        "63-night": "Lluvia",
+        "65-day": "Chubascos",
+        "65-night": "Chubascos",
+        "66-day": "Granizo",
+        "66-night": "Granizo",
+        "67-night": "Granizo",
+        "71-day": "Nevada Leve",
+        "71-night": "Nevada Leva",
+        "73-day": "Nevada",
+        "73-night": "Nevada",
+        "75-day": "Fuertes Nevadas",
+        "75-night": "Fuertes Nevadas",
+        "77-day": "Nevada Leve",
+        "77-night": "Nevada Leve",
+        "80-day": "llovizna",
+        "80-night": "Llovizna",
+        "81-day": "Lluvia",
+        "81-night": "Lluvia",
+        "82-day": "Chubascos",
+        "82-night": "Chubascos",
+        "85-day": "Chubascos",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     }
 }

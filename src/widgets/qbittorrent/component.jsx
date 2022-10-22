@@ -17,11 +17,11 @@ export default function Component({ service }) {
 
   if (!torrentData) {
     return (
-      <Container>
-        <Block label={t("qbittorrent.leech")} />
-        <Block label={t("qbittorrent.download")} />
-        <Block label={t("qbittorrent.seed")} />
-        <Block label={t("qbittorrent.upload")} />
+      <Container service={service}>
+        <Block label="qbittorrent.leech" />
+        <Block label="qbittorrent.download" />
+        <Block label="qbittorrent.seed" />
+        <Block label="qbittorrent.upload" />
       </Container>
     );
   }
@@ -42,11 +42,11 @@ export default function Component({ service }) {
   const leech = torrentData.length - completed;
 
   return (
-    <Container>
-      <Block label={t("qbittorrent.leech")} value={t("common.number", { value: leech })} />
-      <Block label={t("qbittorrent.download")} value={t("common.bitrate", { value: rateDl })} />
-      <Block label={t("qbittorrent.seed")} value={t("common.number", { value: completed })} />
-      <Block label={t("qbittorrent.upload")} value={t("common.bitrate", { value: rateUl })} />
+    <Container service={service}>
+      <Block label="qbittorrent.leech" value={t("common.number", { value: leech })} />
+      <Block label="qbittorrent.download" value={t("common.bitrate", { value: rateDl })} />
+      <Block label="qbittorrent.seed" value={t("common.number", { value: completed })} />
+      <Block label="qbittorrent.upload" value={t("common.bitrate", { value: rateUl })} />
     </Container>
   );
 }

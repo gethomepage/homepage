@@ -1,0 +1,277 @@
+{
+    "widget": {
+        "missing_type": "Kayıp Araç Türü: {{type}}",
+        "api_error": "API Hatası",
+        "status": "Durum"
+    },
+    "weather": {
+        "current": "Mevcut Konum",
+        "allow": "İzin vermek için tıklayın",
+        "updating": "Güncelleniyor",
+        "wait": "Lütfen bekleyin"
+    },
+    "search": {
+        "placeholder": "Ara…"
+    },
+    "resources": {
+        "cpu": "İşlemci",
+        "total": "Toplam",
+        "free": "Boşta",
+        "used": "Kullanımda",
+        "load": "Yük"
+    },
+    "unifi": {
+        "users": "Kullanıcılar",
+        "uptime": "Çalışma Süresi",
+        "days": "Günler",
+        "wan": "WAN",
+        "lan_users": "LAN Kullanıcıları",
+        "wlan_users": "WLAN Kullanıcıları",
+        "up": "Yukarı",
+        "down": "Aşağı",
+        "wait": "Lütfen bekleyin",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Aygıtlar",
+        "lan_devices": "LAN Aygıtları",
+        "wlan_devices": "WLAN Aygıtları"
+    },
+    "docker": {
+        "rx": "Gelen Veri",
+        "tx": "Giden Veri",
+        "mem": "Bellek",
+        "cpu": "İşlemci",
+        "offline": "Çevrimdışı"
+    },
+    "emby": {
+        "playing": "Oynatılıyor",
+        "transcoding": "Dönüştürülüyor",
+        "bitrate": "Bit Oranı",
+        "no_active": "Aktif akış yok"
+    },
+    "tautulli": {
+        "playing": "Oynatılıyor",
+        "transcoding": "Dönüştürülüyor",
+        "bitrate": "Bit Oranı",
+        "no_active": "Aktif akış yok"
+    },
+    "nzbget": {
+        "rate": "Oran",
+        "remaining": "Kalan",
+        "downloaded": "İndirilen"
+    },
+    "plex": {
+        "streams": "Aktif Akış",
+        "movies": "Filmler",
+        "tv": "TV Showları"
+    },
+    "sabnzbd": {
+        "rate": "Oran",
+        "queue": "Kuyruk",
+        "timeleft": "Kalan Zaman"
+    },
+    "rutorrent": {
+        "active": "Aktif",
+        "upload": "Yükleme",
+        "download": "İndirme"
+    },
+    "transmission": {
+        "download": "İndirme",
+        "upload": "Yükleme",
+        "leech": "İsteyen",
+        "seed": "Sunan"
+    },
+    "qbittorrent": {
+        "download": "İndirme",
+        "upload": "Yükleme",
+        "leech": "İsteyen",
+        "seed": "Sunan"
+    },
+    "sonarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "series": "Seriler"
+    },
+    "radarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "movies": "Filmler",
+        "missing": "Kayıp"
+    },
+    "lidarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "albums": "Albümler"
+    },
+    "readarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "books": "Kitaplar"
+    },
+    "bazarr": {
+        "missingEpisodes": "Kayıp Bölümler",
+        "missingMovies": "Kayıp Filmler"
+    },
+    "ombi": {
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
+    },
+    "jellyseerr": {
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
+    },
+    "overseerr": {
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
+    },
+    "pihole": {
+        "queries": "Sorgular",
+        "blocked": "Engellenen",
+        "gravity": "Yer Çekimi"
+    },
+    "adguard": {
+        "queries": "Sorgular",
+        "blocked": "Engellenen",
+        "filtered": "Filtrelenen",
+        "latency": "Gecikme"
+    },
+    "speedtest": {
+        "upload": "Yükleme",
+        "download": "İndirme",
+        "ping": "Ping"
+    },
+    "portainer": {
+        "running": "Çalışıyor",
+        "stopped": "Durduruldu",
+        "total": "Toplam"
+    },
+    "traefik": {
+        "routers": "Yönlendiriciler",
+        "services": "Hizmetler",
+        "middleware": "Ara Katman"
+    },
+    "npm": {
+        "enabled": "Etkin",
+        "disabled": "Devre Dışı",
+        "total": "Toplam"
+    },
+    "coinmarketcap": {
+        "configure": "İzleme için bir veya daha fazla kripto para birimi yapılandırın",
+        "1hour": "1 Saat",
+        "1day": "1 Gün",
+        "7days": "7 Gün",
+        "30days": "30 Gün"
+    },
+    "gotify": {
+        "apps": "Uygulamalar",
+        "clients": "Alıcılar",
+        "messages": "İletiler"
+    },
+    "prowlarr": {
+        "enableIndexers": "Dizin Oluşturucular",
+        "numberOfGrabs": "Yakalama Sayısı",
+        "numberOfQueries": "Sorgu Sayısı",
+        "numberOfFailGrabs": "Başarısız Yakalama Sayısı",
+        "numberOfFailQueries": "Başarısız Sorgu Sayısı"
+    },
+    "jackett": {
+        "configured": "Yapılandırılmış",
+        "errored": "Hatalı"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Aktif Sezonlar",
+        "numConnections": "Bağlantı Sayısı",
+        "dataRelayed": "Aktarılan",
+        "transferRate": "Oran"
+    },
+    "mastodon": {
+        "user_count": "Kullanıcılar",
+        "status_count": "Gönderiler",
+        "domain_count": "Etki Alanları"
+    },
+    "authentik": {
+        "users": "Kullanıcılar",
+        "loginsLast24H": "Girişler (24 Saat)",
+        "failedLoginsLast24H": "Başarısız Girişler (24 Saat)"
+    },
+    "proxmox": {
+        "mem": "Bellek",
+        "cpu": "İşlemci",
+        "lxc": "LXC",
+        "vms": "Sanal Makineler"
+    },
+    "glances": {
+        "cpu": "İşlemci",
+        "mem": "Bellek",
+        "wait": "Lütfen bekleyiniz"
+    },
+    "changedetectionio": {
+        "totalObserved": "Toplam Gözlenen",
+        "diffsDetected": "Farklar Algılandı"
+    },
+    "wmo": {
+        "99-day": "Thunderstorm With Hail",
+        "0-day": "Sunny",
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "95-night": "Thunderstorm",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
+    }
+}

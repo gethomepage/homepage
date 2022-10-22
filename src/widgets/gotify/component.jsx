@@ -17,11 +17,22 @@ export default function Component({ service }) {
     return <Container error={t("widget.api_error")} />;
   }
 
+
+  if (!appsData || !messagesData || !clientsData) {
+    return (
+      <Container service={service}>
+        <Block label="gotify.apps" />
+        <Block label="gotify.clients" />
+        <Block label="gotify.messages" />
+      </Container>
+    );
+  }
+
   return (
-    <Container>
-      <Block label={t("gotify.apps")} value={appsData?.length} />
-      <Block label={t("gotify.clients")} value={clientsData?.length} />
-      <Block label={t("gotify.messages")} value={messagesData?.messages?.length} />
+    <Container service={service}>
+      <Block label="gotify.apps" value={appsData?.length} />
+      <Block label="gotify.clients" value={clientsData?.length} />
+      <Block label="gotify.messages" value={messagesData?.messages?.length} />
     </Container>
   );
 }

@@ -27,19 +27,19 @@ export default function Component({ service }) {
 
   if (!queueData) {
     return (
-      <Container>
-        <Block label={t("sabnzbd.rate")} />
-        <Block label={t("sabnzbd.queue")} />
-        <Block label={t("sabnzbd.timeleft")} />
+      <Container service={service}>
+        <Block label="sabnzbd.rate" />
+        <Block label="sabnzbd.queue" />
+        <Block label="sabnzbd.timeleft" />
       </Container>
     );
   }
 
   return (
-    <Container>
-      <Block label={t("sabnzbd.rate")} value={t("common.bitrate", { value: fromUnits(queueData.queue.speed) * 8 })} />
-      <Block label={t("sabnzbd.queue")} value={t("common.number", { value: queueData.queue.noofslots })} />
-      <Block label={t("sabnzbd.timeleft")} value={queueData.queue.timeleft} />
+    <Container service={service}>
+      <Block label="sabnzbd.rate" value={t("common.bitrate", { value: fromUnits(queueData.queue.speed) * 8 })} />
+      <Block label="sabnzbd.queue" value={t("common.number", { value: queueData.queue.noofslots })} />
+      <Block label="sabnzbd.timeleft" value={queueData.queue.timeleft} />
     </Container>
   );
 }

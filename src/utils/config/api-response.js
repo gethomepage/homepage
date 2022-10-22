@@ -6,6 +6,7 @@ import yaml from "js-yaml";
 
 import checkAndCopyConfig from "utils/config/config";
 import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/config/service-helpers";
+import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
 export async function bookmarksResponse() {
   checkAndCopyConfig("bookmarks.yaml");
@@ -13,6 +14,8 @@ export async function bookmarksResponse() {
   const bookmarksYaml = path.join(process.cwd(), "config", "bookmarks.yaml");
   const fileContents = await fs.readFile(bookmarksYaml, "utf8");
   const bookmarks = yaml.load(fileContents);
+
+  if (!bookmarks) return [];
 
   // map easy to write YAML objects into easy to consume JS arrays
   const bookmarksArray = bookmarks.map((group) => ({
@@ -27,19 +30,17 @@ export async function bookmarksResponse() {
 }
 
 export async function widgetsResponse() {
-  checkAndCopyConfig("widgets.yaml");
+  let configuredWidgets;
 
-  const widgetsYaml = path.join(process.cwd(), "config", "widgets.yaml");
-  const fileContents = await fs.readFile(widgetsYaml, "utf8");
-  const widgets = yaml.load(fileContents);
+  try {
+    configuredWidgets = cleanWidgetGroups(await widgetsFromConfig());
+  } catch (e) {
+    console.error("Failed to load widgets, please check widgets.yaml for errors or remove example entries.");
+    if (e) console.error(e);
+    configuredWidgets = [];
+  }
 
-  // map easy to write YAML objects into easy to consume JS arrays
-  const widgetsArray = widgets.map((group) => ({
-    type: Object.keys(group)[0],
-    options: { ...group[Object.keys(group)[0]] },
-  }));
-
-  return widgetsArray;
+  return configuredWidgets;
 }
 
 export async function servicesResponse() {

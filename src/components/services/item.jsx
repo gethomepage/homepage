@@ -1,4 +1,3 @@
-import Image from "next/future/image";
 import classNames from "classnames";
 import { useContext, useState } from "react";
 
@@ -38,22 +37,20 @@ export default function Item({ service }) {
             (hasLink ? (
               <a
                 href={service.href}
-                target={settings.target ?? "_blank"}
+                target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 "
               >
-                <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
+                {resolveIcon(service.icon)}
               </a>
             ) : (
-              <div className="flex-shrink-0 flex items-center justify-center w-12 ">
-                <Image src={resolveIcon(service.icon)} width={32} height={32} alt="logo" />
-              </div>
+              <div className="flex-shrink-0 flex items-center justify-center w-12 ">{resolveIcon(service.icon)}</div>
             ))}
 
           {hasLink ? (
             <a
               href={service.href}
-              target={settings.target ?? "_blank"}
+              target={service.target ?? settings.target ?? "_blank"}
               rel="noreferrer"
               className="flex-1 flex items-center justify-between rounded-r-md "
             >

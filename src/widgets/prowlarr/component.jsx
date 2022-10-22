@@ -18,12 +18,12 @@ export default function Component({ service }) {
 
   if (!indexersData || !grabsData) {
     return (
-      <Container>
-        <Block label={t("prowlarr.enableIndexers")} />
-        <Block label={t("prowlarr.numberOfGrabs")} />
-        <Block label={t("prowlarr.numberOfQueries")} />
-        <Block label={t("prowlarr.numberOfFailGrabs")} />
-        <Block label={t("prowlarr.numberOfFailQueries")} />
+      <Container service={service}>
+        <Block label="prowlarr.enableIndexers" />
+        <Block label="prowlarr.numberOfGrabs" />
+        <Block label="prowlarr.numberOfQueries" />
+        <Block label="prowlarr.numberOfFailGrabs" />
+        <Block label="prowlarr.numberOfFailQueries" />
       </Container>
     );
   }
@@ -42,12 +42,12 @@ export default function Component({ service }) {
   });
 
   return (
-    <Container>
-      <Block label={t("prowlarr.enableIndexers")} value={indexers.length} />
-      <Block label={t("prowlarr.numberOfGrabs")} value={numberOfGrabs} />
-      <Block label={t("prowlarr.numberOfQueries")} value={numberOfQueries} />
-      <Block label={t("prowlarr.numberOfFailGrabs")} value={numberOfFailedGrabs} />
-      <Block label={t("prowlarr.numberOfFailQueries")} value={numberOfFailedQueries} />
+    <Container service={service}>
+      <Block label="prowlarr.enableIndexers" value={indexers.length} />
+      <Block label="prowlarr.numberOfGrabs" value={numberOfGrabs} />
+      <Block label="prowlarr.numberOfQueries" value={numberOfQueries} />
+      <Block label="prowlarr.numberOfFailGrabs" value={numberOfFailedGrabs} />
+      <Block label="prowlarr.numberOfFailQueries" value={numberOfFailedQueries} />
     </Container>
   );
 }

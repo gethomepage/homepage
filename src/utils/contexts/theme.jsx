@@ -22,7 +22,7 @@ export function ThemeProvider({ initialTheme, children }) {
   const [theme, setTheme] = useState(getInitialTheme);
 
   const rawSetTheme = (rawTheme) => {
-    const root = window.document.documentElement;
+    const root = window.document.getElementById("page_wrapper");
     const isDark = rawTheme === "dark";
 
     root.classList.remove(isDark ? "light" : "dark");

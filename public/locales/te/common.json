@@ -1,0 +1,277 @@
+{
+    "readarr": {
+        "books": "పుస్తకాలు",
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్"
+    },
+    "adguard": {
+        "blocked": "నిరోధించబడింది",
+        "filtered": "ఫిల్టర్ చేయబడింది",
+        "latency": "జాప్యం",
+        "queries": "ప్రశ్నలు"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "సెషన్స్",
+        "numConnections": "కనెక్షన్లు",
+        "dataRelayed": "రెలయెడఁ",
+        "transferRate": "రేటు"
+    },
+    "widget": {
+        "missing_type": "విడ్జెట్ లేదు: {{type}}",
+        "api_error": "API లోపం",
+        "status": "హోదా"
+    },
+    "weather": {
+        "current": "ప్రస్తుత స్తలం",
+        "allow": "అనుమతించడానికి క్లిక్ చేయండి",
+        "updating": "నవీకరిస్తోంది",
+        "wait": "దయచేసి వేచి ఉండండి"
+    },
+    "search": {
+        "placeholder": "వెతకండి…"
+    },
+    "resources": {
+        "cpu": "సీపియూ",
+        "total": "మొత్తం",
+        "free": "మిగిలింది",
+        "used": "ఉపయోగించబడిన",
+        "load": "లోడ్"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "సీపియూ",
+        "offline": "ఆఫ్‌లైన్"
+    },
+    "emby": {
+        "playing": "ఆడుతున్నారు",
+        "transcoding": "ట్రాన్స్‌కోడింగ్",
+        "bitrate": "బిట్రేట్",
+        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు"
+    },
+    "tautulli": {
+        "playing": "ఆడుతున్నారు",
+        "transcoding": "ట్రాన్స్‌కోడింగ్",
+        "bitrate": "బిట్రేట్",
+        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు"
+    },
+    "nzbget": {
+        "rate": "రేట్",
+        "remaining": "మిగిలింది",
+        "downloaded": "డౌన్‌లోడ్ చేయబడింది"
+    },
+    "sabnzbd": {
+        "rate": "రేట్",
+        "queue": "వరుస",
+        "timeleft": "మిగిలి వున్న సమయం"
+    },
+    "rutorrent": {
+        "active": "చురుకుగా",
+        "upload": "అప్‌లోడ్",
+        "download": "డౌన్‌లోడ్"
+    },
+    "transmission": {
+        "download": "డౌన్‌లోడ్",
+        "upload": "అప్‌లోడ్",
+        "leech": "జలగ",
+        "seed": "సీడ్"
+    },
+    "qbittorrent": {
+        "download": "డౌన్‌లోడ్",
+        "upload": "అప్లోడ్",
+        "leech": "లీచ్",
+        "seed": "సీడ్"
+    },
+    "sonarr": {
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్",
+        "series": "సిరీస్"
+    },
+    "radarr": {
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్",
+        "movies": "సినిమాలు",
+        "missing": "మిస్సింగ్"
+    },
+    "lidarr": {
+        "wanted": "కావలెను",
+        "queued": "క్యూయూఎడ్",
+        "albums": "ఆల్బములు"
+    },
+    "bazarr": {
+        "missingEpisodes": "ఎపిసోడ్‌లు లేవు",
+        "missingMovies": "సినిమాలు లేవు"
+    },
+    "ombi": {
+        "pending": "పెండింగ్",
+        "approved": "ఆమోదించబడింది",
+        "available": "అందుబాటులో వున్నవి"
+    },
+    "jellyseerr": {
+        "pending": "పెండింగ్",
+        "approved": "ఆమోదించబడింది",
+        "available": "అందుబాటులో"
+    },
+    "overseerr": {
+        "pending": "పెండింగ్",
+        "approved": "ఆమోదించబడింది",
+        "available": "అందుబాటులో"
+    },
+    "pihole": {
+        "queries": "ప్రశ్నలు",
+        "blocked": "నిరోధించబడింది",
+        "gravity": "గురుత్వాకర్షణ"
+    },
+    "speedtest": {
+        "upload": "అప్లోడ్",
+        "download": "డౌన్‌లోడ్",
+        "ping": "పింగ్"
+    },
+    "portainer": {
+        "running": "నడుస్తున్నవి",
+        "stopped": "ఆగిపోయినవి",
+        "total": "మొత్తం"
+    },
+    "traefik": {
+        "routers": "రౌటర్లు",
+        "services": "సేవలు",
+        "middleware": "మిడిల్వేర్"
+    },
+    "npm": {
+        "enabled": "ప్రారంభించబడింది",
+        "disabled": "డిసేబ్లెడ్",
+        "total": "మొత్తం"
+    },
+    "coinmarketcap": {
+        "configure": "ట్రాక్ చేయడానికి ఒకటి లేదా అంతకంటే ఎక్కువ క్రిప్టో కరెన్సీలను కాన్ఫిగర్ చేయండి",
+        "1hour": "1 గంట",
+        "1day": "1 రోజు",
+        "7days": "7 రోజులు",
+        "30days": "30 రోజులు"
+    },
+    "gotify": {
+        "apps": "అప్లికేషన్లు",
+        "clients": "ఖాతాదారులు",
+        "messages": "సందేశాలు"
+    },
+    "prowlarr": {
+        "enableIndexers": "సూచికలు",
+        "numberOfGrabs": "గ్రాబ్స్",
+        "numberOfQueries": "ప్రశ్నలు",
+        "numberOfFailGrabs": "ఫెయిల్ గ్రాబ్స్",
+        "numberOfFailQueries": "విఫలమైన ప్రశ్నలు"
+    },
+    "jackett": {
+        "configured": "కాన్ఫిగర్ చేయబడింది",
+        "errored": "పొరపాటు జరిగింది"
+    },
+    "mastodon": {
+        "user_count": "వినియోగదారులు",
+        "status_count": "పోస్ట్‌లు",
+        "domain_count": "డొమైన్‌లు"
+    },
+    "authentik": {
+        "users": "వినియోగదారులు",
+        "loginsLast24H": "లాగిన్లు (24గం)",
+        "failedLoginsLast24H": "విఫలమైన లాగిన్‌లు (24గం)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "సీపియూ",
+        "lxc": "LXC",
+        "vms": "విఎంలు"
+    },
+    "unifi": {
+        "users": "వినియోగదారులు",
+        "uptime": "సిస్టమ్ సమయము",
+        "days": "రోజులు",
+        "wan": "WAN",
+        "lan_users": "LAN వినియోగదారులు",
+        "wlan_users": "WLAN వినియోగదారులు",
+        "up": "అప్",
+        "down": "డౌన్",
+        "wait": "దయచేసి వేచి ఉండండి",
+        "lan": "లాన్",
+        "wlan": "WLAN",
+        "devices": "పరికరాలు",
+        "lan_devices": "LAN పరికరాలు",
+        "wlan_devices": "WLAN పరికరాలు"
+    },
+    "plex": {
+        "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
+        "movies": "సినిమాలు",
+        "tv": "దూరదర్శిని కార్యక్రమాలు"
+    },
+    "glances": {
+        "cpu": "సీపియూ",
+        "mem": "MEM",
+        "wait": "దయచేసి వేచి ఉండండి"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observed",
+        "diffsDetected": "Diffs Detected"
+    },
+    "wmo": {
+        "0-day": "Sunny",
+        "0-night": "Clear",
+        "57-night": "Freezing Drizzle",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
+    }
+}

@@ -4,6 +4,7 @@ const components = {
   adguard: dynamic(() => import("./adguard/component")),
   authentik: dynamic(() => import("./authentik/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
+  changedetectionio: dynamic(() => import("./changedetectionio/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
   docker: dynamic(() => import("./docker/component")),
   emby: dynamic(() => import("./emby/component")),
@@ -18,8 +19,10 @@ const components = {
   ombi: dynamic(() => import("./ombi/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   pihole: dynamic(() => import("./pihole/component")),
+  plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),
   prowlarr: dynamic(() => import("./prowlarr/component")),
+  proxmox: dynamic(() => import("./proxmox/component")),
   qbittorrent: dynamic(() => import("./qbittorrent/component")),
   radarr: dynamic(() => import("./radarr/component")),
   readarr: dynamic(() => import("./readarr/component")),
@@ -31,6 +34,7 @@ const components = {
   tautulli: dynamic(() => import("./tautulli/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
+  unifi: dynamic(() => import("./unifi/component")),
 };
 
 export default components;

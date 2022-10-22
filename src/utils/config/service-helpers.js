@@ -59,7 +59,7 @@ export async function servicesFromDocker() {
         let constructedService = null;
 
         Object.keys(container.Labels).forEach((label) => {
-          if (label.startsWith("homepage")) {
+          if (label.startsWith("homepage.")) {
             if (!constructedService) {
               constructedService = {
                 container: container.Names[0].replace(/^\//, ""),
@@ -113,6 +113,7 @@ export function cleanServiceGroups(groups) {
         // whitelisted set of keys to pass to the frontend
         const {
           type, // all widgets
+          fields,
           server, // docker widget
           container,
           currency, // coinmarketcap widget
@@ -121,6 +122,7 @@ export function cleanServiceGroups(groups) {
 
         cleanedService.widget = {
           type,
+          fields: fields || null,
           service_name: service.name,
           service_group: serviceGroup.name,
         };

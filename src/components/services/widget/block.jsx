@@ -1,6 +1,9 @@
+import { useTranslation } from "next-i18next";
 import classNames from "classnames";
 
 export default function Block({ value, label }) {
+  const { t } = useTranslation();
+
   return (
     <div
       className={classNames(
@@ -9,7 +12,7 @@ export default function Block({ value, label }) {
       )}
     >
       <div className="font-thin text-sm">{value === undefined || value === null ? "-" : value}</div>
-      <div className="font-bold text-xs uppercase">{label}</div>
+      <div className="font-bold text-xs uppercase">{t(label)}</div>
     </div>
   );
 }

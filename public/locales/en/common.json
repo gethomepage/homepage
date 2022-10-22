@@ -16,19 +16,36 @@
         "status": "Status"
     },
     "weather": {
-      "current": "Current Location",
-      "allow": "Click to allow",
-      "updating": "Updating",
-      "wait": "Please wait"
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
     },
     "search": {
         "placeholder": "Search…"
     },
     "resources": {
+        "cpu": "CPU",
         "total": "Total",
         "free": "Free",
         "used": "Used",
         "load": "Load"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait"
     },
     "docker": {
         "rx": "RX",
@@ -43,6 +60,10 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
     },
+    "changedetectionio": {
+        "totalObserved": "Total Observed",
+        "diffsDetected": "Diffs Detected"
+    },
     "tautulli": {
         "playing": "Playing",
         "transcoding": "Transcoding",
@@ -53,6 +74,11 @@
         "rate": "Rate",
         "remaining": "Remaining",
         "downloaded": "Downloaded"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -83,6 +109,7 @@
     },
     "radarr": {
         "wanted": "Wanted",
+        "missing": "Missing",
         "queued": "Queued",
         "movies": "Movies"
     },
@@ -111,9 +138,9 @@
         "available": "Available"
     },
     "overseerr": {
-      "pending": "Pending",
-      "approved": "Approved",
-      "available": "Available"
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "pihole": {
         "queries": "Queries",
@@ -121,10 +148,10 @@
         "gravity": "Gravity"
     },
     "adguard": {
-      "queries": "Queries",
-      "blocked": "Blocked",
-      "filtered": "Filtered",
-      "latency": "Latency"
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
     },
     "speedtest": {
         "upload": "Upload",
@@ -158,7 +185,7 @@
         "clients": "Clients",
         "messages": "Messages"
     },
-    "prowlarr":{
+    "prowlarr": {
         "enableIndexers": "Indexers",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
@@ -184,5 +211,78 @@
         "users": "Users",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "wait": "Please wait"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
+    },
+    "wmo": {
+        "0-day": "Sunny",
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
     }
 }
