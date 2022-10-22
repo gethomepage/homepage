@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { join } from "path";
-import { format as utilFormat } from "util";
+import { format as utilFormat } from "node:util";
 
 import winston from "winston";
 
