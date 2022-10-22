@@ -6,7 +6,7 @@ import Widget from "./widget";
 
 import Docker from "widgets/docker/component";
 import { SettingsContext } from "utils/contexts/settings";
-import resolveIcon from "utils/icon-resolver";
+import ResolvedIcon from "components/resolvedicon";
 
 export default function Item({ service }) {
   const hasLink = service.href && service.href !== "#";
@@ -41,10 +41,12 @@ export default function Item({ service }) {
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 "
               >
-                {resolveIcon(service.icon)}
+                <ResolvedIcon icon={service.icon} />
               </a>
             ) : (
-              <div className="flex-shrink-0 flex items-center justify-center w-12 ">{resolveIcon(service.icon)}</div>
+              <div className="flex-shrink-0 flex items-center justify-center w-12 ">
+                <ResolvedIcon icon={service.icon} />
+              </div>
             ))}
 
           {hasLink ? (
