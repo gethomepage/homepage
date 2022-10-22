@@ -33,8 +33,11 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
   }
 
   function handleSearchKeyDown(event) {
+    if (!isOpen) return;
+    
     if (event.key === "Escape") {
       closeAndReset();
+      event.preventDefault();
     } else if (event.key === "Enter" && results.length) {
       closeAndReset();
       openCurrentItem(event.metaKey);
@@ -94,6 +97,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       setHidden(false);
     } else {
       document.body.removeEventListener('click', handleBackdropClick);
+      searchField.current.blur();
       setTimeout(() => {
         setHidden(true);
       }, 300); // disable on close
