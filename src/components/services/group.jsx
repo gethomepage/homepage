@@ -2,7 +2,7 @@ import Image from "next/future/image";
 import classNames from "classnames";
 
 import List from "components/services/list";
-import { resolveIcon } from "utils/icon-resolver";
+import resolveIcon from "utils/icon-resolver";
 
 export default function ServicesGroup({ services, layout }) {
   return (

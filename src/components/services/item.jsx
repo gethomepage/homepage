@@ -7,7 +7,7 @@ import Widget from "./widget";
 
 import Docker from "widgets/docker/component";
 import { SettingsContext } from "utils/contexts/settings";
-import { resolveIcon } from "utils/icon-resolver";
+import resolveIcon from "utils/icon-resolver";
 
 export default function Item({ service }) {
   const hasLink = service.href && service.href !== "#";
