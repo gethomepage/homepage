@@ -242,7 +242,7 @@ function Home({ initialSettings }) {
             setSearchString={setSearchString}
             isOpen={searching}
             close={setSearching}
-            searchDescriptions={settings.quicklook?.searchDescriptions}
+            searchDescriptions={settings.quicklaunch?.searchDescriptions}
           />
           {widgets && (
             <>
