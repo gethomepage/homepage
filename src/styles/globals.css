@@ -39,8 +39,3 @@ body {
   background-color: rgb(var(--color-600));
   border-radius: 0.25em;
 }
-
-.h2-title-noicon {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
