@@ -29,7 +29,7 @@ export async function cleanWidgetGroups(widgets) {
     return widgets.map((widget, index) => {
         const sanitizedOptions = widget.options;
         const optionKeys = Object.keys(sanitizedOptions);
-        ["url", "username", "password", "key"].forEach((pO) => { 
+        ["username", "password", "key"].forEach((pO) => { 
             if (optionKeys.includes(pO)) {
                 delete sanitizedOptions[pO];
             }
