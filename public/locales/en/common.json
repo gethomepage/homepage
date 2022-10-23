@@ -13,7 +13,11 @@
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
-        "status": "Status"
+        "status": "Status",
+        "debug_info": "Debug Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Current Location",

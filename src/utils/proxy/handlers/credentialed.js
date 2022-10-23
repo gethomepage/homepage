@@ -1,5 +1,6 @@
 import getServiceWidget from "utils/config/service-helpers";
 import { formatApiCall } from "utils/proxy/api-helpers";
+import validateWidgetData from "utils/proxy/validate-widget-data";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
@@ -52,6 +53,10 @@ export default async function credentialedProxyHandler(req, res) {
 
       if (status >= 400) {
         logger.debug("HTTP Error %d calling %s//%s%s...", status, url.protocol, url.hostname, url.pathname);
+      }
+
+      if (!validateWidgetData(widget, endpoint, data)) {
+        return res.status(500).json({error: {message: "Invalid data", url, data}});
       }
 
       if (contentType) res.setHeader("Content-Type", contentType);
