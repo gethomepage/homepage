@@ -11,10 +11,10 @@ export default function Component({ service }) {
 
   const { data: adguardData, error: adguardError } = useWidgetAPI(widget, "stats");
 
-  if (adguardError) {
-    return <Container error={t("widget.api_error")} />;
+  if (adguardError || adguardData?.error) {
+    const finalError = adguardError ?? adguardData.error;
+    return <Container error={finalError} />;
   }
-
   if (!adguardData) {
     return (
       <Container service={service}>

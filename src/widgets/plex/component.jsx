@@ -14,8 +14,9 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
-  if (plexAPIError) {
-    return <Container error={t("widget.api_error")} />;
+  if (plexAPIError || plexData?.error) {
+    const finalError = plexAPIError ?? plexData.error;
+    return <Container error={finalError} />;
   }
 
   if (!plexData) {

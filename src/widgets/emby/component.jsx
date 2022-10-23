@@ -3,8 +3,8 @@ import { useTranslation } from "next-i18next";
 import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 
-import Container from "components/services/widget/container";
 import { formatProxyUrl, formatProxyUrlWithSegments } from "utils/proxy/api-helpers";
+import Container from "components/services/widget/container";
 
 function ticksToTime(ticks) {
   const milliseconds = ticks / 10000;
@@ -172,7 +172,8 @@ export default function Component({ service }) {
   }
 
   if (sessionsError || sessionsData?.error) {
-    return <Container error={t("widget.api_error")} />;
+    const finalError = sessionsError ?? sessionsData.error;
+    return <Container error={finalError} />;
   }
 
   if (!sessionsData) {

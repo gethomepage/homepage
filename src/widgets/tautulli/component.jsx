@@ -4,8 +4,8 @@ import { useTranslation } from "next-i18next";
 import { BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 
-import Container from "components/services/widget/container";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
+import Container from "components/services/widget/container";
 
 function millisecondsToTime(milliseconds) {
   const seconds = Math.floor((milliseconds / 1000) % 60);
@@ -123,8 +123,9 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
-  if (activityError) {
-    return <Container error={t("widget.api_error")} />;
+  if (activityError || activityData?.error) {
+    const finalError = activityError ?? activityData.error;
+    return <Container error={finalError} />;
   }
 
   if (!activityData) {

@@ -11,8 +11,9 @@ export default function Component({ service }) {
 
   const { data: piholeData, error: piholeError } = useWidgetAPI(widget, "api.php");
 
-  if (piholeError) {
-    return <Container error={t("widget.api_error")} />;
+  if (piholeError || piholeData?.error) {
+    const finalError = piholeError ?? piholeData.error;
+    return <Container error={finalError} />;
   }
 
   if (!piholeData) {

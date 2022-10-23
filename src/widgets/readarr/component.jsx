@@ -13,8 +13,9 @@ export default function Component({ service }) {
   const { data: wantedData, error: wantedError } = useWidgetAPI(widget, "wanted/missing");
   const { data: queueData, error: queueError } = useWidgetAPI(widget, "queue/status");
 
-  if (booksError || wantedError || queueError) {
-    return <Container error={t("widget.api_error")} />;
+  if (booksError || booksData?.error || wantedError || wantedData?.error || queueError || queueData?.error) {
+    const finalError = booksError ?? booksData?.error ?? wantedError ?? wantedData?.error ?? queueError ?? queueData?.error;
+    return <Container error={finalError} />;
   }
 
   if (!booksData || !wantedData || !queueData) {
