@@ -16,6 +16,9 @@ const widget = {
     },
     "queue/status": {
       endpoint: "queue/status",
+      validate: [
+        "totalCount"
+      ]
     },
   },
 };

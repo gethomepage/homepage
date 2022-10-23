@@ -7,6 +7,9 @@ const widget = {
   mappings: {
     queue: {
       endpoint: "queue",
+      validate: [
+        "queue"
+      ]
     },
   },
 };
