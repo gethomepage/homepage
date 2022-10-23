@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import { IoAlertCircle } from "react-icons/io5";
+import classNames from "classnames";
 
 function displayError(error) {
   return JSON.stringify(error[1] ? error[1] : error, null, 4);
@@ -16,33 +18,34 @@ export default function Error({ error }) {
   }
 
   return (
-    <div className="text-sm bg-rose-100 text-rose-900 dark:bg-rose-900 dark:text-rose-100 rounded-md p-2 m-1">
-      <div className="font-medium mb-1">Something went wrong.</div>
-      <details className="text-xs font-mono whitespace-pre-wrap break-all">
-        <summary>{t("widget.debug_info")}</summary>
-        <div className="bg-white p-2 text-rose-900">
-          <ul>
-            <li className="mb-2">
-              <span className="text-black">{t("widget.api_error")}:</span> {error.message}
-            </li>
-            {error.url && <li className="mb-2">
-              <span className="text-black">{t("widget.url")}:</span> {error.url}
-            </li>}
-            {error.rawError && <li className="mb-2">
-              <span className="text-black">{t("widget.raw_error")}:</span>
-              <div className="ml-2">
-                {displayError(error.rawError)}
-              </div>
-            </li>}
-            {error.data && <li className="mb-2">
-              <span className="text-black">{t("widget.response_data")}:</span>
-              <div className="ml-2">
-                {displayData(error.data)}
-              </div>
-            </li>}
-          </ul>
+    <details className="px-1 pb-1">
+      <summary className="block text-center mt-1 mb-0 mx-auto p-3 rounded bg-rose-900/80 hover:bg-rose-900/95 text-theme-900 cursor-pointer">
+        <div className="flex items-center justify-center text-xs font-bold">
+          <IoAlertCircle className="mr-1 w-5 h-5"/>{t("widget.api_error")} {t("widget.information")}
         </div>
-      </details>
-    </div>
+      </summary>
+      <div className="bg-white dark:bg-theme-200/50 mt-2 rounded text-rose-900 text-xs font-mono whitespace-pre-wrap break-all">
+        <ul className="p-4">
+          <li className="mb-2">
+            <span className="text-black">{t("widget.api_error")}:</span> {error.message}
+          </li>
+          {error.url && <li className="mb-2">
+            <span className="text-black">{t("widget.url")}:</span> {error.url}
+          </li>}
+          {error.rawError && <li className="mb-2">
+            <span className="text-black">{t("widget.raw_error")}:</span>
+            <div className="ml-2">
+              {displayError(error.rawError)}
+            </div>
+          </li>}
+          {error.data && <li className="mb-2">
+            <span className="text-black">{t("widget.response_data")}:</span>
+            <div className="ml-2">
+              {displayData(error.data)}
+            </div>
+          </li>}
+        </ul>
+      </div>
+    </details>
   );
 }
