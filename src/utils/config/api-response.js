@@ -5,7 +5,12 @@ import path from "path";
 import yaml from "js-yaml";
 
 import checkAndCopyConfig from "utils/config/config";
-import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/config/service-helpers";
+import {
+  servicesFromConfig,
+  servicesFromDocker,
+  cleanServiceGroups,
+  servicesFromKubernetes
+} from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
 export async function bookmarksResponse() {
@@ -44,15 +49,24 @@ export async function widgetsResponse() {
 }
 
 export async function servicesResponse() {
-  let discoveredServices;
+  let discoveredDockerServices;
+  let discoveredKubernetesServices;
   let configuredServices;
 
   try {
-    discoveredServices = cleanServiceGroups(await servicesFromDocker());
+    discoveredDockerServices = cleanServiceGroups(await servicesFromDocker());
   } catch (e) {
     console.error("Failed to discover services, please check docker.yaml for errors or remove example entries.");
     if (e) console.error(e);
-    discoveredServices = [];
+    discoveredDockerServices = [];
+  }
+
+  try {
+    discoveredKubernetesServices = cleanServiceGroups(await servicesFromKubernetes());
+  } catch (e) {
+    console.error("Failed to discover services, please check docker.yaml for errors or remove example entries.");
+    if (e) console.error(e);
+    discoveredKubernetesServices = [];
   }
 
   try {
@@ -64,18 +78,27 @@ export async function servicesResponse() {
   }
 
   const mergedGroupsNames = [
-    ...new Set([discoveredServices.map((group) => group.name), configuredServices.map((group) => group.name)].flat()),
+    ...new Set([
+      discoveredDockerServices.map((group) => group.name),
+      discoveredKubernetesServices.map((group) => group.name),
+      configuredServices.map((group) => group.name),
+    ].flat()),
   ];
 
   const mergedGroups = [];
 
   mergedGroupsNames.forEach((groupName) => {
-    const discoveredGroup = discoveredServices.find((group) => group.name === groupName) || { services: [] };
+    const discoveredDockerGroup = discoveredDockerServices.find((group) => group.name === groupName) || { services: [] };
+    const discoveredKubernetesGroup = discoveredKubernetesServices.find((group) => group.name === groupName) || { services: [] };
     const configuredGroup = configuredServices.find((group) => group.name === groupName) || { services: [] };
 
     const mergedGroup = {
       name: groupName,
-      services: [...discoveredGroup.services, ...configuredGroup.services].filter((service) => service),
+      services: [
+        ...discoveredDockerGroup.services,
+        ...discoveredKubernetesGroup.services,
+        ...configuredGroup.services
+      ].filter((service) => service),
     };
 
     mergedGroups.push(mergedGroup);

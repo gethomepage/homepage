@@ -5,10 +5,10 @@ import { useTranslation } from "next-i18next";
 
 import UsageBar from "./usage-bar";
 
-export default function Memory({ expanded }) {
+export default function Memory({ expanded, backend }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/resources?type=memory`, {
+  const { data, error } = useSWR(`/api/widgets/${backend || 'resources'}?type=memory`, {
     refreshInterval: 1500,
   });
 

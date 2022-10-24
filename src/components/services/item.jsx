@@ -3,8 +3,10 @@ import { useContext, useState } from "react";
 
 import Status from "./status";
 import Widget from "./widget";
+import KubernetesStatus from "./kubernetes-status";
 
 import Docker from "widgets/docker/component";
+import Kubernetes from "widgets/kubernetes/component";
 import { SettingsContext } from "utils/contexts/settings";
 import ResolvedIcon from "components/resolvedicon";
 
@@ -80,6 +82,16 @@ export default function Item({ service }) {
               <span className="sr-only">View container stats</span>
             </button>
           )}
+          {service.app && (
+            <button
+              type="button"
+              onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
+              className="flex-shrink-0 flex items-center justify-center w-12 cursor-pointer"
+            >
+              <KubernetesStatus service={service} />
+              <span className="sr-only">View container stats</span>
+            </button>
+          )}
         </div>
 
         {service.container && service.server && (
@@ -90,6 +102,16 @@ export default function Item({ service }) {
             )}
           >
             {statsOpen && <Docker service={{ widget: { container: service.container, server: service.server } }} />}
+          </div>
+        )}
+        {service.app && (
+          <div
+            className={classNames(
+              statsOpen && !statsClosing ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
+              "w-full overflow-hidden transition-all duration-300 ease-in-out"
+            )}
+          >
+            {statsOpen && <Kubernetes service={{ widget: { namespace: service.namespace, app: service.app } }} />}
           </div>
         )}
 

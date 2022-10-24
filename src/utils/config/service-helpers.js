@@ -4,9 +4,11 @@ import path from "path";
 import yaml from "js-yaml";
 import Docker from "dockerode";
 import * as shvl from "shvl";
+import { NetworkingV1Api } from "@kubernetes/client-node";
 
 import checkAndCopyConfig from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
+import getKubeConfig from "utils/config/kubernetes";
 
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");
@@ -103,6 +105,56 @@ export async function servicesFromDocker() {
   return mappedServiceGroups;
 }
 
+export async function servicesFromKubernetes() {
+  checkAndCopyConfig("kubernetes.yaml");
+
+  const kc = getKubeConfig();
+  const networking = kc.makeApiClient(NetworkingV1Api);
+
+  const ingressResponse = await networking.listIngressForAllNamespaces(null, null, null, "homepage/enabled=true");
+  const services = ingressResponse.body.items.map((ingress) => {
+    const constructedService = {
+      app: ingress.metadata.name,
+      namespace: ingress.metadata.namespace,
+      href: `https://${ingress.spec.rules[0].host}`,
+      name: ingress.metadata.annotations['homepage/name'],
+      group: ingress.metadata.annotations['homepage/group'],
+      icon: ingress.metadata.annotations['homepage/icon'],
+      description: ingress.metadata.annotations['homepage/description']
+    };
+    Object.keys(ingress.metadata.labels).forEach((label) => {
+      if (label.startsWith("homepage/widget/")) {
+        shvl.set(constructedService, label.replace("homepage/widget/", ""), ingress.metadata.labels[label]);
+      }
+    });
+
+    return constructedService;
+  });
+
+  const mappedServiceGroups = [];
+
+  services.forEach((serverService) => {
+    let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === serverService.group);
+    if (!serverGroup) {
+      mappedServiceGroups.push({
+        name: serverService.group,
+        services: [],
+      });
+      serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
+    }
+
+    const { name: serviceName, group: serverServiceGroup, ...pushedService } = serverService;
+    const result = {
+      name: serviceName,
+      ...pushedService,
+    };
+
+    serverGroup.services.push(result);
+  });
+
+  return mappedServiceGroups;
+}
+
 export function cleanServiceGroups(groups) {
   return groups.map((serviceGroup) => ({
     name: serviceGroup.name,
@@ -118,6 +170,8 @@ export function cleanServiceGroups(groups) {
           container,
           currency, // coinmarketcap widget
           symbols,
+          namespace, // kubernetes widget
+          app
         } = cleanedService.widget;
 
         cleanedService.widget = {
@@ -133,6 +187,10 @@ export function cleanServiceGroups(groups) {
         if (type === "docker") {
           if (server) cleanedService.widget.server = server;
           if (container) cleanedService.widget.container = container;
+        }
+        if (type === "kubernetes") {
+          if (namespace) cleanedService.widget.namespace = namespace;
+          if (app) cleanedService.widget.app = app;
         }
       }
 
@@ -160,6 +218,16 @@ export default async function getServiceWidget(group, service) {
     const dockerServiceEntry = dockerServiceGroup.services.find((s) => s.name === service);
     if (dockerServiceEntry) {
       const { widget } = dockerServiceEntry;
+      return widget;
+    }
+  }
+
+  const kubernetesServices = await servicesFromKubernetes();
+  const kubernetesServiceGroup = kubernetesServices.find((g) => g.name === group);
+  if (kubernetesServiceGroup) {
+    const kubernetesServiceEntry = kubernetesServiceGroup.services.find((s) => s.name === service);
+    if (kubernetesServiceEntry) {
+      const { widget } = kubernetesServiceEntry;
       return widget;
     }
   }

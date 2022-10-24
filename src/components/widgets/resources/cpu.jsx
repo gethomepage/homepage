@@ -5,10 +5,10 @@ import { useTranslation } from "next-i18next";
 
 import UsageBar from "./usage-bar";
 
-export default function Cpu({ expanded }) {
+export default function Cpu({ expanded, backend }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/resources?type=cpu`, {
+  const { data, error } = useSWR(`/api/widgets/${backend || 'resources'}?type=cpu`, {
     refreshInterval: 1500,
   });
 

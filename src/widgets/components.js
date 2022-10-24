@@ -8,6 +8,7 @@ const components = {
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
   docker: dynamic(() => import("./docker/component")),
+  kubernetes: dynamic(() => import("./kubernetes/component")),
   emby: dynamic(() => import("./emby/component")),
   gotify: dynamic(() => import("./gotify/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
