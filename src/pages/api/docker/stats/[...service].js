@@ -46,7 +46,7 @@ export default async function handler(req, res) {
     });
   } catch {
     res.status(500).send({
-      error: "unknown error",
+      error: {message: "Unknown error"},
     });
   }
 }
