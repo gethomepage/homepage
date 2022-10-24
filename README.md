@@ -67,7 +67,7 @@ If you have a more specific issue, please open an issue on the [Issues](https://
 
 ## Getting Started
 
-For configuration options, examples and more, [please check out the Wiki](https://github.com/benphelps/homepage/wiki).
+For configuration options, examples and more, [please check out the homepage site](http://gethomepage.dev).
 
 ### With Docker
 
@@ -122,7 +122,7 @@ Configuration files will be genereted and placed on the first request.
 Configuration is done in the /config directory using .yaml files. Refer to each config for
 the specific configuration options.
 
-You may also check [the wiki](https://github.com/benphelps/homepage/wiki) for detailed configuration instructions, examples and more.
+You may also check [the homepage site](http://gethomepage.dev) for detailed configuration instructions, examples and more.
 
 ## Development
 
