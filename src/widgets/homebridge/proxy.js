@@ -93,7 +93,9 @@ export default async function homebridgeProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  await login(widget);
+  if (!cache.get(sessionTokenCacheKey)) {
+    await login(widget);
+  }
 
   const statusRs = await apiCall(widget, "status/homebridge");
   const versionRs = await apiCall(widget, "status/homebridge-version");
