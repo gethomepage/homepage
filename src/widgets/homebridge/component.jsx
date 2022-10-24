@@ -9,13 +9,13 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: homebridge, error: homebridgeError } = useWidgetAPI(widget, "info");
+  const { data: homebridgeData, error: homebridgeError } = useWidgetAPI(widget, "info");
 
-  if (homebridgeError || (homebridge && !homebridge.data)) {
+  if (homebridgeError || homebridgeData?.error) {
     return <Container error={t("widget.api_error")} />;
   }
 
-  if (!homebridge) {
+  if (!homebridgeData) {
     return (
       <Container service={service}>
         <Block label="widget.status" />
@@ -29,21 +29,21 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block
         label="widget.status"
-        value={`${homebridge.data.status[0].toUpperCase()}${homebridge.data.status.substr(1)}`}
+        value={`${homebridgeData.status[0].toUpperCase()}${homebridgeData.status.substr(1)}`}
       />
       <Block
         label="homebridge.updates"
         value={
-          (homebridge.data.updateAvailable || homebridge.data.plugins.updatesAvailable)
+          (homebridgeData.updateAvailable || homebridgeData.plugins?.updatesAvailable)
             ? t("homebridge.update_available")
             : t("homebridge.up_to_date")}
       />
-      {homebridge?.data?.childBridges.quantity > 0 &&
+      {homebridgeData?.childBridges?.total > 0 &&
         <Block
           label="homebridge.child_bridges"
           value={t("homebridge.child_bridges_status", {
-            total: homebridge.data.childBridges.quantity,
-            ok: homebridge.data.childBridges.quantityWithOkStatus
+            total: homebridgeData.childBridges.total,
+            ok: homebridgeData.childBridges.running
           })}
         />}
     </Container>

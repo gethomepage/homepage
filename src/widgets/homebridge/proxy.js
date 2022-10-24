@@ -62,22 +62,6 @@ async function apiCall(widget, endpoint) {
   return { status, contentType, data: JSON.parse(data.toString()), responseHeaders };
 }
 
-function formatPluginsResponse(plugins) {
-  const quantity = plugins?.data.filter(p => p.updateAvailable).length;
-  return {
-    updatesAvailable: quantity > 0,
-    quantity,
-  }
-}
-
-function formatChildBridgesResponse(childBridges) {
-  const quantity = childBridges?.data?.length
-  return {
-    quantity,
-    quantityWithOkStatus: childBridges?.data?.filter(cb => cb.status === "ok").length,
-  }
-}
-
 export default async function homebridgeProxyHandler(req, res) {
   const { group, service } = req.query;
 
@@ -97,17 +81,20 @@ export default async function homebridgeProxyHandler(req, res) {
     await login(widget);
   }
 
-  const statusRs = await apiCall(widget, "status/homebridge");
-  const versionRs = await apiCall(widget, "status/homebridge-version");
-  const childBrigdeRs = await apiCall(widget, "status/homebridge/child-bridges");
-  const pluginsRs = await apiCall(widget, "plugins");
+  const { data: statusData } = await apiCall(widget, "status/homebridge");
+  const { data: versionData } = await apiCall(widget, "status/homebridge-version");
+  const { data: childBridgeData } = await apiCall(widget, "status/homebridge/child-bridges");
+  const { data: pluginsData } = await apiCall(widget, "plugins");
 
   return res.status(200).send({
-    data: {
-      status: statusRs?.data?.status,
-      updateAvailable: versionRs?.data?.updateAvailable,
-      plugins: formatPluginsResponse(pluginsRs),
-      childBridges: formatChildBridgesResponse(childBrigdeRs),
-    }
+      status: statusData?.status,
+      updateAvailable: versionData?.updateAvailable,
+      plugins: {
+        updatesAvailable: pluginsData?.filter(p => p.updateAvailable).length,
+      },
+      childBridges: {
+        running: childBridgeData?.filter(cb => cb.status === "ok").length,
+        total: childBridgeData?.length
+      }
   });
 }
