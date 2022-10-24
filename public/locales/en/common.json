@@ -287,10 +287,10 @@
     },
     "homebridge": {
         "available_update": "System",
+        "updates": "Updates",
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
-        "available_homebridge_update": "Plugins",
-        "plugins_updates_available": "{{quantity}} Available",
-        "plugins_up_to_date": "Up to Date"
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
     }
 }

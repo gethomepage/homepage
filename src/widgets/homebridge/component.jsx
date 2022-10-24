@@ -19,8 +19,8 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="widget.status" />
-        <Block label="homebridge.available_plugin_updates" />
-        <Block label="homebridge.available_homebridge_update" />
+        <Block label="homebridge.updates" />
+        <Block label="homebridge.child_bridges" />
       </Container>
     );
   }
@@ -32,13 +32,20 @@ export default function Component({ service }) {
         value={homebridge.data.status}
       />
       <Block
-        label="homebridge.available_update"
-        value={homebridge.data.updateAvailable ? t("homebridge.update_available") : t("homebridge.up_to_date")}
+        label="homebridge.updates"
+        value={
+          (homebridge.data.updateAvailable || homebridge.data.plugins.updatesAvailable)
+            ? t("homebridge.update_available")
+            : t("homebridge.up_to_date")}
       />
-      <Block
-        label="homebridge.available_homebridge_update"
-        value={homebridge.data.plugins.updatesAvailable ? t("homebridge.plugins_updates_available", { quantity: homebridge.data.plugins.quantity }) : t("homebridge.plugins_up_to_date")}
-      />
+      {homebridge?.data?.childBridges.quantity > 0 &&
+        <Block
+          label="homebridge.child_bridges"
+          value={t("homebridge.child_bridges_status", {
+            total: homebridge.data.childBridges.quantity,
+            ok: homebridge.data.childBridges.quantityWithOkStatus
+          })}
+        />}
     </Container>
   );
 }

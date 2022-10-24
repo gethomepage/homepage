@@ -70,6 +70,14 @@ function formatPluginsResponse(plugins) {
   }
 }
 
+function formatChildBridgesResponse(childBridges) {
+  const quantity = childBridges?.data?.length
+  return {
+    quantity,
+    quantityWithOkStatus: childBridges?.data?.filter(cb => cb.status === "ok").length,
+  }
+}
+
 export default async function homebridgeProxyHandler(req, res) {
   const { group, service } = req.query;
 
@@ -87,15 +95,17 @@ export default async function homebridgeProxyHandler(req, res) {
 
   await login(widget);
 
-  const statusRS = await apiCall(widget, "status/homebridge");
-  const versionRS = await apiCall(widget, "status/homebridge-version");
-  const pluginsRS = await apiCall(widget, "plugins");
+  const statusRs = await apiCall(widget, "status/homebridge");
+  const versionRs = await apiCall(widget, "status/homebridge-version");
+  const childBrigdeRs = await apiCall(widget, "status/homebridge/child-bridges");
+  const pluginsRs = await apiCall(widget, "plugins");
 
   return res.status(200).send({
     data: {
-      status: statusRS?.data?.status,
-      updateAvailable: versionRS?.data?.updateAvailable,
-      plugins: formatPluginsResponse(pluginsRS)
+      status: statusRs?.data?.status,
+      updateAvailable: versionRs?.data?.updateAvailable,
+      plugins: formatPluginsResponse(pluginsRs),
+      childBridges: formatChildBridgesResponse(childBrigdeRs),
     }
   });
 }
