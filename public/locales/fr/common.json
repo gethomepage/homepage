@@ -275,10 +275,10 @@
         "service": "Service"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Système",
+        "updates": "Mises à jour",
+        "update_available": "Mise à jour disponible",
+        "up_to_date": "À jour",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     }
