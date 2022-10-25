@@ -16,6 +16,7 @@ async function login(widget) {
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
   const loginBody = { username: widget.username, password: widget.password };
   const headers = { "Content-Type": "application/json" };
+  // eslint-disable-next-line no-unused-vars
   const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify(loginBody),
@@ -23,14 +24,15 @@ async function login(widget) {
   });
 
   try {
-    const { access_token, expires_in } = JSON.parse(data.toString());
+    const { access_token: accessToken, expires_in: expiresIn } = JSON.parse(data.toString());
   
-    cache.put(sessionTokenCacheKey, access_token, (expires_in * 1000) - 5 * 60 * 1000); // expires_in (s) - 5m
-    return { access_token };
+    cache.put(sessionTokenCacheKey, accessToken, (expiresIn * 1000) - 5 * 60 * 1000); // expiresIn (s) - 5m
+    return { accessToken };
   } catch (e) {
     logger.error("Unable to login to Homebridge API: %s", e);
-    return { access_token: false };
   }
+
+  return { accessToken: false };
 }
 
 async function apiCall(widget, endpoint) {
@@ -49,8 +51,8 @@ async function apiCall(widget, endpoint) {
 
   if (status === 401) {
     logger.debug("Homebridge API rejected the request, attempting to obtain new session token");
-    const { access_token } = login(widget);
-    headers.Authorization = `Bearer ${access_token}`;
+    const { accessToken } = login(widget);
+    headers.Authorization = `Bearer ${accessToken}`;
 
     // retry the request, now with the new session token
     [status, contentType, data, responseHeaders] = await httpProxy(url, {
