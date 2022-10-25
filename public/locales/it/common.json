@@ -273,5 +273,13 @@
     "quicklaunch": {
         "bookmark": "Bookmark",
         "service": "Servizio"
+    },
+    "homebridge": {
+        "available_update": "System",
+        "updates": "Updates",
+        "update_available": "Update Available",
+        "up_to_date": "Up to Date",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
     }
 }
