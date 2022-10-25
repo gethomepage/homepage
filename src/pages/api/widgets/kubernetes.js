@@ -39,19 +39,7 @@ export default async function handler(req, res) {
       }
     });
   }
-  // Maybe Storage CSI can provide this information
-  // if (type === "disk") {
-  //   if (!existsSync(target)) {
-  //     return res.status(404).json({
-  //       error: "Target not found",
-  //     });
-  //   }
-  //
-  //   return res.status(200).json({
-  //     drive: await drive.info(target || "/"),
-  //   });
-  // }
-  //
+
   if (type === "memory") {
     const SCALE_MB = 1024 * 1024;
     const usedMemMb = memUsage / SCALE_MB;
