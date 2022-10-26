@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 const components = {
   adguard: dynamic(() => import("./adguard/component")),
   authentik: dynamic(() => import("./authentik/component")),
+  autobrr: dynamic(() => import("./autobrr/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
