@@ -5,6 +5,8 @@
   </picture>
 </p>
 
+This is a test!
+
 <p align="center">
   A modern <em>(fully static, fast)</em>, secure <em>(fully proxied)</em>, highly customizable application dashboard with integrations for more than 25 services and translations for over 15 languages. Easily configured via YAML files (or discovery via docker labels).
 </p>
