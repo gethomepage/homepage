@@ -281,5 +281,11 @@
         "up_to_date": "Up to Date",
         "child_bridges_status": "{{ok}}/{{total}}",
         "child_bridges": "Child Bridges"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
     }
 }
