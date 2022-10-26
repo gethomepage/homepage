@@ -12,8 +12,9 @@ export default function Component({ service }) {
 
   const { data: watchData, error: watchError } = useWidgetAPI(widget, "watchtower");
 
-  if (watchError || !watchData) {
-    return <Container error={t("widget.api_error")} />;
+  if (watchError || watchData?.error) {
+    const finalError = watchError ?? watchData?.error;
+    return <Container error={finalError} />;
   }
 
   if (!watchData) {

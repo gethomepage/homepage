@@ -84,9 +84,9 @@ export default async function pyloadProxyHandler(req, res) {
 
         if (data?.error || status !== 200) {
           try {
-            return res.status(status).send(Buffer.from(data).toString());
+            return res.status(status).send({error: {message: "HTTP error communicating with Plex API", data: Buffer.from(data).toString()}});
           } catch (e) {
-            return res.status(status).send(data);
+            return res.status(status).send({error: {message: "HTTP error communicating with Plex API", data}});
           }
         }
 
@@ -95,7 +95,7 @@ export default async function pyloadProxyHandler(req, res) {
     }
   } catch (e) {
     logger.error(e);
-    return res.status(500).send(e.toString());
+    return res.status(500).send({error: {message: `Error communicating with Plex API: ${e.toString()}`}});
   }
 
   return res.status(400).json({ error: 'Invalid proxy service type' });

@@ -13,8 +13,9 @@ export default function Component({ service }) {
   const { data: filtersData, error: filtersError } = useWidgetAPI(widget, "filters");
   const { data: indexersData, error: indexersError } = useWidgetAPI(widget, "indexers");
 
-  if (statsError || filtersError || indexersError) {
-    return <Container error={t("widget.api_error")} />;
+  if (statsError || statsData?.error || filtersError || filtersData?.error || indexersError || indexersData?.error) {
+    const finalError = statsError ?? statsData?.error ?? filtersError ?? filtersData?.error ?? indexersError ?? indexersData?.error;
+    return <Container error={finalError} />;
   }
 
   if (!statsData || !filtersData || !indexersData) {

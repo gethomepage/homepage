@@ -14,8 +14,9 @@ export default function Component({ service }) {
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "channels");
   const { data: playlistsData, error: playlistsError } = useWidgetAPI(widget, "playlists");
 
-  if (downloadsError || videosError || channelsError || playlistsError) {
-    return <Container error={t("widget.api_error")} />;
+  if (downloadsError || downloadsData?.error || videosError || videosData?.error || channelsError || channelsData?.error || playlistsError || playlistsData?.error) {
+    const finalError = downloadsError ?? downloadsData?.error ?? videosError ?? videosData?.error ?? channelsError ?? channelsData?.error ?? playlistsError ?? playlistsData?.error;
+    return <Container error={finalError} />;
   }
 
   if (!downloadsData || !videosData || !channelsData || !playlistsData) {
