@@ -1,5 +1,6 @@
 import adguard from "./adguard/widget";
 import authentik from "./authentik/widget";
+import autobrr from "./autobrr/widget";
 import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
@@ -35,6 +36,7 @@ import unifi from "./unifi/widget";
 const widgets = {
   adguard,
   authentik,
+  autobrr,
   bazarr,
   changedetectionio,
   coinmarketcap,
