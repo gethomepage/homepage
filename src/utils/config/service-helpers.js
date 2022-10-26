@@ -111,11 +111,11 @@ export async function servicesFromDocker() {
 function getUrlFromIngress(ingress) {
   let url = ingress.metadata.annotations['homepage/url'];
   if(!url) {
-    const host = ingress.spec.rules[0].host;
-    const path = ingress.spec.rules[0].http.paths[0].path;
-    const schema = ingress.spec.tls ? 'https' : 'http';
+    const urlHost = ingress.spec.rules[0].host;
+    const urlPath = ingress.spec.rules[0].http.paths[0].path;
+    const urlSchema = ingress.spec.tls ? 'https' : 'http';
 
-    url = `${schema}://${host}${path}`;
+    url = `${urlSchema}://${urlHost}${urlPath}`;
   }
   return url;
 }
