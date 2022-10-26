@@ -281,5 +281,11 @@
         "up_to_date": "తాజాగా",
         "child_bridges": "పిల్ల వంతెనలు",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "rejectedPushes": "Rejected",
+        "approvedPushes": "Approved",
+        "filters": "Filters",
+        "indexers": "Indexers"
     }
 }
