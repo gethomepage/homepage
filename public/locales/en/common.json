@@ -292,5 +292,10 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts"
     }
 }

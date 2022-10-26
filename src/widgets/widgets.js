@@ -30,6 +30,7 @@ import strelaysrv from "./strelaysrv/widget";
 import tautulli from "./tautulli/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
+import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
 
 const widgets = {
@@ -66,6 +67,7 @@ const widgets = {
   tautulli,
   traefik,
   transmission,
+  truenas,
   unifi,
   unifi_console: unifi,
 };
