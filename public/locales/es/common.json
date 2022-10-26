@@ -275,11 +275,17 @@
         "service": "Servicio"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Sistema",
+        "updates": "Actualizaciones",
+        "update_available": "Actualización disponible",
+        "up_to_date": "Actualizado",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
     }
 }
