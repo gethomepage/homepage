@@ -6,9 +6,12 @@ import Docker from "dockerode";
 import * as shvl from "shvl";
 import { NetworkingV1Api } from "@kubernetes/client-node";
 
+import createLogger from "utils/logger";
 import checkAndCopyConfig from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
+
+const logger = createLogger("service-helpers");
 
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");
@@ -105,54 +108,80 @@ export async function servicesFromDocker() {
   return mappedServiceGroups;
 }
 
+function getUrlFromIngress(ingress) {
+  let url = ingress.metadata.annotations['homepage/url'];
+  if(!url) {
+    const host = ingress.spec.rules[0].host;
+    const path = ingress.spec.rules[0].http.paths[0].path;
+    const schema = ingress.spec.tls ? 'https' : 'http';
+
+    url = `${schema}://${host}${path}`;
+  }
+  return url;
+}
+
 export async function servicesFromKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
 
-  const kc = getKubeConfig();
-  const networking = kc.makeApiClient(NetworkingV1Api);
+  try {
+    const kc = getKubeConfig();
+    const networking = kc.makeApiClient(NetworkingV1Api);
 
-  const ingressResponse = await networking.listIngressForAllNamespaces(null, null, null, "homepage/enabled=true");
-  const services = ingressResponse.body.items.map((ingress) => {
-    const constructedService = {
-      app: ingress.metadata.name,
-      namespace: ingress.metadata.namespace,
-      href: `https://${ingress.spec.rules[0].host}`,
-      name: ingress.metadata.annotations['homepage/name'],
-      group: ingress.metadata.annotations['homepage/group'],
-      icon: ingress.metadata.annotations['homepage/icon'],
-      description: ingress.metadata.annotations['homepage/description']
-    };
-    Object.keys(ingress.metadata.labels).forEach((label) => {
-      if (label.startsWith("homepage/widget/")) {
-        shvl.set(constructedService, label.replace("homepage/widget/", ""), ingress.metadata.labels[label]);
-      }
+    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, "homepage/enabled=true")
+      .then((response) => response.body)
+      .catch((error) => {
+        logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        return null;
+      });
+    if (!ingressList) {
+      return [];
+    }
+    const services = ingressList.items.map((ingress) => {
+      const constructedService = {
+        app: ingress.metadata.name,
+        namespace: ingress.metadata.namespace,
+        href: getUrlFromIngress(ingress),
+        name: ingress.metadata.annotations['homepage/name'] || ingress.metadata.name,
+        group: ingress.metadata.annotations['homepage/group'] || "Kubernetes",
+        icon: ingress.metadata.annotations['homepage/icon'] || '',
+        description: ingress.metadata.annotations['homepage/description'] || ''
+      };
+      Object.keys(ingress.metadata.annotations).forEach((annotation) => {
+        if (annotation.startsWith("homepage/widget/")) {
+          shvl.set(constructedService, annotation.replace("homepage/widget/", ""), ingress.metadata.annotations[annotation]);
+        }
+      });
+
+      return constructedService;
     });
 
-    return constructedService;
-  });
+    const mappedServiceGroups = [];
 
-  const mappedServiceGroups = [];
+    services.forEach((serverService) => {
+      let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === serverService.group);
+      if (!serverGroup) {
+        mappedServiceGroups.push({
+          name: serverService.group,
+          services: [],
+        });
+        serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
+      }
 
-  services.forEach((serverService) => {
-    let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === serverService.group);
-    if (!serverGroup) {
-      mappedServiceGroups.push({
-        name: serverService.group,
-        services: [],
-      });
-      serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
-    }
+      const { name: serviceName, group: serverServiceGroup, ...pushedService } = serverService;
+      const result = {
+        name: serviceName,
+        ...pushedService,
+      };
 
-    const { name: serviceName, group: serverServiceGroup, ...pushedService } = serverService;
-    const result = {
-      name: serviceName,
-      ...pushedService,
-    };
+      serverGroup.services.push(result);
+    });
 
-    serverGroup.services.push(result);
-  });
+    return mappedServiceGroups;
 
-  return mappedServiceGroups;
+  } catch (e) {
+    logger.error(e);
+    throw e;
+  }
 }
 
 export function cleanServiceGroups(groups) {

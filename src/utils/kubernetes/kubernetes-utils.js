@@ -2,7 +2,6 @@ export function parseCpu(cpuStr) {
   const unitLength = 1;
   const base = Number.parseInt(cpuStr, 10);
   const units = cpuStr.substring(cpuStr.length - unitLength);
-  // console.log(Number.isNaN(Number(units)), cpuStr, base, units);
   if (Number.isNaN(Number(units))) {
     switch (units) {
       case 'n':
@@ -23,7 +22,6 @@ export function parseMemory(memStr) {
   const unitLength = (memStr.substring(memStr.length - 1) === 'i' ? 2 : 1);
   const base = Number.parseInt(memStr, 10);
   const units = memStr.substring(memStr.length - unitLength);
-  // console.log(Number.isNaN(Number(units)), memStr, base, units);
   if (Number.isNaN(Number(units))) {
     switch (units) {
       case 'Ki':

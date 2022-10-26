@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { BiError } from "react-icons/bi";
-import { i18n, useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next";
 
 import Node from "./node";
 

@@ -1,6 +1,9 @@
 import { CoreV1Api } from "@kubernetes/client-node";
 
 import getKubeConfig from "../../../../utils/config/kubernetes";
+import createLogger from "../../../../utils/logger";
+
+const logger = createLogger("kubernetesStatusService");
 
 export default async function handler(req, res) {
   const APP_LABEL =  "app.kubernetes.io/name";
@@ -18,11 +21,22 @@ export default async function handler(req, res) {
   try {
     const kc = getKubeConfig();
     const coreApi = kc.makeApiClient(CoreV1Api);
-    const podsResponse = await coreApi.listNamespacedPod(namespace, null, null, null, null, labelSelector);
-    const pods = podsResponse.body.items;
+    const podsResponse = await coreApi.listNamespacedPod(namespace, null, null, null, null, labelSelector)
+      .then((response) => response.body)
+      .catch((err) => {
+        logger.error("Error getting pods: %d %s %s", err.statusCode, err.body, err.response);
+        return null;
+      });
+    if (!podsResponse) {
+      res.status(500).send({
+        error: "Error communicating with kubernetes"
+      });
+      return;
+    }
+    const pods = podsResponse.items;
 
     if (pods.length === 0) {
-      res.status(200).send({
+      res.status(404).send({
         error: "not found",
       });
       return;
@@ -34,7 +48,8 @@ export default async function handler(req, res) {
     res.status(200).json({
       status
     });
-  } catch {
+  } catch (e) {
+    logger.error(e);
     res.status(500).send({
       error: "unknown error",
     });

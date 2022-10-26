@@ -64,7 +64,7 @@ export async function servicesResponse() {
   try {
     discoveredKubernetesServices = cleanServiceGroups(await servicesFromKubernetes());
   } catch (e) {
-    console.error("Failed to discover services, please check docker.yaml for errors or remove example entries.");
+    console.error("Failed to discover services, please check kubernetes.yaml for errors or remove example entries.");
     if (e) console.error(e);
     discoveredKubernetesServices = [];
   }

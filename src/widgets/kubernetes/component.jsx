@@ -32,23 +32,19 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="docker.cpu" />
         <Block label="docker.mem" />
-        <Block label="docker.rx" />
-        <Block label="docker.tx" />
       </Container>
     );
   }
 
-  const network = statsData.stats?.networks?.eth0 || statsData.stats?.networks?.network;
   return (
     <Container service={service}>
-      <Block label="docker.cpu" value={t("common.percent", { value: statsData.stats.cpuUsage })} />
-      <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.mem })} />
-      {network && (
-        <>
-          <Block label="docker.rx" value={t("common.bytes", { value: network.rx_bytes })} />
-          <Block label="docker.tx" value={t("common.bytes", { value: network.tx_bytes })} />
-        </>
+      {statsData.stats.cpuLimit && (
+        <Block label="docker.cpu" value={t("common.percent", { value: statsData.stats.cpuUsage })} />
+      ) || (
+        <Block label="docker.cpu" value={t("common.number", { value: statsData.stats.cpu, maximumFractionDigits: 4 })}
+        />
       )}
+      <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.mem })} />
     </Container>
   );
 }
