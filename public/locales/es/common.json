@@ -283,9 +283,9 @@
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Aprobado",
+        "rejectedPushes": "Rechazado",
+        "filters": "Filtros",
+        "indexers": "Indexadores"
     }
 }
