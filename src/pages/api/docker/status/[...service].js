@@ -29,17 +29,38 @@ export default async function handler(req, res) {
     const containerNames = containers.map((container) => container.Names[0].replace(/^\//, ""));
     const containerExists = containerNames.includes(containerName);
 
-    if (!containerExists) {
-      return res.status(200).send({
-        error: "not found",
+    if (containerExists) {
+      const container = docker.getContainer(containerName);
+      const info = await container.inspect();
+
+      return res.status(200).json({
+        status: info.State.Status,
       });
     }
 
-    const container = docker.getContainer(containerName);
-    const info = await container.inspect();
+    const tasks = await docker.listTasks({
+      filters: {
+        service: [containerName],
+        // A service can have several offline containers, we only look for an active one.
+        'desired-state': ['running']
+      }
+    }).catch(() => []);
 
-    return res.status(200).json({
-      status: info.State.Status,
+    // For now we are only interested in the first one (in case replicas > 1).
+    // TODO: Show the result for all replicas/containers?
+    const taskContainerId = tasks.at(0)?.Status?.ContainerStatus?.ContainerID
+
+    if (taskContainerId) {
+      const container = docker.getContainer(taskContainerId);
+      const info = await container.inspect();
+
+      return res.status(200).json({
+        status: info.State.Status,
+      });
+    }
+
+    return res.status(200).send({
+      error: "not found",
     });
   } catch {
     return res.status(500).send({

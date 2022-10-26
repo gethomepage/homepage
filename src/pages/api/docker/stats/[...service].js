@@ -31,18 +31,41 @@ export default async function handler(req, res) {
     const containerNames = containers.map((container) => container.Names[0].replace(/^\//, ""));
     const containerExists = containerNames.includes(containerName);
 
-    if (!containerExists) {
-      res.status(200).send({
-        error: "not found",
+    if (containerExists) {
+      const container = docker.getContainer(containerName);
+      const stats = await container.stats({ stream: false });
+
+      res.status(200).json({
+        stats,
       });
       return;
     }
 
-    const container = docker.getContainer(containerName);
-    const stats = await container.stats({ stream: false });
+    // Try with a service deployed in Docker Swarm
+    const tasks = await docker.listTasks({
+      filters: {
+        service: [containerName],
+        // A service can have several offline containers, so we only look for an active one.
+        'desired-state': ['running']
+      }
+    }).catch(() => []);
 
-    res.status(200).json({
-      stats,
+    // For now we are only interested in the first one (in case replicas > 1).
+    // TODO: Show the result for all replicas/containers?
+    const taskContainerId = tasks.at(0)?.Status?.ContainerStatus?.ContainerID
+
+    if (taskContainerId) {
+      const container = docker.getContainer(taskContainerId);
+      const stats = await container.stats({ stream: false });
+
+      res.status(200).json({
+        stats,
+      });
+      return;
+    }
+
+    res.status(200).send({
+      error: "not found",
     });
   } catch {
     res.status(500).send({
