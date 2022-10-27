@@ -125,6 +125,9 @@ export async function servicesFromKubernetes() {
 
   try {
     const kc = getKubeConfig();
+    if (!kc) {
+      return [];
+    }
     const networking = kc.makeApiClient(NetworkingV1Api);
 
     const ingressList = await networking.listIngressForAllNamespaces(null, null, null, "homepage/enabled=true")

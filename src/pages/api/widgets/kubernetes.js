@@ -11,6 +11,11 @@ export default async function handler(req, res) {
 
   try {
     const kc = getKubeConfig();
+    if (!kc) {
+      return res.status(500).send({
+        error: "No kubernetes configuration"
+      });
+    }
     const coreApi = kc.makeApiClient(CoreV1Api);
     const metricsApi = new Metrics(kc);
 

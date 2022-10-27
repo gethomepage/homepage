@@ -19,8 +19,11 @@ export default function getKubeConfig() {
       kc.loadFromCluster();
       break;
     case 'default':
-    default:
       kc.loadFromDefault();
+      break;
+    case 'disabled':
+    default:
+      return null;
   }
 
   return kc;

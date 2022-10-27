@@ -20,6 +20,12 @@ export default async function handler(req, res) {
 
   try {
     const kc = getKubeConfig();
+    if (!kc) {
+      res.status(500).send({
+        error: "No kubernetes configuration"
+      });
+      return;
+    }
     const coreApi = kc.makeApiClient(CoreV1Api);
     const podsResponse = await coreApi.listNamespacedPod(namespace, null, null, null, null, labelSelector)
       .then((response) => response.body)
