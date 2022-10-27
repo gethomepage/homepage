@@ -77,6 +77,7 @@ export async function servicesResponse() {
   ];
 
   const mergedGroups = [];
+  const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
 
   mergedGroupsNames.forEach((groupName) => {
     const discoveredGroup = discoveredServices.find((group) => group.name === groupName) || { services: [] };
@@ -87,21 +88,14 @@ export async function servicesResponse() {
       services: [...discoveredGroup.services, ...configuredGroup.services].filter((service) => service),
     };
 
-    mergedGroups.push(mergedGroup);
-  });
-
-  let sortedServices = [];
-
-  const layouts = Object.keys(initialSettings.layout);
-  layouts.forEach((currentServer) => {
-    if (initialSettings.layout[currentServer]?.sort) {
-      const idx = mergedGroups.findIndex((service) => service.name === currentServer);
-      sortedServices.push(...mergedGroups.splice(idx, 1));
+    if (definedLayouts) {
+      const layoutIndex = definedLayouts.findIndex(layout => layout === mergedGroup.name);
+      if (layoutIndex > -1) mergedGroups.splice(layoutIndex, 0, mergedGroup);
+      else mergedGroups.push(mergedGroup);
+    } else {
+      mergedGroups.push(mergedGroup);
     }
   });
-  if (mergedGroups.length) {
-    sortedServices = sortedServices.concat(mergedGroups);
-  }
 
-  return sortedServices;
+  return mergedGroups;
 }
