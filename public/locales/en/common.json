@@ -293,6 +293,11 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
+    "watchtower":{
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updatded",
+        "containers_failed": "Failed"
+    },
     "autobrr": {
         "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",

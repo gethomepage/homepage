@@ -37,6 +37,7 @@ const components = {
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
   unifi: dynamic(() => import("./unifi/component")),
+  watchtower: dynamic(() => import("./watchtower/component")),
 };
 
 export default components;
