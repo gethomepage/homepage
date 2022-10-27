@@ -298,5 +298,9 @@
         "rejectedPushes": "Rejected",
         "filters": "Filters",
         "indexers": "Indexers"
+    },
+    "scripted": {
+        "yes": "Yes",
+        "no": "No"
     }
 }
