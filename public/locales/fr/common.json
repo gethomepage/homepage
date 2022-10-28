@@ -287,5 +287,10 @@
         "rejectedPushes": "Rejeté",
         "filters": "Filtres",
         "indexers": "Indexeur"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
     }
 }
