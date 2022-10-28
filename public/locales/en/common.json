@@ -295,7 +295,7 @@
     },
     "watchtower":{
         "containers_scanned": "Scanned",
-        "containers_updated": "Updatded",
+        "containers_updated": "Updated",
         "containers_failed": "Failed"
     },
     "autobrr": {
