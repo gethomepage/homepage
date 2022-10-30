@@ -35,7 +35,7 @@ const Version = dynamic(() => import("components/version"), {
   ssr: false,
 });
 
-const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
+const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
 
 export async function getStaticProps() {
   let logger;
