@@ -10,7 +10,7 @@ const widget = {
     },
     PlayControl: {
       method: "POST",
-      enpoint: "Sessions/{sessionId}/Playing/{command}",
+      endpoint: "Sessions/{sessionId}/Playing/{command}",
       segments: ["sessionId", "command"],
     },
   },
