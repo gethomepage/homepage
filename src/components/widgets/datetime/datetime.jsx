@@ -27,10 +27,12 @@ export default function DateTime({ options }) {
   const dateFormat = new Intl.DateTimeFormat(i18n.language, { ...format });
 
   return (
-    <div className="flex flex-row items-center grow justify-end">
-      <span className={`text-theme-800 dark:text-theme-200 ${textSizes[textSize || "lg"]}`}>
-        {dateFormat.format(date)}
-      </span>
+    <div className="flex flex-col justify-center first:ml-0 ml-4">
+      <div className="flex flex-row items-center grow justify-end">
+        <span className={`text-theme-800 dark:text-theme-200 ${textSizes[textSize || "lg"]}`}>
+          {dateFormat.format(date)}
+        </span>
+      </div>
     </div>
   );
 }
