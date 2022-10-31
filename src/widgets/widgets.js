@@ -31,6 +31,7 @@ import strelaysrv from "./strelaysrv/widget";
 import tautulli from "./tautulli/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
+import tubearchivist from "./tubearchivist/widget";
 import unifi from "./unifi/widget";
 import watchtower from './watchtower/widget'
 
@@ -69,6 +70,7 @@ const widgets = {
   tautulli,
   traefik,
   transmission,
+  tubearchivist,
   unifi,
   unifi_console: unifi,
   watchtower,
