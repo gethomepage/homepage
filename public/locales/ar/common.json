@@ -1,40 +1,40 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status"
+        "missing_type": "نوع القطعة مفقود: {{type}}",
+        "api_error": "API خطأ",
+        "status": "الحالة"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "الموقع الحالي",
+        "allow": "اضغط للسماح",
+        "updating": "جاري التحديث",
+        "wait": "الرجاء الانتظار"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "بحث …"
     },
     "resources": {
-        "cpu": "CPU",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "cpu": "المعالج",
+        "total": "المجموع",
+        "free": "متاح",
+        "used": "مستخدم",
+        "load": "الضغط"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "المستخدمون",
+        "uptime": "مدة تشغيل النظام",
+        "days": "ايام",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "devices": "الاجهزة",
+        "lan_devices": "LAN اجهزة",
+        "wlan_devices": "WLAN احهزة",
+        "lan_users": "LAN مستخدمين",
+        "wlan_users": "WLAN مستخدمين",
+        "up": "اعلي",
+        "down": "اسفل",
+        "wait": "الرجاء الانتظار"
     },
     "wmo": {
         "73-day": "Snow",
@@ -97,14 +97,14 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "offline": "Offline"
+        "mem": "الرام",
+        "cpu": "المعالج",
+        "offline": "غير متصل"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
+        "playing": "يعمل الان",
+        "transcoding": "التحويل",
+        "bitrate": "معدل البت",
         "no_active": "No Active Streams"
     },
     "changedetectionio": {
