@@ -289,14 +289,14 @@
         "indexers": "Indexadores"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Escaneado",
+        "containers_updated": "Actualizado",
+        "containers_failed": "Fallido"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Cola",
+        "videos": "Vídeos",
+        "channels": "Canales",
+        "playlists": "Listas de reproducción"
     }
 }
