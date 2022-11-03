@@ -43,7 +43,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@main
         with:
-          cosign-release: 'v1.11.0' # optional
+          cosign-release: 'v1.13.1' # optional
 
       # Setup QEMU
       # https://github.com/marketplace/actions/docker-setup-buildx#with-qemu
