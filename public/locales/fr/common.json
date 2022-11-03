@@ -283,9 +283,20 @@
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Approuvé",
+        "rejectedPushes": "Rejeté",
+        "filters": "Filtres",
+        "indexers": "Indexeur"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanné",
+        "containers_updated": "Mis à jour",
+        "containers_failed": "Échoué"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
     }
 }

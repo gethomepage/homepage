@@ -293,11 +293,22 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
+    "watchtower":{
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
     "autobrr": {
         "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",
         "filters": "Filters",
         "indexers": "Indexers"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
     },
     "truenas": {
         "load": "System Load",

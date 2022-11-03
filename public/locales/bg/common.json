@@ -287,5 +287,16 @@
         "filters": "Filters",
         "indexers": "Indexers",
         "approvedPushes": "Approved"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
     }
 }

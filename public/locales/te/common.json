@@ -283,9 +283,20 @@
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "rejectedPushes": "Rejected",
-        "approvedPushes": "Approved",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "rejectedPushes": "తిరస్కరించారు",
+        "approvedPushes": "ఆమోదించబడింది",
+        "filters": "ఫిల్టర్లు",
+        "indexers": "సూచికలు"
+    },
+    "watchtower": {
+        "containers_scanned": "స్కాన్ చేశారు",
+        "containers_updated": "నవీకరించబడింది",
+        "containers_failed": "విఫలమయ్యారు"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
     }
 }

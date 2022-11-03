@@ -31,8 +31,10 @@ import strelaysrv from "./strelaysrv/widget";
 import tautulli from "./tautulli/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
+import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
+import watchtower from './watchtower/widget'
 
 const widgets = {
   adguard,
@@ -69,9 +71,11 @@ const widgets = {
   tautulli,
   traefik,
   transmission,
+  tubearchivist,
   truenas,
   unifi,
   unifi_console: unifi,
+  watchtower,
 };
 
 export default widgets;
