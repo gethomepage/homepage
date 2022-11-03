@@ -292,5 +292,11 @@
         "rejectedPushes": "Rejected",
         "filters": "Filters",
         "indexers": "Indexers"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
     }
 }
