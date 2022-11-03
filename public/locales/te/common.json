@@ -292,5 +292,11 @@
         "containers_scanned": "స్కాన్ చేశారు",
         "containers_updated": "నవీకరించబడింది",
         "containers_failed": "విఫలమయ్యారు"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
     }
 }
