@@ -292,5 +292,11 @@
         "containers_scanned": "Scanné",
         "containers_updated": "Mis à jour",
         "containers_failed": "Échoué"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
     }
 }
