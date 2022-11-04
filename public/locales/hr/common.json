@@ -92,8 +92,8 @@
     "transmission": {
         "download": "Preuzimanje",
         "upload": "Prijenos",
-        "leech": "Krvopija",
-        "seed": "Prijenos preuzetog sadržaja"
+        "leech": "Leecher",
+        "seed": "Seeder"
     },
     "sonarr": {
         "wanted": "Željeno",
@@ -143,7 +143,7 @@
     "traefik": {
         "routers": "Ruteri",
         "services": "Usluge",
-        "middleware": "Middleware"
+        "middleware": "Posrednički softver"
     },
     "gotify": {
         "clients": "Klijenti",
@@ -157,8 +157,8 @@
     "qbittorrent": {
         "download": "Preuzimanje",
         "upload": "Prijenos",
-        "leech": "Krvopija",
-        "seed": "Prijenos preuzetog sadržaja"
+        "leech": "Leecher",
+        "seed": "Seeder"
     },
     "mastodon": {
         "user_count": "Korisnici",
@@ -187,21 +187,21 @@
         "uptime": "Vrijeme rada sustava",
         "days": "Dani",
         "wan": "WAN",
-        "lan_users": "LAN Korisnici",
-        "wlan_users": "WLAN Korisnici",
+        "lan_users": "LAN korisnici",
+        "wlan_users": "WLAN korisnici",
         "up": "Upaljen",
         "down": "Ugašen",
-        "wait": "Molimo pričekajte",
+        "wait": "Pričekaj",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Uređaji",
+        "lan_devices": "LAN uređaji",
+        "wlan_devices": "WLAN uređaji"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Aktivni prijenosi",
+        "movies": "Filmovi",
+        "tv": "TV emisije"
     },
     "glances": {
         "cpu": "CPU",
@@ -209,8 +209,8 @@
         "wait": "Please wait"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Ukupno promatrano",
+        "diffsDetected": "Otkrivene razlike"
     },
     "wmo": {
         "0-day": "Sunny",
