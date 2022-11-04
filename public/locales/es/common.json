@@ -298,5 +298,11 @@
         "videos": "Vídeos",
         "channels": "Canales",
         "playlists": "Listas de reproducción"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     }
 }
