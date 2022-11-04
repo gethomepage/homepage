@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "lineup.json");
+  const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "lineup");
 
   if (channelsError) {
     return <Container error={t("widget.api_error")} />;
