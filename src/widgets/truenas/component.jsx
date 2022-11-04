@@ -6,9 +6,9 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const processUptime = uptime => {
 
-  let seconds = uptime.toFixed(0);
+  const seconds = uptime.toFixed(0);
 
-  var levels = [
+  const levels = [
     [Math.floor(seconds / 31536000), 'year'],
     [Math.floor((seconds % 31536000) / 2592000), 'month'],
     [Math.floor(((seconds % 31536000) % 2592000) / 86400), 'day'],
@@ -17,9 +17,9 @@ const processUptime = uptime => {
     [(((seconds % 31536000) % 86400) % 3600) % 60, 'second'],
   ];
   
-  for(let i = 0; i< levels.length; i++){
-    let level = levels[i];
-    if(level[0] > 0){
+  for (let i = 0; i< levels.length; i += 1) {
+    const level = levels[i];
+    if (level[0] > 0){
       return {
           value: level[0],
           unit: level[1]
