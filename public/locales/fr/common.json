@@ -300,9 +300,9 @@
         "playlists": "Playlists"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "Charge Système",
+        "uptime": "Démarré depuis",
+        "alerts": "Alertes",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     }
 }
