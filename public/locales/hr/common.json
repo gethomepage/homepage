@@ -1,12 +1,12 @@
 {
     "weather": {
-        "current": "Trenutna lokacija",
+        "current": "Trenutačna lokacija",
         "allow": "Pritisni za dozvoljavanje",
         "updating": "Aktualiziranje",
-        "wait": "Molimo pričekajte"
+        "wait": "Pričekaj"
     },
     "search": {
-        "placeholder": "Traži…"
+        "placeholder": "Traži …"
     },
     "resources": {
         "total": "Ukupno",
@@ -17,7 +17,7 @@
     },
     "sabnzbd": {
         "rate": "Stopa",
-        "queue": "Red",
+        "queue": "Red čekanja",
         "timeleft": "Preostalo vrijeme"
     },
     "overseerr": {
@@ -28,7 +28,7 @@
     "pihole": {
         "queries": "Upiti",
         "blocked": "Blokirano",
-        "gravity": "Ozbiljnost"
+        "gravity": "Čuvanje podataka"
     },
     "adguard": {
         "latency": "Kašnjenje",
@@ -65,7 +65,7 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Izvan mreže"
+        "offline": "Nepovezan"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -96,23 +96,23 @@
         "seed": "Seeder"
     },
     "sonarr": {
-        "wanted": "Željeno",
+        "wanted": "Zatraženo",
         "queued": "U redu čekanja",
         "series": "Serije"
     },
     "radarr": {
-        "wanted": "Željeno",
+        "wanted": "Zatraženo",
         "queued": "U redu čekanja",
         "movies": "Filmovi",
-        "missing": "Missing"
+        "missing": "Nedostaje"
     },
     "lidarr": {
-        "wanted": "Željeno",
+        "wanted": "Zatraženo",
         "queued": "U redu čekanja",
         "albums": "Albumi"
     },
     "readarr": {
-        "wanted": "Željeno",
+        "wanted": "Zatraženo",
         "queued": "U redu čekanja",
         "books": "Knjige"
     },
@@ -172,19 +172,19 @@
         "transferRate": "Stopa"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Korisnici",
+        "loginsLast24H": "Prijave (24 h)",
+        "failedLoginsLast24H": "Neuspjele prijave (24 h)"
     },
     "proxmox": {
         "mem": "MEM",
         "cpu": "CPU",
-        "lxc": "LXC",
-        "vms": "VMs"
+        "lxc": "Linux kontejner",
+        "vms": "Virtualni uređaji"
     },
     "unifi": {
         "users": "Korisnici",
-        "uptime": "Vrijeme rada sustava",
+        "uptime": "Radno vrijeme sustava",
         "days": "Dani",
         "wan": "WAN",
         "lan_users": "LAN korisnici",
@@ -206,103 +206,103 @@
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Pričekaj"
     },
     "changedetectionio": {
         "totalObserved": "Ukupno promatrano",
         "diffsDetected": "Otkrivene razlike"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "0-day": "Sunčano",
+        "0-night": "Vedro",
+        "1-day": "Pretežno sunčano",
+        "1-night": "Pretežno verdo",
+        "2-day": "Djelimično oblačno",
+        "45-day": "Maglovito",
+        "45-night": "Maglovito",
+        "48-day": "Maglovito",
+        "2-night": "Djelimično oblačno",
+        "3-day": "Oblačno",
+        "3-night": "Oblačno",
+        "48-night": "Maglovito",
+        "51-day": "Laka rosulja",
+        "51-night": "Laka rosulja",
+        "53-day": "Rosulja",
+        "53-night": "Rosulja",
+        "55-day": "Jaka rosulja",
+        "55-night": "Jaka rosulja",
+        "56-day": "Laka ledena rosulja",
+        "56-night": "Laka ledena rosulja",
+        "57-day": "Ledena rosulja",
+        "57-night": "Ledena rosulja",
+        "61-day": "Laka kiša",
+        "61-night": "Laka kiša",
+        "63-day": "Kiša",
+        "63-night": "Kiša",
+        "65-day": "Jaka kiša",
+        "65-night": "Jaka kiša",
+        "66-day": "Ledena kiša",
+        "66-night": "Ledena kiša",
+        "67-day": "Ledena kiša",
+        "67-night": "Ledena kiša",
+        "75-night": "Jaki snijeg",
+        "77-day": "Zrnati snijeg",
+        "71-day": "Laki snijeg",
+        "71-night": "Laki snijeg",
+        "73-day": "Snijeg",
+        "73-night": "Snijeg",
+        "75-day": "Jaki snijeg",
+        "77-night": "Zrnati snijeg",
+        "80-day": "Laki pljuskovi",
+        "80-night": "Laki pljuskovi",
+        "81-day": "Pljuskovi",
+        "81-night": "Pljuskovi",
+        "82-day": "Jaki pljuskovi",
+        "82-night": "Jaki pljuskovi",
+        "85-day": "Snježni pljuskovi",
+        "85-night": "Snježni pljuskovi",
+        "86-day": "Snježni pljuskovi",
+        "86-night": "Snježni pljuskovi",
+        "95-day": "Oluja",
+        "95-night": "Oluja",
+        "96-day": "Oluja s grmljavinom",
+        "96-night": "Oluja s grmljavinom",
+        "99-day": "Oluja s grmljavinom",
+        "99-night": "Oluja s grmljavinom"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "Straničnik",
+        "service": "Usluga"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges",
+        "available_update": "Sustav",
+        "updates": "Aktualiziranja",
+        "update_available": "Dostupna je nova verzija",
+        "up_to_date": "Aktualno",
+        "child_bridges": "Podređeni mosotvi",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "rejectedPushes": "Rejected",
-        "approvedPushes": "Approved",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "rejectedPushes": "Odbijeno",
+        "approvedPushes": "Odobreno",
+        "filters": "Filtri",
+        "indexers": "Indeksatori"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Skenirano",
+        "containers_updated": "Aktualizirano",
+        "containers_failed": "Neuspjelo"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Red čekanja",
+        "videos": "Videa",
+        "channels": "Kanali",
+        "playlists": "Playliste"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "Opterećenje sustava",
+        "uptime": "Radno vrijeme",
+        "alerts": "Upozorenja",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     }
 }
