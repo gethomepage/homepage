@@ -8,13 +8,7 @@ const widget = {
   mappings: {
     "lineup.json": {
       endpoint: "lineup.json",
-    },
-    hd: {
-      endpoint: "lineup.json",
-      map: (data) => ({
-        have: jsonArrayFilter(data, (item) => item?.HD === 1).length,
-      }),
-    },
+    }
   },
 };
 

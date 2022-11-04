@@ -10,13 +10,12 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "lineup.json");
-  const { data: hdData, error: hdError } = useWidgetAPI(widget, "hd");
 
-  if (channelsError || hdError) {
+  if (channelsError) {
     return <Container error={t("widget.api_error")} />;
   }
 
-  if (!channelsData || !hdData) {
+  if (!channelsData) {
     return (
       <Container service={service}>
         <Block label="hdhomerun.channels" />
@@ -25,10 +24,13 @@ export default function Component({ service }) {
     );
   }
 
+const hdChannels = channelsData?.filter((channel) => channel.HD === 1);
+
   return (
     <Container service={service}>
-      <Block label="hdhomerun.channels" value={t("common.number", { value: channelsData.length })} />
-      <Block label="hdhomerun.hd" value={t("common.number", { value: hdData.have })} />
+      <Block label="hdhomerun.channels" value={channelsData.length } />
+      <Block label="hdhomerun.hd" value={hdChannels.length} />
+      
     </Container>
   );
 }

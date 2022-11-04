@@ -18,6 +18,7 @@ const components = {
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   npm: dynamic(() => import("./npm/component")),
+  octoprint: dynamic(() => import("./octoprint/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
   ombi: dynamic(() => import("./ombi/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
