@@ -1,29 +1,29 @@
 {
     "plex": {
-        "movies": "Movies",
+        "movies": "Film",
         "tv": "TV Shows",
-        "streams": "Active Streams"
+        "streams": "Aktive Streams"
     },
     "radarr": {
-        "queued": "Queued",
-        "movies": "Movies",
-        "wanted": "Wanted",
-        "missing": "Missing"
+        "queued": "I Kø",
+        "movies": "Film",
+        "wanted": "Ønskede",
+        "missing": "Mangler"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Ønsket",
+        "queued": "I Kø",
         "albums": "Albums"
     },
     "jellyseerr": {
-        "available": "Available",
-        "pending": "Pending",
-        "approved": "Approved"
+        "available": "Tilgængelig",
+        "pending": "Afventer",
+        "approved": "Godkendt"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Afventer",
+        "approved": "Godkendt",
+        "available": "Tilgængelig"
     },
     "adguard": {
         "queries": "Queries",
@@ -136,77 +136,77 @@
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
+        "missing_type": "Manglende Widget Type: {{type}}",
+        "api_error": "API fejl",
         "status": "Status"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Nuværende lokation",
+        "allow": "Klik for at tillade",
+        "updating": "Opdaterer",
+        "wait": "Vent venligst"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Søg…"
     },
     "resources": {
         "cpu": "CPU",
         "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "free": "Fri",
+        "used": "Brugt",
+        "load": "Belastning"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Brugere",
+        "uptime": "System Oppetid",
+        "days": "Dage",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "devices": "Enheder",
+        "lan_devices": "LAN Enheder",
+        "wlan_devices": "WLAN Enheder",
+        "lan_users": "LAN Brugere",
+        "wlan_users": "WLAN Brugere",
         "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "down": "NED",
+        "wait": "Vent venligst"
     },
     "docker": {
         "cpu": "CPU",
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "RAM",
         "offline": "Offline"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Afspiller",
+        "transcoding": "Transcoder",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Ingen Aktive Streams"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Total Observeret",
+        "diffsDetected": "Forskelle Detekteret"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Afspiller",
+        "transcoding": "Transcoder",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Ingen Aktive Streams"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "remaining": "Manglende",
+        "downloaded": "Hentet"
     },
     "sabnzbd": {
         "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "queue": "Kø",
+        "timeleft": "Resterende tid"
     },
     "rutorrent": {
-        "active": "Active",
+        "active": "Aktive",
         "upload": "Upload",
         "download": "Download"
     },
@@ -223,28 +223,28 @@
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Ønsket",
+        "queued": "I Kø",
+        "series": "Serier"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Ønskede",
+        "queued": "I Kø",
+        "books": "Bøger"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Manglende Afsnit",
+        "missingMovies": "Manglende Film"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Afventer",
+        "approved": "Godkendt",
+        "available": "Tilgængelig"
     },
     "pihole": {
-        "blocked": "Blocked",
+        "blocked": "Blokerede",
         "gravity": "Gravity",
-        "queries": "Queries"
+        "queries": "Forespørgsler"
     },
     "portainer": {
         "running": "Running",
