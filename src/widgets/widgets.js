@@ -13,6 +13,7 @@ import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
+import octoprint from "./octoprint/widget";
 import ombi from "./ombi/widget";
 import overseerr from "./overseerr/widget";
 import pihole from "./pihole/widget";
@@ -53,6 +54,7 @@ const widgets = {
   mastodon,
   npm,
   nzbget,
+  octoprint,
   ombi,
   overseerr,
   pihole,

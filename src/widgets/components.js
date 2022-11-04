@@ -18,6 +18,7 @@ const components = {
   mastodon: dynamic(() => import("./mastodon/component")),
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
+  octoprint: dynamic(() => import("./octoprint/component")),
   ombi: dynamic(() => import("./ombi/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   pihole: dynamic(() => import("./pihole/component")),

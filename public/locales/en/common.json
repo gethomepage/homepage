@@ -315,5 +315,10 @@
         "uptime": "Uptime",
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "octoprint": {
+        "job_status": "Job Status",
+        "file_name": "File Name",
+        "job_progress": "Progress"
     }
 }
