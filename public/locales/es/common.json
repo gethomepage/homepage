@@ -209,36 +209,36 @@
         "wait": "Espere por favor"
     },
     "changedetectionio": {
-        "totalObserved": "Observados en Total",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Total Observados",
+        "diffsDetected": "Diferencias detectadas"
     },
     "wmo": {
         "48-night": "Niebla",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "2-day": "Parcialmente Nuboso",
+        "51-day": "Llovizna ligera",
+        "51-night": "Llovizna ligera",
+        "2-day": "Parcialmente nuboso",
         "0-day": "Soleado",
         "0-night": "Despejado",
-        "1-day": "Mayormente Soleado",
-        "1-night": "Mayormente Despejado",
-        "2-night": "Parcialmente Nuboso",
-        "3-day": "Nubaldo",
+        "1-day": "Mayormente soleado",
+        "1-night": "Mayormente despejado",
+        "2-night": "Parcialmente nuboso",
+        "3-day": "Nublado",
         "3-night": "Nublado",
         "45-day": "Niebla",
         "45-night": "Niebla",
         "48-day": "Niebla",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
+        "53-day": "Llovizna",
+        "53-night": "Llovizna",
+        "55-day": "Llovizna pesada",
+        "55-night": "Llovizna pesada",
+        "56-day": "Llovizna helada ligera",
+        "56-night": "Llovizna helada ligera",
+        "57-day": "Llovizna helada",
+        "57-night": "Llovizna helada",
+        "61-day": "Lluvia ligera",
+        "61-night": "Lluvia ligera",
         "67-day": "Granizo",
-        "63-day": "Rain",
+        "63-day": "Lluvia",
         "63-night": "Lluvia",
         "65-day": "Chubascos",
         "65-night": "Chubascos",
@@ -260,18 +260,43 @@
         "82-day": "Chubascos",
         "82-night": "Chubascos",
         "85-day": "Chubascos",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "85-night": "Lluvia de nieve",
+        "86-day": "Lluvia de nieve",
+        "86-night": "Lluvia de nieve",
+        "95-day": "Tormenta",
+        "95-night": "Tormenta",
+        "96-day": "Tormenta con granizo",
+        "96-night": "Tormenta con granizo",
+        "99-day": "Tormenta con granizo",
+        "99-night": "Tormenta con granizo"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "Marcadores",
+        "service": "Servicio"
+    },
+    "homebridge": {
+        "available_update": "Sistema",
+        "updates": "Actualizaciones",
+        "update_available": "Actualización disponible",
+        "up_to_date": "Actualizado",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Aprobado",
+        "rejectedPushes": "Rechazado",
+        "filters": "Filtros",
+        "indexers": "Indexadores"
+    },
+    "watchtower": {
+        "containers_scanned": "Escaneado",
+        "containers_updated": "Actualizado",
+        "containers_failed": "Fallido"
+    },
+    "tubearchivist": {
+        "downloads": "Cola",
+        "videos": "Vídeos",
+        "channels": "Canales",
+        "playlists": "Listas de reproducción"
     }
 }

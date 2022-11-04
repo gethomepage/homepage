@@ -3,12 +3,14 @@ import dynamic from "next/dynamic";
 const components = {
   adguard: dynamic(() => import("./adguard/component")),
   authentik: dynamic(() => import("./authentik/component")),
+  autobrr: dynamic(() => import("./autobrr/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
   docker: dynamic(() => import("./docker/component")),
   emby: dynamic(() => import("./emby/component")),
   gotify: dynamic(() => import("./gotify/component")),
+  homebridge: dynamic(() => import("./homebridge/component")),
   jackett: dynamic(() => import("./jackett/component")),
   jellyfin: dynamic(() => import("./emby/component")),
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
@@ -34,7 +36,9 @@ const components = {
   tautulli: dynamic(() => import("./tautulli/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
+  tubearchivist: dynamic(() => import("./tubearchivist/component")),
   unifi: dynamic(() => import("./unifi/component")),
+  watchtower: dynamic(() => import("./watchtower/component")),
 };
 
 export default components;

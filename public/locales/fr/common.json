@@ -271,7 +271,32 @@
         "0-day": "Ensoleillé"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
+        "bookmark": "Signet",
         "service": "Service"
+    },
+    "homebridge": {
+        "available_update": "Système",
+        "updates": "Mises à jour",
+        "update_available": "Mise à jour disponible",
+        "up_to_date": "À jour",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Approuvé",
+        "rejectedPushes": "Rejeté",
+        "filters": "Filtres",
+        "indexers": "Indexeur"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanné",
+        "containers_updated": "Mis à jour",
+        "containers_failed": "Échoué"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Vidéos",
+        "channels": "Chaînes",
+        "playlists": "Playlists"
     }
 }
