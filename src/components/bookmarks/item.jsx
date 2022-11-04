@@ -22,7 +22,7 @@ export default function Item({ bookmark }) {
                 <ResolvedIcon icon={bookmark.icon} />
               </div>
             }
-            {bookmark.abbr}
+            {!bookmark.icon && bookmark.abbr}
           </div>
           <div className="flex-1 flex items-center justify-between rounded-r-md ">
             <div className="flex-1 grow pl-3 py-2 text-xs">{bookmark.name}</div>
