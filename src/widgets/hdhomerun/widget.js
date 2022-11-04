@@ -1,5 +1,4 @@
 import genericProxyHandler from "utils/proxy/handlers/generic";
-import { jsonArrayFilter } from "utils/proxy/api-helpers";
 
 const widget = {
   api: "{url}/{endpoint}",
