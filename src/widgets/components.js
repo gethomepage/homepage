@@ -10,6 +10,7 @@ const components = {
   docker: dynamic(() => import("./docker/component")),
   emby: dynamic(() => import("./emby/component")),
   gotify: dynamic(() => import("./gotify/component")),
+  hdhomerun: dynamic(() => import("./hdhomerun/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
   jackett: dynamic(() => import("./jackett/component")),
   jellyfin: dynamic(() => import("./emby/component")),

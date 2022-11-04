@@ -6,6 +6,7 @@ import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import emby from "./emby/widget";
 import gotify from "./gotify/widget";
+import hdhomerun from "./hdhomerun/widget";
 import homebridge from "./homebridge/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
@@ -44,6 +45,7 @@ const widgets = {
   coinmarketcap,
   emby,
   gotify,
+  hdhomerun,
   homebridge,
   jackett,
   jellyfin: emby,

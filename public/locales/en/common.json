@@ -309,5 +309,9 @@
         "videos": "Videos",
         "channels": "Channels",
         "playlists": "Playlists"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }
