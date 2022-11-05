@@ -14,6 +14,8 @@ export default function ResolvedIcon({ icon }) {
         style={{
           width: 32,
           height: 32,
+          'max-width': '100%',
+          'max-height': '100%',
           background: "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
           mask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
           WebkitMask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
