@@ -47,7 +47,7 @@
         "wanted": "想看",
         "queued": "队列",
         "movies": "电影",
-        "missing": "Missing"
+        "missing": "丢失"
     },
     "readarr": {
         "wanted": "订阅",
@@ -192,11 +192,11 @@
         "up": "向上",
         "down": "向下",
         "wait": "请稍候",
-        "lan": "LAN",
-        "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "lan": "局域网",
+        "wlan": "无线局域网",
+        "devices": "设备",
+        "lan_devices": "局域网设备",
+        "wlan_devices": "无线局域网设备"
     },
     "plex": {
         "streams": "活动流",
@@ -209,26 +209,26 @@
         "wait": "请稍等"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "观察到的总数",
+        "diffsDetected": "检测到差异"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "48-day": "Foggy",
-        "51-day": "Light Drizzle",
+        "0-day": "晴天",
+        "0-night": "晴朗",
+        "1-day": "主要是晴天",
+        "3-day": "阴天",
+        "3-night": "阴天",
+        "45-day": "有雾",
+        "48-day": "有雾",
+        "51-day": "小雨",
         "73-night": "Snow",
         "75-day": "Heavy Snow",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "45-night": "Foggy",
-        "48-night": "Foggy",
-        "51-night": "Light Drizzle",
+        "1-night": "大部晴朗",
+        "2-day": "多云",
+        "2-night": "多云",
+        "45-night": "有雾",
+        "48-night": "有雾",
+        "51-night": "小雨",
         "53-day": "Drizzle",
         "53-night": "Drizzle",
         "55-day": "Heavy Drizzle",
@@ -271,8 +271,8 @@
         "99-night": "Thunderstorm With Hail"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "书签",
+        "service": "服务"
     },
     "homebridge": {
         "available_update": "System",
@@ -302,7 +302,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
+        "alerts": "警报",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     }
 }
