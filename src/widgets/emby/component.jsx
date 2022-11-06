@@ -171,7 +171,7 @@ export default function Component({ service }) {
     });
   }
 
-  if (sessionsError) {
+  if (sessionsError || sessionsData?.error) {
     return <Container error={t("widget.api_error")} />;
   }
 

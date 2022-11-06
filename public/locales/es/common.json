@@ -289,8 +289,20 @@
         "indexers": "Indexadores"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Escaneado",
+        "containers_updated": "Actualizado",
+        "containers_failed": "Fallido"
+    },
+    "tubearchivist": {
+        "downloads": "Cola",
+        "videos": "Vídeos",
+        "channels": "Canales",
+        "playlists": "Listas de reproducción"
+    },
+    "truenas": {
+        "load": "Carga del sistema",
+        "uptime": "Tiempo de la actividad",
+        "alerts": "Alertas",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     }
 }

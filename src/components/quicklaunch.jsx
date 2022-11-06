@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
 
-import { resolveIcon } from "./services/item";
+import ResolvedIcon from "./resolvedicon";
 
 import { SettingsContext } from "utils/contexts/settings";
 
@@ -135,7 +135,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                     )} onClick={handleItemClick}>
                     <div className="flex flex-row items-center mr-4 pointer-events-none">
                       <div className="w-5 text-xs mr-4">
-                        {r.icon && resolveIcon(r.icon)}
+                        {r.icon && <ResolvedIcon icon={r.icon} />}
                         {r.abbr && r.abbr}
                       </div>
                       <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">

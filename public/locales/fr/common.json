@@ -292,5 +292,17 @@
         "containers_scanned": "Scanné",
         "containers_updated": "Mis à jour",
         "containers_failed": "Échoué"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Vidéos",
+        "channels": "Chaînes",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "Charge Système",
+        "uptime": "Démarré depuis",
+        "alerts": "Alertes",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     }
 }
