@@ -4,6 +4,7 @@ import getServiceWidget from "utils/config/service-helpers";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import widgets from "widgets/widgets";
 import createLogger from "utils/logger";
+import { httpProxy } from "utils/proxy/http";
 
 const proxyName = 'pyloadProxyHandler';
 const logger = createLogger(proxyName);
@@ -20,50 +21,60 @@ async function fetchFromPyloadAPI(url, sessionId, params) {
   if (params) {
     options.body = Object.keys(params).map(k => `${k}=${params[k]}`).join('&');
   } else {
-    options.body = `session=${sessionId}`
+    options.body = `session=${sessionId}`;
   }
   
-  return fetch(url, options).then((response) => response.json());
+  // eslint-disable-next-line no-unused-vars
+  const [status, contentType, data] = await httpProxy(url, options);
+  return [status, JSON.parse(Buffer.from(data).toString())];
 }
 
 async function login(loginUrl, username, password) {
-  const sessionId = await fetchFromPyloadAPI(loginUrl, null, { username, password })
-  cache.put(sessionCacheKey, sessionId);
-  return sessionId;
+  const [status, sessionId] = await fetchFromPyloadAPI(loginUrl, null, { username, password });
+  if (status !== 200) {
+    throw new Error(`HTTP error ${status} logging into Pyload API, returned: ${sessionId}`);
+  } else {
+    cache.put(sessionCacheKey, sessionId);
+    return sessionId;
+  }
 }
 
 export default async function pyloadProxyHandler(req, res) {
   const { group, service, endpoint } = req.query;
 
-  if (group && service) {
-    const widget = await getServiceWidget(group, service);
+  try {
+    if (group && service) {
+      const widget = await getServiceWidget(group, service);
+  
+      if (widget) {
+        const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
+        const loginUrl = `${widget.url}/api/login`;
+  
+        let sessionId = cache.get(sessionCacheKey);
 
-    if (widget) {
-      const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
-      const loginUrl = `${widget.url}/api/login`;
+        if (!sessionId) {
+          sessionId = await login(loginUrl, widget.username, widget.password);
+        }
+  
+        let [status, data] = await fetchFromPyloadAPI(url, sessionId);
 
-      let sessionId = cache.get(sessionCacheKey);
+        if (status === 403) {
+          logger.debug("Failed to retrieve data from Pyload API, login and re-try");
+          cache.del(sessionCacheKey);
+          sessionId = await login(loginUrl, widget.username, widget.password);
+          [status, data] = await fetchFromPyloadAPI(url, sessionId);
+        }
+        
+        if (data?.error || status !== 200) {
+          return res.status(500).send(Buffer.from(data).toString());
+        }
 
-      if (!sessionId) {
-        sessionId = await login(loginUrl, widget.username, widget.password);
+        return res.json(data);
       }
-
-      let apiResponse = await fetchFromPyloadAPI(url, sessionId);
-
-      if (apiResponse?.error === 'Forbidden') {
-        logger.debug("Failed to retrieve data from Pyload API, login and re-try");
-        cache.del(sessionCacheKey);
-        sessionId = await login(loginUrl, widget.username, widget.password);
-        apiResponse = await fetchFromPyloadAPI(url, sessionId);
-      }
-      
-      if (apiResponse?.error) {
-        return res.status(500).send(apiResponse);
-      }
-      cache.del(sessionCacheKey);
-      
-      return res.send(apiResponse);
     }
+  } catch (e) {
+    logger.error(e);
+    return res.status(500).send(e.toString());
   }
 
   return res.status(400).json({ error: "Invalid proxy service type" });
