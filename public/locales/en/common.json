@@ -303,5 +303,11 @@
         "rejectedPushes": "Rejected",
         "filters": "Filters",
         "indexers": "Indexers"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
     }
 }

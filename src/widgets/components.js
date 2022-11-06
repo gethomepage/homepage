@@ -25,6 +25,7 @@ const components = {
   portainer: dynamic(() => import("./portainer/component")),
   prowlarr: dynamic(() => import("./prowlarr/component")),
   proxmox: dynamic(() => import("./proxmox/component")),
+  pyload: dynamic(() => import("./pyload/component")),
   qbittorrent: dynamic(() => import("./qbittorrent/component")),
   radarr: dynamic(() => import("./radarr/component")),
   readarr: dynamic(() => import("./readarr/component")),
