@@ -304,11 +304,5 @@
         "uptime": "Uptime",
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
-    },
-    "pyload": {
-        "speed": "Geschwindigkeit",
-        "active": "Aktiv",
-        "queue": "Warteschlange",
-        "total": "Gesamt"
     }
 }
