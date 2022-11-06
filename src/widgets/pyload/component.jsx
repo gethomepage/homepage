@@ -1,19 +1,19 @@
 import { useTranslation } from 'next-i18next'
 
-import Container from 'components/services/widget/container'
-import Block from 'components/services/widget/block'
-import useWidgetAPI from 'utils/proxy/use-widget-api'
+import Container from "components/services/widget/container";
+import Block from "components/services/widget/block";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-  const { t } = useTranslation()
-  const { widget } = service
+  const { t } = useTranslation();
+  const { widget } = service;
   const { data: pyloadData, error: pyloadError } = useWidgetAPI(
     widget,
-    'statusServer',
-  )
+    "statusServer",
+  );
 
   if (pyloadError || !pyloadData) {
-    return <Container error={t('widget.api_error')} />
+    return <Container error={t("widget.api_error")} />;
   }
 
   return (
@@ -23,5 +23,5 @@ export default function Component({ service }) {
       <Block label="pyload.queue" value={t("common.number", { value: pyloadData.queue })} />
       <Block label="pyload.total" value={t("common.number", { value: pyloadData.total })} />
     </Container>
-  )
+  );
 }
