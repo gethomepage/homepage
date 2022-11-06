@@ -7,13 +7,21 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { data: pyloadData, error: pyloadError } = useWidgetAPI(
-    widget,
-    "statusServer",
-  );
+  const { data: pyloadData, error: pyloadError } = useWidgetAPI(widget, "status");
 
-  if (pyloadError || !pyloadData) {
+  if (pyloadError || pyloadData?.error) {
     return <Container error={t("widget.api_error")} />;
+  }
+
+  if (!pyloadData) {
+    return (
+      <Container service={service}>
+        <Block label="pyload.speed" />
+        <Block label="pyload.active" />
+        <Block label="pyload.queue" />
+        <Block label="pyload.total" />
+      </Container>
+    );
   }
 
   return (
