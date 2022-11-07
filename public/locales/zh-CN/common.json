@@ -304,5 +304,9 @@
         "uptime": "Uptime",
         "alerts": "警报",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
     }
 }
