@@ -169,10 +169,8 @@
         "middleware": "Middleware"
     },
     "navidrome": {
-        "user": "User",
-        "artist": "Artist",
-        "song": "Song",
-        "album": "Album"
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
     },
     "npm": {
         "enabled": "Enabled",
