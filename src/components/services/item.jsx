@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 
 import Status from "./status";
 import Widget from "./widget";
+import Ping from "./ping";
 
 import Docker from "widgets/docker/component";
 import { SettingsContext } from "utils/contexts/settings";
@@ -30,7 +31,7 @@ export default function Item({ service }) {
       <div
         className={`${
           hasLink ? "cursor-pointer " : " "
-        }transition-all h-15 mb-3 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10`}
+        }transition-all h-15 mb-3 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative`}
       >
         <div className="flex select-none">
           {service.icon &&
@@ -70,16 +71,25 @@ export default function Item({ service }) {
             </div>
           )}
 
-          {service.container && (
-            <button
-              type="button"
-              onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-              className="flex-shrink-0 flex items-center justify-center w-12 cursor-pointer"
-            >
-              <Status service={service} />
-              <span className="sr-only">View container stats</span>
-            </button>
-          )}
+          <div className="absolute top-0 right-0 w-1/2 flex flex-row justify-end gap-2 mr-2">
+              {service.ping && (
+                <div className="flex-shrink-0 flex items-center justify-center cursor-pointer">
+                  <Ping service={service} />
+                  <span className="sr-only">Ping status</span>
+                </div>
+              )}
+
+              {service.container && (
+                <button
+                  type="button"
+                  onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
+                  className="flex-shrink-0 flex items-center justify-center cursor-pointer"
+                >
+                  <Status service={service} />
+                  <span className="sr-only">View container stats</span>
+                </button>
+              )}
+          </div>
         </div>
 
         {service.container && service.server && (
