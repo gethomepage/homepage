@@ -21,9 +21,8 @@ export default function Component({ service }) {
 
   const { data: queueData, error: queueError } = useWidgetAPI(widget, "queue");
 
-  if (queueError || queueData?.error) {
-    const finalError = queueError ?? queueData.error;
-    return <Container error={finalError} />;
+  if (queueError) {
+    return <Container error={queueError} />;
   }
 
   if (!queueData) {

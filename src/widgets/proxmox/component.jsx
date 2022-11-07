@@ -15,9 +15,8 @@ export default function Component({ service }) {
 
   const { data: clusterData, error: clusterError } = useWidgetAPI(widget, "cluster/resources");
 
-  if (clusterError || clusterData?.error) {
-    const finalError = clusterError ?? clusterData.error;
-    return <Container error={finalError} />;
+  if (clusterError) {
+    return <Container error={clusterError} />;
   }
 
   if (!clusterData || !clusterData.data) {

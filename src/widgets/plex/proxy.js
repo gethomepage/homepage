@@ -67,7 +67,7 @@ export default async function plexProxyHandler(req, res) {
   let [status, apiData] = await fetchFromPlexAPI("/status/sessions", widget);
 
   if (status !== 200) {
-    return res.status(status).json({error: {message: "HTTP error communicating with Plex API", data: apiData}});
+    return res.status(status).json({error: {message: "HTTP error communicating with Plex API", data: Buffer.from(apiData).toString()}});
   }
 
   if (apiData && apiData.MediaContainer) {

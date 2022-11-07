@@ -13,9 +13,8 @@ export default function Component({ service }) {
     all: 1,
   });
 
-  if (containersError || containersData?.error) {
-    const finalError = containersError ?? containersData.error;
-    return <Container error={finalError} />;
+  if (containersError) {
+    return <Container error={containersError} />;
   }
 
   if (!containersData) {

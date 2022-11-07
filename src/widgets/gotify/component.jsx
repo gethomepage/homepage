@@ -9,8 +9,8 @@ export default function Component({ service }) {
   const { data: messagesData, error: messagesError } = useWidgetAPI(widget, "message");
   const { data: clientsData, error: clientsError } = useWidgetAPI(widget, "client");
 
-  if (appsError || appsData?.error || messagesError || messagesData?.error || clientsError || clientsData?.error) {
-    const finalError = appsError ?? appsData?.error ?? messagesError ?? messagesData?.error ?? clientsError ?? clientsData?.error;
+  if (appsError || messagesError || clientsError) {
+    const finalError = appsError ?? messagesError ?? clientsError;
     return <Container error={finalError} />;
   }
 

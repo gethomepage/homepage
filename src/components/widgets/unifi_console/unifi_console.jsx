@@ -12,7 +12,7 @@ export default function Widget({ options }) {
   options.type = "unifi_console";
   const { data: statsData, error: statsError } = useWidgetAPI(options, "stat/sites", { index: options.index });
 
-  if (statsError || statsData?.error) {
+  if (statsError) {
     return (
       <div className="flex flex-col justify-center first:ml-0 ml-4">
         <div className="flex flex-row items-center justify-end">

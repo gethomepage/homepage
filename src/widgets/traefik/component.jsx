@@ -7,9 +7,8 @@ export default function Component({ service }) {
 
   const { data: traefikData, error: traefikError } = useWidgetAPI(widget, "overview");
 
-  if (traefikError || traefikData?.error) {
-    const finalError = traefikError ?? traefikData.error;
-    return <Container error={finalError} />;
+  if (traefikError) {
+    return <Container error={traefikError} />;
   }
 
   if (!traefikData) {

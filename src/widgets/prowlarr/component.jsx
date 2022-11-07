@@ -8,8 +8,8 @@ export default function Component({ service }) {
   const { data: indexersData, error: indexersError } = useWidgetAPI(widget, "indexer");
   const { data: grabsData, error: grabsError } = useWidgetAPI(widget, "indexerstats");
 
-  if (indexersError || indexersData?.error || grabsError || grabsData?.error) {
-    const finalError = indexersError ?? indexersData?.error ?? grabsError ?? grabsData?.error;
+  if (indexersError || grabsError) {
+    const finalError = indexersError ?? grabsError;
     return <Container error={finalError} />;
   }
 

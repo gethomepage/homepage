@@ -11,9 +11,8 @@ export default function Component({ service }) {
 
   const { data, error } = useWidgetAPI(widget, "info");
 
-  if (error || data?.error) {
-    const finalError = error ?? data.error;
-    return <Container error={finalError} />;
+  if (error) {
+    return <Container error={error} />;
   }
   const totalObserved = Object.keys(data).length;
   let diffsDetected = 0;

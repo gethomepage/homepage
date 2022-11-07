@@ -13,8 +13,8 @@ export default function Component({ service }) {
   const { data: wantedData, error: wantedError } = useWidgetAPI(widget, "wanted/missing");
   const { data: queueData, error: queueError } = useWidgetAPI(widget, "queue/status");
 
-  if (albumsError || albumsData?.error || wantedError || wantedData?.error || queueError || queueData?.error) {
-    const finalError = albumsError ?? albumsData?.error ?? wantedError ?? wantedData?.error ?? queueError ?? queueData?.error;
+  if (albumsError || wantedError || queueError) {
+    const finalError = albumsError ?? wantedError ?? queueError;
     return <Container error={finalError} />;
   }
 

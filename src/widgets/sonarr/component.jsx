@@ -9,8 +9,8 @@ export default function Component({ service }) {
   const { data: queuedData, error: queuedError } = useWidgetAPI(widget, "queue");
   const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "series");
 
-  if (wantedError || wantedData?.error || queuedError || queuedData?.error || seriesError || seriesData?.error) {
-    const finalError = wantedError ?? wantedData?.error ?? queuedError ?? queuedData?.error ?? seriesError ?? seriesData?.error;
+  if (wantedError || queuedError || seriesError) {
+    const finalError = wantedError ?? queuedError ?? seriesError;
     return <Container error={finalError} />;
   }
 

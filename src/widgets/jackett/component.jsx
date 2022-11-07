@@ -11,9 +11,8 @@ export default function Component({ service }) {
 
   const { data: indexersData, error: indexersError } = useWidgetAPI(widget, "indexers");
 
-  if (indexersError || indexersData?.error) {
-    const finalError = indexersError ?? indexersData.error;
-    return <Container error={finalError} />;
+  if (indexersError) {
+    return <Container error={indexersError} />;
   }
 
   if (!indexersData) {

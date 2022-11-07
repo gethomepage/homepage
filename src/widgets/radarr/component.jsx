@@ -8,8 +8,8 @@ export default function Component({ service }) {
   const { data: moviesData, error: moviesError } = useWidgetAPI(widget, "movie");
   const { data: queuedData, error: queuedError } = useWidgetAPI(widget, "queue/status");
 
-  if (moviesError || moviesData?.error || queuedError || queuedData?.error) {
-    const finalError = moviesError ?? moviesData?.error ?? queuedError ?? queuedData?.error;
+  if (moviesError || queuedError) {
+    const finalError = moviesError ?? queuedError;
     return <Container error={finalError} />;
   }
 

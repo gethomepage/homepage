@@ -11,9 +11,8 @@ export default function Component({ service }) {
 
   const { data: speedtestData, error: speedtestError } = useWidgetAPI(widget, "speedtest/latest");
 
-  if (speedtestError || speedtestData?.error) {
-    const finalError = speedtestError ?? speedtestData.error;
-    return <Container error={finalError} />;
+  if (speedtestError) {
+    return <Container error={speedtestError} />;
   }
 
   if (!speedtestData) {

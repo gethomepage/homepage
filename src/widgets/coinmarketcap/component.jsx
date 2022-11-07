@@ -36,9 +36,8 @@ export default function Component({ service }) {
     );
   }
 
-  if (statsError || statsData?.error) {
-    const finalError = statsError ?? statsData.error;
-    return <Container error={finalError} />;
+  if (statsError) {
+    return <Container error={statsError} />;
   }
 
   if (!statsData || !dateRange) {

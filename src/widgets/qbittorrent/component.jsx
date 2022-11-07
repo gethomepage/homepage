@@ -11,9 +11,8 @@ export default function Component({ service }) {
 
   const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents/info");
 
-  if (torrentError || torrentData?.error) {
-    const finalError = torrentError ?? torrentData.error;
-    return <Container error={finalError} />;
+  if (torrentError) {
+    return <Container error={torrentError} />;
   }
 
   if (!torrentData) {

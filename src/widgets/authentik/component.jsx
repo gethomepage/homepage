@@ -13,8 +13,8 @@ export default function Component({ service }) {
   const { data: loginsData, error: loginsError } = useWidgetAPI(widget, "login");
   const { data: failedLoginsData, error: failedLoginsError } = useWidgetAPI(widget, "login_failed");
 
-  if (usersError || usersData?.error || loginsError || loginsData?.error || failedLoginsError || failedLoginsData?.error) {
-    const finalError = usersError ?? usersData?.error ?? loginsError ?? loginsData?.error ?? failedLoginsError ?? failedLoginsData?.error;
+  if (usersError || loginsError || failedLoginsError) {
+    const finalError = usersError ?? loginsError ?? failedLoginsError;
     return <Container error={finalError} />;
   }
 

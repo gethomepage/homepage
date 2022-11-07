@@ -12,8 +12,8 @@ export default function Component({ service }) {
   const { data: episodesData, error: episodesError } = useWidgetAPI(widget, "episodes");
   const { data: moviesData, error: moviesError } = useWidgetAPI(widget, "movies");
 
-  if (moviesError || moviesData?.error || episodesError || episodesData?.error) {
-    const finalError = moviesError ?? moviesData?.error ?? episodesError ?? episodesData?.error;
+  if (moviesError || episodesError) {
+    const finalError = moviesError ?? episodesError;
     return <Container error={finalError} />;
   }
 
