@@ -304,5 +304,9 @@
         "rejectedPushes": "Zamítnuto",
         "filters": "Filtry",
         "indexers": "Indexery"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
     }
 }
