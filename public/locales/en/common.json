@@ -168,6 +168,12 @@
         "services": "Services",
         "middleware": "Middleware"
     },
+    "navidrome": {
+        "user": "User",
+        "artist": "Artist",
+        "song": "Song",
+        "album": "Album"
+    },
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",

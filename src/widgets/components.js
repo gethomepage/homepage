@@ -16,6 +16,7 @@ const components = {
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
+  navidrome: dynamic(() => import("./navidrome/component")),
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
   ombi: dynamic(() => import("./ombi/component")),
