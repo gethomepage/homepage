@@ -11,11 +11,11 @@ export default function Component({ service }) {
 
   const { data: navidromeData, error: navidromeError } = useWidgetAPI(widget, "getNowPlaying");
 
-  if (navidromeError) {
+  if (navidromeError || navidromeData?.error || navidromeData?.["subsonic-response"]?.error) {
     return <Container error={t("widget.api_error")} />;
   }
 
-  if (!navidromeData || Object.keys(navidromeData["subsonic-response"].nowPlaying).length === 0) {
+  if (!navidromeData) {
     return (
       <Container service={service}>
         <Block label="navidrome.user" />
@@ -26,10 +26,18 @@ export default function Component({ service }) {
     );
   }
 
-  const nowPlaying = Object.values(navidromeData["subsonic-response"].nowPlaying.entry);
+  const nowPlaying = navidromeData["subsonic-response"].nowPlaying;
+  if (!nowPlaying.entry) {
+    // nothing playing
+    return (
+      <Container service={service} />
+    );
+  }
+
+  const nowPlayingEntries = Object.values(nowPlaying.entry);
   const songList = [];
 
-  nowPlaying.forEach(userPlay => {
+  nowPlayingEntries.forEach(userPlay => {
       const playing = (
         <Container service={service}>
           <Block label="navidrome.user" value={userPlay.username} />
