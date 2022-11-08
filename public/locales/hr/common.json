@@ -308,5 +308,11 @@
     "navidrome": {
         "nothing_streaming": "Nema aktivnih prijenosa",
         "please_wait": "Pričekaj"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
     }
 }
