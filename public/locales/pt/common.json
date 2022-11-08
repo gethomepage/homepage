@@ -319,5 +319,11 @@
     "navidrome": {
         "nothing_streaming": "No Active Streams",
         "please_wait": "Please Wait"
+    },
+    "pyload": {
+        "queue": "Queue",
+        "total": "Total",
+        "speed": "Speed",
+        "active": "Active"
     }
 }
