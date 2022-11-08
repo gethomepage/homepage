@@ -21,6 +21,7 @@ import plex from "./plex/widget";
 import portainer from "./portainer/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
+import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
@@ -62,6 +63,7 @@ const widgets = {
   portainer,
   prowlarr,
   proxmox,
+  pyload,
   qbittorrent,
   radarr,
   readarr,

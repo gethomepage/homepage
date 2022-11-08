@@ -319,5 +319,11 @@
         "uptime": "Uptime",
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
     }
 }
