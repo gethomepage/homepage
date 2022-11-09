@@ -306,13 +306,13 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Tiada Strim Aktif",
+        "please_wait": "Sila tunggu"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "Kelajuan",
+        "active": "Aktif",
+        "queue": "Baris Gilir",
+        "total": "Jumlah"
     }
 }
