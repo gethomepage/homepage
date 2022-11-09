@@ -54,7 +54,7 @@ function Widget({ options }) {
         <div className="hidden sm:flex flex-col items-center">
           <Icon
             condition={data.weather[0].id}
-            timeOfDay={data.dt > data.sys.sunrise && data.dt < data.sys.sundown ? "day" : "night"}
+            timeOfDay={data.dt > data.sys.sunrise && data.dt < data.sys.sunset ? "day" : "night"}
           />
         </div>
         <div className="flex flex-col ml-3 text-left">
