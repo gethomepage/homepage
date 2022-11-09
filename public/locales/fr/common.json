@@ -310,8 +310,8 @@
         "please_wait": "Merci de patienter"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
+        "speed": "Débit",
+        "active": "Actif",
         "queue": "Queue",
         "total": "Total"
     }
