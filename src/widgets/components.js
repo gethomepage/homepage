@@ -9,6 +9,7 @@ const components = {
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
   docker: dynamic(() => import("./docker/component")),
   emby: dynamic(() => import("./emby/component")),
+  gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
   jackett: dynamic(() => import("./jackett/component")),

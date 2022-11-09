@@ -5,6 +5,7 @@ import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import emby from "./emby/widget";
+import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import homebridge from "./homebridge/widget";
 import jackett from "./jackett/widget";
@@ -46,6 +47,7 @@ const widgets = {
   changedetectionio,
   coinmarketcap,
   emby,
+  gluetun,
   gotify,
   homebridge,
   jackett,
