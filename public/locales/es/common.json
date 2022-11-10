@@ -310,9 +310,9 @@
         "please_wait": "Espere por favor"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
+        "speed": "Velocidad",
+        "active": "Activo",
+        "queue": "Cola",
         "total": "Total"
     }
 }
