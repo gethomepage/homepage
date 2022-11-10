@@ -9,6 +9,7 @@ import { httpProxy } from 'utils/proxy/http';
 const proxyName = 'pyloadProxyHandler';
 const logger = createLogger(proxyName);
 const sessionCacheKey = `${proxyName}__sessionId`;
+const isNgCacheKey = `${proxyName}__isNg`;
 
 async function fetchFromPyloadAPI(url, sessionId, params) {
   const options = {
@@ -23,17 +24,32 @@ async function fetchFromPyloadAPI(url, sessionId, params) {
     },
   };
 
+  // see https://github.com/benphelps/homepage/issues/517
+  const isNg = cache.get(isNgCacheKey);
+  if (isNg && !params) {
+    delete options.body;
+    options.headers.Cookie = cache.get(sessionCacheKey);
+  }
+
   // eslint-disable-next-line no-unused-vars
-  const [status, contentType, data] = await httpProxy(url, options);
-  return [status, JSON.parse(Buffer.from(data).toString())];
+  const [status, contentType, data, responseHeaders] = await httpProxy(url, options);
+  return [status, JSON.parse(Buffer.from(data).toString()), responseHeaders];
 }
 
 async function login(loginUrl, username, password = '') {
-  const [status, sessionId] = await fetchFromPyloadAPI(loginUrl, null, { username, password });
+  const [status, sessionId, responseHeaders] = await fetchFromPyloadAPI(loginUrl, null, { username, password });
   if (status !== 200) {
     throw new Error(`HTTP error ${status} logging into Pyload API, returned: ${sessionId}`);
   } else {
-    cache.put(sessionCacheKey, sessionId);
+    // Support pyload-ng, see https://github.com/benphelps/homepage/issues/517
+    if (responseHeaders['set-cookie']?.join().includes('pyload_session')) {
+      cache.put(isNgCacheKey, true);
+      const sessionCookie = responseHeaders['set-cookie'][0];
+      cache.put(sessionCacheKey, sessionCookie);
+    } else {
+      cache.put(sessionCacheKey, sessionId);
+    }
+
     return sessionId;
   }
 }
