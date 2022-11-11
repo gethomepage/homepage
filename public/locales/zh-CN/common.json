@@ -306,8 +306,8 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "暂无播放",
+        "please_wait": "请等待"
     },
     "pyload": {
         "speed": "Speed",
