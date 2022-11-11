@@ -33,25 +33,32 @@ async function fetchFromPyloadAPI(url, sessionId, params) {
 
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data, responseHeaders] = await httpProxy(url, options);
-  return [status, JSON.parse(Buffer.from(data).toString()), responseHeaders];
+  let returnData;
+  try {
+    returnData = JSON.parse(Buffer.from(data).toString());
+  } catch(e) {
+    logger.error(`Error logging into pyload API: ${JSON.stringify(data)}`);
+    returnData = data;
+  }
+  return [status, returnData, responseHeaders];
 }
 
 async function login(loginUrl, username, password = '') {
   const [status, sessionId, responseHeaders] = await fetchFromPyloadAPI(loginUrl, null, { username, password });
-  if (status !== 200) {
-    throw new Error(`HTTP error ${status} logging into Pyload API, returned: ${sessionId}`);
-  } else {
+  
+  // this API actually returns status 200 even on login failure
+  if (status !== 200 || sessionId === false) {
+    logger.error(`HTTP ${status} logging into Pyload API, returned: ${JSON.stringify(sessionId)}`);
+  } else if (responseHeaders['set-cookie']?.join().includes('pyload_session')) {
     // Support pyload-ng, see https://github.com/benphelps/homepage/issues/517
-    if (responseHeaders['set-cookie']?.join().includes('pyload_session')) {
-      cache.put(isNgCacheKey, true);
-      const sessionCookie = responseHeaders['set-cookie'][0];
-      cache.put(sessionCacheKey, sessionCookie);
-    } else {
-      cache.put(sessionCacheKey, sessionId);
-    }
-
-    return sessionId;
+    cache.put(isNgCacheKey, true);
+    const sessionCookie = responseHeaders['set-cookie'][0];
+    cache.put(sessionCacheKey, sessionCookie, 60 * 60 * 23 * 1000); // cache for 23h
+  } else {
+    cache.put(sessionCacheKey, sessionId);
   }
+
+  return sessionId;
 }
 
 export default async function pyloadProxyHandler(req, res) {
@@ -68,15 +75,19 @@ export default async function pyloadProxyHandler(req, res) {
         let sessionId = cache.get(sessionCacheKey) ?? await login(loginUrl, widget.username, widget.password);
         let [status, data] = await fetchFromPyloadAPI(url, sessionId);
 
-        if (status === 403) {
-          logger.debug('Failed to retrieve data from Pyload API, login and re-try');
+        if (status === 403 || status === 401) {
+          logger.info('Failed to retrieve data from Pyload API, trying to login again...');
           cache.del(sessionCacheKey);
           sessionId = await login(loginUrl, widget.username, widget.password);
           [status, data] = await fetchFromPyloadAPI(url, sessionId);
         }
 
         if (data?.error || status !== 200) {
-          return res.status(500).send(Buffer.from(data).toString());
+          try {
+            return res.status(status).send(Buffer.from(data).toString());
+          } catch (e) {
+            return res.status(status).send(data);
+          }
         }
 
         return res.json(data);
