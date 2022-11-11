@@ -310,9 +310,9 @@
         "please_wait": "Pričekaj"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "Brzina",
+        "active": "Aktivno",
+        "queue": "Red čekanja",
+        "total": "Ukupno"
     }
 }
