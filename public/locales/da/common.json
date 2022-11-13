@@ -1,7 +1,7 @@
 {
     "plex": {
         "movies": "Film",
-        "tv": "TV Shows",
+        "tv": "TV-Shows",
         "streams": "Aktive Streams"
     },
     "radarr": {
@@ -26,9 +26,9 @@
         "available": "Tilgængelig"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
+        "queries": "Forespørgsler",
+        "blocked": "Blokerede",
+        "filtered": "Filtreret",
         "latency": "Latency"
     },
     "speedtest": {
@@ -38,100 +38,100 @@
     },
     "npm": {
         "total": "Total",
-        "enabled": "Enabled",
-        "disabled": "Disabled"
+        "enabled": "Aktiveret",
+        "disabled": "Deaktiveret"
     },
     "coinmarketcap": {
-        "30days": "30 Days",
-        "1day": "1 Day",
-        "configure": "Configure one or more crypto currencies to track",
-        "7days": "7 Days",
-        "1hour": "1 Hour"
+        "30days": "30 Dage",
+        "1day": "1 Dag",
+        "configure": "Konfigurer en eller flere crypto valutaer til  tracking",
+        "7days": "7 Dage",
+        "1hour": "1 time"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "dataRelayed": "Relayed",
-        "numConnections": "Connections",
+        "numActiveSessions": "Sessioner",
+        "dataRelayed": "Videresendt",
+        "numConnections": "Forbindelser",
         "transferRate": "Rate"
     },
     "mastodon": {
-        "domain_count": "Domains",
-        "status_count": "Posts",
-        "user_count": "Users"
+        "domain_count": "Domæner",
+        "status_count": "Indlæg",
+        "user_count": "Brugere"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Brugere",
+        "loginsLast24H": "Login (24 timer)",
+        "failedLoginsLast24H": "Mislykkede logins (24 timer)"
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "mem": "RAM",
+        "wait": "Vent venligst"
     },
     "wmo": {
-        "1-day": "Mainly Sunny",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "75-night": "Heavy Snow",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail",
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "45-night": "Foggy",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "66-day": "Freezing Rain",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "77-night": "Snow Grains",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail"
+        "1-day": "Hovedsageligt solrigt",
+        "48-day": "Tåget",
+        "48-night": "Tåget",
+        "51-day": "Let støvregn",
+        "51-night": "Let støvregn",
+        "66-night": "Frysende regn",
+        "67-day": "Frysende regn",
+        "67-night": "Frysende regn",
+        "71-day": "Let Sne",
+        "75-night": "Kraftig Sne",
+        "86-day": "Snebyger",
+        "86-night": "Snebyger",
+        "95-day": "Tordenvejr",
+        "99-day": "Tordenvejr med hagl",
+        "99-night": "Tordenvejr med hagl",
+        "0-day": "Solrig",
+        "0-night": "Klart",
+        "1-night": "Hovedsageligt klart",
+        "2-day": "Delvist skyet",
+        "2-night": "Delvist skyet",
+        "3-day": "Skyet",
+        "3-night": "Skyet",
+        "45-day": "Tåget",
+        "65-day": "Kraftig regn",
+        "65-night": "Kraftig regn",
+        "45-night": "Tåget",
+        "53-day": "Støvregn",
+        "53-night": "Støvregn",
+        "55-day": "Kraftig støvregn",
+        "55-night": "Kraftig støvregn",
+        "56-day": "Let frysende støvregn",
+        "56-night": "Let frysende støvregn",
+        "57-day": "Frysende støvregn",
+        "57-night": "Frysende støvregn",
+        "61-day": "Let Regn",
+        "61-night": "Let Regn",
+        "63-day": "Regn",
+        "63-night": "Regn",
+        "66-day": "Frysende regn",
+        "71-night": "Let Sne",
+        "73-day": "Sne",
+        "73-night": "Sne",
+        "75-day": "Kraftig Sne",
+        "77-day": "Snekorn",
+        "80-day": "Lette byger",
+        "80-night": "Lette byger",
+        "81-day": "Byger",
+        "77-night": "Snekorn",
+        "81-night": "Byger",
+        "82-day": "Kraftige Byger",
+        "82-night": "Kraftige Byger",
+        "85-day": "Snebyger",
+        "85-night": "Snebyger",
+        "95-night": "Tordenvejr",
+        "96-day": "Tordenvejr med hagl",
+        "96-night": "Tordenvejr med hagl"
     },
     "homebridge": {
         "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "updates": "Opdateringer",
+        "update_available": "Opdateringer tilgængelige",
+        "up_to_date": "Opdateret",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
@@ -162,13 +162,13 @@
         "days": "Dage",
         "wan": "WAN",
         "lan": "LAN",
-        "wlan": "WLAN",
+        "wlan": "Wifi",
         "devices": "Enheder",
         "lan_devices": "LAN Enheder",
         "wlan_devices": "WLAN Enheder",
         "lan_users": "LAN Brugere",
         "wlan_users": "WLAN Brugere",
-        "up": "UP",
+        "up": "Oppe",
         "down": "NED",
         "wait": "Vent venligst"
     },
@@ -247,72 +247,72 @@
         "queries": "Forespørgsler"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
+        "running": "Kørende",
+        "stopped": "Stoppede",
         "total": "Total"
     },
     "traefik": {
-        "routers": "Routers",
+        "routers": "Routere",
         "services": "Services",
         "middleware": "Middleware"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Applikationer",
+        "clients": "Klienter",
+        "messages": "Beskeder"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "Indeksører",
         "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "Forespørgsler",
         "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailQueries": "Fejl forespørgsler"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Konfigureret",
+        "errored": "Fejlede"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
+        "bookmark": "Bogmærker",
         "service": "Service"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Scannet",
+        "containers_updated": "Opdateret",
+        "containers_failed": "Fejlet"
     },
     "autobrr": {
-        "indexers": "Indexers",
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters"
+        "indexers": "Indeksører",
+        "approvedPushes": "Godkendte",
+        "rejectedPushes": "Afviste",
+        "filters": "Filtre"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Kø",
+        "videos": "Videoer",
+        "channels": "Kanaler",
+        "playlists": "Afspilningslister"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "Systembelastning",
+        "uptime": "Oppetid",
+        "alerts": "Advarsler",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Ingen Aktive Streams",
+        "please_wait": "Vent venligst"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
+        "speed": "Hastighed",
+        "active": "Aktive",
+        "queue": "Kø",
         "total": "Total"
     }
 }
