@@ -209,8 +209,8 @@
         "wait": "Please wait"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Observados",
+        "diffsDetected": "Mudanças"
     },
     "wmo": {
         "1-night": "Mainly Clear",
