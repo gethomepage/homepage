@@ -82,7 +82,7 @@
     "traefik": {
         "routers": "Enrutadores",
         "services": "Servicios",
-        "middleware": "Middleware"
+        "middleware": "Software intermedio"
     },
     "npm": {
         "enabled": "Activado",
