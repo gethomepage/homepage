@@ -314,5 +314,10 @@
         "active": "Active",
         "queue": "Queue",
         "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
     }
 }
