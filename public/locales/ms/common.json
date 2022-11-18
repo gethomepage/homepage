@@ -314,5 +314,10 @@
         "active": "Aktif",
         "queue": "Baris Gilir",
         "total": "Jumlah"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
     }
 }
