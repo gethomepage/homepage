@@ -314,5 +314,10 @@
         "active": "Aktivno",
         "queue": "Red čekanja",
         "total": "Ukupno"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
     }
 }
