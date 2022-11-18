@@ -325,5 +325,10 @@
         "total": "Total",
         "speed": "Speed",
         "active": "Active"
+    },
+    "gluetun": {
+        "region": "Region",
+        "country": "Country",
+        "public_ip": "Public IP"
     }
 }
