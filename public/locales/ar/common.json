@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "نوع القطعة مفقود: {{type}}",
         "api_error": "API خطأ",
-        "status": "الحالة"
+        "status": "الحالة",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "الموقع الحالي",
