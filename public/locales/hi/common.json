@@ -1,82 +1,120 @@
 {
-    "sabnzbd": {
-        "queue": "Опашка",
-        "timeleft": "Оставащо Време",
-        "rate": "Rate"
-    },
-    "rutorrent": {
-        "active": "Акитивен",
-        "upload": "Споделяне",
-        "download": "Сваляне"
-    },
     "widget": {
-        "missing_type": "Липсваща приставка: {{type}}",
-        "api_error": "API Грешка",
-        "status": "Статус"
+        "missing_type": "Missing Widget Type: {{type}}",
+        "api_error": "API Error",
+        "status": "Status"
     },
     "weather": {
-        "current": "Текущо местоположение",
-        "allow": "Разреши",
-        "updating": "Обновяване",
-        "wait": "Моля изчакайте"
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
+    },
+    "readarr": {
+        "queued": "Queued",
+        "books": "Books",
+        "wanted": "Wanted"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
+    },
+    "ombi": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
+    "jellyseerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
+    },
+    "traefik": {
+        "services": "Services",
+        "middleware": "Middleware",
+        "routers": "Routers"
+    },
+    "mastodon": {
+        "domain_count": "Domains",
+        "user_count": "Users",
+        "status_count": "Posts"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "search": {
-        "placeholder": "Търсене…"
+        "placeholder": "Search…"
     },
     "resources": {
         "cpu": "CPU",
-        "total": "Общо",
-        "free": "Свободни",
-        "used": "Заети",
-        "load": "Натоварване"
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "load": "Load"
     },
     "unifi": {
-        "users": "Потребители",
-        "uptime": "Активен от",
-        "days": "Дни",
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
         "wan": "WAN",
-        "lan_users": "LAN Потребители",
-        "wlan_users": "WLAN Потребители",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Моля изчакайте",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Devices",
         "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "wlan_devices": "WLAN Devices",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait"
     },
     "docker": {
-        "offline": "Изключен",
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "CPU"
+        "cpu": "CPU",
+        "offline": "Offline"
     },
     "emby": {
-        "playing": "Възпроизвежда",
-        "transcoding": "Конвертира",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "Няма активни потоци"
+        "no_active": "No Active Streams"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observed",
+        "diffsDetected": "Diffs Detected"
     },
     "tautulli": {
-        "playing": "Възпроизвежда",
-        "transcoding": "Конвертира",
-        "bitrate": "Честота",
-        "no_active": "Няма активни потоци"
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Остава",
-        "downloaded": "Изтеглени"
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
     },
     "plex": {
-        "streams": "Активни Потоци",
-        "movies": "Филми",
-        "tv": "Сериали"
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Upload",
+        "download": "Download"
     },
     "transmission": {
-        "download": "Сваляне",
+        "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
@@ -94,33 +132,14 @@
     },
     "radarr": {
         "wanted": "Wanted",
+        "missing": "Missing",
         "queued": "Queued",
-        "movies": "Movies",
-        "missing": "Missing"
+        "movies": "Movies"
     },
     "lidarr": {
         "wanted": "Wanted",
         "queued": "Queued",
         "albums": "Albums"
-    },
-    "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
-    },
-    "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
-    },
-    "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
-    },
-    "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
     },
     "overseerr": {
         "pending": "Pending",
@@ -148,10 +167,9 @@
         "stopped": "Stopped",
         "total": "Total"
     },
-    "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
     },
     "npm": {
         "enabled": "Enabled",
@@ -177,11 +195,6 @@
         "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
     },
-    "authentik": {
-        "loginsLast24H": "Logins (24h)",
-        "users": "Users",
-        "failedLoginsLast24H": "Failed Logins (24h)"
-    },
     "jackett": {
         "configured": "Configured",
         "errored": "Errored"
@@ -191,11 +204,6 @@
         "numConnections": "Connections",
         "dataRelayed": "Relayed",
         "transferRate": "Rate"
-    },
-    "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
     },
     "proxmox": {
         "mem": "MEM",
@@ -208,16 +216,12 @@
         "mem": "MEM",
         "wait": "Please wait"
     },
-    "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
     },
     "wmo": {
         "0-day": "Sunny",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
         "0-night": "Clear",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
@@ -237,6 +241,8 @@
         "55-night": "Heavy Drizzle",
         "56-day": "Light Freezing Drizzle",
         "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
         "61-day": "Light Rain",
         "61-night": "Light Rain",
         "63-day": "Rain",
@@ -267,12 +273,10 @@
         "86-night": "Snow Showers",
         "95-day": "Thunderstorm",
         "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
         "99-day": "Thunderstorm With Hail",
         "99-night": "Thunderstorm With Hail"
-    },
-    "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
     },
     "homebridge": {
         "available_update": "System",
@@ -282,16 +286,16 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
-    "autobrr": {
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers",
-        "approvedPushes": "Approved"
-    },
     "watchtower": {
         "containers_scanned": "Scanned",
         "containers_updated": "Updated",
         "containers_failed": "Failed"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
     },
     "tubearchivist": {
         "downloads": "Queue",
@@ -302,12 +306,8 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
-    },
-    "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}",
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Speed",

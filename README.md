@@ -38,7 +38,7 @@
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - Translations for Catalan, Chinese, Dutch, Finnish, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romanian, Russian, Spanish, Swedish and Yue
+  - Translations for Catalan, Chinese, Dutch, Finnish, French, German, Hebrew, Hungarian, Malay, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romanian, Russian, Spanish, Swedish and Yue
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
@@ -152,3 +152,9 @@ This is a [Next.js](https://nextjs.org/) application, see their doucmentation fo
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->

@@ -304,5 +304,20 @@
         "uptime": "Démarré depuis",
         "alerts": "Alertes",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Aucun flux actif",
+        "please_wait": "Merci de patienter"
+    },
+    "pyload": {
+        "speed": "Débit",
+        "active": "Actif",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
     }
 }

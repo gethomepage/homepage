@@ -5,12 +5,14 @@ import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import emby from "./emby/widget";
+import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import homebridge from "./homebridge/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
+import navidrome from "./navidrome/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import ombi from "./ombi/widget";
@@ -20,6 +22,7 @@ import plex from "./plex/widget";
 import portainer from "./portainer/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
+import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
@@ -44,6 +47,7 @@ const widgets = {
   changedetectionio,
   coinmarketcap,
   emby,
+  gluetun,
   gotify,
   homebridge,
   jackett,
@@ -51,6 +55,7 @@ const widgets = {
   jellyseerr,
   lidarr,
   mastodon,
+  navidrome,
   npm,
   nzbget,
   ombi,
@@ -60,6 +65,7 @@ const widgets = {
   portainer,
   prowlarr,
   proxmox,
+  pyload,
   qbittorrent,
   radarr,
   readarr,

@@ -82,7 +82,7 @@
     "traefik": {
         "routers": "Enrutadores",
         "services": "Servicios",
-        "middleware": "Middleware"
+        "middleware": "Software intermedio"
     },
     "npm": {
         "enabled": "Activado",
@@ -304,5 +304,20 @@
         "uptime": "Tiempo de la actividad",
         "alerts": "Alertas",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Sin transmisiones activas",
+        "please_wait": "Espere por favor"
+    },
+    "pyload": {
+        "speed": "Velocidad",
+        "active": "Activo",
+        "queue": "Cola",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
     }
 }

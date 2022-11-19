@@ -189,8 +189,8 @@
         "wan": "WAN",
         "lan_users": "LAN korisnici",
         "wlan_users": "WLAN korisnici",
-        "up": "Upaljen",
-        "down": "Ugašen",
+        "up": "SLANJE",
+        "down": "PRIMANJE",
         "wait": "Pričekaj",
         "lan": "LAN",
         "wlan": "WLAN",
@@ -265,10 +265,10 @@
         "86-night": "Snježni pljuskovi",
         "95-day": "Oluja",
         "95-night": "Oluja",
-        "96-day": "Oluja s grmljavinom",
-        "96-night": "Oluja s grmljavinom",
-        "99-day": "Oluja s grmljavinom",
-        "99-night": "Oluja s grmljavinom"
+        "96-day": "Oluja s tučom",
+        "96-night": "Oluja s tučom",
+        "99-day": "Oluja s tučom",
+        "99-night": "Oluja s tučom"
     },
     "quicklaunch": {
         "bookmark": "Straničnik",
@@ -304,5 +304,20 @@
         "uptime": "Radno vrijeme",
         "alerts": "Upozorenja",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Nema aktivnih prijenosa",
+        "please_wait": "Pričekaj"
+    },
+    "pyload": {
+        "speed": "Brzina",
+        "active": "Aktivno",
+        "queue": "Red čekanja",
+        "total": "Ukupno"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
     }
 }

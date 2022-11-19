@@ -272,7 +272,7 @@ function Home({ initialSettings }) {
         )}
 
         {bookmarks && (
-          <div className="grow flex flex-wrap pt-0 p-4 sm:p-8 gap-x-2">
+          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
             {bookmarks.map((group) => (
               <BookmarksGroup key={group.name} group={group} />
             ))}

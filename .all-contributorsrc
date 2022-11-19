@@ -1,10 +1,9 @@
 {
   "projectName": "homepage",
   "projectOwner": "benphelps",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": ["README.md"],
-  "imageSize": 50,
-  "contributorsSortAlphabetically": true,
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
   "contributors": []
 }

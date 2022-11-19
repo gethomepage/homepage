@@ -123,11 +123,11 @@
         "messages": "Messaggi"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "Indicizzatori",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailGrabs": "Grabs Falliti",
+        "numberOfFailQueries": "Queries Fallite"
     },
     "transmission": {
         "download": "Download",
@@ -184,7 +184,7 @@
     },
     "unifi": {
         "users": "Utenti",
-        "uptime": "System Uptime",
+        "uptime": "Uptime di Sistema",
         "days": "Giorni",
         "wan": "WAN",
         "lan_users": "Utenti LAN",
@@ -209,16 +209,16 @@
         "wait": "Attendere prego"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Totale Osservato",
+        "diffsDetected": "Differenze Rilevate"
     },
     "wmo": {
-        "65-day": "Heavy Rain",
+        "65-day": "Pioggia Intensa",
         "2-night": "Parzialmente Nuvoloso",
         "0-day": "Solleggiato",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
+        "0-night": "Pulisci",
+        "1-day": "Principalmente Soleggiato",
+        "1-night": "Principalmente Sereno",
         "2-day": "Parzialmente Nuvoloso",
         "3-day": "Nuvoloso",
         "3-night": "Nuvoloso",
@@ -232,37 +232,37 @@
         "53-night": "Pioggerella",
         "55-day": "Pioggerella Pesante",
         "55-night": "Pioggerella Pesante",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
+        "56-day": "Leggera Pioggia Gelata",
+        "56-night": "Leggera Pioggia Gelata",
+        "57-day": "Pioggerella Gelata",
+        "57-night": "Pioggerella Gelata",
         "61-day": "Pioggia Leggera",
         "61-night": "Pioggia Leggera",
         "63-day": "Pioggia",
         "63-night": "Pioggia",
-        "65-night": "Heavy Rain",
+        "65-night": "Pioggia Intensa",
         "66-day": "Grandine",
         "66-night": "Grandine",
         "67-day": "Grandine",
         "67-night": "Grandine",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
+        "71-day": "Leggera Nevicata",
+        "71-night": "Leggera Nevicata",
         "73-day": "Neve",
         "73-night": "Neve",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
+        "75-day": "Nevicata Intensa",
+        "75-night": "Nevicata Intensa",
+        "77-day": "Fiocchi di Neve",
+        "77-night": "Fiocchi di Neve",
+        "80-day": "Leggeri Rovesci",
+        "80-night": "Leggeri Rovesci",
+        "81-day": "Rovesci",
+        "81-night": "Rovesci",
+        "82-day": "Intensi Rovesci",
+        "82-night": "Intensi Rovesci",
+        "85-day": "Rovesci di Neve",
+        "85-night": "Rovesci di Neve",
+        "86-day": "Rovesci di Neve",
+        "86-night": "Rovesci di Neve",
         "95-day": "Temporale",
         "95-night": "Temporale",
         "96-day": "Temporale con grandine",
@@ -271,38 +271,53 @@
         "99-night": "Temporale con grandine"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
+        "bookmark": "Segnalibro",
         "service": "Servizio"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Sistema",
+        "updates": "Aggiornamenti",
+        "update_available": "Aggiornamento Disponibile",
+        "up_to_date": "Aggiornato",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Approvato",
+        "rejectedPushes": "Rifiutato",
+        "filters": "Filtri",
+        "indexers": "Indicizzatori"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Scansionato",
+        "containers_updated": "Aggiornato",
+        "containers_failed": "Fallito"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
+        "downloads": "Coda",
+        "videos": "Video",
+        "channels": "Canali",
         "playlists": "Playlists"
     },
     "truenas": {
-        "load": "System Load",
+        "load": "Carico di Sistema",
         "uptime": "Uptime",
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Nessun Sistema Attivo",
+        "please_wait": "Attendere, Prego"
+    },
+    "pyload": {
+        "speed": "Velocità",
+        "active": "Attivo",
+        "queue": "Coda",
+        "total": "Totale"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
     }
 }
