@@ -1,18 +1,14 @@
-import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-  const { t } = useTranslation();
-
   const { widget } = service;
 
   const { data: infoData, error: infoError } = useWidgetAPI(widget, "nginx/proxy-hosts");
 
   if (infoError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={infoError} />;
   }
 
   if (!infoData) {

@@ -1,0 +1,331 @@
+{
+    "plex": {
+        "movies": "Film",
+        "tv": "TV-Shows",
+        "streams": "Aktive Streams"
+    },
+    "radarr": {
+        "queued": "I Kø",
+        "movies": "Film",
+        "wanted": "Ønskede",
+        "missing": "Mangler"
+    },
+    "lidarr": {
+        "wanted": "Ønsket",
+        "queued": "I Kø",
+        "albums": "Albums"
+    },
+    "jellyseerr": {
+        "available": "Tilgængelig",
+        "pending": "Afventer",
+        "approved": "Godkendt"
+    },
+    "overseerr": {
+        "pending": "Afventer",
+        "approved": "Godkendt",
+        "available": "Tilgængelig"
+    },
+    "adguard": {
+        "queries": "Forespørgsler",
+        "blocked": "Blokerede",
+        "filtered": "Filtreret",
+        "latency": "Latency"
+    },
+    "speedtest": {
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
+    },
+    "npm": {
+        "total": "Total",
+        "enabled": "Aktiveret",
+        "disabled": "Deaktiveret"
+    },
+    "coinmarketcap": {
+        "30days": "30 Dage",
+        "1day": "1 Dag",
+        "configure": "Konfigurer en eller flere crypto valutaer til  tracking",
+        "7days": "7 Dage",
+        "1hour": "1 time"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessioner",
+        "dataRelayed": "Videresendt",
+        "numConnections": "Forbindelser",
+        "transferRate": "Rate"
+    },
+    "mastodon": {
+        "domain_count": "Domæner",
+        "status_count": "Indlæg",
+        "user_count": "Brugere"
+    },
+    "authentik": {
+        "users": "Brugere",
+        "loginsLast24H": "Login (24 timer)",
+        "failedLoginsLast24H": "Mislykkede logins (24 timer)"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "RAM",
+        "wait": "Vent venligst"
+    },
+    "wmo": {
+        "1-day": "Hovedsageligt solrigt",
+        "48-day": "Tåget",
+        "48-night": "Tåget",
+        "51-day": "Let støvregn",
+        "51-night": "Let støvregn",
+        "66-night": "Frysende regn",
+        "67-day": "Frysende regn",
+        "67-night": "Frysende regn",
+        "71-day": "Let Sne",
+        "75-night": "Kraftig Sne",
+        "86-day": "Snebyger",
+        "86-night": "Snebyger",
+        "95-day": "Tordenvejr",
+        "99-day": "Tordenvejr med hagl",
+        "99-night": "Tordenvejr med hagl",
+        "0-day": "Solrig",
+        "0-night": "Klart",
+        "1-night": "Hovedsageligt klart",
+        "2-day": "Delvist skyet",
+        "2-night": "Delvist skyet",
+        "3-day": "Skyet",
+        "3-night": "Skyet",
+        "45-day": "Tåget",
+        "65-day": "Kraftig regn",
+        "65-night": "Kraftig regn",
+        "45-night": "Tåget",
+        "53-day": "Støvregn",
+        "53-night": "Støvregn",
+        "55-day": "Kraftig støvregn",
+        "55-night": "Kraftig støvregn",
+        "56-day": "Let frysende støvregn",
+        "56-night": "Let frysende støvregn",
+        "57-day": "Frysende støvregn",
+        "57-night": "Frysende støvregn",
+        "61-day": "Let Regn",
+        "61-night": "Let Regn",
+        "63-day": "Regn",
+        "63-night": "Regn",
+        "66-day": "Frysende regn",
+        "71-night": "Let Sne",
+        "73-day": "Sne",
+        "73-night": "Sne",
+        "75-day": "Kraftig Sne",
+        "77-day": "Snekorn",
+        "80-day": "Lette byger",
+        "80-night": "Lette byger",
+        "81-day": "Byger",
+        "77-night": "Snekorn",
+        "81-night": "Byger",
+        "82-day": "Kraftige Byger",
+        "82-night": "Kraftige Byger",
+        "85-day": "Snebyger",
+        "85-night": "Snebyger",
+        "95-night": "Tordenvejr",
+        "96-day": "Tordenvejr med hagl",
+        "96-night": "Tordenvejr med hagl"
+    },
+    "homebridge": {
+        "available_update": "System",
+        "updates": "Opdateringer",
+        "update_available": "Opdateringer tilgængelige",
+        "up_to_date": "Opdateret",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "widget": {
+        "missing_type": "Manglende Widget Type: {{type}}",
+        "api_error": "API fejl",
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
+    },
+    "weather": {
+        "current": "Nuværende lokation",
+        "allow": "Klik for at tillade",
+        "updating": "Opdaterer",
+        "wait": "Vent venligst"
+    },
+    "search": {
+        "placeholder": "Søg…"
+    },
+    "resources": {
+        "cpu": "CPU",
+        "total": "Total",
+        "free": "Fri",
+        "used": "Brugt",
+        "load": "Belastning"
+    },
+    "unifi": {
+        "users": "Brugere",
+        "uptime": "System Oppetid",
+        "days": "Dage",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "Wifi",
+        "devices": "Enheder",
+        "lan_devices": "LAN Enheder",
+        "wlan_devices": "WLAN Enheder",
+        "lan_users": "LAN Brugere",
+        "wlan_users": "WLAN Brugere",
+        "up": "Oppe",
+        "down": "NED",
+        "wait": "Vent venligst"
+    },
+    "docker": {
+        "cpu": "CPU",
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "RAM",
+        "offline": "Offline"
+    },
+    "emby": {
+        "playing": "Afspiller",
+        "transcoding": "Transcoder",
+        "bitrate": "Bitrate",
+        "no_active": "Ingen Aktive Streams"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observeret",
+        "diffsDetected": "Forskelle Detekteret"
+    },
+    "tautulli": {
+        "playing": "Afspiller",
+        "transcoding": "Transcoder",
+        "bitrate": "Bitrate",
+        "no_active": "Ingen Aktive Streams"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Manglende",
+        "downloaded": "Hentet"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Kø",
+        "timeleft": "Resterende tid"
+    },
+    "rutorrent": {
+        "active": "Aktive",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "transmission": {
+        "upload": "Upload",
+        "download": "Download",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qbittorrent": {
+        "upload": "Upload",
+        "download": "Download",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "sonarr": {
+        "wanted": "Ønsket",
+        "queued": "I Kø",
+        "series": "Serier"
+    },
+    "readarr": {
+        "wanted": "Ønskede",
+        "queued": "I Kø",
+        "books": "Bøger"
+    },
+    "bazarr": {
+        "missingEpisodes": "Manglende Afsnit",
+        "missingMovies": "Manglende Film"
+    },
+    "ombi": {
+        "pending": "Afventer",
+        "approved": "Godkendt",
+        "available": "Tilgængelig"
+    },
+    "pihole": {
+        "blocked": "Blokerede",
+        "gravity": "Gravity",
+        "queries": "Forespørgsler"
+    },
+    "portainer": {
+        "running": "Kørende",
+        "stopped": "Stoppede",
+        "total": "Total"
+    },
+    "traefik": {
+        "routers": "Routere",
+        "services": "Services",
+        "middleware": "Middleware"
+    },
+    "gotify": {
+        "apps": "Applikationer",
+        "clients": "Klienter",
+        "messages": "Beskeder"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indeksører",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Forespørgsler",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fejl forespørgsler"
+    },
+    "jackett": {
+        "configured": "Konfigureret",
+        "errored": "Fejlede"
+    },
+    "proxmox": {
+        "mem": "RAM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "VMs"
+    },
+    "quicklaunch": {
+        "bookmark": "Bogmærker",
+        "service": "Service"
+    },
+    "watchtower": {
+        "containers_scanned": "Scannet",
+        "containers_updated": "Opdateret",
+        "containers_failed": "Fejlet"
+    },
+    "autobrr": {
+        "indexers": "Indeksører",
+        "approvedPushes": "Godkendte",
+        "rejectedPushes": "Afviste",
+        "filters": "Filtre"
+    },
+    "tubearchivist": {
+        "downloads": "Kø",
+        "videos": "Videoer",
+        "channels": "Kanaler",
+        "playlists": "Afspilningslister"
+    },
+    "truenas": {
+        "load": "Systembelastning",
+        "uptime": "Oppetid",
+        "alerts": "Advarsler",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Ingen Aktive Streams",
+        "please_wait": "Vent venligst"
+    },
+    "pyload": {
+        "speed": "Hastighed",
+        "active": "Aktive",
+        "queue": "Kø",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    }
+}

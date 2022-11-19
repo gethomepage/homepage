@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Falta el tipo de widget: {{type}}",
         "api_error": "Error de API",
-        "status": "Estado"
+        "status": "Estado",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Buscar…"
@@ -46,7 +50,8 @@
     "radarr": {
         "wanted": "Buscando",
         "queued": "En cola",
-        "movies": "Películas"
+        "movies": "Películas",
+        "missing": "No Encontrado"
     },
     "readarr": {
         "wanted": "Buscando",
@@ -81,7 +86,7 @@
     "traefik": {
         "routers": "Enrutadores",
         "services": "Servicios",
-        "middleware": "Middleware"
+        "middleware": "Software intermedio"
     },
     "npm": {
         "enabled": "Activado",
@@ -190,16 +195,137 @@
         "lan_users": "Usuarios LAN",
         "wlan_users": "Usuarios WLAN",
         "down": "CAÍDO",
-        "wait": "Espere por favor"
+        "wait": "Espere por favor",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Dispositivos",
+        "lan_devices": "Dispositivos LAN",
+        "wlan_devices": "Dispositivos WLAN"
     },
     "plex": {
-        "streams": "Transmisiones Activas",
-        "movies": "Peliculas",
-        "tv": "Programas TV"
+        "streams": "Transmisiones activas",
+        "movies": "Películas",
+        "tv": "Programas de TV"
     },
     "glances": {
         "cpu": "Procesador",
         "mem": "Memoria",
         "wait": "Espere por favor"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observados",
+        "diffsDetected": "Diferencias detectadas"
+    },
+    "wmo": {
+        "48-night": "Niebla",
+        "51-day": "Llovizna ligera",
+        "51-night": "Llovizna ligera",
+        "2-day": "Parcialmente nuboso",
+        "0-day": "Soleado",
+        "0-night": "Despejado",
+        "1-day": "Mayormente soleado",
+        "1-night": "Mayormente despejado",
+        "2-night": "Parcialmente nuboso",
+        "3-day": "Nublado",
+        "3-night": "Nublado",
+        "45-day": "Niebla",
+        "45-night": "Niebla",
+        "48-day": "Niebla",
+        "53-day": "Llovizna",
+        "53-night": "Llovizna",
+        "55-day": "Llovizna pesada",
+        "55-night": "Llovizna pesada",
+        "56-day": "Llovizna helada ligera",
+        "56-night": "Llovizna helada ligera",
+        "57-day": "Llovizna helada",
+        "57-night": "Llovizna helada",
+        "61-day": "Lluvia ligera",
+        "61-night": "Lluvia ligera",
+        "67-day": "Granizo",
+        "63-day": "Lluvia",
+        "63-night": "Lluvia",
+        "65-day": "Chubascos",
+        "65-night": "Chubascos",
+        "66-day": "Granizo",
+        "66-night": "Granizo",
+        "67-night": "Granizo",
+        "71-day": "Nevada Leve",
+        "71-night": "Nevada Leva",
+        "73-day": "Nevada",
+        "73-night": "Nevada",
+        "75-day": "Fuertes Nevadas",
+        "75-night": "Fuertes Nevadas",
+        "77-day": "Nevada Leve",
+        "77-night": "Nevada Leve",
+        "80-day": "llovizna",
+        "80-night": "Llovizna",
+        "81-day": "Lluvia",
+        "81-night": "Lluvia",
+        "82-day": "Chubascos",
+        "82-night": "Chubascos",
+        "85-day": "Chubascos",
+        "85-night": "Lluvia de nieve",
+        "86-day": "Lluvia de nieve",
+        "86-night": "Lluvia de nieve",
+        "95-day": "Tormenta",
+        "95-night": "Tormenta",
+        "96-day": "Tormenta con granizo",
+        "96-night": "Tormenta con granizo",
+        "99-day": "Tormenta con granizo",
+        "99-night": "Tormenta con granizo"
+    },
+    "quicklaunch": {
+        "bookmark": "Marcadores",
+        "service": "Servicio"
+    },
+    "homebridge": {
+        "available_update": "Sistema",
+        "updates": "Actualizaciones",
+        "update_available": "Actualización disponible",
+        "up_to_date": "Actualizado",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Aprobado",
+        "rejectedPushes": "Rechazado",
+        "filters": "Filtros",
+        "indexers": "Indexadores"
+    },
+    "watchtower": {
+        "containers_scanned": "Escaneado",
+        "containers_updated": "Actualizado",
+        "containers_failed": "Fallido"
+    },
+    "tubearchivist": {
+        "downloads": "Cola",
+        "videos": "Vídeos",
+        "channels": "Canales",
+        "playlists": "Listas de reproducción"
+    },
+    "truenas": {
+        "load": "Carga del sistema",
+        "uptime": "Tiempo de la actividad",
+        "alerts": "Alertas",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Sin transmisiones activas",
+        "please_wait": "Espere por favor"
+    },
+    "pyload": {
+        "speed": "Velocidad",
+        "active": "Activo",
+        "queue": "Cola",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "IP pública",
+        "region": "Región",
+        "country": "País"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

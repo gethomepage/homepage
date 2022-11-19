@@ -68,6 +68,7 @@ export default async function transmissionProxyHandler(req, res) {
 
   if (status !== 200) {
     logger.error("Error getting data from Transmission: %d.  Data: %s", status, data);
+    return res.status(500).send({error: {message:"Error getting data from Transmission", url, data}});
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);

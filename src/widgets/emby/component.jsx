@@ -1,10 +1,10 @@
-import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import Container from "components/services/widget/container";
-import { formatProxyUrl, formatProxyUrlWithSegments } from "utils/proxy/api-helpers";
+import { formatProxyUrlWithSegments } from "utils/proxy/api-helpers";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function ticksToTime(ticks) {
   const milliseconds = ticks / 10000;
@@ -157,7 +157,7 @@ export default function Component({ service }) {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useSWR(formatProxyUrl(widget, "Sessions"), {
+  } = useWidgetAPI(widget, "Sessions", {
     refreshInterval: 5000,
   });
 
@@ -172,7 +172,7 @@ export default function Component({ service }) {
   }
 
   if (sessionsError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={sessionsError} />;
   }
 
   if (!sessionsData) {

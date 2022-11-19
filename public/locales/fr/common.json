@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Type de widget manquant: {{type}}",
         "api_error": "Erreur de l'API",
-        "status": "Statut"
+        "status": "Statut",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Recherche…"
@@ -46,7 +50,8 @@
     "radarr": {
         "wanted": "Demande",
         "queued": "En attente",
-        "movies": "Films"
+        "movies": "Films",
+        "missing": "Manquant"
     },
     "readarr": {
         "wanted": "Demande",
@@ -190,7 +195,12 @@
         "wlan_users": "Utilisateurs WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Merci de patienter"
+        "wait": "Merci de patienter",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Équipt.",
+        "lan_devices": "Équipt. LAN",
+        "wlan_devices": "Équipt. WLAN"
     },
     "plex": {
         "streams": "Flux actif",
@@ -201,5 +211,121 @@
         "cpu": "Cpu",
         "mem": "Mém",
         "wait": "Merci de patienter"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observé",
+        "diffsDetected": "Diffs Detectées"
+    },
+    "wmo": {
+        "1-day": "Principalement ensoleillé",
+        "1-night": "Principalement clair",
+        "2-day": "Partiellement couvert",
+        "2-night": "Partiellement couvert",
+        "3-day": "Couvert",
+        "3-night": "Couvert",
+        "63-night": "Pluie",
+        "65-day": "Pluie forte",
+        "85-day": "Averses de neige",
+        "85-night": "Averses de neige",
+        "86-day": "Averses de neige",
+        "0-night": "Ciel clair",
+        "45-day": "Brumeux",
+        "45-night": "Brumeux",
+        "48-day": "Brumeux",
+        "48-night": "Brumeux",
+        "51-day": "Bruine légère",
+        "51-night": "Bruine légère",
+        "53-day": "Bruine",
+        "53-night": "Bruine",
+        "55-day": "Bruine épaisse",
+        "55-night": "Bruine épaisse",
+        "56-day": "Légère bruine verglaçante",
+        "56-night": "Légère bruine verglaçante",
+        "57-day": "Bruine verglaçante",
+        "57-night": "Bruine verglaçante",
+        "61-day": "Pluie légère",
+        "61-night": "Pluie légère",
+        "63-day": "Pluie",
+        "65-night": "Pluie forte",
+        "66-day": "Pluie verglaçante",
+        "66-night": "Pluie verglaçante",
+        "67-day": "Pluie verglaçante",
+        "67-night": "Pluie verglaçante",
+        "71-day": "Neige légère",
+        "71-night": "Neige légère",
+        "73-day": "Neige",
+        "73-night": "Neige",
+        "75-day": "Neige abondante",
+        "75-night": "Neige abondante",
+        "77-day": "Grains de neige",
+        "77-night": "Grains de neige",
+        "80-day": "Averses légères",
+        "80-night": "Averses légères",
+        "81-day": "Averses",
+        "81-night": "Averses",
+        "82-day": "Averses fortes",
+        "82-night": "Averses fortes",
+        "86-night": "Averses de neige",
+        "95-day": "Orage",
+        "95-night": "Orage",
+        "96-day": "Orage avec grêle",
+        "96-night": "Orage avec grêle",
+        "99-day": "Orage avec grêle",
+        "99-night": "Orage avec grêle",
+        "0-day": "Ensoleillé"
+    },
+    "quicklaunch": {
+        "bookmark": "Signet",
+        "service": "Service"
+    },
+    "homebridge": {
+        "available_update": "Système",
+        "updates": "Mises à jour",
+        "update_available": "Mise à jour disponible",
+        "up_to_date": "À jour",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Approuvé",
+        "rejectedPushes": "Rejeté",
+        "filters": "Filtres",
+        "indexers": "Indexeur"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanné",
+        "containers_updated": "Mis à jour",
+        "containers_failed": "Échoué"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Vidéos",
+        "channels": "Chaînes",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "Charge Système",
+        "uptime": "Démarré depuis",
+        "alerts": "Alertes",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Aucun flux actif",
+        "please_wait": "Merci de patienter"
+    },
+    "pyload": {
+        "speed": "Débit",
+        "active": "Actif",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "IP Publique",
+        "region": "Région",
+        "country": "Pays"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

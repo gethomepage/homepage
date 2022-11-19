@@ -21,6 +21,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
+import QuickLaunch from "components/quicklaunch";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -34,7 +35,7 @@ const Version = dynamic(() => import("components/version"), {
   ssr: false,
 });
 
-const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
+const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
 
 export async function getStaticProps() {
   let logger;
@@ -173,6 +174,8 @@ function Home({ initialSettings }) {
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
+  
+  const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
 
   useEffect(() => {
     if (settings.language) {
@@ -187,6 +190,28 @@ function Home({ initialSettings }) {
       setColor(settings.color);
     }
   }, [i18n, settings, color, setColor, theme, setTheme]);
+
+  const [searching, setSearching] = useState(false);
+  const [searchString, setSearchString] = useState("");
+
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.target.tagName === "BODY") {
+        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+          setSearching(true);
+        } else if (e.key === "Escape") {
+          setSearchString("");
+          setSearching(false);
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return function cleanup() {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  })
 
   return (
     <>
@@ -219,6 +244,14 @@ function Home({ initialSettings }) {
             headerStyles[initialSettings.headerStyle || "underlined"]
           )}
         >
+          <QuickLaunch
+            servicesAndBookmarks={servicesAndBookmarks}
+            searchString={searchString}
+            setSearchString={setSearchString}
+            isOpen={searching}
+            close={setSearching}
+            searchDescriptions={settings.quicklaunch?.searchDescriptions}
+          />
           {widgets && (
             <>
               {widgets
@@ -247,7 +280,7 @@ function Home({ initialSettings }) {
         )}
 
         {bookmarks && (
-          <div className="grow flex flex-wrap pt-0 p-4 sm:p-8">
+          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
             {bookmarks.map((group) => (
               <BookmarksGroup key={group.name} group={group} />
             ))}

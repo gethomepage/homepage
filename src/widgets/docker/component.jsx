@@ -17,8 +17,9 @@ export default function Component({ service }) {
 
   const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${widget.container}/${widget.server || ""}`);
 
-  if (statsError || statusError) {
-    return <Container error={t("widget.api_error")} />;
+  if (statsError || statsData?.error || statusError || statusData?.error) {
+    const finalError = statsError ?? statsData?.error ?? statusError ?? statusData?.error;
+    return <Container error={finalError} />;
   }
 
   if (statusData && statusData.status !== "running") {

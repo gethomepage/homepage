@@ -37,7 +37,7 @@ export default function Component({ service }) {
   }
 
   if (statsError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={statsError} />;
   }
 
   if (!statsData || !dateRange) {

@@ -34,9 +34,13 @@
         "middleware": "Middleware"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
+        "missing_type": "Tipo del Widget Mancante: {{type}}",
         "api_error": "Errore API",
-        "status": "Stato"
+        "status": "Stato",
+        "url": "URL",
+        "information": "Information",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Cerca…"
@@ -45,7 +49,7 @@
         "total": "Totale",
         "free": "Libero",
         "used": "In utilizzo",
-        "load": "Load",
+        "load": "Carica",
         "cpu": "CPU"
     },
     "rutorrent": {
@@ -55,18 +59,19 @@
     },
     "sonarr": {
         "series": "Serie",
-        "wanted": "Rchiesti",
+        "wanted": "Richiesti",
         "queued": "In coda"
     },
     "radarr": {
         "wanted": "Richiesti",
         "queued": "In coda",
-        "movies": "Film"
+        "movies": "Film",
+        "missing": "Mancanti"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Richiesti",
+        "queued": "In coda",
+        "books": "Libri"
     },
     "ombi": {
         "pending": "In attesa",
@@ -110,11 +115,11 @@
         "downloaded": "Scaricato"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "1hour": "1 Hour",
-        "30days": "30 Days"
+        "configure": "Configurare una o più criptomonete da seguire",
+        "1day": "1 Giorno",
+        "7days": "7 Giorni",
+        "1hour": "1 Ora",
+        "30days": "30 Giorni"
     },
     "gotify": {
         "apps": "Applicazioni",
@@ -122,11 +127,11 @@
         "messages": "Messaggi"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "Indicizzatori",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailGrabs": "Grabs Falliti",
+        "numberOfFailQueries": "Queries Fallite"
     },
     "transmission": {
         "download": "Download",
@@ -135,23 +140,23 @@
         "seed": "Seed"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Configurato",
+        "errored": "Errore"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Episodi Mancanti",
+        "missingMovies": "Film Mancanti"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Mancanti",
+        "queued": "In coda",
         "albums": "Albums"
     },
     "adguard": {
         "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "blocked": "Bloccati",
+        "filtered": "Filtrati",
+        "latency": "Latenza"
     },
     "qbittorrent": {
         "download": "Download",
@@ -160,46 +165,167 @@
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Utenti",
         "status_count": "Posts",
-        "domain_count": "Domains"
+        "domain_count": "Domini"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Sessioni",
+        "numConnections": "Connessioni",
+        "dataRelayed": "Ritrasmettessi",
+        "transferRate": "Velocità"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Utenti",
+        "loginsLast24H": "Accessi (24h)",
+        "failedLoginsLast24H": "Accessi Falliti (24h)"
     },
     "proxmox": {
         "mem": "MEM",
         "cpu": "CPU",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "Macchine Virtuali"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Utenti",
+        "uptime": "Uptime di Sistema",
+        "days": "Giorni",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wait": "Please wait",
-        "wlan_users": "WLAN Users",
+        "lan_users": "Utenti LAN",
+        "wait": "Attendere prego",
+        "wlan_users": "Utenti WLAN",
         "up": "UP",
-        "down": "DOWN"
+        "down": "DOWN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Dispositivi",
+        "lan_devices": "Dispositivi LAN",
+        "wlan_devices": "Dispositivi WLAN"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Trasmissioni attive",
+        "movies": "Film",
+        "tv": "Programma televisivo"
     },
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Attendere prego"
+    },
+    "changedetectionio": {
+        "totalObserved": "Totale Osservato",
+        "diffsDetected": "Differenze Rilevate"
+    },
+    "wmo": {
+        "65-day": "Pioggia Intensa",
+        "2-night": "Parzialmente Nuvoloso",
+        "0-day": "Solleggiato",
+        "0-night": "Pulisci",
+        "1-day": "Principalmente Soleggiato",
+        "1-night": "Principalmente Sereno",
+        "2-day": "Parzialmente Nuvoloso",
+        "3-day": "Nuvoloso",
+        "3-night": "Nuvoloso",
+        "45-day": "Nebbioso",
+        "45-night": "Nebbioso",
+        "48-day": "Nebbioso",
+        "48-night": "Nebbioso",
+        "51-day": "Pioggerella Leggera",
+        "51-night": "Pioggerella Leggera",
+        "53-day": "Pioggerella",
+        "53-night": "Pioggerella",
+        "55-day": "Pioggerella Pesante",
+        "55-night": "Pioggerella Pesante",
+        "56-day": "Leggera Pioggia Gelata",
+        "56-night": "Leggera Pioggia Gelata",
+        "57-day": "Pioggerella Gelata",
+        "57-night": "Pioggerella Gelata",
+        "61-day": "Pioggia Leggera",
+        "61-night": "Pioggia Leggera",
+        "63-day": "Pioggia",
+        "63-night": "Pioggia",
+        "65-night": "Pioggia Intensa",
+        "66-day": "Grandine",
+        "66-night": "Grandine",
+        "67-day": "Grandine",
+        "67-night": "Grandine",
+        "71-day": "Leggera Nevicata",
+        "71-night": "Leggera Nevicata",
+        "73-day": "Neve",
+        "73-night": "Neve",
+        "75-day": "Nevicata Intensa",
+        "75-night": "Nevicata Intensa",
+        "77-day": "Fiocchi di Neve",
+        "77-night": "Fiocchi di Neve",
+        "80-day": "Leggeri Rovesci",
+        "80-night": "Leggeri Rovesci",
+        "81-day": "Rovesci",
+        "81-night": "Rovesci",
+        "82-day": "Intensi Rovesci",
+        "82-night": "Intensi Rovesci",
+        "85-day": "Rovesci di Neve",
+        "85-night": "Rovesci di Neve",
+        "86-day": "Rovesci di Neve",
+        "86-night": "Rovesci di Neve",
+        "95-day": "Temporale",
+        "95-night": "Temporale",
+        "96-day": "Temporale con grandine",
+        "96-night": "Temporale con grandine",
+        "99-day": "Temporale con grandine",
+        "99-night": "Temporale con grandine"
+    },
+    "quicklaunch": {
+        "bookmark": "Segnalibro",
+        "service": "Servizio"
+    },
+    "homebridge": {
+        "available_update": "Sistema",
+        "updates": "Aggiornamenti",
+        "update_available": "Aggiornamento Disponibile",
+        "up_to_date": "Aggiornato",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Approvato",
+        "rejectedPushes": "Rifiutato",
+        "filters": "Filtri",
+        "indexers": "Indicizzatori"
+    },
+    "watchtower": {
+        "containers_scanned": "Scansionato",
+        "containers_updated": "Aggiornato",
+        "containers_failed": "Fallito"
+    },
+    "tubearchivist": {
+        "downloads": "Coda",
+        "videos": "Video",
+        "channels": "Canali",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "Carico di Sistema",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Nessun Sistema Attivo",
+        "please_wait": "Attendere, Prego"
+    },
+    "pyload": {
+        "speed": "Velocità",
+        "active": "Attivo",
+        "queue": "Coda",
+        "total": "Totale"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

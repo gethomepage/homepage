@@ -1,0 +1,331 @@
+{
+    "resources": {
+        "cpu": "CPU",
+        "total": "Jumlah",
+        "free": "Bebas",
+        "used": "Telah diguna",
+        "load": "Beban"
+    },
+    "unifi": {
+        "uptime": "Masa Operasi Sistem",
+        "users": "Pengguna",
+        "days": "Hari",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Peranti",
+        "lan_devices": "Peranti LAN",
+        "wlan_devices": "Peranti WLAN",
+        "lan_users": "Pengguna LAN",
+        "wlan_users": "Pengguna WLAN",
+        "up": "HIDUP",
+        "down": "MATI",
+        "wait": "Sila tunggu"
+    },
+    "lidarr": {
+        "queued": "Dibaris Gilir",
+        "albums": "Album",
+        "wanted": "Mahu"
+    },
+    "readarr": {
+        "wanted": "Mahu",
+        "queued": "Dibaris Gilir",
+        "books": "Buku"
+    },
+    "jellyseerr": {
+        "pending": "Tertangguh",
+        "approved": "Lulus",
+        "available": "Sudah Ada"
+    },
+    "coinmarketcap": {
+        "30days": "30 Hari",
+        "configure": "Konfigurasikan satu atau lebih matawang crypto untuk dipantau",
+        "1hour": "1 Jam",
+        "1day": "1 Hari",
+        "7days": "7 Hari"
+    },
+    "gotify": {
+        "apps": "Aplikasi",
+        "clients": "Klien",
+        "messages": "Mesej"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC",
+        "vms": "Mesin Maya"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "wait": "Sila tunggu"
+    },
+    "quicklaunch": {
+        "bookmark": "Tandabuku",
+        "service": "Servis"
+    },
+    "wmo": {
+        "0-day": "Terik",
+        "0-night": "Cerah",
+        "1-day": "Sebahagian Besar Terik",
+        "1-night": "Sebahagian Besar Cerah",
+        "63-day": "Hujan",
+        "63-night": "Hujan",
+        "2-day": "Sebahagian Mendung",
+        "2-night": "Sebahagian Mendung",
+        "3-day": "Mendung",
+        "3-night": "Mendung",
+        "45-day": "Berkabus",
+        "45-night": "Berkabus",
+        "48-day": "Berkabus",
+        "48-night": "Berkabus",
+        "51-day": "Gerimis",
+        "51-night": "Gerimis",
+        "53-day": "Renyai",
+        "53-night": "Renyai",
+        "55-day": "Renyai Kuat",
+        "55-night": "Renyai Kuat",
+        "56-day": "Gerimis Sejuk Ringan",
+        "56-night": "Gerimis Sejuk Ringan",
+        "57-day": "Gerimis Sejuk",
+        "57-night": "Gerimis Sejuk",
+        "61-day": "Hujan Renyai",
+        "61-night": "Hujan Renyai",
+        "65-day": "Hujan Lebat",
+        "65-night": "Hujan Lebat",
+        "66-day": "Hujan Sejuk",
+        "66-night": "Hujan Sejuk",
+        "67-day": "Hujan Sejuk",
+        "67-night": "Hujan Sejuk",
+        "71-day": "Salji Ringan",
+        "71-night": "Salji Ringan",
+        "73-day": "Salji",
+        "73-night": "Salji",
+        "75-day": "Salji Lebat",
+        "75-night": "Salji Lebat",
+        "81-day": "Rintik",
+        "77-day": "Butiran Salji",
+        "77-night": "Butiran Salji",
+        "80-day": "Rintik Ringan",
+        "80-night": "Rintik Ringan",
+        "81-night": "Rintik",
+        "82-day": "Rintik Lebat",
+        "82-night": "Rintik Lebat",
+        "85-day": "Rintik Salji",
+        "85-night": "Rintik Salji",
+        "86-day": "Rintik Salji",
+        "86-night": "Rintik Salji",
+        "95-day": "Ribut",
+        "95-night": "Ribut",
+        "96-day": "Ribut Hujan Batu",
+        "96-night": "Ribut Hujan Batu",
+        "99-day": "Ribut Hujan Batu",
+        "99-night": "Ribut Hujan Batu"
+    },
+    "widget": {
+        "missing_type": "Jenis Widget Hilang: {{type}}",
+        "api_error": "Masalah API",
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
+    },
+    "weather": {
+        "current": "Lokasi Sekarang",
+        "allow": "Klik untuk benarkan",
+        "updating": "Mengemas kini",
+        "wait": "Sila tunggu"
+    },
+    "search": {
+        "placeholder": "Carian…"
+    },
+    "nzbget": {
+        "remaining": "Baki",
+        "downloaded": "Telah Muat Turun",
+        "rate": "Kadar"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "offline": "Luar talian"
+    },
+    "changedetectionio": {
+        "totalObserved": "Jumlah Diperhatikan",
+        "diffsDetected": "Perbezaan Dikesan"
+    },
+    "emby": {
+        "playing": "Sedang dimainkan",
+        "transcoding": "Transkoding",
+        "bitrate": "Kadar bit",
+        "no_active": "Tiada Strim Aktif"
+    },
+    "tautulli": {
+        "playing": "Sedang Dimainkan",
+        "transcoding": "Transkoding",
+        "bitrate": "Kadar bit",
+        "no_active": "Tiada Strim Aktif"
+    },
+    "plex": {
+        "streams": "Strim Aktif",
+        "movies": "Filem",
+        "tv": "Rancangan TV"
+    },
+    "sabnzbd": {
+        "rate": "Kadar",
+        "queue": "Barisan",
+        "timeleft": "Masa Tinggal"
+    },
+    "rutorrent": {
+        "active": "Aktif",
+        "upload": "Muat Naik",
+        "download": "Muat Turun"
+    },
+    "transmission": {
+        "leech": "Leech",
+        "download": "Muat Turun",
+        "upload": "Muat Naik",
+        "seed": "Seed"
+    },
+    "qbittorrent": {
+        "download": "Muat Turun",
+        "upload": "Muat Naik",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "sonarr": {
+        "wanted": "Mahu",
+        "queued": "Dibaris Gilir",
+        "series": "Bersiri"
+    },
+    "radarr": {
+        "wanted": "Mahu",
+        "missing": "Hilang",
+        "queued": "Dibaris Gilir",
+        "movies": "Filem"
+    },
+    "bazarr": {
+        "missingEpisodes": "Episod Yang Hilang",
+        "missingMovies": "Filem Yang Hilang"
+    },
+    "ombi": {
+        "pending": "Tertunda",
+        "approved": "Lulus",
+        "available": "Sudah Ada"
+    },
+    "overseerr": {
+        "pending": "Tertangguh",
+        "approved": "Lulus",
+        "available": "Sudah Ada"
+    },
+    "pihole": {
+        "queries": "Permintaan",
+        "blocked": "Disekat",
+        "gravity": "Gravity"
+    },
+    "adguard": {
+        "queries": "Permintaan",
+        "blocked": "Disekat",
+        "filtered": "Ditapis",
+        "latency": "Kependaman"
+    },
+    "speedtest": {
+        "upload": "Muat Naik",
+        "download": "Muat Turun",
+        "ping": "Ping"
+    },
+    "portainer": {
+        "running": "Sedang Berjalan",
+        "stopped": "Terhenti",
+        "total": "Jumlah"
+    },
+    "traefik": {
+        "routers": "Router",
+        "services": "Servis",
+        "middleware": "Perisian Tengah"
+    },
+    "npm": {
+        "enabled": "Didayakan",
+        "disabled": "Dinyahdayakan",
+        "total": "Jumlah"
+    },
+    "prowlarr": {
+        "enableIndexers": "Pengindeks",
+        "numberOfGrabs": "Capai",
+        "numberOfQueries": "Permintaan",
+        "numberOfFailGrabs": "Capai Yang Ggagal",
+        "numberOfFailQueries": "Permintaan Yang Gagal"
+    },
+    "jackett": {
+        "configured": "Telah Dikonfigurasi",
+        "errored": "Telah Tersalah"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sesi",
+        "numConnections": "Penyambungan",
+        "dataRelayed": "Disalurkan",
+        "transferRate": "Kadar"
+    },
+    "mastodon": {
+        "user_count": "Pengguna",
+        "status_count": "Pos",
+        "domain_count": "Domain"
+    },
+    "authentik": {
+        "users": "Pengguna",
+        "loginsLast24H": "Logmasuk (24j)",
+        "failedLoginsLast24H": "Logmasuk Gagal (24j)"
+    },
+    "homebridge": {
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "available_update": "Sistem",
+        "updates": "Kemaskini",
+        "update_available": "Kemaskini Tersedia",
+        "up_to_date": "Terkemaskini",
+        "child_bridges": "Jambatan Anak"
+    },
+    "watchtower": {
+        "containers_scanned": "Terimbas",
+        "containers_updated": "Dikemaskini",
+        "containers_failed": "Gagal"
+    },
+    "autobrr": {
+        "approvedPushes": "Lulus",
+        "rejectedPushes": "Ditolak",
+        "filters": "Tapisan",
+        "indexers": "Pengindeks"
+    },
+    "tubearchivist": {
+        "downloads": "Baris Gilir",
+        "videos": "Video",
+        "channels": "Saluran",
+        "playlists": "Senarai Siar"
+    },
+    "truenas": {
+        "load": "Beban Sistem",
+        "uptime": "Masa Hidup",
+        "alerts": "Amaran",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Tiada Strim Aktif",
+        "please_wait": "Sila tunggu"
+    },
+    "pyload": {
+        "speed": "Kelajuan",
+        "active": "Aktif",
+        "queue": "Baris Gilir",
+        "total": "Jumlah"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    }
+}

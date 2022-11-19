@@ -7,7 +7,7 @@ export default function Block({ value, label }) {
   return (
     <div
       className={classNames(
-        "bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-col items-center justify-center p-1",
+        "bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-col items-center justify-center text-center p-1",
         value === undefined ? "animate-pulse" : ""
       )}
     >

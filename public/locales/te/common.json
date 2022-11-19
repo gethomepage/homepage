@@ -19,7 +19,11 @@
     "widget": {
         "missing_type": "విడ్జెట్ లేదు: {{type}}",
         "api_error": "API లోపం",
-        "status": "హోదా"
+        "status": "హోదా",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "ప్రస్తుత స్తలం",
@@ -91,7 +95,8 @@
     "radarr": {
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
-        "movies": "సినిమాలు"
+        "movies": "సినిమాలు",
+        "missing": "మిస్సింగ్"
     },
     "lidarr": {
         "wanted": "కావలెను",
@@ -190,7 +195,12 @@
         "wlan_users": "WLAN వినియోగదారులు",
         "up": "అప్",
         "down": "డౌన్",
-        "wait": "దయచేసి వేచి ఉండండి"
+        "wait": "దయచేసి వేచి ఉండండి",
+        "lan": "లాన్",
+        "wlan": "WLAN",
+        "devices": "పరికరాలు",
+        "lan_devices": "LAN పరికరాలు",
+        "wlan_devices": "WLAN పరికరాలు"
     },
     "plex": {
         "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
@@ -198,8 +208,124 @@
         "tv": "దూరదర్శిని కార్యక్రమాలు"
     },
     "glances": {
-        "cpu": "CPU",
+        "cpu": "సీపియూ",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "దయచేసి వేచి ఉండండి"
+    },
+    "changedetectionio": {
+        "totalObserved": "మొత్తం గమనించబడింది",
+        "diffsDetected": "తేడాలు గుర్తించబడ్డాయి"
+    },
+    "wmo": {
+        "0-day": "సన్నీ",
+        "0-night": "స్పష్టమైన",
+        "57-night": "గడ్డకట్టే చినుకులు",
+        "73-day": "మంచు",
+        "73-night": "మంచు",
+        "75-day": "భారీ మంచు",
+        "75-night": "భారీ మంచు",
+        "77-day": "మంచు గింజలు",
+        "77-night": "మంచు గింజలు",
+        "80-day": "తేలికపాటి జల్లులు",
+        "80-night": "తేలికపాటి జల్లులు",
+        "81-day": "జల్లులు",
+        "81-night": "జల్లులు",
+        "82-day": "భారీ వర్షాలు",
+        "82-night": "భారీ వర్షాలు",
+        "85-day": "మంచు జల్లులు",
+        "85-night": "మంచు జల్లులు",
+        "1-day": "ప్రధానంగా ఎండ",
+        "1-night": "ప్రధానంగా స్పష్టంగా",
+        "2-day": "పాక్షికంగా మేఘావృతమై ఉంటుంది",
+        "2-night": "పాక్షికంగా మేఘావృతమై ఉంటుంది",
+        "3-day": "మేఘావృతం",
+        "3-night": "మేఘావృతం",
+        "45-day": "పొగమంచు",
+        "45-night": "పొగమంచు",
+        "48-day": "పొగమంచు",
+        "48-night": "పొగమంచు",
+        "51-day": "తేలికపాటి చినుకులు",
+        "51-night": "తేలికపాటి చినుకులు",
+        "53-day": "చినుకులు",
+        "53-night": "చినుకులు",
+        "55-day": "భారీ చినుకులు",
+        "55-night": "భారీ చినుకులు",
+        "56-day": "తేలికపాటి గడ్డకట్టే చినుకులు",
+        "56-night": "తేలికపాటి గడ్డకట్టే చినుకులు",
+        "57-day": "గడ్డకట్టే చినుకులు",
+        "61-day": "తేలికపాటి వర్షం",
+        "61-night": "తేలికపాటి వర్షం",
+        "63-day": "వర్షం",
+        "63-night": "వర్షం",
+        "65-day": "భారీవర్షం",
+        "65-night": "భారీవర్షం",
+        "66-day": "గడ్డకట్టే వర్షం",
+        "66-night": "గడ్డకట్టే వర్షం",
+        "67-day": "గడ్డకట్టే వర్షం",
+        "67-night": "గడ్డకట్టే వర్షం",
+        "71-day": "తేలికపాటి మంచు",
+        "71-night": "తేలికపాటి మంచు",
+        "86-day": "మంచు జల్లులు",
+        "86-night": "మంచు జల్లులు",
+        "95-day": "ఉరుము",
+        "95-night": "ఉరుము",
+        "96-day": "వడగళ్లతో కూడిన ఉరుములతో కూడిన వర్షం",
+        "96-night": "వడగళ్లతో కూడిన ఉరుములతో కూడిన వర్షం",
+        "99-day": "వడగళ్లతో కూడిన ఉరుములతో కూడిన వర్షం",
+        "99-night": "వడగళ్లతో కూడిన ఉరుములతో కూడిన వర్షం"
+    },
+    "quicklaunch": {
+        "bookmark": "బుక్మార్క్",
+        "service": "సేవ"
+    },
+    "homebridge": {
+        "available_update": "వ్యవస్థ",
+        "updates": "నవీకరణలు",
+        "update_available": "అందుబాటులో నవీకరణ",
+        "up_to_date": "తాజాగా",
+        "child_bridges": "పిల్ల వంతెనలు",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "rejectedPushes": "తిరస్కరించారు",
+        "approvedPushes": "ఆమోదించబడింది",
+        "filters": "ఫిల్టర్లు",
+        "indexers": "సూచికలు"
+    },
+    "watchtower": {
+        "containers_scanned": "స్కాన్ చేశారు",
+        "containers_updated": "నవీకరించబడింది",
+        "containers_failed": "విఫలమయ్యారు"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

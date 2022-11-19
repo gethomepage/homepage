@@ -1,0 +1,331 @@
+{
+    "widget": {
+        "missing_type": "Kayıp Araç Türü: {{type}}",
+        "api_error": "API Hatası",
+        "status": "Durum",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
+    },
+    "weather": {
+        "current": "Mevcut Konum",
+        "allow": "İzin vermek için tıklayın",
+        "updating": "Güncelleniyor",
+        "wait": "Lütfen bekleyin"
+    },
+    "search": {
+        "placeholder": "Ara…"
+    },
+    "resources": {
+        "cpu": "İşlemci",
+        "total": "Toplam",
+        "free": "Boşta",
+        "used": "Kullanımda",
+        "load": "Yük"
+    },
+    "unifi": {
+        "users": "Kullanıcılar",
+        "uptime": "Çalışma Süresi",
+        "days": "Günler",
+        "wan": "WAN",
+        "lan_users": "LAN Kullanıcıları",
+        "wlan_users": "WLAN Kullanıcıları",
+        "up": "Yukarı",
+        "down": "Aşağı",
+        "wait": "Lütfen bekleyin",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Aygıtlar",
+        "lan_devices": "LAN Aygıtları",
+        "wlan_devices": "WLAN Aygıtları"
+    },
+    "docker": {
+        "rx": "Gelen Veri",
+        "tx": "Giden Veri",
+        "mem": "Bellek",
+        "cpu": "İşlemci",
+        "offline": "Çevrimdışı"
+    },
+    "emby": {
+        "playing": "Oynatılıyor",
+        "transcoding": "Dönüştürülüyor",
+        "bitrate": "Bit Oranı",
+        "no_active": "Aktif akış yok"
+    },
+    "tautulli": {
+        "playing": "Oynatılıyor",
+        "transcoding": "Dönüştürülüyor",
+        "bitrate": "Bit Oranı",
+        "no_active": "Aktif akış yok"
+    },
+    "nzbget": {
+        "rate": "Oran",
+        "remaining": "Kalan",
+        "downloaded": "İndirilen"
+    },
+    "plex": {
+        "streams": "Aktif Akış",
+        "movies": "Filmler",
+        "tv": "TV Showları"
+    },
+    "sabnzbd": {
+        "rate": "Oran",
+        "queue": "Kuyruk",
+        "timeleft": "Kalan Zaman"
+    },
+    "rutorrent": {
+        "active": "Aktif",
+        "upload": "Yükleme",
+        "download": "İndirme"
+    },
+    "transmission": {
+        "download": "İndirme",
+        "upload": "Yükleme",
+        "leech": "İsteyen",
+        "seed": "Sunan"
+    },
+    "qbittorrent": {
+        "download": "İndirme",
+        "upload": "Yükleme",
+        "leech": "İsteyen",
+        "seed": "Sunan"
+    },
+    "sonarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "series": "Seriler"
+    },
+    "radarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "movies": "Filmler",
+        "missing": "Kayıp"
+    },
+    "lidarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "albums": "Albümler"
+    },
+    "readarr": {
+        "wanted": "Aranan",
+        "queued": "Kuyrukta",
+        "books": "Kitaplar"
+    },
+    "bazarr": {
+        "missingEpisodes": "Kayıp Bölümler",
+        "missingMovies": "Kayıp Filmler"
+    },
+    "ombi": {
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
+    },
+    "jellyseerr": {
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
+    },
+    "overseerr": {
+        "pending": "Bekliyor",
+        "approved": "Onaylı",
+        "available": "Kullanılabilir"
+    },
+    "pihole": {
+        "queries": "Sorgular",
+        "blocked": "Engellenen",
+        "gravity": "Yer Çekimi"
+    },
+    "adguard": {
+        "queries": "Sorgular",
+        "blocked": "Engellenen",
+        "filtered": "Filtrelenen",
+        "latency": "Gecikme"
+    },
+    "speedtest": {
+        "upload": "Yükleme",
+        "download": "İndirme",
+        "ping": "Ping"
+    },
+    "portainer": {
+        "running": "Çalışıyor",
+        "stopped": "Durduruldu",
+        "total": "Toplam"
+    },
+    "traefik": {
+        "routers": "Yönlendiriciler",
+        "services": "Hizmetler",
+        "middleware": "Ara Katman"
+    },
+    "npm": {
+        "enabled": "Etkin",
+        "disabled": "Devre Dışı",
+        "total": "Toplam"
+    },
+    "coinmarketcap": {
+        "configure": "İzleme için bir veya daha fazla kripto para birimi yapılandırın",
+        "1hour": "1 Saat",
+        "1day": "1 Gün",
+        "7days": "7 Gün",
+        "30days": "30 Gün"
+    },
+    "gotify": {
+        "apps": "Uygulamalar",
+        "clients": "Alıcılar",
+        "messages": "İletiler"
+    },
+    "prowlarr": {
+        "enableIndexers": "Dizin Oluşturucular",
+        "numberOfGrabs": "Yakalama Sayısı",
+        "numberOfQueries": "Sorgu Sayısı",
+        "numberOfFailGrabs": "Başarısız Yakalama Sayısı",
+        "numberOfFailQueries": "Başarısız Sorgu Sayısı"
+    },
+    "jackett": {
+        "configured": "Yapılandırılmış",
+        "errored": "Hatalı"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Aktif Sezonlar",
+        "numConnections": "Bağlantı Sayısı",
+        "dataRelayed": "Aktarılan",
+        "transferRate": "Oran"
+    },
+    "mastodon": {
+        "user_count": "Kullanıcılar",
+        "status_count": "Gönderiler",
+        "domain_count": "Etki Alanları"
+    },
+    "authentik": {
+        "users": "Kullanıcılar",
+        "loginsLast24H": "Girişler (24 Saat)",
+        "failedLoginsLast24H": "Başarısız Girişler (24 Saat)"
+    },
+    "proxmox": {
+        "mem": "Bellek",
+        "cpu": "İşlemci",
+        "lxc": "LXC",
+        "vms": "Sanal Makineler"
+    },
+    "glances": {
+        "cpu": "İşlemci",
+        "mem": "Bellek",
+        "wait": "Lütfen bekleyiniz"
+    },
+    "changedetectionio": {
+        "totalObserved": "Toplam Gözlenen",
+        "diffsDetected": "Farklar Algılandı"
+    },
+    "wmo": {
+        "99-day": "Dolu İle Gök Gürültülü Fırtına",
+        "0-day": "Güneşli",
+        "0-night": "Açık",
+        "1-day": "Çoğunlukla Güneşli",
+        "1-night": "Çoğunlukla Açık",
+        "2-day": "Parçalı Bulutlu",
+        "2-night": "Parçalı Bulutlu",
+        "3-day": "Bulutlu",
+        "3-night": "Bulutlu",
+        "45-day": "Sisli",
+        "45-night": "Sisli",
+        "48-day": "Sisli",
+        "48-night": "Sisli",
+        "51-day": "Az Çiseleyen Yağmur",
+        "51-night": "Az Çiseleyen Yağmur",
+        "53-day": "Çiseleyen Yağmur",
+        "53-night": "Çiseleyen Yağmur",
+        "55-day": "Çok Çiseleyen Yağmur",
+        "55-night": "Çok Çiseleyen Yağmur",
+        "56-day": "Soğuk Az Çiseleyen Yağmur",
+        "56-night": "Soğuk Az Çiseleyen Yağmur",
+        "57-day": "Soğuk Çiseleyen Yağmur",
+        "57-night": "Soğuk Çiseleyen Yağmur",
+        "61-day": "Hafif Yağmur",
+        "61-night": "Hafif Yağmur",
+        "63-day": "Yağmur",
+        "63-night": "Yağmur",
+        "65-day": "Çok Yağmur",
+        "65-night": "Çok Yağmur",
+        "66-day": "Dondurucu Yağmur",
+        "66-night": "Dondurucu Yağmur",
+        "67-day": "Dondurucu Yağmur",
+        "67-night": "Dondurucu Yağmur",
+        "71-day": "Hafif Kar",
+        "71-night": "Hafif Kar",
+        "73-day": "Kar",
+        "73-night": "Kar",
+        "75-day": "Çok Kar",
+        "75-night": "Çok Kar",
+        "77-day": "Kar Taneleri",
+        "77-night": "Kar Taneleri",
+        "80-day": "Hafif Sağanak",
+        "80-night": "Hafif Sağanak",
+        "81-day": "Sağanak",
+        "81-night": "Sağanak",
+        "82-day": "Yoğun Sağanak",
+        "95-night": "Gök Gürültülü Fırtına",
+        "82-night": "Yoğun Sağanak",
+        "85-day": "Karlı Sağanak",
+        "85-night": "Karlı Sağanak",
+        "86-day": "Karlı Sağanak",
+        "86-night": "Karlı Sağanak",
+        "95-day": "Gök Gürültülü Fırtına",
+        "96-day": "Dolu İle Gök Gürültülü Fırtına",
+        "96-night": "Dolu İle Gök Gürültülü Fırtına",
+        "99-night": "Dolu İle Gök Gürültülü Fırtına"
+    },
+    "quicklaunch": {
+        "bookmark": "Yer İmi",
+        "service": "Hizmet"
+    },
+    "homebridge": {
+        "available_update": "Sistem",
+        "updates": "Güncellemeler",
+        "update_available": "Güncelleme Kullanılabilir",
+        "up_to_date": "Güncel",
+        "child_bridges": "Alt Köprüler",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Onaylandı",
+        "rejectedPushes": "Reddedildi",
+        "filters": "Süzgeçler",
+        "indexers": "Dizin Oluşturucular"
+    },
+    "watchtower": {
+        "containers_scanned": "Tarandı",
+        "containers_updated": "Güncellendi",
+        "containers_failed": "Başarısız"
+    },
+    "tubearchivist": {
+        "downloads": "Kuyruk",
+        "videos": "Videolar",
+        "channels": "Kanallar",
+        "playlists": "Oynatma Listeleri"
+    },
+    "truenas": {
+        "load": "Sistem Yükü",
+        "uptime": "Çalışma Süresi",
+        "alerts": "Alarmlar",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Geçerli Akış Yok",
+        "please_wait": "Lütfen Bekleyin"
+    },
+    "pyload": {
+        "speed": "Hız",
+        "active": "Geçerli",
+        "queue": "Kuyruk",
+        "total": "Toplam"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    }
+}
