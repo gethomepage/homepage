@@ -42,7 +42,8 @@ export default function Component({ service }) {
   const { data: statusData, error: statusError } = useWidgetAPI(widget, "status");
 
   if (alertError || statusError) {
-    return <Container error={t("widget.api_error")} />;
+    const finalError = alertError ?? statusError;
+    return <Container error={finalError} />;
   }
 
   if (!alertData || !statusData) {

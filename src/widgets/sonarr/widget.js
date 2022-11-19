@@ -11,12 +11,21 @@ const widget = {
       map: (data) => ({
         total: asJson(data).length,
       }),
+      validate: [
+        "total"
+      ]
     },
     queue: {
       endpoint: "queue",
+      validate: [
+        "totalRecords"
+      ]
     },
     "wanted/missing": {
       endpoint: "wanted/missing",
+      validate: [
+        "totalRecords"
+      ]
     },
   },
 };

@@ -7,6 +7,11 @@ const widget = {
   mappings: {
     "api.php": {
       endpoint: "api.php",
+      validate: [
+        "dns_queries_today",
+        "ads_blocked_today",
+        "domains_being_blocked"
+      ]
     },
   },
 };

@@ -7,6 +7,9 @@ const widget = {
   mappings: {
     overview: {
       endpoint: "overview",
+      validate: [
+        "http"
+      ]
     },
   },
 };

@@ -98,6 +98,6 @@ export async function httpProxy(url, params = {}) {
   catch (err) {
     logger.error("Error calling %s//%s%s...", url.protocol, url.hostname, url.pathname);
     logger.error(err);
-    return [500, "application/json", { error: "Unexpected error" }, null];
+    return [500, "application/json", { error: {message: err?.message ?? "Unknown error", url, rawError: err} }, null];
   }
 }

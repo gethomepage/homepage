@@ -33,15 +33,16 @@ export default async function watchtowerProxyHandler(req, res) {
 
   if (status !== 200 || !data) {
     logger.error("Error getting data from WatchTower: %d.  Data: %s", status, data);
+    return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
   }
 
-  const cleanData = data.toString().split("\n").filter(s => s.startsWith("watchtower"))
+  const cleanData = data.toString().split("\n").filter(s => s.startsWith("watchtower"));
   const jsonRes = {}
   
   cleanData.map(e => e.split(" ")).forEach(strArray => { 
     const [key, value] = strArray
     jsonRes[key] = value
-  }) 
+  });
 
   if (contentType) res.setHeader("Content-Type", contentType);
   return res.status(status).send(jsonRes);

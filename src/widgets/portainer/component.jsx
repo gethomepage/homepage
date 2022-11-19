@@ -14,7 +14,7 @@ export default function Component({ service }) {
   });
 
   if (containersError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={containersError} />;
   }
 
   if (!containersData) {

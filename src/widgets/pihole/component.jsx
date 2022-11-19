@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: piholeData, error: piholeError } = useWidgetAPI(widget, "api.php");
 
   if (piholeError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={piholeError} />;
   }
 
   if (!piholeData) {
