@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Falta el tipo de widget: {{type}}",
         "api_error": "Error de API",
-        "status": "Estado"
+        "status": "Estado",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Buscar…"
