@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Отсутствует тип виджета: {{type}}",
         "api_error": "Ошибка API",
-        "status": "Статус"
+        "status": "Статус",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Поиск…"
