@@ -5,10 +5,10 @@ import { useTranslation } from "next-i18next";
 
 import UsageBar from "./usage-bar";
 
-export default function Disk({ options, expanded, backend }) {
+export default function Disk({ options, expanded }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/${backend || 'resources'}?type=disk&target=${options.disk}`, {
+  const { data, error } = useSWR(`/api/widgets/resources?type=disk&target=${options.disk}`, {
     refreshInterval: 1500,
   });
 

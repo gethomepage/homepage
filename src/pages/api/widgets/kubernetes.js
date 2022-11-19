@@ -7,8 +7,6 @@ import createLogger from "../../../utils/logger";
 const logger = createLogger("kubernetes-widget");
 
 export default async function handler(req, res) {
-  const { type } = req.query;
-
   try {
     const kc = getKubeConfig();
     if (!kc) {
@@ -30,51 +28,60 @@ export default async function handler(req, res) {
         error: "unknown error"
       });
     }
-    const nodeCapacity = new Map();
     let cpuTotal = 0;
     let cpuUsage = 0;
     let memTotal = 0;
     let memUsage = 0;
 
+    const nodeMap = {};
     nodes.items.forEach((node) => {
-      nodeCapacity.set(node.metadata.name, node.status.capacity);
-      cpuTotal += Number.parseInt(node.status.capacity.cpu, 10);
-      memTotal += parseMemory(node.status.capacity.memory);
+      const cpu = Number.parseInt(node.status.capacity.cpu, 10);
+      const mem = parseMemory(node.status.capacity.memory);
+      const ready = node.status.conditions.filter(condition => condition.type === "Ready" && condition.status === "True").length > 0;
+      nodeMap[node.metadata.name] = {
+        name: node.metadata.name,
+        ready,
+        cpu: {
+          total: cpu
+        },
+        memory: {
+          total: mem
+        }
+      };
+      cpuTotal += cpu;
+      memTotal += mem;
     });
 
     const nodeMetrics = await metricsApi.getNodeMetrics();
-    const nodeUsage = new Map();
-    nodeMetrics.items.forEach((metrics) => {
-      nodeUsage.set(metrics.metadata.name, metrics.usage);
-      cpuUsage += parseCpu(metrics.usage.cpu);
-      memUsage += parseMemory(metrics.usage.memory);
+    nodeMetrics.items.forEach((nodeMetric) => {
+      const cpu = parseCpu(nodeMetric.usage.cpu);
+      const mem = parseMemory(nodeMetric.usage.memory);
+      cpuUsage += cpu;
+      memUsage += mem;
+      nodeMap[nodeMetric.metadata.name].cpu.load = cpu;
+      nodeMap[nodeMetric.metadata.name].cpu.percent = (cpu / nodeMap[nodeMetric.metadata.name].cpu.total) * 100;
+      nodeMap[nodeMetric.metadata.name].memory.used = mem;
+      nodeMap[nodeMetric.metadata.name].memory.free = nodeMap[nodeMetric.metadata.name].memory.total - mem;
+      nodeMap[nodeMetric.metadata.name].memory.percent = (mem / nodeMap[nodeMetric.metadata.name].memory.total) * 100;
     });
 
-    if (type === "cpu") {
-      return res.status(200).json({
-        cpu: {
-          usage: (cpuUsage / cpuTotal) * 100,
-          load: cpuUsage
-        }
-      });
-    }
+    const cluster = {
+      cpu: {
+        load: cpuUsage,
+        total: cpuTotal,
+        percent: (cpuUsage / cpuTotal) * 100
+      },
+      memory: {
+        used: memUsage,
+        total: memTotal,
+        free: (memTotal - memUsage),
+        percent: (memUsage / memTotal) * 100
+      }
+    };
 
-    if (type === "memory") {
-      const SCALE_MB = 1024 * 1024;
-      const usedMemMb = memUsage / SCALE_MB;
-      const totalMemMb = memTotal / SCALE_MB;
-      const freeMemMb = totalMemMb - usedMemMb;
-      return res.status(200).json({
-        memory: {
-          usedMemMb,
-          freeMemMb,
-          totalMemMb
-        }
-      });
-    }
-
-    return res.status(400).json({
-      error: "invalid type"
+    return res.status(200).json({
+      cluster,
+      nodes: Object.entries(nodeMap).map(([name, node]) => ({ name, ...node }))
     });
   } catch (e) {
     logger.error("exception %s", e);
