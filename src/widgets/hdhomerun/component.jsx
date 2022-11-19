@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "lineup");
 
   if (channelsError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={channelsError} />;
   }
 
   if (!channelsData) {
