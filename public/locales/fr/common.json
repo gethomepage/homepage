@@ -323,5 +323,9 @@
         "public_ip": "IP Publique",
         "region": "Région",
         "country": "Pays"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }
