@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Saknar Widget-typ: {{type}}",
         "api_error": "API-fel",
-        "status": "Status"
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Nuvarande plats",
@@ -319,5 +323,9 @@
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "סוג ווידג'ט חסר: {{type}}",
         "api_error": "שגיאת API",
-        "status": "סטטוס"
+        "status": "סטטוס",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "מיקום נוכחי",
@@ -319,5 +323,9 @@
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

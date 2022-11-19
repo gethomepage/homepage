@@ -12,7 +12,11 @@
     "widget": {
         "missing_type": "Липсваща приставка: {{type}}",
         "api_error": "API Грешка",
-        "status": "Статус"
+        "status": "Статус",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Текущо местоположение",
@@ -319,5 +323,9 @@
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

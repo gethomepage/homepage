@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Falta el tipo de widget: {{type}}",
         "api_error": "Error de API",
-        "status": "Estado"
+        "status": "Estado",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Buscar…"
@@ -316,8 +320,12 @@
         "total": "Total"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "IP pública",
+        "region": "Región",
+        "country": "País"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

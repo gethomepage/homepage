@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Kayıp Araç Türü: {{type}}",
         "api_error": "API Hatası",
-        "status": "Durum"
+        "status": "Durum",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Mevcut Konum",
@@ -319,5 +323,9 @@
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

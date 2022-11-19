@@ -54,3 +54,7 @@ body {
   background-color: var(--scrollbar-thumb);
   border-radius: 0.25em;
 }
+
+::-webkit-details-marker {
+  display: none;
+}

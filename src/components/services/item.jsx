@@ -97,7 +97,7 @@ export default function Item({ service }) {
         {service.container && service.server && (
           <div
             className={classNames(
-              statsOpen && !statsClosing ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
+              statsOpen && !statsClosing ? "max-h-[110px] opacity-100" : " max-h-[0] opacity-0",
               "w-full overflow-hidden transition-all duration-300 ease-in-out"
             )}
           >

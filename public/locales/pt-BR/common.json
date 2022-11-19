@@ -30,7 +30,11 @@
     "widget": {
         "missing_type": "Tipo de Widget ausente: {{type}}",
         "api_error": "Erro da API",
-        "status": "Status"
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Localização atual",
@@ -319,5 +323,9 @@
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

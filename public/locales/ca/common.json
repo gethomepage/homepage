@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Falta el tipus de widget: {{type}}",
         "api_error": "Error d'API",
-        "status": "Estat"
+        "status": "Estat",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "allow": "Feu clic per permetre",
@@ -319,5 +323,9 @@
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

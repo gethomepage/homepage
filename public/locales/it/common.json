@@ -36,7 +36,11 @@
     "widget": {
         "missing_type": "Tipo del Widget Mancante: {{type}}",
         "api_error": "Errore API",
-        "status": "Stato"
+        "status": "Stato",
+        "url": "URL",
+        "information": "Information",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Cerca…"
@@ -319,5 +323,9 @@
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
     }
 }

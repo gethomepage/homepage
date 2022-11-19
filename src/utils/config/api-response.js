@@ -4,7 +4,7 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { getSettings } from "utils/config/config";
 import {
   servicesFromConfig,
   servicesFromDocker,
@@ -52,6 +52,7 @@ export async function servicesResponse() {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
   let configuredServices;
+  let initialSettings;
 
   try {
     discoveredDockerServices = cleanServiceGroups(await servicesFromDocker());
@@ -77,6 +78,14 @@ export async function servicesResponse() {
     configuredServices = [];
   }
 
+  try {
+    initialSettings = await getSettings();
+  } catch (e) {
+    console.error("Failed to load settings.yaml, please check for errors");
+    if (e) console.error(e);
+    initialSettings = {};
+  }
+
   const mergedGroupsNames = [
     ...new Set([
       discoveredDockerServices.map((group) => group.name),
@@ -86,6 +95,7 @@ export async function servicesResponse() {
   ];
 
   const mergedGroups = [];
+  const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
 
   mergedGroupsNames.forEach((groupName) => {
     const discoveredDockerGroup = discoveredDockerServices.find((group) => group.name === groupName) || { services: [] };
@@ -101,7 +111,13 @@ export async function servicesResponse() {
       ].filter((service) => service),
     };
 
-    mergedGroups.push(mergedGroup);
+    if (definedLayouts) {
+      const layoutIndex = definedLayouts.findIndex(layout => layout === mergedGroup.name);
+      if (layoutIndex > -1) mergedGroups.splice(layoutIndex, 0, mergedGroup);
+      else mergedGroups.push(mergedGroup);
+    } else {
+      mergedGroups.push(mergedGroup);
+    }
   });
 
   return mergedGroups;

@@ -14,6 +14,10 @@ const widget = {
     },
     status: {
       endpoint: "system/info",
+      validate: [
+        "loadavg",
+        "uptime_seconds"
+      ]
     },
   },
 };

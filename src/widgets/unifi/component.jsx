@@ -11,8 +11,8 @@ export default function Component({ service }) {
 
     const { data: statsData, error: statsError } = useWidgetAPI(widget, "stat/sites");
 
-    if (statsError || statsData?.error) {
-        return <Container error={t("widget.api_error")} />;
+    if (statsError) {
+        return <Container error={statsError} />;
     }
 
     const defaultSite = statsData?.data?.find(s => s.name === "default");

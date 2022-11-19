@@ -9,8 +9,8 @@ export default function Component({ service }) {
   const { widget } = service;
   const { data: pyloadData, error: pyloadError } = useWidgetAPI(widget, "status");
 
-  if (pyloadError || pyloadData?.error) {
-    return <Container error={t("widget.api_error")} />;
+  if (pyloadError) {
+    return <Container error={pyloadError} />;
   }
 
   if (!pyloadData) {
