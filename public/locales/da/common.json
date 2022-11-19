@@ -138,7 +138,11 @@
     "widget": {
         "missing_type": "Manglende Widget Type: {{type}}",
         "api_error": "API fejl",
-        "status": "Status"
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Nuværende lokation",
