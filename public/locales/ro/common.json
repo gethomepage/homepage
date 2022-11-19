@@ -60,7 +60,11 @@
     "widget": {
         "missing_type": "Lipsește Tipul de Widget: {{type}}",
         "api_error": "Eroare API",
-        "status": "Status"
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Caută…"
