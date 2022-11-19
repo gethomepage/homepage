@@ -125,7 +125,11 @@
     "widget": {
         "missing_type": "Jenis Widget Hilang: {{type}}",
         "api_error": "Masalah API",
-        "status": "Status"
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Lokasi Sekarang",
