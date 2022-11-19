@@ -52,7 +52,7 @@ export default async function credentialedProxyHandler(req, res) {
       }
 
       if (status >= 400) {
-        logger.debug("HTTP Error %d calling %s//%s%s...", status, url.protocol, url.hostname, url.pathname);
+        logger.error("HTTP Error %d calling %s", status, url.toString());
       }
 
       if (!validateWidgetData(widget, endpoint, data)) {
