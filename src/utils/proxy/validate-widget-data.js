@@ -9,9 +9,9 @@ export default function validateWidgetData(widget, endpoint, data) {
         valid = false;
     }
 
-    if (dataParsed) {
+    if (dataParsed && Object.entries(dataParsed).length) {
         const validate = widgets[widget.type]?.mappings?.[endpoint]?.validate;
-        validate.forEach(key => {
+        validate?.forEach(key => {
             if (dataParsed[key] === undefined) {
                 valid = false;
             }

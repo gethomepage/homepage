@@ -10,10 +10,7 @@ const widget = {
       endpoint: "series",
       map: (data) => ({
         total: asJson(data).length,
-      }),
-      validate: [
-        "total"
-      ]
+      })
     },
     queue: {
       endpoint: "queue",
