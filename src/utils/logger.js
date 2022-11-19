@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 import { join } from "path";
 import { format as utilFormat } from "node:util";
-import checkAndCopyConfig, { getSettings } from "utils/config/config";
 
 import winston from "winston";
+
+import checkAndCopyConfig, { getSettings } from "utils/config/config";
 
 let winstonLogger;
 
