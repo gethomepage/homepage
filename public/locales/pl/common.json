@@ -64,8 +64,8 @@
         "mem": "Pamięć",
         "cpu": "Procesor",
         "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Błąd",
+        "unknown": "Nieznany"
     },
     "nzbget": {
         "rate": "Szybkość",
@@ -331,7 +331,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Błąd",
         "ping": "Ping"
     }
 }
