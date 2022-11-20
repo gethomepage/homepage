@@ -23,7 +23,9 @@
         "tx": "TX",
         "mem": "BỘ NHỚ",
         "cpu": "CPU",
-        "offline": "Ngoại tuyến"
+        "offline": "Ngoại tuyến",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Đang chơi",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }
