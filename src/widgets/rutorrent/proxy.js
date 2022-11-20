@@ -13,7 +13,7 @@ export default async function rutorrentProxyHandler(req, res) {
 
       const rutorrent = new RuTorrent({
         host: constructedUrl.hostname,
-        port: constructedUrl.port,
+        port: constructedUrl.port !== '' ? constructedUrl.port : (constructedUrl.protocol === "https:" ? 443 : 80),
         path: constructedUrl.pathname,
         ssl: constructedUrl.protocol === "https:",
         username: widget.username,
