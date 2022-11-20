@@ -23,7 +23,9 @@
         "tx": "Transmitido",
         "mem": "Memoria",
         "cpu": "Procesador",
-        "offline": "Desconectado"
+        "offline": "Desconectado",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Reproduciendo",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Canales",
         "hd": "Alta definición"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }
