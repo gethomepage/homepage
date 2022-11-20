@@ -69,7 +69,9 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Nepovezan"
+        "offline": "Nepovezan",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Kanali",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }
