@@ -45,7 +45,9 @@
         "tx": "Transmès",
         "mem": "Memòria",
         "cpu": "Processador",
-        "offline": "Fora de línia"
+        "offline": "Fora de línia",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Reproduint",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }
