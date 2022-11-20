@@ -147,7 +147,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                         }
                       </div>
                     </div>
-                    <div className="text-xs text-theme-600 font-bold pointer-events-none">{r.abbr ? t("quicklaunch.bookmark") : t("quicklaunch.service")}</div>
+                    <div className="text-xs text-theme-600 font-bold pointer-events-none">{r.type === 'service' ? t("quicklaunch.service") : t("quicklaunch.bookmark")}</div>
                   </button>
                 </li>
               ))}
