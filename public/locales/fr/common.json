@@ -24,8 +24,8 @@
         "mem": "Mém",
         "cpu": "Cpu",
         "offline": "Hors ligne",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Erreur",
+        "unknown": "Inconnu"
     },
     "emby": {
         "playing": "En lecture",
@@ -331,7 +331,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Erreur",
         "ping": "Ping"
     }
 }
