@@ -63,7 +63,9 @@
         "tx": "Tx",
         "mem": "Pamięć",
         "cpu": "Procesor",
-        "offline": "Offline"
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "nzbget": {
         "rate": "Szybkość",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Kanały",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }
