@@ -3,7 +3,7 @@
         "missing_type": "Отсутствует тип виджета: {{type}}",
         "api_error": "Ошибка API",
         "status": "Статус",
-        "information": "Information",
+        "information": "Информация",
         "url": "URL",
         "raw_error": "Raw Error",
         "response_data": "Response Data"
@@ -15,7 +15,7 @@
         "total": "Всего",
         "free": "Свободно",
         "used": "Использовано",
-        "load": "Load",
+        "load": "Загрузка",
         "cpu": "CPU"
     },
     "docker": {
@@ -189,19 +189,19 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Пользователи",
+        "uptime": "Время работы системы",
+        "days": "Дней",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_users": "Пользователи LAN",
+        "wlan_users": "Пользователи WLAN",
         "up": "UP",
         "down": "DOWN",
         "wait": "Please wait",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
+        "devices": "Устройства",
+        "lan_devices": "Устройства подключённые по LAN",
         "wlan_devices": "WLAN Devices"
     },
     "plex": {
