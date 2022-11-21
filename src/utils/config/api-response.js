@@ -90,12 +90,12 @@ export async function servicesResponse() {
 
     if (definedLayouts) {
       const layoutIndex = definedLayouts.findIndex(layout => layout === mergedGroup.name);
-      if (layoutIndex > -1) mergedGroups.splice(layoutIndex, 0, mergedGroup);
+      if (layoutIndex > -1) mergedGroups[layoutIndex] = mergedGroup;
       else mergedGroups.push(mergedGroup);
     } else {
       mergedGroups.push(mergedGroup);
     }
   });
 
-  return mergedGroups;
+  return mergedGroups.filter(g => g);
 }
