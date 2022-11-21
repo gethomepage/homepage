@@ -181,7 +181,9 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "RAM",
-        "offline": "Offline"
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Afspiller",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

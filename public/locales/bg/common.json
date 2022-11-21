@@ -55,7 +55,9 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "CPU"
+        "cpu": "CPU",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Възпроизвежда",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "ping": "Ping",
+        "error": "Error"
     }
 }

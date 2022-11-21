@@ -45,7 +45,9 @@
         "tx": "Giden Veri",
         "mem": "Bellek",
         "cpu": "İşlemci",
-        "offline": "Çevrimdışı"
+        "offline": "Çevrimdışı",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Oynatılıyor",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

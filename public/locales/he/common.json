@@ -29,7 +29,9 @@
         "tx": "TX",
         "mem": "זיכרון",
         "cpu": "מעבד",
-        "offline": "כבוי"
+        "offline": "כבוי",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "מנגן",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

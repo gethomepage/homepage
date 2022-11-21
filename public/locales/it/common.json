@@ -4,7 +4,9 @@
         "mem": "MEM",
         "cpu": "CPU",
         "offline": "Offline",
-        "rx": "RX"
+        "rx": "RX",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "In riproduzione",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

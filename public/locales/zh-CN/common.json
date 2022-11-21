@@ -23,7 +23,9 @@
         "tx": "发送",
         "mem": "内存",
         "cpu": "处理器",
-        "offline": "离线"
+        "offline": "离线",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "播放中",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

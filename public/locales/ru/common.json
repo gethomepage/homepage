@@ -23,7 +23,9 @@
         "tx": "Тx",
         "mem": "Память",
         "cpu": "Процессор",
-        "offline": "Не в сети"
+        "offline": "Не в сети",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Воспроизведение",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

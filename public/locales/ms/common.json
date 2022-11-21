@@ -150,7 +150,9 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Luar talian"
+        "offline": "Luar talian",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "changedetectionio": {
         "totalObserved": "Jumlah Diperhatikan",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

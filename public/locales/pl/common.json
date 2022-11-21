@@ -53,17 +53,19 @@
         "missing_type": "Brakujący typ widżetu: {{type}}",
         "api_error": "Błąd API",
         "status": "Stan",
-        "url": "URL",
-        "information": "Information",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "url": "Adres URL",
+        "information": "Informacje",
+        "raw_error": "Niesformatowany błąd",
+        "response_data": "Dane odpowiedzi"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "offline": "Offline"
+        "rx": "Rx",
+        "tx": "Tx",
+        "mem": "Pamięć",
+        "cpu": "Procesor",
+        "offline": "Offline",
+        "error": "Błąd",
+        "unknown": "Nieznany"
     },
     "nzbget": {
         "rate": "Szybkość",
@@ -95,7 +97,7 @@
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
         "movies": "Filmy",
-        "missing": "Missing"
+        "missing": "Brakujące"
     },
     "lidarr": {
         "wanted": "Poszukiwane",
@@ -166,14 +168,14 @@
     },
     "mastodon": {
         "user_count": "Użytkownicy",
-        "status_count": "Posts",
+        "status_count": "Posty",
         "domain_count": "Domeny"
     },
     "strelaysrv": {
         "numActiveSessions": "Sesje",
         "numConnections": "Połączenia",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "dataRelayed": "Przekazane",
+        "transferRate": "Przesył"
     },
     "authentik": {
         "users": "Użytkownicy",
@@ -181,10 +183,10 @@
         "failedLoginsLast24H": "Nieudane logowania (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
-        "lxc": "LXC",
-        "vms": "VMs"
+        "mem": "Pamięć",
+        "cpu": "Procesor",
+        "lxc": "Kontenery LXC",
+        "vms": "Maszyn wirtualnych"
     },
     "unifi": {
         "users": "Użytkownicy",
@@ -203,25 +205,25 @@
         "wlan_devices": "Urządzenia WLAN"
     },
     "plex": {
-        "streams": "Active Streams",
+        "streams": "Aktywne strumienie",
         "movies": "Filmy",
         "tv": "Seriale"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
+        "cpu": "Procesor",
+        "mem": "Pamięć",
         "wait": "Proszę czekać"
     },
     "changedetectionio": {
-        "diffsDetected": "Diffs Detected",
-        "totalObserved": "Total Observed"
+        "diffsDetected": "Wykryto różnic",
+        "totalObserved": "Obserwowanych ogółem"
     },
     "wmo": {
-        "77-day": "Snow Grains",
+        "77-day": "Ziarnisty śnieg",
         "0-day": "Słoneczny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
+        "0-night": "Bezchmurny",
+        "1-day": "Głównie słoneczny",
+        "1-night": "Głównie bezchmurny",
         "2-day": "Częściowo pochmurnie",
         "2-night": "Częściowo pochmurnie",
         "3-day": "Pochmurnie",
@@ -236,10 +238,10 @@
         "53-night": "Mżawka",
         "55-day": "Ciężka mżawka",
         "55-night": "Ciężka mżawka",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
+        "56-day": "Lekko chłodna mżawka",
+        "56-night": "Lekko chłodna mżawka",
+        "57-day": "Chłodna mżawka",
+        "57-night": "Chłodna mżawka",
         "61-day": "Lekki deszcz",
         "61-night": "Lekki deszcz",
         "63-day": "Deszcz",
@@ -256,7 +258,7 @@
         "73-night": "Śnieg",
         "75-day": "Ciężki śnieg",
         "75-night": "Ciężki śnieg",
-        "77-night": "Snow Grains",
+        "77-night": "Ziarnisty śnieg",
         "80-day": "Lekkie opady",
         "80-night": "Lekkie opady",
         "81-day": "Opady",
@@ -275,7 +277,7 @@
         "99-night": "Burza z gradobiciem"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
+        "bookmark": "Zakładka",
         "service": "Usługi"
     },
     "homebridge": {
@@ -287,45 +289,49 @@
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Zaakceptowane",
+        "rejectedPushes": "Odrzucone",
+        "filters": "Filtry",
+        "indexers": "Indeksery"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Zeskanowane",
+        "containers_updated": "Zaktualizowane",
+        "containers_failed": "Niepowodzenie"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Kolejka",
+        "videos": "Pliki wideo",
+        "channels": "Kanały",
+        "playlists": "Playlisty"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "Obciążenie systemu",
+        "uptime": "Czas działania",
+        "alerts": "Ostrzeżenia",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "please_wait": "Please Wait",
-        "nothing_streaming": "No Active Streams"
+        "please_wait": "Proszę czekać",
+        "nothing_streaming": "Brak aktywnych strumieni"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "Prędkość",
+        "active": "Aktywne",
+        "queue": "Kolejka",
+        "total": "Razem"
     },
     "gluetun": {
-        "public_ip": "Public IP",
+        "public_ip": "Adres publiczny",
         "region": "Region",
-        "country": "Country"
+        "country": "Państwo"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanały",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Błąd",
+        "ping": "Ping"
     }
 }

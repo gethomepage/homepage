@@ -23,7 +23,9 @@
         "tx": "Tx",
         "mem": "Mem",
         "cpu": "CPU",
-        "offline": "Desligado"
+        "offline": "Desligado",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "A reproduzir",
@@ -338,5 +340,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

@@ -59,17 +59,19 @@
         "missing_type": "Nedostajuća vrsta widgeta: {{type}}",
         "api_error": "API greška",
         "status": "Stanje",
-        "information": "Information",
+        "information": "Informacije",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Raw greška",
+        "response_data": "Podaci odgovora"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Nepovezan"
+        "offline": "Nepovezan",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -320,12 +322,16 @@
         "total": "Ukupno"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "Javni IP",
+        "region": "Regija",
+        "country": "Zemlja"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanali",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

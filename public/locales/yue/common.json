@@ -47,7 +47,9 @@
         "tx": "發送",
         "mem": "內存",
         "cpu": "處理器",
-        "offline": "離線"
+        "offline": "離線",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "nzbget": {
         "rate": "速度",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

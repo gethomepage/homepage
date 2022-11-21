@@ -46,7 +46,9 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "సీపియూ",
-        "offline": "ఆఫ్‌లైన్"
+        "offline": "ఆఫ్‌లైన్",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "ఆడుతున్నారు",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }

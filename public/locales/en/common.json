@@ -56,7 +56,13 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Offline"
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Unknown"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     },
     "emby": {
         "playing": "Playing",

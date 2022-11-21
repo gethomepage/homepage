@@ -4,10 +4,15 @@ import { format as utilFormat } from "node:util";
 
 import winston from "winston";
 
+import checkAndCopyConfig, { getSettings } from "utils/config/config";
+
 let winstonLogger;
 
 function init() {
   const configPath = join(process.cwd(), "config");
+  checkAndCopyConfig("settings.yaml");
+  const settings = getSettings();
+  const logpath = settings.logpath || configPath;
 
   function combineMessageAndSplat() {
     return {
@@ -57,7 +62,7 @@ function init() {
           winston.format.timestamp(),
           winston.format.printf(messageFormatter)
         ),
-        filename: `${configPath}/logs/homepage.log`,
+        filename: `${logpath}/logs/homepage.log`,
         handleExceptions: true,
         handleRejections: true,
       }),

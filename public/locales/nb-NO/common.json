@@ -23,7 +23,9 @@
         "tx": "Sendt",
         "mem": "Minne",
         "cpu": "Prosessor",
-        "offline": "Frakoblet"
+        "offline": "Frakoblet",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Spiller",
@@ -327,5 +329,9 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     }
 }
