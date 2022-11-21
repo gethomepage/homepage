@@ -24,8 +24,8 @@
         "mem": "Memoria",
         "cpu": "Procesador",
         "offline": "Desconectado",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Fallo",
+        "unknown": "Desconocido"
     },
     "emby": {
         "playing": "Reproduciendo",
