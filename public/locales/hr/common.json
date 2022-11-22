@@ -70,8 +70,8 @@
         "mem": "MEM",
         "cpu": "CPU",
         "offline": "Nepovezan",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Greška",
+        "unknown": "Nepoznato"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -331,7 +331,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Greška",
         "ping": "Ping"
     }
 }
