@@ -4,6 +4,7 @@ import autobrr from "./autobrr/widget";
 import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
+import deluge from "./deluge/widget";
 import emby from "./emby/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -47,6 +48,7 @@ const widgets = {
   bazarr,
   changedetectionio,
   coinmarketcap,
+  deluge,
   emby,
   gluetun,
   gotify,
