@@ -344,5 +344,10 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
     }
 }
