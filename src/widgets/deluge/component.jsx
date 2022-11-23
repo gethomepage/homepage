@@ -27,7 +27,7 @@ export default function Component({ service }) {
   }
 
   const { torrents } = torrentData;
-  const keys = Object.keys(torrents);
+  const keys = torrents ? Object.keys(torrents) : [];
 
   let rateDl = 0;
   let rateUl = 0;
