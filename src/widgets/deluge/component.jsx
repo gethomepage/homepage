@@ -27,19 +27,19 @@ export default function Component({ service }) {
   }
 
   const { torrents } = torrentData;
-  let count = 0;
+  const keys = Object.keys(torrents);
+
   let rateDl = 0;
   let rateUl = 0;
   let completed = 0;
-  for (const key of Object.keys(torrents)) {
-    const torrent = torrents[key];
-    count += 1;
+  for (let i = 0; i < keys.length; i += 1) {
+    const torrent = torrents[keys[i]];
     rateDl += torrent.download_payload_rate;
     rateUl += torrent.upload_payload_rate;
     completed += torrent.total_remaining === 0 ? 1 : 0;
   }
 
-  const leech = count - completed || 0;
+  const leech = keys.length - completed || 0;
 
   return (
     <Container service={service}>
