@@ -335,8 +335,8 @@
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Aprobado",
+        "failed": "Fallido",
+        "unknown": "Desconocido"
     }
 }
