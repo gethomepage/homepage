@@ -333,5 +333,10 @@
     "ping": {
         "error": "Error",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
     }
 }
