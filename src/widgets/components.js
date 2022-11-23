@@ -34,6 +34,7 @@ const components = {
   readarr: dynamic(() => import("./readarr/component")),
   rutorrent: dynamic(() => import("./rutorrent/component")),
   sabnzbd: dynamic(() => import("./sabnzbd/component")),
+  scrutiny: dynamic(() => import("./scrutiny/component")),
   sonarr: dynamic(() => import("./sonarr/component")),
   speedtest: dynamic(() => import("./speedtest/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
