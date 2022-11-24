@@ -15,22 +15,22 @@ export async function sendJsonRpcRequest(url, method, params, username, password
   }
 
   if (username && password) {
-    const authorization = Buffer.from(`${username}:${password}`).toString("base64");
-    headers.authorization = `Basic ${authorization}`;
+    headers.authorization = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
   }
 
   const client = new JSONRPCClient(async (rpcRequest) => {
+    const body = JSON.stringify(rpcRequest);
+    headers['content-length'] = Buffer.byteLength(body);
     const httpRequestParams = {
       method: "POST",
       headers,
-      body: JSON.stringify(rpcRequest)
+      body
     };
 
     // eslint-disable-next-line no-unused-vars
     const [status, contentType, data] = await httpProxy(url, httpRequestParams);
-    const dataString = data.toString();
     if (status === 200) {
-      const json = JSON.parse(dataString);
+      const json = JSON.parse(data.toString());
 
       // in order to get access to the underlying error object in the JSON response
       // you must set `result` equal to undefined
@@ -40,7 +40,7 @@ export async function sendJsonRpcRequest(url, method, params, username, password
       return client.receive(json);
     }
 
-    return Promise.reject(new Error(dataString));
+    return Promise.reject(data?.error ? data : new Error(data.toString()));
   });
 
   try {
@@ -49,6 +49,7 @@ export async function sendJsonRpcRequest(url, method, params, username, password
   }
   catch (e) {
     if (e instanceof JSONRPCErrorException) {
+      logger.warn("Error calling JSONPRC endpoint: %s.  %s", url, e.message);
       return [200, "application/json", JSON.stringify({result: null, error: {code: e.code, message: e.message}})];
     }
 
@@ -73,7 +74,7 @@ export default async function jsonrpcProxyHandler(req, res) {
 
       // eslint-disable-next-line no-unused-vars
       const [status, contentType, data] = await sendJsonRpcRequest(url, method, null, widget.username, widget.password);
-      res.status(status).end(data);
+      return res.status(status).end(data);
     }
   }
 
