@@ -18,10 +18,15 @@ function addCookieHandler(url, params) {
   };
 }
 
-export function httpsRequest(url, params) {
+function handleRequest(requestor, url, params) {
   return new Promise((resolve, reject) => {
     addCookieHandler(url, params);
-    const request = https.request(url, params, (response) => {
+    if (params?.body) {
+      params.headers = params.headers ?? {};
+      params.headers['content-length'] = Buffer.byteLength(params.body);
+    }
+
+    const request = requestor.request(url, params, (response) => {
       const data = [];
 
       response.on("data", (chunk) => {
@@ -38,7 +43,7 @@ export function httpsRequest(url, params) {
       reject([500, error]);
     });
 
-    if (params.body) {
+    if (params?.body) {
       request.write(params.body);
     }
 
@@ -46,32 +51,12 @@ export function httpsRequest(url, params) {
   });
 }
 
+export function httpsRequest(url, params) {
+  return handleRequest(https, url, params);
+}
+
 export function httpRequest(url, params) {
-  return new Promise((resolve, reject) => {
-    addCookieHandler(url, params);
-    const request = http.request(url, params, (response) => {
-      const data = [];
-
-      response.on("data", (chunk) => {
-        data.push(chunk);
-      });
-
-      response.on("end", () => {
-        addCookieToJar(url, response.headers);
-        resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data), response.headers]);
-      });
-    });
-
-    request.on("error", (error) => {
-      reject([500, error]);
-    });
-
-    if (params.body) {
-      request.write(params.body);
-    }
-
-    request.end();
-  });
+  return handleRequest(http, url, params);
 }
 
 export async function httpProxy(url, params = {}) {

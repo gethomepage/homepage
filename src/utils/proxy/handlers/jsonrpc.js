@@ -20,7 +20,6 @@ export async function sendJsonRpcRequest(url, method, params, username, password
 
   const client = new JSONRPCClient(async (rpcRequest) => {
     const body = JSON.stringify(rpcRequest);
-    headers['content-length'] = Buffer.byteLength(body);
     const httpRequestParams = {
       method: "POST",
       headers,
@@ -49,7 +48,7 @@ export async function sendJsonRpcRequest(url, method, params, username, password
   }
   catch (e) {
     if (e instanceof JSONRPCErrorException) {
-      logger.warn("Error calling JSONPRC endpoint: %s.  %s", url, e.message);
+      logger.debug("Error calling JSONPRC endpoint: %s.  %s", url, e.message);
       return [200, "application/json", JSON.stringify({result: null, error: {code: e.code, message: e.message}})];
     }
 
