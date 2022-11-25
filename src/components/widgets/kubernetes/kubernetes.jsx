@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { BiError } from "react-icons/bi";
 import { useTranslation } from "next-i18next";
+
 import Node from "./node";
 
 export default function Widget({ options }) {

@@ -21,7 +21,7 @@ export default function Node({ data, expanded, labels }) {
             <div className="pr-1">{t("resources.total")}</div>
           </span>
           )}
-          <UsageBar percent={Math.round((data.node.available / data.node.maximum) * 100)} />
+          <UsageBar percent={Math.round(((data.node.maximum - data.node.available) / data.node.maximum) * 100)} />
         </div>
       </div>
       {labels && (
