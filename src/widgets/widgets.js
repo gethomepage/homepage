@@ -18,6 +18,7 @@ import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import ombi from "./ombi/widget";
 import overseerr from "./overseerr/widget";
+import paperlessngx from "./paperlessngx/widget";
 import pihole from "./pihole/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
@@ -63,6 +64,7 @@ const widgets = {
   nzbget,
   ombi,
   overseerr,
+  paperlessngx,
   pihole,
   plex,
   portainer,
