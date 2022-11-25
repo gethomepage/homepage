@@ -338,5 +338,9 @@
         "passed": "Réussi",
         "failed": "Échoué",
         "unknown": "Inconnu"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
     }
 }
