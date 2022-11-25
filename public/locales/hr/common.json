@@ -335,12 +335,12 @@
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Prošlo",
+        "failed": "Neuspjelo",
+        "unknown": "Nepoznato"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "Ulazni sandučić",
+        "total": "Ukupno"
     }
 }
