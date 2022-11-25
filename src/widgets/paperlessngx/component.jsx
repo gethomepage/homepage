@@ -5,26 +5,13 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
-  const { data: inboxData, error: inboxError } = useWidgetAPI(widget, "inbox",
-  {
-    query: `tag:${widget.inboxTag}`,
-    format: "json",
-    fields: "count"
-  });
+  const { data: statisticsData, error: statisticsError } = useWidgetAPI(widget, "statistics");
 
-
-  const { data: documentData, error: documentError } = useWidgetAPI(widget, "documents",
-  {
-    fields: "count",
-    format: "json",
-  });
-
-  if (inboxError || documentError) {
-    const finalError = inboxError ?? documentError;
-    return <Container error={finalError} />;
+  if (statisticsError) {
+    return <Container error={statisticsError} />;
   }
 
-  if (!inboxData || !documentData) {
+  if (!statisticsData) {
     return (
       <Container service={service}>
         <Block label="paperlessngx.inbox" />
@@ -35,8 +22,8 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="paperlessngx.inbox" value={inboxData.count} />
-      <Block label="paperlessngx.total" value={documentData.count} />
+      {statisticsData.documents_inbox !== undefined && <Block label="paperlessngx.inbox" value={statisticsData.documents_inbox} />}
+      <Block label="paperlessngx.total" value={statisticsData.documents_total} />
     </Container>
   );
 }

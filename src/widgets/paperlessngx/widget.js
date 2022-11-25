@@ -5,18 +5,10 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "inbox": {
-      endpoint: "documents/",
-      params: ["format", "query", "fields"],
+    "statistics": {
+      endpoint: "statistics/?format=json",
       validate: [
-        "count"
-      ]
-    },
-    "documents": {
-      endpoint: "documents/",
-      params: ["format", "fields"],
-      validate: [
-        "count"
+        "documents_total"
       ]
     },
   },
