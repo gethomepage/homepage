@@ -118,6 +118,7 @@ export function cleanServiceGroups(groups) {
           container,
           currency, // coinmarketcap widget
           symbols,
+          inboxTag, // paperlessngx widget
         } = cleanedService.widget;
 
         cleanedService.widget = {
@@ -129,6 +130,8 @@ export function cleanServiceGroups(groups) {
 
         if (currency) cleanedService.widget.currency = currency;
         if (symbols) cleanedService.widget.symbols = symbols;
+        
+        if (inboxTag) cleanedService.widget.inboxTag = inboxTag;
 
         if (type === "docker") {
           if (server) cleanedService.widget.server = server;
