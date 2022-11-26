@@ -353,5 +353,11 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
