@@ -342,5 +342,11 @@
     "paperlessngx": {
         "inbox": "Ulazni sandučić",
         "total": "Ukupno"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
