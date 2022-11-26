@@ -344,8 +344,8 @@
         "total": "Total"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Récep.",
+        "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
     }
