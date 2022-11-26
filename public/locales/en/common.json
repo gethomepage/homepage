@@ -112,6 +112,12 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
