@@ -36,17 +36,14 @@ export default function Version() {
             {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
           </>
         ) : (
-          releaseData &&
-          compareVersions(latestRelease.tag_name, version) > 0 && (
-            <a
-              href={`https://github.com/benphelps/homepage/releases/tag/${version}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-2 text-xs text-theme-500 dark:text-theme-400 flex flex-row items-center"
-            >
-              {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
-            </a>
-          )
+          <a
+            href={`https://github.com/benphelps/homepage/releases/tag/${version}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 text-xs text-theme-500 dark:text-theme-400 flex flex-row items-center"
+          >
+            {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
+          </a>
         )}
       </span>
       {version === "main" || version === "dev" || version === "nightly"
