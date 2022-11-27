@@ -344,9 +344,9 @@
         "total": "Total"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Descarga",
+        "upload": "Subida",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Semilla"
     }
 }
