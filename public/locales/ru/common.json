@@ -6,7 +6,7 @@
         "information": "Информация",
         "url": "URL",
         "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "response_data": "Данные ответа"
     },
     "search": {
         "placeholder": "Поиск…"
@@ -16,7 +16,7 @@
         "free": "Свободно",
         "used": "Использовано",
         "load": "Загрузка",
-        "cpu": "CPU"
+        "cpu": "Процессор"
     },
     "docker": {
         "rx": "Rx",
@@ -24,14 +24,14 @@
         "mem": "Память",
         "cpu": "Процессор",
         "offline": "Не в сети",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Ошибка",
+        "unknown": "Неизвестный"
     },
     "emby": {
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
-        "no_active": "No Active Streams"
+        "no_active": "Нет активных потоков"
     },
     "tautulli": {
         "playing": "Воспроизведение",
@@ -197,7 +197,7 @@
         "wlan_users": "Пользователи WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Подождите",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Устройства",
@@ -215,8 +215,8 @@
         "wait": "Please wait"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Всего наблюдаемых",
+        "diffsDetected": "Обнаружены различия"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -331,8 +331,8 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
-        "ping": "Ping"
+        "error": "Ошибка",
+        "ping": "Пинг"
     },
     "scrutiny": {
         "failed": "Failed",
