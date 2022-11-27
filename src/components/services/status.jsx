@@ -13,9 +13,25 @@ export default function Status({ service }) {
   }
 
   if (data && data.status === "running") {
+    if (data.health === "starting") {
+      return (
+        <div className="w-auto px-1.5 py-0.5 text-center bg-theme-500/10 dark:bg-theme-900/50 rounded-b-[3px] overflow-hidden" title={data.health}>
+          <div className="text-[8px] font-bold text-blue-500/80 uppercase">{data.health}</div>
+        </div>
+      );
+    }
+
+    if (data.health === "unhealthy") {
+      return (
+        <div className="w-auto px-1.5 py-0.5 text-center bg-theme-500/10 dark:bg-theme-900/50 rounded-b-[3px] overflow-hidden" title={data.health}>
+          <div className="text-[8px] font-bold text-orange-400/50 dark:text-orange-400/80 uppercase">{data.health}</div>
+        </div>
+      );
+    }
+
     return (
-      <div className="w-auto px-1.5 py-0.5 text-center bg-theme-500/10 dark:bg-theme-900/50 rounded-b-[3px] overflow-hidden" title={data.status}>
-        <div className="text-[8px] font-bold text-emerald-500/80 uppercase">{data.status}</div>
+      <div className="w-auto px-1.5 py-0.5 text-center bg-theme-500/10 dark:bg-theme-900/50 rounded-b-[3px] overflow-hidden" title={data.health ?? data.status}>
+        <div className="text-[8px] font-bold text-emerald-500/80 uppercase">{data.health ?? data.status}</div>
       </div>
     );
   }
