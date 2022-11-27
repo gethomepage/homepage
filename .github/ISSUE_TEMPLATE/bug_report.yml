@@ -60,6 +60,16 @@ body:
       description: Please provide any relevant service, widget or otherwise related configuration here
       render: yaml
   - type: textarea
+    id: container-logs
+    attributes:
+      label: Container Logs
+      description: Please review and provide any logs from the container, if relevant
+  - type: textarea
+    id: browser-logs
+    attributes:
+      label: Browser Logs
+      description: Please review and provide any relevant logs from the browser, if relevant
+  - type: textarea
     id: other
     attributes:
       label: Other
