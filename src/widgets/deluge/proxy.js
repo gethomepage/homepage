@@ -13,8 +13,8 @@ const dataParams = [
 ];
 const loginMethod = "auth.login";
 
-async function sendRpc(url, method, params, username, password) {
-  const [status, contentType, data] = await sendJsonRpcRequest(url, method, params, username, password);
+async function sendRpc(url, method, params) {
+  const [status, contentType, data] = await sendJsonRpcRequest(url, method, params);
   const json = JSON.parse(data.toString());
   if (json?.error) {
     if (json.error.code === 1) {
@@ -26,8 +26,8 @@ async function sendRpc(url, method, params, username, password) {
   return [status, contentType, data];
 }
 
-function login(url, username, password) {
-  return sendRpc(url, loginMethod, [password], username, password);
+function login(url, password) {
+  return sendRpc(url, loginMethod, [password]);
 }
 
 export default async function delugeProxyHandler(req, res) {
@@ -48,15 +48,15 @@ export default async function delugeProxyHandler(req, res) {
   const api = widgets?.[widget.type]?.api
   const url = new URL(formatApiCall(api, { ...widget }));
 
-  let [status, contentType, data] = await sendRpc(url, dataMethod, dataParams, widget.username, widget.password);
+  let [status, contentType, data] = await sendRpc(url, dataMethod, dataParams);
   if (status === 403) {
-    [status, contentType, data] = await login(url, widget.username, widget.password);
+    [status, contentType, data] = await login(url, widget.password);
     if (status !== 200) {
       return res.status(status).end(data);
     }
 
     // eslint-disable-next-line no-unused-vars
-    [status, contentType, data] = await sendRpc(url, dataMethod, dataParams, widget.username, widget.password);
+    [status, contentType, data] = await sendRpc(url, dataMethod, dataParams);
   }
 
   return res.status(status).end(data);
