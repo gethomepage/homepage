@@ -295,9 +295,9 @@
         "indexers": "Indexers"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "以扫描",
+        "containers_updated": "以升级",
+        "containers_failed": "失败"
     },
     "tubearchivist": {
         "downloads": "Queue",
