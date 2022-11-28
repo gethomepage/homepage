@@ -32,5 +32,5 @@ export function getSettings() {
 
   const settingsYaml = join(process.cwd(), "config", "settings.yaml");
   const fileContents = readFileSync(settingsYaml, "utf8");
-  return yaml.load(fileContents);
+  return yaml.load(fileContents) ?? {};
 }
