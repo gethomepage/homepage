@@ -110,7 +110,8 @@
     "overseerr": {
         "pending": "待定",
         "approved": "批准",
-        "available": "可用"
+        "available": "可用",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "查詢",
