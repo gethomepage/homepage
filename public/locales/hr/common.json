@@ -23,7 +23,8 @@
     "overseerr": {
         "available": "Dostupno",
         "pending": "Predstoji",
-        "approved": "Odobreno"
+        "approved": "Odobreno",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Upiti",
