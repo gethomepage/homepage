@@ -89,7 +89,8 @@
     "overseerr": {
         "pending": "Pending",
         "approved": "Approved",
-        "available": "Available"
+        "available": "Available",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Queries",
