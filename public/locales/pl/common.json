@@ -126,7 +126,8 @@
     "overseerr": {
         "pending": "Oczekiwane",
         "approved": "Zaakceptowane",
-        "available": "Dostępne"
+        "available": "Dostępne",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Zapytania",
