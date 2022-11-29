@@ -8,9 +8,9 @@ import cachedFetch from "utils/proxy/cached-fetch";
 export default function Version() {
   const { t, i18n } = useTranslation();
 
-  const buildTime = process.env.NEXT_PUBLIC_BUILDTIME ?? new Date().toISOString();
-  const revision = process.env.NEXT_PUBLIC_REVISION ?? "dev";
-  const version = process.env.NEXT_PUBLIC_VERSION ?? "dev";
+  const buildTime = process.env.NEXT_PUBLIC_BUILDTIME?.length ? process.env.NEXT_PUBLIC_BUILDTIME : new Date().toISOString();
+  const revision = process.env.NEXT_PUBLIC_REVISION?.length ? process.env.NEXT_PUBLIC_REVISION : "dev";
+  const version = process.env.NEXT_PUBLIC_VERSION?.length ?  process.env.NEXT_PUBLIC_VERSION : "dev";
 
   const cachedFetcher = (resource) => cachedFetch(resource, 5).then((res) => res.json());
 
