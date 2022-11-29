@@ -122,7 +122,8 @@
     "overseerr": {
         "pending": "పెండింగ్",
         "approved": "ఆమోదించబడింది",
-        "available": "అందుబాటులో"
+        "available": "అందుబాటులో",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "ప్రశ్నలు",
