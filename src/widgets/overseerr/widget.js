@@ -9,6 +9,7 @@ const widget = {
       endpoint: "request/count",
       validate: [
         "pending",
+        "processing",
         "approved",
         "available",
       ],
