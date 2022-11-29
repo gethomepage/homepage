@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "Venter",
         "approved": "Godkjent",
-        "available": "Tilgjengelig"
+        "available": "Tilgjengelig",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Takt",
