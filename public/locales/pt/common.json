@@ -115,7 +115,8 @@
     "overseerr": {
         "pending": "Pendente",
         "approved": "Aprovado",
-        "available": "Disponível"
+        "available": "Disponível",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Taxa",
