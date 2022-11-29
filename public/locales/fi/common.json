@@ -110,7 +110,8 @@
     "overseerr": {
         "pending": "Vireillä",
         "approved": "Hyväksytty",
-        "available": "Saatavilla"
+        "available": "Saatavilla",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Kyselyjä",
