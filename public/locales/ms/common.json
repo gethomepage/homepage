@@ -220,7 +220,8 @@
     "overseerr": {
         "pending": "Tertangguh",
         "approved": "Lulus",
-        "available": "Sudah Ada"
+        "available": "Sudah Ada",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Permintaan",
