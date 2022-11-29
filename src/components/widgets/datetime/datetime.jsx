@@ -23,7 +23,7 @@ export default function DateTime({ options }) {
       setDate(dateFormat.format(new Date()));
     }, 1000);
     return () => clearInterval(interval);
-  }, [date, setDate]);
+  }, [date, setDate, dateFormat]);
 
   return (
     <div className="flex flex-col justify-center first:ml-0 ml-4">
