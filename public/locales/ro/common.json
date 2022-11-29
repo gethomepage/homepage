@@ -23,7 +23,8 @@
     "overseerr": {
         "pending": "În așteptare",
         "approved": "Aprobate",
-        "available": "Disponibile"
+        "available": "Disponibile",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Cereri",
