@@ -147,7 +147,8 @@
     "overseerr": {
         "pending": "Čeká",
         "approved": "Schváleno",
-        "available": "Dostupný"
+        "available": "Dostupný",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Dotazy",
