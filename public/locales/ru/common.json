@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "Pending",
         "approved": "Approved",
-        "available": "Available"
+        "available": "Available",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Rate",
