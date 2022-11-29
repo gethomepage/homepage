@@ -2,36 +2,36 @@
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
-        "information": "Information",
-        "status": "Status",
+        "information": "Informo",
+        "status": "Stato",
         "url": "URL",
         "raw_error": "Raw Error",
         "response_data": "Response Data"
     },
     "weather": {
-        "current": "Current Location",
+        "current": "Aktuala loko",
         "allow": "Click to allow",
         "updating": "Updating",
         "wait": "Please wait"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Serĉi…"
     },
     "resources": {
-        "cpu": "CPU",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "cpu": "Ĉefprocesoro",
+        "total": "Totalo",
+        "free": "Libera",
+        "used": "Uzata",
+        "load": "Ŝarĝo"
     },
     "unifi": {
-        "users": "Users",
+        "users": "Uzantoj",
         "uptime": "System Uptime",
-        "days": "Days",
+        "days": "Tagoj",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
+        "devices": "Aparatoj",
         "lan_devices": "LAN Devices",
         "wlan_devices": "WLAN Devices",
         "lan_users": "LAN Users",
@@ -43,18 +43,18 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Memoro",
+        "cpu": "Ĉefprocesoro",
         "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Eraro",
+        "unknown": "Nekonata"
     },
     "ping": {
-        "error": "Error",
+        "error": "Eraro",
         "ping": "Ping"
     },
     "emby": {
-        "playing": "Playing",
+        "playing": "Ludante",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
@@ -76,8 +76,8 @@
     },
     "plex": {
         "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "movies": "Filmoj",
+        "tv": "Televidprogramoj"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -86,23 +86,23 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Alŝuto",
+        "download": "Elŝuto"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Elŝuto",
+        "upload": "Alŝuto",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Elŝuto",
+        "upload": "Alŝuto",
         "leech": "Leech",
         "seed": "Seed"
     },
     "deluge": {
-        "download": "Download",
+        "download": "Elŝuto",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
@@ -110,23 +110,23 @@
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series"
+        "series": "Serio"
     },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Movies"
+        "movies": "Filmoj"
     },
     "lidarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "albums": "Albums"
+        "albums": "Albumoj"
     },
     "readarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "books": "Books"
+        "books": "Libroj"
     },
     "bazarr": {
         "missingEpisodes": "Missing Episodes",
@@ -134,19 +134,19 @@
     },
     "ombi": {
         "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "approved": "Aprobita",
+        "available": "Havebla"
     },
     "jellyseerr": {
         "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "approved": "Aprobita",
+        "available": "Havebla"
     },
     "overseerr": {
         "pending": "Pending",
         "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "approved": "Aprobita",
+        "available": "Havebla"
     },
     "pihole": {
         "queries": "Queries",
@@ -155,8 +155,8 @@
     },
     "adguard": {
         "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
+        "blocked": "Blokitaj",
+        "filtered": "Filtritaj",
         "latency": "Latency"
     },
     "speedtest": {
@@ -167,11 +167,11 @@
     "portainer": {
         "running": "Running",
         "stopped": "Stopped",
-        "total": "Total"
+        "total": "Totalo"
     },
     "traefik": {
         "routers": "Routers",
-        "services": "Services",
+        "services": "Servoj",
         "middleware": "Middleware"
     },
     "navidrome": {
@@ -185,15 +185,15 @@
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "1hour": "1 horo",
+        "1day": "1 tago",
+        "7days": "7 tagoj",
+        "30days": "30 tagoj"
     },
     "gotify": {
         "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "clients": "Klientoj",
+        "messages": "Mesaĝoj"
     },
     "prowlarr": {
         "enableIndexers": "Indexers",
@@ -207,14 +207,14 @@
         "errored": "Errored"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
+        "numActiveSessions": "Seancoj",
+        "numConnections": "Konektoj",
         "dataRelayed": "Relayed",
         "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
+        "user_count": "Uzantoj",
+        "status_count": "Afiŝoj",
         "domain_count": "Domains"
     },
     "authentik": {
@@ -223,33 +223,33 @@
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Memoro",
+        "cpu": "Ĉefprocesoro",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "Ĉefprocesoro",
+        "mem": "Memoro",
+        "wait": "Bonvolu atendi"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Servo"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
+        "0-day": "Suna",
+        "0-night": "Sennuba",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "2-day": "Nubeta",
+        "2-night": "Nubeta",
+        "3-day": "Nuba",
+        "3-night": "Nuba",
+        "45-day": "Nebula",
+        "45-night": "Nebula",
+        "48-day": "Nebula",
+        "48-night": "Nebula",
         "51-day": "Light Drizzle",
         "51-night": "Light Drizzle",
         "53-day": "Drizzle",
@@ -262,20 +262,20 @@
         "57-night": "Freezing Drizzle",
         "61-day": "Light Rain",
         "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "63-day": "Pluvo",
+        "63-night": "Pluvo",
+        "65-day": "Pluvego",
+        "65-night": "Pluvego",
+        "66-day": "Frosta pluvo",
+        "66-night": "Frosta pluvo",
+        "67-day": "Frosta pluvo",
+        "67-night": "Frosta pluvo",
         "71-day": "Light Snow",
         "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
+        "73-day": "Neĝo",
+        "73-night": "Neĝo",
+        "75-day": "Neĝego",
+        "75-night": "Neĝego",
         "77-day": "Snow Grains",
         "77-night": "Snow Grains",
         "80-day": "Light Showers",
@@ -288,15 +288,15 @@
         "85-night": "Snow Showers",
         "86-day": "Snow Showers",
         "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "95-day": "Fulmotondro",
+        "95-night": "Fulmotondro",
+        "96-day": "Fulmotondro kun hajlo",
+        "96-night": "Fulmotondro kun hajlo",
+        "99-day": "Fulmotondro kun hajlo",
+        "99-night": "Fulmotondro kun hajlo"
     },
     "homebridge": {
-        "available_update": "System",
+        "available_update": "Sistemo",
         "updates": "Updates",
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
@@ -311,13 +311,13 @@
     "autobrr": {
         "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",
-        "filters": "Filters",
+        "filters": "Filtriloj",
         "indexers": "Indexers"
     },
     "tubearchivist": {
         "downloads": "Queue",
         "videos": "Videos",
-        "channels": "Channels",
+        "channels": "Kanaloj",
         "playlists": "Playlists"
     },
     "truenas": {
@@ -328,17 +328,17 @@
     },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
+        "active": "Aktiva",
         "queue": "Queue",
         "total": "Total"
     },
     "gluetun": {
         "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "region": "Regiono",
+        "country": "Lando"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanaloj",
         "hd": "HD"
     },
     "scrutiny": {
@@ -348,6 +348,6 @@
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
+        "total": "Totalo"
     }
 }
