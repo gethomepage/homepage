@@ -112,13 +112,13 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   return (
     <div className={classNames(
-      "relative z-10 ease-in-out duration-300 transition-opacity",
+      "relative z-20 ease-in-out duration-300 transition-opacity",
       hidden && !isOpen && "hidden",
       !hidden && isOpen && "opacity-100",
       !isOpen && "opacity-0",
     )} role="dialog" aria-modal="true">
       <div className="fixed inset-0 bg-gray-500 bg-opacity-50" />
-      <div className="fixed inset-0 z-10 overflow-y-auto">
+      <div className="fixed inset-0 z-20 overflow-y-auto">
         <div className="flex min-h-full min-w-full items-start justify-center text-center">
           <dialog className="mt-[10%] min-w-[80%] max-w-[90%] md:min-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
             <input placeholder="Search" className={classNames(
