@@ -131,7 +131,8 @@
     "overseerr": {
         "pending": "Bekliyor",
         "approved": "Onaylı",
-        "available": "Kullanılabilir"
+        "available": "Kullanılabilir",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Sorgular",
