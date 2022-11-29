@@ -23,7 +23,8 @@
     "overseerr": {
         "pending": "Afventer",
         "approved": "Godkendt",
-        "available": "Tilgængelig"
+        "available": "Tilgængelig",
+        "processing": "Processing"
     },
     "adguard": {
         "queries": "Forespørgsler",
