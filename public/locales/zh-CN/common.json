@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "待办",
         "approved": "已批准",
-        "available": "可用"
+        "available": "可用",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "速率",
