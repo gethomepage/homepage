@@ -110,7 +110,8 @@
     "overseerr": {
         "pending": "Függőben",
         "approved": "Engedélyezett",
-        "available": "Elérhető"
+        "available": "Elérhető",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Lekérdezések",
