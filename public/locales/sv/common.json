@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "Avvaktar",
         "approved": "Godkända",
-        "available": "Tillgänglig"
+        "available": "Tillgänglig",
+        "processing": "Processing"
     },
     "pihole": {
         "blocked": "Blockerad",
