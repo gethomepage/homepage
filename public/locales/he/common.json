@@ -110,7 +110,8 @@
     "overseerr": {
         "pending": "ממתין",
         "approved": "מאושר",
-        "available": "זמין"
+        "available": "זמין",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "שאילתות",
