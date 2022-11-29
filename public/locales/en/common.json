@@ -155,6 +155,7 @@
     },
     "overseerr": {
         "pending": "Pending",
+        "processing": "Processing",
         "approved": "Approved",
         "available": "Available"
     },
@@ -313,7 +314,7 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
-    "watchtower":{
+    "watchtower": {
         "containers_scanned": "Scanned",
         "containers_updated": "Updated",
         "containers_failed": "Failed"
