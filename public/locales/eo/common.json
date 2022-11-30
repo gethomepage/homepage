@@ -349,5 +349,11 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Totalo"
+    },
+    "diskstation": {
+        "download": "Download",
+        "leech": "Leech",
+        "upload": "Upload",
+        "seed": "Seed"
     }
 }
