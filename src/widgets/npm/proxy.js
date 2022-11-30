@@ -20,12 +20,18 @@ async function login(loginUrl, username, password) {
   });
 
   const status = authResponse[0];
-  const data = JSON.parse(Buffer.from(authResponse[2]).toString());
+  let data = authResponse[2];
 
-  if (status === 200) {
-    cache.put(tokenCacheKey, data.token);
+  try {
+    data = JSON.parse(Buffer.from(authResponse[2]).toString());
+    
+    if (status === 200) {
+      const expiration = new Date(data.expires) - Date.now();
+      cache.put(tokenCacheKey, data.token, expiration - (5 * 60 * 1000)); // expiration -5 minutes
+    }
+  } catch (e) {
+    logger.error(`Error ${status} logging into npm`, authResponse[2]);
   }
-
   return [status, data.token ?? data];
 }
 
@@ -51,8 +57,8 @@ export default async function npmProxyHandler(req, res) {
       if (!token) {
         [status, token] = await login(loginUrl, widget.username, widget.password);
         if (status !== 200) {
-          logger.debug(`HTTTP ${status} logging into npm api: ${data}`);
-          return res.status(status).send(data);
+          logger.debug(`HTTTP ${status} logging into npm api: ${token}`);
+          return res.status(status).send(token);
         }
       }
 
