@@ -15,15 +15,15 @@ const textSizes = {
 export default function DateTime({ options }) {
   const { text_size: textSize, format } = options;
   const { i18n } = useTranslation();
-  const dateFormat = new Intl.DateTimeFormat(i18n.language, { ...format });
   const [date, setDate] = useState("");
   
   useEffect(() => {
+    const dateFormat = new Intl.DateTimeFormat(i18n.language, { ...format });
     const interval = setInterval(() => {
       setDate(dateFormat.format(new Date()));
     }, 1000);
     return () => clearInterval(interval);
-  }, [date, setDate, dateFormat]);
+  }, [date, setDate, i18n.language, format]);
 
   return (
     <div className="flex flex-col justify-center first:ml-0 ml-4">
