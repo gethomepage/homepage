@@ -349,5 +349,11 @@
         "upload": "Subida",
         "leech": "Leech",
         "seed": "Semilla"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
