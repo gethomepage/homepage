@@ -349,5 +349,11 @@
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech"
+    },
+    "diskstation": {
+        "leech": "Leech",
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed"
     }
 }
