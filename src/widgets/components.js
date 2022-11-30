@@ -8,6 +8,7 @@ const components = {
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
   deluge: dynamic(() => import("./deluge/component")),
+  diskstation: dynamic(() => import("./diskstation/component")),
   docker: dynamic(() => import("./docker/component")),
   emby: dynamic(() => import("./emby/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
