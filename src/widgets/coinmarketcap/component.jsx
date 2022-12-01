@@ -16,8 +16,10 @@ export default function Component({ service }) {
     { label: t("coinmarketcap.7days"), value: "7d" },
     { label: t("coinmarketcap.30days"), value: "30d" },
   ];
+  
+  const { default_interval } = default_interval;
 
-  const [dateRange, setDateRange] = useState(dateRangeOptions[0].value);
+  const [dateRange, setDateRange] = useState(default_interval);
 
   const { widget } = service;
   const { symbols } = widget;
