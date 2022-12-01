@@ -107,7 +107,8 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   function highlightText(text) {
     const parts = text.split(new RegExp(`(${searchString})`, 'gi'));
-    return <span>{parts.map(part => part.toLowerCase() === searchString.toLowerCase() ? <span className="bg-theme-300/10">{part}</span> : part)}</span>;
+    // eslint-disable-next-line react/no-array-index-key
+    return <span>{parts.map((part, i) => part.toLowerCase() === searchString.toLowerCase() ? <span key={`${searchString}_${i}`} className="bg-theme-300/10">{part}</span> : part)}</span>;
   }
 
   return (
