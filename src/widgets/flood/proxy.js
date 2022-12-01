@@ -8,14 +8,19 @@ const logger = createLogger("floodProxyHandler");
 async function login(widget) {
   logger.debug("flood is rejecting the request, logging in.");
   const loginUrl = new URL(`${widget.url}/api/auth/authenticate`).toString();
-  const loginHeaders = {
-    "Accept-Encoding": "application/json"
-  };
-  if (widget.username && widget.password) {
-    loginHeaders.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`
-  }
 
-  const loginParams = { method: "POST", loginHeaders };
+  const loginParams = { 
+    method: "POST", 
+    headers: { "Content-Type": "application/json" }, 
+    body: null
+  };
+
+  if (widget.username && widget.password) {
+    loginParams.body = JSON.stringify({
+      "username": widget.username,
+      "password": widget.password
+    });
+  }
 
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);
