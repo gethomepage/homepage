@@ -31,16 +31,16 @@ export default function Component({ service }) {
   let completed = 0;
   let leech = 0;
 
-  for (var torrent in torrentData.torrents) {
-    rateDl += torrentData.torrents[torrent].downRate;
-    rateUl += torrentData.torrents[torrent].upRate;
-    if(torrentData.torrents[torrent].status.includes('complete')){
+  Object.values(torrentData.torrents).forEach(torrent => {
+    rateDl += torrent.downRate;
+    rateUl += torrent.upRate;
+    if(torrent.status.includes('complete')){
       completed += 1;
     }
-    if(torrentData.torrents[torrent].status.includes('downloading')){
+    if(torrent.status.includes('downloading')){
       leech += 1;
     }
-  }
+  })
 
   return (
     <Container service={service}>
