@@ -357,8 +357,8 @@
         "seed": "Seed"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Récep.",
+        "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
     }
