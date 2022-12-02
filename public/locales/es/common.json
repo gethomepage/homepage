@@ -357,8 +357,8 @@
         "seed": "Semilla"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Descargar",
+        "upload": "Subir",
         "leech": "Leech",
         "seed": "Seed"
     }
