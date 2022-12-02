@@ -355,5 +355,11 @@
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech"
+    },
+    "flood": {
+        "leech": "Leech",
+        "seed": "Seed",
+        "download": "Download",
+        "upload": "Upload"
     }
 }
