@@ -118,6 +118,7 @@ export function cleanServiceGroups(groups) {
           container,
           currency, // coinmarketcap widget
           symbols,
+          defaultinterval
         } = cleanedService.widget;
 
         cleanedService.widget = {
@@ -129,6 +130,7 @@ export function cleanServiceGroups(groups) {
 
         if (currency) cleanedService.widget.currency = currency;
         if (symbols) cleanedService.widget.symbols = symbols;
+        if (defaultinterval) cleanedService.widget.defaultinterval = defaultinterval;
 
         if (type === "docker") {
           if (server) cleanedService.widget.server = server;
