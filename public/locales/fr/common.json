@@ -355,5 +355,11 @@
         "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
