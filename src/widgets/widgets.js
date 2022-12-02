@@ -7,6 +7,7 @@ import coinmarketcap from "./coinmarketcap/widget";
 import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
 import emby from "./emby/widget";
+import flood from "./flood/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import hdhomerun from "./hdhomerun/widget";
@@ -54,6 +55,7 @@ const widgets = {
   deluge,
   diskstation,
   emby,
+  flood,
   gluetun,
   gotify,
   hdhomerun,

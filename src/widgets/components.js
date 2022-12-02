@@ -11,6 +11,7 @@ const components = {
   diskstation: dynamic(() => import("./diskstation/component")),
   docker: dynamic(() => import("./docker/component")),
   emby: dynamic(() => import("./emby/component")),
+  flood: dynamic(() => import("./flood/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),
   hdhomerun: dynamic(() => import("./hdhomerun/component")),

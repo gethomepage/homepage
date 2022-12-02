@@ -70,6 +70,12 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
     },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
