@@ -46,7 +46,9 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="docker.cpu" value={t("common.percent", { value: calculateCPUPercent(statsData.stats) })} />
-      <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.memory_stats.usage })} />
+      {statsData.stats.memory_stats.usage && 
+        <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.memory_stats.usage })} />
+      }
       {network && (
         <>
           <Block label="docker.rx" value={t("common.bytes", { value: network.rx_bytes })} />
