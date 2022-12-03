@@ -99,7 +99,7 @@ function Index({ initialSettings, fallback }) {
           localStorage.setItem("hash", hashData.hash);
         }
 
-        if (previousHash && previousHash !== hashData.hash) {
+        if (!initialSettings.isValid || (previousHash && previousHash !== hashData.hash)) {
           setStale(true);
           localStorage.setItem("hash", hashData.hash);
 
@@ -111,7 +111,7 @@ function Index({ initialSettings, fallback }) {
         }
       }
     }
-  }, [hashData]);
+  }, [hashData, initialSettings]);
 
   if (stale) {
     return (
