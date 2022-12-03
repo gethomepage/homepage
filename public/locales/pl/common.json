@@ -127,7 +127,7 @@
         "pending": "Oczekiwane",
         "approved": "Zaakceptowane",
         "available": "Dostępne",
-        "processing": "Processing"
+        "processing": "Przetwarzane"
     },
     "pihole": {
         "queries": "Zapytania",
@@ -336,29 +336,29 @@
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Powodzenie",
+        "failed": "Niepowodzenie",
+        "unknown": "Nieznane"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "Skrzynka odbiorcza",
+        "total": "W sumie"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
     },
     "diskstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
     }
