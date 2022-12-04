@@ -21,8 +21,8 @@ export default function Component({ service }) {
 
   const thresholdStatusMapping = new Map([
     [DeviceStatusThreshold.smart, DeviceStatus.failed_smart],
-    [DeviceStatusThreshold.scrutiny, DeviceStatus.scrutiny],
-    [DeviceStatusThreshold.both, DeviceStatusThreshold.both]
+    [DeviceStatusThreshold.scrutiny, DeviceStatus.failed_scrutiny],
+    [DeviceStatusThreshold.both, DeviceStatus.both]
   ])
   
   const { widget } = service;
