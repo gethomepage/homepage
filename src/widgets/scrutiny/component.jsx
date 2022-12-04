@@ -14,16 +14,10 @@ export default function Component({ service }) {
   
   // @see https://github.com/AnalogJ/scrutiny/blob/d8d56f77f9e868127c4849dac74d65512db658e8/webapp/frontend/src/app/core/config/app.config.ts
   const DeviceStatusThreshold = {
-    smart : 1,
+    smart: 1,
     scrutiny: 2,
     both: 3
   }
-
-  const thresholdStatusMapping = new Map([
-    [DeviceStatusThreshold.smart, DeviceStatus.failed_smart],
-    [DeviceStatusThreshold.scrutiny, DeviceStatus.failed_scrutiny],
-    [DeviceStatusThreshold.both, DeviceStatus.both]
-  ])
   
   const { widget } = service;
 
@@ -48,9 +42,9 @@ export default function Component({ service }) {
   const deviceIds = Object.values(scrutinyData.data.summary);
   const statusThreshold = scrutinySettings.settings.metrics.status_threshold;
   
-  const failed = deviceIds.filter(deviceId => [thresholdStatusMapping.get(statusThreshold), DeviceStatus.failed_both].includes(deviceId.device.device_status))?.length || 0;
+  const failed = deviceIds.filter(deviceId => (deviceId.device.device_status > 0 && statusThreshold === DeviceStatusThreshold.both) || [statusThreshold, DeviceStatus.failed_both].includes(deviceId.device.device_status))?.length || 0;
   const unknown = deviceIds.filter(deviceId => deviceId.device.device_status < DeviceStatus.passed || deviceId.device.device_status > DeviceStatus.failed_both)?.length || 0;
-  const passed = deviceIds.filter(deviceId => deviceId.device.device_status === 0)?.length || 0;
+  const passed = deviceIds.filter(deviceId => deviceId.device.device_status === 0 || (deviceId.device.device_status > statusThreshold && deviceId.device.device_status < DeviceStatus.failed_both))?.length || 0;
 
   return (
     <Container service={service}>
