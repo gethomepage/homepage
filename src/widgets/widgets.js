@@ -38,6 +38,7 @@ import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
+import omada from "./omada/widget";
 import watchtower from './watchtower/widget'
 
 const widgets = {
@@ -81,6 +82,7 @@ const widgets = {
   transmission,
   tubearchivist,
   truenas,
+  omada,
   unifi,
   unifi_console: unifi,
   watchtower,
