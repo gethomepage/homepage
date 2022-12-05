@@ -11,6 +11,12 @@ const widget = {
         "data",
       ]
     },
+    settings: {
+      endpoint: "settings",
+      validate: [
+        "settings",
+      ]
+    }
   },
 };
 
