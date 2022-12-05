@@ -14,7 +14,6 @@ const logger = createLogger(proxyName);
 
 
 async function login(loginUrl, username, password) {
-  console.log("Login in Omada")
   const authResponse = await httpProxy(loginUrl,
     {
       method: "POST",
@@ -69,9 +68,8 @@ export default async function omadaProxyHandler(req, res) {
           return res.status(status).send(token);
         }
 
-      console.log("Token: ", token);
       const url = `${widget.url}/web/v1/controller?globalStat=&token=${token}`;
-      console.log("URL: ", url);
+
       [status, contentType, result] = await httpProxy(url, {
         method: "POST",
         params: {"token": token},
@@ -83,12 +81,7 @@ export default async function omadaProxyHandler(req, res) {
         },
         });
 
-      console.log(result.toString())
-      // data = JSON.parse(result);
-      console.log ("Status: ", status);
-      // console.log ("Data: ", data);
       data = JSON.parse(result);
-      console.log ("Data: ", data);
       if (status === 403) {
         logger.debug(`HTTTP ${status} retrieving data from Omada api, logging in and trying again.`);
         cache.del(tokenCacheKey);

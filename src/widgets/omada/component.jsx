@@ -1,4 +1,3 @@
-
 import { useTranslation } from "next-i18next";
 
 import useWidgetAPI from "../../utils/proxy/use-widget-api";
@@ -29,8 +28,8 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="omada.connectedAp" value={t("common.number", { value: omadaData.connectedAp })} />
-      <Block label="omada.activeUser" value={t("common.number", { value: omadaData.activeUser })} />
+      <Block label="omada.connectedAp" value={omadaData.connectedAp} />
+      <Block label="omada.activeUser" value={omadaData.activeUser } />
     </Container>
   );
 }

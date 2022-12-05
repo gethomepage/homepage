@@ -84,7 +84,11 @@
         "playing": "Playing",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streamsssssss"
+    },
+    "omada": {
+      "activeUser": "Active users",
+      "connectedAp": "Connected APs"
     },
     "nzbget": {
         "rate": "Rate",
