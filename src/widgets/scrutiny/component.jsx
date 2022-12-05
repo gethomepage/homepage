@@ -9,7 +9,10 @@ export default function Component({ service }) {
     passed: 0,
     failed_smart: 1,
     failed_scrutiny: 2,
-    failed_both: 3
+    failed_both: 3,
+
+    isFailed: function ( s ) { return s > this.passed && s <= this.failed_both},
+    isUnknown: function ( s ) { return s < this.passed || s > this.failed_both}
   }
   
   // @see https://github.com/AnalogJ/scrutiny/blob/d8d56f77f9e868127c4849dac74d65512db658e8/webapp/frontend/src/app/core/config/app.config.ts
@@ -37,14 +40,14 @@ export default function Component({ service }) {
         <Block label="scrutiny.unknown" />
       </Container>
     );
-  }
+  } 
 
   const deviceIds = Object.values(scrutinyData.data.summary);
   const statusThreshold = scrutinySettings.settings.metrics.status_threshold;
-  
-  const failed = deviceIds.filter(deviceId => (deviceId.device.device_status > 0 && statusThreshold === DeviceStatusThreshold.both) || [statusThreshold, DeviceStatus.failed_both].includes(deviceId.device.device_status))?.length || 0;
-  const unknown = deviceIds.filter(deviceId => deviceId.device.device_status < DeviceStatus.passed || deviceId.device.device_status > DeviceStatus.failed_both)?.length || 0;
-  const passed = deviceIds.filter(deviceId => deviceId.device.device_status === 0 || (deviceId.device.device_status > statusThreshold && deviceId.device.device_status < DeviceStatus.failed_both))?.length || 0;
+
+  const failed = deviceIds.filter(deviceId => (DeviceStatus.isFailed(deviceId.device.device_status) && statusThreshold === DeviceStatusThreshold.both) || [statusThreshold, DeviceStatus.failed_both].includes(deviceId.device.device_status))?.length || 0;
+  const unknown = deviceIds.filter(deviceId => DeviceStatus.isUnknown(deviceId.device.device_status))?.length || 0;
+  const passed = deviceIds.length - (failed + unknown);
 
   return (
     <Container service={service}>
@@ -52,7 +55,7 @@ export default function Component({ service }) {
       <Block label="scrutiny.failed" value={failed} />
       <Block label="scrutiny.unknown" value={unknown} />
     </Container>
+    
   );
+  
 }
-
-
