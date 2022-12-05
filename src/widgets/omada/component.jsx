@@ -28,8 +28,8 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="omada.connectedAp" value={t( "common number", { value: omadaData.connectedAp})} />
-      <Block label="omada.activeUser" value={t( "common number", { value: omadaData.activeUser })} />
+      <Block label="omada.connectedAp" value={t( "common.number", { value: omadaData.connectedAp})} />
+      <Block label="omada.activeUser" value={t( "common.number", { value: omadaData.activeUser })} />
     </Container>
   );
 }

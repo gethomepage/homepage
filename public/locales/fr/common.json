@@ -27,10 +27,6 @@
         "error": "Erreur",
         "unknown": "Inconnu"
     },
-    "omada": {
-      "activeUser": "Utilisateurs actifs",
-      "connectedAp": "AP connectés"
-    },
     "emby": {
         "playing": "En lecture",
         "transcoding": "Transcodage",
