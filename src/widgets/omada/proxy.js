@@ -27,7 +27,7 @@ async function login(loginUrl, username, password) {
     );
   const status = authResponse[0];
   const data = JSON.parse(authResponse[2]);
-  const token  = data.result.token;
+  const {token} = data.result;
   try {
     if (status === 200) {
       cache.put(tokenCacheKey, token); // expiration -5 minutes
