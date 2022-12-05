@@ -52,7 +52,7 @@
   - Coin Market Cap, Mastodon
 - Information & Utility Widgets
   - System Stats (Disk, CPU, Memory)
-  - Weather via WeatherAPI.com or OpenWeatherMap
+  - Weather via [WeatherAPI.com](https://www.weatherapi.com/), [OpenWeatherMap](https://openweathermap.org/), or [Open-Meteo](https://open-meteo.com/)
   - Search Bar
 - Customizable
   - 21 theme colors with light and dark mode support
