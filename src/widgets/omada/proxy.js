@@ -53,6 +53,7 @@ async function login(widget) {
     body: JSON.stringify(loginBody),
     headers,
   });
+  console.log("login status", status);
   return [status, contentType, data, responseHeaders];
 }
 

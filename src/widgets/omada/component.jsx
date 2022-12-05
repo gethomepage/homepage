@@ -10,7 +10,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: omadaData, error: omadaAPIError } = useWidgetAPI(widget, "unified", {
+  const { data: omadaData, error: omadaAPIError } = useWidgetAPI(widget, "stats", {
     refreshInterval: 5000,
   });
 
@@ -21,17 +21,16 @@ export default function Component({ service }) {
   if (!omadaData) {
     return (
       <Container service={service}>
-        <Block label="omada.clients" />
-        <Block label="plex.ap" />
+        <Block label="omada.connectedAp" />
+        <Block label="omada.activeUser" />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="omada.clients" value={t("common.number", { value: omada.clients })} />
-      <Block label="omada.ap" value={t("common.number", { value: omada.ap })} />
-
+      <Block label="omada.connectedAp" value={t("common.number", { value: omadaData.connectedAp })} />
+      <Block label="omada.activeUser" value={t("common.number", { value: omadaData.activeUser })} />
     </Container>
   );
 }

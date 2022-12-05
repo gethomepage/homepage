@@ -24,6 +24,7 @@ const components = {
   navidrome: dynamic(() => import("./navidrome/component")),
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
+  omada: dynamic(() => import("./omada/component")),
   ombi: dynamic(() => import("./ombi/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   paperlessngx: dynamic(() => import("./paperlessngx/component")),
