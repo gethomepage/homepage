@@ -1,4 +1,5 @@
 import omadaProxyHandler from "./proxy";
+// import genericProxyHandler from "../../utils/proxy/handlers/generic";
 
 const widget = {
   api: "{url}/web/v1/{endpoint}",
@@ -7,9 +8,7 @@ const widget = {
   mappings: {
     stats: {
       endpoint: "controller",
-        params: {
-          "method": "getGlobalStat",
-        },
+
     }
   }
 };

@@ -8,115 +8,114 @@ import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
-const udmpPrefix = "/proxy/network";
 const proxyName = "omadaProxyHandler";
-const prefixCacheKey = `${proxyName}__prefix`;
+const tokenCacheKey = `${proxyName}__token`;
 const logger = createLogger(proxyName);
 
-async function getWidget(req) {
-  const { group, service, type } = req.query;
 
-  let widget = null;
-  if (type === "omada_console") { // info widget
-    const index = req.query?.query ? JSON.parse(req.query.query).index : undefined;
-    widget = await getPrivateWidgetOptions(type, index);
-    if (!widget) {
-      logger.debug("Error retrieving settings for this Omada widget");
-      return null;
+async function login(loginUrl, username, password) {
+  console.log("Login in Omada")
+  const authResponse = await httpProxy(loginUrl,
+    {
+      method: "POST",
+      body: JSON.stringify({ "method": "login",
+    "params": {
+    "name": username,
+      "password": password
+  } }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
-    widget.type = "omada";
-  } else {
-    if (!group || !service) {
-      logger.debug("Invalid or missing service '%s' or group '%s'", service, group);
-      return null;
+    );
+  const status = authResponse[0];
+  const data = JSON.parse(authResponse[2]);
+  const token  = data.result.token;
+  try {
+    if (status === 200) {
+      cache.put(tokenCacheKey, token); // expiration -5 minutes
     }
-
-    widget = await getServiceWidget(group, service);
-
-    if (!widget) {
-      logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
-      return null;
-    }
+  } catch (e) {
+    logger.error(`Error ${status} logging into Omada`, authResponse[2]);
   }
-
-  return widget;
-}
-
-async function login(widget) {
-  const endpoint = (widget.prefix === udmpPrefix) ? "auth/login" : "login";
-  const api = widgets?.[widget.type]?.api?.replace("{prefix}", ""); // no prefix for login url
-  const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
-  const loginBody = { username: widget.username, password: widget.password, remember: true };
-  const headers = { "Content-Type": "application/json" };
-  const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
-    method: "POST",
-    body: JSON.stringify(loginBody),
-    headers,
-  });
-  console.log("login status", status);
-  return [status, contentType, data, responseHeaders];
+  return [status, token ?? data];
 }
 
 export default async function omadaProxyHandler(req, res) {
-  const widget = await getWidget(req);
-  if (!widget) {
-    return res.status(400).json({ error: "Invalid proxy service type" });
-  }
+  const { group, service, endpoint } = req.query;
 
-  const api = widgets?.[widget.type]?.api;
-  if (!api) {
-    return res.status(403).json({ error: "Service does not support API calls" });
-  }
+  if (group && service) {
+    const widget = await getServiceWidget(group, service);
 
-  let [status, contentType, data, responseHeaders] = [];
-  let prefix = cache.get(prefixCacheKey);
-  if (prefix === null) {
-    // auto detect if we're talking to a UDM Pro, and cache the result so that we
-    // don't make two requests each time data from Omada is required
-    [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
-    prefix = "";
-    if (responseHeaders?.["x-csrf-token"]) {
-      prefix = udmpPrefix;
-    }
-    cache.put(prefixCacheKey, prefix);
-  }
-
-  widget.prefix = prefix;
-
-  const { endpoint } = req.query;
-  const url = new URL(formatApiCall(api, { endpoint, ...widget }));
-  const params = { method: "GET", headers: {} };
-  setCookieHeader(url, params);
-
-  [status, contentType, data, responseHeaders] = await httpProxy(url, params);
-
-  if (status === 401) {
-    logger.debug("Omada isn't logged in or rejected the reqeust, attempting login.");
-    [status, contentType, data, responseHeaders] = await login(widget);
-
-    if (status !== 200) {
-      logger.error("HTTP %d logging in to Omada. Data: %s", status, data);
-      return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
+    if (!widgets?.[widget.type]?.api) {
+      return res.status(403).json({ error: "Service does not support API calls" });
     }
 
-    const json = JSON.parse(data.toString());
-    if (!(json?.meta?.rc === "ok" || json?.login_time || json?.update_time)) {
-      logger.error("Error logging in to Omada: Data: %s", data);
-      return res.status(401).end(data);
+    if (widget) {
+
+      // const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
+
+      const loginUrl = `${widget.url}/api/user/login?ajax`;
+
+      let status;
+      let contentType;
+      let data;
+      let result;
+      let token;
+
+      [status, token] = await login(loginUrl, widget.username, widget.password);
+      if (status !== 200) {
+          logger.debug(`HTTTP ${status} logging into Omada api: ${token}`);
+          return res.status(status).send(token);
+        }
+
+      console.log("Token: ", token);
+      const url = `${widget.url}/web/v1/controller?globalStat=&token=${token}`;
+      console.log("URL: ", url);
+      [status, contentType, result] = await httpProxy(url, {
+        method: "POST",
+        params: {"token": token},
+        body: JSON.stringify({
+          "method": "getGlobalStat",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        });
+
+      console.log(result.toString())
+      // data = JSON.parse(result);
+      console.log ("Status: ", status);
+      // console.log ("Data: ", data);
+      data = JSON.parse(result);
+      console.log ("Data: ", data);
+      if (status === 403) {
+        logger.debug(`HTTTP ${status} retrieving data from Omada api, logging in and trying again.`);
+        cache.del(tokenCacheKey);
+        [status, token] = await login(loginUrl, widget.username, widget.password);
+
+        if (status !== 200) {
+          logger.debug(`HTTTP ${status} logging into Omada api: ${data}`);
+          return res.status(status).send(data);
+        }
+
+        // eslint-disable-next-line no-unused-vars
+        [status, contentType, data] = await httpProxy(url, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      }
+
+      if (status !== 200) {
+        return res.status(status).send(data);
+      }
+
+      return res.send(data.result);
     }
-
-    addCookieToJar(url, responseHeaders);
-    setCookieHeader(url, params);
-
-    logger.debug("Retrying Omada request after login.");
-    [status, contentType, data, responseHeaders] = await httpProxy(url, params);
   }
 
-  if (status !== 200) {
-    logger.error("HTTP %d getting data from Omada endpoint %s. Data: %s", status, url.href, data);
-    return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
-  }
-
-  if (contentType) res.setHeader("Content-Type", contentType);
-  return res.status(status).send(data);
+  return res.status(400).json({ error: "Invalid proxy service type" });
 }
