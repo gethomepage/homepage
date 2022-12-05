@@ -131,7 +131,8 @@
     "overseerr": {
         "pending": "Pending",
         "approved": "Approved",
-        "available": "Available"
+        "available": "Available",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Queries",
@@ -333,5 +334,32 @@
     "ping": {
         "ping": "Ping",
         "error": "Error"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "seed": "Seed",
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech"
+    },
+    "flood": {
+        "leech": "Leech",
+        "seed": "Seed",
+        "download": "Download",
+        "upload": "Upload"
     }
 }

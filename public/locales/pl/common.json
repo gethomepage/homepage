@@ -126,7 +126,8 @@
     "overseerr": {
         "pending": "Oczekiwane",
         "approved": "Zaakceptowane",
-        "available": "Dostępne"
+        "available": "Dostępne",
+        "processing": "Przetwarzane"
     },
     "pihole": {
         "queries": "Zapytania",
@@ -333,5 +334,32 @@
     "ping": {
         "error": "Błąd",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Powodzenie",
+        "failed": "Niepowodzenie",
+        "unknown": "Nieznane"
+    },
+    "paperlessngx": {
+        "inbox": "Skrzynka odbiorcza",
+        "total": "W sumie"
+    },
+    "deluge": {
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

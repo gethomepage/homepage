@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "Avvaktar",
         "approved": "Godkända",
-        "available": "Tillgänglig"
+        "available": "Tillgänglig",
+        "processing": "Processing"
     },
     "pihole": {
         "blocked": "Blockerad",
@@ -333,5 +334,32 @@
     "ping": {
         "error": "Error",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "leech": "Leech",
+        "upload": "Upload",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

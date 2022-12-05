@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "待办",
         "approved": "已批准",
-        "available": "可用"
+        "available": "可用",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "速率",
@@ -295,9 +296,9 @@
         "indexers": "Indexers"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "以扫描",
+        "containers_updated": "以升级",
+        "containers_failed": "失败"
     },
     "tubearchivist": {
         "downloads": "Queue",
@@ -333,5 +334,32 @@
     "ping": {
         "error": "Error",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "leech": "Leech",
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed"
     }
 }

@@ -70,6 +70,12 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
     },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
@@ -112,6 +118,18 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
@@ -149,6 +167,7 @@
     },
     "overseerr": {
         "pending": "Pending",
+        "processing": "Processing",
         "approved": "Approved",
         "available": "Available"
     },
@@ -307,7 +326,7 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
-    "watchtower":{
+    "watchtower": {
         "containers_scanned": "Scanned",
         "containers_updated": "Updated",
         "containers_failed": "Failed"
@@ -344,5 +363,14 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
     }
 }

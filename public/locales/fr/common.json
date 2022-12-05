@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "En attente",
         "approved": "Demande",
-        "available": "Disponible"
+        "available": "Disponible",
+        "processing": "En traitement"
     },
     "sabnzbd": {
         "rate": "Débit",
@@ -333,5 +334,32 @@
     "ping": {
         "error": "Erreur",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Réussi",
+        "failed": "Échoué",
+        "unknown": "Inconnu"
+    },
+    "paperlessngx": {
+        "inbox": "Boîte de réception",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Récep.",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Réception",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Récep.",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

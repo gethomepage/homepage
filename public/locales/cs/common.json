@@ -147,7 +147,8 @@
     "overseerr": {
         "pending": "Čeká",
         "approved": "Schváleno",
-        "available": "Dostupný"
+        "available": "Dostupný",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Dotazy",
@@ -333,5 +334,32 @@
     "ping": {
         "error": "Error",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed",
+        "download": "Download"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

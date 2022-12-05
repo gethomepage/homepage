@@ -3,10 +3,10 @@
         "missing_type": "Отсутствует тип виджета: {{type}}",
         "api_error": "Ошибка API",
         "status": "Статус",
-        "information": "Information",
+        "information": "Информация",
         "url": "URL",
         "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "response_data": "Данные ответа"
     },
     "search": {
         "placeholder": "Поиск…"
@@ -15,8 +15,8 @@
         "total": "Всего",
         "free": "Свободно",
         "used": "Использовано",
-        "load": "Load",
-        "cpu": "CPU"
+        "load": "Загрузка",
+        "cpu": "Процессор"
     },
     "docker": {
         "rx": "Rx",
@@ -24,14 +24,14 @@
         "mem": "Память",
         "cpu": "Процессор",
         "offline": "Не в сети",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Ошибка",
+        "unknown": "Неизвестный"
     },
     "emby": {
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
-        "no_active": "No Active Streams"
+        "no_active": "Нет активных потоков"
     },
     "tautulli": {
         "playing": "Воспроизведение",
@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "Pending",
         "approved": "Approved",
-        "available": "Available"
+        "available": "Available",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -189,19 +190,19 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Пользователи",
+        "uptime": "Время работы системы",
+        "days": "Дней",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_users": "Пользователи LAN",
+        "wlan_users": "Пользователи WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Подождите",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
+        "devices": "Устройства",
+        "lan_devices": "Устройства подключённые по LAN",
         "wlan_devices": "WLAN Devices"
     },
     "plex": {
@@ -215,8 +216,8 @@
         "wait": "Please wait"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Всего наблюдаемых",
+        "diffsDetected": "Обнаружены различия"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -331,7 +332,34 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
-        "ping": "Ping"
+        "error": "Ошибка",
+        "ping": "Пинг"
+    },
+    "scrutiny": {
+        "failed": "Failed",
+        "unknown": "Unknown",
+        "passed": "Passed"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed",
+        "leech": "Leech"
+    },
+    "flood": {
+        "upload": "Upload",
+        "download": "Download",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

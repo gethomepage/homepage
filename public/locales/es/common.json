@@ -24,8 +24,8 @@
         "mem": "Memoria",
         "cpu": "Procesador",
         "offline": "Desconectado",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Fallo",
+        "unknown": "Desconocido"
     },
     "emby": {
         "playing": "Reproduciendo",
@@ -53,7 +53,7 @@
         "wanted": "Buscando",
         "queued": "En cola",
         "movies": "Películas",
-        "missing": "No Encontrado"
+        "missing": "Faltan"
     },
     "readarr": {
         "wanted": "Buscando",
@@ -104,7 +104,8 @@
     "overseerr": {
         "pending": "Pendiente",
         "approved": "Aprobado",
-        "available": "Disponible"
+        "available": "Disponible",
+        "processing": "Procesando"
     },
     "sabnzbd": {
         "rate": "Tasa",
@@ -138,7 +139,7 @@
     "transmission": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Compañeros",
+        "leech": "Leech",
         "seed": "Semillas"
     },
     "jackett": {
@@ -163,7 +164,7 @@
     "qbittorrent": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Compañeros",
+        "leech": "Leech",
         "seed": "Semillas"
     },
     "mastodon": {
@@ -333,5 +334,32 @@
     "ping": {
         "error": "Error",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Aprobado",
+        "failed": "Fallido",
+        "unknown": "Desconocido"
+    },
+    "paperlessngx": {
+        "inbox": "Bandeja de entrada",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Leech",
+        "seed": "Semilla"
+    },
+    "diskstation": {
+        "download": "Descargar",
+        "upload": "Cargar",
+        "leech": "Leech",
+        "seed": "Semilla"
+    },
+    "flood": {
+        "download": "Descargar",
+        "upload": "Subir",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

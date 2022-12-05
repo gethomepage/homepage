@@ -110,7 +110,8 @@
     "overseerr": {
         "pending": "ממתין",
         "approved": "מאושר",
-        "available": "זמין"
+        "available": "זמין",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "שאילתות",
@@ -333,5 +334,32 @@
     "ping": {
         "error": "Error",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "upload": "Upload",
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

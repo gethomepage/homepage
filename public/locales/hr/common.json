@@ -23,7 +23,8 @@
     "overseerr": {
         "available": "Dostupno",
         "pending": "Predstoji",
-        "approved": "Odobreno"
+        "approved": "Odobreno",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Upiti",
@@ -70,8 +71,8 @@
         "mem": "MEM",
         "cpu": "CPU",
         "offline": "Nepovezan",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Greška",
+        "unknown": "Nepoznato"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -331,7 +332,34 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Greška",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Prošlo",
+        "failed": "Neuspjelo",
+        "unknown": "Nepoznato"
+    },
+    "paperlessngx": {
+        "inbox": "Ulazni sandučić",
+        "total": "Ukupno"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

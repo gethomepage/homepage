@@ -126,10 +126,10 @@
         "missing_type": "Jenis Widget Hilang: {{type}}",
         "api_error": "Masalah API",
         "status": "Status",
-        "information": "Information",
+        "information": "Informasi",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Ralat Mentah",
+        "response_data": "Data Respon"
     },
     "weather": {
         "current": "Lokasi Sekarang",
@@ -151,8 +151,8 @@
         "mem": "MEM",
         "cpu": "CPU",
         "offline": "Luar talian",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Ralat",
+        "unknown": "Tidak Diketahui"
     },
     "changedetectionio": {
         "totalObserved": "Jumlah Diperhatikan",
@@ -220,7 +220,8 @@
     "overseerr": {
         "pending": "Tertangguh",
         "approved": "Lulus",
-        "available": "Sudah Ada"
+        "available": "Sudah Ada",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Permintaan",
@@ -322,16 +323,43 @@
         "total": "Jumlah"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "IP Awam",
+        "region": "Rantau",
+        "country": "Negara"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Saluran",
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Ralat",
         "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Lulus",
+        "failed": "Gagal",
+        "unknown": "Tidak Diketahui"
+    },
+    "paperlessngx": {
+        "inbox": "Peti Masuk",
+        "total": "Jumlah"
+    },
+    "deluge": {
+        "download": "Muat Turun",
+        "upload": "Muat Naik",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "upload": "Upload",
+        "download": "Download",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
