@@ -2,26 +2,26 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+
+// @see https://github.com/AnalogJ/scrutiny/blob/d8d56f77f9e868127c4849dac74d65512db658e8/webapp/frontend/src/app/shared/device-status.pipe.ts
+const DeviceStatus = {
+  passed: 0,
+  failed_smart: 1,
+  failed_scrutiny: 2,
+  failed_both: 3,
+
+  isFailed(s){ return s > this.passed && s <= this.failed_both},
+  isUnknown(s){ return s < this.passed || s > this.failed_both}
+}
+
+// @see https://github.com/AnalogJ/scrutiny/blob/d8d56f77f9e868127c4849dac74d65512db658e8/webapp/frontend/src/app/core/config/app.config.ts
+const DeviceStatusThreshold = {
+  smart: 1,
+  scrutiny: 2,
+  both: 3
+}
+
 export default function Component({ service }) {
-
-  // @see https://github.com/AnalogJ/scrutiny/blob/d8d56f77f9e868127c4849dac74d65512db658e8/webapp/frontend/src/app/shared/device-status.pipe.ts
-  const DeviceStatus = {
-    passed: 0,
-    failed_smart: 1,
-    failed_scrutiny: 2,
-    failed_both: 3,
-
-    isFailed: function ( s ) { return s > this.passed && s <= this.failed_both},
-    isUnknown: function ( s ) { return s < this.passed || s > this.failed_both}
-  }
-  
-  // @see https://github.com/AnalogJ/scrutiny/blob/d8d56f77f9e868127c4849dac74d65512db658e8/webapp/frontend/src/app/core/config/app.config.ts
-  const DeviceStatusThreshold = {
-    smart: 1,
-    scrutiny: 2,
-    both: 3
-  }
-  
   const { widget } = service;
 
   const { data: scrutinySettings, error: scrutinySettingsError } = useWidgetAPI(widget, "settings");
@@ -59,3 +59,4 @@ export default function Component({ service }) {
   );
   
 }
+
