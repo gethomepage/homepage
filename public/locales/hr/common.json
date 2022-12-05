@@ -24,7 +24,7 @@
         "available": "Dostupno",
         "pending": "Predstoji",
         "approved": "Odobreno",
-        "processing": "Processing"
+        "processing": "Obrada"
     },
     "pihole": {
         "queries": "Upiti",
@@ -345,20 +345,20 @@
         "total": "Ukupno"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
         "leech": "Leech",
         "seed": "Seed"
     },
     "diskstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
         "leech": "Leech",
         "seed": "Seed"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
         "leech": "Leech",
         "seed": "Seed"
     }
