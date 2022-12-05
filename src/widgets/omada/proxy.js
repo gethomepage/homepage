@@ -39,7 +39,7 @@ async function login(loginUrl, username, password) {
 }
 
 export default async function omadaProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service } = req.query;
 
   if (group && service) {
     const widget = await getServiceWidget(group, service);
@@ -68,6 +68,7 @@ export default async function omadaProxyHandler(req, res) {
 
       const url = `${widget.url}/web/v1/controller?globalStat=&token=${token}`;
 
+      // eslint-disable-next-line prefer-const
       [status, contentType, result] = await httpProxy(url, {
         method: "POST",
         params: {"token": token},
