@@ -196,7 +196,6 @@ const conditions = [
 
 export default function mapIcon(weatherStatusCode, timeOfDay) {
   const mapping = conditions.find((condition) => condition.code === weatherStatusCode);
-  console.log(weatherStatusCode, timeOfDay, mapping);
 
   if (mapping) {
     if (timeOfDay === "day") {
