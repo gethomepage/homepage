@@ -22,6 +22,7 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="omada.connectedAp" />
         <Block label="omada.activeUser" />
+        <Block label="omada.alerts" />
       </Container>
     );
   }
@@ -30,6 +31,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="omada.connectedAp" value={t( "common.number", { value: omadaData.connectedAp})} />
       <Block label="omada.activeUser" value={t( "common.number", { value: omadaData.activeUser })} />
+      <Block label="omada.alerts" value={t( "common.number", { value: omadaData.alerts })} />
     </Container>
   );
 }
