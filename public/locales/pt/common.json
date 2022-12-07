@@ -3,10 +3,10 @@
         "missing_type": "Widget ausente: {{type}}",
         "api_error": "Erro da API",
         "status": "Status",
-        "information": "Information",
-        "url": "URL",
+        "information": "Informação",
+        "url": "Endereço URL",
         "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "response_data": "Dados da Resposta"
     },
     "search": {
         "placeholder": "Pesquisar…"
@@ -24,8 +24,8 @@
         "mem": "Mem",
         "cpu": "CPU",
         "offline": "Desligado",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Erro",
+        "unknown": "Desconhecido"
     },
     "emby": {
         "playing": "A reproduzir",
@@ -150,7 +150,7 @@
     "transmission": {
         "download": "Baixando",
         "upload": "Enviando",
-        "leech": "Sanguessugas",
+        "leech": "Leech",
         "seed": "Semeadores"
     },
     "jackett": {
@@ -201,25 +201,25 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Utilizadores",
+        "uptime": "Tempo de Atividade do Sistema",
+        "days": "Dias",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_users": "Utilizadores LAN",
+        "wlan_users": "Utilizadores WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Por favor aguarde",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Dispositivos",
+        "lan_devices": "Dispositivos LAN",
+        "wlan_devices": "Dispositivos WLAN"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Streams Ativas",
+        "movies": "Filmes",
+        "tv": "Series de TV"
     },
     "glances": {
         "cpu": "CPU",
@@ -227,8 +227,8 @@
         "wait": "Please wait"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Total Observado",
+        "diffsDetected": "Diferenças Detetadas"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -343,7 +343,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Erro",
         "ping": "Ping"
     },
     "scrutiny": {
@@ -368,8 +368,8 @@
         "seed": "Seed"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Descarregar",
+        "upload": "Carregar",
         "leech": "Leech",
         "seed": "Seed"
     }
