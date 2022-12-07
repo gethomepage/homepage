@@ -5,37 +5,61 @@ import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
+import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
 
 const proxyName = "omadaProxyHandler";
 const tokenCacheKey = `${proxyName}__token`;
 const logger = createLogger(proxyName);
 
 
-async function login(loginUrl, username, password) {
-  const authResponse = await httpProxy(loginUrl,
-    {
-      method: "POST",
-      body: JSON.stringify({ "method": "login",
-    "params": {
-    "name": username,
-      "password": password
-  } }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
+async function login(loginUrl, username, password, legacy) {
+
+  if (legacy) {
+    console.log("Legacy");
+    const authResponse = await httpProxy(loginUrl,
+      {
+        method: "POST",
+        body: JSON.stringify({ "method": "login",
+          "params": {
+            "name": username,
+            "password": password
+          } }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
-  const status = authResponse[0];
-  const data = JSON.parse(authResponse[2]);
-  const {token} = data.result;
-  try {
-    if (status === 200) {
-      cache.put(tokenCacheKey, token); // expiration -5 minutes
+    let data;
+    const status = authResponse[0];
+    data = JSON.parse(authResponse[2]);
+    const {token} = data.result;
+    try {
+      if (status === 200) {
+        cache.put(tokenCacheKey, token); // expiration -5 minutes
+      }
+    } catch (e) {
+      logger.error(`Error ${status} logging into Omada`, authResponse[2]);
     }
-  } catch (e) {
-    logger.error(`Error ${status} logging into Omada`, authResponse[2]);
+    return [status, token ?? data];
+  } else {
+    setCookieHeader(loginUrl, );
+    const authResponse = await httpProxy(loginUrl,
+      {
+        method: "POST",
+        body: JSON.stringify({
+            "name": username,
+            "password": password
+          }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        }
+      );
+    let data;
+    const status = authResponse[0];
+    console.log("Status: ", status);
   }
-  return [status, token ?? data];
+  return [null, null];
 }
 
 
@@ -50,16 +74,14 @@ export default async function omadaProxyHandler(req, res) {
     }
 
     if (widget) {
-
-      const loginUrl = `${widget.url}/api/user/login?ajax`;
-
-      let status;
-      let contentType;
-      let data;
-      let result;
-      let token;
       if (widget.legacy) {
-        [status, token] = await login(loginUrl, widget.username, widget.password);
+        const loginUrl = `${widget.url}/api/user/login?ajax`;
+        let status;
+        let contentType;
+        let data;
+        let result;
+        let token;
+        [status, token] = await login(loginUrl, widget.username, widget.password, widget.legacy);
         if (status !== 200) {
           logger.debug(`HTTTP ${status} logging into Omada api: ${token}`);
           return res.status(status).send(token);
@@ -136,7 +158,48 @@ export default async function omadaProxyHandler(req, res) {
         return res.send(data.result);
       } else {
         // Working on it but I can't test it
-        logger.debug(`unsupported for now but I'm working on it`);
+
+        const controlleridurl = `${widget.url}/api/info`;
+        let cidstatus, cidcontentType, cidresult;
+
+        [cidstatus, cidcontentType, cidresult] = await httpProxy(controlleridurl, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const cid = JSON.parse(cidresult).result.omadacId;
+
+        const loginUrl = `${widget.url}/${cid}/login`;
+        let status;
+
+        let token;
+        const params = {
+          method: "POST",
+          body: JSON.stringify({
+            "name": widget.username,
+            "password": widget.password
+          }),
+          headers: {"Content-Type": "application/json"} };
+        // setCookieHeader(loginUrl, params);
+        const authResponse = await httpProxy(loginUrl,
+          params,
+
+        );
+        status = authResponse[0];
+        const data = JSON.parse(authResponse[2]);
+        console.log("Data: ", data);
+        // addCookieToJar(loginUrl, authResponse[3]);
+        // setCookieHeader(loginUrl, params);
+
+        console.log("Status: ", status);
+        console.log("Token: ", token);
+        if (status !== 200) {
+          logger.debug(`HTTTP ${status} logging into Omada api: ${token}`);
+          return res.status(status).send(token);
+        }
+
       }
     }
   }
