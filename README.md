@@ -47,12 +47,12 @@
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
   - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
-  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentic, Proxmox
+  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentik, Proxmox
 - Information Providers
   - Coin Market Cap, Mastodon
 - Information & Utility Widgets
   - System Stats (Disk, CPU, Memory)
-  - Weather via WeatherAPI.com or OpenWeatherMap
+  - Weather via [OpenWeatherMap](https://openweathermap.org/) or [Open-Meteo](https://open-meteo.com/)
   - Search Bar
 - Customizable
   - 21 theme colors with light and dark mode support
