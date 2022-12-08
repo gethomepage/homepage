@@ -48,10 +48,10 @@ export default function Widget({ options }) {
       <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
         <div className="flex flex-row self-center flex-wrap justify-between">
           {cluster.show &&
-            <Node type="cluster" options={options.cluster} data={defaultData} />
+            <Node type="cluster" key="cluster" options={options.cluster} data={defaultData} />
           }
           {nodes.show &&
-            <Node type="node" options={options.nodes} data={defaultData} />
+            <Node type="node" key="nodes" options={options.nodes} data={defaultData} />
           }
         </div>
       </div>
@@ -62,11 +62,11 @@ export default function Widget({ options }) {
     <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
       <div className="flex flex-row self-center flex-wrap justify-between">
         {cluster.show &&
-          <Node type="cluster" options={options.cluster} data={data.cluster} />
+          <Node key="cluster" type="cluster" options={options.cluster} data={data.cluster} />
         }
         {nodes.show && data.nodes &&
           data.nodes.map((node) =>
-            <Node key={node} type="node" options={options.nodes} data={node} />)
+            <Node key={node.name} type="node" options={options.nodes} data={node} />)
         }
       </div>
     </div>

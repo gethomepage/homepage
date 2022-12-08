@@ -8,12 +8,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const podSelectorString = service.podSelector !== undefined ? `podSelector=${widget.podSelector}` : "";
 
   const { data: statusData, error: statusError } = useSWR(
-    `/api/kubernetes/status/${widget.namespace}/${widget.app}`);
+    `/api/kubernetes/status/${widget.namespace}/${widget.app}?${podSelectorString}`);
 
   const { data: statsData, error: statsError } = useSWR(
-    `/api/kubernetes/stats/${widget.namespace}/${widget.app}`);
+    `/api/kubernetes/stats/${widget.namespace}/${widget.app}?${podSelectorString}`);
 
   if (statsError || statusError) {
     return <Container error={t("widget.api_error")} />;

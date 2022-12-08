@@ -8,7 +8,7 @@ const logger = createLogger("kubernetesStatsService");
 
 export default async function handler(req, res) {
   const APP_LABEL = "app.kubernetes.io/name";
-  const { service } = req.query;
+  const { service, podSelector } = req.query;
 
   const [namespace, appName] = service;
   if (!namespace && !appName) {
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     });
     return;
   }
-  const labelSelector = `${APP_LABEL}=${appName}`;
+  const labelSelector = podSelector !== undefined ? podSelector : `${APP_LABEL}=${appName}`;
 
   try {
     const kc = getKubeConfig();
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
       });
     });
 
-    const stats = await pods.map(async (pod) => {
+    const podStatsList = await Promise.all(pods.map(async (pod) => {
       let depMem = 0;
       let depCpu = 0;
       const podMetrics = await metricsApi.getPodMetrics(namespace, pod.metadata.name)
@@ -85,13 +85,15 @@ export default async function handler(req, res) {
         mem: depMem,
         cpu: depCpu
       };
-    }).reduce(async (finalStats, podStatPromise) => {
-        const podStats = await podStatPromise;
-        return {
-          mem: finalStats.mem + podStats.mem,
-          cpu: finalStats.cpu + podStats.cpu
-        };
-      });
+    }));
+    const stats = {
+      mem: 0,
+      cpu: 0
+    }
+    podStatsList.forEach((podStat) => {
+      stats.mem += podStat.mem;
+      stats.cpu += podStat.cpu;
+    });
     stats.cpuLimit = cpuLimit;
     stats.memLimit = memLimit;
     stats.cpuUsage = cpuLimit ? stats.cpu / cpuLimit : 0;

@@ -9,7 +9,6 @@ import UsageBar from "./usage-bar";
 export default function Node({ type, options, data }) {
   const { t } = useTranslation();
 
-  console.log("Node", type, options, data);
 
   function icon() {
     if (type === "cluster") {

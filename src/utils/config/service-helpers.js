@@ -144,13 +144,14 @@ export async function servicesFromKubernetes() {
         app: ingress.metadata.name,
         namespace: ingress.metadata.namespace,
         href: getUrlFromIngress(ingress),
-        name: ingress.metadata.annotations['homepage/name'] || ingress.metadata.name,
-        group: ingress.metadata.annotations['homepage/group'] || "Kubernetes",
-        icon: ingress.metadata.annotations['homepage/icon'] || '',
-        description: ingress.metadata.annotations['homepage/description'] || ''
+        name: ingress.metadata.annotations['gethomepage.dev/name'] || ingress.metadata.name,
+        group: ingress.metadata.annotations['gethomepage.dev/group'] || "Kubernetes",
+        icon: ingress.metadata.annotations['gethomepage.dev/icon'] || '',
+        description: ingress.metadata.annotations['gethomepage.dev/description'] || '',
+        podSelector: ingress.metadata.annotations['gethomepage.dev/pod-selector'] || ''
       };
       Object.keys(ingress.metadata.annotations).forEach((annotation) => {
-        if (annotation.startsWith("homepage/widget/")) {
+        if (annotation.startsWith("gethomepage.dev//widget/")) {
           shvl.set(constructedService, annotation.replace("homepage/widget/", ""), ingress.metadata.annotations[annotation]);
         }
       });
@@ -202,9 +203,10 @@ export function cleanServiceGroups(groups) {
           container,
           currency, // coinmarketcap widget
           symbols,
-          defaultinterval
+          defaultinterval,
           namespace, // kubernetes widget
-          app
+          app,
+          podSelector
         } = cleanedService.widget;
 
         cleanedService.widget = {
@@ -225,6 +227,7 @@ export function cleanServiceGroups(groups) {
         if (type === "kubernetes") {
           if (namespace) cleanedService.widget.namespace = namespace;
           if (app) cleanedService.widget.app = app;
+          if (podSelector) cleanedService.widget.podSelector = podSelector;
         }
       }
 

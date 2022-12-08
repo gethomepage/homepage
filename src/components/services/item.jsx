@@ -95,7 +95,7 @@ export default function Item({ service }) {
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-                  className="flex-shrink-0 flex items-center justify-center w-12 cursor-pointer"
+                  className="flex-shrink-0 flex items-center justify-center cursor-pointer"
                 >
                   <KubernetesStatus service={service} />
                   <span className="sr-only">View container stats</span>
@@ -121,7 +121,7 @@ export default function Item({ service }) {
               "w-full overflow-hidden transition-all duration-300 ease-in-out"
             )}
           >
-            {statsOpen && <Kubernetes service={{ widget: { namespace: service.namespace, app: service.app } }} />}
+            {statsOpen && <Kubernetes service={{ widget: { namespace: service.namespace, app: service.app, podSelector: service.podSelector } }} />}
           </div>
         )}
 

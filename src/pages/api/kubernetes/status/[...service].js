@@ -7,7 +7,7 @@ const logger = createLogger("kubernetesStatusService");
 
 export default async function handler(req, res) {
   const APP_LABEL =  "app.kubernetes.io/name";
-  const { service } = req.query;
+  const { service, podSelector } = req.query;
 
   const [namespace, appName] = service;
   if (!namespace && !appName) {
@@ -16,8 +16,8 @@ export default async function handler(req, res) {
     });
     return;
   }
-  const labelSelector = `${APP_LABEL}=${appName}`;
-
+  const labelSelector = podSelector !== undefined ? podSelector : `${APP_LABEL}=${appName}`;
+  logger.info("labelSelector %s/%s = %s", namespace, appName, labelSelector);
   try {
     const kc = getKubeConfig();
     if (!kc) {
@@ -47,10 +47,14 @@ export default async function handler(req, res) {
       });
       return;
     }
-
-    // at least one pod must be in the "Running" phase, otherwise its "down"
-    const runningPod = pods.find(pod => pod.status.phase === "Running");
-    const status = runningPod ? "running" : "down";
+    const someReady = pods.find(pod => pod.status.phase === "Running");
+    const allReady = pods.every((pod) => pod.status.phase === "Running");
+    let status = "down";
+    if (allReady) {
+      status = "running";
+    } else if (someReady) {
+      status = "partial";
+    }
     res.status(200).json({
       status
     });
