@@ -35,7 +35,7 @@ async function login(loginUrl, username, password, cversion) {
       });
   const data = JSON.parse(authResponse[2]);
   const status = data.errorCode;
-  let token = null;
+  let token;
   if (data.errorCode === 0) {
     token = data.result.token;
   } else {
@@ -56,8 +56,6 @@ export default async function omadaProxyHandler(req, res) {
     }
 
     if (widget) {
-      let status;
-
       let cid;
       let cversion;
       let connectedAp;
@@ -98,7 +96,7 @@ export default async function omadaProxyHandler(req, res) {
       if (requestresponse[0] !== 0) {
         const message = requestresponse[1].msg;
 
-        logger.debug(`HTTTP ${status} logging into Omada api: ${requestresponse[1].msg}`);
+        logger.debug(`HTTTP ${requestresponse[0]} logging into Omada api: ${requestresponse[1].msg}`);
         return res.status(500).send(message);
       }
       const token= requestresponse[1];
@@ -136,10 +134,10 @@ export default async function omadaProxyHandler(req, res) {
       }
 
       requestresponse = await httpProxy(sitesUrl, {
-        method: method,
-        params: params,
+        method,
+        params,
         body: body.toString(),
-        headers: headers,
+        headers,
       });
       const listresult = JSON.parse(requestresponse[2]);
 
@@ -167,10 +165,10 @@ export default async function omadaProxyHandler(req, res) {
         headers = { "Content-Type": "application/json" };
         params = { "token": token };
         requestresponse = await httpProxy(switchUrl, {
-          method: method,
-          params: params,
+          method,
+          params,
           body: body.toString(),
-          headers: headers,
+          headers,
         });
         const switchresult = JSON.parse(requestresponse[2]);
         if (switchresult.errorCode !== 0) {
@@ -197,7 +195,7 @@ export default async function omadaProxyHandler(req, res) {
 
         const data = JSON.parse(statResponse[2]);
         if (data.errorCode !== 0) {
-          return res.status(status).send(data);
+          return res.status(500).send(statResponse[2]);
         }
         connectedAp = data.result.connectedAp;
         activeuser = data.result.activeUser;
