@@ -57,7 +57,7 @@ export default async function omadaProxyHandler(req, res) {
 
     if (widget) {
       let status;
-      let token;
+
       let cid;
       let cversion;
       let connectedAp;
@@ -93,15 +93,15 @@ export default async function omadaProxyHandler(req, res) {
         loginUrl = `${widget.url}/${cid}/api/v2/login`;
       }
 
-      [ status, token ] = await login(loginUrl, widget.username, widget.password, cversion);
+      requestresponse = await login(loginUrl, widget.username, widget.password, cversion);
 
-      if (status !== 0) {
-        const message = token.msg;
+      if (requestresponse[0] !== 0) {
+        const message = requestresponse[1].msg;
 
-        logger.debug(`HTTTP ${status} logging into Omada api: ${token}`);
+        logger.debug(`HTTTP ${status} logging into Omada api: ${requestresponse[1].msg}`);
         return res.status(500).send(message);
       }
-
+      const token= requestresponse[1];
       // Switching to the site we want to gather stats from
       // First, we get the list of sites
       let sitesUrl;
@@ -135,17 +135,17 @@ export default async function omadaProxyHandler(req, res) {
         params = { };
       }
 
-      const listResponse = await httpProxy(sitesUrl, {
+      requestresponse = await httpProxy(sitesUrl, {
         method: method,
         params: params,
         body: body.toString(),
         headers: headers,
       });
-      const listresult = JSON.parse(listResponse[2]);
+      const listresult = JSON.parse(requestresponse[2]);
 
       if (listresult.errorCode !== 0) {
         logger.debug(`HTTTP ${listresult.errorCode} getting list of sites with message ${listresult.msg}`);
-        return res.status(status).send(data);
+        return res.status(500).send(requestresponse[2]);
       }
 
       // Switching site is really needed only for Omada 3.x.x controllers
@@ -166,14 +166,13 @@ export default async function omadaProxyHandler(req, res) {
         });
         headers = { "Content-Type": "application/json" };
         params = { "token": token };
-        const switchResponse = await httpProxy(switchUrl, {
+        requestresponse = await httpProxy(switchUrl, {
           method: method,
           params: params,
           body: body.toString(),
           headers: headers,
         });
-        console.log(cversion, "after switch", switchResponse[2].toString());
-        const switchresult = JSON.parse(switchResponse[2]);
+        const switchresult = JSON.parse(requestresponse[2]);
         if (switchresult.errorCode !== 0) {
           logger.debug(`HTTTP ${switchresult.errorCode} switching site with message ${switchresult.msg}`);
           return res.status(500).send(switchresult);
@@ -184,7 +183,6 @@ export default async function omadaProxyHandler(req, res) {
       // on modern controller, we need to call two different endpoints
       // on older controller, we can call one endpoint
       if (cversion < "4.0.0") {
-        console.log(cversion, token,  "Legacy controller");
         const statsUrl = `${widget.url}/web/v1/controller?getGlobalStat=&token=${token}`;
         const statResponse = await httpProxy(statsUrl, {
           method: "POST",
@@ -204,15 +202,11 @@ export default async function omadaProxyHandler(req, res) {
         connectedAp = data.result.connectedAp;
         activeuser = data.result.activeUser;
         alerts = data.result.alerts;
-        return res.send(JSON.stringify({
-          "connectedAp": connectedAp,
-          "activeUser": activeuser,
-          "alerts": alerts
-        }));
+
       } else {
         let siteStatsUrl;
         let response;
-        console.log("Modern controller, getting the stats");
+
         if (cversion < "5.0.0") {
           siteStatsUrl = `${url}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`;
         } else {
@@ -224,11 +218,11 @@ export default async function omadaProxyHandler(req, res) {
             "Csrf-Token": token,
           },
         });
-        console.log(response);
+
         const clientresult = JSON.parse(response[2]);
         if (clientresult.errorCode !== 0) {
           logger.debug(`HTTTP ${listresult.errorCode} getting clients stats for site ${widget.site} with message ${listresult.msg}`);
-          return res.status(500).send(listresult);
+          return res.status(500).send(response[2]);
         }
 
         activeuser = clientresult.result.totalClientNum;
@@ -257,7 +251,5 @@ export default async function omadaProxyHandler(req, res) {
       }));
     }
   }
-
   return res.status(400).json({ error: "Invalid proxy service type" });
-
 }
