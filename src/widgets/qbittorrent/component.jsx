@@ -44,9 +44,9 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="qbittorrent.leech" value={t("common.number", { value: leech })} />
-      <Block label="qbittorrent.download" value={t("common.bitrate", { value: rateDl })} />
+      <Block label="qbittorrent.download" value={t("common.bibyterate", { value: rateDl, decimals: 1 })} />
       <Block label="qbittorrent.seed" value={t("common.number", { value: completed })} />
-      <Block label="qbittorrent.upload" value={t("common.bitrate", { value: rateUl })} />
+      <Block label="qbittorrent.upload" value={t("common.bibyterate", { value: rateUl, decimals: 1 })} />
     </Container>
   );
 }
