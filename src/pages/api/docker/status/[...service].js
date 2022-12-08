@@ -40,6 +40,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       status: info.State.Status,
+      health: info.State.Health?.Status
     });
   } catch {
     return res.status(500).send({

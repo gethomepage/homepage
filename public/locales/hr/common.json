@@ -23,7 +23,8 @@
     "overseerr": {
         "available": "Dostupno",
         "pending": "Predstoji",
-        "approved": "Odobreno"
+        "approved": "Odobreno",
+        "processing": "Obrada"
     },
     "pihole": {
         "queries": "Upiti",
@@ -59,17 +60,19 @@
         "missing_type": "Nedostajuća vrsta widgeta: {{type}}",
         "api_error": "API greška",
         "status": "Stanje",
-        "information": "Information",
+        "information": "Informacije",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Raw greška",
+        "response_data": "Podaci odgovora"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Nepovezan"
+        "offline": "Nepovezan",
+        "error": "Greška",
+        "unknown": "Nepoznato"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -320,12 +323,43 @@
         "total": "Ukupno"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "Javni IP",
+        "region": "Regija",
+        "country": "Zemlja"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanali",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Greška",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Prošlo",
+        "failed": "Neuspjelo",
+        "unknown": "Nepoznato"
+    },
+    "paperlessngx": {
+        "inbox": "Ulazni sandučić",
+        "total": "Ukupno"
+    },
+    "deluge": {
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

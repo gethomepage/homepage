@@ -23,7 +23,9 @@
         "tx": "TX",
         "mem": "BỘ NHỚ",
         "cpu": "CPU",
-        "offline": "Ngoại tuyến"
+        "offline": "Ngoại tuyến",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Đang chơi",
@@ -102,7 +104,8 @@
     "overseerr": {
         "pending": "Pending",
         "approved": "Đã duyệt",
-        "available": "Available"
+        "available": "Available",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -327,5 +330,36 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed",
+        "leech": "Leech"
     }
 }

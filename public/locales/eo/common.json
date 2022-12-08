@@ -1,0 +1,365 @@
+{
+    "widget": {
+        "missing_type": "Missing Widget Type: {{type}}",
+        "api_error": "API Error",
+        "information": "Informo",
+        "status": "Stato",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
+    },
+    "weather": {
+        "current": "Aktuala loko",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
+    },
+    "search": {
+        "placeholder": "Serĉi…"
+    },
+    "resources": {
+        "cpu": "Ĉefprocesoro",
+        "total": "Totalo",
+        "free": "Libera",
+        "used": "Uzata",
+        "load": "Ŝarĝo"
+    },
+    "unifi": {
+        "users": "Uzantoj",
+        "uptime": "System Uptime",
+        "days": "Tagoj",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Aparatoj",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "Memoro",
+        "cpu": "Ĉefprocesoro",
+        "offline": "Offline",
+        "error": "Eraro",
+        "unknown": "Nekonata"
+    },
+    "ping": {
+        "error": "Eraro",
+        "ping": "Ping"
+    },
+    "emby": {
+        "playing": "Ludante",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observed",
+        "diffsDetected": "Diffs Detected"
+    },
+    "tautulli": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "movies": "Filmoj",
+        "tv": "Televidprogramoj"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Alŝuto",
+        "download": "Elŝuto"
+    },
+    "transmission": {
+        "download": "Elŝuto",
+        "upload": "Alŝuto",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qbittorrent": {
+        "download": "Elŝuto",
+        "upload": "Alŝuto",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "deluge": {
+        "download": "Elŝuto",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "sonarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Serio"
+    },
+    "radarr": {
+        "wanted": "Wanted",
+        "missing": "Missing",
+        "queued": "Queued",
+        "movies": "Filmoj"
+    },
+    "lidarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "albums": "Albumoj"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Libroj"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
+    },
+    "ombi": {
+        "pending": "Pending",
+        "approved": "Aprobita",
+        "available": "Havebla"
+    },
+    "jellyseerr": {
+        "pending": "Pending",
+        "approved": "Aprobita",
+        "available": "Havebla"
+    },
+    "overseerr": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "approved": "Aprobita",
+        "available": "Havebla"
+    },
+    "pihole": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "gravity": "Gravity"
+    },
+    "adguard": {
+        "queries": "Queries",
+        "blocked": "Blokitaj",
+        "filtered": "Filtritaj",
+        "latency": "Latency"
+    },
+    "speedtest": {
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
+    },
+    "portainer": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "total": "Totalo"
+    },
+    "traefik": {
+        "routers": "Routers",
+        "services": "Servoj",
+        "middleware": "Middleware"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
+    "npm": {
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Total"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track",
+        "1hour": "1 horo",
+        "1day": "1 tago",
+        "7days": "7 tagoj",
+        "30days": "30 tagoj"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Klientoj",
+        "messages": "Mesaĝoj"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Seancoj",
+        "numConnections": "Konektoj",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "mastodon": {
+        "user_count": "Uzantoj",
+        "status_count": "Afiŝoj",
+        "domain_count": "Domains"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
+    },
+    "proxmox": {
+        "mem": "Memoro",
+        "cpu": "Ĉefprocesoro",
+        "lxc": "LXC",
+        "vms": "VMs"
+    },
+    "glances": {
+        "cpu": "Ĉefprocesoro",
+        "mem": "Memoro",
+        "wait": "Bonvolu atendi"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Servo"
+    },
+    "wmo": {
+        "0-day": "Suna",
+        "0-night": "Sennuba",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Nubeta",
+        "2-night": "Nubeta",
+        "3-day": "Nuba",
+        "3-night": "Nuba",
+        "45-day": "Nebula",
+        "45-night": "Nebula",
+        "48-day": "Nebula",
+        "48-night": "Nebula",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Pluvo",
+        "63-night": "Pluvo",
+        "65-day": "Pluvego",
+        "65-night": "Pluvego",
+        "66-day": "Frosta pluvo",
+        "66-night": "Frosta pluvo",
+        "67-day": "Frosta pluvo",
+        "67-night": "Frosta pluvo",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Neĝo",
+        "73-night": "Neĝo",
+        "75-day": "Neĝego",
+        "75-night": "Neĝego",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Fulmotondro",
+        "95-night": "Fulmotondro",
+        "96-day": "Fulmotondro kun hajlo",
+        "96-night": "Fulmotondro kun hajlo",
+        "99-day": "Fulmotondro kun hajlo",
+        "99-night": "Fulmotondro kun hajlo"
+    },
+    "homebridge": {
+        "available_update": "Sistemo",
+        "updates": "Updates",
+        "update_available": "Update Available",
+        "up_to_date": "Up to Date",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filtriloj",
+        "indexers": "Indexers"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Kanaloj",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Aktiva",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Regiono",
+        "country": "Lando"
+    },
+    "hdhomerun": {
+        "channels": "Kanaloj",
+        "hd": "HD"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Totalo"
+    },
+    "diskstation": {
+        "download": "Download",
+        "leech": "Leech",
+        "upload": "Upload",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    }
+}

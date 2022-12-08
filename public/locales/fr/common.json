@@ -23,7 +23,9 @@
         "tx": "Tx",
         "mem": "Mém",
         "cpu": "Cpu",
-        "offline": "Hors ligne"
+        "offline": "Hors ligne",
+        "error": "Erreur",
+        "unknown": "Inconnu"
     },
     "emby": {
         "playing": "En lecture",
@@ -102,7 +104,8 @@
     "overseerr": {
         "pending": "En attente",
         "approved": "Demande",
-        "available": "Disponible"
+        "available": "Disponible",
+        "processing": "En traitement"
     },
     "sabnzbd": {
         "rate": "Débit",
@@ -325,7 +328,38 @@
         "country": "Pays"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Canaux",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Erreur",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Réussi",
+        "failed": "Échoué",
+        "unknown": "Inconnu"
+    },
+    "paperlessngx": {
+        "inbox": "Boîte de réception",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Récep.",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Réception",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Récep.",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

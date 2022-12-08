@@ -45,7 +45,9 @@
         "tx": "Giden Veri",
         "mem": "Bellek",
         "cpu": "İşlemci",
-        "offline": "Çevrimdışı"
+        "offline": "Çevrimdışı",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Oynatılıyor",
@@ -129,7 +131,8 @@
     "overseerr": {
         "pending": "Bekliyor",
         "approved": "Onaylı",
-        "available": "Kullanılabilir"
+        "available": "Kullanılabilir",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Sorgular",
@@ -327,5 +330,36 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

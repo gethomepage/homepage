@@ -4,7 +4,10 @@ import autobrr from "./autobrr/widget";
 import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
+import deluge from "./deluge/widget";
+import diskstation from "./diskstation/widget";
 import emby from "./emby/widget";
+import flood from "./flood/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import hdhomerun from "./hdhomerun/widget";
@@ -18,6 +21,7 @@ import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import ombi from "./ombi/widget";
 import overseerr from "./overseerr/widget";
+import paperlessngx from "./paperlessngx/widget";
 import pihole from "./pihole/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
@@ -29,6 +33,7 @@ import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
 import rutorrent from "./rutorrent/widget";
 import sabnzbd from "./sabnzbd/widget";
+import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import strelaysrv from "./strelaysrv/widget";
@@ -47,7 +52,10 @@ const widgets = {
   bazarr,
   changedetectionio,
   coinmarketcap,
+  deluge,
+  diskstation,
   emby,
+  flood,
   gluetun,
   gotify,
   hdhomerun,
@@ -62,6 +70,7 @@ const widgets = {
   nzbget,
   ombi,
   overseerr,
+  paperlessngx,
   pihole,
   plex,
   portainer,
@@ -73,6 +82,7 @@ const widgets = {
   readarr,
   rutorrent,
   sabnzbd,
+  scrutiny,
   sonarr,
   speedtest,
   strelaysrv,

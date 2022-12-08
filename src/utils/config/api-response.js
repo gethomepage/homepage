@@ -94,7 +94,8 @@ export async function servicesResponse() {
     ].flat()),
   ];
 
-  const mergedGroups = [];
+  const sortedGroups = [];
+  const unsortedGroups = [];
   const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
 
   mergedGroupsNames.forEach((groupName) => {
@@ -113,12 +114,12 @@ export async function servicesResponse() {
 
     if (definedLayouts) {
       const layoutIndex = definedLayouts.findIndex(layout => layout === mergedGroup.name);
-      if (layoutIndex > -1) mergedGroups.splice(layoutIndex, 0, mergedGroup);
-      else mergedGroups.push(mergedGroup);
+      if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
+      else unsortedGroups.push(mergedGroup);
     } else {
-      mergedGroups.push(mergedGroup);
+      unsortedGroups.push(mergedGroup);
     }
   });
 
-  return mergedGroups;
+  return [...sortedGroups.filter(g => g), ...unsortedGroups];
 }

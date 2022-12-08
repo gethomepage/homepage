@@ -46,7 +46,9 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "సీపియూ",
-        "offline": "ఆఫ్‌లైన్"
+        "offline": "ఆఫ్‌లైన్",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "ఆడుతున్నారు",
@@ -120,7 +122,8 @@
     "overseerr": {
         "pending": "పెండింగ్",
         "approved": "ఆమోదించబడింది",
-        "available": "అందుబాటులో"
+        "available": "అందుబాటులో",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "ప్రశ్నలు",
@@ -327,5 +330,36 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "seed": "Seed",
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech"
+    },
+    "diskstation": {
+        "leech": "Leech",
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

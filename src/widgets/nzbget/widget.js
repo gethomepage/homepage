@@ -1,7 +1,8 @@
-import nzbgetProxyHandler from "./proxy";
+import jsonrpcProxyHandler from "utils/proxy/handlers/jsonrpc";
 
 const widget = {
-  proxyHandler: nzbgetProxyHandler,
+  api: "{url}/jsonrpc",
+  proxyHandler: jsonrpcProxyHandler,
 };
 
 export default widget;

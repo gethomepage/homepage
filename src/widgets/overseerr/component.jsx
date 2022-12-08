@@ -15,6 +15,7 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="overseerr.pending" />
+        <Block label="overseerr.processing" />
         <Block label="overseerr.approved" />
         <Block label="overseerr.available" />
       </Container>
@@ -24,6 +25,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="overseerr.pending" value={statsData.pending} />
+      <Block label="overseerr.processing" value={statsData.processing} />
       <Block label="overseerr.approved" value={statsData.approved} />
       <Block label="overseerr.available" value={statsData.available} />
     </Container>

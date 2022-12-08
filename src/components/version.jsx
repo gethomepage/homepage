@@ -8,9 +8,9 @@ import cachedFetch from "utils/proxy/cached-fetch";
 export default function Version() {
   const { t, i18n } = useTranslation();
 
-  const buildTime = process.env.NEXT_PUBLIC_BUILDTIME ?? new Date().toISOString();
-  const revision = process.env.NEXT_PUBLIC_REVISION ?? "dev";
-  const version = process.env.NEXT_PUBLIC_VERSION ?? "dev";
+  const buildTime = process.env.NEXT_PUBLIC_BUILDTIME?.length ? process.env.NEXT_PUBLIC_BUILDTIME : new Date().toISOString();
+  const revision = process.env.NEXT_PUBLIC_REVISION?.length ? process.env.NEXT_PUBLIC_REVISION : "dev";
+  const version = process.env.NEXT_PUBLIC_VERSION?.length ?  process.env.NEXT_PUBLIC_VERSION : "dev";
 
   const cachedFetcher = (resource) => cachedFetch(resource, 5).then((res) => res.json());
 
@@ -36,17 +36,14 @@ export default function Version() {
             {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
           </>
         ) : (
-          releaseData &&
-          compareVersions(latestRelease.tag_name, version) > 0 && (
-            <a
-              href={`https://github.com/benphelps/homepage/releases/tag/${version}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-2 text-xs text-theme-500 dark:text-theme-400 flex flex-row items-center"
-            >
-              {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
-            </a>
-          )
+          <a
+            href={`https://github.com/benphelps/homepage/releases/tag/${version}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 text-xs text-theme-500 dark:text-theme-400 flex flex-row items-center"
+          >
+            {version} ({revision.substring(0, 7)}, {formatDate(buildTime)})
+          </a>
         )}
       </span>
       {version === "main" || version === "dev" || version === "nightly"

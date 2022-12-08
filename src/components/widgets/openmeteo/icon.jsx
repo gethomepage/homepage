@@ -1,4 +1,4 @@
-import mapIcon from "utils/weather/owm-condition-map";
+import mapIcon from "utils/weather/openmeteo-condition-map";
 
 export default function Icon({ condition, timeOfDay }) {
   const IconComponent = mapIcon(condition, timeOfDay);

@@ -14,6 +14,11 @@ export default function Component({ service }) {
   if (error) {
     return <Container error={error} />;
   }
+
+  if (!data) {
+    return <Container service={service} />;
+  }
+
   const totalObserved = Object.keys(data).length;
   let diffsDetected = 0;
 

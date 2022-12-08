@@ -103,7 +103,9 @@
         "tx": "TX",
         "mem": "الرام",
         "cpu": "المعالج",
-        "offline": "غير متصل"
+        "offline": "غير متصل",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "يعمل الان",
@@ -191,7 +193,8 @@
     "overseerr": {
         "pending": "Pending",
         "approved": "Approved",
-        "available": "Available"
+        "available": "Available",
+        "processing": "Processing"
     },
     "pihole": {
         "queries": "Queries",
@@ -327,5 +330,36 @@
     "hdhomerun": {
         "channels": "Channels",
         "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "leech": "Leech",
+        "seed": "Seed",
+        "download": "Download",
+        "upload": "Upload"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
