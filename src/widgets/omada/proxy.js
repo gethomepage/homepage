@@ -80,8 +80,7 @@ export default async function omadaProxyHandler(req, res) {
         cid = JSON.parse(cidresult).result.omadacId;
         cversion = JSON.parse(cidresult).result.controllerVer;
       } catch (e) {
-        cversion = "3.2.17";
-
+        cversion = "3.2.17"
       }
       if (cversion < "4.0.0") {
         loginUrl = `${widget.url}/api/user/login?ajax`;
@@ -121,7 +120,7 @@ export default async function omadaProxyHandler(req, res) {
       } else if (cversion < "5.0.0") {
         sitesUrl = `${widget.url}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
         body = {};
-        params = { };
+        params = {"token": token};
         headers = {"Csrf-Token": token };
         method = "GET";
 
@@ -132,7 +131,6 @@ export default async function omadaProxyHandler(req, res) {
         method = "GET";
         params = { };
       }
-
       requestresponse = await httpProxy(sitesUrl, {
         method,
         params,
@@ -140,7 +138,6 @@ export default async function omadaProxyHandler(req, res) {
         headers,
       });
       const listresult = JSON.parse(requestresponse[2]);
-
       if (listresult.errorCode !== 0) {
         logger.debug(`HTTTP ${listresult.errorCode} getting list of sites with message ${listresult.msg}`);
         return res.status(500).send(requestresponse[2]);
@@ -204,7 +201,9 @@ export default async function omadaProxyHandler(req, res) {
       } else {
         let siteStatsUrl;
         let response;
-
+        sitetoswitch = listresult.result.data.filter(site => site.name === widget.site);
+        // On 5.0.0, the key we need is id, on 4.x.x, it's key ...
+        siteName = sitetoswitch[0].id ?? sitetoswitch[0].key;
         if (cversion < "5.0.0") {
           siteStatsUrl = `${url}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`;
         } else {
