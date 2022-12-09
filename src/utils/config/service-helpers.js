@@ -130,7 +130,7 @@ export async function servicesFromKubernetes() {
     }
     const networking = kc.makeApiClient(NetworkingV1Api);
 
-    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, "homepage/enabled=true")
+    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, "gethomepage.dev/enabled=true")
       .then((response) => response.body)
       .catch((error) => {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
@@ -143,7 +143,7 @@ export async function servicesFromKubernetes() {
       const constructedService = {
         app: ingress.metadata.name,
         namespace: ingress.metadata.namespace,
-        href: getUrlFromIngress(ingress),
+        href: ingress.metadata.annotations['gethomepage.dev/href'] || getUrlFromIngress(ingress),
         name: ingress.metadata.annotations['gethomepage.dev/name'] || ingress.metadata.name,
         group: ingress.metadata.annotations['gethomepage.dev/group'] || "Kubernetes",
         icon: ingress.metadata.annotations['gethomepage.dev/icon'] || '',
