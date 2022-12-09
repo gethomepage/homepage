@@ -11,11 +11,11 @@ export default function Component({ service }) {
 
   const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents");
 
-  if (torrentError) {
-    return <Container error={torrentError} />;
+  if (torrentError || !torrentData?.torrents) {
+    return <Container error={torrentError ?? {message: "No torrent data returned"}} />;
   }
 
-  if (!torrentData) {
+  if (!torrentData || !torrentData.torrents) {
     return (
       <Container service={service}>
         <Block label="flood.leech" />
