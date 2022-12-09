@@ -148,7 +148,7 @@ export async function servicesFromKubernetes() {
         group: ingress.metadata.annotations['gethomepage.dev/group'] || "Kubernetes",
         icon: ingress.metadata.annotations['gethomepage.dev/icon'] || '',
         description: ingress.metadata.annotations['gethomepage.dev/description'] || '',
-        podSelector: ingress.metadata.annotations['gethomepage.dev/pod-selector'] || ''
+        podSelector: ingress.metadata.annotations['gethomepage.dev/pod-selector'] || null
       };
       Object.keys(ingress.metadata.annotations).forEach((annotation) => {
         if (annotation.startsWith("gethomepage.dev//widget/")) {
