@@ -16,13 +16,15 @@ function parseLonghornData(data) {
     let maximum = 0;
     let reserved = 0;
     let scheduled = 0;
-    Object.keys(node.disks).forEach((diskKey) => {
-      const disk = node.disks[diskKey];
-      available += disk.storageAvailable;
-      maximum += disk.storageMaximum;
-      reserved += disk.storageReserved;
-      scheduled += disk.storageScheduled;
-    });
+    if (node.disks) {
+      Object.keys(node.disks).forEach((diskKey) => {
+        const disk = node.disks[diskKey];
+        available += disk.storageAvailable;
+        maximum += disk.storageMaximum;
+        reserved += disk.storageReserved;
+        scheduled += disk.storageScheduled;
+      });
+    }
     return {
       id: node.id,
       available,
