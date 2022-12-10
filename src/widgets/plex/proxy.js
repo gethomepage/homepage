@@ -58,6 +58,9 @@ async function fetchFromPlexAPI(endpoint, widget) {
 
 export default async function plexProxyHandler(req, res) {
   const widget = await getWidget(req);
+  
+  const { service } = req.query;
+
   if (!widget) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
@@ -74,18 +77,18 @@ export default async function plexProxyHandler(req, res) {
     streams = apiData.MediaContainer._attributes.size;
   }
 
-  let libraries = cache.get(librariesCacheKey);
+  let libraries = cache.get(`${librariesCacheKey}.${service}`);
   if (libraries === null) {
     logger.debug("Getting libraries from Plex API");
     [status, apiData] = await fetchFromPlexAPI("/library/sections", widget);
     if (apiData && apiData.MediaContainer) {
       libraries = [].concat(apiData.MediaContainer.Directory);
-      cache.put(librariesCacheKey, libraries, 1000 * 60 * 60 * 6);
+      cache.put(`${librariesCacheKey}.${service}`, libraries, 1000 * 60 * 60 * 6);
     }
   }
 
-  let movies = cache.get(moviesCacheKey);
-  let tv = cache.get(tvCacheKey);
+  let movies = cache.get(`${moviesCacheKey}.${service}`);
+  let tv = cache.get(`${tvCacheKey}.${service}`);
   if (movies === null || tv === null) {
     movies = 0;
     tv = 0;
@@ -100,8 +103,8 @@ export default async function plexProxyHandler(req, res) {
           tv += size;
         }
       }
-      cache.put(tvCacheKey, tv, 1000 * 60 * 10);
-      cache.put(moviesCacheKey, movies, 1000 * 60 * 10);
+      cache.put(`${tvCacheKey}.${service}`, tv, 1000 * 60 * 10);
+      cache.put(`${moviesCacheKey}.${service}`, movies, 1000 * 60 * 10);
     });
   }
   

@@ -58,6 +58,7 @@ async function login(widget) {
 
 export default async function unifiProxyHandler(req, res) {
   const widget = await getWidget(req);
+  const { service } = req.query;
   if (!widget) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
@@ -68,7 +69,7 @@ export default async function unifiProxyHandler(req, res) {
   }
 
   let [status, contentType, data, responseHeaders] = [];
-  let prefix = cache.get(prefixCacheKey);
+  let prefix = cache.get(`${prefixCacheKey}.${service}`);
   if (prefix === null) {
     // auto detect if we're talking to a UDM Pro, and cache the result so that we
     // don't make two requests each time data from Unifi is required
@@ -77,7 +78,7 @@ export default async function unifiProxyHandler(req, res) {
     if (responseHeaders?.["x-csrf-token"]) {
       prefix = udmpPrefix;
     }
-    cache.put(prefixCacheKey, prefix);
+    cache.put(`${prefixCacheKey}.${service}`, prefix);
   }
 
   widget.prefix = prefix;
