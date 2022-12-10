@@ -59,7 +59,13 @@ export default async function omadaProxyHandler(req, res) {
       let cid;
       let cversion;
       let connectedAp;
+      let isolatedAp;
       let activeuser;
+      let connectedSwitches;
+      let connectedGateways;
+      let availablePorts;
+      let powerConsumption;
+
       let alerts;
       let loginUrl;
       let siteName;
@@ -191,18 +197,20 @@ export default async function omadaProxyHandler(req, res) {
         });
 
         const data = JSON.parse(statResponse[2]);
+
         if (data.errorCode !== 0) {
           return res.status(500).send(statResponse[2]);
         }
         connectedAp = data.result.connectedAp;
         activeuser = data.result.activeUser;
+        isolatedAp = data.result.isolatedAp;
         alerts = data.result.alerts;
 
       } else {
         let siteStatsUrl;
         let response;
         sitetoswitch = listresult.result.data.filter(site => site.name === widget.site);
-        // On 5.0.0, the key we need is id, on 4.x.x, it's key ...
+        // On 5.0.0, the field we need is id, on 4.x.x, it's key ...
         siteName = sitetoswitch[0].id ?? sitetoswitch[0].key;
         if (cversion < "5.0.0") {
           siteStatsUrl = `${url}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`;
@@ -224,6 +232,11 @@ export default async function omadaProxyHandler(req, res) {
 
         activeuser = clientresult.result.totalClientNum;
         connectedAp = clientresult.result.connectedApNum;
+        isolatedAp = clientresult.result.isolatedApNum;
+        connectedGateways = clientresult.result.connectedGatewayNum;
+        connectedSwitches = clientresult.result.connectedSwitchNum;
+        availablePorts = clientresult.result.availablePorts;
+        powerConsumption = clientresult.result.powerConsumption;
 
         let alertUrl;
         if (cversion >= "5.0.0") {
@@ -244,7 +257,13 @@ export default async function omadaProxyHandler(req, res) {
       return res.send(JSON.stringify({
         "connectedAp": connectedAp,
         "activeUser": activeuser,
-        "alerts": alerts
+        "alerts": alerts,
+        "isolatedAp": isolatedAp,
+        "connectedGateways": connectedGateways,
+        "connectedSwitches": connectedSwitches,
+        "availablePorts": availablePorts,
+        "powerConsumption": powerConsumption,
+
       }));
     }
   }
