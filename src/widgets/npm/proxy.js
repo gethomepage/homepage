@@ -10,7 +10,7 @@ const proxyName = "npmProxyHandler";
 const tokenCacheKey = `${proxyName}__token`;
 const logger = createLogger(proxyName);
 
-async function login(loginUrl, username, password) {
+async function login(loginUrl, username, password, service) {
   const authResponse = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify({ identity: username, secret: password }),
@@ -27,7 +27,7 @@ async function login(loginUrl, username, password) {
     
     if (status === 200) {
       const expiration = new Date(data.expires) - Date.now();
-      cache.put(tokenCacheKey, data.token, expiration - (5 * 60 * 1000)); // expiration -5 minutes
+      cache.put(`${tokenCacheKey}.${service}`, data.token, expiration - (5 * 60 * 1000)); // expiration -5 minutes
     }
   } catch (e) {
     logger.error(`Error ${status} logging into npm`, authResponse[2]);
@@ -53,9 +53,9 @@ export default async function npmProxyHandler(req, res) {
       let contentType;
       let data;
       
-      let token = cache.get(tokenCacheKey);
+      let token = cache.get(`${tokenCacheKey}.${service}`);
       if (!token) {
-        [status, token] = await login(loginUrl, widget.username, widget.password);
+        [status, token] = await login(loginUrl, widget.username, widget.password, service);
         if (status !== 200) {
           logger.debug(`HTTTP ${status} logging into npm api: ${token}`);
           return res.status(status).send(token);
@@ -72,8 +72,8 @@ export default async function npmProxyHandler(req, res) {
 
       if (status === 403) {
         logger.debug(`HTTTP ${status} retrieving data from npm api, logging in and trying again.`);
-        cache.del(tokenCacheKey);
-        [status, token] = await login(loginUrl, widget.username, widget.password);
+        cache.del(`${tokenCacheKey}.${service}`);
+        [status, token] = await login(loginUrl, widget.username, widget.password, service);
 
         if (status !== 200) {
           logger.debug(`HTTTP ${status} logging into npm api: ${data}`);
