@@ -8,7 +8,8 @@
         "bitrate": "{{value, rate(bits: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "power": "{{value, power}} W"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",

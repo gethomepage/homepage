@@ -33,8 +33,9 @@ async function login(loginUrl, username, password, cversion) {
           "Content-Type": "application/json",
         },
       });
+
   const data = JSON.parse(authResponse[2]);
-  const status = data.errorCode;
+  const status = authResponse[0];
   let token;
   if (data.errorCode === 0) {
     token = data.result.token;
@@ -70,16 +71,24 @@ export default async function omadaProxyHandler(req, res) {
       let loginUrl;
       let siteName;
       let requestresponse;
+
       const {url} = widget;
 
       const controllerInfoUrl = `${widget.url}/api/info`;
+
       const cInfoResponse = await httpProxy(controllerInfoUrl, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
       });
 
+
+      if (cInfoResponse[0] === 500) {
+        logger.debug("Getting controller version ends with Error 500");
+        return res.status(cInfoResponse[0]).json({error: {message: "HTTP Error", controllerInfoUrl, data: cInfoResponse[2]}});
+
+      }
       const cidresult = cInfoResponse[2];
 
       try {
@@ -95,16 +104,13 @@ export default async function omadaProxyHandler(req, res) {
       } else {
         loginUrl = `${widget.url}/${cid}/api/v2/login`;
       }
-
       requestresponse = await login(loginUrl, widget.username, widget.password, cversion);
 
-      if (requestresponse[0] !== 0) {
-        const message = requestresponse[1].msg;
-
-        logger.debug(`HTTTP ${requestresponse[0]} logging into Omada api: ${requestresponse[1].msg}`);
-        return res.status(500).send(message);
+      if (requestresponse[1].errorCode) {
+        return res.status(requestresponse[0]).json({error: {message: "Error logging in", url, data: requestresponse[1]}});
       }
-      const token= requestresponse[1];
+
+     const token = requestresponse[1];
       // Switching to the site we want to gather stats from
       // First, we get the list of sites
       let sitesUrl;
@@ -145,8 +151,8 @@ export default async function omadaProxyHandler(req, res) {
       });
       const listresult = JSON.parse(requestresponse[2]);
       if (listresult.errorCode !== 0) {
-        logger.debug(`HTTTP ${listresult.errorCode} getting list of sites with message ${listresult.msg}`);
-        return res.status(500).send(requestresponse[2]);
+        logger.debug(`HTTTP ${requestresponse[0]} getting sites list: ${requestresponse[2].msg}`);
+        return res.status(requestresponse[0]).json({error: {message: "Error getting sites list", url, data: requestresponse[2]}});
       }
 
       // Switching site is really needed only for Omada 3.x.x controllers
@@ -175,8 +181,8 @@ export default async function omadaProxyHandler(req, res) {
         });
         const switchresult = JSON.parse(requestresponse[2]);
         if (switchresult.errorCode !== 0) {
-          logger.debug(`HTTTP ${switchresult.errorCode} switching site with message ${switchresult.msg}`);
-          return res.status(500).send(switchresult);
+          logger.debug(`HTTTP ${requestresponse[0]} getting sites list: ${requestresponse[2]}`);
+          return res.status(requestresponse[0]).json({error: {message: "Error switching site", url, data: requestresponse[2]}});
         }
       }
 
@@ -199,7 +205,7 @@ export default async function omadaProxyHandler(req, res) {
         const data = JSON.parse(statResponse[2]);
 
         if (data.errorCode !== 0) {
-          return res.status(500).send(statResponse[2]);
+          return res.status(statResponse[0]).json({error: {message: "Error getting stats", url, data: statResponse[2]}});
         }
         connectedAp = data.result.connectedAp;
         activeuser = data.result.activeUser;
@@ -210,6 +216,11 @@ export default async function omadaProxyHandler(req, res) {
         let siteStatsUrl;
         let response;
         sitetoswitch = listresult.result.data.filter(site => site.name === widget.site);
+
+        if (sitetoswitch.length === 0) {
+          return res.status(requestresponse[0]).json({error: {message: `Site ${widget.site} is not found`, url, data: requestresponse[2]}});
+        }
+
         // On 5.0.0, the field we need is id, on 4.x.x, it's key ...
         siteName = sitetoswitch[0].id ?? sitetoswitch[0].key;
         if (cversion < "5.0.0") {
