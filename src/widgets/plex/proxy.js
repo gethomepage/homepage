@@ -79,7 +79,7 @@ export default async function plexProxyHandler(req, res) {
     logger.debug("Getting libraries from Plex API");
     [status, apiData] = await fetchFromPlexAPI("/library/sections", widget);
     if (apiData && apiData.MediaContainer) {
-      libraries = apiData.MediaContainer.Directory;
+      libraries = [].concat(apiData.MediaContainer.Directory);
       cache.put(librariesCacheKey, libraries, 1000 * 60 * 60 * 6);
     }
   }
