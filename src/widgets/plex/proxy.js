@@ -93,7 +93,8 @@ export default async function plexProxyHandler(req, res) {
     movies = 0;
     tv = 0;
     logger.debug("Getting movie + tv counts from Plex API");
-    await libraries.filter(l => ["movie", "show"].includes(l._attributes.type)).forEach(async (library) => {
+    const movieTVLibraries = libraries.filter(l => ["movie", "show"].includes(l._attributes.type));
+    await Promise.all(movieTVLibraries.map(async (library) => {
       [status, apiData] = await fetchFromPlexAPI(`/library/sections/${library._attributes.key}/all`, widget);
       if (apiData && apiData.MediaContainer) {
         const size = parseInt(apiData.MediaContainer._attributes.size, 10);
@@ -103,9 +104,9 @@ export default async function plexProxyHandler(req, res) {
           tv += size;
         }
       }
-      cache.put(`${tvCacheKey}.${service}`, tv, 1000 * 60 * 10);
-      cache.put(`${moviesCacheKey}.${service}`, movies, 1000 * 60 * 10);
-    });
+    }));
+    cache.put(`${tvCacheKey}.${service}`, tv, 1000 * 60 * 10);
+    cache.put(`${moviesCacheKey}.${service}`, movies, 1000 * 60 * 10);
   }
   
   const data = {
