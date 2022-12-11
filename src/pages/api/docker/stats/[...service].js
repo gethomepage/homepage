@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const dockerArgs = getDockerArguments(containerServer)
+    const dockerArgs = getDockerArguments(containerServer);
     const docker = new Docker(dockerArgs.conn);
     const containers = await docker.listContainers({
       all: true,
