@@ -2,10 +2,10 @@
     "widget": {
         "missing_type": "Widget ausente: {{type}}",
         "api_error": "Erro da API",
-        "status": "Status",
+        "status": "Estado",
         "information": "Informação",
         "url": "Endereço URL",
-        "raw_error": "Raw Error",
+        "raw_error": "Erro",
         "response_data": "Dados da Resposta"
     },
     "search": {
@@ -207,9 +207,9 @@
         "wan": "WAN",
         "lan_users": "Utilizadores LAN",
         "wlan_users": "Utilizadores WLAN",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Por favor aguarde",
+        "up": "Ligados",
+        "down": "Desligados",
+        "wait": "Por favor, aguarde",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Dispositivos",
@@ -224,32 +224,32 @@
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Por favor, aguarde"
     },
     "changedetectionio": {
         "totalObserved": "Total Observado",
         "diffsDetected": "Diferenças Detetadas"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
+        "0-day": "Solarengo",
+        "0-night": "Limpo",
+        "1-day": "Maioritariamente ensolarado",
+        "1-night": "Maioritariamente Limpo",
+        "2-day": "Parcialmente Nublado",
+        "2-night": "Parcialmente nublado",
+        "3-day": "Nublado",
+        "3-night": "Nublado",
         "99-night": "Thunderstorm With Hail",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
+        "45-day": "Nevoeiro",
+        "45-night": "Nevoeiro",
+        "48-day": "Nevoeiro",
+        "48-night": "Nevoeiro",
+        "51-day": "Aguaceiros",
+        "51-night": "Aguaceiros",
+        "53-day": "Chuvisco",
+        "53-night": "Chuvisco",
+        "55-day": "Aguaceiro Forte",
+        "55-night": "Aguaceiro Forte",
         "56-day": "Light Freezing Drizzle",
         "56-night": "Light Freezing Drizzle",
         "57-day": "Freezing Drizzle",
@@ -289,8 +289,8 @@
         "99-day": "Thunderstorm With Hail"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "Marcador",
+        "service": "Serviço"
     },
     "homebridge": {
         "available_update": "System",
