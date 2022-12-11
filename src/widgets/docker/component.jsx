@@ -17,8 +17,9 @@ export default function Component({ service }) {
 
   const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${widget.container}/${widget.server || ""}`);
 
-  if (statsError || statusError) {
-    return <Container error={t("widget.api_error")} />;
+  if (statsError || statsData?.error || statusError || statusData?.error) {
+    const finalError = statsError ?? statsData?.error ?? statusError ?? statusData?.error;
+    return <Container error={finalError} />;
   }
 
   if (statusData && statusData.status !== "running") {
@@ -45,7 +46,9 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="docker.cpu" value={t("common.percent", { value: calculateCPUPercent(statsData.stats) })} />
-      <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.memory_stats.usage })} />
+      {statsData.stats.memory_stats.usage && 
+        <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.memory_stats.usage })} />
+      }
       {network && (
         <>
           <Block label="docker.rx" value={t("common.bytes", { value: network.rx_bytes })} />

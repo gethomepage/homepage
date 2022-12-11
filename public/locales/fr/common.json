@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Type de widget manquant: {{type}}",
         "api_error": "Erreur de l'API",
-        "status": "Statut"
+        "status": "Statut",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Recherche…"
@@ -19,7 +23,9 @@
         "tx": "Tx",
         "mem": "Mém",
         "cpu": "Cpu",
-        "offline": "Hors ligne"
+        "offline": "Hors ligne",
+        "error": "Erreur",
+        "unknown": "Inconnu"
     },
     "emby": {
         "playing": "En lecture",
@@ -98,7 +104,8 @@
     "overseerr": {
         "pending": "En attente",
         "approved": "Demande",
-        "available": "Disponible"
+        "available": "Disponible",
+        "processing": "En traitement"
     },
     "sabnzbd": {
         "rate": "Débit",
@@ -275,11 +282,84 @@
         "service": "Service"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Système",
+        "updates": "Mises à jour",
+        "update_available": "Mise à jour disponible",
+        "up_to_date": "À jour",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Approuvé",
+        "rejectedPushes": "Rejeté",
+        "filters": "Filtres",
+        "indexers": "Indexeur"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanné",
+        "containers_updated": "Mis à jour",
+        "containers_failed": "Échoué"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Vidéos",
+        "channels": "Chaînes",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "Charge Système",
+        "uptime": "Démarré depuis",
+        "alerts": "Alertes",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Aucun flux actif",
+        "please_wait": "Merci de patienter"
+    },
+    "pyload": {
+        "speed": "Débit",
+        "active": "Actif",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "IP Publique",
+        "region": "Région",
+        "country": "Pays"
+    },
+    "hdhomerun": {
+        "channels": "Canaux",
+        "hd": "HD"
+    },
+    "ping": {
+        "error": "Erreur",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Réussi",
+        "failed": "Échoué",
+        "unknown": "Inconnu"
+    },
+    "paperlessngx": {
+        "inbox": "Boîte de réception",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Récep.",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Réception",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Récep.",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

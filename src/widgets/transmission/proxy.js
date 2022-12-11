@@ -25,12 +25,12 @@ export default async function transmissionProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  let headers = cache.get(headerCacheKey);
+  let headers = cache.get(`${headerCacheKey}.${service}`);
   if (!headers) {
     headers = {
       "content-type": "application/json",
     }
-    cache.put(headerCacheKey, headers);
+    cache.put(`${headerCacheKey}.${service}`, headers);
   }
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
@@ -55,7 +55,7 @@ export default async function transmissionProxyHandler(req, res) {
   if (status === 409) {
     logger.debug("Transmission is rejecting the request, but returning a CSRF token");
     headers[csrfHeaderName] = responseHeaders[csrfHeaderName];
-    cache.put(headerCacheKey, headers);
+    cache.put(`${headerCacheKey}.${service}`, headers);
 
     // retry the request, now with the CSRF token
     [status, contentType, data, responseHeaders] = await httpProxy(url, {
@@ -68,6 +68,7 @@ export default async function transmissionProxyHandler(req, res) {
 
   if (status !== 200) {
     logger.error("Error getting data from Transmission: %d.  Data: %s", status, data);
+    return res.status(500).send({error: {message:"Error getting data from Transmission", url, data}});
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);

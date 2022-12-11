@@ -35,7 +35,7 @@ const Version = dynamic(() => import("components/version"), {
   ssr: false,
 });
 
-const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "search", "datetime"];
+const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
 
 export async function getStaticProps() {
   let logger;
@@ -219,9 +219,17 @@ function Home({ initialSettings }) {
         <title>{initialSettings.title || "Homepage"}</title>
         {initialSettings.base && <base href={initialSettings.base} />}
         {initialSettings.favicon ? (
-          <link rel="icon" href={initialSettings.favicon} />
+          <>
+            <link rel="apple-touch-icon" sizes="180x180" href={initialSettings.favicon} />
+            <link rel="icon" href={initialSettings.favicon} />
+          </>
         ) : (
-          <link rel="shortcut icon" href="/homepage.ico" />
+          <>
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4" />
+            <link rel="shortcut icon" href="/homepage.ico" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
+          </>
         )}
         <meta
           name="msapplication-TileColor"
@@ -272,7 +280,7 @@ function Home({ initialSettings }) {
         )}
 
         {bookmarks && (
-          <div className="grow flex flex-wrap pt-0 p-4 sm:p-8">
+          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
             {bookmarks.map((group) => (
               <BookmarksGroup key={group.name} group={group} />
             ))}

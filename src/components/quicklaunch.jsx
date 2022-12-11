@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
 
-import { resolveIcon } from "./services/item";
+import ResolvedIcon from "./resolvedicon";
 
 import { SettingsContext } from "utils/contexts/settings";
 
@@ -107,18 +107,19 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   function highlightText(text) {
     const parts = text.split(new RegExp(`(${searchString})`, 'gi'));
-    return <span>{parts.map(part => part.toLowerCase() === searchString.toLowerCase() ? <span className="bg-theme-300/10">{part}</span> : part)}</span>;
+    // eslint-disable-next-line react/no-array-index-key
+    return <span>{parts.map((part, i) => part.toLowerCase() === searchString.toLowerCase() ? <span key={`${searchString}_${i}`} className="bg-theme-300/10">{part}</span> : part)}</span>;
   }
 
   return (
     <div className={classNames(
-      "relative z-10 ease-in-out duration-300 transition-opacity",
+      "relative z-20 ease-in-out duration-300 transition-opacity",
       hidden && !isOpen && "hidden",
       !hidden && isOpen && "opacity-100",
       !isOpen && "opacity-0",
     )} role="dialog" aria-modal="true">
       <div className="fixed inset-0 bg-gray-500 bg-opacity-50" />
-      <div className="fixed inset-0 z-10 overflow-y-auto">
+      <div className="fixed inset-0 z-20 overflow-y-auto">
         <div className="flex min-h-full min-w-full items-start justify-center text-center">
           <dialog className="mt-[10%] min-w-[80%] max-w-[90%] md:min-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
             <input placeholder="Search" className={classNames(
@@ -135,7 +136,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                     )} onClick={handleItemClick}>
                     <div className="flex flex-row items-center mr-4 pointer-events-none">
                       <div className="w-5 text-xs mr-4">
-                        {r.icon && resolveIcon(r.icon)}
+                        {r.icon && <ResolvedIcon icon={r.icon} />}
                         {r.abbr && r.abbr}
                       </div>
                       <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
@@ -147,7 +148,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                         }
                       </div>
                     </div>
-                    <div className="text-xs text-theme-600 font-bold pointer-events-none">{r.abbr ? t("quicklaunch.bookmark") : t("quicklaunch.service")}</div>
+                    <div className="text-xs text-theme-600 font-bold pointer-events-none">{r.type === 'service' ? t("quicklaunch.service") : t("quicklaunch.bookmark")}</div>
                   </button>
                 </li>
               ))}

@@ -1,12 +1,8 @@
-import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-  const { t } = useTranslation();
-
   const { widget } = service;
 
   const { data: wantedData, error: wantedError } = useWidgetAPI(widget, "wanted/missing");
@@ -14,7 +10,8 @@ export default function Component({ service }) {
   const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "series");
 
   if (wantedError || queuedError || seriesError) {
-    return <Container error={t("widget.api_error")} />;
+    const finalError = wantedError ?? queuedError ?? seriesError;
+    return <Container error={finalError} />;
   }
 
   if (!wantedData || !queuedData || !seriesData) {

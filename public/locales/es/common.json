@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Falta el tipo de widget: {{type}}",
         "api_error": "Error de API",
-        "status": "Estado"
+        "status": "Estado",
+        "information": "Información",
+        "url": "URL",
+        "raw_error": "Error sin procesar",
+        "response_data": "Datos de respuesta"
     },
     "search": {
         "placeholder": "Buscar…"
@@ -19,7 +23,9 @@
         "tx": "Transmitido",
         "mem": "Memoria",
         "cpu": "Procesador",
-        "offline": "Desconectado"
+        "offline": "Desconectado",
+        "error": "Fallo",
+        "unknown": "Desconocido"
     },
     "emby": {
         "playing": "Reproduciendo",
@@ -47,7 +53,7 @@
         "wanted": "Buscando",
         "queued": "En cola",
         "movies": "Películas",
-        "missing": "No Encontrado"
+        "missing": "Faltan"
     },
     "readarr": {
         "wanted": "Buscando",
@@ -82,7 +88,7 @@
     "traefik": {
         "routers": "Enrutadores",
         "services": "Servicios",
-        "middleware": "Middleware"
+        "middleware": "Software intermedio"
     },
     "npm": {
         "enabled": "Activado",
@@ -98,7 +104,8 @@
     "overseerr": {
         "pending": "Pendiente",
         "approved": "Aprobado",
-        "available": "Disponible"
+        "available": "Disponible",
+        "processing": "Procesando"
     },
     "sabnzbd": {
         "rate": "Tasa",
@@ -132,7 +139,7 @@
     "transmission": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Compañeros",
+        "leech": "Leech",
         "seed": "Semillas"
     },
     "jackett": {
@@ -157,7 +164,7 @@
     "qbittorrent": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Compañeros",
+        "leech": "Leech",
         "seed": "Semillas"
     },
     "mastodon": {
@@ -275,11 +282,84 @@
         "service": "Servicio"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Sistema",
+        "updates": "Actualizaciones",
+        "update_available": "Actualización disponible",
+        "up_to_date": "Actualizado",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Aprobado",
+        "rejectedPushes": "Rechazado",
+        "filters": "Filtros",
+        "indexers": "Indexadores"
+    },
+    "watchtower": {
+        "containers_scanned": "Escaneado",
+        "containers_updated": "Actualizado",
+        "containers_failed": "Fallido"
+    },
+    "tubearchivist": {
+        "downloads": "Cola",
+        "videos": "Vídeos",
+        "channels": "Canales",
+        "playlists": "Listas de reproducción"
+    },
+    "truenas": {
+        "load": "Carga del sistema",
+        "uptime": "Tiempo de la actividad",
+        "alerts": "Alertas",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Sin transmisiones activas",
+        "please_wait": "Espere por favor"
+    },
+    "pyload": {
+        "speed": "Velocidad",
+        "active": "Activo",
+        "queue": "Cola",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "IP pública",
+        "region": "Región",
+        "country": "País"
+    },
+    "hdhomerun": {
+        "channels": "Canales",
+        "hd": "Alta definición"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Aprobado",
+        "failed": "Fallido",
+        "unknown": "Desconocido"
+    },
+    "paperlessngx": {
+        "inbox": "Bandeja de entrada",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Leech",
+        "seed": "Semilla"
+    },
+    "diskstation": {
+        "download": "Descargar",
+        "upload": "Cargar",
+        "leech": "Leech",
+        "seed": "Semilla"
+    },
+    "flood": {
+        "download": "Descargar",
+        "upload": "Subir",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

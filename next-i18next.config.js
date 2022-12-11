@@ -103,7 +103,7 @@ module.exports = {
           const bits = options.bits ? value : value / 8;
           const k = 1024;
           const dm = options.decimals ? options.decimals : 0;
-          const sizes = ["Bps", "Kbps", "Mbps", "Gbps", "Tbps", "Pbps", "Ebps", "Zbps", "Ybps"];
+          const sizes = ["Bps", "KiBps", "MiBps", "GiBps", "TiBps", "PiBps", "EiBps", "ZiBps", "YiBps"];
 
           const i = Math.floor(Math.log(bits) / Math.log(k));
 

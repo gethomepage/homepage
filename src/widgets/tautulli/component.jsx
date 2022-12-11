@@ -1,11 +1,10 @@
 /* eslint-disable camelcase */
-import useSWR from "swr";
 import { useTranslation } from "next-i18next";
 import { BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 
 import Container from "components/services/widget/container";
-import { formatProxyUrl } from "utils/proxy/api-helpers";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function millisecondsToTime(milliseconds) {
   const seconds = Math.floor((milliseconds / 1000) % 60);
@@ -119,12 +118,12 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: activityData, error: activityError } = useSWR(formatProxyUrl(widget, "get_activity"), {
+  const { data: activityData, error: activityError } = useWidgetAPI(widget, "get_activity", {
     refreshInterval: 5000,
   });
 
   if (activityError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={activityError} />;
   }
 
   if (!activityData) {

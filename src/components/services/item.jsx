@@ -1,46 +1,13 @@
-import Image from "next/future/image";
 import classNames from "classnames";
 import { useContext, useState } from "react";
 
 import Status from "./status";
 import Widget from "./widget";
+import Ping from "./ping";
 
 import Docker from "widgets/docker/component";
 import { SettingsContext } from "utils/contexts/settings";
-
-export function resolveIcon(icon) {
-  // direct or relative URLs
-  if (icon.startsWith("http") || icon.startsWith("/")) {
-    return <Image src={`${icon}`} width={32} height={32} alt="logo" />;
-  }
-
-  // mdi- prefixed, material design icons
-  if (icon.startsWith("mdi-")) {
-    const iconName = icon.replace("mdi-", "").replace(".svg", "");
-    return (
-      <div
-        style={{
-          width: 32,
-          height: 32,
-          background: "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
-          mask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
-          WebkitMask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
-        }}
-      />
-    );
-  }
-
-  // fallback to dashboard-icons
-  const iconName = icon.replace(".png", "");
-  return (
-    <Image
-      src={`https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/${iconName}.png`}
-      width={32}
-      height={32}
-      alt="logo"
-    />
-  );
-}
+import ResolvedIcon from "components/resolvedicon";
 
 export default function Item({ service }) {
   const hasLink = service.href && service.href !== "#";
@@ -64,7 +31,7 @@ export default function Item({ service }) {
       <div
         className={`${
           hasLink ? "cursor-pointer " : " "
-        }transition-all h-15 mb-3 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10`}
+        }transition-all h-15 mb-3 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative`}
       >
         <div className="flex select-none">
           {service.icon &&
@@ -75,10 +42,12 @@ export default function Item({ service }) {
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 "
               >
-                {resolveIcon(service.icon)}
+                <ResolvedIcon icon={service.icon} />
               </a>
             ) : (
-              <div className="flex-shrink-0 flex items-center justify-center w-12 ">{resolveIcon(service.icon)}</div>
+              <div className="flex-shrink-0 flex items-center justify-center w-12 ">
+                <ResolvedIcon icon={service.icon} />
+              </div>
             ))}
 
           {hasLink ? (
@@ -102,22 +71,31 @@ export default function Item({ service }) {
             </div>
           )}
 
-          {service.container && (
-            <button
-              type="button"
-              onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-              className="flex-shrink-0 flex items-center justify-center w-12 cursor-pointer"
-            >
-              <Status service={service} />
-              <span className="sr-only">View container stats</span>
-            </button>
-          )}
+          <div className="absolute top-0 right-0 w-1/2 flex flex-row justify-end gap-2 mr-2">
+              {service.ping && (
+                <div className="flex-shrink-0 flex items-center justify-center cursor-pointer">
+                  <Ping service={service} />
+                  <span className="sr-only">Ping status</span>
+                </div>
+              )}
+
+              {service.container && (
+                <button
+                  type="button"
+                  onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
+                  className="flex-shrink-0 flex items-center justify-center cursor-pointer"
+                >
+                  <Status service={service} />
+                  <span className="sr-only">View container stats</span>
+                </button>
+              )}
+          </div>
         </div>
 
         {service.container && service.server && (
           <div
             className={classNames(
-              statsOpen && !statsClosing ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
+              statsOpen && !statsClosing ? "max-h-[110px] opacity-100" : " max-h-[0] opacity-0",
               "w-full overflow-hidden transition-all duration-300 ease-in-out"
             )}
           >

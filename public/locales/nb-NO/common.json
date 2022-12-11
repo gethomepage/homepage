@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Manglende miniprogramstype: {{type}}",
         "api_error": "API-feil",
-        "status": "Status"
+        "status": "Status",
+        "information": "Information",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Søk …"
@@ -19,7 +23,9 @@
         "tx": "Sendt",
         "mem": "Minne",
         "cpu": "Prosessor",
-        "offline": "Frakoblet"
+        "offline": "Frakoblet",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Spiller",
@@ -98,7 +104,8 @@
     "overseerr": {
         "pending": "Venter",
         "approved": "Godkjent",
-        "available": "Tilgjengelig"
+        "available": "Tilgjengelig",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Takt",
@@ -281,5 +288,78 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "leech": "Leech",
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "leech": "Leech",
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

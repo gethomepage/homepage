@@ -17,11 +17,12 @@ export default function Component({ service }) {
     { label: t("coinmarketcap.30days"), value: "30d" },
   ];
 
-  const [dateRange, setDateRange] = useState(dateRangeOptions[0].value);
-
   const { widget } = service;
   const { symbols } = widget;
   const currencyCode = widget.currency ?? "USD";
+  const interval = widget.defaultinterval ?? dateRangeOptions[0].value;
+
+  const [dateRange, setDateRange] = useState(interval);
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "v1/cryptocurrency/quotes/latest", {
     symbol: `${symbols.join(",")}`,
@@ -37,7 +38,7 @@ export default function Component({ service }) {
   }
 
   if (statsError) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container error={statsError} />;
   }
 
   if (!statsData || !dateRange) {

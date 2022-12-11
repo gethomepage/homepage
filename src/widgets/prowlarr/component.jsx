@@ -1,19 +1,16 @@
-import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-  const { t } = useTranslation();
-
   const { widget } = service;
 
   const { data: indexersData, error: indexersError } = useWidgetAPI(widget, "indexer");
   const { data: grabsData, error: grabsError } = useWidgetAPI(widget, "indexerstats");
 
   if (indexersError || grabsError) {
-    return <Container error={t("widget.api_error")} />;
+    const finalError = indexersError ?? grabsError;
+    return <Container error={finalError} />;
   }
 
   if (!indexersData || !grabsData) {

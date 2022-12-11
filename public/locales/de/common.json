@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Fehlender Widget-Typ: {{type}}",
         "api_error": "API-Fehler",
-        "status": "Status"
+        "status": "Status",
+        "url": "URL",
+        "information": "Information",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "search": {
         "placeholder": "Suche…"
@@ -19,7 +23,9 @@
         "tx": "Tx",
         "mem": "Mem",
         "cpu": "Prozessor",
-        "offline": "Offline"
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Unknown"
     },
     "emby": {
         "playing": "Spielen",
@@ -47,7 +53,7 @@
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
         "movies": "Filme",
-        "missing": "Missing"
+        "missing": "Fehlt"
     },
     "readarr": {
         "wanted": "Gesucht",
@@ -98,7 +104,8 @@
     "overseerr": {
         "pending": "Ausstehend",
         "approved": "Genehmigt",
-        "available": "Verfügbar"
+        "available": "Verfügbar",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Geschwindigkeit",
@@ -194,9 +201,9 @@
         "wait": "Bitte warten",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Geräte",
+        "lan_devices": "LAN-Geräte",
+        "wlan_devices": "WLAN Geräte"
     },
     "plex": {
         "streams": "Aktive Streams",
@@ -204,82 +211,155 @@
         "tv": "TV Sendungen"
     },
     "glances": {
-        "cpu": "CPU",
+        "cpu": "Prozessor",
         "mem": "RAM",
         "wait": "Bitte warten"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Gesamt beobachtet",
+        "diffsDetected": "Erkannte Differenzen"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "57-day": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "55-day": "Heavy Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "0-day": "Sonnig",
+        "0-night": "Klar",
+        "1-day": "Überwiegend sonnig",
+        "1-night": "Überwiegend klar",
+        "2-day": "Teilweise bewölkt",
+        "2-night": "Teilweise bewölkt",
+        "3-day": "bewölkt",
+        "57-day": "Gefrierender Nieselregen",
+        "61-day": "Leichter Regen",
+        "65-night": "Starker Regen",
+        "66-day": "Gefrierender Regen",
+        "66-night": "Gefrierender Regen",
+        "3-night": "Bewölkt",
+        "45-day": "Neblig",
+        "45-night": "Neblig",
+        "48-day": "Neblig",
+        "48-night": "Neblig",
+        "51-day": "Leichter Nieselregen",
+        "51-night": "Leichter Nieselregen",
+        "55-day": "Starker Nieselregen",
+        "53-day": "Nieselregen",
+        "53-night": "Nieselregen",
+        "55-night": "Starker Nieselregen",
+        "56-day": "Leichter gefrierender Nieselregen",
+        "56-night": "Leichter eisiger Nieselregen",
+        "57-night": "Gefrierender Nieselregen",
+        "61-night": "Leichter Regen",
+        "63-day": "Regen",
+        "63-night": "Regen",
+        "65-day": "Starker Regen",
+        "67-day": "Gefrierender Regen",
+        "67-night": "Gefrierender Regen",
+        "71-day": "Leichter Schneefall",
+        "71-night": "Leichter Schnee",
+        "73-day": "Schnee",
+        "73-night": "Schnee",
+        "75-day": "Schwerer Schnee",
+        "75-night": "Schwerer Schnee",
+        "77-day": "Schneegriesel",
+        "77-night": "Schneegriesel",
+        "80-day": "Leichter Schauer",
+        "80-night": "Leichter Schauer",
+        "81-day": "Schauer",
+        "81-night": "Schauer",
+        "82-day": "Starke Regenschauer",
+        "82-night": "Starke Regenschauer",
+        "85-day": "Schneeschauer",
+        "85-night": "Schneeregen",
+        "86-day": "Schneeregen",
+        "86-night": "Schneeregen",
+        "95-day": "Gewitter",
+        "95-night": "Gewitter",
+        "96-day": "Gewitter mit Hagel",
+        "96-night": "Gewitter mit Hagel",
+        "99-day": "Gewitter mit Hagel",
+        "99-night": "Gewitter mit Hagel"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "Lesezeichen",
+        "service": "Dienst"
     },
     "homebridge": {
         "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "updates": "Aktualisierungen",
+        "update_available": "Aktualisierung verfügbar",
+        "up_to_date": "Aktuell",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Genehmigt",
+        "rejectedPushes": "Abgelehnt",
+        "filters": "Filter",
+        "indexers": "Indexer"
+    },
+    "watchtower": {
+        "containers_scanned": "Überprüft",
+        "containers_updated": "Aktualisiert",
+        "containers_failed": "Fehlgeschlagen"
+    },
+    "tubearchivist": {
+        "downloads": "Warteschlange",
+        "videos": "Videos",
+        "channels": "Kanäle",
+        "playlists": "Wiedergabelisten"
+    },
+    "truenas": {
+        "load": "Systembelastung",
+        "uptime": "Betriebszeit",
+        "alerts": "Warnungen",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "ping": {
+        "ping": "Ping",
+        "error": "Error"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

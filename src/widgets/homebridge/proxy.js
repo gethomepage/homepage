@@ -10,7 +10,7 @@ const proxyName = "homebridgeProxyHandler";
 const sessionTokenCacheKey = `${proxyName}__sessionToken`;
 const logger = createLogger(proxyName);
 
-async function login(widget) {
+async function login(widget, service) {
   const endpoint = "auth/login";
   const api = widgets?.[widget.type]?.api
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
@@ -26,7 +26,7 @@ async function login(widget) {
   try {
     const { access_token: accessToken, expires_in: expiresIn } = JSON.parse(data.toString());
   
-    cache.put(sessionTokenCacheKey, accessToken, (expiresIn * 1000) - 5 * 60 * 1000); // expiresIn (s) - 5m
+    cache.put(`${sessionTokenCacheKey}.${service}`, accessToken, (expiresIn * 1000) - 5 * 60 * 1000); // expiresIn (s) - 5m
     return { accessToken };
   } catch (e) {
     logger.error("Unable to login to Homebridge API: %s", e);
@@ -35,10 +35,11 @@ async function login(widget) {
   return { accessToken: false };
 }
 
-async function apiCall(widget, endpoint) {
+async function apiCall(widget, endpoint, service) {
+  const key = `${sessionTokenCacheKey}.${service}`;
   const headers = {
     "content-type": "application/json",
-    "Authorization": `Bearer ${cache.get(sessionTokenCacheKey)}`,
+    "Authorization": `Bearer ${cache.get(key)}`,
   }
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
@@ -51,7 +52,7 @@ async function apiCall(widget, endpoint) {
 
   if (status === 401) {
     logger.debug("Homebridge API rejected the request, attempting to obtain new session token");
-    const { accessToken } = login(widget);
+    const { accessToken } = login(widget, service);
     headers.Authorization = `Bearer ${accessToken}`;
 
     // retry the request, now with the new session token
@@ -83,14 +84,14 @@ export default async function homebridgeProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  if (!cache.get(sessionTokenCacheKey)) {
-    await login(widget);
+  if (!cache.get(`${sessionTokenCacheKey}.${service}`)) {
+    await login(widget, service);
   }
 
-  const { data: statusData } = await apiCall(widget, "status/homebridge");
-  const { data: versionData } = await apiCall(widget, "status/homebridge-version");
-  const { data: childBridgeData } = await apiCall(widget, "status/homebridge/child-bridges");
-  const { data: pluginsData } = await apiCall(widget, "plugins");
+  const { data: statusData } = await apiCall(widget, "status/homebridge", service);
+  const { data: versionData } = await apiCall(widget, "status/homebridge-version", service);
+  const { data: childBridgeData } = await apiCall(widget, "status/homebridge/child-bridges", service);
+  const { data: pluginsData } = await apiCall(widget, "plugins", service);
 
   return res.status(200).send({
       status: statusData?.status,

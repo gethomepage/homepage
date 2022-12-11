@@ -44,7 +44,7 @@ async function fetchFromPlexAPI(endpoint, widget) {
 
   if (status !== 200) {
     logger.error("HTTP %d communicating with Plex. Data: %s", status, data.toString());
-    return [status, data.toString()];
+    return [status, data];
   }
 
   try {
@@ -58,6 +58,9 @@ async function fetchFromPlexAPI(endpoint, widget) {
 
 export default async function plexProxyHandler(req, res) {
   const widget = await getWidget(req);
+  
+  const { service } = req.query;
+
   if (!widget) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
@@ -65,27 +68,33 @@ export default async function plexProxyHandler(req, res) {
   logger.debug("Getting streams from Plex API");
   let streams;
   let [status, apiData] = await fetchFromPlexAPI("/status/sessions", widget);
+
+  if (status !== 200) {
+    return res.status(status).json({error: {message: "HTTP error communicating with Plex API", data: Buffer.from(apiData).toString()}});
+  }
+
   if (apiData && apiData.MediaContainer) {
     streams = apiData.MediaContainer._attributes.size;
   }
 
-  let libraries = cache.get(librariesCacheKey);
+  let libraries = cache.get(`${librariesCacheKey}.${service}`);
   if (libraries === null) {
     logger.debug("Getting libraries from Plex API");
     [status, apiData] = await fetchFromPlexAPI("/library/sections", widget);
     if (apiData && apiData.MediaContainer) {
-      libraries = apiData.MediaContainer.Directory;
-      cache.put(librariesCacheKey, libraries, 1000 * 60 * 60 * 6);
+      libraries = [].concat(apiData.MediaContainer.Directory);
+      cache.put(`${librariesCacheKey}.${service}`, libraries, 1000 * 60 * 60 * 6);
     }
   }
 
-  let movies = cache.get(moviesCacheKey);
-  let tv = cache.get(tvCacheKey);
+  let movies = cache.get(`${moviesCacheKey}.${service}`);
+  let tv = cache.get(`${tvCacheKey}.${service}`);
   if (movies === null || tv === null) {
     movies = 0;
     tv = 0;
     logger.debug("Getting movie + tv counts from Plex API");
-    libraries.filter(l => ["movie", "show"].includes(l._attributes.type)).forEach(async (library) => {
+    const movieTVLibraries = libraries.filter(l => ["movie", "show"].includes(l._attributes.type));
+    await Promise.all(movieTVLibraries.map(async (library) => {
       [status, apiData] = await fetchFromPlexAPI(`/library/sections/${library._attributes.key}/all`, widget);
       if (apiData && apiData.MediaContainer) {
         const size = parseInt(apiData.MediaContainer._attributes.size, 10);
@@ -95,9 +104,9 @@ export default async function plexProxyHandler(req, res) {
           tv += size;
         }
       }
-      cache.put(tvCacheKey, tv, 1000 * 60 * 10);
-      cache.put(moviesCacheKey, movies, 1000 * 60 * 10);
-    });
+    }));
+    cache.put(`${tvCacheKey}.${service}`, tv, 1000 * 60 * 10);
+    cache.put(`${moviesCacheKey}.${service}`, movies, 1000 * 60 * 10);
   }
   
   const data = {

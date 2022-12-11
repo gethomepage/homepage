@@ -38,7 +38,7 @@
 - Images built for AMD64 (x86_64), ARM64, ARMv7 and ARMv6
   - Supports all Raspberry Pi's, most SBCs & Apple Silicon
 - Full i18n support with automatic language detection
-  - Translations for Catalan, Chinese, Dutch, Finnish, French, German, Hebrew, Hungarian, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romanian, Russian, Spanish, Swedish and Yue
+  - Translations for Catalan, Chinese, Dutch, Finnish, French, German, Hebrew, Hungarian, Malay, Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazil), Romanian, Russian, Spanish, Swedish and Yue
   - Want to help translate? [Join the Weblate project](https://hosted.weblate.org/engage/homepage/)
 - Service & Web Bookmarks
 - Docker Integration
@@ -47,12 +47,12 @@
 - Service Integration
   - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
   - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
-  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentic, Proxmox
+  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentik, Proxmox
 - Information Providers
   - Coin Market Cap, Mastodon
 - Information & Utility Widgets
   - System Stats (Disk, CPU, Memory)
-  - Weather via WeatherAPI.com or OpenWeatherMap
+  - Weather via [OpenWeatherMap](https://openweathermap.org/) or [Open-Meteo](https://open-meteo.com/)
   - Search Bar
 - Customizable
   - 21 theme colors with light and dark mode support
@@ -144,47 +144,17 @@ This is a [Next.js](https://nextjs.org/) application, see their doucmentation fo
 
 ## Contributors
 
-Huge thanks to the all the contributors who have helped make this project what it is today! In alphabetical order:
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
-- [aidenpwnz](https://github.com/benphelps/homepage/commits?author=aidenpwnz) - Nginx Proxy Manager, Search Bar Widget
-- [AlexFullmoon](https://github.com/benphelps/homepage/commits?author=AlexFullmoon) - OpenWeatherMap Widget
-- [andrii-kryvoviaz](https://github.com/benphelps/homepage/commits?author=andrii-kryvoviaz) - Background opacity option
-- [DevPGSV](https://github.com/benphelps/homepage/commits?author=DevPGSV) - Syncthing Relay Server & Mastodon widgets
-- [ilusi0n](https://github.com/benphelps/homepage/commits?author=ilusi0n) - Jellyseerr Integration
-- [ItsJustMeChris](https://github.com/benphelps/homepage/commits?author=ItsJustMeChris) - Coin Market Cap Widget
-- [JazzFisch](https://github.com/benphelps/homepage/commits?author=JazzFisch) - Readarr, Bazarr, Lidarr, SABnzbd, Transmission, qBittorrent, Proxmox Integrations & countless more improvements
-- [josways](https://github.com/benphelps/homepage/commits?author=josways) - Baidu search provider
-- [mauricio-kalil](https://github.com/benphelps/homepage/commits?author=mauricio-kalil) - Portuguese (Brazil)
-- [modem7](https://github.com/benphelps/homepage/commits?author=modem7) - Impvoed Docker Image
-- [MountainGod2](https://github.com/benphelps/homepage/discussions/243) - Homepage Logo
-- [quod](https://github.com/benphelps/homepage/commits?author=quod) - Fixed Typos
-- [schklom](https://github.com/benphelps/homepage/commits?author=schklom) - ARM64, ARMv7 and ARMv6
-- [xicopitz](https://github.com/benphelps/homepage/commits?author=xicopitz) - Gotify & Prowlarr Integration
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-### Translators
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
-- [3vilson](https://github.com/benphelps/homepage/commits?author=3vilson) - German
-- [4lenz1](https://github.com/benphelps/homepage/commits?author=4lenz1) - Chinese
-- [AmadeusGraves](https://github.com/benphelps/homepage/commits?author=AmadeusGraves) - Spanish
-- [boerniee](https://github.com/benphelps/homepage/commits?author=boerniee) - German
-- [brunoccr](https://github.com/benphelps/homepage/commits?author=brunoccr) - Portuguese (Brazil)
-- [C8opmBM](https://github.com/benphelps/homepage/commits?author=C8opmBM) - Romainian
-- [comradekingu](https://github.com/benphelps/homepage/commits?author=comradekingu) - Norwegian Bokmål
-- Daniel Varga - German & Hungarian
-- [deffcolony](https://github.com/benphelps/homepage/commits?author=deffcolony) - Dutch
-- [desolaris](https://github.com/benphelps/homepage/commits?author=desolaris) - Russian
-- [ericlokz](https://github.com/benphelps/homepage/commits?author=ericlokz) - Yue
-- [FunsKiTo](https://github.com/benphelps/homepage/commits?author=FunsKiTo) - Spanish
-- [jackblk](https://github.com/benphelps/homepage/commits?author=jackblk) - Vietnamese
-- [juanmanuelbc](https://github.com/benphelps/homepage/commits?author=juanmanuelbc) - Spanish and Catalan
-- [ling0412](https://github.com/benphelps/homepage/commits?author=ling0412) - Chinese
-- [milotype](https://github.com/benphelps/homepage/commits?author=milotype) - Croatian
-- [nicedc](https://github.com/benphelps/homepage/commits?author=nicedc) - Chinese
-- [Nonoss117](https://github.com/benphelps/homepage/commits?author=Nonoss117) - French
-- [pacoculebras](https://github.com/benphelps/homepage/commits?author=pacoculebras) - Catalan
-- [Prilann](https://github.com/benphelps/homepage/commits?author=Prilann) - German
-- [psychodracon](https://github.com/benphelps/homepage/commits?author=psychodracon) - Polish
-- Sascha Jelinek - German
-- [ShlomiPorush](https://github.com/benphelps/homepage/commits?author=ShlomiPorush) - Hebrew
-- [SuperDOS](https://github.com/benphelps/homepage/commits?author=SuperDOS) - Swedish
-- [kaihu](https://github.com/benphelps/homepage/commits?author=kaihu) - Finnish
+
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->

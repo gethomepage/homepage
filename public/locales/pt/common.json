@@ -2,7 +2,11 @@
     "widget": {
         "missing_type": "Widget ausente: {{type}}",
         "api_error": "Erro da API",
-        "status": "Status"
+        "status": "Status",
+        "information": "Informação",
+        "url": "Endereço URL",
+        "raw_error": "Raw Error",
+        "response_data": "Dados da Resposta"
     },
     "search": {
         "placeholder": "Pesquisar…"
@@ -19,7 +23,9 @@
         "tx": "Tx",
         "mem": "Mem",
         "cpu": "CPU",
-        "offline": "Desligado"
+        "offline": "Desligado",
+        "error": "Erro",
+        "unknown": "Desconhecido"
     },
     "emby": {
         "playing": "A reproduzir",
@@ -109,7 +115,8 @@
     "overseerr": {
         "pending": "Pendente",
         "approved": "Aprovado",
-        "available": "Disponível"
+        "available": "Disponível",
+        "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Taxa",
@@ -143,7 +150,7 @@
     "transmission": {
         "download": "Baixando",
         "upload": "Enviando",
-        "leech": "Sanguessugas",
+        "leech": "Leech",
         "seed": "Semeadores"
     },
     "jackett": {
@@ -194,25 +201,25 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Utilizadores",
+        "uptime": "Tempo de Atividade do Sistema",
+        "days": "Dias",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_users": "Utilizadores LAN",
+        "wlan_users": "Utilizadores WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Por favor aguarde",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Dispositivos",
+        "lan_devices": "Dispositivos LAN",
+        "wlan_devices": "Dispositivos WLAN"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Streams Ativas",
+        "movies": "Filmes",
+        "tv": "Series de TV"
     },
     "glances": {
         "cpu": "CPU",
@@ -220,8 +227,8 @@
         "wait": "Please wait"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Total Observado",
+        "diffsDetected": "Diferenças Detetadas"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -292,5 +299,78 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
+    "pyload": {
+        "queue": "Queue",
+        "total": "Total",
+        "speed": "Speed",
+        "active": "Active"
+    },
+    "gluetun": {
+        "region": "Region",
+        "country": "Country",
+        "public_ip": "Public IP"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "ping": {
+        "error": "Erro",
+        "ping": "Ping"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "download": "Descarregar",
+        "upload": "Carregar",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }

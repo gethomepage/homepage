@@ -1,12 +1,8 @@
-import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-  const { t } = useTranslation();
-
   const { widget } = service;
 
   const { data: appsData, error: appsError } = useWidgetAPI(widget, "application");
@@ -14,7 +10,8 @@ export default function Component({ service }) {
   const { data: clientsData, error: clientsError } = useWidgetAPI(widget, "client");
 
   if (appsError || messagesError || clientsError) {
-    return <Container error={t("widget.api_error")} />;
+    const finalError = appsError ?? messagesError ?? clientsError;
+    return <Container error={finalError} />;
   }
 
 

@@ -9,10 +9,14 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data } = useWidgetAPI(widget, "info");
+  const { data, error } = useWidgetAPI(widget, "info");
+
+  if (error) {
+    return <Container error={error} />;
+  }
 
   if (!data) {
-    return <Container error="widget.api_error" />;
+    return <Container service={service} />;
   }
 
   const totalObserved = Object.keys(data).length;

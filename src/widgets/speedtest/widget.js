@@ -7,6 +7,9 @@ const widget = {
   mappings: {
     "speedtest/latest": {
       endpoint: "speedtest/latest",
+      validate: [
+        "data"
+      ]
     },
   },
 };

@@ -58,6 +58,7 @@ async function login(widget) {
 
 export default async function unifiProxyHandler(req, res) {
   const widget = await getWidget(req);
+  const { service } = req.query;
   if (!widget) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
@@ -68,16 +69,16 @@ export default async function unifiProxyHandler(req, res) {
   }
 
   let [status, contentType, data, responseHeaders] = [];
-  let prefix = cache.get(prefixCacheKey);
+  let prefix = cache.get(`${prefixCacheKey}.${service}`);
   if (prefix === null) {
     // auto detect if we're talking to a UDM Pro, and cache the result so that we
     // don't make two requests each time data from Unifi is required
     [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
     prefix = "";
-    if (responseHeaders["x-csrf-token"]) {
+    if (responseHeaders?.["x-csrf-token"]) {
       prefix = udmpPrefix;
     }
-    cache.put(prefixCacheKey, prefix);
+    cache.put(`${prefixCacheKey}.${service}`, prefix);
   }
 
   widget.prefix = prefix;
@@ -88,13 +89,14 @@ export default async function unifiProxyHandler(req, res) {
   setCookieHeader(url, params);
 
   [status, contentType, data, responseHeaders] = await httpProxy(url, params);
+  
   if (status === 401) {
     logger.debug("Unifi isn't logged in or rejected the reqeust, attempting login.");  
     [status, contentType, data, responseHeaders] = await login(widget);
 
     if (status !== 200) {
       logger.error("HTTP %d logging in to Unifi. Data: %s", status, data);
-      return res.status(status).end(data);
+      return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
     }
 
     const json = JSON.parse(data.toString());
@@ -112,6 +114,7 @@ export default async function unifiProxyHandler(req, res) {
 
   if (status !== 200) {
     logger.error("HTTP %d getting data from Unifi endpoint %s. Data: %s", status, url.href, data);
+    return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);

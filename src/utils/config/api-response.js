@@ -4,7 +4,7 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { getSettings } from "utils/config/config";
 import { servicesFromConfig, servicesFromDocker, cleanServiceGroups } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
@@ -46,6 +46,7 @@ export async function widgetsResponse() {
 export async function servicesResponse() {
   let discoveredServices;
   let configuredServices;
+  let initialSettings;
 
   try {
     discoveredServices = cleanServiceGroups(await servicesFromDocker());
@@ -63,11 +64,21 @@ export async function servicesResponse() {
     configuredServices = [];
   }
 
+  try {
+    initialSettings = await getSettings();
+  } catch (e) {
+    console.error("Failed to load settings.yaml, please check for errors");
+    if (e) console.error(e);
+    initialSettings = {};
+  }
+
   const mergedGroupsNames = [
     ...new Set([discoveredServices.map((group) => group.name), configuredServices.map((group) => group.name)].flat()),
   ];
 
-  const mergedGroups = [];
+  const sortedGroups = [];
+  const unsortedGroups = [];
+  const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
 
   mergedGroupsNames.forEach((groupName) => {
     const discoveredGroup = discoveredServices.find((group) => group.name === groupName) || { services: [] };
@@ -78,8 +89,14 @@ export async function servicesResponse() {
       services: [...discoveredGroup.services, ...configuredGroup.services].filter((service) => service),
     };
 
-    mergedGroups.push(mergedGroup);
+    if (definedLayouts) {
+      const layoutIndex = definedLayouts.findIndex(layout => layout === mergedGroup.name);
+      if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
+      else unsortedGroups.push(mergedGroup);
+    } else {
+      unsortedGroups.push(mergedGroup);
+    }
   });
 
-  return mergedGroups;
+  return [...sortedGroups.filter(g => g), ...unsortedGroups];
 }

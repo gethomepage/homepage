@@ -13,7 +13,11 @@
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
-        "status": "Status"
+        "information": "Information",
+        "status": "Status",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
         "current": "Current Location",
@@ -52,13 +56,25 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Offline"
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Unknown"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping"
     },
     "emby": {
         "playing": "Playing",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
@@ -102,6 +118,18 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "diskstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
@@ -139,6 +167,7 @@
     },
     "overseerr": {
         "pending": "Pending",
+        "processing": "Processing",
         "approved": "Approved",
         "available": "Available"
     },
@@ -167,6 +196,10 @@
         "routers": "Routers",
         "services": "Services",
         "middleware": "Middleware"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
     },
     "npm": {
         "enabled": "Enabled",
@@ -292,5 +325,52 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
     }
 }
