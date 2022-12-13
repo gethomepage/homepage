@@ -60,13 +60,9 @@ export default async function omadaProxyHandler(req, res) {
       let cid;
       let cversion;
       let connectedAp;
-      let isolatedAp;
-      let disconnectedAp;
       let activeuser;
       let connectedSwitches;
       let connectedGateways;
-      let availablePorts;
-      let powerConsumption;
 
       let alerts;
       let loginUrl;
@@ -210,8 +206,6 @@ export default async function omadaProxyHandler(req, res) {
         }
         connectedAp = data.result.connectedAp;
         activeuser = data.result.activeUser;
-        isolatedAp = data.result.isolatedAp;
-        disconnectedAp = data.result.disconnectedAp;
         alerts = data.result.alerts;
 
       } else {
@@ -245,11 +239,9 @@ export default async function omadaProxyHandler(req, res) {
 
         activeuser = clientresult.result.totalClientNum;
         connectedAp = clientresult.result.connectedApNum;
-        isolatedAp = clientresult.result.isolatedApNum;
         connectedGateways = clientresult.result.connectedGatewayNum;
         connectedSwitches = clientresult.result.connectedSwitchNum;
-        availablePorts = clientresult.result.availablePorts;
-        powerConsumption = clientresult.result.powerConsumption;
+
 
         let alertUrl;
         if (cversion >= "5.0.0") {
@@ -271,12 +263,8 @@ export default async function omadaProxyHandler(req, res) {
         "connectedAp": connectedAp,
         "activeUser": activeuser,
         "alerts": alerts,
-        "isolatedAp": isolatedAp,
         "connectedGateways": connectedGateways,
         "connectedSwitches": connectedSwitches,
-        "availablePorts": availablePorts,
-        "powerConsumption": powerConsumption,
-        "disconnectedAp": disconnectedAp,
       }));
     }
   }
