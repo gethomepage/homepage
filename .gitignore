@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Jetbrains IDEs
+.idea/
+
 # dependencies
 /node_modules
 /.pnp
@@ -41,3 +44,4 @@ next-env.d.ts
 
 # homepage
 /config
+
