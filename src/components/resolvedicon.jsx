@@ -1,9 +1,9 @@
 import Image from "next/future/image";
 
-export default function ResolvedIcon({ icon }) {
+export default function ResolvedIcon({ icon, width = 32, height = 32 }) {
   // direct or relative URLs
   if (icon.startsWith("http") || icon.startsWith("/")) {
-    return <Image src={`${icon}`} width={32} height={32} alt="logo" />;
+    return <Image src={`${icon}`} width={width} height={height} alt="logo" />;
   }
 
   // mdi- prefixed, material design icons
@@ -12,8 +12,8 @@ export default function ResolvedIcon({ icon }) {
     return (
       <div
         style={{
-          width: 32,
-          height: 32,
+          width,
+          height,
           maxWidth: '100%',
           maxHeight: '100%',
           background: "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
@@ -29,8 +29,8 @@ export default function ResolvedIcon({ icon }) {
   return (
     <Image
       src={`https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/${iconName}.png`}
-      width={32}
-      height={32}
+      width={width}
+      height={height}
       alt="logo"
     />
   );
