@@ -5,7 +5,7 @@ import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
 const proxyName = "omadaProxyHandler";
-// const tokenCacheKey = `${proxyName}__token`;
+
 const logger = createLogger(proxyName);
 
 
@@ -61,6 +61,7 @@ export default async function omadaProxyHandler(req, res) {
       let cversion;
       let connectedAp;
       let isolatedAp;
+      let disconnectedAp;
       let activeuser;
       let connectedSwitches;
       let connectedGateways;
@@ -210,6 +211,7 @@ export default async function omadaProxyHandler(req, res) {
         connectedAp = data.result.connectedAp;
         activeuser = data.result.activeUser;
         isolatedAp = data.result.isolatedAp;
+        disconnectedAp = data.result.disconnectedAp;
         alerts = data.result.alerts;
 
       } else {
@@ -274,7 +276,7 @@ export default async function omadaProxyHandler(req, res) {
         "connectedSwitches": connectedSwitches,
         "availablePorts": availablePorts,
         "powerConsumption": powerConsumption,
-
+        "disconnectedAp": disconnectedAp,
       }));
     }
   }

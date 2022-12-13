@@ -1,4 +1,4 @@
-import omadaProxyHandler from "./proxy";
+import omadaProxyHandler from "../omada/proxy";
 // import genericProxyHandler from "../../utils/proxy/handlers/generic";
 
 const widget = {

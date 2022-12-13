@@ -19,6 +19,8 @@ import mastodon from "./mastodon/widget";
 import navidrome from "./navidrome/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
+import omada from "./omada/widget";
+import omadalan from './omadalan/widget';
 import ombi from "./ombi/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
@@ -43,7 +45,6 @@ import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
-import omada from "./omada/widget";
 import watchtower from './watchtower/widget'
 
 const widgets = {
@@ -70,6 +71,7 @@ const widgets = {
   npm,
   nzbget,
   omada,
+  omadalan,
   ombi,
   overseerr,
   paperlessngx,
