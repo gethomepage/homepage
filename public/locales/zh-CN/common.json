@@ -361,5 +361,11 @@
         "download": "Download",
         "upload": "Upload",
         "seed": "Seed"
+    },
+    "tdarr": {
+        "saved": "Saved",
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored"
     }
 }
