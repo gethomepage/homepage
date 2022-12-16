@@ -363,9 +363,9 @@
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "À traiter",
+        "processed": "Traité",
+        "errored": "En erreur",
+        "saved": "Enregistré"
     }
 }
