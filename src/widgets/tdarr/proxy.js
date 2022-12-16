@@ -22,31 +22,21 @@ export default async function tdarrProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-
-
-
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
-  const method = "POST";
-  
-  const headers = {
-    "content-type": "application/json",
-  };
-
-  const body = JSON.stringify({
-    "data": {
-      "collection": "StatisticsJSONDB",
-      "mode": "getById",
-      "docID": "statistics"
-    }
+  const [status, contentType, data] = await httpProxy(url, {
+    method: "POST",
+    body: JSON.stringify({
+      "data": {
+        "collection": "StatisticsJSONDB",
+        "mode": "getById",
+        "docID": "statistics"
+      },
+    }),
+    headers: {
+      "content-type": "application/json",
+    },
   });
-
-  let [status, contentType, data, responseHeaders] = await httpProxy(url, {
-    method,
-    body,
-    headers,
-  });
-
 
   if (status !== 200) {
     logger.error("Error getting data from Tdarr: %d.  Data: %s", status, data);
