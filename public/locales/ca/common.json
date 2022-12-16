@@ -361,5 +361,11 @@
         "upload": "Pujada",
         "leech": "Company",
         "seed": "Llavor"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
     }
 }
