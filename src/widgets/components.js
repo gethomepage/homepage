@@ -22,6 +22,7 @@ const components = {
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   navidrome: dynamic(() => import("./navidrome/component")),
+  nextdns: dynamic(() => import("./nextdns/component")),
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
   ombi: dynamic(() => import("./ombi/component")),

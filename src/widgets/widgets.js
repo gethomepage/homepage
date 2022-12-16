@@ -17,6 +17,7 @@ import jellyseerr from "./jellyseerr/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import navidrome from "./navidrome/widget";
+import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import ombi from "./ombi/widget";
@@ -66,6 +67,7 @@ const widgets = {
   lidarr,
   mastodon,
   navidrome,
+  nextdns,
   npm,
   nzbget,
   ombi,
