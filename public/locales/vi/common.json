@@ -361,5 +361,11 @@
         "upload": "Upload",
         "seed": "Seed",
         "leech": "Leech"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
     }
 }
