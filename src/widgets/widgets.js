@@ -38,6 +38,7 @@ import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import strelaysrv from "./strelaysrv/widget";
 import tautulli from "./tautulli/widget";
+import tdarr from "./tdarr/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
@@ -87,6 +88,7 @@ const widgets = {
   speedtest,
   strelaysrv,
   tautulli,
+  tdarr,
   traefik,
   transmission,
   tubearchivist,

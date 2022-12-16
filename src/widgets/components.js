@@ -43,6 +43,7 @@ const components = {
   speedtest: dynamic(() => import("./speedtest/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
+  tdarr: dynamic(() => import("./tdarr/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
   tubearchivist: dynamic(() => import("./tubearchivist/component")),
