@@ -192,6 +192,12 @@
         "stopped": "Stopped",
         "total": "Total"
     },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },     
     "traefik": {
         "routers": "Routers",
         "services": "Services",
