@@ -18,14 +18,22 @@ export default function Component({ service }) {
   if (!nextdnsData) {
     return (
       <Container service={service}>
-        No data
+        <Block key="status" label="widget.status" value={t("nextdns.wait")} />
+      </Container>
+    );
+  }
+
+  if (!nextdnsData?.data?.length) {
+    return (
+      <Container service={service}>
+        <Block key="status" label="widget.status" value={t("nextdns.no_devices")} />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      {nextdnsData?.data?.map(d => <Block key={d.status} label={d.status} value={t("common.number", { value: d.queries })} />)}
+      {nextdnsData.data.map(d => <Block key={d.status} label={d.status} value={t("common.number", { value: d.queries })} />)}
     </Container>
   );
 }
