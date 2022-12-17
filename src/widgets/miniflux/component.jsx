@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: minifluxData, error: minifluxError } = useWidgetAPI(widget);
+  const { data: minifluxData, error: minifluxError } = useWidgetAPI(widget, "counters");
 
   if (minifluxError) {
     return <Container error={minifluxError} />;
