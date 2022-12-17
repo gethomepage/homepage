@@ -22,11 +22,14 @@ export default function getDockerArguments(server) {
 
   if (servers[server]) {
     if (servers[server].socket) {
-      return { socketPath: servers[server].socket };
+      return { conn: { socketPath: servers[server].socket }, swarm: !!servers[server].swarm };
     }
 
     if (servers[server].host) {
-      return { host: servers[server].host, port: servers[server].port || null };
+      return {
+        conn: { host: servers[server].host, port: servers[server].port || null },
+        swarm: !!servers[server].swarm,
+      };
     }
 
     return servers[server];

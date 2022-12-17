@@ -44,7 +44,7 @@ export async function servicesFromDocker() {
 
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
-      const docker = new Docker(getDockerArguments(serverName));
+      const docker = new Docker(getDockerArguments(serverName).conn);
       const containers = await docker.listContainers({
         all: true,
       });
