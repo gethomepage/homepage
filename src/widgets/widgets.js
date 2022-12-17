@@ -18,6 +18,7 @@ import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import miniflux from "./miniflux/widget";
 import navidrome from "./navidrome/widget";
+import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import ombi from "./ombi/widget";
@@ -69,6 +70,7 @@ const widgets = {
   mastodon,
   miniflux,
   navidrome,
+  nextdns,
   npm,
   nzbget,
   ombi,

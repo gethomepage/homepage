@@ -382,5 +382,9 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Total"
+    },
+    "nextdns": {
+        "wait": "Please Wait",
+        "no_devices": "No Device Data Received"
     }
 }
