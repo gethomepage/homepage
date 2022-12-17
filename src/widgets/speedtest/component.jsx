@@ -29,9 +29,9 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block
         label="speedtest.download"
-        value={t("common.bitrate", { value: speedtestData.data.download * 1024 * 1024 })}
+        value={t("common.bitrate", { value: speedtestData.data.download * 1000 * 1000 })}
       />
-      <Block label="speedtest.upload" value={t("common.bitrate", { value: speedtestData.data.upload * 1024 * 1024 })} />
+      <Block label="speedtest.upload" value={t("common.bitrate", { value: speedtestData.data.upload * 1000 * 1000 })} />
       <Block
         label="speedtest.ping"
         value={t("common.ms", {

@@ -3,9 +3,11 @@
         "bytes": "{{value, bytes}}",
         "bits": "{{value, bytes(bits: true)}}",
         "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true, binary: true)}}",
-        "byterate": "{{value, rate}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}"

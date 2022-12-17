@@ -98,20 +98,21 @@ module.exports = {
         );
 
         i18next.services.formatter.add("rate", (value, lng, options) => {
-          if (value === 0) return "0 Bps";
 
-          const bits = options.bits ? value : value / 8;
-          const k = 1024;
+          const k = options.binary ? 1024 : 1000;
+          const sizes = options.bits ? (options.binary ? BIBIT_UNITS : BIT_UNITS) : (options.binary ? BIBYTE_UNITS : BYTE_UNITS);
+
+          if (value === 0) return `0 ${sizes[0]}/s`;
+
           const dm = options.decimals ? options.decimals : 0;
-          const sizes = ["Bps", "KiBps", "MiBps", "GiBps", "TiBps", "PiBps", "EiBps", "ZiBps", "YiBps"];
 
-          const i = Math.floor(Math.log(bits) / Math.log(k));
+          const i = options.binary ? 2 : Math.floor(Math.log(value) / Math.log(k));
 
           const formatted = new Intl.NumberFormat(lng, { maximumFractionDigits: dm, minimumFractionDigits: dm }).format(
-            parseFloat(bits / k ** i)
+            parseFloat(value / k ** i)
           );
 
-          return `${formatted} ${sizes[i]}`;
+          return `${formatted} ${sizes[i]}/s`;
         });
 
         i18next.services.formatter.add("percent", (value, lng, options) =>
