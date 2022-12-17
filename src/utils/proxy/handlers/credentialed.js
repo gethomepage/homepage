@@ -7,7 +7,7 @@ import widgets from "widgets/widgets";
 
 const logger = createLogger("credentialedProxyHandler");
 
-export default async function credentialedProxyHandler(req, res) {
+export default async function credentialedProxyHandler(req, res, map) {
   const { group, service, endpoint } = req.query;
 
   if (group && service) {
@@ -47,6 +47,8 @@ export default async function credentialedProxyHandler(req, res) {
         headers,
       });
 
+      let resultData = data;
+
       if (status === 204 || status === 304) {
         return res.status(status).end();
       }
@@ -59,8 +61,12 @@ export default async function credentialedProxyHandler(req, res) {
         return res.status(500).json({error: {message: "Invalid data", url, data}});
       }
 
+      if (status === 200 && map) {
+        resultData = map(data);
+      }
+
       if (contentType) res.setHeader("Content-Type", contentType);
-      return res.status(status).send(data);
+      return res.status(status).send(resultData);
     }
   }
 
