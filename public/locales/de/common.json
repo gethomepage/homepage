@@ -371,5 +371,9 @@
     "miniflux": {
         "unread": "Unread",
         "read": "Read"
+    },
+    "nextdns": {
+        "wait": "Please Wait",
+        "no_devices": "No Device Data Received"
     }
 }
