@@ -246,6 +246,10 @@
         "status_count": "Posts",
         "domain_count": "Domains"
     },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
+    },
     "authentik": {
         "users": "Users",
         "loginsLast24H": "Logins (24h)",

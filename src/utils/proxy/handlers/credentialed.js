@@ -36,6 +36,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-API-Token"] = `${widget.key}`;
       } else if (widget.type === "tubearchivist") {
         headers.Authorization = `Token ${widget.key}`;
+      } else if (widget.type === "miniflux") {
+        headers["X-Auth-Token"] = `${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
