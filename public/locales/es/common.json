@@ -367,5 +367,9 @@
         "processed": "Processed",
         "saved": "Saved",
         "errored": "Errored"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
     }
 }
