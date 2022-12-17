@@ -104,7 +104,9 @@
         "byterate": "{{value, bytes}}",
         "ms": "{{value, number}}",
         "bitrate": "{{value, bytes(bits: true)}}",
-        "percent": "{{value, percent}}"
+        "percent": "{{value, percent}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "weather": {
         "current": "Localização atual",
