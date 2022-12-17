@@ -369,12 +369,12 @@
         "saved": "Enregistré"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Lu",
+        "unread": "Non lu"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Patientez...",
+        "no_devices": "Aucune donnée d'appareil reçue"
     },
     "common": {
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
