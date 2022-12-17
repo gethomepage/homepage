@@ -367,5 +367,9 @@
         "processed": "Traité",
         "errored": "En erreur",
         "saved": "Enregistré"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
     }
 }
