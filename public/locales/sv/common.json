@@ -375,5 +375,9 @@
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     }
 }
