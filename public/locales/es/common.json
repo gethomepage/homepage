@@ -363,18 +363,18 @@
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "saved": "Saved",
-        "errored": "Errored"
+        "queue": "Cola",
+        "processed": "Procesado",
+        "saved": "Guardado",
+        "errored": "Error"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Leer",
+        "unread": "Sin leer"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Espere, por favor",
+        "no_devices": "No se reciben datos del dispositivo"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
