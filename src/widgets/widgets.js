@@ -21,6 +21,7 @@ import navidrome from "./navidrome/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
+import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
@@ -73,6 +74,7 @@ const widgets = {
   nextdns,
   npm,
   nzbget,
+  omada,
   ombi,
   overseerr,
   paperlessngx,
