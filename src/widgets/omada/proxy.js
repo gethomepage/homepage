@@ -15,9 +15,12 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
     password: password
   }
 
-  if (controllerVersionMajor < 4) {
-    params.method = "login";
-    params.name = username;
+  if (controllerVersionMajor === 3) {
+    params["method"] = "login";
+    params["params"] = {
+      name: username,
+      password
+    };
   }
   
   const [status, contentType, data] = await httpProxy(loginUrl, {
@@ -59,14 +62,14 @@ export default async function omadaProxyHandler(req, res) {
         return res.status(status).json({error: {message: `HTTP Error ${status}`, url: controllerInfoURL, data: data}});
       }
 
-      const cId = JSON.parse(data).result.omadacId;
+      let cId;
       let controllerVersion;
 
       try {
+        cId = JSON.parse(data).result.omadacId;
         controllerVersion = JSON.parse(data).result.controllerVer;
       } catch (e) {
-        // fallback to this random version?
-        controllerVersion = "3.2.17"
+        controllerVersion = "3.2.x"
       }
 
       const controllerVersionMajor = parseInt(controllerVersion.split('.')[0], 10)
@@ -134,7 +137,20 @@ export default async function omadaProxyHandler(req, res) {
 
       const sitesResponseData = JSON.parse(data);
 
-      let site;
+      if (sitesResponseData.errorCode > 0) {
+        logger.debug(`HTTTP ${status} getting sites list: ${requestresponse[2].msg}`);
+        return res.status(status).json({error: {message: "Error getting sites list", url, data: requestresponse[2]}});
+      }
+
+      const site = (controllerVersionMajor === 3) ? 
+      sitesResponseData.result.siteList.find(site => site.name === widget.site):
+        sitesResponseData.result.data.find(site => site.name === widget.site);
+
+      if (!site) {
+        return res.status(requestresponse[0]).json({error: {message: `Site ${widget.site} is not found`, url, data}});
+      }
+
+      let siteResponseData;
 
       let connectedAp;
       let activeUser;
@@ -142,73 +158,53 @@ export default async function omadaProxyHandler(req, res) {
       let connectedGateways;
       let alerts;
 
-      if (sitesResponseData.errorCode > 0) {
-        logger.debug(`HTTTP ${status} getting sites list: ${requestresponse[2].msg}`);
-        return res.status(status).json({error: {message: "Error getting sites list", url, data: requestresponse[2]}});
-      }
-
-      // on modern controller, we need to call two different endpoints
-      // on older controller, we can call one endpoint
-
       if (controllerVersionMajor === 3) {
-
-        // Switching site is really needed only for Omada 3.x.x controllers
-  
-        let switchUrl;
-  
-        site = listresult.result.siteList.filter(site => site.name === widget.site);
-        siteName = site[0].siteName;
-        switchUrl = `${widget.url}/web/v1/controller?ajax=&token=${token}`;
+        // Omada 3.x.x controller requires switching site
+        const switchUrl = `${widget.url}/web/v1/controller?ajax=&token=${token}`;
         method = "POST";
-        body = JSON.stringify({
+        body = {
           "method": "switchSite",
           "params": {
-            "siteName": siteName,
+            "siteName": site.siteName,
             "userName": widget.username
           }
-        });
+        };
         headers = { "Content-Type": "application/json" };
         params = { "token": token };
-        requestresponse = await httpProxy(switchUrl, {
+
+        [status, contentType, data] = await httpProxy(switchUrl, {
           method,
           params,
-          body: body.toString(),
+          body: JSON.stringify(body),
           headers,
         });
-        const switchresult = JSON.parse(requestresponse[2]);
-        if (switchresult.errorCode !== 0) {
-          logger.debug(`HTTTP ${requestresponse[0]} getting sites list: ${requestresponse[2]}`);
-          return res.status(requestresponse[0]).json({error: {message: "Error switching site", url, data: requestresponse[2]}});
+
+        const switchResponseData = JSON.parse(data);
+        if (status !== 200 || switchResponseData.errorCode > 0) {
+          logger.error(`HTTP ${status} getting sites list: ${data}`);
+          return res.status(status).json({error: {message: "Error switching site", url: switchUrl, data}});
         }
         
         const statsUrl = `${widget.url}/web/v1/controller?getGlobalStat=&token=${token}`;
-        const statResponse = await httpProxy(statsUrl, {
-          method: "POST",
-          params: { "token": token },
+        [status, contentType, data] = await httpProxy(statsUrl, {
+          method,
+          params,
           body: JSON.stringify({
             "method": "getGlobalStat",
           }),
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers
         });
 
-        const data = JSON.parse(statResponse[2]);
+        siteResponseData = JSON.parse(data);
 
-        if (data.errorCode !== 0) {
-          return res.status(statResponse[0]).json({error: {message: "Error getting stats", url, data: statResponse[2]}});
+        if (status !== 200 || siteResponseData.errorCode > 0) {
+          return res.status(status).json({error: {message: "Error getting stats", url: statsUrl, data}});
         }
-        connectedAp = data.result.connectedAp;
-        activeUser = data.result.activeUser;
-        alerts = data.result.alerts;
 
+        connectedAp = siteResponseData.result.connectedAp;
+        activeUser = siteResponseData.result.activeUser;
+        alerts = siteResponseData.result.alerts;
       } else if (controllerVersionMajor === 4 || controllerVersionMajor === 5) {
-        site = sitesResponseData.result.data.find(site => site.name === widget.site);
-
-        if (site.length === 0) {
-          return res.status(requestresponse[0]).json({error: {message: `Site ${widget.site} is not found`, url, data}});
-        }
-
         const siteName = (controllerVersionMajor === 5) ? site.id : site.key;
         const siteStatsUrl = (controllerVersionMajor === 4) ? 
           `${url}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000` :
@@ -220,7 +216,7 @@ export default async function omadaProxyHandler(req, res) {
           },
         });
 
-        const siteResponseData = JSON.parse(data);
+        siteResponseData = JSON.parse(data);
         
         if (status !== 200 || siteResponseData.errorCode > 0) {
           logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${listresult.msg}`);
@@ -254,6 +250,6 @@ export default async function omadaProxyHandler(req, res) {
       }));
     }
   }
-  
+
   return res.status(400).json({ error: "Invalid proxy service type" });
 }
