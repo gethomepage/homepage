@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: omadaData, error: omadaAPIError } = useWidgetAPI(widget, "stats", {
+  const { data: omadaData, error: omadaAPIError } = useWidgetAPI(widget, {
     refreshInterval: 5000,
   });
 
@@ -23,8 +23,6 @@ export default function Component({ service }) {
         <Block label="omada.connectedAp" />
         <Block label="omada.activeUser" />
         <Block label="omada.alerts" />
-        <Block label="omada.connectedGateway" />
-        <Block label="omada.connectedSwitches" />
       </Container>
     );
   }

@@ -2,27 +2,26 @@
 import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import widgets from "widgets/widgets";
 
 const proxyName = "omadaProxyHandler";
 
 const logger = createLogger(proxyName);
 
-
 async function login(loginUrl, username, password, controllerVersionMajor) {
   const params = {
-    username: username,
-    password: password
+    username,
+    password
   }
 
   if (controllerVersionMajor === 3) {
-    params["method"] = "login";
-    params["params"] = {
+    params.method = "login";
+    params.params = {
       name: username,
       password
     };
   }
-  
+
+  // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify(params),
@@ -41,10 +40,6 @@ export default async function omadaProxyHandler(req, res) {
   if (group && service) {
     const widget = await getServiceWidget(group, service);
 
-    if (!widgets?.[widget.type]?.api) {
-      return res.status(403).json({ error: "Service does not support API calls" });
-    }
-
     if (widget) {
 
       const {url} = widget;
@@ -59,7 +54,7 @@ export default async function omadaProxyHandler(req, res) {
 
       if (status !== 200) {
         logger.error("Unable to retrieve Omada controller info");
-        return res.status(status).json({error: {message: `HTTP Error ${status}`, url: controllerInfoURL, data: data}});
+        return res.status(status).json({error: {message: `HTTP Error ${status}`, url: controllerInfoURL, data}});
       }
 
       let cId;
@@ -97,12 +92,11 @@ export default async function omadaProxyHandler(req, res) {
       const [loginStatus, loginResponseData] = await login(loginUrl, widget.username, widget.password, controllerVersionMajor);
 
       if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
-        return res.status(requestresponse[0]).json({error: {message: "Error logging in to Oamda controller", url: loginUrl, data: loginResponseData}});
+        return res.status(status).json({error: {message: "Error logging in to Oamda controller", url: loginUrl, data: loginResponseData}});
       }
 
-      const token = loginResponseData.result.token;
+      const { token } = loginResponseData.result;
       
-      // List sites
       let sitesUrl;
       let body = {};
       let params = { token };
@@ -126,6 +120,8 @@ export default async function omadaProxyHandler(req, res) {
         case 5:
           sitesUrl = `${widget.url}/${cId}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
           break;
+        default:
+          break;
       }
       
       [status, contentType, data] = await httpProxy(sitesUrl, {
@@ -138,16 +134,16 @@ export default async function omadaProxyHandler(req, res) {
       const sitesResponseData = JSON.parse(data);
 
       if (sitesResponseData.errorCode > 0) {
-        logger.debug(`HTTTP ${status} getting sites list: ${requestresponse[2].msg}`);
-        return res.status(status).json({error: {message: "Error getting sites list", url, data: requestresponse[2]}});
+        logger.debug(`HTTTP ${status} getting sites list: ${sitesResponseData.msg}`);
+        return res.status(status).json({error: {message: "Error getting sites list", url, data: sitesResponseData}});
       }
 
       const site = (controllerVersionMajor === 3) ? 
-      sitesResponseData.result.siteList.find(site => site.name === widget.site):
-        sitesResponseData.result.data.find(site => site.name === widget.site);
+        sitesResponseData.result.siteList.find(s => s.name === widget.site):
+        sitesResponseData.result.data.find(s => s.name === widget.site);
 
       if (!site) {
-        return res.status(requestresponse[0]).json({error: {message: `Site ${widget.site} is not found`, url, data}});
+        return res.status(status).json({error: {message: `Site ${widget.site} is not found`, url, data}});
       }
 
       let siteResponseData;
@@ -159,18 +155,18 @@ export default async function omadaProxyHandler(req, res) {
       let alerts;
 
       if (controllerVersionMajor === 3) {
-        // Omada 3.x.x controller requires switching site
+        // Omada v3 controller requires switching site
         const switchUrl = `${widget.url}/web/v1/controller?ajax=&token=${token}`;
         method = "POST";
         body = {
-          "method": "switchSite",
-          "params": {
-            "siteName": site.siteName,
-            "userName": widget.username
+          method: "switchSite",
+          params: {
+            siteName: site.siteName,
+            userName: widget.username
           }
         };
         headers = { "Content-Type": "application/json" };
-        params = { "token": token };
+        params = { token };
 
         [status, contentType, data] = await httpProxy(switchUrl, {
           method,
@@ -219,25 +215,26 @@ export default async function omadaProxyHandler(req, res) {
         siteResponseData = JSON.parse(data);
         
         if (status !== 200 || siteResponseData.errorCode > 0) {
-          logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${listresult.msg}`);
+          logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${siteResponseData.msg}`);
           return res.status(500).send(data);
         }
-
-        activeUser = siteResponseData.result.totalClientNum;
-        connectedAp = siteResponseData.result.connectedApNum;
-        connectedGateways = siteResponseData.result.connectedGatewayNum;
-        connectedSwitches = siteResponseData.result.connectedSwitchNum;
 
         const alertUrl = (controllerVersionMajor === 4) ? 
           `${url}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000` :
           `${url}/${cId}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`;
 
+        // eslint-disable-next-line no-unused-vars
         [status, contentType, data] = await httpProxy(alertUrl, {
           headers: {
             "Csrf-Token": token,
           },
         });
         const alertResponseData = JSON.parse(data);
+
+        activeUser = siteResponseData.result.totalClientNum;
+        connectedAp = siteResponseData.result.connectedApNum;
+        connectedGateways = siteResponseData.result.connectedGatewayNum;
+        connectedSwitches = siteResponseData.result.connectedSwitchNum;
         alerts = alertResponseData.result.alertNum;
       }
 

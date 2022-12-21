@@ -89,14 +89,11 @@
         "no_active": "No Active Streams"
     },
     "omada": {
-      "activeUser": "Active devices",
-      "alerts": "Alerts",
-      "connectedAp": "Connected APs",
-      "isolatedAp": "Isolated APs",
-      "powerConsumption": "Power consumption",
-      "availablePorts"  : "Available ports",
-      "connectedGateway": "Connected gateways",
-      "connectedSwitches": "Connected switches"
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
     },
     "nzbget": {
         "rate": "Rate",
