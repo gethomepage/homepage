@@ -117,7 +117,7 @@ pnpm start
 
 ## Configuration
 
-Configuration files will be genereted and placed on the first request.
+Configuration files will be generated and placed on the first request.
 
 Configuration is done in the /config directory using .yaml files. Refer to each config for
 the specific configuration options.
