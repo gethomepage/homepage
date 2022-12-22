@@ -5,18 +5,18 @@
         "cpu": "CPU",
         "offline": "Offline",
         "rx": "RX",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Errore",
+        "unknown": "Sconosciuto"
     },
     "emby": {
         "playing": "In riproduzione",
-        "transcoding": "Transcoding",
+        "transcoding": "Transcodifica",
         "bitrate": "Bitrate",
         "no_active": "Nessuno Stream Attivo"
     },
     "tautulli": {
         "playing": "In riproduzione",
-        "transcoding": "Transcoding",
+        "transcoding": "Transcodifica",
         "bitrate": "Bitrate",
         "no_active": "Nessuno Stream Attivo"
     },
@@ -31,7 +31,7 @@
         "total": "Totali"
     },
     "traefik": {
-        "routers": "Routers",
+        "routers": "Router",
         "services": "Servizi",
         "middleware": "Middleware"
     },
@@ -42,7 +42,7 @@
         "url": "URL",
         "information": "Informazione",
         "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "response_data": "Dati risposta"
     },
     "search": {
         "placeholder": "Cerca…"
@@ -105,7 +105,7 @@
         "pending": "In attesa",
         "approved": "Approvati",
         "available": "Disponibili",
-        "processing": "Processing"
+        "processing": "In lavorazione"
     },
     "sabnzbd": {
         "rate": "Rapporto",
@@ -126,13 +126,13 @@
     },
     "gotify": {
         "apps": "Applicazioni",
-        "clients": "Clients",
+        "clients": "Client",
         "messages": "Messaggi"
     },
     "prowlarr": {
         "enableIndexers": "Indicizzatori",
         "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "Interrogazioni",
         "numberOfFailGrabs": "Grabs Falliti",
         "numberOfFailQueries": "Queries Fallite"
     },
@@ -153,10 +153,10 @@
     "lidarr": {
         "wanted": "Mancanti",
         "queued": "In coda",
-        "albums": "Albums"
+        "albums": "Album"
     },
     "adguard": {
-        "queries": "Queries",
+        "queries": "Interrogazioni",
         "blocked": "Bloccati",
         "filtered": "Filtrati",
         "latency": "Latenza"
@@ -304,12 +304,12 @@
         "downloads": "Coda",
         "videos": "Video",
         "channels": "Canali",
-        "playlists": "Playlists"
+        "playlists": "Playlist"
     },
     "truenas": {
         "load": "Carico di Sistema",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "uptime": "Tempo di attività",
+        "alerts": "Avvisi",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
@@ -323,26 +323,26 @@
         "total": "Totale"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "IP pubblico",
+        "region": "Località",
+        "country": "Stato"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Canali",
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Errore",
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Passati",
+        "failed": "Falliti",
+        "unknown": "Sconosciuto"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "In arrivo",
+        "total": "Totali"
     },
     "deluge": {
         "download": "Download",
@@ -363,18 +363,18 @@
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "In coda",
+        "processed": "Elaborati",
+        "errored": "Errori",
+        "saved": "Salvati"
     },
     "miniflux": {
-        "unread": "Unread",
-        "read": "Read"
+        "unread": "Non letti",
+        "read": "Letti"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Attendi",
+        "no_devices": "Nessun dato del dispositivo ricevuto"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
