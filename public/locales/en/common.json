@@ -126,7 +126,7 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
+    "downloadstation": {
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
