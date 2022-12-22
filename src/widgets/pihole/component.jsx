@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: piholeData, error: piholeError } = useWidgetAPI(widget, "api.php");
+  const { data: piholeData, error: piholeError } = useWidgetAPI(widget, "summaryRaw");
 
   if (piholeError) {
     return <Container error={piholeError} />;
@@ -27,9 +27,9 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="pihole.queries" value={t("common.number", { value: piholeData.dns_queries_today })} />
-      <Block label="pihole.blocked" value={t("common.number", { value: piholeData.ads_blocked_today })} />
-      <Block label="pihole.gravity" value={t("common.number", { value: piholeData.domains_being_blocked })} />
+      <Block label="pihole.queries" value={t("common.number", { value: parseInt(piholeData.dns_queries_today, 10) })} />
+      <Block label="pihole.blocked" value={t("common.number", { value: parseInt(piholeData.ads_blocked_today, 10) })} />
+      <Block label="pihole.gravity" value={t("common.number", { value: parseInt(piholeData.domains_being_blocked, 10) })} />
     </Container>
   );
 }
