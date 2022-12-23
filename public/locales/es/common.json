@@ -381,10 +381,10 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "AP conectados",
+        "activeUser": "Dispositivos activos",
+        "alerts": "Alertas",
+        "connectedGateway": "Pasarelas conectadas",
+        "connectedSwitches": "Interruptores conectados"
     }
 }
