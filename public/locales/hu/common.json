@@ -379,5 +379,12 @@
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedAp": "Connected APs",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
     }
 }
