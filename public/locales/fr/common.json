@@ -351,7 +351,6 @@
         "seed": "Seed"
     },
     "diskstation": {
-        "upload": "Envoi",
         "seed": "Seed"
     },
     "flood": {
@@ -384,5 +383,11 @@
         "alerts": "Alertes",
         "connectedGateway": "Passerelles connectées",
         "connectedSwitches": "Switches connectés"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     }
 }
