@@ -52,7 +52,7 @@ export async function servicesResponse() {
     discoveredServices = cleanServiceGroups(await servicesFromDocker());
   } catch (e) {
     console.error("Failed to discover services, please check docker.yaml for errors or remove example entries.");
-    if (e) console.error(e);
+    if (e) console.error(e.toString());
     discoveredServices = [];
   }
 
@@ -60,7 +60,7 @@ export async function servicesResponse() {
     configuredServices = cleanServiceGroups(await servicesFromConfig());
   } catch (e) {
     console.error("Failed to load services.yaml, please check for errors");
-    if (e) console.error(e);
+    if (e) console.error(e.toString());
     configuredServices = [];
   }
 
@@ -68,7 +68,7 @@ export async function servicesResponse() {
     initialSettings = await getSettings();
   } catch (e) {
     console.error("Failed to load settings.yaml, please check for errors");
-    if (e) console.error(e);
+    if (e) console.error(e.toString());
     initialSettings = {};
   }
 

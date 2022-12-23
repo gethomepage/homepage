@@ -44,38 +44,47 @@ export async function servicesFromDocker() {
 
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
-      const docker = new Docker(getDockerArguments(serverName).conn);
-      const containers = await docker.listContainers({
-        all: true,
-      });
-
-      // bad docker connections can result in a <Buffer ...> object?
-      // in any case, this ensures the result is the expected array
-      if (!Array.isArray(containers)) {
-        return [];
-      }
-
-      const discovered = containers.map((container) => {
-        let constructedService = null;
-
-        Object.keys(container.Labels).forEach((label) => {
-          if (label.startsWith("homepage.")) {
-            if (!constructedService) {
-              constructedService = {
-                container: container.Names[0].replace(/^\//, ""),
-                server: serverName,
-              };
-            }
-            shvl.set(constructedService, label.replace("homepage.", ""), container.Labels[label]);
-          }
+      try {
+        const docker = new Docker(getDockerArguments(serverName).conn);
+        const containers = await docker.listContainers({
+          all: true,
         });
 
-        return constructedService;
-      });
+        // bad docker connections can result in a <Buffer ...> object?
+        // in any case, this ensures the result is the expected array
+        if (!Array.isArray(containers)) {
+          return [];
+        }
 
-      return { server: serverName, services: discovered.filter((filteredService) => filteredService) };
+        const discovered = containers.map((container) => {
+          let constructedService = null;
+
+          Object.keys(container.Labels).forEach((label) => {
+            if (label.startsWith("homepage.")) {
+              if (!constructedService) {
+                constructedService = {
+                  container: container.Names[0].replace(/^\//, ""),
+                  server: serverName,
+                };
+              }
+              shvl.set(constructedService, label.replace("homepage.", ""), container.Labels[label]);
+            }
+          });
+
+          return constructedService;
+        });
+
+        return { server: serverName, services: discovered.filter((filteredService) => filteredService) };
+      } catch (e) {
+        // a server failed, but others may succeed
+        return { server: serverName, services: [] };
+      }
     })
   );
+
+  if (serviceServers.every(server => server.services.length === 0)) {
+    throw new Error('All docker servers failed to connect or returned no containers');
+  }
 
   const mappedServiceGroups = [];
 
