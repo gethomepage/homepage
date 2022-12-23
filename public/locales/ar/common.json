@@ -350,9 +350,6 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
-        "upload": "Upload"
-    },
     "flood": {
         "download": "Download",
         "upload": "Upload",

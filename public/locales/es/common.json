@@ -350,9 +350,6 @@
         "leech": "Leech",
         "seed": "Semilla"
     },
-    "diskstation": {
-        "seed": "Semilla"
-    },
     "flood": {
         "download": "Descargar",
         "upload": "Subir",

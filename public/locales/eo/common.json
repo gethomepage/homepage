@@ -350,9 +350,6 @@
         "inbox": "Inbox",
         "total": "Totalo"
     },
-    "diskstation": {
-        "seed": "Seed"
-    },
     "flood": {
         "download": "Download",
         "upload": "Upload",

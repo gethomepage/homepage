@@ -350,9 +350,6 @@
         "seed": "Seed",
         "download": "Download"
     },
-    "diskstation": {
-        "seed": "Seed"
-    },
     "flood": {
         "download": "Download",
         "upload": "Upload",
