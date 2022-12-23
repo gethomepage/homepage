@@ -351,9 +351,7 @@
         "total": "Totalo"
     },
     "diskstation": {
-        "download": "Download",
         "leech": "Leech",
-        "upload": "Upload",
         "seed": "Seed"
     },
     "flood": {

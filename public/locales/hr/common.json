@@ -351,9 +351,7 @@
         "seed": "Seed"
     },
     "diskstation": {
-        "download": "Preuzimanje",
         "upload": "Prijenos",
-        "leech": "Leech",
         "seed": "Seed"
     },
     "flood": {
