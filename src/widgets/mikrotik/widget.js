@@ -9,6 +9,9 @@ const widget = {
     system: {
       endpoint: "system/resource",
     },
+    leases: {
+      endpoint: "ip/dhcp-server/lease",
+    }
   },
 };
 

@@ -392,6 +392,7 @@
     "mikrotik": {
         "cpuload": "CPU Load",
         "memoryused": "Memory Used",
-        "uptime": "Uptime"
+        "uptime": "Uptime",
+        "numberofleases": "Leases"
     }
 }
