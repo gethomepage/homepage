@@ -35,7 +35,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="mikrotik.uptime" value={ statsData.uptime } />
-      <Block label="mikrotik.cpuload" value={t("common.number", { value: statsData['cpu-load'] })} />
+      <Block label="mikrotik.cpuload" value={t("common.percent", { value: statsData['cpu-load'] })} />
       <Block label="mikrotik.memoryused" value={t("common.percent", { value: memoryused })} />
       <Block label="mikrotik.numberofleases" value={t("common.number", { value: numberofleases })} />
     </Container>
