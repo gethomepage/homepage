@@ -1,8 +1,10 @@
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import { useTranslation } from "react-i18next";
 
 export default function Component({ service }) {
+  const { t } = useTranslation();
   const { widget } = service;
 
   const { data: indexersData, error: indexersError } = useWidgetAPI(widget, "indexer");
@@ -40,11 +42,11 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="prowlarr.enableIndexers" value={indexers.length} />
-      <Block label="prowlarr.numberOfGrabs" value={numberOfGrabs} />
-      <Block label="prowlarr.numberOfQueries" value={numberOfQueries} />
-      <Block label="prowlarr.numberOfFailGrabs" value={numberOfFailedGrabs} />
-      <Block label="prowlarr.numberOfFailQueries" value={numberOfFailedQueries} />
+      <Block label="prowlarr.enableIndexers" value={t("common.number", { value: indexers.length })} />
+      <Block label="prowlarr.numberOfGrabs" value={t("common.number", { value: numberOfGrabs })} />
+      <Block label="prowlarr.numberOfQueries" value={t("common.number", { value: numberOfQueries })} />
+      <Block label="prowlarr.numberOfFailGrabs" value={t("common.number", { value: numberOfFailedGrabs })} />
+      <Block label="prowlarr.numberOfFailQueries" value={t("common.number", { value: numberOfFailedQueries })} />
     </Container>
   );
 }
