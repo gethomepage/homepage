@@ -41,3 +41,8 @@ next-env.d.ts
 
 # homepage
 /config
+
+# IDEs
+/.idea/
+
+

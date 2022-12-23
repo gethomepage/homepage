@@ -206,7 +206,7 @@
         "processed": "Processed",
         "errored": "Errored",
         "saved": "Saved"
-    },     
+    },
     "traefik": {
         "routers": "Routers",
         "services": "Services",
@@ -395,5 +395,11 @@
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
     }
 }
