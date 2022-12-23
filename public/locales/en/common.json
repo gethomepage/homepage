@@ -88,6 +88,13 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
     },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
+    },
     "nzbget": {
         "rate": "Rate",
         "remaining": "Remaining",
