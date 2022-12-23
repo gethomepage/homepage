@@ -390,9 +390,9 @@
         "no_devices": "No Device Data Received"
     },
     "mikrotik": {
-        "cpuload": "CPU Load",
-        "memoryused": "Memory Used",
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
         "uptime": "Uptime",
-        "numberofleases": "Leases"
+        "numberOfLeases": "Leases"
     }
 }

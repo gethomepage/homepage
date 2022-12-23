@@ -21,23 +21,23 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="mikrotik.uptime" />
-        <Block label="mikrotik.cpuload" />
-        <Block label="mikrotik.memoryused" />
-        <Block label="mikrotik.numberofleases" />
+        <Block label="mikrotik.cpuLoad" />
+        <Block label="mikrotik.memoryUsed" />
+        <Block label="mikrotik.numberOfLeases" />
       </Container>
     );
   }
 
-  const memoryused = 100 - (statsData['free-memory'] / statsData['total-memory'])*100
+  const memoryUsed = 100 - (statsData['free-memory'] / statsData['total-memory'])*100
 
-  const numberofleases = leasesData.length
+  const numberOfLeases = leasesData.length
 
   return (
     <Container service={service}>
       <Block label="mikrotik.uptime" value={ statsData.uptime } />
-      <Block label="mikrotik.cpuload" value={t("common.percent", { value: statsData['cpu-load'] })} />
-      <Block label="mikrotik.memoryused" value={t("common.percent", { value: memoryused })} />
-      <Block label="mikrotik.numberofleases" value={t("common.number", { value: numberofleases })} />
+      <Block label="mikrotik.cpuLoad" value={t("common.percent", { value: statsData['cpu-load'] })} />
+      <Block label="mikrotik.memoryUsed" value={t("common.percent", { value: memoryUsed })} />
+      <Block label="mikrotik.numberOfLeases" value={t("common.number", { value: numberOfLeases })} />
     </Container>
   );
 }
