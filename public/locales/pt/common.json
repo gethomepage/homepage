@@ -395,5 +395,11 @@
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
     }
 }
