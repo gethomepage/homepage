@@ -388,5 +388,12 @@
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
+    },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
     }
 }
