@@ -17,10 +17,10 @@ export default function Component({ service }) {
   if (!tasks) {
     return (
       <Container service={service}>
-        <Block label="diskstation.leech" />
-        <Block label="diskstation.download" />
-        <Block label="diskstation.seed" />
-        <Block label="diskstation.upload" />
+        <Block label="downloadstation.leech" />
+        <Block label="downloadstation.download" />
+        <Block label="downloadstation.seed" />
+        <Block label="downloadstation.upload" />
       </Container>
     );
   }
@@ -32,10 +32,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="diskstation.leech" value={t("common.number", { value: leech })} />
-      <Block label="diskstation.download" value={t("common.bitrate", { value: rateDl })} />
-      <Block label="diskstation.seed" value={t("common.number", { value: completed })} />
-      <Block label="diskstation.upload" value={t("common.bitrate", { value: rateUl })} />
+      <Block label="downloadstation.leech" value={t("common.number", { value: leech })} />
+      <Block label="downloadstation.download" value={t("common.bitrate", { value: rateDl })} />
+      <Block label="downloadstation.seed" value={t("common.number", { value: completed })} />
+      <Block label="downloadstation.upload" value={t("common.bitrate", { value: rateUl })} />
     </Container>
   );
 }
