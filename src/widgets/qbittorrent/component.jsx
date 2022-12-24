@@ -139,7 +139,7 @@ export default function Component({ service }) {
   const leech = torrentData.length - completed;
   const torrentsEnabled = service.widget.fields === null || service.widget.fields?.includes('torrents');
   return (
-    <>
+    <div>
       <Container service={service}>
         <Block label="qbittorrent.leech" value={t("common.number", { value: leech })} />
         <Block label="qbittorrent.download" value={t("common.byterate", { value: rateDl, decimals: 1 })} />
@@ -148,9 +148,9 @@ export default function Component({ service }) {
       </Container>
       <div className={torrentsEnabled ? "flex flex-col w-full p-1" : "hidden"}>
         {torrentData.map((torrent) => (
-          <TorrentEntry key={torrent.Id} torrent={torrent} />
+          <TorrentEntry key={torrent.name + torrent.added_on} torrent={torrent} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
