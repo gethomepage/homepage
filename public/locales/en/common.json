@@ -401,5 +401,12 @@
         "memoryUsed": "Memory Used",
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Memory Used",
+        "uptime": "Uptime",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
     }
 }
