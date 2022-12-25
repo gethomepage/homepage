@@ -6,9 +6,6 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    version: {
-      endpoint: "core/firmware/status",
-    },
     activity: {
       endpoint: "diagnostics/activity/getActivity",
     },
