@@ -29,6 +29,7 @@ const components = {
   nzbget: dynamic(() => import("./nzbget/component")),
   omada: dynamic(() => import("./omada/component")),
   ombi: dynamic(() => import("./ombi/component")),
+  opnsense: dynamic(() => import("./opnsense/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   paperlessngx: dynamic(() => import("./paperlessngx/component")),
   pihole: dynamic(() => import("./pihole/component")),

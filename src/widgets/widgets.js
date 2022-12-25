@@ -24,6 +24,7 @@ import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import omada from "./omada/widget";
 import ombi from "./ombi/widget";
+import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
 import pihole from "./pihole/widget";
@@ -80,6 +81,7 @@ const widgets = {
   nzbget,
   omada,
   ombi,
+  opnsense,
   overseerr,
   paperlessngx,
   pihole,
