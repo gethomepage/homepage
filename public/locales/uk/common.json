@@ -4,32 +4,32 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches",
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices"
+        "alerts": "Оповіщення",
+        "connectedGateway": "Підключені шлюзи",
+        "connectedSwitches": "Підключені перемикачі",
+        "connectedAp": "Підключені точки доступу",
+        "activeUser": "Активні пристрої"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Швидкість",
+        "queue": "Черга",
+        "timeleft": "Залишилось"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Активний",
+        "upload": "Відправлення",
+        "download": "Завантаження"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Завантаження",
+        "upload": "Відправлення",
         "leech": "Leech",
         "seed": "Seed"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Розшукується",
+        "queued": "У черзі",
+        "books": "Книжки"
     },
     "wmo": {
         "55-day": "Heavy Drizzle",
@@ -105,180 +105,180 @@
         "hd": "HD"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
-        "status": "Status",
+        "missing_type": "Відсутній тип віджета: {{type}}",
+        "api_error": "Помилка API",
+        "information": "Інформація",
+        "status": "Стан",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Помилка Raw",
+        "response_data": "Дані відповіді"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Поточне розташування",
+        "allow": "Натисніть, щоб дозволити",
+        "updating": "Оновлення",
+        "wait": "Будь ласка, зачекайте"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Пошук…"
     },
     "resources": {
         "cpu": "CPU",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "total": "Всього",
+        "free": "Вільно",
+        "used": "Використано",
+        "load": "Навантаження"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Користувачі",
+        "uptime": "Час роботи системи",
+        "days": "Днів",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "devices": "Пристрої",
+        "lan_devices": "LAN пристрої",
+        "wlan_devices": "WLAN пристрої",
+        "lan_users": "LAN користувачі",
+        "wlan_users": "WLAN користувачі",
+        "up": "Відправка",
+        "down": "Завантаження",
+        "wait": "Будь ласка, зачекайте"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "Пам'ять",
         "cpu": "CPU",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "offline": "Офлайн",
+        "error": "Помилка",
+        "unknown": "Невідомий"
     },
     "ping": {
-        "error": "Error",
-        "ping": "Ping"
+        "error": "Помилка",
+        "ping": "Пінг"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Відтворення",
+        "transcoding": "Перекодування",
+        "bitrate": "Бітрейт",
+        "no_active": "Немає активних потоків"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Завантаження",
+        "upload": "Відправлення",
         "leech": "Leech",
         "seed": "Seed"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Всього спостережень",
+        "diffsDetected": "Виявлено відмінності"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Відтворення",
+        "transcoding": "Перекодування",
+        "bitrate": "Бітрейт",
+        "no_active": "Немає активних потоків"
     },
     "nzbget": {
-        "rate": "Rate",
-        "downloaded": "Downloaded",
-        "remaining": "Remaining"
+        "rate": "Швидкість",
+        "downloaded": "Завантажено",
+        "remaining": "Залишилося"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Активні потоки",
+        "movies": "Фільми",
+        "tv": "TБ шоу"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Завантаження",
+        "upload": "Відправлення",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Завантаження",
+        "upload": "Відправлення",
         "leech": "Leech",
         "seed": "Seed"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Завантаження",
+        "upload": "Відправлення",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Розшукується",
+        "queued": "У черзі",
+        "series": "Серії"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Розшукується",
+        "missing": "Відсутній",
+        "queued": "У черзі",
+        "movies": "Фільми"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Розшукується",
+        "queued": "У черзі",
+        "albums": "Альбоми"
     },
     "traefik": {
         "middleware": "Middleware",
-        "routers": "Routers",
-        "services": "Services"
+        "routers": "Роутери",
+        "services": "Сервіси"
     },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
         "please_wait": "Please Wait"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Відсутні епізоди",
+        "missingMovies": "Відсутні фільми"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "В очікуванні",
+        "approved": "Затверджено",
+        "available": "Доступно"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "В очікуванні",
+        "approved": "Затверджено",
+        "available": "Доступно"
     },
     "overseerr": {
-        "pending": "Pending",
-        "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "В очікуванні",
+        "processing": "Обробка",
+        "approved": "Затверджено",
+        "available": "Доступно"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "Запити",
+        "blocked": "Заблоковано",
+        "gravity": "Гравітація"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Запити",
+        "blocked": "Заблоковано",
+        "filtered": "Відфільтровано",
+        "latency": "Затримка"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "Відправлення",
+        "download": "Завантаження",
+        "ping": "Пінг"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Запущено",
+        "stopped": "Зупинено",
+        "total": "Всього"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Черга",
+        "processed": "Обробка",
+        "errored": "Помилка",
+        "saved": "Збережено"
     },
     "npm": {
         "enabled": "Enabled",
