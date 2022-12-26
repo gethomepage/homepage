@@ -24,6 +24,7 @@ export default async function xteveProxyHandler(req, res) {
   const payload = { cmd: "status" };
 
   if (widget.username && widget.password) {
+    // eslint-disable-next-line no-unused-vars
      const [status, contentType, data] = await httpProxy(url, {
       method,
       body: JSON.stringify({
@@ -34,14 +35,14 @@ export default async function xteveProxyHandler(req, res) {
     });
 
     if (status !== 200) {
-      return [status, contentType, data];
+      logger.debug("Error logging into xteve", status, url);
+      return res.status(status).json({error: {message: `HTTP Error ${status} logging into xteve`, url, data}});
     }
 
     const json = JSON.parse(data.toString());
 
     if (json?.status !== true) {
-      const message = "Authentication failed.";
-      return res.status(401).end(JSON.stringify({error: { message } }));
+      return res.status(401).json({error: {message: "Authentication failed", url, data}});
     }
 
     payload.token = json.token;
@@ -53,8 +54,8 @@ export default async function xteveProxyHandler(req, res) {
   });
 
   if (status !== 200) {
-    logger.debug("Error %d calling endpoint %s", status, url);
-    return res.status(status, data);
+    logger.debug("Error %d calling xteve endpoint %s", status, url);
+    return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);
