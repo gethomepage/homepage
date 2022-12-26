@@ -409,7 +409,7 @@
     },
     "opnsense": {
         "cpu": "CPU Load",
-        "memory": "Memory Used",
+        "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     }
