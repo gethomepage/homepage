@@ -394,8 +394,8 @@
         "numberOfLeases": "Baux"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Tous les flux",
+        "streams_active": "Flux actif",
+        "streams_xepg": "Canal XEPG"
     }
 }
