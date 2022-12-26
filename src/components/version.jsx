@@ -12,7 +12,7 @@ export default function Version() {
   const revision = process.env.NEXT_PUBLIC_REVISION?.length ? process.env.NEXT_PUBLIC_REVISION : "dev";
   const version = process.env.NEXT_PUBLIC_VERSION?.length ?  process.env.NEXT_PUBLIC_VERSION : "dev";
 
-  const cachedFetcher = (resource) => cachedFetch(resource, 5).then((res) => res.json());
+  const cachedFetcher = (resource) => cachedFetch(resource, 5);
 
   const { data: releaseData } = useSWR("https://api.github.com/repos/benphelps/homepage/releases", cachedFetcher);
 
