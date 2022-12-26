@@ -392,5 +392,10 @@
         "memoryUsed": "Memoria Utilizzata",
         "uptime": "Tempo di attività",
         "numberOfLeases": "Leases"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
     }
 }
