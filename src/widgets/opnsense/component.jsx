@@ -39,7 +39,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })}  />
-      <Block label="opnsense.memory" value={t("common.percent", { value: memory })} />
+      <Block label="opnsense.memory" value={memory} />
       <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wanUpload })} />
       <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wanDownload })} />
 
