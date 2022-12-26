@@ -8,9 +8,15 @@ const widget = {
   mappings: {
     activity: {
       endpoint: "diagnostics/activity/getActivity",
+      validate: [
+        "headers"
+      ]
     },
     interface: {
       endpoint: "diagnostics/traffic/interface",
+      validate: [
+        "interfaces"
+      ]
     }
   },
 };
