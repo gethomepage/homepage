@@ -392,5 +392,10 @@
         "numberOfLeases": "Leases",
         "cpuLoad": "CPU Load",
         "memoryUsed": "Memory Used"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
     }
 }
