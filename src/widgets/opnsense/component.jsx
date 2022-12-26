@@ -31,9 +31,7 @@ export default function Component({ service }) {
 
   const cpuIdle = activityData.headers[2].match(/ ([0-9.]+)% idle/)[1];
   const cpu = 100 - parseFloat(cpuIdle);
-  const memoryInfos = activityData.headers[3].split(" ");
-  const totalMemory = parseFloat(memoryInfos[1]) + parseFloat(memoryInfos[3]) + parseFloat(memoryInfos[5]) + parseFloat(memoryInfos[7]) + parseFloat(memoryInfos[9])/1024 + parseFloat(memoryInfos[11]);
-  const memory = ( 1 - parseFloat(memoryInfos[11]) / totalMemory) * 100;
+  const memory = activityData.headers[3].match(/Mem: (.+) Active,/)[1];
 
   const wanUpload = interfaceData.interfaces.wan['bytes transmitted'];
   const wanDownload = interfaceData.interfaces.wan['bytes received'];
