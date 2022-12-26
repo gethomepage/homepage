@@ -350,12 +350,6 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
     "flood": {
         "download": "Download",
         "upload": "Upload",
@@ -381,10 +375,22 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "AP Connessi",
+        "activeUser": "Dispositivi attivi",
+        "alerts": "Allarmi",
+        "connectedGateway": "Gateway connessi",
+        "connectedSwitches": "Switch connessi"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "Carico della CPU",
+        "memoryUsed": "Memoria Utilizzata",
+        "uptime": "Tempo di attività",
+        "numberOfLeases": "Leases"
     }
 }

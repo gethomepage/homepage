@@ -350,12 +350,6 @@
         "upload": "Pujada",
         "leech": "Company"
     },
-    "diskstation": {
-        "download": "Descàrrega",
-        "upload": "Pujada",
-        "leech": "Company",
-        "seed": "Llavor"
-    },
     "flood": {
         "download": "Descarregar",
         "upload": "Pujada",
@@ -386,5 +380,17 @@
         "alerts": "Alerts",
         "connectedGateway": "Connected gateways",
         "connectedSwitches": "Connected switches"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
     }
 }

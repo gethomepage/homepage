@@ -4,7 +4,7 @@ import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 import getServiceWidget from "utils/config/service-helpers";
 
-const logger = createLogger("diskstationProxyHandler");
+const logger = createLogger("downloadstationProxyHandler");
 const authApi = "{url}/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account={username}&passwd={password}&session=DownloadStation&format=cookie"
 
 async function login(widget) {
@@ -34,7 +34,7 @@ async function login(widget) {
   return [status, contentType, data];
 }
 
-export default async function diskstationProxyHandler(req, res) {
+export default async function downloadstationProxyHandler(req, res) {
   const { group, service, endpoint } = req.query;
 
   if (!group || !service) {
@@ -56,7 +56,7 @@ export default async function diskstationProxyHandler(req, res) {
 
   const json = JSON.parse(data.toString());
   if (json?.success !== true) {
-    logger.debug("Logging in to DiskStation");
+    logger.debug("Logging in to DownloadStation");
     [status, contentType, data] = await login(widget);
     if (status !== 200) {
       return res.status(status).end(data)

@@ -350,12 +350,6 @@
         "leech": "Leech",
         "seed": "Semilla"
     },
-    "diskstation": {
-        "download": "Descargar",
-        "upload": "Cargar",
-        "leech": "Leech",
-        "seed": "Semilla"
-    },
     "flood": {
         "download": "Descargar",
         "upload": "Subir",
@@ -381,10 +375,22 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "AP conectados",
+        "activeUser": "Dispositivos activos",
+        "alerts": "Alertas",
+        "connectedGateway": "Pasarelas conectadas",
+        "connectedSwitches": "Interruptores conectados"
+    },
+    "downloadstation": {
+        "download": "Descargar",
+        "upload": "Subir",
+        "leech": "Sanguijuela",
+        "seed": "Semilla"
+    },
+    "mikrotik": {
+        "cpuLoad": "Carga de la CPU",
+        "memoryUsed": "Memoria utilizada",
+        "uptime": "Tiempo en funcionamiento",
+        "numberOfLeases": "Alquileres"
     }
 }

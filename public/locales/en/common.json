@@ -133,7 +133,7 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
+    "downloadstation": {
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
@@ -395,6 +395,12 @@
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
     },
     "xteve": {
         "streams_all": "All Streams",

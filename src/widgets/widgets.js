@@ -5,7 +5,7 @@ import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import deluge from "./deluge/widget";
-import diskstation from "./diskstation/widget";
+import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
 import flood from "./flood/widget";
 import gluetun from "./gluetun/widget";
@@ -17,6 +17,7 @@ import jellyseerr from "./jellyseerr/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import miniflux from "./miniflux/widget";
+import mikrotik from "./mikrotik/widget";
 import navidrome from "./navidrome/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
@@ -58,7 +59,8 @@ const widgets = {
   changedetectionio,
   coinmarketcap,
   deluge,
-  diskstation,
+  diskstation: downloadstation,
+  downloadstation,
   emby,
   flood,
   gluetun,
@@ -71,6 +73,7 @@ const widgets = {
   lidarr,
   mastodon,
   miniflux,
+  mikrotik,
   navidrome,
   nextdns,
   npm,

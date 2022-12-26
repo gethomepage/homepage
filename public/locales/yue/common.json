@@ -350,12 +350,6 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
     "flood": {
         "download": "Download",
         "upload": "Upload",
@@ -386,5 +380,17 @@
         "alerts": "Alerts",
         "connectedGateway": "Connected gateways",
         "connectedSwitches": "Connected switches"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
     }
 }
