@@ -20,7 +20,7 @@ export default function Component({ service }) {
   if (!activityData || !interfaceData) {
     return (
       <Container service={service}>
-        <Block label="opnsense.uptime" />
+
         <Block label="opnsense.cpu" />
         <Block label="opnsense.memory" />
         <Block label="opnsense.wanUpload" />
@@ -30,11 +30,8 @@ export default function Component({ service }) {
   }
 
   const cpuidle = activityData.headers[2].substring(60,64);
-
   const cpu = 100 - parseFloat(cpuidle);
 
-  const uptimeInfos = activityData.headers[0].match(/.* up ([0-9+:]*) .*/);
-  const uptime = uptimeInfos[1];
   const memoryInfos = activityData.headers[3].split(" ");
   const totalMemory = parseFloat(memoryInfos[1]) + parseFloat(memoryInfos[3]) + parseFloat(memoryInfos[5]) + parseFloat(memoryInfos[7]) + parseFloat(memoryInfos[9])/1024 + parseFloat(memoryInfos[11]);
   const memory = ( 1 - parseFloat(memoryInfos[11]) / totalMemory) * 100;
@@ -44,8 +41,8 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="opnsense.uptime" value={ uptime } />
-      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(4) })}  />
+
+      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })}  />
       <Block label="opnsense.memory" value={t("common.percent", { value: memory })} />
       <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wanUpload })} />
       <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wanDownload })} />
