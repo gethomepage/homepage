@@ -397,5 +397,11 @@
         "streams_all": "Tous les flux",
         "streams_active": "Flux actif",
         "streams_xepg": "Canal XEPG"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Active Memory",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
     }
 }
