@@ -399,9 +399,9 @@
         "streams_xepg": "Canal XEPG"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Charge CPU",
+        "memory": "Mém. Utilisée",
+        "wanUpload": "WAN Envoi",
+        "wanDownload": "WAN Récep."
     }
 }
