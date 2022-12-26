@@ -53,6 +53,7 @@ const components = {
   truenas: dynamic(() => import("./truenas/component")),
   unifi: dynamic(() => import("./unifi/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
+  xteve: dynamic(() => import("./xteve/component")),
 };
 
 export default components;

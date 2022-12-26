@@ -206,7 +206,7 @@
         "processed": "Processed",
         "errored": "Errored",
         "saved": "Saved"
-    },     
+    },
     "traefik": {
         "routers": "Routers",
         "services": "Services",
@@ -395,5 +395,10 @@
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
     }
 }

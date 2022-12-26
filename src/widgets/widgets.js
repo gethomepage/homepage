@@ -48,6 +48,7 @@ import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
 import watchtower from './watchtower/widget'
+import xteve from './xteve/widget'
 
 const widgets = {
   adguard,
@@ -102,6 +103,7 @@ const widgets = {
   unifi,
   unifi_console: unifi,
   watchtower,
+  xteve,
 };
 
 export default widgets;
