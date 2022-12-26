@@ -21,7 +21,7 @@ export default async function xteveProxyHandler(req, res) {
 
   const url = formatApiCall(api, { endpoint, ...widget });
   const method = "POST";
-  let payload = { "cmd": "status" };
+  const payload = { "cmd": "status" };
 
   if (widget.username && widget.password) {
     const body = JSON.stringify({
@@ -30,7 +30,7 @@ export default async function xteveProxyHandler(req, res) {
       "password": widget.password,
      });
 
-     let [status, contentType, data] = await httpProxy(url, {
+     const [status, contentType, data] = await httpProxy(url, {
       method,
       body,
     });
@@ -42,16 +42,16 @@ export default async function xteveProxyHandler(req, res) {
     const json = JSON.parse(data.toString());
 
     if (json?.status !== true) {
-      let message = "Authentication failed.";
-      return res.status(401).end(JSON.stringify({error: { message: message } }));
+      const message = "Authentication failed.";
+      return res.status(401).end(JSON.stringify({error: { message } }));
     }
 
-    payload["token"] = json.token;
+    payload.token = json.token;
   }
 
   const body = JSON.stringify(payload);
 
-  let [status, contentType, data] = await httpProxy(url, {
+  const [status, contentType, data] = await httpProxy(url, {
     method,
     body,
   });
