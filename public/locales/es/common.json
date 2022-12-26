@@ -382,15 +382,15 @@
         "connectedSwitches": "Interruptores conectados"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descargar",
+        "upload": "Subir",
+        "leech": "Sanguijuela",
+        "seed": "Semilla"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "Carga de la CPU",
+        "memoryUsed": "Memoria utilizada",
+        "uptime": "Tiempo en funcionamiento",
+        "numberOfLeases": "Alquileres"
     }
 }

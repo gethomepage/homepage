@@ -382,15 +382,15 @@
         "connectedSwitches": "Switches connectés"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Récep.",
+        "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "Charge CPU",
+        "memoryUsed": "Mém. Utilisée",
+        "uptime": "Disponibilité",
+        "numberOfLeases": "Baux"
     }
 }

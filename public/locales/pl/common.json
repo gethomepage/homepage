@@ -357,40 +357,40 @@
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Kolejka",
+        "processed": "Przetworzone",
+        "errored": "Błędne",
+        "saved": "Zapisane"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Przeczytane",
+        "unread": "Nieprzeczytane"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Proszę czekać",
+        "no_devices": "Nie otrzymano danych urządzenia"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedSwitches": "Connected switches",
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways"
+        "connectedSwitches": "Połączone przełączniki",
+        "connectedAp": "Połączone punkty dostępowe",
+        "activeUser": "Aktywne urządzenia",
+        "alerts": "Alarmy",
+        "connectedGateway": "Połączone bramy"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "Obciążenie procesora",
+        "memoryUsed": "Zuyżyta pamięć",
+        "uptime": "Czas działania",
+        "numberOfLeases": "Dzierżawy"
     }
 }
