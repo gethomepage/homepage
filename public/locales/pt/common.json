@@ -401,5 +401,10 @@
         "memoryUsed": "Memory Used",
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
     }
 }
