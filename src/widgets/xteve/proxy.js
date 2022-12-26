@@ -21,18 +21,16 @@ export default async function xteveProxyHandler(req, res) {
 
   const url = formatApiCall(api, { endpoint, ...widget });
   const method = "POST";
-  const payload = { "cmd": "status" };
+  const payload = { cmd: "status" };
 
   if (widget.username && widget.password) {
-    const body = JSON.stringify({
-      "cmd": "login",
-      "username": widget.username,
-      "password": widget.password,
-     });
-
      const [status, contentType, data] = await httpProxy(url, {
       method,
-      body,
+      body: JSON.stringify({
+        cmd: "login",
+        username: widget.username,
+        password: widget.password,
+      })
     });
 
     if (status !== 200) {
@@ -49,11 +47,9 @@ export default async function xteveProxyHandler(req, res) {
     payload.token = json.token;
   }
 
-  const body = JSON.stringify(payload);
-
   const [status, contentType, data] = await httpProxy(url, {
     method,
-    body,
+    body: JSON.stringify(payload)
   });
 
   if (status !== 200) {

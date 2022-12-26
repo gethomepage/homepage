@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: xteveData, error: xteveError } = useWidgetAPI(widget, "xteve");
+  const { data: xteveData, error: xteveError } = useWidgetAPI(widget, "api");
 
   if (xteveError) {
     return <Container error={xteveError} />;
@@ -27,9 +27,9 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="xteve.streams_all" value={t("common.number", { value: xteveData["streams.all"] })} />
-      <Block label="xteve.streams_active" value={t("common.number", { value: xteveData["streams.active"] })} />
-      <Block label="xteve.streams_xepg" value={t("common.number", { value: xteveData["streams.xepg"] })} />
+      <Block label="xteve.streams_all" value={t("common.number", { value: xteveData["streams.all"] ?? 0 })} />
+      <Block label="xteve.streams_active" value={t("common.number", { value: xteveData["streams.active"] ?? 0 })} />
+      <Block label="xteve.streams_xepg" value={t("common.number", { value: xteveData["streams.xepg"] ?? 0 })} />
     </Container>
   );
 }
