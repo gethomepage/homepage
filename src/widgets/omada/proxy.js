@@ -42,9 +42,9 @@ export default async function omadaProxyHandler(req, res) {
 
     if (widget) {
 
-      const {url} = widget;
+      const { url } = widget;
 
-      const controllerInfoURL = `${widget.url}/api/info`;
+      const controllerInfoURL = `${url}/api/info`;
 
       let [status, contentType, data] = await httpProxy(controllerInfoURL, {
           headers: {
@@ -77,13 +77,13 @@ export default async function omadaProxyHandler(req, res) {
 
       switch (controllerVersionMajor) {
         case 3:
-          loginUrl = `${widget.url}/api/user/login?ajax`;
+          loginUrl = `${url}/api/user/login?ajax`;
           break;
         case 4:
-          loginUrl = `${widget.url}/api/v2/login`;
+          loginUrl = `${url}/api/v2/login`;
           break;
         case 5:
-          loginUrl = `${widget.url}/${cId}/api/v2/login`;
+          loginUrl = `${url}/${cId}/api/v2/login`;
           break;
         default:
           break;
@@ -105,7 +105,7 @@ export default async function omadaProxyHandler(req, res) {
 
       switch (controllerVersionMajor) {
         case 3:
-          sitesUrl = `${widget.url}/web/v1/controller?ajax=&token=${token}`;
+          sitesUrl = `${url}/web/v1/controller?ajax=&token=${token}`;
           body = {
             "method": "getUserSites",
             "params": {
@@ -115,10 +115,10 @@ export default async function omadaProxyHandler(req, res) {
           method = "POST";
           break;
         case 4:
-          sitesUrl = `${widget.url}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;          
+          sitesUrl = `${url}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;          
           break;
         case 5:
-          sitesUrl = `${widget.url}/${cId}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
+          sitesUrl = `${url}/${cId}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
           break;
         default:
           break;
@@ -133,7 +133,7 @@ export default async function omadaProxyHandler(req, res) {
 
       const sitesResponseData = JSON.parse(data);
 
-      if (sitesResponseData.errorCode > 0) {
+      if (status !== 200 || sitesResponseData.errorCode > 0) {
         logger.debug(`HTTTP ${status} getting sites list: ${sitesResponseData.msg}`);
         return res.status(status).json({error: {message: "Error getting sites list", url, data: sitesResponseData}});
       }
@@ -143,7 +143,7 @@ export default async function omadaProxyHandler(req, res) {
         sitesResponseData.result.data.find(s => s.name === widget.site);
 
       if (!site) {
-        return res.status(status).json({error: {message: `Site ${widget.site} is not found`, url, data}});
+        return res.status(status).json({error: {message: `Site ${widget.site} is not found`, url: sitesUrl, data}});
       }
 
       let siteResponseData;
@@ -156,7 +156,7 @@ export default async function omadaProxyHandler(req, res) {
 
       if (controllerVersionMajor === 3) {
         // Omada v3 controller requires switching site
-        const switchUrl = `${widget.url}/web/v1/controller?ajax=&token=${token}`;
+        const switchUrl = `${url}/web/v1/controller?ajax=&token=${token}`;
         method = "POST";
         body = {
           method: "switchSite",
@@ -181,7 +181,7 @@ export default async function omadaProxyHandler(req, res) {
           return res.status(status).json({error: {message: "Error switching site", url: switchUrl, data}});
         }
         
-        const statsUrl = `${widget.url}/web/v1/controller?getGlobalStat=&token=${token}`;
+        const statsUrl = `${url}/web/v1/controller?getGlobalStat=&token=${token}`;
         [status, contentType, data] = await httpProxy(statsUrl, {
           method,
           params,
