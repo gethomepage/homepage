@@ -38,7 +38,7 @@ export default function Disk({ options, expanded }) {
               <div className="pr-1">{t("resources.total")}</div>
             </span>
           )}
-          <UsageBar percent={100} />
+          <UsageBar percent={0} />
         </div>
       </div>
     );

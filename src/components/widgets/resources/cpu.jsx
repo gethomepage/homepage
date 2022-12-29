@@ -38,7 +38,7 @@ export default function Cpu({ expanded }) {
               <div className="pr-1">{t("resources.load")}</div>
             </div>
           )}
-          <UsageBar percent={100} />
+          <UsageBar percent={0} />
         </div>
       </div>
     );
