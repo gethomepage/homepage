@@ -48,7 +48,7 @@ export default function Version() {
       </span>
       {version === "main" || version === "dev" || version === "nightly"
         ? null
-        : releaseData &&
+        : releaseData && latestRelease &&
           compareVersions(latestRelease.tag_name, version) > 0 && (
             <a
               href={latestRelease.html_url}
