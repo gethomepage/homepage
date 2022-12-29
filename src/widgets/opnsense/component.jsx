@@ -52,7 +52,11 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-
+  const wid = widget.service_name + "." + widget.service_group;
+  const rateStorage = `${wid}rate`;
+  const dataStorage = `${wid}data`;
+  const timeStorage = `${wid}time`;
+  console.log("service: ", service, " wid: ", wid);
   const { data: activityData, error: activityError } = useWidgetAPI(widget, "activity");
   const { data: interfaceData, error: interfaceError } = useWidgetAPI(widget, "interface");
 
@@ -79,7 +83,7 @@ export default function Component({ service }) {
 
   const wanUpload = interfaceData.interfaces.wan['bytes transmitted'];
   const wanDownload = interfaceData.interfaces.wan['bytes received'];
-  const datas = localStorage.getItem('opnsensewidgetdatas');
+  const datas = localStorage.getItem(dataStorage);
 
   let wanUploadRate = 0;
   let wanDownloadRate = 0;
@@ -92,21 +96,21 @@ export default function Component({ service }) {
     if (wanUploadDiff > 0 || wanDownloadDiff > 0) {
       const specialTimeValue = new Date().getTime();
       console.log("Special time: ", specialTimeValue);
-      const specialTime = localStorage.getItem('opnsensewidgettime');
+      const specialTime = localStorage.getItem(timeStorage);
       if (specialTime !== null) {
         const specialTimeObj = JSON.parse(specialTime);
         const timeDif = specialTimeValue - specialTimeObj.specialtime;
         wanUploadRate = 8 * wanUploadDiff / (timeDif / 1000);
         wanDownloadRate = 8 * wanDownloadDiff / (timeDif / 1000);
-        localStorage.setItem('opnsensewidgetrate', JSON.stringify({
+        localStorage.setItem(rateStorage, JSON.stringify({
           wanUploadRate,
           wanDownloadRate
         }));
         console.log("Time diff: ", timeDif, "wanUploadRate: ", wanUploadRate, "wanDownloadRate: ", wanDownloadRate);
       }
-      localStorage.setItem('opnsensewidgettime', JSON.stringify({specialtime: specialTimeValue}));
+      localStorage.setItem(timeStorage, JSON.stringify({specialtime: specialTimeValue}));
     } else {
-      const rate = localStorage.getItem('opnsensewidgetrate');
+      const rate = localStorage.getItem(rateStorage);
       if (rate !== null) {
         const rateObj = JSON.parse(rate);
         wanUploadRate = rateObj.wanUploadRate;
@@ -116,18 +120,17 @@ export default function Component({ service }) {
     console.log("wanUploadDiff:", wanUploadDiff);
     console.log("wanDownloadDiff:", wanDownloadDiff);
   }
-  localStorage.setItem('opnsensewidgetdatas', JSON.stringify({
+  localStorage.setItem(dataStorage, JSON.stringify({
     wanUpload,
     wanDownload,
     time: Date.now()}));
 
   return (
     <Container service={service}>
-      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })}  />
+      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2)})}  />
       <Block label="opnsense.memory" value={t("common.percent", { value: memory})} />
       <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wanUpload})} />
       <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wanDownload })} />
-
       <Block label="opnsense.wanUploadRate" value={t("common.bitrate", { value: wanUploadRate})} />
       <Block label="opnsense.wanDownloadRate" value={t("common.bitrate", { value: wanDownloadRate})} />
     </Container>
