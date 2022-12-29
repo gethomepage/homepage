@@ -407,6 +407,9 @@
         "memory": "Memory Used",
         "uptime": "Uptime",
         "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "wanDownload": "WAN Download",
+        "wanUploadRate": "WAN Upload Rate",
+        "wanDownloadRate": "WAN Download Rate"
+
     }
 }
