@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     return;
   }
   const labelSelector = podSelector !== undefined ? podSelector : `${APP_LABEL}=${appName}`;
-  logger.info("labelSelector %s/%s = %s", namespace, appName, labelSelector);
   try {
     const kc = getKubeConfig();
     if (!kc) {
