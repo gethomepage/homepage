@@ -5,7 +5,7 @@ import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import deluge from "./deluge/widget";
-import diskstation from "./diskstation/widget";
+import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
 import flood from "./flood/widget";
 import gluetun from "./gluetun/widget";
@@ -16,10 +16,15 @@ import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
+import miniflux from "./miniflux/widget";
+import mikrotik from "./mikrotik/widget";
 import navidrome from "./navidrome/widget";
+import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
+import omada from "./omada/widget";
 import ombi from "./ombi/widget";
+import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
 import pihole from "./pihole/widget";
@@ -38,12 +43,14 @@ import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import strelaysrv from "./strelaysrv/widget";
 import tautulli from "./tautulli/widget";
+import tdarr from "./tdarr/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
 import watchtower from './watchtower/widget'
+import xteve from './xteve/widget'
 
 const widgets = {
   adguard,
@@ -53,7 +60,8 @@ const widgets = {
   changedetectionio,
   coinmarketcap,
   deluge,
-  diskstation,
+  diskstation: downloadstation,
+  downloadstation,
   emby,
   flood,
   gluetun,
@@ -65,10 +73,15 @@ const widgets = {
   jellyseerr,
   lidarr,
   mastodon,
+  miniflux,
+  mikrotik,
   navidrome,
+  nextdns,
   npm,
   nzbget,
+  omada,
   ombi,
+  opnsense,
   overseerr,
   paperlessngx,
   pihole,
@@ -87,6 +100,7 @@ const widgets = {
   speedtest,
   strelaysrv,
   tautulli,
+  tdarr,
   traefik,
   transmission,
   tubearchivist,
@@ -94,6 +108,7 @@ const widgets = {
   unifi,
   unifi_console: unifi,
   watchtower,
+  xteve,
 };
 
 export default widgets;

@@ -1,0 +1,407 @@
+{
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "alerts": "Оповіщення",
+        "connectedGateway": "Підключені шлюзи",
+        "connectedSwitches": "Підключені перемикачі",
+        "connectedAp": "Підключені точки доступу",
+        "activeUser": "Активні пристрої"
+    },
+    "sabnzbd": {
+        "rate": "Швидкість",
+        "queue": "Черга",
+        "timeleft": "Залишилось"
+    },
+    "rutorrent": {
+        "active": "Активний",
+        "upload": "Відправлення",
+        "download": "Завантаження"
+    },
+    "deluge": {
+        "download": "Завантаження",
+        "upload": "Відправлення",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "readarr": {
+        "wanted": "Розшукується",
+        "queued": "У черзі",
+        "books": "Книжки"
+    },
+    "wmo": {
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "0-day": "Sunny",
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "53-day": "Drizzle",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-night": "Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "81-night": "Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "country": "Country",
+        "public_ip": "Public IP",
+        "region": "Region"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "widget": {
+        "missing_type": "Відсутній тип віджета: {{type}}",
+        "api_error": "Помилка API",
+        "information": "Інформація",
+        "status": "Стан",
+        "url": "URL",
+        "raw_error": "Помилка Raw",
+        "response_data": "Дані відповіді"
+    },
+    "weather": {
+        "current": "Поточне розташування",
+        "allow": "Натисніть, щоб дозволити",
+        "updating": "Оновлення",
+        "wait": "Будь ласка, зачекайте"
+    },
+    "search": {
+        "placeholder": "Пошук…"
+    },
+    "resources": {
+        "cpu": "CPU",
+        "total": "Всього",
+        "free": "Вільно",
+        "used": "Використано",
+        "load": "Навантаження"
+    },
+    "unifi": {
+        "users": "Користувачі",
+        "uptime": "Час роботи системи",
+        "days": "Днів",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Пристрої",
+        "lan_devices": "LAN пристрої",
+        "wlan_devices": "WLAN пристрої",
+        "lan_users": "LAN користувачі",
+        "wlan_users": "WLAN користувачі",
+        "up": "Відправка",
+        "down": "Завантаження",
+        "wait": "Будь ласка, зачекайте"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "Пам'ять",
+        "cpu": "CPU",
+        "offline": "Офлайн",
+        "error": "Помилка",
+        "unknown": "Невідомий"
+    },
+    "ping": {
+        "error": "Помилка",
+        "ping": "Пінг"
+    },
+    "emby": {
+        "playing": "Відтворення",
+        "transcoding": "Перекодування",
+        "bitrate": "Бітрейт",
+        "no_active": "Немає активних потоків"
+    },
+    "flood": {
+        "download": "Завантаження",
+        "upload": "Відправлення",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "changedetectionio": {
+        "totalObserved": "Всього спостережень",
+        "diffsDetected": "Виявлено відмінності"
+    },
+    "tautulli": {
+        "playing": "Відтворення",
+        "transcoding": "Перекодування",
+        "bitrate": "Бітрейт",
+        "no_active": "Немає активних потоків"
+    },
+    "nzbget": {
+        "rate": "Швидкість",
+        "downloaded": "Завантажено",
+        "remaining": "Залишилося"
+    },
+    "plex": {
+        "streams": "Активні потоки",
+        "movies": "Фільми",
+        "tv": "TБ шоу"
+    },
+    "transmission": {
+        "download": "Завантаження",
+        "upload": "Відправлення",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qbittorrent": {
+        "download": "Завантаження",
+        "upload": "Відправлення",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "downloadstation": {
+        "download": "Завантаження",
+        "upload": "Відправлення",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "sonarr": {
+        "wanted": "Розшукується",
+        "queued": "У черзі",
+        "series": "Серії"
+    },
+    "radarr": {
+        "wanted": "Розшукується",
+        "missing": "Відсутній",
+        "queued": "У черзі",
+        "movies": "Фільми"
+    },
+    "lidarr": {
+        "wanted": "Розшукується",
+        "queued": "У черзі",
+        "albums": "Альбоми"
+    },
+    "traefik": {
+        "middleware": "Middleware",
+        "routers": "Роутери",
+        "services": "Сервіси"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
+    "bazarr": {
+        "missingEpisodes": "Відсутні епізоди",
+        "missingMovies": "Відсутні фільми"
+    },
+    "ombi": {
+        "pending": "В очікуванні",
+        "approved": "Затверджено",
+        "available": "Доступно"
+    },
+    "jellyseerr": {
+        "pending": "В очікуванні",
+        "approved": "Затверджено",
+        "available": "Доступно"
+    },
+    "overseerr": {
+        "pending": "В очікуванні",
+        "processing": "Обробка",
+        "approved": "Затверджено",
+        "available": "Доступно"
+    },
+    "pihole": {
+        "queries": "Запити",
+        "blocked": "Заблоковано",
+        "gravity": "Гравітація"
+    },
+    "adguard": {
+        "queries": "Запити",
+        "blocked": "Заблоковано",
+        "filtered": "Відфільтровано",
+        "latency": "Затримка"
+    },
+    "speedtest": {
+        "upload": "Відправлення",
+        "download": "Завантаження",
+        "ping": "Пінг"
+    },
+    "portainer": {
+        "running": "Запущено",
+        "stopped": "Зупинено",
+        "total": "Всього"
+    },
+    "tdarr": {
+        "queue": "Черга",
+        "processed": "Обробка",
+        "errored": "Помилка",
+        "saved": "Збережено"
+    },
+    "npm": {
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Total"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
+    },
+    "mastodon": {
+        "domain_count": "Domains",
+        "user_count": "Users",
+        "status_count": "Posts"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
+    },
+    "gotify": {
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexers",
+        "numberOfGrabs": "Grabs",
+        "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailQueries": "Fail Queries"
+    },
+    "jackett": {
+        "configured": "Configured",
+        "errored": "Errored"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "CPU",
+        "vms": "VMs",
+        "lxc": "LXC"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "wait": "Please wait"
+    },
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service"
+    },
+    "homebridge": {
+        "available_update": "System",
+        "updates": "Updates",
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "update_available": "Update Available",
+        "up_to_date": "Up to Date",
+        "child_bridges": "Child Bridges"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
+    "autobrr": {
+        "approvedPushes": "Approved",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
+    },
+    "tubearchivist": {
+        "downloads": "Queue",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "nextdns": {
+        "wait": "Please Wait",
+        "no_devices": "No Device Data Received"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Active Memory",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
+    }
+}

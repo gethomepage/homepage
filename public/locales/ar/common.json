@@ -350,16 +350,58 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
-        "leech": "Leech",
-        "seed": "Seed",
-        "download": "Download",
-        "upload": "Upload"
-    },
     "flood": {
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
+    },
+    "nextdns": {
+        "wait": "Please Wait",
+        "no_devices": "No Device Data Received"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Active Memory",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
     }
 }

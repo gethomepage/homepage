@@ -350,16 +350,58 @@
         "leech": "Leech",
         "seed": "Semilla"
     },
-    "diskstation": {
-        "download": "Descargar",
-        "upload": "Cargar",
-        "leech": "Leech",
-        "seed": "Semilla"
-    },
     "flood": {
         "download": "Descargar",
         "upload": "Subir",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "tdarr": {
+        "queue": "Cola",
+        "processed": "Procesado",
+        "saved": "Guardado",
+        "errored": "Error"
+    },
+    "miniflux": {
+        "read": "Leer",
+        "unread": "Sin leer"
+    },
+    "nextdns": {
+        "wait": "Espere, por favor",
+        "no_devices": "No se reciben datos del dispositivo"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "connectedAp": "AP conectados",
+        "activeUser": "Dispositivos activos",
+        "alerts": "Alertas",
+        "connectedGateway": "Pasarelas conectadas",
+        "connectedSwitches": "Interruptores conectados"
+    },
+    "downloadstation": {
+        "download": "Descargar",
+        "upload": "Subir",
+        "leech": "Sanguijuela",
+        "seed": "Semilla"
+    },
+    "mikrotik": {
+        "cpuLoad": "Carga de la CPU",
+        "memoryUsed": "Memoria utilizada",
+        "uptime": "Tiempo en funcionamiento",
+        "numberOfLeases": "Alquileres"
+    },
+    "xteve": {
+        "streams_all": "Todas las corrientes",
+        "streams_active": "Corrientes activas",
+        "streams_xepg": "Canales XEPG"
+    },
+    "opnsense": {
+        "cpu": "Carga de la CPU",
+        "memory": "Memoria activa",
+        "wanUpload": "Carga WAN",
+        "wanDownload": "Descargar WAN"
     }
 }

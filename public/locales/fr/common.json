@@ -350,16 +350,58 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
-        "download": "Réception",
-        "upload": "Envoi",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
     "flood": {
         "download": "Récep.",
         "upload": "Envoi",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "tdarr": {
+        "queue": "À traiter",
+        "processed": "Traité",
+        "errored": "En erreur",
+        "saved": "Enregistré"
+    },
+    "miniflux": {
+        "read": "Lu",
+        "unread": "Non lu"
+    },
+    "nextdns": {
+        "wait": "Patientez...",
+        "no_devices": "Aucune donnée d'appareil reçue"
+    },
+    "common": {
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}"
+    },
+    "omada": {
+        "connectedAp": "APs connectées",
+        "activeUser": "Équipts actifs",
+        "alerts": "Alertes",
+        "connectedGateway": "Passerelles connectées",
+        "connectedSwitches": "Switches connectés"
+    },
+    "downloadstation": {
+        "download": "Récep.",
+        "upload": "Envoi",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "Charge CPU",
+        "memoryUsed": "Mém. Utilisée",
+        "uptime": "Disponibilité",
+        "numberOfLeases": "Baux"
+    },
+    "xteve": {
+        "streams_all": "Tous les flux",
+        "streams_active": "Flux actif",
+        "streams_xepg": "Canal XEPG"
+    },
+    "opnsense": {
+        "cpu": "Charge CPU",
+        "memory": "Mém. Utilisée",
+        "wanUpload": "WAN Envoi",
+        "wanDownload": "WAN Récep."
     }
 }

@@ -3,8 +3,6 @@ import useSWR from "swr";
 import { compareVersions } from "compare-versions";
 import { MdNewReleases } from "react-icons/md";
 
-import cachedFetch from "utils/proxy/cached-fetch";
-
 export default function Version() {
   const { t, i18n } = useTranslation();
 
@@ -12,9 +10,7 @@ export default function Version() {
   const revision = process.env.NEXT_PUBLIC_REVISION?.length ? process.env.NEXT_PUBLIC_REVISION : "dev";
   const version = process.env.NEXT_PUBLIC_VERSION?.length ?  process.env.NEXT_PUBLIC_VERSION : "dev";
 
-  const cachedFetcher = (resource) => cachedFetch(resource, 5).then((res) => res.json());
-
-  const { data: releaseData } = useSWR("https://api.github.com/repos/benphelps/homepage/releases", cachedFetcher);
+  const { data: releaseData } = useSWR("/api/releases");
 
   // use Intl.DateTimeFormat to format the date
   const formatDate = (date) => {
@@ -48,7 +44,7 @@ export default function Version() {
       </span>
       {version === "main" || version === "dev" || version === "nightly"
         ? null
-        : releaseData &&
+        : releaseData && latestRelease &&
           compareVersions(latestRelease.tag_name, version) > 0 && (
             <a
               href={latestRelease.html_url}

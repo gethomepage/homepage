@@ -3,9 +3,11 @@
         "bytes": "{{value, bytes}}",
         "bits": "{{value, bytes(bits: true)}}",
         "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true, binary: true)}}",
-        "byterate": "{{value, rate}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}"
@@ -86,6 +88,13 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams"
     },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
+    },
     "nzbget": {
         "rate": "Rate",
         "remaining": "Remaining",
@@ -124,7 +133,7 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
+    "downloadstation": {
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
@@ -192,6 +201,12 @@
         "stopped": "Stopped",
         "total": "Total"
     },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
     "traefik": {
         "routers": "Routers",
         "services": "Services",
@@ -239,6 +254,10 @@
         "user_count": "Users",
         "status_count": "Posts",
         "domain_count": "Domains"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
     },
     "authentik": {
         "users": "Users",
@@ -372,5 +391,26 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Total"
+    },
+    "nextdns": {
+        "wait": "Please Wait",
+        "no_devices": "No Device Data Received"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Active Memory",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
     }
 }

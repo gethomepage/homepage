@@ -45,15 +45,17 @@
   - Container status (Running / Stopped) & statistics (CPU, Memory, Network)
   - Automatic service discovery (via labels)
 - Service Integration
-  - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli (Plex)
-  - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent
-  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentik, Proxmox
+  - Sonarr, Radarr, Readarr, Prowlarr, Bazarr, Lidarr, Emby, Jellyfin, Tautulli, Plex and more
+  - Ombi, Overseerr, Jellyseerr, Jackett, NZBGet, SABnzbd, ruTorrent, Transmission, qBittorrent and more
+  - Portainer, Traefik, Speedtest Tracker, PiHole, AdGuard Home, Nginx Proxy Manager, Gotify, Syncthing Relay Server, Authentik, Proxmox and more
 - Information Providers
-  - Coin Market Cap, Mastodon
+  - Coin Market Cap, Mastodon and more
 - Information & Utility Widgets
   - System Stats (Disk, CPU, Memory)
   - Weather via [OpenWeatherMap](https://openweathermap.org/) or [Open-Meteo](https://open-meteo.com/)
-  - Search Bar
+  - Web Search Bar
+  - UniFi Console, Glances and more
+- Instant "Quick-launch" search
 - Customizable
   - 21 theme colors with light and dark mode support
   - Background image support
@@ -63,7 +65,7 @@
 
 If you have any questions, suggestions, or general issues, please start a discussion on the [Discussions](https://github.com/benphelps/homepage/discussions) page.
 
-If you have a more specific issue, please open an issue on the [Issues](https://github.com/benphelps/homepage/issues) page.
+For bug reports, please open an issue on the [Issues](https://github.com/benphelps/homepage/issues) page.
 
 ## Getting Started
 
@@ -117,7 +119,7 @@ pnpm start
 
 ## Configuration
 
-Configuration files will be genereted and placed on the first request.
+Configuration files will be generated and placed on the first request.
 
 Configuration is done in the /config directory using .yaml files. Refer to each config for
 the specific configuration options.

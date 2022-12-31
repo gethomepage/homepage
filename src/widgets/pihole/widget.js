@@ -1,12 +1,12 @@
 import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
-  api: "{url}/admin/{endpoint}",
+  api: "{url}/admin/api.php?{endpoint}&auth={key}",
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "api.php": {
-      endpoint: "api.php",
+    "summaryRaw": {
+      endpoint: "summaryRaw",
       validate: [
         "dns_queries_today",
         "ads_blocked_today",

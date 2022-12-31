@@ -3,10 +3,10 @@
         "missing_type": "Falta el tipus de widget: {{type}}",
         "api_error": "Error d'API",
         "status": "Estat",
-        "information": "Information",
+        "information": "Informació",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Error sense processar",
+        "response_data": "Dades de resposta"
     },
     "weather": {
         "allow": "Feu clic per permetre",
@@ -20,8 +20,8 @@
     "transmission": {
         "seed": "Llavors",
         "download": "Descàrrega",
-        "upload": "Càrrega",
-        "leech": "Companys"
+        "upload": "Pujada",
+        "leech": "Company"
     },
     "sonarr": {
         "wanted": "Volgut",
@@ -30,13 +30,13 @@
     },
     "speedtest": {
         "ping": "Ping",
-        "upload": "Càrrega",
+        "upload": "Pujada",
         "download": "Descàrrega"
     },
     "resources": {
         "total": "Total",
         "free": "Lliure",
-        "used": "Usat",
+        "used": "Utilitzat",
         "load": "Càrrega",
         "cpu": "CPU"
     },
@@ -47,13 +47,13 @@
         "cpu": "Processador",
         "offline": "Fora de línia",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Desconegut"
     },
     "emby": {
         "playing": "Reproduint",
         "transcoding": "Transcodificant",
         "bitrate": "Taxa de bits",
-        "no_active": "Sense transmissions actives"
+        "no_active": "Sense reproduccions actives"
     },
     "tautulli": {
         "playing": "Reproduint",
@@ -73,14 +73,14 @@
     },
     "rutorrent": {
         "active": "Actiu",
-        "upload": "Càrrega",
+        "upload": "Pujada",
         "download": "Descàrrega"
     },
     "radarr": {
         "wanted": "Volgut",
         "queued": "En cua",
         "movies": "Pel·lícules",
-        "missing": "Missing"
+        "missing": "Faltant"
     },
     "readarr": {
         "wanted": "Volgut",
@@ -101,7 +101,7 @@
         "pending": "Pendent",
         "approved": "Aprovat",
         "available": "Disponible",
-        "processing": "Processing"
+        "processing": "Processant"
     },
     "pihole": {
         "queries": "Consultes",
@@ -163,8 +163,8 @@
     },
     "qbittorrent": {
         "download": "Descàrrega",
-        "upload": "Càrrega",
-        "leech": "Companys",
+        "upload": "Pujada",
+        "leech": "Company",
         "seed": "Llavors"
     },
     "mastodon": {
@@ -184,26 +184,26 @@
         "failedLoginsLast24H": "Errors d'inici de sessió (24h)"
     },
     "proxmox": {
-        "vms": "VMs",
+        "vms": "Màquines Virtuals",
         "mem": "Memòria",
         "cpu": "Processador",
         "lxc": "LXC"
     },
     "unifi": {
         "users": "Usuaris",
-        "uptime": "System Uptime",
-        "days": "Días",
+        "uptime": "Temps actiu",
+        "days": "Dies",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
+        "lan_users": "Usuaris LAN",
+        "wlan_users": "Usuaris WLAN",
+        "up": "ACTIU",
+        "down": "INACTIU",
         "wait": "Si us plau, espereu",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Dispositius",
+        "lan_devices": "Dispositius LAN",
+        "wlan_devices": "Dispositius WLAN"
     },
     "plex": {
         "streams": "Transmissions actives",
@@ -216,119 +216,119 @@
         "wait": "Si us plau, espereu"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Total d'observats",
+        "diffsDetected": "Diferències detectades"
     },
     "wmo": {
-        "66-day": "Freezing Rain",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "65-night": "Heavy Rain",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "66-day": "Pluja gelada",
+        "95-day": "Tempesta",
+        "95-night": "Tempesta",
+        "96-day": "Tempesta amb calamarsa",
+        "0-day": "Assolellat",
+        "0-night": "Cel clar",
+        "1-day": "Majorment assolellat",
+        "1-night": "Majorment clar",
+        "2-day": "Parcialment ennuvolat",
+        "2-night": "Parcialment ennuvolat",
+        "3-day": "Ennuvolat",
+        "3-night": "Ennuvolat",
+        "45-day": "Boirós",
+        "45-night": "Boirós",
+        "48-day": "Boirós",
+        "48-night": "Boirós",
+        "51-day": "Ruixats lleugers",
+        "51-night": "Ruixats lleugers",
+        "53-day": "Ruixat",
+        "53-night": "Ruxiat",
+        "55-day": "Ruixat intens",
+        "55-night": "Ruixat intens",
+        "56-day": "Lleuger ruixat gelat",
+        "56-night": "Lleuger ruixat gelat",
+        "65-night": "Pluja intensa",
+        "57-day": "Ruixat gelat",
+        "57-night": "Ruixat gelat",
+        "61-day": "Pluja lleugera",
+        "61-night": "Pluja lleugera",
+        "63-day": "Pluja",
+        "63-night": "Pluja",
+        "65-day": "Pluja intensa",
+        "66-night": "Pluja gelada",
+        "67-day": "Pluja gelada",
+        "67-night": "Pluja gelada",
+        "71-day": "Neu lleugera",
+        "71-night": "Neu lleugera",
+        "73-day": "Neu",
+        "73-night": "Neu",
+        "75-day": "Neu intensa",
+        "75-night": "Neu intensa",
+        "77-day": "Neu lleugera",
+        "77-night": "Neu lleugera",
+        "80-day": "Plovisqueig",
+        "80-night": "Plovisqueig",
+        "81-day": "Xàfecs",
+        "81-night": "Xàfecs",
+        "82-day": "Xàfecs intensos",
+        "82-night": "Xàfecs intensos",
+        "85-day": "Xàfecs de neu",
+        "85-night": "Xàfecs de neu",
+        "86-day": "Xàfecs de neu",
+        "86-night": "Xàfecs de neu",
+        "96-night": "Tempesta amb calamarsa",
+        "99-day": "Tempesta amb calamarsa",
+        "99-night": "Tempesta amb calamarsa"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "Marcador",
+        "service": "Servei"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Sistema",
+        "updates": "Actualitzacions",
+        "update_available": "Actualització disponible",
+        "up_to_date": "Actualitzat",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Aprovat",
+        "rejectedPushes": "Rebutjat",
+        "filters": "Filtres",
+        "indexers": "Indexadors"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Escanejat",
+        "containers_updated": "Actualitzat",
+        "containers_failed": "Error"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Cua",
+        "videos": "Vídeos",
+        "channels": "Canals",
+        "playlists": "Llistes de reproducció"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "Càrrega del sistema",
+        "uptime": "Temps actiu",
+        "alerts": "Alertes",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Cap reproducció activa",
+        "please_wait": "Espereu si us plau"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
+        "speed": "Velocitat",
+        "active": "Actiu",
+        "queue": "Cua",
         "total": "Total"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "IP Pública",
+        "region": "Regió",
+        "country": "País"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Canals",
         "hd": "HD"
     },
     "ping": {
@@ -336,30 +336,72 @@
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Aprobat",
+        "failed": "Error",
+        "unknown": "Desconegut"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
+        "inbox": "Safata d'entrada",
         "total": "Total"
     },
     "deluge": {
-        "seed": "Seed",
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech"
-    },
-    "diskstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Llavor",
+        "download": "Descàrrega",
+        "upload": "Pujada",
+        "leech": "Company"
     },
     "flood": {
+        "download": "Descarregar",
+        "upload": "Pujada",
+        "leech": "Company",
+        "seed": "Llavor"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
+    },
+    "nextdns": {
+        "wait": "Please Wait",
+        "no_devices": "No Device Data Received"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
+    },
+    "downloadstation": {
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Active Memory",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
     }
 }

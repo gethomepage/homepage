@@ -56,9 +56,12 @@ export async function servicesResponse() {
 
   try {
     discoveredDockerServices = cleanServiceGroups(await servicesFromDocker());
+    if (discoveredDockerServices?.length === 0) {
+      console.debug("No containers were found with homepage labels.");
+    }
   } catch (e) {
     console.error("Failed to discover services, please check docker.yaml for errors or remove example entries.");
-    if (e) console.error(e);
+    if (e) console.error(e.toString());
     discoveredDockerServices = [];
   }
 
@@ -66,7 +69,7 @@ export async function servicesResponse() {
     discoveredKubernetesServices = cleanServiceGroups(await servicesFromKubernetes());
   } catch (e) {
     console.error("Failed to discover services, please check kubernetes.yaml for errors or remove example entries.");
-    if (e) console.error(e);
+    if (e) console.error(e.toString());
     discoveredKubernetesServices = [];
   }
 
@@ -74,7 +77,7 @@ export async function servicesResponse() {
     configuredServices = cleanServiceGroups(await servicesFromConfig());
   } catch (e) {
     console.error("Failed to load services.yaml, please check for errors");
-    if (e) console.error(e);
+    if (e) console.error(e.toString());
     configuredServices = [];
   }
 
@@ -82,7 +85,7 @@ export async function servicesResponse() {
     initialSettings = await getSettings();
   } catch (e) {
     console.error("Failed to load settings.yaml, please check for errors");
-    if (e) console.error(e);
+    if (e) console.error(e.toString());
     initialSettings = {};
   }
 

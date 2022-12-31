@@ -350,16 +350,58 @@
         "leech": "Leech",
         "seed": "Seed"
     },
-    "diskstation": {
-        "download": "Pobieranie",
-        "upload": "Wysyłanie",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
     "flood": {
         "download": "Pobieranie",
         "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "tdarr": {
+        "queue": "Kolejka",
+        "processed": "Przetworzone",
+        "errored": "Błędne",
+        "saved": "Zapisane"
+    },
+    "miniflux": {
+        "read": "Przeczytane",
+        "unread": "Nieprzeczytane"
+    },
+    "nextdns": {
+        "wait": "Proszę czekać",
+        "no_devices": "Nie otrzymano danych urządzenia"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "connectedSwitches": "Połączone przełączniki",
+        "connectedAp": "Połączone punkty dostępowe",
+        "activeUser": "Aktywne urządzenia",
+        "alerts": "Alarmy",
+        "connectedGateway": "Połączone bramy"
+    },
+    "downloadstation": {
+        "download": "Pobieranie",
+        "upload": "Wysyłanie",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "mikrotik": {
+        "cpuLoad": "Obciążenie procesora",
+        "memoryUsed": "Zuyżyta pamięć",
+        "uptime": "Czas działania",
+        "numberOfLeases": "Dzierżawy"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Active Streams",
+        "streams_xepg": "XEPG Channels"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Active Memory",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
     }
 }

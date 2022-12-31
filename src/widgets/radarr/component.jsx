@@ -1,8 +1,11 @@
+import { useTranslation } from "next-i18next";
+
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
+  const { t } = useTranslation();
   const { widget } = service;
 
   const { data: moviesData, error: moviesError } = useWidgetAPI(widget, "movie");
@@ -26,10 +29,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="radarr.wanted" value={moviesData.wanted} />
-      <Block label="radarr.missing" value={moviesData.missing} />
-      <Block label="radarr.queued" value={queuedData.totalCount} />
-      <Block label="radarr.movies" value={moviesData.have} />
+      <Block label="radarr.wanted" value={t("common.number", { value: moviesData.wanted })} />
+      <Block label="radarr.missing" value={t("common.number", { value: moviesData.missing })} />
+      <Block label="radarr.queued" value={t("common.number", { value: queuedData.totalCount })} />
+      <Block label="radarr.movies" value={t("common.number", { value: moviesData.have })} />
     </Container>
   );
 }

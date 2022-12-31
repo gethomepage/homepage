@@ -11,7 +11,7 @@ const logger = createLogger(proxyName);
 const sessionCacheKey = `${proxyName}__sessionId`;
 const isNgCacheKey = `${proxyName}__isNg`;
 
-async function fetchFromPyloadAPI(url, sessionId, params) {
+async function fetchFromPyloadAPI(url, sessionId, params, service) {
   const options = {
     body: params
       ? Object.keys(params)
@@ -25,10 +25,10 @@ async function fetchFromPyloadAPI(url, sessionId, params) {
   };
 
   // see https://github.com/benphelps/homepage/issues/517
-  const isNg = cache.get(isNgCacheKey);
+  const isNg = cache.get(`${isNgCacheKey}.${service}`);
   if (isNg && !params) {
     delete options.body;
-    options.headers.Cookie = cache.get(sessionCacheKey);
+    options.headers.Cookie = cache.get(`${sessionCacheKey}.${service}`);
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -43,19 +43,19 @@ async function fetchFromPyloadAPI(url, sessionId, params) {
   return [status, returnData, responseHeaders];
 }
 
-async function login(loginUrl, username, password = '') {
-  const [status, sessionId, responseHeaders] = await fetchFromPyloadAPI(loginUrl, null, { username, password });
+async function login(loginUrl, service, username, password = '') {
+  const [status, sessionId, responseHeaders] = await fetchFromPyloadAPI(loginUrl, null, { username, password }, service);
   
   // this API actually returns status 200 even on login failure
   if (status !== 200 || sessionId === false) {
     logger.error(`HTTP ${status} logging into Pyload API, returned: ${JSON.stringify(sessionId)}`);
   } else if (responseHeaders['set-cookie']?.join().includes('pyload_session')) {
     // Support pyload-ng, see https://github.com/benphelps/homepage/issues/517
-    cache.put(isNgCacheKey, true);
+    cache.put(`${isNgCacheKey}.${service}`, true);
     const sessionCookie = responseHeaders['set-cookie'][0];
-    cache.put(sessionCacheKey, sessionCookie, 60 * 60 * 23 * 1000); // cache for 23h
+    cache.put(`${sessionCacheKey}.${service}`, sessionCookie, 60 * 60 * 23 * 1000); // cache for 23h
   } else {
-    cache.put(sessionCacheKey, sessionId);
+    cache.put(`${sessionCacheKey}.${service}`, sessionId);
   }
 
   return sessionId;
@@ -72,21 +72,21 @@ export default async function pyloadProxyHandler(req, res) {
         const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
         const loginUrl = `${widget.url}/api/login`;
 
-        let sessionId = cache.get(sessionCacheKey) ?? await login(loginUrl, widget.username, widget.password);
-        let [status, data] = await fetchFromPyloadAPI(url, sessionId);
+        let sessionId = cache.get(`${sessionCacheKey}.${service}`) ?? await login(loginUrl, service, widget.username, widget.password);
+        let [status, data] = await fetchFromPyloadAPI(url, sessionId, null, service);
 
         if (status === 403 || status === 401) {
           logger.info('Failed to retrieve data from Pyload API, trying to login again...');
-          cache.del(sessionCacheKey);
-          sessionId = await login(loginUrl, widget.username, widget.password);
-          [status, data] = await fetchFromPyloadAPI(url, sessionId);
+          cache.del(`${sessionCacheKey}.${service}`);
+          sessionId = await login(loginUrl, service, widget.username, widget.password);
+          [status, data] = await fetchFromPyloadAPI(url, sessionId, null, service);
         }
 
         if (data?.error || status !== 200) {
           try {
-            return res.status(status).send({error: {message: "HTTP error communicating with Plex API", data: Buffer.from(data).toString()}});
+            return res.status(status).send({error: {message: "HTTP error communicating with Pyload API", data: Buffer.from(data).toString()}});
           } catch (e) {
-            return res.status(status).send({error: {message: "HTTP error communicating with Plex API", data}});
+            return res.status(status).send({error: {message: "HTTP error communicating with Pyload API", data}});
           }
         }
 
@@ -95,7 +95,7 @@ export default async function pyloadProxyHandler(req, res) {
     }
   } catch (e) {
     logger.error(e);
-    return res.status(500).send({error: {message: `Error communicating with Plex API: ${e.toString()}`}});
+    return res.status(500).send({error: {message: `Error communicating with Pyload API: ${e.toString()}`}});
   }
 
   return res.status(400).json({ error: 'Invalid proxy service type' });

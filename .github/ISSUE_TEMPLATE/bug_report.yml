@@ -68,9 +68,20 @@ body:
     id: browser-logs
     attributes:
       label: Browser Logs
-      description: Please review and provide any relevant logs from the browser, if relevant
+      description: Please review and provide any logs from the browser, if relevant
   - type: textarea
     id: other
     attributes:
       label: Other
-      description: Any other relevant details. E.g. service version or API version, docker version, etc.
+      description: Please include output from your troubleshooting tests, if relevant. Include any other relevant details. E.g. service version or API version, docker version, etc.
+  - type: checkboxes
+    id: pre-flight
+    attributes:
+      label: Before submitting, I have made sure to
+      options:
+        - label: Check [the documentation](https://gethomepage.dev/)
+          required: true
+        - label: Follow [the troubleshooting guide](https://gethomepage.dev/en/more/troubleshooting/) (please include output above if applicable).
+          required: true
+        - label: Search [existing issues](https://github.com/benphelps/homepage/search?q=&type=issues) and [discussions](https://github.com/benphelps/homepage/search?q=&type=discussions).
+          required: true
