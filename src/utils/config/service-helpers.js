@@ -82,10 +82,6 @@ export async function servicesFromDocker() {
     })
   );
 
-  if (serviceServers.every(server => server.services.length === 0)) {
-    throw new Error('All docker servers failed to connect or returned no containers');
-  }
-
   const mappedServiceGroups = [];
 
   serviceServers.forEach((server) => {
