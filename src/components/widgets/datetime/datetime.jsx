@@ -28,7 +28,7 @@ export default function DateTime({ options }) {
   return (
     <div className="flex flex-col justify-center first:ml-0 ml-4">
       <div className="flex flex-row items-center grow justify-end">
-        <span className={`text-theme-800 dark:text-theme-200 ${textSizes[textSize || "lg"]}`}>
+        <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>
           {date}
         </span>
       </div>
