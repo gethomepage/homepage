@@ -9,11 +9,20 @@ const logger = createLogger(proxyName);
 
 const authApi = "{url}/webapi/entry.cgi?api=SYNO.API.Auth&version=7&method=login&account={username}&passwd={password}&format=cookie"
 
+function formatUptime(uptime) {
+  const [hour, minutes, seconds] = uptime.split(":");
+  const days = Math.floor(hour/24);
+  const hours = hour % 24;
+
+  return `${days} days ${hours}:${minutes}:${seconds}`
+}
+
 async function getApiInfo(api, widget) {
   const infoAPI = "{url}/webapi/entry.cgi?api=SYNO.API.Info&version=1&method=query"
   const infoUrl = formatApiCall(infoAPI, widget);
+  // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(infoUrl);
-  console.log("GetApiInfo API ", api, " Status: ", status);
+
   let path = "Method unavailable";
   let minVersion = 0;
   let maxVersion = 0;
@@ -25,7 +34,7 @@ async function getApiInfo(api, widget) {
       maxVersion = json.data[api].maxVersion;
     }
   }
-  console.log("GetApiInfo Path: ", path, " MinVersion: ", minVersion, " MaxVersion: ", maxVersion);
+
   return [path, minVersion, maxVersion];
 }
 
@@ -56,12 +65,13 @@ export default async function synologyProxyHandler(req, res) {
   }
 
   const widget = await getServiceWidget(group, service);
-
+  // eslint-disable-next-line no-unused-vars
   let [status, contentType, data] = await login(widget);
 
   const { sid }=JSON.parse(data.toString()).data;
-  let api = "SYNO.Core.System";
-  let [ path, minVersion, maxVersion] = await getApiInfo(api, widget);
+  const api = "SYNO.Core.System";
+  // eslint-disable-next-line no-unused-vars
+  const [ path, minVersion, maxVersion] = await getApiInfo(api, widget);
   const storageUrl = `${widget.url}/webapi/${path}?api=${api}&version=${maxVersion}&method=info&type="storage"&_sid=${sid}`;
   [status, contentType, data] = await httpProxy(storageUrl );
   let usedVolume = 0;
@@ -70,7 +80,6 @@ export default async function synologyProxyHandler(req, res) {
   } else {
     const json=JSON.parse(data.toString());
     if (json?.success !== true) {
-
       return res.status(401).json({ error: "Error getting volume stats" });
     } else {
       usedVolume = 100 * parseFloat(json.data.vol_info[0].used_size) / parseFloat(json.data.vol_info[0].total_size);
@@ -87,7 +96,7 @@ export default async function synologyProxyHandler(req, res) {
     if (json?.success !== true) {
       return res.status(401).json({ error: "Error getting uptime" });
     } else {
-      uptime = json.data.up_time;
+      uptime = formatUptime(json.data.up_time);
     }
   }
 
