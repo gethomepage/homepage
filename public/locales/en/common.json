@@ -412,5 +412,9 @@
         "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
+    },
+    "synology": {
+      "uptime": "Uptime",
+      "volumeUsage": "Volume Usage"
     }
 }
