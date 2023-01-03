@@ -5,10 +5,8 @@ import widgets from "widgets/widgets";
 import getServiceWidget from "utils/config/service-helpers";
 
 const logger = createLogger("downloadstationProxyHandler");
-const authApi = "{url}/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account={username}&passwd={password}&session=DownloadStation&format=cookie"
 
-async function login(widget) {
-  const loginUrl = formatApiCall(authApi, widget);
+async function login(loginUrl) {
   const [status, contentType, data] = await httpProxy(loginUrl);
   if (status !== 200) {
     return [status, contentType, data];
@@ -56,8 +54,28 @@ export default async function downloadstationProxyHandler(req, res) {
 
   const json = JSON.parse(data.toString());
   if (json?.success !== true) {
-    logger.debug("Logging in to DownloadStation");
-    [status, contentType, data] = await login(widget);
+    logger.debug("Attempting login to DownloadStation");
+
+    const apiInfoUrl = formatApiCall("{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query", widget);
+    let path = "entry.cgi";
+    let maxVersion = 7;
+    [status, contentType, data] = await httpProxy(apiInfoUrl);
+    if (status === 200) {
+      try {
+        const apiAuthInfo = JSON.parse(data.toString()).data['SYNO.API.Auth'];
+        if (apiAuthInfo) {
+          path = apiAuthInfo.path;
+          maxVersion = apiAuthInfo.maxVersion;
+          logger.debug(`Deteceted Downloadstation auth API path: ${path} and maxVersion: ${maxVersion}`);
+        }
+      } catch {
+        logger.debug(`Error ${status} obtaining DownloadStation API info`);
+      }
+    }
+  
+    const authApi = `{url}/webapi/${path}?api=SYNO.API.Auth&version=${maxVersion}&method=login&account={username}&passwd={password}&session=DownloadStation&format=cookie`
+    const loginUrl = formatApiCall(authApi, widget);
+    [status, contentType, data] = await login(loginUrl);
     if (status !== 200) {
       return res.status(status).end(data)
     }
