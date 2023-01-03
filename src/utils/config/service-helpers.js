@@ -135,7 +135,7 @@ export async function servicesFromKubernetes() {
     }
     const networking = kc.makeApiClient(NetworkingV1Api);
 
-    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, "gethomepage.dev/enabled=true")
+    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, null)
       .then((response) => response.body)
       .catch((error) => {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
@@ -144,7 +144,9 @@ export async function servicesFromKubernetes() {
     if (!ingressList) {
       return [];
     }
-    const services = ingressList.items.map((ingress) => {
+    const services = ingressList.items
+      .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations['gethomepage.dev/enabled'] === 'true')
+      .map((ingress) => {
       const constructedService = {
         app: ingress.metadata.name,
         namespace: ingress.metadata.namespace,
@@ -158,7 +160,7 @@ export async function servicesFromKubernetes() {
         constructedService.podSelector = ingress.metadata.annotations['gethomepage.dev/pod-selector'];
       }
       Object.keys(ingress.metadata.annotations).forEach((annotation) => {
-        if (annotation.startsWith("gethomepage.dev//widget/")) {
+        if (annotation.startsWith("gethomepage.dev/widget/")) {
           shvl.set(constructedService, annotation.replace("homepage/widget/", ""), ingress.metadata.annotations[annotation]);
         }
       });
