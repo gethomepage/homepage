@@ -416,5 +416,15 @@
     "synology": {
       "uptime": "Uptime",
       "volumeUsage": "Volume Usage"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Memory Used",
+        "uptime": "Uptime",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download",
+        "wanUploadRate": "WAN Upload Rate",
+        "wanDownloadRate": "WAN Download Rate"
+
     }
 }
