@@ -347,61 +347,61 @@
     "deluge": {
         "download": "Preuzimanje",
         "upload": "Prijenos",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Korištenje tuđeg sadržaja",
+        "seed": "Prenošenje preuzetog sadržaja"
     },
     "flood": {
         "download": "Preuzimanje",
         "upload": "Prijenos",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Korištenje tuđeg sadržaja",
+        "seed": "Prenošenje preuzetog sadržaja"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Red čekanja",
+        "processed": "Obrađeno",
+        "errored": "S greškom",
+        "saved": "Spremljeno"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Pročitano",
+        "unread": "Nepročitano"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Pričekaj",
+        "no_devices": "Podaci o uređaju nisu primljeni"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Povezani AP-ovi",
+        "activeUser": "Aktivni uređaji",
+        "alerts": "Upozorenja",
+        "connectedGateway": "Povezani pristupi",
+        "connectedSwitches": "Povezani prekidači"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Preuzimanje",
+        "upload": "Prijenos",
+        "leech": "Korištenje tuđeg sadržaja",
+        "seed": "Prenošenje preuzetog sadržaja"
     },
     "mikrotik": {
         "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
+        "memoryUsed": "Korištena memorija",
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Svi prijenosi",
+        "streams_active": "Aktivni prijenosi",
+        "streams_xepg": "XEPG kanali"
     },
     "opnsense": {
         "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "memory": "Aktivna memorija",
+        "wanUpload": "WAN prijenos",
+        "wanDownload": "WAN preuzimanje"
     }
 }
