@@ -85,7 +85,7 @@ services:
       - 3000:3000
     volumes:
       - /path/to/config:/app/config # Make sure your local config directory exists
-      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+      - /var/run/docker.sock:/var/run/docker.sock:ro # (optional) For docker integrations
 ```
 
 or docker run:
