@@ -31,17 +31,17 @@
         "public_ip": "Public IP"
     },
     "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+        "bibyterate": "",
+        "bibitrate": ""
     },
     "widget": {
-        "api_error": "API Error",
-        "information": "Information",
-        "missing_type": "Missing Widget Type: {{type}}",
-        "status": "Status",
+        "api_error": "APIエラー",
+        "information": "情報",
+        "missing_type": "見つからないウィジェットタイプ: {{type}}",
+        "status": "ステータス",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "生のエラー",
+        "response_data": "レスポンスデータ"
     },
     "weather": {
         "current": "Current Location",
