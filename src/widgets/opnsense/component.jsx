@@ -52,8 +52,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const wid = `${widget.service_name}.${widget.service_group}`;
-  const dataStorage = `${wid}datas`;
+  const dataStorage = `${widget.service_name}.${widget.service_group}datas`;
   const { data: activityData, error: activityError } = useWidgetAPI(widget, "activity");
   const { data: interfaceData, error: interfaceError } = useWidgetAPI(widget, "interface");
 
@@ -69,6 +68,8 @@ export default function Component({ service }) {
         <Block label="opnsense.memory" />
         <Block label="opnsense.wanUpload" />
         <Block label="opnsense.wanDownload" />
+        <Block label="opnsense.wanUploadRate" />
+        <Block label="opnsense.wanDownloadRate" />
       </Container>
     );
   }

@@ -2,43 +2,42 @@ import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
+import {console} from "next/dist/compiled/@edge-runtime/primitives/console";
 
 const proxyName = "synologyProxyHandler";
 
 const logger = createLogger(proxyName);
 
-const authApi = "{url}/webapi/entry.cgi?api=SYNO.API.Auth&version=7&method=login&account={username}&passwd={password}&format=cookie"
 
 function formatUptime(uptime) {
   const [hour, minutes, seconds] = uptime.split(":");
   const days = Math.floor(hour/24);
   const hours = hour % 24;
 
-  return `${days} days ${hours}:${minutes}:${seconds}`
+  return `${days} d ${hours}h${minutes}m${seconds}s`
 }
 
 async function getApiInfo(api, widget) {
-  const infoAPI = "{url}/webapi/entry.cgi?api=SYNO.API.Info&version=1&method=query"
+  const infoAPI = "{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query"
+
   const infoUrl = formatApiCall(infoAPI, widget);
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(infoUrl);
 
-  let path = "Method unavailable";
-  let minVersion = 0;
-  let maxVersion = 0;
   if (status === 200) {
     const json = JSON.parse(data.toString());
     if (json.data[api]) {
-      path = json.data[api].path;
-      minVersion = json.data[api].minVersion;
-      maxVersion = json.data[api].maxVersion;
+      const { path, minVersion, maxVersion } = json.data[api];
+      return [ path, minVersion, maxVersion ];
     }
   }
-
-  return [path, minVersion, maxVersion];
+  return [null, null, null];
 }
 
 async function login(widget) {
+  // eslint-disable-next-line no-unused-vars
+  const [path, minVersion, maxVersion] = await getApiInfo("SYNO.API.Auth", widget);
+  const authApi = `{url}/webapi/${path}?api=SYNO.API.Auth&version=${maxVersion}&method=login&account={username}&passwd={password}&format=cookie`
   const loginUrl = formatApiCall(authApi, widget);
   const [status, contentType, data] = await httpProxy(loginUrl);
   if (status !== 200) {
@@ -69,11 +68,15 @@ export default async function synologyProxyHandler(req, res) {
   let [status, contentType, data] = await login(widget);
 
   const { sid }=JSON.parse(data.toString()).data;
-  const api = "SYNO.Core.System";
+  let api = "SYNO.Core.System";
   // eslint-disable-next-line no-unused-vars
-  const [ path, minVersion, maxVersion] = await getApiInfo(api, widget);
+  let [ path, minVersion, maxVersion] = await getApiInfo(api, widget);
+
   const storageUrl = `${widget.url}/webapi/${path}?api=${api}&version=${maxVersion}&method=info&type="storage"&_sid=${sid}`;
+
   [status, contentType, data] = await httpProxy(storageUrl );
+
+
   let usedVolume = 0;
   if (status !== 200) {
     return res.status(status).set("Content-Type", contentType).send(data);
@@ -86,6 +89,7 @@ export default async function synologyProxyHandler(req, res) {
 
   const healthUrl = `${widget.url}/webapi/${path}?api=${api}&version=${maxVersion}&method=info&_sid=${sid}`;
   [status, contentType, data] = await httpProxy(healthUrl);
+
   if (status !== 200) {
     return res.status(status).set("Content-Type", contentType).send(data);
   }
@@ -94,11 +98,24 @@ export default async function synologyProxyHandler(req, res) {
     return res.status(401).json({ error: "Error getting uptime" });
   }
   const uptime = formatUptime(json.data.up_time);
+  api = "SYNO.Core.System.Utilization";
+  // eslint-disable-next-line no-unused-vars
+  [ path, minVersion, maxVersion] = await getApiInfo(api, widget);
+  const sysUrl = `${widget.url}/webapi/${path}?api=${api}&version=${maxVersion}&method=get&_sid=${sid}`;
+  [status, contentType, data] = await httpProxy(sysUrl );
+
+  const memoryUsage = 100 - (100 * (parseFloat(JSON.parse(data.toString()).data.memory.avail_real) + parseFloat(JSON.parse(data.toString()).data.memory.cached)) / parseFloat(JSON.parse(data.toString()).data.memory.total_real));
+  const cpuLoad = parseFloat(JSON.parse(data.toString()).data.cpu.user_load) + parseFloat(JSON.parse(data.toString()).data.cpu.system_load);
+
+
 
   const resdata = {
     uptime,
-    usedVolume
+    usedVolume,
+    memoryUsage,
+    cpuLoad,
   }
   if (contentType) res.setHeader("Content-Type", contentType);
+  console.log("Response Data: ", resdata);
   return res.status(status).send(JSON.stringify(resdata));
 }

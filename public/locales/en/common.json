@@ -415,7 +415,10 @@
     },
     "synology": {
       "uptime": "Uptime",
-      "volumeUsage": "Volume Usage"
+      "volumeUsage": "Volume Usage",
+      "cpuLoad": "CPU Load",
+      "memoryUsage": "Memory Usage",
+      "status": "Status"
     },
     "opnsense": {
         "cpu": "CPU Load",
