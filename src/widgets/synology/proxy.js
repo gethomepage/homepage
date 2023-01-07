@@ -1,8 +1,8 @@
+
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
-import {console} from "next/dist/compiled/@edge-runtime/primitives/console";
 
 const proxyName = "synologyProxyHandler";
 
@@ -116,6 +116,5 @@ export default async function synologyProxyHandler(req, res) {
     cpuLoad,
   }
   if (contentType) res.setHeader("Content-Type", contentType);
-  console.log("Response Data: ", resdata);
   return res.status(status).send(JSON.stringify(resdata));
 }
