@@ -107,8 +107,6 @@ export default async function synologyProxyHandler(req, res) {
   const memoryUsage = 100 - (100 * (parseFloat(JSON.parse(data.toString()).data.memory.avail_real) + parseFloat(JSON.parse(data.toString()).data.memory.cached)) / parseFloat(JSON.parse(data.toString()).data.memory.total_real));
   const cpuLoad = parseFloat(JSON.parse(data.toString()).data.cpu.user_load) + parseFloat(JSON.parse(data.toString()).data.cpu.system_load);
 
-
-
   const resdata = {
     uptime,
     usedVolume,
