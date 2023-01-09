@@ -114,18 +114,17 @@ export async function servicesFromDocker() {
 }
 
 function getUrlFromIngress(ingress) {
-  let url = ingress.metadata.annotations['homepage/url'];
-  if(!url) {
-    const urlHost = ingress.spec.rules[0].host;
-    const urlPath = ingress.spec.rules[0].http.paths[0].path;
-    const urlSchema = ingress.spec.tls ? 'https' : 'http';
-
-    url = `${urlSchema}://${urlHost}${urlPath}`;
-  }
-  return url;
+  const urlHost = ingress.spec.rules[0].host;
+  const urlPath = ingress.spec.rules[0].http.paths[0].path;
+  const urlSchema = ingress.spec.tls ? 'https' : 'http';
+  return `${urlSchema}://${urlHost}${urlPath}`;
 }
 
 export async function servicesFromKubernetes() {
+  const ANNOTATION_BASE = 'gethomepage.dev';
+  const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+  const ANNOTATION_POD_SELECTOR = `${ANNOTATION_BASE}/pod-selector`;
+
   checkAndCopyConfig("kubernetes.yaml");
 
   try {
@@ -145,23 +144,23 @@ export async function servicesFromKubernetes() {
       return [];
     }
     const services = ingressList.items
-      .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations['gethomepage.dev/enabled'] === 'true')
+      .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === 'true')
       .map((ingress) => {
       const constructedService = {
         app: ingress.metadata.name,
         namespace: ingress.metadata.namespace,
-        href: ingress.metadata.annotations['gethomepage.dev/href'] || getUrlFromIngress(ingress),
-        name: ingress.metadata.annotations['gethomepage.dev/name'] || ingress.metadata.name,
-        group: ingress.metadata.annotations['gethomepage.dev/group'] || "Kubernetes",
-        icon: ingress.metadata.annotations['gethomepage.dev/icon'] || '',
-        description: ingress.metadata.annotations['gethomepage.dev/description'] || '',
+        href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
+        name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
+        group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
+        icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || '',
+        description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || '',
       };
-      if (ingress.metadata.annotations['gethomepage.dev/pod-selector']) {
-        constructedService.podSelector = ingress.metadata.annotations['gethomepage.dev/pod-selector'];
+      if (ingress.metadata.annotations[ANNOTATION_POD_SELECTOR]) {
+        constructedService.podSelector = ingress.metadata.annotations[ANNOTATION_POD_SELECTOR];
       }
       Object.keys(ingress.metadata.annotations).forEach((annotation) => {
-        if (annotation.startsWith("gethomepage.dev/widget/")) {
-          shvl.set(constructedService, annotation.replace("homepage/widget/", ""), ingress.metadata.annotations[annotation]);
+        if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+          shvl.set(constructedService, annotation.replace(`${ANNOTATION_BASE}/`, ""), ingress.metadata.annotations[annotation]);
         }
       });
 
