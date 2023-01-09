@@ -13,22 +13,23 @@ const textSizes = {
 };
 
 export default function DateTime({ options }) {
-  const { text_size: textSize, format } = options;
+  const { text_size: textSize, locale, format } = options;
   const { i18n } = useTranslation();
   const [date, setDate] = useState("");
+  const dateLocale = locale ?? i18n.language;
   
   useEffect(() => {
-    const dateFormat = new Intl.DateTimeFormat(i18n.language, { ...format });
+    const dateFormat = new Intl.DateTimeFormat(dateLocale, { ...format });
     const interval = setInterval(() => {
       setDate(dateFormat.format(new Date()));
     }, 1000);
     return () => clearInterval(interval);
-  }, [date, setDate, i18n.language, format]);
+  }, [date, setDate, dateLocale, format]);
 
   return (
     <div className="flex flex-col justify-center first:ml-0 ml-4">
       <div className="flex flex-row items-center grow justify-end">
-        <span className={`text-theme-800 dark:text-theme-200 ${textSizes[textSize || "lg"]}`}>
+        <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>
           {date}
         </span>
       </div>

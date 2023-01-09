@@ -1,6 +1,6 @@
 {
     "widget": {
-        "missing_type": "Widget ausente: {{type}}",
+        "missing_type": "Tipo de Widget ausente: {{type}}",
         "api_error": "Erro da API",
         "status": "Estado",
         "information": "Informação",
@@ -14,8 +14,8 @@
     "resources": {
         "total": "Total",
         "free": "Livre",
-        "used": "Usado",
-        "load": "Carregar",
+        "used": "Utilizado",
+        "load": "Carga",
         "cpu": "CPU"
     },
     "docker": {
@@ -53,7 +53,7 @@
         "wanted": "Desejado",
         "queued": "Fila",
         "movies": "Filmes",
-        "missing": "Missing"
+        "missing": "Faltando"
     },
     "readarr": {
         "wanted": "Desejados",
@@ -111,14 +111,14 @@
     "weather": {
         "current": "Localização atual",
         "allow": "Clicar para permitir",
-        "updating": "A atualizar",
+        "updating": "Atualizando",
         "wait": "Por favor aguarde"
     },
     "overseerr": {
         "pending": "Pendente",
         "approved": "Aprovado",
         "available": "Disponível",
-        "processing": "Processing"
+        "processing": "Processando"
     },
     "sabnzbd": {
         "rate": "Taxa",
@@ -192,9 +192,9 @@
         "transferRate": "Taxa"
     },
     "authentik": {
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)",
-        "users": "Users"
+        "loginsLast24H": "Inícios de sessão (24h)",
+        "failedLoginsLast24H": "Inícios de sessão falhados (24h)",
+        "users": "Utilizadores"
     },
     "proxmox": {
         "mem": "MEM",
@@ -204,13 +204,13 @@
     },
     "unifi": {
         "users": "Utilizadores",
-        "uptime": "Tempo de Atividade do Sistema",
+        "uptime": "Sistema Ativo",
         "days": "Dias",
         "wan": "WAN",
         "lan_users": "Utilizadores LAN",
         "wlan_users": "Utilizadores WLAN",
-        "up": "Ligados",
-        "down": "Desligados",
+        "up": "Ligado",
+        "down": "Desligado",
         "wait": "Por favor, aguarde",
         "lan": "LAN",
         "wlan": "WLAN",
@@ -241,7 +241,7 @@
         "2-night": "Parcialmente nublado",
         "3-day": "Nublado",
         "3-night": "Nublado",
-        "99-night": "Thunderstorm With Hail",
+        "99-night": "Trovoada com granizo",
         "45-day": "Nevoeiro",
         "45-night": "Nevoeiro",
         "48-day": "Nevoeiro",
@@ -257,160 +257,160 @@
         "57-day": "Freezing Drizzle",
         "57-night": "Freezing Drizzle",
         "66-day": "Freezing Rain",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
+        "61-day": "Chuva fraca",
+        "61-night": "Chuva fraca",
+        "63-day": "Chuva",
+        "63-night": "Chuva",
+        "65-day": "Chuva forte",
         "66-night": "Freezing Rain",
-        "65-night": "Heavy Rain",
+        "65-night": "Chuva forte",
         "67-day": "Freezing Rain",
         "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
+        "71-day": "Neve fraca",
+        "71-night": "Neve fraca",
+        "73-day": "Neve",
+        "73-night": "Neve",
+        "75-day": "Neve forte",
+        "75-night": "Neve forte",
         "77-day": "Snow Grains",
         "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
+        "80-day": "Neve fraca",
+        "80-night": "Chuviscos ligeiros",
+        "81-day": "Chuviscos",
+        "81-night": "Chuviscos",
+        "82-day": "Chuviscos fortes",
+        "82-night": "Chuviscos fortes",
         "85-day": "Snow Showers",
         "85-night": "Snow Showers",
         "86-day": "Snow Showers",
         "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail"
+        "95-day": "Trovoada",
+        "95-night": "Trovoada",
+        "96-day": "Trovoada com granizo",
+        "96-night": "Trovoada com granizo",
+        "99-day": "Trovoada com granizo"
     },
     "quicklaunch": {
         "bookmark": "Marcador",
         "service": "Serviço"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Sistema",
+        "updates": "Atualizações",
+        "update_available": "Atualização disponível",
+        "up_to_date": "Atualizado",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Aprovado",
+        "rejectedPushes": "Rejeitado",
+        "filters": "Filtros",
+        "indexers": "Indexadores"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Verificado",
+        "containers_updated": "Atualizado",
+        "containers_failed": "Falhou"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Fila",
+        "videos": "Vídeos",
+        "channels": "Canais",
+        "playlists": "Listas"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "Carga do sistema",
+        "uptime": "Ligado",
+        "alerts": "Alertas",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Sem streams ativos",
+        "please_wait": "Por favor aguarde"
     },
     "pyload": {
-        "queue": "Queue",
+        "queue": "Fila",
         "total": "Total",
-        "speed": "Speed",
-        "active": "Active"
+        "speed": "Velocidade",
+        "active": "Ativo"
     },
     "gluetun": {
-        "region": "Region",
-        "country": "Country",
-        "public_ip": "Public IP"
+        "region": "Região",
+        "country": "País",
+        "public_ip": "IP público"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Canais",
         "hd": "HD"
     },
     "ping": {
         "error": "Erro",
-        "ping": "Ping"
+        "ping": "Tempo de resposta"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Aprovado",
+        "failed": "Falhou",
+        "unknown": "Desconhecido"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
+        "inbox": "Caixa de entrada",
         "total": "Total"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Descarregar",
+        "upload": "Enviar",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Semente"
     },
     "flood": {
         "download": "Descarregar",
         "upload": "Carregar",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Semente"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Fila",
+        "processed": "Processado",
+        "errored": "Erro",
+        "saved": "Guardado"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Lido",
+        "unread": "Não lido"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Aguarde",
+        "no_devices": "Nenhum dado do dispositivo recebido"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "APs Ligados",
+        "activeUser": "Dispositivos activos",
+        "alerts": "Alertas",
+        "connectedGateway": "Gateways ligados",
+        "connectedSwitches": "Switches ligados"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Descarregar",
+        "upload": "Enviar",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Semente"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
+        "cpuLoad": "Carga do CPU",
+        "memoryUsed": "Memória Utilizada",
+        "uptime": "Ativo",
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Todos os Streams",
+        "streams_active": "Streams ativos",
+        "streams_xepg": "Canais XEPG"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Carga do CPU",
+        "memory": "Memória Ativa",
+        "wanUpload": "Envio WAN",
+        "wanDownload": "WAN Descarga"
     }
 }
