@@ -1,116 +1,116 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "status": "Status",
-        "information": "Information",
+        "missing_type": "遺失的小工具類型: {{type}}",
+        "api_error": "API錯誤",
+        "status": "狀態",
+        "information": "資訊",
         "url": "URL",
         "raw_error": "Raw Error",
         "response_data": "Response Data"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "目前位置",
+        "allow": "點擊以允許",
+        "updating": "更新中",
+        "wait": "請稍後"
     },
     "docker": {
-        "rx": "RX",
-        "offline": "Offline",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "error": "Error",
-        "unknown": "Unknown"
+        "rx": "接收",
+        "offline": "離線",
+        "tx": "發送",
+        "mem": "記憶體",
+        "cpu": "處理器",
+        "error": "錯誤",
+        "unknown": "未知的"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "正在播放",
+        "transcoding": "轉碼",
+        "bitrate": "位元率",
+        "no_active": "暫無撥放"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "正在播放",
+        "transcoding": "轉碼",
+        "bitrate": "位元率",
+        "no_active": "暫無撥放"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "待定",
+        "approved": "已接受",
+        "available": "可用的"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "搜尋…"
     },
     "resources": {
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load",
+        "total": "全部",
+        "free": "剩餘",
+        "used": "已使用",
+        "load": "負載",
         "cpu": "CPU"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "速率",
+        "remaining": "剩餘",
+        "downloaded": "已下載"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "速率",
+        "queue": "佇列",
+        "timeleft": "剩餘時間"
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "上傳",
+        "download": "下載"
     },
     "radarr": {
-        "movies": "Movies",
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "missing": "Missing"
+        "movies": "電影",
+        "wanted": "欲觀看",
+        "queued": "已加入佇列",
+        "missing": "遺失"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "欲觀看",
+        "queued": "已加入佇列",
+        "series": "系列"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "欲觀看",
+        "queued": "已加入佇列",
+        "books": "書籍"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "待定",
+        "approved": "已接受",
+        "available": "可用的"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "processing": "Processing"
+        "pending": "待定",
+        "approved": "已接受",
+        "available": "可用的",
+        "processing": "處理中"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "查詢",
+        "blocked": "已阻擋",
         "gravity": "Gravity"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "上行",
+        "download": "下行",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "運行中",
+        "stopped": "已停止",
+        "total": "總數"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "路由器",
+        "services": "服務",
+        "middleware": "中介軟體"
     },
     "gotify": {
         "clients": "Clients",
@@ -118,8 +118,8 @@
         "messages": "Messages"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "已啟用",
+        "disabled": "已停用",
         "total": "Total"
     },
     "coinmarketcap": {
@@ -137,8 +137,8 @@
         "numberOfFailQueries": "Fail Queries"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "下載",
+        "upload": "上傳",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -147,23 +147,23 @@
         "errored": "Errored"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "缺失的劇集",
+        "missingMovies": "缺失的電影"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "欲觀看",
+        "queued": "已加入佇列",
+        "albums": "專輯"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "查詢",
+        "blocked": "已阻擋",
+        "filtered": "已過濾",
+        "latency": "延遲"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "下載",
+        "upload": "上傳",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -190,25 +190,25 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "使用者",
+        "uptime": "系統運行時間",
+        "days": "天",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_users": "LAN使用者",
+        "wlan_users": "WLAN使用者",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "請稍後",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "設備",
+        "lan_devices": "LAN設備",
+        "wlan_devices": "WLAN設備"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "正在串流",
+        "movies": "電影",
+        "tv": "影集"
     },
     "glances": {
         "cpu": "CPU",
@@ -313,8 +313,8 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "暫無撥放",
+        "please_wait": "請稍後"
     },
     "pyload": {
         "speed": "Speed",
@@ -332,7 +332,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "錯誤",
         "ping": "Ping"
     },
     "scrutiny": {
@@ -345,22 +345,22 @@
         "total": "Total"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "下載",
+        "upload": "上傳",
         "leech": "Leech",
         "seed": "Seed"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "下載",
+        "upload": "上傳",
         "leech": "Leech",
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "佇列",
+        "processed": "已處理",
+        "errored": "錯誤",
+        "saved": "已儲存"
     },
     "miniflux": {
         "read": "Read",
@@ -375,15 +375,15 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "已連接的存取點",
+        "activeUser": "在線裝置",
+        "alerts": "警示",
+        "connectedGateway": "已連接的閘道",
+        "connectedSwitches": "已連接的交換器"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "下載",
+        "upload": "上傳",
         "leech": "Leech",
         "seed": "Seed"
     },
