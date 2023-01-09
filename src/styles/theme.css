@@ -1,17 +1,17 @@
-.theme-white {
-  --color-50: 255 255 255;
-  --color-100: 255 255 255;
-  --color-200: 255 255 255;
-  --color-300: 255 255 255;
-  --color-400: 255 255 255;
-  --color-500: 60 60 60;
-  --color-600: 255 255 255;
-  --color-700: 40 40 40;
-  --color-800: 255 255 255;
-  --color-900: 255 255 255;
+.theme-custom {
+  --color-50: var(--custom-color-50, 255 255 255);
+  --color-100: var(--custom-color-100, 255 255 255);
+  --color-200: var(--custom-color-200, 255 255 255);
+  --color-300: var(--custom-color-300, 255 255 255);
+  --color-400: var(--custom-color-400, 255 255 255);
+  --color-500: var(--custom-color-500, 60 60 60);
+  --color-600: var(--custom-color-600, 255 255 255);
+  --color-700: var(--custom-color-700, 40 40 40);
+  --color-800: var(--custom-color-800, 255 255 255);
+  --color-900: var(--custom-color-900, 255 255 255);
 
-  --color-logo-start: 128 128 128 / 20%;
-  --color-logo-stop: 128 128 128 / 40%;
+  --color-logo-start: var(--custom-color-logo-start, 128 128 128 / 20%);
+  --color-logo-stop: var(--custom-color-logo-stop, 128 128 128 / 40%);
 }
 
 .theme-slate {

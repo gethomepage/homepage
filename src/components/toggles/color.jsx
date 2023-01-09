@@ -27,7 +27,7 @@ const colors = [
   "pink",
   "rose",
   "red",
-  "white",
+  "custom",
 ];
 
 export default function ColorToggle() {
