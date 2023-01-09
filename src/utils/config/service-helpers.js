@@ -37,11 +37,11 @@ export async function servicesFromDocker() {
   const dockerYaml = path.join(process.cwd(), "config", "docker.yaml");
   const dockerFileContents = await fs.readFile(dockerYaml, "utf8");
   const servers = yaml.load(dockerFileContents);
-
+  
   if (!servers) {
     return [];
   }
-
+  const instance = servers.instance || process.env.INSTANCE;
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
       try {
@@ -60,14 +60,14 @@ export async function servicesFromDocker() {
           let constructedService = null;
 
           Object.keys(container.Labels).forEach((label) => {
-            if (label.startsWith(`${process.env.INSTANCE}-homepage.`) || label.startsWith('homepage.')) {
+            if (label.startsWith(`homepage.${instance}`) || label.startsWith('homepage.')) {
               if (!constructedService) {
                 constructedService = {
                   container: container.Names[0].replace(/^\//, ""),
                   server: serverName,
                 };
               }
-              shvl.set(constructedService, label.replace(RegExp(`(${process.env.INSTANCE}-)?homepage\\.`), ""), container.Labels[label]);
+              shvl.set(constructedService, label.replace(RegExp(`homepage\\.(${instance}\\.)?`), ""), container.Labels[label]);
             }
           });
 
