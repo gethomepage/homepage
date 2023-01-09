@@ -296,8 +296,8 @@
         "indexers": "Indexers"
     },
     "watchtower": {
-        "containers_scanned": "以扫描",
-        "containers_updated": "以升级",
+        "containers_scanned": "已扫描",
+        "containers_updated": "已升级",
         "containers_failed": "失败"
     },
     "tubearchivist": {
