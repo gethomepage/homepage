@@ -77,13 +77,13 @@
     "emby": {
         "playing": "Reprodukcija",
         "transcoding": "Prekodiranje",
-        "bitrate": "Brzina prijenosa",
+        "bitrate": "Stopa bitova",
         "no_active": "Nema aktivnih prijenosa"
     },
     "tautulli": {
         "playing": "Reprodukcija",
         "transcoding": "Prekodiranje",
-        "bitrate": "Brzina prijenosa",
+        "bitrate": "Stopa bitova",
         "no_active": "Nema aktivnih prijenosa"
     },
     "nzbget": {
@@ -388,10 +388,10 @@
         "seed": "Prenošenje preuzetog sadržaja"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
+        "cpuLoad": "CPU opterećenje",
         "memoryUsed": "Korištena memorija",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "uptime": "Radno vrijeme",
+        "numberOfLeases": "Unajmljivanja"
     },
     "xteve": {
         "streams_all": "Svi prijenosi",
@@ -399,7 +399,7 @@
         "streams_xepg": "XEPG kanali"
     },
     "opnsense": {
-        "cpu": "CPU Load",
+        "cpu": "CPU opterećenje",
         "memory": "Aktivna memorija",
         "wanUpload": "WAN prijenos",
         "wanDownload": "WAN preuzimanje"
