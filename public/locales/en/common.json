@@ -417,7 +417,6 @@
         "printer_state": "Printer State",
         "print_status": "Print Status",
         "print_progress": "Progress",
-        "layers": "Layers",
-        "filename": "Filename"
+        "layers": "Layers"
     }
 }
