@@ -1,6 +1,6 @@
 {
     "widget": {
-        "missing_type": "遺失的小工具類型: {{type}}",
+        "missing_type": "遺失小工具的類型: {{type}}",
         "api_error": "API錯誤",
         "status": "狀態",
         "information": "資訊",
@@ -27,13 +27,13 @@
         "playing": "正在播放",
         "transcoding": "轉碼",
         "bitrate": "位元率",
-        "no_active": "暫無撥放"
+        "no_active": "無播放活動"
     },
     "tautulli": {
         "playing": "正在播放",
         "transcoding": "轉碼",
         "bitrate": "位元率",
-        "no_active": "暫無撥放"
+        "no_active": "無播放活動"
     },
     "jellyseerr": {
         "pending": "待定",
@@ -67,17 +67,17 @@
     },
     "radarr": {
         "movies": "電影",
-        "wanted": "欲觀看",
+        "wanted": "關注中",
         "queued": "已加入佇列",
         "missing": "遺失"
     },
     "sonarr": {
-        "wanted": "欲觀看",
+        "wanted": "關注中",
         "queued": "已加入佇列",
         "series": "系列"
     },
     "readarr": {
-        "wanted": "欲觀看",
+        "wanted": "關注中",
         "queued": "已加入佇列",
         "books": "書籍"
     },
@@ -93,7 +93,7 @@
         "processing": "處理中"
     },
     "pihole": {
-        "queries": "查詢",
+        "queries": "查詢數",
         "blocked": "已阻擋",
         "gravity": "Gravity"
     },
@@ -104,8 +104,8 @@
     },
     "portainer": {
         "running": "運行中",
-        "stopped": "已停止",
-        "total": "總數"
+        "stopped": "未運行",
+        "total": "全部"
     },
     "traefik": {
         "routers": "路由器",
@@ -113,28 +113,28 @@
         "middleware": "中介軟體"
     },
     "gotify": {
-        "clients": "Clients",
-        "apps": "Applications",
-        "messages": "Messages"
+        "clients": "客戶端",
+        "apps": "應用程式",
+        "messages": "訊息"
     },
     "npm": {
         "enabled": "已啟用",
         "disabled": "已停用",
-        "total": "Total"
+        "total": "全部"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "請設定一個或多個欲追蹤的加密貨幣",
+        "1hour": "1小時",
+        "1day": "1天",
+        "7days": "7天",
+        "30days": "30天"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "索引器",
+        "numberOfGrabs": "抓取",
+        "numberOfQueries": "查詢數",
+        "numberOfFailGrabs": "抓取失敗",
+        "numberOfFailQueries": "查詢失敗"
     },
     "transmission": {
         "download": "下載",
@@ -143,20 +143,20 @@
         "seed": "Seed"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "已配置",
+        "errored": "發生錯誤"
     },
     "bazarr": {
         "missingEpisodes": "缺失的劇集",
         "missingMovies": "缺失的電影"
     },
     "lidarr": {
-        "wanted": "欲觀看",
+        "wanted": "關注中",
         "queued": "已加入佇列",
         "albums": "專輯"
     },
     "adguard": {
-        "queries": "查詢",
+        "queries": "查詢數",
         "blocked": "已阻擋",
         "filtered": "已過濾",
         "latency": "延遲"
@@ -168,23 +168,23 @@
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "使用者",
+        "status_count": "文章",
+        "domain_count": "網域"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "工作階段",
+        "numConnections": "連線",
+        "dataRelayed": "中繼",
+        "transferRate": "速率"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "使用者",
+        "loginsLast24H": "登錄(24h)",
+        "failedLoginsLast24H": "登錄失敗(24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "記憶體",
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
@@ -206,143 +206,143 @@
         "wlan_devices": "WLAN設備"
     },
     "plex": {
-        "streams": "正在串流",
+        "streams": "正在播放",
         "movies": "電影",
         "tv": "影集"
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "mem": "記憶體",
+        "wait": "請稍後"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "0-day": "晴",
+        "0-night": "晴朗",
+        "71-day": "小雪",
+        "71-night": "小雪",
+        "1-day": "晴時多雲",
+        "1-night": "晴時多雲",
+        "2-day": "多雲時陰",
+        "2-night": "多雲時陰",
+        "3-day": "陰天",
+        "3-night": "陰天",
+        "45-day": "有霧",
+        "45-night": "有霧",
+        "48-day": "有霧",
+        "48-night": "有霧",
+        "51-day": "小毛雨",
+        "51-night": "小毛雨",
+        "53-day": "毛雨",
+        "53-night": "毛雨",
+        "55-day": "大毛雨",
+        "55-night": "大毛雨",
+        "56-day": "小凍毛雨",
+        "56-night": "小凍毛雨",
+        "57-day": "凍毛雨",
+        "57-night": "凍毛雨",
+        "61-day": "小雨",
+        "61-night": "小雨",
+        "63-day": "雨",
+        "63-night": "雨",
+        "65-day": "大雨",
+        "65-night": "大雨",
+        "66-day": "凍雨",
+        "66-night": "凍雨",
+        "67-day": "凍雨",
+        "67-night": "凍雨",
+        "73-day": "雪",
+        "73-night": "雪",
+        "75-day": "大雪",
+        "75-night": "大雪",
+        "77-day": "雪粒",
+        "77-night": "雪粒",
+        "80-day": "微陣雨",
+        "80-night": "微陣雨",
+        "81-day": "陣雨",
+        "81-night": "陣雨",
+        "82-day": "強陣雨",
+        "82-night": "強陣雨",
+        "85-day": "陣雪",
+        "85-night": "陣雪",
+        "86-day": "陣雪",
+        "86-night": "陣雪",
+        "95-day": "雷雨",
+        "95-night": "雷雨",
+        "96-day": "雷雨伴隨冰雹",
+        "96-night": "雷雨伴隨冰雹",
+        "99-day": "雷雨伴隨冰雹",
+        "99-night": "雷雨伴隨冰雹"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "書籤",
+        "service": "服務"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "系統",
+        "updates": "更新",
+        "update_available": "有可用的更新",
+        "up_to_date": "已更新至最新",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "接受",
+        "rejectedPushes": "拒絕",
+        "filters": "篩選器",
+        "indexers": "索引器"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "已掃描",
+        "containers_updated": "已更新",
+        "containers_failed": "失敗"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "佇列",
+        "videos": "影片",
+        "channels": "頻道",
+        "playlists": "播放清單"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "系統負載",
+        "uptime": "運行時間",
+        "alerts": "警示",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "暫無撥放",
+        "nothing_streaming": "無播放活動",
         "please_wait": "請稍後"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "速度",
+        "active": "運行中",
+        "queue": "佇列",
+        "total": "全部"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "公用IP",
+        "region": "地區",
+        "country": "國家"
     },
     "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
+        "channels": "頻道",
+        "hd": "高畫質"
     },
     "ping": {
         "error": "錯誤",
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "通過",
+        "failed": "失敗",
+        "unknown": "未知的"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "收件箱",
+        "total": "全部"
     },
     "deluge": {
         "download": "下載",
@@ -359,16 +359,16 @@
     "tdarr": {
         "queue": "佇列",
         "processed": "已處理",
-        "errored": "錯誤",
+        "errored": "發生錯誤",
         "saved": "已儲存"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "已讀",
+        "unread": "未讀"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "請稍後",
+        "no_devices": "未收到裝置資料"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
@@ -388,20 +388,20 @@
         "seed": "Seed"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "CPU負載",
+        "memoryUsed": "已使用的記憶體",
+        "uptime": "運行時間",
+        "numberOfLeases": "租約"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "所有播放活動",
+        "streams_active": "正在播放",
+        "streams_xepg": "XEPG頻道"
     },
     "opnsense": {
-        "cpu": "CPU Load",
+        "cpu": "CPU負載",
         "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "wanUpload": "WAN上傳",
+        "wanDownload": "WAN下載"
     }
 }
