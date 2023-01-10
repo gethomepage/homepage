@@ -21,58 +21,31 @@ export default function Component({ service }) {
   if (!printStats || !displayStatus || !webHooks) {
     return (
       <Container service={service}>
-        <div class="inline-flex flex-col" style={{width: '100%'}}>
-          <Block label="moonraker.printer_state" />
-          <div class="inline-flex flex-row">
-            <Block label="moonraker.layers" />
-            <Block label="moonraker.print_progress" />
-            <Block label="moonraker.print_status" />
-          </div>
-          <Block label="moonraker.filename"/>
-        </div>
+        <Block label="moonraker.printer_state" />
       </Container>
     );
-  }
-
-  let fileName = "-";
-  if(!printStats.result.status.print_stats.filename === "") {
-    fileName = printStats.result.status.print_stats.filename;
   }
 
   if (webHooks.result.status.webhooks.state === "shutdown") {
     return (
       <Container service={service}>
-        <div class="inline-flex flex-col" style={{width: '100%'}}>
-          <Block label="moonraker.printer_state" value={webHooks.result.status.webhooks.state} />
-          <div class="inline-flex flex-row">
-            <Block label="moonraker.layers" value="-" />
-            <Block label="moonraker.print_progress" value="-" />
-            <Block label="moonraker.print_status" value="-" />
-          </div>
-          <Block label="moonraker.filename" value="-" />
-        </div>
+        <Block label="moonraker.printer_state" value={webHooks.result.status.webhooks.state} />
       </Container>
     );
   }
 
   let currentLayer = "-";
   let totalLayer = "-";
-  if(!printStats.result.status.print_stats.info.current_layer === "") {
+  if(!printStats.result.status.print_stats.info.total_layer === "") {
     currentLayer = printStats.result.status.print_stats.info.current_layer;
     totalLayer = printStats.result.status.print_stats.info.total_layer;
   }
 
   return (
     <Container service={service}>
-      <div class="inline-flex flex-col" style={{width: '100%'}}>
-        <Block label="moonraker.printer_state" value={webHooks.result.status.webhooks.state} />
-        <div class="inline-flex flex-row">
-          <Block label="moonraker.layers" value={`${currentLayer} / ${totalLayer}`} />
-          <Block label="moonraker.print_progress" value={t("common.percent", { value: (displayStatus.result.status.display_status.progress * 100) })} />
-          <Block label="moonraker.print_status" value={printStats.result.status.print_stats.state} />
-        </div>
-        <Block label="moonraker.filename" value={fileName} />
-      </div>
+      <Block label="moonraker.layers" value={`${currentLayer} / ${totalLayer}`} />
+      <Block label="moonraker.print_progress" value={t("common.percent", { value: (displayStatus.result.status.display_status.progress * 100) })} />
+      <Block label="moonraker.print_status" value={printStats.result.status.print_stats.state} />
     </Container>
   );
 }
