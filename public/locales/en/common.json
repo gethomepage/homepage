@@ -418,7 +418,8 @@
       "volumeUsage": "Volume Usage",
       "cpuLoad": "CPU Load",
       "memoryUsage": "Memory Usage",
-      "status": "Status"
+      "status": "Status",
+      "volumeTotal": "Total space"
     },
     "opnsense": {
         "cpu": "CPU Load",
