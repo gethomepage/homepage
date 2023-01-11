@@ -20,5 +20,7 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
+**/.next
 README.md
 config/
+k3d/

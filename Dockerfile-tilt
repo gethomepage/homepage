@@ -1,0 +1,22 @@
+# syntax = docker/dockerfile:latest
+FROM docker.io/node:18-alpine
+
+WORKDIR /app
+
+COPY --link package.json pnpm-lock.yaml* ./
+
+RUN <<EOF
+    set -xe
+    apk add libc6-compat
+    apk add --virtual .gyp python3 make g++
+    npm install -g pnpm
+    npm install -g next
+EOF
+
+RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
+
+RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm install -r --offline
+
+COPY . .
+
+CMD ["npx", "next", "dev"]

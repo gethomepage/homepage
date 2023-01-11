@@ -141,3 +141,7 @@ Configure it from the `widgets.yaml`.
       - node1
       - node2
 ```
+
+## Testing
+
+Refer to the [k3d readme](k3d/README.md).
