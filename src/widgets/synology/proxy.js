@@ -76,8 +76,6 @@ export default async function synologyProxyHandler(req, res) {
 
   [status, contentType, data] = await httpProxy(storageUrl );
 
-
-  let usedVolume = 0;
   if (status !== 200) {
     return res.status(status).set("Content-Type", contentType).send(data);
   }
@@ -85,7 +83,8 @@ export default async function synologyProxyHandler(req, res) {
   if (json?.success !== true) {
     return res.status(401).json({ error: "Error getting volume stats" });
   }
-  usedVolume = 100 * parseFloat(json.data.vol_info[0].used_size) / parseFloat(json.data.vol_info[0].total_size);
+  const totalSize = parseFloat(json.data.vol_info[0].total_size);
+  const usedVolume = 100 * parseFloat(json.data.vol_info[0].used_size) / parseFloat(json.data.vol_info[0].total_size);
 
   const healthUrl = `${widget.url}/webapi/${path}?api=${api}&version=${maxVersion}&method=info&_sid=${sid}`;
   [status, contentType, data] = await httpProxy(healthUrl);
@@ -110,6 +109,7 @@ export default async function synologyProxyHandler(req, res) {
   const resdata = {
     uptime,
     usedVolume,
+    totalSize,
     memoryUsage,
     cpuLoad,
   }
