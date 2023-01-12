@@ -36,7 +36,7 @@ export default function Component({ service }) {
 
   let currentLayer = "-";
   let totalLayer = "-";
-  if(!printStats.result.status.print_stats.info.total_layer === "") {
+  if (printStats.result.status.print_stats.info.total_layer !== null) {
     currentLayer = printStats.result.status.print_stats.info.current_layer;
     totalLayer = printStats.result.status.print_stats.info.total_layer;
   }
