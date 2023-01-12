@@ -68,6 +68,7 @@ const components = {
   tubearchivist: dynamic(() => import("./tubearchivist/component")),
   truenas: dynamic(() => import("./truenas/component")),
   unifi: dynamic(() => import("./unifi/component")),
+  unmanic: dynamic(() => import("./unmanic/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   xteve: dynamic(() => import("./xteve/component")),
   immich: dynamic(() => import("./immich/component")),
