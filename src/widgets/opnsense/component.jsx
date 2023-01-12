@@ -69,10 +69,11 @@ export default function Component({ service }) {
         <Block label="opnsense.memory" />
         <Block label="opnsense.wanUpload" />
         <Block label="opnsense.wanDownload" />
+        <Block label="opnsense.wanUploadRate" />
+        <Block label="opnsense.wanDownloadRate" />
       </Container>
     );
   }
-
 
   const cpuIdle = activityData.headers[2].match(/ ([0-9.]+)% idle/)[1];
   const cpu = 100 - parseFloat(cpuIdle);
