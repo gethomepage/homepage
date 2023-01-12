@@ -413,22 +413,12 @@
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     },
-    "synology": {
+    "diskstation": {
       "uptime": "Uptime",
       "volumeUsage": "Volume Usage",
       "cpuLoad": "CPU Load",
       "memoryUsage": "Memory Usage",
       "status": "Status",
       "volumeTotal": "Total space"
-    },
-    "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Memory Used",
-        "uptime": "Uptime",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download",
-        "wanUploadRate": "WAN Upload Rate",
-        "wanDownloadRate": "WAN Download Rate"
-
     }
 }
