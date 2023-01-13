@@ -7,12 +7,10 @@ WORKDIR /app
 
 COPY --link package.json pnpm-lock.yaml* ./
 
-RUN <<EOF
-    set -xe
-    apk add libc6-compat
-    apk add --virtual .gyp python3 make g++
-    npm install -g pnpm
-EOF
+SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
+RUN apk add --no-cache libc6-compat \
+ && apk add --no-cache --virtual .gyp python3 make g++ \
+ && npm install -g pnpm
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
 
@@ -29,12 +27,10 @@ ARG REVISION
 COPY --link --from=deps /app/node_modules ./node_modules/
 COPY . .
 
-RUN <<EOF
-    set -xe
-    npm run telemetry
-    mkdir config && echo '-' > config/settings.yaml
-    NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
-EOF
+SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
+RUN npm run telemetry \
+ && mkdir config && echo '---' > config/settings.yaml \
+ && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
 
 # Production image, copy all the files and run next
 FROM docker.io/node:18-alpine AS runner
@@ -50,12 +46,15 @@ ENV NODE_ENV production
 WORKDIR /app
 
 # Copy files from context (this allows the files to copy before the builder stage is done).
-COPY --link package.json next.config.js ./
-COPY --link /public ./public
+COPY --link --chown=1000:1000 package.json next.config.js ./
+COPY --link --chown=1000:1000 /public ./public/
 
 # Copy files from builder
-COPY --link --from=builder /app/.next/standalone ./
-COPY --link --from=builder /app/.next/static/ ./.next/static/
+COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
+COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static/
+COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
+
+RUN apk add --no-cache su-exec
 
 ENV PORT 3000
 EXPOSE $PORT
@@ -63,4 +62,5 @@ EXPOSE $PORT
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://localhost:$PORT/api/healthcheck || exit 1
 
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["node", "server.js"]
