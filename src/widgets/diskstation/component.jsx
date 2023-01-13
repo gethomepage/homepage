@@ -18,11 +18,11 @@ export default function Component({ service }) {
   if (!dsData) {
     return (
       <Container service={service}>
-        <Block label="synology.uptime" />
-        <Block label="synology.volumeUsage" />
-        <Block label="synology.volumeTotal" />
-        <Block label="synology.cpuLoad" />
-        <Block label="synology.memoryUsage" />
+        <Block label="diskstation.uptime" />
+        <Block label="diskstation.volumeUsage" />
+        <Block label="diskstation.volumeTotal" />
+        <Block label="diskstation.cpuLoad" />
+        <Block label="diskstation.memoryUsage" />
       </Container>
     );
   }
@@ -30,11 +30,11 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="synology.uptime" value={ dsData.uptime }  />
-      <Block label="synology.volumeUsage" value={t("common.percent", { value: dsData.usedVolume })} />
-      <Block label="synology.volumeTotal" value={t("common.bytes", { value: dsData.totalSize })} />
-      <Block label="synology.cpuLoad" value={t("common.percent", { value: dsData.cpuLoad })} />
-      <Block label="synology.memoryUsage" value={t("common.percent", { value: dsData.memoryUsage })} />
+      <Block label="diskstation.uptime" value={ dsData.uptime }  />
+      <Block label="diskstation.volumeUsage" value={t("common.percent", { value: dsData.usedVolume })} />
+      <Block label="diskstation.volumeTotal" value={t("common.bytes", { value: dsData.totalSize })} />
+      <Block label="diskstation.cpuLoad" value={t("common.percent", { value: dsData.cpuLoad })} />
+      <Block label="diskstation.memoryUsage" value={t("common.percent", { value: dsData.memoryUsage })} />
     </Container>
   );
 }
