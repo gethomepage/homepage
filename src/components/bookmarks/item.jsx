@@ -19,7 +19,7 @@ export default function Item({ bookmark }) {
           <div className="flex-shrink-0 flex items-center justify-center w-11 bg-theme-500/10 dark:bg-theme-900/50 text-theme-700 hover:text-theme-700 dark:text-theme-200 text-sm font-medium rounded-l-md">
             {bookmark.icon && 
               <div className="flex-shrink-0 w-5 h-5">
-                <ResolvedIcon icon={bookmark.icon} />
+                <ResolvedIcon icon={bookmark.icon} alt={bookmark.abbr} />
               </div>
             }
             {!bookmark.icon && bookmark.abbr}
