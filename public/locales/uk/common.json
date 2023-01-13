@@ -405,9 +405,9 @@
         "wanDownload": "Завантаження WAN"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Стан принтера",
+        "print_status": "Статус друку",
+        "print_progress": "Прогрес",
+        "layers": "Шари"
     }
 }
