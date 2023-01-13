@@ -405,9 +405,9 @@
         "wanDownload": "Descargar WAN"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Estado de la impresora",
+        "print_status": "Estado de la impresora",
+        "print_progress": "Progreso",
+        "layers": "Capas"
     }
 }
