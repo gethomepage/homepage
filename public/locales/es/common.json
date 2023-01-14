@@ -403,5 +403,11 @@
         "memory": "Memoria activa",
         "wanUpload": "Carga WAN",
         "wanDownload": "Descargar WAN"
+    },
+    "moonraker": {
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress",
+        "layers": "Layers"
     }
 }

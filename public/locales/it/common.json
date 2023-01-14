@@ -51,7 +51,7 @@
         "total": "Totale",
         "free": "Libero",
         "used": "In utilizzo",
-        "load": "Carica",
+        "load": "Carico",
         "cpu": "CPU"
     },
     "rutorrent": {
@@ -175,7 +175,7 @@
     "strelaysrv": {
         "numActiveSessions": "Sessioni",
         "numConnections": "Connessioni",
-        "dataRelayed": "Ritrasmettessi",
+        "dataRelayed": "Ritrasmessi",
         "transferRate": "Velocità"
     },
     "authentik": {
@@ -222,10 +222,10 @@
     "wmo": {
         "65-day": "Pioggia Intensa",
         "2-night": "Parzialmente Nuvoloso",
-        "0-day": "Solleggiato",
-        "0-night": "Pulisci",
-        "1-day": "Principalmente Soleggiato",
-        "1-night": "Principalmente Sereno",
+        "0-day": "Soleggiato",
+        "0-night": "Sereno",
+        "1-day": "Prevalentemente Soleggiato",
+        "1-night": "Prevalentemente Sereno",
         "2-day": "Parzialmente Nuvoloso",
         "3-day": "Nuvoloso",
         "3-night": "Nuvoloso",
@@ -314,7 +314,7 @@
     },
     "navidrome": {
         "nothing_streaming": "Nessun Sistema Attivo",
-        "please_wait": "Attendere, Prego"
+        "please_wait": "Attendere prego"
     },
     "pyload": {
         "speed": "Velocità",
@@ -391,17 +391,23 @@
         "cpuLoad": "Carico della CPU",
         "memoryUsed": "Memoria Utilizzata",
         "uptime": "Tempo di attività",
-        "numberOfLeases": "Leases"
+        "numberOfLeases": "Lease"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Tutti gli stream",
+        "streams_active": "Stream attivi",
+        "streams_xepg": "Canali XEPG"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
+        "cpu": "Carico CPU",
+        "memory": "Memoria in uso",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
+    },
+    "moonraker": {
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress",
+        "layers": "Layers"
     }
 }

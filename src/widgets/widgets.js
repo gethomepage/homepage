@@ -18,6 +18,7 @@ import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import miniflux from "./miniflux/widget";
 import mikrotik from "./mikrotik/widget";
+import moonraker from "./moonraker/widget";
 import navidrome from "./navidrome/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
@@ -75,6 +76,7 @@ const widgets = {
   mastodon,
   miniflux,
   mikrotik,
+  moonraker,
   navidrome,
   nextdns,
   npm,

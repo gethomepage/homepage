@@ -23,6 +23,7 @@ const components = {
   mastodon: dynamic(() => import("./mastodon/component")),
   miniflux: dynamic(() => import("./miniflux/component")),
   mikrotik: dynamic(() => import("./mikrotik/component")),
+  moonraker: dynamic(() => import("./moonraker/component")),
   navidrome: dynamic(() => import("./navidrome/component")),
   nextdns: dynamic(() => import("./nextdns/component")),
   npm: dynamic(() => import("./npm/component")),

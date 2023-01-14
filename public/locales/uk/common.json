@@ -23,8 +23,8 @@
     "deluge": {
         "download": "Завантаження",
         "upload": "Відправлення",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Ліч",
+        "seed": "Сід"
     },
     "readarr": {
         "wanted": "Розшукується",
@@ -32,76 +32,76 @@
         "books": "Книжки"
     },
     "wmo": {
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "53-day": "Drizzle",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-night": "Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "81-night": "Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "55-day": "Сильна мряка",
+        "55-night": "Сильна мряка",
+        "56-day": "Невеликий морозний дощ",
+        "56-night": "Невеликий морозний дощ",
+        "0-day": "Сонячно",
+        "0-night": "Ясно",
+        "1-day": "Переважно сонячно",
+        "1-night": "Переважно ясно",
+        "2-day": "Частково хмарно",
+        "2-night": "Частково хмарно",
+        "3-day": "Хмарно",
+        "3-night": "Хмарно",
+        "53-day": "Мряка",
+        "45-day": "Туманно",
+        "45-night": "Туманно",
+        "48-day": "Туманно",
+        "48-night": "Туманно",
+        "51-day": "Легка мряка",
+        "51-night": "Легка мряка",
+        "53-night": "Мряка",
+        "57-day": "Морозний дощ",
+        "57-night": "Морозний дощ",
+        "61-day": "Невеликий дощ",
+        "61-night": "Невеликий дощ",
+        "63-day": "Дощ",
+        "63-night": "Дощ",
+        "65-day": "Сильний дощ",
+        "65-night": "Сильний дощ",
+        "66-day": "Холодний дощ",
+        "66-night": "Холодний дощ",
+        "67-day": "Холодний дощ",
+        "67-night": "Холодний дощ",
+        "71-day": "Невеликий сніг",
+        "71-night": "Невеликий сніг",
+        "73-day": "Сніг",
+        "73-night": "Сніг",
+        "75-day": "Снігопад",
+        "75-night": "Снігопад",
+        "77-day": "Снігові зерна",
+        "77-night": "Снігові зерна",
+        "80-day": "Невелика злива",
+        "80-night": "Невелика злива",
+        "81-day": "Злива",
+        "82-day": "Сильна злива",
+        "82-night": "Сильна злива",
+        "81-night": "Злива",
+        "85-day": "Дощ зі снігом",
+        "85-night": "Дощ зі снігом",
+        "86-day": "Дощ зі снігом",
+        "86-night": "Дощ зі снігом",
+        "95-day": "Гроза",
+        "95-night": "Гроза",
+        "96-day": "Гроза з градом",
+        "96-night": "Гроза з градом",
+        "99-day": "Гроза з градом",
+        "99-night": "Гроза з градом"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "Швидкість",
+        "active": "Активно",
+        "queue": "Черга",
+        "total": "Всього"
     },
     "gluetun": {
-        "country": "Country",
-        "public_ip": "Public IP",
-        "region": "Region"
+        "country": "Країна",
+        "public_ip": "Публічний IP",
+        "region": "Регіон"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Канали",
         "hd": "HD"
     },
     "widget": {
@@ -167,8 +167,8 @@
     "flood": {
         "download": "Завантаження",
         "upload": "Відправлення",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Ліч",
+        "seed": "Сід"
     },
     "changedetectionio": {
         "totalObserved": "Всього спостережень",
@@ -193,20 +193,20 @@
     "transmission": {
         "download": "Завантаження",
         "upload": "Відправлення",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Ліч",
+        "seed": "Сід"
     },
     "qbittorrent": {
         "download": "Завантаження",
         "upload": "Відправлення",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Ліч",
+        "seed": "Сід"
     },
     "downloadstation": {
         "download": "Завантаження",
         "upload": "Відправлення",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Ліч",
+        "seed": "Сід"
     },
     "sonarr": {
         "wanted": "Розшукується",
@@ -225,13 +225,13 @@
         "albums": "Альбоми"
     },
     "traefik": {
-        "middleware": "Middleware",
+        "middleware": "Проміжне програмне забезпечення",
         "routers": "Роутери",
         "services": "Сервіси"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Немає активних потоків",
+        "please_wait": "Будь ласка, зачекайте"
     },
     "bazarr": {
         "missingEpisodes": "Відсутні епізоди",
@@ -281,127 +281,133 @@
         "saved": "Збережено"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Увімкнено",
+        "disabled": "Вимкнено",
+        "total": "Всього"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Налаштуйте одну або кілька криптовалют для відстеження",
+        "1hour": "1 година",
+        "1day": "1 день",
+        "7days": "7 днів",
+        "30days": "30 днів"
     },
     "mastodon": {
-        "domain_count": "Domains",
-        "user_count": "Users",
-        "status_count": "Posts"
+        "domain_count": "Домени",
+        "user_count": "Користувачі",
+        "status_count": "Пости"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Прочитано",
+        "unread": "Не прочитано"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Застосунки",
+        "clients": "Клієнти",
+        "messages": "Повідомлення"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Індексатори",
+        "numberOfGrabs": "Захоплення",
+        "numberOfQueries": "Запити",
+        "numberOfFailGrabs": "Невдалі захоплення",
+        "numberOfFailQueries": "Невдалі запити"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Налаштовано",
+        "errored": "Помилка"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Сесії",
+        "numConnections": "Підключення",
+        "dataRelayed": "Ретрансльовано",
+        "transferRate": "Швидкість"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Користувачі",
+        "loginsLast24H": "Вхід (24 години)",
+        "failedLoginsLast24H": "Невдалі входи (24 години)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "Пам'ять",
         "cpu": "CPU",
-        "vms": "VMs",
-        "lxc": "LXC"
+        "vms": "Віртуальні машини",
+        "lxc": "Контейнери Linux"
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "mem": "Пам'ять",
+        "wait": "Будь ласка, зачекайте"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "Закладка",
+        "service": "Сервіс"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
+        "available_update": "Система",
+        "updates": "Оновлення",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges"
+        "update_available": "Доступне оновлення",
+        "up_to_date": "Актуально",
+        "child_bridges": "Дитячі мости"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Відскановано",
+        "containers_updated": "Оновлено",
+        "containers_failed": "Невдача"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Схвалено",
+        "rejectedPushes": "Відхилено",
+        "filters": "Фільтри",
+        "indexers": "Індексатори"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Черга",
+        "videos": "Відео",
+        "channels": "Канали",
+        "playlists": "Плейлисти"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "Завантаження системи",
+        "uptime": "Час роботи",
+        "alerts": "Сповіщення",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Пройшов",
+        "failed": "Невдача",
+        "unknown": "Невідомо"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "Вхідні",
+        "total": "Всього"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Будь ласка, зачекайте",
+        "no_devices": "Дані про пристрій не отримано"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "Завантаження CPU",
+        "memoryUsed": "Використана пам'ять",
+        "uptime": "Час роботи",
+        "numberOfLeases": "Оренди"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Всі потоки",
+        "streams_active": "Активні потоки",
+        "streams_xepg": "Канали XEPG"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Завантаження CPU",
+        "memory": "Активна пам'ять",
+        "wanUpload": "Вивантаження WAN",
+        "wanDownload": "Завантаження WAN"
+    },
+    "moonraker": {
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress",
+        "layers": "Layers"
     }
 }

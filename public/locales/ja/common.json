@@ -31,8 +31,8 @@
         "public_ip": "Public IP"
     },
     "common": {
-        "bibyterate": "",
-        "bibitrate": ""
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "widget": {
         "api_error": "APIエラー",
@@ -403,5 +403,11 @@
         "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
+    },
+    "moonraker": {
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress",
+        "layers": "Layers"
     }
 }
