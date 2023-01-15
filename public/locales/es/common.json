@@ -164,7 +164,7 @@
     "qbittorrent": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Leech",
+        "leech": "Depender",
         "seed": "Semillas"
     },
     "mastodon": {
@@ -347,13 +347,13 @@
     "deluge": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Leech",
+        "leech": "Depender",
         "seed": "Semilla"
     },
     "flood": {
         "download": "Descargar",
         "upload": "Subir",
-        "leech": "Leech",
+        "leech": "Depender",
         "seed": "Semillas"
     },
     "tdarr": {
