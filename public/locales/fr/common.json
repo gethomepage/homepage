@@ -409,5 +409,10 @@
         "print_status": "Statut Imprimante",
         "print_progress": "Progression",
         "layers": "Couches"
+    },
+    "medusa": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     }
 }
