@@ -409,5 +409,10 @@
         "print_status": "Статус друку",
         "print_progress": "Прогрес",
         "layers": "Шари"
+    },
+    "medusa": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     }
 }
