@@ -255,6 +255,11 @@
         "status_count": "Posts",
         "domain_count": "Domains"
     },
+    "medusa": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
+    },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
