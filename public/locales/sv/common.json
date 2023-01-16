@@ -409,5 +409,10 @@
         "printer_state": "Printer State",
         "print_status": "Print Status",
         "layers": "Layers"
+    },
+    "medusa": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     }
 }
