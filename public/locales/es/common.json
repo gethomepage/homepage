@@ -164,7 +164,7 @@
     "qbittorrent": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Leech",
+        "leech": "Depender",
         "seed": "Semillas"
     },
     "mastodon": {
@@ -347,14 +347,14 @@
     "deluge": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Leech",
+        "leech": "Depender",
         "seed": "Semilla"
     },
     "flood": {
         "download": "Descargar",
         "upload": "Subir",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Depender",
+        "seed": "Semillas"
     },
     "tdarr": {
         "queue": "Cola",
@@ -403,5 +403,11 @@
         "memory": "Memoria activa",
         "wanUpload": "Carga WAN",
         "wanDownload": "Descargar WAN"
+    },
+    "moonraker": {
+        "printer_state": "Estado de la impresora",
+        "print_status": "Estado de la impresora",
+        "print_progress": "Progreso",
+        "layers": "Capas"
     }
 }

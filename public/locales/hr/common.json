@@ -403,5 +403,11 @@
         "memory": "Aktivna memorija",
         "wanUpload": "WAN prijenos",
         "wanDownload": "WAN preuzimanje"
+    },
+    "moonraker": {
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress",
+        "layers": "Layers"
     }
 }

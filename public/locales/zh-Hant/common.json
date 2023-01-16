@@ -403,5 +403,11 @@
         "memory": "Active Memory",
         "wanUpload": "WAN上傳",
         "wanDownload": "WAN下載"
+    },
+    "moonraker": {
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress",
+        "layers": "Layers"
     }
 }

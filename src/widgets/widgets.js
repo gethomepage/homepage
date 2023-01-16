@@ -19,6 +19,7 @@ import mastodon from "./mastodon/widget";
 import medusa from "./medusa/widget";
 import miniflux from "./miniflux/widget";
 import mikrotik from "./mikrotik/widget";
+import moonraker from "./moonraker/widget";
 import navidrome from "./navidrome/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
@@ -77,6 +78,7 @@ const widgets = {
   medusa,
   miniflux,
   mikrotik,
+  moonraker,
   navidrome,
   nextdns,
   npm,
