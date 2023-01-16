@@ -409,5 +409,10 @@
         "printer_state": "Printer State",
         "print_status": "Print Status",
         "print_progress": "Progress"
+    },
+    "medusa": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     }
 }
