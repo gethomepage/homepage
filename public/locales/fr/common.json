@@ -411,8 +411,8 @@
         "layers": "Couches"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Demande",
+        "queued": "En attente",
+        "series": "Séries"
     }
 }
