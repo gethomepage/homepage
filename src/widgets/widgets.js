@@ -16,6 +16,7 @@ import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
+import medusa from "./medusa/widget";
 import miniflux from "./miniflux/widget";
 import mikrotik from "./mikrotik/widget";
 import navidrome from "./navidrome/widget";
@@ -73,6 +74,7 @@ const widgets = {
   jellyseerr,
   lidarr,
   mastodon,
+  medusa,
   miniflux,
   mikrotik,
   navidrome,

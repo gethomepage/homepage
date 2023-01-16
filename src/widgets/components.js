@@ -21,6 +21,7 @@ const components = {
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
+  medusa: dynamic(() => import("./medusa/component")),
   miniflux: dynamic(() => import("./miniflux/component")),
   mikrotik: dynamic(() => import("./mikrotik/component")),
   navidrome: dynamic(() => import("./navidrome/component")),
