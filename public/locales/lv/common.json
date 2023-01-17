@@ -4,70 +4,70 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
-        "status": "Status",
+        "missing_type": "Iztrūkst logrīka tips: {{type}}",
+        "api_error": "API kļūda",
+        "information": "Informācija",
+        "status": "Statuss",
         "url": "URL",
         "raw_error": "Raw Error",
         "response_data": "Response Data"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Pašreizējā atrašanās vieta",
+        "allow": "Piemiedziet, lai atļaut",
+        "updating": "Atjaunina",
+        "wait": "Lūdzu, uzgaidiet"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Meklēt…"
     },
     "resources": {
         "cpu": "CPU",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
+        "total": "Kopā",
+        "free": "Brīvs",
+        "used": "Izmantojas",
         "load": "Load"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Lietotāji",
+        "uptime": "Sistēmas darbības laiks",
+        "days": "Dienas",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait"
+        "devices": "Ierīces",
+        "lan_devices": "LAN ierīces",
+        "wlan_devices": "WLAN ierīces",
+        "lan_users": "LAN lietotāji",
+        "wlan_users": "WLAN lietotāji",
+        "up": "DARBOJAS",
+        "down": "NEDARBOJAS",
+        "wait": "Lūdzu, uzgaidiet"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "Atmiņa",
         "cpu": "CPU",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "offline": "Bezsaistē",
+        "error": "Kļūda",
+        "unknown": "Nezināms"
     },
     "ping": {
-        "error": "Error",
+        "error": "Kļūda",
         "ping": "Ping"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Atskaņo",
+        "transcoding": "Pārkodē",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Nav aktīvu straumju"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Lejupielāde",
+        "upload": "Augšupielāde",
+        "leech": "Ņēmēji",
+        "seed": "Devēji"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
@@ -92,9 +92,9 @@
         "downloaded": "Downloaded"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Aktīvās straumes",
+        "movies": "Filmas",
+        "tv": "TV pārraides"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -126,7 +126,7 @@
     },
     "downloadstation": {
         "download": "Download",
-        "upload": "Upload",
+        "upload": "Augšupielāde",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -139,17 +139,17 @@
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Movies"
+        "movies": "Filmas"
     },
     "lidarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "albums": "Albums"
+        "albums": "Albumi"
     },
     "readarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "books": "Books"
+        "books": "Grāmatas"
     },
     "bazarr": {
         "missingEpisodes": "Missing Episodes",
@@ -276,42 +276,42 @@
         "service": "Service"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
+        "0-day": "Saulains",
+        "0-night": "Skaidrs",
+        "1-day": "Galvenokārt saulains",
+        "1-night": "Galvenokārt skaidrs",
+        "2-day": "Daļēji apmācies",
+        "2-night": "Daļēji apmācies",
+        "3-day": "Apmācies",
+        "3-night": "Apmācies",
+        "45-day": "Miglains",
+        "45-night": "Miglains",
+        "48-day": "Miglains",
+        "48-night": "Miglains",
+        "51-day": "Neliels lietus",
+        "51-night": "Neliels lietus",
+        "53-day": "Lietus",
+        "53-night": "Lietus",
+        "55-day": "Spēcīgs lietus",
+        "55-night": "Spēcīgs lietus",
+        "56-day": "Neliels stindzinošs lietus",
+        "56-night": "Neliels stindzinošs lietus",
+        "57-day": "Sasalstošs lietus",
         "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
+        "61-day": "Viegls lietus",
+        "61-night": "Viegls lietus",
+        "63-day": "Lietus",
+        "63-night": "Lietus",
+        "65-day": "Spēcīgs lietus",
+        "65-night": "Spēcīgs lietus",
+        "66-day": "Ledains lietus",
+        "66-night": "Ledains lietus",
+        "67-day": "Ledains lietus",
+        "67-night": "Ledains lietus",
+        "71-day": "Neliels sniegs",
+        "71-night": "Neliels sniegs",
+        "73-day": "Sniegs",
+        "73-night": "Sniegs",
         "75-day": "Heavy Snow",
         "75-night": "Heavy Snow",
         "77-day": "Snow Grains",
