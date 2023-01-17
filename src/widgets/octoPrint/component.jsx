@@ -32,7 +32,9 @@ export default function Component({ service }) {
     );
   }
 
-  if (state === "Printing" || state === "Paused") {
+  const printingStateFalgs = ["Printing", "Paused", "Pausing", "Resuming"];
+
+  if (printingStateFalgs.includes(state)) {
     const { completion } = jobStats.progress;
 
     if (!jobStats || !completion) {
