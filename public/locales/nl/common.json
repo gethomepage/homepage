@@ -3,16 +3,16 @@
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
         "status": "Status",
-        "information": "Information",
+        "information": "Informatie",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Raw Fout",
+        "response_data": "Reactiegegevens"
     },
     "resources": {
         "total": "Totaal",
         "free": "Vrij",
         "used": "Gebruikt",
-        "load": "Load",
+        "load": "Laadt",
         "cpu": "CPU"
     },
     "docker": {
@@ -21,8 +21,8 @@
         "mem": "MEM",
         "cpu": "CPU",
         "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Fout",
+        "unknown": "Onbekend"
     },
     "speedtest": {
         "upload": "Upload",
@@ -190,20 +190,20 @@
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "lan_users": "LAN Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Gebruikers",
+        "lan_users": "LAN Gebruikers",
+        "uptime": "Uptime van het systeem",
+        "days": "Dagen",
         "wan": "WAN",
-        "wlan_users": "WLAN Users",
+        "wlan_users": "WLAN Gebruikers",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Wachten aub",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Apparaten",
+        "lan_devices": "LAN Apparaten",
+        "wlan_devices": "WLAN Apparaten"
     },
     "plex": {
         "streams": "Active Streams",
@@ -216,7 +216,7 @@
         "wait": "Please wait"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
+        "totalObserved": "Totaal waargenomen",
         "diffsDetected": "Diffs Detected"
     },
     "wmo": {
@@ -332,7 +332,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Fout",
         "ping": "Ping"
     },
     "scrutiny": {
