@@ -40,7 +40,9 @@ export default function Component({ service }) {
     );
   }
 
-  if (printerStats === 500) {
+  const state = printerStats.state.text;
+
+  if (state === "Not found" || Object.entries(printerStats.temperature).length === 0) {
     return (
       <Container service={service}>
         <Block label="octoPrint.printer_state" value={printerStats.state.text} />
@@ -48,14 +50,14 @@ export default function Component({ service }) {
     );
   }
 
-  const state = printerStats.state.text;
-
   if (state === "Printing" || state === "Paused") {
     if (jobStatsError) {
       return <Container error={jobStatsError} />;
     }
 
-    if (!jobStats) {
+    const { printTimeLeft, printTime, completion } = jobStats.progress;
+
+    if (!jobStats || !printTimeLeft || !printTime || !completion) {
       return (
         <Container service={service}>
           <Block label="octoPrint.job_time_elapsed" />
@@ -64,8 +66,6 @@ export default function Component({ service }) {
         </Container>
       );
     }
-
-    const { printTimeLeft, printTime, completion } = jobStats.progress;
 
     return (
       <>

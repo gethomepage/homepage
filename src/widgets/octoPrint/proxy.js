@@ -27,8 +27,8 @@ export default async function octoPrintProxyHandler(req, res, map) {
       let resultData = data;
 
       if (!validateWidgetData(widget, endpoint, resultData)) {
-        if (status === 500 && widget.silencePrinterNotFound) {
-          resultData = 500;
+        if ((status === 500 || status === 502 || status === 409) && widget.silencePrinterNotFound) {
+          resultData = { state: { text: "Not found" } };
           return res.status(status).send(resultData);
         }
         return res.status(status).json({ error: { message: "Invalid data", url, data: resultData } });
