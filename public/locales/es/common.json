@@ -411,8 +411,8 @@
         "layers": "Capas"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Querido",
+        "queued": "A la espera",
+        "series": "Serie"
     }
 }
