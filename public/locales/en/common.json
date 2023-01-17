@@ -423,8 +423,6 @@
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
-        "job_time_elapsed": "Elpased",
-        "job_time_left": "Left",
         "job_completion": "Completion"
     }
 }

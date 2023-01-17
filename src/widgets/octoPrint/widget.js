@@ -1,8 +1,8 @@
-import octoPrintProxyHandler from "./proxy";
+import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
   api: "{url}/api/{endpoint}?apikey={key}",
-  proxyHandler: octoPrintProxyHandler,
+  proxyHandler: genericProxyHandler,
 
   mappings: {
     printer_stats: {
