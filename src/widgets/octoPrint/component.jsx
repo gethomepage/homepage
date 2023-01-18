@@ -5,12 +5,8 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
-  const { data: printerStats, error: printerStatsError } = useWidgetAPI(widget, "printer_stats", {
-    refreshInterval: 1500,
-  });
-  const { data: jobStats, error: jobStatsError } = useWidgetAPI(widget, "job_stats", {
-    refreshInterval: 1500,
-  });
+  const { data: printerStats, error: printerStatsError } = useWidgetAPI(widget, "printer_stats");
+  const { data: jobStats, error: jobStatsError } = useWidgetAPI(widget, "job_stats");
 
   if (printerStatsError) {
     return <Container error={printerStatsError} />;
