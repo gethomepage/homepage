@@ -9,8 +9,8 @@
         "information": "Informācija",
         "status": "Statuss",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Kļūda",
+        "response_data": "Atbilde"
     },
     "weather": {
         "current": "Pašreizējā atrašanās vieta",
@@ -26,7 +26,7 @@
         "total": "Kopā",
         "free": "Brīvs",
         "used": "Izmantojas",
-        "load": "Load"
+        "load": "Ielādē"
     },
     "unifi": {
         "users": "Lietotāji",
@@ -70,26 +70,26 @@
         "seed": "Devēji"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Kopā novēro",
+        "diffsDetected": "Atšķirības atrastas"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Atskaņo",
+        "transcoding": "Pārkodē",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "Nav aktīvu straumju"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Savienotie piekļuves punkti",
+        "activeUser": "Aktīvās ierīces",
+        "alerts": "Paziņojumi",
+        "connectedGateway": "Savienotās vārtejas",
+        "connectedSwitches": "Savienotie komutatori"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "remaining": "Palika",
+        "downloaded": "Lejupielādēts"
     },
     "plex": {
         "streams": "Aktīvās straumes",
@@ -98,31 +98,31 @@
     },
     "sabnzbd": {
         "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "queue": "Rindā",
+        "timeleft": "Atlikušais laiks"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktīvs",
+        "upload": "Augšupielāde",
+        "download": "Lejupielāde"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Lejupielāde",
+        "upload": "Augšupielāde",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Devēji"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Lejupielāde",
+        "upload": "Augšupielāde",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Devēji"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Lejupielāde",
+        "upload": "Augšupielāde",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Devēji"
     },
     "downloadstation": {
         "download": "Download",
