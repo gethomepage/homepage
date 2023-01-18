@@ -47,8 +47,8 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="octoPrint.printer_state" value={printerStats.state.text} />
-        <Block label="octoPrint.temp_tool" value={`${printerStats.temperature.tool0.actual}°`} />
-        <Block label="octoPrint.temp_bed" value={`${printerStats.temperature.bed.actual}°`} />
+        <Block label="octoPrint.temp_tool" value={`${printerStats.temperature.tool0.actual} °C`} />
+        <Block label="octoPrint.temp_bed" value={`${printerStats.temperature.bed.actual} °C`} />
         <Block label="octoPrint.job_completion" value={`${completion.toFixed(2)}%`} />
       </Container>
     );
@@ -57,8 +57,8 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="octoPrint.printer_state" value={printerStats.state.text} />
-      <Block label="octoPrint.temp_tool" value={`${printerStats.temperature.tool0.actual}°`} />
-      <Block label="octoPrint.temp_bed" value={`${printerStats.temperature.bed.actual}°`} />
+      <Block label="octoPrint.temp_tool" value={`${printerStats.temperature.tool0.actual} °C`} />
+      <Block label="octoPrint.temp_bed" value={`${printerStats.temperature.bed.actual} °C`} />
     </Container>
   );
 }
