@@ -1,0 +1,59 @@
+kind: Simple
+apiVersion: k3d.io/v1alpha3
+name: homepage
+servers: 1
+agents: 2
+kubeAPI:
+  hostIP: 0.0.0.0
+  hostPort: "6443"
+image: rancher/k3s:v1.25.5-k3s1
+volumes:
+  - volume: /tmp:/tmp/k3d-homepage
+    nodeFilters:
+      - all
+ports:
+  - port: 8080:80
+    nodeFilters:
+      - loadbalancer
+  - port: 0.0.0.0:8443:443
+    nodeFilters:
+      - loadbalancer
+options:
+  k3d:
+    wait: true
+    timeout: 6m0s
+    disableLoadbalancer: false
+    disableImageVolume: false
+    disableRollback: false
+  k3s:
+    extraArgs:
+      - arg: --tls-san=127.0.0.1
+        nodeFilters:
+          - server:*
+    nodeLabels: []
+  kubeconfig:
+    updateDefaultKubeconfig: false
+    switchCurrentContext: false
+  runtime:
+    gpuRequest: ""
+    serversMemory: "1024Mi"
+    agentsMemory: "1024Mi"
+    labels:
+      - label: foo=bar
+        nodeFilters:
+          - server:0
+          - loadbalancer
+env:
+  - envVar: bar=baz
+    nodeFilters:
+      - all
+registries:
+  create:
+    name: k3d-registry
+#    host: 0.0.0.0
+    hostPort: "55000"
+  config: |
+    mirrors:
+      "k3d-registry.localhost:55000":
+        endpoint:
+          - http://k3d-registry:5000

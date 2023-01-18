@@ -1,0 +1,78 @@
+image:
+  repository: k3d-registry.localhost:55000/homepage
+  tag: local
+  pullPolicy: Always
+
+config:
+  bookmarks:
+    - Developer:
+        - Github:
+            - abbr: GH
+              href: https://github.com/
+  services:
+    - My First Group:
+        - My First Service:
+            href: http://localhost/
+            description: Homepage is awesome
+
+    - My Second Group:
+        - My Second Service:
+            href: http://localhost/
+            description: Homepage is the best
+
+    - My Third Group:
+        - My Third Service:
+            href: http://localhost/
+            description: Homepage is 😎
+  widgets:
+    # show the kubernetes widget, with the cluster summary and individual nodes
+    - kubernetes:
+        cluster:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "cluster"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+    - search:
+        provider: duckduckgo
+        target: _blank
+  kubernetes:
+    mode: cluster
+  docker:
+  settings:
+
+serviceAccount:
+  create: true
+  name: homepage
+
+enableRbac: true
+
+ingress:
+  main:
+    enabled: true
+    annotations:
+      gethomepage.dev/enabled: "true"
+      gethomepage.dev/name: "Homepage"
+      gethomepage.dev/description: "Dynamically Detected Homepage"
+      gethomepage.dev/group: "Dynamic"
+      gethomepage.dev/icon: "homepage.png"
+    hosts:
+      - host: homepage.k3d.localhost
+        paths:
+          - path: /
+            pathType: Prefix
+
+persistence:
+  # this persists the .next directory which greatly improves successive pod startup times in Tilt,
+  # but it breaks normal deployments, so it is disabled by default
+  dotnext:
+    enabled: false
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    mountPath: /app/.next

@@ -1,0 +1,25 @@
+docker_build('k3d-registry.localhost:55000/homepage:local', '..',
+  dockerfile = "../Dockerfile-tilt",
+  build_args={'node_env': 'development'},
+  #entrypoint='pnpm run nodemon /app/server.js',
+  live_update=[
+    sync('.', '/app'),
+    run('cd /app && pnpm install', trigger=['.package.json', './pnpm-lock.yaml'])
+  ]
+)
+load('ext://helm_resource', 'helm_resource', 'helm_repo')
+helm_repo('jameswynn', 'https://jameswynn.github.io/helm-charts')
+
+helm_resource('homepage', 'jameswynn/homepage',
+  image_deps=[
+    "k3d-registry.localhost:55000/homepage:local"
+  ],
+  image_keys=[
+    ("image.repository", "image.tag")
+  ],
+#  image_selector= "k3d-registry.localhost:55000/homepage:local",
+  flags=[
+    "-f", "k3d-helm-values.yaml",
+    "--set", "persistence.dotnext.enabled=true"
+  ]
+)

@@ -10,6 +10,7 @@ const components = {
   deluge: dynamic(() => import("./deluge/component")),
   downloadstation: dynamic(() => import("./downloadstation/component")),
   docker: dynamic(() => import("./docker/component")),
+  kubernetes: dynamic(() => import("./kubernetes/component")),
   emby: dynamic(() => import("./emby/component")),
   flood: dynamic(() => import("./flood/component")),
   gluetun: dynamic(() => import("./gluetun/component")),

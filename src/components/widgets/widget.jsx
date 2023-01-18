@@ -13,6 +13,8 @@ const widgetMappings = {
   unifi_console: dynamic(() => import("components/widgets/unifi_console/unifi_console")),
   glances: dynamic(() => import("components/widgets/glances/glances")),
   openmeteo: dynamic(() => import("components/widgets/openmeteo/openmeteo")),
+  longhorn: dynamic(() => import("components/widgets/longhorn/longhorn")),
+  kubernetes: dynamic(() => import("components/widgets/kubernetes/kubernetes")),
 };
 
 export default function Widget({ widget }) {

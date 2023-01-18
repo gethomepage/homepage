@@ -4,9 +4,14 @@ import path from "path";
 import yaml from "js-yaml";
 import Docker from "dockerode";
 import * as shvl from "shvl";
+import { NetworkingV1Api } from "@kubernetes/client-node";
 
+import createLogger from "utils/logger";
 import checkAndCopyConfig from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
+import getKubeConfig from "utils/config/kubernetes";
+
+const logger = createLogger("service-helpers");
 
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");
@@ -108,6 +113,89 @@ export async function servicesFromDocker() {
   return mappedServiceGroups;
 }
 
+function getUrlFromIngress(ingress) {
+  const urlHost = ingress.spec.rules[0].host;
+  const urlPath = ingress.spec.rules[0].http.paths[0].path;
+  const urlSchema = ingress.spec.tls ? 'https' : 'http';
+  return `${urlSchema}://${urlHost}${urlPath}`;
+}
+
+export async function servicesFromKubernetes() {
+  const ANNOTATION_BASE = 'gethomepage.dev';
+  const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+  const ANNOTATION_POD_SELECTOR = `${ANNOTATION_BASE}/pod-selector`;
+
+  checkAndCopyConfig("kubernetes.yaml");
+
+  try {
+    const kc = getKubeConfig();
+    if (!kc) {
+      return [];
+    }
+    const networking = kc.makeApiClient(NetworkingV1Api);
+
+    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, null)
+      .then((response) => response.body)
+      .catch((error) => {
+        logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        return null;
+      });
+    if (!ingressList) {
+      return [];
+    }
+    const services = ingressList.items
+      .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === 'true')
+      .map((ingress) => {
+      const constructedService = {
+        app: ingress.metadata.name,
+        namespace: ingress.metadata.namespace,
+        href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
+        name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
+        group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
+        icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || '',
+        description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || '',
+      };
+      if (ingress.metadata.annotations[ANNOTATION_POD_SELECTOR]) {
+        constructedService.podSelector = ingress.metadata.annotations[ANNOTATION_POD_SELECTOR];
+      }
+      Object.keys(ingress.metadata.annotations).forEach((annotation) => {
+        if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+          shvl.set(constructedService, annotation.replace(`${ANNOTATION_BASE}/`, ""), ingress.metadata.annotations[annotation]);
+        }
+      });
+
+      return constructedService;
+    });
+
+    const mappedServiceGroups = [];
+
+    services.forEach((serverService) => {
+      let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === serverService.group);
+      if (!serverGroup) {
+        mappedServiceGroups.push({
+          name: serverService.group,
+          services: [],
+        });
+        serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
+      }
+
+      const { name: serviceName, group: serverServiceGroup, ...pushedService } = serverService;
+      const result = {
+        name: serviceName,
+        ...pushedService,
+      };
+
+      serverGroup.services.push(result);
+    });
+
+    return mappedServiceGroups;
+
+  } catch (e) {
+    logger.error(e);
+    throw e;
+  }
+}
+
 export function cleanServiceGroups(groups) {
   return groups.map((serviceGroup) => ({
     name: serviceGroup.name,
@@ -123,7 +211,10 @@ export function cleanServiceGroups(groups) {
           container,
           currency, // coinmarketcap widget
           symbols,
-          defaultinterval
+          defaultinterval,
+          namespace, // kubernetes widget
+          app,
+          podSelector
         } = cleanedService.widget;
 
         cleanedService.widget = {
@@ -140,6 +231,11 @@ export function cleanServiceGroups(groups) {
         if (type === "docker") {
           if (server) cleanedService.widget.server = server;
           if (container) cleanedService.widget.container = container;
+        }
+        if (type === "kubernetes") {
+          if (namespace) cleanedService.widget.namespace = namespace;
+          if (app) cleanedService.widget.app = app;
+          if (podSelector) cleanedService.widget.podSelector = podSelector;
         }
       }
 
@@ -167,6 +263,16 @@ export default async function getServiceWidget(group, service) {
     const dockerServiceEntry = dockerServiceGroup.services.find((s) => s.name === service);
     if (dockerServiceEntry) {
       const { widget } = dockerServiceEntry;
+      return widget;
+    }
+  }
+
+  const kubernetesServices = await servicesFromKubernetes();
+  const kubernetesServiceGroup = kubernetesServices.find((g) => g.name === group);
+  if (kubernetesServiceGroup) {
+    const kubernetesServiceEntry = kubernetesServiceGroup.services.find((s) => s.name === service);
+    if (kubernetesServiceEntry) {
+      const { widget } = kubernetesServiceEntry;
       return widget;
     }
   }
