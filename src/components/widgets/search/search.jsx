@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
-import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu } from "react-icons/si";
+import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
 
 const providers = {
   google: {
@@ -23,6 +23,11 @@ const providers = {
     name: "Baidu",
     url: "https://www.baidu.com/s?wd=",
     icon: SiBaidu,
+  },
+  brave: {
+    name: "Brave",
+    url: "https://search.brave.com/search?q=",
+    icon: SiBrave,
   },
   custom: {
     name: "Custom",
