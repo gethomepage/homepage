@@ -19,6 +19,7 @@ helm_resource('homepage', 'jameswynn/homepage',
   ],
 #  image_selector= "k3d-registry.localhost:55000/homepage:local",
   flags=[
-    "-f", "k3d-helm-values.yaml"
+    "-f", "k3d-helm-values.yaml",
+    "--set", "persistence.dotnext.enabled=true"
   ]
 )

@@ -1,7 +1,7 @@
 image:
   repository: k3d-registry.localhost:55000/homepage
   tag: local
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 config:
   bookmarks:
@@ -68,9 +68,10 @@ ingress:
             pathType: Prefix
 
 persistence:
-  # this persists the .next directory which greatly improves successive pod startup times
+  # this persists the .next directory which greatly improves successive pod startup times in Tilt,
+  # but it breaks normal deployments, so it is disabled by default
   dotnext:
-    enabled: true
+    enabled: false
     type: pvc
     accessMode: ReadWriteOnce
     size: 1Gi

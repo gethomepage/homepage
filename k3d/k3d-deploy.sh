@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_BUILDKIT=1 docker build -t k3d-registry.localhost:55000/homepage:local .
+DOCKER_BUILDKIT=1 docker build -t k3d-registry.localhost:55000/homepage:local ..
 docker push k3d-registry.localhost:55000/homepage:local
 
 HELM_REPO_NAME=jameswynn
