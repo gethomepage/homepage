@@ -29,6 +29,7 @@ const components = {
   nextdns: dynamic(() => import("./nextdns/component")),
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
+  octoPrint: dynamic(() => import("./octoPrint/component")),
   omada: dynamic(() => import("./omada/component")),
   ombi: dynamic(() => import("./ombi/component")),
   opnsense: dynamic(() => import("./opnsense/component")),

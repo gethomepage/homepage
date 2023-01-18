@@ -24,6 +24,7 @@ import navidrome from "./navidrome/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
+import octoPrint from "./octoPrint/widget";
 import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
@@ -51,8 +52,8 @@ import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
-import watchtower from './watchtower/widget'
-import xteve from './xteve/widget'
+import watchtower from "./watchtower/widget";
+import xteve from "./xteve/widget";
 
 const widgets = {
   adguard,
@@ -83,6 +84,7 @@ const widgets = {
   nextdns,
   npm,
   nzbget,
+  octoPrint,
   omada,
   ombi,
   opnsense,
