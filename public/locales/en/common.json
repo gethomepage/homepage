@@ -429,5 +429,13 @@
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
+    },
+    "diskstation": {
+      "uptime": "Uptime",
+      "volumeUsage": "Volume Usage",
+      "cpuLoad": "CPU Load",
+      "memoryUsage": "Memory Usage",
+      "status": "Status",
+      "volumeTotal": "Total space"
     }
 }

@@ -51,6 +51,7 @@ const components = {
   sonarr: dynamic(() => import("./sonarr/component")),
   speedtest: dynamic(() => import("./speedtest/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
+  diskstation: dynamic(() => import("./diskstation/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
   tdarr: dynamic(() => import("./tdarr/component")),
   traefik: dynamic(() => import("./traefik/component")),

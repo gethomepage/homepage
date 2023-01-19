@@ -45,6 +45,7 @@ import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import strelaysrv from "./strelaysrv/widget";
+import diskstation from "./diskstation/widget";
 import tautulli from "./tautulli/widget";
 import tdarr from "./tdarr/widget";
 import traefik from "./traefik/widget";
@@ -63,7 +64,7 @@ const widgets = {
   changedetectionio,
   coinmarketcap,
   deluge,
-  diskstation: downloadstation,
+  diskstation,
   downloadstation,
   emby,
   flood,
