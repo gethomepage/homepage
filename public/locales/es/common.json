@@ -416,9 +416,9 @@
         "series": "Serie"
     },
     "octoPrint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "printer_state": "Estado",
+        "temp_tool": "Temperatura de la herramienta",
+        "temp_bed": "temperatura de la cama",
+        "job_completion": "Conclusión"
     }
 }
