@@ -416,9 +416,7 @@
         "series": "Серії"
     },
     "octoPrint": {
-        "printer_state": "Стан",
         "temp_tool": "Температура інструменту",
-        "temp_bed": "Температура ліжка",
         "job_completion": "Завершення"
     }
 }

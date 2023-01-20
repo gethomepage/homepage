@@ -425,9 +425,7 @@
         "series": "Series"
     },
     "octoPrint": {
-        "printer_state": "Status",
         "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
         "job_completion": "Completion"
     }
 }
