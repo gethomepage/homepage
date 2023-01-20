@@ -23,7 +23,7 @@ export default function Component({ service }) {
   if (!printerStats || !state || !tempTool || !tempBed) {
     return (
       <Container service={service}>
-        <Block label="octoPrint.printer_state" />
+        <Block label="octoprint.printer_state" />
       </Container>
     );
   }
@@ -36,29 +36,29 @@ export default function Component({ service }) {
     if (!jobStats || !completion) {
       return (
         <Container service={service}>
-          <Block label="octoPrint.printer_state" />
-          <Block label="octoPrint.temp_tool" />
-          <Block label="octoPrint.temp_bed" />
-          <Block label="octoPrint.job_completion" />
+          <Block label="octoprint.printer_state" />
+          <Block label="octoprint.temp_tool" />
+          <Block label="octoprint.temp_bed" />
+          <Block label="octoprint.job_completion" />
         </Container>
       );
     }
 
     return (
       <Container service={service}>
-        <Block label="octoPrint.printer_state" value={printerStats.state.text} />
-        <Block label="octoPrint.temp_tool" value={`${printerStats.temperature.tool0.actual} °C`} />
-        <Block label="octoPrint.temp_bed" value={`${printerStats.temperature.bed.actual} °C`} />
-        <Block label="octoPrint.job_completion" value={`${completion.toFixed(2)}%`} />
+        <Block label="octoprint.printer_state" value={printerStats.state.text} />
+        <Block label="octoprint.temp_tool" value={`${printerStats.temperature.tool0.actual} °C`} />
+        <Block label="octoprint.temp_bed" value={`${printerStats.temperature.bed.actual} °C`} />
+        <Block label="octoprint.job_completion" value={`${completion.toFixed(2)}%`} />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="octoPrint.printer_state" value={printerStats.state.text} />
-      <Block label="octoPrint.temp_tool" value={`${printerStats.temperature.tool0.actual} °C`} />
-      <Block label="octoPrint.temp_bed" value={`${printerStats.temperature.bed.actual} °C`} />
+      <Block label="octoprint.printer_state" value={printerStats.state.text} />
+      <Block label="octoprint.temp_tool" value={`${printerStats.temperature.tool0.actual} °C`} />
+      <Block label="octoprint.temp_bed" value={`${printerStats.temperature.bed.actual} °C`} />
     </Container>
   );
 }
