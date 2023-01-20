@@ -416,7 +416,12 @@
         "series": "影集"
     },
     "octoPrint": {
-        "temp_tool": "噴嘴溫度",
         "job_completion": "完成度"
+    },
+    "octoprint": {
+        "printer_state": "Status",
+        "temp_tool": "Tool temp",
+        "temp_bed": "Bed temp",
+        "job_completion": "Completion"
     }
 }
