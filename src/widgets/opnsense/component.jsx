@@ -33,16 +33,14 @@ export default function Component({ service }) {
   const cpu = 100 - parseFloat(cpuIdle);
   const memory = activityData.headers[3].match(/Mem: (.+) Active,/)[1];
 
-  const wanUpload = interfaceData.interfaces.wan['bytes transmitted'];
-  const wanDownload = interfaceData.interfaces.wan['bytes received'];
+  const wan = widget.wan ? interfaceData.interfaces[widget.wan] : interfaceData.interfaces.wan;
 
   return (
     <Container service={service}>
       <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })}  />
       <Block label="opnsense.memory" value={memory} />
-      <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wanUpload })} />
-      <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wanDownload })} />
-
+      {wan && <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wan['bytes transmitted'] })} />}
+      {wan && <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wan['bytes received'] })} />}
     </Container>
   );
 }

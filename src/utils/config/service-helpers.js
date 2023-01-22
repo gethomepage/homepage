@@ -214,7 +214,8 @@ export function cleanServiceGroups(groups) {
           defaultinterval,
           namespace, // kubernetes widget
           app,
-          podSelector
+          podSelector,
+          wan // opnsense widget
         } = cleanedService.widget;
 
         cleanedService.widget = {
@@ -236,6 +237,9 @@ export function cleanServiceGroups(groups) {
           if (namespace) cleanedService.widget.namespace = namespace;
           if (app) cleanedService.widget.app = app;
           if (podSelector) cleanedService.widget.podSelector = podSelector;
+        }
+        if (type === "opnsense") {
+          if (wan) cleanedService.widget.wan = wan;
         }
       }
 
