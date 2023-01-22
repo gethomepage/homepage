@@ -184,7 +184,7 @@
         "failedLoginsLast24H": "Errors d'inici de sessió (24h)"
     },
     "proxmox": {
-        "vms": "Màquines Virtuals",
+        "vms": "VMs",
         "mem": "Memòria",
         "cpu": "Processador",
         "lxc": "LXC"
