@@ -5,6 +5,7 @@ import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import deluge from "./deluge/widget";
+import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
 import flood from "./flood/widget";
@@ -63,7 +64,7 @@ const widgets = {
   changedetectionio,
   coinmarketcap,
   deluge,
-  diskstation: downloadstation,
+  diskstation,
   downloadstation,
   emby,
   flood,
