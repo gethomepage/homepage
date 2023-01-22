@@ -415,9 +415,6 @@
         "queued": "У черзі",
         "series": "Серії"
     },
-    "octoPrint": {
-        "job_completion": "Завершення"
-    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

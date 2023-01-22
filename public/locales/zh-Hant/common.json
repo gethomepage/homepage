@@ -415,9 +415,6 @@
         "queued": "已加入佇列",
         "series": "影集"
     },
-    "octoPrint": {
-        "job_completion": "完成度"
-    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

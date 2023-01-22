@@ -415,9 +415,6 @@
         "print_progress": "Progress",
         "layers": "Layers"
     },
-    "octoPrint": {
-        "job_completion": "Completion"
-    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

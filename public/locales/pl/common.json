@@ -415,9 +415,6 @@
         "queued": "Zakolejkowane",
         "series": "Seria"
     },
-    "octoPrint": {
-        "job_completion": "Ukończenie"
-    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

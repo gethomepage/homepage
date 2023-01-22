@@ -415,9 +415,6 @@
         "queued": "En attente",
         "series": "Séries"
     },
-    "octoPrint": {
-        "job_completion": "Achèvement"
-    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

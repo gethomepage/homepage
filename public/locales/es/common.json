@@ -415,9 +415,6 @@
         "queued": "A la espera",
         "series": "Serie"
     },
-    "octoPrint": {
-        "job_completion": "Conclusión"
-    },
     "octoprint": {
         "temp_bed": "Bed temp",
         "printer_state": "Status",
