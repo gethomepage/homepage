@@ -430,7 +430,7 @@
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
-    "cloudflared" {
+    "cloudflared": {
         "origin_ip": "Origin IP",
         "status": "Status" 
     }

@@ -20,10 +20,12 @@ export default function Component({ service }) {
     );
   }
 
+  const originIP = statsData.result.connections?.origin_ip ?? statsData.result.connections[0]?.origin_ip;
+
   return (
     <Container service={service}>
-      <Block label="cloudflared.status" value={statsData.result.status} />
-      <Block label="cloudflared.origin_ip" value={statsData.result.connections.origin_ip} />
+      <Block label="cloudflared.status" value={statsData.result.status.charAt(0).toUpperCase() + statsData.result.status.slice(1)} />
+      <Block label="cloudflared.origin_ip" value={originIP} />
     </Container>
   );
 }
