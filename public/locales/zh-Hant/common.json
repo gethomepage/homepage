@@ -61,20 +61,20 @@
         "timeleft": "剩餘時間"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "上傳",
-        "download": "下載"
+        "active": "活動中",
+        "upload": "上行速率",
+        "download": "下行速率"
     },
     "radarr": {
         "movies": "電影",
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "missing": "遺失"
+        "missing": "缺少"
     },
     "sonarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "series": "系列"
+        "series": "影集"
     },
     "readarr": {
         "wanted": "關注中",
@@ -93,13 +93,13 @@
         "processing": "處理中"
     },
     "pihole": {
-        "queries": "查詢數",
+        "queries": "查詢",
         "blocked": "已阻擋",
         "gravity": "Gravity"
     },
     "speedtest": {
-        "upload": "上行",
-        "download": "下行",
+        "upload": "上行速率",
+        "download": "下行速率",
         "ping": "Ping"
     },
     "portainer": {
@@ -132,23 +132,23 @@
     "prowlarr": {
         "enableIndexers": "索引器",
         "numberOfGrabs": "抓取",
-        "numberOfQueries": "查詢數",
+        "numberOfQueries": "查詢",
         "numberOfFailGrabs": "抓取失敗",
         "numberOfFailQueries": "查詢失敗"
     },
     "transmission": {
-        "download": "下載",
-        "upload": "上傳",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下行速率",
+        "upload": "上行速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
     },
     "jackett": {
         "configured": "已配置",
         "errored": "發生錯誤"
     },
     "bazarr": {
-        "missingEpisodes": "缺失的劇集",
-        "missingMovies": "缺失的電影"
+        "missingEpisodes": "缺少的劇集",
+        "missingMovies": "缺少的電影"
     },
     "lidarr": {
         "wanted": "關注中",
@@ -156,16 +156,16 @@
         "albums": "專輯"
     },
     "adguard": {
-        "queries": "查詢數",
+        "queries": "查詢",
         "blocked": "已阻擋",
         "filtered": "已過濾",
         "latency": "延遲"
     },
     "qbittorrent": {
-        "download": "下載",
-        "upload": "上傳",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下行速率",
+        "upload": "上行速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
     },
     "mastodon": {
         "user_count": "使用者",
@@ -216,8 +216,8 @@
         "wait": "請稍後"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "總監測數",
+        "diffsDetected": "偵測到的變更"
     },
     "wmo": {
         "0-day": "晴",
@@ -345,16 +345,16 @@
         "total": "全部"
     },
     "deluge": {
-        "download": "下載",
-        "upload": "上傳",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下行速率",
+        "upload": "上行速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
     },
     "flood": {
-        "download": "下載",
-        "upload": "上傳",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下行速率",
+        "upload": "上行速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
     },
     "tdarr": {
         "queue": "佇列",
@@ -382,10 +382,10 @@
         "connectedSwitches": "已連接的交換器"
     },
     "downloadstation": {
-        "download": "下載",
-        "upload": "上傳",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下行速率",
+        "upload": "上行速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
     },
     "mikrotik": {
         "cpuLoad": "CPU負載",
@@ -405,17 +405,17 @@
         "wanDownload": "WAN下載"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "列印機狀態",
+        "print_status": "列印狀態",
+        "print_progress": "進度",
+        "layers": "層"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "關注中",
+        "queued": "已加入佇列",
+        "series": "影集"
     },
-    "octoPrint": {
+    "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",

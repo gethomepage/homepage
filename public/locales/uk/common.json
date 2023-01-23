@@ -415,7 +415,7 @@
         "queued": "У черзі",
         "series": "Серії"
     },
-    "octoPrint": {
+    "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",

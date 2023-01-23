@@ -25,7 +25,7 @@ import navidrome from "./navidrome/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
-import octoPrint from "./octoPrint/widget";
+import octoprint from "./octoprint/widget";
 import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
@@ -86,7 +86,7 @@ const widgets = {
   nextdns,
   npm,
   nzbget,
-  octoPrint,
+  octoprint,
   omada,
   ombi,
   opnsense,

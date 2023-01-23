@@ -394,28 +394,28 @@
         "numberOfLeases": "Dzierżawy"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Wszystkie strumienie",
+        "streams_active": "Aktywne strumienie",
+        "streams_xepg": "Kanały XEPG"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Obciążenie procesora",
+        "memory": "Pamięć rzeczywista",
+        "wanUpload": "WAN wysyłanie",
+        "wanDownload": "WAN pobieranie"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Stan drukarki",
+        "print_status": "Status wydruku",
+        "print_progress": "Postęp",
+        "layers": "Warstwy"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Poszukiwane",
+        "queued": "Zakolejkowane",
+        "series": "Seria"
     },
-    "octoPrint": {
+    "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
