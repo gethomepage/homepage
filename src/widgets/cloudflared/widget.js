@@ -7,10 +7,6 @@ const widget = {
   mappings: {
     "cfd_tunnel": {
       endpoint: "cfd_tunnel",
-      validate: [
-        "origin_ip",
-        "status",
-      ],
     },
   },
 };
