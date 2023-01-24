@@ -218,9 +218,11 @@ export function cleanServiceGroups(groups) {
           wan // opnsense widget
         } = cleanedService.widget;
 
+        const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
+
         cleanedService.widget = {
           type,
-          fields: fields || null,
+          fields: fieldsList || null,
           service_name: service.name,
           service_group: serviceGroup.name,
         };
