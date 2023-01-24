@@ -419,10 +419,10 @@
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "job_completion": "Achèvement"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "IP Publique",
+        "status": "Statut"
     }
 }
