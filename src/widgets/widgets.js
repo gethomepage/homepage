@@ -3,6 +3,7 @@ import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
 import bazarr from "./bazarr/widget";
 import changedetectionio from "./changedetectionio/widget";
+import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import deluge from "./deluge/widget";
 import downloadstation from "./downloadstation/widget";
@@ -61,6 +62,7 @@ const widgets = {
   autobrr,
   bazarr,
   changedetectionio,
+  cloudflared,
   coinmarketcap,
   deluge,
   diskstation: downloadstation,
