@@ -422,7 +422,7 @@
         "job_completion": "Completion"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "IP de origen",
+        "status": "Estado"
     }
 }
