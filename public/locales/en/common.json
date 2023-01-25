@@ -436,7 +436,7 @@
     },
     "pbs": {
         "datastore_usage": "Datastore",
-        "failed_tasks": "Failed Tasks",
+        "failed_tasks_24h": "Failed Tasks 24h",
         "cpu_usage": "CPU",
         "memory_usage": "Memory"
     }

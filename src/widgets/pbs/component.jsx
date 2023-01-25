@@ -41,7 +41,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="pbs.datastore_usage" value={t("common.percent", { value: (datastoreUsage)})} />
-      <Block label="pbs.failed_tasks" value={failedTasks} />
+      <Block label="pbs.failed_tasks_24h" value={failedTasks} />
       <Block label="pbs.cpu_usage" value={t("common.percent", { value: (cpuUsage)})} />
       <Block label="pbs.memory_usage" value={t("common.percent", { value: memoryUsage})} />
     </Container>
