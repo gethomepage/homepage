@@ -13,6 +13,17 @@ import {
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
+/**
+ * Compares services by weight then by name.
+ */
+function compareServices(service1, service2) {
+  const comp = service1.weight - service2.weight;
+  if (comp !== 0) {
+    return comp;
+  }
+  return service1.name.localeCompare(service2.name);
+}
+
 export async function bookmarksResponse() {
   checkAndCopyConfig("bookmarks.yaml");
 
@@ -112,7 +123,8 @@ export async function servicesResponse() {
         ...discoveredDockerGroup.services,
         ...discoveredKubernetesGroup.services,
         ...configuredGroup.services
-      ].filter((service) => service),
+      ].filter((service) => service)
+        .sort(compareServices),
     };
 
     if (definedLayouts) {
