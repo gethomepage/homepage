@@ -22,10 +22,10 @@ export default function Component({ service }) {
   if (!datastoreData || !tasksData || !hostData) {
     return (
       <Container service={service}>
-        <Block label="pbs.datastore_usage" />
-        <Block label="pbs.failed_tasks" />
-        <Block label="pbs.cpu_usage" />
-        <Block label="pbs.memory_usage" />
+        <Block label="proxmoxbackupserver.datastore_usage" />
+        <Block label="proxmoxbackupserver.failed_tasks" />
+        <Block label="proxmoxbackupserver.cpu_usage" />
+        <Block label="proxmoxbackupserver.memory_usage" />
       </Container>
     );
   }
@@ -40,10 +40,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="pbs.datastore_usage" value={t("common.percent", { value: (datastoreUsage)})} />
-      <Block label="pbs.failed_tasks_24h" value={failedTasks} />
-      <Block label="pbs.cpu_usage" value={t("common.percent", { value: (cpuUsage)})} />
-      <Block label="pbs.memory_usage" value={t("common.percent", { value: memoryUsage})} />
+      <Block label="proxmoxbackupserver.datastore_usage" value={t("common.percent", { value: (datastoreUsage)})} />
+      <Block label="proxmoxbackupserver.failed_tasks_24h" value={failedTasks} />
+      <Block label="proxmoxbackupserver.cpu_usage" value={t("common.percent", { value: (cpuUsage)})} />
+      <Block label="proxmoxbackupserver.memory_usage" value={t("common.percent", { value: memoryUsage})} />
     </Container>
   );
 }
