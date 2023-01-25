@@ -20,7 +20,7 @@ export default async function credentialedProxyHandler(req, res, map) {
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
-      let headers = {
+      const headers = {
         "Content-Type": "application/json",
       };
 
@@ -35,7 +35,7 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
-        headers = {};
+        delete headers["Content-Type"];
         headers.Authorization = `PBSAPIToken=${widget.username}:${widget.password}`;
       } else if (widget.type === "autobrr") {
         headers["X-API-Token"] = `${widget.key}`;
