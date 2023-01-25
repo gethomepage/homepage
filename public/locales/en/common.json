@@ -433,5 +433,11 @@
     "cloudflared": {
         "origin_ip": "Origin IP",
         "status": "Status" 
+    },
+    "pbs": {
+        "datastore_usage": "Datastore",
+        "failed_tasks": "Failed Tasks",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
     }
 }

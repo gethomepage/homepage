@@ -31,6 +31,7 @@ import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
+import pbs from "./pbs/widget";
 import pihole from "./pihole/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
@@ -92,6 +93,7 @@ const widgets = {
   opnsense,
   overseerr,
   paperlessngx,
+  pbs,
   pihole,
   plex,
   portainer,

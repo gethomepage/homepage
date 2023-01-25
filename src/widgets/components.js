@@ -37,6 +37,7 @@ const components = {
   opnsense: dynamic(() => import("./opnsense/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   paperlessngx: dynamic(() => import("./paperlessngx/component")),
+  pbs: dynamic(() => import("./pbs/component")),
   pihole: dynamic(() => import("./pihole/component")),
   plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),
