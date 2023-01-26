@@ -194,7 +194,7 @@
         "uptime": "System Uptime",
         "lan_users": "LAN Users",
         "wlan_users": "WLAN Users",
-        "wait": "Please wait",
+        "wait": "Odota, ole hyvä",
         "days": "Days",
         "wan": "WAN",
         "up": "UP",
@@ -314,7 +314,7 @@
     },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "please_wait": "Odota, ole hyvä"
     },
     "pyload": {
         "speed": "Speed",
@@ -411,9 +411,9 @@
         "layers": "Layers"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Haluttu",
+        "queued": "Jonossa",
+        "series": "Sarja"
     },
     "octoprint": {
         "printer_state": "Status",
