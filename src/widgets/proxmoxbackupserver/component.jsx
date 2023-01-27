@@ -13,7 +13,6 @@ export default function Component({ service }) {
   const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "nodes/localhost/tasks");
   const { data: hostData, error: hostError } = useWidgetAPI(widget, "nodes/localhost/status");
 
-
   if (datastoreError || tasksError || hostError) {
     const finalError = tasksError ?? datastoreError ?? hostError;
     return <Container error={finalError} />;
@@ -33,17 +32,14 @@ export default function Component({ service }) {
   const datastoreUsage = datastoreData.data[0].used / datastoreData.data[0].total * 100;
   const cpuUsage = hostData.data.cpu * 100;
   const memoryUsage = hostData.data.memory.used / hostData.data.memory.total * 100;
-  let failedTasks = tasksData.total;
-  if (failedTasks >= 100) {
-    failedTasks = "99+";
-  }
+  const failedTasks = tasksData.total >= 100 ? "99+" : tasksData.total;
 
   return (
     <Container service={service}>
-      <Block label="proxmoxbackupserver.datastore_usage" value={t("common.percent", { value: (datastoreUsage)})} />
+      <Block label="proxmoxbackupserver.datastore_usage" value={t("common.percent", { value: datastoreUsage })} />
       <Block label="proxmoxbackupserver.failed_tasks_24h" value={failedTasks} />
-      <Block label="proxmoxbackupserver.cpu_usage" value={t("common.percent", { value: (cpuUsage)})} />
-      <Block label="proxmoxbackupserver.memory_usage" value={t("common.percent", { value: memoryUsage})} />
+      <Block label="proxmoxbackupserver.cpu_usage" value={t("common.percent", { value: cpuUsage })} />
+      <Block label="proxmoxbackupserver.memory_usage" value={t("common.percent", { value: memoryUsage })} />
     </Container>
   );
 }
