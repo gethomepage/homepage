@@ -3,16 +3,16 @@
         "missing_type": "نوع القطعة مفقود: {{type}}",
         "api_error": "API خطأ",
         "status": "الحالة",
-        "information": "Information",
+        "information": "معلومات",
         "url": "URL",
         "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "response_data": "بيانات الاستجابة"
     },
     "weather": {
         "current": "الموقع الحالي",
-        "allow": "اضغط للسماح",
+        "allow": "أنقر للسماح",
         "updating": "جاري التحديث",
-        "wait": "الرجاء الانتظار"
+        "wait": "الرجاء الإنتظار"
     },
     "search": {
         "placeholder": "بحث …"
@@ -27,88 +27,88 @@
     "unifi": {
         "users": "المستخدمون",
         "uptime": "مدة تشغيل النظام",
-        "days": "ايام",
+        "days": "أيام",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "الاجهزة",
-        "lan_devices": "LAN اجهزة",
-        "wlan_devices": "WLAN احهزة",
+        "devices": "الأجهزة",
+        "lan_devices": "LAN أجهزة",
+        "wlan_devices": "WLAN أجهزة",
         "lan_users": "LAN مستخدمين",
         "wlan_users": "WLAN مستخدمين",
-        "up": "اعلي",
-        "down": "اسفل",
-        "wait": "الرجاء الانتظار"
+        "up": "يعمل",
+        "down": "لا يعمل",
+        "wait": "الرجاء الإنتظار"
     },
     "wmo": {
-        "73-day": "Snow",
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "73-day": "ثلج",
+        "0-day": "مشمس",
+        "0-night": "صافي",
+        "1-day": "مشمس غالباً",
+        "1-night": "صافي غالباً",
+        "2-day": "غائم جزئياً",
+        "2-night": "غائم جزئياً",
+        "3-day": "غائم",
+        "3-night": "غائم",
+        "45-day": "ضبابي",
+        "45-night": "ضبابي",
+        "48-day": "ضبابي",
+        "48-night": "ضبابي",
+        "51-day": "رذاذ خفيف",
+        "51-night": "رذاذ خفيف",
+        "53-day": "رذاذ",
+        "53-night": "رذاذ",
+        "55-day": "رذاذ كثيف",
+        "55-night": "رذاذ كثيف",
+        "56-day": "رذاذ متجمد خفيف",
+        "56-night": "رذاذ متجمد خفيف",
+        "57-day": "رذاذ متجمد",
+        "57-night": "رذاذ متجمد",
+        "61-day": "مطر خفيف",
+        "61-night": "مطر خفيف",
+        "63-day": "مطر",
+        "63-night": "مطر",
+        "65-day": "مطر شديد",
+        "65-night": "مطر شديد",
+        "66-day": "مطر متجمد",
+        "66-night": "مطر متجمد",
+        "67-day": "مطر متجمد",
+        "67-night": "مطر متجمد",
+        "71-day": "ثلج خفيف",
+        "71-night": "ثلج خفيف",
+        "73-night": "ثلج",
+        "75-day": "ثلج شديد",
+        "75-night": "ثلج شديد",
+        "77-day": "حبيبات الثلج",
+        "77-night": "حبيبات الثلج",
+        "80-day": "أمطار خفيفة",
+        "80-night": "أمطار خفيفة",
+        "81-day": "أمطار",
+        "81-night": "أمطار",
+        "82-day": "أمطار شديدة",
+        "82-night": "أمطار شديدة",
+        "85-day": "زخات الثلوج",
+        "85-night": "زخات الثلوج",
+        "86-day": "زخات الثلوج",
+        "86-night": "زخات الثلوج",
+        "95-day": "عاصفة رعدية",
+        "95-night": "‬عاصفة رعدية",
+        "96-day": "عاصفة رعدية مع مطر",
+        "96-night": "عاصفة رعدية مع مطر",
+        "99-day": "عاصفة رعدية مع مطر",
+        "99-night": "عاصفة رعدية مع مطر"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "الرام",
+        "mem": "الذاكرة",
         "cpu": "المعالج",
         "offline": "غير متصل",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "خطأ",
+        "unknown": "مجهول"
     },
     "emby": {
-        "playing": "يعمل الان",
+        "playing": "يعمل الآن",
         "transcoding": "التحويل",
         "bitrate": "معدل البت",
         "no_active": "No Active Streams"
@@ -118,311 +118,311 @@
         "diffsDetected": "Diffs Detected"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
+        "playing": "يشتغل",
+        "transcoding": "التحويل",
+        "bitrate": "معدل البت",
         "no_active": "No Active Streams"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "معدل",
+        "remaining": "متبقي",
+        "downloaded": "مُنزل"
     },
     "plex": {
         "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "movies": "أفلام",
+        "tv": "مسلسلات"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "معدل",
+        "queue": "إنتظار",
+        "timeleft": "الوقت المتبقي"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "نشط",
+        "upload": "تحميل",
+        "download": "تنزيل"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "تنزيل",
+        "upload": "تحميل",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "تنزيل",
+        "upload": "تحميل",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "مطلوب",
+        "queued": "في الإنتظار",
+        "series": "سلسلة"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "مطلوب",
+        "missing": "مفقود",
+        "queued": "في الإنتظار",
+        "movies": "أفلام"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "مطلوب",
+        "queued": "في الإنتظار",
+        "albums": "ألبومات"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "مطلوب",
+        "queued": "في الإنتظار",
+        "books": "كتب"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "حلقات مفقودة",
+        "missingMovies": "أفلام مفقودة"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "معلق",
+        "approved": "مصدق",
+        "available": "متاح"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "معلق",
+        "approved": "مصدق",
+        "available": "متاح"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "processing": "Processing"
+        "pending": "معلق",
+        "approved": "مصدق",
+        "available": "متاح",
+        "processing": "معالجة"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity"
+        "queries": "الاستعلامات",
+        "blocked": "محظور",
+        "gravity": "الجاذبية"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "الاستعلامات",
+        "blocked": "محظور",
+        "filtered": "مرشح",
+        "latency": "الإستجابة"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "التحميل",
+        "download": "تنزيل",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "يعمل",
+        "stopped": "متوقف",
+        "total": "مجموع"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "راوتر",
+        "services": "خدمات",
+        "middleware": "الوسيطة"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "مفعل",
+        "disabled": "معطل",
+        "total": "مجموع"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "قم بأنشاء عملة تشفير واحدة أو أكثر للتتبع",
+        "1hour": "١ ساعة",
+        "1day": "١ يوم",
+        "7days": "٧ أيام",
+        "30days": "٣٠ يوم"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "التطبيقات",
+        "clients": "العملاء",
+        "messages": "الرسائل"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "مفهرسات",
         "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "الاستعلامات",
         "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailQueries": "فشل الاستعلامات"
     },
     "jackett": {
         "configured": "Configured",
-        "errored": "Errored"
+        "errored": "خطأ"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
+        "numActiveSessions": "الجلسات",
+        "numConnections": "التوصيلات",
         "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "transferRate": "معدل"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "المستخدمين",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "المستخدمين",
+        "loginsLast24H": "تسجيلات الدخول (٢٤س)",
+        "failedLoginsLast24H": "فشل تسجيلات الدخول (٢٤س)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "الذاكرة",
+        "cpu": "المعالج",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait"
+        "cpu": "معالج",
+        "mem": "الذاكرة",
+        "wait": "الرجاء الإنتظار"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service"
+        "bookmark": "مفضلة",
+        "service": "خدمة"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "نظام",
+        "updates": "تحديثات",
+        "update_available": "تحديث متاح",
+        "up_to_date": "حتى الآن",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_updated": "محدث",
+        "containers_failed": "فشل"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "مصدق",
+        "rejectedPushes": "مرفوض",
+        "filters": "المرشحات",
+        "indexers": "مفهرسات"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "إنتظار",
+        "videos": "الفيديوهات",
+        "channels": "القنوات",
+        "playlists": "قوائم التشغيل"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
+        "load": "حمل النظام",
+        "uptime": "مدة التشغيل",
+        "alerts": "تنبيهات",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "please_wait": "الرجاء الإنتظار"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "السرعة",
+        "active": "نشط",
+        "queue": "إنتظار",
+        "total": "مجموع"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "العام IP",
+        "region": "منطقة",
+        "country": "الدولة"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "قنوات",
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "خطأ",
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "إجتاز",
+        "failed": "فشل",
+        "unknown": "مجهول"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "صندوق الوارد",
+        "total": "المجموع"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "تنزيل",
+        "upload": "تحميل",
         "leech": "Leech",
         "seed": "Seed"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "التنزيل",
+        "upload": "التحميل",
         "leech": "Leech",
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "إنتظار",
+        "processed": "معالجة",
+        "errored": "خطأ",
+        "saved": "حفظ"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "قراءة",
+        "unread": "غير مقروء"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "الرجاء الإنتظار",
+        "no_devices": "لم يتم استلام بيانات الجهاز"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
+        "connectedAp": "المتصلة APs",
+        "activeUser": "الأجهزة النشطة",
+        "alerts": "تنبيهات",
         "connectedGateway": "Connected gateways",
         "connectedSwitches": "Connected switches"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "تنزيل",
+        "upload": "تحميل",
         "leech": "Leech",
         "seed": "Seed"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
+        "cpuLoad": "حمل المعالج",
+        "memoryUsed": "الذاكرة الستخدمة",
+        "uptime": "مدة التشغيل",
         "numberOfLeases": "Leases"
     },
     "xteve": {
         "streams_all": "All Streams",
         "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_xepg": "XEPG قنوات"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "حمل المعالج",
+        "memory": "الذاكرة النشطة",
+        "wanUpload": "WAN التحميل",
+        "wanDownload": "WAN التنزيل"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "حالة الطابعة",
+        "print_status": "حالة الطابعة",
+        "print_progress": "تقدم",
+        "layers": "طبقات"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "مطلوب",
+        "queued": "في الإنتظار",
+        "series": "سلسلة"
     },
     "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "printer_state": "حالة",
+        "temp_tool": "أداة درجة الحرارة",
+        "temp_bed": "درجة حرارة السرير",
+        "job_completion": "إتمام"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status"
+        "status": "حالة"
     }
 }
