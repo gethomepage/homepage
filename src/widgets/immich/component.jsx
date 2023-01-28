@@ -5,10 +5,10 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
-  const { data: immichData, error: immichError } = useWidgetAPI(widget);
+  const { data: immichData } = useWidgetAPI(widget);
 
-  if (immichError) {
-    return <Container error={immichError} />;
+  if (immichData?.statusCode) { // Unauthorized
+    return <Container error={immichData?.statusCode} />;
   }
 
   return (
