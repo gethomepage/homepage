@@ -432,9 +432,9 @@
         "memory_usage": "Mémoire"
     },
     "immich": {
-        "users": "Users",
+        "users": "Utilisateurs",
         "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "videos": "Vidéos",
+        "storage": "Stockage"
     }
 }
