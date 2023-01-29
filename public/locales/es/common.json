@@ -430,5 +430,11 @@
         "datastore_usage": "Almacén de datos",
         "failed_tasks_24h": "Tareas fallidas en 24h",
         "memory_usage": "Memoria"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }
