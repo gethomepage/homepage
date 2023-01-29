@@ -424,5 +424,11 @@
     "cloudflared": {
         "origin_ip": "Походження IP",
         "status": "Стан"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
     }
 }
