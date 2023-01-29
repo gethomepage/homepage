@@ -427,8 +427,8 @@
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "failed_tasks_24h": "Tâches échouées 24h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Mémoire"
     }
 }
