@@ -56,6 +56,7 @@ import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
 import watchtower from "./watchtower/widget";
 import xteve from "./xteve/widget";
+import immich from "./immich/widget";
 
 const widgets = {
   adguard,
@@ -119,6 +120,7 @@ const widgets = {
   unifi_console: unifi,
   watchtower,
   xteve,
+  immich,
 };
 
 export default widgets;

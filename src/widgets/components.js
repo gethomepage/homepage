@@ -62,6 +62,7 @@ const components = {
   unifi: dynamic(() => import("./unifi/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   xteve: dynamic(() => import("./xteve/component")),
+  immich: dynamic(() => import("./immich/component")),
 };
 
 export default components;
