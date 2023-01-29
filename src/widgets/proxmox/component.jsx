@@ -31,7 +31,7 @@ export default function Component({ service }) {
   }
 
   const { data } = clusterData ;
-  const vms = data.filter(item => item.type === "qemu") || [];
+  const vms = data.filter(item => item.type === "qemu" && item.template === 0) || [];
   const lxc = data.filter(item => item.type === "lxc" && item.template === 0) || [];
   const nodes = data.filter(item => item.type === "node") || [];
 
