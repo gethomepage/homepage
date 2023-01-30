@@ -1,6 +1,9 @@
 import Docker from "dockerode";
 
 import getDockerArguments from "utils/config/docker";
+import createLogger from "utils/logger";
+
+const logger = createLogger("dockerStatusService");
 
 export default async function handler(req, res) {
   const { service } = req.query;
@@ -68,9 +71,10 @@ export default async function handler(req, res) {
     return res.status(200).send({
       error: "not found",
     });
-  } catch {
+  } catch (e) {
+    logger.error(e);
     return res.status(500).send({
-      error: "unknown error",
+      error: {message: e?.message ?? "Unknown error"},
     });
   }
 }

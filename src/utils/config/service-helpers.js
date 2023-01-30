@@ -33,6 +33,15 @@ export async function servicesFromConfig() {
     })),
   }));
 
+  // add default weight to services based on their position in the configuration
+  servicesArray.forEach((group, groupIndex) => {
+    group.services.forEach((service, serviceIndex) => {
+      if(!service.weight) {
+        servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
+      }
+    });
+  });
+
   return servicesArray;
 }
 
@@ -152,6 +161,7 @@ export async function servicesFromKubernetes() {
         href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
         name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
         group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
+        weight: ingress.metadata.annotations[`${ANNOTATION_BASE}/weight`] || '0',
         icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || '',
         description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || '',
       };
@@ -201,6 +211,17 @@ export function cleanServiceGroups(groups) {
     name: serviceGroup.name,
     services: serviceGroup.services.map((service) => {
       const cleanedService = { ...service };
+      if (typeof service.weight === 'string') {
+        const weight = parseInt(service.weight, 10);
+        if (Number.isNaN(weight)) {
+          cleanedService.weight = 0;
+        } else {
+          cleanedService.weight = weight;
+        }
+      }
+      if (typeof cleanedService.weight !== "number") {
+        cleanedService.weight = 0;
+      }
 
       if (cleanedService.widget) {
         // whitelisted set of keys to pass to the frontend
@@ -214,12 +235,15 @@ export function cleanServiceGroups(groups) {
           defaultinterval,
           namespace, // kubernetes widget
           app,
-          podSelector
+          podSelector,
+          wan // opnsense widget
         } = cleanedService.widget;
+
+        const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
 
         cleanedService.widget = {
           type,
-          fields: fields || null,
+          fields: fieldsList || null,
           service_name: service.name,
           service_group: serviceGroup.name,
         };
@@ -236,6 +260,9 @@ export function cleanServiceGroups(groups) {
           if (namespace) cleanedService.widget.namespace = namespace;
           if (app) cleanedService.widget.app = app;
           if (podSelector) cleanedService.widget.podSelector = podSelector;
+        }
+        if (type === "opnsense") {
+          if (wan) cleanedService.widget.wan = wan;
         }
       }
 

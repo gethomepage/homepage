@@ -6,6 +6,7 @@ const components = {
   autobrr: dynamic(() => import("./autobrr/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
+  cloudflared: dynamic(() => import("./cloudflared/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
   deluge: dynamic(() => import("./deluge/component")),
   diskstation: dynamic(() => import("./diskstation/component")),
@@ -37,6 +38,7 @@ const components = {
   opnsense: dynamic(() => import("./opnsense/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   paperlessngx: dynamic(() => import("./paperlessngx/component")),
+  proxmoxbackupserver: dynamic(() => import("./proxmoxbackupserver/component")),
   pihole: dynamic(() => import("./pihole/component")),
   plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),
@@ -61,6 +63,7 @@ const components = {
   unifi: dynamic(() => import("./unifi/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   xteve: dynamic(() => import("./xteve/component")),
+  immich: dynamic(() => import("./immich/component")),
 };
 
 export default components;

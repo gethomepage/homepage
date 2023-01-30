@@ -27,7 +27,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="nzbget.rate" value={t("common.bitrate", { value: statusData.DownloadRate })} />
+      <Block label="nzbget.rate" value={t("common.byterate", { value: statusData.DownloadRate })} />
       <Block
         label="nzbget.remaining"
         value={t("common.bytes", { value: statusData.RemainingSizeMB * 1024 * 1024 })}

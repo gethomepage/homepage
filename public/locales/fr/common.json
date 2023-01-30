@@ -415,13 +415,26 @@
         "queued": "En attente",
         "series": "Séries"
     },
-    "octoPrint": {
-        "job_completion": "Achèvement"
-    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "job_completion": "Achèvement"
+    },
+    "cloudflared": {
+        "origin_ip": "IP Publique",
+        "status": "Statut"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Tâches échouées 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Mémoire"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }

@@ -194,7 +194,7 @@
         "uptime": "System Uptime",
         "lan_users": "LAN Users",
         "wlan_users": "WLAN Users",
-        "wait": "Please wait",
+        "wait": "Odota, ole hyvä",
         "days": "Days",
         "wan": "WAN",
         "up": "UP",
@@ -314,7 +314,7 @@
     },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "please_wait": "Odota, ole hyvä"
     },
     "pyload": {
         "speed": "Speed",
@@ -411,17 +411,30 @@
         "layers": "Layers"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
-    },
-    "octoPrint": {
-        "job_completion": "Completion"
+        "wanted": "Haluttu",
+        "queued": "Jonossa",
+        "series": "Sarja"
     },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
+    },
+    "cloudflared": {
+        "origin_ip": "Origin IP",
+        "status": "Status"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }
