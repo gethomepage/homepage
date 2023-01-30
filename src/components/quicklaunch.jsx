@@ -34,7 +34,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   function handleSearchKeyDown(event) {
     if (!isOpen) return;
-    
+
     if (event.key === "Escape") {
       closeAndReset();
       event.preventDefault();
@@ -49,6 +49,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       event.preventDefault();
     }
   }
+
 
   function handleItemHover(event) {
     setCurrentItemIndex(parseInt(event.target?.dataset?.index, 10));
@@ -75,6 +76,15 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       if (searchDescriptions) {
         newResults = newResults.sort((a, b) => b.priority - a.priority);
       }
+      newResults.push(
+        {
+          name: searchString,
+          href: `http://google.com/search?q=${searchString}`,
+          description: t("quicklaunch.searchGoogle"),
+          type: 'service',
+          weight: 1
+        }
+      )
 
       setResults(newResults);
 
@@ -82,7 +92,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
         setCurrentItemIndex(0);
       }
     }
-  }, [searchString, servicesAndBookmarks, searchDescriptions]);
+  }, [searchString, servicesAndBookmarks, searchDescriptions, t]);
 
 
   const [hidden, setHidden] = useState(true);
@@ -90,7 +100,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
     function handleBackdropClick(event) {
       if (event.target?.tagName === "DIV") closeAndReset();
     }
-    
+
     if (isOpen) {
       searchField.current.focus();
       document.body.addEventListener('click', handleBackdropClick);
@@ -141,7 +151,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                       </div>
                       <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
                         <span className="mr-4">{r.name}</span>
-                        {r.description && 
+                        {r.description &&
                           <span className="text-xs text-theme-600 text-light">
                             {searchDescriptions && r.priority < 2 ? highlightText(r.description) : r.description}
                           </span>
