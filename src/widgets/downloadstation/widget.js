@@ -1,12 +1,15 @@
-import downloadstationProxyHandler from "./proxy";
+import synologyProxyHandler from '../../utils/proxy/handlers/synology'
 
 const widget = {
-  api: "{url}/webapi/DownloadStation/task.cgi?api=SYNO.DownloadStation.Task&version=1&method={endpoint}",
-  proxyHandler: downloadstationProxyHandler,
+  // cgiPath and maxVersion are discovered at runtime, don't supply
+  api: "{url}/webapi/{cgiPath}?api={apiName}&version={maxVersion}&method={apiMethod}",
+  proxyHandler: synologyProxyHandler,
 
   mappings: {
     "list": {
-      endpoint: "list&additional=transfer",
+      apiName: "SYNO.DownloadStation.Task",
+      apiMethod: "list&additional=transfer",
+      endpoint: "list"
     },
   },
 };

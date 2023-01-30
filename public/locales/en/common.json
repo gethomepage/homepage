@@ -32,6 +32,7 @@
     },
     "resources": {
         "cpu": "CPU",
+        "mem": "MEM",
         "total": "Total",
         "free": "Free",
         "used": "Used",
@@ -431,10 +432,8 @@
         "job_completion": "Completion"
     },
     "diskstation": {
-      "uptime": "Uptime",
-      "volumeUsage": "Volume Usage",
-      "volumeTotal": "Total size",
-      "cpuLoad": "CPU Load",
-      "memoryUsage": "Memory Usage"
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }

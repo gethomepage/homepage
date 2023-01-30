@@ -24,8 +24,8 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="proxmox.vms" />
         <Block label="proxmox.lxc" />
-        <Block label="proxmox.cpu" />
-        <Block label="proxmox.ram" />
+        <Block label="resources.cpu" />
+        <Block label="resources.ram" />
       </Container>
     );
   }
@@ -46,8 +46,8 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="proxmox.vms" value={`${runningVMs} / ${vms.length}`} />
       <Block label="proxmox.lxc" value={`${runningLXC} / ${lxc.length}`} />
-      <Block label="proxmox.cpu" value={t("common.percent", { value: (node.cpu * 100) })} />
-      <Block label="proxmox.mem" value={t("common.percent", { value: ((node.mem / node.maxmem) * 100) })} />
+      <Block label="resources.cpu" value={t("common.percent", { value: (node.cpu * 100) })} />
+      <Block label="resources.mem" value={t("common.percent", { value: ((node.mem / node.maxmem) * 100) })} />
     </Container>
   );
 }

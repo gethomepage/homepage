@@ -6,35 +6,48 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
-
   const { widget } = service;
+  const { data: infoData, error: infoError } = useWidgetAPI(widget, "system_info");
+  const { data: storageData, error: storageError } = useWidgetAPI(widget, "system_storage");
+  const { data: utilizationData, error: utilizationError } = useWidgetAPI(widget, "utilization");
 
-  const { data: dsData, error: dsError } = useWidgetAPI(widget);
-
-  if (dsError) {
-    return <Container error={ dsError } />;
+  if (storageError || infoError || utilizationError) {
+    return <Container error={ storageError ?? infoError ?? utilizationError } />;
   }
 
-  if (!dsData) {
+  if (!storageData || !infoData || !utilizationData) {
     return (
       <Container service={service}>
         <Block label="diskstation.uptime" />
-        <Block label="diskstation.volumeUsage" />
-        <Block label="diskstation.volumeTotal" />
-        <Block label="diskstation.cpuLoad" />
-        <Block label="diskstation.memoryUsage" />
+        <Block label="diskstation.volumeAvailable" />
+        <Block label="resources.cpu" />
+        <Block label="resources.mem" />
       </Container>
     );
   }
 
+  // uptime info
+  // eslint-disable-next-line no-unused-vars
+  const [hour, minutes, seconds] = infoData.data.up_time.split(":");
+  const days = Math.floor(hour / 24);
+  const uptime = `${ t("common.number", { value: days }) } ${ t("diskstation.days") }`;
+
+  // storage info
+  // TODO: figure out how to display info for more than one volume
+  const volume = storageData.data.vol_info?.[0];
+  const freeVolume = 100 - (100 * (parseFloat(volume?.used_size) / parseFloat(volume?.total_size)));
+
+  // utilization info
+  const { cpu, memory } = utilizationData.data;
+  const cpuLoad = parseFloat(cpu.user_load) + parseFloat(cpu.system_load);
+  const memoryUsage = 100 - ((100 * (parseFloat(memory.avail_real) + parseFloat(memory.cached))) / parseFloat(memory.total_real));
 
   return (
     <Container service={service}>
-      <Block label="diskstation.uptime" value={ dsData.uptime }  />
-      <Block label="diskstation.volumeUsage" value={t("common.percent", { value: dsData.usedVolume })} />
-      <Block label="diskstation.volumeTotal" value={t("common.bytes", { value: dsData.totalSize })} />
-      <Block label="diskstation.cpuLoad" value={t("common.percent", { value: dsData.cpuLoad })} />
-      <Block label="diskstation.memoryUsage" value={t("common.percent", { value: dsData.memoryUsage })} />
+      <Block label="diskstation.uptime" value={ uptime } />
+      <Block label="diskstation.volumeAvailable" value={ t("common.percent", { value: freeVolume }) } />
+      <Block label="resources.cpu" value={ t("common.percent", { value: cpuLoad }) } />
+      <Block label="resources.mem" value={ t("common.percent", { value: memoryUsage }) } />
     </Container>
   );
 }
