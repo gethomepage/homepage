@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "Lesezeichen",
-        "service": "Dienst"
+        "service": "Dienst",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "System",
