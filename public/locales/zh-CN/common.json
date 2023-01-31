@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "书签",
-        "service": "服务"
+        "service": "服务",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "System",
