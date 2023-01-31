@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "Segnalibro",
-        "service": "Servizio"
+        "service": "Servizio",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "Sistema",
