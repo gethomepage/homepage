@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "Yer İmi",
-        "service": "Hizmet"
+        "service": "Hizmet",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "Sistem",
