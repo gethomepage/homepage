@@ -287,7 +287,8 @@
     },
     "quicklaunch": {
         "bookmark": "Bogmærker",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search"
     },
     "watchtower": {
         "containers_scanned": "Scannet",
