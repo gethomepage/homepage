@@ -6,9 +6,9 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: libraryData, error: libraryError } = useWidgetAPI(widget, "komga.libraries");
-  const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "komga.series");
-  const { data: bookData, error: bookError } = useWidgetAPI(widget, "komga.books");
+  const { data: libraryData, error: libraryError } = useWidgetAPI(widget, "libraries");
+  const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "series");
+  const { data: bookData, error: bookError } = useWidgetAPI(widget, "books");
 
   if (libraryError || seriesError || bookError) {
     const finalError = libraryError ?? seriesError ?? bookError;
@@ -18,18 +18,18 @@ export default function Component({ service }) {
   if (!libraryError || !seriesError || !bookError) {
     return (
       <Container service={service}>
-        <Block label="komga.libraries" />
-        <Block label="komga.series" />
-        <Block label="komga.books" />
+        <Block label="libraries" />
+        <Block label="series" />
+        <Block label="books" />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="komga.libraries" value={parseInt(libraryData.measurements.value, 10) } />
-      <Block label="komga.series" value={parseInt(seriesData.measurements.value, 10) } />
-      <Block label="komga.books" value={parseInt(bookData.measurements.value, 10) } />
+      <Block label="libraries" value={parseInt(libraryData.measurements.value, 10) } />
+      <Block label="series" value={parseInt(seriesData.measurements.value, 10) } />
+      <Block label="books" value={parseInt(bookData.measurements.value, 10) } />
     </Container>
   );
 }

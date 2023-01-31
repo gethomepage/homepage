@@ -5,13 +5,13 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    "komga.libraries": {
+    "libraries": {
       endpoint: "komga.libraries"
     },
-    "komga.series": {
+    "series": {
       endpoint: "komga.series"
     },
-    "komga.books": {
+    "books": {
       endpoint: "komga.books"
     },
   },
