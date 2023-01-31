@@ -291,7 +291,8 @@
     },
     "quicklaunch": {
         "bookmark": "Záložka",
-        "service": "Služba"
+        "service": "Služba",
+        "search": "Search"
     },
     "homebridge": {
         "update_available": "Dostupná aktualizace",
