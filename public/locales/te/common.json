@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "బుక్మార్క్",
-        "service": "సేవ"
+        "service": "సేవ",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "వ్యవస్థ",
