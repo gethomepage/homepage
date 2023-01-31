@@ -447,5 +447,11 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "komga": {
+        "users": "Users",
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }
