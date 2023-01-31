@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "Marcador",
-        "service": "Servei"
+        "service": "Servei",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "Sistema",
