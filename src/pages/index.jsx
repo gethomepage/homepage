@@ -22,6 +22,7 @@ import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/conf
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
+import { searchProviders } from "components/widgets/search/search";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -193,6 +194,11 @@ function Home({ initialSettings }) {
 
   const [searching, setSearching] = useState(false);
   const [searchString, setSearchString] = useState("");
+  let searchProvider = null;
+  const searchWidget = Object.values(widgets).find(w => w.type === "search");
+  if (searchWidget) {
+    searchProvider = searchProviders[searchWidget.options?.provider];
+  }
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -251,6 +257,7 @@ function Home({ initialSettings }) {
             isOpen={searching}
             close={setSearching}
             searchDescriptions={settings.quicklaunch?.searchDescriptions}
+            searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
           />
           {widgets && (
             <>

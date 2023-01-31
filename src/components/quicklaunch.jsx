@@ -6,7 +6,7 @@ import ResolvedIcon from "./resolvedicon";
 
 import { SettingsContext } from "utils/contexts/settings";
 
-export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close, searchDescriptions}) {
+export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close, searchDescriptions, searchProvider}) {
   const { t } = useTranslation();
   const { settings } = useContext(SettingsContext);
 
@@ -76,15 +76,15 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       if (searchDescriptions) {
         newResults = newResults.sort((a, b) => b.priority - a.priority);
       }
-      newResults.push(
-        {
-          name: searchString,
-          href: `http://google.com/search?q=${searchString}`,
-          description: t("quicklaunch.searchGoogle"),
-          type: 'service',
-          weight: 1
-        }
-      )
+      if (searchProvider) {
+        newResults.push(
+          {
+            href: searchProvider.url + encodeURIComponent(searchString),
+            name: `${searchProvider.name} ${t("quicklaunch.search")} `,
+            type: 'search',
+          }
+        )
+      }
 
       setResults(newResults);
 
@@ -92,7 +92,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
         setCurrentItemIndex(0);
       }
     }
-  }, [searchString, servicesAndBookmarks, searchDescriptions, t]);
+  }, [searchString, servicesAndBookmarks, searchDescriptions, searchProvider, t]);
 
 
   const [hidden, setHidden] = useState(true);
@@ -145,10 +145,10 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                     i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
                     )} onClick={handleItemClick}>
                     <div className="flex flex-row items-center mr-4 pointer-events-none">
-                      <div className="w-5 text-xs mr-4">
+                      {(r.icon || r.abbr) && <div className="w-5 text-xs mr-4">
                         {r.icon && <ResolvedIcon icon={r.icon} />}
                         {r.abbr && r.abbr}
-                      </div>
+                      </div>}
                       <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
                         <span className="mr-4">{r.name}</span>
                         {r.description &&
@@ -158,7 +158,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
                         }
                       </div>
                     </div>
-                    <div className="text-xs text-theme-600 font-bold pointer-events-none">{r.type === 'service' ? t("quicklaunch.service") : t("quicklaunch.bookmark")}</div>
+                    <div className="text-xs text-theme-600 font-bold pointer-events-none">{t(`quicklaunch.${r.type ? r.type.toLowerCase() : 'bookmark'}`)}</div>
                   </button>
                 </li>
               ))}
