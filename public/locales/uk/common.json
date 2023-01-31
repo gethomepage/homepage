@@ -342,8 +342,8 @@
     "quicklaunch": {
         "bookmark": "Закладка",
         "service": "Сервіс",
-        "search": "Search",
-        "custom": "Custom"
+        "search": "Пошук",
+        "custom": "Користувацький"
     },
     "homebridge": {
         "available_update": "Система",
@@ -428,15 +428,15 @@
         "status": "Стан"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "Сховище даних",
+        "failed_tasks_24h": "Невиконані завдання 24 години",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Пам'ять"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Користувачі",
+        "photos": "Фотографії",
+        "videos": "Відео",
+        "storage": "Сховище"
     }
 }
