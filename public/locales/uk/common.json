@@ -341,7 +341,8 @@
     },
     "quicklaunch": {
         "bookmark": "Закладка",
-        "service": "Сервіс"
+        "service": "Сервіс",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "Система",
