@@ -235,7 +235,8 @@
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Servo"
+        "service": "Servo",
+        "search": "Search"
     },
     "wmo": {
         "0-day": "Suna",
