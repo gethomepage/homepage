@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "مفضلة",
-        "service": "خدمة"
+        "service": "خدمة",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "نظام",
