@@ -280,7 +280,8 @@
     "quicklaunch": {
         "bookmark": "Signet",
         "service": "Service",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "Système",
