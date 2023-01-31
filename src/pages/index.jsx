@@ -200,14 +200,12 @@ function Home({ initialSettings }) {
     if (Array.isArray(searchWidget.options?.provider)) {
       // if search provider is a list, try to retrieve from localstorage, fall back to the first
       searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
-    } else {
-      if (searchWidget.options?.provider === 'custom') {
-        searchProvider = {
-          url: searchWidget.options.url
-        }
-      } else {
-        searchProvider = searchProviders[searchWidget.options?.provider];
+    } else if (searchWidget.options?.provider === 'custom') {
+      searchProvider = {
+        url: searchWidget.options.url
       }
+    } else {
+      searchProvider = searchProviders[searchWidget.options?.provider];
     }
   }
 
