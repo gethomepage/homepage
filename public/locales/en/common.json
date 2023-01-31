@@ -283,7 +283,8 @@
     "quicklaunch": {
         "bookmark": "Bookmark",
         "service": "Service",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "wmo": {
         "0-day": "Sunny",

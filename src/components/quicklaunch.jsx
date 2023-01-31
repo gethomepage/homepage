@@ -80,7 +80,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
         newResults.push(
           {
             href: searchProvider.url + encodeURIComponent(searchString),
-            name: `${searchProvider.name} ${t("quicklaunch.search")} `,
+            name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")} `,
             type: 'search',
           }
         )

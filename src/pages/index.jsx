@@ -197,7 +197,13 @@ function Home({ initialSettings }) {
   let searchProvider = null;
   const searchWidget = Object.values(widgets).find(w => w.type === "search");
   if (searchWidget) {
-    searchProvider = searchProviders[searchWidget.options?.provider];
+    if (searchWidget.options?.provider === 'custom') {
+      searchProvider = {
+        url: searchWidget.options.url
+      }
+    } else {
+      searchProvider = searchProviders[searchWidget.options?.provider];
+    }
   }
 
   useEffect(() => {
