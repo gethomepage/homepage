@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "Zakładka",
-        "service": "Usługi"
+        "service": "Usługi",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "System",
