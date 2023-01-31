@@ -280,7 +280,8 @@
     "quicklaunch": {
         "bookmark": "書籤",
         "service": "服務",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "系統",
