@@ -184,7 +184,7 @@
         "failedLoginsLast24H": "Errors d'inici de sessió (24h)"
     },
     "proxmox": {
-        "vms": "Màquines Virtuals",
+        "vms": "VMs",
         "mem": "Memòria",
         "cpu": "Processador",
         "lxc": "LXC"
@@ -279,7 +279,9 @@
     },
     "quicklaunch": {
         "bookmark": "Marcador",
-        "service": "Servei"
+        "service": "Servei",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "Sistema",
@@ -420,5 +422,21 @@
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
+    },
+    "cloudflared": {
+        "origin_ip": "Origin IP",
+        "status": "Status"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }

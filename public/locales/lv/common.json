@@ -273,7 +273,9 @@
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search",
+        "custom": "Custom"
     },
     "wmo": {
         "0-day": "Saulains",
@@ -420,5 +422,21 @@
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
+    },
+    "cloudflared": {
+        "origin_ip": "Origin IP",
+        "status": "Status"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }

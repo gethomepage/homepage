@@ -341,7 +341,9 @@
     },
     "quicklaunch": {
         "bookmark": "Закладка",
-        "service": "Сервіс"
+        "service": "Сервіс",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "Система",
@@ -416,9 +418,25 @@
         "series": "Серії"
     },
     "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "printer_state": "Стан",
+        "temp_tool": "Температура інструменту",
+        "temp_bed": "Температура ліжка",
+        "job_completion": "Завершення"
+    },
+    "cloudflared": {
+        "origin_ip": "Походження IP",
+        "status": "Стан"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }

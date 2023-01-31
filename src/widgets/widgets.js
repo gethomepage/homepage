@@ -31,6 +31,7 @@ import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
+import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pihole from "./pihole/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
@@ -55,6 +56,7 @@ import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
 import watchtower from "./watchtower/widget";
 import xteve from "./xteve/widget";
+import immich from "./immich/widget";
 
 const widgets = {
   adguard,
@@ -92,6 +94,7 @@ const widgets = {
   opnsense,
   overseerr,
   paperlessngx,
+  proxmoxbackupserver,
   pihole,
   plex,
   portainer,
@@ -117,6 +120,7 @@ const widgets = {
   unifi_console: unifi,
   watchtower,
   xteve,
+  immich,
 };
 
 export default widgets;

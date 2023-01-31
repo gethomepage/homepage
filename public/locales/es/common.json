@@ -279,7 +279,9 @@
     },
     "quicklaunch": {
         "bookmark": "Marcadores",
-        "service": "Servicio"
+        "service": "Servicio",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "Sistema",
@@ -420,5 +422,21 @@
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "job_completion": "Completion"
+    },
+    "cloudflared": {
+        "origin_ip": "IP de origen",
+        "status": "Estado"
+    },
+    "proxmoxbackupserver": {
+        "cpu_usage": "CPU",
+        "datastore_usage": "Almacén de datos",
+        "failed_tasks_24h": "Tareas fallidas en 24h",
+        "memory_usage": "Memoria"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }

@@ -282,7 +282,9 @@
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search",
+        "custom": "Custom"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -430,8 +432,20 @@
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
-    "cloudflared" {
+    "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status" 
+        "status": "Status"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }

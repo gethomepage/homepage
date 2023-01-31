@@ -279,7 +279,9 @@
     },
     "quicklaunch": {
         "bookmark": "書籤",
-        "service": "服務"
+        "service": "服務",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "系統",
@@ -416,9 +418,25 @@
         "series": "影集"
     },
     "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "printer_state": "狀態",
+        "temp_tool": "噴頭溫度",
+        "temp_bed": "平台溫度",
+        "job_completion": "完成度"
+    },
+    "cloudflared": {
+        "origin_ip": "Origin IP",
+        "status": "Status"
+    },
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "CPU",
+        "memory_usage": "Memory"
+    },
+    "immich": {
+        "users": "Users",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     }
 }
