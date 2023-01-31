@@ -292,7 +292,8 @@
     "quicklaunch": {
         "bookmark": "Záložka",
         "service": "Služba",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "update_available": "Dostupná aktualizace",
