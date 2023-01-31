@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "Straničnik",
-        "service": "Usluga"
+        "service": "Usluga",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "Sustav",
