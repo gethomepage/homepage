@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
 import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
 import { Listbox, Transition } from "@headlessui/react";
+import classNames from "classnames";
 
 export const searchProviders = {
   google: {
@@ -37,10 +38,6 @@ export const searchProviders = {
   },
 };
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 function getAvailableProviderIds(options) {
   if (options.provider && Array.isArray(options.provider)) {
     return Object.keys(searchProviders).filter((value) => options.provider.includes(value));
@@ -51,26 +48,32 @@ function getAvailableProviderIds(options) {
   return null;
 }
 
+const localStorageKey = "search-name";
+
+export function getStoredProvider() {
+  if (typeof window !== 'undefined') {
+    const storedName = localStorage.getItem(localStorageKey);
+    if (storedName) {
+      return Object.values(searchProviders).find((el) => el.name === storedName);
+    }
+  }
+  return null;
+}
+
 export default function Search({ options }) {
   const { t } = useTranslation();
 
   const availableProviderIds = getAvailableProviderIds(options);
 
-  const key = "search-name";
-
   const [query, setQuery] = useState("");
   const [selectedProvider, setSelectedProvider] = useState(searchProviders[availableProviderIds[0] ?? searchProviders.google]);
 
   useEffect(() => {
-    const storedName = localStorage.getItem(key);
-    let storedProvider = null;
+    const storedProvider = getStoredProvider();
     let storedProviderKey = null;
-    if (storedName) {
-      storedProvider = Object.values(searchProviders).find((el) => el.name === storedName);
-      storedProviderKey = Object.keys(searchProviders).find((pkey) => searchProviders[pkey] === storedProvider);
-      if (storedProvider && availableProviderIds.includes(storedProviderKey)) {
-        setSelectedProvider(storedProvider);
-      }
+    storedProviderKey = Object.keys(searchProviders).find((pkey) => searchProviders[pkey] === storedProvider);
+    if (storedProvider && availableProviderIds.includes(storedProviderKey)) {
+      setSelectedProvider(storedProvider);
     }
   }, [availableProviderIds]);
   
@@ -95,7 +98,7 @@ export default function Search({ options }) {
 
   const onChangeProvider = (provider) => {
     setSelectedProvider(provider);
-    localStorage.setItem(key, provider.name);
+    localStorage.setItem(localStorageKey, provider.name);
   }
 
   return (
