@@ -279,7 +279,8 @@
     },
     "quicklaunch": {
         "bookmark": "書籤",
-        "service": "服務"
+        "service": "服務",
+        "search": "Search"
     },
     "homebridge": {
         "available_update": "系統",
