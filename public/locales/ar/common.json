@@ -280,7 +280,8 @@
     "quicklaunch": {
         "bookmark": "مفضلة",
         "service": "خدمة",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "نظام",
