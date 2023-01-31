@@ -280,7 +280,8 @@
     "quicklaunch": {
         "bookmark": "Marcadores",
         "service": "Servicio",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "Sistema",
