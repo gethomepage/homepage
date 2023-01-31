@@ -282,7 +282,8 @@
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -432,7 +433,7 @@
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status" 
+        "status": "Status"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",

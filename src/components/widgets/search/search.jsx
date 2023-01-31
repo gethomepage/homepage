@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
 import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
 
-const providers = {
+export const searchProviders = {
   google: {
     name: "Google",
     url: "https://www.google.com/search?q=",
@@ -39,7 +39,7 @@ const providers = {
 export default function Search({ options }) {
   const { t } = useTranslation();
 
-  const provider = providers[options.provider];
+  const provider = searchProviders[options.provider];
   const [query, setQuery] = useState("");
 
   if (!provider) {
