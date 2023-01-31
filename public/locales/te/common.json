@@ -280,7 +280,8 @@
     "quicklaunch": {
         "bookmark": "బుక్మార్క్",
         "service": "సేవ",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "వ్యవస్థ",
