@@ -39,8 +39,8 @@ async function login(loginUrl) {
   return [status, contentType, data];
 }
 
-async function getApiInfo(serviceWidget, apiName) {
-  const cacheKey = `${proxyName}__${apiName}`;
+async function getApiInfo(serviceWidget, apiName, serviceName) {
+  const cacheKey = `${proxyName}__${apiName}__${serviceName}`
   let { cgiPath, maxVersion } = cache.get(cacheKey) ?? {};
   if (cgiPath && maxVersion) {
     return [cgiPath, maxVersion];
@@ -69,15 +69,15 @@ async function getApiInfo(serviceWidget, apiName) {
   return [null, null];
 }
 
-async function handleUnsuccessfulResponse(serviceWidget, url) {
+async function handleUnsuccessfulResponse(serviceWidget, url, serviceName) {
   logger.debug(`Attempting login to ${serviceWidget.type}`);
 
   // eslint-disable-next-line no-unused-vars
-  const [apiPath, maxVersion] = await getApiInfo(serviceWidget, AUTH_API_NAME);
+  const [apiPath, maxVersion] = await getApiInfo(serviceWidget, AUTH_API_NAME, serviceName);
 
   const authArgs = { path: apiPath ?? "entry.cgi", maxVersion: maxVersion ?? 7, ...serviceWidget };
   const loginUrl = formatApiCall(AUTH_ENDPOINT, authArgs);
-  
+
   const [status, contentType, data] = await login(loginUrl);
   if (status !== 200) {
     return [status, contentType, data];
@@ -142,7 +142,7 @@ export default async function synologyProxyHandler(req, res) {
     return res.status(403).json({ error: "Service does not support API calls" });
   }
 
-  const [cgiPath, maxVersion] = await getApiInfo(serviceWidget, mapping.apiName);
+  const [cgiPath, maxVersion] = await getApiInfo(serviceWidget, mapping.apiName, service);
   if (!cgiPath || !maxVersion) {
     return res.status(400).json({ error: `Unrecognized API name: ${mapping.apiName}`})
   }
@@ -163,7 +163,7 @@ export default async function synologyProxyHandler(req, res) {
   let json = asJson(data);
   if (json?.success !== true) {
     logger.debug(`Attempting login to ${serviceWidget.type}`);
-    [status, contentType, data] = await handleUnsuccessfulResponse(serviceWidget, url);
+    [status, contentType, data] = await handleUnsuccessfulResponse(serviceWidget, url, service);
     json = asJson(data);
   }
 
