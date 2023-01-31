@@ -280,8 +280,8 @@
     "quicklaunch": {
         "bookmark": "Marcadores",
         "service": "Servicio",
-        "search": "Search",
-        "custom": "Custom"
+        "search": "Buscar",
+        "custom": "Personalizado"
     },
     "homebridge": {
         "available_update": "Sistema",
@@ -434,9 +434,9 @@
         "memory_usage": "Memoria"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Usuarios",
+        "photos": "Fotos",
+        "videos": "Vídeos",
+        "storage": "Almacenamiento"
     }
 }
