@@ -288,7 +288,8 @@
     "quicklaunch": {
         "bookmark": "Bogmærker",
         "service": "Service",
-        "search": "Search"
+        "search": "Search",
+        "custom": "Custom"
     },
     "watchtower": {
         "containers_scanned": "Scannet",
