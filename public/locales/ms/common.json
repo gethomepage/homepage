@@ -62,7 +62,8 @@
     },
     "quicklaunch": {
         "bookmark": "Tandabuku",
-        "service": "Servis"
+        "service": "Servis",
+        "search": "Search"
     },
     "wmo": {
         "0-day": "Terik",
