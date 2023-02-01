@@ -447,5 +447,13 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "status": "status",
+        "uptime": "uptime",
+        "good": "All Systems Operational",
+        "warn": "Partially Degraded Service",
+        "bad": "Degraded Service",
+        "unknown": "Unknown service status"
     }
 }
