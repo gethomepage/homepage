@@ -14,6 +14,7 @@ import gotify from "./gotify/widget";
 import hdhomerun from "./hdhomerun/widget";
 import homebridge from "./homebridge/widget";
 import jackett from "./jackett/widget";
+import jellyfin from "./jellyfin/widget";
 import jellyseerr from "./jellyseerr/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
@@ -76,7 +77,7 @@ const widgets = {
   hdhomerun,
   homebridge,
   jackett,
-  jellyfin: emby,
+  jellyfin,
   jellyseerr,
   lidarr,
   mastodon,
