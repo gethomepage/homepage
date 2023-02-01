@@ -63,6 +63,7 @@ const components = {
   watchtower: dynamic(() => import("./watchtower/component")),
   xteve: dynamic(() => import("./xteve/component")),
   immich: dynamic(() => import("./immich/component")),
+  uptimekuma: dynamic(() => import("./uptimekuma/component")),
 };
 
 export default components;
