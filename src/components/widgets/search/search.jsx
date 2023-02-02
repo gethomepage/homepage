@@ -84,7 +84,7 @@ export default function Search({ options }) {
   function handleSubmit(event) {
     const q = encodeURIComponent(query);
 
-    const url = { selectedProvider };
+    const { url } = selectedProvider;
     if (url) {
       window.open(`${url}${q}`, options.target || "_blank");
     } else {
