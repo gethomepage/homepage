@@ -440,9 +440,9 @@
         "storage": "Stockage"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
+        "up": "En ligne",
+        "down": "Hors ligne",
+        "uptime": "Dispo.",
         "incident": "Incident",
         "m": "m"
     }
