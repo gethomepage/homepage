@@ -438,5 +438,12 @@
         "photos": "Photos",
         "videos": "Vidéos",
         "storage": "Stockage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
     }
 }
