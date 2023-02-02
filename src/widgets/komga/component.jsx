@@ -17,7 +17,7 @@ export default function Component({ service }) {
     return <Container error={finalError} />;
   }
 
-  if (!libraryError || !seriesError || !bookError) {
+  if (!libraryData || !seriesData || !bookData) {
     return (
       <Container service={service}>
         <Block label="komga.libraries" />
