@@ -440,10 +440,10 @@
         "storage": "Almacenamiento"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
+        "up": "Páginas web activas",
+        "down": "Páginas web inactivas",
+        "uptime": "Disponibilidad",
+        "incident": "Incidencia",
         "m": "m"
     }
 }
