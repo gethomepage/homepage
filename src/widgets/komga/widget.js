@@ -1,18 +1,28 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import genericProxyHandler from "utils/proxy/handlers/generic";
+import { jsonArrayFilter } from "utils/proxy/api-helpers";
 
 const widget = {
-  api: "{url}/actuator/metrics/{endpoint}",
-  proxyHandler: credentialedProxyHandler,
+  api: "{url}/api/v1/{endpoint}",
+  proxyHandler: genericProxyHandler,
 
   mappings: {
-    "libraries": {
-      endpoint: "komga.libraries"
+    libraries: {
+      endpoint: "libraries",
+      map: (data) => ({
+        total: jsonArrayFilter(data, (item) => !item.unavailable).length,
+      }),
     },
-    "series": {
-      endpoint: "komga.series"
+    series: {
+      endpoint: "series",
+      validate: [
+        "totalElements"
+      ]
     },
-    "books": {
-      endpoint: "komga.books"
+    books: {
+      endpoint: "books",
+      validate: [
+        "totalElements"
+      ]
     },
   },
 };

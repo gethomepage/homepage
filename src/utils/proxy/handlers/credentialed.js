@@ -19,7 +19,6 @@ export default async function credentialedProxyHandler(req, res, map) {
 
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
-      const version = process.env.NEXT_PUBLIC_VERSION?.length ?  process.env.NEXT_PUBLIC_VERSION : "dev";
 
       const headers = {
         "Content-Type": "application/json",
@@ -47,9 +46,6 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "cloudflared") {
         headers["X-Auth-Email"] = `${widget.email}`;
         headers["X-Auth-Key"] = `${widget.key}`;
-      } else if (widget.type === "komga") {
-        headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`
-        headers["User-Agent"] = `HomepageRuntime/${version} `
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
