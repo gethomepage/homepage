@@ -58,6 +58,7 @@ import unifi from "./unifi/widget";
 import watchtower from "./watchtower/widget";
 import xteve from "./xteve/widget";
 import immich from "./immich/widget";
+import uptimekuma from "./uptimekuma/widget";
 
 const widgets = {
   adguard,
@@ -123,6 +124,7 @@ const widgets = {
   watchtower,
   xteve,
   immich,
+  uptimekuma,
 };
 
 export default widgets;

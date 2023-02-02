@@ -448,9 +448,11 @@
         "videos": "Videos",
         "storage": "Storage"
     },
-    "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
     }
 }

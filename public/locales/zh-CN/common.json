@@ -12,7 +12,7 @@
         "placeholder": "搜索…"
     },
     "resources": {
-        "total": "共",
+        "total": "总计",
         "free": "空闲",
         "used": "已用",
         "load": "负载",

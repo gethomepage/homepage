@@ -31,10 +31,10 @@
         "missing_type": "Tipo de Widget ausente: {{type}}",
         "api_error": "Erro da API",
         "status": "Status",
-        "information": "Information",
+        "information": "Informação",
         "url": "URL",
         "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "response_data": "Dados de Resposta"
     },
     "weather": {
         "current": "Localização atual",
@@ -53,13 +53,13 @@
         "cpu": "CPU"
     },
     "docker": {
-        "rx": "Rx",
-        "tx": "Tx",
-        "mem": "Mem",
+        "rx": "Recebido",
+        "tx": "Transmitido",
+        "mem": "Memória",
         "cpu": "CPU",
         "offline": "Desligado",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Erro",
+        "unknown": "Desconhecido"
     },
     "emby": {
         "playing": "Reproduzindo",
@@ -99,7 +99,7 @@
         "wanted": "Desejado",
         "queued": "Na fila",
         "movies": "Filmes",
-        "missing": "Missing"
+        "missing": "Faltando"
     },
     "lidarr": {
         "wanted": "Desejado",
@@ -129,7 +129,7 @@
         "pending": "Pendente",
         "approved": "Aprovado",
         "available": "Disponível",
-        "processing": "Processing"
+        "processing": "Processando"
     },
     "pihole": {
         "queries": "Consultas",
@@ -148,9 +148,9 @@
         "ping": "Ping"
     },
     "traefik": {
-        "routers": "Rotas",
+        "routers": "Roteadores",
         "services": "Serviços",
-        "middleware": "Middleware"
+        "middleware": "Software intermediario"
     },
     "npm": {
         "enabled": "Habilitado",
@@ -164,10 +164,10 @@
     },
     "prowlarr": {
         "enableIndexers": "Indexadores",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
+        "numberOfGrabs": "Pegos",
+        "numberOfQueries": "Consultas",
         "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailQueries": "Consultas Falhas"
     },
     "jackett": {
         "configured": "Configurado",
@@ -179,36 +179,36 @@
         "domain_count": "Domínios"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Usuários",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Memória",
+        "cpu": "Processador",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Usuários",
+        "uptime": "Tempo de Funcionamento",
+        "days": "Dias",
         "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
+        "lan_users": "Usuarios locais",
+        "wlan_users": "Usuarios WLAN",
+        "up": "LIGADO",
+        "down": "CÁIDO",
+        "wait": "Por favor guarde",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "devices": "Dispositivos",
+        "lan_devices": "Dispositivos LAN",
+        "wlan_devices": "Dispositivos WLAN"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Transmissões ativas",
+        "movies": "Filmes",
+        "tv": "Séries de TV"
     },
     "glances": {
         "cpu": "CPU",
@@ -222,10 +222,10 @@
     "wmo": {
         "1-night": "Mainly Clear",
         "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
+        "2-night": "Parcialmente nublado",
+        "3-day": "Nublado",
+        "3-night": "Nublado",
+        "45-day": "Névoa",
         "45-night": "Foggy",
         "48-day": "Foggy",
         "48-night": "Foggy",
@@ -233,9 +233,9 @@
         "57-day": "Freezing Drizzle",
         "99-day": "Thunderstorm With Hail",
         "99-night": "Thunderstorm With Hail",
-        "0-day": "Sunny",
+        "0-day": "Ensolarado",
         "53-day": "Drizzle",
-        "0-night": "Clear",
+        "0-night": "Limpo",
         "1-day": "Mainly Sunny",
         "51-day": "Light Drizzle",
         "51-night": "Light Drizzle",
@@ -315,8 +315,8 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Sem transmissões ativas",
+        "please_wait": "Por favor aguarde"
     },
     "pyload": {
         "speed": "Speed",
@@ -334,7 +334,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Erro",
         "ping": "Ping"
     },
     "scrutiny": {
@@ -359,14 +359,14 @@
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Fila",
+        "processed": "Processado",
+        "errored": "Erro",
+        "saved": "Salvo"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Lidos",
+        "unread": "Não Lidos"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -377,11 +377,11 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Pontos de acesso conectados",
+        "activeUser": "Dispositivos ativos",
+        "alerts": "Alertas",
+        "connectedGateway": "Gateways conectados",
+        "connectedSwitches": "Interruptores conectados"
     },
     "downloadstation": {
         "download": "Download",
