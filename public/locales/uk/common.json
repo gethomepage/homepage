@@ -438,5 +438,12 @@
         "photos": "Фотографії",
         "videos": "Відео",
         "storage": "Сховище"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
     }
 }
