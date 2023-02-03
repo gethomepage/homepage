@@ -50,7 +50,8 @@
         "wlan_users": "WLAN Uživatelé",
         "up": "BĚŽÍ",
         "down": "NEBĚŽÍ",
-        "wait": "Počkejte prosím"
+        "wait": "Počkejte prosím",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "RX",
