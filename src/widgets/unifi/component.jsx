@@ -38,6 +38,14 @@ export default function Component({ service }) {
 
     const uptime = wan["gw_system-stats"] ? `${t("common.number", { value: wan["gw_system-stats"].uptime / 86400, maximumFractionDigits: 1 })} ${t("unifi.days")}` : null;
 
+    if (!(wan.show || lan.show || wlan.show || uptime)) {
+        return (
+            <Container service={service}>
+                <Block value={ t("unifi.empty_data") } />
+            </Container>
+        )
+    }
+
     return (
         <Container service={service}>
             {uptime && <Block label="unifi.uptime" value={ uptime } />}

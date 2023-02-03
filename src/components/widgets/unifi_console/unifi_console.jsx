@@ -55,6 +55,8 @@ export default function Widget({ options }) {
   const name = wan.gw_name ?? defaultSite.desc;
   const uptime = wan["gw_system-stats"] ? wan["gw_system-stats"].uptime : null;
 
+  const dataEmpty = !(wan.show || lan.show || wlan.show || uptime);
+
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">
       <div className="flex flex-col">
@@ -64,6 +66,14 @@ export default function Widget({ options }) {
             {name}
           </div>
         </div>
+        {dataEmpty && <div className="flex flex-row ml-3 text-[8px] justify-between">
+        <div className="flex flex-row items-center justify-end">
+          <div className="flex flex-row">
+            <BiError className="w-4 h-4 text-theme-800 dark:text-theme-200" />
+            <span className="text-theme-800 dark:text-theme-200 text-xs">{t("unifi.empty_data")}</span>
+          </div>
+        </div>
+      </div>}
         <div className="flex flex-row ml-3 text-[10px] justify-between">
           {uptime && <div className="flex flex-row" title={t("unifi.uptime")}>
             <div className="pr-0.5 text-theme-800 dark:text-theme-200">
