@@ -20,7 +20,8 @@
         "wlan_users": "Pengguna WLAN",
         "up": "HIDUP",
         "down": "MATI",
-        "wait": "Sila tunggu"
+        "wait": "Sila tunggu",
+        "empty_data": "Subsystem status unknown"
     },
     "lidarr": {
         "queued": "Dibaris Gilir",
