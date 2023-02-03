@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "Dispositivi",
         "lan_devices": "Dispositivi LAN",
-        "wlan_devices": "Dispositivi WLAN"
+        "wlan_devices": "Dispositivi WLAN",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "Trasmissioni attive",
