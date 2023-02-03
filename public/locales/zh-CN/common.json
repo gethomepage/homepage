@@ -203,7 +203,8 @@
         "wlan": "无线局域网",
         "devices": "设备",
         "lan_devices": "局域网设备",
-        "wlan_devices": "无线局域网设备"
+        "wlan_devices": "无线局域网设备",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "活动流",
