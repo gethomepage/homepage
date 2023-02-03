@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "設備",
         "lan_devices": "LAN設備",
-        "wlan_devices": "WLAN設備"
+        "wlan_devices": "WLAN設備",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "正在播放",
