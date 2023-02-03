@@ -203,7 +203,8 @@
         "lan_devices": "LAN Devices",
         "lan": "LAN",
         "wlan": "WLAN",
-        "wlan_devices": "WLAN Devices"
+        "wlan_devices": "WLAN Devices",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "Active Streams",
