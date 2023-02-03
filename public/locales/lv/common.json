@@ -42,7 +42,8 @@
         "wlan_users": "WLAN lietotāji",
         "up": "DARBOJAS",
         "down": "NEDARBOJAS",
-        "wait": "Lūdzu, uzgaidiet"
+        "wait": "Lūdzu, uzgaidiet",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "RX",
