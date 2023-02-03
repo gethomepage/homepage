@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "Dispositius",
         "lan_devices": "Dispositius LAN",
-        "wlan_devices": "Dispositius WLAN"
+        "wlan_devices": "Dispositius WLAN",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "Transmissions actives",
