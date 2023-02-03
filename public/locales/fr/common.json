@@ -204,7 +204,7 @@
         "devices": "Équipt.",
         "lan_devices": "Équipt. LAN",
         "wlan_devices": "Équipt. WLAN",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Statut sous-système inconnu"
     },
     "plex": {
         "streams": "Flux actif",
