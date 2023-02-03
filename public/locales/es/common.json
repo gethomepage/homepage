@@ -204,7 +204,7 @@
         "devices": "Dispositivos",
         "lan_devices": "Dispositivos LAN",
         "wlan_devices": "Dispositivos WLAN",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Se desconoce el estado del subsistema"
     },
     "plex": {
         "streams": "Transmisiones activas",
@@ -448,8 +448,8 @@
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
+        "libraries": "Librerías",
         "series": "Series",
-        "books": "Books"
+        "books": "Libros"
     }
 }
