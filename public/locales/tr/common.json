@@ -38,7 +38,8 @@
         "wlan": "WLAN",
         "devices": "Aygıtlar",
         "lan_devices": "LAN Aygıtları",
-        "wlan_devices": "WLAN Aygıtları"
+        "wlan_devices": "WLAN Aygıtları",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "Gelen Veri",
