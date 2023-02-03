@@ -20,7 +20,6 @@ export default function Widget({ options }) {
             <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
             <div className="flex flex-col ml-3 text-left">
               <span className="text-theme-800 dark:text-theme-200 text-sm">{t("widget.api_error")}</span>
-              <span className="text-theme-800 dark:text-theme-200 text-xs">-</span>
             </div>
           </div>
         </div>
@@ -28,7 +27,7 @@ export default function Widget({ options }) {
     );
   }
 
-  const defaultSite = statsData?.data?.find(s => s.name === "default");
+  const defaultSite = options.site ? statsData?.data.find(s => s.desc === options.site) : statsData?.data?.find(s => s.name === "default");
 
   if (!defaultSite) {
     return (

@@ -233,6 +233,7 @@ export function cleanServiceGroups(groups) {
           currency, // coinmarketcap widget
           symbols,
           defaultinterval,
+          site, // unifi widget
           namespace, // kubernetes widget
           app,
           podSelector,
@@ -255,6 +256,9 @@ export function cleanServiceGroups(groups) {
         if (type === "docker") {
           if (server) cleanedService.widget.server = server;
           if (container) cleanedService.widget.container = container;
+        }
+        if (type === "unifi") {
+          if (site) cleanedService.widget.site = site;
         }
         if (type === "kubernetes") {
           if (namespace) cleanedService.widget.namespace = namespace;
