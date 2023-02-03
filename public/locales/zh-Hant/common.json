@@ -4,9 +4,9 @@
         "api_error": "API錯誤",
         "status": "狀態",
         "information": "資訊",
-        "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "url": "網址",
+        "raw_error": "原始錯誤",
+        "response_data": "回復數據"
     },
     "weather": {
         "current": "目前位置",
@@ -36,9 +36,9 @@
         "no_active": "無播放活動"
     },
     "jellyseerr": {
-        "pending": "待定",
-        "approved": "已接受",
-        "available": "可用的"
+        "pending": "待下載",
+        "approved": "已核准",
+        "available": "可觀看"
     },
     "search": {
         "placeholder": "搜尋…"
@@ -82,14 +82,14 @@
         "books": "書籍"
     },
     "ombi": {
-        "pending": "待定",
-        "approved": "已接受",
-        "available": "可用的"
+        "pending": "待下載",
+        "approved": "已核准",
+        "available": "可觀看"
     },
     "overseerr": {
-        "pending": "待定",
-        "approved": "已接受",
-        "available": "可用的",
+        "pending": "待下載",
+        "approved": "已核准",
+        "available": "可觀看",
         "processing": "處理中"
     },
     "pihole": {
@@ -280,8 +280,8 @@
     "quicklaunch": {
         "bookmark": "書籤",
         "service": "服務",
-        "search": "Search",
-        "custom": "Custom"
+        "search": "搜尋",
+        "custom": "自訂"
     },
     "homebridge": {
         "available_update": "系統",
@@ -292,7 +292,7 @@
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
-        "approvedPushes": "接受",
+        "approvedPushes": "已核准",
         "rejectedPushes": "拒絕",
         "filters": "篩選器",
         "indexers": "索引器"
@@ -424,31 +424,31 @@
         "job_completion": "完成度"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "源頭IP",
+        "status": "狀態"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "數據存儲",
+        "failed_tasks_24h": "24小時內失敗任務",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "記憶體"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "使用者",
+        "photos": "照片",
+        "videos": "影片",
+        "storage": "儲存空間"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
+        "up": "在線網站",
+        "down": "離線網站",
+        "uptime": "在線時間",
+        "incident": "事件",
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+        "libraries": "文庫",
+        "series": "叢刊",
+        "books": "書刊"
     }
 }
