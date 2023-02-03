@@ -27,6 +27,7 @@ const components = {
   miniflux: dynamic(() => import("./miniflux/component")),
   mikrotik: dynamic(() => import("./mikrotik/component")),
   moonraker: dynamic(() => import("./moonraker/component")),
+  mylar: dynamic(() => import("./mylar/component")),
   navidrome: dynamic(() => import("./navidrome/component")),
   nextdns: dynamic(() => import("./nextdns/component")),
   npm: dynamic(() => import("./npm/component")),

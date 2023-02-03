@@ -454,5 +454,10 @@
         "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "mylar": {
+        "series": "Series",
+        "issues": "Issues",
+        "wanted": "Wanted"
     }
 }
