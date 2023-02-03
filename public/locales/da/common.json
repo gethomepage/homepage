@@ -175,7 +175,8 @@
         "wlan_users": "WLAN Brugere",
         "up": "Oppe",
         "down": "NED",
-        "wait": "Vent venligst"
+        "wait": "Vent venligst",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "cpu": "CPU",
