@@ -445,5 +445,10 @@
         "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }
