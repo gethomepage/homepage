@@ -38,7 +38,8 @@
         "wlan_users": "WLAN مستخدمين",
         "up": "يعمل",
         "down": "لا يعمل",
-        "wait": "الرجاء الإنتظار"
+        "wait": "الرجاء الإنتظار",
+        "empty_data": "Subsystem status unknown"
     },
     "wmo": {
         "73-day": "ثلج",
