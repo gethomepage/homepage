@@ -445,5 +445,10 @@
         "down": "Sites Down",
         "uptime": "Uptime",
         "incident": "Incident"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }
