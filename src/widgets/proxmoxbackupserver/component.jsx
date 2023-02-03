@@ -22,7 +22,7 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="proxmoxbackupserver.datastore_usage" />
-        <Block label="proxmoxbackupserver.failed_tasks" />
+        <Block label="proxmoxbackupserver.failed_tasks_24h" />
         <Block label="proxmoxbackupserver.cpu_usage" />
         <Block label="proxmoxbackupserver.memory_usage" />
       </Container>
