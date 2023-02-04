@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "Dispositivos",
         "lan_devices": "Dispositivos LAN",
-        "wlan_devices": "Dispositivos WLAN"
+        "wlan_devices": "Dispositivos WLAN",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "Transmissões ativas",
@@ -445,5 +446,10 @@
         "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

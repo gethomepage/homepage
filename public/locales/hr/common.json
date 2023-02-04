@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "Uređaji",
         "lan_devices": "LAN uređaji",
-        "wlan_devices": "WLAN uređaji"
+        "wlan_devices": "WLAN uređaji",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "Aktivni prijenosi",
@@ -445,5 +446,10 @@
         "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

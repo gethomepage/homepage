@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "పరికరాలు",
         "lan_devices": "LAN పరికరాలు",
-        "wlan_devices": "WLAN పరికరాలు"
+        "wlan_devices": "WLAN పరికరాలు",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
@@ -445,5 +446,10 @@
         "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

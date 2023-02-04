@@ -51,7 +51,8 @@
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait"
+        "wait": "Please wait",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "RX",
@@ -454,6 +455,11 @@
         "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     },
     "mylar": {
         "series": "Series",

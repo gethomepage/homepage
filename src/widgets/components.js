@@ -21,6 +21,7 @@ const components = {
   jackett: dynamic(() => import("./jackett/component")),
   jellyfin: dynamic(() => import("./emby/component")),
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
+  komga: dynamic(() => import("./komga/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   medusa: dynamic(() => import("./medusa/component")),

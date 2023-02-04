@@ -38,7 +38,8 @@
         "wlan": "WLAN",
         "devices": "Aygıtlar",
         "lan_devices": "LAN Aygıtları",
-        "wlan_devices": "WLAN Aygıtları"
+        "wlan_devices": "WLAN Aygıtları",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "Gelen Veri",
@@ -445,5 +446,10 @@
         "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

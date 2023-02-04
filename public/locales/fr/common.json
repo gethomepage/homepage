@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "Équipt.",
         "lan_devices": "Équipt. LAN",
-        "wlan_devices": "Équipt. WLAN"
+        "wlan_devices": "Équipt. WLAN",
+        "empty_data": "Statut sous-système inconnu"
     },
     "plex": {
         "streams": "Flux actif",
@@ -440,10 +441,15 @@
         "storage": "Stockage"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
+        "up": "En ligne",
+        "down": "Hors ligne",
+        "uptime": "Dispo.",
         "incident": "Incident",
         "m": "m"
+    },
+    "komga": {
+        "libraries": "Librairies",
+        "series": "Séries",
+        "books": "Livres"
     }
 }
