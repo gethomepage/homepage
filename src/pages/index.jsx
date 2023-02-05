@@ -22,6 +22,7 @@ import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/conf
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
+import { getStoredProvider, searchProviders } from "components/widgets/search/search";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -193,6 +194,20 @@ function Home({ initialSettings }) {
 
   const [searching, setSearching] = useState(false);
   const [searchString, setSearchString] = useState("");
+  let searchProvider = null;
+  const searchWidget = Object.values(widgets).find(w => w.type === "search");
+  if (searchWidget) {
+    if (Array.isArray(searchWidget.options?.provider)) {
+      // if search provider is a list, try to retrieve from localstorage, fall back to the first
+      searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
+    } else if (searchWidget.options?.provider === 'custom') {
+      searchProvider = {
+        url: searchWidget.options.url
+      }
+    } else {
+      searchProvider = searchProviders[searchWidget.options?.provider];
+    }
+  }
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -251,6 +266,7 @@ function Home({ initialSettings }) {
             isOpen={searching}
             close={setSearching}
             searchDescriptions={settings.quicklaunch?.searchDescriptions}
+            searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
           />
           {widgets && (
             <>

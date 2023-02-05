@@ -175,7 +175,8 @@
         "wlan_users": "WLAN Brugere",
         "up": "Oppe",
         "down": "NED",
-        "wait": "Vent venligst"
+        "wait": "Vent venligst",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "cpu": "CPU",
@@ -287,7 +288,9 @@
     },
     "quicklaunch": {
         "bookmark": "Bogmærker",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search",
+        "custom": "Custom"
     },
     "watchtower": {
         "containers_scanned": "Scannet",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

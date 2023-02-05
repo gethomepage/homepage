@@ -73,7 +73,8 @@
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait"
+        "wait": "Please wait",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "RX",
@@ -279,7 +280,9 @@
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search",
+        "custom": "Custom"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

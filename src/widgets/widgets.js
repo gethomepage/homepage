@@ -16,6 +16,7 @@ import hdhomerun from "./hdhomerun/widget";
 import homebridge from "./homebridge/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
+import komga from "./komga/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import medusa from "./medusa/widget";
@@ -58,6 +59,7 @@ import unifi from "./unifi/widget";
 import watchtower from "./watchtower/widget";
 import xteve from "./xteve/widget";
 import immich from "./immich/widget";
+import uptimekuma from "./uptimekuma/widget";
 
 const widgets = {
   adguard,
@@ -79,6 +81,7 @@ const widgets = {
   jackett,
   jellyfin: emby,
   jellyseerr,
+  komga,
   lidarr,
   mastodon,
   medusa,
@@ -122,6 +125,7 @@ const widgets = {
   watchtower,
   xteve,
   immich,
+  uptimekuma,
 };
 
 export default widgets;

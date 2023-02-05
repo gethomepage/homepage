@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "పరికరాలు",
         "lan_devices": "LAN పరికరాలు",
-        "wlan_devices": "WLAN పరికరాలు"
+        "wlan_devices": "WLAN పరికరాలు",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
@@ -279,7 +280,9 @@
     },
     "quicklaunch": {
         "bookmark": "బుక్మార్క్",
-        "service": "సేవ"
+        "service": "సేవ",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "వ్యవస్థ",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

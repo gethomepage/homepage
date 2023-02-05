@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "Dispositivos",
         "lan_devices": "Dispositivos LAN",
-        "wlan_devices": "Dispositivos WLAN"
+        "wlan_devices": "Dispositivos WLAN",
+        "empty_data": "Se desconoce el estado del subsistema"
     },
     "plex": {
         "streams": "Transmisiones activas",
@@ -279,7 +280,9 @@
     },
     "quicklaunch": {
         "bookmark": "Marcadores",
-        "service": "Servicio"
+        "service": "Servicio",
+        "search": "Buscar",
+        "custom": "Personalizado"
     },
     "homebridge": {
         "available_update": "Sistema",
@@ -432,9 +435,21 @@
         "memory_usage": "Memoria"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Usuarios",
+        "photos": "Fotos",
+        "videos": "Vídeos",
+        "storage": "Almacenamiento"
+    },
+    "uptimekuma": {
+        "up": "Páginas web activas",
+        "down": "Páginas web inactivas",
+        "uptime": "Disponibilidad",
+        "incident": "Incidencia",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Librerías",
+        "series": "Series",
+        "books": "Libros"
     }
 }

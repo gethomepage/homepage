@@ -143,7 +143,8 @@
         "wlan_users": "WLAN користувачі",
         "up": "Відправка",
         "down": "Завантаження",
-        "wait": "Будь ласка, зачекайте"
+        "wait": "Будь ласка, зачекайте",
+        "empty_data": "Статус підсистеми невідомий"
     },
     "docker": {
         "rx": "RX",
@@ -341,7 +342,9 @@
     },
     "quicklaunch": {
         "bookmark": "Закладка",
-        "service": "Сервіс"
+        "service": "Сервіс",
+        "search": "Пошук",
+        "custom": "Користувацький"
     },
     "homebridge": {
         "available_update": "Система",
@@ -426,15 +429,27 @@
         "status": "Стан"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "Сховище даних",
+        "failed_tasks_24h": "Невиконані завдання 24 години",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Пам'ять"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Користувачі",
+        "photos": "Фотографії",
+        "videos": "Відео",
+        "storage": "Сховище"
+    },
+    "uptimekuma": {
+        "up": "Активні сайти",
+        "down": "Неактивні сайти",
+        "uptime": "Час роботи",
+        "incident": "Інцидент",
+        "m": "хв"
+    },
+    "komga": {
+        "libraries": "Бібліотеки",
+        "series": "Серії",
+        "books": "Книжки"
     }
 }

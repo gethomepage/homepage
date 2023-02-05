@@ -6,6 +6,7 @@ import Head from "next/head";
 import "styles/globals.css";
 import "styles/theme.css";
 import "styles/manrope.css";
+import "styles/custom.css";
 import nextI18nextConfig from "../../next-i18next.config";
 
 import { ColorProvider } from "utils/contexts/color";

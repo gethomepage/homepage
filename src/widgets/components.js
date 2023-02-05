@@ -22,6 +22,7 @@ const components = {
   jackett: dynamic(() => import("./jackett/component")),
   jellyfin: dynamic(() => import("./emby/component")),
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
+  komga: dynamic(() => import("./komga/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   medusa: dynamic(() => import("./medusa/component")),
@@ -64,6 +65,7 @@ const components = {
   watchtower: dynamic(() => import("./watchtower/component")),
   xteve: dynamic(() => import("./xteve/component")),
   immich: dynamic(() => import("./immich/component")),
+  uptimekuma: dynamic(() => import("./uptimekuma/component")),
 };
 
 export default components;

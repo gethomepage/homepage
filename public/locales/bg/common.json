@@ -48,7 +48,8 @@
         "wlan": "WLAN",
         "devices": "Devices",
         "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices"
+        "wlan_devices": "WLAN Devices",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "offline": "Изключен",
@@ -279,7 +280,9 @@
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "System",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "down": "Sites Down",
+        "up": "Sites Up",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

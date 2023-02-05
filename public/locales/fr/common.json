@@ -203,7 +203,8 @@
         "wlan": "WLAN",
         "devices": "Équipt.",
         "lan_devices": "Équipt. LAN",
-        "wlan_devices": "Équipt. WLAN"
+        "wlan_devices": "Équipt. WLAN",
+        "empty_data": "Statut sous-système inconnu"
     },
     "plex": {
         "streams": "Flux actif",
@@ -279,7 +280,9 @@
     },
     "quicklaunch": {
         "bookmark": "Signet",
-        "service": "Service"
+        "service": "Service",
+        "search": "Recherche",
+        "custom": "Personnalisé"
     },
     "homebridge": {
         "available_update": "Système",
@@ -432,9 +435,21 @@
         "memory_usage": "Mémoire"
     },
     "immich": {
-        "users": "Users",
+        "users": "Utilisateurs",
         "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "videos": "Vidéos",
+        "storage": "Stockage"
+    },
+    "uptimekuma": {
+        "up": "En ligne",
+        "down": "Hors ligne",
+        "uptime": "Dispo.",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Librairies",
+        "series": "Séries",
+        "books": "Livres"
     }
 }

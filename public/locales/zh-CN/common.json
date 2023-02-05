@@ -3,16 +3,16 @@
         "missing_type": "缺少小部件类型：{{type}}",
         "api_error": "API错误",
         "status": "状态",
-        "information": "Information",
+        "information": "信息",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "原始错误",
+        "response_data": "返回数据"
     },
     "search": {
         "placeholder": "搜索…"
     },
     "resources": {
-        "total": "共",
+        "total": "总计",
         "free": "空闲",
         "used": "已用",
         "load": "负载",
@@ -24,8 +24,8 @@
         "mem": "内存",
         "cpu": "处理器",
         "offline": "离线",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "错误",
+        "unknown": "未知"
     },
     "emby": {
         "playing": "播放中",
@@ -203,7 +203,8 @@
         "wlan": "无线局域网",
         "devices": "设备",
         "lan_devices": "局域网设备",
-        "wlan_devices": "无线局域网设备"
+        "wlan_devices": "无线局域网设备",
+        "empty_data": "Subsystem status unknown"
     },
     "plex": {
         "streams": "活动流",
@@ -279,7 +280,9 @@
     },
     "quicklaunch": {
         "bookmark": "书签",
-        "service": "服务"
+        "service": "服务",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "System",
@@ -332,7 +335,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "错误",
         "ping": "Ping"
     },
     "scrutiny": {
@@ -345,22 +348,22 @@
         "total": "Total"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下载",
+        "upload": "上传",
+        "leech": "下载中",
+        "seed": "做种"
     },
     "flood": {
-        "leech": "Leech",
-        "download": "Download",
-        "upload": "Upload",
-        "seed": "Seed"
+        "leech": "下载中",
+        "download": "下载",
+        "upload": "上传",
+        "seed": "做种"
     },
     "tdarr": {
         "saved": "Saved",
-        "queue": "Queue",
+        "queue": "队列",
         "processed": "Processed",
-        "errored": "Errored"
+        "errored": "出错"
     },
     "miniflux": {
         "read": "Read",
@@ -376,16 +379,16 @@
     },
     "omada": {
         "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "activeUser": "活跃设备",
+        "alerts": "警报",
+        "connectedGateway": "已连接网关",
+        "connectedSwitches": "已连接开关"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下载",
+        "upload": "上传",
+        "leech": "下载中",
+        "seed": "做种"
     },
     "mikrotik": {
         "cpuLoad": "CPU Load",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

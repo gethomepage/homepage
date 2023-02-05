@@ -42,7 +42,8 @@
         "wlan_users": "WLAN lietotāji",
         "up": "DARBOJAS",
         "down": "NEDARBOJAS",
-        "wait": "Lūdzu, uzgaidiet"
+        "wait": "Lūdzu, uzgaidiet",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "RX",
@@ -273,7 +274,9 @@
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
-        "service": "Service"
+        "service": "Service",
+        "search": "Search",
+        "custom": "Custom"
     },
     "wmo": {
         "0-day": "Saulains",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

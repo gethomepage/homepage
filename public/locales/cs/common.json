@@ -50,7 +50,8 @@
         "wlan_users": "WLAN Uživatelé",
         "up": "BĚŽÍ",
         "down": "NEBĚŽÍ",
-        "wait": "Počkejte prosím"
+        "wait": "Počkejte prosím",
+        "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "RX",
@@ -291,7 +292,9 @@
     },
     "quicklaunch": {
         "bookmark": "Záložka",
-        "service": "Služba"
+        "service": "Služba",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "update_available": "Dostupná aktualizace",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }

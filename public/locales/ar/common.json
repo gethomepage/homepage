@@ -38,7 +38,8 @@
         "wlan_users": "WLAN مستخدمين",
         "up": "يعمل",
         "down": "لا يعمل",
-        "wait": "الرجاء الإنتظار"
+        "wait": "الرجاء الإنتظار",
+        "empty_data": "Subsystem status unknown"
     },
     "wmo": {
         "73-day": "ثلج",
@@ -279,7 +280,9 @@
     },
     "quicklaunch": {
         "bookmark": "مفضلة",
-        "service": "خدمة"
+        "service": "خدمة",
+        "search": "Search",
+        "custom": "Custom"
     },
     "homebridge": {
         "available_update": "نظام",
@@ -436,5 +439,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Series",
+        "books": "Books"
     }
 }
