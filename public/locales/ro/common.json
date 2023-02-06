@@ -4,7 +4,8 @@
         "load": "Sarcină",
         "total": "Total",
         "free": "Disponibili",
-        "cpu": "Procesor"
+        "cpu": "Procesor",
+        "mem": "MEM"
     },
     "docker": {
         "rx": "RX",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
