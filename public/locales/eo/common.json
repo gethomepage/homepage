@@ -22,7 +22,8 @@
         "total": "Totalo",
         "free": "Libera",
         "used": "Uzata",
-        "load": "Ŝarĝo"
+        "load": "Ŝarĝo",
+        "mem": "MEM"
     },
     "unifi": {
         "users": "Uzantoj",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
