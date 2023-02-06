@@ -13,7 +13,8 @@
         "free": "Slobodno",
         "used": "Korišteno",
         "load": "Opterećenje",
-        "cpu": "CPU"
+        "cpu": "CPU",
+        "mem": "MEM"
     },
     "sabnzbd": {
         "rate": "Stopa",
@@ -462,5 +463,10 @@
         "albums": "Albums",
         "photos": "Photos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
