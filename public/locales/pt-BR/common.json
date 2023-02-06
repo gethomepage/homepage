@@ -50,7 +50,8 @@
         "free": "Livre",
         "used": "Usado",
         "load": "Carregamento",
-        "cpu": "CPU"
+        "cpu": "CPU",
+        "mem": "MEM"
     },
     "docker": {
         "rx": "Recebido",
@@ -462,5 +463,10 @@
         "albums": "Albums",
         "photos": "Photos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
