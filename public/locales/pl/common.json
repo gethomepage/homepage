@@ -13,7 +13,8 @@
         "load": "Obciążenie",
         "total": "Całkowite",
         "free": "Wolne",
-        "cpu": "CPU"
+        "cpu": "CPU",
+        "mem": "MEM"
     },
     "emby": {
         "no_active": "Brak aktywnych strumieni",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "uptime": "Uptime",
+        "volumeAvailable": "Available",
+        "days": "Days"
     }
 }
