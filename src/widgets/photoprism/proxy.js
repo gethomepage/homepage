@@ -6,7 +6,7 @@ import createLogger from "utils/logger";
 const logger = createLogger("photoprismProxyHandler");
 
 export default async function photoprismProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service } = req.query;
 
   if (!group || !service) {
     logger.debug("Invalid or missing service '%s' or group '%s'", service, group);
@@ -20,7 +20,7 @@ export default async function photoprismProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const url = new URL(formatApiCall("{url}/api/v1/session", { endpoint, ...widget }));
+  const url = new URL(formatApiCall("{url}/api/v1/session", { ...widget }));
   const params = { 
     method: "POST", 
     headers: { "Content-Type": "application/json" }, 
@@ -37,7 +37,7 @@ export default async function photoprismProxyHandler(req, res) {
   let [status, contentType, data] = await httpProxy(url, params);
 
   if (status !== 200) {
-    logger.error("HTTP %d getting data from PhotoPrism.  Data: %s", status, data);
+    logger.error("HTTP %d getting data from PhotoPrism. Data: %s", status, data);
     return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
   }
 

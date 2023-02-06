@@ -28,7 +28,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="photoprism.albums" value={t("common.number", { value: photoprismData.albums + photoprismData.folders })} />
+      <Block label="photoprism.albums" value={t("common.number", { value: photoprismData.albums })} />
       <Block label="photoprism.photos" value={t("common.number", { value: photoprismData.photos })} />
       <Block label="photoprism.videos" value={t("common.number", { value: photoprismData.videos })} />
       <Block label="photoprism.people" value={t("common.number", { value: photoprismData.people })} />
