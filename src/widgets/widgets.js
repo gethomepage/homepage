@@ -6,6 +6,7 @@ import changedetectionio from "./changedetectionio/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import deluge from "./deluge/widget";
+import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
 import flood from "./flood/widget";
@@ -71,7 +72,7 @@ const widgets = {
   cloudflared,
   coinmarketcap,
   deluge,
-  diskstation: downloadstation,
+  diskstation,
   downloadstation,
   emby,
   flood,

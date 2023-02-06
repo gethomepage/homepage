@@ -32,6 +32,7 @@
     },
     "resources": {
         "cpu": "CPU",
+        "mem": "MEM",
         "total": "Total",
         "free": "Free",
         "used": "Used",
@@ -460,6 +461,11 @@
         "libraries": "Libraries",
         "series": "Series",
         "books": "Books"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     },
     "mylar": {
         "series": "Series",

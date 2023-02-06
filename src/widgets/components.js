@@ -9,6 +9,7 @@ const components = {
   cloudflared: dynamic(() => import("./cloudflared/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
   deluge: dynamic(() => import("./deluge/component")),
+  diskstation: dynamic(() => import("./diskstation/component")),
   downloadstation: dynamic(() => import("./downloadstation/component")),
   docker: dynamic(() => import("./docker/component")),
   kubernetes: dynamic(() => import("./kubernetes/component")),
