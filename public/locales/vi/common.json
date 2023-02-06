@@ -16,7 +16,8 @@
         "free": "Dư",
         "used": "Đã dùng",
         "load": "Load",
-        "cpu": "CPU"
+        "cpu": "CPU",
+        "mem": "MEM"
     },
     "docker": {
         "rx": "RX",
@@ -462,5 +463,10 @@
         "videos": "Videos",
         "people": "People",
         "albums": "Albums"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
