@@ -16,7 +16,8 @@
         "free": "Свободно",
         "used": "Использовано",
         "load": "Загрузка",
-        "cpu": "Процессор"
+        "cpu": "Процессор",
+        "mem": "MEM"
     },
     "docker": {
         "rx": "Rx",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
