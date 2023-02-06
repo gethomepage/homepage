@@ -35,7 +35,9 @@ export default function Component({ service }) {
   // storage info
   // TODO: figure out how to display info for more than one volume
   const volume = storageData.data.vol_info?.[0];
-  const freeVolume = 100 - (100 * (parseFloat(volume?.used_size) / parseFloat(volume?.total_size)));
+  const usedBytes = parseFloat(volume?.used_size);
+  const totalBytes = parseFloat(volume?.total_size);
+  const freeBytes = totalBytes - usedBytes;
 
   // utilization info
   const { cpu, memory } = utilizationData.data;
@@ -45,7 +47,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="diskstation.uptime" value={ uptime } />
-      <Block label="diskstation.volumeAvailable" value={ t("common.percent", { value: freeVolume }) } />
+      <Block label="diskstation.volumeAvailable" value={ t("common.bbytes", { value: freeBytes, maximumFractionDigits: 1 }) } />
       <Block label="resources.cpu" value={ t("common.percent", { value: cpuLoad }) } />
       <Block label="resources.mem" value={ t("common.percent", { value: memoryUsage }) } />
     </Container>
