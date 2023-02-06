@@ -451,5 +451,10 @@
         "libraries": "文庫",
         "series": "叢刊",
         "books": "書刊"
+    },
+    "mylar": {
+        "series": "Series",
+        "issues": "Issues",
+        "wanted": "Wanted"
     }
 }
