@@ -453,14 +453,14 @@
         "books": "Книжки"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "series": "Серії",
+        "issues": "Питання",
+        "wanted": "Розшукується"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "Альбоми",
+        "photos": "Фото",
+        "videos": "Відео",
+        "people": "Люди"
     }
 }
