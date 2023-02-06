@@ -453,14 +453,14 @@
         "books": "Libros"
     },
     "mylar": {
-        "issues": "Issues",
+        "issues": "Cuestiones",
         "series": "Series",
-        "wanted": "Wanted"
+        "wanted": "Buscado"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "Álbumes",
+        "photos": "Fotos",
+        "videos": "Vídeos",
+        "people": "Personas"
     }
 }
