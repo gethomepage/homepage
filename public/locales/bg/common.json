@@ -32,7 +32,8 @@
         "total": "Общо",
         "free": "Свободни",
         "used": "Заети",
-        "load": "Натоварване"
+        "load": "Натоварване",
+        "mem": "MEM"
     },
     "unifi": {
         "users": "Потребители",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
