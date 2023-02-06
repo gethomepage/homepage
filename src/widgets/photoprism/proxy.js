@@ -34,7 +34,7 @@ export default async function photoprismProxyHandler(req, res) {
     });
   }
 
-  let [status, contentType, data] = await httpProxy(url, params);
+  const [status, contentType, data] = await httpProxy(url, params);
 
   if (status !== 200) {
     logger.error("HTTP %d getting data from PhotoPrism. Data: %s", status, data);
