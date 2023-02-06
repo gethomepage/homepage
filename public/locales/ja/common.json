@@ -57,7 +57,8 @@
         "total": "Total",
         "free": "Free",
         "used": "Used",
-        "load": "Load"
+        "load": "Load",
+        "mem": "MEM"
     },
     "unifi": {
         "users": "Users",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
