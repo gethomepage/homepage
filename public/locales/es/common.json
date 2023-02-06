@@ -456,5 +456,11 @@
         "issues": "Issues",
         "series": "Series",
         "wanted": "Wanted"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
     }
 }
