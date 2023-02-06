@@ -16,7 +16,8 @@
         "free": "空闲",
         "used": "已用",
         "load": "负载",
-        "cpu": "CPU"
+        "cpu": "CPU",
+        "mem": "MEM"
     },
     "docker": {
         "rx": "接收",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "uptime": "Uptime",
+        "volumeAvailable": "Available",
+        "days": "Days"
     }
 }
