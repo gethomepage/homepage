@@ -22,7 +22,8 @@
         "total": "المجموع",
         "free": "متاح",
         "used": "مستخدم",
-        "load": "الضغط"
+        "load": "الضغط",
+        "mem": "MEM"
     },
     "unifi": {
         "users": "المستخدمون",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "volumeAvailable": "Available",
+        "uptime": "Uptime"
     }
 }
