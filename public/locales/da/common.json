@@ -159,7 +159,8 @@
         "total": "Total",
         "free": "Fri",
         "used": "Brugt",
-        "load": "Belastning"
+        "load": "Belastning",
+        "mem": "MEM"
     },
     "unifi": {
         "users": "Brugere",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
