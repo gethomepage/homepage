@@ -23,6 +23,7 @@ import medusa from "./medusa/widget";
 import miniflux from "./miniflux/widget";
 import mikrotik from "./mikrotik/widget";
 import moonraker from "./moonraker/widget";
+import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
@@ -33,6 +34,7 @@ import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
+import photoprism from "./photoprism/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pihole from "./pihole/widget";
 import plex from "./plex/widget";
@@ -88,6 +90,7 @@ const widgets = {
   miniflux,
   mikrotik,
   moonraker,
+  mylar,
   navidrome,
   nextdns,
   npm,
@@ -98,6 +101,7 @@ const widgets = {
   opnsense,
   overseerr,
   paperlessngx,
+  photoprism,
   proxmoxbackupserver,
   pihole,
   plex,

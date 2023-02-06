@@ -451,5 +451,16 @@
         "libraries": "Libraries",
         "series": "Series",
         "books": "Books"
+    },
+    "mylar": {
+        "series": "Series",
+        "issues": "Issues",
+        "wanted": "Wanted"
+    },
+    "photoprism": {
+        "videos": "Videos",
+        "albums": "Albums",
+        "photos": "Photos",
+        "people": "People"
     }
 }

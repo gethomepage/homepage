@@ -451,5 +451,16 @@
         "libraries": "Бібліотеки",
         "series": "Серії",
         "books": "Книжки"
+    },
+    "mylar": {
+        "series": "Series",
+        "issues": "Issues",
+        "wanted": "Wanted"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
     }
 }

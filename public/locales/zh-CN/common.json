@@ -204,7 +204,7 @@
         "devices": "设备",
         "lan_devices": "局域网设备",
         "wlan_devices": "无线局域网设备",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "子系统状态未知"
     },
     "plex": {
         "streams": "活动流",
@@ -451,5 +451,16 @@
         "libraries": "Libraries",
         "series": "Series",
         "books": "Books"
+    },
+    "mylar": {
+        "series": "Series",
+        "issues": "Issues",
+        "wanted": "Wanted"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
     }
 }

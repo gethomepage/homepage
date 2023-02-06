@@ -466,5 +466,16 @@
         "days": "Days",
         "uptime": "Uptime",
         "volumeAvailable": "Available"
+    },
+    "mylar": {
+        "series": "Series",
+        "issues": "Issues",
+        "wanted": "Wanted"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
     }
 }
