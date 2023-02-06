@@ -39,7 +39,8 @@
         "total": "మొత్తం",
         "free": "మిగిలింది",
         "used": "ఉపయోగించబడిన",
-        "load": "లోడ్"
+        "load": "లోడ్",
+        "mem": "MEM"
     },
     "docker": {
         "rx": "RX",
@@ -462,5 +463,10 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
