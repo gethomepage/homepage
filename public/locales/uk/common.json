@@ -127,7 +127,8 @@
         "total": "Всього",
         "free": "Вільно",
         "used": "Використано",
-        "load": "Навантаження"
+        "load": "Навантаження",
+        "mem": "MEM"
     },
     "unifi": {
         "users": "Користувачі",
@@ -462,5 +463,10 @@
         "photos": "Фото",
         "videos": "Відео",
         "people": "Люди"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     }
 }
