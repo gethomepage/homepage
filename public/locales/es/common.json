@@ -451,5 +451,10 @@
         "libraries": "Librerías",
         "series": "Series",
         "books": "Libros"
+    },
+    "mylar": {
+        "issues": "Issues",
+        "series": "Series",
+        "wanted": "Wanted"
     }
 }
