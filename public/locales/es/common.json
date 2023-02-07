@@ -465,8 +465,8 @@
         "people": "Personas"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Días",
+        "uptime": "Funcionando",
+        "volumeAvailable": "Disponible"
     }
 }
