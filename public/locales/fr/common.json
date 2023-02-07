@@ -17,7 +17,7 @@
         "used": "Utilisé",
         "load": "Charge",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "MÉM"
     },
     "docker": {
         "rx": "Rx",
@@ -465,8 +465,8 @@
         "people": "Personnes"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Jours",
+        "uptime": "Fonctionnement",
+        "volumeAvailable": "Disponible"
     }
 }
