@@ -128,7 +128,7 @@
         "free": "Вільно",
         "used": "Використано",
         "load": "Навантаження",
-        "mem": "MEM"
+        "mem": "Пам'ять"
     },
     "unifi": {
         "users": "Користувачі",
@@ -465,8 +465,8 @@
         "people": "Люди"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Днів",
+        "uptime": "Час роботи",
+        "volumeAvailable": "Доступно"
     }
 }
