@@ -38,11 +38,11 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "mem": "เมม",
+        "cpu": "ซีพียู",
+        "offline": "ออฟไลน์",
+        "error": "ข้อผิดพลาด",
+        "unknown": "ไม่ทราบ"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
@@ -92,24 +92,24 @@
         "load": "โหลด"
     },
     "ping": {
-        "error": "Error",
-        "ping": "Ping"
+        "error": "ข้อผิดพลาด",
+        "ping": "ปิง"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "กำลังเล่น",
+        "transcoding": "การแปลงรหัส",
+        "bitrate": "อัตราบิต",
+        "no_active": "ไม่มีสตรีมที่ใช้งานอยู่"
     },
     "deluge": {
-        "download": "Download",
+        "download": "ดาวน์โหลด",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "ดาวน์โหลด",
+        "upload": "อัพโหลด",
         "leech": "Leech",
         "seed": "Seed"
     },
