@@ -49,12 +49,12 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "unifi": {
-        "days": "Days",
+        "days": "วัน",
         "wan": "WAN",
-        "lan": "LAN",
+        "lan": "แลน",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
+        "devices": "อุปกรณ์",
+        "lan_devices": "อุปกรณ์แลน",
         "wlan_devices": "WLAN Devices",
         "lan_users": "LAN Users",
         "wlan_users": "WLAN Users",
@@ -62,34 +62,34 @@
         "down": "DOWN",
         "wait": "Please wait",
         "empty_data": "Subsystem status unknown",
-        "users": "Users",
-        "uptime": "System Uptime"
+        "users": "ผู้ใช้",
+        "uptime": "เวลาทำงานของระบบ"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
-        "status": "Status",
+        "api_error": "API มีข้อผิดพลาด",
+        "information": "ข้อมูล",
+        "status": "สถานะ",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "ข้อมูลต้นฉบับผิดพลาด",
+        "response_data": "ข้อมูลการตอบกลับ"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "สถานที่ปัจจุบัน",
+        "allow": "คลิกเพื่ออนุญาต",
+        "updating": "กำลังปรับปรุง",
+        "wait": "โปรดรอ"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "ค้นหา…"
     },
     "resources": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "cpu": "ซีพียู",
+        "mem": "เมม",
+        "total": "ทั้งหมด",
+        "free": "ฟรี",
+        "used": "ใช้แล้ว",
+        "load": "โหลด"
     },
     "ping": {
         "error": "Error",
@@ -443,8 +443,8 @@
     },
     "uptimekuma": {
         "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
+        "down": "เว็บไซต์ ล่ม",
+        "uptime": "เวลาทำงาน",
         "incident": "Incident",
         "m": "m"
     },
