@@ -17,7 +17,7 @@
         "used": "已用",
         "load": "负载",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "内存"
     },
     "docker": {
         "rx": "接收",
