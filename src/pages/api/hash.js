@@ -19,7 +19,10 @@ export default async function handler(req, res) {
     return hash(readFileSync(configYaml, "utf8"));
   });
 
-  const combinedHash = hash(hashes.join(""));
+  // this ties hash to specific build which should force revaliation between versions
+  const buildTime = process.env.NEXT_PUBLIC_BUILDTIME?.length ? process.env.NEXT_PUBLIC_BUILDTIME : '';
+
+  const combinedHash = hash(hashes.join("") + buildTime);
 
   res.send({
     hash: combinedHash,
