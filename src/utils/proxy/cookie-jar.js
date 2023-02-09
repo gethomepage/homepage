@@ -34,6 +34,6 @@ export function addCookieToJar(url, headers) {
   }
 
   for (let i = 0; i < cookies.length; i += 1) {
-    cookieJar.setCookieSync(cookies[i], url.toString());
+    cookieJar.setCookieSync(cookies[i], url.toString(), { ignoreError: true });
   }
 }
