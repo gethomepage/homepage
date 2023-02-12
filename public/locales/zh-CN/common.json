@@ -442,31 +442,31 @@
         "storage": "Storage"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
+        "up": "在线网站",
+        "down": "离线网站",
+        "uptime": "运行时间",
         "incident": "严重事件",
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+        "libraries": "书库",
+        "series": "系列",
+        "books": "书刊"
     },
     "mylar": {
-        "series": "Series",
+        "series": "系列",
         "issues": "Issues",
         "wanted": "Wanted"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "相册",
+        "photos": "照片",
+        "videos": "视频",
+        "people": "人物"
     },
     "diskstation": {
-        "uptime": "Uptime",
-        "volumeAvailable": "Available",
+        "uptime": "运行时间",
+        "volumeAvailable": "剩余存储",
         "days": "Days"
     }
 }
