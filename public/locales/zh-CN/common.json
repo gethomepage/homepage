@@ -230,8 +230,8 @@
         "45-day": "有雾",
         "48-day": "有雾",
         "51-day": "小雨",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
+        "73-night": "中雪",
+        "75-day": "大雪",
         "1-night": "大部晴朗",
         "2-day": "多云",
         "2-night": "多云",
@@ -256,10 +256,10 @@
         "66-night": "Freezing Rain",
         "67-day": "Freezing Rain",
         "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "75-night": "Heavy Snow",
+        "71-day": "小雪",
+        "71-night": "小雪",
+        "73-day": "中雪",
+        "75-night": "大雪",
         "77-day": "Snow Grains",
         "77-night": "Snow Grains",
         "80-day": "Light Showers",
@@ -282,7 +282,7 @@
     "quicklaunch": {
         "bookmark": "书签",
         "service": "服务",
-        "search": "Search",
+        "search": "搜索",
         "custom": "Custom"
     },
     "homebridge": {
@@ -311,8 +311,8 @@
         "playlists": "Playlists"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
+        "load": "系统负载",
+        "uptime": "运行时间",
         "alerts": "警报",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
@@ -432,8 +432,8 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "cpu_usage": "处理器",
+        "memory_usage": "内存"
     },
     "immich": {
         "users": "Users",
