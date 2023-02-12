@@ -252,7 +252,7 @@ function Home({ initialSettings }) {
         />
         <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
-      <div className="relative container m-auto flex flex-col justify-between z-10">
+      <div className="relative container m-auto flex flex-col justify-between z-10 h-full">
         <div
           className={classNames(
             "flex flex-row flex-wrap  justify-between",
