@@ -9,6 +9,7 @@ import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
+import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -75,6 +76,7 @@ const widgets = {
   diskstation,
   downloadstation,
   emby,
+  fileflows,
   flood,
   gluetun,
   gotify,
