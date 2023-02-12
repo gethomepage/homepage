@@ -3,10 +3,10 @@
         "missing_type": "Kayıp Araç Türü: {{type}}",
         "api_error": "API Hatası",
         "status": "Durum",
-        "information": "Information",
+        "information": "Bilgi",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Ham Hata",
+        "response_data": "Yanıt Verisi"
     },
     "weather": {
         "current": "Mevcut Konum",
@@ -18,7 +18,7 @@
         "placeholder": "Ara…"
     },
     "resources": {
-        "cpu": "İşlemci",
+        "cpu": "CPU",
         "total": "Toplam",
         "free": "Boşta",
         "used": "Kullanımda",
@@ -40,7 +40,7 @@
         "devices": "Aygıtlar",
         "lan_devices": "LAN Aygıtları",
         "wlan_devices": "WLAN Aygıtları",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Alt sistem durumu bilinmiyor"
     },
     "docker": {
         "rx": "Gelen Veri",
@@ -48,8 +48,8 @@
         "mem": "Bellek",
         "cpu": "İşlemci",
         "offline": "Çevrimdışı",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Hata",
+        "unknown": "Bilinmiyor"
     },
     "emby": {
         "playing": "Oynatılıyor",
@@ -91,7 +91,7 @@
     },
     "qbittorrent": {
         "download": "İndirme",
-        "upload": "Yükleme",
+        "upload": "Yükle",
         "leech": "İsteyen",
         "seed": "Sunan"
     },
@@ -134,7 +134,7 @@
         "pending": "Bekliyor",
         "approved": "Onaylı",
         "available": "Kullanılabilir",
-        "processing": "Processing"
+        "processing": "İşleniyor"
     },
     "pihole": {
         "queries": "Sorgular",
@@ -282,7 +282,7 @@
     "quicklaunch": {
         "bookmark": "Yer İmi",
         "service": "Hizmet",
-        "search": "Search",
+        "search": "Ara",
         "custom": "Custom"
     },
     "homebridge": {
@@ -327,146 +327,146 @@
         "total": "Toplam"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "Açık IP",
+        "region": "Bölge",
+        "country": "Ülke"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanallar",
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Hata",
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Geçti",
+        "failed": "Başarısız",
+        "unknown": "Bilinmeyen"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "Gelen Kutusu",
+        "total": "Toplam"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "İndir",
+        "upload": "Yükle",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Tohum"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "İndir",
+        "upload": "Yükle",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Tohum"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Sıra",
+        "processed": "İşlendi",
+        "errored": "Hatalı",
+        "saved": "Kaydedildi"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Oku",
+        "unread": "Okunmamış"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Lütfen Bekle",
+        "no_devices": "Cihaz Verisi Alınamadı"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Bağlı AP'ler",
+        "activeUser": "Aktif cihazlar",
+        "alerts": "Alarmlar",
+        "connectedGateway": "Bağlı ağ geçitleri",
+        "connectedSwitches": "Bağlı anahtarlar"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "İndir",
+        "upload": "Yükle",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Tohum"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
+        "cpuLoad": "CPU Yükü",
+        "memoryUsed": "Bellek Kullanımı",
+        "uptime": "Çalışma Süresi",
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Tüm Akışlar",
+        "streams_active": "Aktif Akışlar",
+        "streams_xepg": "XEPG Kanalları"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "CPU Yükü",
+        "memory": "Aktif Bellek",
+        "wanUpload": "WAN Yükleme",
+        "wanDownload": "WAN İndirme"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Yazıcı Durumu",
+        "print_status": "Yazıcı Durumu",
+        "print_progress": "İlerleme",
+        "layers": "Katmanlar"
     },
     "medusa": {
         "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "queued": "Kuyrukta",
+        "series": "Seri"
     },
     "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
+        "printer_state": "Durum",
+        "temp_tool": "Araç sıcaklığı",
+        "temp_bed": "Yatak sıcaklığı",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status"
+        "status": "Durum"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Bellek"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Kullanıcılar",
+        "photos": "Fotoğraflar",
+        "videos": "Videolar",
+        "storage": "Depo"
     },
     "uptimekuma": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime",
+        "uptime": "Çalışma Süresi",
         "incident": "Incident",
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
+        "libraries": "Kütüphane",
         "series": "Series",
-        "books": "Books"
+        "books": "Kitaplar"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "series": "Seriler",
+        "issues": "Sorunlar",
+        "wanted": "Aranan"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "Albümler",
+        "photos": "Fotoğraflar",
+        "videos": "Videolar",
+        "people": "İnsan"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Gün",
+        "uptime": "Çalışma Süresi",
+        "volumeAvailable": "Mevcut"
     }
 }
