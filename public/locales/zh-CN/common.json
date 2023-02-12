@@ -187,8 +187,8 @@
     "proxmox": {
         "mem": "内存",
         "cpu": "处理器",
-        "lxc": "LXC",
-        "vms": "VMs"
+        "lxc": "容器",
+        "vms": "虚拟机"
     },
     "unifi": {
         "users": "用户",
@@ -430,8 +430,8 @@
         "status": "Status"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "数据存储",
+        "failed_tasks_24h": "24h失败任务",
         "cpu_usage": "处理器",
         "memory_usage": "内存"
     },
