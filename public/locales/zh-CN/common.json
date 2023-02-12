@@ -16,7 +16,7 @@
         "free": "空闲",
         "used": "已用",
         "load": "负载",
-        "cpu": "CPU",
+        "cpu": "处理器",
         "mem": "内存"
     },
     "docker": {
@@ -392,10 +392,10 @@
         "seed": "做种"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "处理器负载",
+        "memoryUsed": "内存使用",
+        "uptime": "运行时间",
+        "numberOfLeases": "已连接"
     },
     "xteve": {
         "streams_all": "All Streams",
@@ -403,10 +403,10 @@
         "streams_xepg": "XEPG Channels"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "处理器负载",
+        "memory": "空闲内存",
+        "wanUpload": "WAN上传",
+        "wanDownload": "WAN下载"
     },
     "moonraker": {
         "printer_state": "Printer State",
