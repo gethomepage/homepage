@@ -18,6 +18,7 @@ const components = {
   flood: dynamic(() => import("./flood/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),
+  grafana: dynamic(() => import("./grafana/component")),
   hdhomerun: dynamic(() => import("./hdhomerun/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
   jackett: dynamic(() => import("./jackett/component")),
