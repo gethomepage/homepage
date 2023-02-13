@@ -25,21 +25,13 @@ export default function Component({ service }) {
       </Container>
     );
   }
-  
-  function fromTime(value) {
-      if (!value) {
-		fileflowsData.time = "0:00";
-		return fileflowsData.time;
-	  }
-  return fileflowsData.time;
-  }
 	  
   return (
     <Container service={service}>
       <Block label="queue" value={t("common.number", { value: fileflowsData.queue })} />
       <Block label="processing" value={t("common.number", { value: fileflowsData.processing })} />
       <Block label="processed" value={t("common.number", { value: fileflowsData.processed })} />
-      <Block label="time" value={fromTime(fileflowsData.time)} />
+      <Block label="time" value={fileflowsData.time?.length ? fileflowsData.time : "0:00"} />
     </Container>
   );
 }
