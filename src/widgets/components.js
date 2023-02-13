@@ -14,6 +14,7 @@ const components = {
   docker: dynamic(() => import("./docker/component")),
   kubernetes: dynamic(() => import("./kubernetes/component")),
   emby: dynamic(() => import("./emby/component")),
+  fileflows: dynamic(() => import("./fileflows/component")),
   flood: dynamic(() => import("./flood/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),
