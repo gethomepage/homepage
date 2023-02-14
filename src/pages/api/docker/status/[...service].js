@@ -44,37 +44,48 @@ export default async function handler(req, res) {
     }
 
     if (dockerArgs.swarm) {
-      const tasks = await docker.listTasks({
+      const serviceInfo = await docker
+        .getService(containerName)
+        .inspect()
+        .catch(() => undefined);
+      if (!serviceInfo) {
+        return res.status(404).send({
+          status: "not found",
+        });
+      }
+      const tasks = await docker
+        .listTasks({
           filters: {
             service: [containerName],
-            // A service can have several offline containers, we only look for an active one.
             "desired-state": ["running"],
           },
         })
         .catch(() => []);
 
-      // For now we are only interested in the first one (in case replicas > 1).
-      // TODO: Show the result for all replicas/containers?
-      const taskContainerId = tasks.at(0)?.Status?.ContainerStatus?.ContainerID;
-
-      if (taskContainerId) {
-        const container = docker.getContainer(taskContainerId);
-        const info = await container.inspect();
-
-        return res.status(200).json({
-          status: info.State.Status,
-          health: info.State.Health?.Status,
-        });
+      const replicas = serviceInfo.Spec.Mode?.Global
+        ? (await docker.listNodes()).length
+        : serviceInfo.Spec.Mode?.Replicated?.Replicas;
+      if (replicas) {
+        if (tasks.length === replicas) {
+          return res.status(200).json({
+            status: `running`,
+          });
+        }
+        if (tasks.length > 0) {
+          return res.status(200).json({
+            status: `partial ${tasks.length}/${replicas}`,
+          });
+        }
       }
     }
 
-    return res.status(200).send({
-      error: "not found",
+    return res.status(404).send({
+      status: "not found",
     });
   } catch (e) {
     logger.error(e);
     return res.status(500).send({
-      error: {message: e?.message ?? "Unknown error"},
+      error: { message: e?.message ?? "Unknown error" },
     });
   }
 }
