@@ -474,5 +474,11 @@
         "processing": "Traitement",
         "processed": "Traité",
         "time": "Temps"
+    },
+    "grafana": {
+        "dashboards": "Dashboards",
+        "datasources": "Data Sources",
+        "totalalerts": "Total Alerts",
+        "alertstriggered": "Alerts Triggered"
     }
 }
