@@ -8,33 +8,30 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
   const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
 
-  if (alertsError) {
-    return <Container error={alertsError} />;
+  if (statsError || alertsError) {
+    return <Container error={statsError ?? alertsError} />;
   }
 
-  if (!alertsData) {
+  if (!statsData || !alertsData) {
     return (
       <Container service={service}>
+        <Block label="grafana.dashboards" />
+        <Block label="grafana.datasources" />
         <Block label="grafana.totalalerts" />
         <Block label="grafana.alertstriggered" />
       </Container>
     );
   }
 
-  const totalAlerts = Object.keys(alertsData).length;
-  let alertsTriggered = 0;
-  Object.keys(alertsData).forEach((key) => {
-    if (alertsData[key].state === "alerting") {
-      alertsTriggered += 1;
-    }
-  });
-
   return (
     <Container service={service}>
-      <Block label="total alerts" value={t("common.number", { value: totalAlerts })} />
-      <Block label="alerts triggered" value={t("common.number", { value: alertsTriggered })} />
+      <Block label="grafana.dashboards" value={t("common.number", { value: statsData.dashboards })} />
+      <Block label="grafana.datasources" value={t("common.number", { value: statsData.datasources })} />
+      <Block label="grafana.totalalerts" value={t("common.number", { value: statsData.alerts })} />
+      <Block label="grafana.alertstriggered" value={t("common.number", { value: alertsData.filter(a => a.state === "alerting").length })} />
     </Container>
   );
 }

@@ -8,6 +8,12 @@ const widget = {
     alerts: {
       endpoint: "alerts",
     },
+    stats: {
+      endpoint: "admin/stats",
+      validate: [
+        "dashboards"
+      ]
+    },
   },
 };
 

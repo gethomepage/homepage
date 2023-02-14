@@ -477,5 +477,17 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "fileflows": {
+        "queue": "Queue",
+        "processing": "Processing",
+        "processed": "Processed",
+        "time": "Time"
+    },
+    "grafana": {
+        "dashboards": "Dashboards",
+        "datasources": "Data Sources",
+        "totalalerts": "Total Alerts",
+        "alertstriggered": "Alerts Triggered"
     }
 }
