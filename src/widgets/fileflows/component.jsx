@@ -28,10 +28,10 @@ export default function Component({ service }) {
 	  
   return (
     <Container service={service}>
-      <Block label="queue" value={t("common.number", { value: fileflowsData.queue })} />
-      <Block label="processing" value={t("common.number", { value: fileflowsData.processing })} />
-      <Block label="processed" value={t("common.number", { value: fileflowsData.processed })} />
-      <Block label="time" value={fileflowsData.time?.length ? fileflowsData.time : "0:00"} />
+      <Block label="fileflows.queue" value={t("common.number", { value: fileflowsData.queue })} />
+      <Block label="fileflows.processing" value={t("common.number", { value: fileflowsData.processing })} />
+      <Block label="fileflows.processed" value={t("common.number", { value: fileflowsData.processed })} />
+      <Block label="fileflows.time" value={fileflowsData.time?.length ? fileflowsData.time : "0:00"} />
     </Container>
   );
 }
