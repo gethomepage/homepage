@@ -468,5 +468,11 @@
         "days": "Днів",
         "uptime": "Час роботи",
         "volumeAvailable": "Доступно"
+    },
+    "fileflows": {
+        "queue": "Queue",
+        "processing": "Processing",
+        "processed": "Processed",
+        "time": "Time"
     }
 }
