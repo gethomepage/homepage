@@ -476,9 +476,9 @@
         "time": "Temps"
     },
     "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "dashboards": "Tableau de bord",
+        "datasources": "Sources données",
+        "totalalerts": "Total alertes",
+        "alertstriggered": "Alertes déclenchées"
     }
 }
