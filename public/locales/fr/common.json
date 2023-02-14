@@ -471,8 +471,8 @@
     },
     "fileflows": {
         "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "processing": "Traitement",
+        "processed": "Traité",
+        "time": "Temps"
     }
 }
