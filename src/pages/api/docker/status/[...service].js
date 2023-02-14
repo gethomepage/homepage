@@ -44,32 +44,65 @@ export default async function handler(req, res) {
     }
 
     if (dockerArgs.swarm) {
-      const tasks = await docker.listTasks({
+      const serviceInfo = await docker.getService(containerName).inspect()
+        .catch(() => undefined);
+
+      if (!serviceInfo) {
+        return res.status(404).send({
+          status: "not found",
+        });
+      }
+
+      const tasks = await docker
+        .listTasks({
           filters: {
             service: [containerName],
-            // A service can have several offline containers, we only look for an active one.
             "desired-state": ["running"],
           },
         })
         .catch(() => []);
 
-      // For now we are only interested in the first one (in case replicas > 1).
-      // TODO: Show the result for all replicas/containers?
-      const taskContainerId = tasks.at(0)?.Status?.ContainerStatus?.ContainerID;
-
-      if (taskContainerId) {
-        const container = docker.getContainer(taskContainerId);
-        const info = await container.inspect();
-
-        return res.status(200).json({
-          status: info.State.Status,
-          health: info.State.Health?.Status,
-        });
+      if (serviceInfo.Spec.Mode?.Replicated) {
+        // Replicated service, check n replicas
+        const replicas = parseInt(serviceInfo.Spec.Mode?.Replicated?.Replicas, 10);
+        if (tasks.length === replicas) {
+          return res.status(200).json({
+            status: `running ${tasks.length}/${replicas}`,
+          });
+        }
+        if (tasks.length > 0) {
+          return res.status(200).json({
+            status: `partial ${tasks.length}/${replicas}`,
+          });
+        }
+      } else {
+        // Global service, prefer 'local' containers
+        const localContainerIDs = containers.map(c => c.Id);
+        const task = tasks.find(t => localContainerIDs.includes(t.Status?.ContainerStatus?.ContainerID)) ?? tasks.at(0);
+        const taskContainerId = task?.Status?.ContainerStatus?.ContainerID;
+        
+        if (taskContainerId) {
+          try {
+            const container = docker.getContainer(taskContainerId);
+            const info = await container.inspect();
+    
+            return res.status(200).json({
+              status: info.State.Status,
+              health: info.State.Health?.Status,
+            });
+          } catch (e) {
+            if (task) {
+              return res.status(200).json({
+                status: task.Status.State
+              })
+            }
+          }
+        }
       }
     }
 
-    return res.status(200).send({
-      error: "not found",
+    return res.status(404).send({
+      status: "not found",
     });
   } catch (e) {
     logger.error(e);

@@ -22,7 +22,7 @@ export default function Component({ service }) {
     return <Container error={finalError} />;
   }
 
-  if (statusData && statusData.status !== "running") {
+  if (statusData && !(statusData.status.includes("running") || statusData.status.includes("partial"))) {
     return (
       <Container>
         <Block label={t("widget.status")} value={t("docker.offline")} />

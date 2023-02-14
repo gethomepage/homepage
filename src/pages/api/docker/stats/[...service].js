@@ -53,17 +53,25 @@ export default async function handler(req, res) {
         })
         .catch(() => []);
 
-      // For now we are only interested in the first one (in case replicas > 1).
       // TODO: Show the result for all replicas/containers?
-      const taskContainerId = tasks.at(0)?.Status?.ContainerStatus?.ContainerID;
-
+      // We can only get stats for 'local' containers so try to find one
+      const localContainerIDs = containers.map(c => c.Id);
+      const task = tasks.find(t => localContainerIDs.includes(t.Status?.ContainerStatus?.ContainerID)) ?? tasks.at(0);
+      const taskContainerId = task?.Status?.ContainerStatus?.ContainerID;
+      
       if (taskContainerId) {
-        const container = docker.getContainer(taskContainerId);
-        const stats = await container.stats({ stream: false });
+        try {
+          const container = docker.getContainer(taskContainerId);
+          const stats = await container.stats({ stream: false });
 
-        return res.status(200).json({
-          stats,
-        });
+          return res.status(200).json({
+            stats,
+          });
+        } catch (e) {
+          return res.status(200).json({
+            error: "Unable to retrieve stats"
+          })
+        }
       }
     }
 
