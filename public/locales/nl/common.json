@@ -468,5 +468,11 @@
         "days": "Days",
         "uptime": "Uptime",
         "volumeAvailable": "Available"
+    },
+    "fileflows": {
+        "queue": "Queue",
+        "processing": "Processing",
+        "processed": "Processed",
+        "time": "Time"
     }
 }
