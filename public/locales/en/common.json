@@ -483,5 +483,9 @@
         "processing": "Processing",
         "processed": "Processed",
         "time": "Time"
+    },
+    "grafana": {
+        "totalalerts": "Total Alerts",
+        "alertstriggered": "Alerts Triggered"
     }
 }

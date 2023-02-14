@@ -23,18 +23,10 @@ export default function Component({ service }) {
     );
   }
 
-  const totalAlerts = Object.keys(alertsData).length;
-  let alertsTriggered = 0;
-  Object.keys(alertsData).forEach((key) => {
-    if (alertsData[key].state === "alerting") {
-      alertsTriggered += 1;
-    }
-  });
-
   return (
     <Container service={service}>
-      <Block label="total alerts" value={t("common.number", { value: totalAlerts })} />
-      <Block label="alerts triggered" value={t("common.number", { value: alertsTriggered })} />
+      <Block label="grafana.totalalerts" value={t("common.number", { value: alertsData.length })} />
+      <Block label="grafana.alertstriggered" value={t("common.number", { value: alertsData.filter(a => a.state === "alerting").length })} />
     </Container>
   );
 }
