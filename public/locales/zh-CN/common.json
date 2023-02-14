@@ -474,5 +474,11 @@
         "processing": "Processing",
         "processed": "Processed",
         "time": "Time"
+    },
+    "grafana": {
+        "totalalerts": "Total Alerts",
+        "dashboards": "Dashboards",
+        "datasources": "Data Sources",
+        "alertstriggered": "Alerts Triggered"
     }
 }
