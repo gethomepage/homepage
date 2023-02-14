@@ -140,7 +140,7 @@
     "transmission": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Leech",
+        "leech": "Sanguijuela",
         "seed": "Semillas"
     },
     "jackett": {
@@ -470,9 +470,9 @@
         "volumeAvailable": "Disponible"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "queue": "Cola",
+        "processing": "Procesando",
+        "processed": "Procesado",
+        "time": "Tiempo"
     }
 }
