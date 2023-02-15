@@ -477,8 +477,8 @@
     },
     "grafana": {
         "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "datasources": "Fuentes de datos",
+        "totalalerts": "Alertas totales",
+        "alertstriggered": "Alertas activadas"
     }
 }
