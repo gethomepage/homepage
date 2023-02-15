@@ -1,5 +1,5 @@
 import getServiceWidget from "utils/config/service-helpers";
-import { formatApiCall } from "utils/proxy/api-helpers";
+import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
 import validateWidgetData from "utils/proxy/validate-widget-data";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
@@ -35,7 +35,10 @@ export default async function genericProxyHandler(req, res, map) {
       let resultData = data;
       
       if (!validateWidgetData(widget, endpoint, resultData)) {
-        return res.status(status).json({error: {message: "Invalid data", url, data: resultData}});
+        if (resultData.error && resultData.error.url) {
+          resultData.error.url = sanitizeErrorURL(url);
+        }
+        return res.status(status).json({error: {message: "Invalid data", url: sanitizeErrorURL(url), data: resultData}});
       }
 
       if (status === 200 && map) {
@@ -50,7 +53,7 @@ export default async function genericProxyHandler(req, res, map) {
 
       if (status >= 400) {
         logger.debug("HTTP Error %d calling %s//%s%s...", status, url.protocol, url.hostname, url.pathname);
-        return res.status(status).json({error: {message: "HTTP Error", url, data}});
+        return res.status(status).json({error: {message: "HTTP Error", url: sanitizeErrorURL(url), data}});
       }
 
       return res.status(status).send(resultData);
