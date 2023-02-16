@@ -33,6 +33,7 @@ const components = {
   moonraker: dynamic(() => import("./moonraker/component")),
   mylar: dynamic(() => import("./mylar/component")),
   navidrome: dynamic(() => import("./navidrome/component")),
+  nextcloud: dynamic(() => import("./nextcloud/component")),
   nextdns: dynamic(() => import("./nextdns/component")),
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),

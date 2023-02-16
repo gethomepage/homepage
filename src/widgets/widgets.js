@@ -27,6 +27,7 @@ import mikrotik from "./mikrotik/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
+import nextcloud from "./nextcloud/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
@@ -96,6 +97,7 @@ const widgets = {
   moonraker,
   mylar,
   navidrome,
+  nextcloud,
   nextdns,
   npm,
   nzbget,
