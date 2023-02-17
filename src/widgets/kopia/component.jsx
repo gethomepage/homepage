@@ -18,8 +18,9 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="kopia.status" />
-        <Block label="kopia.backupsize" />
-        <Block label="kopia.backuptime" />
+        <Block label="kopia.size" />
+        <Block label="kopia.executiontime" />
+        <Block label="kopia.failed" />
       </Container>
     );
   }
@@ -30,13 +31,15 @@ export default function Component({ service }) {
   const hours = duration.getUTCHours().toString().padStart(2, '0');
   const minutes = duration.getUTCMinutes().toString().padStart(2, '0');
   const seconds = duration.getSeconds().toString().padStart(2, '0');
-  const time = (hours + minutes + seconds).split(':');
+  const split = ":";
+  const time = (hours + split + minutes + split+ seconds);
 
   return (
     <Container service={service}>
       <Block label="kopia.status" value={ kopiaData.sources[0].status } />
-      <Block label="kopia.backupsize" value={t("common.bbytes", { value: kopiaData.sources[0].lastSnapshot.stats.totalSize, maximumFractionDigits: 1 })} />
-      <Block label="kopia.backuptime" value={ time } />
+      <Block label="kopia.size" value={t("common.bbytes", { value: kopiaData.sources[0].lastSnapshot.stats.totalSize, maximumFractionDigits: 1 })} />
+      <Block label="kopia.executiontime" value={ time } />
+      <Block label="kopia.failed" value={t("common.number", { value: kopiaData.sources[0].lastSnapshot.rootEntry.summ.numFailed })} />
     </Container>
   );
 }

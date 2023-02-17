@@ -498,7 +498,8 @@
     },
     "kopia": {
         "status": "Status",
-        "backupsize": "Backup Size",
-        "backuptime": "Backup Time"
+        "size": "Size",
+        "executiontime": "Execution Time",
+        "failed": "Failed"
     }
 }
