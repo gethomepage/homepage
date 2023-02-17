@@ -42,12 +42,15 @@ async function getWidget(req) {
   return widget;
 }
 
-async function login(widget) {
+async function login(widget, csrfToken) {
   const endpoint = (widget.prefix === udmpPrefix) ? "auth/login" : "login";
   const api = widgets?.[widget.type]?.api?.replace("{prefix}", ""); // no prefix for login url
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
   const loginBody = { username: widget.username, password: widget.password, remember: true };
   const headers = { "Content-Type": "application/json" };
+  if (csrfToken) {
+    headers["X-CSRF-TOKEN"] = csrfToken;
+  }
   const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify(loginBody),
@@ -70,6 +73,7 @@ export default async function unifiProxyHandler(req, res) {
 
   let [status, contentType, data, responseHeaders] = [];
   let prefix = cache.get(`${prefixCacheKey}.${service}`);
+  let csrfToken;
   if (prefix === null) {
     // auto detect if we're talking to a UDM Pro, and cache the result so that we
     // don't make two requests each time data from Unifi is required
@@ -77,12 +81,12 @@ export default async function unifiProxyHandler(req, res) {
     prefix = "";
     if (responseHeaders?.["x-csrf-token"]) {
       prefix = udmpPrefix;
+      csrfToken = responseHeaders["x-csrf-token"];
     }
     cache.put(`${prefixCacheKey}.${service}`, prefix);
   }
 
   widget.prefix = prefix;
-
   const { endpoint } = req.query;
   const url = new URL(formatApiCall(api, { endpoint, ...widget }));
   const params = { method: "GET", headers: {} };
@@ -92,7 +96,10 @@ export default async function unifiProxyHandler(req, res) {
   
   if (status === 401) {
     logger.debug("Unifi isn't logged in or rejected the reqeust, attempting login.");  
-    [status, contentType, data, responseHeaders] = await login(widget);
+    if (responseHeaders?.["x-csrf-token"]) {
+      csrfToken = responseHeaders["x-csrf-token"];
+    }
+    [status, contentType, data, responseHeaders] = await login(widget, csrfToken);
 
     if (status !== 200) {
       logger.error("HTTP %d logging in to Unifi. Data: %s", status, data);
