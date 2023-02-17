@@ -480,5 +480,11 @@
         "datasources": "Sources données",
         "totalalerts": "Total alertes",
         "alertstriggered": "Alertes déclenchées"
+    },
+    "nextcloud": {
+        "freespace": "Free Space",
+        "activeusers": "Active Users",
+        "cpuload": "Cpu Load",
+        "memoryusage": "Memory Usage"
     }
 }
