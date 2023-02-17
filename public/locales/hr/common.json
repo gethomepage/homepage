@@ -480,5 +480,11 @@
         "dashboards": "Dashboards",
         "datasources": "Data Sources",
         "totalalerts": "Total Alerts"
+    },
+    "nextcloud": {
+        "cpuload": "Cpu Load",
+        "memoryusage": "Memory Usage",
+        "freespace": "Free Space",
+        "activeusers": "Active Users"
     }
 }
