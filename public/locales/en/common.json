@@ -495,5 +495,10 @@
         "memoryusage": "Memory Usage",
         "freespace": "Free Space",
         "activeusers": "Active Users"
+    },
+    "kopia": {
+        "status": "Status",
+        "backupsize": "Backup Size",
+        "backuptime": "Backup Time"
     }
 }

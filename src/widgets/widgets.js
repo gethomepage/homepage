@@ -19,6 +19,7 @@ import homebridge from "./homebridge/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
 import komga from "./komga/widget";
+import kopia from "./kopia/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import medusa from "./medusa/widget";
@@ -89,6 +90,7 @@ const widgets = {
   jellyfin: emby,
   jellyseerr,
   komga,
+  kopia,
   lidarr,
   mastodon,
   medusa,
