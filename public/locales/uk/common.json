@@ -480,5 +480,11 @@
         "datasources": "Джерела даних",
         "totalalerts": "Всього сповіщень",
         "alertstriggered": "Спрацювали сповіщення"
+    },
+    "nextcloud": {
+        "cpuload": "Cpu Load",
+        "memoryusage": "Memory Usage",
+        "freespace": "Free Space",
+        "activeusers": "Active Users"
     }
 }
