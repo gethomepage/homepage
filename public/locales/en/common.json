@@ -494,7 +494,6 @@
         "cpuload": "Cpu Load",
         "memoryusage": "Memory Usage",
         "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "shares": "Shares"
+        "activeusers": "Active Users"
     }
 }
