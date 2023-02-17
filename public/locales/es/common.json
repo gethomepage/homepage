@@ -420,10 +420,10 @@
         "series": "Serie"
     },
     "octoprint": {
-        "temp_bed": "Bed temp",
+        "temp_bed": "temperatura de la plataforma",
         "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "job_completion": "Completion"
+        "temp_tool": "Herramienta de temperatura",
+        "job_completion": "Finalización"
     },
     "cloudflared": {
         "origin_ip": "IP de origen",
@@ -482,9 +482,9 @@
         "alertstriggered": "Alertas activadas"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "Carga de la CPU",
+        "memoryusage": "Uso de la memoria",
+        "freespace": "Espacio libre",
+        "activeusers": "Usuarios activos"
     }
 }
