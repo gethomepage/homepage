@@ -517,5 +517,9 @@
         "active_workers": "Active Workers",
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
     }
 }
