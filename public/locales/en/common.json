@@ -499,7 +499,7 @@
     "kopia": {
         "status": "Status",
         "size": "Size",
-        "executiontime": "Execution Time",
-        "failed": "Failed"
+        "lastrun": "Last Run",
+        "nextrun": "Next Run"
     }
 }

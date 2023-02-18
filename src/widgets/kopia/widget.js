@@ -5,8 +5,11 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    api: {
+    status: {
       endpoint: "api/v1/sources",
+    },
+    tasks: {
+      endpoint: "api/v1/tasks",
     },
   },
 };

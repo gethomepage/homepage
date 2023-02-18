@@ -8,38 +8,50 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const { data: kopiaData, error: kopiaError } = useWidgetAPI(widget, "api");
+  const { data: statusData, error: statusError } = useWidgetAPI(widget, "status");
+  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "tasks");
 
-  if (kopiaError) {
-    return <Container error={kopiaError} />;
+  if (statusError || tasksError) {
+    return <Container error={statusError ?? tasksError} />;
   }
 
-  if (!kopiaData) {
+  if (!statusData || !tasksData) {
     return (
       <Container service={service}>
         <Block label="kopia.status" />
         <Block label="kopia.size" />
-        <Block label="kopia.executiontime" />
-        <Block label="kopia.failed" />
+        <Block label="kopia.lastrun" />
+        <Block label="kopia.nextrun" />
       </Container>
     );
   }
 
-  const startTime = new Date(kopiaData.sources[0].lastSnapshot.startTime);
-  const endTime = new Date(kopiaData.sources[0].lastSnapshot.endTime);
-  const duration = new Date(endTime - startTime);
-  const hours = duration.getUTCHours().toString().padStart(2, '0');
-  const minutes = duration.getUTCMinutes().toString().padStart(2, '0');
-  const seconds = duration.getSeconds().toString().padStart(2, '0');
-  const split = ":";
-  const time = (hours + split + minutes + split+ seconds);
+  function fromTasks(task) {
+    for (let i=0; i<task.length; i += 1) {
+      const taskKind = task[i].kind;
+      if ( taskKind === "Snapshot") {
+        const taskStatus = task[i].status;
+        return taskStatus;
+      }
+    }
+    return 0;
+  }
+
+  const nowTime = new Date();
+  const nextTime = new Date(statusData.sources[0].nextSnapshotTime);
+  const leftTime = new Date(nextTime - nowTime);
+  const hours = leftTime.getUTCHours().toString().padStart(2, '0');
+  const minutes = leftTime.getUTCMinutes().toString().padStart(2, '0');
+  const h = "h ";
+  const m = "m";
+  const time = (hours + h + minutes + m);
 
   return (
     <Container service={service}>
-      <Block label="kopia.status" value={ kopiaData.sources[0].status } />
-      <Block label="kopia.size" value={t("common.bbytes", { value: kopiaData.sources[0].lastSnapshot.stats.totalSize, maximumFractionDigits: 1 })} />
-      <Block label="kopia.executiontime" value={ time } />
-      <Block label="kopia.failed" value={t("common.number", { value: kopiaData.sources[0].lastSnapshot.rootEntry.summ.numFailed })} />
+      <Block label="kopia.status" value={ statusData.sources[0].status } />
+      <Block label="kopia.size" value={t("common.bbytes", { value: statusData.sources[0].lastSnapshot.stats.totalSize, maximumFractionDigits: 1 })} />
+      <Block label="kopia.lastrun" value={ fromTasks(tasksData.tasks) } />
+      <Block label="kopia.nextrun" value={ time } />
     </Container>
   );
 }
