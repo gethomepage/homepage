@@ -486,5 +486,12 @@
         "cpuload": "Cpu Load",
         "memoryusage": "Memory Usage",
         "freespace": "Free Space"
+    },
+    "kopia": {
+        "status": "Status",
+        "size": "Size",
+        "lastrun": "Last Run",
+        "nextrun": "Next Run",
+        "failed": "Failed"
     }
 }
