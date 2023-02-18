@@ -482,9 +482,9 @@
         "alertstriggered": "Alertes déclenchées"
     },
     "nextcloud": {
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage"
+        "freespace": "Espace Libre",
+        "activeusers": "Utilisateurs Actifs",
+        "cpuload": "Charge Cpu",
+        "memoryusage": "Utilisation Mémoire"
     }
 }
