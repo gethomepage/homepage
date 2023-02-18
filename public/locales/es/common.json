@@ -486,5 +486,12 @@
         "memoryusage": "Uso de la memoria",
         "freespace": "Espacio libre",
         "activeusers": "Usuarios activos"
+    },
+    "kopia": {
+        "status": "Status",
+        "size": "Size",
+        "lastrun": "Last Run",
+        "nextrun": "Next Run",
+        "failed": "Failed"
     }
 }
