@@ -500,6 +500,7 @@
         "status": "Status",
         "size": "Size",
         "lastrun": "Last Run",
-        "nextrun": "Next Run"
+        "nextrun": "Next Run",
+        "failed": "Failed"
     }
 }

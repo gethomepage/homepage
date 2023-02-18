@@ -8,9 +8,6 @@ const widget = {
     status: {
       endpoint: "api/v1/sources",
     },
-    tasks: {
-      endpoint: "api/v1/tasks",
-    },
   },
 };
 
