@@ -1,10 +1,9 @@
-import unmanicProxyHandler from "./proxy";
-
+import genericProxyHandler from "utils/proxy/handlers/generic";
 import { asJson } from "utils/proxy/api-helpers";
 
 const widget = {
   api: "{url}/unmanic/api/v2/{endpoint}",
-  proxyHandler: unmanicProxyHandler,
+  proxyHandler: genericProxyHandler,
 
   mappings: {
     workers: {
@@ -16,6 +15,7 @@ const widget = {
     },
     pending: {
       method: "POST",
+      body: "{}",
       endpoint: "pending/tasks",
       validate: [
         "recordsTotal"
