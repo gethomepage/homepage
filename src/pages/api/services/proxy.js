@@ -32,6 +32,7 @@ export default async function handler(req, res) {
         }
 
         req.method = mapping?.method || "GET";
+        if (mapping?.body) req.body = mapping?.body;
         req.query.endpoint = endpoint;
 
         if (req.query.segments) {

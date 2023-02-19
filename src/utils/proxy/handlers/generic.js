@@ -27,10 +27,15 @@ export default async function genericProxyHandler(req, res, map) {
         };
       }
 
-      const [status, contentType, data] = await httpProxy(url, {
+      const params = {
         method: req.method,
         headers,
-      });
+      }
+      if (req.body) {
+        params.body = req.body;
+      }
+
+      const [status, contentType, data] = await httpProxy(url, params);
 
       let resultData = data;
       
