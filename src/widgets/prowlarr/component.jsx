@@ -11,14 +11,12 @@ export default function Component({ service }) {
   const { data: grabsData, error: grabsError } = useWidgetAPI(widget, "indexerstats");
 
   if (grabsError) {
-    const finalError = indexersError ?? grabsError;
-    return <Container error={finalError} />;
+    return <Container error={grabsError} />;
   }
 
   if (!grabsData) {
     return (
       <Container service={service}>
-        <Block label="prowlarr.enableIndexers" />
         <Block label="prowlarr.numberOfGrabs" />
         <Block label="prowlarr.numberOfQueries" />
         <Block label="prowlarr.numberOfFailGrabs" />
