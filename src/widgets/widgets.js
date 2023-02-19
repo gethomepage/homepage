@@ -66,6 +66,7 @@ import watchtower from "./watchtower/widget";
 import xteve from "./xteve/widget";
 import immich from "./immich/widget";
 import uptimekuma from "./uptimekuma/widget";
+import unmanic from "./unmanic/widget";
 
 const widgets = {
   adguard,
@@ -134,6 +135,7 @@ const widgets = {
   truenas,
   unifi,
   unifi_console: unifi,
+  unmanic,
   watchtower,
   xteve,
   immich,
