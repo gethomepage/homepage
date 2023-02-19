@@ -3,7 +3,7 @@
 <!--
 Please include a summary of the change. Screenshots and / or videos can also be helpful if appropriate.
 
-New service widgets should include example(s) of relevant relevant API output as well as a PR to the docs for the new widget.
+New service widgets should include example(s) of relevant relevant API output as well as a PR to the docs for the new widget. See the development guidelines for new widgets: https://gethomepage.dev/en/more/development/#service-widget-guidelines
 -->
 
 Closes # (issue)
