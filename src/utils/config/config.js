@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { join } from "path";
-import { existsSync, copyFile, readFileSync, statSync } from "fs";
+import { existsSync, copyFile, readFileSync } from "fs";
 
 import yaml from "js-yaml";
 
@@ -32,18 +32,5 @@ export function getSettings() {
 
   const settingsYaml = join(process.cwd(), "config", "settings.yaml");
   const fileContents = readFileSync(settingsYaml, "utf8");
-
-  let stats;
-  try {
-    stats = statSync(settingsYaml);
-  } catch (e) {
-    stats = {};
-  }
-
-  const yamlLoaded = yaml.load(fileContents) ?? {};
-
-  return { 
-    ...yamlLoaded,
-    isValid: fileContents !== "-\n" && stats.size !== 2 // see https://github.com/benphelps/homepage/pull/609
-  };
+  return yaml.load(fileContents) ?? {};
 }
