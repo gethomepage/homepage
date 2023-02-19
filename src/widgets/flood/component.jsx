@@ -45,9 +45,9 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="flood.leech" value={t("common.number", { value: leech })} />
-      <Block label="flood.download" value={t("common.bitrate", { value: rateDl })} />
+      <Block label="flood.download" value={t("common.byterate", { value: rateDl })} />
       <Block label="flood.seed" value={t("common.number", { value: completed })} />
-      <Block label="flood.upload" value={t("common.bitrate", { value: rateUl })} />
+      <Block label="flood.upload" value={t("common.byterate", { value: rateUl })} />
     </Container>
   );
 }
