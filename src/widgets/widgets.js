@@ -16,6 +16,7 @@ import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import homebridge from "./homebridge/widget";
+import healthchecks from "./healthchecks/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
 import komga from "./komga/widget";
@@ -87,6 +88,7 @@ const widgets = {
   grafana,
   hdhomerun,
   homebridge,
+  healthchecks,
   jackett,
   jellyfin: emby,
   jellyseerr,
