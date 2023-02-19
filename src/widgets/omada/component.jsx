@@ -33,7 +33,6 @@ export default function Component({ service }) {
       <Block label="omada.activeUser" value={t( "common.number", { value: omadaData.activeUser })} />
       <Block label="omada.alerts" value={t( "common.number", { value: omadaData.alerts })} />
       { omadaData.connectedGateways > 0 && <Block label="omada.connectedGateway" value={t("common.number", { value: omadaData.connectedGateways})} /> }
-      { omadaData.connectedSwitches > 0 && <Block label="omada.connectedSwitches" value={t("common.number", { value: omadaData.connectedSwitches})} /> }
     </Container>
   );
 }

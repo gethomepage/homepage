@@ -8,15 +8,14 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data: indexersData, error: indexersError } = useWidgetAPI(widget, "indexer");
   const { data: grabsData, error: grabsError } = useWidgetAPI(widget, "indexerstats");
 
-  if (indexersError || grabsError) {
+  if (grabsError) {
     const finalError = indexersError ?? grabsError;
     return <Container error={finalError} />;
   }
 
-  if (!indexersData || !grabsData) {
+  if (!grabsData) {
     return (
       <Container service={service}>
         <Block label="prowlarr.enableIndexers" />
@@ -27,8 +26,6 @@ export default function Component({ service }) {
       </Container>
     );
   }
-
-  const indexers = indexersData?.filter((indexer) => indexer.enable === true);
 
   let numberOfGrabs = 0;
   let numberOfQueries = 0;
@@ -43,7 +40,6 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="prowlarr.enableIndexers" value={t("common.number", { value: indexers.length })} />
       <Block label="prowlarr.numberOfGrabs" value={t("common.number", { value: numberOfGrabs })} />
       <Block label="prowlarr.numberOfQueries" value={t("common.number", { value: numberOfQueries })} />
       <Block label="prowlarr.numberOfFailGrabs" value={t("common.number", { value: numberOfFailedGrabs })} />
