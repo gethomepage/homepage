@@ -488,15 +488,15 @@
         "activeusers": "Usuarios activos"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "Estado",
+        "size": "Tamaño",
+        "lastrun": "Última ejecución",
+        "nextrun": "Siguiente ejecución",
+        "failed": "Fallido"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Trabajadores en activo",
+        "total_workers": "Total de trabajadores",
+        "records_total": "Duración de la cola"
     }
 }
