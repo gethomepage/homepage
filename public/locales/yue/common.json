@@ -493,5 +493,10 @@
         "failed": "Failed",
         "status": "Status",
         "size": "Size"
+    },
+    "unmanic": {
+        "active_workers": "Active Workers",
+        "total_workers": "Total Workers",
+        "records_total": "Queue Length"
     }
 }
