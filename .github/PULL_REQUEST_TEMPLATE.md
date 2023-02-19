@@ -21,7 +21,6 @@ What type of change does your PR introduce to Homepage?
 
 ## Checklist:
 
-- [ ] If adding a service widget, I have added a corresponding PR to the [documentation](https://github.com/benphelps/homepage-docs) here: 
+- [ ] If adding a service widget or a change that requires it, I have added a corresponding PR to the [documentation](https://github.com/benphelps/homepage-docs) here: 
 - [ ] If applicable, I have checked that all tests pass with e.g. `pnpm lint`.
 - [ ] If applicable, I have tested my code for new features & regressions on both mobile & desktop devices, using the latest version of major browsers.
-- [ ] I have made corresponding changes to the documentation as needed.
