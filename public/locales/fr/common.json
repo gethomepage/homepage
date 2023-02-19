@@ -488,15 +488,15 @@
         "memoryusage": "Utilisation Mémoire"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "Statut",
+        "size": "Taille",
+        "lastrun": "Dernière exécution",
+        "nextrun": "Prochaine exécution",
+        "failed": "En erreur"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "En cours",
+        "total_workers": "Total",
+        "records_total": "En attente"
     }
 }
