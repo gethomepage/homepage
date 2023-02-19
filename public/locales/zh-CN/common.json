@@ -493,5 +493,10 @@
         "lastrun": "Last Run",
         "nextrun": "Next Run",
         "failed": "Failed"
+    },
+    "unmanic": {
+        "active_workers": "Active Workers",
+        "total_workers": "Total Workers",
+        "records_total": "Queue Length"
     }
 }
