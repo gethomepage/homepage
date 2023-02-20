@@ -50,7 +50,7 @@ async function apiCall(widget, endpoint, service) {
     headers,
   });
 
-  if (status === 401) {
+  if (status === 401 || status === 403) {
     logger.debug("Homebridge API rejected the request, attempting to obtain new session token");
     const { accessToken } = login(widget, service);
     headers.Authorization = `Bearer ${accessToken}`;
@@ -63,7 +63,7 @@ async function apiCall(widget, endpoint, service) {
   }
 
   if (status !== 200) {
-    logger.error("Error getting data from Homebridge: %d.  Data: %s", status, data);
+    logger.error("Error getting data from Homebridge: %s status %d. Data: %s", url, status, data);
   }
 
   return { status, contentType, data: JSON.parse(data.toString()), responseHeaders };
