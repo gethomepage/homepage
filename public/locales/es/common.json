@@ -501,8 +501,8 @@
     },
     "healthchecks": {
         "new": "New",
-        "up": "Online",
-        "down": "Offline",
+        "up": "Conectado",
+        "down": "Desconectado",
         "grace": "In Grace Period",
         "paused": "Paused",
         "status": "Status",
