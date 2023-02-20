@@ -15,10 +15,10 @@
         "missing_type": "Chybí typ widgetu: {{type}}",
         "api_error": "Chyba API",
         "status": "Status",
-        "information": "Information",
+        "information": "Informace",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "",
+        "response_data": "Data odpovědi"
     },
     "weather": {
         "current": "Aktuální poloha",
@@ -52,7 +52,7 @@
         "up": "BĚŽÍ",
         "down": "NEBĚŽÍ",
         "wait": "Počkejte prosím",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Status podsystému neznámý"
     },
     "docker": {
         "rx": "RX",
@@ -60,8 +60,8 @@
         "mem": "RAM",
         "cpu": "CPU",
         "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Chyba",
+        "unknown": "Neznámý"
     },
     "emby": {
         "playing": "Přehrává",
@@ -150,7 +150,7 @@
         "pending": "Čeká",
         "approved": "Schváleno",
         "available": "Dostupný",
-        "processing": "Processing"
+        "processing": "Zpracováváno"
     },
     "pihole": {
         "queries": "Dotazy",
@@ -317,8 +317,8 @@
         "indexers": "Indexery"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Žádné aktivní streams",
+        "please_wait": "Prosím vyčkejte"
     },
     "pyload": {
         "speed": "Speed",
@@ -336,8 +336,8 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
-        "ping": "Ping"
+        "error": "Chyba",
+        "ping": "Odezva"
     },
     "scrutiny": {
         "passed": "Passed",
@@ -349,22 +349,22 @@
         "total": "Total"
     },
     "deluge": {
-        "upload": "Upload",
+        "upload": "Nahrávání",
         "leech": "Leech",
         "seed": "Seed",
-        "download": "Download"
+        "download": "Stahování"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Stahování",
+        "upload": "Nahrávání",
         "leech": "Leech",
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Fronta",
+        "processed": "Zpracováno",
+        "errored": "Chybné",
+        "saved": "Uložené"
     },
     "miniflux": {
         "read": "Read",
@@ -375,19 +375,19 @@
         "no_devices": "No Device Data Received"
     },
     "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+        "bibyterate": "",
+        "bibitrate": ""
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Připojené APs",
+        "activeUser": "Aktivní zařízení",
+        "alerts": "Upozornění",
+        "connectedGateway": "Připojené brány",
+        "connectedSwitches": "Připojené přepínače"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Stahování",
+        "upload": "Nahrávání",
         "leech": "Leech",
         "seed": "Seed"
     },
