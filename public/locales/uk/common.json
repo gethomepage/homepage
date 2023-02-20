@@ -482,21 +482,21 @@
         "alertstriggered": "Спрацювали сповіщення"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "Навантаження Cpu",
+        "memoryusage": "Використання пам'яті",
+        "freespace": "Вільного місця",
+        "activeusers": "Активні користувачі"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "Статус",
+        "size": "Розмір",
+        "lastrun": "Останній запуск",
+        "nextrun": "Наступний запуск",
+        "failed": "Помилка"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Активні працівники",
+        "total_workers": "Всього робітників",
+        "records_total": "Довжина черги"
     }
 }
