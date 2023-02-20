@@ -498,5 +498,15 @@
         "active_workers": "Active Workers",
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
+    },
+    "healthchecks": {
+        "grace": "In Grace Period",
+        "new": "New",
+        "up": "Online",
+        "down": "Offline",
+        "paused": "Paused",
+        "status": "Status",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
     }
 }
