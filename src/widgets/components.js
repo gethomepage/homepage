@@ -21,6 +21,7 @@ const components = {
   grafana: dynamic(() => import("./grafana/component")),
   hdhomerun: dynamic(() => import("./hdhomerun/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
+  healthchecks: dynamic(() => import("./healthchecks/component")),
   jackett: dynamic(() => import("./jackett/component")),
   jellyfin: dynamic(() => import("./emby/component")),
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
