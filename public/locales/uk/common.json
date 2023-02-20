@@ -498,5 +498,15 @@
         "active_workers": "Активні працівники",
         "total_workers": "Всього робітників",
         "records_total": "Довжина черги"
+    },
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "down": "Offline",
+        "grace": "In Grace Period",
+        "paused": "Paused",
+        "status": "Status",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
     }
 }
