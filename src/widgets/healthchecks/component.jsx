@@ -1,5 +1,7 @@
 import { useTranslation } from "next-i18next";
 
+import { i18n } from "../../../next-i18next.config";
+
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -7,22 +9,18 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 function formatDate(dateString) {
   const date = new Date(dateString);
   const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const diff = (now - date) / 1000;
-
-  if (date > today && diff < 86400) {
-    return date.toLocaleTimeString([], {
-      hour: "numeric",
-      minute: "numeric",
-    });
-  }
-
-  return date.toLocaleDateString([], {
-    month: "short",
+  let dateOptions = {
+    month: "numeric",
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-  });
+  };
+  
+  if (date.getFullYear() === now.getFullYear() && date.getMonth() === now.getMonth() && date.getDate() === now.getDate()) {
+    dateOptions = { timeStyle: "short" };
+  }
+  
+  return new Intl.DateTimeFormat(i18n.language, dateOptions).format(date);
 }
 
 export default function Component({ service }) {
