@@ -500,13 +500,13 @@
         "records_total": "Duración de la cola"
     },
     "healthchecks": {
-        "new": "New",
+        "new": "Nuevo",
         "up": "Conectado",
         "down": "Desconectado",
-        "grace": "In Grace Period",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "grace": "En Periodo de Gracia",
+        "paused": "Pausado",
+        "status": "Estado",
+        "last_ping": "Último Ping",
+        "never": "Aún no hay pings"
     }
 }
