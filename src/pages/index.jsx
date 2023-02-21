@@ -175,7 +175,7 @@ function Home({ initialSettings }) {
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
-  
+
   const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
 
   useEffect(() => {
@@ -310,7 +310,7 @@ function Home({ initialSettings }) {
         </div>
 
         <div className="flex p-8 pt-4 w-full justify-end">
-          <Version />
+          {!initialSettings?.hideVersion && <Version />}
         </div>
       </div>
     </>
