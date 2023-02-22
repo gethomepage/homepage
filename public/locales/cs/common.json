@@ -17,7 +17,7 @@
         "status": "Status",
         "information": "Informace",
         "url": "URL",
-        "raw_error": "",
+        "raw_error": "Raw Error",
         "response_data": "Data odpovědi"
     },
     "weather": {
@@ -375,8 +375,8 @@
         "no_devices": "No Device Data Received"
     },
     "common": {
-        "bibyterate": "",
-        "bibitrate": ""
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
         "connectedAp": "Připojené APs",
