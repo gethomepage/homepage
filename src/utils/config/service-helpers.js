@@ -164,7 +164,11 @@ export async function servicesFromKubernetes() {
         weight: ingress.metadata.annotations[`${ANNOTATION_BASE}/weight`] || '0',
         icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || '',
         description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || '',
+        external: false,
       };
+      if (ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
+        constructedService.external = String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true"
+      }
       if (ingress.metadata.annotations[ANNOTATION_POD_SELECTOR]) {
         constructedService.podSelector = ingress.metadata.annotations[ANNOTATION_POD_SELECTOR];
       }

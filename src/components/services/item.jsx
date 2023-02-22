@@ -91,7 +91,7 @@ export default function Item({ service }) {
                   <span className="sr-only">View container stats</span>
                 </button>
               )}
-              {service.app && (
+              {(service.app && !service.external) && (
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
