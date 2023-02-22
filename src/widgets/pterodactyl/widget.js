@@ -1,8 +1,17 @@
-
-import pterodactylProxyHandler from "./proxy";
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
-  proxyHandler: pterodactylProxyHandler,
+  api: "{url}/api/application/{endpoint}",
+  proxyHandler: credentialedProxyHandler,
+
+  mappings: {
+    nodes: {
+      endpoint: "nodes?include=servers",
+      validate: [
+        "data"
+      ]
+    },
+  },
 };
 
 export default widget;

@@ -7,13 +7,13 @@ export default function Component({ service }) {
 
   const {widget} = service;
 
-  const {data: datasData, error: datasError} = useWidgetAPI(widget);
+  const {data: nodesData, error: nodesError} = useWidgetAPI(widget, "nodes");
 
-  if (datasError) {
-    return <Container error={ datasError } />;
+  if (nodesError) {
+    return <Container error={ nodesError } />;
   }
 
-  if (!datasData) {
+  if (!nodesData) {
     return (
       <Container service={service}>
         <Block label="pterodactyl.nodes" />
@@ -21,10 +21,14 @@ export default function Component({ service }) {
       </Container>
     );
   }
+
+  const totalServers = nodesData.data.reduce((total, node) => 
+    node.attributes?.relationships?.servers?.data?.length ?? 0 + total, 0);
+
   return (
     <Container service={service}>
-      <Block label="pterodactyl.nodes" value={datasData.nodes} />
-      <Block label="pterodactyl.servers" value={datasData.servers} />
+      <Block label="pterodactyl.nodes" value={nodesData.data.length} />
+      <Block label="pterodactyl.servers" value={totalServers} />
     </Container>
   );
 }

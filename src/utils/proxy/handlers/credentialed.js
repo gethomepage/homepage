@@ -46,6 +46,8 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "cloudflared") {
         headers["X-Auth-Email"] = `${widget.email}`;
         headers["X-Auth-Key"] = `${widget.key}`;
+      } else if (widget.type === "pterodactyl") {
+        headers.Authorization = `Bearer ${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
