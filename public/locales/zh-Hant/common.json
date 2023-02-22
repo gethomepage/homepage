@@ -49,7 +49,7 @@
         "used": "已使用",
         "load": "負載",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "記憶體"
     },
     "nzbget": {
         "rate": "速率",
@@ -197,15 +197,15 @@
         "wan": "WAN",
         "lan_users": "LAN使用者",
         "wlan_users": "WLAN使用者",
-        "up": "UP",
-        "down": "DOWN",
+        "up": "上線",
+        "down": "離線",
         "wait": "請稍後",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "設備",
         "lan_devices": "LAN設備",
         "wlan_devices": "WLAN設備",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "子系統狀態未知"
     },
     "plex": {
         "streams": "正在播放",
@@ -404,7 +404,7 @@
     },
     "opnsense": {
         "cpu": "CPU負載",
-        "memory": "Active Memory",
+        "memory": "記憶體",
         "wanUpload": "WAN上傳",
         "wanDownload": "WAN下載"
     },
@@ -454,45 +454,45 @@
         "books": "書刊"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "series": "系列",
+        "issues": "出版",
+        "wanted": "關注中"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "相簿",
+        "photos": "照片",
+        "videos": "影片",
+        "people": "人物"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "天",
+        "uptime": "運行時間",
+        "volumeAvailable": "剩餘容量"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "queue": "佇列",
+        "processing": "處理中",
+        "processed": "已處理",
+        "time": "時間"
     },
     "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "dashboards": "控制面板",
+        "datasources": "數據來源",
+        "totalalerts": "警報總數",
+        "alertstriggered": "觸發的警報"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "處理器負載",
+        "memoryusage": "記憶體用量",
+        "freespace": "可用空間",
+        "activeusers": "活躍用戶"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "狀態",
+        "size": "檔案大小",
+        "lastrun": "上次運行",
+        "nextrun": "下次運行",
+        "failed": "失敗"
     },
     "unmanic": {
         "active_workers": "Active Workers",
@@ -500,13 +500,13 @@
         "records_total": "Queue Length"
     },
     "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "new": "新建立",
+        "up": "上線",
+        "grace": "延緩中",
+        "down": "離線",
+        "paused": "擱置中",
+        "status": "狀態",
+        "last_ping": "上次檢查",
+        "never": "尚未檢查"
     }
 }
