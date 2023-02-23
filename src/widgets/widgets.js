@@ -24,6 +24,7 @@ import kopia from "./kopia/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
 import medusa from "./medusa/widget";
+import minecraft from "./minecraft/widget";
 import miniflux from "./miniflux/widget";
 import mikrotik from "./mikrotik/widget";
 import moonraker from "./moonraker/widget";
@@ -97,6 +98,7 @@ const widgets = {
   lidarr,
   mastodon,
   medusa,
+  minecraft,
   miniflux,
   mikrotik,
   moonraker,
