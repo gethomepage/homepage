@@ -1,0 +1,31 @@
+---
+{{- include "bjw-s.common.loader.init" . }}
+
+{{- define "app-template.hardcodedValues" -}}
+
+# Set the nameOverride based on the release name if no override has been set
+{{ if not .Values.global.nameOverride }}
+global:
+  nameOverride: "{{ .Release.Name }}"
+{{ end }}
+
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "app-template.hardcodedValues" . | fromYaml) -}}
+
+{{/* Append the configMap volume to the volumes */}}
+{{- define "homepage.configVolume" -}}
+enabled: "true"
+mountPath: "/app/config"
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ (default (include "bjw-s.common.lib.chart.names.fullname" .) .Values.config.useExistingConfigMap) }}
+{{- end -}}
+{{- $_ := set .Values.persistence "homepage-config" (include "homepage.configVolume" . | fromYaml) -}}
+
+{{ if .Values.enableRbac }}
+{{- $_ := set .Values.serviceAccount "create" "true" -}}
+{{ end }}
+
+{{/* Render the templates */}}
+{{ include "bjw-s.common.loader.generate" . }}
