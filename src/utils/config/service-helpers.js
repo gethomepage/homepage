@@ -7,17 +7,19 @@ import * as shvl from "shvl";
 import { NetworkingV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
 
 const logger = createLogger("service-helpers");
 
+
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");
 
   const servicesYaml = path.join(process.cwd(), "config", "services.yaml");
-  const fileContents = await fs.readFile(servicesYaml, "utf8");
+  const rawFileContents = await fs.readFile(servicesYaml, "utf8");
+  const fileContents = substituteEnvironmentVars(rawFileContents);
   const services = yaml.load(fileContents);
 
   if (!services) {
@@ -49,7 +51,8 @@ export async function servicesFromDocker() {
   checkAndCopyConfig("docker.yaml");
 
   const dockerYaml = path.join(process.cwd(), "config", "docker.yaml");
-  const dockerFileContents = await fs.readFile(dockerYaml, "utf8");
+  const rawDockerFileContents = await fs.readFile(dockerYaml, "utf8");
+  const dockerFileContents = substituteEnvironmentVars(rawDockerFileContents);
   const servers = yaml.load(dockerFileContents);
 
   if (!servers) {

@@ -27,10 +27,28 @@ export default function checkAndCopyConfig(config) {
   }
 }
 
+export function substituteEnvironmentVars(str) {
+  const homepageVarPrefix = "HOMEPAGE_VAR_";
+  const homepageFilePrefix = "HOMEPAGE_FILE_";
+
+  let result = str;
+  Object.keys(process.env).forEach(key => {
+    if (key.startsWith(homepageVarPrefix)) {
+      result = result.replaceAll(`{{${key}}}`, process.env[key]);
+    } else if (key.startsWith(homepageFilePrefix)) {
+      const filename = process.env[key];
+      const fileContents = readFileSync(filename, "utf8");
+      result = result.replaceAll(`{{${key}}}`, fileContents);
+    }
+  });
+  return result;
+}
+
 export function getSettings() {
   checkAndCopyConfig("settings.yaml");
 
   const settingsYaml = join(process.cwd(), "config", "settings.yaml");
-  const fileContents = readFileSync(settingsYaml, "utf8");
+  const rawFileContents = readFileSync(settingsYaml, "utf8");
+  const fileContents = substituteEnvironmentVars(rawFileContents);
   return yaml.load(fileContents) ?? {};
 }
