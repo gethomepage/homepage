@@ -2,7 +2,12 @@
 import { join } from "path";
 import { existsSync, copyFile, readFileSync } from "fs";
 
+import cache from "memory-cache";
 import yaml from "js-yaml";
+
+const cacheKey = "homepageEnvironmentVariables";
+const homepageVarPrefix = "HOMEPAGE_VAR_";
+const homepageFilePrefix = "HOMEPAGE_FILE_";
 
 export default function checkAndCopyConfig(config) {
   const configYaml = join(process.cwd(), "config", config);
@@ -27,20 +32,30 @@ export default function checkAndCopyConfig(config) {
   }
 }
 
-export function substituteEnvironmentVars(str) {
-  const homepageVarPrefix = "HOMEPAGE_VAR_";
-  const homepageFilePrefix = "HOMEPAGE_FILE_";
+function getCachedEnvironmentVars() {
+  let cachedVars = cache.get(cacheKey);
+  if (!cachedVars) {
+    // initialize cache
+    cachedVars = Object.entries(process.env).filter(([key, ]) => key.includes(homepageVarPrefix) || key.includes(homepageFilePrefix));
+    cache.put(cacheKey, cachedVars);
+  }
+  return cachedVars;
+}
 
+export function substituteEnvironmentVars(str) {
   let result = str;
-  Object.keys(process.env).forEach(key => {
-    if (key.startsWith(homepageVarPrefix)) {
-      result = result.replaceAll(`{{${key}}}`, process.env[key]);
-    } else if (key.startsWith(homepageFilePrefix)) {
-      const filename = process.env[key];
-      const fileContents = readFileSync(filename, "utf8");
-      result = result.replaceAll(`{{${key}}}`, fileContents);
-    }
-  });
+  if (result.includes('{{')) { // crude check if we have vars to replace
+    const cachedVars = getCachedEnvironmentVars();
+    cachedVars.forEach(([key, value]) => {
+      if (key.startsWith(homepageVarPrefix)) {
+        result = result.replaceAll(`{{${key}}}`, value);
+      } else if (key.startsWith(homepageFilePrefix)) {
+        const filename = value;
+        const fileContents = readFileSync(filename, "utf8");
+        result = result.replaceAll(`{{${key}}}`, fileContents);
+      }
+    });
+  }
   return result;
 }
 
