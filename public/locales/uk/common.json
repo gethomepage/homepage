@@ -500,13 +500,13 @@
         "records_total": "Довжина черги"
     },
     "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "down": "Offline",
-        "grace": "In Grace Period",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "new": "Новий",
+        "up": "Онлайн",
+        "down": "Офлайн",
+        "grace": "У пільговий період",
+        "paused": "Призупинено",
+        "status": "Стан",
+        "last_ping": "Останній пінг",
+        "never": "Пінгів ще немає"
     }
 }
