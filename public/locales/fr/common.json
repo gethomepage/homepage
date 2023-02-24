@@ -510,7 +510,7 @@
         "never": "Pas de Ping"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Serveurs",
+        "nodes": "Nœuds"
     }
 }
