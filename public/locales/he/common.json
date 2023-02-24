@@ -508,5 +508,9 @@
         "grace": "In Grace Period",
         "down": "Offline",
         "never": "No pings yet"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
     }
 }
