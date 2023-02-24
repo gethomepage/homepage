@@ -508,5 +508,9 @@
         "status": "狀態",
         "last_ping": "上次檢查",
         "never": "尚未檢查"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
     }
 }
