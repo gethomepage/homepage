@@ -1,0 +1,34 @@
+{{ if not .Values.config.useExistingConfigMap }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "bjw-s.common.lib.chart.names.fullname" . }}
+  labels:
+    {{- include "bjw-s.common.lib.metadata.allLabels" . | nindent 4 }}
+data:
+  bookmarks.yaml: {{- if .Values.config.bookmarks }} |
+{{- .Values.config.bookmarks | toYaml | nindent 4}}
+{{- else }} ""
+{{- end }}
+  docker.yaml: {{- if .Values.config.docker }} |
+{{- .Values.config.docker | toYaml | nindent 4 }}
+{{- else }} ""
+{{- end }}
+  kubernetes.yaml: {{- if .Values.config.kubernetes }} |
+{{- .Values.config.kubernetes | toYaml | nindent 4 }}
+{{- else }} ""
+{{- end }}
+  services.yaml: {{- if .Values.config.services }} |
+{{- .Values.config.services | toYaml | nindent 4 }}
+{{- else }} ""
+{{- end }}
+  settings.yaml: {{- if .Values.config.settings }} |
+{{- .Values.config.settings | toYaml | nindent 4 }}
+{{- else }} ""
+{{- end }}
+  widgets.yaml: {{- if .Values.config.widgets }} |
+{{- .Values.config.widgets | toYaml | nindent 4 }}
+{{- else }} ""
+{{- end }}
+{{ end }}

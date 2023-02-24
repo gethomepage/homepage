@@ -1,0 +1,36 @@
+image:
+  repository: ghcr.io/benphelps/homepage
+  tag: kubernetes
+  pullPolicy: Always
+
+enableRbac: true
+
+serviceAccount:
+  create: true
+  name: homepage-test
+
+config:
+  kubernetes:
+    mode: cluster
+  widgets:
+    - resources:
+        backend: kubernetes
+        expanded: true
+        cpu: true
+        memory: true
+
+ingress:
+  main:
+    enabled: true
+    labels:
+      homepage/enabled: "true"
+    annotations:
+      homepage/name: "Homepage"
+      homepage/description: "A modern, secure, highly customizable application dashboard."
+      homepage/group: "My Group"
+      homepage/icon: "homepage.png"
+    hosts:
+      - host: &host "homepage.bogusdomain.test"
+        paths:
+          - path: /
+            pathType: Prefix

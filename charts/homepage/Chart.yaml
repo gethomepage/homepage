@@ -1,0 +1,20 @@
+---
+apiVersion: v2
+description: Chart for benphelps' Homepage
+icon: https://github.com/benphelps/homepage/blob/de584eae8f12a0d257e554e9511ef19bd2a1232c/public/mstile-150x150.png
+name: homepage
+version: 0.1.0
+appVersion: v0.6.9
+sources:
+  - https://github.com/benphelps/homepage/charts/homepage
+  - https://github.com/benphelps/homepage/
+maintainers:
+  - name: jameswynn
+dependencies:
+  - name: common
+    repository: https://bjw-s.github.io/helm-charts
+    version: 1.2.3
+annotations:
+  artifacthub.io/changes: |-
+    - kind: added
+      description: Initial version
