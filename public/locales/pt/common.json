@@ -517,5 +517,9 @@
         "paused": "Paused",
         "status": "Status",
         "last_ping": "Last Ping"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
     }
 }
