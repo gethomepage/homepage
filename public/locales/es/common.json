@@ -508,5 +508,9 @@
         "status": "Estado",
         "last_ping": "Último Ping",
         "never": "Aún no hay pings"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
     }
 }
