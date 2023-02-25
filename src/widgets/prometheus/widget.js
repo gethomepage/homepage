@@ -6,7 +6,10 @@ const widget = {
 
   mappings: {
     targets: {
-      endpoint: "targets"
+      endpoint: "targets",
+      validate: [
+        "data"
+      ]
     },
   },
 };
