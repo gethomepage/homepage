@@ -512,5 +512,10 @@
     "pterodactyl": {
         "servers": "Servidores",
         "nodes": "Nós"
+    },
+    "prometheus": {
+        "targets_up": "Targets Up",
+        "targets_down": "Targets Down",
+        "targets_total": "Total Targets"
     }
 }
