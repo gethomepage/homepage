@@ -510,7 +510,7 @@
         "never": "Пінгів ще немає"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Сервери",
+        "nodes": "Вузли"
     }
 }
