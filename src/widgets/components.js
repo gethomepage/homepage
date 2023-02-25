@@ -75,6 +75,7 @@ const components = {
   xteve: dynamic(() => import("./xteve/component")),
   immich: dynamic(() => import("./immich/component")),
   uptimekuma: dynamic(() => import("./uptimekuma/component")),
+  prometheus: dynamic(() => import("./prometheus/component")),
 };
 
 export default components;
