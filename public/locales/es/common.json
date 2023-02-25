@@ -510,12 +510,12 @@
         "never": "Aún no hay pings"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Servidores",
+        "nodes": "Nodos"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Objetivos arriba",
+        "targets_down": "Objetivos abajo",
+        "targets_total": "Objetivos totales"
     }
 }
