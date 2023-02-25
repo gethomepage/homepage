@@ -69,6 +69,7 @@ import xteve from "./xteve/widget";
 import immich from "./immich/widget";
 import uptimekuma from "./uptimekuma/widget";
 import unmanic from "./unmanic/widget";
+import prometheus from "./prometheus/widget";
 
 const widgets = {
   adguard,
@@ -144,6 +145,7 @@ const widgets = {
   xteve,
   immich,
   uptimekuma,
+  prometheus
 };
 
 export default widgets;
