@@ -22,6 +22,7 @@ const components = {
   hdhomerun: dynamic(() => import("./hdhomerun/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
   healthchecks: dynamic(() => import("./healthchecks/component")),
+  immich: dynamic(() => import("./immich/component")),
   jackett: dynamic(() => import("./jackett/component")),
   jellyfin: dynamic(() => import("./emby/component")),
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
@@ -50,6 +51,7 @@ const components = {
   pihole: dynamic(() => import("./pihole/component")),
   plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),
+  prometheus: dynamic(() => import("./prometheus/component")),
   prowlarr: dynamic(() => import("./prowlarr/component")),
   proxmox: dynamic(() => import("./proxmox/component")),
   pterodactyl: dynamic(() => import("./pterodactyl/component")),
@@ -71,11 +73,9 @@ const components = {
   truenas: dynamic(() => import("./truenas/component")),
   unifi: dynamic(() => import("./unifi/component")),
   unmanic: dynamic(() => import("./unmanic/component")),
+  uptimekuma: dynamic(() => import("./uptimekuma/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   xteve: dynamic(() => import("./xteve/component")),
-  immich: dynamic(() => import("./immich/component")),
-  uptimekuma: dynamic(() => import("./uptimekuma/component")),
-  prometheus: dynamic(() => import("./prometheus/component")),
 };
 
 export default components;

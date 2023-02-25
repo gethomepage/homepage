@@ -17,6 +17,7 @@ import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import homebridge from "./homebridge/widget";
 import healthchecks from "./healthchecks/widget";
+import immich from "./immich/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
 import komga from "./komga/widget";
@@ -44,6 +45,7 @@ import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pihole from "./pihole/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
+import prometheus from "./prometheus/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
 import pterodactyl from "./pterodactyl/widget";
@@ -64,12 +66,10 @@ import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
+import unmanic from "./unmanic/widget";
+import uptimekuma from "./uptimekuma/widget";
 import watchtower from "./watchtower/widget";
 import xteve from "./xteve/widget";
-import immich from "./immich/widget";
-import uptimekuma from "./uptimekuma/widget";
-import unmanic from "./unmanic/widget";
-import prometheus from "./prometheus/widget";
 
 const widgets = {
   adguard,
@@ -91,6 +91,7 @@ const widgets = {
   hdhomerun,
   homebridge,
   healthchecks,
+  immich,
   jackett,
   jellyfin: emby,
   jellyseerr,
@@ -119,6 +120,7 @@ const widgets = {
   pihole,
   plex,
   portainer,
+  prometheus,
   prowlarr,
   proxmox,
   pterodactyl,
@@ -141,11 +143,9 @@ const widgets = {
   unifi,
   unifi_console: unifi,
   unmanic,
+  uptimekuma,
   watchtower,
   xteve,
-  immich,
-  uptimekuma,
-  prometheus
 };
 
 export default widgets;
