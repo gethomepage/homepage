@@ -262,9 +262,12 @@
         "queued": "Queued",
         "series": "Series"
     },
-    "minecraft":{
+    "minecraft": {
         "players": "Players",
-        "version": "Version"
+        "version": "Version",
+        "status": "Status",
+        "up": "Online",
+        "down": "Offline"
     },
     "miniflux": {
         "read": "Read",

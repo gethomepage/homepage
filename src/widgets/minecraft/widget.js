@@ -11,7 +11,8 @@ const widget = {
         const jsonData = asJson(data);
         return {
           players: jsonData.players,
-          version: jsonData.version
+          version: jsonData.version,
+          online: jsonData.online
         }
       }
     }
