@@ -283,7 +283,9 @@
         "bookmark": "Yer İmi",
         "service": "Hizmet",
         "search": "Ara",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "available_update": "Sistem",
