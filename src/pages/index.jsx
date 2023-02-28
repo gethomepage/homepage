@@ -265,7 +265,6 @@ function Home({ initialSettings }) {
             setSearchString={setSearchString}
             isOpen={searching}
             close={setSearching}
-            searchDescriptions={settings.quicklaunch?.searchDescriptions}
             searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
           />
           {widgets && (

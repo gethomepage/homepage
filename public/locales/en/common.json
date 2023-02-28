@@ -286,7 +286,9 @@
         "bookmark": "Bookmark",
         "service": "Service",
         "search": "Search",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "wmo": {
         "0-day": "Sunny",
