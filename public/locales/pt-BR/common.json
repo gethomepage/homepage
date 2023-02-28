@@ -283,7 +283,9 @@
         "bookmark": "Favorito",
         "service": "Serviço",
         "search": "Busca",
-        "custom": "Personalizado"
+        "custom": "Personalizado",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "available_update": "Sistema",
