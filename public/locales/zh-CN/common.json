@@ -283,7 +283,9 @@
         "bookmark": "书签",
         "service": "服务",
         "search": "搜索",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "available_update": "System",
