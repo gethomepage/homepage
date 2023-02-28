@@ -66,7 +66,9 @@
         "bookmark": "Tandabuku",
         "service": "Servis",
         "search": "Search",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "wmo": {
         "0-day": "Terik",
