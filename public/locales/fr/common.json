@@ -283,7 +283,9 @@
         "bookmark": "Signet",
         "service": "Service",
         "search": "Recherche",
-        "custom": "Personnalisé"
+        "custom": "Personnalisé",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "available_update": "Système",
