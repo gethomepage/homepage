@@ -18,7 +18,7 @@ export default async function minecraftProxyHandler(req, res) {
         });
     } catch (e) {
         logger.warn(e)
-        res.status(500).send({
+        res.status(200).send({
             version: undefined,
             online: false,
             players: undefined
