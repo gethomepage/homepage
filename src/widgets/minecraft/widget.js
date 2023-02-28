@@ -1,12 +1,11 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import minecraftProxyHandler from "utils/proxy/handlers/minecraft";
 import { asJson } from "utils/proxy/api-helpers";
 
 const widget = {
-  api: "{url}/{endpoint}/{domain}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: minecraftProxyHandler,
   mappings: {
     status: {
-      endpoint: "2",
+      endpoint: "_",
       map: (data) => {
         const jsonData = asJson(data);
         return {

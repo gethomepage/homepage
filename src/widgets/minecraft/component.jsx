@@ -25,22 +25,15 @@ export default function Component({ service }) {
   const statusIndicator = serverData.online ? 
   <span className="text-green-500">{t("minecraft.up")}</span>:
   <span className="text-red-500">{t("minecraft.down")}</span>;
+  const players = serverData.players ? `${serverData.players.online} / ${serverData.players.max}` : "-";
+  const version = serverData.version || "-";
   
-  if(serverData.players){
-    return (
-      <Container service={service}>
-        <Block label="minecraft.status" value={statusIndicator} />
-        <Block label="minecraft.players" value={`${serverData.players.online} / ${serverData.players.max}`} />
-        <Block label="minecraft.version" value={serverData.version} />
-      </Container>
-    );
-  } 
   return (
-      <Container service={service}>
+    <Container service={service}>
       <Block label="minecraft.status" value={statusIndicator} />
-      <Block label="minecraft.players" value="-" />
-      <Block label="minecraft.version" value="-" />
-      </Container>
+      <Block label="minecraft.players" value={players} />
+      <Block label="minecraft.version" value={version} />
+    </Container>
   );
 }
      
