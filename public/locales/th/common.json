@@ -297,7 +297,9 @@
         "bookmark": "Bookmark",
         "service": "Service",
         "search": "Search",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "wmo": {
         "67-day": "Freezing Rain",
