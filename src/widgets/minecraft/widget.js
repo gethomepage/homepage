@@ -1,4 +1,4 @@
-import minecraftProxyHandler from "utils/proxy/handlers/minecraft";
+import minecraftProxyHandler from "./proxy";
 
 const widget = {
   proxyHandler: minecraftProxyHandler

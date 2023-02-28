@@ -9,15 +9,16 @@ const logger = createLogger(proxyName);
 export default async function minecraftProxyHandler(req, res) {
     const { group, service } = req.query;
     const serviceWidget = await getServiceWidget(group, service);
+    const url = new URL(serviceWidget.url);
     try {
-        const pingResponse = await pingWithPromise(serviceWidget.domain, serviceWidget.port || 25565);
+        const pingResponse = await pingWithPromise(url.hostname, url.port || 25565);
         res.status(200).send({
             version: pingResponse.version.name,
             online: true,
             players: pingResponse.players
         });
     } catch (e) {
-        logger.warn(e)
+        logger.error(e);
         res.status(200).send({
             version: undefined,
             online: false,
