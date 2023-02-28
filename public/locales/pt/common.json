@@ -296,7 +296,9 @@
         "bookmark": "Marcador",
         "service": "Serviço",
         "search": "Search",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "available_update": "Sistema",
