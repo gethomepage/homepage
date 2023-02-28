@@ -6,14 +6,16 @@ import ResolvedIcon from "./resolvedicon";
 
 import { SettingsContext } from "utils/contexts/settings";
 
-export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close, searchDescriptions, searchProvider}) {
+export default function QuickLaunch({servicesAndBookmarks, searchString, setSearchString, isOpen, close, searchProvider}) {
   const { t } = useTranslation();
   const { settings } = useContext(SettingsContext);
+  const { searchDescriptions, hideVisitURL } = settings?.quicklaunch ? settings.quicklaunch : { searchDescriptions: false, hideVisitURL: false };
 
   const searchField = useRef();
 
   const [results, setResults] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
+  const [url, setUrl] = useState(null);
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
@@ -29,7 +31,16 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
   }, [close, setSearchString, setCurrentItemIndex]);
 
   function handleSearchChange(event) {
-    setSearchString(event.target.value.toLowerCase())
+    const rawSearchString = event.target.value.toLowerCase();
+    try {
+      if (!/.+[.:].+/g.test(rawSearchString)) throw new Error(); // basic test for probably a url
+      let urlString = rawSearchString;
+      if (urlString.indexOf('http') !== 0) urlString = `https://${rawSearchString}`;
+      setUrl(new URL(urlString)); // basic validation
+    } catch (e) {
+      setUrl(null);
+    }
+    setSearchString(rawSearchString);
   }
 
   function handleSearchKeyDown(event) {
@@ -76,6 +87,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       if (searchDescriptions) {
         newResults = newResults.sort((a, b) => b.priority - a.priority);
       }
+      
       if (searchProvider) {
         newResults.push(
           {
@@ -86,13 +98,23 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
         )
       }
 
+      if (!hideVisitURL && url) {
+        newResults.unshift(
+          {
+            href: url.toString(),
+            name: `${t("quicklaunch.visit")} URL`,
+            type: 'url',
+          }
+        )
+      }
+
       setResults(newResults);
 
       if (newResults.length) {
         setCurrentItemIndex(0);
       }
     }
-  }, [searchString, servicesAndBookmarks, searchDescriptions, searchProvider, t]);
+  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchProvider, url, t]);
 
 
   const [hidden, setHidden] = useState(true);
