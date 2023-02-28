@@ -291,7 +291,9 @@
         "bookmark": "Bogmærker",
         "service": "Service",
         "search": "Search",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "watchtower": {
         "containers_scanned": "Scannet",
