@@ -345,7 +345,9 @@
         "bookmark": "Закладка",
         "service": "Сервіс",
         "search": "Пошук",
-        "custom": "Користувацький"
+        "custom": "Користувацький",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "available_update": "Система",
