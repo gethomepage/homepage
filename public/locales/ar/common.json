@@ -283,7 +283,9 @@
         "bookmark": "مفضلة",
         "service": "خدمة",
         "search": "Search",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "available_update": "نظام",
