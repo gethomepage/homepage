@@ -283,7 +283,9 @@
         "bookmark": "Bookmark",
         "service": "Service",
         "search": "Search",
-        "custom": "Custom"
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "homebridge": {
         "update_available": "Update Available",
