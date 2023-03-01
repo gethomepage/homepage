@@ -47,6 +47,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "pterodactyl") {
         headers.Authorization = `Bearer ${widget.key}`;
+      } else if (widget.type === "ghostfolio") {
+        headers.Authorization = `Bearer ${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
