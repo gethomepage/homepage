@@ -3,7 +3,7 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { substituteEnvironmentVars } from "utils/config/config";
 
 const exemptWidgets = ["search"];
 
@@ -11,7 +11,8 @@ export async function widgetsFromConfig() {
     checkAndCopyConfig("widgets.yaml");
 
     const widgetsYaml = path.join(process.cwd(), "config", "widgets.yaml");
-    const fileContents = await fs.readFile(widgetsYaml, "utf8");
+    const rawFileContents = await fs.readFile(widgetsYaml, "utf8");
+    const fileContents = substituteEnvironmentVars(rawFileContents);
     const widgets = yaml.load(fileContents);
 
     if (!widgets) return [];

@@ -3,13 +3,14 @@ import { readFileSync } from "fs";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig from "utils/config/config";
+import checkAndCopyConfig, { substituteEnvironmentVars } from "utils/config/config";
 
 export default function getDockerArguments(server) {
   checkAndCopyConfig("docker.yaml");
 
   const configFile = path.join(process.cwd(), "config", "docker.yaml");
-  const configData = readFileSync(configFile, "utf8");
+  const rawConfigData = readFileSync(configFile, "utf8");
+  const configData = substituteEnvironmentVars(rawConfigData);
   const servers = yaml.load(configData);
 
   if (!server) {
