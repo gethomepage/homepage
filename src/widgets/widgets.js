@@ -68,6 +68,7 @@ import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
 import unmanic from "./unmanic/widget";
 import uptimekuma from "./uptimekuma/widget";
+import uptimekumamonitor from "./uptimekumamonitor/widget";
 import watchtower from "./watchtower/widget";
 import xteve from "./xteve/widget";
 
@@ -144,6 +145,7 @@ const widgets = {
   unifi_console: unifi,
   unmanic,
   uptimekuma,
+  uptimekumamonitor,
   watchtower,
   xteve,
 };

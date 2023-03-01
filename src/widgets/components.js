@@ -74,6 +74,7 @@ const components = {
   unifi: dynamic(() => import("./unifi/component")),
   unmanic: dynamic(() => import("./unmanic/component")),
   uptimekuma: dynamic(() => import("./uptimekuma/component")),
+  uptimekumamonitor: dynamic(() => import("./uptimekumamonitor/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   xteve: dynamic(() => import("./xteve/component")),
 };

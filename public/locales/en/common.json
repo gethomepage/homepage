@@ -469,6 +469,11 @@
         "incident": "Incident",
         "m": "m"
     },
+    "uptimekumamonitor": {
+        "up": "Up",
+        "down": "Down",
+        "maintenance": "Maintenance"
+    },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",
