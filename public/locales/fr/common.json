@@ -521,10 +521,10 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
+        "players": "Joueurs",
         "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "status": "Statut",
+        "up": "En ligne",
+        "down": "Hors ligne"
     }
 }
