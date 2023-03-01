@@ -31,6 +31,7 @@ const components = {
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   medusa: dynamic(() => import("./medusa/component")),
+  minecraft: dynamic(() => import("./minecraft/component")),
   miniflux: dynamic(() => import("./miniflux/component")),
   mikrotik: dynamic(() => import("./mikrotik/component")),
   moonraker: dynamic(() => import("./moonraker/component")),
