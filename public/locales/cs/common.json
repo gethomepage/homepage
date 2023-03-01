@@ -519,5 +519,12 @@
         "targets_down": "Targets Down",
         "targets_total": "Total Targets",
         "targets_up": "Targets Up"
+    },
+    "minecraft": {
+        "up": "Online",
+        "down": "Offline",
+        "players": "Players",
+        "version": "Version",
+        "status": "Status"
     }
 }
