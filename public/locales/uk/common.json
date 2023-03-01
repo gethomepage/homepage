@@ -346,7 +346,7 @@
         "service": "Сервіс",
         "search": "Пошук",
         "custom": "Користувацький",
-        "visit": "Visit",
+        "visit": "Відвідайте",
         "url": "URL"
     },
     "homebridge": {
@@ -516,15 +516,15 @@
         "nodes": "Вузли"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Цілі вгору",
+        "targets_down": "Цілі вниз",
+        "targets_total": "Всього цілей"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "players": "Гравці",
+        "version": "Версія",
+        "status": "Стан",
+        "up": "Онлайн",
+        "down": "Офлайн"
     }
 }
