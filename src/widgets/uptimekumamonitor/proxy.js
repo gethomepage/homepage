@@ -24,5 +24,5 @@ export default async function uptimekumamonitorProxyHandler(req, res) {
   };
   const [status, contentType, data] = await httpProxy(url, params);
   if (contentType) res.setHeader("Content-Type", contentType);
-  return res.status(200).json({data: data.toString()});
+  return res.status(status).json({data: data.toString()});
 }

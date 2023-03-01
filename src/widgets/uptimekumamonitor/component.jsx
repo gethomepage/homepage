@@ -8,7 +8,7 @@ export default function Component({ service }) {
   const { widget } = service;
   const { data: isUp} = useWidgetAPI(widget);
   const { t } = useTranslation();
-
+  let upIndicator;
  
   if (!isUp) {
     return (
@@ -17,11 +17,10 @@ export default function Component({ service }) {
       </Container>
     );
   }
-  var upIndicator;
-  if (isUp.data.includes("Up")) {upIndicator = <span className="text-green-500">{t("uptimekumamonitor.up")}</span>}
-  else if (isUp.data.includes("Maintenance")) {upIndicator = <span style={{color: '#1747f5'}}>{t("uptimekumamonitor.maintenance")}</span>}
-  else if (isUp.data.includes("N/A")) {upIndicator = <span>{"N/A"}</span>}
-  else {upIndicator = <span className="text-red-500">{t("uptimekumamonitor.down")}</span>}
+  if (isUp.data.includes("Up")) upIndicator = <span className="text-green-500">{t("uptimekumamonitor.up")}</span>
+  else if (isUp.data.includes("Maintenance")) upIndicator = <span style={{color: '#1747f5'}}>{t("uptimekumamonitor.maintenance")}</span>
+  else if (isUp.data.includes("N/A")) upIndicator = <span>N/A</span>
+  else upIndicator = <span className="text-red-500">{t("uptimekumamonitor.down")}</span>
 
   return (
     <Container service={service}>
