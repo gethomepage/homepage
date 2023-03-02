@@ -526,5 +526,10 @@
         "status": "Status",
         "up": "Online",
         "version": "Version"
+    },
+    "ghostfolio": {
+        "gross_percent_today": "Today",
+        "gross_percent_1y": "One year",
+        "gross_percent_max": "All time"
     }
 }
