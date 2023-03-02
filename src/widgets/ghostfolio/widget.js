@@ -8,9 +8,6 @@ const widget = {
     today: {
       endpoint: "1d"
     },
-    ytd: {
-      endpoint: "ytd"
-    },
     year: {
       endpoint: "1y"
     },

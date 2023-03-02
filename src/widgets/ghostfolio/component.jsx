@@ -1,45 +1,41 @@
+import { useTranslation } from "next-i18next";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
-// import { useTranslation } from "next-i18next";
+
+function getPerformancePercent(t, performanceRange) {
+  return `${(performanceRange.performance.currentGrossPerformancePercent > 0 ? "+" : "")}${t("common.percent", { value: performanceRange.performance.currentGrossPerformancePercent * 100, maximumFractionDigits: 2 })}`
+}
 
 export default function Component({ service }) {
-  // const { t } = useTranslation();
-
+  const { t } = useTranslation();
   const { widget } = service;
 
   const { data: performanceToday, error: ghostfolioErrorToday } = useWidgetAPI(widget, "today");
-  const { data: performanceYtd, error: ghostfolioErrorYtd } = useWidgetAPI(widget, "ytd", { refreshInterval: 36000 });
-  const { data: performanceYear, error: ghostfolioErrorYear } = useWidgetAPI(widget, "year", { refreshInterval: 36000 });
-  const { data: performanceMax, error: ghostfolioErrorMax } = useWidgetAPI(widget, "max", { refreshInterval: 36000 });
+  const { data: performanceYear, error: ghostfolioErrorYear } = useWidgetAPI(widget, "year");
+  const { data: performanceMax, error: ghostfolioErrorMax } = useWidgetAPI(widget, "max");
 
-  if (ghostfolioErrorToday) {
-    return <Container error={ghostfolioErrorToday} />;
+  if (ghostfolioErrorToday || ghostfolioErrorYear || ghostfolioErrorMax) {
+    const finalError = ghostfolioErrorToday ?? ghostfolioErrorYear ?? ghostfolioErrorMax
+    return <Container error={finalError} />;
   }
 
-  if (ghostfolioErrorYtd) {
-    return <Container error={ghostfolioErrorYtd} />;
-  }
-
-  if (ghostfolioErrorYear) {
-    return <Container error={ghostfolioErrorYear} />;
-  }
-
-  if (ghostfolioErrorMax) {
-    return <Container error={ghostfolioErrorMax} />;
+  if (!performanceToday || !performanceYear || !performanceMax) {
+    return (
+      <Container service={service}>
+        <Block label="ghostfolio.gross_percent_today" />
+        <Block label="ghostfolio.gross_percent_1y" />
+        <Block label="ghostfolio.gross_percent_max" />
+      </Container>
+    );
   }
 
   return (
     <Container service={service}>
-      {/* <Block label="ghostfolio.gross_percent_today" value={performanceToday && t("common.percent", { value: Math.round(performanceToday.performance.currentGrossPerformancePercent * 10000) / 100 }) || false} />
-      <Block label="ghostfolio.gross_percent_ytd" value={performanceYtd && t("common.percent", { value: Math.round(performanceYtd.performance.currentGrossPerformancePercent * 10000) / 100 }) || false} />
-      <Block label="ghostfolio.gross_percent_1y" value={performanceYear && t("common.percent", { value: Math.round(performanceYear.performance.currentGrossPerformancePercent * 10000) / 100 }) || false} />
-      <Block label="ghostfolio.gross_percent_max" value={performanceMax && t("common.percent", { value: Math.round(performanceMax.performance.currentGrossPerformancePercent * 10000) / 100 }) || false} /> */}
-      <Block label="ghostfolio.gross_percent_today" value={performanceToday && `${(performanceToday.performance.currentGrossPerformancePercent > 0 ? "+" : "")}${(Math.round(performanceToday.performance.currentGrossPerformancePercent * 10000) / 100)}%` || false} />
-      <Block label="ghostfolio.gross_percent_ytd" value={performanceYtd && `${(performanceYtd.performance.currentGrossPerformancePercent > 0 ? "+" : "")}${(Math.round(performanceYtd.performance.currentGrossPerformancePercent * 10000) / 100)}%` || false} />
-      <Block label="ghostfolio.gross_percent_1y" value={performanceYear && `${(performanceYear.performance.currentGrossPerformancePercent > 0 ? "+" : "")}${(Math.round(performanceYear.performance.currentGrossPerformancePercent * 10000) / 100)}%` || false} />
-      <Block label="ghostfolio.gross_percent_max" value={performanceMax && `${(performanceMax.performance.currentGrossPerformancePercent > 0 ? "+" : "")}${(Math.round(performanceMax.performance.currentGrossPerformancePercent * 10000) / 100)}%` || false} />
+      <Block label="ghostfolio.gross_percent_today" value={getPerformancePercent(t, performanceToday)} />
+      <Block label="ghostfolio.gross_percent_1y" value={getPerformancePercent(t, performanceYear)} />
+      <Block label="ghostfolio.gross_percent_max" value={getPerformancePercent(t, performanceMax)} />
     </Container>
   );
 }
