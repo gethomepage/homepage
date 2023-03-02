@@ -528,8 +528,8 @@
         "down": "Hors ligne"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "Aujourd'hui",
+        "gross_percent_1y": "Un an",
+        "gross_percent_max": "Depuis le début"
     }
 }
