@@ -110,7 +110,7 @@
     },
     "sabnzbd": {
         "rate": "Débit",
-        "queue": "Queue",
+        "queue": "En attente",
         "timeleft": "Temps restant"
     },
     "nzbget": {
@@ -366,7 +366,7 @@
         "queue": "À traiter",
         "processed": "Traité",
         "errored": "En erreur",
-        "saved": "Enregistré"
+        "saved": "Economisé"
     },
     "miniflux": {
         "read": "Lu",
@@ -472,7 +472,7 @@
         "volumeAvailable": "Disponible"
     },
     "fileflows": {
-        "queue": "Queue",
+        "queue": "À traiter",
         "processing": "Traitement",
         "processed": "Traité",
         "time": "Temps"
