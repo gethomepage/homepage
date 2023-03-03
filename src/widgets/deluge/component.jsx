@@ -44,9 +44,9 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="deluge.leech" value={t("common.number", { value: leech })} />
-      <Block label="deluge.download" value={t("common.bitrate", { value: rateDl })} />
+      <Block label="deluge.download" value={t("common.byterate", { value: rateDl })} />
       <Block label="deluge.seed" value={t("common.number", { value: completed })} />
-      <Block label="deluge.upload" value={t("common.bitrate", { value: rateUl })} />
+      <Block label="deluge.upload" value={t("common.byterate", { value: rateUl })} />
     </Container>
   );
 }

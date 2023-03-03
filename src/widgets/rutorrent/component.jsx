@@ -34,8 +34,8 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="rutorrent.active" value={active.length} />
-      <Block label="rutorrent.upload" value={t("common.bitrate", { value: upload })} />
-      <Block label="rutorrent.download" value={t("common.bitrate", { value: download })} />
+      <Block label="rutorrent.upload" value={t("common.byterate", { value: upload })} />
+      <Block label="rutorrent.download" value={t("common.byterate", { value: download })} />
     </Container>
   );
 }
