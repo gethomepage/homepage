@@ -26,7 +26,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="pyload.speed" value={t("common.bitrate", { value: pyloadData.speed })} />
+      <Block label="pyload.speed" value={t("common.byterate", { value: pyloadData.speed })} />
       <Block label="pyload.active" value={t("common.number", { value: pyloadData.active })} />
       <Block label="pyload.queue" value={t("common.number", { value: pyloadData.queue })} />
       <Block label="pyload.total" value={t("common.number", { value: pyloadData.total })} />
