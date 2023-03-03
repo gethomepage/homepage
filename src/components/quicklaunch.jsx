@@ -19,7 +19,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
-    window.open(result.href, newWindow ? "_blank" : result.target ?? settings.target ?? "_blank");
+    window.open(result.href, newWindow ? "_blank" : result.target ?? settings.target ?? "_blank", 'noreferrer');
   }
 
   const closeAndReset = useCallback(() => {
@@ -87,7 +87,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
       if (searchDescriptions) {
         newResults = newResults.sort((a, b) => b.priority - a.priority);
       }
-      
+
       if (searchProvider) {
         newResults.push(
           {
