@@ -38,7 +38,12 @@
         "used": "Used",
         "load": "Load",
         "temp": "TEMP",
-        "max": "Max"
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "users": "Users",
