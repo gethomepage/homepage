@@ -36,7 +36,9 @@
         "total": "Total",
         "free": "Free",
         "used": "Used",
-        "load": "Load"
+        "load": "Load",
+        "temp": "TEMP",
+        "max": "Max"
     },
     "unifi": {
         "users": "Users",

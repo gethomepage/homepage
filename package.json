@@ -23,6 +23,7 @@
     "minecraft-ping-js": "^1.0.2",
     "next": "^12.3.1",
     "next-i18next": "^12.0.1",
+    "osx-temperature-sensor": "^1.0.8",
     "pretty-bytes": "^6.0.0",
     "raw-body": "^2.5.1",
     "react": "^18.2.0",

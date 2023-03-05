@@ -25,6 +25,7 @@ specifiers:
   minecraft-ping-js: ^1.0.2
   next: ^12.3.1
   next-i18next: ^12.0.1
+  osx-temperature-sensor: ^1.0.8
   postcss: ^8.4.16
   prettier: ^2.7.1
   pretty-bytes: ^6.0.0
@@ -57,6 +58,7 @@ dependencies:
   minecraft-ping-js: 1.0.2
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
   next-i18next: 12.0.1_azq6kxkn3od7qdylwkyksrwopy
+  osx-temperature-sensor: 1.0.8
   pretty-bytes: 6.0.0
   raw-body: 2.5.1
   react: 18.2.0
@@ -2441,6 +2443,13 @@ packages:
       type-check: 0.4.0
       word-wrap: 1.2.3
     dev: true
+
+  /osx-temperature-sensor/1.0.8:
+    resolution: {integrity: sha512-Gl3b+bn7+oDDnqPa+4v/cg3yg9lnE8ppS7ivL3opBZh4i7h99JNmkm6zWmo0m2a83UUJu+C9D7lGP0OS8IlehA==}
+    engines: {node: '>=4.0.0'}
+    os: [darwin]
+    requiresBuild: true
+    dev: false
 
   /p-limit/3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
