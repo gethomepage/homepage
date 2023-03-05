@@ -4,8 +4,8 @@
         "api_error": "API-Fehler",
         "status": "Status",
         "url": "URL",
-        "information": "Information",
-        "raw_error": "Raw Error",
+        "information": "Informationen",
+        "raw_error": "Unbearbeiteter Fehler",
         "response_data": "Empfangene Daten"
     },
     "search": {
