@@ -44,7 +44,7 @@ export default function Memory({ expanded }) {
     );
   }
 
-  const percent = Math.round((data.memory.usedMemMb / data.memory.totalMemMb) * 100);
+  const percent = Math.round((data.memory.used / data.memory.total) * 100);
 
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">
@@ -52,7 +52,7 @@ export default function Memory({ expanded }) {
       <div className="flex flex-col ml-3 text-left min-w-[85px]">
         <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
           <div className="pl-0.5 pr-1">
-            {t("common.bytes", { value: data.memory.freeMemMb * 1024 * 1024, maximumFractionDigits: 1, binary: true })}
+            {t("common.bytes", { value: data.memory.free, maximumFractionDigits: 1, binary: true })}
           </div>
           <div className="pr-1">{t("resources.free")}</div>
         </span>
@@ -60,7 +60,7 @@ export default function Memory({ expanded }) {
           <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
             <div className="pl-0.5 pr-1">
               {t("common.bytes", {
-                value: data.memory.totalMemMb * 1024 * 1024,
+                value: data.memory.total,
                 maximumFractionDigits: 1,
                 binary: true,
               })}
