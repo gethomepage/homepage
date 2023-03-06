@@ -28,10 +28,15 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
-      } else if (widget.type === "authentik") {
-        headers.Authorization = `Bearer ${widget.key}`;
-      } else if (widget.type === "truenas") {
-        headers.Authorization = `Bearer ${widget.key}`;
+      } else if ([
+        "authentik",
+        "cloudflared",
+        "ghostfolio",
+        "truenas",
+        "pterodactyl",
+        ].includes(widget.type))
+        {
+          headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
@@ -43,12 +48,6 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = `Token ${widget.key}`;
       } else if (widget.type === "miniflux") {
         headers["X-Auth-Token"] = `${widget.key}`;
-      } else if (widget.type === "cloudflared") {
-        headers.Authorization = `Bearer ${widget.key}`;
-      } else if (widget.type === "pterodactyl") {
-        headers.Authorization = `Bearer ${widget.key}`;
-      } else if (widget.type === "ghostfolio") {
-        headers.Authorization = `Bearer ${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
