@@ -1,4 +1,5 @@
 import adguard from "./adguard/widget";
+import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
 import bazarr from "./bazarr/widget";
@@ -75,6 +76,7 @@ import xteve from "./xteve/widget";
 
 const widgets = {
   adguard,
+  audiobookshelf,
   authentik,
   autobrr,
   bazarr,
