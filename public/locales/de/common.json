@@ -106,7 +106,7 @@
         "pending": "Ausstehend",
         "approved": "Genehmigt",
         "available": "Verfügbar",
-        "processing": "Processing"
+        "processing": "Wird verarbeitet"
     },
     "sabnzbd": {
         "rate": "Geschwindigkeit",
@@ -363,7 +363,7 @@
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "Warteschlange",
         "processed": "Processed",
         "errored": "Errored",
         "saved": "Saved"
@@ -394,8 +394,8 @@
         "seed": "Seed"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
+        "cpuLoad": "CPU Auslastung",
+        "memoryUsed": "RAM Verbrauch",
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
@@ -405,16 +405,16 @@
         "streams_xepg": "XEPG Channels"
     },
     "opnsense": {
-        "cpu": "CPU Load",
+        "cpu": "CPU Auslastung",
         "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Drucker Status",
+        "print_status": "Druck Status",
+        "print_progress": "Fortschritt",
+        "layers": "Schichten"
     },
     "medusa": {
         "wanted": "Wanted",
@@ -424,8 +424,8 @@
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "temp_bed": "Bett Temp",
+        "job_completion": "Fortschritt"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
@@ -435,66 +435,66 @@
         "cpu_usage": "CPU",
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "memory_usage": "Memory"
+        "memory_usage": "RAM"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
+        "users": "Benutzer",
+        "photos": "Fotos",
         "videos": "Videos",
-        "storage": "Storage"
+        "storage": "Speicher"
     },
     "uptimekuma": {
         "up": "Sites Up",
         "down": "Sites Down",
         "uptime": "Uptime",
-        "incident": "Incident",
+        "incident": "Vorfall",
         "m": "m"
     },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",
-        "books": "Books"
+        "books": "Bücher"
     },
     "mylar": {
-        "series": "Series",
+        "series": "Serie",
         "issues": "Issues",
-        "wanted": "Wanted"
+        "wanted": "Gesucht"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
+        "albums": "Alben",
+        "photos": "Fotos",
         "videos": "Videos",
-        "people": "People"
+        "people": "Personen"
     },
     "diskstation": {
-        "days": "Days",
+        "days": "Tage",
         "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "volumeAvailable": "Verfügbar"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
+        "queue": "Warteschlange",
+        "processing": "Wird verarbeitet",
         "processed": "Processed",
-        "time": "Time"
+        "time": "Zeit"
     },
     "grafana": {
         "dashboards": "Dashboards",
-        "datasources": "Data Sources",
+        "datasources": "Datenquellen",
         "totalalerts": "Total Alerts",
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "CPU Last",
+        "memoryusage": "RAM Verbrauch",
+        "freespace": "Freier Speicher",
+        "activeusers": "Aktive Nutzer"
     },
     "kopia": {
         "status": "Status",
-        "size": "Size",
+        "size": "Größe",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
-        "failed": "Failed"
+        "failed": "Fehlgeschlagen"
     },
     "unmanic": {
         "active_workers": "Active Workers",
@@ -529,7 +529,7 @@
     },
     "ghostfolio": {
         "gross_percent_max": "All time",
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year"
+        "gross_percent_today": "Heute",
+        "gross_percent_1y": "Ein Jahr"
     }
 }
