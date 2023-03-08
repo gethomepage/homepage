@@ -17,7 +17,7 @@
         "used": "Gebraucht",
         "load": "Last",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "RAM"
     },
     "docker": {
         "rx": "Rx",
@@ -25,8 +25,8 @@
         "mem": "Mem",
         "cpu": "Prozessor",
         "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown"
+        "error": "Fehler",
+        "unknown": "Unbekannt"
     },
     "emby": {
         "playing": "Spielen",
@@ -205,7 +205,7 @@
         "devices": "Geräte",
         "lan_devices": "LAN-Geräte",
         "wlan_devices": "WLAN Geräte",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Subsystem status unbekannt"
     },
     "plex": {
         "streams": "Aktive Streams",
@@ -282,9 +282,9 @@
     "quicklaunch": {
         "bookmark": "Lesezeichen",
         "service": "Dienst",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "search": "Suchen",
+        "custom": "Benutzerdefiniert",
+        "visit": "Besuchen",
         "url": "URL"
     },
     "homebridge": {
@@ -319,36 +319,36 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Keine Aktiven Übertragungen",
+        "please_wait": "Bitte warten"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "Geschwindigkeit",
+        "active": "Aktiv",
+        "queue": "Warteschlange",
+        "total": "Gesamt"
     },
     "gluetun": {
-        "public_ip": "Public IP",
+        "public_ip": "Öffentliche IP",
         "region": "Region",
-        "country": "Country"
+        "country": "Land"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanäle",
         "hd": "HD"
     },
     "ping": {
         "ping": "Ping",
-        "error": "Error"
+        "error": "Fehler"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Bestanden",
+        "failed": "Fehlgeschlagen",
+        "unknown": "Unbekannt"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "Eingang",
+        "total": "Gesamt"
     },
     "deluge": {
         "download": "Download",
@@ -364,28 +364,28 @@
     },
     "tdarr": {
         "queue": "Warteschlange",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "processed": "Verarbeitet",
+        "errored": "Fehlgeschlagen",
+        "saved": "Gespeichert"
     },
     "miniflux": {
-        "unread": "Unread",
-        "read": "Read"
+        "unread": "Ungelesen",
+        "read": "Lesen"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Bitte Warten",
+        "no_devices": "Keine Daten empfangen"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Verbundene APs",
+        "activeUser": "Aktive Geräte",
+        "alerts": "Meldungen",
+        "connectedGateway": "Verbundene Gateways",
+        "connectedSwitches": "Verbundene Switches"
     },
     "downloadstation": {
         "download": "Download",
@@ -396,17 +396,17 @@
     "mikrotik": {
         "cpuLoad": "CPU Auslastung",
         "memoryUsed": "RAM Verbrauch",
-        "uptime": "Uptime",
+        "uptime": "Laufzeit",
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Keine Übertragungen",
+        "streams_active": "Aktive Streams",
+        "streams_xepg": "XEPG Kanäle"
     },
     "opnsense": {
         "cpu": "CPU Auslastung",
-        "memory": "Active Memory",
+        "memory": "Aktiver RAM",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     },
@@ -417,13 +417,13 @@
         "layers": "Schichten"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Gesucht",
+        "queued": "Wartend",
+        "series": "Serie"
     },
     "octoprint": {
         "printer_state": "Status",
-        "temp_tool": "Tool temp",
+        "temp_tool": "Düsen Temp",
         "temp_bed": "Bett Temp",
         "job_completion": "Fortschritt"
     },
@@ -433,8 +433,8 @@
     },
     "proxmoxbackupserver": {
         "cpu_usage": "CPU",
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "Datenspeicher",
+        "failed_tasks_24h": "Fehlgeschlagene Prozesse 24h",
         "memory_usage": "RAM"
     },
     "immich": {
@@ -446,13 +446,13 @@
     "uptimekuma": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime",
+        "uptime": "Laufzeit",
         "incident": "Vorfall",
         "m": "m"
     },
     "komga": {
         "libraries": "Libraries",
-        "series": "Series",
+        "series": "Serie",
         "books": "Bücher"
     },
     "mylar": {
@@ -468,19 +468,19 @@
     },
     "diskstation": {
         "days": "Tage",
-        "uptime": "Uptime",
+        "uptime": "Laufzeit",
         "volumeAvailable": "Verfügbar"
     },
     "fileflows": {
         "queue": "Warteschlange",
         "processing": "Wird verarbeitet",
-        "processed": "Processed",
+        "processed": "Verarbeitet",
         "time": "Zeit"
     },
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Datenquellen",
-        "totalalerts": "Total Alerts",
+        "totalalerts": "Gesamte Meldungen",
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
@@ -492,8 +492,8 @@
     "kopia": {
         "status": "Status",
         "size": "Größe",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
+        "lastrun": "Letzter Durchlauf",
+        "nextrun": "Nächster Durchlauf",
         "failed": "Fehlgeschlagen"
     },
     "unmanic": {
@@ -503,16 +503,16 @@
     },
     "healthchecks": {
         "grace": "In Grace Period",
-        "new": "New",
+        "new": "Neu",
         "up": "Online",
         "down": "Offline",
-        "paused": "Paused",
+        "paused": "Pausiert",
         "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "last_ping": "Letzter Ping",
+        "never": "Noch keine Pings"
     },
     "pterodactyl": {
-        "servers": "Servers",
+        "servers": "Server",
         "nodes": "Nodes"
     },
     "prometheus": {
@@ -521,7 +521,7 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
+        "players": "Spieler",
         "version": "Version",
         "status": "Status",
         "up": "Online",
