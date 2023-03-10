@@ -47,12 +47,12 @@
     },
     "sonarr": {
         "wanted": "Demande",
-        "queued": "En attente",
+        "queued": "Attente",
         "series": "Séries"
     },
     "radarr": {
         "wanted": "Demande",
-        "queued": "En attente",
+        "queued": "Attente",
         "movies": "Films",
         "missing": "Manquant"
     },
@@ -103,7 +103,7 @@
         "wait": "Veuillez patienter"
     },
     "overseerr": {
-        "pending": "En attente",
+        "pending": "Attente",
         "approved": "Demande",
         "available": "Disponible",
         "processing": "En traitement"
