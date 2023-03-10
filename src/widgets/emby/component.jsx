@@ -161,6 +161,13 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
+  const {
+    data: countData,
+    error: countError,
+  } = useWidgetAPI(widget, "Count", {
+    refreshInterval: 600000,
+  });
+
   async function handlePlayCommand(session, command) {
     const url = formatProxyUrlWithSegments(widget, "PlayControl", {
       sessionId: session.Id,
@@ -169,6 +176,21 @@ export default function Component({ service }) {
     await fetch(url).then(() => {
       sessionMutate();
     });
+  }
+
+  if (countError) {
+    return <Container error={countError} />;
+  }
+
+  if (countData){
+    return (
+      <Container service={service}>
+      <Block label="emby.Movies" value={t("common.number", { value: countData.MovieCount })} />
+      <Block label="emby.Series" value={t("common.number", { value: countData.SeriesCount })} />
+      <Block label="emby.Episodes" value={t("common.number", { value: countData.EpisodeCount })} />
+      <Block label="emby.Songs" value={t("common.number", { value: countData.SongCount })} />
+    </Container>
+    );
   }
 
   if (sessionsError) {
