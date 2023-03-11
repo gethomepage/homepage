@@ -106,7 +106,7 @@
         "pending": "Attente",
         "approved": "Demande",
         "available": "Disponible",
-        "processing": "En traitement"
+        "processing": "Traitement"
     },
     "sabnzbd": {
         "rate": "Débit",
