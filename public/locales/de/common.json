@@ -428,7 +428,7 @@
         "job_completion": "Fortschritt"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
+        "origin_ip": "Ursprüngliche IP",
         "status": "Status"
     },
     "proxmoxbackupserver": {
@@ -444,20 +444,20 @@
         "storage": "Speicher"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Seiten verfügbar",
+        "down": "Seiten nicht verfügbar",
         "uptime": "Laufzeit",
         "incident": "Vorfall",
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
+        "libraries": "Bibliotheken",
         "series": "Serie",
         "books": "Bücher"
     },
     "mylar": {
         "series": "Serie",
-        "issues": "Issues",
+        "issues": "Probleme",
         "wanted": "Gesucht"
     },
     "photoprism": {
@@ -481,7 +481,7 @@
         "dashboards": "Dashboards",
         "datasources": "Datenquellen",
         "totalalerts": "Gesamte Meldungen",
-        "alertstriggered": "Alerts Triggered"
+        "alertstriggered": "Ausgelöste Alarme"
     },
     "nextcloud": {
         "cpuload": "CPU Last",
