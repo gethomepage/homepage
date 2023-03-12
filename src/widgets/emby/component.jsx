@@ -149,6 +149,33 @@ function SessionEntry({ playCommand, session }) {
   );
 }
 
+function CountBlocks({ service, countData }) {
+  const { t } = useTranslation();
+  // allows filtering
+  // eslint-disable-next-line no-param-reassign
+  if (service.widget?.type === 'jellyfin') service.widget.type = 'emby'
+
+  if (!countData) {
+    return (
+      <Container service={service}>
+        <Block label="emby.movies" />
+        <Block label="emby.series" />
+        <Block label="emby.episodes" /> 
+        <Block label="emby.songs" />
+      </Container>
+    )
+  }
+
+  return (
+    <Container service={service}>
+      <Block label="emby.movies" value={t("common.number", { value: countData.MovieCount })} />
+      <Block label="emby.series" value={t("common.number", { value: countData.SeriesCount })} />
+      <Block label="emby.episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
+      <Block label="emby.songs" value={t("common.number", { value: countData.SongCount })} />
+    </Container>
+  )
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
@@ -179,114 +206,92 @@ export default function Component({ service }) {
   }
 
   if (sessionsError || countError) {
-    return <Container error={sessionsError || countError} />;
+    return <Container error={sessionsError ?? countError} />;
   }
 
-  if (!sessionsData && countData) {
+  const enableBlocks = service.widget?.enableBlocks
+  const enableNowPlaying = service.widget?.enableNowPlaying ?? true
+
+  if (!sessionsData || !countData) {
     return (
       <>
-      <Container>
-            <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
-            <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
-            <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
-            <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
-      </Container>
-      <div className="flex flex-col pb-1">
+      {enableBlocks && <CountBlocks service={service} countData={null} />}
+      {enableNowPlaying && <div className="flex flex-col pb-1">
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">-</span>
         </div>
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">-</span>
         </div>
-      </div>
+      </div>}
       </>
     );
   }
 
-  if (!sessionsData) {
-    return (
-      <div className="flex flex-col pb-1">
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
+  if (enableNowPlaying) {
+    const playing = sessionsData
+      .filter((session) => session?.NowPlayingItem)
+      .sort((a, b) => {
+        if (a.PlayState.PositionTicks > b.PlayState.PositionTicks) {
+          return 1;
+        }
+        if (a.PlayState.PositionTicks < b.PlayState.PositionTicks) {
+          return -1;
+        }
+        return 0;
+      });
+  
+    if (playing.length === 0) {
+      return (
+        <>
+        {enableBlocks && <CountBlocks service={service} countData={countData} />}
+        <div className="flex flex-col pb-1 mx-1">
+          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+            <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
+          </div>
+          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+            <span className="absolute left-2 text-xs mt-[2px]">-</span>
+          </div>
         </div>
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
+        </>
+      );
+    }
+  
+    if (playing.length === 1) {
+      const session = playing[0];
+      return (
+        <>
+        {enableBlocks && <CountBlocks service={service} countData={countData} />}
+        <div className="flex flex-col pb-1 mx-1">
+          <SingleSessionEntry
+            playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
+            session={session}
+          />
         </div>
-      </div>
-    );
-  }
-
-  const playing = sessionsData
-    .filter((session) => session?.NowPlayingItem)
-    .sort((a, b) => {
-      if (a.PlayState.PositionTicks > b.PlayState.PositionTicks) {
-        return 1;
-      }
-      if (a.PlayState.PositionTicks < b.PlayState.PositionTicks) {
-        return -1;
-      }
-      return 0;
-    });
-
-  if (playing.length === 0 && countData) {
+        </>
+      );
+    }
+  
+    if (playing.length === -1)
     return (
       <>
-      <Container>
-            <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
-            <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
-            <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
-            <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
-          </Container>
+      {enableBlocks && <CountBlocks service={service} countData={countData} />}
       <div className="flex flex-col pb-1 mx-1">
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
-        </div>
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
-        </div>
+        {playing.map((session) => (
+          <SessionEntry
+            key={session.Id}
+            playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
+            session={session}
+          />
+        ))}
       </div>
       </>
     );
   }
 
-  if (playing.length === 1 && countData) {
-    const session = playing[0];
+  if (enableBlocks) {
     return (
-      <>
-      <Container>
-            <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
-            <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
-            <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
-            <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
-      </Container>
-      <div className="flex flex-col pb-1 mx-1">
-        <SingleSessionEntry
-          playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
-          session={session}
-        />
-      </div>
-      </>
-    );
+      <CountBlocks service={service} countData={countData} />
+    )
   }
-
-  if (countData && playing.length === -1)
-  return (
-    <>
-    <Container>
-      <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
-      <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
-      <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
-      <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
-   </Container>
-    <div className="flex flex-col pb-1 mx-1">
-      {playing.map((session) => (
-        <SessionEntry
-          key={session.Id}
-          playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
-          session={session}
-        />
-      ))}
-    </div>
-    </>
-  );
 }
