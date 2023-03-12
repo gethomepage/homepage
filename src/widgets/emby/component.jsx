@@ -174,7 +174,7 @@ export default function Component({ service }) {
       command,
     });
     await fetch(url).then(() => {
-      sessionMutate;
+      sessionMutate();
     });
   }
 
