@@ -2,6 +2,7 @@ import { useTranslation } from "next-i18next";
 import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay } from "react-icons/md";
 
+import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { formatProxyUrlWithSegments } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -161,18 +162,45 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
+  const {
+    data: countData,
+    error: countError,
+  } = useWidgetAPI(widget, "Count", {
+    refreshInterval: 60000,});
+
   async function handlePlayCommand(session, command) {
     const url = formatProxyUrlWithSegments(widget, "PlayControl", {
       sessionId: session.Id,
       command,
     });
     await fetch(url).then(() => {
-      sessionMutate();
+      sessionMutate;
     });
   }
 
-  if (sessionsError) {
-    return <Container error={sessionsError} />;
+  if (sessionsError || countError) {
+    return <Container error={sessionsError || countError} />;
+  }
+
+  if (!sessionsData && countData) {
+    return (
+      <>
+      <Container>
+            <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
+            <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
+            <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
+            <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
+      </Container>
+      <div className="flex flex-col pb-1">
+        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+          <span className="absolute left-2 text-xs mt-[2px]">-</span>
+        </div>
+        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+          <span className="absolute left-2 text-xs mt-[2px]">-</span>
+        </div>
+      </div>
+      </>
+    );
   }
 
   if (!sessionsData) {
@@ -200,8 +228,15 @@ export default function Component({ service }) {
       return 0;
     });
 
-  if (playing.length === 0) {
+  if (playing.length === 0 && countData) {
     return (
+      <>
+      <Container>
+            <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
+            <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
+            <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
+            <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
+          </Container>
       <div className="flex flex-col pb-1 mx-1">
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
@@ -210,22 +245,39 @@ export default function Component({ service }) {
           <span className="absolute left-2 text-xs mt-[2px]">-</span>
         </div>
       </div>
+      </>
     );
   }
 
-  if (playing.length === 1) {
+  if (playing.length === 1 && countData) {
     const session = playing[0];
     return (
+      <>
+      <Container>
+            <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
+            <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
+            <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
+            <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
+      </Container>
       <div className="flex flex-col pb-1 mx-1">
         <SingleSessionEntry
           playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
           session={session}
         />
       </div>
+      </>
     );
   }
 
+  if (countData && playing.length === -1)
   return (
+    <>
+    <Container>
+      <Block label="Movies" value={t("common.number", { value: countData.MovieCount })} />
+      <Block label="Series" value={t("common.number", { value: countData.SeriesCount })} />
+      <Block label="Episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
+      <Block label="Songs" value={t("common.number", { value: countData.SongCount })} />
+   </Container>
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
         <SessionEntry
@@ -235,5 +287,6 @@ export default function Component({ service }) {
         />
       ))}
     </div>
+    </>
   );
 }
