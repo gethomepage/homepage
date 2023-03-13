@@ -54,7 +54,11 @@
         "playing": "Reproduint",
         "transcoding": "Transcodificant",
         "bitrate": "Taxa de bits",
-        "no_active": "Sense reproduccions actives"
+        "no_active": "Sense reproduccions actives",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Reproduint",
