@@ -32,7 +32,11 @@
         "playing": "En lecture",
         "transcoding": "Transcodage",
         "bitrate": "Débit",
-        "no_active": "Aucun flux actif"
+        "no_active": "Aucun flux actif",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "En lecture",
