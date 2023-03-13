@@ -33,10 +33,10 @@
         "transcoding": "Transcodificação",
         "bitrate": "Taxa de bits",
         "no_active": "Sem streams ativas",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmes",
+        "series": "Séries",
+        "episodes": "Episódios",
+        "songs": "Canções"
     },
     "tautulli": {
         "playing": "Reproduzindo",
@@ -202,7 +202,7 @@
         "users": "Utilizadores"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "Memória",
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
@@ -222,7 +222,7 @@
         "devices": "Dispositivos",
         "lan_devices": "Dispositivos LAN",
         "wlan_devices": "Dispositivos WLAN",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Status de Subsistema Desconhecido"
     },
     "plex": {
         "streams": "Streams Ativas",
@@ -258,38 +258,38 @@
         "53-night": "Chuvisco",
         "55-day": "Aguaceiro Forte",
         "55-night": "Aguaceiro Forte",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "66-day": "Freezing Rain",
+        "56-day": "Leve Garoa Congelante",
+        "56-night": "Leve Garoa Congelante",
+        "57-day": "Garoa Congelante",
+        "57-night": "Garoa Congelante",
+        "66-day": "Chuva Congelante",
         "61-day": "Chuva fraca",
         "61-night": "Chuva fraca",
         "63-day": "Chuva",
         "63-night": "Chuva",
         "65-day": "Chuva forte",
-        "66-night": "Freezing Rain",
+        "66-night": "Chuva Congelante",
         "65-night": "Chuva forte",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "67-day": "Chuva Congelante",
+        "67-night": "Chuva Congelante",
         "71-day": "Neve fraca",
         "71-night": "Neve fraca",
         "73-day": "Neve",
         "73-night": "Neve",
         "75-day": "Neve forte",
         "75-night": "Neve forte",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
+        "77-day": "Grãos de Neve",
+        "77-night": "Grãos de Neve",
         "80-day": "Neve fraca",
         "80-night": "Chuviscos ligeiros",
         "81-day": "Chuviscos",
         "81-night": "Chuviscos",
         "82-day": "Chuviscos fortes",
         "82-night": "Chuviscos fortes",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
+        "85-day": "Precipitação de Neve",
+        "85-night": "Precipitação de Neve",
+        "86-day": "Precipitação de Neve",
+        "86-night": "Precipitação de Neve",
         "95-day": "Trovoada",
         "95-night": "Trovoada",
         "96-day": "Trovoada com granizo",
@@ -299,9 +299,9 @@
     "quicklaunch": {
         "bookmark": "Marcador",
         "service": "Serviço",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "search": "Busca",
+        "custom": "Personalizado",
+        "visit": "Visitar",
         "url": "URL"
     },
     "homebridge": {
@@ -309,7 +309,7 @@
         "updates": "Atualizações",
         "update_available": "Atualização disponível",
         "up_to_date": "Atualizado",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "Pontes Filhas",
         "child_bridges_status": "{{ok}}/{{total}}"
     },
     "autobrr": {
@@ -410,7 +410,7 @@
         "cpuLoad": "Carga do CPU",
         "memoryUsed": "Memória Utilizada",
         "uptime": "Ativo",
-        "numberOfLeases": "Leases"
+        "numberOfLeases": "Concessões"
     },
     "xteve": {
         "streams_all": "Todos os Streams",
@@ -424,109 +424,109 @@
         "wanDownload": "WAN Descarga"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Estado da Impressora",
+        "print_status": "Estado da Impressora",
+        "print_progress": "Progresso",
+        "layers": "Camadas"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Desejado",
+        "queued": "Na fila",
+        "series": "Séries"
     },
     "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "printer_state": "Estado",
+        "temp_tool": "Temp. Ferramenta",
+        "temp_bed": "Temp. Cama",
+        "job_completion": "Conclusão"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "IP Origem",
+        "status": "Estado"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "Armaz. de Dados",
+        "failed_tasks_24h": "Tarefas Falhas 24h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Memória"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Utilizadores",
+        "photos": "Fotos",
+        "videos": "Vídeos",
+        "storage": "Armazenamento"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
+        "up": "Sites no Ar",
+        "down": "Sites Fora do Ar",
+        "uptime": "Tempo Ativo",
+        "incident": "Incidente",
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+        "libraries": "Bibliotecas",
+        "series": "Séries",
+        "books": "Livros"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "series": "Séries",
+        "issues": "Problemas",
+        "wanted": "Desejado"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "Álbuns",
+        "photos": "Fotos",
+        "videos": "Vídeos",
+        "people": "Pessoa"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Dias",
+        "uptime": "Tempo Ativo",
+        "volumeAvailable": "Disponível"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "queue": "Fila",
+        "processing": "Processando",
+        "processed": "Processado",
+        "time": "Hora"
     },
     "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "dashboards": "Painéis",
+        "datasources": "Origem de Dados",
+        "totalalerts": "Total Alertas",
+        "alertstriggered": "Alertas Disparados"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "Carga de CPU",
+        "memoryusage": "Memória Utilizada",
+        "freespace": "Espaço Livre",
+        "activeusers": "Utilizadores Ativos"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "Estado",
+        "size": "Tamanho",
+        "lastrun": "Ultima Execução",
+        "nextrun": "Próxima Execução",
+        "failed": "Falha"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
+        "active_workers": "Workers Ativos",
         "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "records_total": "Comprimento da Fila"
     },
     "healthchecks": {
-        "never": "No pings yet",
-        "new": "New",
+        "never": "Nenhum ping ainda",
+        "new": "Novo",
         "up": "Online",
-        "grace": "In Grace Period",
+        "grace": "Em Período Gratuito",
         "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping"
+        "paused": "Pausado",
+        "status": "Estado",
+        "last_ping": "Ultimo Ping"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Servidores",
+        "nodes": "Nós"
     },
     "prometheus": {
         "targets_up": "Targets Up",
@@ -534,15 +534,15 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
+        "players": "Reprodutores",
+        "version": "Versão",
+        "status": "Estado",
         "up": "Online",
         "down": "Offline"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "Hoje",
+        "gross_percent_1y": "Um ano",
+        "gross_percent_max": "Todo o tempo"
     }
 }
