@@ -20,7 +20,11 @@
         "no_active": "Brak aktywnych strumieni",
         "playing": "Odtwarzanie",
         "transcoding": "Transkodowanie",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Odtwarzanie",
