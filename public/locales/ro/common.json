@@ -88,7 +88,11 @@
         "playing": "Activ",
         "transcoding": "Transcodare",
         "bitrate": "Bitrate",
-        "no_active": "Niciun stream activ"
+        "no_active": "Niciun stream activ",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "sabnzbd": {
         "rate": "Rată",
