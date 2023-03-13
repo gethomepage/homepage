@@ -38,7 +38,11 @@
         "playing": "Spelar",
         "transcoding": "Omkodning",
         "bitrate": "Bitrate",
-        "no_active": "Inga aktiva strömmar"
+        "no_active": "Inga aktiva strömmar",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Spelar",
