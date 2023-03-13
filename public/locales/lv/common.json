@@ -63,7 +63,11 @@
         "playing": "Atskaņo",
         "transcoding": "Pārkodē",
         "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju"
+        "no_active": "Nav aktīvu straumju",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "flood": {
         "download": "Lejupielāde",
