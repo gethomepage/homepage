@@ -32,7 +32,11 @@
         "playing": "播放中",
         "transcoding": "转码",
         "bitrate": "比特率",
-        "no_active": "暂无播放"
+        "no_active": "暂无播放",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "播放中",
