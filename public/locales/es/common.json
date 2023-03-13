@@ -33,10 +33,10 @@
         "transcoding": "Transcodificando",
         "bitrate": "Tasa de bits",
         "no_active": "Sin transmisiones activas",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Películas",
+        "series": "Serie",
+        "episodes": "Episodios",
+        "songs": "Canciones"
     },
     "tautulli": {
         "playing": "Reproduciendo",
