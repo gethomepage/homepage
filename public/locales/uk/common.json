@@ -164,7 +164,11 @@
         "playing": "Відтворення",
         "transcoding": "Перекодування",
         "bitrate": "Бітрейт",
-        "no_active": "Немає активних потоків"
+        "no_active": "Немає активних потоків",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "flood": {
         "download": "Завантаження",
