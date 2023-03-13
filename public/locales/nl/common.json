@@ -48,7 +48,11 @@
         "playing": "Afspelen",
         "transcoding": "Transcodering",
         "bitrate": "Bitsnelheid",
-        "no_active": "Geen Actieve Steams"
+        "no_active": "Geen Actieve Steams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Afspelen",
