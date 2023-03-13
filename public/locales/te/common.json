@@ -55,7 +55,11 @@
         "playing": "ఆడుతున్నారు",
         "transcoding": "ట్రాన్స్‌కోడింగ్",
         "bitrate": "బిట్రేట్",
-        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు"
+        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "ఆడుతున్నారు",
