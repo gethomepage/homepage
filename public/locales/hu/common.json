@@ -52,7 +52,11 @@
         "playing": "Lejátszás",
         "transcoding": "Átkódolás",
         "bitrate": "Bitráta",
-        "no_active": "Nincs aktív lejátszás"
+        "no_active": "Nincs aktív lejátszás",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Lejátszás folyamatban",
