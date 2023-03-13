@@ -79,7 +79,11 @@
         "playing": "Reprodukcija",
         "transcoding": "Prekodiranje",
         "bitrate": "Stopa bitova",
-        "no_active": "Nema aktivnih prijenosa"
+        "no_active": "Nema aktivnih prijenosa",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Reprodukcija",
