@@ -66,7 +66,11 @@
         "playing": "Reproduzindo",
         "transcoding": "Transcodificando",
         "bitrate": "Taxa de bits",
-        "no_active": "Sem transmissões ativas"
+        "no_active": "Sem transmissões ativas",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Reproduzindo",
