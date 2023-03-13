@@ -99,7 +99,11 @@
         "playing": "กำลังเล่น",
         "transcoding": "การแปลงรหัส",
         "bitrate": "อัตราบิต",
-        "no_active": "ไม่มีสตรีมที่ใช้งานอยู่"
+        "no_active": "ไม่มีสตรีมที่ใช้งานอยู่",
+        "movies": "Movies",
+        "series": "Series",
+        "songs": "Songs",
+        "episodes": "Episodes"
     },
     "deluge": {
         "download": "ดาวน์โหลด",
