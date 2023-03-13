@@ -8,6 +8,15 @@ const widget = {
     Sessions: {
       endpoint: "Sessions",
     },
+    Count: {
+      endpoint: "Items/Counts",
+      segments: [
+          "MovieCount",
+          "SeriesCount",
+          "EpisodeCount",
+          "SongCount"
+      ]
+    },
     PlayControl: {
       method: "POST",
       endpoint: "Sessions/{sessionId}/Playing/{command}",
