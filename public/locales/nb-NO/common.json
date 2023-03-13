@@ -32,7 +32,11 @@
         "playing": "Spiller",
         "transcoding": "Transkoding",
         "bitrate": "Bitrate",
-        "no_active": "Ingen aktive strømmer"
+        "no_active": "Ingen aktive strømmer",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Spiller",
