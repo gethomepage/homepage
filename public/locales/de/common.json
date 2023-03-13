@@ -32,7 +32,11 @@
         "playing": "Spielen",
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
-        "no_active": "Keine aktiven Streams"
+        "no_active": "Keine aktiven Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Spielen",
