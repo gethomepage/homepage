@@ -38,7 +38,11 @@
         "playing": "Toistaa",
         "transcoding": "Transkoodaa",
         "bitrate": "Bittinopeus",
-        "no_active": "Ei aktiivisia striimejä"
+        "no_active": "Ei aktiivisia striimejä",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Toistaa",
