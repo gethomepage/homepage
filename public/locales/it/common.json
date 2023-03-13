@@ -12,7 +12,11 @@
         "playing": "In riproduzione",
         "transcoding": "Transcodifica",
         "bitrate": "Bitrate",
-        "no_active": "Nessuno Stream Attivo"
+        "no_active": "Nessuno Stream Attivo",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "In riproduzione",
