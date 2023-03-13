@@ -113,7 +113,11 @@
         "playing": "يعمل الآن",
         "transcoding": "التحويل",
         "bitrate": "معدل البت",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streams",
+        "songs": "Songs",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
