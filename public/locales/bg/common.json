@@ -65,7 +65,11 @@
         "playing": "Възпроизвежда",
         "transcoding": "Конвертира",
         "bitrate": "Bitrate",
-        "no_active": "Няма активни потоци"
+        "no_active": "Няма активни потоци",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Възпроизвежда",
