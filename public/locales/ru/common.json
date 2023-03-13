@@ -32,7 +32,11 @@
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
-        "no_active": "Нет активных потоков"
+        "no_active": "Нет активных потоков",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Воспроизведение",
