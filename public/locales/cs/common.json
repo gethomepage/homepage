@@ -67,7 +67,11 @@
         "playing": "Přehrává",
         "transcoding": "Transkódování",
         "bitrate": "Bitrate",
-        "no_active": "Žádný aktivní stream"
+        "no_active": "Žádný aktivní stream",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "changedetectionio": {
         "totalObserved": "Celkem zjištěno",
