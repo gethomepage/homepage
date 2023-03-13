@@ -3,7 +3,11 @@
         "transcoding": "轉碼緊",
         "bitrate": "比特率",
         "playing": "播放緊",
-        "no_active": "無任何活動"
+        "no_active": "無任何活動",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "播放緊",
