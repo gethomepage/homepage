@@ -192,7 +192,11 @@
         "playing": "Afspiller",
         "transcoding": "Transcoder",
         "bitrate": "Bitrate",
-        "no_active": "Ingen Aktive Streams"
+        "no_active": "Ingen Aktive Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "changedetectionio": {
         "totalObserved": "Total Observeret",
