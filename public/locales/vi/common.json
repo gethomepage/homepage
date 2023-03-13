@@ -32,7 +32,11 @@
         "playing": "Đang chơi",
         "transcoding": "Chuyển định dạng",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Đang chơi",
