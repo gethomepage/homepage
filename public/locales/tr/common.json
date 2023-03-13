@@ -55,7 +55,11 @@
         "playing": "Oynatılıyor",
         "transcoding": "Dönüştürülüyor",
         "bitrate": "Bit Oranı",
-        "no_active": "Aktif akış yok"
+        "no_active": "Aktif akış yok",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Oynatılıyor",
