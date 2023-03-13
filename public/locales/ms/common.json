@@ -168,7 +168,11 @@
         "playing": "Sedang dimainkan",
         "transcoding": "Transkoding",
         "bitrate": "Kadar bit",
-        "no_active": "Tiada Strim Aktif"
+        "no_active": "Tiada Strim Aktif",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Sedang Dimainkan",
