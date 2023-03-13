@@ -38,7 +38,11 @@
         "playing": "מנגן",
         "transcoding": "מקודד",
         "bitrate": "סיביות",
-        "no_active": "אין הזרמות פעילות"
+        "no_active": "אין הזרמות פעילות",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "מנגן",
