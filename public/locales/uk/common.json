@@ -165,10 +165,10 @@
         "transcoding": "Перекодування",
         "bitrate": "Бітрейт",
         "no_active": "Немає активних потоків",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Фільми",
+        "series": "Серії",
+        "episodes": "Епізоди",
+        "songs": "Пісні"
     },
     "flood": {
         "download": "Завантаження",
