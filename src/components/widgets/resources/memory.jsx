@@ -29,12 +29,12 @@ export default function Memory({ expanded }) {
         <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
         <div className="flex flex-col ml-3 text-left min-w-[85px]">
           <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-            <div className="pl-0.5">-</div>
+            <div className="pl-0.5 pr-1">-</div>
             <div className="pr-1">{t("resources.free")}</div>
           </span>
           {expanded && (
             <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-              <div className="pl-0.5">-</div>
+              <div className="pl-0.5 pr-1">-</div>
               <div className="pr-1">{t("resources.total")}</div>
             </span>
           )}
@@ -51,14 +51,14 @@ export default function Memory({ expanded }) {
       <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
       <div className="flex flex-col ml-3 text-left min-w-[85px]">
         <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-          <div className="pl-0.5">
+          <div className="pl-0.5 pr-1">
             {t("common.bytes", { value: data.memory.freeMemMb * 1024 * 1024, maximumFractionDigits: 1, binary: true })}
           </div>
           <div className="pr-1">{t("resources.free")}</div>
         </span>
         {expanded && (
           <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-            <div className="pl-0.5">
+            <div className="pl-0.5 pr-1">
               {t("common.bytes", {
                 value: data.memory.totalMemMb * 1024 * 1024,
                 maximumFractionDigits: 1,
