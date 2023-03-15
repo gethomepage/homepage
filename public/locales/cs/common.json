@@ -116,23 +116,23 @@
         "seed": "Seeder"
     },
     "sonarr": {
-        "wanted": "Hledaný",
+        "wanted": "Hledané",
         "queued": "Ve frontě",
         "series": "Seriály"
     },
     "radarr": {
-        "wanted": "Hledaný",
+        "wanted": "Hledané",
         "missing": "Chybějící",
         "queued": "Ve frontě",
         "movies": "Filmy"
     },
     "lidarr": {
-        "wanted": "Hledaný",
+        "wanted": "Hledané",
         "queued": "Ve frontě",
         "albums": "Alba"
     },
     "readarr": {
-        "wanted": "Hledaný",
+        "wanted": "Hledané",
         "queued": "Ve frontě",
         "books": "Knihy"
     },
@@ -143,17 +143,17 @@
     "ombi": {
         "pending": "Čeká",
         "approved": "Schváleno",
-        "available": "Dostupný"
+        "available": "Dostupné"
     },
     "jellyseerr": {
         "pending": "Čeká",
         "approved": "Schváleno",
-        "available": "Dostupný"
+        "available": "Dostupné"
     },
     "overseerr": {
         "pending": "Čeká",
         "approved": "Schváleno",
-        "available": "Dostupný",
+        "available": "Dostupné",
         "processing": "Zpracováváno"
     },
     "pihole": {
@@ -304,7 +304,7 @@
         "url": "URL"
     },
     "homebridge": {
-        "update_available": "Dostupná aktualizace",
+        "update_available": "Dostupná",
         "up_to_date": "Aktuální",
         "available_update": "Systém",
         "updates": "Aktualizace",
@@ -401,7 +401,7 @@
         "cpuLoad": "Zatížení procesoru",
         "memoryUsed": "Použitá paměť",
         "uptime": "Doba provozu",
-        "numberOfLeases": "Leases"
+        "numberOfLeases": "Pronájmy"
     },
     "xteve": {
         "streams_all": "Všechny proudy",
@@ -427,30 +427,30 @@
     },
     "octoprint": {
         "printer_state": "Stav",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "temp_tool": "Teplota nástroje",
+        "temp_bed": "Teplota postele",
+        "job_completion": "Dokončení"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "Původní IP",
+        "status": "Stav"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "Datové úložiště",
+        "failed_tasks_24h": "Neúspěšné úlohy 24h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Paměť"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Uživatelé",
+        "photos": "Fotografie",
+        "videos": "Videa",
+        "storage": "Úložiště"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
+        "up": "Stránky Up",
+        "down": "Stránky Down",
+        "uptime": "Doba provozu",
         "incident": "Incident",
         "m": "m"
     },
@@ -488,10 +488,10 @@
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "CPU zatížení",
+        "memoryusage": "Využití paměti",
+        "freespace": "Volný prostor",
+        "activeusers": "Aktivní uživatelé"
     },
     "kopia": {
         "status": "Status",
