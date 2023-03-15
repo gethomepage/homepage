@@ -535,5 +535,11 @@
         "gross_percent_today": "Aujourd'hui",
         "gross_percent_1y": "Un an",
         "gross_percent_max": "Depuis le début"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }
