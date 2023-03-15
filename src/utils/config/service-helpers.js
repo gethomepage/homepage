@@ -4,7 +4,7 @@ import path from "path";
 import yaml from "js-yaml";
 import Docker from "dockerode";
 import * as shvl from "shvl";
-import { NetworkingV1Api } from "@kubernetes/client-node";
+import { CustomObjectsApi, NetworkingV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { substituteEnvironmentVars } from "utils/config/config";
@@ -145,6 +145,7 @@ export async function servicesFromKubernetes() {
       return [];
     }
     const networking = kc.makeApiClient(NetworkingV1Api);
+    const crd = kc.makeApiClient(CustomObjectsApi);
 
     const ingressList = await networking.listIngressForAllNamespaces(null, null, null, null)
       .then((response) => response.body)
@@ -152,6 +153,20 @@ export async function servicesFromKubernetes() {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
         return null;
       });
+
+    const traefikIngressList = await crd.listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
+      .then((response) => response.body)
+      .catch((error) => {
+        logger.error("Error getting traefik ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        return null;
+      });
+
+    if (traefikIngressList && traefikIngressList.items.length > 0) {
+      const traefikServices = traefikIngressList.items
+      .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`])
+      ingressList.items.push(...traefikServices);
+    }
+
     if (!ingressList) {
       return [];
     }
