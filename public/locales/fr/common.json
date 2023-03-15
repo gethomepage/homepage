@@ -538,8 +538,8 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "books": "Livres",
+        "podcastsDuration": "Durée",
+        "booksDuration": "Durée"
     }
 }
