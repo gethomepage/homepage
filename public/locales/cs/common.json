@@ -17,7 +17,7 @@
         "status": "Status",
         "information": "Informace",
         "url": "URL",
-        "raw_error": "Raw Error",
+        "raw_error": "Chyba",
         "response_data": "Data odpovědi"
     },
     "weather": {
@@ -35,7 +35,7 @@
         "free": "Volné",
         "used": "Využité",
         "load": "Vytížení",
-        "mem": "MEM"
+        "mem": "RAM"
     },
     "unifi": {
         "users": "Uživatelé",
@@ -68,10 +68,10 @@
         "transcoding": "Transkódování",
         "bitrate": "Bitrate",
         "no_active": "Žádný aktivní stream",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmy",
+        "series": "Seriály",
+        "episodes": "Epizody",
+        "songs": "Písničky"
     },
     "changedetectionio": {
         "totalObserved": "Celkem zjištěno",
@@ -298,9 +298,9 @@
     "quicklaunch": {
         "bookmark": "Záložka",
         "service": "Služba",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "search": "Hledat",
+        "custom": "Vlastní",
+        "visit": "Navštivte",
         "url": "URL"
     },
     "homebridge": {
@@ -327,18 +327,18 @@
         "please_wait": "Prosím vyčkejte"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "Rychlost",
+        "active": "Aktivní",
+        "queue": "Fronta",
+        "total": "Celkem"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "Veřejná IP",
+        "region": "Oblast",
+        "country": "Země"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanály",
         "hd": "HD"
     },
     "ping": {
@@ -346,13 +346,13 @@
         "ping": "Odezva"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Prošlo",
+        "failed": "Neúspěšné",
+        "unknown": "Neznámý"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "Doručená pošta",
+        "total": "Celkem"
     },
     "deluge": {
         "upload": "Nahrávání",
@@ -373,12 +373,12 @@
         "saved": "Uložené"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Přečteno",
+        "unread": "Nepřečteno"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Počkejte prosím",
+        "no_devices": "Žádná přijatá data zařízení"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
@@ -398,35 +398,35 @@
         "seed": "Seed"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
+        "cpuLoad": "Zatížení procesoru",
+        "memoryUsed": "Použitá paměť",
+        "uptime": "Doba provozu",
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Všechny proudy",
+        "streams_active": "Aktivní proudy",
+        "streams_xepg": "Kanály XEPG"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Zatížení procesoru",
+        "memory": "Aktivní paměť",
+        "wanUpload": "Nahrávání WAN",
+        "wanDownload": "WAN Stažení"
     },
     "moonraker": {
-        "print_progress": "Progress",
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "layers": "Layers"
+        "print_progress": "Progres",
+        "printer_state": "Stav tiskárny",
+        "print_status": "Stav tisku",
+        "layers": "Vrstvy"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Hledané",
+        "queued": "Fronta",
+        "series": "Série"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "Stav",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
@@ -506,14 +506,14 @@
         "records_total": "Queue Length"
     },
     "healthchecks": {
-        "new": "New",
+        "new": "Nové",
         "up": "Online",
-        "grace": "In Grace Period",
+        "grace": "V období odkladu",
         "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "paused": "Pozastaveno",
+        "status": "Stav",
+        "last_ping": "Poslední ping",
+        "never": "Zatím žádné pingy"
     },
     "pterodactyl": {
         "servers": "Servers",
@@ -527,9 +527,9 @@
     "minecraft": {
         "up": "Online",
         "down": "Offline",
-        "players": "Players",
-        "version": "Version",
-        "status": "Status"
+        "players": "Hráči",
+        "version": "Verze",
+        "status": "Stav"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",
