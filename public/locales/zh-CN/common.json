@@ -32,7 +32,8 @@
         "not_found": "Not Found",
         "running": "Running",
         "exited": "Exited",
-        "partial": "Partial"
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "播放中",
