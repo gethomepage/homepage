@@ -65,7 +65,8 @@
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
-        "exited": "Exited"
+        "exited": "Exited",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Възпроизвежда",
