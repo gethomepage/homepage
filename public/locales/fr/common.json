@@ -33,7 +33,7 @@
         "not_found": "Inconnu",
         "exited": "Arrêté",
         "partial": "Partiel",
-        "healthy": "Healthy"
+        "healthy": "Fonctionnel"
     },
     "emby": {
         "playing": "En lecture",
