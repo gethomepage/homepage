@@ -73,7 +73,13 @@
         "cpu": "CPU",
         "offline": "Nepovezan",
         "error": "Greška",
-        "unknown": "Nepoznato"
+        "unknown": "Nepoznato",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "emby": {
         "playing": "Reprodukcija",
@@ -297,7 +303,10 @@
         "update_available": "Dostupna je nova verzija",
         "up_to_date": "Aktualno",
         "child_bridges": "Podređeni mosotvi",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "rejectedPushes": "Odbijeno",
