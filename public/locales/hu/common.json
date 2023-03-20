@@ -20,7 +20,8 @@
         "starting": "Starting",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Partial"
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "lidarr": {
         "albums": "Albumok",
