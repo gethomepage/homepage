@@ -33,11 +33,13 @@ export default function Status({ service }) {
 
     if (!data.health) {
       statusLabel = data.status.replace("running", t("docker.running"))
+    } else {
+      statusLabel = data.health === "healthy" ? t("docker.healthy") : data.health
     }
 
     return (
-      <div className="w-auto px-1.5 py-0.5 text-center bg-theme-500/10 dark:bg-theme-900/50 rounded-b-[3px] overflow-hidden" title={data.health || statusLabel}>
-        <div className="text-[8px] font-bold text-emerald-500/80 uppercase">{data.health || statusLabel}</div>
+      <div className="w-auto px-1.5 py-0.5 text-center bg-theme-500/10 dark:bg-theme-900/50 rounded-b-[3px] overflow-hidden" title={statusLabel}>
+        <div className="text-[8px] font-bold text-emerald-500/80 uppercase">{statusLabel}</div>
       </div>
     );
   }

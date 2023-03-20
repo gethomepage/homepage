@@ -64,6 +64,7 @@
         "offline": "Offline",
         "error": "Error",
         "unknown": "Unknown",
+        "healthy": "Healthy",
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
