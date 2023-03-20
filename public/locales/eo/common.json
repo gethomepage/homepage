@@ -49,7 +49,13 @@
         "cpu": "Ĉefprocesoro",
         "offline": "Offline",
         "error": "Eraro",
-        "unknown": "Nekonata"
+        "unknown": "Nekonata",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "ping": {
         "error": "Eraro",
@@ -311,7 +317,10 @@
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
