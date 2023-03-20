@@ -29,7 +29,8 @@
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Partial"
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "speedtest": {
         "upload": "Upload",
