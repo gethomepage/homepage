@@ -106,14 +106,14 @@
     "transmission": {
         "download": "Stahování",
         "upload": "Nahrávání",
-        "leech": "Leecher",
-        "seed": "Seeder"
+        "leech": "Leecherů",
+        "seed": "Seedů"
     },
     "qbittorrent": {
         "download": "Stahování",
         "upload": "Nahrávání",
-        "leech": "Leecher",
-        "seed": "Seeder"
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "sonarr": {
         "wanted": "Hledané",
@@ -159,7 +159,7 @@
     "pihole": {
         "queries": "Dotazy",
         "blocked": "Blokováno",
-        "gravity": "Gravitace"
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Dotazy",
@@ -305,7 +305,7 @@
     },
     "homebridge": {
         "update_available": "Dostupná",
-        "up_to_date": "Aktuální",
+        "up_to_date": "Všechno aktuální",
         "available_update": "Systém",
         "updates": "Aktualizace",
         "child_bridges": "Podřadné můstky",
@@ -348,7 +348,7 @@
     "scrutiny": {
         "passed": "Prošlo",
         "failed": "Neúspěšné",
-        "unknown": "Neznámý"
+        "unknown": "Neznámé"
     },
     "paperlessngx": {
         "inbox": "Doručená pošta",
