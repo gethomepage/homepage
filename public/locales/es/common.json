@@ -32,7 +32,8 @@
         "unhealthy": "Insalubre",
         "not_found": "No encontrado",
         "exited": "Salida",
-        "partial": "Parcial"
+        "partial": "Parcial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Reproduciendo",
