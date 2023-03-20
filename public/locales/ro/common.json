@@ -14,7 +14,13 @@
         "cpu": "CPU",
         "offline": "Offline",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "jellyseerr": {
         "approved": "Aprobate",
@@ -297,7 +303,10 @@
         "child_bridges": "Child Bridges",
         "available_update": "System",
         "updates": "Updates",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Approved",
