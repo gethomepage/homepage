@@ -35,7 +35,8 @@
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
-        "partial": "Partial"
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "search": {
         "placeholder": "Sök…"
