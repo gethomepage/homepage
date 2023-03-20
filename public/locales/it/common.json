@@ -6,7 +6,13 @@
         "offline": "Offline",
         "rx": "RX",
         "error": "Errore",
-        "unknown": "Sconosciuto"
+        "unknown": "Sconosciuto",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "emby": {
         "playing": "In riproduzione",
@@ -297,7 +303,10 @@
         "update_available": "Aggiornamento Disponibile",
         "up_to_date": "Aggiornato",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Approvato",
