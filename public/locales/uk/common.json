@@ -160,7 +160,8 @@
         "not_found": "Not Found",
         "exited": "Exited",
         "partial": "Partial",
-        "running": "Running"
+        "running": "Running",
+        "healthy": "Healthy"
     },
     "ping": {
         "error": "Помилка",
