@@ -27,12 +27,12 @@
         "offline": "Hors ligne",
         "error": "Erreur",
         "unknown": "Inconnu",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
+        "running": "Démarré",
+        "starting": "Démarrage",
+        "unhealthy": "Dysfonctionnement",
+        "not_found": "Inconnu",
+        "exited": "Arrêté",
+        "partial": "Partiel"
     },
     "emby": {
         "playing": "En lecture",
