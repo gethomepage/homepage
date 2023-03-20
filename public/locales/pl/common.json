@@ -70,7 +70,13 @@
         "cpu": "Procesor",
         "offline": "Offline",
         "error": "Błąd",
-        "unknown": "Nieznany"
+        "unknown": "Nieznany",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "nzbget": {
         "rate": "Szybkość",
@@ -297,7 +303,10 @@
         "update_available": "Dostępna aktualizacja",
         "up_to_date": "Aktualny",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Zaakceptowane",
