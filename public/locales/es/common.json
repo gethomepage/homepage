@@ -27,12 +27,12 @@
         "offline": "Desconectado",
         "error": "Fallo",
         "unknown": "Desconocido",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
+        "running": "Ejecutando",
+        "starting": "Comenzando",
+        "unhealthy": "Insalubre",
+        "not_found": "No encontrado",
+        "exited": "Salida",
+        "partial": "Parcial"
     },
     "emby": {
         "playing": "Reproduciendo",
@@ -304,9 +304,9 @@
         "up_to_date": "Actualizado",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
+        "up": "Arriba",
+        "pending": "Pendiente",
+        "down": "Abajo"
     },
     "autobrr": {
         "approvedPushes": "Aprobado",
