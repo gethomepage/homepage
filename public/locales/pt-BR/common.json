@@ -60,7 +60,13 @@
         "cpu": "CPU",
         "offline": "Desligado",
         "error": "Erro",
-        "unknown": "Desconhecido"
+        "unknown": "Desconhecido",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "emby": {
         "playing": "Reproduzindo",
@@ -297,7 +303,10 @@
         "update_available": "Atualização Disponível",
         "up_to_date": "Atualizado",
         "child_bridges": "Pontes Filhas",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Aprovado",
