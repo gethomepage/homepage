@@ -21,7 +21,13 @@
         "mem": "記憶體",
         "cpu": "處理器",
         "error": "錯誤",
-        "unknown": "未知的"
+        "unknown": "未知的",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "emby": {
         "playing": "正在播放",
@@ -297,7 +303,10 @@
         "update_available": "有可用的更新",
         "up_to_date": "已更新至最新",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "已核准",
