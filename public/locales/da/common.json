@@ -134,7 +134,10 @@
         "update_available": "Opdateringer tilgængelige",
         "up_to_date": "Opdateret",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "widget": {
         "missing_type": "Manglende Widget Type: {{type}}",
@@ -186,7 +189,13 @@
         "mem": "RAM",
         "offline": "Offline",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "emby": {
         "playing": "Afspiller",
