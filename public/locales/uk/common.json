@@ -155,13 +155,13 @@
         "offline": "Офлайн",
         "error": "Помилка",
         "unknown": "Невідомий",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "running": "Running",
-        "healthy": "Healthy"
+        "starting": "Запуск",
+        "unhealthy": "Нездоровий",
+        "not_found": "Не знайдено",
+        "exited": "Вийшов",
+        "partial": "Частковий",
+        "running": "Запущено",
+        "healthy": "Здоров'я"
     },
     "ping": {
         "error": "Помилка",
@@ -367,9 +367,9 @@
         "update_available": "Доступне оновлення",
         "up_to_date": "Актуально",
         "child_bridges": "Дитячі мости",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
+        "up": "Вгору",
+        "pending": "В очікуванні",
+        "down": "Вниз"
     },
     "watchtower": {
         "containers_scanned": "Відскановано",
