@@ -72,10 +72,10 @@
         "missing_type": "Lipsește Tipul de Widget: {{type}}",
         "api_error": "Eroare API",
         "status": "Status",
-        "information": "Informatie",
+        "information": "Informație",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Eroare Raw",
+        "response_data": "Date de raspuns"
     },
     "search": {
         "placeholder": "Caută…"
@@ -210,13 +210,13 @@
         "wlan_users": "Utilizatori WLAN",
         "up": "Pornit",
         "down": "Oprit",
-        "wait": "Va rugam asteptati",
+        "wait": "Vă rugăm așteptați",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "empty_data": "Subsystem status unknown"
+        "devices": "Dispozitive",
+        "lan_devices": "Dispozitive LAN",
+        "wlan_devices": "Dispozitive WLAN",
+        "empty_data": "Starea subsistemului este necunoscut"
     },
     "plex": {
         "streams": "Fluxuri active",
@@ -391,7 +391,7 @@
         "no_devices": "No Device Data Received"
     },
     "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibyterate": "{{valoare, rata(bits: fals; binar: adevarat)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
@@ -508,12 +508,12 @@
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
-        "failed": "Failed"
+        "failed": "Eșuat"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Muncitori activi",
+        "total_workers": "Muncitori totali",
+        "records_total": "Lungimea cozii"
     },
     "healthchecks": {
         "new": "New",
@@ -526,8 +526,8 @@
         "never": "No pings yet"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Servere",
+        "nodes": "Noduri"
     },
     "prometheus": {
         "targets_up": "Targets Up",
