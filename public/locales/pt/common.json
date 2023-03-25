@@ -28,12 +28,12 @@
         "error": "Erro",
         "unknown": "Desconhecido",
         "partial": "Partial",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "healthy": "Healthy"
+        "running": "Executando",
+        "starting": "Iniciando",
+        "unhealthy": "Não-saudável",
+        "not_found": "Não Encontrado",
+        "exited": "Encerrado",
+        "healthy": "Saudável"
     },
     "emby": {
         "playing": "A reproduzir",
