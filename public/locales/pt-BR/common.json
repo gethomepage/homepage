@@ -61,13 +61,13 @@
         "offline": "Desligado",
         "error": "Erro",
         "unknown": "Desconhecido",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "running": "Executando",
+        "starting": "Iniciando",
+        "unhealthy": "Não-saudável",
+        "not_found": "Não Encontrado",
+        "exited": "Encerrado",
+        "partial": "Parcial",
+        "healthy": "Saudável"
     },
     "emby": {
         "playing": "Reproduzindo",
@@ -306,7 +306,7 @@
         "child_bridges": "Pontes Filhas",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "Pendente",
         "down": "Down"
     },
     "autobrr": {
