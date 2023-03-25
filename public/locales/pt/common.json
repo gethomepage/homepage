@@ -27,9 +27,9 @@
         "offline": "Desligado",
         "error": "Erro",
         "unknown": "Desconhecido",
-        "partial": "Partial",
-        "running": "Executando",
-        "starting": "Iniciando",
+        "partial": "Parcial",
+        "running": "A correr",
+        "starting": "A iniciar",
         "unhealthy": "Não-saudável",
         "not_found": "Não Encontrado",
         "exited": "Encerrado",
@@ -319,7 +319,7 @@
         "child_bridges": "Pontes Filhas",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "Pendente",
         "down": "Down"
     },
     "autobrr": {
@@ -541,7 +541,7 @@
     "prometheus": {
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_total": "Total de Alvos"
     },
     "minecraft": {
         "players": "Reprodutores",
@@ -557,8 +557,8 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "books": "Livros",
+        "podcastsDuration": "Duração",
+        "booksDuration": "Duração"
     }
 }
