@@ -24,7 +24,8 @@ env:
 
 jobs:
   build:
-
+    runs-on:
+      - linux
     permissions:
       contents: read
       packages: write
