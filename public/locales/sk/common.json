@@ -1,59 +1,12 @@
 {
-    "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
-    },
-    "widget": {
-        "missing_type": "Iztrūkst logrīka tips: {{type}}",
-        "api_error": "API kļūda",
-        "information": "Informācija",
-        "status": "Statuss",
-        "url": "URL",
-        "raw_error": "Kļūda",
-        "response_data": "Atbilde"
-    },
-    "weather": {
-        "current": "Pašreizējā atrašanās vieta",
-        "allow": "Piemiedziet, lai atļaut",
-        "updating": "Atjaunina",
-        "wait": "Lūdzu, uzgaidiet"
-    },
-    "search": {
-        "placeholder": "Meklēt…"
-    },
-    "resources": {
-        "cpu": "CPU",
-        "total": "Kopā",
-        "free": "Brīvs",
-        "used": "Izmantojas",
-        "load": "Ielādē",
-        "mem": "MEM"
-    },
-    "unifi": {
-        "users": "Lietotāji",
-        "uptime": "Sistēmas darbības laiks",
-        "days": "Dienas",
-        "wan": "WAN",
-        "lan": "LAN",
-        "wlan": "WLAN",
-        "devices": "Ierīces",
-        "lan_devices": "LAN ierīces",
-        "wlan_devices": "WLAN ierīces",
-        "lan_users": "LAN lietotāji",
-        "wlan_users": "WLAN lietotāji",
-        "up": "DARBOJAS",
-        "down": "NEDARBOJAS",
-        "wait": "Lūdzu, uzgaidiet",
-        "empty_data": "Subsystem status unknown"
-    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "Atmiņa",
+        "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Bezsaistē",
-        "error": "Kļūda",
-        "unknown": "Nezināms",
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Unknown",
         "running": "Running",
         "starting": "Starting",
         "unhealthy": "Unhealthy",
@@ -62,84 +15,250 @@
         "partial": "Partial",
         "healthy": "Healthy"
     },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "proxmox": {
+        "vms": "VMs",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC"
+    },
+    "wmo": {
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "0-day": "Sunny",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_xepg": "XEPG Channels",
+        "streams_active": "Active Streams"
+    },
+    "moonraker": {
+        "layers": "Layers",
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress"
+    },
+    "immich": {
+        "storage": "Storage",
+        "users": "Users",
+        "videos": "Videos",
+        "photos": "Photos"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "widget": {
+        "api_error": "API Error",
+        "missing_type": "Missing Widget Type: {{type}}",
+        "information": "Information",
+        "status": "Status",
+        "url": "URL",
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
+    },
+    "weather": {
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Updating",
+        "wait": "Please wait"
+    },
+    "search": {
+        "placeholder": "Search…"
+    },
+    "resources": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "load": "Load"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Please wait",
+        "empty_data": "Subsystem status unknown"
+    },
     "ping": {
-        "error": "Kļūda",
+        "error": "Error",
         "ping": "Ping"
     },
     "emby": {
-        "playing": "Atskaņo",
-        "transcoding": "Pārkodē",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju",
+        "no_active": "No Active Streams",
         "movies": "Movies",
         "series": "Series",
         "episodes": "Episodes",
         "songs": "Songs"
     },
     "flood": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
-        "leech": "Ņēmēji",
-        "seed": "Devēji"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "changedetectionio": {
-        "totalObserved": "Kopā novēro",
-        "diffsDetected": "Atšķirības atrastas"
+        "totalObserved": "Total Observed",
+        "diffsDetected": "Diffs Detected"
     },
     "tautulli": {
-        "playing": "Atskaņo",
-        "transcoding": "Pārkodē",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju"
+        "no_active": "No Active Streams"
     },
     "omada": {
-        "connectedAp": "Savienotie piekļuves punkti",
-        "activeUser": "Aktīvās ierīces",
-        "alerts": "Paziņojumi",
-        "connectedGateway": "Savienotās vārtejas",
-        "connectedSwitches": "Savienotie komutatori"
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Palika",
-        "downloaded": "Lejupielādēts"
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
     },
     "plex": {
-        "streams": "Aktīvās straumes",
-        "movies": "Filmas",
-        "tv": "TV pārraides"
+        "streams": "Active Streams",
+        "movies": "Movies",
+        "tv": "TV Shows"
     },
     "sabnzbd": {
         "rate": "Rate",
-        "queue": "Rindā",
-        "timeleft": "Atlikušais laiks"
-    },
-    "rutorrent": {
-        "active": "Aktīvs",
-        "upload": "Augšupielāde",
-        "download": "Lejupielāde"
+        "queue": "Queue",
+        "timeleft": "Time Left"
     },
     "transmission": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
-        "seed": "Devēji"
+        "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
-        "seed": "Devēji"
+        "seed": "Seed"
     },
     "deluge": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
-        "seed": "Devēji"
+        "seed": "Seed"
     },
     "downloadstation": {
         "download": "Download",
-        "upload": "Augšupielāde",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -152,17 +271,17 @@
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Filmas"
+        "movies": "Movies"
     },
     "lidarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "albums": "Albumi"
+        "albums": "Albums"
     },
     "readarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "books": "Grāmatas"
+        "books": "Books"
     },
     "bazarr": {
         "missingEpisodes": "Missing Episodes",
@@ -205,12 +324,6 @@
         "stopped": "Stopped",
         "total": "Total"
     },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
-    },
     "traefik": {
         "routers": "Routers",
         "services": "Services",
@@ -248,12 +361,6 @@
         "configured": "Configured",
         "errored": "Errored"
     },
-    "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
-    },
     "mastodon": {
         "user_count": "Users",
         "status_count": "Posts",
@@ -264,6 +371,13 @@
         "queued": "Queued",
         "series": "Series"
     },
+    "minecraft": {
+        "players": "Players",
+        "version": "Version",
+        "status": "Status",
+        "up": "Online",
+        "down": "Offline"
+    },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
@@ -272,12 +386,6 @@
         "users": "Users",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
-    },
-    "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
-        "lxc": "LXC",
-        "vms": "VMs"
     },
     "glances": {
         "cpu": "CPU",
@@ -292,64 +400,6 @@
         "visit": "Visit",
         "url": "URL"
     },
-    "wmo": {
-        "0-day": "Saulains",
-        "0-night": "Skaidrs",
-        "1-day": "Galvenokārt saulains",
-        "1-night": "Galvenokārt skaidrs",
-        "2-day": "Daļēji apmācies",
-        "2-night": "Daļēji apmācies",
-        "3-day": "Apmācies",
-        "3-night": "Apmācies",
-        "45-day": "Miglains",
-        "45-night": "Miglains",
-        "48-day": "Miglains",
-        "48-night": "Miglains",
-        "51-day": "Neliels lietus",
-        "51-night": "Neliels lietus",
-        "53-day": "Lietus",
-        "53-night": "Lietus",
-        "55-day": "Spēcīgs lietus",
-        "55-night": "Spēcīgs lietus",
-        "56-day": "Neliels stindzinošs lietus",
-        "56-night": "Neliels stindzinošs lietus",
-        "57-day": "Sasalstošs lietus",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Viegls lietus",
-        "61-night": "Viegls lietus",
-        "63-day": "Lietus",
-        "63-night": "Lietus",
-        "65-day": "Spēcīgs lietus",
-        "65-night": "Spēcīgs lietus",
-        "66-day": "Ledains lietus",
-        "66-night": "Ledains lietus",
-        "67-day": "Ledains lietus",
-        "67-night": "Ledains lietus",
-        "71-day": "Neliels sniegs",
-        "71-night": "Neliels sniegs",
-        "73-day": "Sniegs",
-        "73-night": "Sniegs",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
-    },
     "homebridge": {
         "available_update": "System",
         "updates": "Updates",
@@ -360,6 +410,16 @@
         "up": "Up",
         "pending": "Pending",
         "down": "Down"
+    },
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Offline",
+        "paused": "Paused",
+        "status": "Status",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
@@ -395,10 +455,6 @@
         "region": "Region",
         "country": "Country"
     },
-    "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
-    },
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
@@ -418,22 +474,11 @@
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
-    "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
-    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
-    },
-    "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
     },
     "octoprint": {
         "printer_state": "Status",
@@ -451,19 +496,6 @@
         "cpu_usage": "CPU",
         "memory_usage": "Memory"
     },
-    "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
-    },
-    "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
-        "m": "m"
-    },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",
@@ -473,17 +505,6 @@
         "series": "Series",
         "issues": "Issues",
         "wanted": "Wanted"
-    },
-    "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
-    },
-    "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
     },
     "fileflows": {
         "queue": "Queue",
@@ -498,10 +519,10 @@
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
         "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "activeusers": "Active Users",
+        "cpuload": "Cpu Load",
+        "memoryusage": "Memory Usage"
     },
     "kopia": {
         "status": "Status",
@@ -511,35 +532,14 @@
         "failed": "Failed"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
         "total_workers": "Total Workers",
-        "records_total": "Queue Length"
-    },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
-    "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "records_total": "Queue Length",
+        "active_workers": "Active Workers"
     },
     "prometheus": {
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
-    },
-    "minecraft": {
-        "down": "Offline",
-        "players": "Players",
-        "status": "Status",
-        "up": "Online",
-        "version": "Version"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",

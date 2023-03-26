@@ -48,7 +48,14 @@
         "cpu": "Processador",
         "offline": "Fora de línia",
         "error": "Error",
-        "unknown": "Desconegut"
+        "unknown": "Desconegut",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Reproduint",
@@ -297,7 +304,10 @@
         "update_available": "Actualització disponible",
         "up_to_date": "Actualitzat",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Aprovat",

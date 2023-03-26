@@ -26,7 +26,14 @@
         "cpu": "Procesador",
         "offline": "Desconectado",
         "error": "Fallo",
-        "unknown": "Desconocido"
+        "unknown": "Desconocido",
+        "running": "Ejecutando",
+        "starting": "Comenzando",
+        "unhealthy": "Insalubre",
+        "not_found": "No encontrado",
+        "exited": "Salida",
+        "partial": "Parcial",
+        "healthy": "Saludable"
     },
     "emby": {
         "playing": "Reproduciendo",
@@ -297,7 +304,10 @@
         "update_available": "Actualización disponible",
         "up_to_date": "Actualizado",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Arriba",
+        "pending": "Pendiente",
+        "down": "Abajo"
     },
     "autobrr": {
         "approvedPushes": "Aprobado",
@@ -538,8 +548,8 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "books": "Libros",
+        "podcastsDuration": "Duración",
+        "booksDuration": "Duración"
     }
 }

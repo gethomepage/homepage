@@ -60,9 +60,16 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
+        "running": "Running",
         "offline": "Offline",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "healthy": "Healthy",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "ping": {
         "error": "Error",
@@ -365,7 +372,10 @@
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "healthchecks": {
         "new": "New",

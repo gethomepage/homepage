@@ -107,7 +107,14 @@
         "cpu": "المعالج",
         "offline": "غير متصل",
         "error": "خطأ",
-        "unknown": "مجهول"
+        "unknown": "مجهول",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "يعمل الآن",
@@ -297,7 +304,10 @@
         "update_available": "تحديث متاح",
         "up_to_date": "حتى الآن",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "watchtower": {
         "containers_scanned": "Scanned",

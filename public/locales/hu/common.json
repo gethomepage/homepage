@@ -14,7 +14,14 @@
         "cpu": "CPU",
         "offline": "Offline",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "unhealthy": "Unhealthy",
+        "running": "Running",
+        "starting": "Starting",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "lidarr": {
         "albums": "Albumok",
@@ -297,7 +304,10 @@
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Approved",

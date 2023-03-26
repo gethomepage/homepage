@@ -3,242 +3,251 @@
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
+    "rutorrent": {
+        "download": "다운로드",
+        "active": "활성",
+        "upload": "업로드"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
+    },
+    "pterodactyl": {
+        "nodes": "Nodes",
+        "servers": "Servers"
+    },
     "widget": {
-        "missing_type": "Iztrūkst logrīka tips: {{type}}",
-        "api_error": "API kļūda",
-        "information": "Informācija",
-        "status": "Statuss",
+        "missing_type": "Missing Widget Type: {{type}}",
+        "api_error": "API 오류",
+        "information": "정보",
+        "status": "상태",
         "url": "URL",
-        "raw_error": "Kļūda",
-        "response_data": "Atbilde"
+        "raw_error": "Raw 오류",
+        "response_data": "응답 데이터"
     },
     "weather": {
-        "current": "Pašreizējā atrašanās vieta",
-        "allow": "Piemiedziet, lai atļaut",
-        "updating": "Atjaunina",
-        "wait": "Lūdzu, uzgaidiet"
+        "current": "현재 위치",
+        "allow": "클릭하여 허용",
+        "updating": "갱신 중",
+        "wait": "잠시만 기다리세요"
     },
     "search": {
-        "placeholder": "Meklēt…"
+        "placeholder": "검색…"
     },
     "resources": {
         "cpu": "CPU",
-        "total": "Kopā",
-        "free": "Brīvs",
-        "used": "Izmantojas",
-        "load": "Ielādē",
-        "mem": "MEM"
+        "mem": "MEM",
+        "total": "총합",
+        "free": "남음",
+        "used": "사용",
+        "load": "부하"
     },
     "unifi": {
-        "users": "Lietotāji",
-        "uptime": "Sistēmas darbības laiks",
-        "days": "Dienas",
+        "users": "사용자",
+        "uptime": "시스템 업타임",
+        "days": "일",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Ierīces",
-        "lan_devices": "LAN ierīces",
-        "wlan_devices": "WLAN ierīces",
-        "lan_users": "LAN lietotāji",
-        "wlan_users": "WLAN lietotāji",
-        "up": "DARBOJAS",
-        "down": "NEDARBOJAS",
-        "wait": "Lūdzu, uzgaidiet",
-        "empty_data": "Subsystem status unknown"
+        "devices": "장치",
+        "lan_devices": "LAN 장치",
+        "wlan_devices": "WLAN 장치",
+        "lan_users": "LAN 사용자",
+        "wlan_users": "WLAN 사용자",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "잠시만 기다리세요",
+        "empty_data": "서브시스템 상태 알 수 없음"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "Atmiņa",
+        "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Bezsaistē",
-        "error": "Kļūda",
-        "unknown": "Nezināms",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "running": "가동 중",
+        "offline": "중지",
+        "error": "오류",
+        "unknown": "알 수 없음",
+        "healthy": "좋음",
+        "starting": "시작 중",
+        "unhealthy": "이상",
+        "not_found": "찾을 수 없음",
+        "exited": "종료됨",
+        "partial": "부분적"
     },
     "ping": {
-        "error": "Kļūda",
+        "error": "오류",
         "ping": "Ping"
     },
     "emby": {
-        "playing": "Atskaņo",
-        "transcoding": "Pārkodē",
-        "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "재생 중",
+        "transcoding": "트랜스코딩",
+        "bitrate": "비트레이트",
+        "no_active": "활성 스트림 없음",
+        "movies": "영화",
+        "series": "시리즈",
+        "episodes": "에피소드",
+        "songs": "음악"
     },
     "flood": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
-        "leech": "Ņēmēji",
-        "seed": "Devēji"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "changedetectionio": {
-        "totalObserved": "Kopā novēro",
-        "diffsDetected": "Atšķirības atrastas"
+        "totalObserved": "Total Observed",
+        "diffsDetected": "변경 감지됨"
     },
     "tautulli": {
-        "playing": "Atskaņo",
-        "transcoding": "Pārkodē",
-        "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju"
+        "playing": "재생 중",
+        "transcoding": "트랜스코딩",
+        "bitrate": "비트레이트",
+        "no_active": "활성 스트림 없음"
     },
     "omada": {
-        "connectedAp": "Savienotie piekļuves punkti",
-        "activeUser": "Aktīvās ierīces",
-        "alerts": "Paziņojumi",
-        "connectedGateway": "Savienotās vārtejas",
-        "connectedSwitches": "Savienotie komutatori"
+        "connectedAp": "연결된 AP",
+        "activeUser": "활성 장치",
+        "alerts": "경고",
+        "connectedGateway": "연결된 게이트웨이",
+        "connectedSwitches": "연결된 스위치"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Palika",
-        "downloaded": "Lejupielādēts"
+        "rate": "비율",
+        "remaining": "남음",
+        "downloaded": "다운로드됨"
     },
     "plex": {
-        "streams": "Aktīvās straumes",
-        "movies": "Filmas",
-        "tv": "TV pārraides"
+        "streams": "활성 스트림",
+        "movies": "영화",
+        "tv": "TV 쇼"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Rindā",
-        "timeleft": "Atlikušais laiks"
-    },
-    "rutorrent": {
-        "active": "Aktīvs",
-        "upload": "Augšupielāde",
-        "download": "Lejupielāde"
+        "rate": "비율",
+        "queue": "대기열",
+        "timeleft": "남은 시간"
     },
     "transmission": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
-        "leech": "Leech",
-        "seed": "Devēji"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "qbittorrent": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
-        "leech": "Leech",
-        "seed": "Devēji"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "deluge": {
-        "download": "Lejupielāde",
-        "upload": "Augšupielāde",
-        "leech": "Leech",
-        "seed": "Devēji"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Augšupielāde",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "요청",
+        "queued": "대기 중",
+        "series": "시리즈"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
-        "movies": "Filmas"
+        "wanted": "요청",
+        "missing": "빠짐",
+        "queued": "대기 중",
+        "movies": "영화"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albumi"
+        "wanted": "요청",
+        "queued": "대기 중",
+        "albums": "앨범"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Grāmatas"
+        "wanted": "요청",
+        "queued": "대기 중",
+        "books": "책"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "빠진 에피소드",
+        "missingMovies": "빠진 영화"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "대기 중",
+        "approved": "승인됨",
+        "available": "이용 가능"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "대기 중",
+        "approved": "승인됨",
+        "available": "사용 가능"
     },
     "overseerr": {
-        "pending": "Pending",
-        "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "대기 중",
+        "processing": "처리 중",
+        "approved": "승인됨",
+        "available": "사용 가능"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "쿼리",
+        "blocked": "차단됨",
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "쿼리",
+        "blocked": "차단됨",
+        "filtered": "필터링됨",
+        "latency": "지연"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "업로드",
+        "download": "다운로드",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "가동 중",
+        "stopped": "중지",
+        "total": "총합"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "대기열",
+        "processed": "처리됨",
+        "errored": "오류",
+        "saved": "저장됨"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "라우터",
+        "services": "서비스",
+        "middleware": "미들웨어"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "활성 스트림 없음",
+        "please_wait": "잠시만 기다리세요"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "활성",
+        "disabled": "비활성",
+        "total": "총합"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "한 개 이상의 가상화폐를 설정하여 추적",
+        "1hour": "1시간",
+        "1day": "1일",
+        "7days": "7일",
+        "30days": "30일"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "어플리케이션",
+        "clients": "클라이언트",
+        "messages": "메시지"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "인덱서",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
         "numberOfFailGrabs": "Fail Grabs",
@@ -264,14 +273,16 @@
         "queued": "Queued",
         "series": "Series"
     },
+    "minecraft": {
+        "players": "Players",
+        "version": "Version",
+        "status": "Status",
+        "up": "Online",
+        "down": "Offline"
+    },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
-    },
-    "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
         "mem": "MEM",
@@ -293,42 +304,42 @@
         "url": "URL"
     },
     "wmo": {
-        "0-day": "Saulains",
-        "0-night": "Skaidrs",
-        "1-day": "Galvenokārt saulains",
-        "1-night": "Galvenokārt skaidrs",
-        "2-day": "Daļēji apmācies",
-        "2-night": "Daļēji apmācies",
-        "3-day": "Apmācies",
-        "3-night": "Apmācies",
-        "45-day": "Miglains",
-        "45-night": "Miglains",
-        "48-day": "Miglains",
-        "48-night": "Miglains",
-        "51-day": "Neliels lietus",
-        "51-night": "Neliels lietus",
-        "53-day": "Lietus",
-        "53-night": "Lietus",
-        "55-day": "Spēcīgs lietus",
-        "55-night": "Spēcīgs lietus",
-        "56-day": "Neliels stindzinošs lietus",
-        "56-night": "Neliels stindzinošs lietus",
-        "57-day": "Sasalstošs lietus",
+        "0-day": "Sunny",
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
         "57-night": "Freezing Drizzle",
-        "61-day": "Viegls lietus",
-        "61-night": "Viegls lietus",
-        "63-day": "Lietus",
-        "63-night": "Lietus",
-        "65-day": "Spēcīgs lietus",
-        "65-night": "Spēcīgs lietus",
-        "66-day": "Ledains lietus",
-        "66-night": "Ledains lietus",
-        "67-day": "Ledains lietus",
-        "67-night": "Ledains lietus",
-        "71-day": "Neliels sniegs",
-        "71-night": "Neliels sniegs",
-        "73-day": "Sniegs",
-        "73-night": "Sniegs",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
         "75-day": "Heavy Snow",
         "75-night": "Heavy Snow",
         "77-day": "Snow Grains",
@@ -360,6 +371,16 @@
         "up": "Up",
         "pending": "Pending",
         "down": "Down"
+    },
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Offline",
+        "paused": "Paused",
+        "status": "Status",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
@@ -469,6 +490,11 @@
         "series": "Series",
         "books": "Books"
     },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
+    },
     "mylar": {
         "series": "Series",
         "issues": "Issues",
@@ -479,11 +505,6 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
-    },
-    "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
     },
     "fileflows": {
         "queue": "Queue",
@@ -515,31 +536,10 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
-    "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
-    },
     "prometheus": {
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
-    },
-    "minecraft": {
-        "down": "Offline",
-        "players": "Players",
-        "status": "Status",
-        "up": "Online",
-        "version": "Version"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",

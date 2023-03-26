@@ -154,7 +154,14 @@
         "cpu": "CPU",
         "offline": "Офлайн",
         "error": "Помилка",
-        "unknown": "Невідомий"
+        "unknown": "Невідомий",
+        "starting": "Запуск",
+        "unhealthy": "Нездоровий",
+        "not_found": "Не знайдено",
+        "exited": "Вийшов",
+        "partial": "Частковий",
+        "running": "Запущено",
+        "healthy": "Здоров'я"
     },
     "ping": {
         "error": "Помилка",
@@ -359,7 +366,10 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "update_available": "Доступне оновлення",
         "up_to_date": "Актуально",
-        "child_bridges": "Дитячі мости"
+        "child_bridges": "Дитячі мости",
+        "up": "Вгору",
+        "pending": "В очікуванні",
+        "down": "Вниз"
     },
     "watchtower": {
         "containers_scanned": "Відскановано",
@@ -537,9 +547,9 @@
         "gross_percent_max": "Весь час"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "Подкасти",
+        "books": "Книжки",
+        "podcastsDuration": "Тривалість",
+        "booksDuration": "Тривалість"
     }
 }

@@ -42,7 +42,14 @@
         "cpu": "ซีพียู",
         "offline": "ออฟไลน์",
         "error": "ข้อผิดพลาด",
-        "unknown": "ไม่ทราบ"
+        "unknown": "ไม่ทราบ",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
@@ -369,7 +376,10 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "available_update": "System"
+        "available_update": "System",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "watchtower": {
         "containers_scanned": "Scanned",

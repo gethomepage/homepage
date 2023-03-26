@@ -49,7 +49,14 @@
         "cpu": "İşlemci",
         "offline": "Çevrimdışı",
         "error": "Hata",
-        "unknown": "Bilinmiyor"
+        "unknown": "Bilinmiyor",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Oynatılıyor",
@@ -297,7 +304,10 @@
         "update_available": "Güncelleme Kullanılabilir",
         "up_to_date": "Güncel",
         "child_bridges": "Alt Köprüler",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Onaylandı",

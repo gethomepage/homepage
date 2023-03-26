@@ -26,7 +26,14 @@
         "cpu": "Процессор",
         "offline": "Не в сети",
         "error": "Ошибка",
-        "unknown": "Неизвестный"
+        "unknown": "Неизвестный",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Воспроизведение",
@@ -297,7 +304,10 @@
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "child_bridges": "Child Bridges"
+        "child_bridges": "Child Bridges",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Approved",

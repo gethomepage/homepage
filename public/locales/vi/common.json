@@ -26,7 +26,14 @@
         "cpu": "CPU",
         "offline": "Ngoại tuyến",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Đang chơi",
@@ -297,7 +304,10 @@
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "down": "Down",
+        "pending": "Pending"
     },
     "autobrr": {
         "approvedPushes": "Approved",

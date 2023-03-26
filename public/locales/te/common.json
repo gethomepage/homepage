@@ -49,7 +49,14 @@
         "cpu": "సీపియూ",
         "offline": "ఆఫ్‌లైన్",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "ఆడుతున్నారు",
@@ -297,7 +304,10 @@
         "update_available": "అందుబాటులో నవీకరణ",
         "up_to_date": "తాజాగా",
         "child_bridges": "పిల్ల వంతెనలు",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "rejectedPushes": "తిరస్కరించారు",
