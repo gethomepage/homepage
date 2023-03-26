@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  homepage:
+    image: ghcr.io/benphelps/homepage:latest
+    container_name: Homepage
+    ports:
+      - 3000:3000
+    volumes:
+      - /share/ZFS20_DATA/Container/Homepage:/app/config # Make sure your local config directory exists
+      - /share/ZFS20_DATA/Container/Homepage:/var/run/docker.sock:ro # (optional) For docker integrations
+      - /share/ZFS18_DATA/homes/Aaron:/Aaron
+      - /share/ZFS23_DATA:/Movies
+      - /share/ZFS24_DATA:/TV Shows
+    environment:
+      PUID: 1000
+      PGID: 1000
