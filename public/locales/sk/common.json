@@ -1,20 +1,151 @@
 {
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Unknown",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "proxmox": {
+        "vms": "VMs",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC"
+    },
+    "wmo": {
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "0-day": "Sunny",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_xepg": "XEPG Channels",
+        "streams_active": "Active Streams"
+    },
+    "moonraker": {
+        "layers": "Layers",
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress"
+    },
+    "immich": {
+        "storage": "Storage",
+        "users": "Users",
+        "videos": "Videos",
+        "photos": "Photos"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
+    },
     "common": {
-        "bytes": "{{value, bytes}}",
-        "bits": "{{value, bytes(bits: true)}}",
-        "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true; binary: true)}}",
-        "byterate": "{{value, rate(bits: false)}}",
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bitrate": "{{value, rate(bits: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
-        "percent": "{{value, percent}}",
-        "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
+        "missing_type": "Missing Widget Type: {{type}}",
         "information": "Information",
         "status": "Status",
         "url": "URL",
@@ -54,22 +185,6 @@
         "down": "DOWN",
         "wait": "Please wait",
         "empty_data": "Subsystem status unknown"
-    },
-    "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "running": "Running",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
     },
     "ping": {
         "error": "Error",
@@ -122,11 +237,6 @@
         "rate": "Rate",
         "queue": "Queue",
         "timeleft": "Time Left"
-    },
-    "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
     },
     "transmission": {
         "download": "Download",
@@ -214,12 +324,6 @@
         "stopped": "Stopped",
         "total": "Total"
     },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
-    },
     "traefik": {
         "routers": "Routers",
         "services": "Services",
@@ -257,12 +361,6 @@
         "configured": "Configured",
         "errored": "Errored"
     },
-    "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
-    },
     "mastodon": {
         "user_count": "Users",
         "status_count": "Posts",
@@ -289,12 +387,6 @@
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
-    "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
-        "lxc": "LXC",
-        "vms": "VMs"
-    },
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
@@ -307,64 +399,6 @@
         "custom": "Custom",
         "visit": "Visit",
         "url": "URL"
-    },
-    "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
     },
     "homebridge": {
         "available_update": "System",
@@ -421,10 +455,6 @@
         "region": "Region",
         "country": "Country"
     },
-    "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
-    },
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
@@ -444,22 +474,11 @@
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
-    "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
-    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
-    },
-    "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
     },
     "octoprint": {
         "printer_state": "Status",
@@ -477,39 +496,15 @@
         "cpu_usage": "CPU",
         "memory_usage": "Memory"
     },
-    "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
-    },
-    "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
-        "m": "m"
-    },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",
         "books": "Books"
     },
-    "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
-    },
     "mylar": {
         "series": "Series",
         "issues": "Issues",
         "wanted": "Wanted"
-    },
-    "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
     },
     "fileflows": {
         "queue": "Queue",
@@ -524,10 +519,10 @@
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
         "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "activeusers": "Active Users",
+        "cpuload": "Cpu Load",
+        "memoryusage": "Memory Usage"
     },
     "kopia": {
         "status": "Status",
@@ -537,13 +532,9 @@
         "failed": "Failed"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
         "total_workers": "Total Workers",
-        "records_total": "Queue Length"
-    },
-    "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "records_total": "Queue Length",
+        "active_workers": "Active Workers"
     },
     "prometheus": {
         "targets_up": "Targets Up",
@@ -560,9 +551,5 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
-    },
-    "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
     }
 }

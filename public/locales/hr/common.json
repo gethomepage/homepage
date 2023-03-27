@@ -73,13 +73,24 @@
         "cpu": "CPU",
         "offline": "Nepovezan",
         "error": "Greška",
-        "unknown": "Nepoznato"
+        "unknown": "Nepoznato",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Reprodukcija",
         "transcoding": "Prekodiranje",
         "bitrate": "Stopa bitova",
-        "no_active": "Nema aktivnih prijenosa"
+        "no_active": "Nema aktivnih prijenosa",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Reprodukcija",
@@ -293,7 +304,10 @@
         "update_available": "Dostupna je nova verzija",
         "up_to_date": "Aktualno",
         "child_bridges": "Podređeni mosotvi",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "rejectedPushes": "Odbijeno",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }

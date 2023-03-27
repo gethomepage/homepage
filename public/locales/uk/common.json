@@ -154,7 +154,14 @@
         "cpu": "CPU",
         "offline": "Офлайн",
         "error": "Помилка",
-        "unknown": "Невідомий"
+        "unknown": "Невідомий",
+        "starting": "Запуск",
+        "unhealthy": "Нездоровий",
+        "not_found": "Не знайдено",
+        "exited": "Вийшов",
+        "partial": "Частковий",
+        "running": "Запущено",
+        "healthy": "Здоров'я"
     },
     "ping": {
         "error": "Помилка",
@@ -164,7 +171,11 @@
         "playing": "Відтворення",
         "transcoding": "Перекодування",
         "bitrate": "Бітрейт",
-        "no_active": "Немає активних потоків"
+        "no_active": "Немає активних потоків",
+        "movies": "Фільми",
+        "series": "Серії",
+        "episodes": "Епізоди",
+        "songs": "Пісні"
     },
     "flood": {
         "download": "Завантаження",
@@ -355,7 +366,10 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "update_available": "Доступне оновлення",
         "up_to_date": "Актуально",
-        "child_bridges": "Дитячі мости"
+        "child_bridges": "Дитячі мости",
+        "up": "Вгору",
+        "pending": "В очікуванні",
+        "down": "Вниз"
     },
     "watchtower": {
         "containers_scanned": "Відскановано",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Сьогодні",
         "gross_percent_1y": "Один рік",
         "gross_percent_max": "Весь час"
+    },
+    "audiobookshelf": {
+        "podcasts": "Подкасти",
+        "books": "Книжки",
+        "podcastsDuration": "Тривалість",
+        "booksDuration": "Тривалість"
     }
 }

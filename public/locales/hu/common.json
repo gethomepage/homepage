@@ -14,7 +14,14 @@
         "cpu": "CPU",
         "offline": "Offline",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "unhealthy": "Unhealthy",
+        "running": "Running",
+        "starting": "Starting",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "lidarr": {
         "albums": "Albumok",
@@ -52,7 +59,11 @@
         "playing": "Lejátszás",
         "transcoding": "Átkódolás",
         "bitrate": "Bitráta",
-        "no_active": "Nincs aktív lejátszás"
+        "no_active": "Nincs aktív lejátszás",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Lejátszás folyamatban",
@@ -293,7 +304,10 @@
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Approved",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }

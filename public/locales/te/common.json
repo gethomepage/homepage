@@ -49,13 +49,24 @@
         "cpu": "సీపియూ",
         "offline": "ఆఫ్‌లైన్",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "ఆడుతున్నారు",
         "transcoding": "ట్రాన్స్‌కోడింగ్",
         "bitrate": "బిట్రేట్",
-        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు"
+        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "ఆడుతున్నారు",
@@ -293,7 +304,10 @@
         "update_available": "అందుబాటులో నవీకరణ",
         "up_to_date": "తాజాగా",
         "child_bridges": "పిల్ల వంతెనలు",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "rejectedPushes": "తిరస్కరించారు",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }

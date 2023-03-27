@@ -42,7 +42,14 @@
         "cpu": "ซีพียู",
         "offline": "ออฟไลน์",
         "error": "ข้อผิดพลาด",
-        "unknown": "ไม่ทราบ"
+        "unknown": "ไม่ทราบ",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
@@ -99,7 +106,11 @@
         "playing": "กำลังเล่น",
         "transcoding": "การแปลงรหัส",
         "bitrate": "อัตราบิต",
-        "no_active": "ไม่มีสตรีมที่ใช้งานอยู่"
+        "no_active": "ไม่มีสตรีมที่ใช้งานอยู่",
+        "movies": "Movies",
+        "series": "Series",
+        "songs": "Songs",
+        "episodes": "Episodes"
     },
     "deluge": {
         "download": "ดาวน์โหลด",
@@ -365,7 +376,10 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "available_update": "System"
+        "available_update": "System",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }

@@ -60,13 +60,24 @@
         "cpu": "CPU",
         "offline": "Desligado",
         "error": "Erro",
-        "unknown": "Desconhecido"
+        "unknown": "Desconhecido",
+        "running": "Executando",
+        "starting": "Iniciando",
+        "unhealthy": "Não-saudável",
+        "not_found": "Não Encontrado",
+        "exited": "Encerrado",
+        "partial": "Parcial",
+        "healthy": "Saudável"
     },
     "emby": {
         "playing": "Reproduzindo",
         "transcoding": "Transcodificando",
         "bitrate": "Taxa de bits",
-        "no_active": "Sem transmissões ativas"
+        "no_active": "Sem transmissões ativas",
+        "movies": "Filmes",
+        "series": "Séries",
+        "episodes": "Episódios",
+        "songs": "Musicas"
     },
     "tautulli": {
         "playing": "Reproduzindo",
@@ -135,7 +146,7 @@
     "pihole": {
         "queries": "Consultas",
         "blocked": "Bloqueados",
-        "gravity": "Gravity"
+        "gravity": "Gravidade"
     },
     "adguard": {
         "queries": "Consultas",
@@ -284,7 +295,7 @@
         "service": "Serviço",
         "search": "Busca",
         "custom": "Personalizado",
-        "visit": "Visit",
+        "visit": "Visitar",
         "url": "URL"
     },
     "homebridge": {
@@ -293,7 +304,10 @@
         "update_available": "Atualização Disponível",
         "up_to_date": "Atualizado",
         "child_bridges": "Pontes Filhas",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pendente",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Aprovado",
@@ -497,8 +511,8 @@
         "failed": "Falha"
     },
     "unmanic": {
-        "active_workers": "Workers Ativos",
-        "total_workers": "Total Workers",
+        "active_workers": "Trabalhadores Ativos",
+        "total_workers": "Total Trabalhadores",
         "records_total": "Comprimento da Fila"
     },
     "healthchecks": {
@@ -516,20 +530,26 @@
         "nodes": "Nós"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Alvo ativo",
+        "targets_down": "Alvo inativo",
+        "targets_total": "Alvos totais"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
+        "players": "Reprodutores",
+        "version": "Versão",
         "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "up": "Conectado",
+        "down": "Desconectado"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "Hoje",
+        "gross_percent_1y": "Um ano",
+        "gross_percent_max": "Todo periodo"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Livros",
+        "podcastsDuration": "Duração",
+        "booksDuration": "Duração"
     }
 }

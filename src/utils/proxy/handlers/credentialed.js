@@ -48,6 +48,12 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = `Token ${widget.key}`;
       } else if (widget.type === "miniflux") {
         headers["X-Auth-Token"] = `${widget.key}`;
+      } else if (widget.type === "nextcloud") {
+        if (widget.key) {
+          headers["NC-Token"] = `${widget.key}`;
+        } else {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        }
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

@@ -247,7 +247,9 @@ export function cleanServiceGroups(groups) {
           namespace, // kubernetes widget
           app,
           podSelector,
-          wan // opnsense widget
+          wan, // opnsense widget,
+          enableBlocks, // emby/jellyfin
+          enableNowPlaying
         } = cleanedService.widget;
 
         const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
@@ -277,6 +279,10 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "opnsense") {
           if (wan) cleanedService.widget.wan = wan;
+        }
+        if (type === "emby" || type === "jellyfin") {
+          if (enableBlocks) cleanedService.widget.enableBlocks = enableBlocks === 'true';
+          if (enableNowPlaying) cleanedService.widget.enableNowPlaying = enableNowPlaying === 'true';
         }
       }
 

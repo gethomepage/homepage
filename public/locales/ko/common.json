@@ -1,253 +1,253 @@
 {
     "common": {
-        "bytes": "{{value, bytes}}",
-        "bits": "{{value, bytes(bits: true)}}",
-        "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true; binary: true)}}",
-        "byterate": "{{value, rate(bits: false)}}",
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bitrate": "{{value, rate(bits: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
-        "percent": "{{value, percent}}",
-        "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "rutorrent": {
+        "download": "다운로드",
+        "active": "활성",
+        "upload": "업로드"
+    },
+    "authentik": {
+        "users": "Users",
+        "loginsLast24H": "Logins (24h)",
+        "failedLoginsLast24H": "Failed Logins (24h)"
+    },
+    "pterodactyl": {
+        "nodes": "Nodes",
+        "servers": "Servers"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
-        "status": "Status",
+        "api_error": "API 오류",
+        "information": "정보",
+        "status": "상태",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Raw 오류",
+        "response_data": "응답 데이터"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "현재 위치",
+        "allow": "클릭하여 허용",
+        "updating": "갱신 중",
+        "wait": "잠시만 기다리세요"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "검색…"
     },
     "resources": {
         "cpu": "CPU",
         "mem": "MEM",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load"
+        "total": "총합",
+        "free": "남음",
+        "used": "사용",
+        "load": "부하"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "사용자",
+        "uptime": "시스템 업타임",
+        "days": "일",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "devices": "장치",
+        "lan_devices": "LAN 장치",
+        "wlan_devices": "WLAN 장치",
+        "lan_users": "LAN 사용자",
+        "wlan_users": "WLAN 사용자",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown"
+        "wait": "잠시만 기다리세요",
+        "empty_data": "서브시스템 상태 알 수 없음"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "running": "Running",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
+        "running": "가동 중",
+        "offline": "중지",
+        "error": "오류",
+        "unknown": "알 수 없음",
+        "healthy": "좋음",
+        "starting": "시작 중",
+        "unhealthy": "이상",
+        "not_found": "찾을 수 없음",
+        "exited": "종료됨",
+        "partial": "부분적"
     },
     "ping": {
-        "error": "Error",
+        "error": "오류",
         "ping": "Ping"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "재생 중",
+        "transcoding": "트랜스코딩",
+        "bitrate": "비트레이트",
+        "no_active": "활성 스트림 없음",
+        "movies": "영화",
+        "series": "시리즈",
+        "episodes": "에피소드",
+        "songs": "음악"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "diffsDetected": "변경 감지됨"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "재생 중",
+        "transcoding": "트랜스코딩",
+        "bitrate": "비트레이트",
+        "no_active": "활성 스트림 없음"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "연결된 AP",
+        "activeUser": "활성 장치",
+        "alerts": "경고",
+        "connectedGateway": "연결된 게이트웨이",
+        "connectedSwitches": "연결된 스위치"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "비율",
+        "remaining": "남음",
+        "downloaded": "다운로드됨"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "활성 스트림",
+        "movies": "영화",
+        "tv": "TV 쇼"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
-    },
-    "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "rate": "비율",
+        "queue": "대기열",
+        "timeleft": "남은 시간"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "다운로드",
+        "upload": "업로드",
+        "leech": "리치",
+        "seed": "시드"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "요청",
+        "queued": "대기 중",
+        "series": "시리즈"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "요청",
+        "missing": "빠짐",
+        "queued": "대기 중",
+        "movies": "영화"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "요청",
+        "queued": "대기 중",
+        "albums": "앨범"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "요청",
+        "queued": "대기 중",
+        "books": "책"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "빠진 에피소드",
+        "missingMovies": "빠진 영화"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "대기 중",
+        "approved": "승인됨",
+        "available": "이용 가능"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "대기 중",
+        "approved": "승인됨",
+        "available": "사용 가능"
     },
     "overseerr": {
-        "pending": "Pending",
-        "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "대기 중",
+        "processing": "처리 중",
+        "approved": "승인됨",
+        "available": "사용 가능"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "쿼리",
+        "blocked": "차단됨",
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "쿼리",
+        "blocked": "차단됨",
+        "filtered": "필터링됨",
+        "latency": "지연"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "업로드",
+        "download": "다운로드",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "가동 중",
+        "stopped": "중지",
+        "total": "총합"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "대기열",
+        "processed": "처리됨",
+        "errored": "오류",
+        "saved": "저장됨"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "라우터",
+        "services": "서비스",
+        "middleware": "미들웨어"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "활성 스트림 없음",
+        "please_wait": "잠시만 기다리세요"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "활성",
+        "disabled": "비활성",
+        "total": "총합"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "한 개 이상의 가상화폐를 설정하여 추적",
+        "1hour": "1시간",
+        "1day": "1일",
+        "7days": "7일",
+        "30days": "30일"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "어플리케이션",
+        "clients": "클라이언트",
+        "messages": "메시지"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "인덱서",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
         "numberOfFailGrabs": "Fail Grabs",
@@ -283,11 +283,6 @@
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
-    },
-    "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
         "mem": "MEM",
@@ -541,10 +536,6 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
-    "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
-    },
     "prometheus": {
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
@@ -560,9 +551,5 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
-    },
-    "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
     }
 }

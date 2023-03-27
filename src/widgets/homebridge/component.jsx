@@ -29,7 +29,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block
         label="widget.status"
-        value={`${homebridgeData.status[0].toUpperCase()}${homebridgeData.status.substr(1)}`}
+        value={t(`homebridge.${homebridgeData.status}`)}
       />
       <Block
         label="homebridge.updates"

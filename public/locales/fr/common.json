@@ -26,13 +26,24 @@
         "cpu": "Cpu",
         "offline": "Hors ligne",
         "error": "Erreur",
-        "unknown": "Inconnu"
+        "unknown": "Inconnu",
+        "running": "Démarré",
+        "starting": "Démarrage",
+        "unhealthy": "Dysfonctionnement",
+        "not_found": "Inconnu",
+        "exited": "Arrêté",
+        "partial": "Partiel",
+        "healthy": "Fonctionnel"
     },
     "emby": {
         "playing": "En lecture",
         "transcoding": "Transcodage",
         "bitrate": "Débit",
-        "no_active": "Aucun flux actif"
+        "no_active": "Aucun flux actif",
+        "movies": "Films",
+        "series": "Séries TV",
+        "episodes": "Épisodes",
+        "songs": "Musique"
     },
     "tautulli": {
         "playing": "En lecture",
@@ -47,12 +58,12 @@
     },
     "sonarr": {
         "wanted": "Demande",
-        "queued": "En attente",
+        "queued": "Attente",
         "series": "Séries"
     },
     "radarr": {
         "wanted": "Demande",
-        "queued": "En attente",
+        "queued": "Attente",
         "movies": "Films",
         "missing": "Manquant"
     },
@@ -103,10 +114,10 @@
         "wait": "Veuillez patienter"
     },
     "overseerr": {
-        "pending": "En attente",
+        "pending": "Attente",
         "approved": "Demande",
         "available": "Disponible",
-        "processing": "En traitement"
+        "processing": "Traitement"
     },
     "sabnzbd": {
         "rate": "Débit",
@@ -293,7 +304,10 @@
         "update_available": "Mise à jour disponible",
         "up_to_date": "À jour",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Approuvé",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Aujourd'hui",
         "gross_percent_1y": "Un an",
         "gross_percent_max": "Depuis le début"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Livres",
+        "podcastsDuration": "Durée",
+        "booksDuration": "Durée"
     }
 }

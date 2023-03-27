@@ -59,13 +59,24 @@
         "mem": "MEM",
         "cpu": "CPU",
         "error": "Error",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "partial": "Partial",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "Възпроизвежда",
         "transcoding": "Конвертира",
         "bitrate": "Bitrate",
-        "no_active": "Няма активни потоци"
+        "no_active": "Няма активни потоци",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Възпроизвежда",
@@ -293,7 +304,10 @@
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "rejectedPushes": "Rejected",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }

@@ -6,13 +6,24 @@
         "offline": "Offline",
         "rx": "RX",
         "error": "Errore",
-        "unknown": "Sconosciuto"
+        "unknown": "Sconosciuto",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "emby": {
         "playing": "In riproduzione",
         "transcoding": "Transcodifica",
         "bitrate": "Bitrate",
-        "no_active": "Nessuno Stream Attivo"
+        "no_active": "Nessuno Stream Attivo",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "In riproduzione",
@@ -293,7 +304,10 @@
         "update_available": "Aggiornamento Disponibile",
         "up_to_date": "Aggiornato",
         "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}"
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "autobrr": {
         "approvedPushes": "Approvato",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }

@@ -158,7 +158,14 @@
         "cpu": "CPU",
         "offline": "Luar talian",
         "error": "Ralat",
-        "unknown": "Tidak Diketahui"
+        "unknown": "Tidak Diketahui",
+        "running": "Running",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial",
+        "healthy": "Healthy"
     },
     "changedetectionio": {
         "totalObserved": "Jumlah Diperhatikan",
@@ -168,7 +175,11 @@
         "playing": "Sedang dimainkan",
         "transcoding": "Transkoding",
         "bitrate": "Kadar bit",
-        "no_active": "Tiada Strim Aktif"
+        "no_active": "Tiada Strim Aktif",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
     "tautulli": {
         "playing": "Sedang Dimainkan",
@@ -293,7 +304,10 @@
         "updates": "Kemaskini",
         "update_available": "Kemaskini Tersedia",
         "up_to_date": "Terkemaskini",
-        "child_bridges": "Jambatan Anak"
+        "child_bridges": "Jambatan Anak",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "watchtower": {
         "containers_scanned": "Terimbas",
@@ -531,5 +545,11 @@
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Books",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
     }
 }
