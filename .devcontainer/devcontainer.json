@@ -3,7 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"VARIANT": "18-buster"
+			"VARIANT": "18-bullseye"
 		}
 	},
 	"customizations": {
