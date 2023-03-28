@@ -1,7 +1,7 @@
 {
     "widget": {
         "missing_type": "遺失小工具的類型: {{type}}",
-        "api_error": "API錯誤",
+        "api_error": "API 錯誤",
         "status": "狀態",
         "information": "資訊",
         "url": "網址",
@@ -22,13 +22,13 @@
         "cpu": "處理器",
         "error": "錯誤",
         "unknown": "未知的",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
+        "running": "執行中",
+        "starting": "啟動中",
+        "unhealthy": "不健康的",
+        "not_found": "未找到",
         "exited": "Exited",
         "partial": "Partial",
-        "healthy": "Healthy"
+        "healthy": "健康的"
     },
     "emby": {
         "playing": "正在播放",
@@ -371,8 +371,8 @@
         "seed": "已完成下載"
     },
     "flood": {
-        "download": "下行速率",
-        "upload": "上行速率",
+        "download": "下載速率",
+        "upload": "上傳速率",
         "leech": "未完成下載",
         "seed": "已完成下載"
     },
