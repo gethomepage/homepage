@@ -11,5 +11,5 @@ export function calculateCPUPercent(stats) {
 }
 
 export function calculateUsedMemory(stats) {
-  return stats.memory_stats.usage - stats.memory_stats.stats.cache
+  return stats.memory_stats.usage - (stats.memory_stats.stats.cache ?? 0)
 }
