@@ -20,7 +20,7 @@ function checkIPRange(ip, ipSpace) {
       return true;
     }
   } else {
-    console.error("Invalid ipSpace: ", ipSpace);
+    throw new Error(`Invalid ipSpace: ${ipSpace}`);
   }
   return false;
 }
