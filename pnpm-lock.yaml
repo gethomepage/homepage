@@ -25,7 +25,7 @@ specifiers:
   minecraft-ping-js: ^1.0.2
   next: ^12.3.1
   next-i18next: ^12.0.1
-  node-os-utils: ^1.3.7
+  osx-temperature-sensor: ^1.0.8
   postcss: ^8.4.16
   prettier: ^2.7.1
   pretty-bytes: ^6.0.0
@@ -36,6 +36,7 @@ specifiers:
   react-icons: ^4.4.0
   shvl: ^3.0.0
   swr: ^1.3.0
+  systeminformation: ^5.17.12
   tailwind-scrollbar: ^2.0.1
   tailwindcss: ^3.1.8
   tough-cookie: ^4.1.2
@@ -57,7 +58,7 @@ dependencies:
   minecraft-ping-js: 1.0.2
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
   next-i18next: 12.0.1_azq6kxkn3od7qdylwkyksrwopy
-  node-os-utils: 1.3.7
+  osx-temperature-sensor: 1.0.8
   pretty-bytes: 6.0.0
   raw-body: 2.5.1
   react: 18.2.0
@@ -66,6 +67,7 @@ dependencies:
   react-icons: 4.4.0_react@18.2.0
   shvl: 3.0.0
   swr: 1.3.0_react@18.2.0
+  systeminformation: 5.17.12
   tough-cookie: 4.1.2
   winston: 3.8.2
   xml-js: 1.6.11
@@ -2301,10 +2303,6 @@ packages:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
     dev: false
 
-  /node-os-utils/1.3.7:
-    resolution: {integrity: sha512-fvnX9tZbR7WfCG5BAy3yO/nCLyjVWD6MghEq0z5FDfN+ZXpLWNITBdbifxQkQ25ebr16G0N7eRWJisOcMEHG3Q==}
-    dev: false
-
   /node-releases/2.0.6:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
     dev: true
@@ -2445,6 +2443,13 @@ packages:
       type-check: 0.4.0
       word-wrap: 1.2.3
     dev: true
+
+  /osx-temperature-sensor/1.0.8:
+    resolution: {integrity: sha512-Gl3b+bn7+oDDnqPa+4v/cg3yg9lnE8ppS7ivL3opBZh4i7h99JNmkm6zWmo0m2a83UUJu+C9D7lGP0OS8IlehA==}
+    engines: {node: '>=4.0.0'}
+    os: [darwin]
+    requiresBuild: true
+    dev: false
 
   /p-limit/3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
@@ -3061,6 +3066,13 @@ packages:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /systeminformation/5.17.12:
+    resolution: {integrity: sha512-I3pfMW2vue53u+X08BNxaJieaHkRoMMKjWetY9lbYJeWFaeWPO6P4FkNc4XOCX8F9vbQ0HqQ25RJoz3U/B7liw==}
+    engines: {node: '>=8.0.0'}
+    os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
+    hasBin: true
     dev: false
 
   /tailwind-scrollbar/2.0.1_tailwindcss@3.1.8:
