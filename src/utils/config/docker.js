@@ -27,10 +27,22 @@ export default function getDockerArguments(server) {
     }
 
     if (servers[server].host) {
-      return {
-        conn: { host: servers[server].host, port: servers[server].port || null },
+      const res ={
+        conn: { host: servers[server].host },
         swarm: !!servers[server].swarm,
-      };
+      }
+
+      if (servers[server].port){
+        res.conn.port = servers[server].port;
+      }
+
+      if (servers[server].tls){
+        res.conn.ca = readFileSync(path.join(process.cwd(), "config", servers[server].tls.caFile));
+        res.conn.cert = readFileSync(path.join(process.cwd(), "config", servers[server].tls.certFile));
+        res.conn.key = readFileSync(path.join(process.cwd(), "config", servers[server].tls.keyFile));
+      }
+
+      return res;
     }
 
     return servers[server];
