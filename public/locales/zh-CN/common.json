@@ -17,7 +17,14 @@
         "used": "已用",
         "load": "负载",
         "cpu": "处理器",
-        "mem": "内存"
+        "mem": "内存",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "docker": {
         "rx": "接收",
@@ -226,7 +233,11 @@
     "glances": {
         "cpu": "处理器",
         "mem": "内存",
-        "wait": "请稍等"
+        "wait": "请稍等",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "totalObserved": "观察到的总数",
