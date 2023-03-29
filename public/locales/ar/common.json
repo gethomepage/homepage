@@ -23,7 +23,14 @@
         "free": "متاح",
         "used": "مستخدم",
         "load": "الضغط",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "users": "المستخدمون",
@@ -288,7 +295,11 @@
     "glances": {
         "cpu": "معالج",
         "mem": "الذاكرة",
-        "wait": "الرجاء الإنتظار"
+        "wait": "الرجاء الإنتظار",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "quicklaunch": {
         "bookmark": "مفضلة",
