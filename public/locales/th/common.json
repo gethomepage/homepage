@@ -96,7 +96,14 @@
         "total": "ทั้งหมด",
         "free": "ฟรี",
         "used": "ใช้แล้ว",
-        "load": "โหลด"
+        "load": "โหลด",
+        "hours": "h",
+        "minutes": "m",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d"
     },
     "ping": {
         "error": "ข้อผิดพลาด",
@@ -302,7 +309,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Please wait",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
