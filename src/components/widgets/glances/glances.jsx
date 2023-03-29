@@ -65,7 +65,10 @@ export default function Widget({ options }) {
   }
 
   const unit = options.units === "imperial" ? "fahrenheit" : "celsius";
-  const mainTemp = (options.cputemp && data.sensors && unit === "celsius") ? data.sensors.find(s => s.label.includes("cpu_thermal")).value : data.sensors.find(s => s.label.includes("cpu_thermal")).value * 5/9 + 32;
+  let mainTemp;
+  if (options.cputemp && data.sensors) {
+    mainTemp = unit === "celsius" ? data.sensors.find(s => s.label.includes("cpu_thermal")).value : data.sensors.find(s => s.label.includes("cpu_thermal")).value * 5/9 + 32;
+  }
 
   return (
     <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
@@ -104,7 +107,7 @@ export default function Widget({ options }) {
             <UsageBar percent={data.quicklook.mem} />
           </div>
         </div>
-        {options.cputemp &&
+        {options.cputemp && mainTemp &&
             (<div className="flex-none flex flex-row items-center mr-3 py-1.5">
             <FaThermometerHalf className="text-theme-800 dark:text-theme-200 w-5 h-5" />
             <div className="flex flex-col ml-3 text-left min-w-[85px]">
