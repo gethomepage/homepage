@@ -33,7 +33,14 @@
         "free": "Свободни",
         "used": "Заети",
         "load": "Натоварване",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "users": "Потребители",
@@ -226,7 +233,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Please wait",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
