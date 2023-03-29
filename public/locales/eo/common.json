@@ -23,7 +23,14 @@
         "free": "Libera",
         "used": "Uzata",
         "load": "Ŝarĝo",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "months": "mo",
+        "max": "Max",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "users": "Uzantoj",
@@ -244,7 +251,11 @@
     "glances": {
         "cpu": "Ĉefprocesoro",
         "mem": "Memoro",
-        "wait": "Bonvolu atendi"
+        "wait": "Bonvolu atendi",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",

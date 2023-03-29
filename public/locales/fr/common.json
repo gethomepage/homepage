@@ -17,7 +17,14 @@
         "used": "Utilisé",
         "load": "Charge",
         "cpu": "CPU",
-        "mem": "MÉM"
+        "mem": "MÉM",
+        "max": "Max",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "docker": {
         "rx": "Rx",
@@ -226,7 +233,11 @@
     "glances": {
         "cpu": "Cpu",
         "mem": "Mém",
-        "wait": "Merci de patienter"
+        "wait": "Merci de patienter",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "totalObserved": "Total Observé",

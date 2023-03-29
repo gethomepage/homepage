@@ -128,7 +128,14 @@
         "free": "Вільно",
         "used": "Використано",
         "load": "Навантаження",
-        "mem": "Пам'ять"
+        "mem": "Пам'ять",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "users": "Користувачі",
@@ -350,7 +357,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "Пам'ять",
-        "wait": "Будь ласка, зачекайте"
+        "wait": "Будь ласка, зачекайте",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "quicklaunch": {
         "bookmark": "Закладка",

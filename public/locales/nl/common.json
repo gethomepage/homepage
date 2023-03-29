@@ -1,6 +1,6 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
+        "missing_type": "Missend Widget Type: {{type}}",
         "api_error": "API Error",
         "status": "Status",
         "information": "Informatie",
@@ -14,7 +14,14 @@
         "used": "Gebruikt",
         "load": "Laadt",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "MEM",
+        "days": "d",
+        "hours": "h",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "minutes": "m"
     },
     "docker": {
         "rx": "RX",
@@ -25,12 +32,12 @@
         "error": "Fout",
         "unknown": "Onbekend",
         "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "starting": "Starten",
+        "unhealthy": "Ongezond",
+        "not_found": "Niet Gevonden",
+        "exited": "Verlaten",
+        "partial": "Gedeeltelijk",
+        "healthy": "Gezond"
     },
     "speedtest": {
         "upload": "Upload",
@@ -56,16 +63,16 @@
         "transcoding": "Transcodering",
         "bitrate": "Bitsnelheid",
         "no_active": "Geen Actieve Steams",
-        "movies": "Movies",
+        "movies": "Films",
         "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "episodes": "Afleveringen",
+        "songs": "Liedjes"
     },
     "tautulli": {
         "playing": "Afspelen",
         "transcoding": "Transcodering",
         "bitrate": "Bitsnelheid",
-        "no_active": "No Active Streams"
+        "no_active": "Geen Actieve Streams"
     },
     "rutorrent": {
         "active": "Actief",
@@ -81,12 +88,12 @@
         "movies": "Films",
         "wanted": "Gezocht",
         "queued": "In de wachtrij",
-        "missing": "Missing"
+        "missing": "Missend"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Gezocht",
+        "queued": "In de wachtrij",
+        "books": "Boeken"
     },
     "ombi": {
         "pending": "In afwachting",
@@ -114,32 +121,32 @@
         "total": "Totaal"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
+        "pending": "In Afwachting",
+        "approved": "Goedgekeurd",
+        "available": "Beschikbaar",
         "processing": "Processing"
     },
     "sabnzbd": {
         "rate": "Rate",
-        "queue": "Queue",
+        "queue": "Wachtrij",
         "timeleft": "Time Left"
     },
     "nzbget": {
         "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "remaining": "Resterend",
+        "downloaded": "Gedownload"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "7days": "7 Days",
-        "1day": "1 Day",
-        "30days": "30 Days"
+        "1hour": "1 Uur",
+        "7days": "7 Dagen",
+        "1day": "1 Dag",
+        "30days": "30 Dagen"
     },
     "gotify": {
-        "apps": "Applications",
+        "apps": "Applicaties",
         "clients": "Clients",
-        "messages": "Messages"
+        "messages": "Berichten"
     },
     "prowlarr": {
         "enableIndexers": "Indexers",
@@ -155,21 +162,21 @@
         "seed": "Seed"
     },
     "jackett": {
-        "configured": "Configured",
+        "configured": "Geconfigureerd",
         "errored": "Errored"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Ontbrekende Afleveringen",
+        "missingMovies": "Ontbrekende Films"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Gezocht",
+        "queued": "In de wachtrij",
         "albums": "Albums"
     },
     "adguard": {
         "queries": "Queries",
-        "blocked": "Blocked",
+        "blocked": "Geblokkeerd",
         "filtered": "Filtered",
         "latency": "Latency"
     },
@@ -182,7 +189,7 @@
     "mastodon": {
         "user_count": "Users",
         "status_count": "Posts",
-        "domain_count": "Domains"
+        "domain_count": "Domeinen"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
@@ -191,7 +198,7 @@
         "transferRate": "Rate"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Gebruikers",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
@@ -219,33 +226,37 @@
         "empty_data": "Subsystem status unknown"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Actieve Streams",
+        "movies": "Films",
+        "tv": "TV Series"
     },
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Please wait",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "totalObserved": "Totaal waargenomen",
-        "diffsDetected": "Diffs Detected"
+        "diffsDetected": "Verschillen Gedetecteerd"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "3-day": "Cloudy",
-        "99-night": "Thunderstorm With Hail",
-        "3-night": "Cloudy",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "0-day": "Zonnig",
+        "0-night": "Helder",
+        "1-day": "Overwegend Zonnig",
+        "1-night": "Overwegend Helder",
+        "3-day": "Bewolkt",
+        "99-night": "Onweersbui Met Hagel",
+        "3-night": "Bewolkt",
+        "2-day": "Gedeeltelijk Bewolkt",
+        "2-night": "Gedeeltelijk Bewolkt",
+        "45-day": "Mistig",
+        "45-night": "Mistig",
+        "48-day": "Mistig",
+        "48-night": "Mistig",
         "51-day": "Light Drizzle",
         "51-night": "Light Drizzle",
         "53-day": "Drizzle",
@@ -256,22 +267,22 @@
         "56-night": "Light Freezing Drizzle",
         "57-day": "Freezing Drizzle",
         "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
+        "61-day": "Lichte Regen",
+        "61-night": "Lichte Regen",
+        "63-day": "Regen",
+        "63-night": "Regen",
+        "65-day": "Hevige Regen",
+        "65-night": "Hevige Regen",
         "66-day": "Freezing Rain",
         "66-night": "Freezing Rain",
         "67-day": "Freezing Rain",
         "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
+        "71-day": "Lichte Sneeuw",
+        "71-night": "Lichte Sneeuw",
+        "73-day": "Sneeuw",
+        "73-night": "Sneeuw",
+        "75-day": "Hevige Sneeuw",
+        "75-night": "Hevige Sneeuw",
         "77-day": "Snow Grains",
         "77-night": "Snow Grains",
         "80-day": "Light Showers",
@@ -284,46 +295,46 @@
         "85-night": "Snow Showers",
         "86-day": "Snow Showers",
         "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail"
+        "95-day": "Onweersbui",
+        "95-night": "Onweersbui",
+        "96-day": "Onweersbui Met Hagel",
+        "96-night": "Onweersbui Met Hagel",
+        "99-day": "Onweersbui Met Hagel"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
+        "bookmark": "Bladwijzer",
         "service": "Service",
-        "search": "Search",
+        "search": "Zoek",
         "custom": "Custom",
-        "visit": "Visit",
+        "visit": "Bezoek",
         "url": "URL"
     },
     "homebridge": {
-        "available_update": "System",
+        "available_update": "Systeem",
         "updates": "Updates",
-        "update_available": "Update Available",
+        "update_available": "Update Beschikbaar",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "In afwachting van",
         "down": "Down"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
+        "approvedPushes": "Goedgekeurd",
+        "rejectedPushes": "Afgewezen",
         "filters": "Filters",
         "indexers": "Indexers"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
+        "containers_scanned": "Gescanned",
         "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_failed": "Gefaald"
     },
     "tubearchivist": {
         "downloads": "Queue",
         "videos": "Videos",
-        "channels": "Channels",
+        "channels": "Kanalen",
         "playlists": "Playlists"
     },
     "truenas": {
@@ -333,22 +344,22 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Geen Actieve Streams",
+        "please_wait": "Even geduld aub"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "total": "Total",
-        "queue": "Queue"
+        "speed": "Snelheid",
+        "active": "Actief",
+        "total": "Totaal",
+        "queue": "Wachtrij"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "Publiek IP",
+        "region": "Regio",
+        "country": "Land"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Kanalen",
         "hd": "HD"
     },
     "ping": {
@@ -357,12 +368,12 @@
     },
     "scrutiny": {
         "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "failed": "Gefaald",
+        "unknown": "Onbekend"
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
+        "total": "Totaal"
     },
     "deluge": {
         "download": "Download",
@@ -377,18 +388,18 @@
         "seed": "Seed"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "Wachtrij",
         "processed": "Processed",
         "errored": "Errored",
         "saved": "Saved"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Gelezen",
+        "unread": "Ongelezen"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Even geduld aub",
+        "no_devices": "Geen Apparaat Data Ontvangen"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
@@ -396,8 +407,8 @@
     },
     "omada": {
         "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
+        "activeUser": "Actieve apparaten",
+        "alerts": "Meldingen",
         "connectedGateway": "Connected gateways",
         "connectedSwitches": "Connected switches"
     },
@@ -408,8 +419,8 @@
         "seed": "Seed"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
+        "cpuLoad": "CPU Belasting",
+        "memoryUsed": "Geheugen Gebruikt",
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
@@ -419,8 +430,8 @@
         "streams_xepg": "XEPG Channels"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
+        "cpu": "CPU Belasting",
+        "memory": "Actief Geheugen",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     },
@@ -449,13 +460,13 @@
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Geheugen"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
+        "users": "Gebruikers",
+        "photos": "Foto's",
         "videos": "Videos",
-        "storage": "Storage"
+        "storage": "Opslag"
     },
     "uptimekuma": {
         "up": "Sites Up",
@@ -465,31 +476,31 @@
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
+        "libraries": "Bibliotheken",
         "series": "Series",
-        "books": "Books"
+        "books": "Boeken"
     },
     "mylar": {
         "wanted": "Wanted",
         "series": "Series",
-        "issues": "Issues"
+        "issues": "Problemen"
     },
     "photoprism": {
         "albums": "Albums",
-        "photos": "Photos",
+        "photos": "Foto's",
         "videos": "Videos",
-        "people": "People"
+        "people": "Personen"
     },
     "diskstation": {
-        "days": "Days",
+        "days": "Dagen",
         "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "volumeAvailable": "Beschikbaar"
     },
     "fileflows": {
-        "queue": "Queue",
+        "queue": "Wachtrij",
         "processing": "Processing",
         "processed": "Processed",
-        "time": "Time"
+        "time": "Tijd"
     },
     "grafana": {
         "dashboards": "Dashboards",
@@ -498,32 +509,32 @@
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "Cpu Belasting",
+        "memoryusage": "Geheugen Gebruik",
+        "freespace": "Vrije Ruimte",
+        "activeusers": "Actieve Gebruikers"
     },
     "kopia": {
         "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "size": "Grootte",
+        "lastrun": "Laatste Run",
+        "nextrun": "Volgende Run",
+        "failed": "Gefaald"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Actieve Werkers",
+        "total_workers": "Totale Werkers",
+        "records_total": "Wachtrij Lengte"
     },
     "healthchecks": {
-        "new": "New",
+        "new": "Nieuw",
         "up": "Online",
         "grace": "In Grace Period",
         "down": "Offline",
-        "paused": "Paused",
+        "paused": "Gepauzeerd",
         "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "last_ping": "Laatste Ping",
+        "never": "Nog geen pings"
     },
     "pterodactyl": {
         "servers": "Servers",
@@ -535,21 +546,21 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
+        "players": "Spelers",
+        "version": "Versie",
         "status": "Status",
         "up": "Online",
         "down": "Offline"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
+        "gross_percent_today": "Vandaag",
+        "gross_percent_1y": "Een jaar",
         "gross_percent_max": "All time"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "books": "Boeken",
+        "podcastsDuration": "Duur",
+        "booksDuration": "Duur"
     }
 }

@@ -35,7 +35,14 @@
         "free": "Volné",
         "used": "Využité",
         "load": "Vytížení",
-        "mem": "RAM"
+        "mem": "RAM",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "temp": "TEMP"
     },
     "unifi": {
         "users": "Uživatelé",
@@ -300,7 +307,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "RAM",
-        "wait": "Prosím počkejte"
+        "wait": "Prosím počkejte",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "quicklaunch": {
         "bookmark": "Záložka",

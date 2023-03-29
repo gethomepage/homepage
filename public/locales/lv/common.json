@@ -27,7 +27,14 @@
         "free": "Brīvs",
         "used": "Izmantojas",
         "load": "Ielādē",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "users": "Lietotāji",
@@ -282,7 +289,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Please wait"
+        "wait": "Please wait",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h",
+        "temp": "TEMP"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",

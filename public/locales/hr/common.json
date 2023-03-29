@@ -14,7 +14,14 @@
         "used": "Korišteno",
         "load": "Opterećenje",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "MEM",
+        "minutes": "m",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "temp": "TEMP",
+        "days": "d",
+        "hours": "h"
     },
     "sabnzbd": {
         "rate": "Stopa",
@@ -226,7 +233,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Pričekaj"
+        "wait": "Pričekaj",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "totalObserved": "Ukupno promatrano",

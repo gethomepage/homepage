@@ -39,7 +39,14 @@
         "used": "Utilitzat",
         "load": "Càrrega",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "docker": {
         "rx": "Rebut",
@@ -226,7 +233,11 @@
     "glances": {
         "cpu": "Processador",
         "mem": "Memòria",
-        "wait": "Si us plau, espereu"
+        "wait": "Si us plau, espereu",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "totalObserved": "Total d'observats",
