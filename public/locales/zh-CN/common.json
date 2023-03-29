@@ -27,23 +27,23 @@
         "offline": "离线",
         "error": "错误",
         "unknown": "未知",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "running": "Running",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "starting": "启动中",
+        "unhealthy": "不健康的",
+        "not_found": "未找到",
+        "running": "运行中",
+        "exited": "已退出",
+        "partial": "部分",
+        "healthy": "健康的"
     },
     "emby": {
         "playing": "播放中",
         "transcoding": "转码",
         "bitrate": "比特率",
         "no_active": "暂无播放",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "电影",
+        "series": "系列",
+        "episodes": "剧集",
+        "songs": "歌曲"
     },
     "tautulli": {
         "playing": "播放中",
@@ -251,69 +251,69 @@
         "51-night": "小雨",
         "53-day": "Drizzle",
         "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "55-day": "毛毛雨",
+        "55-night": "毛毛雨",
+        "56-day": "小冻毛雨",
+        "56-night": "小冻毛雨",
+        "57-day": "冻毛雨",
+        "57-night": "冻毛雨",
+        "61-day": "小雨",
+        "61-night": "小雨",
+        "63-day": "雨",
+        "63-night": "雨",
+        "65-day": "大雨",
+        "65-night": "大雨",
+        "66-day": "冻雨",
+        "66-night": "冻雨",
+        "67-day": "冻雨",
+        "67-night": "冻雨",
         "71-day": "小雪",
         "71-night": "小雪",
         "73-day": "中雪",
         "75-night": "大雪",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "77-day": "雪粒",
+        "77-night": "雪粒",
+        "80-day": "微阵雨",
+        "80-night": "微阵雨",
+        "81-day": "阵雨",
+        "81-night": "阵雨",
+        "82-day": "强阵雨",
+        "82-night": "强阵雨",
+        "85-day": "阵雪",
+        "85-night": "阵雪",
+        "86-day": "阵雪",
+        "86-night": "阵雪",
+        "95-day": "雷雨",
+        "95-night": "雷雨",
+        "96-day": "雷雨伴随冰雹",
+        "96-night": "雷雨伴随冰雹",
+        "99-day": "雷雨伴随冰雹",
+        "99-night": "雷雨伴随冰雹"
     },
     "quicklaunch": {
         "bookmark": "书签",
         "service": "服务",
         "search": "搜索",
-        "custom": "Custom",
-        "visit": "Visit",
-        "url": "URL"
+        "custom": "自定",
+        "visit": "访问",
+        "url": "网址"
     },
     "homebridge": {
         "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
+        "updates": "更新",
+        "update_available": "有可用的更新",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "待定中",
         "down": "Down"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
+        "approvedPushes": "已核准",
+        "rejectedPushes": "拒绝",
         "filters": "Filters",
-        "indexers": "Indexers"
+        "indexers": "索引器"
     },
     "watchtower": {
         "containers_scanned": "以扫描",
@@ -321,10 +321,10 @@
         "containers_failed": "失败"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "队列",
+        "videos": "影片",
+        "channels": "频道",
+        "playlists": "播放清单"
     },
     "truenas": {
         "load": "系统负载",
@@ -337,18 +337,18 @@
         "please_wait": "请等待"
     },
     "pyload": {
-        "speed": "Speed",
+        "speed": "速度",
         "active": "Active",
-        "queue": "Queue",
+        "queue": "队列",
         "total": "Total"
     },
     "gluetun": {
         "public_ip": "Public IP",
         "region": "Region",
-        "country": "Country"
+        "country": "国家"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "频道",
         "hd": "HD"
     },
     "ping": {
@@ -356,12 +356,12 @@
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "通过",
+        "failed": "失败",
+        "unknown": "未知的"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
+        "inbox": "收件箱",
         "total": "Total"
     },
     "deluge": {
@@ -377,25 +377,25 @@
         "seed": "做种"
     },
     "tdarr": {
-        "saved": "Saved",
+        "saved": "已保存",
         "queue": "队列",
-        "processed": "Processed",
+        "processed": "已处理",
         "errored": "出错"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "已读",
+        "unread": "未读"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "请稍候",
+        "no_devices": "没有接收到设备数据"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
+        "connectedAp": "连接中的AP",
         "activeUser": "活跃设备",
         "alerts": "警报",
         "connectedGateway": "已连接网关",
@@ -414,9 +414,9 @@
         "numberOfLeases": "已连接"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "所有播放活动",
+        "streams_active": "正在播放",
+        "streams_xepg": "XEPG 频道"
     },
     "opnsense": {
         "cpu": "处理器负载",
@@ -425,24 +425,24 @@
         "wanDownload": "WAN下载"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
+        "printer_state": "打印机状态",
+        "print_status": "打印状态",
         "print_progress": "Progress",
-        "layers": "Layers"
+        "layers": "层"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "关注中",
+        "queued": "已加入队列",
         "series": "Series"
     },
     "octoprint": {
         "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "temp_tool": "喷头温度",
+        "temp_bed": "平台温度",
+        "job_completion": "完成度"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
+        "origin_ip": "源IP",
         "status": "Status"
     },
     "proxmoxbackupserver": {
@@ -452,10 +452,10 @@
         "memory_usage": "内存"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "使用者",
+        "photos": "照片",
+        "videos": "影片",
+        "storage": "储存空间"
     },
     "uptimekuma": {
         "up": "在线网站",
@@ -471,8 +471,8 @@
     },
     "mylar": {
         "series": "系列",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "issues": "问题",
+        "wanted": "关注中"
     },
     "photoprism": {
         "albums": "相册",
@@ -486,16 +486,16 @@
         "days": "天"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "queue": "队列",
+        "processing": "处理中",
+        "processed": "已处理",
+        "time": "时间"
     },
     "grafana": {
-        "totalalerts": "Total Alerts",
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "alertstriggered": "Alerts Triggered"
+        "totalalerts": "警报总数",
+        "dashboards": "控制面板",
+        "datasources": "数据来源",
+        "alertstriggered": "触发的警报"
     },
     "nextcloud": {
         "cpuload": "处理器负载",
@@ -504,30 +504,30 @@
         "activeusers": "活跃用户"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "状态",
+        "size": "大小",
+        "lastrun": "最后运行",
+        "nextrun": "下次运行",
+        "failed": "失败"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "在线工作节点",
+        "total_workers": "工作节点总数",
+        "records_total": "队列长度"
     },
     "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "new": "新建立",
+        "up": "在线的",
+        "grace": "延缓中",
+        "down": "离线",
+        "paused": "暂停",
+        "status": "状态",
+        "last_ping": "上次检查",
+        "never": "尚未检查"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "服务器",
+        "nodes": "节点"
     },
     "prometheus": {
         "targets_up": "Targets Up",
@@ -535,21 +535,21 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "players": "播放中",
+        "version": "版本",
+        "status": "状态",
+        "up": "在线的",
+        "down": "离线"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "今天",
+        "gross_percent_1y": "一年",
+        "gross_percent_max": "所有时间"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "播客",
+        "books": "图书",
+        "podcastsDuration": "持续时间",
+        "booksDuration": "持续时间"
     }
 }
