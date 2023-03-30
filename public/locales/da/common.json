@@ -68,7 +68,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "RAM",
-        "wait": "Vent venligst"
+        "wait": "Vent venligst",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h",
+        "temp": "TEMP"
     },
     "wmo": {
         "1-day": "Hovedsageligt solrigt",
@@ -163,7 +167,14 @@
         "free": "Fri",
         "used": "Brugt",
         "load": "Belastning",
-        "mem": "MEM"
+        "mem": "MEM",
+        "hours": "h",
+        "minutes": "m",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d"
     },
     "unifi": {
         "users": "Brugere",

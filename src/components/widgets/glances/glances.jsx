@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import { BiError } from "react-icons/bi";
-import { FaMemory } from "react-icons/fa";
+import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
 
@@ -64,6 +64,12 @@ export default function Widget({ options }) {
     );
   }
 
+  const unit = options.units === "imperial" ? "fahrenheit" : "celsius";
+  let mainTemp;
+  if (options.cputemp && data.sensors) {
+    mainTemp = unit === "celsius" ? data.sensors.find(s => s.label.includes("cpu_thermal")).value : data.sensors.find(s => s.label.includes("cpu_thermal")).value * 5/9 + 32;
+  }
+
   return (
     <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
       <div className="flex flex-row self-center flex-wrap justify-between">
@@ -73,7 +79,7 @@ export default function Widget({ options }) {
             <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
               <div className="pl-0.5">
                 {t("common.number", {
-                  value: data.cpu,
+                  value: data.quicklook.cpu,
                   style: "unit",
                   unit: "percent",
                   maximumFractionDigits: 0,
@@ -81,7 +87,7 @@ export default function Widget({ options }) {
               </div>
               <div className="pr-1">{t("glances.cpu")}</div>
             </div>
-            <UsageBar percent={data.cpu} />
+            <UsageBar percent={data.quicklook.cpu} />
           </div>
         </div>
         <div className="flex-none flex flex-row items-center mr-3 py-1.5">
@@ -90,7 +96,7 @@ export default function Widget({ options }) {
             <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
               <div className="pl-0.5">
                 {t("common.number", {
-                  value: data.mem,
+                  value: data.quicklook.mem,
                   style: "unit",
                   unit: "percent",
                   maximumFractionDigits: 0,
@@ -98,9 +104,38 @@ export default function Widget({ options }) {
               </div>
               <div className="pr-1">{t("glances.mem")}</div>
             </div>
-            <UsageBar percent={data.mem} />
+            <UsageBar percent={data.quicklook.mem} />
           </div>
         </div>
+        {options.cputemp && mainTemp &&
+            (<div className="flex-none flex flex-row items-center mr-3 py-1.5">
+            <FaThermometerHalf className="text-theme-800 dark:text-theme-200 w-5 h-5" />
+            <div className="flex flex-col ml-3 text-left min-w-[85px]">
+              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+                <div className="pl-0.5">
+                  {t("common.number", { 
+                    value: mainTemp,
+                    maximumFractionDigits: 1,
+                    style: "unit",
+                    unit
+                  })}
+                </div>
+                <div className="pr-1">{t("glances.temp")}</div>
+              </span>
+            </div>
+          </div>)}
+        {options.uptime && data.uptime &&
+            (<div className="flex-none flex flex-row items-center mr-3 py-1.5">
+            <FaRegClock className="text-theme-800 dark:text-theme-200 w-5 h-5" />
+            <div className="flex flex-col ml-3 text-left min-w-[85px]">
+              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+                <div className="pl-0.5">
+                  {data.uptime.replace(" days,", t("glances.days")).replace(/:\d\d:\d\d$/g, t("glances.hours"))}
+                </div>
+                <div className="pr-1">{t("glances.uptime")}</div>
+              </span>
+            </div>
+          </div>)}
       </div>
       {options.label && (
         <div className="pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">{options.label}</div>

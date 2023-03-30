@@ -44,19 +44,19 @@ export default function Disk({ options, expanded }) {
     );
   }
 
-  const percent = Math.round((data.drive.usedGb / data.drive.totalGb) * 100);
+  const percent = Math.round((data.drive.used / data.drive.size) * 100);
 
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">
       <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
       <div className="flex flex-col ml-3 text-left min-w-[85px]">
         <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-          <div className="pl-0.5 pr-1">{t("common.bytes", { value: data.drive.freeGb * 1024 * 1024 * 1024 })}</div>
+          <div className="pl-0.5 pr-1">{t("common.bytes", { value: data.drive.available })}</div>
           <div className="pr-1">{t("resources.free")}</div>
         </span>
         {expanded && (
           <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-            <div className="pl-0.5 pr-1">{t("common.bytes", { value: data.drive.totalGb * 1024 * 1024 * 1024 })}</div>
+            <div className="pl-0.5 pr-1">{t("common.bytes", { value: data.drive.size })}</div>
             <div className="pr-1">{t("resources.total")}</div>
           </span>
         )}

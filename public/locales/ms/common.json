@@ -5,7 +5,14 @@
         "free": "Bebas",
         "used": "Telah diguna",
         "load": "Beban",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "uptime": "Masa Operasi Sistem",
@@ -60,7 +67,11 @@
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
-        "wait": "Sila tunggu"
+        "wait": "Sila tunggu",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "quicklaunch": {
         "bookmark": "Tandabuku",

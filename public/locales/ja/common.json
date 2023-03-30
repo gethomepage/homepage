@@ -17,7 +17,11 @@
     "glances": {
         "mem": "MEM",
         "cpu": "CPU",
-        "wait": "Please wait"
+        "wait": "Please wait",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "autobrr": {
         "filters": "Filters",
@@ -58,7 +62,14 @@
         "free": "Free",
         "used": "Used",
         "load": "Load",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
         "users": "Users",

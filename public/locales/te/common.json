@@ -40,7 +40,14 @@
         "free": "మిగిలింది",
         "used": "ఉపయోగించబడిన",
         "load": "లోడ్",
-        "mem": "MEM"
+        "mem": "MEM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "docker": {
         "rx": "RX",
@@ -226,7 +233,11 @@
     "glances": {
         "cpu": "సీపియూ",
         "mem": "MEM",
-        "wait": "దయచేసి వేచి ఉండండి"
+        "wait": "దయచేసి వేచి ఉండండి",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "totalObserved": "మొత్తం గమనించబడింది",

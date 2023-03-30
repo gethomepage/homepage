@@ -14,7 +14,14 @@
         "total": "Całkowite",
         "free": "Wolne",
         "cpu": "CPU",
-        "mem": "MEM"
+        "mem": "PAM",
+        "temp": "TEMP",
+        "max": "Max",
+        "uptime": "UP",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "emby": {
         "no_active": "Brak aktywnych strumieni",
@@ -71,13 +78,13 @@
         "offline": "Offline",
         "error": "Błąd",
         "unknown": "Nieznany",
-        "running": "Running",
+        "running": "Działa",
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
         "partial": "Partial",
-        "healthy": "Healthy"
+        "healthy": "Zdrowy"
     },
     "nzbget": {
         "rate": "Szybkość",
@@ -216,7 +223,7 @@
         "devices": "Urządzenia",
         "lan_devices": "Urządzenia LAN",
         "wlan_devices": "Urządzenia WLAN",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Nieznany stan"
     },
     "plex": {
         "streams": "Aktywne strumienie",
@@ -226,7 +233,11 @@
     "glances": {
         "cpu": "Procesor",
         "mem": "Pamięć",
-        "wait": "Proszę czekać"
+        "wait": "Proszę czekać",
+        "temp": "TEMP",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "h"
     },
     "changedetectionio": {
         "diffsDetected": "Wykryto różnic",

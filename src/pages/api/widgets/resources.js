@@ -1,15 +1,16 @@
 import { existsSync } from "fs";
 
-import { cpu, drive, mem } from "node-os-utils";
+const si = require('systeminformation');
 
 export default async function handler(req, res) {
   const { type, target } = req.query;
 
   if (type === "cpu") {
+    const load = await si.currentLoad();
     return res.status(200).json({
       cpu: {
-        usage: await cpu.usage(1000),
-        load: cpu.loadavgTime(5),
+        usage: load.currentLoad,
+        load: load.avgLoad,
       },
     });
   }
@@ -21,14 +22,29 @@ export default async function handler(req, res) {
       });
     }
 
+    const fsSize = await si.fsSize();
+
     return res.status(200).json({
-      drive: await drive.info(target || "/"),
+      drive: fsSize.find(fs => fs.mount === target) ?? fsSize.find(fs => fs.mount === "/")
     });
   }
 
   if (type === "memory") {
     return res.status(200).json({
-      memory: await mem.info(),
+      memory: await si.mem(),
+    });
+  }
+
+  if (type === "cputemp") {
+    return res.status(200).json({
+      cputemp: await si.cpuTemperature(),
+    });
+  }
+
+  if (type === "uptime") {
+    const timeData = await si.time();
+    return res.status(200).json({
+      uptime: timeData.uptime
     });
   }
 
