@@ -25,6 +25,9 @@ dependencies:
   i18next:
     specifier: ^21.9.2
     version: 21.10.0
+  ipaddr.js:
+    specifier: ^2.0.1
+    version: 2.0.1
   js-yaml:
     specifier: ^4.1.0
     version: 4.1.0
@@ -1922,6 +1925,11 @@ packages:
   /interpret@1.4.0:
     resolution: {integrity: sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==}
     engines: {node: '>= 0.10'}
+    dev: false
+
+  /ipaddr.js@2.0.1:
+    resolution: {integrity: sha512-1qTgH9NG+IIJ4yfKs2e6Pp1bZg8wbDbKHT21HrLIeYBTRLgMYKnMTPAuI3Lcs61nfx5h1xlXnbJtH1kX5/d/ng==}
+    engines: {node: '>= 10'}
     dev: false
 
   /is-arguments@1.1.1:

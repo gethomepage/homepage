@@ -18,6 +18,7 @@
     "dockerode": "^3.3.4",
     "follow-redirects": "^1.15.2",
     "i18next": "^21.9.2",
+    "ipaddr.js": "^2.0.1",
     "js-yaml": "^4.1.0",
     "json-rpc-2.0": "^1.4.1",
     "memory-cache": "^0.2.0",
