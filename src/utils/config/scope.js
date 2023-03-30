@@ -1,3 +1,5 @@
+import { getClientIp } from "@supercharge/request-ip";
+
 import { getSettings } from "utils/config/config";
 
 function checkIPRange(ip, ipSpace) {
@@ -25,7 +27,7 @@ function checkIPRange(ip, ipSpace) {
   return false;
 }
 
-function isRequestProxied(req) {
+function isRequestProxied(remoteAddress) {
   const settings = getSettings();
   // Check if trustedproxies is set
   const trustedProxies = settings?.trustedproxies;
@@ -34,7 +36,7 @@ function isRequestProxied(req) {
   // is in the trustedproxies address space using CIDR notation.
   if (trustedProxies) {
     // Get the connection IP and strip IPv6 from the hybrid IPv4-IPv6 socket
-    const ip = req.connection.remoteAddress.replace(/^.*:/, '');
+    const ip = remoteAddress.replace(/^.*:/, '');
 
     for (let i = 0; i < trustedProxies.length; i += 1) {
         const proxy = trustedProxies[i].trim();
@@ -47,17 +49,12 @@ function isRequestProxied(req) {
   return false;
 }
 
-export function getClientIP(req) {
-  // Check if the request is proxied
-  const proxied = isRequestProxied(req);
-  // If the request is proxied, get the forwarded IP address
-  // from the X-Real-IP header
-  const forwarded = req.headers["x-real-ip"];
-  // If not get the connection IP address
-  const ip = req.connection.remoteAddress.replace(/^.*:/, '');
-
-  // Conditionally return the forwarded IP address or the connection IP address
-  return proxied ? (forwarded || ip) : ip;
+export function getRealClientIP(req) {
+  const {remoteAddress} = req.socket;
+  const proxied = isRequestProxied(remoteAddress);
+  
+  // If request is proxied we can trust headers, otherwise we return the socket IP
+  return proxied ? getClientIp(req) || remoteAddress : remoteAddress;
 }
 
 export function isInLocalScope(req) {
@@ -68,7 +65,7 @@ export function isInLocalScope(req) {
   // If localscope is set, check if the client IP
   // is in the localscope address space using CIDR notation.
   if (localScope) {
-    const ip = getClientIP(req);
+    const ip = getRealClientIP(req);
 
     for (let i = 0; i < localScope.length; i += 1) {
         const localIP = localScope[i].trim();
@@ -80,4 +77,3 @@ export function isInLocalScope(req) {
   }
   return false;
 }
-  
