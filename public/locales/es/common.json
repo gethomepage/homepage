@@ -18,13 +18,13 @@
         "load": "Carga",
         "cpu": "CPU",
         "mem": "MEM",
-        "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "temp": "TEMPORAL",
+        "max": "Máximo",
+        "uptime": "ARRIBA",
+        "months": "Meses",
+        "days": "Días",
+        "hours": "Horas",
+        "minutes": "Minutos"
     },
     "docker": {
         "rx": "Recibido",
@@ -234,10 +234,10 @@
         "cpu": "Procesador",
         "mem": "Memoria",
         "wait": "Espere por favor",
-        "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h"
+        "temp": "TEMPORAL",
+        "uptime": "ARRIBA",
+        "days": "Días",
+        "hours": "Horas"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
