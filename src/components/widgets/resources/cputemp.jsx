@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { FaThermometerHalf } from "react-icons/fa";
 import { BiError } from "react-icons/bi";
 import { useTranslation } from "next-i18next";
+import UsageBar from "./usage-bar";
 
 export default function CpuTemp({ expanded, units }) {
   const { t } = useTranslation();
@@ -44,6 +45,7 @@ export default function CpuTemp({ expanded, units }) {
   const unit = units === "imperial" ? "fahrenheit" : "celsius";
   const mainTemp = (unit === "celsius") ? data.cputemp.main : data.cputemp.main * 5/9 + 32;
   const maxTemp = (unit === "celsius") ? data.cputemp.max : data.cputemp.max * 5/9 + 32;
+  const percent = Math.round((mainTemp / maxTemp) * 100);
 
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">
@@ -73,6 +75,7 @@ export default function CpuTemp({ expanded, units }) {
             <div className="pr-1">{t("resources.max")}</div>
           </span>
         )}
+        <UsageBar percent={percent} />
       </div>
     </div>
   );
