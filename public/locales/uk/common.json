@@ -131,11 +131,11 @@
         "mem": "Пам'ять",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "Відправка",
+        "months": "міс",
+        "days": "д",
+        "hours": "г",
+        "minutes": "хв"
     },
     "unifi": {
         "users": "Користувачі",
@@ -359,9 +359,9 @@
         "mem": "Пам'ять",
         "wait": "Будь ласка, зачекайте",
         "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h"
+        "uptime": "Відправка",
+        "days": "д",
+        "hours": "г"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
