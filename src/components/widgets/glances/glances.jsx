@@ -66,9 +66,12 @@ export default function Widget({ options }) {
 
   const unit = options.units === "imperial" ? "fahrenheit" : "celsius";
   let mainTemp;
+  let maxTemp = 80;
   if (options.cputemp && data.sensors) {
     mainTemp = unit === "celsius" ? data.sensors.find(s => s.label.includes("cpu_thermal")).value : data.sensors.find(s => s.label.includes("cpu_thermal")).value * 5/9 + 32;
+    if (data.sensors.warning) maxTemp = data.sensors.warning;
   }
+  const tempPercent = Math.round((mainTemp / maxTemp) * 100);
 
   return (
     <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
@@ -122,6 +125,7 @@ export default function Widget({ options }) {
                 </div>
                 <div className="pr-1">{t("glances.temp")}</div>
               </span>
+              <UsageBar percent={tempPercent} />
             </div>
           </div>)}
         {options.uptime && data.uptime &&
@@ -134,6 +138,7 @@ export default function Widget({ options }) {
                 </div>
                 <div className="pr-1">{t("glances.uptime")}</div>
               </span>
+              <UsageBar percent={Math.round((new Date().getSeconds() / 60) * 100)} />
             </div>
           </div>)}
       </div>
