@@ -18,13 +18,13 @@
         "load": "负载",
         "cpu": "处理器",
         "mem": "内存",
-        "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "temp": "温度",
+        "max": "最大",
+        "uptime": "运行时间",
+        "months": "月",
+        "days": "天",
+        "hours": "时",
+        "minutes": "分"
     },
     "docker": {
         "rx": "接收",
@@ -236,8 +236,8 @@
         "wait": "请稍等",
         "temp": "TEMP",
         "uptime": "UP",
-        "days": "d",
-        "hours": "h"
+        "days": "天",
+        "hours": "时"
     },
     "changedetectionio": {
         "totalObserved": "观察到的总数",
