@@ -3,6 +3,8 @@ import { FaRegClock } from "react-icons/fa";
 import { BiError } from "react-icons/bi";
 import { useTranslation } from "next-i18next";
 
+import UsageBar from "./usage-bar";
+
 export default function Uptime() {
   const { t } = useTranslation();
 
@@ -45,6 +47,8 @@ export default function Uptime() {
   else if (d > 0) uptime = `${d}${t("resources.days")} ${h}${t("resources.hours")}`;
   else uptime = `${h}${t("resources.hours")} ${m}${t("resources.minutes")}`;
 
+  const percent = Math.round((new Date().getSeconds() / 60) * 100);
+
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">
       <FaRegClock className="text-theme-800 dark:text-theme-200 w-5 h-5" />
@@ -55,6 +59,7 @@ export default function Uptime() {
           </div>
           <div className="pr-1">{t("resources.uptime")}</div>
         </span>
+        <UsageBar percent={percent} />
       </div>
     </div>
   );
