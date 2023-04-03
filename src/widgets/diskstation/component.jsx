@@ -33,16 +33,7 @@ export default function Component({ service }) {
   const uptime = `${ t("common.number", { value: days }) } ${ t("diskstation.days") }`;
 
   // storage info
-  const volumeName = widget.volume;
-
-  let volume;
-
-  if (volumeName) {
-    volume = storageData.data.vol_info?.find(vol => vol.name === volumeName) 
-  } else {
-    volume = storageData.data.vol_info?.[0];
-  }
-
+  const volume = widget.volume ? storageData.data.vol_info?.find(vol => vol.name === widget.volume) : storageData.data.vol_info?.[0];
   const usedBytes = parseFloat(volume?.used_size);
   const totalBytes = parseFloat(volume?.total_size);
   const freeBytes = totalBytes - usedBytes;
