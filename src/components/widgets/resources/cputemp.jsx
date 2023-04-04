@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next";
 import UsageBar from "./usage-bar";
 
 function convertToFahrenheit(t) {
-  return t * 5/9 + 32
+  return t * 9/5 + 32
 }
 
 export default function CpuTemp({ expanded, units }) {

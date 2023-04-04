@@ -6,6 +6,12 @@ import { useTranslation } from "next-i18next";
 
 import UsageBar from "../resources/usage-bar";
 
+const cpuSensorLabels = ["cpu_thermal", "Core"];
+
+function convertToFahrenheit(t) {
+  return t * 9/5 + 32
+}
+
 export default function Widget({ options }) {
   const { t, i18n } = useTranslation();
 
@@ -65,11 +71,20 @@ export default function Widget({ options }) {
   }
 
   const unit = options.units === "imperial" ? "fahrenheit" : "celsius";
-  let mainTemp;
+  let mainTemp = 0;
   let maxTemp = 80;
-  if (options.cputemp && data.sensors) {
-    mainTemp = unit === "celsius" ? data.sensors.find(s => s.label.includes("cpu_thermal")).value : data.sensors.find(s => s.label.includes("cpu_thermal")).value * 5/9 + 32;
-    if (data.sensors.warning) maxTemp = data.sensors.warning;
+  const cpuSensors = data.sensors?.filter(s => cpuSensorLabels.some(label => s.label.startsWith(label)) && s.type === "temperature_core");
+  if (options.cputemp && cpuSensors) {
+    try {
+      mainTemp = cpuSensors.reduce((acc, s) => acc + s.value, 0) / cpuSensors.length;
+      maxTemp = Math.max(cpuSensors.reduce((acc, s) => acc + s.warning, 0) / cpuSensors.length, maxTemp);
+      if (unit === "fahrenheit") {
+        mainTemp = convertToFahrenheit(mainTemp);
+        maxTemp = convertToFahrenheit(maxTemp);
+      }
+    } catch (e) {
+      // cpu sensor retrieval failed
+    }
   }
   const tempPercent = Math.round((mainTemp / maxTemp) * 100);
 
@@ -110,7 +125,7 @@ export default function Widget({ options }) {
             <UsageBar percent={data.quicklook.mem} />
           </div>
         </div>
-        {options.cputemp && mainTemp &&
+        {options.cputemp && mainTemp > 0 &&
             (<div className="flex-none flex flex-row items-center mr-3 py-1.5">
             <FaThermometerHalf className="text-theme-800 dark:text-theme-200 w-5 h-5" />
             <div className="flex flex-col ml-3 text-left min-w-[85px]">
