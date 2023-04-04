@@ -272,7 +272,7 @@ export default function Component({ service }) {
       );
     }
   
-    if (playing.length === -1)
+    if (playing.length > 0)
     return (
       <>
       {enableBlocks && <CountBlocks service={service} countData={countData} />}
