@@ -42,13 +42,13 @@
         "free": "남음",
         "used": "사용",
         "load": "부하",
-        "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "temp": "온도",
+        "max": "최대",
+        "uptime": "가동",
+        "months": "달",
+        "days": "일",
+        "hours": "시간",
+        "minutes": "분"
     },
     "unifi": {
         "users": "사용자",

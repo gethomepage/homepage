@@ -44,7 +44,8 @@ export default function Disk({ options, expanded }) {
     );
   }
 
-  const percent = Math.round((data.drive.used / data.drive.size) * 100);
+  // data.drive.used not accurate?
+  const percent = Math.round(((data.drive.size - data.drive.available) / data.drive.size) * 100);
 
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">

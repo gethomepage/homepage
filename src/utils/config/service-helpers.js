@@ -249,7 +249,8 @@ export function cleanServiceGroups(groups) {
           podSelector,
           wan, // opnsense widget,
           enableBlocks, // emby/jellyfin
-          enableNowPlaying
+          enableNowPlaying,
+          volume // diskstation widget
         } = cleanedService.widget;
 
         const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
@@ -281,8 +282,11 @@ export function cleanServiceGroups(groups) {
           if (wan) cleanedService.widget.wan = wan;
         }
         if (type === "emby" || type === "jellyfin") {
-          if (enableBlocks) cleanedService.widget.enableBlocks = enableBlocks === 'true';
-          if (enableNowPlaying) cleanedService.widget.enableNowPlaying = enableNowPlaying === 'true';
+          if (enableBlocks) cleanedService.widget.enableBlocks = enableBlocks;
+          if (enableNowPlaying) cleanedService.widget.enableNowPlaying = enableNowPlaying;
+        }
+        if (type === "diskstation") {
+          if (volume) cleanedService.widget.volume = volume;
         }
       }
 
