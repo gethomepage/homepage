@@ -234,8 +234,8 @@
         "cpu": "处理器",
         "mem": "内存",
         "wait": "请稍等",
-        "temp": "TEMP",
-        "uptime": "UP",
+        "temp": "温度",
+        "uptime": "运行时间",
         "days": "天",
         "hours": "时"
     },
