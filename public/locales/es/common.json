@@ -19,7 +19,7 @@
         "cpu": "CPU",
         "mem": "MEM",
         "temp": "TEMPORAL",
-        "max": "Máximo",
+        "max": "Máx.",
         "uptime": "ARRIBA",
         "months": "Meses",
         "days": "Días",
@@ -118,7 +118,7 @@
         "current": "Ubicación actual",
         "allow": "Clic para permitir",
         "updating": "Actualizando",
-        "wait": "Espere, por favor"
+        "wait": "Espera, por favor"
     },
     "overseerr": {
         "pending": "Pendiente",
@@ -425,8 +425,8 @@
         "numberOfLeases": "Alquileres"
     },
     "xteve": {
-        "streams_all": "Todas las corrientes",
-        "streams_active": "Corrientes activas",
+        "streams_all": "Todos los flujos",
+        "streams_active": "Flujos activos",
         "streams_xepg": "Canales XEPG"
     },
     "opnsense": {
@@ -448,8 +448,8 @@
     },
     "octoprint": {
         "temp_bed": "temperatura de la plataforma",
-        "printer_state": "Status",
-        "temp_tool": "Herramienta de temperatura",
+        "printer_state": "Estado",
+        "temp_tool": "Temperatura de herramienta",
         "job_completion": "Finalización"
     },
     "cloudflared": {
