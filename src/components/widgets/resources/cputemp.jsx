@@ -47,16 +47,14 @@ export default function CpuTemp({ expanded, units }) {
     );
   }
 
-  let minTemp = 0;
   let mainTemp = data.cputemp.main;
   if (data.cputemp.cores?.length) {
     mainTemp = data.cputemp.cores.reduce((a, b) => a + b) / data.cputemp.cores.length;
-    minTemp = Math.min(...data.cputemp.cores);
   }
   const unit = units === "imperial" ? "fahrenheit" : "celsius";
   mainTemp = (unit === "celsius") ? mainTemp : convertToFahrenheit(mainTemp);
   const maxTemp = (unit === "celsius") ? data.cputemp.max : convertToFahrenheit(data.cputemp.max);
-  const percent = Math.round(((mainTemp - minTemp) / (maxTemp - minTemp)) * 100);
+  const percent = Math.round((mainTemp / maxTemp) * 100);
 
   return (
     <div className="flex-none flex flex-row items-center mr-3 py-1.5">
