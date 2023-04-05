@@ -183,7 +183,7 @@
     "qbittorrent": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Compañeros",
         "seed": "Semillas"
     },
     "mastodon": {
@@ -228,7 +228,7 @@
     "plex": {
         "streams": "Transmisiones activas",
         "movies": "Películas",
-        "tv": "Programas de TV"
+        "tv": "Series"
     },
     "glances": {
         "cpu": "Procesador",
