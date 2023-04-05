@@ -29,7 +29,7 @@ COPY . .
 
 SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
 RUN npm run telemetry \
- && mkdir config && echo '---' > config/settings.yaml \
+ && mkdir config \
  && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
 
 # Production image, copy all the files and run next

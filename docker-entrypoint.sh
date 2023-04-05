@@ -10,6 +10,8 @@ export PGID=${PGID:-0}
 # while also supporting the lscr.io /config directory
 [ ! -d "/app/config" ] && ln -s /config /app/config
 
+export HOMEPAGE_BUILDTIME=$(date +%s)
+
 # Set privileges for /app but only if pid 1 user is root and we are dropping privileges.
 # If container is run as an unprivileged user, it means owner already handled ownership setup on their own.
 # Running chown in that case (as non-root) will cause error
