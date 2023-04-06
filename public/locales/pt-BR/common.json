@@ -52,9 +52,9 @@
         "load": "Carregamento",
         "cpu": "CPU",
         "mem": "MEM",
-        "max": "Max",
+        "max": "Máximo",
         "temp": "TEMP",
-        "uptime": "UP",
+        "uptime": "CIMA",
         "months": "mo",
         "days": "d",
         "hours": "h",
@@ -235,7 +235,7 @@
         "mem": "MEM",
         "wait": "Por favor aguarde",
         "temp": "TEMP",
-        "uptime": "UP",
+        "uptime": "CIMA",
         "days": "d",
         "hours": "h"
     },
@@ -316,9 +316,9 @@
         "up_to_date": "Atualizado",
         "child_bridges": "Pontes Filhas",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Cima",
         "pending": "Pendente",
-        "down": "Down"
+        "down": "Baixo"
     },
     "autobrr": {
         "approvedPushes": "Aprovado",
