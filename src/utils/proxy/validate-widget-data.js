@@ -2,10 +2,8 @@ import widgets from "widgets/widgets";
 
 export default function validateWidgetData(widget, endpoint, data) {
     let valid = true;
-    let dataParsed;
-    if (typeof data === 'object') {
-        dataParsed = data;
-    } else {
+    let dataParsed = data;
+    if (Buffer.isBuffer(data)) {
         try {
             dataParsed = JSON.parse(data);
         } catch (e) {
