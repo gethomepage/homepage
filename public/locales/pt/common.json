@@ -18,9 +18,9 @@
         "load": "Carga",
         "cpu": "CPU",
         "mem": "MEM",
-        "max": "Max",
+        "max": "Máximo",
         "temp": "TEMP",
-        "uptime": "UP",
+        "uptime": "CIMA",
         "months": "mo",
         "days": "d",
         "hours": "h",
@@ -248,7 +248,7 @@
         "mem": "MEM",
         "wait": "Por favor, aguarde",
         "temp": "TEMP",
-        "uptime": "UP",
+        "uptime": "Cima",
         "days": "d",
         "hours": "h"
     },
@@ -331,7 +331,7 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
         "pending": "Pendente",
-        "down": "Down"
+        "down": "Baixo"
     },
     "autobrr": {
         "approvedPushes": "Aprovado",
@@ -550,8 +550,8 @@
         "nodes": "Nós"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
+        "targets_up": "Alvo ativo",
+        "targets_down": "Alvo inativo",
         "targets_total": "Total de Alvos"
     },
     "minecraft": {
