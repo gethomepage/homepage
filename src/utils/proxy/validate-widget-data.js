@@ -3,10 +3,14 @@ import widgets from "widgets/widgets";
 export default function validateWidgetData(widget, endpoint, data) {
     let valid = true;
     let dataParsed;
-    try {
-        dataParsed = JSON.parse(data);
-    } catch (e) {
-        valid = false;
+    if (typeof data === 'object') {
+        dataParsed = data;
+    } else {
+        try {
+            dataParsed = JSON.parse(data);
+        } catch (e) {
+            valid = false;
+        }
     }
 
     if (dataParsed && Object.entries(dataParsed).length) {

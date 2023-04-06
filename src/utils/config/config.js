@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { join } from "path";
-import { existsSync, copyFile, readFileSync } from "fs";
+import { existsSync, readFileSync, copyFileSync } from "fs";
 
 import cache from "memory-cache";
 import yaml from "js-yaml";
@@ -13,13 +13,13 @@ export default function checkAndCopyConfig(config) {
   const configYaml = join(process.cwd(), "config", config);
   if (!existsSync(configYaml)) {
     const configSkeleton = join(process.cwd(), "src", "skeleton", config);
-    copyFile(configSkeleton, configYaml, (err) => {
-      if (err) {
+    try {
+      copyFileSync(configSkeleton, configYaml)
+      console.info("%s was copied to the config folder", config);
+    } catch (err) {
         console.error("error copying config", err);
         throw err;
-      }
-      console.info("%s was copied to the config folder", config);
-    });
+    }
 
     return true;
   }

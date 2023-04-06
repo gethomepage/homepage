@@ -19,8 +19,8 @@ export default async function handler(req, res) {
     return hash(readFileSync(configYaml, "utf8"));
   });
 
-  // this ties hash to specific build which should force revaliation between versions
-  const buildTime = process.env.NEXT_PUBLIC_BUILDTIME?.length ? process.env.NEXT_PUBLIC_BUILDTIME : '';
+  // set to date by docker entrypoint, will force revalidation between restarts/recreates
+  const buildTime = process.env.HOMEPAGE_BUILDTIME?.length ? process.env.HOMEPAGE_BUILDTIME : '';
 
   const combinedHash = hash(hashes.join("") + buildTime);
 

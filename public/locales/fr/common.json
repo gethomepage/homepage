@@ -24,7 +24,7 @@
         "months": "mo",
         "days": "d",
         "hours": "h",
-        "minutes": "m"
+        "minutes": "mn"
     },
     "docker": {
         "rx": "Rx",

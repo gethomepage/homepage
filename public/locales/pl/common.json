@@ -15,13 +15,13 @@
         "free": "Wolne",
         "cpu": "CPU",
         "mem": "PAM",
-        "temp": "TEMP",
+        "temp": "TYMCZASOWE",
         "max": "Max",
         "uptime": "UP",
-        "months": "mo",
-        "days": "d",
+        "months": "misiąc",
+        "days": "dni",
         "hours": "h",
-        "minutes": "m"
+        "minutes": "minuty"
     },
     "emby": {
         "no_active": "Brak aktywnych strumieni",
@@ -79,7 +79,7 @@
         "error": "Błąd",
         "unknown": "Nieznany",
         "running": "Działa",
-        "starting": "Starting",
+        "starting": "Startować",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
