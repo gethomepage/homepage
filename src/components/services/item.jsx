@@ -14,7 +14,7 @@ import ResolvedIcon from "components/resolvedicon";
 export default function Item({ service }) {
   const hasLink = service.href && service.href !== "#";
   const { settings } = useContext(SettingsContext);
-  const [statsOpen, setStatsOpen] = settings.showStats ? useState(true) : useState(false);
+  const [statsOpen, setStatsOpen] = useState(false);
   const [statsClosing, setStatsClosing] = useState(false);
 
   // set stats to closed after 300ms
@@ -107,21 +107,21 @@ export default function Item({ service }) {
         {service.container && service.server && (
           <div
             className={classNames(
-              statsOpen && !statsClosing ? "max-h-[110px] opacity-100" : " max-h-[0] opacity-0",
+              settings.showStats || (statsOpen && !statsClosing) ? "max-h-[110px] opacity-100" : " max-h-[0] opacity-0",
               "w-full overflow-hidden transition-all duration-300 ease-in-out"
             )}
           >
-            {statsOpen && <Docker service={{ widget: { container: service.container, server: service.server } }} />}
+            {(settings.showStats || statsOpen) && <Docker service={{ widget: { container: service.container, server: service.server } }} />}
           </div>
         )}
         {service.app && (
           <div
             className={classNames(
-              statsOpen && !statsClosing ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
+              settings.showStats || (statsOpen && !statsClosing) ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
               "w-full overflow-hidden transition-all duration-300 ease-in-out"
             )}
           >
-            {statsOpen && <Kubernetes service={{ widget: { namespace: service.namespace, app: service.app, podSelector: service.podSelector } }} />}
+            {(settings.showStats || statsOpen) && <Kubernetes service={{ widget: { namespace: service.namespace, app: service.app, podSelector: service.podSelector } }} />}
           </div>
         )}
 
