@@ -14,7 +14,7 @@ import ResolvedIcon from "components/resolvedicon";
 export default function Item({ service }) {
   const hasLink = service.href && service.href !== "#";
   const { settings } = useContext(SettingsContext);
-  const [statsOpen, setStatsOpen] = useState(false);
+  const [statsOpen, setStatsOpen] = settings.showStats ? useState(true) : useState(false);
   const [statsClosing, setStatsClosing] = useState(false);
 
   // set stats to closed after 300ms
