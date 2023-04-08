@@ -3,13 +3,13 @@ import classNames from "classnames";
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function ServicesGroup({ services, layout }) {
+export default function ServicesGroup({ services, layout, fiveColumns }) {
   return (
     <div
       key={services.name}
       className={classNames(
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
-        layout?.style !== "row" && layout?.columns === 5 ? "3xl:basis-1/5" : "",
+        layout?.style !== "row" && fiveColumns ? "3xl:basis-1/5" : "",
         "flex-1 p-1"
       )}
     >
