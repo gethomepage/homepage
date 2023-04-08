@@ -289,7 +289,7 @@ function Home({ initialSettings }) {
         {services && (
           <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
             {services.map((group) => (
-              <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} />
+              <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} fiveColumns={settings.fiveColumns} />
             ))}
           </div>
         )}
