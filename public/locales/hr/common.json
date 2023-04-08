@@ -78,10 +78,10 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Nepovezan",
+        "offline": "Ofline",
         "error": "Greška",
         "unknown": "Nepoznato",
-        "running": "Running",
+        "running": "Pokrenuto",
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
@@ -223,7 +223,7 @@
         "devices": "Uređaji",
         "lan_devices": "LAN uređaji",
         "wlan_devices": "WLAN uređaji",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Stanje podsustava nepoznato"
     },
     "plex": {
         "streams": "Aktivni prijenosi",
