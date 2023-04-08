@@ -8,7 +8,8 @@ export default function ServicesGroup({ services, layout }) {
     <div
       key={services.name}
       className={classNames(
-        layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4 3xl:basis-1/5",
+        layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
+        layout?.style !== "row" && layout?.columns === 5 ? "3xl:basis-1/5" : "",
         "flex-1 p-1"
       )}
     >
