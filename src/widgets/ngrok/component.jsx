@@ -21,7 +21,7 @@ export default function Component({ service }) {
   const { 
     data: ngrokData, 
     error: ngrokError 
-  } = useWidgetAPI(widget, "tunnels",{
+  } = useWidgetAPI(widget,{
     refreshInterval: 30000,
   });
  
