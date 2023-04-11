@@ -15,10 +15,10 @@
         "load": "Opterećenje",
         "cpu": "CPU",
         "mem": "MEM",
-        "minutes": "m",
-        "max": "Max",
+        "minutes": "min",
+        "max": "Maks",
         "uptime": "UP",
-        "months": "mo",
+        "months": "mj",
         "temp": "TEMP",
         "days": "d",
         "hours": "h"
@@ -37,7 +37,7 @@
     "pihole": {
         "queries": "Upiti",
         "blocked": "Blokirano",
-        "gravity": "Čuvanje podataka"
+        "gravity": "Gravity"
     },
     "adguard": {
         "latency": "Kašnjenje",
@@ -78,26 +78,26 @@
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "offline": "Nepovezan",
+        "offline": "Offline",
         "error": "Greška",
         "unknown": "Nepoznato",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "running": "Pokrenuto",
+        "starting": "Pokretanje",
+        "unhealthy": "Nefunkcionalno",
+        "not_found": "Nepronađeno",
+        "exited": "Zatoreno",
+        "partial": "Djelomično",
+        "healthy": "Funkcionalno"
     },
     "emby": {
         "playing": "Reprodukcija",
         "transcoding": "Prekodiranje",
         "bitrate": "Stopa bitova",
         "no_active": "Nema aktivnih prijenosa",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmovi",
+        "series": "Serije",
+        "episodes": "Epizode",
+        "songs": "Pjesme"
     },
     "tautulli": {
         "playing": "Reprodukcija",
@@ -223,7 +223,7 @@
         "devices": "Uređaji",
         "lan_devices": "LAN uređaji",
         "wlan_devices": "WLAN uređaji",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Stanje podsustava nepoznato"
     },
     "plex": {
         "streams": "Aktivni prijenosi",
@@ -304,9 +304,9 @@
     "quicklaunch": {
         "bookmark": "Straničnik",
         "service": "Usluga",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "search": "Traži",
+        "custom": "Prilagođeno",
+        "visit": "Posjeti",
         "url": "URL"
     },
     "homebridge": {
@@ -317,7 +317,7 @@
         "child_bridges": "Podređeni mosotvi",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "Predstoji",
         "down": "Down"
     },
     "autobrr": {
@@ -367,7 +367,7 @@
         "ping": "Ping"
     },
     "scrutiny": {
-        "passed": "Prošlo",
+        "passed": "Uspjelo",
         "failed": "Neuspjelo",
         "unknown": "Nepoznato"
     },
@@ -399,7 +399,7 @@
     },
     "nextdns": {
         "wait": "Pričekaj",
-        "no_devices": "Podaci o uređaju nisu primljeni"
+        "no_devices": "Podaci uređaja nisu primljeni"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
@@ -436,131 +436,131 @@
         "wanDownload": "WAN preuzimanje"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Stanje pisača",
+        "print_status": "Stanje ispisa",
+        "print_progress": "Napredak",
+        "layers": "Slojevi"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Zatraženo",
+        "queued": "U redu čekanja",
+        "series": "Serije"
     },
     "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "printer_state": "Stanje",
+        "temp_tool": "Temperatura alata",
+        "temp_bed": "Temperatura platforme",
+        "job_completion": "Dovršenost"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "IP izvora",
+        "status": "Stanje"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "Spremište podataka",
+        "failed_tasks_24h": "Neuspjeli zadaci 24 h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Memorija"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Korisnici",
+        "photos": "Fotografije",
+        "videos": "Videa",
+        "storage": "Spremište"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
+        "up": "Aktivne stranice",
+        "down": "Neaktivne stranice",
+        "uptime": "Radno vrijeme",
         "incident": "Incident",
-        "m": "m"
+        "m": "min"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+        "libraries": "Biblioteke",
+        "series": "Serije",
+        "books": "Knjige"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "series": "Serije",
+        "issues": "Problemi",
+        "wanted": "Zatraženo"
     },
     "photoprism": {
-        "videos": "Videos",
-        "albums": "Albums",
-        "photos": "Photos",
-        "people": "People"
+        "videos": "Videa",
+        "albums": "Albumi",
+        "photos": "Fotografije",
+        "people": "Osobe"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Dani",
+        "uptime": "Radno vrijeme",
+        "volumeAvailable": "Dostupno"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "queue": "Red čekanja",
+        "processing": "Obrada",
+        "processed": "Obrađeno",
+        "time": "Vrijeme"
     },
     "grafana": {
-        "alertstriggered": "Alerts Triggered",
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts"
+        "alertstriggered": "Aktivirana upozorenja",
+        "dashboards": "Pregledne ploče",
+        "datasources": "Izvori podataka",
+        "totalalerts": "Ukupno upozorenja"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users"
+        "cpuload": "Cpu opterećenje",
+        "memoryusage": "Korištenje memorije",
+        "freespace": "Slobodna memorija",
+        "activeusers": "Aktivni korisnici"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "Stanje",
+        "size": "Veličina",
+        "lastrun": "Zadnje pokretanje",
+        "nextrun": "Sljedeće pokretanje",
+        "failed": "Neuspjelo"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Aktivni radnici",
+        "total_workers": "Ukupni radnici",
+        "records_total": "Količina zapisa u redu čekanja"
     },
     "healthchecks": {
-        "new": "New",
+        "new": "Novo",
         "up": "Online",
-        "grace": "In Grace Period",
+        "grace": "U razdoblju odgode",
         "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "paused": "Zaustavljeno",
+        "status": "Stanje",
+        "last_ping": "Zadnji ping",
+        "never": "Još nema pingova"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Serveri",
+        "nodes": "Čvorovi"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Aktivni ciljevi",
+        "targets_down": "Neaktivni ciljevi",
+        "targets_total": "Ukupno ciljeva"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
+        "players": "Igrači",
+        "version": "Verzija",
+        "status": "Stanje",
         "up": "Online",
         "down": "Offline"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "Danas",
+        "gross_percent_1y": "Jedna godina",
+        "gross_percent_max": "Svo vrijeme"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "Podcasti",
+        "books": "Knjige",
+        "podcastsDuration": "Trajanje",
+        "booksDuration": "Trajanje"
     }
 }
