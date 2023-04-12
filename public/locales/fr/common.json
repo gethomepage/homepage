@@ -565,7 +565,7 @@
     },
     "homeassistant": {
         "people_home": "People Home",
-        "lights_on": "Lights On",
+        "lights_on": "Lumières allumées",
         "switches_on": "Switches On"
     }
 }
