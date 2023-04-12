@@ -562,5 +562,10 @@
         "books": "图书",
         "podcastsDuration": "持续时间",
         "booksDuration": "持续时间"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
     }
 }
