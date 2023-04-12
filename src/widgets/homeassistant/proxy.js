@@ -6,7 +6,7 @@ const logger = createLogger("homeassistantProxyHandler");
 
 const defaultQueries = [
   {
-    template: "{{ states.person|selectattr('state','equalto','home')|list|length }} / {{ states.person|selectattr('state','search','(^home$|^not home$)')|list|length }}",
+    template: "{{ states.person|selectattr('state','equalto','home')|list|length }} / {{ states.person|list|length }}",
     label: "homeassistant.people_home"
   },
   {
@@ -52,7 +52,7 @@ async function getQuery(query, { url, key }) {
       output: (data) => ({ label, value: data.toString() })
     };
   }
-  return { result: [500, "", { error: { message: `invalid query ${JSON.stringify(query)}` } }] };
+  return { result: [500, null, { error: { message: `invalid query ${JSON.stringify(query)}` } }] };
 }
 
 export default async function homeassistantProxyHandler(req, res) {
@@ -68,9 +68,11 @@ export default async function homeassistantProxyHandler(req, res) {
     logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
-
-  const queries = widget.custom !== undefined && widget.fields === undefined ?
-    widget.custom : defaultQueries.filter(q => widget.fields?.includes(q.label.split(".")[1]) ?? true);
+  
+  let queries = defaultQueries;
+  if (!widget.fields && widget.custom) {
+    queries = widget.custom.slice(0, 4);
+  }
 
   const results = await Promise.all(queries.map(q => getQuery(q, widget)));
 
