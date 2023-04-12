@@ -14,7 +14,7 @@ export default function Container({ error = false, children, service }) {
     // fields: [ "resources.cpu", "resources.mem", "field"]
     // or even
     // fields: [ "resources.cpu", "widget_type.field" ]
-    visibleChildren = children.filter(child => fields.some(field => {
+    visibleChildren = children?.filter(child => fields.some(field => {
       let fullField = field;
       if (!field.includes(".")) {
         fullField = `${type}.${field}`;

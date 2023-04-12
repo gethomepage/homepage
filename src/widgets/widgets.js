@@ -17,6 +17,7 @@ import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
+import homeassistant from "./homeassistant/widget";
 import homebridge from "./homebridge/widget";
 import healthchecks from "./healthchecks/widget";
 import immich from "./immich/widget";
@@ -94,6 +95,7 @@ const widgets = {
   gotify,
   grafana,
   hdhomerun,
+  homeassistant,
   homebridge,
   healthchecks,
   immich,
