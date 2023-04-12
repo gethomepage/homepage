@@ -562,5 +562,10 @@
         "books": "Boeken",
         "podcastsDuration": "Duur",
         "booksDuration": "Duur"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
     }
 }
