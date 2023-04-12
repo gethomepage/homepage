@@ -562,5 +562,10 @@
         "books": "Книжки",
         "podcastsDuration": "Тривалість",
         "booksDuration": "Тривалість"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
     }
 }
