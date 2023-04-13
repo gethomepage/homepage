@@ -564,8 +564,8 @@
         "booksDuration": "Duración"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Inicio de personas",
+        "lights_on": "Luces encendidas",
+        "switches_on": "Encendido"
     }
 }
