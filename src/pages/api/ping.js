@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     });
     let endTime = performance.now();
     
-    if (status >= 400) {
+    if (status > 403) {
       // try one more time as a GET in case HEAD is rejected for whatever reason
       startTime = performance.now();
       [status] = await httpProxy(pingURL);
