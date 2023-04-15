@@ -54,8 +54,8 @@
         "mem": "MEM",
         "max": "Máximo",
         "temp": "TEMP",
-        "uptime": "CIMA",
-        "months": "mo",
+        "uptime": "LIGADO",
+        "months": "mês",
         "days": "d",
         "hours": "h",
         "minutes": "m"
@@ -235,7 +235,7 @@
         "mem": "MEM",
         "wait": "Por favor aguarde",
         "temp": "TEMP",
-        "uptime": "CIMA",
+        "uptime": "LIGADO",
         "days": "d",
         "hours": "h"
     },
@@ -316,9 +316,9 @@
         "up_to_date": "Atualizado",
         "child_bridges": "Pontes Filhas",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Cima",
+        "up": "Ligado",
         "pending": "Pendente",
-        "down": "Baixo"
+        "down": "Desligado"
     },
     "autobrr": {
         "approvedPushes": "Aprovado",
@@ -564,8 +564,8 @@
         "booksDuration": "Duração"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Pessoas em Casa",
+        "lights_on": "Luzes Ligadas",
+        "switches_on": "Interruptores Ligados"
     }
 }
