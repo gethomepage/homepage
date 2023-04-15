@@ -21,7 +21,7 @@
         "max": "Máximo",
         "temp": "TEMP",
         "uptime": "CIMA",
-        "months": "mo",
+        "months": "mês",
         "days": "d",
         "hours": "h",
         "minutes": "m"
@@ -573,8 +573,8 @@
         "booksDuration": "Duração"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Pessoas em Casa",
+        "lights_on": "Luzes Acesas",
+        "switches_on": "Interruptores Ligados"
     }
 }
