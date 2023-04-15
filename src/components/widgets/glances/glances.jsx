@@ -1,10 +1,11 @@
 import useSWR from "swr";
-import { BiError } from "react-icons/bi";
 import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
+import classNames from "classnames";
 
 import UsageBar from "../resources/usage-bar";
+import Error from "../error";
 
 const cpuSensorLabels = ["cpu_thermal", "Core"];
 
@@ -22,23 +23,15 @@ export default function Widget({ options }) {
   );
 
   if (error || data?.error) {
-    return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4">
-        <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-row items-center">
-            <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
-            <div className="flex flex-col ml-3 text-left">
-              <span className="text-theme-800 dark:text-theme-200 text-sm">{t("widget.api_error")}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Error options={options} />
   }
 
   if (!data) {
     return (
-      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
+      <div className={classNames(
+        "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4",
+        options?.styleBoxed === true && " mb-0 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+      )}>
         <div className="flex flex-row self-center flex-wrap justify-between">
            <div className="flex-none flex flex-row items-center mr-3 py-1.5">
             <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
@@ -89,7 +82,10 @@ export default function Widget({ options }) {
   const tempPercent = Math.round((mainTemp / maxTemp) * 100);
 
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
+    <div className={classNames(
+      "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4",
+      options?.styleBoxed === true && " mb-0 mt-2 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+    )}>
       <div className="flex flex-row self-center flex-wrap justify-between">
          <div className="flex-none flex flex-row items-center mr-3 py-1.5">
           <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
@@ -131,7 +127,7 @@ export default function Widget({ options }) {
             <div className="flex flex-col ml-3 text-left min-w-[85px]">
               <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
                 <div className="pl-0.5">
-                  {t("common.number", { 
+                  {t("common.number", {
                     value: mainTemp,
                     maximumFractionDigits: 1,
                     style: "unit",
