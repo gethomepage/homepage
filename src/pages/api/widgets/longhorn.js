@@ -46,7 +46,7 @@ function parseLonghornData(data) {
 
 export default async function handler(req, res) {
   const settings = getSettings();
-  const longhornSettings = settings?.providers?.longhorn;
+  const longhornSettings = settings?.providers?.longhorn || {};
   const {url, username, password} = longhornSettings;
 
   if (!url) {
