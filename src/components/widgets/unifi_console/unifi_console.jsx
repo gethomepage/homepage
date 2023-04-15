@@ -2,6 +2,9 @@ import { BiError, BiWifi, BiCheckCircle, BiXCircle, BiNetworkChart } from "react
 import { MdSettingsEthernet } from "react-icons/md";
 import { useTranslation } from "next-i18next";
 import { SiUbiquiti } from "react-icons/si";
+import classNames from "classnames";
+
+import Error from "../error";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -13,25 +16,17 @@ export default function Widget({ options }) {
   const { data: statsData, error: statsError } = useWidgetAPI(options, "stat/sites", { index: options.index });
 
   if (statsError) {
-    return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4">
-        <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-col items-center">
-            <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
-            <div className="flex flex-col ml-3 text-left">
-              <span className="text-theme-800 dark:text-theme-200 text-sm">{t("widget.api_error")}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Error options={options} />
   }
 
   const defaultSite = options.site ? statsData?.data.find(s => s.desc === options.site) : statsData?.data?.find(s => s.name === "default");
 
   if (!defaultSite) {
     return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4">
+      <div className={classNames(
+        "flex flex-col justify-center first:ml-0 ml-4",
+        options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+      )}>
         <div className="flex flex-row items-center justify-end">
           <div className="flex flex-col items-center">
             <SiUbiquiti className="w-5 h-5 text-theme-800 dark:text-theme-200" />
@@ -57,7 +52,10 @@ export default function Widget({ options }) {
   const dataEmpty = !(wan.show || lan.show || wlan.show || uptime);
 
   return (
-    <div className="flex-none flex flex-row items-center mr-3 py-1.5">
+    <div className={classNames(
+      "flex-none flex flex-row items-center mr-3 py-1.5",
+      options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+    )}>
       <div className="flex flex-col">
         <div className="flex flex-row ml-3 mb-0.5">
           <SiUbiquiti className="text-theme-800 dark:text-theme-200 w-3 h-3 mr-1" />

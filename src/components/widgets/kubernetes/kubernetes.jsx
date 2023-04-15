@@ -1,12 +1,14 @@
 import useSWR from "swr";
-import { BiError } from "react-icons/bi";
 import { useTranslation } from "next-i18next";
+import classNames from "classnames";
+
+import Error from "../error";
 
 import Node from "./node";
 
 export default function Widget({ options }) {
   const { cluster, nodes } = options;
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const defaultData = {
     cpu: {
@@ -29,23 +31,15 @@ export default function Widget({ options }) {
   );
 
   if (error || data?.error) {
-    return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4">
-        <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-row items-center">
-            <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
-            <div className="flex flex-col ml-3 text-left">
-              <span className="text-theme-800 dark:text-theme-200 text-sm">{t("widget.api_error")}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Error options={options} />
   }
 
   if (!data) {
     return (
-      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+      <div className={classNames(
+        "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap",
+        options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+      )}>
         <div className="flex flex-row self-center flex-wrap justify-between">
           {cluster.show &&
             <Node type="cluster" key="cluster" options={options.cluster} data={defaultData} />
@@ -59,7 +53,10 @@ export default function Widget({ options }) {
   }
 
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+    <div className={classNames(
+      "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap",
+      options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+    )}>
       <div className="flex flex-row self-center flex-wrap justify-between">
         {cluster.show &&
           <Node key="cluster" type="cluster" options={options.cluster} data={data.cluster} />

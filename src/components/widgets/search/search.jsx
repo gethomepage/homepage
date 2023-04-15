@@ -76,7 +76,7 @@ export default function Search({ options }) {
       setSelectedProvider(storedProvider);
     }
   }, [availableProviderIds]);
-  
+
   if (!availableProviderIds) {
     return null;
   }
@@ -102,7 +102,10 @@ export default function Search({ options }) {
   }
 
   return (
-    <form className="flex-col relative h-8 my-4 min-w-fit grow first:ml-0 ml-4" onSubmit={handleSubmit}>
+    <form className={classNames(
+      "flex-col relative h-8 my-4 min-w-fit grow first:ml-0 ml-4",
+      options?.styleBoxed === true && " h-14 ml-4 mt-4 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+    )} onSubmit={handleSubmit}>
       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
       <input
         type="text"
@@ -146,8 +149,8 @@ export default function Search({ options }) {
           leaveTo="transform opacity-0 scale-95"
         >
           <Listbox.Options
-            className="absolute right-0 z-10 mt-1 origin-top-right rounded-md 
-            bg-theme-100 dark:bg-theme-600 shadow-lg 
+            className="absolute right-0 z-10 mt-1 origin-top-right rounded-md
+            bg-theme-100 dark:bg-theme-600 shadow-lg
             ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div className="flex flex-col">
