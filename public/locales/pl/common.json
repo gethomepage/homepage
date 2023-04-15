@@ -15,10 +15,10 @@
         "free": "Wolne",
         "cpu": "CPU",
         "mem": "PAM",
-        "temp": "TYMCZASOWE",
+        "temp": "TEMP.",
         "max": "Max",
         "uptime": "UP",
-        "months": "misiąc",
+        "months": "miesiąc",
         "days": "dni",
         "hours": "h",
         "minutes": "minuty"
