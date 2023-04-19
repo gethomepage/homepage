@@ -567,5 +567,9 @@
         "people_home": "People Home",
         "lights_on": "Lumières allumées",
         "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "unread": "Unread",
+        "subscriptions": "Subscriptions"
     }
 }
