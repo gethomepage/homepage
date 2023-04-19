@@ -567,5 +567,9 @@
         "people_home": "Люди вдома",
         "lights_on": "Світло ввімкнено",
         "switches_on": "Вмикається"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
     }
 }
