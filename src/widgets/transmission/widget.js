@@ -1,7 +1,7 @@
 import transmissionProxyHandler from "./proxy";
 
 const widget = {
-  api: "{url}/transmission/rpc",
+  rpcUrl: "/transmission/",
   proxyHandler: transmissionProxyHandler,
 };
 

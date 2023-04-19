@@ -33,7 +33,9 @@ export default async function transmissionProxyHandler(req, res) {
     cache.put(`${headerCacheKey}.${service}`, headers);
   }
 
-  const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
+  const api = `${widget.url}${widget.rpcUrl || widgets[widget.type].rpcUrl}rpc`;
+
+  const url = new URL(formatApiCall(api, { endpoint, ...widget }));
   const csrfHeaderName = "x-transmission-session-id";
 
   const method = "POST";
