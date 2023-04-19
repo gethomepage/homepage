@@ -9,17 +9,13 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: subscriptionsData, error: subscriptionsError } = useWidgetAPI(widget, "subscriptions");
-  const { data: unreadData, error: unreadError } = useWidgetAPI(widget, "unread");
+  const { data: freshrssData, error: freshrssError } = useWidgetAPI(widget, "info");
 
-  if (subscriptionsError) {
-    return <Container error={subscriptionsError} />;
-  }
-  if (unreadError) {
-    return <Container error={unreadError} />;
+  if (freshrssError) {
+    return <Container error={freshrssError} />;
   }
 
-  if (!subscriptionsData || !unreadData) {
+  if (!freshrssData) {
     return (
       <Container service={service}>
         <Block label="freshrss.unread" />
@@ -30,8 +26,8 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="freshrss.unread" value={t("common.number", { value: unreadData.count })} />
-      <Block label="freshrss.subscriptions" value={t("common.number", { value: subscriptionsData.count })} />
+      <Block label="freshrss.unread" value={t("common.number", { value: freshrssData.unread })} />
+      <Block label="freshrss.subscriptions" value={t("common.number", { value: freshrssData.subscriptions })} />
     </Container>
   );
 }
