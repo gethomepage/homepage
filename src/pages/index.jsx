@@ -318,15 +318,26 @@ function Home({ initialSettings }) {
 
 export default function Wrapper({ initialSettings, fallback }) {
   const wrappedStyle = {};
+  let backgroundBlur = false;
+  let backgroundSaturate = false;
+  let backgroundBrightness = false;
   if (initialSettings && initialSettings.background) {
-    const opacity = initialSettings.backgroundOpacity ?? 1;
+    let opacity = initialSettings.backgroundOpacity ?? 1;
+    let backgroundImage = initialSettings.background;
+    if (typeof initialSettings.background === 'object') {
+      backgroundImage = initialSettings.background.image;
+      backgroundBlur = initialSettings.background.blur !== undefined;
+      backgroundSaturate = initialSettings.background.saturate !== undefined;
+      backgroundBrightness = initialSettings.background.brightness !== undefined;
+      if (initialSettings.background.opacity !== undefined) opacity = initialSettings.background.opacity / 100;
+    }
     const opacityValue = 1 - opacity;
     wrappedStyle.backgroundImage = `
       linear-gradient(
         rgb(var(--bg-color) / ${opacityValue}),
         rgb(var(--bg-color) / ${opacityValue})
       ),
-      url(${initialSettings.background})`;
+      url(${backgroundImage})`;
     wrappedStyle.backgroundPosition = "center";
     wrappedStyle.backgroundSize = "cover";
   }
@@ -345,7 +356,15 @@ export default function Wrapper({ initialSettings, fallback }) {
         className="fixed overflow-auto w-full h-full bg-theme-50 dark:bg-theme-800 transition-all"
         style={wrappedStyle}
       >
-        <Index initialSettings={initialSettings} fallback={fallback} />
+        <div
+        id="inner_wrapper" 
+        className={classNames(
+          backgroundBlur && `backdrop-blur${initialSettings.background.blur.length ? '-' : ""}${initialSettings.background.blur}`,
+          backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
+          backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
+        )}>
+          <Index initialSettings={initialSettings} fallback={fallback} />
+        </div>
       </div>
     </div>
   );
