@@ -82,151 +82,151 @@
         "servers": "Servers"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data",
+        "missing_type": "Manjka tip widgeta: {{type}}",
+        "api_error": "API napaka",
+        "information": "Informacija",
+        "raw_error": "Surova napaka",
+        "response_data": "Podatki iz odgovora",
         "status": "Status",
         "url": "URL"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Trenutna lokacija",
+        "allow": "Kliknite za dovolitev",
+        "updating": "Posodabljam",
+        "wait": "Prosimo počakajte"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Iskanje…"
     },
     "resources": {
         "cpu": "CPU",
         "mem": "MEM",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load",
+        "total": "Skupaj",
+        "free": "Prosto",
+        "used": "V uporabi",
+        "load": "Bremenitev",
         "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
+        "max": "Maks.",
+        "uptime": "Gor",
+        "months": "me",
         "days": "d",
-        "hours": "h",
+        "hours": "u",
         "minutes": "m"
     },
     "unifi": {
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "devices": "Naprave",
+        "lan_devices": "LAN naprave",
+        "wlan_devices": "WLAN naprave",
+        "lan_users": "LAN uporabniki",
+        "wlan_users": "WLAN uporabniki",
+        "up": "Gor",
+        "down": "Dol",
+        "wait": "Prosimo počakajte",
+        "users": "Uporabniki",
+        "uptime": "Čas delovanja",
+        "days": "Dni",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Neznani status podsistema"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "running": "Running",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
+        "running": "Deluje",
+        "offline": "Ni povezan",
+        "error": "Napaka",
+        "unknown": "Neznano",
+        "healthy": "Zdrav",
+        "starting": "Se zaganja",
+        "unhealthy": "Ni zdrav",
+        "not_found": "Ni najden",
+        "exited": "V izhodu",
+        "partial": "Delni"
     },
     "ping": {
-        "error": "Error",
+        "error": "Napaka",
         "ping": "Ping"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Predvaja",
+        "transcoding": "Transkodira",
+        "bitrate": "Pasovna širina",
+        "no_active": "Ni aktivne vsebine",
+        "movies": "Filmi",
+        "series": "Serije",
+        "episodes": "Epizode",
+        "songs": "Pesmi"
     },
     "tautulli": {
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "playing": "Playing",
-        "no_active": "No Active Streams"
+        "transcoding": "Transkodira",
+        "bitrate": "Pasovna širina",
+        "playing": "Predvaja",
+        "no_active": "Ni aktivne vsebine"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Prenos",
+        "upload": "Nalaganje",
+        "leech": "Pijavka",
+        "seed": "Sejanje"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Skupaj opazovano",
+        "diffsDetected": "Zaznanih sprememb"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Povezanih AP",
+        "activeUser": "Aktivne naprave",
+        "alerts": "Opozorila",
+        "connectedGateway": "Povezan prehod",
+        "connectedSwitches": "Povezana stikala"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Razmerje",
+        "remaining": "Še preostane",
+        "downloaded": "Preneseno"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Aktivna vsebina",
+        "movies": "Filmi",
+        "tv": "TV serije"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Razmerje",
+        "queue": "Vrsta",
+        "timeleft": "Preostali čas"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Aktiven",
+        "upload": "Nalaganje",
+        "download": "Prenašanje"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Prenos",
+        "upload": "Nalaganje",
+        "leech": "Pijavka",
+        "seed": "Sejanje"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Prenos",
+        "upload": "Nalaganje",
+        "leech": "Pijavka",
+        "seed": "Sejanje"
     },
     "deluge": {
-        "download": "Download",
+        "download": "Prenos",
         "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Pijavka",
+        "seed": "Sejanje"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Prenos",
+        "upload": "Nalaganje",
+        "leech": "Pijavka",
+        "seed": "Sejanje"
     },
     "sonarr": {
         "wanted": "Wanted",
