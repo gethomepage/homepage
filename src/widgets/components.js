@@ -17,6 +17,7 @@ const components = {
   emby: dynamic(() => import("./emby/component")),
   fileflows: dynamic(() => import("./fileflows/component")),
   flood: dynamic(() => import("./flood/component")),
+  freshrss: dynamic(() => import("./freshrss/component")),
   ghostfolio: dynamic(() => import("./ghostfolio/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),

@@ -12,6 +12,7 @@ import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
+import freshrss from "./freshrss/widget";
 import ghostfolio from "./ghostfolio/widget"
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -90,6 +91,7 @@ const widgets = {
   emby,
   fileflows,
   flood,
+  freshrss,
   ghostfolio,
   gluetun,
   gotify,
