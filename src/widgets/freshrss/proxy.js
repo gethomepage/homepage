@@ -27,7 +27,7 @@ async function login(widget, service) {
 
   try {
     const [, token] = data.toString().split("\n").find(line => line.startsWith("Auth=")).split("=")
-    cache.put(`${sessionTokenCacheKey}.${service}`, token, 30 * 60 * 1000); // 30m
+    cache.put(`${sessionTokenCacheKey}.${service}`, token);
     return { token };
   } catch (e) {
     logger.error("Unable to login to FreshRSS API: %s", e);
