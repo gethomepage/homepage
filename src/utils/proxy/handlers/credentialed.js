@@ -54,6 +54,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
+      } else if (widget.type === "nomad") {
+        headers["X-Nomad-Token"] = `${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
@@ -78,7 +80,7 @@ export default async function credentialedProxyHandler(req, res, map) {
       if (status >= 400) {
         logger.error("HTTP Error %d calling %s", status, url.toString());
       }
-      
+
       if (status === 200) {
         if (!validateWidgetData(widget, endpoint, resultData)) {
           return res.status(500).json({error: {message: "Invalid data", url: sanitizeErrorURL(url), data: resultData}});

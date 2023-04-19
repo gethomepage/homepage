@@ -576,5 +576,11 @@
         "people_home": "People Home",
         "lights_on": "Lights On",
         "switches_on": "Switches On"
+    },
+    "nomad": {
+        "nodes": "Nodes",
+        "jobs": "Jobs",
+        "volumes": "Volumes",
+        "services": "Services"
     }
 }

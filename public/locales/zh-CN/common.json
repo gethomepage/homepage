@@ -567,5 +567,11 @@
         "people_home": "People Home",
         "lights_on": "Lights On",
         "switches_on": "Switches On"
+    },
+    "nomad": {
+        "nodes": "节点",
+        "jobs": "任务",
+        "volumes": "挂载",
+        "services": "服务"
     }
 }
