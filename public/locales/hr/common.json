@@ -567,5 +567,9 @@
         "people_home": "Ljudi doma",
         "lights_on": "Upaljena svjetla",
         "switches_on": "Prekidači uključeni"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
     }
 }
