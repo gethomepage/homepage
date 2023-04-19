@@ -34,8 +34,9 @@ export default async function credentialedProxyHandler(req, res, map) {
         "ghostfolio",
         "truenas",
         "pterodactyl",
-      ].includes(widget.type)) {
-        headers.Authorization = `Bearer ${widget.key}`;
+        ].includes(widget.type))
+        {
+          headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
@@ -53,20 +54,6 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
-      } else if (widget.type === "freshrss") {
-        const resp = await fetch(`${widget.url}/api/greader.php/accounts/ClientLogin`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          body: new URLSearchParams({
-            Email: widget.username,
-            Passwd: widget.password,
-          })
-        })
-        const text = await resp.text()
-        const [, token] = text.split("\n").find(line => line.startsWith("Auth=")).split("=")
-        headers.Authorization = `GoogleLogin auth=${token}`
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
@@ -91,10 +78,10 @@ export default async function credentialedProxyHandler(req, res, map) {
       if (status >= 400) {
         logger.error("HTTP Error %d calling %s", status, url.toString());
       }
-
+      
       if (status === 200) {
         if (!validateWidgetData(widget, endpoint, resultData)) {
-          return res.status(500).json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: resultData } });
+          return res.status(500).json({error: {message: "Invalid data", url: sanitizeErrorURL(url), data: resultData}});
         }
         if (map) resultData = map(resultData);
       }
