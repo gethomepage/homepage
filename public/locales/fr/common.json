@@ -234,9 +234,9 @@
         "cpu": "Cpu",
         "mem": "Mém",
         "wait": "Merci de patienter",
-        "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
+        "temp": "Temp",
+        "uptime": "Up",
+        "days": "j",
         "hours": "h"
     },
     "changedetectionio": {
@@ -569,7 +569,7 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "unread": "Unread",
-        "subscriptions": "Subscriptions"
+        "unread": "Non lu",
+        "subscriptions": "Abonnements"
     }
 }
