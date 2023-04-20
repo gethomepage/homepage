@@ -569,7 +569,7 @@
         "switches_on": "Encendido"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Suscripciones",
+        "unread": "Sin leer"
     }
 }
