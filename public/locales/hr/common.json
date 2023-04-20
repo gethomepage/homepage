@@ -573,9 +573,9 @@
         "unread": "Nepročitano"
     },
     "channelsdvrserver": {
-        "scheduled": "Scheduled",
-        "passes": "Passes",
-        "shows": "Shows",
-        "recordings": "Recordings"
+        "scheduled": "Planirano",
+        "passes": "Prolazi",
+        "shows": "Emisije",
+        "recordings": "Snimanja"
     }
 }
