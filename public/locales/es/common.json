@@ -183,7 +183,7 @@
     "qbittorrent": {
         "download": "Bajada",
         "upload": "Subida",
-        "leech": "Compañeros",
+        "leech": "Pares",
         "seed": "Semillas"
     },
     "mastodon": {
