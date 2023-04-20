@@ -183,7 +183,7 @@
     "qbittorrent": {
         "download": "Descàrrega",
         "upload": "Pujada",
-        "leech": "Companys",
+        "leech": "Clients",
         "seed": "Llavors"
     },
     "mastodon": {
