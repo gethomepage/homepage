@@ -106,6 +106,12 @@
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
     },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
+    },
     "tautulli": {
         "playing": "Playing",
         "transcoding": "Transcoding",
