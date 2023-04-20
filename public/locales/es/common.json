@@ -571,5 +571,11 @@
     "freshrss": {
         "subscriptions": "Suscripciones",
         "unread": "Sin leer"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }
