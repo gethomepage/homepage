@@ -234,9 +234,9 @@
         "cpu": "Cpu",
         "mem": "Mém",
         "wait": "Merci de patienter",
-        "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
+        "temp": "Temp",
+        "uptime": "Up",
+        "days": "j",
         "hours": "h"
     },
     "changedetectionio": {
@@ -567,5 +567,15 @@
         "people_home": "People Home",
         "lights_on": "Lumières allumées",
         "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "unread": "Non lu",
+        "subscriptions": "Abonnements"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

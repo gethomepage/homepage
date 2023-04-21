@@ -564,8 +564,18 @@
         "booksDuration": "Тривалість"
     },
     "homeassistant": {
-        "people_home": "People Home",
+        "people_home": "Люди вдома",
         "lights_on": "Світло ввімкнено",
         "switches_on": "Вмикається"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

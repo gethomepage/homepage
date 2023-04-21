@@ -6,7 +6,7 @@ import { useTranslation } from "next-i18next";
 
 import UsageBar from "../resources/usage-bar";
 
-const cpuSensorLabels = ["cpu_thermal", "Core"];
+const cpuSensorLabels = ["cpu_thermal", "Core", "Tctl"];
 
 function convertToFahrenheit(t) {
   return t * 9/5 + 32
