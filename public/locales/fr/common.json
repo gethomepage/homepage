@@ -573,9 +573,9 @@
         "subscriptions": "Abonnements"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "shows": "Affichages",
+        "recordings": "Enregistrements",
+        "scheduled": "Planifié",
         "passes": "Passes"
     }
 }
