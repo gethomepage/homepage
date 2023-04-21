@@ -573,9 +573,9 @@
         "unread": "Sin leer"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "Espectáculos",
+        "recordings": "Grabaciones",
+        "scheduled": "Programado",
+        "passes": "Pases"
     }
 }
