@@ -32,6 +32,7 @@ export async function servicesFromConfig() {
     services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) => ({
       name: Object.keys(entries)[0],
       ...entries[Object.keys(entries)[0]],
+      type: 'service'
     })),
   }));
 
@@ -82,6 +83,7 @@ export async function servicesFromDocker() {
                 constructedService = {
                   container: container.Names[0].replace(/^\//, ""),
                   server: serverName,
+                  type: 'service'
                 };
               }
               shvl.set(constructedService, label.replace("homepage.", ""), container.Labels[label]);
@@ -183,6 +185,7 @@ export async function servicesFromKubernetes() {
         icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || '',
         description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || '',
         external: false,
+        type: 'service'
       };
       if (ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
         constructedService.external = String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true"
