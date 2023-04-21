@@ -92,6 +92,9 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
+    "ngrok": {
+        "no_active": "No Active Tunnels"
+    },
     "flood": {
         "download": "Download",
         "upload": "Upload",

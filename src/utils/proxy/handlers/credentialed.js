@@ -39,6 +39,9 @@ export default async function credentialedProxyHandler(req, res, map) {
           headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
+      }  else if (widget.type === "proxmoxbackupserver") {
+          delete headers["Content-Type"];
+          headers.Authorization = `PBSAPIToken=${widget.username}:${widget.password}`;
       } else if (widget.type === "ngrok") {
         headers.Authorization = `Bearer ${widget.key}`;
         headers["Ngrok-Version"] = 2;
