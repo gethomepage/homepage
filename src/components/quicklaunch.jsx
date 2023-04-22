@@ -161,7 +161,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
               )} type="text" autoCorrect="false" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
             {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto m-2">
               {results.map((r, i) => (
-                <li key={r.name}>
+                <li key={r.container ?? r.app ?? r.name}>
                   <button type="button" data-index={i} onMouseEnter={handleItemHover} className={classNames(
                     "flex flex-row w-full items-center justify-between rounded-md text-sm md:text-xl py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
                     i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",

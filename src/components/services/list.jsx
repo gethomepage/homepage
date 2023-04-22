@@ -23,7 +23,7 @@ export default function List({ services, layout }) {
       )}
     >
       {services.map((service) => (
-        <Item key={service.name} service={service} />
+        <Item key={service.container ?? service.app ?? service.name} service={service} />
       ))}
     </ul>
   );
