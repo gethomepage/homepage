@@ -32,8 +32,8 @@ export default function Component({ service }) {
   grabsData?.indexers?.forEach((element) => {
     numberOfGrabs += element.numberOfGrabs;
     numberOfQueries += element.numberOfQueries;
-    numberOfFailedGrabs += numberOfFailedGrabs + element.numberOfFailedGrabs;
-    numberOfFailedQueries += numberOfFailedQueries + element.numberOfFailedQueries;
+    numberOfFailedGrabs += element.numberOfFailedGrabs;
+    numberOfFailedQueries += element.numberOfFailedQueries;
   });
 
   return (
