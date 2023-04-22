@@ -112,7 +112,7 @@
         "months": "me",
         "days": "d",
         "hours": "u",
-        "minutes": "m"
+        "minutes": "u"
     },
     "unifi": {
         "devices": "Naprave",
@@ -569,13 +569,13 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Naročnine",
+        "unread": "Neprebrano"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "shows": "Epizode",
+        "recordings": "Posnetki",
+        "scheduled": "Načrtovano",
         "passes": "Passes"
     }
 }
