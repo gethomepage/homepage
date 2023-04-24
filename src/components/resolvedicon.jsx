@@ -3,7 +3,19 @@ import Image from "next/future/image";
 export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "logo" }) {
   // direct or relative URLs
   if (icon.startsWith("http") || icon.startsWith("/")) {
-    return <Image src={`${icon}`} width={width} height={height} alt={alt} />;
+    return (
+      <Image
+        src={`${icon}`}
+        width={width}
+        height={height}
+        style={{
+          width,
+          height,
+          objectFit: "contain",
+        }}
+        alt={alt}
+      />
+    );
   }
 
   // mdi- prefixed, material design icons
@@ -31,6 +43,11 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
       src={`https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/${iconName}.png`}
       width={width}
       height={height}
+      style={{
+        width,
+        height,
+        objectFit: "contain",
+      }}
       alt={alt}
     />
   );
