@@ -208,7 +208,8 @@
     "plex": {
         "streams": "Активні потоки",
         "movies": "Фільми",
-        "tv": "TБ шоу"
+        "tv": "TБ шоу",
+        "albums": "Albums"
     },
     "transmission": {
         "download": "Завантаження",
