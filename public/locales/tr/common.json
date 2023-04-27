@@ -89,7 +89,8 @@
     "plex": {
         "streams": "Aktif Akış",
         "movies": "Filmler",
-        "tv": "TV Showları"
+        "tv": "TV Showları",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Oran",
