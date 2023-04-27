@@ -192,7 +192,8 @@
     "plex": {
         "streams": "Aktivna vsebina",
         "movies": "Filmi",
-        "tv": "TV serije"
+        "tv": "TV serije",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Hitrost prenosa",
