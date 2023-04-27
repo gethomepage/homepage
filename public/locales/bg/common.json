@@ -99,7 +99,8 @@
     "plex": {
         "streams": "Активни Потоци",
         "movies": "Филми",
-        "tv": "Сериали"
+        "tv": "Сериали",
+        "albums": "Albums"
     },
     "transmission": {
         "download": "Сваляне",
