@@ -31,6 +31,9 @@ Homepage includes a lot of configuration options and is often deploying in large
 
 People *love* thorough bug reports. I'm not even kidding.
 
+## Development Guidelines
+Please see the [documentation regarding development](https://gethomepage.dev/en/more/development/) and specifically the [guidelines for new service widgets](https://gethomepage.dev/en/more/development/#service-widget-guidelines) if you are considering making one.
+
 ## Use a Consistent Coding Style
 This project follows the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript), please follow it when submitting pull requests.
 
