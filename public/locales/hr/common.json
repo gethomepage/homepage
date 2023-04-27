@@ -578,5 +578,9 @@
         "passes": "Prolazi",
         "shows": "Emisije",
         "recordings": "Snimanja"
+    },
+    "whatsupdocker": {
+        "monitoring": "Monitoring",
+        "updates": "Updates"
     }
 }
