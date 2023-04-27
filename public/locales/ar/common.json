@@ -151,7 +151,8 @@
     "plex": {
         "streams": "Active Streams",
         "movies": "أفلام",
-        "tv": "مسلسلات"
+        "tv": "مسلسلات",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "معدل",
