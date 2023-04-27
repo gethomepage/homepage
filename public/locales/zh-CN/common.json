@@ -228,7 +228,8 @@
     "plex": {
         "streams": "活动流",
         "movies": "电影",
-        "tv": "电视节目"
+        "tv": "电视节目",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "处理器",
