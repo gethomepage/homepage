@@ -578,5 +578,9 @@
         "recordings": "Записи",
         "scheduled": "Заплановано",
         "passes": "Перепустки"
+    },
+    "whatsupdocker": {
+        "monitoring": "Monitoring",
+        "updates": "Updates"
     }
 }
