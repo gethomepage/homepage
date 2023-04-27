@@ -228,7 +228,8 @@
     "plex": {
         "streams": "Fluxuri active",
         "movies": "Filme",
-        "tv": "Seriale"
+        "tv": "Seriale",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "Procesor",
