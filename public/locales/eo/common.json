@@ -97,7 +97,8 @@
     "plex": {
         "streams": "Active Streams",
         "movies": "Filmoj",
-        "tv": "Televidprogramoj"
+        "tv": "Televidprogramoj",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rate",
