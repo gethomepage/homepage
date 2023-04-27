@@ -591,5 +591,10 @@
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
+    },
+    "nzbhydra2": {
+        "indexersenabled": "Enabled Indexers",
+        "mostpopular": "Most Popular Indexer",
+        "responsetime": "Average response time"
     }
 }

@@ -18,7 +18,7 @@ export default async function credentialedProxyHandler(req, res, map) {
     }
 
     if (widget) {
-      const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
+      let url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
       const headers = {
         "Content-Type": "application/json",
@@ -54,6 +54,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
+      } else if (widget.type === "nzbhydra2") {
+        url += `?apikey=${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
