@@ -172,7 +172,8 @@
     "plex": {
         "streams": "Ενεργά Streams",
         "movies": "Ταινίες",
-        "tv": "Σειρές"
+        "tv": "Σειρές",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Βαθμός",
