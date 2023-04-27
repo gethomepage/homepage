@@ -228,7 +228,8 @@
     "plex": {
         "streams": "正在播放",
         "movies": "電影",
-        "tv": "影集"
+        "tv": "影集",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "CPU",
