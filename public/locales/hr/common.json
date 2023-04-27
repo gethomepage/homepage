@@ -228,7 +228,8 @@
     "plex": {
         "streams": "Aktivni prijenosi",
         "movies": "Filmovi",
-        "tv": "TV emisije"
+        "tv": "TV emisije",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "CPU",
