@@ -105,7 +105,8 @@
     "plex": {
         "streams": "Aktivní streamy",
         "movies": "Filmy",
-        "tv": "Seriály"
+        "tv": "Seriály",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rychlost",
