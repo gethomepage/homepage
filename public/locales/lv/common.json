@@ -114,7 +114,8 @@
     "plex": {
         "streams": "Aktīvās straumes",
         "movies": "Filmas",
-        "tv": "TV pārraides"
+        "tv": "TV pārraides",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rate",
