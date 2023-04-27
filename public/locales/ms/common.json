@@ -201,7 +201,8 @@
     "plex": {
         "streams": "Strim Aktif",
         "movies": "Filem",
-        "tv": "Rancangan TV"
+        "tv": "Rancangan TV",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Kadar",
