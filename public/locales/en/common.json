@@ -132,6 +132,7 @@
     },
     "plex": {
         "streams": "Active Streams",
+        "albums": "Albums",
         "movies": "Movies",
         "tv": "TV Shows"
     },

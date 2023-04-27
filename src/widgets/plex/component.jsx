@@ -21,6 +21,7 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="plex.streams" />
+        <Block label="plex.albums" />
         <Block label="plex.movies" />
         <Block label="plex.tv" />
       </Container>
@@ -30,6 +31,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="plex.streams" value={t("common.number", { value: plexData.streams })} />
+      <Block label="plex.albums" value={t("common.number", { value: plexData.albums })} />
       <Block label="plex.movies" value={t("common.number", { value: plexData.movies })} />
       <Block label="plex.tv" value={t("common.number", { value: plexData.tv })} />
     </Container>
