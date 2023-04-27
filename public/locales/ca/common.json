@@ -228,7 +228,8 @@
     "plex": {
         "streams": "Transmissions actives",
         "movies": "Pel·lícules",
-        "tv": "Programes de TV"
+        "tv": "Programes de TV",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "Processador",
