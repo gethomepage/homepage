@@ -81,6 +81,7 @@ const components = {
   unmanic: dynamic(() => import("./unmanic/component")),
   uptimekuma: dynamic(() => import("./uptimekuma/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
+  whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
 };
 
