@@ -2,7 +2,8 @@
     "plex": {
         "movies": "Film",
         "tv": "TV-Shows",
-        "streams": "Aktive Streams"
+        "streams": "Aktive Streams",
+        "albums": "Albums"
     },
     "radarr": {
         "queued": "I Kø",
