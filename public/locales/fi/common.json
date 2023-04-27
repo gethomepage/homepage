@@ -228,7 +228,8 @@
     "plex": {
         "streams": "Active Streams",
         "movies": "Movies",
-        "tv": "TV Shows"
+        "tv": "TV Shows",
+        "albums": "Albums"
     },
     "glances": {
         "wait": "Please wait",
@@ -562,5 +563,20 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

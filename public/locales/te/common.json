@@ -228,7 +228,8 @@
     "plex": {
         "streams": "యాక్టివ్ స్ట్రీమ్‌లు",
         "movies": "సినిమాలు",
-        "tv": "దూరదర్శిని కార్యక్రమాలు"
+        "tv": "దూరదర్శిని కార్యక్రమాలు",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "సీపియూ",
@@ -562,5 +563,20 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

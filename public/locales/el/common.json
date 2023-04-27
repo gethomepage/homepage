@@ -1,25 +1,25 @@
 {
     "resources": {
-        "used": "Used",
-        "load": "Load",
+        "used": "χρησιμοποιημένο",
+        "load": "Φόρτωση",
         "cpu": "CPU",
         "mem": "MEM",
-        "temp": "TEMP",
-        "total": "Total",
-        "free": "Free",
-        "max": "Max",
-        "uptime": "UP",
+        "temp": "ΘΕΡΜΟΚΡΑΣΪΑ",
+        "total": "Σύνολο",
+        "free": "Δωρεάν",
+        "max": "Μέγιστο",
+        "uptime": "ΠΑΝΩ",
         "months": "mo",
         "days": "d",
         "hours": "h",
         "minutes": "m"
     },
     "omada": {
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedAp": "Connected APs",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "activeUser": "Ενεργές συσκευές",
+        "alerts": "Ειδοποιήσεις",
+        "connectedAp": "Συνδεδεμένα APs",
+        "connectedGateway": "Συνδεδεμένα gateways",
+        "connectedSwitches": "Συνδεδεμένα switches"
     },
     "wmo": {
         "0-night": "Clear",
@@ -84,120 +84,121 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
-        "status": "Status",
+        "missing_type": "Λείπει ο τύπος widget: {{type}}",
+        "api_error": "Σφάλμα API",
+        "information": "Πληροφορία",
+        "status": "Κατάσταση",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Ανεπεξέργαστο σφάλμα",
+        "response_data": "Δεδομένα απόκρισης"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Τωρινή τοποθεσία",
+        "allow": "Κάντε κλικ για να επιτρέψετε",
+        "updating": "Ενημέρωση",
+        "wait": "Παρακαλώ περιμένετε"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Αναζήτηση…"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Χρήστες",
+        "uptime": "Χρόνος λειτουργίας συστήματος",
+        "days": "Ημέρες",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown"
+        "devices": "Συσκευές",
+        "lan_devices": "LAN Συσκευές",
+        "wlan_devices": "WLAN Συσκευές",
+        "lan_users": "LAN Χρήστες",
+        "wlan_users": "WLAN Χρήστες",
+        "up": "ΠΑΝΩ",
+        "down": "ΚΑΤΩ",
+        "wait": "Παρακαλώ περιμένετε",
+        "empty_data": "Άγνωστη κατάσταση υποσυστήματος"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
-        "running": "Running",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "exited": "Exited",
-        "starting": "Starting",
-        "partial": "Partial",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found"
+        "running": "Τρέχων",
+        "offline": "Εκτός σύνδεσης",
+        "error": "Σφάλμα",
+        "unknown": "Άγνωστο",
+        "healthy": "Υγειές",
+        "exited": "Έκλεισε",
+        "starting": "Ξεκινάει",
+        "partial": "Μερικό",
+        "unhealthy": "Άρρωστο",
+        "not_found": "Δεν βρέθηκε"
     },
     "ping": {
-        "error": "Error",
+        "error": "Σφάλμα",
         "ping": "Ping"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Παίζει",
+        "transcoding": "Διακωδικοποίηση",
+        "bitrate": "Ρυθμός bit",
+        "no_active": "Δεν υπάρχουν ενεργές ροές",
+        "movies": "Ταινίες",
+        "series": "Σειρές",
+        "episodes": "Επεισόδια",
+        "songs": "Τραγούδια"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Κατέβασμα",
+        "upload": "Ανέβασμα",
+        "leech": "Αφαίμαξη",
+        "seed": "Σπείρε"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Συνολικά παρατηρηθείσα",
+        "diffsDetected": "Εντοπίστηκαν διαφορές"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "playing": "Παίζει",
+        "transcoding": "Διακωδικοποίηση",
+        "bitrate": "Ρυθμός bit",
+        "no_active": "Δεν υπάρχουν ενεργές ροές"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "βαθμός",
+        "remaining": "Υπόλοιπο",
+        "downloaded": "Κατεβασμένο"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Ενεργά Streams",
+        "movies": "Ταινίες",
+        "tv": "Σειρές",
+        "albums": "Albums"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Βαθμός",
+        "queue": "Ουρά",
+        "timeleft": "Χρόνος που απομένει"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Ενεργό",
+        "upload": "Ανέβασμα",
+        "download": "Κατέβασμα"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Κατέβασμα",
+        "upload": "Ανέβασμα",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Κατέβασμα",
+        "upload": "Ανέβασμα",
         "leech": "Leech",
         "seed": "Seed"
     },
     "deluge": {
-        "download": "Download",
+        "download": "Κατέβασμα",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
@@ -561,6 +562,21 @@
         "podcasts": "Podcasts",
         "books": "Books",
         "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "booksDuration": "Διάρκεια"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

@@ -99,7 +99,8 @@
     "plex": {
         "streams": "Активни Потоци",
         "movies": "Филми",
-        "tv": "Сериали"
+        "tv": "Сериали",
+        "albums": "Albums"
     },
     "transmission": {
         "download": "Сваляне",
@@ -562,5 +563,20 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

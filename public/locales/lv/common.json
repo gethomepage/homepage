@@ -114,7 +114,8 @@
     "plex": {
         "streams": "Aktīvās straumes",
         "movies": "Filmas",
-        "tv": "TV pārraides"
+        "tv": "TV pārraides",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -562,5 +563,20 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

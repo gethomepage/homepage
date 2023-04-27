@@ -2,7 +2,8 @@
     "plex": {
         "movies": "Film",
         "tv": "TV-Shows",
-        "streams": "Aktive Streams"
+        "streams": "Aktive Streams",
+        "albums": "Albums"
     },
     "radarr": {
         "queued": "I Kø",
@@ -562,5 +563,20 @@
         "podcasts": "Podcasts",
         "books": "Books",
         "podcastsDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

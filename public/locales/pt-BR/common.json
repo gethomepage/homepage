@@ -52,10 +52,10 @@
         "load": "Carregamento",
         "cpu": "CPU",
         "mem": "MEM",
-        "max": "Max",
+        "max": "Máximo",
         "temp": "TEMP",
-        "uptime": "UP",
-        "months": "mo",
+        "uptime": "LIGADO",
+        "months": "mês",
         "days": "d",
         "hours": "h",
         "minutes": "m"
@@ -228,14 +228,15 @@
     "plex": {
         "streams": "Transmissões ativas",
         "movies": "Filmes",
-        "tv": "Séries de TV"
+        "tv": "Séries de TV",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
         "wait": "Por favor aguarde",
         "temp": "TEMP",
-        "uptime": "UP",
+        "uptime": "LIGADO",
         "days": "d",
         "hours": "h"
     },
@@ -316,9 +317,9 @@
         "up_to_date": "Atualizado",
         "child_bridges": "Pontes Filhas",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Ligado",
         "pending": "Pendente",
-        "down": "Down"
+        "down": "Desligado"
     },
     "autobrr": {
         "approvedPushes": "Aprovado",
@@ -562,5 +563,20 @@
         "books": "Livros",
         "podcastsDuration": "Duração",
         "booksDuration": "Duração"
+    },
+    "homeassistant": {
+        "people_home": "Pessoas em Casa",
+        "lights_on": "Luzes Ligadas",
+        "switches_on": "Interruptores Ligados"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

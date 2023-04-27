@@ -228,7 +228,8 @@
     "plex": {
         "streams": "Aktiva strömmar",
         "movies": "Filmer",
-        "tv": "TV-serier"
+        "tv": "TV-serier",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "CPU",
@@ -562,5 +563,20 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

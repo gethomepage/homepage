@@ -1,18 +1,18 @@
 {
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
+        "missing_type": "Manka Tipo de Fenestraĵo: {{type}}",
+        "api_error": "Eraro de API",
         "information": "Informo",
         "status": "Stato",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Kruda Eraro",
+        "response_data": "Respondoj de Demandoj"
     },
     "weather": {
         "current": "Aktuala loko",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "allow": "Klaku por permesi",
+        "updating": "Ĝisdatiganta",
+        "wait": "Bonvolu atendi"
     },
     "search": {
         "placeholder": "Serĉi…"
@@ -26,58 +26,58 @@
         "mem": "MEM",
         "temp": "TEMP",
         "months": "mo",
-        "max": "Max",
+        "max": "Maks",
         "uptime": "UP",
-        "days": "d",
+        "days": "t",
         "hours": "h",
         "minutes": "m"
     },
     "unifi": {
         "users": "Uzantoj",
-        "uptime": "System Uptime",
+        "uptime": "Uptempo de la Sistemo",
         "days": "Tagoj",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Aparatoj",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "lan_devices": "LAN-Aparatoj",
+        "wlan_devices": "WLAN-Aparatoj",
+        "lan_users": "LAN-Uzantoj",
+        "wlan_users": "WLAN-Uzantoj",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown"
+        "wait": "Bonvolu atendi",
+        "empty_data": "Subsistemostatuso nekonata"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "Memoro",
-        "cpu": "Ĉefprocesoro",
-        "offline": "Offline",
+        "mem": "MEM",
+        "cpu": "CPO",
+        "offline": "Malkonekta",
         "error": "Eraro",
         "unknown": "Nekonata",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "running": "Rulata",
+        "starting": "Lanĉante",
+        "unhealthy": "Malsana",
+        "not_found": "Ne trovita",
+        "exited": "Eliris",
+        "partial": "Parta",
+        "healthy": "Sana"
     },
     "ping": {
         "error": "Eraro",
-        "ping": "Ping"
+        "ping": "Sondaĵo"
     },
     "emby": {
         "playing": "Ludante",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
+        "transcoding": "Transkodigo",
+        "bitrate": "Bitrapido",
         "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmoj",
+        "series": "Serioj",
+        "episodes": "Epizodoj",
+        "songs": "Kantoj"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
@@ -97,7 +97,8 @@
     "plex": {
         "streams": "Active Streams",
         "movies": "Filmoj",
-        "tv": "Televidprogramoj"
+        "tv": "Televidprogramoj",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -382,8 +383,8 @@
         "total": "Totalo"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Elŝuti",
+        "upload": "Alŝuti",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -562,5 +563,20 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

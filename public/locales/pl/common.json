@@ -15,10 +15,10 @@
         "free": "Wolne",
         "cpu": "CPU",
         "mem": "PAM",
-        "temp": "TYMCZASOWE",
+        "temp": "TEMP.",
         "max": "Max",
         "uptime": "UP",
-        "months": "misiąc",
+        "months": "miesiąc",
         "days": "dni",
         "hours": "h",
         "minutes": "minuty"
@@ -228,7 +228,8 @@
     "plex": {
         "streams": "Aktywne strumienie",
         "movies": "Filmy",
-        "tv": "Seriale"
+        "tv": "Seriale",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "Procesor",
@@ -562,5 +563,20 @@
         "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

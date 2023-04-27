@@ -18,10 +18,10 @@
         "load": "Carga",
         "cpu": "CPU",
         "mem": "MEM",
-        "max": "Max",
+        "max": "Máximo",
         "temp": "TEMP",
-        "uptime": "UP",
-        "months": "mo",
+        "uptime": "CIMA",
+        "months": "mês",
         "days": "d",
         "hours": "h",
         "minutes": "m"
@@ -241,14 +241,15 @@
     "plex": {
         "streams": "Streams Ativas",
         "movies": "Filmes",
-        "tv": "Series de TV"
+        "tv": "Series de TV",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "CPU",
         "mem": "MEM",
         "wait": "Por favor, aguarde",
         "temp": "TEMP",
-        "uptime": "UP",
+        "uptime": "Cima",
         "days": "d",
         "hours": "h"
     },
@@ -331,7 +332,7 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
         "pending": "Pendente",
-        "down": "Down"
+        "down": "Baixo"
     },
     "autobrr": {
         "approvedPushes": "Aprovado",
@@ -550,8 +551,8 @@
         "nodes": "Nós"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
+        "targets_up": "Alvo ativo",
+        "targets_down": "Alvo inativo",
         "targets_total": "Total de Alvos"
     },
     "minecraft": {
@@ -571,5 +572,20 @@
         "books": "Livros",
         "podcastsDuration": "Duração",
         "booksDuration": "Duração"
+    },
+    "homeassistant": {
+        "people_home": "Pessoas em Casa",
+        "lights_on": "Luzes Acesas",
+        "switches_on": "Interruptores Ligados"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

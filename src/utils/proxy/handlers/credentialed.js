@@ -67,6 +67,10 @@ export default async function credentialedProxyHandler(req, res, map) {
 
       let resultData = data;
 
+      if (resultData.error?.url) {
+        resultData.error.url = sanitizeErrorURL(url);
+      }
+
       if (status === 204 || status === 304) {
         return res.status(status).end();
       }
@@ -74,16 +78,12 @@ export default async function credentialedProxyHandler(req, res, map) {
       if (status >= 400) {
         logger.error("HTTP Error %d calling %s", status, url.toString());
       }
-
-      if (!validateWidgetData(widget, endpoint, data)) {
-        if (data.error && data.error.url) {
-          data.error.url = sanitizeErrorURL(url);
+      
+      if (status === 200) {
+        if (!validateWidgetData(widget, endpoint, resultData)) {
+          return res.status(500).json({error: {message: "Invalid data", url: sanitizeErrorURL(url), data: resultData}});
         }
-        return res.status(500).json({error: {message: "Invalid data", url: sanitizeErrorURL(url), data}});
-      }
-
-      if (status === 200 && map) {
-        resultData = map(data);
+        if (map) resultData = map(resultData);
       }
 
       if (contentType) res.setHeader("Content-Type", contentType);

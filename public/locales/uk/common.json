@@ -208,7 +208,8 @@
     "plex": {
         "streams": "Активні потоки",
         "movies": "Фільми",
-        "tv": "TБ шоу"
+        "tv": "TБ шоу",
+        "albums": "Albums"
     },
     "transmission": {
         "download": "Завантаження",
@@ -562,5 +563,20 @@
         "books": "Книжки",
         "podcastsDuration": "Тривалість",
         "booksDuration": "Тривалість"
+    },
+    "homeassistant": {
+        "people_home": "Люди вдома",
+        "lights_on": "Світло ввімкнено",
+        "switches_on": "Вмикається"
+    },
+    "freshrss": {
+        "subscriptions": "Передплата",
+        "unread": "Не прочитано"
+    },
+    "channelsdvrserver": {
+        "shows": "Вистави",
+        "recordings": "Записи",
+        "scheduled": "Заплановано",
+        "passes": "Перепустки"
     }
 }

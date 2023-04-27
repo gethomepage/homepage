@@ -105,7 +105,8 @@
     "plex": {
         "streams": "Aktivní streamy",
         "movies": "Filmy",
-        "tv": "Seriály"
+        "tv": "Seriály",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rychlost",
@@ -562,5 +563,20 @@
         "books": "Knihy",
         "podcastsDuration": "Trvání",
         "booksDuration": "Trvání"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

@@ -228,14 +228,15 @@
     "plex": {
         "streams": "活动流",
         "movies": "电影",
-        "tv": "电视节目"
+        "tv": "电视节目",
+        "albums": "Albums"
     },
     "glances": {
         "cpu": "处理器",
         "mem": "内存",
         "wait": "请稍等",
-        "temp": "TEMP",
-        "uptime": "UP",
+        "temp": "温度",
+        "uptime": "运行时间",
         "days": "天",
         "hours": "时"
     },
@@ -260,8 +261,8 @@
         "45-night": "有雾",
         "48-night": "有雾",
         "51-night": "小雨",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
+        "53-day": "小雨",
+        "53-night": "小雨",
         "55-day": "毛毛雨",
         "55-night": "毛毛雨",
         "56-day": "小冻毛雨",
@@ -562,5 +563,20 @@
         "books": "图书",
         "podcastsDuration": "持续时间",
         "booksDuration": "持续时间"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     }
 }

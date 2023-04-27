@@ -32,6 +32,7 @@ export async function servicesFromConfig() {
     services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) => ({
       name: Object.keys(entries)[0],
       ...entries[Object.keys(entries)[0]],
+      type: 'service'
     })),
   }));
 
@@ -82,6 +83,7 @@ export async function servicesFromDocker() {
                 constructedService = {
                   container: container.Names[0].replace(/^\//, ""),
                   server: serverName,
+                  type: 'service'
                 };
               }
               shvl.set(constructedService, label.replace("homepage.", ""), container.Labels[label]);
@@ -183,6 +185,7 @@ export async function servicesFromKubernetes() {
         icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || '',
         description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || '',
         external: false,
+        type: 'service'
       };
       if (ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
         constructedService.external = String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true"
@@ -236,6 +239,7 @@ export function cleanServiceGroups(groups) {
     name: serviceGroup.name,
     services: serviceGroup.services.map((service) => {
       const cleanedService = { ...service };
+      if (cleanedService.showStats !== undefined) cleanedService.showStats = JSON.parse(cleanedService.showStats);
       if (typeof service.weight === 'string') {
         const weight = parseInt(service.weight, 10);
         if (Number.isNaN(weight)) {
@@ -297,8 +301,8 @@ export function cleanServiceGroups(groups) {
           if (wan) cleanedService.widget.wan = wan;
         }
         if (type === "emby" || type === "jellyfin") {
-          if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = enableBlocks;
-          if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = enableNowPlaying;
+          if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
+          if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
         }
         if (type === "diskstation") {
           if (volume) cleanedService.widget.volume = volume;
