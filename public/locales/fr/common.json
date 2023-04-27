@@ -578,5 +578,9 @@
         "recordings": "Enregistrements",
         "scheduled": "Planifié",
         "passes": "Passes"
+    },
+    "whatsupdocker": {
+        "monitoring": "Monitoring",
+        "updates": "Updates"
     }
 }
