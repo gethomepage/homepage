@@ -93,27 +93,23 @@ export default async function plexProxyHandler(req, res) {
   let tv = cache.get(`${tvCacheKey}.${service}`);
   if (albums === null || movies === null || tv === null) {
     albums = 0;
-    logger.debug("Getting album counts from Plex API");
-    const albumLibraries = libraries.filter(l => ["artist"].includes(l._attributes.type));
-    await Promise.all(albumLibraries.map(async (library) => {
-      [status, apiData] = await fetchFromPlexAPI(`/library/sections/${library._attributes.key}/albums`, widget);
-      if (apiData && apiData.MediaContainer) {
-        const size = parseInt(apiData.MediaContainer._attributes.size, 10);
-        albums += size;
-      }
-    }));
     movies = 0;
     tv = 0;
-    logger.debug("Getting movie + tv counts from Plex API");
-    const movieTVLibraries = libraries.filter(l => ["movie", "show"].includes(l._attributes.type));
+    logger.debug("Getting counts from Plex API");
+    const movieTVLibraries = libraries.filter(l => ["movie", "show", "artist"].includes(l._attributes.type));
     await Promise.all(movieTVLibraries.map(async (library) => {
-      [status, apiData] = await fetchFromPlexAPI(`/library/sections/${library._attributes.key}/all`, widget);
+      const libraryURL = ["movie", "show"].includes(library._attributes.type) ? 
+        `/library/sections/${library._attributes.key}/all` : // tv + movies
+        `/library/sections/${library._attributes.key}/albums`; // music
+      [status, apiData] = await fetchFromPlexAPI(libraryURL, widget);
       if (apiData && apiData.MediaContainer) {
         const size = parseInt(apiData.MediaContainer._attributes.size, 10);
         if (library._attributes.type === "movie") {
           movies += size;
         } else if (library._attributes.type === "show") {
           tv += size;
+        } else if (library._attributes.type === "artist") {
+          albums += size;
         }
       }
     }));
