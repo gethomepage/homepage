@@ -128,7 +128,8 @@
     "plex": {
         "streams": "활성 스트림",
         "movies": "영화",
-        "tv": "TV 쇼"
+        "tv": "TV 쇼",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "비율",
