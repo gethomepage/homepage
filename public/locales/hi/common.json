@@ -127,7 +127,8 @@
     "plex": {
         "streams": "Active Streams",
         "movies": "Movies",
-        "tv": "TV Shows"
+        "tv": "TV Shows",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rate",
