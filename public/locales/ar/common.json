@@ -578,5 +578,9 @@
         "passes": "Passes",
         "shows": "Shows",
         "recordings": "Recordings"
+    },
+    "whatsupdocker": {
+        "monitoring": "Monitoring",
+        "updates": "Updates"
     }
 }
