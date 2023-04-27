@@ -10,6 +10,7 @@ import widgets from "widgets/widgets";
 
 const proxyName = "plexProxyHandler";
 const librariesCacheKey = `${proxyName}__libraries`;
+const albumsCacheKey = `${proxyName}__albums`;
 const moviesCacheKey = `${proxyName}__movies`;
 const tvCacheKey = `${proxyName}__tv`;
 const logger = createLogger(proxyName);
@@ -87,9 +88,20 @@ export default async function plexProxyHandler(req, res) {
     }
   }
 
+  let albums = cache.get(`${albumsCacheKey}.${service}`);
   let movies = cache.get(`${moviesCacheKey}.${service}`);
   let tv = cache.get(`${tvCacheKey}.${service}`);
-  if (movies === null || tv === null) {
+  if (albums === null || movies === null || tv === null) {
+    albums = 0;
+    logger.debug("Getting album counts from Plex API");
+    const albumLibraries = libraries.filter(l => ["artist"].includes(l._attributes.type));
+    await Promise.all(albumLibraries.map(async (library) => {
+      [status, apiData] = await fetchFromPlexAPI(`/library/sections/${library._attributes.key}/albums`, widget);
+      if (apiData && apiData.MediaContainer) {
+        const size = parseInt(apiData.MediaContainer._attributes.size, 10);
+        albums += size;
+      }
+    }));
     movies = 0;
     tv = 0;
     logger.debug("Getting movie + tv counts from Plex API");
@@ -105,14 +117,16 @@ export default async function plexProxyHandler(req, res) {
         }
       }
     }));
+    cache.put(`${albumsCacheKey}.${service}`, albums, 1000 * 60 * 10);
     cache.put(`${tvCacheKey}.${service}`, tv, 1000 * 60 * 10);
     cache.put(`${moviesCacheKey}.${service}`, movies, 1000 * 60 * 10);
   }
   
   const data = {
     streams,
+    albums,
+    movies,
     tv,
-    movies
   };
 
   return res.status(status).send(data);
