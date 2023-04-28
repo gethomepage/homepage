@@ -580,7 +580,7 @@
         "passes": "Passes"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Conteneurs",
+        "updates": "Mises à jour"
     }
 }
