@@ -11,7 +11,7 @@ export default function Component({ service }) {
   const { data: nextcloudData, error: nextcloudError } = useWidgetAPI(widget, "serverinfo");
 
   if (nextcloudError) {
-    return <Container error={nextcloudError} />;
+    return <Container service={service} error={nextcloudError} />;
   }
 
   if (!nextcloudData) {

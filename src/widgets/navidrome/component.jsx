@@ -27,7 +27,7 @@ export default function Component({ service }) {
   const { data: navidromeData, error: navidromeError } = useWidgetAPI(widget, "getNowPlaying");
 
   if (navidromeError || navidromeData?.["subsonic-response"]?.error) {
-    return <Container error={navidromeError ?? navidromeData?.["subsonic-response"]?.error} />;
+    return <Container service={service} error={navidromeError ?? navidromeData?.["subsonic-response"]?.error} />;
   }
 
   if (!navidromeData) {

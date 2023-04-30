@@ -10,7 +10,7 @@ export default function Component({ service }) {
   const {data: nodesData, error: nodesError} = useWidgetAPI(widget, "nodes");
 
   if (nodesError) {
-    return <Container error={ nodesError } />;
+    return <Container service={service} error={ nodesError } />;
   }
 
   if (!nodesData) {

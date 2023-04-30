@@ -11,7 +11,7 @@ export default function Component({ service }) {
   const { data: targetsData, error: targetsError } = useWidgetAPI(widget, "targets");
 
   if (targetsError) {
-    return <Container error={targetsError} />;
+    return <Container service={service} error={targetsError} />;
   }
 
   if (!targetsData) {

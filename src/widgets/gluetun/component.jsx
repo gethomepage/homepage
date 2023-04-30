@@ -8,7 +8,7 @@ export default function Component({ service }) {
   const { data: gluetunData, error: gluetunError } = useWidgetAPI(widget, "ip");
 
   if (gluetunError) {
-    return <Container error={gluetunError} />;
+    return <Container service={service} error={gluetunError} />;
   }
 
   if (!gluetunData) {

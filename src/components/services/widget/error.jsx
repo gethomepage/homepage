@@ -9,12 +9,10 @@ function displayData(data) {
   return (data.type === 'Buffer') ? Buffer.from(data).toString() : JSON.stringify(data, 4);
 }
 
-export default function Error({ error }) {
+export default function Error({ error: err }) {
   const { t } = useTranslation();
 
-  if (error?.data?.error) {
-    error = error.data.error; // eslint-disable-line no-param-reassign
-  }
+  const { error } = err?.data ?? { error: err };
 
   return (
     <details className="px-1 pb-1">

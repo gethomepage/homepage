@@ -9,11 +9,11 @@ export default function Component({ service }) {
   const { data: jobStats, error: jobStatsError } = useWidgetAPI(widget, "job_stats");
 
   if (printerStatsError) {
-    return <Container error={printerStatsError} />;
+    return <Container service={service} error={printerStatsError} />;
   }
 
   if (jobStatsError) {
-    return <Container error={jobStatsError} />;
+    return <Container service={service} error={jobStatsError} />;
   }
 
   const state = printerStats?.state?.text;

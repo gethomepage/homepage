@@ -14,7 +14,7 @@ export default function Component({ service }) {
   });
 
   if (omadaAPIError) {
-    return <Container error={omadaAPIError} />;
+    return <Container service={service} error={omadaAPIError} />;
   }
 
   if (!omadaData) {

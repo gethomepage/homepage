@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: utilizationData, error: utilizationError } = useWidgetAPI(widget, "utilization");
 
   if (storageError || infoError || utilizationError) {
-    return <Container error={ storageError ?? infoError ?? utilizationError } />;
+    return <Container service={service} error={ storageError ?? infoError ?? utilizationError } />;
   }
 
   if (!storageData || !infoData || !utilizationData) {

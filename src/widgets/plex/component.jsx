@@ -14,7 +14,7 @@ export default function Component({ service }) {
   });
 
   if (plexAPIError) {
-    return <Container error={plexAPIError} />;
+    return <Container service={service} error={plexAPIError} />;
   }
 
   if (!plexData) {

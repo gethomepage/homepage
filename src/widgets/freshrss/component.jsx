@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: freshrssData, error: freshrssError } = useWidgetAPI(widget, "info");
 
   if (freshrssError) {
-    return <Container error={freshrssError} />;
+    return <Container service={service} error={freshrssError} />;
   }
 
   if (!freshrssData) {

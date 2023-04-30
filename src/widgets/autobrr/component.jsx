@@ -15,7 +15,7 @@ export default function Component({ service }) {
 
   if (statsError || filtersError || indexersError) {
     const finalError = statsError ?? filtersError ?? indexersError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!statsData || !filtersData || !indexersData) {

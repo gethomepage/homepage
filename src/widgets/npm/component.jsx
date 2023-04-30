@@ -8,7 +8,7 @@ export default function Component({ service }) {
   const { data: infoData, error: infoError } = useWidgetAPI(widget, "nginx/proxy-hosts");
 
   if (infoError) {
-    return <Container error={infoError} />;
+    return <Container service={service} error={infoError} />;
   }
 
   if (!infoData) {

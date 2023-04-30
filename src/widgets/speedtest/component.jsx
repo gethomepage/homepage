@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: speedtestData, error: speedtestError } = useWidgetAPI(widget, "speedtest/latest");
 
   if (speedtestError) {
-    return <Container error={speedtestError} />;
+    return <Container service={service} error={speedtestError} />;
   }
 
   if (!speedtestData) {

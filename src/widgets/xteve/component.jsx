@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: xteveData, error: xteveError } = useWidgetAPI(widget, "api");
 
   if (xteveError) {
-    return <Container error={xteveError} />;
+    return <Container service={service} error={xteveError} />;
   }
 
   if (!xteveData) {

@@ -14,7 +14,7 @@ export default function Component({ service }) {
   });
 
   if (containersError) {
-    return <Container error={containersError} />;
+    return <Container service={service} error={containersError} />;
   }
 
   if (!containersData) {
@@ -28,7 +28,7 @@ export default function Component({ service }) {
   }
 
   if (containersData.error) {
-    return <Container error={t("widget.api_error")} />;
+    return <Container service={service} error={t("widget.api_error")} />;
   }
 
   const running = containersData.filter((c) => c.State === "running").length;

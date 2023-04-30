@@ -15,7 +15,7 @@ export default function Component({ service }) {
 
   if (usersError || loginsError || failedLoginsError) {
     const finalError = usersError ?? loginsError ?? failedLoginsError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!usersData || !loginsData || !failedLoginsData) {

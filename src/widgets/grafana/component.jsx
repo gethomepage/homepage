@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
 
   if (statsError || alertsError) {
-    return <Container error={statsError ?? alertsError} />;
+    return <Container service={service} error={statsError ?? alertsError} />;
   }
 
   if (!statsData || !alertsData) {
