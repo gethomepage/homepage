@@ -45,15 +45,21 @@ export default async function handler(req, res) {
   const privateWidgetOptions = await getPrivateWidgetOptions("glances", index);
 
   try {
-    const quicklookData = await retrieveFromGlancesAPI(privateWidgetOptions, "quicklook");
+    const cpuData = await retrieveFromGlancesAPI(privateWidgetOptions, "cpu");
+    const loadData = await retrieveFromGlancesAPI(privateWidgetOptions, "load");
+    const uptimeData = await retrieveFromGlancesAPI(privateWidgetOptions, "uptime");
+    const sensorData = await retrieveFromGlancesAPI(privateWidgetOptions, "sensors");
+    const memoryData = await retrieveFromGlancesAPI(privateWidgetOptions, "mem");
+    const filesystemData = await retrieveFromGlancesAPI(privateWidgetOptions, "fs");
 
     const data = {
-      quicklook: quicklookData
+      cpu: cpuData,
+      load: loadData,
+      uptime: uptimeData,
+      sensors: sensorData,
+      mem: memoryData,
+      fs: filesystemData,
     }
-    
-    data.uptime = await retrieveFromGlancesAPI(privateWidgetOptions, "uptime");
-    
-    data.sensors = await retrieveFromGlancesAPI(privateWidgetOptions, "sensors");
 
     return res.status(200).send(data);
   } catch (e) {

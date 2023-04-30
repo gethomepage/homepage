@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { BiError } from "react-icons/bi";
 import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
-import { FiCpu } from "react-icons/fi";
+import { FiCpu, FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
 
 import UsageBar from "../resources/usage-bar";
@@ -88,8 +88,12 @@ export default function Widget({ options }) {
   }
   const tempPercent = Math.round((mainTemp / maxTemp) * 100);
 
+  const disks = Array.isArray(options.disk)
+    ? options.disk.map((disk) => data.fs.find((d) => d.mnt_point === disk)).filter((d) => d)
+    : [data.fs.find((d) => d.mnt_point === options.disk)].filter((d) => d);
+
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
+    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
       <div className="flex flex-row self-center flex-wrap justify-between">
          <div className="flex-none flex flex-row items-center mr-3 py-1.5">
           <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
@@ -97,7 +101,7 @@ export default function Widget({ options }) {
             <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
               <div className="pl-0.5">
                 {t("common.number", {
-                  value: data.quicklook.cpu,
+                  value: data.cpu.total,
                   style: "unit",
                   unit: "percent",
                   maximumFractionDigits: 0,
@@ -105,7 +109,20 @@ export default function Widget({ options }) {
               </div>
               <div className="pr-1">{t("glances.cpu")}</div>
             </div>
-            <UsageBar percent={data.quicklook.cpu} />
+            {options.expanded && (
+              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+                <div className="pl-0.5 pr-1">
+                {t("common.number", {
+                  value: data.load.min15,
+                  style: "unit",
+                  unit: "percent",
+                  maximumFractionDigits: 0,
+                })}
+                </div>
+                <div className="pr-1">{t("glances.load")}</div>
+              </span>
+            )}
+            <UsageBar percent={data.cpu.total} />
           </div>
         </div>
         <div className="flex-none flex flex-row items-center mr-3 py-1.5">
@@ -113,18 +130,46 @@ export default function Widget({ options }) {
           <div className="flex flex-col ml-3 text-left min-w-[85px]">
             <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
               <div className="pl-0.5">
-                {t("common.number", {
-                  value: data.quicklook.mem,
-                  style: "unit",
-                  unit: "percent",
-                  maximumFractionDigits: 0,
+                {t("common.bytes", {
+                  value: data.mem.free,
+                  maximumFractionDigits: 1,
+                  binary: true,
                 })}
               </div>
-              <div className="pr-1">{t("glances.mem")}</div>
+              <div className="pr-1">{t("glances.free")}</div>
             </div>
-            <UsageBar percent={data.quicklook.mem} />
+            {options.expanded && (
+              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+                <div className="pl-0.5 pr-1">
+                  {t("common.bytes", {
+                    value: data.mem.total,
+                    maximumFractionDigits: 1,
+                    binary: true,
+                  })}
+                </div>
+                <div className="pr-1">{t("glances.total")}</div>
+              </span>
+            )}
+            <UsageBar percent={data.mem.percent} />
           </div>
         </div>
+        {options.disk && disks.map((disk) => (
+          <div key={disk.mnt_point} className="flex-none flex flex-row items-center mr-3 py-1.5">
+            <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
+            <div className="flex flex-col ml-3 text-left min-w-[85px]">
+              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+                <div className="pl-0.5">{t("common.bytes", { value: disk.free })}</div>
+                <div className="pr-1">{t("glances.free")}</div>
+              </span>
+              {options.expanded && (
+                <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+                  <div className="pl-0.5 pr-1">{t("common.bytes", { value: disk.size })}</div>
+                  <div className="pr-1">{t("glances.total")}</div>
+                </span>
+              )}
+              <UsageBar percent={disk.percent} />
+            </div>
+          </div>))}
         {options.cputemp && mainTemp > 0 &&
             (<div className="flex-none flex flex-row items-center mr-3 py-1.5">
             <FaThermometerHalf className="text-theme-800 dark:text-theme-200 w-5 h-5" />
@@ -140,6 +185,19 @@ export default function Widget({ options }) {
                 </div>
                 <div className="pr-1">{t("glances.temp")}</div>
               </span>
+              {options.expanded && (
+                <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+                  <div className="pl-0.5 pr-1">
+                  {t("common.number", { 
+                    value: maxTemp,
+                    maximumFractionDigits: 1,
+                    style: "unit",
+                    unit
+                  })}
+                  </div>
+                  <div className="pr-1">{t("glances.warn")}</div>
+                </span>
+              )}
               <UsageBar percent={tempPercent} />
             </div>
           </div>)}
