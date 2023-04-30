@@ -5,8 +5,6 @@ import yaml from "js-yaml";
 
 import checkAndCopyConfig, { substituteEnvironmentVars } from "utils/config/config";
 
-const exemptWidgets = ["search"];
-
 export async function widgetsFromConfig() {
     checkAndCopyConfig("widgets.yaml");
 
@@ -32,15 +30,17 @@ export async function cleanWidgetGroups(widgets) {
     return widgets.map((widget, index) => {
         const sanitizedOptions = widget.options;
         const optionKeys = Object.keys(sanitizedOptions);
-        if (!exemptWidgets.includes(widget.type)) {
-            ["url", "username", "password", "key"].forEach((pO) => { 
-                if (optionKeys.includes(pO)) {
-                    // allow URL in search
-                    if (widget.type !== "search" && pO !== "key") {
-                        delete sanitizedOptions[pO];
-                    }
-                }
-            });
+        
+        // delete private options from the sanitized options
+        ["username", "password", "key"].forEach((pO) => { 
+            if (optionKeys.includes(pO)) {
+                delete sanitizedOptions[pO];
+            }
+        });
+        
+        // delete url from the sanitized options if the widget is not a search or glances widgeth
+        if (widget.type !== "search" && widget.type !== "glances" && optionKeys.includes("url")) {
+            delete sanitizedOptions.url;
         }
 
         return {

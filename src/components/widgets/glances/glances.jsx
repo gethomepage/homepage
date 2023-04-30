@@ -1,10 +1,13 @@
 import useSWR from "swr";
+import { useContext } from "react";
 import { BiError } from "react-icons/bi";
 import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu, FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
 
 import UsageBar from "../resources/usage-bar";
+
+import { SettingsContext } from "utils/contexts/settings";
 
 const cpuSensorLabels = ["cpu_thermal", "Core", "Tctl"];
 
@@ -14,6 +17,7 @@ function convertToFahrenheit(t) {
 
 export default function Widget({ options }) {
   const { t, i18n } = useTranslation();
+  const { settings } = useContext(SettingsContext);
 
   const { data, error } = useSWR(
     `/api/widgets/glances?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`, {
@@ -93,7 +97,7 @@ export default function Widget({ options }) {
     : [data.fs.find((d) => d.mnt_point === options.disk)].filter((d) => d);
 
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+    <a href={options.url} target={settings.target ?? "_blank"} className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
       <div className="flex flex-row self-center flex-wrap justify-between">
          <div className="flex-none flex flex-row items-center mr-3 py-1.5">
           <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
@@ -218,6 +222,6 @@ export default function Widget({ options }) {
       {options.label && (
         <div className="pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">{options.label}</div>
       )}
-    </div>
+    </a>
   );
 }
