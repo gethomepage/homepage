@@ -95,12 +95,12 @@
         "gravity": "Сила тяжести"
     },
     "speedtest": {
-        "upload": "Загрузка",
-        "download": "Скачать",
-        "ping": "пинг"
+        "upload": "Отдача",
+        "download": "Загрузка",
+        "ping": "Пинг"
     },
     "portainer": {
-        "running": "Запущено",
+        "running": "Запущенно",
         "stopped": "Остановлено",
         "total": "Всего"
     },
@@ -121,10 +121,10 @@
         "updating": "Обновление"
     },
     "overseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "processing": "Processing"
+        "pending": "Ожидание",
+        "approved": "Одобрено",
+        "available": "Доступно",
+        "processing": "Обработка"
     },
     "sabnzbd": {
         "rate": "Оценка",
@@ -137,21 +137,21 @@
         "downloaded": "Загружено"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
+        "configure": "Настройте одну или несколько криптовалют для отслеживания",
+        "1hour": "1 Час",
+        "1day": "1 День",
+        "7days": "7 Дней",
         "30days": "30 Дней"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Приложения",
+        "clients": "Клиенты",
+        "messages": "Сообщения"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "Индексаторы",
         "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "Запросы",
         "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
     },
@@ -162,23 +162,23 @@
         "seed": "Сиды"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Настроено",
+        "errored": "Ошибочно"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Отсутствующие эпизоды",
+        "missingMovies": "Отсутствующие фильмы"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Хотел",
+        "queued": "В очереди",
+        "albums": "Альбомы"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Запросы",
+        "blocked": "Заблокировано",
+        "filtered": "Отсортировано",
+        "latency": "Задержка"
     },
     "qbittorrent": {
         "download": "Загрузка",
@@ -187,26 +187,26 @@
         "seed": "Сиды"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Пользователи",
+        "status_count": "Посты",
+        "domain_count": "Домены"
     },
     "strelaysrv": {
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate",
-        "numActiveSessions": "Sessions"
+        "numConnections": "Соединения",
+        "dataRelayed": "Ретранслировано",
+        "transferRate": "Оценка",
+        "numActiveSessions": "Сессий"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Пользователи",
+        "loginsLast24H": "Входы (24ч)",
+        "failedLoginsLast24H": "Неудачные входы (24ч)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Память",
+        "cpu": "Процессор",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "Виртуальные машины"
     },
     "unifi": {
         "users": "Пользователи",
@@ -232,21 +232,21 @@
         "albums": "Альбомы"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "wait": "Please wait",
-        "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h"
+        "cpu": "Процессор",
+        "mem": "Память",
+        "wait": "Пожалуйста, подождите",
+        "temp": "Температура",
+        "uptime": "Работает",
+        "days": "д",
+        "hours": "ч"
     },
     "changedetectionio": {
         "totalObserved": "Всего наблюдаемых",
         "diffsDetected": "Обнаружены различия"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
+        "0-day": "Солнечно",
+        "0-night": "Ясно",
         "71-night": "Light Snow",
         "73-day": "Snow",
         "73-night": "Snow",
@@ -257,22 +257,22 @@
         "80-day": "Light Showers",
         "80-night": "Light Showers",
         "81-day": "Showers",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
+        "1-day": "Преимущественно солнечно",
+        "1-night": "Преимущественно ясно",
+        "2-day": "Переменная облачность",
+        "2-night": "Переменная облачность",
+        "3-day": "Облачно",
+        "3-night": "Облачно",
+        "45-day": "Туманно",
+        "45-night": "Туманно",
+        "48-day": "Туманно",
+        "48-night": "Туманно",
+        "51-day": "Слегка моросит",
+        "51-night": "Слегка моросит",
+        "53-day": "Моросит",
+        "53-night": "Моросит",
+        "55-day": "Сильно моросит",
+        "55-night": "Сильно моросит",
         "56-day": "Light Freezing Drizzle",
         "56-night": "Light Freezing Drizzle",
         "57-day": "Freezing Drizzle",
@@ -303,50 +303,50 @@
         "99-night": "Thunderstorm With Hail"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service",
-        "search": "Search",
-        "custom": "Custom",
+        "bookmark": "Закладка",
+        "service": "Сервис",
+        "search": "Поиск",
+        "custom": "Пользовательский",
         "visit": "Visit",
         "url": "URL"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Система",
+        "updates": "Обновления",
+        "update_available": "Доступные обновления",
+        "up_to_date": "Обновлено",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "Дочерние мосты",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "В ожидании",
         "down": "Down"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Одобрено",
+        "rejectedPushes": "Отклонено",
+        "filters": "Фильтры",
+        "indexers": "Индексаторы"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
+        "containers_scanned": "Отсканировано",
+        "containers_updated": "Обновлено",
         "containers_failed": "Failed"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Очередь",
+        "videos": "Видео",
+        "channels": "Каналы",
+        "playlists": "Плейлисты"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
+        "load": "Загрузка системы",
+        "uptime": "Время работы",
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Нет активных трансляций",
+        "please_wait": "Пожалуйста, подождите"
     },
     "pyload": {
         "speed": "Speed",
@@ -374,7 +374,7 @@
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
+        "total": "Всего"
     },
     "deluge": {
         "download": "Загрузка",
@@ -389,14 +389,14 @@
         "seed": "Сиды"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Очередь",
+        "processed": "Обработано",
+        "errored": "Ошибочно",
+        "saved": "Сохранено"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Прочитанные",
+        "unread": "Непрочитанные"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -408,7 +408,7 @@
     },
     "omada": {
         "connectedSwitches": "Подключенные свитчи",
-        "connectedAp": "Connected APs",
+        "connectedAp": "Подключенные точки доступа",
         "activeUser": "Активные устройства",
         "alerts": "Оповещения",
         "connectedGateway": "Подключенные шлюзы"
@@ -443,9 +443,9 @@
         "layers": "Layers"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Хотел",
+        "queued": "В очереди",
+        "series": "Сериалы"
     },
     "octoprint": {
         "printer_state": "Status",
@@ -528,14 +528,14 @@
         "records_total": "Queue Length"
     },
     "healthchecks": {
-        "new": "New",
-        "up": "Online",
+        "new": "Новые",
+        "up": "Онлайн",
         "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "down": "Офлайн",
+        "paused": "Приостановлено",
+        "status": "Статус",
+        "last_ping": "Последний пинг",
+        "never": "Пока нет пингов"
     },
     "pterodactyl": {
         "servers": "Servers",
@@ -547,11 +547,11 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "players": "Игроков",
+        "version": "Версия",
+        "status": "Статус",
+        "up": "Онлайн",
+        "down": "Офлайн"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",
@@ -575,8 +575,8 @@
     },
     "channelsdvrserver": {
         "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "recordings": "Записи",
+        "scheduled": "Запланировано",
         "passes": "Passes"
     },
     "whatsupdocker": {
