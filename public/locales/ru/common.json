@@ -128,8 +128,8 @@
     },
     "sabnzbd": {
         "rate": "Оценка",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "queue": "Очередь",
+        "timeleft": "Осталось времени"
     },
     "nzbget": {
         "rate": "Оценка",
@@ -156,10 +156,10 @@
         "numberOfFailQueries": "Fail Queries"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Загрузка",
+        "upload": "Отдача",
+        "leech": "Пиры",
+        "seed": "Сиды"
     },
     "jackett": {
         "configured": "Configured",
@@ -181,10 +181,10 @@
         "latency": "Latency"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Загрузка",
+        "upload": "Отдача",
+        "leech": "Пиры",
+        "seed": "Сиды"
     },
     "mastodon": {
         "user_count": "Users",
@@ -215,8 +215,8 @@
         "wan": "WAN",
         "lan_users": "Пользователи LAN",
         "wlan_users": "Пользователи WLAN",
-        "up": "UP",
-        "down": "DOWN",
+        "up": "Работает",
+        "down": "Не работает",
         "wait": "Пожалуйста, подождите",
         "lan": "LAN",
         "wlan": "WLAN",
@@ -226,9 +226,9 @@
         "empty_data": "Статус системы неизвестен"
     },
     "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows",
+        "streams": "Активные трансляции",
+        "movies": "Фильмы",
+        "tv": "Передачи",
         "albums": "Альбомы"
     },
     "glances": {
@@ -377,16 +377,16 @@
         "total": "Total"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Загрузка",
+        "upload": "Отдача",
+        "leech": "Пиры",
+        "seed": "Сиды"
     },
     "flood": {
-        "upload": "Upload",
-        "download": "Download",
-        "leech": "Leech",
-        "seed": "Seed"
+        "upload": "Отдача",
+        "download": "Загрузка",
+        "leech": "Пиры",
+        "seed": "Сиды"
     },
     "tdarr": {
         "queue": "Queue",
