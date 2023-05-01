@@ -18,9 +18,16 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
     );
   }
 
-  // mdi- prefixed, material design icons
-  if (icon.startsWith("mdi-")) {
-    const iconName = icon.replace("mdi-", "").replace(".svg", "");
+  const prefix = icon.split("-")[0]
+  const prefixPaths = {
+    'mdi': "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/",
+    'si' : "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/",
+  };
+
+  if (prefix in prefixPaths) {
+    const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
+    const iconSource = `${prefixPaths[prefix]}${iconName}.svg`;
+
     return (
       <div
         style={{
@@ -29,8 +36,8 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           maxWidth: '100%',
           maxHeight: '100%',
           background: "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
-          mask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
-          WebkitMask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
+          mask: `url(${iconSource}) no-repeat center / contain`,
+          WebkitMask: `url(${iconSource}) no-repeat center / contain`,
         }}
       />
     );
