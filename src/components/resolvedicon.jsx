@@ -33,7 +33,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
   };
 
   if (prefix in prefixPaths) {
-    // get icon Source
+    // get icon source
     const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
     const iconSource = `${prefixPaths[prefix]}${iconName}.svg`;
 
