@@ -24,6 +24,8 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           width,
           height,
           objectFit: "contain",
+          maxHeight: "100%",
+          maxWidth: "100%",
         }}
         alt={alt}
       />
@@ -66,6 +68,8 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
         width,
         height,
         objectFit: "contain",
+        maxHeight: "100%",
+        maxWidth: "100%"
       }}
       alt={alt}
     />
