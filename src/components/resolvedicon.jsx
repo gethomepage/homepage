@@ -4,6 +4,10 @@ import Image from "next/future/image";
 import { SettingsContext } from "utils/contexts/settings";
 import { ThemeContext } from "utils/contexts/theme";
 
+const iconSetURLs = {
+  'mdi': "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/",
+  'si' : "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/",
+};
 
 export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "logo" }) {
   const { settings } = useContext(SettingsContext);
@@ -28,22 +32,12 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
 
   // check mdi- or si- prefixed icons
   const prefix = icon.split("-")[0]
-  const prefixPaths = {
-    'mdi': "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/",
-    'si' : "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/",
-  };
 
-  if (prefix in prefixPaths) {
+  if (prefix in iconSetURLs) {
     // get icon source
     const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
-    const iconSource = `${prefixPaths[prefix]}${iconName}.svg`;
+    const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
 
-    const gradientStyle = "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))";
-    const themeStyle = `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity))`;
-
-    const setting = settings.iconStyle || "gradient";
-    const background = setting === "gradient" ? gradientStyle : themeStyle;
-    
     return (
       <div
         style={{
@@ -51,7 +45,9 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           height,
           maxWidth: '100%',
           maxHeight: '100%',
-          background,
+          background: settings.iconStyle === "theme" ?
+            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity))` :
+            "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
           mask: `url(${iconSource}) no-repeat center / contain`,
           WebkitMask: `url(${iconSource}) no-repeat center / contain`,
         }}
