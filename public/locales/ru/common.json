@@ -222,7 +222,7 @@
         "wlan": "WLAN",
         "devices": "Устройства",
         "lan_devices": "Устройства подключённые по LAN",
-        "wlan_devices": "WLAN Devices",
+        "wlan_devices": "Подключения WLAN",
         "empty_data": "Статус системы неизвестен"
     },
     "plex": {
