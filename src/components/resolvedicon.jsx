@@ -26,6 +26,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
     );
   }
 
+  // check mdi- or si- prefixed icons
   const prefix = icon.split("-")[0]
   const prefixPaths = {
     'mdi': "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/",
