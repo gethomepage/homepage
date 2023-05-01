@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: nextdnsData, error: nextdnsError } = useWidgetAPI(widget, "analytics/status");
 
   if (nextdnsError) {
-    return <Container error={nextdnsError} />;
+    return <Container service={service} error={nextdnsError} />;
   }
 
   if (!nextdnsData) {

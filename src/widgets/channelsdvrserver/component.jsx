@@ -11,7 +11,7 @@ export default function Component({ service }) {
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "status");
 
   if (channelsError) {
-    return <Container error={channelsError} />;
+    return <Container service={service} error={channelsError} />;
   }
 
   if (!channelsData) {

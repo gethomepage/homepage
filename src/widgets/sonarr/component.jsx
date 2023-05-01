@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   if (wantedError || queuedError || seriesError) {
     const finalError = wantedError ?? queuedError ?? seriesError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!wantedData || !queuedData || !seriesData) {

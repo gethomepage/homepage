@@ -13,7 +13,7 @@ export default function Component({ service }) {
 
   if (statsError || futureError) {
     const finalError = statsError ?? futureError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!statsData || !futureData) {

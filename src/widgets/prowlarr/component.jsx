@@ -11,7 +11,7 @@ export default function Component({ service }) {
   const { data: grabsData, error: grabsError } = useWidgetAPI(widget, "indexerstats");
 
   if (grabsError) {
-    return <Container error={grabsError} />;
+    return <Container service={service} error={grabsError} />;
   }
 
   if (!grabsData) {

@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: minifluxData, error: minifluxError } = useWidgetAPI(widget, "counters");
 
   if (minifluxError) {
-    return <Container error={minifluxError} />;
+    return <Container service={service} error={minifluxError} />;
   }
 
   if (!minifluxData) {

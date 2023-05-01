@@ -29,7 +29,7 @@ export default function Component({ service }) {
 
   if (scrutinyError || scrutinySettingsError) {
     const finalError = scrutinyError ?? scrutinySettingsError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!scrutinyData || !scrutinySettings) {

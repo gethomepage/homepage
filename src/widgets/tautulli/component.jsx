@@ -123,7 +123,7 @@ export default function Component({ service }) {
   });
 
   if (activityError) {
-    return <Container error={activityError} />;
+    return <Container service={service} error={activityError} />;
   }
 
   if (!activityData) {

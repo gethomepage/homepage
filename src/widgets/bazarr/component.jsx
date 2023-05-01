@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   if (moviesError || episodesError) {
     const finalError = moviesError ?? episodesError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!episodesData || !moviesData) {

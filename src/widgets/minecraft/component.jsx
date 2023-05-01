@@ -10,7 +10,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   
   if(serverError){
-    return <Container error={serverError} />;
+    return <Container service={service} error={serverError} />;
   }
   if (!serverData) {
     return (

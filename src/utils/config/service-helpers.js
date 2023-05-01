@@ -257,6 +257,7 @@ export function cleanServiceGroups(groups) {
         const {
           type, // all widgets
           fields,
+          hideErrors,
           server, // docker widget
           container,
           currency, // coinmarketcap widget
@@ -269,7 +270,7 @@ export function cleanServiceGroups(groups) {
           wan, // opnsense widget,
           enableBlocks, // emby/jellyfin
           enableNowPlaying,
-          volume // diskstation widget
+          volume, // diskstation widget
         } = cleanedService.widget;
 
         const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
@@ -277,6 +278,7 @@ export function cleanServiceGroups(groups) {
         cleanedService.widget = {
           type,
           fields: fieldsList || null,
+          hide_errors: hideErrors || false,
           service_name: service.name,
           service_group: serviceGroup.name,
         };

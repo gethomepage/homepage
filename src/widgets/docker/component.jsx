@@ -19,7 +19,7 @@ export default function Component({ service }) {
 
   if (statsError || statsData?.error || statusError || statusData?.error) {
     const finalError = statsError ?? statsData?.error ?? statusError ?? statusData?.error;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (statusData && !(statusData.status.includes("running") || statusData.status.includes("partial"))) {

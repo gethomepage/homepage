@@ -43,7 +43,7 @@ export default function Component({ service }) {
 
   if (alertError || statusError) {
     const finalError = alertError ?? statusError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!alertData || !statusData) {

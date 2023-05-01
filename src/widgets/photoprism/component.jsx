@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: photoprismData, error: photoprismError } = useWidgetAPI(widget);
 
   if (photoprismError) {
-    return <Container error={photoprismError} />;
+    return <Container service={service} error={photoprismError} />;
   }
 
   if (!photoprismData) {

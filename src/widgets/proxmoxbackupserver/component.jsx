@@ -15,7 +15,7 @@ export default function Component({ service }) {
 
   if (datastoreError || tasksError || hostError) {
     const finalError = tasksError ?? datastoreError ?? hostError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!datastoreData || !tasksData || !hostData) {

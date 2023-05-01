@@ -16,7 +16,7 @@ export default function Component({ service }) {
 
   if (downloadsError || videosError || channelsError || playlistsError) {
     const finalError = downloadsError ?? videosError ?? channelsError ?? playlistsError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!downloadsData || !videosData || !channelsData || !playlistsData) {

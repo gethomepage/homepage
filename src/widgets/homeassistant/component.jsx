@@ -7,7 +7,7 @@ export default function Component({ service }) {
 
   const { data, error } = useWidgetAPI(widget, null, { refreshInterval: 60000 });
   if (error) {
-    return <Container error={error} />;
+    return <Container service={service} error={error} />;
   }
   
   return <Container service={service}>

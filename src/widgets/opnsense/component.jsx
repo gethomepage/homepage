@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   if (activityError || interfaceError) {
     const finalError = activityError ?? interfaceError;
-    return <Container error={ finalError } />;
+    return <Container service={service} error={ finalError } />;
   }
 
   if (!activityData || !interfaceData) {

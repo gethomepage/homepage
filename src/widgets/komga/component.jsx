@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   if (libraryError || seriesError || bookError) {
     const finalError = libraryError ?? seriesError ?? bookError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!libraryData || !seriesData || !bookData) {

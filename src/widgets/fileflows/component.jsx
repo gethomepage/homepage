@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: fileflowsData, error: fileflowsError } = useWidgetAPI(widget, "status");
 
   if (fileflowsError) {
-    return <Container error={fileflowsError} />;
+    return <Container service={service} error={fileflowsError} />;
   }
 
   if (!fileflowsData) {

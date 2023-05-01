@@ -38,7 +38,7 @@ export default function Component({ service }) {
   const { data: statusData, error: statusError } = useWidgetAPI(widget, "status");
 
   if (statusError) {
-    return <Container error={statusError} />;
+    return <Container service={service} error={statusError} />;
   }
 
   const source = statusData?.sources[0];
