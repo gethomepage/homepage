@@ -56,7 +56,7 @@
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
-        "no_active": "Нет активных потоков"
+        "no_active": "Нет активных трансляций"
     },
     "rutorrent": {
         "active": "Активный",
@@ -341,7 +341,7 @@
     "truenas": {
         "load": "Загрузка системы",
         "uptime": "Время работы",
-        "alerts": "Alerts",
+        "alerts": "Уведомления",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
@@ -349,9 +349,9 @@
         "please_wait": "Пожалуйста, подождите"
     },
     "pyload": {
-        "speed": "Speed",
+        "speed": "Скорость",
         "active": "Active",
-        "queue": "Queue",
+        "queue": "Очередь",
         "total": "Total"
     },
     "gluetun": {
