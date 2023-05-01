@@ -17,14 +17,14 @@
         "used": "Использовано",
         "load": "Загрузка",
         "cpu": "Процессор",
-        "mem": "MEM",
-        "temp": "TEMP",
-        "max": "Max",
+        "mem": "Память",
+        "temp": "Температура",
+        "max": "Макс.",
         "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "months": "мес",
+        "days": "д",
+        "hours": "ч",
+        "minutes": "м"
     },
     "docker": {
         "rx": "Rx",
@@ -34,34 +34,34 @@
         "offline": "Не в сети",
         "error": "Ошибка",
         "unknown": "Неизвестный",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "running": "Запущенно",
+        "starting": "Запускается",
+        "unhealthy": "Не живой",
+        "not_found": "Не найден",
+        "exited": "Существует",
+        "partial": "Частично",
+        "healthy": "Живой"
     },
     "emby": {
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
         "no_active": "Нет активных потоков",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Фильмы",
+        "series": "Сериалы",
+        "episodes": "Эпизоды",
+        "songs": "Песни"
     },
     "tautulli": {
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
-        "no_active": "No Active Streams"
+        "no_active": "Нет активных потоков"
     },
     "rutorrent": {
         "active": "Активный",
-        "upload": "Загрузить",
-        "download": "Скачать"
+        "upload": "Загрузка",
+        "download": "Загрузка"
     },
     "sonarr": {
         "wanted": "Хотел",
@@ -72,7 +72,7 @@
         "wanted": "Хотел",
         "queued": "В очереди",
         "movies": "Фильмы",
-        "missing": "Missing"
+        "missing": "Пропущено"
     },
     "readarr": {
         "wanted": "Wanted",
@@ -127,14 +127,14 @@
         "processing": "Processing"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Оценка",
         "queue": "Queue",
         "timeleft": "Time Left"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Оценка",
+        "remaining": "Осталось",
+        "downloaded": "Загружено"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -217,19 +217,19 @@
         "wlan_users": "Пользователи WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Подождите",
+        "wait": "Пожалуйста, подождите",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Устройства",
         "lan_devices": "Устройства подключённые по LAN",
         "wlan_devices": "WLAN Devices",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Статус системы неизвестен"
     },
     "plex": {
         "streams": "Active Streams",
         "movies": "Movies",
         "tv": "TV Shows",
-        "albums": "Albums"
+        "albums": "Альбомы"
     },
     "glances": {
         "cpu": "CPU",
@@ -407,17 +407,17 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedSwitches": "Connected switches",
+        "connectedSwitches": "Подключенные свитчи",
         "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways"
+        "activeUser": "Активные устройства",
+        "alerts": "Оповещения",
+        "connectedGateway": "Подключенные шлюзы"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Загрузка",
+        "upload": "Отдача",
+        "leech": "Пиры",
+        "seed": "Сиды"
     },
     "mikrotik": {
         "cpuLoad": "CPU Load",
@@ -570,8 +570,8 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Подписки",
+        "unread": "Непрочитанные"
     },
     "channelsdvrserver": {
         "shows": "Shows",
