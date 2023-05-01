@@ -1,6 +1,18 @@
+import { useContext } from "react";
 import Image from "next/future/image";
 
+import { SettingsContext } from "utils/contexts/settings";
+import { ThemeContext } from "utils/contexts/theme";
+
+const iconSetURLs = {
+  'mdi': "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/",
+  'si' : "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/",
+};
+
 export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "logo" }) {
+  const { settings } = useContext(SettingsContext);
+  const { theme } = useContext(ThemeContext);
+
   // direct or relative URLs
   if (icon.startsWith("http") || icon.startsWith("/")) {
     return (
@@ -18,9 +30,14 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
     );
   }
 
-  // mdi- prefixed, material design icons
-  if (icon.startsWith("mdi-")) {
-    const iconName = icon.replace("mdi-", "").replace(".svg", "");
+  // check mdi- or si- prefixed icons
+  const prefix = icon.split("-")[0]
+
+  if (prefix in iconSetURLs) {
+    // get icon source
+    const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
+    const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
+
     return (
       <div
         style={{
@@ -28,9 +45,11 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           height,
           maxWidth: '100%',
           maxHeight: '100%',
-          background: "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
-          mask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
-          WebkitMask: `url(https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg) no-repeat center / contain`,
+          background: settings.iconStyle === "theme" ?
+            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity))` :
+            "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
+          mask: `url(${iconSource}) no-repeat center / contain`,
+          WebkitMask: `url(${iconSource}) no-repeat center / contain`,
         }}
       />
     );
