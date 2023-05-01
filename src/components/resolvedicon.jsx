@@ -48,7 +48,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           maxWidth: '100%',
           maxHeight: '100%',
           background: settings.iconStyle === "theme" ?
-            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity))` :
+            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
             "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
           mask: `url(${iconSource}) no-repeat center / contain`,
           WebkitMask: `url(${iconSource}) no-repeat center / contain`,
