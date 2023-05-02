@@ -6,7 +6,7 @@
         "downloads": "Fronta"
     },
     "truenas": {
-        "load": "Vytížení systému",
+        "load": "Zatížení systému",
         "uptime": "Doba spuštění",
         "alerts": "Upozornění",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
@@ -30,19 +30,19 @@
         "placeholder": "Hledat…"
     },
     "resources": {
-        "cpu": "CPU",
+        "cpu": "PROC",
         "total": "Celkem",
         "free": "Volné",
         "used": "Využité",
-        "load": "Vytížení",
-        "mem": "RAM",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
+        "load": "Zatížení",
+        "mem": "PAM",
+        "max": "Max.",
+        "uptime": "BĚŽÍ",
+        "months": "měs.",
         "days": "d",
         "hours": "h",
         "minutes": "m",
-        "temp": "TEMP"
+        "temp": "TEPLOTA"
     },
     "unifi": {
         "users": "Uživatelé",
@@ -64,8 +64,8 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "RAM",
-        "cpu": "CPU",
+        "mem": "PAM",
+        "cpu": "PROC",
         "offline": "Offline",
         "error": "Chyba",
         "unknown": "Neznámý",
@@ -85,7 +85,7 @@
         "movies": "Filmy",
         "series": "Seriály",
         "episodes": "Epizody",
-        "songs": "Písničky"
+        "songs": "Skladby"
     },
     "changedetectionio": {
         "totalObserved": "Celkem zjištěno",
@@ -106,7 +106,7 @@
         "streams": "Aktivní streamy",
         "movies": "Filmy",
         "tv": "Seriály",
-        "albums": "Albums"
+        "albums": "Alba"
     },
     "sabnzbd": {
         "rate": "Rychlost",
@@ -188,9 +188,9 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Běží",
+        "running": "Spuštěno",
         "stopped": "Zastaveno",
-        "total": "Celkově"
+        "total": "Celkem"
     },
     "traefik": {
         "routers": "Routery",
@@ -300,17 +300,17 @@
         "failedLoginsLast24H": "Neúspěšná přihlášení (24h)"
     },
     "proxmox": {
-        "mem": "RAM",
-        "cpu": "CPU",
+        "mem": "PAM",
+        "cpu": "PROC",
         "lxc": "LXC",
         "vms": "Virtuální Stroje"
     },
     "glances": {
-        "cpu": "CPU",
-        "mem": "RAM",
+        "cpu": "PROC",
+        "mem": "PAM",
         "wait": "Prosím počkejte",
-        "temp": "TEMP",
-        "uptime": "UP",
+        "temp": "TEPLOTA",
+        "uptime": "BĚŽÍ",
         "days": "d",
         "hours": "h"
     },
@@ -334,9 +334,9 @@
         "down": "Vypnutý"
     },
     "watchtower": {
-        "containers_scanned": "Naskenováno",
+        "containers_scanned": "Prohledáno",
         "containers_updated": "Aktualizováno",
-        "containers_failed": "Chyba"
+        "containers_failed": "Selhalo"
     },
     "autobrr": {
         "approvedPushes": "Schváleno",
@@ -460,7 +460,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datové úložiště",
         "failed_tasks_24h": "Neúspěšné úlohy 24h",
-        "cpu_usage": "CPU",
+        "cpu_usage": "PROC",
         "memory_usage": "Paměť"
     },
     "immich": {
@@ -504,13 +504,13 @@
         "time": "Čas"
     },
     "grafana": {
-        "dashboards": "Přístrojové panely",
+        "dashboards": "Nástěnky",
         "datasources": "Zdroje dat",
         "totalalerts": "Celkový počet upozornění",
         "alertstriggered": "Spuštěné výstrahy"
     },
     "nextcloud": {
-        "cpuload": "CPU zatížení",
+        "cpuload": "Zatížení procesoru",
         "memoryusage": "Využití paměti",
         "freespace": "Volný prostor",
         "activeusers": "Aktivní uživatelé"
@@ -565,22 +565,22 @@
         "booksDuration": "Trvání"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Lidí doma",
+        "lights_on": "Rozsvícená světla",
+        "switches_on": "Zapnuté přepínače"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Odběry",
+        "unread": "Nepřečteno"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "",
+        "recordings": "Nahrávky",
+        "scheduled": "Naplánováno",
+        "passes": "Průchody"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Sledování",
+        "updates": "Aktualizace"
     }
 }
