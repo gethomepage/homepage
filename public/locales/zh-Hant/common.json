@@ -26,8 +26,8 @@
         "starting": "啟動中",
         "unhealthy": "不健康的",
         "not_found": "未找到",
-        "exited": "Exited",
-        "partial": "Partial",
+        "exited": "已退出",
+        "partial": "部分",
         "healthy": "健康的"
     },
     "emby": {
@@ -35,10 +35,10 @@
         "transcoding": "轉碼",
         "bitrate": "位元率",
         "no_active": "無播放活動",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "電影",
+        "series": "影集",
+        "episodes": "集",
+        "songs": "曲目"
     },
     "tautulli": {
         "playing": "正在播放",
@@ -61,13 +61,13 @@
         "load": "負載",
         "cpu": "CPU",
         "mem": "記憶體",
-        "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "temp": "溫度",
+        "max": "最大",
+        "uptime": "運行時間",
+        "months": "月",
+        "days": "天",
+        "hours": "時",
+        "minutes": "分"
     },
     "nzbget": {
         "rate": "速率",
@@ -98,7 +98,7 @@
     "readarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "books": "書籍"
+        "books": "叢書"
     },
     "ombi": {
         "pending": "待下載",
@@ -114,7 +114,7 @@
     "pihole": {
         "queries": "查詢",
         "blocked": "已阻擋",
-        "gravity": "Gravity"
+        "gravity": "阻擋清單"
     },
     "speedtest": {
         "upload": "上行速率",
@@ -229,16 +229,16 @@
         "streams": "正在播放",
         "movies": "電影",
         "tv": "影集",
-        "albums": "Albums"
+        "albums": "專輯"
     },
     "glances": {
         "cpu": "CPU",
         "mem": "記憶體",
         "wait": "請稍後",
-        "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h"
+        "temp": "溫度",
+        "uptime": "運行時間",
+        "days": "天",
+        "hours": "時"
     },
     "changedetectionio": {
         "totalObserved": "總監測數",
@@ -307,8 +307,8 @@
         "service": "服務",
         "search": "搜尋",
         "custom": "自訂",
-        "visit": "Visit",
-        "url": "URL"
+        "visit": "訪問",
+        "url": "網址"
     },
     "homebridge": {
         "available_update": "系統",
@@ -317,9 +317,9 @@
         "up_to_date": "已更新至最新",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
+        "up": "在線",
+        "pending": "處理中",
+        "down": "離線"
     },
     "autobrr": {
         "approvedPushes": "已核准",
@@ -479,7 +479,7 @@
     "komga": {
         "libraries": "文庫",
         "series": "叢刊",
-        "books": "書刊"
+        "books": "叢書"
     },
     "mylar": {
         "series": "系列",
@@ -523,9 +523,9 @@
         "failed": "失敗"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "在線工作程序",
+        "total_workers": "總工作程序",
+        "records_total": "佇列長度"
     },
     "healthchecks": {
         "new": "新建立",
@@ -538,49 +538,49 @@
         "never": "尚未檢查"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "伺服器",
+        "nodes": "節點"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "目標上線",
+        "targets_down": "目標離線",
+        "targets_total": "目標總數"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "players": "玩家",
+        "version": "版本",
+        "status": "狀態",
+        "up": "上線",
+        "down": "離線"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "今日",
+        "gross_percent_1y": "一年",
+        "gross_percent_max": "所有時間"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "播客",
+        "books": "叢書",
+        "podcastsDuration": "歷時",
+        "booksDuration": "歷時"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "在家人數",
+        "lights_on": "燈亮著",
+        "switches_on": "開關開著"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "訂閱",
+        "unread": "未讀"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "節目",
+        "recordings": "錄影",
+        "scheduled": "已排定",
+        "passes": "通行證"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "監測中",
+        "updates": "可更新"
     }
 }
