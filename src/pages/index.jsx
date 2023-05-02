@@ -286,7 +286,7 @@ function Home({ initialSettings }) {
           )}
         </div>
 
-        {services && (
+        {services?.length > 0 && (
           <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
             {services.map((group) => (
               <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} fiveColumns={settings.fiveColumns} />
@@ -294,7 +294,7 @@ function Home({ initialSettings }) {
           </div>
         )}
 
-        {bookmarks && (
+        {bookmarks?.length > 0 && (
           <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
             {bookmarks.map((group) => (
               <BookmarksGroup key={group.name} group={group} />
