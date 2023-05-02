@@ -4,7 +4,7 @@ export default function List({ bookmarks }) {
   return (
     <ul className="mt-3 flex flex-col">
       {bookmarks.map((bookmark) => (
-        <Item key={bookmark.name} bookmark={bookmark} />
+        <Item key={`${bookmark.name}-${bookmark.href}`} bookmark={bookmark} />
       ))}
     </ul>
   );
