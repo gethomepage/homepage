@@ -21,6 +21,8 @@ export default function Component({ service }) {
         <Block label="nextcloud.memoryusage" />
         <Block label="nextcloud.freespace" />
         <Block label="nextcloud.activeusers" />
+        <Block label="nextcloud.numfiles" />
+        <Block label="nextcloud.numshares" />
       </Container>
     );
   }
@@ -33,7 +35,9 @@ export default function Component({ service }) {
       <Block label="nextcloud.cpuload" value={t("common.percent", { value: nextcloudInfo.system.cpuload[0] })} />
       <Block label="nextcloud.memoryusage" value={t("common.percent", { value:memoryUsage })} />
       <Block label="nextcloud.freespace" value={t("common.bbytes", { value: nextcloudInfo.system.freespace, maximumFractionDigits: 1 })} />
-      <Block label="nextcloud.activeusers" value={t("common.number", { value: nextcloudData.ocs.data.activeUsers.last5minutes })} />
+      <Block label="nextcloud.activeusers" value={t("common.number", { value: nextcloudData.ocs.data.activeUsers.last24hours })} />
+      <Block label="nextcloud.numfiles" value={t("common.number", { value: nextcloudInfo.storage.num_files })} />
+      <Block label="nextcloud.numshares" value={t("common.number", { value: nextcloudInfo.shares.num_shares })} />
     </Container>
   );
 }
