@@ -29,11 +29,11 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="evcc.homepower" value={t("common.number", { value: resultData.result.homePower }) + " W"} />
-      <Block label="evcc.batterySoc" value={t("common.number", { value: resultData.result.batterySoc }) + " %"} />
-      <Block label="evcc.gridpower" value={t("common.number", { value: resultData.result.gridPower }) + " W"} />
-      <Block label="evcc.homepower" value={t("common.number", { value: resultData.result.homePower }) + " W"} />
-      <Block label="evcc.chargePower" value={t("common.number", { value: resultData.result.loadpoints[0].chargePower }) + " W"} />
+      <Block label="evcc.homepower" value={t("common.number", { value: resultData.result.homePower })} />
+      <Block label="evcc.batterySoc" value={t("common.percent", { value: resultData.result.batterySoc })} />
+      <Block label="evcc.gridpower" value={t("common.number", { value: resultData.result.gridPower })} />
+      <Block label="evcc.homepower" value={t("common.number", { value: resultData.result.homePower }) } />
+      <Block label="evcc.chargePower" value={t("common.number", { value: resultData.result.loadpoints[0].chargePower })} />
     </Container>
   );
 }
