@@ -11,6 +11,7 @@ import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
+import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
@@ -92,6 +93,7 @@ const widgets = {
   diskstation,
   downloadstation,
   emby,
+  evcc, 
   fileflows,
   flood,
   freshrss,

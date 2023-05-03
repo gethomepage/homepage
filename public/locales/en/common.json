@@ -92,6 +92,13 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
+	"evcc": {
+        "pvPower": "Production",
+        "batterySoc": "Battery",
+        "gridpower": "Grid",
+        "homepower": "Consumption",
+        "chargePower": "Charger"
+    },
     "flood": {
         "download": "Download",
         "upload": "Upload",

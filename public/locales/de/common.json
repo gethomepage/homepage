@@ -52,6 +52,13 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
+	"evcc": {
+        "pvPower": "Erzeugung",
+        "batterySoc": "Batterie",
+        "gridpower": "Netz",
+        "homepower": "Verbrauch",
+        "chargePower": "Ladepunkt"
+    },
     "tautulli": {
         "playing": "Spielen",
         "transcoding": "Transcodierung",
