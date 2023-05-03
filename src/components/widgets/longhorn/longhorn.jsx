@@ -13,7 +13,7 @@ export default function Longhorn({ options }) {
 
   if (error || data?.error) {
     return (
-      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
         <BiError className="text-theme-800 dark:text-theme-200 w-5 h-5" />
         <div className="flex flex-col ml-3 text-left">
           <span className="text-theme-800 dark:text-theme-200 text-xs">{t("widget.api_error")}</span>
@@ -24,14 +24,14 @@ export default function Longhorn({ options }) {
 
   if (!data) {
     return (
-      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
         <div className="flex flex-row self-center flex-wrap justify-between" />
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
       <div className="flex flex-row self-center flex-wrap justify-between">
         {data.nodes
           .filter((node) => {

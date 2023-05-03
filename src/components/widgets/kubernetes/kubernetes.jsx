@@ -45,7 +45,7 @@ export default function Widget({ options }) {
 
   if (!data) {
     return (
-      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
         <div className="flex flex-row self-center flex-wrap justify-between">
           {cluster.show &&
             <Node type="cluster" key="cluster" options={options.cluster} data={defaultData} />
@@ -59,7 +59,7 @@ export default function Widget({ options }) {
   }
 
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
       <div className="flex flex-row self-center flex-wrap justify-between">
         {cluster.show &&
           <Node key="cluster" type="cluster" options={options.cluster} data={data.cluster} />

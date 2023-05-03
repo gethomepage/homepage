@@ -7,7 +7,7 @@ import Uptime from "./uptime";
 export default function Resources({ options }) {
   const { expanded, units } = options;
   return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4">
       <div className="flex flex-row self-center flex-wrap justify-between">
         {options.cpu && <Cpu expanded={expanded} />}
         {options.memory && <Memory expanded={expanded} />}
