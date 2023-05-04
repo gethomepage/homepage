@@ -232,6 +232,10 @@
         "stopped": "Stopped",
         "total": "Total"
     },
+    "tailscale": {
+        "private_ip": "Private IP",
+        "status": "Status"
+    },
     "tdarr": {
         "queue": "Queue",
         "processed": "Processed",
