@@ -513,7 +513,9 @@
         "cpuload": "CPU Last",
         "memoryusage": "RAM Verbrauch",
         "freespace": "Freier Speicher",
-        "activeusers": "Aktive Nutzer"
+        "activeusers": "Aktive Nutzer",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Status",
