@@ -513,7 +513,9 @@
         "cpuload": "Навантаження Cpu",
         "memoryusage": "Використання пам'яті",
         "freespace": "Вільного місця",
-        "activeusers": "Активні користувачі"
+        "activeusers": "Активні користувачі",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Статус",
