@@ -68,7 +68,9 @@
         "cpuload": "CPU obremenitev",
         "memoryusage": "Uporabljen spomin",
         "freespace": "Prostor na voljo",
-        "activeusers": "Aktivni uporabniki"
+        "activeusers": "Aktivni uporabniki",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Stanje",
