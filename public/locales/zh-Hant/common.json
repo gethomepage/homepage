@@ -513,7 +513,9 @@
         "cpuload": "處理器負載",
         "memoryusage": "記憶體用量",
         "freespace": "可用空間",
-        "activeusers": "活躍用戶"
+        "activeusers": "活躍用戶",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "狀態",
