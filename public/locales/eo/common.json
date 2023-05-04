@@ -513,7 +513,9 @@
         "activeusers": "Active Users",
         "cpuload": "Cpu Load",
         "memoryusage": "Memory Usage",
-        "freespace": "Free Space"
+        "freespace": "Free Space",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Status",
