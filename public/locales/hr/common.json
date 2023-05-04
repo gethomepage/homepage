@@ -513,7 +513,9 @@
         "cpuload": "Cpu opterećenje",
         "memoryusage": "Korištenje memorije",
         "freespace": "Slobodna memorija",
-        "activeusers": "Aktivni korisnici"
+        "activeusers": "Aktivni korisnici",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Stanje",
