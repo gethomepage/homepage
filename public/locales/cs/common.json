@@ -513,7 +513,9 @@
         "cpuload": "Zatížení procesoru",
         "memoryusage": "Využití paměti",
         "freespace": "Volný prostor",
-        "activeusers": "Aktivní uživatelé"
+        "activeusers": "Aktivní uživatelé",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Stav",
