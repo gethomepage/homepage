@@ -233,8 +233,9 @@
         "total": "Total"
     },
     "tailscale": {
-        "private_ip": "Private IP",
-        "status": "Status"
+        "address": "Address",
+        "expires": "Expires",
+        "last_seen": "Last Seen"
     },
     "tdarr": {
         "queue": "Queue",
