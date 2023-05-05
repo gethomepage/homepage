@@ -23,33 +23,36 @@ export default function Component({ service }) {
     );
   }
 
-  const now = new Date()
   const address = statsData.addresses[0]
+
+  const now = new Date()
+  const compareDifferenceInTwoDates = (priorDate, futureDate) => {
+    const diff = futureDate.getTime() - priorDate.getTime()
+    const diffInYears = Math.ceil(diff / (1000 * 60 * 60 * 24 * 365))
+    if (diffInYears > 1) return `${diffInYears}y`
+    const diffInWeeks = Math.ceil(diff / (1000 * 60 * 60 * 24 * 7))
+    if (diffInWeeks > 1) return `${diffInWeeks}w`
+    const diffInDays = Math.ceil(diff / (1000 * 60 * 60 * 24))
+    if (diffInDays > 1) return `${diffInDays}d`
+    const diffInHours = Math.ceil(diff / (1000 * 60 * 60))
+    if (diffInHours > 1) return `${diffInHours}h`
+    const diffInMinutes = Math.ceil(diff / (1000 * 60))
+    if (diffInMinutes > 1) return `${diffInMinutes}m`
+    const diffInSeconds = Math.ceil(diff / 1000)
+    if (diffInSeconds > 10) return `${diffInSeconds}s`
+    return 'Now'
+  }
 
   const getLastSeen = () => {
     const lastSeen = new Date(statsData.lastSeen)
-    const diff = now.getTime() - lastSeen.getTime()
-    const diffInYears = Math.ceil(diff / (1000 * 60 * 60 * 24 * 365))
-    if (diffInYears > 1) return `${diffInYears}y Ago`
-    const diffInWeeks = Math.ceil(diff / (1000 * 60 * 60 * 24 * 7))
-    if (diffInWeeks > 1) return `${diffInWeeks}w Ago`
-    const diffInDays = Math.ceil(diff / (1000 * 60 * 60 * 24))
-    if (diffInDays > 1) return `${diffInDays}d Ago`
-    const diffInHours = Math.ceil(diff / (1000 * 60 * 60))
-    if (diffInHours > 1) return `${diffInHours}h Ago`
-    const diffInMinutes = Math.ceil(diff / (1000 * 60))
-    if (diffInMinutes > 1) return `${diffInMinutes}m Ago`
-    const diffInSeconds = Math.ceil(diff / 1000)
-    if (diffInSeconds > 10) return `${diffInSeconds}s Ago`
-    return 'Just Now'
+    const diff = compareDifferenceInTwoDates(lastSeen, now)
+    return `${diff === 'Now' ? diff : `${diff} Ago`}`
   }
 
   const getExpiry = () => {
     if (statsData.keyExpiryDisabled) return 'Never'
     const expiry = new Date(statsData.expires)
-    const diff = expiry.getTime() - now.getTime()
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24))
-    return `${days} Days`
+    return compareDifferenceInTwoDates(now, expiry)
   }
 
   return (
