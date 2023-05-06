@@ -1,13 +1,15 @@
+import { useTranslation } from "next-i18next";
+
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
+  const { t } = useTranslation();
+
   const { widget } = service;
 
-  const { data: statsData, error: statsError } = useWidgetAPI(widget, "device", {
-    refreshInterval: 1000 * 60,
-  });
+  const { data: statsData, error: statsError } = useWidgetAPI(widget, "device");
 
   if (statsError) {
     return <Container service={service} error={statsError} />;
@@ -34,24 +36,24 @@ export default function Component({ service }) {
   const compareDifferenceInTwoDates = (priorDate, futureDate) => {
     const diff = futureDate.getTime() - priorDate.getTime();
     const diffInYears = Math.ceil(diff / (1000 * 60 * 60 * 24 * 365));
-    if (diffInYears > 1) return `${diffInYears}y`;
+    if (diffInYears > 1) return t("tailscale.years", { number: diffInYears });
     const diffInWeeks = Math.ceil(diff / (1000 * 60 * 60 * 24 * 7));
-    if (diffInWeeks > 1) return `${diffInWeeks}w`;
+    if (diffInWeeks > 1) return t("tailscale.weeks", { number: diffInWeeks });
     const diffInDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    if (diffInDays > 1) return `${diffInDays}d`;
+    if (diffInDays > 1) return t("tailscale.days", { number: diffInDays });
     const diffInHours = Math.ceil(diff / (1000 * 60 * 60));
-    if (diffInHours > 1) return `${diffInHours}h`;
+    if (diffInHours > 1) return t("tailscale.hours", { number: diffInHours });
     const diffInMinutes = Math.ceil(diff / (1000 * 60));
-    if (diffInMinutes > 1) return `${diffInMinutes}m`;
+    if (diffInMinutes > 1) return t("tailscale.minutes", { number: diffInMinutes });
     const diffInSeconds = Math.ceil(diff / 1000);
-    if (diffInSeconds > 10) return `${diffInSeconds}s`;
+    if (diffInSeconds > 10) return t("tailscale.seconds", { number: diffInSeconds });
     return "Now";
   };
 
   const getLastSeen = () => {
     const date = new Date(lastSeen);
     const diff = compareDifferenceInTwoDates(date, now);
-    return `${diff === "Now" ? diff : `${diff} Ago`}`;
+    return diff === "Now" ? diff : t("tailscale.ago", { value: diff });
   };
 
   const getExpiry = () => {
