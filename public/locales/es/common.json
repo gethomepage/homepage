@@ -514,8 +514,8 @@
         "memoryusage": "Uso de la memoria",
         "freespace": "Espacio libre",
         "activeusers": "Usuarios activos",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Archivos",
+        "numshares": "Elementos compartidos"
     },
     "kopia": {
         "status": "Estado",
