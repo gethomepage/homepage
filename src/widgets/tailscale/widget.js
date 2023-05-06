@@ -6,7 +6,7 @@ const widget = {
 
   mappings: {
     device: {
-      endpoint: "device"
+      endpoint: "device",
     },
   },
 };

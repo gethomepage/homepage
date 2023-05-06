@@ -6,7 +6,7 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "device", {
-    refreshInterval: 1000 * 60
+    refreshInterval: 1000 * 60,
   });
 
   if (statsError) {
@@ -23,37 +23,42 @@ export default function Component({ service }) {
     );
   }
 
-  const address = statsData.addresses[0]
+  const {
+    addresses: [address],
+    keyExpiryDisabled,
+    lastSeen,
+    expires,
+  } = statsData;
 
-  const now = new Date()
+  const now = new Date();
   const compareDifferenceInTwoDates = (priorDate, futureDate) => {
-    const diff = futureDate.getTime() - priorDate.getTime()
-    const diffInYears = Math.ceil(diff / (1000 * 60 * 60 * 24 * 365))
-    if (diffInYears > 1) return `${diffInYears}y`
-    const diffInWeeks = Math.ceil(diff / (1000 * 60 * 60 * 24 * 7))
-    if (diffInWeeks > 1) return `${diffInWeeks}w`
-    const diffInDays = Math.ceil(diff / (1000 * 60 * 60 * 24))
-    if (diffInDays > 1) return `${diffInDays}d`
-    const diffInHours = Math.ceil(diff / (1000 * 60 * 60))
-    if (diffInHours > 1) return `${diffInHours}h`
-    const diffInMinutes = Math.ceil(diff / (1000 * 60))
-    if (diffInMinutes > 1) return `${diffInMinutes}m`
-    const diffInSeconds = Math.ceil(diff / 1000)
-    if (diffInSeconds > 10) return `${diffInSeconds}s`
-    return 'Now'
-  }
+    const diff = futureDate.getTime() - priorDate.getTime();
+    const diffInYears = Math.ceil(diff / (1000 * 60 * 60 * 24 * 365));
+    if (diffInYears > 1) return `${diffInYears}y`;
+    const diffInWeeks = Math.ceil(diff / (1000 * 60 * 60 * 24 * 7));
+    if (diffInWeeks > 1) return `${diffInWeeks}w`;
+    const diffInDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    if (diffInDays > 1) return `${diffInDays}d`;
+    const diffInHours = Math.ceil(diff / (1000 * 60 * 60));
+    if (diffInHours > 1) return `${diffInHours}h`;
+    const diffInMinutes = Math.ceil(diff / (1000 * 60));
+    if (diffInMinutes > 1) return `${diffInMinutes}m`;
+    const diffInSeconds = Math.ceil(diff / 1000);
+    if (diffInSeconds > 10) return `${diffInSeconds}s`;
+    return "Now";
+  };
 
   const getLastSeen = () => {
-    const lastSeen = new Date(statsData.lastSeen)
-    const diff = compareDifferenceInTwoDates(lastSeen, now)
-    return `${diff === 'Now' ? diff : `${diff} Ago`}`
-  }
+    const date = new Date(lastSeen);
+    const diff = compareDifferenceInTwoDates(date, now);
+    return `${diff === "Now" ? diff : `${diff} Ago`}`;
+  };
 
   const getExpiry = () => {
-    if (statsData.keyExpiryDisabled) return 'Never'
-    const expiry = new Date(statsData.expires)
-    return compareDifferenceInTwoDates(now, expiry)
-  }
+    if (keyExpiryDisabled) return "Never";
+    const date = new Date(expires);
+    return compareDifferenceInTwoDates(now, date);
+  };
 
   return (
     <Container service={service}>
