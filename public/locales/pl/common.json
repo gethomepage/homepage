@@ -16,22 +16,22 @@
         "cpu": "CPU",
         "mem": "PAM",
         "temp": "TEMP.",
-        "max": "Max",
-        "uptime": "UP",
+        "max": "Maks",
+        "uptime": "CZAS",
         "months": "miesiąc",
         "days": "dni",
-        "hours": "h",
-        "minutes": "minuty"
+        "hours": "godz",
+        "minutes": "min"
     },
     "emby": {
         "no_active": "Brak aktywnych strumieni",
         "playing": "Odtwarzanie",
         "transcoding": "Transkodowanie",
         "bitrate": "Bitrate",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmy",
+        "series": "Seriale",
+        "episodes": "Odcinki",
+        "songs": "Piosenki"
     },
     "tautulli": {
         "playing": "Odtwarzanie",
@@ -79,11 +79,11 @@
         "error": "Błąd",
         "unknown": "Nieznany",
         "running": "Działa",
-        "starting": "Startować",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
+        "starting": "Rozpoczynanie",
+        "unhealthy": "Niezdrowe",
+        "not_found": "Nie znaleziono",
         "exited": "Exited",
-        "partial": "Partial",
+        "partial": "Częściowe",
         "healthy": "Zdrowy"
     },
     "nzbget": {
@@ -151,7 +151,7 @@
     "pihole": {
         "queries": "Zapytania",
         "blocked": "Zablokowane",
-        "gravity": "Gravity"
+        "gravity": "Grawitacja"
     },
     "traefik": {
         "routers": "Routery",
@@ -229,16 +229,16 @@
         "streams": "Aktywne strumienie",
         "movies": "Filmy",
         "tv": "Seriale",
-        "albums": "Albums"
+        "albums": "Albumy"
     },
     "glances": {
         "cpu": "Procesor",
         "mem": "Pamięć",
         "wait": "Proszę czekać",
         "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h"
+        "uptime": "CZAS",
+        "days": "dni",
+        "hours": "godz"
     },
     "changedetectionio": {
         "diffsDetected": "Wykryto różnic",
@@ -305,10 +305,10 @@
     "quicklaunch": {
         "bookmark": "Zakładka",
         "service": "Usługi",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
-        "url": "URL"
+        "search": "Wyszukaj",
+        "custom": "Niestandardowe",
+        "visit": "Odwiedź",
+        "url": "Adres URL"
     },
     "homebridge": {
         "available_update": "System",
@@ -318,7 +318,7 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "Oczekujące",
         "down": "Down"
     },
     "autobrr": {
@@ -369,7 +369,7 @@
     },
     "scrutiny": {
         "passed": "Powodzenie",
-        "failed": "Niepowodzenie",
+        "failed": "Nieudane",
         "unknown": "Nieznane"
     },
     "paperlessngx": {
@@ -445,13 +445,13 @@
     "medusa": {
         "wanted": "Poszukiwane",
         "queued": "Zakolejkowane",
-        "series": "Seria"
+        "series": "Seriale"
     },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "job_completion": "Ukończono"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
@@ -461,86 +461,86 @@
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Pamięć"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Użytkownicy",
+        "photos": "Zdjęcia",
+        "videos": "Filmy",
+        "storage": "Pamięć"
     },
     "uptimekuma": {
         "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
-        "m": "m"
+        "down": "Niedziałające strony",
+        "uptime": "Czas działania",
+        "incident": "Incydent",
+        "m": "min"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+        "libraries": "Biblioteki",
+        "series": "Seriale",
+        "books": "Książki"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
+        "series": "Seriale",
+        "issues": "Zgłoszenia",
         "wanted": "Wanted"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "Albumy",
+        "photos": "Zdjęcia",
+        "videos": "Filmy",
+        "people": "Ludzie"
     },
     "diskstation": {
-        "uptime": "Uptime",
-        "volumeAvailable": "Available",
-        "days": "Days"
+        "uptime": "Czas działania",
+        "volumeAvailable": "Dostępne",
+        "days": "Dni"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
+        "queue": "Kolejka",
+        "processing": "Przetwarzanie",
         "processed": "Processed",
-        "time": "Time"
+        "time": "Czas"
     },
     "grafana": {
         "dashboards": "Dashboards",
-        "datasources": "Data Sources",
+        "datasources": "Źródła danych",
         "totalalerts": "Total Alerts",
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
+        "cpuload": "Obciążenie CPU",
+        "memoryusage": "Użycie pamięci",
+        "freespace": "Wolna przestrzeń",
+        "activeusers": "Aktywni użytkownicy",
+        "numfiles": "Pliki",
         "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
+        "size": "Rozmiar",
+        "lastrun": "Ostatnie uruchomienie",
         "nextrun": "Next Run",
-        "failed": "Failed"
+        "failed": "Nieudane"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
+        "active_workers": "Aktywni pracownicy",
         "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "records_total": "Długość kolejki"
     },
     "healthchecks": {
-        "new": "New",
+        "new": "Nowy",
         "up": "Online",
         "grace": "In Grace Period",
         "down": "Offline",
-        "paused": "Paused",
+        "paused": "Zatrzymane",
         "status": "Status",
         "last_ping": "Last Ping",
         "never": "No pings yet"
     },
     "pterodactyl": {
-        "servers": "Servers",
+        "servers": "Serwery",
         "nodes": "Nodes"
     },
     "prometheus": {
@@ -549,22 +549,22 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
+        "players": "Gracze",
+        "version": "Wersja",
         "status": "Status",
         "up": "Online",
         "down": "Offline"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
+        "gross_percent_today": "Dzisiaj",
+        "gross_percent_1y": "Rok",
         "gross_percent_max": "All time"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "Podcasty",
+        "books": "Książki",
+        "podcastsDuration": "Czas trwania",
+        "booksDuration": "Czas trwania"
     },
     "homeassistant": {
         "people_home": "People Home",
@@ -572,17 +572,17 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Subskrypcje",
+        "unread": "Nieprzeczytane"
     },
     "channelsdvrserver": {
         "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "recordings": "Nagrywanie",
+        "scheduled": "W kolejce",
         "passes": "Passes"
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
-        "updates": "Updates"
+        "updates": "Aktualizacje"
     }
 }

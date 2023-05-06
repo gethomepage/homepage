@@ -514,8 +514,8 @@
         "activeusers": "Utilisateurs Actifs",
         "cpuload": "Charge Cpu",
         "memoryusage": "Utilisation Mémoire",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Fichiers",
+        "numshares": "Partages"
     },
     "kopia": {
         "status": "Statut",

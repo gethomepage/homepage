@@ -514,8 +514,8 @@
         "memoryusage": "Використання пам'яті",
         "freespace": "Вільного місця",
         "activeusers": "Активні користувачі",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Файли",
+        "numshares": "Спільні елементи"
     },
     "kopia": {
         "status": "Статус",

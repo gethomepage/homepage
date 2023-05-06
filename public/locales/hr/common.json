@@ -514,8 +514,8 @@
         "memoryusage": "Korištenje memorije",
         "freespace": "Slobodna memorija",
         "activeusers": "Aktivni korisnici",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Datoteke",
+        "numshares": "Dijeljene stavke"
     },
     "kopia": {
         "status": "Stanje",
