@@ -230,7 +230,8 @@
     "pihole": {
         "queries": "クエリ",
         "blocked": "ブロック中",
-        "gravity": "グラビティ"
+        "gravity": "グラビティ",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "クエリ",
