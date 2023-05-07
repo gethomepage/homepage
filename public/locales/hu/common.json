@@ -135,7 +135,8 @@
     "pihole": {
         "queries": "Lekérdezések",
         "blocked": "Blokkolt",
-        "gravity": "Gravitáció"
+        "gravity": "Gravitáció",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Lekérdezések",
