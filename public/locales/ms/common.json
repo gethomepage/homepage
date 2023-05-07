@@ -255,7 +255,8 @@
     "pihole": {
         "queries": "Permintaan",
         "blocked": "Disekat",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Permintaan",
