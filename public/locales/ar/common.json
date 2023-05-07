@@ -220,7 +220,8 @@
     "pihole": {
         "queries": "الاستعلامات",
         "blocked": "محظور",
-        "gravity": "الجاذبية"
+        "gravity": "الجاذبية",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "الاستعلامات",
