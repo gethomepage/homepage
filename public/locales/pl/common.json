@@ -151,7 +151,8 @@
     "pihole": {
         "queries": "Zapytania",
         "blocked": "Zablokowane",
-        "gravity": "Grawitacja"
+        "gravity": "Grawitacja",
+        "blocked_percent": "Blocked %"
     },
     "traefik": {
         "routers": "Routery",
