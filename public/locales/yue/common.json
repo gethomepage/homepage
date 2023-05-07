@@ -135,7 +135,8 @@
     "pihole": {
         "queries": "查詢",
         "blocked": "封鎖",
-        "gravity": "重力"
+        "gravity": "重力",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "查詢",
