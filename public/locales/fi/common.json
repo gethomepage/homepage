@@ -135,7 +135,8 @@
     "pihole": {
         "queries": "Kyselyjä",
         "blocked": "Estetty",
-        "gravity": "Vakavuus"
+        "gravity": "Vakavuus",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Kyselyjä",
