@@ -108,7 +108,8 @@
     "pihole": {
         "queries": "Queries",
         "blocked": "Geblokkeerd",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "traefik": {
         "routers": "Routers",
