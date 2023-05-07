@@ -20,7 +20,7 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="pihole.queries" />
         <Block label="pihole.blocked" />
-		<Block label="pihole.percentage" />
+        <Block label="pihole.blocked_percent" />
         <Block label="pihole.gravity" />
       </Container>
     );
@@ -30,7 +30,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="pihole.queries" value={t("common.number", { value: parseInt(piholeData.dns_queries_today, 10) })} />
       <Block label="pihole.blocked" value={t("common.number", { value: parseInt(piholeData.ads_blocked_today, 10) })} />
-      <Block label="pihole.percentage" value={t("common.number", { value: parseFloat(piholeData.ads_percentage_today.toPrecision(3)) })} />
+      <Block label="pihole.blocked_percent" value={t("common.percent", { value: parseFloat(piholeData.ads_percentage_today.toPrecision(3)) })} />
       <Block label="pihole.gravity" value={t("common.number", { value: parseInt(piholeData.domains_being_blocked, 10) })} />
     </Container>
   );
