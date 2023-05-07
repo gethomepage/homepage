@@ -125,7 +125,8 @@
     "pihole": {
         "queries": "Consultes",
         "blocked": "Bloquejat",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "portainer": {
         "running": "Executant",
