@@ -37,7 +37,8 @@
     "pihole": {
         "queries": "Upiti",
         "blocked": "Blokirano",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "latency": "Kašnjenje",
