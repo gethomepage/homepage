@@ -92,7 +92,8 @@
     "pihole": {
         "queries": "Spørringer",
         "blocked": "Blokkert",
-        "gravity": "Gravitet"
+        "gravity": "Gravitet",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "Opplasting",
