@@ -277,7 +277,8 @@
     "pihole": {
         "queries": "Запити",
         "blocked": "Заблоковано",
-        "gravity": "Гравітація"
+        "gravity": "Гравітація",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Запити",
