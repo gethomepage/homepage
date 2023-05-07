@@ -114,7 +114,8 @@
     "pihole": {
         "queries": "查詢",
         "blocked": "已阻擋",
-        "gravity": "阻擋清單"
+        "gravity": "阻擋清單",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "上行速率",
