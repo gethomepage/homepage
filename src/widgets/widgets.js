@@ -57,6 +57,7 @@ import proxmox from "./proxmox/widget";
 import pterodactyl from "./pterodactyl/widget";
 import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
+import qnap from "./qnap/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
 import rutorrent from "./rutorrent/widget";
@@ -140,6 +141,7 @@ const widgets = {
   pterodactyl,
   pyload,
   qbittorrent,
+  qnap,
   radarr,
   readarr,
   rutorrent,

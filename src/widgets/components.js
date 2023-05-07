@@ -63,6 +63,7 @@ const components = {
   pterodactyl: dynamic(() => import("./pterodactyl/component")),
   pyload: dynamic(() => import("./pyload/component")),
   qbittorrent: dynamic(() => import("./qbittorrent/component")),
+  qnap: dynamic(() => import("./qnap/component")),
   radarr: dynamic(() => import("./radarr/component")),
   readarr: dynamic(() => import("./readarr/component")),
   rutorrent: dynamic(() => import("./rutorrent/component")),
