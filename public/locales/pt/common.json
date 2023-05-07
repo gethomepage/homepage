@@ -92,7 +92,8 @@
     "pihole": {
         "queries": "Consultas",
         "blocked": "Bloqueado",
-        "gravity": "Gravidade"
+        "gravity": "Gravidade",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "Envio",
