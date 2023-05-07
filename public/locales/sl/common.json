@@ -17,7 +17,8 @@
     "pihole": {
         "queries": "Poizvedbe",
         "blocked": "Blokirano",
-        "gravity": "Gravitacija"
+        "gravity": "Gravitacija",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "filtered": "Filtrirano",
