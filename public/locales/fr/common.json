@@ -93,7 +93,7 @@
         "queries": "Requêtes",
         "blocked": "Bloqué",
         "gravity": "Listes dom. bloqués",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Bloqué %"
     },
     "speedtest": {
         "upload": "Envoi",
