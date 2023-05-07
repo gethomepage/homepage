@@ -584,5 +584,19 @@
     "whatsupdocker": {
         "monitoring": "監測中",
         "updates": "可更新"
+    },
+    "tailscale": {
+        "address": "Address",
+        "expires": "Expires",
+        "never": "Never",
+        "last_seen": "Last Seen",
+        "now": "Now",
+        "years": "{{number}}y",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "{{value}} Ago",
+        "weeks": "{{number}}w",
+        "days": "{{number}}d"
     }
 }
