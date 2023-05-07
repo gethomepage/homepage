@@ -129,7 +129,8 @@
     "pihole": {
         "blocked": "Blockerad",
         "queries": "Förfrågningar",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "Uppladdning",
