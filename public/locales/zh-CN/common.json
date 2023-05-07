@@ -92,7 +92,8 @@
     "pihole": {
         "queries": "查询",
         "blocked": "阻止",
-        "gravity": "重力"
+        "gravity": "重力",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "上传",
