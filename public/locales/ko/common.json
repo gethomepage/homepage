@@ -204,7 +204,8 @@
     "pihole": {
         "queries": "쿼리",
         "blocked": "차단됨",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "쿼리",
