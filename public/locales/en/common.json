@@ -214,7 +214,8 @@
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "percentage": "Percentage"
     },
     "adguard": {
         "queries": "Queries",

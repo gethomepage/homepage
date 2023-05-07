@@ -107,6 +107,7 @@
     "pihole": {
         "queries": "Richieste",
         "blocked": "Bloccati",
+        "percentage": "Percentuale",
         "gravity": "Severità"
     },
     "npm": {

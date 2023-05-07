@@ -10,6 +10,7 @@ const widget = {
       validate: [
         "dns_queries_today",
         "ads_blocked_today",
+        "ads_percentage_today",
         "domains_being_blocked"
       ]
     },
