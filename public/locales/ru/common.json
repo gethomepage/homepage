@@ -92,7 +92,8 @@
     "pihole": {
         "queries": "Запросы",
         "blocked": "Заблокировано",
-        "gravity": "Сила тяжести"
+        "gravity": "Сила тяжести",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "Отдача",
