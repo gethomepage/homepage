@@ -53,11 +53,11 @@ export default function Component({ service }) {
   const getLastSeen = () => {
     const date = new Date(lastSeen);
     const diff = compareDifferenceInTwoDates(date, now);
-    return diff === "Now" ? diff : t("tailscale.ago", { value: diff });
+    return diff === "Now" ? t("tailscale.now") : t("tailscale.ago", { value: diff });
   };
 
   const getExpiry = () => {
-    if (keyExpiryDisabled) return "Never";
+    if (keyExpiryDisabled) return t("tailscale.never");
     const date = new Date(expires);
     return compareDifferenceInTwoDates(now, date);
   };
