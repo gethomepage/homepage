@@ -279,7 +279,8 @@
     "pihole": {
         "blocked": "Blokerede",
         "gravity": "Gravity",
-        "queries": "Forespørgsler"
+        "queries": "Forespørgsler",
+        "blocked_percent": "Blocked %"
     },
     "portainer": {
         "running": "Kørende",
