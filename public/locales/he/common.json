@@ -135,7 +135,8 @@
     "pihole": {
         "queries": "שאילתות",
         "blocked": "נחסם",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "שאילתות",
