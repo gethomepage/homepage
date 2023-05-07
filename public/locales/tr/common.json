@@ -158,7 +158,8 @@
     "pihole": {
         "queries": "Sorgular",
         "blocked": "Engellenen",
-        "gravity": "Yer Çekimi"
+        "gravity": "Yer Çekimi",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Sorgular",
