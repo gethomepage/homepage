@@ -44,7 +44,8 @@
     "pihole": {
         "queries": "Cereri",
         "blocked": "Blocate",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "blocked": "Blocate",
