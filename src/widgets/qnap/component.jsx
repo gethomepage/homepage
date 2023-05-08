@@ -36,8 +36,6 @@ export default function Component({ service }) {
   const volumeTotalSize = statusData.volume.volumeUse.total_size._cdata;
   const volumeFreeSize = statusData.volume.volumeUse.free_size._cdata;
 
-
-
   return (
     <Container service={service}>
       <Block 
@@ -50,7 +48,7 @@ export default function Component({ service }) {
       />
       <Block
         label="qnap.systemTempC"
-        value={`${systemTempC} °C`} 
+        value={t("common.number", { value: systemTempC, maximumFractionDigits: 1, style: "unit", unit: "celsius" })} 
       />
       <Block
         label="qnap.poolUsage"

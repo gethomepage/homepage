@@ -14,7 +14,7 @@ const logger = createLogger(proxyName);
 
 async function login(widget, service) {
   const endpoint = "{url}/cgi-bin/authLogin.cgi";
-  const loginUrl = new URL(formatApiCall(endpoint, widget ));
+  const loginUrl = new URL(formatApiCall(endpoint, widget));
   const headers = { "Content-Type": "application/x-www-form-urlencoded" };
 
   const [, , data,] = await httpProxy(loginUrl, {
@@ -41,20 +41,15 @@ async function login(widget, service) {
 
 async function apiCall(widget, endpoint, service) {
   let key = cache.get(`${sessionTokenCacheKey}.${service}`);
-  const method = "GET";
 
   let apiUrl = new URL(formatApiCall(`${endpoint}&sid=${key}`, widget));
-  let [status, contentType, data, responseHeaders] = await httpProxy(apiUrl, {
-    method
-  });
+  let [status, contentType, data, responseHeaders] = await httpProxy(apiUrl);
 
   if (status === 404) {
     logger.error("QNAP API rejected the request, attempting to obtain new session token");
     key = await login(widget, service);
     apiUrl = new URL(formatApiCall(`${endpoint}&sid=${key}`, widget));
-    [status, contentType, data, responseHeaders] = await httpProxy(apiUrl, {
-      method
-    });
+    [status, contentType, data, responseHeaders] = await httpProxy(apiUrl);
   }
 
   if (status !== 200) {
@@ -63,7 +58,6 @@ async function apiCall(widget, endpoint, service) {
   }
 
   const dataDecoded = xml2json(data.toString(), { compact: true });
-  logger.debug("Dayta '%s'", dataDecoded);
   return { status, contentType, data: JSON.parse(dataDecoded.toString()), responseHeaders };
 }
 
