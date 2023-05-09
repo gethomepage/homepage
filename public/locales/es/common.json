@@ -93,7 +93,7 @@
         "queries": "Consultas",
         "blocked": "Bloqueado",
         "gravity": "Gravedad",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "% bloqueado"
     },
     "speedtest": {
         "upload": "Subida",
