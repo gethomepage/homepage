@@ -601,9 +601,9 @@
         "ago": "Il y a {{value}}"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "cpuUsage": "Cpu",
+        "memUsage": "Mém",
+        "systemTempC": "Temp",
+        "poolUsage": "Pool"
     }
 }
