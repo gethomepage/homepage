@@ -158,6 +158,12 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
+    },
     "deluge": {
         "download": "Download",
         "upload": "Upload",
