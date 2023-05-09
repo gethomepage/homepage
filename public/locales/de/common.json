@@ -599,5 +599,11 @@
         "never": "Never",
         "now": "Now",
         "years": "{{number}}y"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }
