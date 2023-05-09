@@ -608,5 +608,11 @@
         "weeks": "{{number}}w",
         "days": "{{number}}d",
         "hours": "{{number}}h"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }
