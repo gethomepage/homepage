@@ -35,7 +35,7 @@ export default function Ping({ service }) {
   
   return (
     <div className="w-auto px-1.5 py-0.5 text-center bg-theme-500/10 dark:bg-theme-900/50 rounded-b-[3px] overflow-hidden" title={statusText}>
-      <div className="text-[8px] font-bold text-emerald-500/80">{t("common.ms", { value: data.latency, style: "unit", unit: "millisecond", unitDisplay: "narrow", maximumFractionDigits: 0 })}</div>
+      <div className="text-[8px] font-bold text-emerald-500/80">{t("common.ms", { value: data.latency, style: "unit", unit: "millisecond", maximumFractionDigits: 0 })}</div>
     </div>
   );
 
