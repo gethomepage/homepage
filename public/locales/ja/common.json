@@ -599,5 +599,11 @@
         "minutes": "{{number}}分",
         "seconds": "{{number}}秒",
         "ago": "{{value}} 前"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }
