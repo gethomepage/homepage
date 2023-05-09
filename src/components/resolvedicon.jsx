@@ -57,7 +57,27 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
     );
   }
 
+ 
   // fallback to dashboard-icons
+  if (icon.endsWith(".svg")) {
+    const iconName = icon.replace(".svg", "");
+    return (
+      <Image
+        src={`https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/${iconName}.svg`}
+        width={width}
+        height={height}
+        style={{
+          width,
+          height,
+          objectFit: "contain",
+          maxHeight: "100%",
+          maxWidth: "100%"
+        }}
+        alt={alt}
+      />
+    );
+  }
+  
   const iconName = icon.replace(".png", "");
   return (
     <Image
