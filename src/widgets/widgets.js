@@ -15,6 +15,7 @@ import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import ghostfolio from "./ghostfolio/widget";
+import gitea from "./gitea/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
@@ -97,6 +98,7 @@ const widgets = {
   flood,
   freshrss,
   ghostfolio,
+  gitea,
   gluetun,
   gotify,
   grafana,

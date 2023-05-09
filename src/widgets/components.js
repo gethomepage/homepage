@@ -19,6 +19,7 @@ const components = {
   fileflows: dynamic(() => import("./fileflows/component")),
   flood: dynamic(() => import("./flood/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
+  gitea: dynamic(() => import("./gitea/component")),
   ghostfolio: dynamic(() => import("./ghostfolio/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),

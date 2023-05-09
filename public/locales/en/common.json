@@ -594,6 +594,13 @@
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
     },
+    "gitea": {
+      "notifications": "Notifications",
+      "Issue": "Issues",
+      "Pull": "Pull Requests",
+      "Commit": "Commits",
+      "Repository": "Repositories"
+    },
     "audiobookshelf": {
         "podcasts": "Podcasts",
         "books": "Books",
