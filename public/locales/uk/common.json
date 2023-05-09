@@ -278,7 +278,7 @@
         "queries": "Запити",
         "blocked": "Заблоковано",
         "gravity": "Гравітація",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Заблоковано %"
     },
     "adguard": {
         "queries": "Запити",
@@ -587,17 +587,17 @@
         "updates": "Оновлення"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "address": "Адреса",
+        "expires": "Дійсний до",
+        "never": "Ніколи",
+        "last_seen": "Востаннє у мережі",
+        "now": "Зараз",
+        "years": "{{number}}р",
+        "weeks": "{{number}}тиж",
+        "days": "{{number}}д",
+        "hours": "{{number}}год",
+        "minutes": "{{number}}хв",
+        "seconds": "{{number}}с",
+        "ago": "{{value}} тому"
     }
 }
