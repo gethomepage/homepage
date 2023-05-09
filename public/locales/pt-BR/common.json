@@ -599,5 +599,11 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "systemTempC": "System Temp",
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "poolUsage": "Pool Usage"
     }
 }
