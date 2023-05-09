@@ -599,5 +599,11 @@
         "ago": "{{value}} Ago",
         "address": "Address",
         "expires": "Expires"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }
