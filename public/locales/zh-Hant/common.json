@@ -599,5 +599,11 @@
         "ago": "{{value}} Ago",
         "weeks": "{{number}}w",
         "days": "{{number}}d"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }
