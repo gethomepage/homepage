@@ -614,5 +614,11 @@
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
+    },
+    "shoko": {
+        "series": "TV Series",
+        "movies": "Movies",
+        "ovas": "OVAs",
+        "others": "Others"
     }
 }
