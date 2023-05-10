@@ -625,5 +625,11 @@
         "repos": "Repositories",
         "users": "Users",
         "orgs": "Organizations"
+    },
+    "seafile": {
+        "users": "Users",
+        "groups": "Groups",
+        "libraries": "Libraries",
+        "storage": "Storage"
     }
 }
