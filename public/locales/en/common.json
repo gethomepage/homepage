@@ -620,5 +620,10 @@
         "movies": "Movies",
         "ovas": "OVAs",
         "others": "Others"
+    },
+    "gitea": {
+        "repos": "Repositories",
+        "users": "Users",
+        "orgs": "Organizations"
     }
 }
