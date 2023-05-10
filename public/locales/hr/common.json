@@ -37,8 +37,8 @@
     "pihole": {
         "queries": "Upiti",
         "blocked": "Blokirano",
-        "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "gravity": "Gravitacija",
+        "blocked_percent": "Blokirano %"
     },
     "adguard": {
         "latency": "Kašnjenje",
@@ -587,23 +587,23 @@
         "updates": "Aktualiziranja"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "address": "Adresa",
+        "expires": "Isteče",
+        "never": "Nikada",
+        "last_seen": "Zadnje viđeno",
+        "now": "Sada",
+        "years": "{{number}} god",
+        "weeks": "{{number}} tj",
+        "days": "{{number}} dan(a)",
+        "hours": "{{number}} h",
+        "minutes": "{{number}} min",
+        "seconds": "{{number}} s",
+        "ago": "Prije {{value}}"
     },
     "qnap": {
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage"
+        "systemTempC": "Temperatura sustava",
+        "poolUsage": "Korištenje memorijskog skupa",
+        "cpuUsage": "Korištenje procesora",
+        "memUsage": "Korištenje memorije"
     }
 }
