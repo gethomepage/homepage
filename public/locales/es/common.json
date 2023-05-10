@@ -601,9 +601,9 @@
         "days": "{{number}}días"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "cpuUsage": "Uso de la Cpu",
+        "memUsage": "Uso de la memoria",
+        "systemTempC": "Temperatura del sistema",
+        "poolUsage": "Comprobación del uso del grupo de memoria"
     }
 }
