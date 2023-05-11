@@ -596,10 +596,15 @@
     },
     "gitea": {
       "notifications": "Notifications",
-      "Issue": "Issues",
-      "Pull": "Pull Requests",
-      "Commit": "Commits",
-      "Repository": "Repositories"
+      "issue": "Issues",
+      "pull": "Pull Requests",
+      "commit": "Commits",
+      "repository": "Repositories",
+      "followers": "Followers",
+      "following": "Following",
+      "repos": "Repositories",
+      "forks": "Stars",
+      "stars": "Forks"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
