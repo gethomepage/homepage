@@ -601,9 +601,9 @@
         "ago": "{{value}} тому"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "cpuUsage": "Використання CPU",
+        "memUsage": "Використання пам'яті",
+        "systemTempC": "Температура системи",
+        "poolUsage": "Використання пулу"
     }
 }
