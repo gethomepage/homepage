@@ -5,7 +5,7 @@
         "status": "Status",
         "url": "URL",
         "information": "Informationen",
-        "raw_error": "Unbearbeiteter Fehler",
+        "raw_error": "Raw Error",
         "response_data": "Empfangene Daten"
     },
     "search": {
@@ -16,7 +16,7 @@
         "free": "Frei",
         "used": "Gebraucht",
         "load": "Last",
-        "cpu": "CPU",
+        "cpu": "Prozessor",
         "mem": "RAM",
         "temp": "TEMP",
         "max": "Max",
@@ -34,7 +34,7 @@
         "offline": "Offline",
         "error": "Fehler",
         "unknown": "Unbekannt",
-        "running": "Running",
+        "running": "Laufend",
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
