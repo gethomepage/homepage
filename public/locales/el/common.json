@@ -2,7 +2,7 @@
     "resources": {
         "used": "χρησιμοποιημένο",
         "load": "Φόρτωση",
-        "cpu": "CPU",
+        "cpu": "Επεξεργαστής",
         "mem": "MEM",
         "temp": "ΘΕΡΜΟΚΡΑΣΪΑ",
         "total": "Σύνολο",
@@ -149,8 +149,8 @@
         "songs": "Τραγούδια"
     },
     "flood": {
-        "download": "Κατέβασμα",
-        "upload": "Ανέβασμα",
+        "download": "Λήξη",
+        "upload": "Φόρτωση",
         "leech": "Αφαίμαξη",
         "seed": "Σπείρε"
     },
@@ -173,7 +173,7 @@
         "streams": "Ενεργά Streams",
         "movies": "Ταινίες",
         "tv": "Σειρές",
-        "albums": "Albums"
+        "albums": "Δίσκοι"
     },
     "sabnzbd": {
         "rate": "Βαθμός",
@@ -199,39 +199,39 @@
     },
     "deluge": {
         "download": "Κατέβασμα",
-        "upload": "Upload",
+        "upload": "Φόρτωση",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
-        "series": "Series",
-        "wanted": "Wanted",
-        "queued": "Queued"
+        "series": "Σειρές",
+        "wanted": "Επιθυμούντε",
+        "queued": "Σε σειρά"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Μεταφόρτωση",
+        "upload": "Φόρτωση",
         "leech": "Leech",
         "seed": "Seed"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
-        "movies": "Movies"
+        "wanted": "Επιθυμούντε",
+        "missing": "Απουσιάζει",
+        "queued": "Σε σειρά",
+        "movies": "Ταινίες"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "wanted": "Θέλετε",
+        "queued": "Στη σειρά",
+        "albums": "Δίσκοι"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Θέλετε",
+        "queued": "Στη σειρά",
+        "books": "Βιβλία"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
+        "missingEpisodes": "Επεισόδια που λείπουν",
         "missingMovies": "Missing Movies"
     },
     "ombi": {
@@ -573,13 +573,13 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Συνδρομές",
+        "unread": "Αδιάβαστο"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "shows": "Εκπομπές",
+        "recordings": "Εγγραφές",
+        "scheduled": "Προγραμματισμένα",
         "passes": "Passes"
     },
     "whatsupdocker": {
@@ -601,9 +601,9 @@
         "ago": "{{value}} Ago"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "cpuUsage": "Χρήση επεξεργαστή",
+        "memUsage": "Χρήση μνήμης",
+        "systemTempC": "Θερμοκρασία συστήματος",
+        "poolUsage": "Χρήση πλειάδας"
     }
 }
