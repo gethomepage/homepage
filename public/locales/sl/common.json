@@ -18,7 +18,7 @@
         "queries": "Poizvedbe",
         "blocked": "Blokirano",
         "gravity": "Gravitacija",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Blokirano %"
     },
     "adguard": {
         "filtered": "Filtrirano",
@@ -70,8 +70,8 @@
         "memoryusage": "Uporabljen spomin",
         "freespace": "Prostor na voljo",
         "activeusers": "Aktivni uporabniki",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Datotek",
+        "numshares": "Deljeno"
     },
     "kopia": {
         "status": "Stanje",
@@ -284,7 +284,7 @@
         "enabled": "Omogočen"
     },
     "coinmarketcap": {
-        "configure": "Konfigurirajte eno ali več kripto valut za sledenje",
+        "configure": "Nastavite eno ali več kripto valut za sledenje",
         "1hour": "1 ura",
         "1day": "1 dan",
         "7days": "7 dni",
@@ -587,23 +587,23 @@
         "updates": "Posodobitve"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
+        "address": "Naslov",
+        "expires": "Poteče",
+        "never": "Nikoli",
+        "last_seen": "Viden",
+        "now": "Sedaj",
+        "years": "{{number}}l",
+        "weeks": "{{number}}t",
         "days": "{{number}}d",
-        "hours": "{{number}}h",
+        "hours": "{{number}}u",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} nazaj"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "cpuUsage": "CPU",
+        "memUsage": "MEM",
+        "systemTempC": "Temperatura",
+        "poolUsage": "Prostor"
     }
 }
