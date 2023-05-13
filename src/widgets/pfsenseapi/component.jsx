@@ -33,7 +33,6 @@ export default function Component({ service }) {
     );
   }
 
-
   const loadAvg = systemData.data.load_avg[0];
   const memory = systemData.data.mem_usage;
   const tempC = systemData.data.temp_c
