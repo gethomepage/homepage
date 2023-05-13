@@ -54,6 +54,7 @@ const components = {
   paperlessngx: dynamic(() => import("./paperlessngx/component")),
   photoprism: dynamic(() => import("./photoprism/component")),
   proxmoxbackupserver: dynamic(() => import("./proxmoxbackupserver/component")),
+  pialert: dynamic(() => import("./pialert/component")),
   pihole: dynamic(() => import("./pihole/component")),
   plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),

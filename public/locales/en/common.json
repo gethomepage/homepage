@@ -217,6 +217,12 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
+    },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
