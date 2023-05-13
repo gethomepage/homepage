@@ -46,7 +46,7 @@ import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
-import pfsenseapi from "./pfsenseapi/widget";
+import pfsense from "./pfsense/widget";
 import photoprism from "./photoprism/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pihole from "./pihole/widget";
@@ -131,7 +131,7 @@ const widgets = {
   opnsense,
   overseerr,
   paperlessngx,
-  pfsenseapi,
+  pfsense,
   photoprism,
   proxmoxbackupserver,
   pihole,

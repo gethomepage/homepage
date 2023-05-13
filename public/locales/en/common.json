@@ -514,9 +514,9 @@
         "origin_ip": "Origin IP",
         "status": "Status"
     },
-    "pfsenseapi": {
-        "load": "LOAD AVG",
-        "memory": "MEM USAGE",
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
         "wanStatus": "WAN Status",   
         "up": "Up",   
         "down": "Down",   
