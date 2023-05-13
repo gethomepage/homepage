@@ -605,5 +605,15 @@
         "memUsage": "MEM Usage",
         "systemTempC": "System Temp",
         "poolUsage": "Pool Usage"
+    },
+    "pfsense": {
+        "up": "Up",
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Disk Usage",
+        "wanIP": "WAN IP"
     }
 }
