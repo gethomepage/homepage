@@ -605,5 +605,15 @@
         "memUsage": "Використання пам'яті",
         "systemTempC": "Температура системи",
         "poolUsage": "Використання пулу"
+    },
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Disk Usage",
+        "wanIP": "WAN IP"
     }
 }
