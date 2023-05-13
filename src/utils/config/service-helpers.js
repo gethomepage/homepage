@@ -267,7 +267,7 @@ export function cleanServiceGroups(groups) {
           namespace, // kubernetes widget
           app,
           podSelector,
-          wan, // opnsense widget,
+          wan, // opnsense widget, pfsenseapi widget
           enableBlocks, // emby/jellyfin
           enableNowPlaying,
           volume, // diskstation widget
@@ -299,7 +299,7 @@ export function cleanServiceGroups(groups) {
           if (app) cleanedService.widget.app = app;
           if (podSelector) cleanedService.widget.podSelector = podSelector;
         }
-        if (type === "opnsense") {
+        if (type === "opnsense" || type === "pfsenseapi") {
           if (wan) cleanedService.widget.wan = wan;
         }
         if (type === "emby" || type === "jellyfin") {
