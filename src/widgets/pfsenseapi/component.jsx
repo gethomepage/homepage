@@ -23,7 +23,7 @@ export default function Component({ service }) {
   if (!systemData || !interfaceData) {
     return (
       <Container service={service}>      
-        <Block label="pfsenseapi.cpu" />
+        <Block label="pfsenseapi.load" />
         <Block label="pfsenseapi.memory" />
         {showDiskUsage && <Block label="pfsenseapi.disk" />}
         <Block label="pfsenseapi.temp" />
