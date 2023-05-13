@@ -52,6 +52,7 @@ const components = {
   opnsense: dynamic(() => import("./opnsense/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   paperlessngx: dynamic(() => import("./paperlessngx/component")),
+  pfsense: dynamic(() => import("./pfsense/component")),
   photoprism: dynamic(() => import("./photoprism/component")),
   proxmoxbackupserver: dynamic(() => import("./proxmoxbackupserver/component")),
   pihole: dynamic(() => import("./pihole/component")),
