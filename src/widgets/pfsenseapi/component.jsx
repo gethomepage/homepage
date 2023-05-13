@@ -25,10 +25,10 @@ export default function Component({ service }) {
       <Container service={service}>      
         <Block label="pfsenseapi.load" />
         <Block label="pfsenseapi.memory" />
-        {showDiskUsage && <Block label="pfsenseapi.disk" />}
         <Block label="pfsenseapi.temp" />
         <Block label="pfsenseapi.wanStatus" />  
         {showWanIP && <Block label="pfsenseapi.wanIP" />}
+        {showDiskUsage && <Block label="pfsenseapi.disk" />}
       </Container>
     );
   }
@@ -54,14 +54,6 @@ export default function Component({ service }) {
         label="pfsenseapi.memory" 
         value={t("common.percent", { value: (memory * 100).toFixed(2) })}  
       />
-      {
-        showDiskUsage 
-        && 
-        <Block 
-          label="pfsenseapi.disk" 
-          value={t("common.percent", { value: (disk * 100).toFixed(2) })} 
-        />
-      }
       <Block 
         label="pfsenseapi.temp" 
         value={`${tempC} °C`} 
@@ -76,6 +68,14 @@ export default function Component({ service }) {
         <Block 
           label="pfsenseapi.wanIP" 
           value={wanIP} 
+        />
+      }
+      {
+        showDiskUsage 
+        && 
+        <Block 
+          label="pfsenseapi.disk" 
+          value={t("common.percent", { value: (disk * 100).toFixed(2) })} 
         />
       }
     </Container>
