@@ -151,7 +151,8 @@
     "pihole": {
         "queries": "Zapytania",
         "blocked": "Zablokowane",
-        "gravity": "Grawitacja"
+        "gravity": "Grawitacja",
+        "blocked_percent": "Blocked %"
     },
     "traefik": {
         "routers": "Routery",
@@ -598,5 +599,11 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

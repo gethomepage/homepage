@@ -158,7 +158,8 @@
     "pihole": {
         "queries": "Sorgular",
         "blocked": "Engellenen",
-        "gravity": "Yer Çekimi"
+        "gravity": "Yer Çekimi",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Sorgular",
@@ -598,5 +599,11 @@
         "ago": "{{value}} Ago",
         "address": "Address",
         "expires": "Expires"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

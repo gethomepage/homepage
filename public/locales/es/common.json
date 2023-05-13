@@ -92,7 +92,8 @@
     "pihole": {
         "queries": "Consultas",
         "blocked": "Bloqueado",
-        "gravity": "Gravedad"
+        "gravity": "Gravedad",
+        "blocked_percent": "% bloqueado"
     },
     "speedtest": {
         "upload": "Subida",
@@ -586,17 +587,23 @@
         "updates": "Actualizaciones"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d"
+        "address": "Dirección",
+        "expires": "Caduca en",
+        "never": "Nunca",
+        "last_seen": "Visto por última vez",
+        "now": "Ahora",
+        "years": "{{number}}años",
+        "hours": "{{number}}horas",
+        "minutes": "{{number}}minutos",
+        "seconds": "{{number}}segundos",
+        "ago": "Hace {{value}}",
+        "weeks": "{{number}}semanas",
+        "days": "{{number}}días"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

@@ -135,7 +135,8 @@
     "pihole": {
         "queries": "查詢",
         "blocked": "封鎖",
-        "gravity": "重力"
+        "gravity": "重力",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "查詢",
@@ -598,5 +599,11 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage"
     }
 }

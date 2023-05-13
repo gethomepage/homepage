@@ -135,7 +135,8 @@
     "pihole": {
         "queries": "Lekérdezések",
         "blocked": "Blokkolt",
-        "gravity": "Gravitáció"
+        "gravity": "Gravitáció",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Lekérdezések",
@@ -598,5 +599,11 @@
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago",
         "hours": "{{number}}h"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

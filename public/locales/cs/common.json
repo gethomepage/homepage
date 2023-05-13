@@ -174,7 +174,8 @@
     "pihole": {
         "queries": "Dotazy",
         "blocked": "Blokováno",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blokováno %"
     },
     "adguard": {
         "queries": "Dotazy",
@@ -576,7 +577,7 @@
         "unread": "Nepřečteno"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
+        "shows": "Pořady",
         "recordings": "Nahrávky",
         "scheduled": "Naplánováno",
         "passes": "Průchody"
@@ -586,17 +587,23 @@
         "updates": "Aktualizace"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
+        "address": "Adresa",
+        "expires": "Vyprší",
+        "never": "Nikdy",
+        "last_seen": "Naposledy viděno",
+        "now": "Nyní",
+        "years": "{{number}}r",
+        "weeks": "{{number}}t",
         "days": "{{number}}d",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "cpuUsage": "CPU Usage"
     }
 }

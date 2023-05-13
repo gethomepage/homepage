@@ -129,7 +129,8 @@
     "pihole": {
         "blocked": "Blockerad",
         "queries": "Förfrågningar",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "Uppladdning",
@@ -598,5 +599,11 @@
         "now": "Now",
         "years": "{{number}}y",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

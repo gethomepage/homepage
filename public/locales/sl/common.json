@@ -17,7 +17,8 @@
     "pihole": {
         "queries": "Poizvedbe",
         "blocked": "Blokirano",
-        "gravity": "Gravitacija"
+        "gravity": "Gravitacija",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "filtered": "Filtrirano",
@@ -598,5 +599,11 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

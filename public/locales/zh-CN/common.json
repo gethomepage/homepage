@@ -92,7 +92,8 @@
     "pihole": {
         "queries": "查询",
         "blocked": "阻止",
-        "gravity": "重力"
+        "gravity": "重力",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "上传",
@@ -598,5 +599,11 @@
         "now": "Now",
         "years": "{{number}}y",
         "weeks": "{{number}}w"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

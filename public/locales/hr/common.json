@@ -37,7 +37,8 @@
     "pihole": {
         "queries": "Upiti",
         "blocked": "Blokirano",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "latency": "Kašnjenje",
@@ -598,5 +599,11 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage"
     }
 }

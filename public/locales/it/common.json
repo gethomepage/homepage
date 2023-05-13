@@ -107,7 +107,8 @@
     "pihole": {
         "queries": "Richieste",
         "blocked": "Bloccati",
-        "gravity": "Severità"
+        "gravity": "Severità",
+        "blocked_percent": "Blocked %"
     },
     "npm": {
         "enabled": "Attivi",
@@ -598,5 +599,11 @@
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago",
         "days": "{{number}}d"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

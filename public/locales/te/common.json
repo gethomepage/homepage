@@ -147,7 +147,8 @@
     "pihole": {
         "queries": "ప్రశ్నలు",
         "blocked": "నిరోధించబడింది",
-        "gravity": "గురుత్వాకర్షణ"
+        "gravity": "గురుత్వాకర్షణ",
+        "blocked_percent": "Blocked %"
     },
     "speedtest": {
         "upload": "అప్లోడ్",
@@ -598,5 +599,11 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage"
     }
 }

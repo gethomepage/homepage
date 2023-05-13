@@ -38,7 +38,6 @@ export default function Component({ service }) {
           value: speedtestData.data.ping,
           style: "unit",
           unit: "millisecond",
-          unitDisplay: "narrow",
         })}
       />
     </Container>
