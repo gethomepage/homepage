@@ -618,7 +618,7 @@
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Demandes en cours",
+        "requests_failed": "Demandes échouées"
     }
 }
