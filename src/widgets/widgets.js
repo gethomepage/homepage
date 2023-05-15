@@ -3,6 +3,7 @@ import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
 import bazarr from "./bazarr/widget";
+import caddy from "./caddy/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
@@ -87,6 +88,7 @@ const widgets = {
   authentik,
   autobrr,
   bazarr,
+  caddy,
   changedetectionio,
   channelsdvrserver,
   cloudflared,
