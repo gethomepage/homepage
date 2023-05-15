@@ -55,6 +55,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
+      } else if (widget.type === "github") {
+        headers["User-Agent"] = `homepage`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
