@@ -615,5 +615,10 @@
         "down": "Down",
         "temp": "Temp",
         "wanIP": "WAN IP"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
     }
 }
