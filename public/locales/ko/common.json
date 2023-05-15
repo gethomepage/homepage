@@ -615,5 +615,10 @@
         "wanStatus": "WAN Status",
         "up": "Up",
         "down": "Down"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
     }
 }
