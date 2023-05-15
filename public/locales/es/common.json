@@ -615,5 +615,10 @@
         "temp": "Temperatura",
         "disk": "Uso del disco",
         "wanIP": "IP de la WAN"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
     }
 }
