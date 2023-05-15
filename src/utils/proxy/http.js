@@ -81,7 +81,7 @@ export async function httpProxy(url, params = {}) {
     return [status, contentType, data, responseHeaders];
   }
   catch (err) {
-    logger.error("Error calling %s//%s%s...", constructedUrl.protocol, constructedUrl.hostname, constructedUrl.pathname);
+    logger.error("Error calling %s//%s%s%s...", constructedUrl.protocol, constructedUrl.hostname, constructedUrl.port, constructedUrl.pathname);
     logger.error(err);
     return [500, "application/json", { error: {message: err?.message ?? "Unknown error", url, rawError: err} }, null];
   }

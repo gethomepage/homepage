@@ -6,6 +6,7 @@ const components = {
   authentik: dynamic(() => import("./authentik/component")),
   autobrr: dynamic(() => import("./autobrr/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
+  caddy: dynamic(() => import("./caddy/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   channelsdvrserver: dynamic(() => import("./channelsdvrserver/component")),
   cloudflared: dynamic(() => import("./cloudflared/component")),
