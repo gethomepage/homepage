@@ -5,7 +5,7 @@
         "status": "Status",
         "url": "URL",
         "information": "Informationen",
-        "raw_error": "Raw Error",
+        "raw_error": "Roher Fehler",
         "response_data": "Empfangene Daten"
     },
     "search": {
@@ -14,14 +14,14 @@
     "resources": {
         "total": "Gesamt",
         "free": "Frei",
-        "used": "Gebraucht",
+        "used": "In Verwendung",
         "load": "Last",
         "cpu": "Prozessor",
-        "mem": "RAM",
+        "mem": "Speicher",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
-        "months": "mo",
+        "months": "Mo.",
         "days": "d",
         "hours": "h",
         "minutes": "m"
@@ -29,27 +29,27 @@
     "docker": {
         "rx": "Rx",
         "tx": "Tx",
-        "mem": "Mem",
+        "mem": "Speicher",
         "cpu": "Prozessor",
         "offline": "Offline",
         "error": "Fehler",
         "unknown": "Unbekannt",
         "running": "Laufend",
-        "starting": "Starting",
+        "starting": "Startet",
         "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
+        "not_found": "Nicht gefunden",
+        "exited": "Beendet",
+        "partial": "Teilweise",
         "healthy": "Healthy"
     },
     "emby": {
-        "playing": "Spielen",
-        "transcoding": "Transcodierung",
+        "playing": "Aktuelle Wiedergaben",
+        "transcoding": "Transkodieren",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
+        "movies": "Filme",
+        "series": "Serien",
+        "episodes": "Folgen",
         "songs": "Songs"
     },
     "tautulli": {
@@ -93,7 +93,7 @@
         "queries": "Abfragen",
         "blocked": "Blockiert",
         "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Geblockt %"
     },
     "speedtest": {
         "upload": "Upload",
@@ -216,21 +216,21 @@
         "wan": "WAN",
         "lan_users": "LAN Benutzer",
         "wlan_users": "WLAN Benutzer",
-        "up": "SENDEN",
+        "up": "BEREIT",
         "down": "EMPFANGEN",
         "wait": "Bitte warten",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Geräte",
         "lan_devices": "LAN-Geräte",
-        "wlan_devices": "WLAN Geräte",
-        "empty_data": "Subsystem status unbekannt"
+        "wlan_devices": "WLAN-Geräte",
+        "empty_data": "Subsystem-Status unbekannt"
     },
     "plex": {
         "streams": "Aktive Streams",
         "movies": "Filme",
         "tv": "TV Sendungen",
-        "albums": "Albums"
+        "albums": "Alben"
     },
     "glances": {
         "cpu": "Prozessor",
@@ -238,8 +238,8 @@
         "wait": "Bitte warten",
         "temp": "TEMP",
         "uptime": "UP",
-        "days": "d",
-        "hours": "h"
+        "days": "T",
+        "hours": "S"
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
@@ -319,7 +319,7 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "Ausstehend",
         "down": "Down"
     },
     "autobrr": {
@@ -515,8 +515,8 @@
         "memoryusage": "RAM Verbrauch",
         "freespace": "Freier Speicher",
         "activeusers": "Aktive Nutzer",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Dateien",
+        "numshares": "Geteilte Elemente"
     },
     "kopia": {
         "status": "Status",
@@ -526,12 +526,12 @@
         "failed": "Fehlgeschlagen"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Aktive Worker",
+        "total_workers": "Alle Worker",
+        "records_total": "Länge der Warteschlange"
     },
     "healthchecks": {
-        "grace": "In Grace Period",
+        "grace": "In Karenzzeit",
         "new": "Neu",
         "up": "Online",
         "down": "Offline",
@@ -545,9 +545,9 @@
         "nodes": "Nodes"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Ziele Up",
+        "targets_down": "Ziele Down",
+        "targets_total": "Alle Ziele"
     },
     "minecraft": {
         "players": "Spieler",
@@ -557,68 +557,68 @@
         "down": "Offline"
     },
     "ghostfolio": {
-        "gross_percent_max": "All time",
+        "gross_percent_max": "Alle Zeit",
         "gross_percent_today": "Heute",
         "gross_percent_1y": "Ein Jahr"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "books": "Bücher",
+        "podcastsDuration": "Dauer",
+        "booksDuration": "Dauer"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Personen daheim",
+        "lights_on": "Lichter an",
+        "switches_on": "Schalter an"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Abonnements",
+        "unread": "Ungelesen"
     },
     "channelsdvrserver": {
         "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "recordings": "Aufnahmen",
+        "scheduled": "Geplant",
+        "passes": "Pässe"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Überwacht",
+        "updates": "Aktualisierungen"
     },
     "tailscale": {
-        "address": "Address",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
+        "address": "Adresse",
+        "weeks": "{{number}}W",
+        "days": "{{number}}T",
+        "hours": "{{number}}S",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago",
-        "expires": "Expires",
-        "last_seen": "Last Seen",
-        "never": "Never",
-        "now": "Now",
-        "years": "{{number}}y"
+        "ago": "Vor {{value}}",
+        "expires": "Läuft ab",
+        "last_seen": "Zuletzt gesehen",
+        "never": "Nie",
+        "now": "Jetzt",
+        "years": "{{number}}J"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
+        "cpuUsage": "CPU Nutzung",
+        "memUsage": "MEM Nutzung",
         "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "poolUsage": "Pool Nutzung"
     },
     "pfsense": {
-        "load": "Load Avg",
+        "load": "Durchschnittliche Last",
         "temp": "Temp",
-        "disk": "Disk Usage",
+        "disk": "Datenträgernutzung",
         "wanIP": "WAN IP",
-        "memory": "Mem Usage",
+        "memory": "Speichernutzung",
         "wanStatus": "WAN Status",
         "up": "Up",
         "down": "Down"
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Aktuelle Anfragen",
+        "requests_failed": "Fehlgeschlagene Anfragen"
     }
 }
