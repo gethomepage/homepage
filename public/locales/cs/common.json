@@ -46,20 +46,20 @@
     },
     "unifi": {
         "users": "Uživatelé",
-        "uptime": "Čas od startu systému",
+        "uptime": "Doba provozu systému",
         "days": "Dnů",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Zařízení",
-        "lan_devices": "LAN Zařízení",
-        "wlan_devices": "WLAN Zařízení",
-        "lan_users": "LAN Uživatelé",
-        "wlan_users": "WLAN Uživatelé",
+        "lan_devices": "Zařízení LAN",
+        "wlan_devices": "Zařízení WLAN",
+        "lan_users": "Uživatelé LAN",
+        "wlan_users": "Uživatelé WLAN",
         "up": "BĚŽÍ",
         "down": "NEBĚŽÍ",
         "wait": "Počkejte prosím",
-        "empty_data": "Status podsystému neznámý"
+        "empty_data": "Stav podsystému neznámý"
     },
     "docker": {
         "rx": "RX",
@@ -70,7 +70,7 @@
         "error": "Chyba",
         "unknown": "Neznámý",
         "running": "Běží",
-        "starting": "Startuje",
+        "starting": "Spouští se",
         "unhealthy": "Nezdravý",
         "not_found": "Nenalezen",
         "exited": "Ukončen",
@@ -79,8 +79,8 @@
     },
     "emby": {
         "playing": "Přehrává",
-        "transcoding": "Transkódování",
-        "bitrate": "Bitrate",
+        "transcoding": "Překódovávání",
+        "bitrate": "Přenosová rychlost",
         "no_active": "Žádný aktivní stream",
         "movies": "Filmy",
         "series": "Seriály",
@@ -93,8 +93,8 @@
     },
     "tautulli": {
         "playing": "Přehrává",
-        "transcoding": "Transkódování",
-        "bitrate": "Bitrate",
+        "transcoding": "Překódovávání",
+        "bitrate": "Přenosová rychlost",
         "no_active": "Žádný aktivní stream"
     },
     "nzbget": {
@@ -121,8 +121,8 @@
     "transmission": {
         "download": "Stahování",
         "upload": "Nahrávání",
-        "leech": "Leecherů",
-        "seed": "Seedů"
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "qbittorrent": {
         "download": "Stahování",
@@ -324,11 +324,11 @@
         "url": "URL"
     },
     "homebridge": {
-        "update_available": "Dostupná",
-        "up_to_date": "Žádné",
+        "update_available": "Dostupná aktualizace",
+        "up_to_date": "Aktuální",
         "available_update": "Systém",
         "updates": "Aktualizace",
-        "child_bridges": "Podřadné můstky",
+        "child_bridges": "Podřízené můstky",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Zapnutý",
         "pending": "Čeká se",
@@ -379,15 +379,15 @@
     },
     "deluge": {
         "upload": "Nahrávání",
-        "leech": "Leech",
-        "seed": "Seed",
+        "leech": "Leechované",
+        "seed": "Seedované",
         "download": "Stahování"
     },
     "flood": {
         "download": "Stahování",
         "upload": "Nahrávání",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "tdarr": {
         "queue": "Fronta",
@@ -417,8 +417,8 @@
     "downloadstation": {
         "download": "Stahování",
         "upload": "Nahrávání",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "mikrotik": {
         "cpuLoad": "Zatížení procesoru",
@@ -427,18 +427,18 @@
         "numberOfLeases": "Pronájmy"
     },
     "xteve": {
-        "streams_all": "Všechny proudy",
-        "streams_active": "Aktivní proudy",
+        "streams_all": "Všechny streamy",
+        "streams_active": "Aktivní streamy",
         "streams_xepg": "Kanály XEPG"
     },
     "opnsense": {
         "cpu": "Zatížení procesoru",
         "memory": "Aktivní paměť",
         "wanUpload": "Nahrávání WAN",
-        "wanDownload": "WAN Stažení"
+        "wanDownload": "Stahování WAN"
     },
     "moonraker": {
-        "print_progress": "Progres",
+        "print_progress": "Průběh",
         "printer_state": "Stav tiskárny",
         "print_status": "Stav tisku",
         "layers": "Vrstvy"
@@ -515,8 +515,8 @@
         "memoryusage": "Využití paměti",
         "freespace": "Volný prostor",
         "activeusers": "Aktivní uživatelé",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Soubory",
+        "numshares": "Sdílené položky"
     },
     "kopia": {
         "status": "Stav",
@@ -598,27 +598,27 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "Před {{value}}"
     },
     "qnap": {
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "cpuUsage": "CPU Usage"
+        "memUsage": "Využití paměti",
+        "systemTempC": "Teplota systému",
+        "poolUsage": "Využití fondu",
+        "cpuUsage": "Využití procesoru"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
+        "load": "Prům. zatížení",
+        "memory": "Využití paměti",
+        "wanStatus": "Stav WAN",
+        "up": "Běží",
+        "down": "Neběží",
+        "temp": "Teplota",
+        "disk": "Využití disku",
+        "wanIP": "IP WAN"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Odesílání dat",
+        "requests": "Aktuální požadavky",
+        "requests_failed": "Selhavší požadavky"
     }
 }
