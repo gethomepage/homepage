@@ -617,8 +617,8 @@
         "wanIP": "IP de la WAN"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Upstream (desarrollo de software)",
+        "requests": "Peticiones actuales",
+        "requests_failed": "Peticiones fallidas"
     }
 }
