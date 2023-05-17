@@ -607,18 +607,18 @@
         "poolUsage": "Prostor"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
+        "load": "Povp. obremenitev",
+        "memory": "Poraba spomina",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
+        "up": "Nalaganje",
+        "down": "Prenašanje",
+        "temp": "Temperatura",
+        "disk": "Poraba diska",
         "wanIP": "WAN IP"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Pretok gor",
+        "requests": "Trenutnih zahtev",
+        "requests_failed": "Neuspešnih zahtev"
     }
 }
