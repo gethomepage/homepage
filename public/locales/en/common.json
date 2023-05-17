@@ -93,11 +93,12 @@
         "songs": "Songs"
     },
 	"evcc": {
-        "pvPower": "Production",
-        "batterySoc": "Battery",
-        "gridpower": "Grid",
-        "homepower": "Consumption",
-        "chargePower": "Charger"
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
     },
     "flood": {
         "download": "Download",

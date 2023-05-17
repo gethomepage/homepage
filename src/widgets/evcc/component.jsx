@@ -8,30 +8,29 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const { data: resultData, error: resultError } = useWidgetAPI(widget, "result");
+  const { data: stateData, error: stateError } = useWidgetAPI(widget, "state");
 
-
-  if (resultError) {
-    return <Container service={service} error={resultError} />;
+  if (stateError) {
+    return <Container service={service} error={stateError} />;
   }
 
-  if (!resultData) {
+  if (!stateData) {
     return (
       <Container service={service}>,
-        <Block label="evcc.pvPower" />
-        <Block label="evcc.gridpower" />
-        <Block label="evcc.homepower" />
-        <Block label="evcc.chargePower"/>
+        <Block label="evcc.pv_power" />
+        <Block label="evcc.grid_power" />
+        <Block label="evcc.home_power" />
+        <Block label="evcc.charge_power"/>
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="evcc.pvPower" value={t("common.number", { value: resultData.result.pvPower })} />
-      <Block label="evcc.gridpower" value={t("common.number", { value: resultData.result.gridPower })} />
-      <Block label="evcc.homepower" value={t("common.number", { value: resultData.result.homePower }) } />
-      <Block label="evcc.chargePower" value={t("common.number", { value: resultData.result.loadpoints[0].chargePower })} />
+      <Block label="evcc.pv_power" value={`${t("common.number", { value: stateData.result.pvPower })} ${t("evcc.watt_hour")}`} />
+      <Block label="evcc.grid_power" value={`${t("common.number", { value: stateData.result.gridPower })} ${t("evcc.watt_hour")}`} />
+      <Block label="evcc.home_power" value={`${t("common.number", { value: stateData.result.homePower })} ${t("evcc.watt_hour")}`} />
+      <Block label="evcc.charge_power" value={`${t("common.number", { value: stateData.result.loadpoints[0].chargePower })} ${t("evcc.watt_hour")}`} />
     </Container>
   );
 }
