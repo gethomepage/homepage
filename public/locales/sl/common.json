@@ -620,5 +620,13 @@
         "upstreams": "Pretok gor",
         "requests": "Trenutnih zahtev",
         "requests_failed": "Neuspešnih zahtev"
+    },
+    "evcc": {
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
     }
 }
