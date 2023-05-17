@@ -125,7 +125,7 @@
         "pending": "待办",
         "approved": "已批准",
         "available": "可用",
-        "processing": "Processing"
+        "processing": "处理中"
     },
     "sabnzbd": {
         "rate": "速率",
@@ -421,10 +421,10 @@
         "seed": "做种"
     },
     "mikrotik": {
-        "cpuLoad": "处理器负载",
-        "memoryUsed": "内存占用",
+        "cpuLoad": "处理器",
+        "memoryUsed": "内存",
         "uptime": "运行时间",
-        "numberOfLeases": "已连接"
+        "numberOfLeases": "租约"
     },
     "xteve": {
         "streams_all": "所有播放活动",
@@ -432,15 +432,15 @@
         "streams_xepg": "XEPG 频道"
     },
     "opnsense": {
-        "cpu": "处理器负载",
-        "memory": "空闲内存",
+        "cpu": "处理器",
+        "memory": "内存",
         "wanUpload": "WAN上传",
         "wanDownload": "WAN下载"
     },
     "moonraker": {
         "printer_state": "打印机状态",
         "print_status": "打印状态",
-        "print_progress": "Progress",
+        "print_progress": "打印进程",
         "layers": "层"
     },
     "medusa": {
@@ -511,8 +511,8 @@
         "alertstriggered": "触发的警报"
     },
     "nextcloud": {
-        "cpuload": "处理器负载",
-        "memoryusage": "内存使用",
+        "cpuload": "处理器",
+        "memoryusage": "内存",
         "freespace": "剩余空间",
         "activeusers": "活跃用户",
         "numfiles": "Files",
@@ -568,7 +568,7 @@
         "booksDuration": "持续时间"
     },
     "homeassistant": {
-        "people_home": "People Home",
+        "people_home": "房间",
         "lights_on": "照明开",
         "switches_on": "开关开"
     },
@@ -587,7 +587,7 @@
         "updates": "可更新"
     },
     "tailscale": {
-        "address": "Address",
+        "address": "地址",
         "expires": "失效",
         "never": "从不",
         "last_seen": "最后上线",
@@ -597,23 +597,23 @@
         "seconds": "{{number}}s",
         "ago": "{{value}} 以前",
         "now": "现在",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w"
+        "years": "{{number}}年",
+        "weeks": "{{number}}周"
     },
     "qnap": {
-        "cpuUsage": "处理器负载",
-        "memUsage": "内存占用",
+        "cpuUsage": "处理器",
+        "memUsage": "内存",
         "systemTempC": "系统温度",
         "poolUsage": "存储池"
     },
     "pfsense": {
         "load": "平均负载",
-        "memory": "内存占用",
+        "memory": "内存",
         "wanStatus": "WAN 状态",
         "up": "上传",
         "down": "下载",
         "temp": "温度",
-        "disk": "磁盘使用",
+        "disk": "磁盘",
         "wanIP": "WAN IP"
     },
     "caddy": {
