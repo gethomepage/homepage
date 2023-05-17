@@ -17,6 +17,7 @@ const components = {
   docker: dynamic(() => import("./docker/component")),
   kubernetes: dynamic(() => import("./kubernetes/component")),
   emby: dynamic(() => import("./emby/component")),
+  evcc: dynamic(() => import("./evcc/component")),
   fileflows: dynamic(() => import("./fileflows/component")),
   flood: dynamic(() => import("./flood/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
