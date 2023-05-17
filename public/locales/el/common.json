@@ -620,5 +620,13 @@
         "upstreams": "Upstreams",
         "requests": "Current requests",
         "requests_failed": "Failed requests"
+    },
+    "evcc": {
+        "watt_hour": "Wh",
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger"
     }
 }
