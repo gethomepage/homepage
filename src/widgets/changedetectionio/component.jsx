@@ -16,7 +16,12 @@ export default function Component({ service }) {
   }
 
   if (!data) {
-    return <Container service={service} />;
+    return (
+      <Container service={service}>
+        <Block label="changedetectionio.diffsDetected" />
+        <Block label="changedetectionio.totalObserved" />
+      </Container>
+    );
   }
 
   const totalObserved = Object.keys(data).length;
