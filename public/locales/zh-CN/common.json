@@ -33,7 +33,7 @@
         "cpu": "处理器",
         "offline": "离线",
         "error": "错误",
-        "unknown": "未知",
+        "unknown": "未知问题",
         "starting": "启动中",
         "unhealthy": "不健康的",
         "not_found": "未找到",
@@ -93,7 +93,7 @@
         "queries": "查询",
         "blocked": "阻止",
         "gravity": "重力",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "拦截 %"
     },
     "speedtest": {
         "upload": "上传",
@@ -316,7 +316,7 @@
         "updates": "更新",
         "update_available": "有可用的更新",
         "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "子网桥",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
         "pending": "待定中",
@@ -329,8 +329,8 @@
         "indexers": "索引器"
     },
     "watchtower": {
-        "containers_scanned": "以扫描",
-        "containers_updated": "以升级",
+        "containers_scanned": "已扫描",
+        "containers_updated": "已升级",
         "containers_failed": "失败"
     },
     "tubearchivist": {
@@ -356,8 +356,8 @@
         "total": "Total"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
+        "public_ip": "公网 IP",
+        "region": "区域",
         "country": "国家"
     },
     "hdhomerun": {
@@ -422,7 +422,7 @@
     },
     "mikrotik": {
         "cpuLoad": "处理器负载",
-        "memoryUsed": "内存使用",
+        "memoryUsed": "内存占用",
         "uptime": "运行时间",
         "numberOfLeases": "已连接"
     },
@@ -449,14 +449,14 @@
         "series": "Series"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "打印机状态",
         "temp_tool": "喷头温度",
         "temp_bed": "平台温度",
         "job_completion": "完成度"
     },
     "cloudflared": {
         "origin_ip": "源IP",
-        "status": "Status"
+        "status": "状态"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "数据存储",
@@ -512,11 +512,11 @@
     },
     "nextcloud": {
         "cpuload": "处理器负载",
-        "memoryusage": "内存占用",
+        "memoryusage": "内存使用",
         "freespace": "剩余空间",
         "activeusers": "活跃用户",
         "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numshares": "共享项目"
     },
     "kopia": {
         "status": "状态",
@@ -545,7 +545,7 @@
         "nodes": "节点"
     },
     "prometheus": {
-        "targets_up": "目标离线",
+        "targets_up": "目标上线",
         "targets_down": "目标在线",
         "targets_total": "总目标"
     },
@@ -569,8 +569,8 @@
     },
     "homeassistant": {
         "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "lights_on": "照明开",
+        "switches_on": "开关开"
     },
     "freshrss": {
         "subscriptions": "订阅",
@@ -580,45 +580,45 @@
         "shows": "节目",
         "recordings": "录像",
         "scheduled": "已计划的",
-        "passes": "Passes"
+        "passes": "通行证"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "监测中",
+        "updates": "可更新"
     },
     "tailscale": {
         "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
+        "expires": "失效",
+        "never": "从不",
+        "last_seen": "最后上线",
         "days": "{{number}}d",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago",
-        "now": "Now",
+        "ago": "{{value}} 以前",
+        "now": "现在",
         "years": "{{number}}y",
         "weeks": "{{number}}w"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "cpuUsage": "处理器负载",
+        "memUsage": "内存占用",
+        "systemTempC": "系统温度",
+        "poolUsage": "存储池"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
+        "load": "平均负载",
+        "memory": "内存占用",
+        "wanStatus": "WAN 状态",
+        "up": "上传",
+        "down": "下载",
+        "temp": "温度",
+        "disk": "磁盘使用",
         "wanIP": "WAN IP"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "上游",
+        "requests": "当前请求",
+        "requests_failed": "失败请求"
     }
 }
