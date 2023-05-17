@@ -623,10 +623,10 @@
     },
     "evcc": {
         "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "battery_soc": "Batterie",
+        "grid_power": "Grille",
+        "home_power": "Consommation",
+        "charge_power": "Chargeur",
         "watt_hour": "Wh"
     }
 }
