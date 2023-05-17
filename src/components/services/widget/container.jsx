@@ -33,5 +33,5 @@ export default function Container({ error = false, children, service }) {
     }));
   }
 
-  return <div className="relative flex flex-row w-full">{visibleChildren.slice(0, 4)}</div>;
+  return <div className="relative flex flex-row w-full">{visibleChildren?.slice(0, 4)}</div>;
 }
