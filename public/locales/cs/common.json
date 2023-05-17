@@ -620,5 +620,13 @@
         "upstreams": "Odesílání dat",
         "requests": "Aktuální požadavky",
         "requests_failed": "Selhavší požadavky"
+    },
+    "evcc": {
+        "watt_hour": "Wh",
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger"
     }
 }
