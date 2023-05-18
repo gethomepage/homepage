@@ -46,6 +46,29 @@ export async function bookmarksResponse() {
   return bookmarksArray;
 }
 
+export async function tasklistResponse() {
+  checkAndCopyConfig("tasklist.yaml");
+
+  const tasklistYaml = path.join(process.cwd(), "config", "tasklist.yaml");
+  const rawFileContents = await fs.readFile(tasklistYaml, "utf8");
+  const fileContents = substituteEnvironmentVars(rawFileContents);
+  const tasklist = yaml.load(fileContents);
+
+  if (!tasklist) return [];
+
+  // map easy to write YAML objects into easy to consume JS arrays
+  const tasklistArray = tasklist.map((group) => ({
+    name: Object.keys(group)[0],
+    tasklist: group[Object.keys(group)[0]].map((entries) => ({
+      // id: Object.values(entries)[0].replaceAll(" ", "_"),
+      title: Object.values(entries)[0],
+      checked: Object.values(entries)[1],
+    })),
+  }));
+
+  return tasklistArray;
+}
+
 export async function widgetsResponse() {
   let configuredWidgets;
 

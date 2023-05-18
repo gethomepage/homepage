@@ -10,6 +10,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
+import TasklistGroup from "components/tasklist/group";
 import Widget from "components/widgets/widget";
 import Revalidate from "components/toggles/revalidate";
 import createLogger from "utils/logger";
@@ -174,6 +175,7 @@ function Home({ initialSettings }) {
 
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
+  const { data: tasklist } = useSWR("/api/tasklist");
   const { data: widgets } = useSWR("/api/widgets");
 
   const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
@@ -290,6 +292,14 @@ function Home({ initialSettings }) {
           <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
             {services.map((group) => (
               <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} fiveColumns={settings.fiveColumns} />
+            ))}
+          </div>
+        )}
+
+        {tasklist?.length > 0 && (
+          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, tasklist.length)}`}>
+            {tasklist.map((group) => (
+              <TasklistGroup key={group.name} group={group} />
             ))}
           </div>
         )}
