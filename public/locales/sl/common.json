@@ -622,11 +622,11 @@
         "requests_failed": "Neuspešnih zahtev"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "pv_power": "Proizvodnja",
+        "battery_soc": "Baterija",
+        "grid_power": "Omrežje",
+        "home_power": "Poraba",
+        "charge_power": "Polnilec",
         "watt_hour": "Wh"
     }
 }
