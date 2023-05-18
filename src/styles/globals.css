@@ -58,3 +58,7 @@ body {
 ::-webkit-details-marker {
   display: none;
 }
+
+.checkbox {
+  border-radius: 0.25em;
+}
