@@ -623,10 +623,10 @@
     },
     "evcc": {
         "watt_hour": "Wh",
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
+        "pv_power": "Παραγωγή",
+        "battery_soc": "Μπαταρία",
+        "grid_power": "Πλέγμα",
+        "home_power": "Κατανάλωση",
         "charge_power": "Charger"
     }
 }
