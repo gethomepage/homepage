@@ -622,11 +622,11 @@
         "requests_failed": "Peticiones fallidas"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
+        "pv_power": "Producción",
+        "battery_soc": "Batería",
         "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "home_power": "Consumo",
+        "charge_power": "Cargador",
+        "watt_hour": "vatio-hora (Wh)"
     }
 }
