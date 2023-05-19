@@ -64,6 +64,12 @@ async function apiCall(widget, endpoint, service) {
     key = await login(widget, service);
     apiUrl = new URL(formatApiCall(`${endpoint}&sid=${key}`, widget));
     [status, contentType, data, responseHeaders] = await httpProxy(apiUrl);
+
+    if (status !== 200) {
+      logger.error("Error getting data from QNAP: %s status %d. Data: %s", apiUrl, status, data);
+      return { status, contentType, data: null, responseHeaders };
+    }
+    
     dataDecoded = JSON.parse(xml2json(data.toString(), { compact: true }).toString());
   }
 
