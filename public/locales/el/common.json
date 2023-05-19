@@ -159,21 +159,21 @@
         "diffsDetected": "Εντοπίστηκαν διαφορές"
     },
     "tautulli": {
-        "playing": "Παίζει",
-        "transcoding": "Διακωδικοποίηση",
+        "playing": "Αναπαράγει",
+        "transcoding": "Μετακωδικοποίηση",
         "bitrate": "Ρυθμός bit",
         "no_active": "Δεν υπάρχουν ενεργές ροές"
     },
     "nzbget": {
-        "rate": "βαθμός",
+        "rate": "Ρυθμός",
         "remaining": "Υπόλοιπο",
         "downloaded": "Κατεβασμένο"
     },
     "plex": {
-        "streams": "Ενεργά Streams",
+        "streams": "Ενεργές Ροές",
         "movies": "Ταινίες",
-        "tv": "Σειρές",
-        "albums": "Δίσκοι"
+        "tv": "Τηλεοπτικές εκπομπές",
+        "albums": "Άλμπουμ"
     },
     "sabnzbd": {
         "rate": "Βαθμός",
@@ -199,7 +199,7 @@
     },
     "deluge": {
         "download": "Κατέβασμα",
-        "upload": "Φόρτωση",
+        "upload": "Ανέβασμα",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -604,7 +604,7 @@
         "cpuUsage": "Χρήση επεξεργαστή",
         "memUsage": "Χρήση μνήμης",
         "systemTempC": "Θερμοκρασία συστήματος",
-        "poolUsage": "Χρήση πλειάδας"
+        "poolUsage": "Χρήση πισίνας"
     },
     "pfsense": {
         "load": "Load Avg",
@@ -618,8 +618,8 @@
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Τρέχοντα αιτήματα",
+        "requests_failed": "Αποτυχημένα αιτήματα"
     },
     "evcc": {
         "watt_hour": "Wh",
@@ -627,6 +627,6 @@
         "battery_soc": "Μπαταρία",
         "grid_power": "Πλέγμα",
         "home_power": "Κατανάλωση",
-        "charge_power": "Charger"
+        "charge_power": "Φορτιστής"
     }
 }
