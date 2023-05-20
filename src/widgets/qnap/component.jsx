@@ -36,23 +36,22 @@ export default function Component({ service }) {
   let volumeFreeSize = 0;
   let validVolume = true;
 
-  if(Array.isArray(statusData.volume.volumeUseList.volumeUse)){
-    if(widget.volume){
+  if (Array.isArray(statusData.volume.volumeUseList.volumeUse)) {
+    if (widget.volume) {
       const volumeSelected = statusData.volume.volumeList.volume.findIndex(vl => vl.volumeLabel._cdata === widget.volume);
-      if(volumeSelected !== -1){
+      if (volumeSelected !== -1) {
         volumeTotalSize = statusData.volume.volumeUseList.volumeUse[volumeSelected].total_size._cdata;
         volumeFreeSize = statusData.volume.volumeUseList.volumeUse[volumeSelected].free_size._cdata;
-      }
-      else{
+      } else {
         validVolume = false;
       }
-    }else{
+    } else {
       statusData.volume.volumeUseList.volumeUse.forEach((volume) => {
-        volumeTotalSize += Number(volume.total_size._cdata);
-        volumeFreeSize += Number(volume.free_size._cdata);
+        volumeTotalSize += parseInt(volume.total_size._cdata, 10);
+        volumeFreeSize += parseInt(volume.free_size._cdata, 10);
       });  
     }
-  }else{
+  } else {
     volumeTotalSize = statusData.volume.volumeUseList.volumeUse.total_size._cdata;
     volumeFreeSize = statusData.volume.volumeUseList.volumeUse.free_size._cdata;
   }
@@ -73,7 +72,7 @@ export default function Component({ service }) {
       />
       <Block
         label={(widget.volume) ? "qnap.volumeUsage" : "qnap.poolUsage" }
-        value={(validVolume) ? t("common.percent", { value: (((volumeTotalSize - volumeFreeSize) / volumeTotalSize) * 100).toFixed(0) }) : "invalid"}
+        value={(validVolume) ? t("common.percent", { value: (((volumeTotalSize - volumeFreeSize) / volumeTotalSize) * 100).toFixed(0) }) : t("qnap.invalid") }
       />
     </Container>
   );
