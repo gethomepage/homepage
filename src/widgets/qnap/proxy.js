@@ -99,6 +99,6 @@ export default async function qnapProxyHandler(req, res) {
 
   return res.status(200).send({
     system: systemStatsData.QDocRoot.func.ownContent.root,
-    volume: volumeStatsData.QDocRoot.volumeUseList
+    volume: volumeStatsData.QDocRoot
   });
 }
