@@ -325,7 +325,7 @@
     },
     "homebridge": {
         "update_available": "Dostupná",
-        "up_to_date": "Všechno aktuální",
+        "up_to_date": "Žádné",
         "available_update": "Systém",
         "updates": "Aktualizace",
         "child_bridges": "Podřízené můstky",
