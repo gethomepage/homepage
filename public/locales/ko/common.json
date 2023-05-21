@@ -630,5 +630,11 @@
         "home_power": "Consumption",
         "charge_power": "Charger",
         "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "down_alerts": "Down Alerts",
+        "new_devices": "New Devices"
     }
 }
