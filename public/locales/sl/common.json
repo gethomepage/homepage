@@ -604,7 +604,9 @@
         "cpuUsage": "CPU",
         "memUsage": "MEM",
         "systemTempC": "Temperatura",
-        "poolUsage": "Prostor"
+        "poolUsage": "Prostor",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Povp. obremenitev",
