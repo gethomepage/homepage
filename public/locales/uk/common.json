@@ -604,7 +604,9 @@
         "cpuUsage": "Використання CPU",
         "memUsage": "Використання пам'яті",
         "systemTempC": "Температура системи",
-        "poolUsage": "Використання пулу"
+        "poolUsage": "Використання пулу",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Середнє завантаження",
