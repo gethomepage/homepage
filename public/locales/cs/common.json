@@ -630,5 +630,11 @@
         "grid_power": "Grid",
         "home_power": "Consumption",
         "charge_power": "Charger"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }
