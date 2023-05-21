@@ -630,5 +630,11 @@
         "pv_power": "正式環境",
         "battery_soc": "電池",
         "watt_hour": "瓦時 (Wh)"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }
