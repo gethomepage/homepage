@@ -604,7 +604,9 @@
         "cpuUsage": "Χρήση επεξεργαστή",
         "memUsage": "Χρήση μνήμης",
         "systemTempC": "Θερμοκρασία συστήματος",
-        "poolUsage": "Χρήση πισίνας"
+        "poolUsage": "Χρήση πισίνας",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Load Avg",
