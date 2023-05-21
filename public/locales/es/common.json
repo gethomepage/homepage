@@ -604,7 +604,9 @@
         "cpuUsage": "Uso de la Cpu",
         "memUsage": "Uso de la memoria",
         "systemTempC": "Temperatura del sistema",
-        "poolUsage": "Comprobación del uso del grupo de memoria"
+        "poolUsage": "Comprobación del uso del grupo de memoria",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Promedio de carga",
