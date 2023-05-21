@@ -604,7 +604,9 @@
         "memUsage": "Využití paměti",
         "systemTempC": "Teplota systému",
         "poolUsage": "Využití fondu",
-        "cpuUsage": "Využití procesoru"
+        "cpuUsage": "Využití procesoru",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Prům. zatížení",
