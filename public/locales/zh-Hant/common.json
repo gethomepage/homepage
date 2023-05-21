@@ -6,7 +6,7 @@
         "information": "資訊",
         "url": "網址",
         "raw_error": "原始錯誤",
-        "response_data": "回復數據"
+        "response_data": "回應資料"
     },
     "weather": {
         "current": "目前位置",
@@ -63,9 +63,9 @@
         "mem": "記憶體",
         "temp": "溫度",
         "max": "最大",
-        "uptime": "運行時間",
+        "uptime": "運作時間",
         "months": "月",
-        "days": "天",
+        "days": "日",
         "hours": "時",
         "minutes": "分"
     },
@@ -115,7 +115,7 @@
         "queries": "查詢",
         "blocked": "已阻擋",
         "gravity": "阻擋清單",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "已封鎖 %"
     },
     "speedtest": {
         "upload": "上行速率",
@@ -214,8 +214,8 @@
         "uptime": "系統運行時間",
         "days": "天",
         "wan": "WAN",
-        "lan_users": "LAN使用者",
-        "wlan_users": "WLAN使用者",
+        "lan_users": "有線使用者",
+        "wlan_users": "無線使用者",
         "up": "上線",
         "down": "離線",
         "wait": "請稍後",
@@ -223,7 +223,7 @@
         "wlan": "WLAN",
         "devices": "設備",
         "lan_devices": "LAN設備",
-        "wlan_devices": "WLAN設備",
+        "wlan_devices": "無線設備",
         "empty_data": "子系統狀態未知"
     },
     "plex": {
@@ -515,8 +515,8 @@
         "memoryusage": "記憶體用量",
         "freespace": "可用空間",
         "activeusers": "活躍用戶",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "檔案",
+        "numshares": "已分享"
     },
     "kopia": {
         "status": "狀態",
@@ -590,43 +590,43 @@
         "address": "Address",
         "expires": "Expires",
         "never": "Never",
-        "last_seen": "Last Seen",
+        "last_seen": "上次連線",
         "now": "Now",
-        "years": "{{number}}y",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d"
+        "years": "{{number}} 年",
+        "hours": "{{number}} 小時",
+        "minutes": "{{number}} 分鐘",
+        "seconds": "{{number}} 秒",
+        "ago": "{{value}} 前",
+        "weeks": "{{number}} 週",
+        "days": "{{number}} 天"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage"
+        "cpuUsage": "CPU 使用率",
+        "memUsage": "記憶體使用率",
+        "systemTempC": "系統溫度",
+        "poolUsage": "儲存池使用率"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
+        "load": "平均負載量",
+        "memory": "記憶體使用率",
+        "wanStatus": "網際網路狀態",
         "up": "Up",
         "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
+        "temp": "溫度",
+        "disk": "硬碟使用率",
         "wanIP": "WAN IP"
     },
     "caddy": {
-        "upstreams": "Upstreams",
+        "upstreams": "上行",
         "requests": "Current requests",
         "requests_failed": "Failed requests"
     },
     "evcc": {
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "watt_hour": "Wh"
+        "grid_power": "電網",
+        "home_power": "電源使用率",
+        "charge_power": "充電",
+        "pv_power": "正式環境",
+        "battery_soc": "電池",
+        "watt_hour": "瓦時 (Wh)"
     }
 }
