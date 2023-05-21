@@ -604,7 +604,9 @@
         "systemTempC": "Temperatura sustava",
         "poolUsage": "Korištenje memorijskog skupa",
         "cpuUsage": "Korištenje procesora",
-        "memUsage": "Korištenje memorije"
+        "memUsage": "Korištenje memorije",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Load Avg",
