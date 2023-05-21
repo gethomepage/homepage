@@ -604,7 +604,9 @@
         "cpuUsage": "Cpu",
         "memUsage": "Mém",
         "systemTempC": "Temp",
-        "poolUsage": "Pool"
+        "poolUsage": "Pool",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Charge moy.",
