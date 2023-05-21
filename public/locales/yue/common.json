@@ -604,7 +604,9 @@
         "systemTempC": "System Temp",
         "poolUsage": "Pool Usage",
         "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage"
+        "memUsage": "MEM Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Load Avg",
