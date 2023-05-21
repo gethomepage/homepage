@@ -630,5 +630,11 @@
         "home_power": "Consumo",
         "charge_power": "Cargador",
         "watt_hour": "vatio-hora (Wh)"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }
