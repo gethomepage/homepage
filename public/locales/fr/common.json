@@ -605,8 +605,8 @@
         "memUsage": "Mém",
         "systemTempC": "Temp",
         "poolUsage": "Pool",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Volume",
+        "invalid": "Invalide"
     },
     "pfsense": {
         "load": "Charge moy.",
@@ -633,8 +633,8 @@
     },
     "pialert": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Connecté",
+        "new_devices": "Nouvel Appareil",
+        "down_alerts": "Alertes"
     }
 }
