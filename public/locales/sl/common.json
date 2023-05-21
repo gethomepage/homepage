@@ -630,5 +630,11 @@
         "home_power": "Poraba",
         "charge_power": "Polnilec",
         "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }
