@@ -604,7 +604,9 @@
         "cpuUsage": "CPU 使用率",
         "memUsage": "記憶體使用率",
         "systemTempC": "系統溫度",
-        "poolUsage": "儲存池使用率"
+        "poolUsage": "儲存池使用率",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "平均負載量",
