@@ -23,7 +23,7 @@ export default function Component({ service }) {
         <Block label="qnap.cpuUsage" />
         <Block label="qnap.memUsage" />
         <Block label="qnap.systemTempC" />
-        <Block label="qnap.poolUsage" />
+        <Block label={(widget.volume) ? "qnap.volumeUsage" : "qnap.poolUsage" } />
       </Container>
     );
   }
@@ -32,9 +32,29 @@ export default function Component({ service }) {
   const totalMemory = statusData.system.total_memory._cdata;
   const freeMemory = statusData.system.free_memory._cdata;
   const systemTempC = statusData.system.cpu_tempc._text;
+  let volumeTotalSize = 0;
+  let volumeFreeSize = 0;
+  let validVolume = true;
 
-  const volumeTotalSize = statusData.volume.volumeUse.total_size._cdata;
-  const volumeFreeSize = statusData.volume.volumeUse.free_size._cdata;
+  if (Array.isArray(statusData.volume.volumeUseList.volumeUse)) {
+    if (widget.volume) {
+      const volumeSelected = statusData.volume.volumeList.volume.findIndex(vl => vl.volumeLabel._cdata === widget.volume);
+      if (volumeSelected !== -1) {
+        volumeTotalSize = statusData.volume.volumeUseList.volumeUse[volumeSelected].total_size._cdata;
+        volumeFreeSize = statusData.volume.volumeUseList.volumeUse[volumeSelected].free_size._cdata;
+      } else {
+        validVolume = false;
+      }
+    } else {
+      statusData.volume.volumeUseList.volumeUse.forEach((volume) => {
+        volumeTotalSize += parseInt(volume.total_size._cdata, 10);
+        volumeFreeSize += parseInt(volume.free_size._cdata, 10);
+      });  
+    }
+  } else {
+    volumeTotalSize = statusData.volume.volumeUseList.volumeUse.total_size._cdata;
+    volumeFreeSize = statusData.volume.volumeUseList.volumeUse.free_size._cdata;
+  }
 
   return (
     <Container service={service}>
@@ -51,8 +71,8 @@ export default function Component({ service }) {
         value={t("common.number", { value: systemTempC, maximumFractionDigits: 1, style: "unit", unit: "celsius" })} 
       />
       <Block
-        label="qnap.poolUsage"
-        value={t("common.percent", { value: (((volumeTotalSize - volumeFreeSize) / volumeTotalSize) * 100).toFixed(0) })}
+        label={(widget.volume) ? "qnap.volumeUsage" : "qnap.poolUsage" }
+        value={(validVolume) ? t("common.percent", { value: (((volumeTotalSize - volumeFreeSize) / volumeTotalSize) * 100).toFixed(0) }) : t("qnap.invalid") }
       />
     </Container>
   );

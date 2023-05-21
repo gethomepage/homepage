@@ -306,7 +306,7 @@ export function cleanServiceGroups(groups) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
         }
-        if (type === "diskstation") {
+        if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
         }
       }
