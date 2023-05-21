@@ -630,5 +630,11 @@
         "grid_power": "Πλέγμα",
         "home_power": "Κατανάλωση",
         "charge_power": "Φορτιστής"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }
