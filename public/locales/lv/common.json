@@ -294,7 +294,12 @@
         "uptime": "UP",
         "days": "d",
         "hours": "h",
-        "temp": "TEMP"
+        "temp": "TEMP",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
