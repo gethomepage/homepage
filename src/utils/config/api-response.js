@@ -54,19 +54,13 @@ export async function tasklistResponse() {
   const fileContents = substituteEnvironmentVars(rawFileContents);
   const tasklist = yaml.load(fileContents);
 
-  if (!tasklist) return [];
+  return tasklist
+}
 
-  // map easy to write YAML objects into easy to consume JS arrays
-  const tasklistArray = tasklist.map((group) => ({
-    name: Object.keys(group)[0],
-    tasklist: group[Object.keys(group)[0]].map((entries) => ({
-      // id: Object.values(entries)[0].replaceAll(" ", "_"),
-      title: Object.values(entries)[0],
-      checked: Object.values(entries)[1],
-    })),
-  }));
-
-  return tasklistArray;
+export async function tasklistPersist(taskState) {
+  const tasklistYaml = path.join(process.cwd(), "config", "tasklist.yaml");
+  await fs.writeFile(tasklistYaml, yaml.dump(JSON.parse(taskState)));
+  return [taskState];
 }
 
 export async function widgetsResponse() {

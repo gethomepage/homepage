@@ -19,7 +19,7 @@ import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
-import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
+import { bookmarksResponse, servicesResponse, tasklistResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
@@ -46,6 +46,7 @@ export async function getStaticProps() {
     const { providers, ...settings } = getSettings();
 
     const services = await servicesResponse();
+    const tasklist = await tasklistResponse();
     const bookmarks = await bookmarksResponse();
     const widgets = await widgetsResponse();
 
@@ -54,6 +55,7 @@ export async function getStaticProps() {
         initialSettings: settings,
         fallback: {
           "/api/services": services,
+          "/api/tasklist": tasklist,
           "/api/bookmarks": bookmarks,
           "/api/widgets": widgets,
           "/api/hash": false,
@@ -70,6 +72,7 @@ export async function getStaticProps() {
         initialSettings: {},
         fallback: {
           "/api/services": [],
+          "/api/tasklist": [],
           "/api/bookmarks": [],
           "/api/widgets": [],
           "/api/hash": false,
@@ -174,8 +177,8 @@ function Home({ initialSettings }) {
   }, [initialSettings, setSettings]);
 
   const { data: services } = useSWR("/api/services");
-  const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: tasklist } = useSWR("/api/tasklist");
+  const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
   const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
@@ -229,6 +232,11 @@ function Home({ initialSettings }) {
       document.removeEventListener('keydown', handleKeyDown);
     }
   })
+  const [taskList, setTaskList] = useState(tasklist)
+  const taskListUpdate = () => {
+    setTaskList(taskList)
+    fetch("/api/tasklistSave", {method: "POST", body: JSON.stringify(taskList)})
+  }
 
   return (
     <>
@@ -296,10 +304,10 @@ function Home({ initialSettings }) {
           </div>
         )}
 
-        {tasklist?.length > 0 && (
-          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, tasklist.length)}`}>
-            {tasklist.map((group) => (
-              <TasklistGroup key={group.name} group={group} />
+        {taskList?.length > 0 && (
+          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, taskList.length)}`}>
+            {taskList.map((group) => (
+              <TasklistGroup key={Object.keys(group)[0]} groupDetail={group} groupUpdate={taskListUpdate} />
             ))}
           </div>
         )}
