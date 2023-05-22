@@ -1,9 +1,7 @@
 import {useState} from "react";
 
 export default function TaskBox({submitAction}) {
-    // const [tasks, setTasks] = useState(listDetail)
     const [formVal, setFormVal] = useState("")
-    // let inputValue = useRef(undefined)
 
     const handleSubmit = (event) => {
         // Stop the form from submitting and refreshing the page.
