@@ -68,7 +68,6 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "RAM",
         "wait": "Vent venligst",
         "uptime": "UP",
         "days": "d",

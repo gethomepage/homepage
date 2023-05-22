@@ -234,7 +234,6 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "記憶體",
         "wait": "請稍後",
         "temp": "溫度",
         "uptime": "運行時間",

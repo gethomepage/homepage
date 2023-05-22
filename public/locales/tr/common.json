@@ -234,7 +234,6 @@
     },
     "glances": {
         "cpu": "İşlemci",
-        "mem": "Bellek",
         "wait": "Lütfen bekleyiniz",
         "temp": "TEMP",
         "uptime": "UP",

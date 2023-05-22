@@ -234,7 +234,6 @@
     },
     "glances": {
         "cpu": "సీపియూ",
-        "mem": "MEM",
         "wait": "దయచేసి వేచి ఉండండి",
         "temp": "TEMP",
         "uptime": "UP",

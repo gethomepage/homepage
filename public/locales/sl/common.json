@@ -350,7 +350,6 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Prosim počakajte",
         "temp": "TEMP",
         "uptime": "UP",

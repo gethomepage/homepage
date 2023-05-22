@@ -290,7 +290,6 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Please wait",
         "uptime": "UP",
         "days": "d",

@@ -235,7 +235,6 @@
     "glances": {
         "wait": "Please wait",
         "cpu": "CPU",
-        "mem": "MEM",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",

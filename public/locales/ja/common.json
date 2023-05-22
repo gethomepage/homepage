@@ -15,7 +15,6 @@
         "transferRate": "レート"
     },
     "glances": {
-        "mem": "MEM",
         "cpu": "CPU",
         "wait": "お待ちください",
         "temp": "温度",

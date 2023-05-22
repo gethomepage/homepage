@@ -252,7 +252,6 @@
     },
     "glances": {
         "cpu": "Ĉefprocesoro",
-        "mem": "Memoro",
         "wait": "Bonvolu atendi",
         "temp": "TEMP",
         "uptime": "UP",

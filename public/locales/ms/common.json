@@ -66,7 +66,6 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Sila tunggu",
         "temp": "TEMP",
         "uptime": "UP",

@@ -308,7 +308,6 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "RAM",
         "wait": "Prosím počkejte",
         "temp": "TEPLOTA",
         "uptime": "BĚŽÍ",

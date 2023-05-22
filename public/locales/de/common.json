@@ -234,7 +234,6 @@
     },
     "glances": {
         "cpu": "Prozessor",
-        "mem": "RAM",
         "wait": "Bitte warten",
         "temp": "TEMP",
         "uptime": "UP",

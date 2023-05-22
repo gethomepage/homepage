@@ -247,7 +247,6 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Por favor, aguarde",
         "temp": "TEMP",
         "uptime": "Cima",
