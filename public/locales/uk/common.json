@@ -362,7 +362,12 @@
         "temp": "TEMP",
         "uptime": "Відправка",
         "days": "д",
-        "hours": "г"
+        "hours": "г",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
