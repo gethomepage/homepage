@@ -238,7 +238,12 @@
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "used": "Used",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free"
     },
     "changedetectionio": {
         "totalObserved": "Ukupno promatrano",
