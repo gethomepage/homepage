@@ -238,7 +238,12 @@
         "temp": "Температура",
         "uptime": "Работает",
         "days": "д",
-        "hours": "ч"
+        "hours": "ч",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used"
     },
     "changedetectionio": {
         "totalObserved": "Всего наблюдаемых",
