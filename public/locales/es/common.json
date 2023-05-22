@@ -238,7 +238,12 @@
         "temp": "TEMPORAL",
         "uptime": "ARRIBA",
         "days": "Días",
-        "hours": "Horas"
+        "hours": "Horas",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
