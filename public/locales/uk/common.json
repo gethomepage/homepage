@@ -604,7 +604,9 @@
         "cpuUsage": "Використання CPU",
         "memUsage": "Використання пам'яті",
         "systemTempC": "Температура системи",
-        "poolUsage": "Використання пулу"
+        "poolUsage": "Використання пулу",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Середнє завантаження",
@@ -617,16 +619,22 @@
         "wanIP": "WAN IP"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Потоки",
+        "requests": "Поточні запити",
+        "requests_failed": "Невдалі запити"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "pv_power": "Виробництво",
+        "battery_soc": "Батарея",
+        "grid_power": "Сітка",
+        "home_power": "Споживання",
+        "charge_power": "Зарядний пристрій",
+        "watt_hour": "Вт/год"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }

@@ -57,8 +57,23 @@ async function apiCall(widget, endpoint, service) {
     return { status, contentType, data: null, responseHeaders };
   }
 
-  const dataDecoded = xml2json(data.toString(), { compact: true });
-  return { status, contentType, data: JSON.parse(dataDecoded.toString()), responseHeaders };
+  let dataDecoded = JSON.parse(xml2json(data.toString(), { compact: true }).toString());
+
+  if (dataDecoded.QDocRoot.authPassed._cdata === '0') {
+    logger.error("QNAP API rejected the request, attempting to obtain new session token");
+    key = await login(widget, service);
+    apiUrl = new URL(formatApiCall(`${endpoint}&sid=${key}`, widget));
+    [status, contentType, data, responseHeaders] = await httpProxy(apiUrl);
+
+    if (status !== 200) {
+      logger.error("Error getting data from QNAP: %s status %d. Data: %s", apiUrl, status, data);
+      return { status, contentType, data: null, responseHeaders };
+    }
+    
+    dataDecoded = JSON.parse(xml2json(data.toString(), { compact: true }).toString());
+  }
+
+  return { status, contentType, data: dataDecoded, responseHeaders };
 }
 
 export default async function qnapProxyHandler(req, res) {
@@ -84,6 +99,6 @@ export default async function qnapProxyHandler(req, res) {
 
   return res.status(200).send({
     system: systemStatsData.QDocRoot.func.ownContent.root,
-    volume: volumeStatsData.QDocRoot.volumeUseList
+    volume: volumeStatsData.QDocRoot
   });
 }

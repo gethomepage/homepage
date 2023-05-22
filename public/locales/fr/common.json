@@ -604,7 +604,9 @@
         "cpuUsage": "Cpu",
         "memUsage": "Mém",
         "systemTempC": "Temp",
-        "poolUsage": "Pool"
+        "poolUsage": "Pool",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Charge moy.",
@@ -623,10 +625,16 @@
     },
     "evcc": {
         "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "battery_soc": "Batterie",
+        "grid_power": "Grille",
+        "home_power": "Consommation",
+        "charge_power": "Chargeur",
         "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }

@@ -30,12 +30,12 @@
         "placeholder": "Hledat…"
     },
     "resources": {
-        "cpu": "PROC",
+        "cpu": "CPU",
         "total": "Celkem",
         "free": "Volné",
         "used": "Využité",
         "load": "Zatížení",
-        "mem": "PAM",
+        "mem": "RAM",
         "max": "Max.",
         "uptime": "BĚŽÍ",
         "months": "měs.",
@@ -64,8 +64,8 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "PAM",
-        "cpu": "PROC",
+        "mem": "RAM",
+        "cpu": "CPU",
         "offline": "Offline",
         "error": "Chyba",
         "unknown": "Neznámý",
@@ -175,7 +175,7 @@
         "queries": "Dotazy",
         "blocked": "Blokováno",
         "gravity": "Gravity",
-        "blocked_percent": "Blokováno %"
+        "blocked_percent": "Blokováno"
     },
     "adguard": {
         "queries": "Dotazy",
@@ -301,14 +301,14 @@
         "failedLoginsLast24H": "Neúspěšná přihlášení (24h)"
     },
     "proxmox": {
-        "mem": "PAM",
-        "cpu": "PROC",
+        "mem": "RAM",
+        "cpu": "CPU",
         "lxc": "LXC",
         "vms": "Virtuální Stroje"
     },
     "glances": {
-        "cpu": "PROC",
-        "mem": "PAM",
+        "cpu": "CPU",
+        "mem": "RAM",
         "wait": "Prosím počkejte",
         "temp": "TEPLOTA",
         "uptime": "BĚŽÍ",
@@ -324,8 +324,8 @@
         "url": "URL"
     },
     "homebridge": {
-        "update_available": "Dostupná aktualizace",
-        "up_to_date": "Aktuální",
+        "update_available": "Dostupná",
+        "up_to_date": "Žádné",
         "available_update": "Systém",
         "updates": "Aktualizace",
         "child_bridges": "Podřízené můstky",
@@ -369,7 +369,7 @@
         "ping": "Odezva"
     },
     "scrutiny": {
-        "passed": "Přijato",
+        "passed": "Úspěšné",
         "failed": "Neúspěšné",
         "unknown": "Neznámé"
     },
@@ -461,7 +461,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datové úložiště",
         "failed_tasks_24h": "Neúspěšné úlohy 24h",
-        "cpu_usage": "PROC",
+        "cpu_usage": "CPU",
         "memory_usage": "Paměť"
     },
     "immich": {
@@ -494,7 +494,7 @@
         "people": "Lidé"
     },
     "diskstation": {
-        "days": "Dni",
+        "days": "dní",
         "uptime": "Doba provozu",
         "volumeAvailable": "K dispozici"
     },
@@ -604,7 +604,9 @@
         "memUsage": "Využití paměti",
         "systemTempC": "Teplota systému",
         "poolUsage": "Využití fondu",
-        "cpuUsage": "Využití procesoru"
+        "cpuUsage": "Využití procesoru",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Prům. zatížení",
@@ -623,10 +625,16 @@
     },
     "evcc": {
         "watt_hour": "Wh",
-        "pv_power": "Production",
+        "pv_power": "Produkce",
         "battery_soc": "Battery",
         "grid_power": "Grid",
         "home_power": "Consumption",
         "charge_power": "Charger"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }

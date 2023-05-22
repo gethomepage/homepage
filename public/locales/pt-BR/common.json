@@ -604,7 +604,9 @@
         "systemTempC": "System Temp",
         "cpuUsage": "CPU Usage",
         "memUsage": "MEM Usage",
-        "poolUsage": "Pool Usage"
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Load Avg",
@@ -628,5 +630,11 @@
         "home_power": "Consumption",
         "charge_power": "Charger",
         "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }

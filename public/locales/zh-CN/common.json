@@ -604,7 +604,9 @@
         "cpuUsage": "处理器",
         "memUsage": "内存",
         "systemTempC": "系统温度",
-        "poolUsage": "存储池"
+        "poolUsage": "存储池",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "平均负载",
@@ -628,5 +630,11 @@
         "home_power": "Consumption",
         "charge_power": "Charger",
         "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }

@@ -604,7 +604,9 @@
         "cpuUsage": "CPU Nutzung",
         "memUsage": "MEM Nutzung",
         "systemTempC": "System Temp",
-        "poolUsage": "Pool Nutzung"
+        "poolUsage": "Pool Nutzung",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Durchschnittliche Last",
@@ -628,5 +630,11 @@
         "grid_power": "Grid",
         "home_power": "Consumption",
         "charge_power": "Charger"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }

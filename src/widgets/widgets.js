@@ -51,6 +51,7 @@ import paperlessngx from "./paperlessngx/widget";
 import pfsense from "./pfsense/widget";
 import photoprism from "./photoprism/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
+import pialert from "./pialert/widget";
 import pihole from "./pihole/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
@@ -138,6 +139,7 @@ const widgets = {
   pfsense,
   photoprism,
   proxmoxbackupserver,
+  pialert,
   pihole,
   plex,
   portainer,

@@ -604,7 +604,9 @@
         "cpuUsage": "Uso de la Cpu",
         "memUsage": "Uso de la memoria",
         "systemTempC": "Temperatura del sistema",
-        "poolUsage": "Comprobación del uso del grupo de memoria"
+        "poolUsage": "Comprobación del uso del grupo de memoria",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "pfsense": {
         "load": "Promedio de carga",
@@ -622,11 +624,17 @@
         "requests_failed": "Peticiones fallidas"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
+        "pv_power": "Producción",
+        "battery_soc": "Batería",
         "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "home_power": "Consumo",
+        "charge_power": "Cargador",
+        "watt_hour": "vatio-hora (Wh)"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     }
 }
