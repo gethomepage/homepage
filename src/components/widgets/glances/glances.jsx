@@ -92,9 +92,13 @@ export default function Widget({ options }) {
   }
   const tempPercent = Math.round((mainTemp / maxTemp) * 100);
 
-  const disks = Array.isArray(options.disk)
-    ? options.disk.map((disk) => data.fs.find((d) => d.mnt_point === disk)).filter((d) => d)
-    : [data.fs.find((d) => d.mnt_point === options.disk)].filter((d) => d);
+  let disks = [];
+
+  if (options.disk) {
+    disks = Array.isArray(options.disk)
+      ? options.disk.map((disk) => data.fs.find((d) => d.mnt_point === disk)).filter((d) => d)
+      : [data.fs.find((d) => d.mnt_point === options.disk)].filter((d) => d);
+  }
 
   return (
     <a href={options.url} target={settings.target ?? "_blank"} className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
@@ -157,7 +161,7 @@ export default function Widget({ options }) {
             <UsageBar percent={data.mem.percent} />
           </div>
         </div>
-        {options.disk && disks.map((disk) => (
+        {disks.map((disk) => (
           <div key={disk.mnt_point} className="flex-none flex flex-row items-center mr-3 py-1.5">
             <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
             <div className="flex flex-col ml-3 text-left min-w-[85px]">
