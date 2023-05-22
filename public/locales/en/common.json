@@ -357,10 +357,14 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
+        "load": "Load",
         "wait": "Please wait",
         "temp": "TEMP",
+        "warn": "Warn",
         "uptime": "UP",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
         "days": "d",
         "hours": "h"
     },
