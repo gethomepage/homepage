@@ -11,7 +11,7 @@ export default function List({listDetail, listUpdate}) {
   }
 
   return (
-    <ul className="mt-3 flex flex-col">
+    <ul key={tasks.length} className="mt-3 flex flex-col">
       {tasks.map((task) => (
         <Item key={Object.values(task)[0]} taskDetail={task} taskUpdate={taskUpdate} />
       ))}
