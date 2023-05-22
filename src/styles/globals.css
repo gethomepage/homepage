@@ -62,3 +62,7 @@ body {
 .checkbox {
   border-radius: 0.25em;
 }
+
+.textinput {
+  border: none;
+}
