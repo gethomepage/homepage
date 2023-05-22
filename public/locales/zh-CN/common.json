@@ -238,7 +238,12 @@
         "temp": "温度",
         "uptime": "运行时间",
         "days": "天",
-        "hours": "时"
+        "hours": "时",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used"
     },
     "changedetectionio": {
         "totalObserved": "观察到的总数",
