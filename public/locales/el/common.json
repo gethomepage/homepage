@@ -359,7 +359,12 @@
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "load": "Load"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
