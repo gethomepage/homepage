@@ -238,7 +238,12 @@
         "temp": "TEMP",
         "uptime": "CZAS",
         "days": "dni",
-        "hours": "godz"
+        "hours": "godz",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used"
     },
     "changedetectionio": {
         "diffsDetected": "Wykryto różnic",
