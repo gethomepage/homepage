@@ -20,7 +20,12 @@
         "temp": "温度",
         "uptime": "UP",
         "days": "日",
-        "hours": "時間"
+        "hours": "時間",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used"
     },
     "autobrr": {
         "filters": "フィルター",
