@@ -68,7 +68,9 @@
         "cpuload": "CPU obremenitev",
         "memoryusage": "Uporabljen spomin",
         "freespace": "Prostor na voljo",
-        "activeusers": "Aktivni uporabniki"
+        "activeusers": "Aktivni uporabniki",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Stanje",
@@ -193,10 +195,10 @@
         "streams": "Aktivna vsebina",
         "movies": "Filmi",
         "tv": "TV serije",
-        "albums": "Albums"
+        "albums": "Albumi"
     },
     "sabnzbd": {
-        "rate": "Hitrost prenosa",
+        "rate": "Hitrost",
         "queue": "Vrsta",
         "timeleft": "Preostali čas"
     },
@@ -236,7 +238,7 @@
     },
     "radarr": {
         "wanted": "Iskano",
-        "missing": "Manjkajoče",
+        "missing": "Manjka",
         "queued": "V vrsti",
         "movies": "Filmi"
     },
@@ -341,7 +343,7 @@
     },
     "proxmox": {
         "lxc": "LXC",
-        "vms": "VM-ji",
+        "vms": "VM",
         "mem": "MEM",
         "cpu": "CPU"
     },
@@ -521,10 +523,10 @@
         "storage": "Shramba"
     },
     "uptimekuma": {
-        "up": "Povezanih strani",
-        "down": "Nepovezanih strani",
+        "up": "Deluje",
+        "down": "Ne deluje",
         "uptime": "Čas delovanja",
-        "incident": "Težave",
+        "incident": "Incident",
         "m": "m"
     },
     "komga": {
@@ -561,11 +563,11 @@
     "audiobookshelf": {
         "podcasts": "Podcasti",
         "books": "Knjige",
-        "podcastsDuration": "Dolžina",
-        "booksDuration": "Dolžina"
+        "podcastsDuration": "Trajanje",
+        "booksDuration": "Trajanje"
     },
     "homeassistant": {
-        "people_home": "Ljudi doma",
+        "people_home": "Ljudje doma",
         "lights_on": "Vklopljene luči",
         "switches_on": "Vklopljena stikala"
     },
@@ -580,7 +582,7 @@
         "passes": "Prehodi"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Se spremlja",
+        "updates": "Posodobitve"
     }
 }

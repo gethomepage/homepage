@@ -13,7 +13,7 @@ export default function Component({ service }) {
 
   if (moviesError || queuedError) {
     const finalError = moviesError ?? queuedError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!moviesData || !queuedData) {

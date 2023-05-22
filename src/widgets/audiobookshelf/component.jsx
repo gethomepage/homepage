@@ -12,7 +12,7 @@ export default function Component({ service }) {
 
   
   if (librariesError) {
-    return <Container error={librariesError} />;
+    return <Container service={service} error={librariesError} />;
   }
   
   if (!librariesData) {

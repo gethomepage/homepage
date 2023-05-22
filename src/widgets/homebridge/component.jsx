@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: homebridgeData, error: homebridgeError } = useWidgetAPI(widget, "info");
 
   if (homebridgeError) {
-    return <Container error={homebridgeError} />;
+    return <Container service={service} error={homebridgeError} />;
   }
 
   if (!homebridgeData) {

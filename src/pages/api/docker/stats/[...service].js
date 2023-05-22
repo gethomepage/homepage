@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       });
     }
 
-    const containerNames = containers.map((container) => container.Names[0]?.replace(/^\//, ""));
+    const containerNames = containers.flatMap((container) => container.Names.map((name) => name.replace(/^\//, "")));
     const containerExists = containerNames.includes(containerName);
 
     if (containerExists) {

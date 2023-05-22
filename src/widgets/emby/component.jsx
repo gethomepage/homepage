@@ -206,7 +206,7 @@ export default function Component({ service }) {
   }
 
   if (sessionsError || countError) {
-    return <Container error={sessionsError ?? countError} />;
+    return <Container service={service} error={sessionsError ?? countError} />;
   }
 
   const enableBlocks = service.widget?.enableBlocks

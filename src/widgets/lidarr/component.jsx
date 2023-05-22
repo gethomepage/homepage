@@ -15,7 +15,7 @@ export default function Component({ service }) {
 
   if (albumsError || wantedError || queueError) {
     const finalError = albumsError ?? wantedError ?? queueError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!albumsData || !wantedData || !queueData) {

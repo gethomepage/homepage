@@ -11,7 +11,7 @@ export default function Component({ service }) {
   const { data: immichData, error: immichError } = useWidgetAPI(widget);
 
   if (immichError || immichData?.statusCode === 401) {
-    return <Container error={immichError ?? immichData} />;
+    return <Container service={service} error={immichError ?? immichData} />;
   }
 
   if (!immichData) {

@@ -513,7 +513,9 @@
         "cpuload": "Cpu Belasting",
         "memoryusage": "Geheugen Gebruik",
         "freespace": "Vrije Ruimte",
-        "activeusers": "Actieve Gebruikers"
+        "activeusers": "Actieve Gebruikers",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Status",

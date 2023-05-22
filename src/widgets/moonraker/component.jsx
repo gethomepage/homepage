@@ -15,7 +15,7 @@ export default function Component({ service }) {
 
   if (printStatsError || displayStatsError || webHooksError) {
     const finalError = printStatsError ?? displayStatsError ?? webHooksError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!printStats || !displayStatus || !webHooks) {

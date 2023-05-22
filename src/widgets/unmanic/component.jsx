@@ -10,7 +10,7 @@ export default function Component({ service }) {
 
   if (workersError || pendingError) {
     const finalError = workersError ?? pendingError;
-    return <Container error={finalError} />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!workersData || !pendingData) {

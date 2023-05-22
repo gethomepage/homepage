@@ -70,10 +70,17 @@ body:
       label: Browser Logs
       description: Please review and provide any logs from the browser, if relevant
   - type: textarea
+    id: troubleshooting
+    attributes:
+      label: Troubleshooting
+      description: Please include output from your [troubleshooting tests](https://gethomepage.dev/en/more/troubleshooting/#service-widget-errors). If this is a service widget issue and you do not include any information here your issue will be closed. If it is not, indicate e.g. 'n/a'
+    validations:
+      required: true
+  - type: textarea
     id: other
     attributes:
       label: Other
-      description: Please include output from your troubleshooting tests, if relevant. Include any other relevant details. E.g. service version or API version, docker version, etc.
+      description: Include any other relevant details. E.g. service version or API version, docker version, etc.
   - type: checkboxes
     id: pre-flight
     attributes:

@@ -38,7 +38,7 @@ export default function Component({ service }) {
   }
 
   if (statsError) {
-    return <Container error={statsError} />;
+    return <Container service={service} error={statsError} />;
   }
 
   if (!statsData || !dateRange) {

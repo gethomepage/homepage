@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   if (statsError || leasesError) {
     const finalError = statsError ?? leasesError;
-    return <Container error={ finalError } />;
+    return <Container service={service} error={ finalError } />;
   }
 
   if (!statsData || !leasesData) {

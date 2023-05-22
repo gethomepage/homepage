@@ -13,7 +13,7 @@ export default function Component({ service }) {
   const { data: heartbeatData, error: heartbeatError } = useWidgetAPI(widget, "heartbeat");
 
   if (statusError || heartbeatError) {
-    return <Container error={statusError ?? heartbeatError} />;
+    return <Container service={service} error={statusError ?? heartbeatError} />;
   }
 
   if (!statusData || !heartbeatData) {

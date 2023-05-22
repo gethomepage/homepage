@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: tdarrData, error: tdarrError } = useWidgetAPI(widget);
 
   if (tdarrError) {
-    return <Container error={tdarrError} />;
+    return <Container service={service} error={tdarrError} />;
   }
 
   if (!tdarrData) {

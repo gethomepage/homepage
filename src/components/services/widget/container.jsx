@@ -1,8 +1,18 @@
+import { useContext } from "react";
+
 import Error from "./error";
 
+import { SettingsContext } from "utils/contexts/settings";
+
 export default function Container({ error = false, children, service }) {
+  const { settings } = useContext(SettingsContext);
+
   if (error) {
-    return <Error error={error} />
+    if (settings.hideErrors || service.widget.hide_errors) {
+      return null;
+    }
+
+    return <Error service={service} error={error} />
   }
 
   let visibleChildren = children;

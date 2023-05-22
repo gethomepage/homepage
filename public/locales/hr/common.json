@@ -229,7 +229,7 @@
         "streams": "Aktivni prijenosi",
         "movies": "Filmovi",
         "tv": "TV emisije",
-        "albums": "Albums"
+        "albums": "Albumi"
     },
     "glances": {
         "cpu": "CPU",
@@ -513,7 +513,9 @@
         "cpuload": "Cpu opterećenje",
         "memoryusage": "Korištenje memorije",
         "freespace": "Slobodna memorija",
-        "activeusers": "Aktivni korisnici"
+        "activeusers": "Aktivni korisnici",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
     },
     "kopia": {
         "status": "Stanje",
@@ -581,6 +583,6 @@
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
-        "updates": "Updates"
+        "updates": "Aktualiziranja"
     }
 }
