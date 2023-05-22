@@ -605,8 +605,8 @@
         "memUsage": "Uso de la memoria",
         "systemTempC": "Temperatura del sistema",
         "poolUsage": "Comprobación del uso del grupo de memoria",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Volumen utilizado",
+        "invalid": "No válido"
     },
     "pfsense": {
         "load": "Promedio de carga",
@@ -626,15 +626,15 @@
     "evcc": {
         "pv_power": "Producción",
         "battery_soc": "Batería",
-        "grid_power": "Grid",
+        "grid_power": "Red",
         "home_power": "Consumo",
         "charge_power": "Cargador",
         "watt_hour": "vatio-hora (Wh)"
     },
     "pialert": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Conectado",
+        "new_devices": "Nuevos dispositivos",
+        "down_alerts": "Alertas"
     }
 }
