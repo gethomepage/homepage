@@ -312,7 +312,12 @@
         "temp": "TEPLOTA",
         "uptime": "BĚŽÍ",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "load": "Load",
+        "warn": "Warn"
     },
     "quicklaunch": {
         "bookmark": "Záložka",
