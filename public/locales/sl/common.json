@@ -354,7 +354,12 @@
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "u"
+        "hours": "u",
+        "free": "Free",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "used": "Used"
     },
     "authentik": {
         "users": "Uporabniki",
