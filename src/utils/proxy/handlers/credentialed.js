@@ -35,9 +35,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         "tailscale",
         "truenas",
         "pterodactyl",
-        ].includes(widget.type))
-        {
-          headers.Authorization = `Bearer ${widget.key}`;
+      ].includes(widget.type)) {
+        headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
@@ -55,6 +54,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
+      } else if (widget.type === "calibreweb") {
+        headers["X-Authenticated-User"] = widget.username;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

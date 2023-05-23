@@ -4,6 +4,7 @@ import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
 import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
+import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
@@ -91,6 +92,7 @@ const widgets = {
   autobrr,
   bazarr,
   caddy,
+  calibreweb,
   changedetectionio,
   channelsdvrserver,
   cloudflared,
