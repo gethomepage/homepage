@@ -6,7 +6,9 @@ import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
+
 const saltedMd5 = require('salted-md5');
+
 const proxyName = "nextpvrProxyHandler";
 
 const logger = createLogger(proxyName);
@@ -51,25 +53,25 @@ async function loginToNextPVR(endpoint, widget) {
         return [status, null];
     }
     // Create md5 hash of pin / salt to to md5 login
-    let hashedSalt = saltedMd5(':' + saltedMd5(widget.pin) + ':', dataAsJson.rsp.salt._text);
-    endpoint = 'session.login&md5='
-    url = new URL(formatApiCall(api, { endpoint, ...widget })) + hashedSalt + '&sid=' + dataAsJson.rsp.sid._text;
+    const hashedSalt = saltedMd5(`:${saltedMd5(widget.pin)}:`, dataAsJson.rsp.salt._text);
+    url = `${new URL(formatApiCall(api, { 'endpoint': 'session.login&md5=', 'url': widget.url }))}${hashedSalt}&sid=${dataAsJson.rsp.sid._text}`;
 
     [status, contentType, data] = await httpProxy(url);
     if (status !== 200) {
-        logger.error("HTTP %d communicating with NextPVR. Data: %s", status, data.toString());
+        logger.error("HTTP %d communicating with NextPVR. Data: %s", status, contentType, data.toString());
         return [status, data];
     }
     try {
         const dataDecoded = xml2json(data.toString(), { compact: true });
-        let dataAsJson = JSON.parse(dataDecoded);
+        dataAsJson = JSON.parse(dataDecoded);
         // Store the session id globally
         globalSid = dataAsJson.rsp.sid._text
     } catch (e) {
         logger.error("Error decoding NextPVR API data. Data: %s", data.toString());
         return [status, null];
     }
-    console.log('gettingSID')
+    logger.info('gettingSID')
+    return [status, true];
 }
 
 
@@ -78,9 +80,7 @@ async function fetchFromNextPVRAPI(endpoint, widget, sid) {
     if (!api) {
         return [403, null];
     }
-
-    const url = new URL(formatApiCall(api, { endpoint, ...widget })) + '&sid=' + sid;
-
+    const url = `${new URL(formatApiCall(api, { endpoint, ...widget }))}&sid=${sid}`
     const [status, contentType, data] = await httpProxy(url);
 
     if (status !== 200) {
@@ -101,7 +101,7 @@ export default async function nextPVRProxyHandler(req, res) {
     const widget = await getWidget(req);
 
     if (!globalSid) {
-    await loginToNextPVR('session.initiate&ver=1.0&device=homepage', widget);
+        await loginToNextPVR('session.initiate&ver=1.0&device=homepage', widget);
     }
     if (!widget) {
         return res.status(400).json({ error: "Invalid proxy service type" });
@@ -114,9 +114,9 @@ export default async function nextPVRProxyHandler(req, res) {
     if (status !== 200) {
         return res.status(status).json({ error: { message: "HTTP error communicating with NextPVR API", data: Buffer.from(apiData).toString() } });
     }
-    
+
     let recordingCount
-    if (Array.isArray(apiData.rsp.recordings.recording) == false) {
+    if (Array.isArray(apiData.rsp.recordings.recording) === false) {
         if (apiData.rsp.recordings.recording) {
             recordingCount = 1;
         } else {
@@ -132,7 +132,7 @@ export default async function nextPVRProxyHandler(req, res) {
         return res.status(status).json({ error: { message: "HTTP error communicating with NextPVR API", data: Buffer.from(apiData).toString() } });
     }
     let readyCount
-    if (Array.isArray(apiData.rsp.recordings.recording) == false) {
+    if (Array.isArray(apiData.rsp.recordings.recording) === false) {
         if (apiData.rsp.recordings.recording) {
             readyCount = 1;
         } else {
