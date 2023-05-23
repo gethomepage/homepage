@@ -46,6 +46,7 @@ const components = {
   navidrome: dynamic(() => import("./navidrome/component")),
   nextcloud: dynamic(() => import("./nextcloud/component")),
   nextdns: dynamic(() => import("./nextdns/component")),
+  nextpvr: dynamic(() => import("./nextpvr/component")),
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
   octoprint: dynamic(() => import("./octoprint/component")),

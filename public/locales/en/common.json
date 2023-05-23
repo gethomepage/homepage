@@ -92,7 +92,7 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
-	"evcc": {
+    "evcc": {
         "pv_power": "Production",
         "battery_soc": "Battery",
         "grid_power": "Grid",
@@ -649,5 +649,9 @@
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
+    },
+    "nextpvr": {
+        "upcoming": "Upcoming Recordings",
+        "ready": "Recent Recordings"
     }
 }

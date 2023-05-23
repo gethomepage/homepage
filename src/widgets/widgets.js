@@ -40,6 +40,7 @@ import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
 import nextcloud from "./nextcloud/widget";
 import nextdns from "./nextdns/widget";
+import nextpvr from "./nextpvr/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import octoprint from "./octoprint/widget";
@@ -128,6 +129,7 @@ const widgets = {
   navidrome,
   nextcloud,
   nextdns,
+  nextpvr,
   npm,
   nzbget,
   octoprint,

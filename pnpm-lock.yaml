@@ -58,6 +58,9 @@ dependencies:
   react-icons:
     specifier: ^4.4.0
     version: 4.8.0(react@18.2.0)
+  salted-md5:
+    specifier: ^4.0.5
+    version: 4.0.5
   shvl:
     specifier: ^3.0.0
     version: 3.0.0
@@ -2975,6 +2978,10 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+    dev: false
+
+  /salted-md5@4.0.5:
+    resolution: {integrity: sha512-MPjdfYzyirx0dG0JIaSbkh6PcleRplLY4sDgFwa+t/GiH2saBVbaR8mVTWa9BFg7SkFik1dVBt8BD7tc5To1Mg==}
     dev: false
 
   /sax@1.2.4:
