@@ -239,11 +239,11 @@
         "uptime": "Up",
         "days": "j",
         "hours": "h",
-        "load": "Load",
-        "warn": "Warn",
+        "load": "Charge",
+        "warn": "Alerte",
         "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "free": "Libre",
+        "used": "Utilisé"
     },
     "changedetectionio": {
         "totalObserved": "Total Observé",
