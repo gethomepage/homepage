@@ -58,11 +58,11 @@ export default async function genericProxyHandler(req, res, map) {
 
       if (status >= 400) {
         logger.debug(
-          "HTTP Error %d calling %s//%s:%s%s...",
+          "HTTP Error %d calling %s//%s%s%s...",
           status,
           url.protocol,
           url.hostname,
-          url.port,
+          url.port ? `:${url.port}` : '',
           url.pathname
         );
         return res.status(status).json({error: {message: "HTTP Error", url: sanitizeErrorURL(url), resultData}});

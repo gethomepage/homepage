@@ -82,10 +82,10 @@ export async function httpProxy(url, params = {}) {
   }
   catch (err) {
     logger.error(
-      "Error calling %s//%s:%s%s...",
+      "Error calling %s//%s%s%s...",
       constructedUrl.protocol,
       constructedUrl.hostname,
-      constructedUrl.port,
+      constructedUrl.port ? `:${constructedUrl.port}` : '',
       constructedUrl.pathname
     );
     logger.error(err);
