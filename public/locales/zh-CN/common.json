@@ -554,7 +554,7 @@
         "targets_total": "总目标"
     },
     "minecraft": {
-        "players": "播放中",
+        "players": "玩家",
         "version": "版本",
         "status": "状态",
         "up": "在线的",
