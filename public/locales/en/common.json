@@ -651,7 +651,7 @@
         "updates": "Updates"
     },
     "nextpvr": {
-        "upcoming": "Upcoming Recordings",
-        "ready": "Recent Recordings"
+        "upcoming": "Upcoming",
+        "ready": "Recent"
     }
 }
