@@ -239,11 +239,11 @@
         "uptime": "UP",
         "days": "T",
         "hours": "S",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "load": "Auslastung",
+        "warn": "Warnung",
+        "total": "Gesamt",
+        "free": "Frei",
+        "used": "Verwendet"
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
@@ -610,7 +610,7 @@
         "systemTempC": "System Temp",
         "poolUsage": "Pool Nutzung",
         "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "invalid": "Ungültig"
     },
     "pfsense": {
         "load": "Durchschnittliche Last",
@@ -629,16 +629,16 @@
     },
     "evcc": {
         "watt_hour": "Wh",
-        "pv_power": "Production",
-        "battery_soc": "Battery",
+        "pv_power": "Produktion",
+        "battery_soc": "Batterie",
         "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger"
+        "home_power": "Verbrauch",
+        "charge_power": "Ladegerät"
     },
     "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "total": "Gesamt",
+        "connected": "Verbunden",
+        "new_devices": "Neue Geräte",
+        "down_alerts": "Down Alarme"
     }
 }
