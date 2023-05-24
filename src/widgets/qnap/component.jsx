@@ -31,7 +31,7 @@ export default function Component({ service }) {
   const cpuUsage = statusData.system.cpu_usage._cdata.replace(' %','');
   const totalMemory = statusData.system.total_memory._cdata;
   const freeMemory = statusData.system.free_memory._cdata;
-  const systemTempC = statusData.system.cpu_tempc._text;
+  const systemTempC = statusData.system.sys_tempc._text;
   let volumeTotalSize = 0;
   let volumeFreeSize = 0;
   let validVolume = true;
