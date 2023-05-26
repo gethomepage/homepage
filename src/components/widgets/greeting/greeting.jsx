@@ -13,7 +13,7 @@ export default function Greeting({ options }) {
   if (options.text) {
     return (
       <div className="flex flex-row items-center justify-start">
-        <span className={`text-theme-800 dark:text-theme-200 ${textSizes[options.text_size || "xl"]}`}>
+        <span className={`text-theme-800 dark:text-theme-200 mr-3 ${textSizes[options.text_size || "xl"]}`}>
           {options.text}
         </span>
       </div>
