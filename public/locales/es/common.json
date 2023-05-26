@@ -239,11 +239,11 @@
         "uptime": "ARRIBA",
         "days": "Días",
         "hours": "Horas",
-        "load": "Load",
-        "warn": "Warn",
+        "load": "Cargar",
+        "warn": "Advertir",
         "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "free": "Libre",
+        "used": "Utilizado"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
