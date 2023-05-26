@@ -71,6 +71,14 @@ export default async function homeassistantProxyHandler(req, res) {
   
   let queries = defaultQueries;
   if (!widget.fields && widget.custom) {
+    if (typeof widget.custom === 'string') {
+      try {
+        widget.custom = JSON.parse(widget.custom)
+      } catch (error) {
+        logger.debug("Error parsing HASS widget custom label: %s", JSON.stringify(error));
+        return res.status(400).json({ error: "Error parsing widget custom label" });
+      }
+    }
     queries = widget.custom.slice(0, 4);
   }
 
