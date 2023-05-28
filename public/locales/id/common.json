@@ -489,13 +489,13 @@
         "updates": "Updates"
     },
     "weather": {
-        "wait": "Please wait",
+        "wait": "Harap tunggu",
         "current": "Current Location",
         "allow": "Click to allow",
         "updating": "Updating"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Telusuri…"
     },
     "unifi": {
         "lan_devices": "LAN Devices",
@@ -576,7 +576,7 @@
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
-        "information": "Information",
+        "information": "Informasi",
         "status": "Status",
         "url": "URL",
         "raw_error": "Raw Error",
