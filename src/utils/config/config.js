@@ -65,5 +65,20 @@ export function getSettings() {
   const settingsYaml = join(process.cwd(), "config", "settings.yaml");
   const rawFileContents = readFileSync(settingsYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
-  return yaml.load(fileContents) ?? {};
+  const initialSettings = yaml.load(fileContents) ?? {};
+
+  if (initialSettings.layout) {
+    // support yaml list but old spec was object so convert to that
+    // see https://github.com/benphelps/homepage/issues/1546
+    if (Array.isArray(initialSettings.layout)) {
+      const layoutItems = initialSettings.layout
+      initialSettings.layout = {}
+      layoutItems.forEach(i => {
+        const name = Object.keys(i)[0]
+        initialSettings.layout[name] = i[name]
+      })
+    }
+  }
+
+  return initialSettings
 }
