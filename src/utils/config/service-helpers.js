@@ -86,7 +86,7 @@ export async function servicesFromDocker() {
                   type: 'service'
                 };
               }
-              shvl.set(constructedService, label.replace("homepage.", ""), container.Labels[label]);
+              shvl.set(constructedService, label.replace("homepage.", ""), substituteEnvironmentVars(container.Labels[label]));
             }
           });
 
