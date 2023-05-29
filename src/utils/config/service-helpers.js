@@ -86,7 +86,7 @@ export async function servicesFromDocker() {
                   type: 'service'
                 };
               }
-              shvl.set(constructedService, label.replace("homepage.", ""), container.Labels[label]);
+              shvl.set(constructedService, label.replace("homepage.", ""), substituteEnvironmentVars(container.Labels[label]));
             }
           });
 
@@ -175,7 +175,7 @@ export async function servicesFromKubernetes() {
     const services = ingressList.items
       .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === 'true')
       .map((ingress) => {
-      const constructedService = {
+      let constructedService = {
         app: ingress.metadata.name,
         namespace: ingress.metadata.namespace,
         href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
@@ -201,6 +201,12 @@ export async function servicesFromKubernetes() {
           shvl.set(constructedService, annotation.replace(`${ANNOTATION_BASE}/`, ""), ingress.metadata.annotations[annotation]);
         }
       });
+
+      try {
+        constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
+      } catch (e) {
+        logger.error("Error attempting k8s environment variable substitution.");
+      }
 
       return constructedService;
     });
