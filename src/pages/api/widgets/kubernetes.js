@@ -52,18 +52,25 @@ export default async function handler(req, res) {
       memTotal += mem;
     });
 
-    const nodeMetrics = await metricsApi.getNodeMetrics();
-    nodeMetrics.items.forEach((nodeMetric) => {
-      const cpu = parseCpu(nodeMetric.usage.cpu);
-      const mem = parseMemory(nodeMetric.usage.memory);
-      cpuUsage += cpu;
-      memUsage += mem;
-      nodeMap[nodeMetric.metadata.name].cpu.load = cpu;
-      nodeMap[nodeMetric.metadata.name].cpu.percent = (cpu / nodeMap[nodeMetric.metadata.name].cpu.total) * 100;
-      nodeMap[nodeMetric.metadata.name].memory.used = mem;
-      nodeMap[nodeMetric.metadata.name].memory.free = nodeMap[nodeMetric.metadata.name].memory.total - mem;
-      nodeMap[nodeMetric.metadata.name].memory.percent = (mem / nodeMap[nodeMetric.metadata.name].memory.total) * 100;
-    });
+    try {
+      const nodeMetrics = await metricsApi.getNodeMetrics();
+      nodeMetrics.items.forEach((nodeMetric) => {
+        const cpu = parseCpu(nodeMetric.usage.cpu);
+        const mem = parseMemory(nodeMetric.usage.memory);
+        cpuUsage += cpu;
+        memUsage += mem;
+        nodeMap[nodeMetric.metadata.name].cpu.load = cpu;
+        nodeMap[nodeMetric.metadata.name].cpu.percent = (cpu / nodeMap[nodeMetric.metadata.name].cpu.total) * 100;
+        nodeMap[nodeMetric.metadata.name].memory.used = mem;
+        nodeMap[nodeMetric.metadata.name].memory.free = nodeMap[nodeMetric.metadata.name].memory.total - mem;
+        nodeMap[nodeMetric.metadata.name].memory.percent = (mem / nodeMap[nodeMetric.metadata.name].memory.total) * 100;
+      });
+    } catch (error) {
+      logger.error("Error getting metrics, ensure you have metrics-server installed: s", JSON.stringify(error));
+      return res.status(500).send({
+        error: "Error getting metrics, check logs for more details"
+      });
+    }
 
     const cluster = {
       cpu: {
