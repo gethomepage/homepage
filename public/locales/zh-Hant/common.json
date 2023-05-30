@@ -21,14 +21,14 @@
         "mem": "記憶體",
         "cpu": "處理器",
         "error": "錯誤",
-        "unknown": "未知的",
+        "unknown": "未知",
         "running": "執行中",
         "starting": "啟動中",
         "unhealthy": "不健康的",
         "not_found": "未找到",
         "exited": "已退出",
         "partial": "部分",
-        "healthy": "健康的"
+        "healthy": "健康"
     },
     "emby": {
         "playing": "正在播放",
@@ -123,8 +123,8 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "運行中",
-        "stopped": "未運行",
+        "running": "運作中",
+        "stopped": "已停止",
         "total": "全部"
     },
     "traefik": {
@@ -163,7 +163,7 @@
         "seed": "已完成下載"
     },
     "jackett": {
-        "configured": "已配置",
+        "configured": "已設置",
         "errored": "發生錯誤"
     },
     "bazarr": {
@@ -200,8 +200,8 @@
     },
     "authentik": {
         "users": "使用者",
-        "loginsLast24H": "登錄(24h)",
-        "failedLoginsLast24H": "登錄失敗(24h)"
+        "loginsLast24H": "登入 (過去 24 小時)",
+        "failedLoginsLast24H": "登入失敗 (過去 24 小時)"
     },
     "proxmox": {
         "mem": "記憶體",
@@ -211,7 +211,7 @@
     },
     "unifi": {
         "users": "使用者",
-        "uptime": "系統運行時間",
+        "uptime": "系統運作時間",
         "days": "天",
         "wan": "WAN",
         "lan_users": "有線使用者",
@@ -222,7 +222,7 @@
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "設備",
-        "lan_devices": "LAN設備",
+        "lan_devices": "有線設備",
         "wlan_devices": "無線設備",
         "empty_data": "子系統狀態未知"
     },
@@ -239,18 +239,18 @@
         "uptime": "運行時間",
         "days": "天",
         "hours": "時",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total"
+        "free": "未使用",
+        "used": "已使用",
+        "load": "負載量",
+        "warn": "警告",
+        "total": "總共"
     },
     "changedetectionio": {
         "totalObserved": "總監測數",
         "diffsDetected": "偵測到的變更"
     },
     "wmo": {
-        "0-day": "晴",
+        "0-day": "晴天",
         "0-night": "晴朗",
         "71-day": "小雪",
         "71-night": "小雪",
@@ -312,7 +312,7 @@
         "service": "服務",
         "search": "搜尋",
         "custom": "自訂",
-        "visit": "訪問",
+        "visit": "造訪",
         "url": "網址"
     },
     "homebridge": {
@@ -355,7 +355,7 @@
     },
     "pyload": {
         "speed": "速度",
-        "active": "運行中",
+        "active": "執行中",
         "queue": "佇列",
         "total": "全部"
     },
@@ -525,8 +525,8 @@
     "kopia": {
         "status": "狀態",
         "size": "檔案大小",
-        "lastrun": "上次運行",
-        "nextrun": "下次運行",
+        "lastrun": "上次執行",
+        "nextrun": "下次執行",
         "failed": "失敗"
     },
     "unmanic": {
@@ -591,11 +591,11 @@
         "updates": "可更新"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
+        "address": "位址",
+        "expires": "已失效",
+        "never": "未曾",
         "last_seen": "上次連線",
-        "now": "Now",
+        "now": "現在",
         "years": "{{number}} 年",
         "hours": "{{number}} 小時",
         "minutes": "{{number}} 分鐘",
@@ -609,23 +609,23 @@
         "memUsage": "記憶體使用率",
         "systemTempC": "系統溫度",
         "poolUsage": "儲存池使用率",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "儲存區用量",
+        "invalid": "無效的"
     },
     "pfsense": {
         "load": "平均負載量",
         "memory": "記憶體使用率",
         "wanStatus": "網際網路狀態",
-        "up": "Up",
-        "down": "Down",
+        "up": "已連線",
+        "down": "已離線",
         "temp": "溫度",
         "disk": "硬碟使用率",
-        "wanIP": "WAN IP"
+        "wanIP": "網際網路 IP"
     },
     "caddy": {
         "upstreams": "上行",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "目前請求數",
+        "requests_failed": "失敗請求"
     },
     "evcc": {
         "grid_power": "電網",
@@ -636,9 +636,9 @@
         "watt_hour": "瓦時 (Wh)"
     },
     "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "total": "全部",
+        "connected": "已連線",
+        "new_devices": "新裝置",
+        "down_alerts": "離線警告"
     }
 }
