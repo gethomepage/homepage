@@ -24,13 +24,13 @@
         "used": "Kullanımda",
         "load": "Yük",
         "mem": "MEM",
-        "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "temp": "Geçici",
+        "max": "En Yüksek",
+        "uptime": "Çalışma Süresi",
+        "months": "Ay",
+        "days": "Gün",
+        "hours": "Saat",
+        "minutes": "Dakika"
     },
     "unifi": {
         "users": "Kullanıcılar",
@@ -57,23 +57,23 @@
         "offline": "Çevrimdışı",
         "error": "Hata",
         "unknown": "Bilinmiyor",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "running": "Çalışan",
+        "starting": "Başlatılıyor",
+        "unhealthy": "Sağlıksız",
+        "not_found": "Bulunamadı",
+        "exited": "Durduruldu",
+        "partial": "Parçalı",
+        "healthy": "Sağlık"
     },
     "emby": {
         "playing": "Oynatılıyor",
         "transcoding": "Dönüştürülüyor",
         "bitrate": "Bit Oranı",
         "no_active": "Aktif akış yok",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmler",
+        "series": "Diziler",
+        "episodes": "Bölümler",
+        "songs": "Şarkılar"
     },
     "tautulli": {
         "playing": "Oynatılıyor",
@@ -90,7 +90,7 @@
         "streams": "Aktif Akış",
         "movies": "Filmler",
         "tv": "TV Showları",
-        "albums": "Albums"
+        "albums": "Albümler"
     },
     "sabnzbd": {
         "rate": "Oran",
@@ -159,7 +159,7 @@
         "queries": "Sorgular",
         "blocked": "Engellenen",
         "gravity": "Yer Çekimi",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Engellenen %"
     },
     "adguard": {
         "queries": "Sorgular",
@@ -235,15 +235,15 @@
     "glances": {
         "cpu": "İşlemci",
         "wait": "Lütfen bekleyiniz",
-        "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "temp": "Sıcaklık",
+        "uptime": "Çalışma Süresi",
+        "days": "Gün",
+        "hours": "Saat",
+        "load": "Yük",
+        "warn": "Uyarı",
+        "total": "Toplam",
+        "free": "Boş",
+        "used": "Kullanım"
     },
     "changedetectionio": {
         "totalObserved": "Toplam Gözlenen",
@@ -311,9 +311,9 @@
         "bookmark": "Yer İmi",
         "service": "Hizmet",
         "search": "Ara",
-        "custom": "Custom",
-        "visit": "Visit",
-        "url": "URL"
+        "custom": "Özel",
+        "visit": "Ziyaret",
+        "url": "Link"
     },
     "homebridge": {
         "available_update": "Sistem",
@@ -384,14 +384,14 @@
     "deluge": {
         "download": "İndir",
         "upload": "Yükle",
-        "leech": "Leech",
+        "leech": "Tüketici",
         "seed": "Tohum"
     },
     "flood": {
         "download": "İndir",
         "upload": "Yükle",
-        "leech": "Leech",
-        "seed": "Tohum"
+        "leech": "Tüketici",
+        "seed": "Sağlayıcı"
     },
     "tdarr": {
         "queue": "Sıra",
@@ -421,7 +421,7 @@
     "downloadstation": {
         "download": "İndir",
         "upload": "Yükle",
-        "leech": "Leech",
+        "leech": "Tüketici",
         "seed": "Tohum"
     },
     "mikrotik": {
@@ -448,7 +448,7 @@
         "layers": "Katmanlar"
     },
     "medusa": {
-        "wanted": "Wanted",
+        "wanted": "Aranan",
         "queued": "Kuyrukta",
         "series": "Seri"
     },
@@ -554,11 +554,11 @@
         "targets_total": "Total Targets"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "players": "Oyuncular",
+        "version": "Versiyon",
+        "status": "Durum",
+        "up": "Çevrimiçi",
+        "down": "Çevrimdışı"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",
@@ -577,40 +577,40 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Abonelikler",
+        "unread": "Okunmamış"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "Diziler",
+        "recordings": "Kayıtlar",
+        "scheduled": "Planlanmış",
+        "passes": "Geçilenler"
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
     "tailscale": {
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago",
-        "address": "Address",
-        "expires": "Expires"
+        "never": "Asla",
+        "last_seen": "Son Görülme",
+        "now": "Şimdi",
+        "years": "{{number}} Yıl",
+        "weeks": "{{number}} Hafta",
+        "days": "{{number}} Gün",
+        "hours": "{{number}} Saat",
+        "minutes": "{{number}} Dakika",
+        "seconds": "{{number}} Saniye",
+        "ago": "{{value}} Önce",
+        "address": "Adres",
+        "expires": "Geciken"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "İşlemci Kullanımı",
+        "memUsage": "Bellek Kullanımı",
+        "systemTempC": "Sistem Sıcaklığı",
+        "poolUsage": "Havuz Kullanımı",
+        "volumeUsage": "Alan Kullanımı",
+        "invalid": "Geçersiz"
     },
     "pfsense": {
         "load": "Load Avg",
@@ -623,22 +623,22 @@
         "wanIP": "WAN IP"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Akış",
+        "requests": "Anlık İstekler",
+        "requests_failed": "Başarısız İstekler"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "pv_power": "Üretim",
+        "battery_soc": "Batarya",
+        "grid_power": "Güç",
+        "home_power": "Tüketim",
+        "charge_power": "Şarj",
+        "watt_hour": "Watt/Saat"
     },
     "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "total": "Toplam",
+        "connected": "Bağlandı",
+        "new_devices": "Yeni Cihazlar",
+        "down_alerts": "Düşme Uyarıları"
     }
 }
