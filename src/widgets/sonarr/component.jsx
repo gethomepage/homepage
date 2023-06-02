@@ -60,7 +60,9 @@ export default function Component({ service }) {
           {Array.isArray(queueDetailsData) ? queueDetailsData.map((queueEntry) => (
             <div className="my-0.5 w-full flex flex-col justify-between items-center" key={queueEntry.episodeId}>
               <div className="h-6 w-full flex flex-row justify-between items-center">
-                <div className="overflow-ellipsis whitespace-nowrap overflow-hidden w-3/4 text-left">{seriesData.find((entry) => entry.id === queueEntry.seriesId).title} • {queueEntry.episodeTitle}</div>
+                <div className="w-full mr-5 overflow-hidden">
+                  <div className="whitespace-nowrap text-left w-0">{seriesData.find((entry) => entry.id === queueEntry.seriesId).title} • {queueEntry.episodeTitle}</div>
+                </div>
                 <div>{formatDownloadState(queueEntry.trackedDownloadState)}</div>
               </div>
               <div className="h-6 w-full flex flex-row justify-between items-center">
