@@ -1,5 +1,5 @@
 import genericProxyHandler from "utils/proxy/handlers/generic";
-import { jsonArrayFilter } from "utils/proxy/api-helpers";
+import { asJson, jsonArrayFilter } from "utils/proxy/api-helpers";
 
 const widget = {
   api: "{url}/api/v3/{endpoint}?apikey={key}",
@@ -12,6 +12,7 @@ const widget = {
         wanted: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile && item.isAvailable).length,
         have: jsonArrayFilter(data, (item) => item.hasFile).length,
         missing: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile).length,
+        all: asJson(data),
       }),
     },
     "queue/status": {
@@ -19,6 +20,36 @@ const widget = {
       validate: [
         "totalCount"
       ]
+    },
+    "queue/details": {
+      endpoint: "queue/details",
+      map: (data) => asJson(data).map((entry) => ({
+        trackedDownloadState: entry.trackedDownloadState,
+        trackedDownloadStatus: entry.trackedDownloadStatus,
+        timeLeft: entry.timeleft,
+        size: entry.size,
+        sizeLeft: entry.sizeleft,
+        movieId: entry.movieId
+      })).sort((a, b) => {
+        const downloadingA = a.trackedDownloadState === "downloading"
+        const downloadingB = b.trackedDownloadState === "downloading"
+        if (downloadingA && !downloadingB) {
+          return -1;
+        }
+        if (downloadingB && !downloadingA) {
+          return 1;
+        }
+
+        const percentA = a.sizeLeft / a.size;
+        const percentB = b.sizeLeft / b.size;
+        if (percentA < percentB) {
+          return -1;
+        }
+        if (percentA > percentB) {
+          return 1;
+        }
+        return 0;
+      })
     },
   },
 };

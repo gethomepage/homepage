@@ -15,7 +15,9 @@ export default function Container({ error = false, children, service }) {
     return <Error service={service} error={error} />
   }
 
-  let visibleChildren = children;
+  const childrenArray = Array.isArray(children) ? children : [children];
+
+  let visibleChildren = childrenArray;
   const fields = service?.widget?.fields;
   const type = service?.widget?.type;
   if (fields && type) {
@@ -24,7 +26,7 @@ export default function Container({ error = false, children, service }) {
     // fields: [ "resources.cpu", "resources.mem", "field"]
     // or even
     // fields: [ "resources.cpu", "widget_type.field" ]
-    visibleChildren = children?.filter(child => fields.some(field => {
+    visibleChildren = childrenArray?.filter(child => fields.some(field => {
       let fullField = field;
       if (!field.includes(".")) {
         fullField = `${type}.${field}`;
