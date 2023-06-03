@@ -397,7 +397,7 @@
         "queue": "À traiter",
         "processed": "Traité",
         "errored": "En erreur",
-        "saved": "Economisé"
+        "saved": "Gagné"
     },
     "miniflux": {
         "read": "Lu",
