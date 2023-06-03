@@ -591,36 +591,36 @@
         "updates": "Обновления"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "address": "Адресс",
+        "expires": "Истекает",
+        "never": "Никогда",
+        "last_seen": "Последний Раз",
+        "now": "Сейчас",
+        "years": "{{number}}г",
+        "weeks": "{{number}}н",
+        "days": "{{number}}д",
+        "hours": "{{number}}ч",
+        "minutes": "{{number}}м",
+        "seconds": "{{number}}с",
+        "ago": "{{value}} Назад"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "Использование Процессора",
+        "memUsage": "Использование Памяти",
+        "systemTempC": "Температура Системы",
+        "poolUsage": "Загрузка Пула",
+        "volumeUsage": "Объём Использования",
+        "invalid": "Недействителен"
     },
     "pfsense": {
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP",
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp"
+        "disk": "Использование Диска",
+        "wanIP": "IP ГВС",
+        "load": "Средняя Нагрузка",
+        "memory": "Использование Памяти",
+        "wanStatus": "Статус ГВС",
+        "up": "Онлайн",
+        "down": "Оффлайн",
+        "temp": "Температура"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -628,17 +628,17 @@
         "requests_failed": "Failed requests"
     },
     "evcc": {
-        "home_power": "Consumption",
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "home_power": "Потребление",
+        "pv_power": "Производство",
+        "battery_soc": "Заряд",
+        "grid_power": "Электросеть",
+        "charge_power": "Зарядка",
+        "watt_hour": "Wч"
     },
     "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "total": "Всего",
+        "connected": "Подключено",
+        "new_devices": "Новые Устройства",
+        "down_alerts": "Предупреждения о Сбоях"
     }
 }
