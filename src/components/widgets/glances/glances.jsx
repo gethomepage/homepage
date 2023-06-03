@@ -3,10 +3,15 @@ import { useContext } from "react";
 import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu, FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
-import classNames from "classnames";
 
 import UsageBar from "../resources/usage-bar";
-import Error from "../error";
+import Error from "../widget/error";
+import SingleResource from "../widget/single_resource";
+import WidgetIcon from "../widget/widget_icon";
+import ResourceValue from "../widget/resource_value";
+import ResourceLabel from "../widget/resource_label";
+import Resources from "../widget/resources";
+import WidgetLabel from "../widget/widget_label";
 
 import { SettingsContext } from "utils/contexts/settings";
 
@@ -31,40 +36,33 @@ export default function Widget({ options }) {
   }
 
   if (!data) {
-    return (
-      <div className={classNames(
-        "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap ml-4",
-        options?.styleBoxed === true && " mb-0 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-      )}>
-        <div className="flex flex-row self-center flex-wrap justify-between">
-           <div className="flex-none flex flex-row items-center mr-3 py-1.5">
-            <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-            <div className="flex flex-col ml-3 text-left min-w-[85px]">
-              <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                <div className="pl-0.5 text-xs">
-                  {t("glances.wait")}
-                </div>
-              </div>
-              <UsageBar percent="0" />
-            </div>
-          </div>
-          <div className="flex-none flex flex-row items-center mr-3 py-1.5">
-            <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-            <div className="flex flex-col ml-3 text-left min-w-[85px]">
-              <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                <div className="pl-0.5 text-xs">
-                  {t("glances.wait")}
-                </div>
-              </div>
-              <UsageBar percent="0" />
-            </div>
-          </div>
-        </div>
-        {options.label && (
-          <div className="ml-6 pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">{options.label}</div>
-        )}
-      </div>
-    );
+    return <Resources options={options}>
+      <SingleResource>
+        <WidgetIcon icon={FiCpu} />
+        <ResourceLabel>{t("glances.wait")}</ResourceLabel>
+        <UsageBar percent="0" />
+      </SingleResource>
+      <SingleResource>
+        <WidgetIcon icon={FaMemory} />
+        <ResourceLabel>{t("glances.wait")}</ResourceLabel>
+        <UsageBar percent="0" />
+      </SingleResource>
+      {options.cputemp &&
+        <SingleResource>
+          <WidgetIcon icon={FaThermometerHalf} />
+          <ResourceLabel>{t("glances.wait")}</ResourceLabel>
+          <UsageBar percent="0" />
+        </SingleResource>
+      }
+      {options.uptime &&
+          <SingleResource>
+            <WidgetIcon icon={FaRegClock} />
+            <ResourceLabel>{t("glances.wait")}</ResourceLabel>
+            <UsageBar percent="0" />
+          </SingleResource>
+      }
+      {options.label && <WidgetLabel label={options.label} />}
+    </Resources>;
   }
 
   const unit = options.units === "imperial" ? "fahrenheit" : "celsius";
@@ -94,134 +92,80 @@ export default function Widget({ options }) {
   }
 
   return (
-    <a href={options.url} target={settings.target ?? "_blank"}  className={classNames(
-      "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap",
-      options?.styleBoxed === true && " mb-0 mt-2 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-    )}>
-      <div className="flex flex-row self-center flex-wrap justify-between">
-         <div className="flex-none flex flex-row items-center mr-3 py-1.5">
-          <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-          <div className="flex flex-col ml-3 text-left min-w-[85px]">
-            <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-              <div className="pl-0.5">
-                {t("common.number", {
-                  value: data.cpu.total,
-                  style: "unit",
-                  unit: "percent",
-                  maximumFractionDigits: 0,
-                })}
-              </div>
-              <div className="pr-1">{t("glances.cpu")}</div>
-            </div>
-            {options.expanded && (
-              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                <div className="pl-0.5 pr-1">
-                {t("common.number", {
-                  value: data.load.min15,
-                  style: "unit",
-                  unit: "percent",
-                  maximumFractionDigits: 0,
-                })}
-                </div>
-                <div className="pr-1">{t("glances.load")}</div>
-              </span>
-            )}
-            <UsageBar percent={data.cpu.total} />
-          </div>
-        </div>
-        <div className="flex-none flex flex-row items-center mr-3 py-1.5">
-          <FaMemory className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-          <div className="flex flex-col ml-3 text-left min-w-[85px]">
-            <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-              <div className="pl-0.5">
-                {t("common.bytes", {
-                  value: data.mem.free,
-                  maximumFractionDigits: 1,
-                  binary: true,
-                })}
-              </div>
-              <div className="pr-1">{t("glances.free")}</div>
-            </div>
-            {options.expanded && (
-              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                <div className="pl-0.5 pr-1">
-                  {t("common.bytes", {
-                    value: data.mem.total,
-                    maximumFractionDigits: 1,
-                    binary: true,
-                  })}
-                </div>
-                <div className="pr-1">{t("glances.total")}</div>
-              </span>
-            )}
-            <UsageBar percent={data.mem.percent} />
-          </div>
-        </div>
-        {disks.map((disk) => (
-          <div key={disk.mnt_point} className="flex-none flex flex-row items-center mr-3 py-1.5">
-            <FiHardDrive className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-            <div className="flex flex-col ml-3 text-left min-w-[85px]">
-              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                <div className="pl-0.5">{t("common.bytes", { value: disk.free })}</div>
-                <div className="pr-1">{t("glances.free")}</div>
-              </span>
-              {options.expanded && (
-                <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                  <div className="pl-0.5 pr-1">{t("common.bytes", { value: disk.size })}</div>
-                  <div className="pr-1">{t("glances.total")}</div>
-                </span>
-              )}
-              <UsageBar percent={disk.percent} />
-            </div>
-          </div>))}
-        {options.cputemp && mainTemp > 0 &&
-            (<div className="flex-none flex flex-row items-center mr-3 py-1.5">
-            <FaThermometerHalf className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-            <div className="flex flex-col ml-3 text-left min-w-[85px]">
-              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                <div className="pl-0.5">
-                  {t("common.number", {
-                    value: mainTemp,
-                    maximumFractionDigits: 1,
-                    style: "unit",
-                    unit
-                  })}
-                </div>
-                <div className="pr-1">{t("glances.temp")}</div>
-              </span>
-              {options.expanded && (
-                <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                  <div className="pl-0.5 pr-1">
-                  {t("common.number", {
-                    value: maxTemp,
-                    maximumFractionDigits: 1,
-                    style: "unit",
-                    unit
-                  })}
-                  </div>
-                  <div className="pr-1">{t("glances.warn")}</div>
-                </span>
-              )}
-              <UsageBar percent={tempPercent} />
-            </div>
-          </div>)}
-        {options.uptime && data.uptime &&
-            (<div className="flex-none flex flex-row items-center mr-3 py-1.5">
-            <FaRegClock className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-            <div className="flex flex-col ml-3 text-left min-w-[85px]">
-              <span className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-                <div className="pl-0.5">
-                  {data.uptime.replace(" days,", t("glances.days")).replace(/:\d\d:\d\d$/g, t("glances.hours"))}
-                </div>
-                <div className="pr-1">{t("glances.uptime")}</div>
-              </span>
-              <UsageBar percent={Math.round((new Date().getSeconds() / 60) * 100)} />
-            </div>
-          </div>)}
-      </div>
-      {options.label && (
-        <div className="pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">{options.label}</div>
-      )}
-    </a>
+    <Resources options={options} target={settings.target ?? "_blank"}>
+      <SingleResource>
+        <WidgetIcon icon={FiCpu} />
+        <ResourceValue>{t("common.number", {
+          value: data.cpu.total,
+          style: "unit",
+          unit: "percent",
+          maximumFractionDigits: 0,
+        })}</ResourceValue>
+        <ResourceLabel>{t("glances.cpu")}</ResourceLabel>
+        <ResourceValue>{t("common.number", {
+          value: data.load.min15,
+          style: "unit",
+          unit: "percent",
+          maximumFractionDigits: 0,
+        })}</ResourceValue>
+        <ResourceLabel>{t("glances.load")}</ResourceLabel>
+        <UsageBar percent={data.cpu.total} />
+      </SingleResource>
+      <SingleResource>
+        <WidgetIcon icon={FaMemory} />
+        <ResourceValue>{t("common.bytes", {
+          value: data.mem.free,
+          maximumFractionDigits: 1,
+          binary: true,
+        })}</ResourceValue>
+        <ResourceLabel>{t("glances.free")}</ResourceLabel>
+        <ResourceValue>{t("common.bytes", {
+          value: data.mem.total,
+          maximumFractionDigits: 1,
+          binary: true,
+        })}</ResourceValue>
+        <ResourceLabel>{t("glances.total")}</ResourceLabel>
+        <UsageBar percent={data.mem.percent} />
+      </SingleResource>
+      {disks.map((disk) => (
+        <SingleResource key={disk.mnt_point}>
+          <WidgetIcon icon={FiHardDrive} />
+          <ResourceValue>{t("common.bytes", { value: disk.free })}</ResourceValue>
+          <ResourceLabel>{t("glances.free")}</ResourceLabel>
+          <ResourceValue>{t("common.bytes", { value: disk.size })}</ResourceValue>
+          <ResourceLabel>{t("glances.total")}</ResourceLabel>
+          <UsageBar percent={disk.percent} />
+        </SingleResource>
+      ))}
+      {options.cputemp && mainTemp > 0 &&
+        <SingleResource>
+          <WidgetIcon icon={FaThermometerHalf} />
+          <ResourceValue>{t("common.number", {
+            value: mainTemp,
+            maximumFractionDigits: 1,
+            style: "unit",
+            unit
+          })}</ResourceValue>
+          <ResourceLabel>{t("glances.temp")}</ResourceLabel>
+          <ResourceValue>{t("common.number", {
+            value: maxTemp,
+            maximumFractionDigits: 1,
+            style: "unit",
+            unit
+          })}</ResourceValue>
+          <ResourceLabel>{t("glances.warn")}</ResourceLabel>
+          <UsageBar percent={tempPercent} />
+        </SingleResource>
+      }
+      {options.uptime && data.uptime &&
+        <SingleResource>
+          <WidgetIcon icon={FaRegClock} />
+          <ResourceValue>{data.uptime.replace(" days,", t("glances.days")).replace(/:\d\d:\d\d$/g, t("glances.hours"))}</ResourceValue>
+          <ResourceLabel>{t("glances.uptime")}</ResourceLabel>
+          <UsageBar percent={Math.round((new Date().getSeconds() / 60) * 100)} />
+        </SingleResource>
+      }
+      {options.label && <WidgetLabel label={options.label} />}
+    </Resources>
   );
 }

@@ -1,7 +1,12 @@
 import useSWR from "swr";
 import { FiCpu } from "react-icons/fi";
-import { BiError } from "react-icons/bi";
 import { useTranslation } from "next-i18next";
+
+import SingleResource from "../widget/single_resource";
+import WidgetIcon from "../widget/widget_icon";
+import ResourceValue from "../widget/resource_value";
+import ResourceLabel from "../widget/resource_label";
+import Error from "../widget/error";
 
 import UsageBar from "./usage-bar";
 
@@ -13,67 +18,38 @@ export default function Cpu({ expanded }) {
   });
 
   if (error || data?.error) {
-    return (
-      <div className="flex-none flex flex-row items-center mr-3 py-1.5">
-        <BiError className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-        <div className="flex flex-col ml-3 text-left">
-          <span className="text-theme-800 dark:text-theme-200 text-xs">{t("widget.api_error")}</span>
-        </div>
-      </div>
-    );
+    return <Error />
   }
 
   if (!data) {
-    return (
-      <div className="flex-none flex flex-row items-center mr-3 py-1.5 animate-pulse">
-        <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-        <div className="flex flex-col ml-3 text-left min-w-[85px]">
-          <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-            <div className="pl-0.5 pr-1">-</div>
-            <div className="pr-1">{t("resources.cpu")}</div>
-          </div>
-          {expanded && (
-            <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-              <div className="pl-0.5 pr-1">-</div>
-              <div className="pr-1">{t("resources.load")}</div>
-            </div>
-          )}
-          <UsageBar percent={0} />
-        </div>
-      </div>
-    );
+    return <SingleResource expanded={expanded}>
+      <WidgetIcon icon={FiCpu} />
+      <ResourceValue>-</ResourceValue>
+      <ResourceLabel>{t("resources.cpu")}</ResourceLabel>
+      <ResourceValue>-</ResourceValue>
+      <ResourceLabel>{t("resources.load")}</ResourceLabel>
+      <UsageBar percent={0} />
+    </SingleResource>
   }
 
-  const percent = data.cpu.usage;
-
-  return (
-    <div className="flex-none flex flex-row items-center mr-3 py-1.5">
-      <FiCpu className="text-theme-800 dark:text-theme-200 w-5 h-5" />
-      <div className="flex flex-col ml-3 text-left min-w-[85px]">
-        <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-          <div className="pl-0.5 pr-1">
-            {t("common.number", {
-              value: data.cpu.usage,
-              style: "unit",
-              unit: "percent",
-              maximumFractionDigits: 0,
-            })}
-          </div>
-          <div className="pr-1">{t("resources.cpu")}</div>
-        </div>
-        {expanded && (
-          <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
-            <div className="pl-0.5 pr-1">
-              {t("common.number", {
-                value: data.cpu.load,
-                maximumFractionDigits: 2,
-              })}
-            </div>
-            <div className="pr-1">{t("resources.load")}</div>
-          </div>
-        )}
-        <UsageBar percent={percent} />
-      </div>
-    </div>
-  );
+  return <SingleResource expanded={expanded}>
+    <WidgetIcon icon={FiCpu} />
+    <ResourceValue>
+      {t("common.number", {
+        value: data.cpu.usage,
+        style: "unit",
+        unit: "percent",
+        maximumFractionDigits: 0,
+      })}
+    </ResourceValue>
+    <ResourceLabel>{t("resources.cpu")}</ResourceLabel>
+    <ResourceValue>
+      {t("common.number", {
+        value: data.cpu.load,
+        maximumFractionDigits: 2,
+      })}
+    </ResourceValue>
+    <ResourceLabel>{t("resources.load")}</ResourceLabel>
+    <UsageBar percent={data.cpu.usage} />
+  </SingleResource>
 }

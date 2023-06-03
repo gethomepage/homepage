@@ -1,8 +1,9 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
-import classNames from "classnames";
 
-import Error from "../error";
+import Error from "../widget/error";
+import Container from "../widget/container";
+import Raw from "../widget/raw";
 
 import Node from "./node";
 
@@ -20,7 +21,7 @@ export default function Widget({ options }) {
       used: 0,
       total: 0,
       free: 0,
-      precent: 0
+      percent: 0
     }
   };
 
@@ -35,11 +36,8 @@ export default function Widget({ options }) {
   }
 
   if (!data) {
-    return (
-      <div className={classNames(
-        "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap",
-        options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-      )}>
+    return <Container options={options}>
+      <Raw>
         <div className="flex flex-row self-center flex-wrap justify-between">
           {cluster.show &&
             <Node type="cluster" key="cluster" options={options.cluster} data={defaultData} />
@@ -48,15 +46,12 @@ export default function Widget({ options }) {
             <Node type="node" key="nodes" options={options.nodes} data={defaultData} />
           }
         </div>
-      </div>
-    );
+      </Raw>
+    </Container>;
   }
 
-  return (
-    <div className={classNames(
-      "flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap",
-      options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-    )}>
+  return <Container options={options}>
+    <Raw>
       <div className="flex flex-row self-center flex-wrap justify-between">
         {cluster.show &&
           <Node key="cluster" type="cluster" options={options.cluster} data={data.cluster} />
@@ -66,6 +61,6 @@ export default function Widget({ options }) {
             <Node key={node.name} type="node" options={options.nodes} data={node} />)
         }
       </div>
-    </div>
-  );
+    </Raw>
+  </Container>;
 }
