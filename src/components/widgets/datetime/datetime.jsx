@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
-import classNames from "classnames";
+
+import Container from "../widget/container";
+import Raw from "../widget/raw";
 
 const textSizes = {
   "4xl": "text-4xl",
@@ -28,15 +30,14 @@ export default function DateTime({ options }) {
   }, [date, setDate, dateLocale, format]);
 
   return (
-    <div className={classNames(
-      "flex flex-col justify-center first:ml-0 ml-4",
-      options?.styleBoxed === true && " mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-    )}>
-      <div className="flex flex-row items-center grow justify-end">
-        <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>
-          {date}
-        </span>
-      </div>
-    </div>
+    <Container options={options}>
+      <Raw>
+        <div className="flex flex-row items-center grow justify-end">
+          <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>
+            {date}
+          </span>
+        </div>
+      </Raw>
+    </Container>
   );
 }

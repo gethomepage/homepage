@@ -1,14 +1,13 @@
-import classNames from "classnames";
+import Container from "../widget/container";
+import Raw from "../widget/raw";
 
 import ResolvedIcon from "components/resolvedicon"
 
 export default function Logo({ options }) {
   return (
-    <div className={classNames(
-      "w-12 h-12 flex flex-row items-center align-middle mr-3 self-center",
-      options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-    )}>
-      {options.icon ?
+    <Container options={options}>
+      <Raw>
+        {options.icon ?
         <ResolvedIcon icon={options.icon} width={48} height={48} /> :
         // fallback to homepage logo
         <svg
@@ -62,6 +61,7 @@ export default function Logo({ options }) {
           </g>
         </svg>
       }
-    </div>
+      </Raw>
+    </Container>
   )
 }

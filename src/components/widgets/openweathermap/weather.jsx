@@ -3,11 +3,16 @@ import { useState } from "react";
 import { WiCloudDown } from "react-icons/wi";
 import { MdLocationDisabled, MdLocationSearching } from "react-icons/md";
 import { useTranslation } from "next-i18next";
-import classNames from "classnames";
 
-import Error from "../error";
+import Error from "../widget/error";
+import Container from "../widget/container";
+import ContainerButton from "../widget/container_button";
+import PrimaryText from "../widget/primary_text";
+import SecondaryText from "../widget/secondary_text";
+import WidgetIcon from "../widget/widget_icon";
 
 import Icon from "./icon";
+
 
 function Widget({ options }) {
   const { t, i18n } = useTranslation();
@@ -21,48 +26,26 @@ function Widget({ options }) {
   }
 
   if (!data) {
-    return (
-      <div className={classNames(
-        "flex flex-col justify-center first:ml-auto ml-4 mr-2",
-        options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-      )}>
-        <div className="flex flex-row items-center justify-end">
-          <div className="hidden sm:flex flex-col items-center">
-            <WiCloudDown className="w-8 h-8 text-theme-800 dark:text-theme-200" />
-          </div>
-          <div className="flex flex-col ml-3 text-left">
-            <span className="text-theme-800 dark:text-theme-200 text-sm">{t("weather.updating")}</span>
-            <span className="text-theme-800 dark:text-theme-200 text-xs">{t("weather.wait")}</span>
-          </div>
-        </div>
-      </div>
-    );
+    return <Container options={options}>
+      <PrimaryText>{t("weather.updating")}</PrimaryText>
+      <SecondaryText>{t("weather.wait")}</SecondaryText>
+      <WidgetIcon icon={WiCloudDown} size="l" />
+    </Container>;
   }
 
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
 
-  return (
-    <div className={classNames(
-      "flex flex-col justify-center first:ml-auto ml-2 mr-2",
-      options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-    )}>
-      <div className="flex flex-row items-center justify-end">
-        <div className="hidden sm:flex flex-col items-center">
-          <Icon
-            condition={data.weather[0].id}
-            timeOfDay={data.dt > data.sys.sunrise && data.dt < data.sys.sunset ? "day" : "night"}
-          />
-        </div>
-        <div className="flex flex-col ml-3 text-left">
-          <span className="text-theme-800 dark:text-theme-200 text-sm">
-            {options.label && `${options.label}, `}
-            {t("common.number", { value: data.main.temp, style: "unit", unit })}
-          </span>
-          <span className="text-theme-800 dark:text-theme-200 text-xs">{data.weather[0].description}</span>
-        </div>
-      </div>
-    </div>
-  );
+  const weatherInfo = {
+    condition: data.weather[0].id,
+    timeOfDay: data.dt > data.sys.sunrise && data.dt < data.sys.sunset ? "day" : "night"
+  };
+
+  return <Container options={options}>
+    <PrimaryText>{options.label && `${options.label}, `}</PrimaryText>
+    <PrimaryText>{t("common.number", { value: data.main.temp, style: "unit", unit })}</PrimaryText>
+    <SecondaryText>{data.weather[0].description}</SecondaryText>
+    <WidgetIcon icon={Icon} size="xl" weatherInfo={weatherInfo} />
+  </Container>;
 }
 
 export default function OpenWeatherMap({ options }) {
@@ -94,33 +77,12 @@ export default function OpenWeatherMap({ options }) {
     }
   };
 
-  // if (!requesting && !location) requestLocation();
-
   if (!location) {
-    return (
-      <button
-        type="button"
-        onClick={() => requestLocation()}
-        className={classNames(
-          "flex flex-col justify-center first:ml-auto ml-4 mr-2",
-          options?.styleBoxed === true && " ml-4 mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-        )}
-      >
-        <div className="flex flex-row items-center justify-end">
-          <div className="hidden sm:flex flex-col items-center">
-            {requesting ? (
-              <MdLocationSearching className="w-6 h-6 text-theme-800 dark:text-theme-200 animate-pulse" />
-            ) : (
-              <MdLocationDisabled className="w-6 h-6 text-theme-800 dark:text-theme-200" />
-            )}
-          </div>
-          <div className="flex flex-col ml-3 text-left">
-            <span className="text-theme-800 dark:text-theme-200 text-sm">{t("weather.current")}</span>
-            <span className="text-theme-800 dark:text-theme-200 text-xs">{t("weather.allow")}</span>
-          </div>
-        </div>
-      </button>
-    );
+    return <ContainerButton options={options} callback={requestLocation} >
+      <PrimaryText>{t("weather.current")}</PrimaryText>
+      <SecondaryText>{t("weather.allow")}</SecondaryText>
+      <WidgetIcon icon={requesting ? MdLocationSearching : MdLocationDisabled} size="m" pulse />
+    </ContainerButton>;
   }
 
   return <Widget options={{ ...location, ...options }} />;
