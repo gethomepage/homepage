@@ -2,13 +2,8 @@ import useSWR from "swr";
 import { FaMemory } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
 
-import SingleResource from "../widget/single_resource";
-import WidgetIcon from "../widget/widget_icon";
-import ResourceValue from "../widget/resource_value";
-import ResourceLabel from "../widget/resource_label";
+import Resource from "../widget/resource";
 import Error from "../widget/error";
-
-import UsageBar from "./usage-bar";
 
 export default function Memory({ expanded }) {
   const { t } = useTranslation();
@@ -22,30 +17,26 @@ export default function Memory({ expanded }) {
   }
 
   if (!data) {
-    return <SingleResource expanded={expanded}>
-      <WidgetIcon icon={FaMemory} />
-      <ResourceValue>-</ResourceValue>
-      <ResourceLabel>{t("resources.free")}</ResourceLabel>
-      <ResourceValue>-</ResourceValue>
-      <ResourceLabel>{t("resources.total")}</ResourceLabel>
-      <UsageBar percent={0} />
-    </SingleResource>;
+    return <Resource
+      icon={FaMemory}
+      value="-"
+      label={t("resources.free")}
+      expandedValue="-"
+      expandedLabel={t("resources.total")}
+      expanded={expanded}
+      percentage="0"
+    />;
   }
 
   const percent = Math.round((data.memory.active / data.memory.total) * 100);
 
-  return <SingleResource expanded={expanded}>
-    <WidgetIcon icon={FaMemory} />
-    <ResourceValue>{t("common.bytes", { value: data.memory.available, maximumFractionDigits: 1, binary: true })}</ResourceValue>
-    <ResourceLabel>{t("resources.free")}</ResourceLabel>
-    <ResourceValue>
-      {t("common.bytes", {
-        value: data.memory.total,
-        maximumFractionDigits: 1,
-        binary: true,
-      })}
-    </ResourceValue>
-    <ResourceLabel>{t("resources.total")}</ResourceLabel>
-    <UsageBar percent={percent} />
-  </SingleResource>;
+  return <Resource
+    icon={FaMemory}
+    value={t("common.bytes", { value: data.memory.available, maximumFractionDigits: 1, binary: true })}
+    label={t("resources.free")}
+    expandedValue={t("common.bytes", { value: data.memory.total, maximumFractionDigits: 1, binary: true })}
+    expandedLabel={t("resources.total")}
+    percentage={percent}
+    expanded={expanded}
+  />;
 }

@@ -4,12 +4,8 @@ import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu, FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
 
-import UsageBar from "../resources/usage-bar";
 import Error from "../widget/error";
-import SingleResource from "../widget/single_resource";
-import WidgetIcon from "../widget/widget_icon";
-import ResourceValue from "../widget/resource_value";
-import ResourceLabel from "../widget/resource_label";
+import Resource from "../widget/resource";
 import Resources from "../widget/resources";
 import WidgetLabel from "../widget/widget_label";
 
@@ -37,31 +33,11 @@ export default function Widget({ options }) {
 
   if (!data) {
     return <Resources options={options}>
-      <SingleResource>
-        <WidgetIcon icon={FiCpu} />
-        <ResourceLabel>{t("glances.wait")}</ResourceLabel>
-        <UsageBar percent="0" />
-      </SingleResource>
-      <SingleResource>
-        <WidgetIcon icon={FaMemory} />
-        <ResourceLabel>{t("glances.wait")}</ResourceLabel>
-        <UsageBar percent="0" />
-      </SingleResource>
-      {options.cputemp &&
-        <SingleResource>
-          <WidgetIcon icon={FaThermometerHalf} />
-          <ResourceLabel>{t("glances.wait")}</ResourceLabel>
-          <UsageBar percent="0" />
-        </SingleResource>
-      }
-      {options.uptime &&
-          <SingleResource>
-            <WidgetIcon icon={FaRegClock} />
-            <ResourceLabel>{t("glances.wait")}</ResourceLabel>
-            <UsageBar percent="0" />
-          </SingleResource>
-      }
-      {options.label && <WidgetLabel label={options.label} />}
+      <Resource icon={FiCpu} label={t("glances.wait")} percentage="0" />
+      <Resource icon={FaMemory} label={t("glances.wait")} percentage="0" />
+      { options.cputemp && <Resource icon={FaThermometerHalf} label={t("glances.wait")} percentage="0" /> }
+      { options.uptime && <Resource icon={FaRegClock} label={t("glances.wait")} percentage="0" /> }
+      { options.label && <WidgetLabel label={options.label} /> }
     </Resources>;
   }
 
@@ -93,77 +69,81 @@ export default function Widget({ options }) {
 
   return (
     <Resources options={options} target={settings.target ?? "_blank"}>
-      <SingleResource>
-        <WidgetIcon icon={FiCpu} />
-        <ResourceValue>{t("common.number", {
+      <Resource
+        icon={FiCpu}
+        value={t("common.number", {
           value: data.cpu.total,
           style: "unit",
           unit: "percent",
           maximumFractionDigits: 0,
-        })}</ResourceValue>
-        <ResourceLabel>{t("glances.cpu")}</ResourceLabel>
-        <ResourceValue>{t("common.number", {
+        })}
+        label={t("glances.cpu")}
+        expandedValue={t("common.number", {
           value: data.load.min15,
           style: "unit",
           unit: "percent",
-          maximumFractionDigits: 0,
-        })}</ResourceValue>
-        <ResourceLabel>{t("glances.load")}</ResourceLabel>
-        <UsageBar percent={data.cpu.total} />
-      </SingleResource>
-      <SingleResource>
-        <WidgetIcon icon={FaMemory} />
-        <ResourceValue>{t("common.bytes", {
+          maximumFractionDigits: 0
+        })}
+        expandedLabel={t("glances.load")}
+        percentage={data.cpu.total}
+        expanded={options.expanded}
+      />
+      <Resource
+        icon={FaMemory}
+        value={t("common.bytes", {
           value: data.mem.free,
           maximumFractionDigits: 1,
           binary: true,
-        })}</ResourceValue>
-        <ResourceLabel>{t("glances.free")}</ResourceLabel>
-        <ResourceValue>{t("common.bytes", {
+        })}
+        label={t("glances.free")}
+        expandedValue={t("common.bytes", {
           value: data.mem.total,
           maximumFractionDigits: 1,
           binary: true,
-        })}</ResourceValue>
-        <ResourceLabel>{t("glances.total")}</ResourceLabel>
-        <UsageBar percent={data.mem.percent} />
-      </SingleResource>
+        })}
+        expandedLabel={t("glances.total")}
+        percentage={data.mem.percent}
+        expanded={options.expanded}
+      />
       {disks.map((disk) => (
-        <SingleResource key={disk.mnt_point}>
-          <WidgetIcon icon={FiHardDrive} />
-          <ResourceValue>{t("common.bytes", { value: disk.free })}</ResourceValue>
-          <ResourceLabel>{t("glances.free")}</ResourceLabel>
-          <ResourceValue>{t("common.bytes", { value: disk.size })}</ResourceValue>
-          <ResourceLabel>{t("glances.total")}</ResourceLabel>
-          <UsageBar percent={disk.percent} />
-        </SingleResource>
+        <Resource key={disk.mnt_point}
+          icon={FiHardDrive}
+          value={t("common.bytes", { value: disk.free })}
+          label={t("glances.free")}
+          expandedValue={t("common.bytes", { value: disk.size })}
+          expandedLabel={t("glances.total")}
+          percentage={disk.percent}
+          expanded={options.expanded}
+        />
       ))}
       {options.cputemp && mainTemp > 0 &&
-        <SingleResource>
-          <WidgetIcon icon={FaThermometerHalf} />
-          <ResourceValue>{t("common.number", {
+        <Resource
+          icon={FaThermometerHalf}
+          value={t("common.number", {
             value: mainTemp,
             maximumFractionDigits: 1,
             style: "unit",
             unit
-          })}</ResourceValue>
-          <ResourceLabel>{t("glances.temp")}</ResourceLabel>
-          <ResourceValue>{t("common.number", {
+          })}
+          label={t("glances.temp")}
+          expandedValue={t("common.number", {
             value: maxTemp,
             maximumFractionDigits: 1,
             style: "unit",
             unit
-          })}</ResourceValue>
-          <ResourceLabel>{t("glances.warn")}</ResourceLabel>
-          <UsageBar percent={tempPercent} />
-        </SingleResource>
+          })}
+          expandedLabel={t("glances.warn")}
+          percentage={tempPercent}
+          expanded={options.expanded}
+        />
       }
       {options.uptime && data.uptime &&
-        <SingleResource>
-          <WidgetIcon icon={FaRegClock} />
-          <ResourceValue>{data.uptime.replace(" days,", t("glances.days")).replace(/:\d\d:\d\d$/g, t("glances.hours"))}</ResourceValue>
-          <ResourceLabel>{t("glances.uptime")}</ResourceLabel>
-          <UsageBar percent={Math.round((new Date().getSeconds() / 60) * 100)} />
-        </SingleResource>
+        <Resource
+          icon={FaRegClock}
+          value={data.uptime.replace(" days,", t("glances.days")).replace(/:\d\d:\d\d$/g, t("glances.hours"))}
+          label={t("glances.uptime")}
+          percentage={Math.round((new Date().getSeconds() / 60) * 100).toString()}
+        />
       }
       {options.label && <WidgetLabel label={options.label} />}
     </Resources>
