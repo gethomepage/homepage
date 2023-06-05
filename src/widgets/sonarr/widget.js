@@ -35,7 +35,8 @@ const widget = {
         sizeLeft: entry.sizeleft,
         seriesId: entry.seriesId,
         episodeTitle: entry.episode?.title,
-        episodeId: entry.episodeId
+        episodeId: entry.episodeId,
+        status: entry.status
       })).sort((a, b) => {
         const downloadingA = a.trackedDownloadState === "downloading"
         const downloadingB = b.trackedDownloadState === "downloading"

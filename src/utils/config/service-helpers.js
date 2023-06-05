@@ -168,7 +168,7 @@ export async function servicesFromKubernetes() {
       .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`])
       ingressList.items.push(...traefikServices);
     }
-    
+
     if (!ingressList) {
       return [];
     }
@@ -276,7 +276,8 @@ export function cleanServiceGroups(groups) {
           wan, // opnsense widget, pfsense widget
           enableBlocks, // emby/jellyfin
           enableNowPlaying,
-          volume, // diskstation widget
+          volume, // diskstation widget,
+          enableQueue, // sonarr/radarr
         } = cleanedService.widget;
 
         const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
@@ -311,6 +312,9 @@ export function cleanServiceGroups(groups) {
         if (["emby", "jellyfin"].includes(type)) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
+        }
+        if (["sonarr", "radarr"].includes(type)) {
+          if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;

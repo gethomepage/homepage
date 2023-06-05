@@ -1,6 +1,7 @@
 import { useTranslation } from "next-i18next";
 import { useCallback } from 'react';
-import classNames from 'classnames';
+
+import QueueEntry from "../../components/widgets/queue/queueEntry";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
@@ -32,6 +33,8 @@ export default function Component({ service }) {
     return <Container service={service} error={finalError} />;
   }
 
+  const enableQueue = widget?.enableQueue;
+
   if (!moviesData || !queuedData || !queueDetailsData) {
     return (
       <>
@@ -41,9 +44,11 @@ export default function Component({ service }) {
           <Block label="radarr.queued" />
           <Block label="radarr.movies" />
         </Container>
-        <Container service={service}>
-          <BlockList label="radarr.queued" />
-        </Container>
+        { enableQueue &&
+          <Container service={service}>
+            <BlockList label="radarr.queued" />
+          </Container>
+        }
       </>
     );
   }
@@ -56,34 +61,22 @@ export default function Component({ service }) {
         <Block label="radarr.queued" value={t("common.number", { value: queuedData.totalCount })} />
         <Block label="radarr.movies" value={t("common.number", { value: moviesData.have })} />
       </Container>
-      <Container service={service}>
-        <BlockList label="radarr.queued" childHeight={52}>
-          {Array.isArray(queueDetailsData) ? queueDetailsData.map((queueEntry) => (
-            <div className="my-0.5 w-full flex flex-col justify-between items-center" key={queueEntry.movieId}>
-              <div className="h-6 w-full flex flex-row justify-between items-center">
-                <div className="w-full mr-5 overflow-hidden">
-                  <div className="whitespace-nowrap w-0 text-left">{moviesData.all.find((entry) => entry.id === queueEntry.movieId)?.title}</div>
-                </div>
-                <div>{formatDownloadState(queueEntry.trackedDownloadState)}</div>
-              </div>
-              <div className="h-6 w-full flex flex-row justify-between items-center">
-                <div className="mr-5 w-full bg-theme-800/30 rounded-full h-full dark:bg-theme-200/20">
-                  <div
-                    className={classNames(
-                      "h-full rounded-full transition-all duration-1000",
-                      queueEntry.trackedDownloadStatus === "ok" ? "bg-blue-500/80" : "bg-orange-500/80"
-                    )}
-                    style={{
-                      width: `${(1 - queueEntry.sizeLeft / queueEntry.size) * 100}%`,
-                    }}
-                  />
-                </div>
-                <div className="w-24 text-right">{queueEntry.timeLeft}</div>
-              </div>
-            </div>
-          )) : undefined}
-        </BlockList>
-      </Container>
+      { enableQueue &&
+        <Container service={service}>
+          <BlockList label="radarr.queue" childHeight={24}>
+            {Array.isArray(queueDetailsData) ? queueDetailsData.map((queueEntry) => (
+              <QueueEntry
+                progress={(1 - queueEntry.sizeLeft / queueEntry.size) * 100}
+                status={queueEntry.status}
+                timeLeft={queueEntry.timeLeft}
+                title={moviesData.all.find((entry) => entry.id === queueEntry.movieId)?.title}
+                activity={formatDownloadState(queueEntry.trackedDownloadState)}
+                key={queueEntry.movieId}
+              />
+            )) : undefined}
+          </BlockList>
+        </Container>
+      }
     </>
   );
 }
