@@ -2,13 +2,8 @@ import useSWR from "swr";
 import { FaThermometerHalf } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
 
-import SingleResource from "../widget/single_resource";
-import WidgetIcon from "../widget/widget_icon";
-import ResourceValue from "../widget/resource_value";
-import ResourceLabel from "../widget/resource_label";
+import Resource from "../widget/resource";
 import Error from "../widget/error";
-
-import UsageBar from "./usage-bar";
 
 function convertToFahrenheit(t) {
   return t * 9/5 + 32
@@ -26,13 +21,14 @@ export default function CpuTemp({ expanded, units }) {
   }
 
   if (!data || !data.cputemp) {
-    return <SingleResource expanded={expanded}>
-      <WidgetIcon icon={FaThermometerHalf} />
-      <ResourceValue>-</ResourceValue>
-      <ResourceLabel>{t("resources.temp")}</ResourceLabel>
-      <ResourceValue>-</ResourceValue>
-      <ResourceLabel>{t("resources.max")}</ResourceLabel>
-    </SingleResource>
+    return <Resource
+      icon={FaThermometerHalf}
+      value="-"
+      label={t("resources.temp")}
+      expandedValue="-"
+      expandedLabel={t("resources.max")}
+      expanded={expanded}
+    />;
   }
 
   let mainTemp = data.cputemp.main;
@@ -43,26 +39,23 @@ export default function CpuTemp({ expanded, units }) {
   mainTemp = (unit === "celsius") ? mainTemp : convertToFahrenheit(mainTemp);
   const maxTemp = (unit === "celsius") ? data.cputemp.max : convertToFahrenheit(data.cputemp.max);
 
-  return <SingleResource expanded={expanded}>
-    <WidgetIcon icon={FaThermometerHalf} />
-    <ResourceValue>
-      {t("common.number", {
-        value: mainTemp,
-        maximumFractionDigits: 1,
-        style: "unit",
-        unit
-      })}
-    </ResourceValue>
-    <ResourceLabel>{t("resources.temp")}</ResourceLabel>
-    <ResourceValue>
-      {t("common.number", {
-        value: maxTemp,
-        maximumFractionDigits: 1,
-        style: "unit",
-        unit
-      })}
-    </ResourceValue>
-    <ResourceLabel>{t("resources.max")}</ResourceLabel>
-    <UsageBar percent={Math.round((mainTemp / maxTemp) * 100)} />
-  </SingleResource>;
+  return  <Resource
+    icon={FaThermometerHalf}
+    value={t("common.number", {
+      value: mainTemp,
+      maximumFractionDigits: 1,
+      style: "unit",
+      unit
+    })}
+    label={t("resources.temp")}
+    expandedValue={t("common.number", {
+      value: maxTemp,
+      maximumFractionDigits: 1,
+      style: "unit",
+      unit
+    })}
+    expandedLabel={t("resources.max")}
+    percentage={Math.round((mainTemp / maxTemp) * 100)}
+    expanded={expanded}
+  />;
 }

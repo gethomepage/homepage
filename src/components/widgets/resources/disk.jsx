@@ -2,13 +2,8 @@ import useSWR from "swr";
 import { FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
 
-import SingleResource from "../widget/single_resource";
-import WidgetIcon from "../widget/widget_icon";
-import ResourceValue from "../widget/resource_value";
-import ResourceLabel from "../widget/resource_label";
+import Resource from "../widget/resource";
 import Error from "../widget/error";
-
-import UsageBar from "./usage-bar";
 
 export default function Disk({ options, expanded }) {
   const { t } = useTranslation();
@@ -22,25 +17,27 @@ export default function Disk({ options, expanded }) {
   }
 
   if (!data) {
-    return <SingleResource expanded={expanded}>
-      <WidgetIcon icon={FiHardDrive} />
-      <ResourceValue>-</ResourceValue>
-      <ResourceLabel>{t("resources.free")}</ResourceLabel>
-      <ResourceValue>-</ResourceValue>
-      <ResourceLabel>{t("resources.total")}</ResourceLabel>
-      <UsageBar percent={0} />
-    </SingleResource>;
+    return <Resource
+      icon={FiHardDrive}
+      value="-"
+      label={t("resources.free")}
+      expandedValue="-"
+      expandedLabel={t("resources.total")}
+      expanded={expanded}
+      percentage="0"
+    />;
   }
 
   // data.drive.used not accurate?
   const percent = Math.round(((data.drive.size - data.drive.available) / data.drive.size) * 100);
 
-  return <SingleResource expanded={expanded}>
-    <WidgetIcon icon={FiHardDrive} />
-    <ResourceValue>{t("common.bytes", { value: data.drive.available })}</ResourceValue>
-    <ResourceLabel>{t("resources.free")}</ResourceLabel>
-    <ResourceValue>{t("common.bytes", { value: data.drive.size })}</ResourceValue>
-    <ResourceLabel>{t("resources.total")}</ResourceLabel>
-    <UsageBar percent={percent} />
-  </SingleResource>;
+  return <Resource
+    icon={FiHardDrive}
+    value={t("common.bytes", { value: data.drive.available })}
+    label={t("resources.free")}
+    expandedValue={t("common.bytes", { value: data.drive.size })}
+    expandedLabel={t("resources.total")}
+    percentage={percent}
+    expanded={expanded}
+  />;
 }

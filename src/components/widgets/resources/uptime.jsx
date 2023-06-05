@@ -2,13 +2,8 @@ import useSWR from "swr";
 import { FaRegClock } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
 
-import SingleResource from "../widget/single_resource";
-import WidgetIcon from "../widget/widget_icon";
-import ResourceValue from "../widget/resource_value";
-import ResourceLabel from "../widget/resource_label";
+import Resource from "../widget/resource";
 import Error from "../widget/error";
-
-import UsageBar from "./usage-bar";
 
 export default function Uptime() {
   const { t } = useTranslation();
@@ -22,11 +17,7 @@ export default function Uptime() {
   }
 
   if (!data) {
-    return <SingleResource>
-      <WidgetIcon icon={FaRegClock} />
-      <ResourceValue>-</ResourceValue>
-      <ResourceLabel>{t("resources.uptime")}</ResourceLabel>
-    </SingleResource>;
+    return <Resource icon={FaRegClock} value="-" label={t("resources.uptime")} percentage="0" />;
   }
 
   const mo = Math.floor(data.uptime / (3600 * 24 * 31));
@@ -39,12 +30,7 @@ export default function Uptime() {
   else if (d > 0) uptime = `${d}${t("resources.days")} ${h}${t("resources.hours")}`;
   else uptime = `${h}${t("resources.hours")} ${m}${t("resources.minutes")}`;
 
-  const percent = Math.round((new Date().getSeconds() / 60) * 100);
+  const percent = Math.round((new Date().getSeconds() / 60) * 100).toString();
 
-  return <SingleResource>
-    <WidgetIcon icon={FaRegClock} />
-    <ResourceValue>{uptime}</ResourceValue>
-    <ResourceLabel>{t("resources.uptime")}</ResourceLabel>
-    <UsageBar percent={percent} />
-  </SingleResource>;
+  return <Resource icon={FaRegClock} value={uptime} label={t("resources.uptime")} percentage={percent} />;
 }
