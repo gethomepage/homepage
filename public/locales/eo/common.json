@@ -131,13 +131,17 @@
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Serio"
+        "series": "Serio",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Filmoj"
+        "movies": "Filmoj",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Wanted",
