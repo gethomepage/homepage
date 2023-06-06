@@ -273,13 +273,17 @@
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series"
+        "series": "Series",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Movies"
+        "movies": "Movies",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Wanted",
