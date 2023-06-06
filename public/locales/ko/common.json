@@ -163,13 +163,17 @@
     "sonarr": {
         "wanted": "요청",
         "queued": "대기 중",
-        "series": "시리즈"
+        "series": "시리즈",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "요청",
         "missing": "빠짐",
         "queued": "대기 중",
-        "movies": "영화"
+        "movies": "영화",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "요청",
