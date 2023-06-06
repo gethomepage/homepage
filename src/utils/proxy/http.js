@@ -1,5 +1,7 @@
 /* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable no-param-reassign */
+import { createUnzip } from "node:zlib";
+
 import { http, https } from "follow-redirects";
 
 import { addCookieToJar, setCookieHeader } from "./cookie-jar";
@@ -28,12 +30,19 @@ function handleRequest(requestor, url, params) {
 
     const request = requestor.request(url, params, (response) => {
       const data = [];
+      const contentEncoding = response.headers['content-encoding']?.trim().toLowerCase();
 
-      response.on("data", (chunk) => {
+      let responseContent = response;
+      if (contentEncoding === 'gzip' || contentEncoding === 'deflate') {
+        responseContent = createUnzip();
+        response.pipe(responseContent);
+      }
+
+      responseContent.on("data", (chunk) => {
         data.push(chunk);
       });
 
-      response.on("end", () => {
+      responseContent.on("end", () => {
         addCookieToJar(url, response.headers);
         resolve([response.statusCode, response.headers["content-type"], Buffer.concat(data), response.headers]);
       });
