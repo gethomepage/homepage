@@ -66,13 +66,17 @@
     "sonarr": {
         "wanted": "想看",
         "queued": "排队",
-        "series": "系列"
+        "series": "系列",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "想看",
         "queued": "队列",
         "movies": "电影",
-        "missing": "丢失"
+        "missing": "丢失",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "订阅",
