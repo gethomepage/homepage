@@ -117,13 +117,17 @@
     "sonarr": {
         "wanted": "Aranan",
         "queued": "Kuyrukta",
-        "series": "Seriler"
+        "series": "Seriler",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Aranan",
         "queued": "Kuyrukta",
         "movies": "Filmler",
-        "missing": "Kayıp"
+        "missing": "Kayıp",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Aranan",
