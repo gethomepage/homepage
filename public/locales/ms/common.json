@@ -233,13 +233,17 @@
     "sonarr": {
         "wanted": "Mahu",
         "queued": "Dibaris Gilir",
-        "series": "Bersiri"
+        "series": "Bersiri",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Mahu",
         "missing": "Hilang",
         "queued": "Dibaris Gilir",
-        "movies": "Filem"
+        "movies": "Filem",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "bazarr": {
         "missingEpisodes": "Episod Yang Hilang",
