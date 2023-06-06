@@ -9,7 +9,9 @@
         "queued": "I Kø",
         "movies": "Film",
         "wanted": "Ønskede",
-        "missing": "Mangler"
+        "missing": "Mangler",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Ønsket",
@@ -264,7 +266,9 @@
     "sonarr": {
         "wanted": "Ønsket",
         "queued": "I Kø",
-        "series": "Serier"
+        "series": "Serier",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Ønskede",
