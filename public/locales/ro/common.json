@@ -134,13 +134,17 @@
     "sonarr": {
         "wanted": "Dorite",
         "queued": "În coadă",
-        "series": "Seriale"
+        "series": "Seriale",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "queued": "În coadă",
         "wanted": "Dorite",
         "movies": "Filme",
-        "missing": "Missing"
+        "missing": "Missing",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Dorite",
