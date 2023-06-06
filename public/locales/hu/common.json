@@ -108,13 +108,17 @@
     "sonarr": {
         "wanted": "Keresett",
         "queued": "Sorban áll",
-        "series": "Sorozat"
+        "series": "Sorozat",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Keresett",
         "queued": "Sorban áll",
         "movies": "Filmek",
-        "missing": "Missing"
+        "missing": "Missing",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "ombi": {
         "pending": "Függőben",
