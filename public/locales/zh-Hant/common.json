@@ -88,12 +88,16 @@
         "movies": "電影",
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "missing": "缺少"
+        "missing": "缺少",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "sonarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "series": "影集"
+        "series": "影集",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "關注中",
