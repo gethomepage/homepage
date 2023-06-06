@@ -111,13 +111,17 @@
     "sonarr": {
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
-        "series": "సిరీస్"
+        "series": "సిరీస్",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
         "movies": "సినిమాలు",
-        "missing": "మిస్సింగ్"
+        "missing": "మిస్సింగ్",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "కావలెను",
