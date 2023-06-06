@@ -29,9 +29,6 @@ module.exports = {
         '3xl': '1800px',
         // => @media (min-width: 1800px) { ... }
       },
-      transitionProperty: {
-        'height': 'height'
-      },
     },
   },
   plugins: [tailwindForms, tailwindScrollbars],

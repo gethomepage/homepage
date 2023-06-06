@@ -195,14 +195,16 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "series": "Series",
-        "queue": "Queue"
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
         "movies": "Movies",
-        "queue": "Queue"
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Wanted",

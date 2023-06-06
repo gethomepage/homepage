@@ -6,7 +6,20 @@ import QueueEntry from "../../components/widgets/queue/queueEntry";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import BlockList from 'components/services/widget/block-list';
+
+function getProgress(sizeLeft, size) {
+  return sizeLeft === 0 ? 100 : (1 - sizeLeft / size) * 100
+}
+
+function getTitle(queueEntry, seriesData) {
+  let title = ''
+  const seriesTitle = seriesData.find((entry) => entry.id === queueEntry.seriesId)?.title;
+  if (seriesTitle) title += `${seriesTitle}: `;
+  const { episodeTitle } = queueEntry;
+  if (episodeTitle) title += episodeTitle;
+  if (title === '') return null;
+  return title;
+}
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -17,7 +30,6 @@ export default function Component({ service }) {
   const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "series");
   const { data: queueDetailsData, error: queueDetailsError } = useWidgetAPI(widget, "queue/details");
 
-  // information taken from the Sonarr docs: https://sonarr.tv/docs/api/
   const formatDownloadState = useCallback((downloadState) => {
     switch (downloadState) {
       case "importPending":
@@ -34,24 +46,17 @@ export default function Component({ service }) {
     return <Container service={service} error={finalError} />;
   }
 
-  const enableQueue = widget?.enableQueue;
-
   if (!wantedData || !queuedData || !seriesData || !queueDetailsData) {
     return (
-      <>
-        <Container service={service}>
-          <Block label="sonarr.wanted" />
-          <Block label="sonarr.queued" />
-          <Block label="sonarr.series" />
-        </Container>
-        { enableQueue &&
-          <Container service={service}>
-            <BlockList label="sonarr.queued" />
-          </Container>
-        }
-      </>
+      <Container service={service}>
+        <Block label="sonarr.wanted" />
+        <Block label="sonarr.queued" />
+        <Block label="sonarr.series" />
+      </Container>
     );
   }
+
+  const enableQueue = widget?.enableQueue && Array.isArray(queueDetailsData) && queueDetailsData.length > 0;
 
   return (
     <>
@@ -60,21 +65,16 @@ export default function Component({ service }) {
         <Block label="sonarr.queued" value={t("common.number", { value: queuedData.totalRecords })} />
         <Block label="sonarr.series" value={t("common.number", { value: seriesData.length })} />
       </Container>
-      { enableQueue &&
-        <Container service={service}>
-          <BlockList label="sonarr.queue" childHeight={24}>
-            {Array.isArray(queueDetailsData) ? queueDetailsData.map((queueEntry) => (
-              <QueueEntry
-                progress={(1 - queueEntry.sizeLeft / queueEntry.size) * 100}
-                status={queueEntry.status}
-                timeLeft={queueEntry.timeLeft}
-                title={`${seriesData.find((entry) => entry.id === queueEntry.seriesId)?.title  } • ${  queueEntry.episodeTitle}`}
-                activity={formatDownloadState(queueEntry.trackedDownloadState)}
-                key={queueEntry.episodeId}
-              />
-            )) : undefined}
-          </BlockList>
-        </Container>
+      {enableQueue && 
+        queueDetailsData.map((queueEntry) => (
+          <QueueEntry
+            progress={getProgress(queueEntry.sizeLeft, queueEntry.size)}
+            timeLeft={queueEntry.timeLeft}
+            title={getTitle(queueEntry, seriesData) ?? t("sonarr.unknown")}
+            activity={formatDownloadState(queueEntry.trackedDownloadState)}
+            key={`${queueEntry.seriesId}-${queueEntry.sizeLeft}`}
+          />
+        ))
       }
     </>
   );

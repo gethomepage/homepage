@@ -29,7 +29,7 @@ const widget = {
         timeLeft: entry.timeleft,
         size: entry.size,
         sizeLeft: entry.sizeleft,
-        movieId: entry.movieId,
+        movieId: entry.movieId ?? entry.id,
         status: entry.status
       })).sort((a, b) => {
         const downloadingA = a.trackedDownloadState === "downloading"

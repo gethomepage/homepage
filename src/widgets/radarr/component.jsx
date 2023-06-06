@@ -5,8 +5,11 @@ import QueueEntry from "../../components/widgets/queue/queueEntry";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import BlockList from "components/services/widget/block-list";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+
+function getProgress(sizeLeft, size) {
+  return sizeLeft === 0 ? 100 : (1 - sizeLeft / size) * 100
+}
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -16,7 +19,6 @@ export default function Component({ service }) {
   const { data: queuedData, error: queuedError } = useWidgetAPI(widget, "queue/status");
   const { data: queueDetailsData, error: queueDetailsError } = useWidgetAPI(widget, "queue/details");
 
-  // information taken from the Radarr docs: https://radarr.video/docs/api/
   const formatDownloadState = useCallback((downloadState) => {
     switch (downloadState) {
       case "importPending":
@@ -33,25 +35,18 @@ export default function Component({ service }) {
     return <Container service={service} error={finalError} />;
   }
 
-  const enableQueue = widget?.enableQueue;
-
   if (!moviesData || !queuedData || !queueDetailsData) {
     return (
-      <>
-        <Container service={service}>
-          <Block label="radarr.wanted" />
-          <Block label="radarr.missing" />
-          <Block label="radarr.queued" />
-          <Block label="radarr.movies" />
-        </Container>
-        { enableQueue &&
-          <Container service={service}>
-            <BlockList label="radarr.queued" />
-          </Container>
-        }
-      </>
+      <Container service={service}>
+        <Block label="radarr.wanted" />
+        <Block label="radarr.missing" />
+        <Block label="radarr.queued" />
+        <Block label="radarr.movies" />
+      </Container>
     );
   }
+
+  const enableQueue = widget?.enableQueue && Array.isArray(queueDetailsData) && queueDetailsData.length > 0;
 
   return (
     <>
@@ -61,21 +56,16 @@ export default function Component({ service }) {
         <Block label="radarr.queued" value={t("common.number", { value: queuedData.totalCount })} />
         <Block label="radarr.movies" value={t("common.number", { value: moviesData.have })} />
       </Container>
-      { enableQueue &&
-        <Container service={service}>
-          <BlockList label="radarr.queue" childHeight={24}>
-            {Array.isArray(queueDetailsData) ? queueDetailsData.map((queueEntry) => (
-              <QueueEntry
-                progress={(1 - queueEntry.sizeLeft / queueEntry.size) * 100}
-                status={queueEntry.status}
-                timeLeft={queueEntry.timeLeft}
-                title={moviesData.all.find((entry) => entry.id === queueEntry.movieId)?.title}
-                activity={formatDownloadState(queueEntry.trackedDownloadState)}
-                key={queueEntry.movieId}
-              />
-            )) : undefined}
-          </BlockList>
-        </Container>
+      {enableQueue &&
+        queueDetailsData.map((queueEntry) => (
+          <QueueEntry
+            progress={getProgress(queueEntry.sizeLeft, queueEntry.size)}
+            timeLeft={queueEntry.timeLeft}
+            title={moviesData.all.find((entry) => entry.id === queueEntry.movieId)?.title ?? t("radarr.unknown")}
+            activity={formatDownloadState(queueEntry.trackedDownloadState)}
+            key={`${queueEntry.movieId}-${queueEntry.sizeLeft}`}
+          />
+        ))
       }
     </>
   );
