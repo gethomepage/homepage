@@ -82,13 +82,17 @@
     "sonarr": {
         "wanted": "Gezocht",
         "queued": "In de wachtrij",
-        "series": "Series"
+        "series": "Series",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "movies": "Films",
         "wanted": "Gezocht",
         "queued": "In de wachtrij",
-        "missing": "Missend"
+        "missing": "Missend",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Gezocht",
