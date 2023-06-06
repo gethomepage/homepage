@@ -110,13 +110,17 @@
     "sonarr": {
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
-        "series": "Seriale"
+        "series": "Seriale",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
         "movies": "Filmy",
-        "missing": "Brakujące"
+        "missing": "Brakujące",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Poszukiwane",
