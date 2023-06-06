@@ -235,13 +235,17 @@
     "sonarr": {
         "wanted": "Iskano",
         "queued": "V vrsti",
-        "series": "Serije"
+        "series": "Serije",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Iskano",
         "missing": "Manjka",
         "queued": "V vrsti",
-        "movies": "Filmi"
+        "movies": "Filmi",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Iskano",
