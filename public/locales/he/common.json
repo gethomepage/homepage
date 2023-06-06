@@ -94,13 +94,17 @@
     "sonarr": {
         "wanted": "מבוקש",
         "queued": "בתור",
-        "series": "סדרות"
+        "series": "סדרות",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "מבוקש",
         "queued": "בתור",
         "movies": "סרטים",
-        "missing": "Missing"
+        "missing": "Missing",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "מבוקש",
