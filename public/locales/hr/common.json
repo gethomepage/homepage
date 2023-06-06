@@ -125,13 +125,17 @@
     "sonarr": {
         "wanted": "Zatraženo",
         "queued": "U redu čekanja",
-        "series": "Serije"
+        "series": "Serije",
+        "unknown": "Unknown",
+        "queue": "Queue"
     },
     "radarr": {
         "wanted": "Zatraženo",
         "queued": "U redu čekanja",
         "movies": "Filmovi",
-        "missing": "Nedostaje"
+        "missing": "Nedostaje",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Zatraženo",
