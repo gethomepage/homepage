@@ -193,13 +193,17 @@
     "sonarr": {
         "wanted": "募集中",
         "queued": "待機中",
-        "series": "シリーズ"
+        "series": "シリーズ",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "募集中",
         "missing": "不明",
         "queued": "キュー",
-        "movies": "映画"
+        "movies": "映画",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "募集中",
