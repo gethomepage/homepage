@@ -179,13 +179,17 @@
     "sonarr": {
         "wanted": "مطلوب",
         "queued": "في الإنتظار",
-        "series": "سلسلة"
+        "series": "سلسلة",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "مطلوب",
         "missing": "مفقود",
         "queued": "في الإنتظار",
-        "movies": "أفلام"
+        "movies": "أفلام",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "مطلوب",
