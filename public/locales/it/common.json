@@ -81,13 +81,17 @@
     "sonarr": {
         "series": "Serie",
         "wanted": "Richiesti",
-        "queued": "In coda"
+        "queued": "In coda",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Richiesti",
         "queued": "In coda",
         "movies": "Film",
-        "missing": "Mancanti"
+        "missing": "Mancanti",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Richiesti",
