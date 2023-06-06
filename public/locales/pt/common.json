@@ -66,13 +66,17 @@
     "sonarr": {
         "wanted": "Desejada",
         "queued": "Em fila",
-        "series": "Séries"
+        "series": "Séries",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Desejado",
         "queued": "Fila",
         "movies": "Filmes",
-        "missing": "Faltando"
+        "missing": "Faltando",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Desejados",
