@@ -16,7 +16,7 @@ export default function Component({ service }) {
     `/api/kubernetes/stats/${widget.namespace}/${widget.app}?${podSelectorString}`);
 
   if (statsError || statusError) {
-    return <Container service={service} error={t("widget.api_error")} />;
+    return <Container service={service} error={statsError ?? statusError} />;
   }
 
   if (statusData && statusData.status !== "running") {
