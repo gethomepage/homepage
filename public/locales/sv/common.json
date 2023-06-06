@@ -88,13 +88,17 @@
     "sonarr": {
         "wanted": "Eftersöker",
         "queued": "I kö",
-        "series": "Serier"
+        "series": "Serier",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Eftersöker",
         "queued": "I kö",
         "movies": "Filmer",
-        "missing": "Missing"
+        "missing": "Missing",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Eftersöker",
