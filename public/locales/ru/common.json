@@ -66,13 +66,17 @@
     "sonarr": {
         "wanted": "Хотел",
         "queued": "В очереди",
-        "series": "Серии"
+        "series": "Серии",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Хотел",
         "queued": "В очереди",
         "movies": "Фильмы",
-        "missing": "Пропущено"
+        "missing": "Пропущено",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Хотел",
