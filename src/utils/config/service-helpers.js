@@ -62,13 +62,10 @@ export async function servicesFromDocker() {
 
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
-      const isSwarm = servers[serverName].swarm ?? false;
-
       try {
-        const listProperties = { all: true };
-        const labelProperty = (isSwarm) ? 'Spec.Labels' : 'Labels';
-        const nameProperty = (isSwarm) ? 'Spec.Name' : 'Name[0]';
+        const isSwarm = !!servers[serverName].swarm;
         const docker = new Docker(getDockerArguments(serverName).conn);
+        const listProperties = { all: true };
         const containers = await ((isSwarm) ? docker.listServices(listProperties) : docker.listContainers(listProperties));
 
         // bad docker connections can result in a <Buffer ...> object?
@@ -79,18 +76,19 @@ export async function servicesFromDocker() {
 
         const discovered = containers.map((container) => {
           let constructedService = null;
-          const labels = shvl.get(container, labelProperty);
+          const containerLabels = isSwarm ? shvl.get(container, 'Spec.Labels') : container.Labels;
+          const containerName = isSwarm ? shvl.get(container, 'Spec.Name') : container.Names[0];
 
-          Object.keys(labels).forEach((label) => {
+          Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.")) {
               if (!constructedService) {
                 constructedService = {
-                  container: shvl.get(container, nameProperty).replace(/^\//, ""),
+                  container: containerName.replace(/^\//, ""),
                   server: serverName,
                   type: 'service'
                 };
               }
-              shvl.set(constructedService, label.replace("homepage.", ""), substituteEnvironmentVars(labels[label]));
+              shvl.set(constructedService, label.replace("homepage.", ""), substituteEnvironmentVars(containerLabels[label]));
             }
           });
 
