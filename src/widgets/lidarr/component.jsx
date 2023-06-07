@@ -9,7 +9,9 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: albumsData, error: albumsError } = useWidgetAPI(widget, "album");
+  // album API endpoint can get massive, so we prevent calling if not included in fields see https://github.com/benphelps/homepage/discussions/1577
+  const showAlbums = widget.fields?.includes('albums') || !widget.fields;
+  const { data: albumsData, error: albumsError } = useWidgetAPI(widget, showAlbums ? "album" : "");
   const { data: wantedData, error: wantedError } = useWidgetAPI(widget, "wanted/missing");
   const { data: queueData, error: queueError } = useWidgetAPI(widget, "queue/status");
 
@@ -18,7 +20,7 @@ export default function Component({ service }) {
     return <Container service={service} error={finalError} />;
   }
 
-  if (!albumsData || !wantedData || !queueData) {
+  if ((showAlbums && !albumsData) || !wantedData || !queueData) {
     return (
       <Container service={service}>
         <Block label="lidarr.wanted" />
@@ -32,7 +34,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="lidarr.wanted" value={t("common.number", { value: wantedData.totalRecords })} />
       <Block label="lidarr.queued" value={t("common.number", { value: queueData.totalCount })} />
-      <Block label="lidarr.albums" value={t("common.number", { value: albumsData.have })} />
+      {showAlbums && <Block label="lidarr.albums" value={t("common.number", { value: albumsData?.have })} />}
     </Container>
   );
 }
