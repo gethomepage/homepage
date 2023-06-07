@@ -67,16 +67,16 @@
         "wanted": "Buscando",
         "queued": "En cola",
         "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Poner a la cola",
+        "unknown": "Desconocido"
     },
     "radarr": {
         "wanted": "Buscando",
         "queued": "En cola",
         "movies": "Películas",
         "missing": "Faltan",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Poner a la cola",
+        "unknown": "Desconocido"
     },
     "readarr": {
         "wanted": "Buscando",
