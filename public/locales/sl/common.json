@@ -249,7 +249,8 @@
     },
     "lidarr": {
         "wanted": "Iskano",
-        "queued": "V vrsti"
+        "queued": "V vrsti",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Iskano",
