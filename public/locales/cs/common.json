@@ -147,7 +147,8 @@
     },
     "lidarr": {
         "wanted": "Hledané",
-        "queued": "Ve frontě"
+        "queued": "Ve frontě",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Hledané",
