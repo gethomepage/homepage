@@ -176,7 +176,8 @@
     },
     "lidarr": {
         "wanted": "Volgut",
-        "queued": "En cua"
+        "queued": "En cua",
+        "artists": "Artists"
     },
     "adguard": {
         "queries": "Consultes",
