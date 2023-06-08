@@ -207,7 +207,8 @@
     },
     "lidarr": {
         "wanted": "募集中",
-        "queued": "キュー"
+        "queued": "キュー",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "募集中",
