@@ -226,7 +226,8 @@
     },
     "lidarr": {
         "wanted": "Θέλετε",
-        "queued": "Στη σειρά"
+        "queued": "Στη σειρά",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Θέλετε",
