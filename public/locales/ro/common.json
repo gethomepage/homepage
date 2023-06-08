@@ -148,7 +148,8 @@
     },
     "lidarr": {
         "wanted": "Dorite",
-        "queued": "În coadă"
+        "queued": "În coadă",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Dorite",
