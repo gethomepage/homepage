@@ -124,7 +124,8 @@
     },
     "lidarr": {
         "wanted": "Poszukiwane",
-        "queued": "W kolejce"
+        "queued": "W kolejce",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Poszukiwane",
