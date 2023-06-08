@@ -108,7 +108,8 @@
     },
     "lidarr": {
         "wanted": "מבוקש",
-        "queued": "בתור"
+        "queued": "בתור",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "מבוקש",
