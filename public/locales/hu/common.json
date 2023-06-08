@@ -32,7 +32,8 @@
     },
     "lidarr": {
         "wanted": "Keresett",
-        "queued": "Sorban áll"
+        "queued": "Sorban áll",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Keresett",
