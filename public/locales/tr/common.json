@@ -131,7 +131,8 @@
     },
     "lidarr": {
         "wanted": "Aranan",
-        "queued": "Kuyrukta"
+        "queued": "Kuyrukta",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Aranan",
