@@ -33,7 +33,8 @@
     },
     "lidarr": {
         "queued": "Dibaris Gilir",
-        "wanted": "Mahu"
+        "wanted": "Mahu",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Mahu",
