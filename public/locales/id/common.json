@@ -69,8 +69,7 @@
     },
     "lidarr": {
         "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albums"
+        "queued": "Queued"
     },
     "readarr": {
         "wanted": "Wanted",

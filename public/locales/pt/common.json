@@ -189,8 +189,7 @@
     },
     "lidarr": {
         "queued": "Enfileirado",
-        "wanted": "Desejado",
-        "albums": "Álbuns"
+        "wanted": "Desejado"
     },
     "adguard": {
         "queries": "Consultas",

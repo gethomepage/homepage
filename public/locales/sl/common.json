@@ -249,8 +249,7 @@
     },
     "lidarr": {
         "wanted": "Iskano",
-        "queued": "V vrsti",
-        "albums": "Albumi"
+        "queued": "V vrsti"
     },
     "readarr": {
         "wanted": "Iskano",

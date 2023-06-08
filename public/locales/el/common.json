@@ -226,8 +226,7 @@
     },
     "lidarr": {
         "wanted": "Θέλετε",
-        "queued": "Στη σειρά",
-        "albums": "Δίσκοι"
+        "queued": "Στη σειρά"
     },
     "readarr": {
         "wanted": "Θέλετε",

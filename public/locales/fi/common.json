@@ -108,8 +108,7 @@
     },
     "lidarr": {
         "wanted": "Haluttu",
-        "queued": "Jonossa",
-        "albums": "Albumeja"
+        "queued": "Jonossa"
     },
     "readarr": {
         "wanted": "Haluttu",

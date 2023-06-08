@@ -177,8 +177,7 @@
     },
     "lidarr": {
         "wanted": "요청",
-        "queued": "대기 중",
-        "albums": "앨범"
+        "queued": "대기 중"
     },
     "readarr": {
         "wanted": "요청",

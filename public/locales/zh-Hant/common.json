@@ -176,8 +176,7 @@
     },
     "lidarr": {
         "wanted": "關注中",
-        "queued": "已加入佇列",
-        "albums": "專輯"
+        "queued": "已加入佇列"
     },
     "adguard": {
         "queries": "查詢",

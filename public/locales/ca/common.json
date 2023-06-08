@@ -176,8 +176,7 @@
     },
     "lidarr": {
         "wanted": "Volgut",
-        "queued": "En cua",
-        "albums": "Àlbums"
+        "queued": "En cua"
     },
     "adguard": {
         "queries": "Consultes",

@@ -193,8 +193,7 @@
     },
     "lidarr": {
         "wanted": "مطلوب",
-        "queued": "في الإنتظار",
-        "albums": "ألبومات"
+        "queued": "في الإنتظار"
     },
     "readarr": {
         "wanted": "مطلوب",

@@ -102,8 +102,7 @@
     },
     "lidarr": {
         "wanted": "Eftersöker",
-        "queued": "I kö",
-        "albums": "Album"
+        "queued": "I kö"
     },
     "readarr": {
         "wanted": "Eftersökt",

@@ -176,8 +176,7 @@
     },
     "lidarr": {
         "wanted": "Хотел",
-        "queued": "В очереди",
-        "albums": "Альбомы"
+        "queued": "В очереди"
     },
     "adguard": {
         "queries": "Запросы",

@@ -124,8 +124,7 @@
     },
     "lidarr": {
         "wanted": "Poszukiwane",
-        "queued": "W kolejce",
-        "albums": "Albumy"
+        "queued": "W kolejce"
     },
     "readarr": {
         "wanted": "Poszukiwane",

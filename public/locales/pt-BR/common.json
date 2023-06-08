@@ -126,8 +126,7 @@
     },
     "lidarr": {
         "wanted": "Desejado",
-        "queued": "Na fila",
-        "albums": "Álbuns"
+        "queued": "Na fila"
     },
     "readarr": {
         "wanted": "Desejado",

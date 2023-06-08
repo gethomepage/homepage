@@ -147,8 +147,7 @@
     },
     "lidarr": {
         "wanted": "Hledané",
-        "queued": "Ve frontě",
-        "albums": "Alba"
+        "queued": "Ve frontě"
     },
     "readarr": {
         "wanted": "Hledané",

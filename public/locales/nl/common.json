@@ -176,8 +176,7 @@
     },
     "lidarr": {
         "wanted": "Gezocht",
-        "queued": "In de wachtrij",
-        "albums": "Albums"
+        "queued": "In de wachtrij"
     },
     "adguard": {
         "queries": "Queries",

@@ -168,8 +168,7 @@
     },
     "lidarr": {
         "wanted": "Wanted",
-        "queued": "Queued",
-        "albums": "Albumi"
+        "queued": "Queued"
     },
     "readarr": {
         "wanted": "Wanted",
