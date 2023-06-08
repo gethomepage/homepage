@@ -125,7 +125,8 @@
     },
     "lidarr": {
         "wanted": "కావలెను",
-        "queued": "క్యూయూఎడ్"
+        "queued": "క్యూయూఎడ్",
+        "artists": "Artists"
     },
     "bazarr": {
         "missingEpisodes": "ఎపిసోడ్‌లు లేవు",
