@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
-import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
+import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave, SiWolfram } from "react-icons/si";
 import { Listbox, Transition } from "@headlessui/react";
 import classNames from "classnames";
 
@@ -30,6 +30,11 @@ export const searchProviders = {
     name: "Brave",
     url: "https://search.brave.com/search?q=",
     icon: SiBrave,
+  },
+  wolframalpha: {
+    name: "WolframAlpha",
+    url: "https://www.wolframalpha.com/input?i=",
+    icon: SiWolfram,
   },
   custom: {
     name: "Custom",
