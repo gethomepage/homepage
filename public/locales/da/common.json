@@ -15,7 +15,8 @@
     },
     "lidarr": {
         "wanted": "Ønsket",
-        "queued": "I Kø"
+        "queued": "I Kø",
+        "artists": "Artists"
     },
     "jellyseerr": {
         "available": "Tilgængelig",
