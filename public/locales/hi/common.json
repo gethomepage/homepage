@@ -169,7 +169,8 @@
     },
     "lidarr": {
         "wanted": "Wanted",
-        "queued": "Queued"
+        "queued": "Queued",
+        "artists": "Artists"
     },
     "overseerr": {
         "pending": "Pending",
