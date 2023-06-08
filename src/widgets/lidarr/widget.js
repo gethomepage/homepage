@@ -6,11 +6,8 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    album: {
-      endpoint: "album",
-      map: (data) => ({
-        have: jsonArrayFilter(data, (item) => item?.statistics?.percentOfTracks === 100).length,
-      }),
+    artist: {
+      endpoint: "artist",
     },
     "wanted/missing": {
       endpoint: "wanted/missing",
