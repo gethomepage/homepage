@@ -176,7 +176,8 @@
     },
     "lidarr": {
         "wanted": "關注中",
-        "queued": "已加入佇列"
+        "queued": "已加入佇列",
+        "artists": "Artists"
     },
     "adguard": {
         "queries": "查詢",
