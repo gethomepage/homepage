@@ -176,7 +176,8 @@
     },
     "lidarr": {
         "wanted": "订阅",
-        "queued": "队列"
+        "queued": "队列",
+        "artists": "Artists"
     },
     "adguard": {
         "queries": "查询",
