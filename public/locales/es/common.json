@@ -176,7 +176,8 @@
     },
     "lidarr": {
         "queued": "En cola",
-        "wanted": "Buscando"
+        "wanted": "Buscando",
+        "artists": "Artists"
     },
     "adguard": {
         "queries": "Consultas",
