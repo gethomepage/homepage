@@ -108,7 +108,8 @@
     },
     "lidarr": {
         "wanted": "Haluttu",
-        "queued": "Jonossa"
+        "queued": "Jonossa",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Haluttu",
