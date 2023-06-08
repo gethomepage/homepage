@@ -139,7 +139,8 @@
     },
     "lidarr": {
         "wanted": "Zatraženo",
-        "queued": "U redu čekanja"
+        "queued": "U redu čekanja",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Zatraženo",
