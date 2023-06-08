@@ -131,7 +131,8 @@
     },
     "lidarr": {
         "wanted": "Wanted",
-        "queued": "Queued"
+        "queued": "Queued",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Wanted",
