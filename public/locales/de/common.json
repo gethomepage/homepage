@@ -176,7 +176,8 @@
     },
     "lidarr": {
         "wanted": "Gesucht",
-        "queued": "In Warteschlange"
+        "queued": "In Warteschlange",
+        "artists": "Artists"
     },
     "adguard": {
         "queries": "Anfragen",
