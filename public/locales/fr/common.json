@@ -177,7 +177,7 @@
     "lidarr": {
         "wanted": "Demandé",
         "queued": "En queue",
-        "artists": "Artists"
+        "artists": "Artistes"
     },
     "adguard": {
         "queries": "Requêtes",
@@ -401,7 +401,7 @@
         "queue": "À traiter",
         "processed": "Traité",
         "errored": "En erreur",
-        "saved": "Gagné"
+        "saved": "Libéré"
     },
     "miniflux": {
         "read": "Lu",
