@@ -252,7 +252,7 @@ function Home({ initialSettings }) {
         />
         <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
-      <div className="relative container m-auto flex flex-col justify-between z-10 h-full">
+      <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <div
           className={classNames(
             "flex flex-row flex-wrap  justify-between",
@@ -302,14 +302,16 @@ function Home({ initialSettings }) {
           </div>
         )}
 
-        <div className="flex p-8 pb-0 w-full justify-end">
-          {!initialSettings?.color && <ColorToggle />}
-          <Revalidate />
-          {!initialSettings?.theme && <ThemeToggle />}
-        </div>
+        <div className="flex flex-col mt-auto p-8 w-full">
+          <div className="flex w-full justify-end">
+            {!initialSettings?.color && <ColorToggle />}
+            <Revalidate />
+            {!initialSettings?.theme && <ThemeToggle />}
+          </div>
 
-        <div className="flex p-8 pt-4 w-full justify-end">
-          {!initialSettings?.hideVersion && <Version />}
+          <div className="flex mt-4 w-full justify-end">
+            {!initialSettings?.hideVersion && <Version />}
+          </div>
         </div>
       </div>
     </>
