@@ -247,7 +247,7 @@
     "lidarr": {
         "wanted": "Розшукується",
         "queued": "У черзі",
-        "artists": "Artists"
+        "artists": "Виконавці"
     },
     "traefik": {
         "middleware": "Проміжне програмне забезпечення",
