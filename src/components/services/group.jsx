@@ -3,7 +3,7 @@ import classNames from "classnames";
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function ServicesGroup({ services, layout, fiveColumns }) {
+export default function ServicesGroup({ group, services, layout, fiveColumns }) {
   return (
     <div
       key={services.name}
@@ -21,7 +21,7 @@ export default function ServicesGroup({ services, layout, fiveColumns }) {
         }
         <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium">{services.name}</h2>
       </div>
-      <List services={services.services} layout={layout} />
+      <List group={group} services={services.services} layout={layout} />
     </div>
   );
 }

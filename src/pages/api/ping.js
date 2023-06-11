@@ -1,12 +1,22 @@
 import { performance } from "perf_hooks";
 
+import { getServiceItem } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("ping");
 
 export default async function handler(req, res) {
-    const { ping: pingURL } = req.query;
+    const { group, service } = req.query;
+    const serviceItem = await getServiceItem(group, service);
+    if (!serviceItem) {
+        logger.debug(`No service item found for group ${group} named ${service}`);
+        return res.status(400).send({
+          error: "Unable to find service, see log for details.",
+        });
+    }
+
+    const { ping: pingURL } = serviceItem;
 
     if (!pingURL) {
         logger.debug("No ping URL specified");
