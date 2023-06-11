@@ -590,12 +590,12 @@
         "switches_on": "Interruptores Ligados"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Assinaturas",
+        "unread": "Não lida"
     },
     "channelsdvrserver": {
         "shows": "Shows",
-        "recordings": "Recordings",
+        "recordings": "Gravações",
         "scheduled": "Scheduled",
         "passes": "Passes"
     },
@@ -637,16 +637,16 @@
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Solicitações atuais",
+        "requests_failed": "Solicitações com falha"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "pv_power": "Produção",
+        "battery_soc": "Bateria",
+        "grid_power": "Grade",
+        "home_power": "Consumo",
+        "charge_power": "Carregador",
+        "watt_hour": "Kw"
     },
     "pialert": {
         "total": "Total",
