@@ -11,7 +11,7 @@ import Kubernetes from "widgets/kubernetes/component";
 import { SettingsContext } from "utils/contexts/settings";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function Item({ service }) {
+export default function Item({ service, group }) {
   const hasLink = service.href && service.href !== "#";
   const { settings } = useContext(SettingsContext);
   const showStats = (service.showStats === false) ? false : settings.showStats;
@@ -77,7 +77,7 @@ export default function Item({ service }) {
           <div className="absolute top-0 right-0 w-1/2 flex flex-row justify-end gap-2 mr-2">
               {service.ping && (
                 <div className="flex-shrink-0 flex items-center justify-center cursor-pointer">
-                  <Ping service={service} />
+                  <Ping group={group} service={service.name} />
                   <span className="sr-only">Ping status</span>
                 </div>
               )}

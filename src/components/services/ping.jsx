@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
 
-export default function Ping({ service }) {
+export default function Ping({ group, service }) {
   const { t } = useTranslation();
-  const { data, error } = useSWR(`/api/ping?${new URLSearchParams({ping: service.ping}).toString()}`, {
+  const { data, error } = useSWR(`/api/ping?${new URLSearchParams({ group, service }).toString()}`, {
     refreshInterval: 30000
   });
 
@@ -23,7 +23,7 @@ export default function Ping({ service }) {
     );
   }
 
-  const statusText = `${service.ping}: HTTP status ${data.status}`;
+  const statusText = `${service}: HTTP status ${data.status}`;
   
   if (data.status > 403) {
     return (

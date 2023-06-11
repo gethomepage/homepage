@@ -328,16 +328,13 @@ export function cleanServiceGroups(groups) {
   }));
 }
 
-export default async function getServiceWidget(group, service) {
+export async function getServiceItem(group, service) {
   const configuredServices = await servicesFromConfig();
 
   const serviceGroup = configuredServices.find((g) => g.name === group);
   if (serviceGroup) {
     const serviceEntry = serviceGroup.services.find((s) => s.name === service);
-    if (serviceEntry) {
-      const { widget } = serviceEntry;
-      return widget;
-    }
+    if (serviceEntry) return serviceEntry;
   }
 
   const discoveredServices = await servicesFromDocker();
@@ -345,20 +342,24 @@ export default async function getServiceWidget(group, service) {
   const dockerServiceGroup = discoveredServices.find((g) => g.name === group);
   if (dockerServiceGroup) {
     const dockerServiceEntry = dockerServiceGroup.services.find((s) => s.name === service);
-    if (dockerServiceEntry) {
-      const { widget } = dockerServiceEntry;
-      return widget;
-    }
+    if (dockerServiceEntry) return dockerServiceEntry;
   }
 
   const kubernetesServices = await servicesFromKubernetes();
   const kubernetesServiceGroup = kubernetesServices.find((g) => g.name === group);
   if (kubernetesServiceGroup) {
     const kubernetesServiceEntry = kubernetesServiceGroup.services.find((s) => s.name === service);
-    if (kubernetesServiceEntry) {
-      const { widget } = kubernetesServiceEntry;
-      return widget;
-    }
+    if (kubernetesServiceEntry) return kubernetesServiceEntry;
+  }
+
+  return false;
+}
+
+export default async function getServiceWidget(group, service) {
+  const serviceItem = await getServiceItem(group, service);
+  if (serviceItem) {
+    const { widget } = serviceItem;
+    return widget;
   }
 
   return false;
