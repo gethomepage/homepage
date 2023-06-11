@@ -17,13 +17,13 @@ const widgetMappings = {
   kubernetes: dynamic(() => import("components/widgets/kubernetes/kubernetes")),
 };
 
-export default function Widget({ widget, style }) {
+export default function Widget({ widget }) {
   const InfoWidget = widgetMappings[widget.type];
 
   if (InfoWidget) {
     return (
       <ErrorBoundary>
-        <InfoWidget options={{ ...widget.options, style }} />
+        <InfoWidget options={widget.options} />
       </ErrorBoundary>
     );
   }

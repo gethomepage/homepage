@@ -3,7 +3,8 @@ import { FiAlertTriangle, FiCpu, FiServer } from "react-icons/fi";
 import { SiKubernetes } from "react-icons/si";
 import { useTranslation } from "next-i18next";
 
-import UsageBar from "../resources/usage-bar";
+import UsageBar from "./usage-bar";
+
 
 export default function Node({ type, options, data }) {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ export default function Node({ type, options, data }) {
             <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
               <div className="pl-0.5">
                 {t("common.number", {
-                  value: data?.cpu?.percent ?? 0,
+                  value: data.cpu.percent,
                   style: "unit",
                   unit: "percent",
                   maximumFractionDigits: 0
@@ -36,18 +37,18 @@ export default function Node({ type, options, data }) {
               </div>
               <FiCpu className="text-theme-800 dark:text-theme-200 w-3 h-3" />
             </div>
-            <UsageBar percent={data?.cpu?.percent ?? 0} />
+            <UsageBar percent={data.cpu.percent} />
             <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
               <div className="pl-0.5">
                 {t("common.bytes", {
-                  value: data?.memory?.free ?? 0,
+                  value: data.memory.free,
                   maximumFractionDigits: 0,
                   binary: true
                 })}
               </div>
               <FaMemory className="text-theme-800 dark:text-theme-200 w-3 h-3" />
             </div>
-            <UsageBar percent={data?.memory?.percent} />
+            <UsageBar percent={data.memory.percent} />
             {options.showLabel && (
               <div className="pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">{type === "cluster" ? options.label : data.name}</div>
             )}
