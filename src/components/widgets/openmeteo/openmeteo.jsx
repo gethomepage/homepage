@@ -1,9 +1,15 @@
 import useSWR from "swr";
 import { useState } from "react";
-import { BiError } from "react-icons/bi";
 import { WiCloudDown } from "react-icons/wi";
 import { MdLocationDisabled, MdLocationSearching } from "react-icons/md";
 import { useTranslation } from "next-i18next";
+
+import Error from "../widget/error";
+import Container from "../widget/container";
+import ContainerButton from "../widget/container_button";
+import WidgetIcon from "../widget/widget_icon";
+import PrimaryText from "../widget/primary_text";
+import SecondaryText from "../widget/secondary_text";
 
 import Icon from "./icon";
 
@@ -15,60 +21,35 @@ function Widget({ options }) {
   );
 
   if (error || data?.error) {
-    return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4 mr-2">
-        <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-col items-center">
-            <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
-            <div className="flex flex-col ml-3 text-left">
-              <span className="text-theme-800 dark:text-theme-200 text-sm">{t("widget.api_error")}</span>
-              <span className="text-theme-800 dark:text-theme-200 text-xs">-</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Error options={options} />
   }
 
   if (!data) {
-    return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4 mr-2">
-        <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-col items-center">
-            <WiCloudDown className="w-8 h-8 text-theme-800 dark:text-theme-200" />
-          </div>
-          <div className="flex flex-col ml-3 text-left">
-            <span className="text-theme-800 dark:text-theme-200 text-sm">{t("weather.updating")}</span>
-            <span className="text-theme-800 dark:text-theme-200 text-xs">{t("weather.wait")}</span>
-          </div>
-        </div>
-      </div>
-    );
+    return <Container options={options}>
+      <PrimaryText>{t("weather.updating")}</PrimaryText>
+      <SecondaryText>{t("weather.wait")}</SecondaryText>
+      <WidgetIcon icon={WiCloudDown} size="l" />
+    </Container>;
   }
 
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
-  const timeOfDay = data.current_weather.time > data.daily.sunrise[0] && data.current_weather.time < data.daily.sunset[0] ? "day" : "night";
+  const weatherInfo = {
+    condition: data.current_weather.weathercode,
+    timeOfDay: data.current_weather.time > data.daily.sunrise[0] && data.current_weather.time < data.daily.sunset[0] ? "day" : "night"
+  };
 
-  return (
-    <div className="flex flex-col justify-center first:ml-0 ml-4 mr-2">
-      <div className="flex flex-row items-center justify-end">
-        <div className="flex flex-col items-center">
-          <Icon condition={data.current_weather.weathercode} timeOfDay={timeOfDay} />
-        </div>
-        <div className="flex flex-col ml-3 text-left">
-          <span className="text-theme-800 dark:text-theme-200 text-sm">
-            {options.label && `${options.label}, `}
-            {t("common.number", {
-              value: data.current_weather.temperature,
-              style: "unit",
-              unit,
-            })}
-          </span>
-          <span className="text-theme-800 dark:text-theme-200 text-xs">{t(`wmo.${data.current_weather.weathercode}-${timeOfDay}`)}</span>
-        </div>
-      </div>
-    </div>
-  );
+  return <Container options={options}>
+    <PrimaryText>
+      {options.label && `${options.label}, `}
+      {t("common.number", {
+        value: data.current_weather.temperature,
+        style: "unit",
+        unit,
+      })}
+    </PrimaryText>
+    <SecondaryText>{t(`wmo.${data.current_weather.weathercode}-${weatherInfo.timeOfDay}`)}</SecondaryText>
+    <WidgetIcon icon={Icon} size="xl" weatherInfo={weatherInfo} />
+  </Container>;
 }
 
 export default function OpenMeteo({ options }) {
@@ -103,27 +84,11 @@ export default function OpenMeteo({ options }) {
   // if (!requesting && !location) requestLocation();
 
   if (!location) {
-    return (
-      <button
-        type="button"
-        onClick={() => requestLocation()}
-        className="flex flex-col justify-center first:ml-0 ml-4 mr-2"
-      >
-        <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-col items-center">
-            {requesting ? (
-              <MdLocationSearching className="w-6 h-6 text-theme-800 dark:text-theme-200 animate-pulse" />
-            ) : (
-              <MdLocationDisabled className="w-6 h-6 text-theme-800 dark:text-theme-200" />
-            )}
-          </div>
-          <div className="flex flex-col ml-3 text-left">
-            <span className="text-theme-800 dark:text-theme-200 text-sm">{t("weather.current")}</span>
-            <span className="text-theme-800 dark:text-theme-200 text-xs">{t("weather.allow")}</span>
-          </div>
-        </div>
-      </button>
-    );
+    return <ContainerButton options={options} callback={requestLocation} >
+      <PrimaryText>{t("weather.current")}</PrimaryText>
+      <SecondaryText>{t("weather.allow")}</SecondaryText>
+      <WidgetIcon icon={ requesting ? MdLocationSearching : MdLocationDisabled} size="m" pulse />
+    </ContainerButton>;
   }
 
   return <Widget options={{ ...location, ...options }} />;

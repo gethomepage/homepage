@@ -160,6 +160,7 @@ const headerStyles = {
     "m-4 mb-0 sm:m-8 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
   underlined: "m-4 mb-0 sm:m-8 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
   clean: "m-4 mb-0 sm:m-8 sm:mb-0",
+  boxedWidgets: "m-4 mb-0 sm:m-8 sm:mb-0 sm:mt-1",
 };
 
 function Home({ initialSettings }) {
@@ -208,6 +209,7 @@ function Home({ initialSettings }) {
       searchProvider = searchProviders[searchWidget.options?.provider];
     }
   }
+  const headerStyle = initialSettings?.headerStyle || "underlined";
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -256,7 +258,7 @@ function Home({ initialSettings }) {
         <div
           className={classNames(
             "flex flex-row flex-wrap  justify-between",
-            headerStyles[initialSettings.headerStyle || "underlined"]
+            headerStyles[headerStyle]
           )}
         >
           <QuickLaunch
@@ -272,14 +274,14 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <Widget key={i} widget={widget} />
+                  <Widget key={i} widget={widget} style={headerStyle} />
                 ))}
 
-              <div className="m-auto sm:ml-2 flex flex-wrap grow sm:basis-auto justify-between md:justify-end">
+              <div className="m-auto sm:ml-4 flex flex-wrap grow sm:basis-auto justify-between md:justify-end">
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} />
+                    <Widget key={i} widget={widget} style={headerStyle} />
                   ))}
               </div>
             </>
