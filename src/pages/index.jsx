@@ -274,14 +274,17 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <Widget key={i} widget={widget} style={headerStyle} />
+                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false}} />
                 ))}
 
-              <div className="m-auto sm:ml-4 flex flex-wrap grow sm:basis-auto justify-between md:justify-end">
+              <div className={classNames(
+                "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
+                headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
+              )}>
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} style={headerStyle} />
+                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true}} />
                   ))}
               </div>
             </>
@@ -361,7 +364,7 @@ export default function Wrapper({ initialSettings, fallback }) {
         style={wrappedStyle}
       >
         <div
-        id="inner_wrapper" 
+        id="inner_wrapper"
         className={classNames(
           'fixed overflow-auto w-full h-full',
           backgroundBlur && `backdrop-blur${initialSettings.background.blur.length ? '-' : ""}${initialSettings.background.blur}`,

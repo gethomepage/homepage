@@ -4,12 +4,14 @@ import Raw from "./raw";
 import WidgetLabel from "./widget_label";
 
 export default function Resources({ options, children, target }) {
+  const widgetParts = [].concat(...children);
+
   return <ContainerLink options={options} target={target}>
     <Raw>
       <div className="flex flex-row self-center flex-wrap justify-between">
-        { children.filter(child => child && child.type === Resource) }
+        { widgetParts.filter(child => child && child.type === Resource) }
       </div>
-      { children.filter(child => child && child.type === WidgetLabel) }
+      { widgetParts.filter(child => child && child.type === WidgetLabel) }
     </Raw>
   </ContainerLink>;
 }

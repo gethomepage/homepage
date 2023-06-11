@@ -41,8 +41,7 @@ function Widget({ options }) {
   };
 
   return <Container options={options}>
-    <PrimaryText>{options.label && `${options.label}, `}</PrimaryText>
-    <PrimaryText>{t("common.number", { value: data.main.temp, style: "unit", unit })}</PrimaryText>
+    <PrimaryText>{options.label && `${options.label}, ` }{t("common.number", { value: data.main.temp, style: "unit", unit })}</PrimaryText>
     <SecondaryText>{data.weather[0].description}</SecondaryText>
     <WidgetIcon icon={Icon} size="xl" weatherInfo={weatherInfo} />
   </Container>;
