@@ -63,7 +63,7 @@
     "resources": {
         "cpu": "CPU",
         "total": "合計",
-        "free": "フリー",
+        "free": "Free",
         "used": "使用",
         "load": "ロード",
         "mem": "MEM",
@@ -609,11 +609,11 @@
         "ago": "{{value}} 前"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
+        "cpuUsage": "CPU使用量",
+        "memUsage": "MEM使用量",
+        "systemTempC": "システム温度",
+        "poolUsage": "プール使用量",
+        "volumeUsage": "ボリューム使用量",
         "invalid": "Invalid"
     },
     "pfsense": {
@@ -633,11 +633,11 @@
     },
     "evcc": {
         "watt_hour": "Wh",
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger"
+        "pv_power": "発電量",
+        "battery_soc": "バッテリー",
+        "grid_power": "グリッド",
+        "home_power": "消費",
+        "charge_power": "チャージャー"
     },
     "pialert": {
         "total": "Total",
