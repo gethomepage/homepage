@@ -33,6 +33,13 @@ function handleRequest(requestor, url, params) {
       const contentEncoding = response.headers['content-encoding']?.trim().toLowerCase();
 
       let responseContent = response;
+
+      // zlib errors
+      responseContent.on("error", (e) => {
+        logger.error(e);
+        responseContent = response; // fallback
+      });
+
       if (contentEncoding === 'gzip' || contentEncoding === 'deflate') {
         responseContent = createUnzip();
         response.pipe(responseContent);
