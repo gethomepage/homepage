@@ -158,11 +158,20 @@ export async function servicesFromKubernetes() {
         return null;
       });
 
-     const traefikIngressList = await crd.listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
+    const traefikIngressList = await crd.listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
       .then((response) => response.body)
-      .catch((error) => {
-        logger.error("Error getting traefik ingresses: %d %s %s", error.statusCode, error.body, error.response);
-        return null;
+      .catch(async (error) => {
+        logger.error("Error getting traefik ingresses from traefik.io: %d %s %s", error.statusCode, error.body, error.response);
+
+        // Fallback to the old traefik CRD group
+        const fallbackIngressList = await crd.listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
+          .then((response) => response.body)
+          .catch((fallbackError) => {
+            logger.error("Error getting traefik ingresses from traefik.containo.us: %d %s %s", fallbackError.statusCode, fallbackError.body, fallbackError.response);
+            return null;
+          });
+
+        return fallbackIngressList;
       });
 
     if (traefikIngressList && traefikIngressList.items.length > 0) {
