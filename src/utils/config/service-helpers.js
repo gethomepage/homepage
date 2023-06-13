@@ -158,7 +158,7 @@ export async function servicesFromKubernetes() {
         return null;
       });
 
-     const traefikIngressList = await crd.listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
+    const traefikIngressList = await crd.listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
       .then((response) => response.body)
       .catch((error) => {
         logger.error("Error getting traefik ingresses: %d %s %s", error.statusCode, error.body, error.response);
