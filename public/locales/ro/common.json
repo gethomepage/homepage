@@ -644,5 +644,10 @@
         "down_alerts": "Down Alerts",
         "total": "Total",
         "connected": "Connected"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadQueueSize": "Queue Size",
+        "downloadSpeed": "Download Speed"
     }
 }
