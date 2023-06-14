@@ -644,5 +644,10 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadSpeed": "Download Speed",
+        "downloadCount": "Queue Count",
+        "downloadQueueSize": "Queue Size"
     }
 }
