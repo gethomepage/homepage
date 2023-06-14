@@ -644,5 +644,10 @@
         "connected": "Povezano",
         "new_devices": "Novi uređaji",
         "down_alerts": "Obavijest o rušenju"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadQueueSize": "Queue Size",
+        "downloadSpeed": "Download Speed"
     }
 }
