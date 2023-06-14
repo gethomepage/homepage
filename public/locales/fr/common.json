@@ -646,8 +646,8 @@
         "down_alerts": "Alertes"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadQueueSize": "Queue Size",
-        "downloadSpeed": "Download Speed"
+        "downloadCount": "Total en attente",
+        "downloadQueueSize": "Volume en attente",
+        "downloadSpeed": "Vitesse de téléchargement"
     }
 }
