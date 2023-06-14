@@ -644,5 +644,10 @@
         "connected": "已連線",
         "new_devices": "新裝置",
         "down_alerts": "離線警告"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadQueueSize": "Queue Size",
+        "downloadSpeed": "Download Speed"
     }
 }
