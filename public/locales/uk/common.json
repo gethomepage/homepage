@@ -644,5 +644,10 @@
         "connected": "Підключено",
         "new_devices": "Нові пристрої",
         "down_alerts": "Сповіщення про збій"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadQueueSize": "Queue Size",
+        "downloadSpeed": "Download Speed"
     }
 }
