@@ -1,12 +1,15 @@
 import useSWR from "swr";
-import { BiError } from "react-icons/bi";
 import { useTranslation } from "next-i18next";
+
+import Error from "../widget/error";
+import Container from "../widget/container";
+import Raw from "../widget/raw";
 
 import Node from "./node";
 
 export default function Widget({ options }) {
   const { cluster, nodes } = options;
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const defaultData = {
     cpu: {
@@ -18,7 +21,7 @@ export default function Widget({ options }) {
       used: 0,
       total: 0,
       free: 0,
-      precent: 0
+      percent: 0
     }
   };
 
@@ -29,23 +32,12 @@ export default function Widget({ options }) {
   );
 
   if (error || data?.error) {
-    return (
-      <div className="flex flex-col justify-center first:ml-0 ml-4">
-        <div className="flex flex-row items-center justify-end">
-          <div className="flex flex-row items-center">
-            <BiError className="w-8 h-8 text-theme-800 dark:text-theme-200" />
-            <div className="flex flex-col ml-3 text-left">
-              <span className="text-theme-800 dark:text-theme-200 text-sm">{t("widget.api_error")}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Error options={options} />
   }
 
   if (!data) {
-    return (
-      <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+    return <Container options={options}>
+      <Raw>
         <div className="flex flex-row self-center flex-wrap justify-between">
           {cluster.show &&
             <Node type="cluster" key="cluster" options={options.cluster} data={defaultData} />
@@ -54,12 +46,12 @@ export default function Widget({ options }) {
             <Node type="node" key="nodes" options={options.nodes} data={defaultData} />
           }
         </div>
-      </div>
-    );
+      </Raw>
+    </Container>;
   }
 
-  return (
-    <div className="flex flex-col max-w:full sm:basis-auto self-center grow-0 flex-wrap">
+  return <Container options={options}>
+    <Raw>
       <div className="flex flex-row self-center flex-wrap justify-between">
         {cluster.show &&
           <Node key="cluster" type="cluster" options={options.cluster} data={data.cluster} />
@@ -69,6 +61,6 @@ export default function Widget({ options }) {
             <Node key={node.name} type="node" options={options.nodes} data={node} />)
         }
       </div>
-    </div>
-  );
+    </Raw>
+  </Container>;
 }
