@@ -646,8 +646,8 @@
         "down_alerts": "Сповіщення про збій"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadQueueSize": "Queue Size",
-        "downloadSpeed": "Download Speed"
+        "downloadCount": "Всього в черзі",
+        "downloadQueueSize": "Розмір черги",
+        "downloadSpeed": "Швидкість завантаження"
     }
 }
