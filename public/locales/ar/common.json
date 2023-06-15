@@ -23,7 +23,7 @@
         "free": "متاح",
         "used": "مستخدم",
         "load": "الضغط",
-        "mem": "MEM",
+        "mem": "الذاكرة",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
@@ -134,7 +134,7 @@
         "episodes": "Episodes"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
+        "totalObserved": "مجموع الملاحظات",
         "diffsDetected": "Diffs Detected"
     },
     "tautulli": {
