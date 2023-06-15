@@ -21,7 +21,8 @@ export default function Component({ service }) {
         return (
             <Container service={service}>
                 <Block label="jdownloader.downloadCount" />
-                <Block label="jdownloader.downloadQueueSize" />
+                <Block label="jdownloader.downloadTotalBytes" />
+                <Block label="jdownloader.downloadBytesRemaining" />
                 <Block label="jdownloader.downloadSpeed" />
             </Container>
         );
@@ -30,7 +31,8 @@ export default function Component({ service }) {
     return (
         <Container service={service}>
             <Block label="jdownloader.downloadCount" value={t("common.number", { value: jdownloaderData.downloadCount })} />
-            <Block label="jdownloader.downloadQueueSize" value={t("common.bytes", { value: jdownloaderData.totalBytes })} />
+            <Block label="jdownloader.downloadTotalBytes" value={t("common.bytes", { value: jdownloaderData.totalBytes })} />
+            <Block label="jdownloader.downloadBytesRemaining" value={t("common.bytes", { value: jdownloaderData.bytesRemaining })} />
             <Block label="jdownloader.downloadSpeed" value={t("common.byterate", { value: jdownloaderData.totalSpeed })} />
         </Container>
     );
