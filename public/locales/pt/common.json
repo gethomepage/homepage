@@ -656,6 +656,8 @@
     },
     "jdownloader": {
         "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed"
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
     }
 }
