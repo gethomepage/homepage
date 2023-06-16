@@ -28,8 +28,8 @@ async function getWidget(req) {
 
 async function login(loginSecret, deviceSecret, params) {
     const rid = uniqueRid();
-    const path = `/my/connect?${querystring.stringify({...params, rid})}`;
-    
+    const path = `/my/connect?${querystring.stringify({ ...params, rid })}`;
+
     const signature = crypto
         .createHmac('sha256', loginSecret)
         .update(path)
@@ -64,7 +64,7 @@ async function login(loginSecret, deviceSecret, params) {
 
 async function getDevice(serverEncryptionToken, deviceName, params) {
     const rid = uniqueRid();
-    const path = `/my/listdevices?${querystring.stringify({...params, rid})}`;
+    const path = `/my/listdevices?${querystring.stringify({ ...params, rid })}`;
     const signature = crypto
         .createHmac('sha256', serverEncryptionToken)
         .update(path)
@@ -100,7 +100,7 @@ function createBody(rid, query, params) {
         rid,
         url: query
     };
-    return params ? {...baseBody, params: [JSON.stringify(params)] } : baseBody;
+    return params ? { ...baseBody, params: [JSON.stringify(params)] } : baseBody;
 }
 
 async function queryPackages(deviceEncryptionToken, deviceId, sessionToken, params) {
@@ -135,9 +135,9 @@ export default async function jdownloaderProxyHandler(req, res) {
         return res.status(400).json({ error: "Invalid proxy service type" });
     }
     logger.debug("Getting data from JDRss API");
-    const {username} = widget
-    const {password} = widget
-    
+    const { username } = widget
+    const { password } = widget
+
     const appKey = "homepage"
     const loginSecret = sha256(`${username}${password}server`)
     const deviceSecret = sha256(`${username}${password}device`)
@@ -171,17 +171,22 @@ export default async function jdownloaderProxyHandler(req, res) {
     }
     )
 
+    let bytesRemaining = 0;
     let totalBytes = 0;
     let totalSpeed = 0;
     packageStatus.forEach(file => {
         totalBytes += file.bytesTotal;
-        if (file.speed) {
-            totalSpeed += file.speed;
+        if (file.finished !== true) {
+            bytesRemaining += file.bytesTotal;
+            if (file.speed) {
+                totalSpeed += file.speed;
+            }
         }
     });
 
     const data = {
         downloadCount: packageStatus.length,
+        bytesRemaining,
         totalBytes,
         totalSpeed
     };
