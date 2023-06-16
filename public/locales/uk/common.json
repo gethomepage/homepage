@@ -647,6 +647,8 @@
     },
     "jdownloader": {
         "downloadCount": "Всього в черзі",
-        "downloadSpeed": "Швидкість завантаження"
+        "downloadSpeed": "Швидкість завантаження",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
     }
 }
