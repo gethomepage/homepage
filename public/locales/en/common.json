@@ -655,9 +655,9 @@
         "updates": "Updates"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadBytesRemaining": "Queue Remaining",
-        "downloadTotalBytes": "Queue Size",
-        "downloadSpeed": "Download Speed"
+        "downloadCount": "Queue",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     }
 }
