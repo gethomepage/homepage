@@ -647,7 +647,6 @@
     },
     "jdownloader": {
         "downloadCount": "Total en attente",
-        "downloadQueueSize": "Volume en attente",
         "downloadSpeed": "Vitesse de téléchargement"
     }
 }
