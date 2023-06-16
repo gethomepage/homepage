@@ -7,12 +7,12 @@
         "rx": "RX",
         "error": "Errore",
         "unknown": "Sconosciuto",
-        "running": "Running",
-        "starting": "Starting",
+        "running": "In esecuzione",
+        "starting": "In avvio",
         "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
+        "not_found": "Non trovato",
+        "exited": "Uscito",
+        "partial": "Parziale",
         "healthy": "Healthy"
     },
     "emby": {
@@ -20,10 +20,10 @@
         "transcoding": "Transcodifica",
         "bitrate": "Bitrate",
         "no_active": "Nessuno Stream Attivo",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Film",
+        "series": "Serie",
+        "episodes": "Episodi",
+        "songs": "Canzoni"
     },
     "tautulli": {
         "playing": "In riproduzione",
@@ -82,16 +82,16 @@
         "series": "Serie",
         "wanted": "Richiesti",
         "queued": "In coda",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Coda",
+        "unknown": "Sconosciuto"
     },
     "radarr": {
         "wanted": "Richiesti",
         "queued": "In coda",
         "movies": "Film",
         "missing": "Mancanti",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Coda",
+        "unknown": "Sconosciuto"
     },
     "readarr": {
         "wanted": "Richiesti",
@@ -177,7 +177,7 @@
     "lidarr": {
         "wanted": "Mancanti",
         "queued": "In coda",
-        "artists": "Artists"
+        "artists": "Artisti"
     },
     "adguard": {
         "queries": "Interrogazioni",
@@ -228,13 +228,13 @@
         "devices": "Dispositivi",
         "lan_devices": "Dispositivi LAN",
         "wlan_devices": "Dispositivi WLAN",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Stato del sottosistema sconosciuto"
     },
     "plex": {
         "streams": "Trasmissioni attive",
         "movies": "Film",
         "tv": "Programma televisivo",
-        "albums": "Albums"
+        "albums": "Album"
     },
     "glances": {
         "cpu": "CPU",
@@ -581,14 +581,14 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Iscrizioni",
+        "unread": "Non letto"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "Spettacoli",
+        "recordings": "Registrazioni",
+        "scheduled": "Programmati",
+        "passes": "Tessere"
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
@@ -609,12 +609,12 @@
         "days": "{{number}}d"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "Utilizzo CPU",
+        "memUsage": "Utilizzo MEM",
+        "systemTempC": "Temp sistema",
+        "poolUsage": "Utilizzo Pool",
+        "volumeUsage": "Utilizzo Volume",
+        "invalid": "Invalido"
     },
     "pfsense": {
         "load": "Load Avg",
@@ -627,20 +627,20 @@
         "wanIP": "WAN IP"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Upstream",
+        "requests": "Richieste correnti",
+        "requests_failed": "Richieste fallite"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "pv_power": "Produzione",
+        "battery_soc": "Batteria",
+        "grid_power": "Griglia",
+        "home_power": "Consumo",
+        "charge_power": "Caricatore",
         "watt_hour": "Wh"
     },
     "pialert": {
-        "total": "Total",
+        "total": "Totali",
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
