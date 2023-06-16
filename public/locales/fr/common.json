@@ -647,6 +647,8 @@
     },
     "jdownloader": {
         "downloadCount": "Total en attente",
-        "downloadSpeed": "Vitesse de téléchargement"
+        "downloadSpeed": "Vitesse de téléchargement",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
     }
 }
