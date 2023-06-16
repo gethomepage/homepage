@@ -647,6 +647,8 @@
     },
     "jdownloader": {
         "downloadCount": "Recuento de las colas",
-        "downloadSpeed": "Velocidad de Descarga"
+        "downloadSpeed": "Velocidad de Descarga",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
     }
 }
