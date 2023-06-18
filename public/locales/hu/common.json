@@ -67,10 +67,10 @@
         "transcoding": "Átkódolás",
         "bitrate": "Bitráta",
         "no_active": "Nincs aktív lejátszás",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Film",
+        "series": "Sorozat",
+        "episodes": "Epizód",
+        "songs": "Zeneszám"
     },
     "tautulli": {
         "playing": "Lejátszás folyamatban",
@@ -254,16 +254,16 @@
         "diffsDetected": "Diffs Detected"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
+        "0-day": "Napos",
+        "0-night": "Derült",
         "3-day": "Cloudy",
         "3-night": "Cloudy",
         "45-day": "Foggy",
         "53-day": "Drizzle",
         "56-night": "Light Freezing Drizzle",
         "57-day": "Freezing Drizzle",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
+        "1-day": "Többnyire napos",
+        "1-night": "Többnyire derült",
         "2-day": "Partly Cloudy",
         "2-night": "Partly Cloudy",
         "45-night": "Foggy",
@@ -373,7 +373,7 @@
         "hd": "HD"
     },
     "ping": {
-        "error": "Error",
+        "error": "Hiba",
         "ping": "Ping"
     },
     "scrutiny": {
@@ -570,10 +570,10 @@
         "gross_percent_max": "All time"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "Podcast",
+        "books": "Könyv",
+        "podcastsDuration": "Időtartam",
+        "booksDuration": "Időtartam"
     },
     "homeassistant": {
         "people_home": "People Home",
