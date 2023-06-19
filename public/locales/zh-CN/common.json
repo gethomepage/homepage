@@ -632,7 +632,7 @@
         "requests_failed": "失败请求"
     },
     "evcc": {
-        "pv_power": "Production",
+        "pv_power": "正式环境",
         "battery_soc": "Battery",
         "grid_power": "Grid",
         "home_power": "Consumption",
