@@ -1,9 +1,14 @@
 import classNames from "classnames";
+import { Transition } from '@headlessui/react'
+import { useState } from 'react'
 
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function ServicesGroup({ group, services, layout, fiveColumns }) {
+export default function ServicesGroup({ group, services, layout, fiveColumns, disableCollapse}) {
+
+  const [isShowing, setIsShowing] = useState(true)
+
   return (
     <div
       key={services.name}
@@ -13,15 +18,18 @@ export default function ServicesGroup({ group, services, layout, fiveColumns }) 
         "flex-1 p-1"
       )}
     >
-      <div className="flex select-none items-center">
-        {layout?.icon &&
-          <div className="flex-shrink-0 mr-2 w-7 h-7">
-            <ResolvedIcon icon={layout.icon} />
-          </div>
-        }
-        <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium">{services.name}</h2>
+      <div className="flex">
+        {/* eslint-disable-next-line no-shadow */}
+        <button type="button" disabled={disableCollapse} onClick={() => setIsShowing((isShowing) => !isShowing)} className="grow select-none items-center">
+          {layout?.icon &&
+            <div className="flex-shrink-0 mr-2 w-7 h-7">
+              <ResolvedIcon icon={layout.icon} />
+            </div>
+          }
+          <h2 className="flex text-theme-800 dark:text-theme-300 text-xl font-medium">{services.name}</h2>
+        </button>
       </div>
-      <List group={group} services={services.services} layout={layout} />
+      <Transition show={isShowing}><List group={group} services={services.services} layout={layout} /></Transition>
     </div>
   );
 }
