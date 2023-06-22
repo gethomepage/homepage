@@ -5,8 +5,8 @@
         "status": "Statut",
         "information": "Information",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Erreur brute",
+        "response_data": "Données de réponse"
     },
     "search": {
         "placeholder": "Recherche…"
