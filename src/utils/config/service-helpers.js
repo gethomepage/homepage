@@ -1,4 +1,4 @@
-import { promises as fs } from "fs";
+import { promises as fs, readFileSync } from "fs";
 import path from "path";
 
 import yaml from "js-yaml";
@@ -143,22 +143,8 @@ export async function servicesFromKubernetes() {
 
   checkAndCopyConfig("kubernetes.yaml");
 
-  try {
-    const kc = getKubeConfig();
-    if (!kc) {
-      return [];
-    }
-    const networking = kc.makeApiClient(NetworkingV1Api);
-    const crd = kc.makeApiClient(CustomObjectsApi);
-
-    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, null)
-      .then((response) => response.body)
-      .catch((error) => {
-        logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
-        return null;
-      });
-
-    const traefikIngressList = await crd.listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
+  async function servicesFromTraefik(crd) {
+    const traefikIngressList = crd.listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
       .then((response) => response.body)
       .catch(async (error) => {
         logger.error("Error getting traefik ingresses from traefik.io: %d %s %s", error.statusCode, error.body, error.response);
@@ -173,10 +159,37 @@ export async function servicesFromKubernetes() {
 
         return fallbackIngressList;
       });
+      if (traefikIngressList && traefikIngressList.items.length > 0) {
+        const traefikServices = traefikIngressList.items
+        .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`])
+      return traefikServices;
+      }
+    return [];
+  }
 
-    if (traefikIngressList && traefikIngressList.items.length > 0) {
-      const traefikServices = traefikIngressList.items
-      .filter((ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`])
+  try {
+
+    const configFile = path.join(process.cwd(), "config", "kubernetes.yaml");
+    const rawConfigData = readFileSync(configFile, "utf8");
+    const configData = substituteEnvironmentVars(rawConfigData);
+    const config = yaml.load(configData);
+
+    const kc = getKubeConfig();
+    if (!kc) {
+      return [];
+    }
+    const networking = kc.makeApiClient(NetworkingV1Api);
+    const crd = kc.makeApiClient(CustomObjectsApi);
+
+    const ingressList = await networking.listIngressForAllNamespaces(null, null, null, null)
+      .then((response) => response.body)
+      .catch((error) => {
+        logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        return null;
+      });
+
+    if (config.traefik) {
+      const traefikServices = await servicesFromTraefik(crd);
       ingressList.items.push(...traefikServices);
     }
 
@@ -249,6 +262,8 @@ export async function servicesFromKubernetes() {
     logger.error(e);
     throw e;
   }
+
+
 }
 
 export function cleanServiceGroups(groups) {
