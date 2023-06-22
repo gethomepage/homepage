@@ -5,7 +5,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function ServicesGroup({ group, services, layout, fiveColumns, disableCollapse}) {
+export default function ServicesGroup({ group, services, layout, fiveColumns, disableCollapse }) {
 
   return (
     <div
