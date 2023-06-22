@@ -9,6 +9,11 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/widgets/**/*.{js,ts,jsx,tsx}",
   ],
+  variants: {
+    extend: {
+        display: ["group-hover"],
+    },
+  },
   theme: {
     extend: {
       colors: {
