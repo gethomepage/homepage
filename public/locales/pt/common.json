@@ -659,5 +659,9 @@
         "downloadSpeed": "Download Speed",
         "downloadBytesRemaining": "Remaining",
         "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
     }
 }

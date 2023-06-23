@@ -650,5 +650,9 @@
         "downloadCount": "Queue Count",
         "downloadTotalBytes": "Size",
         "downloadBytesRemaining": "Remaining"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
     }
 }
