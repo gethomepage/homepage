@@ -126,21 +126,21 @@
         "wanted": "Zatraženo",
         "queued": "U redu čekanja",
         "series": "Serije",
-        "unknown": "Unknown",
-        "queue": "Queue"
+        "unknown": "Nepoznato",
+        "queue": "Red čekanja"
     },
     "radarr": {
         "wanted": "Zatraženo",
         "queued": "U redu čekanja",
         "movies": "Filmovi",
         "missing": "Nedostaje",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Red čekanja",
+        "unknown": "Nepoznato"
     },
     "lidarr": {
         "wanted": "Zatraženo",
         "queued": "U redu čekanja",
-        "artists": "Artists"
+        "artists": "Umjetnici"
     },
     "readarr": {
         "wanted": "Zatraženo",
@@ -646,13 +646,13 @@
         "down_alerts": "Obavijest o rušenju"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Red čekanja",
+        "downloadSpeed": "Brzina",
+        "downloadBytesRemaining": "Preostalo",
+        "downloadTotalBytes": "Veličina"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Serije",
+        "totalFiles": "Datoteke"
     }
 }
