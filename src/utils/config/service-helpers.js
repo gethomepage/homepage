@@ -291,8 +291,15 @@ export function cleanServiceGroups(groups) {
           enableQueue, // sonarr/radarr
         } = cleanedService.widget;
 
-        const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
-
+        let fieldsList = fields;
+        if (typeof fields === 'string') {
+          try { JSON.parse(fields) }
+          catch (e) {
+            logger.error("Invalid fields list detected in config for service '%s'", service.name);
+            fieldsList = null;
+          }
+        }
+        
         cleanedService.widget = {
           type,
           fields: fieldsList || null,
