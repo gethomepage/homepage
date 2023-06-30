@@ -92,7 +92,7 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
-	"evcc": {
+    "evcc": {
         "pv_power": "Production",
         "battery_soc": "Battery",
         "grid_power": "Grid",
@@ -648,7 +648,7 @@
     "homeassistant": {
         "people_home": "People Home",
         "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "switches_on": "fdasfSwitches On"
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
