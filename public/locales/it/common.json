@@ -112,7 +112,7 @@
         "queries": "Richieste",
         "blocked": "Bloccati",
         "gravity": "Severità",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Bloccato %"
     },
     "npm": {
         "enabled": "Attivi",
@@ -175,7 +175,7 @@
         "missingMovies": "Film Mancanti"
     },
     "lidarr": {
-        "wanted": "Mancanti",
+        "wanted": "Richiesto",
         "queued": "In coda",
         "artists": "Artisti"
     },
@@ -243,11 +243,11 @@
         "uptime": "UP",
         "days": "d",
         "hours": "h",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "load": "Carico",
+        "warn": "Avviso",
+        "total": "Totale",
+        "free": "Libero",
+        "used": "Usato"
     },
     "changedetectionio": {
         "totalObserved": "Totale Osservato",
@@ -314,9 +314,9 @@
     "quicklaunch": {
         "bookmark": "Segnalibro",
         "service": "Servizio",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "search": "Cerca",
+        "custom": "Personalizzato",
+        "visit": "Visita",
         "url": "URL"
     },
     "homebridge": {
@@ -327,7 +327,7 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Pending",
+        "pending": "In attesa",
         "down": "Down"
     },
     "autobrr": {
@@ -432,7 +432,7 @@
         "cpuLoad": "Carico della CPU",
         "memoryUsed": "Memoria Utilizzata",
         "uptime": "Tempo di attività",
-        "numberOfLeases": "Lease"
+        "numberOfLeases": "Rilasci"
     },
     "xteve": {
         "streams_all": "Tutti gli stream",
@@ -440,145 +440,145 @@
         "streams_xepg": "Canali XEPG"
     },
     "opnsense": {
-        "cpu": "Carico CPU",
+        "cpu": "Carico della CPU",
         "memory": "Memoria in uso",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Stato stampante",
+        "print_status": "Stato Stampante",
+        "print_progress": "Avanzamento",
+        "layers": "Livelli"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Richiesto",
+        "queued": "In coda",
+        "series": "Serie"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "Stato",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "job_completion": "Completamento"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "IP sorgente",
+        "status": "Stato"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "failed_tasks_24h": "Attività Non Riuscite 24h",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Memoria"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Utenti",
+        "photos": "Foto",
+        "videos": "Video",
+        "storage": "Memoria"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Siti On",
+        "down": "Siti Down",
         "uptime": "Uptime",
-        "incident": "Incident",
+        "incident": "Incidente",
         "m": "m"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+        "libraries": "Librerie",
+        "series": "Serie",
+        "books": "Libri"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "series": "Serie",
+        "issues": "Problemi",
+        "wanted": "Richiesto"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "Album",
+        "photos": "Foto",
+        "videos": "Video",
+        "people": "Persone"
     },
     "diskstation": {
-        "days": "Days",
+        "days": "Giorni",
         "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "volumeAvailable": "Disponibile"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "queue": "Coda",
+        "processing": "In Lavorazione",
+        "processed": "Elaborato",
+        "time": "Tempo"
     },
     "grafana": {
         "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "datasources": "Origine dei Dati",
+        "totalalerts": "Avvisi Totali",
+        "alertstriggered": "Avvisi Attivati"
     },
     "nextcloud": {
-        "memoryusage": "Memory Usage",
-        "cpuload": "Cpu Load",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "memoryusage": "Uso della Memoria",
+        "cpuload": "Carico della CPU",
+        "freespace": "Spazio Libero",
+        "activeusers": "Utenti Attivi",
+        "numfiles": "File",
+        "numshares": "Oggetti Condivisi"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "Stato",
+        "size": "Dimensione",
+        "lastrun": "Ultima esecuzione",
+        "nextrun": "Prossima esecuzione",
+        "failed": "Fallito"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Lavoratori Attivi",
+        "total_workers": "Lavoratori Totali",
+        "records_total": "Lunghezza della Coda"
     },
     "healthchecks": {
-        "new": "New",
+        "new": "Nuovo",
         "up": "Online",
-        "grace": "In Grace Period",
+        "grace": "Periodo di Tolleranza",
         "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "paused": "In Pausa",
+        "status": "Stato",
+        "last_ping": "Ultimo Ping",
+        "never": "Ancora nessun ping"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Server",
+        "nodes": "Nodi"
     },
     "prometheus": {
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_total": "Targets Totali"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
+        "players": "Giocatori",
+        "version": "Versione",
+        "status": "Stato",
         "up": "Online",
         "down": "Offline"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "Oggi",
+        "gross_percent_1y": "Un anno",
+        "gross_percent_max": "Sempre"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "Podcast",
+        "books": "Libri",
+        "podcastsDuration": "Durata",
+        "booksDuration": "Durata"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Persone a Casa",
+        "lights_on": "Luci Accese",
+        "switches_on": "Switch Accesi"
     },
     "freshrss": {
         "subscriptions": "Iscrizioni",
@@ -591,21 +591,21 @@
         "passes": "Tessere"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Monitoraggio",
+        "updates": "Aggiornamenti"
     },
     "tailscale": {
-        "never": "Never",
-        "address": "Address",
-        "expires": "Expires",
-        "last_seen": "Last Seen",
-        "now": "Now",
+        "never": "Mai",
+        "address": "Indirizzo",
+        "expires": "Scade",
+        "last_seen": "Ultima visualizzazione",
+        "now": "Adesso",
         "years": "{{number}}y",
         "weeks": "{{number}}w",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago",
+        "ago": "{{value}} Fa",
         "days": "{{number}}d"
     },
     "qnap": {
@@ -617,14 +617,14 @@
         "invalid": "Invalido"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
+        "load": "Carico Medio",
+        "memory": "Uso Memoria",
+        "wanStatus": "Stato WAN",
         "up": "Up",
         "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
+        "temp": "Temperatura",
+        "disk": "Uso Disco",
+        "wanIP": "IP WAN"
     },
     "caddy": {
         "upstreams": "Upstream",
@@ -641,18 +641,18 @@
     },
     "pialert": {
         "total": "Totali",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Connesso",
+        "new_devices": "Nuovi Dispositivi",
+        "down_alerts": "Avvisi di Disservizio"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Coda",
+        "downloadSpeed": "Velocità Download",
+        "downloadBytesRemaining": "Residuo",
+        "downloadTotalBytes": "Dimensione"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Serie",
+        "totalFiles": "File"
     }
 }
