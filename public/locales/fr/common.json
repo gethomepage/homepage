@@ -578,7 +578,7 @@
     "homeassistant": {
         "people_home": "People Home",
         "lights_on": "Lumières allumées",
-        "switches_on": "Switches On"
+        "switches_on": "Commutateur On"
     },
     "freshrss": {
         "unread": "Non lu",
