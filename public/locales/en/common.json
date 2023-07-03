@@ -648,7 +648,7 @@
     "homeassistant": {
         "people_home": "People Home",
         "lights_on": "Lights On",
-        "switches_on": "fdasfSwitches On"
+        "switches_on": "Switches On"
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
