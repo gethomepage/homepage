@@ -1,6 +1,6 @@
 /* eslint-disable prefer-promise-reject-errors */
 /* eslint-disable no-param-reassign */
-import { createUnzip } from "node:zlib";
+import { createUnzip, constants as zlibConstants } from "node:zlib";
 
 import { http, https } from "follow-redirects";
 
@@ -34,7 +34,11 @@ function handleRequest(requestor, url, params) {
 
       let responseContent = response;
       if (contentEncoding === 'gzip' || contentEncoding === 'deflate') {
-        responseContent = createUnzip();
+        responseContent = createUnzip({
+          flush: zlibConstants.Z_SYNC_FLUSH,
+          finishFlush: zlibConstants.Z_SYNC_FLUSH
+        });
+
         // zlib errors
         responseContent.on("error", (e) => {
           logger.error(e);
@@ -103,6 +107,6 @@ export async function httpProxy(url, params = {}) {
       constructedUrl.pathname
     );
     logger.error(err);
-    return [500, "application/json", { error: {message: err?.message ?? "Unknown error", url, rawError: err} }, null];
+    return [500, "application/json", { error: { message: err?.message ?? "Unknown error", url, rawError: err } }, null];
   }
 }
