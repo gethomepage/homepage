@@ -34,6 +34,9 @@ function handleRequest(requestor, url, params) {
 
       let responseContent = response;
       if (contentEncoding === 'gzip' || contentEncoding === 'deflate') {
+        // https://github.com/request/request/blob/3c0cddc7c8eb60b470e9519da85896ed7ee0081e/request.js#L1018-L1025
+        // Be more lenient with decoding compressed responses, in case of invalid gzip responses that are still accepted
+        // by common browsers.
         responseContent = createUnzip({
           flush: zlibConstants.Z_SYNC_FLUSH,
           finishFlush: zlibConstants.Z_SYNC_FLUSH
