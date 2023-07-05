@@ -14,17 +14,29 @@ const columnMap = [
   "grid-cols-1 md:grid-cols-2 lg:grid-cols-8",
 ];
 
-export default function List({ group, services, layout }) {
+export default function List({ group, services, layout, isGroup = false }) {
+  //console.log({ group, services, layout });
+  console.log({ services });
   return (
     <ul
       className={classNames(
         layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col",
-        "mt-3"
+        isGroup ? undefined : "mt-3"
       )}
     >
-      {services.map((service) => (
-        <Item key={service.container ?? service.app ?? service.name} service={service} group={group} />
-      ))}
+      {services.map((service, i) => {
+        return service.type == "grouped-service" ? (
+          <List
+            key={service.name}
+            group={service.name}
+            services={service.services}
+            layout={{ columns: parseInt(service.name) || service.services.length, style: "row" }}
+            isGroup={true}
+          />
+        ) : (
+          <Item key={service.container ?? service.app ?? service.name} service={service} group={group} />
+        );
+      })}
     </ul>
   );
 }
