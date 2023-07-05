@@ -15,8 +15,6 @@ const columnMap = [
 ];
 
 export default function List({ group, services, layout, isGroup = false }) {
-  //console.log({ group, services, layout });
-  console.log({ services });
   return (
     <ul
       className={classNames(
@@ -24,19 +22,19 @@ export default function List({ group, services, layout, isGroup = false }) {
         isGroup ? undefined : "mt-3"
       )}
     >
-      {services.map((service, i) => {
-        return service.type == "grouped-service" ? (
+      {services.map((service) =>
+        service.type === "grouped-service" ? (
           <List
             key={service.name}
             group={service.name}
             services={service.services}
-            layout={{ columns: parseInt(service.name) || service.services.length, style: "row" }}
-            isGroup={true}
+            layout={{ columns: parseInt(service.name, 10) || service.services.length, style: "row" }}
+            isGroup
           />
         ) : (
           <Item key={service.container ?? service.app ?? service.name} service={service} group={group} />
-        );
-      })}
+        )
+      )}
     </ul>
   );
 }

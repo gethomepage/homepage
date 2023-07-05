@@ -53,7 +53,7 @@ export async function servicesFromConfig() {
         servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
       }
       if (service.type === "grouped-service") {
-        service.weight = (serviceIndex + 1) * 100;
+        servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
         service.services.forEach((groupedService, groupedServiceIndex) => {
           if (!groupedService.weight) {
             servicesArray[groupIndex].services[serviceIndex].services[groupedServiceIndex].weight =
