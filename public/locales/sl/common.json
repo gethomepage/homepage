@@ -236,21 +236,21 @@
         "wanted": "Iskano",
         "queued": "V vrsti",
         "series": "Serije",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Vrsta",
+        "unknown": "Neznano"
     },
     "radarr": {
         "wanted": "Iskano",
         "missing": "Manjka",
         "queued": "V vrsti",
         "movies": "Filmi",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Vrsta",
+        "unknown": "Neznano"
     },
     "lidarr": {
         "wanted": "Iskano",
         "queued": "V vrsti",
-        "artists": "Artists"
+        "artists": "Avtorji"
     },
     "readarr": {
         "wanted": "Iskano",
@@ -359,11 +359,11 @@
         "uptime": "UP",
         "days": "d",
         "hours": "u",
-        "free": "Free",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "used": "Used"
+        "free": "Prosto",
+        "load": "Obremenitev",
+        "warn": "Opoz.",
+        "total": "Skupaj",
+        "used": "V uporabi"
     },
     "authentik": {
         "users": "Uporabniki",
@@ -613,8 +613,8 @@
         "memUsage": "MEM",
         "systemTempC": "Temperatura",
         "poolUsage": "Prostor",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Prostora",
+        "invalid": "Neveljavno"
     },
     "pfsense": {
         "load": "Povp. obremenitev",
@@ -640,19 +640,19 @@
         "watt_hour": "Wh"
     },
     "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "total": "Skupaj",
+        "connected": "Povezanih",
+        "new_devices": "Nove naprave",
+        "down_alerts": "Izključeno"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Vrsta",
+        "downloadSpeed": "Hitrost prenosa",
+        "downloadBytesRemaining": "Še ostane",
+        "downloadTotalBytes": "Velikost"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Serije",
+        "totalFiles": "Datoteke"
     }
 }
