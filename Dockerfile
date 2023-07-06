@@ -8,8 +8,6 @@ WORKDIR /app
 COPY --link package.json pnpm-lock.yaml* ./
 
 SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
-RUN nslookup www.google.com
-RUN sed -i 's/https/http/' /etc/apk/repositories
 RUN apk add --no-cache libc6-compat \
   && apk add --no-cache --virtual .gyp python3 make g++ \
   && npm install -g pnpm
