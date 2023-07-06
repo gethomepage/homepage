@@ -26,7 +26,7 @@ export default function List({ group, services, layout, isGroup = false }) {
         service.type === "grouped-service" ? (
           <List
             key={service.name}
-            group={service.name}
+            group={group}
             services={service.services}
             layout={{ columns: parseInt(service.name, 10) || service.services.length, style: "row" }}
             isGroup

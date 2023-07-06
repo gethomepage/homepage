@@ -177,7 +177,14 @@ function Home({ initialSettings }) {
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
-  const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
+  const servicesAndBookmarks = [
+    ...services
+      .map((sg) => sg.services)
+      .flat(1)
+      .map((service) => (service.type === "grouped-service" ? service.services : service))
+      .flat(1),
+    ...bookmarks.map((bg) => bg.bookmarks).flat(),
+  ];
 
   useEffect(() => {
     if (settings.language) {
@@ -196,15 +203,15 @@ function Home({ initialSettings }) {
   const [searching, setSearching] = useState(false);
   const [searchString, setSearchString] = useState("");
   let searchProvider = null;
-  const searchWidget = Object.values(widgets).find(w => w.type === "search");
+  const searchWidget = Object.values(widgets).find((w) => w.type === "search");
   if (searchWidget) {
     if (Array.isArray(searchWidget.options?.provider)) {
       // if search provider is a list, try to retrieve from localstorage, fall back to the first
       searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
-    } else if (searchWidget.options?.provider === 'custom') {
+    } else if (searchWidget.options?.provider === "custom") {
       searchProvider = {
-        url: searchWidget.options.url
-      }
+        url: searchWidget.options.url,
+      };
     } else {
       searchProvider = searchProviders[searchWidget.options?.provider];
     }
@@ -223,12 +230,12 @@ function Home({ initialSettings }) {
       }
     }
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
 
     return function cleanup() {
-      document.removeEventListener('keydown', handleKeyDown);
-    }
-  })
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   return (
     <>
@@ -255,12 +262,7 @@ function Home({ initialSettings }) {
         <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
-        <div
-          className={classNames(
-            "flex flex-row flex-wrap  justify-between",
-            headerStyles[headerStyle]
-          )}
-        >
+        <div className={classNames("flex flex-row flex-wrap  justify-between", headerStyles[headerStyle])}>
           <QuickLaunch
             servicesAndBookmarks={servicesAndBookmarks}
             searchString={searchString}
@@ -274,17 +276,19 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false}} />
+                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false }} />
                 ))}
 
-              <div className={classNames(
-                "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
-                headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
-              )}>
+              <div
+                className={classNames(
+                  "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
+                  headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
+                )}
+              >
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true}} />
+                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true }} />
                   ))}
               </div>
             </>
@@ -294,24 +298,27 @@ function Home({ initialSettings }) {
         {services?.length > 0 && (
           <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
             {services.map((group) => (
-              <ServicesGroup 
+              <ServicesGroup
                 key={group.name}
                 group={group.name}
                 services={group}
                 layout={initialSettings.layout?.[group.name]}
-                fiveColumns={settings.fiveColumns} 
-                disableCollapse={settings.disableCollapse} />
+                fiveColumns={settings.fiveColumns}
+                disableCollapse={settings.disableCollapse}
+              />
             ))}
           </div>
         )}
 
         {bookmarks?.length > 0 && (
-          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
+          <div
+            className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(
+              6,
+              bookmarks.length
+            )}`}
+          >
             {bookmarks.map((group) => (
-              <BookmarksGroup
-                key={group.name}
-                group={group}
-                disableCollapse={settings.disableCollapse} />
+              <BookmarksGroup key={group.name} group={group} disableCollapse={settings.disableCollapse} />
             ))}
           </div>
         )}
@@ -323,9 +330,7 @@ function Home({ initialSettings }) {
             {!initialSettings?.theme && <ThemeToggle />}
           </div>
 
-          <div className="flex mt-4 w-full justify-end">
-            {!initialSettings?.hideVersion && <Version />}
-          </div>
+          <div className="flex mt-4 w-full justify-end">{!initialSettings?.hideVersion && <Version />}</div>
         </div>
       </div>
     </>
@@ -340,7 +345,7 @@ export default function Wrapper({ initialSettings, fallback }) {
   if (initialSettings && initialSettings.background) {
     let opacity = initialSettings.backgroundOpacity ?? 1;
     let backgroundImage = initialSettings.background;
-    if (typeof initialSettings.background === 'object') {
+    if (typeof initialSettings.background === "object") {
       backgroundImage = initialSettings.background.image;
       backgroundBlur = initialSettings.background.blur !== undefined;
       backgroundSaturate = initialSettings.background.saturate !== undefined;
@@ -373,13 +378,15 @@ export default function Wrapper({ initialSettings, fallback }) {
         style={wrappedStyle}
       >
         <div
-        id="inner_wrapper"
-        className={classNames(
-          'fixed overflow-auto w-full h-full',
-          backgroundBlur && `backdrop-blur${initialSettings.background.blur.length ? '-' : ""}${initialSettings.background.blur}`,
-          backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
-          backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
-        )}>
+          id="inner_wrapper"
+          className={classNames(
+            "fixed overflow-auto w-full h-full",
+            backgroundBlur &&
+              `backdrop-blur${initialSettings.background.blur.length ? "-" : ""}${initialSettings.background.blur}`,
+            backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
+            backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`
+          )}
+        >
           <Index initialSettings={initialSettings} fallback={fallback} />
         </div>
       </div>

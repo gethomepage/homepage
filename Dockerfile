@@ -8,9 +8,11 @@ WORKDIR /app
 COPY --link package.json pnpm-lock.yaml* ./
 
 SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
+RUN nslookup www.google.com
+RUN sed -i 's/https/http/' /etc/apk/repositories
 RUN apk add --no-cache libc6-compat \
- && apk add --no-cache --virtual .gyp python3 make g++ \
- && npm install -g pnpm
+  && apk add --no-cache --virtual .gyp python3 make g++ \
+  && npm install -g pnpm
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
 
@@ -29,8 +31,8 @@ COPY . .
 
 SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
 RUN npm run telemetry \
- && mkdir config \
- && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
+  && mkdir config \
+  && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
 
 # Production image, copy all the files and run next
 FROM docker.io/node:18-alpine AS runner

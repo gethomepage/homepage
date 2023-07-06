@@ -25,35 +25,34 @@ export async function servicesFromConfig() {
     return [];
   }
   // map easy to write YAML objects into easy to consume JS arrays
+
   const servicesArray = services.map((servicesGroup) => ({
     name: Object.keys(servicesGroup)[0],
-    services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) => {
-      if (Array.isArray(entries[Object.keys(entries)[0]]))
-        return {
-          name: Object.keys(entries)[0],
-          services: entries[Object.keys(entries)[0]].map((entry) => ({
-            name: Object.keys(entry)[0],
-            ...entry[Object.keys(entry)[0]],
+    services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) =>
+      Array.isArray(entries[Object.keys(entries)[0]])
+        ? {
+            name: Object.keys(entries)[0],
+            services: entries[Object.keys(entries)[0]].map((entry) => ({
+              name: Object.keys(entry)[0],
+              ...entry[Object.keys(entry)[0]],
+              type: "service",
+            })),
+            type: "grouped-service",
+          }
+        : {
+            name: Object.keys(entries)[0],
+            ...entries[Object.keys(entries)[0]],
             type: "service",
-          })),
-          type: "grouped-service",
-        };
-
-      return {
-        name: Object.keys(entries)[0],
-        ...entries[Object.keys(entries)[0]],
-        type: "service",
-      };
-    }),
+          }
+    ),
   }));
+
   // add default weight to services based on their position in the configuration
   servicesArray.forEach((group, groupIndex) => {
     group.services.forEach((service, serviceIndex) => {
-      if (!service.weight && service.type !== "grouped-service") {
-        servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
-      }
+      if (!service.weight) servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
+
       if (service.type === "grouped-service") {
-        servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
         service.services.forEach((groupedService, groupedServiceIndex) => {
           if (!groupedService.weight) {
             servicesArray[groupIndex].services[serviceIndex].services[groupedServiceIndex].weight =
@@ -297,97 +296,102 @@ export async function servicesFromKubernetes() {
   }
 }
 
+export function cleanService(service, serviceGroup) {
+  const cleanedService =
+    service.type === "grouped-service"
+      ? { ...service, services: service.services.map((s) => cleanService(s, serviceGroup)) }
+      : { ...service };
+  if (cleanedService.showStats !== undefined) cleanedService.showStats = JSON.parse(cleanedService.showStats);
+  if (typeof service.weight === "string") {
+    const weight = parseInt(service.weight, 10);
+    if (Number.isNaN(weight)) {
+      cleanedService.weight = 0;
+    } else {
+      cleanedService.weight = weight;
+    }
+  }
+  if (typeof cleanedService.weight !== "number") {
+    cleanedService.weight = 0;
+  }
+
+  if (cleanedService.widget) {
+    // whitelisted set of keys to pass to the frontend
+    const {
+      type, // all widgets
+      fields,
+      hideErrors,
+      server, // docker widget
+      container,
+      currency, // coinmarketcap widget
+      symbols,
+      defaultinterval,
+      site, // unifi widget
+      namespace, // kubernetes widget
+      app,
+      podSelector,
+      wan, // opnsense widget, pfsense widget
+      enableBlocks, // emby/jellyfin
+      enableNowPlaying,
+      volume, // diskstation widget,
+      enableQueue, // sonarr/radarr
+    } = cleanedService.widget;
+
+    let fieldsList = fields;
+    if (typeof fields === "string") {
+      try {
+        JSON.parse(fields);
+      } catch (e) {
+        logger.error("Invalid fields list detected in config for service '%s'", service.name);
+        fieldsList = null;
+      }
+    }
+
+    cleanedService.widget = {
+      type,
+      fields: fieldsList || null,
+      hide_errors: hideErrors || false,
+      service_name: service.name,
+      service_group: serviceGroup.name,
+    };
+
+    if (currency) cleanedService.widget.currency = currency;
+    if (symbols) cleanedService.widget.symbols = symbols;
+    if (defaultinterval) cleanedService.widget.defaultinterval = defaultinterval;
+
+    if (type === "docker") {
+      if (server) cleanedService.widget.server = server;
+      if (container) cleanedService.widget.container = container;
+    }
+    if (type === "unifi") {
+      if (site) cleanedService.widget.site = site;
+    }
+    if (type === "kubernetes") {
+      if (namespace) cleanedService.widget.namespace = namespace;
+      if (app) cleanedService.widget.app = app;
+      if (podSelector) cleanedService.widget.podSelector = podSelector;
+    }
+    if (["opnsense", "pfsense"].includes(type)) {
+      if (wan) cleanedService.widget.wan = wan;
+    }
+    if (["emby", "jellyfin"].includes(type)) {
+      if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
+      if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
+    }
+    if (["sonarr", "radarr"].includes(type)) {
+      if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);
+    }
+    if (["diskstation", "qnap"].includes(type)) {
+      if (volume) cleanedService.widget.volume = volume;
+    }
+  }
+
+  return cleanedService;
+}
+
 export function cleanServiceGroups(groups) {
   return groups.map((serviceGroup) => ({
     name: serviceGroup.name,
-    services: serviceGroup.services.map((service) => {
-      const cleanedService = { ...service };
-      if (cleanedService.showStats !== undefined) cleanedService.showStats = JSON.parse(cleanedService.showStats);
-      if (typeof service.weight === "string") {
-        const weight = parseInt(service.weight, 10);
-        if (Number.isNaN(weight)) {
-          cleanedService.weight = 0;
-        } else {
-          cleanedService.weight = weight;
-        }
-      }
-      if (typeof cleanedService.weight !== "number") {
-        cleanedService.weight = 0;
-      }
-
-      if (cleanedService.widget) {
-        // whitelisted set of keys to pass to the frontend
-        const {
-          type, // all widgets
-          fields,
-          hideErrors,
-          server, // docker widget
-          container,
-          currency, // coinmarketcap widget
-          symbols,
-          defaultinterval,
-          site, // unifi widget
-          namespace, // kubernetes widget
-          app,
-          podSelector,
-          wan, // opnsense widget, pfsense widget
-          enableBlocks, // emby/jellyfin
-          enableNowPlaying,
-          volume, // diskstation widget,
-          enableQueue, // sonarr/radarr
-        } = cleanedService.widget;
-
-        let fieldsList = fields;
-        if (typeof fields === "string") {
-          try {
-            JSON.parse(fields);
-          } catch (e) {
-            logger.error("Invalid fields list detected in config for service '%s'", service.name);
-            fieldsList = null;
-          }
-        }
-
-        cleanedService.widget = {
-          type,
-          fields: fieldsList || null,
-          hide_errors: hideErrors || false,
-          service_name: service.name,
-          service_group: serviceGroup.name,
-        };
-
-        if (currency) cleanedService.widget.currency = currency;
-        if (symbols) cleanedService.widget.symbols = symbols;
-        if (defaultinterval) cleanedService.widget.defaultinterval = defaultinterval;
-
-        if (type === "docker") {
-          if (server) cleanedService.widget.server = server;
-          if (container) cleanedService.widget.container = container;
-        }
-        if (type === "unifi") {
-          if (site) cleanedService.widget.site = site;
-        }
-        if (type === "kubernetes") {
-          if (namespace) cleanedService.widget.namespace = namespace;
-          if (app) cleanedService.widget.app = app;
-          if (podSelector) cleanedService.widget.podSelector = podSelector;
-        }
-        if (["opnsense", "pfsense"].includes(type)) {
-          if (wan) cleanedService.widget.wan = wan;
-        }
-        if (["emby", "jellyfin"].includes(type)) {
-          if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
-          if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
-        }
-        if (["sonarr", "radarr"].includes(type)) {
-          if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);
-        }
-        if (["diskstation", "qnap"].includes(type)) {
-          if (volume) cleanedService.widget.volume = volume;
-        }
-      }
-
-      return cleanedService;
-    }),
+    services: serviceGroup.services.map((service) => cleanService(service, serviceGroup)),
   }));
 }
 
@@ -396,7 +400,10 @@ export async function getServiceItem(group, service) {
 
   const serviceGroup = configuredServices.find((g) => g.name === group);
   if (serviceGroup) {
-    const serviceEntry = serviceGroup.services.find((s) => s.name === service);
+    const serviceEntry = serviceGroup.services
+      .map((s) => (s.type === "grouped-service" ? s.services : s))
+      .flat(1)
+      .find((s) => s.name === service);
     if (serviceEntry) return serviceEntry;
   }
 
