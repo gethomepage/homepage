@@ -14,11 +14,25 @@ const columnMap = [
   "grid-cols-1 md:grid-cols-2 lg:grid-cols-8",
 ];
 
+const subcolumnMap = [
+  "grid-cols-1",
+  "grid-cols-1",
+  "grid-cols-[repeat(auto-fit,minmax(11rem,1fr))]",
+  "grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]",
+  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
+  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
+  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
+  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
+  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
+];
+
 export default function List({ group, services, layout, isGroup = false }) {
   return (
     <ul
       className={classNames(
-        layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col",
+        layout?.style === "row"
+          ? `grid auto-rows-max ${isGroup ? subcolumnMap[layout?.columns] : columnMap[layout?.columns]} gap-x-2`
+          : "flex flex-col",
         isGroup ? undefined : "mt-3"
       )}
     >

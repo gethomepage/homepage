@@ -30,7 +30,7 @@ export default function Item({ service, group }) {
   };
 
   return (
-    <li key={service.name}>
+    <li key={service.name} className="@container">
       <div
         className={`${
           hasLink ? "cursor-pointer " : " "

@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const tailwindForms = require("@tailwindcss/forms");
 const tailwindScrollbars = require("tailwind-scrollbar");
+const tailwindQueries = require("@tailwindcss/container-queries");
 
 module.exports = {
   darkMode: "class",
@@ -11,7 +12,7 @@ module.exports = {
   ],
   variants: {
     extend: {
-        display: ["group-hover"],
+      display: ["group-hover"],
     },
   },
   theme: {
@@ -31,33 +32,33 @@ module.exports = {
         },
       },
       screens: {
-        '3xl': '1800px',
+        "3xl": "1800px",
         // => @media (min-width: 1800px) { ... }
       },
     },
   },
-  plugins: [tailwindForms, tailwindScrollbars],
+  plugins: [tailwindForms, tailwindScrollbars, tailwindQueries],
   // always include these in build as classes are dynamically constructed
   safelist: [
-    'backdrop-blur',
-    'backdrop-blur-sm',
-    'backdrop-blur-md',
-    'backdrop-blur-xl',
-    'backdrop-saturate-0',
-    'backdrop-saturate-50',
-    'backdrop-saturate-100',
-    'backdrop-saturate-150',
-    'backdrop-saturate-200',
-    'backdrop-brightness-0',
-    'backdrop-brightness-50',
-    'backdrop-brightness-75',
-    'backdrop-brightness-90',
-    'backdrop-brightness-95',
-    'backdrop-brightness-100',
-    'backdrop-brightness-105',
-    'backdrop-brightness-110',
-    'backdrop-brightness-125',
-    'backdrop-brightness-150',
-    'backdrop-brightness-200',
+    "backdrop-blur",
+    "backdrop-blur-sm",
+    "backdrop-blur-md",
+    "backdrop-blur-xl",
+    "backdrop-saturate-0",
+    "backdrop-saturate-50",
+    "backdrop-saturate-100",
+    "backdrop-saturate-150",
+    "backdrop-saturate-200",
+    "backdrop-brightness-0",
+    "backdrop-brightness-50",
+    "backdrop-brightness-75",
+    "backdrop-brightness-90",
+    "backdrop-brightness-95",
+    "backdrop-brightness-100",
+    "backdrop-brightness-105",
+    "backdrop-brightness-110",
+    "backdrop-brightness-125",
+    "backdrop-brightness-150",
+    "backdrop-brightness-200",
   ],
-}
+};
