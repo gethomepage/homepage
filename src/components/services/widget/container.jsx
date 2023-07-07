@@ -8,13 +8,6 @@ export default function Container({ error = false, children, service }) {
   const { settings } = useContext(SettingsContext);
   const containerRef = useRef(null);
   const [childrensToSlice, setChildrensToSlice] = useState(0);
-  if (error) {
-    if (settings.hideErrors || service.widget.hide_errors) {
-      return null;
-    }
-
-    return <Error service={service} error={error} />;
-  }
 
   const childrenArray = Array.isArray(children) ? children : [children];
   const numberOfChildren = childrenArray.filter((e) => e).length;
@@ -79,6 +72,14 @@ export default function Container({ error = false, children, service }) {
       resizeObserver.disconnect();
     };
   }, []);
+
+  if (error) {
+    if (settings.hideErrors || service.widget.hide_errors) {
+      return null;
+    }
+
+    return <Error service={service} error={error} />;
+  }
 
   return (
     <div className="@container w-full" ref={containerRef}>
