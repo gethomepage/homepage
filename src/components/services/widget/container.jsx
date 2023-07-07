@@ -49,7 +49,8 @@ export default function Container({ error = false, children, service }) {
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (let i = 0; i < entries.length; i += 1) {
+        const entry = entries[i];
         const { width } = entry.contentRect;
         const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
@@ -58,10 +59,10 @@ export default function Container({ error = false, children, service }) {
 
         if (numberOfChildren > 1 && remWidth > 12) {
           if (numberOfChildren <= maxChildrenFit) return setChildrensToSlice(0);
-          const childrensToSlice = remWidth / 6 > 1 ? parseInt(numberOfChildren / maxChildrenFit) : 0;
-          setChildrensToSlice(childrensToSlice);
+          setChildrensToSlice(remWidth / 6 > 1 ? parseInt(numberOfChildren / maxChildrenFit, 10) : 0);
         }
       }
+      return true;
     });
 
     if (containerRef.current) {
@@ -71,7 +72,7 @@ export default function Container({ error = false, children, service }) {
     return () => {
       resizeObserver.disconnect();
     };
-  }, []);
+  }, [numberOfChildren]);
 
   if (error) {
     if (settings.hideErrors || service.widget.hide_errors) {
@@ -86,9 +87,7 @@ export default function Container({ error = false, children, service }) {
       <div className={`relative grid  p-1 gap-2 w-full auto-rows-max	 ${subColumnsClassMap[numberOfChildren]}`}>
         {childrensTopRows}
         {childrensToSlice > 0 && (
-          <div
-            className={`relative grid col-span-full  p-1 gap-2 w-full auto-rows-max	grid-cols-[repeat(auto-fit,minmax(6rem,1fr))]`}
-          >
+          <div className="relative grid col-span-full  p-1 gap-2 w-full auto-rows-max	grid-cols-[repeat(auto-fit,minmax(6rem,1fr))]">
             {childrensBottomRows}
           </div>
         )}
