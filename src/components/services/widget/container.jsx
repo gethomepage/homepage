@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import Error from "./error";
 
@@ -6,7 +6,8 @@ import { SettingsContext } from "utils/contexts/settings";
 
 export default function Container({ error = false, children, service }) {
   const { settings } = useContext(SettingsContext);
-
+  const containerRef = useRef(null);
+  const [childrensToSlice, setChildrensToSlice] = useState(0);
   if (error) {
     if (settings.hideErrors || service.widget.hide_errors) {
       return null;
@@ -19,15 +20,15 @@ export default function Container({ error = false, children, service }) {
   const numberOfChildren = childrenArray.filter((e) => e).length;
   // needed for taillwind class detection
   const subColumnsClassMap = [
-    "",
-    "",
-    "@[12rem]:cols-2",
-    "@[12rem]:cols-2 @[18rem]:cols-3",
-    "@[12rem]:cols-2 @[18rem]:cols-3 @[24rem]:cols-4",
-    "@[12rem]:cols-2 @[18rem]:cols-3 @[24rem]:cols-4 @[30rem]:cols-5",
-    "@[12rem]:cols-2 @[18rem]:cols-3 @[24rem]:cols-4 @[30rem]:cols-5 @[36rem]:cols-6",
-    "@[12rem]:cols-2 @[18rem]:cols-3 @[24rem]:cols-4 @[30rem]:cols-5 @[36rem]:cols-6 @[42rem]:cols-7",
-    "@[12rem]:cols-2 @[18rem]:cols-3 @[24rem]:cols-4 @[30rem]:cols-5 @[36rem]:cols-6 @[42rem]:cols-7 @[48rem]:cols-8",
+    "grid-cols-1",
+    "grid-cols-1",
+    "@[12rem]:grid-cols-2",
+    "@[12rem]:grid-cols-2 @[18rem]:grid-cols-3",
+    "@[12rem]:grid-cols-2 @[18rem]:grid-cols-3 @[24rem]:grid-cols-4",
+    "@[12rem]:grid-cols-2 @[18rem]:grid-cols-3 @[24rem]:grid-cols-4 @[30rem]:grid-cols-5",
+    "@[12rem]:grid-cols-2 @[18rem]:grid-cols-3 @[24rem]:grid-cols-4 @[30rem]:grid-cols-5 @[36rem]:grid-cols-6",
+    "@[12rem]:grid-cols-2 @[18rem]:grid-cols-3 @[24rem]:grid-cols-4 @[30rem]:grid-cols-5 @[36rem]:grid-cols-6 @[42rem]:grid-cols-7",
+    "@[12rem]:grid-cols-2 @[18rem]:grid-cols-3 @[24rem]:grid-cols-4 @[30rem]:grid-cols-5 @[36rem]:grid-cols-6 @[42rem]:grid-cols-7 @[48rem]:grid-cols-8",
   ];
 
   let visibleChildren = childrenArray;
@@ -50,9 +51,47 @@ export default function Container({ error = false, children, service }) {
     );
   }
 
+  const childrensTopRows = visibleChildren.filter((v) => v).slice(0, numberOfChildren - childrensToSlice);
+  const childrensBottomRows = visibleChildren.filter((v) => v).slice(numberOfChildren - childrensToSlice);
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const { width } = entry.contentRect;
+        const remSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+        const remWidth = width / remSize;
+        const maxChildrenFit = Math.floor(remWidth / 6);
+
+        if (numberOfChildren > 1 && remWidth > 12) {
+          if (numberOfChildren <= maxChildrenFit) return setChildrensToSlice(0);
+          const childrensToSlice = remWidth / 6 > 1 ? parseInt(numberOfChildren / maxChildrenFit) : 0;
+          setChildrensToSlice(childrensToSlice);
+        }
+      }
+    });
+
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   return (
-    <div className={`relative grid  p-1 gap-2 w-full auto-rows-max	grid-cols-[repeat(auto-fit,minmax(6rem,1fr))]`}>
-      {visibleChildren}
+    <div className="@container w-full" ref={containerRef}>
+      <div className={`relative grid  p-1 gap-2 w-full auto-rows-max	 ${subColumnsClassMap[numberOfChildren]}`}>
+        {childrensTopRows}
+        {childrensToSlice > 0 && (
+          <div
+            className={`relative grid col-span-full  p-1 gap-2 w-full auto-rows-max	grid-cols-[repeat(auto-fit,minmax(6rem,1fr))]`}
+          >
+            {childrensBottomRows}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
