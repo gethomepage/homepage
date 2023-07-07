@@ -87,7 +87,7 @@ export default function Container({ error = false, children, service }) {
       <div className={`relative grid  p-1 gap-2 w-full auto-rows-max	 ${subColumnsClassMap[numberOfChildren]}`}>
         {childrensTopRows}
         {childrensToSlice > 0 && (
-          <div className="relative grid col-span-full  p-1 gap-2 w-full auto-rows-max	grid-cols-[repeat(auto-fit,minmax(6rem,1fr))]">
+          <div className="relative grid col-span-full gap-2 w-full auto-rows-max	grid-cols-[repeat(auto-fit,minmax(6rem,1fr))]">
             {childrensBottomRows}
           </div>
         )}
