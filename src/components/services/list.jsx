@@ -17,13 +17,13 @@ const columnMap = [
 const subcolumnMap = [
   "grid-cols-1",
   "grid-cols-1",
-  "grid-cols-[repeat(auto-fit,minmax(11rem,1fr))]",
-  "grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]",
-  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
-  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
-  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
-  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
-  "grid-cols-[repeat(auto-fit,minmax(7rem,1fr))]",
+  "grid-cols-1 @[11rem]:grid-cols-2",
+  "grid-cols-1 @[9rem]:grid-cols-2 @[18rem]:grid-cols-3",
+  "grid-cols-1 @[7rem]:grid-cols-2 @[14rem]:grid-cols-3 @[21rem]:grid-cols-4",
+  "grid-cols-1 @[7rem]:grid-cols-2 @[14rem]:grid-cols-3 @[21rem]:grid-cols-4 @[28rem]:grid-cols-5",
+  "grid-cols-1 @[7rem]:grid-cols-2 @[14rem]:grid-cols-3 @[21rem]:grid-cols-4 @[28rem]:grid-cols-5 @[35rem]:grid-cols-6",
+  "grid-cols-1 @[7rem]:grid-cols-2 @[14rem]:grid-cols-3 @[21rem]:grid-cols-4 @[28rem]:grid-cols-5 @[35rem]:grid-cols-6 @[42rem]:grid-cols-7",
+  "grid-cols-1 @[7rem]:grid-cols-2 @[14rem]:grid-cols-3 @[21rem]:grid-cols-4 @[28rem]:grid-cols-5 @[35rem]:grid-cols-6 @[42rem]:grid-cols-7 @[49rem]:grid-cols-8",
 ];
 
 export default function List({ group, services, layout, isGroup = false }) {
