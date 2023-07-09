@@ -75,7 +75,7 @@
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
-        "information": "Information",
+        "information": "Informazioa",
         "status": "Status",
         "url": "URL",
         "raw_error": "Raw Error",
@@ -84,18 +84,18 @@
     "weather": {
         "current": "Current Location",
         "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "updating": "Eguneratzen",
+        "wait": "Itxaron mesedez"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Bilatu…"
     },
     "resources": {
         "cpu": "CPU",
         "mem": "MEM",
-        "total": "Total",
+        "total": "Guztira",
         "free": "Free",
-        "used": "Used",
+        "used": "Erabilita",
         "load": "Load",
         "temp": "TEMP",
         "max": "Max",
@@ -108,18 +108,18 @@
     "unifi": {
         "users": "Users",
         "uptime": "System Uptime",
-        "days": "Days",
+        "days": "Egun",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "devices": "Gailuak",
+        "lan_devices": "LAN Gailuak",
+        "wlan_devices": "WLAN Gailuak",
+        "lan_users": "LAN Erabiltzaileak",
+        "wlan_users": "WLAN Erabiltzaileak",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Itxaron mesedez",
         "empty_data": "Subsystem status unknown"
     },
     "docker": {
@@ -130,27 +130,27 @@
         "running": "Running",
         "offline": "Offline",
         "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "starting": "Starting",
+        "unknown": "Ezezaguna",
+        "healthy": "Osasuntsu",
+        "starting": "Abiarazten",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
         "partial": "Partial"
     },
     "ping": {
-        "error": "Error",
+        "error": "Errorea",
         "ping": "Ping"
     },
     "emby": {
         "playing": "Playing",
         "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
+        "bitrate": "Bit-tasa",
         "no_active": "No Active Streams",
         "movies": "Movies",
         "series": "Series",
         "episodes": "Episodes",
-        "songs": "Songs"
+        "songs": "Abestiak"
     },
     "evcc": {
         "pv_power": "Production",
@@ -216,8 +216,8 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Kargatu",
+        "download": "Deskargatu"
     },
     "transmission": {
         "download": "Download",
@@ -398,7 +398,7 @@
         "series": "Series"
     },
     "minecraft": {
-        "players": "Players",
+        "players": "Jokalariak",
         "version": "Version",
         "status": "Status",
         "up": "Online",
