@@ -3,12 +3,12 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig, { substituteEnvironmentVars } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
 export async function widgetsFromConfig() {
     checkAndCopyConfig("widgets.yaml");
 
-    const widgetsYaml = path.join(process.cwd(), "config", "widgets.yaml");
+    const widgetsYaml = path.join(CONF_DIR, "widgets.yaml");
     const rawFileContents = await fs.readFile(widgetsYaml, "utf8");
     const fileContents = substituteEnvironmentVars(rawFileContents);
     const widgets = yaml.load(fileContents);

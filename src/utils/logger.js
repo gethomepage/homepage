@@ -1,18 +1,17 @@
 /* eslint-disable no-console */
-import { join } from "path";
 import { format as utilFormat } from "node:util";
 
 import winston from "winston";
 
-import checkAndCopyConfig, { getSettings } from "utils/config/config";
+import checkAndCopyConfig, { getSettings, CONF_DIR } from "utils/config/config";
+
 
 let winstonLogger;
 
 function init() {
-  const configPath = join(process.cwd(), "config");
   checkAndCopyConfig("settings.yaml");
   const settings = getSettings();
-  const logpath = settings.logpath || configPath;
+  const logpath = settings.logpath || CONF_DIR;
 
   function combineMessageAndSplat() {
     return {
