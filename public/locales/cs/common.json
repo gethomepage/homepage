@@ -46,8 +46,8 @@
     },
     "unifi": {
         "users": "Uživatelé",
-        "uptime": "Doba provozu systému",
-        "days": "Dnů",
+        "uptime": "Doba provozu",
+        "days": "dní",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
@@ -56,8 +56,8 @@
         "wlan_devices": "Zařízení WLAN",
         "lan_users": "Uživatelé LAN",
         "wlan_users": "Uživatelé WLAN",
-        "up": "BĚŽÍ",
-        "down": "NEBĚŽÍ",
+        "up": "FUNKČNÍ",
+        "down": "NEFUNKČNÍ",
         "wait": "Počkejte prosím",
         "empty_data": "Stav podsystému neznámý"
     },
