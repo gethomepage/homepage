@@ -59,7 +59,7 @@ export default function Container({ error = false, children, service }) {
 
         if (numberOfChildren > 1 && remWidth > 12) {
           if (numberOfChildren <= maxChildrenFit) return setChildrensToSlice(0);
-          setChildrensToSlice(remWidth / 6 > 1 ? parseInt(numberOfChildren / maxChildrenFit, 10) : 0);
+          setChildrensToSlice(remWidth / 6 > 1 ? numberOfChildren % maxChildrenFit : 0);
         }
       }
       return true;
