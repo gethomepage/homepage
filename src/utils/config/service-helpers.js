@@ -289,6 +289,7 @@ export function cleanServiceGroups(groups) {
           enableNowPlaying,
           volume, // diskstation widget,
           enableQueue, // sonarr/radarr
+          node, // Proxmox
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -299,7 +300,7 @@ export function cleanServiceGroups(groups) {
             fieldsList = null;
           }
         }
-        
+
         cleanedService.widget = {
           type,
           fields: fieldsList || null,
@@ -318,6 +319,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "unifi") {
           if (site) cleanedService.widget.site = site;
+        }
+        if (type === "proxmox") {
+          if (node) cleanedService.widget.node = node;
         }
         if (type === "kubernetes") {
           if (namespace) cleanedService.widget.namespace = namespace;
