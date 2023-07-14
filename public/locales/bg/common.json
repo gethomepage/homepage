@@ -89,7 +89,8 @@
         "playing": "Възпроизвежда",
         "transcoding": "Конвертира",
         "bitrate": "Честота",
-        "no_active": "Няма активни потоци"
+        "no_active": "Няма активни потоци",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Rate",
