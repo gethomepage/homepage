@@ -136,7 +136,8 @@
         "playing": "再生中",
         "transcoding": "変換中",
         "bitrate": "ビットレート",
-        "no_active": "アクティブストリームなし"
+        "no_active": "アクティブストリームなし",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "接続されたAP",
