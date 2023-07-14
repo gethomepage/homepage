@@ -56,7 +56,8 @@
         "playing": "Spiller",
         "transcoding": "Transkoding",
         "bitrate": "Bitrate",
-        "no_active": "Ingen aktive strømmer"
+        "no_active": "Ingen aktive strømmer",
+        "plex_connection_error": "Check Plex Connection"
     },
     "rutorrent": {
         "active": "Aktiv",
