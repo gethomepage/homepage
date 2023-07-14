@@ -72,7 +72,8 @@
         "playing": "Afspelen",
         "transcoding": "Transcodering",
         "bitrate": "Bitsnelheid",
-        "no_active": "Geen Actieve Streams"
+        "no_active": "Geen Actieve Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "rutorrent": {
         "active": "Actief",
