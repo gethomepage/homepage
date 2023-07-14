@@ -279,6 +279,7 @@ export function cleanServiceGroups(groups) {
           container,
           currency, // coinmarketcap widget
           symbols,
+          slugs,
           defaultinterval,
           site, // unifi widget
           namespace, // kubernetes widget
@@ -308,9 +309,12 @@ export function cleanServiceGroups(groups) {
           service_group: serviceGroup.name,
         };
 
-        if (currency) cleanedService.widget.currency = currency;
-        if (symbols) cleanedService.widget.symbols = symbols;
-        if (defaultinterval) cleanedService.widget.defaultinterval = defaultinterval;
+        if (type === "coinmarketcap") {
+          if (currency) cleanedService.widget.currency = currency;
+          if (symbols) cleanedService.widget.symbols = symbols;
+          if (slugs) cleanedService.widget.slugs = slugs;
+          if (defaultinterval) cleanedService.widget.defaultinterval = defaultinterval;
+        }
 
         if (type === "docker") {
           if (server) cleanedService.widget.server = server;
