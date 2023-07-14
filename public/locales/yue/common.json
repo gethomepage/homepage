@@ -13,7 +13,8 @@
         "playing": "播放緊",
         "no_active": "無任何活動",
         "transcoding": "轉碼緊",
-        "bitrate": "比特率"
+        "bitrate": "比特率",
+        "plex_connection_error": "Check Plex Connection"
     },
     "transmission": {
         "download": "下載速度",
