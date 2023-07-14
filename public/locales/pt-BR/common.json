@@ -90,7 +90,8 @@
         "playing": "Reproduzindo",
         "transcoding": "Transcodificando",
         "bitrate": "Taxa de bits",
-        "no_active": "Sem transmissões ativas"
+        "no_active": "Sem transmissões ativas",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Taxa",
