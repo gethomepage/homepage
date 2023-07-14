@@ -104,7 +104,8 @@
         "playing": "Reprodukcija",
         "transcoding": "Prekodiranje",
         "bitrate": "Stopa bitova",
-        "no_active": "Nema aktivnih prijenosa"
+        "no_active": "Nema aktivnih prijenosa",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Stopa",
