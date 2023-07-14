@@ -141,7 +141,8 @@
         "playing": "يشتغل",
         "transcoding": "التحويل",
         "bitrate": "معدل البت",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "معدل",
