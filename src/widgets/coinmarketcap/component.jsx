@@ -51,6 +51,9 @@ export default function Component({ service }) {
 
   const { data } = statsData;
 
+  // Make sure API returned valid data for the symbol
+  const validSymbols = symbols.filter(symbol => data[symbol].quote[currencyCode][`percent_change_${dateRange}`] !== null);
+
   return (
     <Container service={service}>
       <div className={classNames(service.description ? "-top-10" : "-top-8", "absolute right-1")}>
@@ -58,7 +61,7 @@ export default function Component({ service }) {
       </div>
 
       <div className="flex flex-col w-full">
-        {symbols.map((symbol) => (
+        {validSymbols.map((symbol) => (
           <div
             key={data[symbol].symbol}
             className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
