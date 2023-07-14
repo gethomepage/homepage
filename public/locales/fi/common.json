@@ -62,7 +62,8 @@
         "playing": "Toistaa",
         "transcoding": "Transkoodaa",
         "bitrate": "Bittinopeus",
-        "no_active": "Ei aktiivisia striimejä"
+        "no_active": "Ei aktiivisia striimejä",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Nopeus",
