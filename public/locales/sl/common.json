@@ -168,7 +168,8 @@
         "transcoding": "Transkodira",
         "bitrate": "Pasovna širina",
         "playing": "Predvaja",
-        "no_active": "Ni aktivne vsebine"
+        "no_active": "Ni aktivne vsebine",
+        "plex_connection_error": "Check Plex Connection"
     },
     "flood": {
         "download": "Prenos",
