@@ -162,7 +162,8 @@
         "playing": "Αναπαράγει",
         "transcoding": "Μετακωδικοποίηση",
         "bitrate": "Ρυθμός bit",
-        "no_active": "Δεν υπάρχουν ενεργές ροές"
+        "no_active": "Δεν υπάρχουν ενεργές ροές",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Ρυθμός",
