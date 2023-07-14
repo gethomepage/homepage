@@ -234,7 +234,8 @@
         "playing": "Afspiller",
         "transcoding": "Transcoder",
         "bitrate": "Bitrate",
-        "no_active": "Ingen Aktive Streams"
+        "no_active": "Ingen Aktive Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Rate",
