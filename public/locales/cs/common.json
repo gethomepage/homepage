@@ -95,7 +95,8 @@
         "playing": "Přehrává",
         "transcoding": "Překódovávání",
         "bitrate": "Přenosová rychlost",
-        "no_active": "Žádný aktivní stream"
+        "no_active": "Žádný aktivní stream",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Rychlost",
