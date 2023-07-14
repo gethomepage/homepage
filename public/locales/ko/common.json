@@ -111,7 +111,8 @@
         "playing": "재생 중",
         "transcoding": "트랜스코딩",
         "bitrate": "비트레이트",
-        "no_active": "활성 스트림 없음"
+        "no_active": "활성 스트림 없음",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "연결된 AP",
