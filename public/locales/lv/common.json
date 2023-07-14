@@ -97,7 +97,8 @@
         "playing": "Atskaņo",
         "transcoding": "Pārkodē",
         "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju"
+        "no_active": "Nav aktīvu straumju",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "Savienotie piekļuves punkti",
