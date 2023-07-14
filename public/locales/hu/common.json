@@ -76,7 +76,8 @@
         "playing": "Lejátszás folyamatban",
         "transcoding": "Átkódolás",
         "bitrate": "Bitráta",
-        "no_active": "Nincs aktív lejátszás"
+        "no_active": "Nincs aktív lejátszás",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Ráta",
