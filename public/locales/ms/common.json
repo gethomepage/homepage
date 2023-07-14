@@ -200,7 +200,8 @@
         "playing": "Sedang Dimainkan",
         "transcoding": "Transkoding",
         "bitrate": "Kadar bit",
-        "no_active": "Tiada Strim Aktif"
+        "no_active": "Tiada Strim Aktif",
+        "plex_connection_error": "Check Plex Connection"
     },
     "plex": {
         "streams": "Strim Aktif",
