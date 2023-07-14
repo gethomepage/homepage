@@ -198,7 +198,8 @@
         "playing": "Відтворення",
         "transcoding": "Перекодування",
         "bitrate": "Бітрейт",
-        "no_active": "Немає активних потоків"
+        "no_active": "Немає активних потоків",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Швидкість",
