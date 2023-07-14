@@ -122,11 +122,11 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
-  if (activityError) {
-    return <Container service={service} error={activityError} />;
+  if (activityError || (activityData && Object.keys(activityData.response.data).length === 0)) {
+    return <Container service={service} error={activityError ?? { message: t("tautulli.plex_connection_error") } } />;
   }
 
-  if (!activityData || Object.keys(activityData.response.data).length === 0) {
+  if (!activityData) {
     return (
       <div className="flex flex-col pb-1 mx-1">
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
