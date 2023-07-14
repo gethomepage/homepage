@@ -62,7 +62,8 @@
         "playing": "מנגן",
         "transcoding": "מקודד",
         "bitrate": "סיביות",
-        "no_active": "אין הזרמות פעילות"
+        "no_active": "אין הזרמות פעילות",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "יחס",
