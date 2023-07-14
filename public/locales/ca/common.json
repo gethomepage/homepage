@@ -80,7 +80,8 @@
         "playing": "Reproduint",
         "transcoding": "Transcodificant",
         "bitrate": "Taxa de bits",
-        "no_active": "Sense transmissions actives"
+        "no_active": "Sense transmissions actives",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Taxa",
