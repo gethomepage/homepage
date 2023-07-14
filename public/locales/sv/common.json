@@ -62,7 +62,8 @@
         "playing": "Spelar",
         "transcoding": "Omkodning",
         "bitrate": "Bitrate",
-        "no_active": "Inga aktiva strömmar"
+        "no_active": "Inga aktiva strömmar",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Hastighet",
