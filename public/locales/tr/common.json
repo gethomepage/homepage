@@ -79,7 +79,8 @@
         "playing": "Oynatılıyor",
         "transcoding": "Dönüştürülüyor",
         "bitrate": "Bit Oranı",
-        "no_active": "Aktif akış yok"
+        "no_active": "Aktif akış yok",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Oran",
