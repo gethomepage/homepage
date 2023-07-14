@@ -56,7 +56,8 @@
         "playing": "Đang chơi",
         "transcoding": "Chuyển định dạng",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "rutorrent": {
         "active": "Hoạt động",
