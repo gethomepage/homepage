@@ -221,7 +221,8 @@
         "playing": "Playing",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "Connected APs",
