@@ -37,7 +37,8 @@
         "playing": "Odtwarzanie",
         "transcoding": "Transkodowanie",
         "bitrate": "Bitrate",
-        "no_active": "Brak aktywnych strumieni"
+        "no_active": "Brak aktywnych strumieni",
+        "plex_connection_error": "Check Plex Connection"
     },
     "speedtest": {
         "download": "Pobieranie",
