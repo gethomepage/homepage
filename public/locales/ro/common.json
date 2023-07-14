@@ -92,7 +92,8 @@
         "no_active": "Niciun stream activ",
         "playing": "Activ",
         "transcoding": "Transcodare",
-        "bitrate": "Bitrate"
+        "bitrate": "Bitrate",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Rată",
