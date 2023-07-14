@@ -56,7 +56,8 @@
         "playing": "Воспроизведение",
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
-        "no_active": "Нет активных трансляций"
+        "no_active": "Нет активных трансляций",
+        "plex_connection_error": "Check Plex Connection"
     },
     "rutorrent": {
         "active": "Активный",
