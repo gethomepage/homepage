@@ -57,7 +57,7 @@
         "transcoding": "Transcodificando",
         "bitrate": "Tasa de bits",
         "no_active": "Sin transmisiones activas",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Comprueba la conexión a Plex"
     },
     "rutorrent": {
         "active": "Activo",
