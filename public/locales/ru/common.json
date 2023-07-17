@@ -57,7 +57,7 @@
         "transcoding": "Транскодирование",
         "bitrate": "Битрейт",
         "no_active": "Нет активных трансляций",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Проверьте соединение с Plex"
     },
     "rutorrent": {
         "active": "Активный",
@@ -65,22 +65,22 @@
         "download": "Загрузка"
     },
     "sonarr": {
-        "wanted": "Хотел",
+        "wanted": "Желаемое",
         "queued": "В очереди",
         "series": "Серии",
-        "queue": "Queue",
+        "queue": "Очередь",
         "unknown": "Unknown"
     },
     "radarr": {
-        "wanted": "Хотел",
+        "wanted": "Желаемое",
         "queued": "В очереди",
         "movies": "Фильмы",
         "missing": "Пропущено",
-        "queue": "Queue",
+        "queue": "Очередь",
         "unknown": "Unknown"
     },
     "readarr": {
-        "wanted": "Хотел",
+        "wanted": "Желаемое",
         "queued": "В очереди",
         "books": "Книги"
     },
@@ -176,9 +176,9 @@
         "missingMovies": "Отсутствующие фильмы"
     },
     "lidarr": {
-        "wanted": "Хотел",
+        "wanted": "Желаемое",
         "queued": "В очереди",
-        "artists": "Artists"
+        "artists": "Артисты"
     },
     "adguard": {
         "queries": "Запросы",
@@ -613,8 +613,8 @@
         "cpuUsage": "CPU Usage",
         "memUsage": "MEM Usage",
         "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
+        "poolUsage": "Использование пула",
+        "volumeUsage": "Использование тома",
         "invalid": "Invalid"
     },
     "pfsense": {
@@ -628,23 +628,23 @@
         "temp": "Temp"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Апстримы",
+        "requests": "Текущие запросы",
+        "requests_failed": "Неудачные запросы"
     },
     "evcc": {
-        "home_power": "Consumption",
+        "home_power": "Потребление",
         "pv_power": "Production",
         "battery_soc": "Battery",
         "grid_power": "Grid",
-        "charge_power": "Charger",
+        "charge_power": "Зарядка",
         "watt_hour": "Wh"
     },
     "pialert": {
         "total": "Total",
         "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "new_devices": "Новые устройства",
+        "down_alerts": "Оповещения о сбоях"
     },
     "jdownloader": {
         "downloadCount": "Queue Count",
