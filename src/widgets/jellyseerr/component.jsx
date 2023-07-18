@@ -14,8 +14,13 @@ export default function Component({ service }) {
   if (!statsData) {
     return (
       <Container service={service}>
+        <Block label="jellyseerr.total" />
+        <Block label="jellyseerr.movie" />
+        <Block label="jellyseerr.tv" />
         <Block label="jellyseerr.pending" />
         <Block label="jellyseerr.approved" />
+        <Block label="jellyseerr.declined" />
+        <Block label="jellyseerr.processing" />
         <Block label="jellyseerr.available" />
       </Container>
     );
@@ -23,8 +28,13 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
+      <Block label="jellyseerr.total" value={statsData.total} />
+      <Block label="jellyseerr.movie" value={statsData.movie} />
+      <Block label="jellyseerr.tv" value={statsData.tv} />
       <Block label="jellyseerr.pending" value={statsData.pending} />
       <Block label="jellyseerr.approved" value={statsData.approved} />
+      <Block label="jellyseerr.declined" value={statsData.declined} />
+      <Block label="jellyseerr.processing" value={statsData.processing} />
       <Block label="jellyseerr.available" value={statsData.available} />
     </Container>
   );
