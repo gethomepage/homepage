@@ -8,8 +8,13 @@ const widget = {
     "request/count": {
       endpoint: "request/count",
       validate: [
+        "total",
+        "movie",
+        "tv",
         "pending",
         "approved",
+        "declined",
+        "processing",
         "available"
       ]
     },
