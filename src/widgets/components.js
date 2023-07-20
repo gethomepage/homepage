@@ -5,6 +5,7 @@ const components = {
   audiobookshelf: dynamic(() => import("./audiobookshelf/component")),
   authentik: dynamic(() => import("./authentik/component")),
   autobrr: dynamic(() => import("./autobrr/component")),
+  azurePipelines: dynamic(() => import("./azurePipelines/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
   caddy: dynamic(() => import("./caddy/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
