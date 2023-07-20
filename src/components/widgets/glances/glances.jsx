@@ -37,7 +37,7 @@ export default function Widget({ options }) {
       <Resource icon={FaMemory} label={t("glances.wait")} percentage="0" />
       { options.cputemp && <Resource icon={FaThermometerHalf} label={t("glances.wait")} percentage="0" /> }
       { options.disk && !Array.isArray(options.disk) && <Resource key={options.disk} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> }
-      { options.disk && Array.isArray(options.disk) && options.disk.map((disk) => <Resource key={`disk_${disk.mnt_point}`} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> )}
+      { options.disk && Array.isArray(options.disk) && options.disk.map((disk) => <Resource key={`disk_${disk.mnt_point}`} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> ) }
       { options.uptime && <Resource icon={FaRegClock} label={t("glances.wait")} percentage="0" /> }
       { options.label && <WidgetLabel label={options.label} /> }
     </Resources>;
@@ -50,7 +50,7 @@ export default function Widget({ options }) {
   if (options.cputemp && cpuSensors) {
     try {
       mainTemp = cpuSensors.reduce((acc, s) => acc + s.value, 0) / cpuSensors.length;
-      maxTemp = Math.max(cpuSensors.reduce((acc, s) => acc + s.warning, 0) / cpuSensors.length, maxTemp);
+      maxTemp = Math.max(cpuSensors.reduce((acc, s) => acc + (s.warning > 0 ? s.warning : 0), 0) / cpuSensors.length, maxTemp);
       if (unit === "fahrenheit") {
         mainTemp = convertToFahrenheit(mainTemp);
         maxTemp = convertToFahrenheit(maxTemp);
