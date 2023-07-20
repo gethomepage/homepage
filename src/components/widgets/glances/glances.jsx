@@ -37,7 +37,7 @@ export default function Widget({ options }) {
       <Resource icon={FaMemory} label={t("glances.wait")} percentage="0" />
       { options.cputemp && <Resource icon={FaThermometerHalf} label={t("glances.wait")} percentage="0" /> }
       { options.disk && !Array.isArray(options.disk) && <Resource key={options.disk} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> }
-      { options.disk && Array.isArray(options.disk) && options.disk.map((disk) => <Resource key={disk.mnt_point} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> )}
+      { options.disk && Array.isArray(options.disk) && options.disk.map((disk) => <Resource key={`disk_${disk.mnt_point}`} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> )}
       { options.uptime && <Resource icon={FaRegClock} label={t("glances.wait")} percentage="0" /> }
       { options.label && <WidgetLabel label={options.label} /> }
     </Resources>;
@@ -108,7 +108,7 @@ export default function Widget({ options }) {
         expanded={options.expanded}
       />
       {disks.map((disk) => (
-        <Resource key={disk.mnt_point}
+        <Resource key={`disk_${disk.mnt_point}`}
           icon={FiHardDrive}
           value={t("common.bytes", { value: disk.free })}
           label={t("glances.free")}

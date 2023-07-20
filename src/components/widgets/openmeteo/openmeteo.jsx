@@ -10,8 +10,7 @@ import ContainerButton from "../widget/container_button";
 import WidgetIcon from "../widget/widget_icon";
 import PrimaryText from "../widget/primary_text";
 import SecondaryText from "../widget/secondary_text";
-
-import Icon from "./icon";
+import mapIcon from "../../../utils/weather/openmeteo-condition-map";
 
 function Widget({ options }) {
   const { t } = useTranslation();
@@ -33,10 +32,8 @@ function Widget({ options }) {
   }
 
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
-  const weatherInfo = {
-    condition: data.current_weather.weathercode,
-    timeOfDay: data.current_weather.time > data.daily.sunrise[0] && data.current_weather.time < data.daily.sunset[0] ? "day" : "night"
-  };
+  const condition = data.current_weather.weathercode;
+  const timeOfDay = data.current_weather.time > data.daily.sunrise[0] && data.current_weather.time < data.daily.sunset[0] ? "day" : "night";
 
   return <Container options={options}>
     <PrimaryText>
@@ -47,8 +44,8 @@ function Widget({ options }) {
         unit,
       })}
     </PrimaryText>
-    <SecondaryText>{t(`wmo.${data.current_weather.weathercode}-${weatherInfo.timeOfDay}`)}</SecondaryText>
-    <WidgetIcon icon={Icon} size="xl" weatherInfo={weatherInfo} />
+    <SecondaryText>{t(`wmo.${data.current_weather.weathercode}-${timeOfDay}`)}</SecondaryText>
+    <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
   </Container>;
 }
 
