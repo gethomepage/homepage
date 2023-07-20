@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import classNames from "classnames";
 import { Disclosure, Transition } from '@headlessui/react';
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -6,6 +7,8 @@ import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
 
 export default function ServicesGroup({ group, services, layout, fiveColumns, disableCollapse }) {
+
+  const panel = useRef();
 
   return (
     <div
@@ -28,19 +31,24 @@ export default function ServicesGroup({ group, services, layout, fiveColumns, di
           <h2 className="flex text-theme-800 dark:text-theme-300 text-xl font-medium">{services.name}</h2>
           <MdKeyboardArrowDown className={classNames(
             disableCollapse ? 'hidden' : '',
-            'transition-opacity opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl',
-            open ? 'rotate-180 transform' : ''
+            'transition-all opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl',
+            open ? '' : 'rotate-90'
             )} />
         </Disclosure.Button>
         <Transition
-          enter="transition duration-200 ease-out"
-          enterFrom="transform scale-75 opacity-0"
-          enterTo="transform scale-100 opacity-100"
-          leave="transition duration-75 ease-out"
-          leaveFrom="transform scale-100 opacity-100"
-          leaveTo="transform scale-75 opacity-0"
+          // Otherwise the transition group does display: none and cancels animation
+          className="!block"
+          unmount={false}
+          beforeLeave={() => {
+            panel.current.style.height = `${panel.current.scrollHeight}px`;
+            setTimeout(() => {panel.current.style.height = `0`}, 1);
+          }}
+          beforeEnter={() => {
+            panel.current.style.height = `0px`;
+            setTimeout(() => {panel.current.style.height = `${panel.current.scrollHeight}px`}, 1);
+          }}
           >
-            <Disclosure.Panel>
+            <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
               <List group={group} services={services.services} layout={layout} />
             </Disclosure.Panel>
         </Transition>
