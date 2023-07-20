@@ -10,8 +10,7 @@ import PrimaryText from "../widget/primary_text";
 import SecondaryText from "../widget/secondary_text";
 import WidgetIcon from "../widget/widget_icon";
 import ContainerButton from "../widget/container_button";
-
-import Icon from "./icon";
+import mapIcon from "../../../utils/weather/condition-map";
 
 function Widget({ options }) {
   const { t, i18n } = useTranslation();
@@ -33,10 +32,8 @@ function Widget({ options }) {
   }
 
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
-  const weatherInfo = {
-    condition: data.current.condition.code,
-    timeOfDay: data.current.is_day ? "day" : "night",
-  };
+  const condition = data.current.condition.code;
+  const timeOfDay = data.current.is_day ? "day" : "night";
 
   return <Container options={options}>
     <PrimaryText>
@@ -48,7 +45,7 @@ function Widget({ options }) {
       })}
     </PrimaryText>
     <SecondaryText>{data.current.condition.text}</SecondaryText>
-    <WidgetIcon icon={Icon} size="xl" weatherInfo={weatherInfo} />
+    <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
   </Container>;
 }
 

@@ -62,7 +62,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
       }
-      else if (widget.type === "azurePullrequests") {
+      else if (widget.type === "azurePipelines" || widget.type === "azurePullrequests") {
         headers.Authorization = `Basic ${Buffer.from(`$:${widget.key}`).toString("base64")}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;

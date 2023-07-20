@@ -2,6 +2,7 @@ import adguard from "./adguard/widget";
 import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
+import azurePipelines from "./azurePipelines/widget";
 import azurePullrequests from "./azurePullrequests/widget";
 import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
@@ -92,6 +93,7 @@ const widgets = {
   audiobookshelf,
   authentik,
   autobrr,
+  azurePipelines,
   azurePullrequests,
   bazarr,
   caddy,
