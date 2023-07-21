@@ -1,25 +1,15 @@
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
-import { asJson } from "utils/proxy/api-helpers";
 
 const widget = {
-  api: "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullrequests?{filter}",
+  api: "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullrequests",
   proxyHandler: credentialedProxyHandler,
-
-  mappings: {
-    pr: {
-      filter: "",
-      map: (data) => ({
-        count: asJson(data).count,
-      }),
-    },
-    myPr: {
-      filter: "searchCriteria.creatorId={creatorId}&",
-      map: (data) => ({
-        count: asJson(data).count,
-      }),
-    },
-  },
 };
 
+// mappings: {
+//   "v1/cryptocurrency/quotes/latest": {
+//     endpoint: "v1/cryptocurrency/quotes/latest",
+//     params: ["convert"],
+//     optionalParams: ["symbol", "slug"],
+//   },
 
 export default widget;

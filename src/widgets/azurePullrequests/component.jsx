@@ -9,11 +9,12 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
-  const { data: myPrData, error: myPrError } = useWidgetAPI(widget, "myPr");
+  const { data: prData, error: prError } = useWidgetAPI(widget);
 
-  if (prError || myPrError) {
-    const finalError = prError ?? myPrError ;
+  const { creatorId } = widget;
+
+  if (prError) {
+    const finalError = prError ;
     return <Container service={service} error={finalError} />;
   }
 
@@ -30,8 +31,8 @@ export default function Component({ service }) {
   return ( 
     <Container service={service}>
       <Block label="azurePullRequests.totalPrs" value={t("common.number", { value: prData.count })} />
-      <Block label="azurePullRequests.myPrs" value={t("common.number", { value: myPrData.count })} />
-      <Block label="azurePullRequests.approvedNotCompleted" value={t("common.number", { value: myPrData.value.filter(item => item.reviewers.some(reviewer => reviewer.vote === 10)).length })} />
+      <Block label="azurePullRequests.myPrs" value={t("common.number", { value: prData.value.filter(item => item.creatorId===creatorId).length })} />
+      <Block label="azurePullRequests.approvedNotCompleted" value={t("common.number", { value: prData.value.filter(item => item.reviewers.some(reviewer => reviewer.vote === 10)).length })} />
     </Container>
   );
 }
