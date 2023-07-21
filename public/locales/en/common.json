@@ -675,7 +675,7 @@
         "canceled": "Canceled",
         "inProgress": "In Progress"
     },
-    "azurePullrequests": {
+    "azurePullRequests": {
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
         "approvedNotCompleted": "My Approved Not Completed"
