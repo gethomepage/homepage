@@ -10,9 +10,10 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
+  const { data: myPrData, error: myPrError } = useWidgetAPI(widget, "myPr");
 
-  if (prError) {
-    const finalError = prError ;
+  if (prError || myPrError) {
+    const finalError = prError ?? myPrError ;
     return <Container service={service} error={finalError} />;
   }
 
@@ -29,8 +30,8 @@ export default function Component({ service }) {
   return ( 
     <Container service={service}>
       <Block label="azurePullrequests.totalPrs" value={t("common.number", { value: prData.count })} />
-      <Block label="azurePullrequests.myPrs" value={t("common.number", { value: prData.value.filter(item => item.createdBy.uniqueName === service.widget.userEmail).length })} />
-      <Block label="azurePullrequests.approvedNotCompleted" value={t("common.number", { value: prData.value.filter(item => item.reviewers.some(reviewer => reviewer.vote === 10)).length })} />
+      <Block label="azurePullrequests.myPrs" value={t("common.number", { value: myPrData.count })} />
+      <Block label="azurePullrequests.approvedNotCompleted" value={t("common.number", { value: myPrData.value.filter(item => item.reviewers.some(reviewer => reviewer.vote === 10)).length })} />
     </Container>
   );
 }
