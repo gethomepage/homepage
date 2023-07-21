@@ -278,7 +278,7 @@ export function cleanServiceGroups(groups) {
           server, // docker widget
           container,
           currency, // coinmarketcap widget
-          creatorId, // azurePullRequests
+          userEmail, // azurePullRequests
           symbols,
           slugs,
           defaultinterval,
@@ -312,7 +312,7 @@ export function cleanServiceGroups(groups) {
         };
 
         if (type === "azurePullRequests") {
-          if (creatorId) cleanedService.widget.creatorId = creatorId;
+          if (userEmail) cleanedService.widget.userEmail = userEmail;
         }
 
         if (type === "coinmarketcap") {
