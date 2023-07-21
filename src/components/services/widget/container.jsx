@@ -18,7 +18,8 @@ export default function Container({ error = false, children, service }) {
   const childrenArray = Array.isArray(children) ? children : [children];
 
   let visibleChildren = childrenArray;
-  const fields = service?.widget?.fields;
+  let fields = service?.widget?.fields;
+  if (typeof service.widget.fields === 'string') fields = JSON.parse(service.widget.fields);
   const type = service?.widget?.type;
   if (fields && type) {
     // if the field contains a "." then it most likely contains a common loc value
