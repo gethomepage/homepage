@@ -31,9 +31,8 @@ export default function Component({ service }) {
   return ( 
     <Container service={service}>
       <Block label="azurePullRequests.totalPrs" value={t("common.number", { value: prData.count })} />
-      <Block label="azurePullRequests.myPrs" value={t("common.number", { value: prData.value.filter(item => item.createdBy.uniqueName===userEmail).length })} />
-      <Block label="azurePullRequests.approvedNotCompleted" value={t("common.number", { value: prData.value.filter(item => item.createdBy.uniqueName===userEmail).filter(item => item.reviewers.some(reviewer => reviewer.vote === 10)).length })} />
-      <Block label="azurePullRequests.approvedNotCompleted" value={userEmail} />
+      <Block label="azurePullRequests.myPrs" value={t("common.number", { value: prData.value.filter(item => item.createdBy.uniqueName.toLowerCase()===userEmail.toLowerCase()).length })} />
+      <Block label="azurePullRequests.approvedNotCompleted" value={t("common.number", { value: prData.value.filter(item => item.createdBy.uniqueName.toLowerCase()===userEmail.toLowerCase()).filter(item => item.reviewers.some(reviewer => reviewer.vote === 10)).length })} />
     </Container>
   );
 }
