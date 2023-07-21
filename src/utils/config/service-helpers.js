@@ -278,6 +278,7 @@ export function cleanServiceGroups(groups) {
           server, // docker widget
           container,
           currency, // coinmarketcap widget
+          creatorId, // azurePullRequests
           symbols,
           slugs,
           defaultinterval,
@@ -311,6 +312,10 @@ export function cleanServiceGroups(groups) {
           service_name: service.name,
           service_group: serviceGroup.name,
         };
+
+        if (type === "azurePullRequests") {
+          if (creatorId) cleanedService.widget.creatorId = creatorId;
+        }
 
         if (type === "coinmarketcap") {
           if (currency) cleanedService.widget.currency = currency;
