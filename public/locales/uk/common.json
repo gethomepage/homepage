@@ -657,13 +657,13 @@
         "totalFiles": "Файлів"
     },
     "azurePipelines": {
-        "failed": "Failed",
-        "result": "Result",
-        "status": "Status",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "canceled": "Canceled",
-        "inProgress": "In Progress"
+        "failed": "Невдача",
+        "result": "Результат",
+        "status": "Стан",
+        "buildId": "ID збірки",
+        "succeeded": "Успішно",
+        "notStarted": "Не розпочато",
+        "canceled": "Скасовано",
+        "inProgress": "В процесі"
     }
 }
