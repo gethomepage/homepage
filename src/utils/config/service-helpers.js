@@ -278,7 +278,8 @@ export function cleanServiceGroups(groups) {
           server, // docker widget
           container,
           currency, // coinmarketcap widget
-          userEmail, // azurePullRequests
+          userEmail, // azureDevOps
+          azureType, // azureDevOps
           symbols,
           slugs,
           defaultinterval,
@@ -313,8 +314,9 @@ export function cleanServiceGroups(groups) {
           service_group: serviceGroup.name,
         };
 
-        if (type === "azurePullRequests") {
+        if (type === "azureDevOps") {
           if (userEmail) cleanedService.widget.userEmail = userEmail;
+          if (azureType) cleanedService.widget.azureType = azureType;
         }
 
         if (type === "coinmarketcap") {
