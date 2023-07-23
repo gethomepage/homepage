@@ -9,6 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
   const { azureType } = widget;
+  const { userEmail } = widget;
   const { data: pipelineData, error: pipelineError } = useWidgetAPI(widget, "pipeline");
   const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
 
@@ -38,7 +39,7 @@ export default function Component({ service }) {
     );
   }
   else if (azureType === "PullRequest") {
-    const { userEmail } = widget;
+
 
     if (prError) {
       return <Container service={service} error={prError} />;
