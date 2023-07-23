@@ -37,9 +37,7 @@ export default function Component({ service }) {
       </Container>
     );
   }
-  else if (azureType === "PullRequest") {
-
-
+  if (azureType === "PullRequest") {
     if (prError) {
       return <Container service={service} error={prError} />;
     }
@@ -60,16 +58,14 @@ export default function Component({ service }) {
         <Block
           label="azureDevOps.myPrs"
           value={t("common.number", {
-            value: prData.value.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
+            value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
               .length,
           })}
         />
         <Block
           label="azureDevOps.approvedNotCompleted"
           value={t("common.number", {
-            value: prData.value
-              .filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
-              .filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length,
+            value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase()).filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length
           })}
         />
       </Container>
