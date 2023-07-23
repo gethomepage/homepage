@@ -141,7 +141,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to start.
 
-This is a [Next.js](https://nextjs.org/) application, see their doucmentation for more information:
+This is a [Next.js](https://nextjs.org/) application, see their documentation for more information:
 
 ## Contributors
 
