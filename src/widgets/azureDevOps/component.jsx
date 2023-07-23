@@ -6,13 +6,12 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
-
   const { widget } = service;
   const { azureType } = widget;
   const { userEmail } = widget;
   const { data: pipelineData, error: pipelineError } = useWidgetAPI(widget, "pipeline");
   const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
-
+  
   if (azureType === "Pipeline") {
     if (pipelineError) {
       return <Container service={service} error={pipelineError} />;
