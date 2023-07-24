@@ -41,7 +41,12 @@ export default function Component({ service }) {
     return <Container service={service} error={statusError} />;
   }
 
-  const source = statusData?.sources[0];
+  const snapshotHost = service.widget?.snapshotHost;
+  const snapshotPath = service.widget?.snapshotPath;
+
+  const source = statusData?.sources
+    .filter(el => snapshotHost ? el.source.host === snapshotHost : true)
+    .filter(el => snapshotPath ? el.source.path === snapshotPath : true)[0];
 
   if (!statusData || !source) {
     return (
