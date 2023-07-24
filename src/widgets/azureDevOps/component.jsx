@@ -47,7 +47,7 @@ export default function Component({ service }) {
         <Container service={service}>
           <Block label="azureDevOps.totalPrs" />
           <Block label="azureDevOps.myPrs" />
-          <Block label="azureDevOps.approvedNotCompleted" />
+          <Block label="azureDevOps.approved" />
         </Container>
       );
     }
@@ -63,7 +63,7 @@ export default function Component({ service }) {
           })}
         />
         <Block
-          label="azureDevOps.approvedNotCompleted"
+          label="azureDevOps.approved"
           value={t("common.number", {
             value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase()).filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length
           })}

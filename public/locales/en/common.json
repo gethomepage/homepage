@@ -676,6 +676,6 @@
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approvedNotCompleted": "My Approved Not Completed"
+        "approved": "Approved"
     }
 }
