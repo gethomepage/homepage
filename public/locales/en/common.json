@@ -674,5 +674,10 @@
         "failed": "Failed",
         "canceled": "Canceled",
         "inProgress": "In Progress"
+    },
+    "csgo": {
+        "map": "Map",
+        "players": "Players",
+        "ping": "Ping"
     }
 }

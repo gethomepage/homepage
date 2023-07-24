@@ -665,5 +665,10 @@
         "failed": "Échoué",
         "canceled": "Annulé",
         "inProgress": "En cours"
+    },
+    "csgo": {
+        "map": "Carte",
+        "players": "Joueurs",
+        "ping": "Ping"
     }
 }
