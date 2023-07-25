@@ -9,7 +9,6 @@ import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
-import csgo from "./csgo/widget";
 import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
@@ -18,6 +17,7 @@ import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
+import gamedig from "./gamedig/widget";
 import ghostfolio from "./ghostfolio/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -100,7 +100,6 @@ const widgets = {
   channelsdvrserver,
   cloudflared,
   coinmarketcap,
-  csgo,
   deluge,
   diskstation,
   downloadstation,
@@ -109,6 +108,7 @@ const widgets = {
   fileflows,
   flood,
   freshrss,
+  gamedig,
   ghostfolio,
   gluetun,
   gotify,

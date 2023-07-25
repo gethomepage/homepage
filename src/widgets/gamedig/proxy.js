@@ -1,20 +1,20 @@
 import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
 
-const proxyName = "csgoProxyHandler";
+const proxyName = "gamedigProxyHandler";
 const logger = createLogger(proxyName);
 const gamedig = require("gamedig");
 
-export default async function csgoProxyHandler(req, res) {
+export default async function gamedigProxyHandler(req, res) {
     const { group, service } = req.query;
     const serviceWidget = await getServiceWidget(group, service);
     const url = new URL(serviceWidget.url);
 
     try {
         const serverData = await gamedig.query({
-            type: "csgo",
+            type: serviceWidget.serverType,
             host: url.hostname,
-            port: url.port || 27015,
+            port: url.port,
             givenPortOnly: true,
         });
 
@@ -24,6 +24,7 @@ export default async function csgoProxyHandler(req, res) {
             map: serverData.map,
             players: serverData.players.length,
             maxplayers: serverData.maxplayers,
+            bots: serverData.bots.length,
             ping: serverData.ping,
         });
     } catch (e) {

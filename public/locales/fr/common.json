@@ -666,9 +666,13 @@
         "canceled": "Annulé",
         "inProgress": "En cours"
     },
-    "csgo": {
+    "gamedig": {
+        "name": "Nom",
         "map": "Carte",
+        "currentPlayers": "Joueurs actuels",
         "players": "Joueurs",
+        "maxPlayers": "Joueurs max",
+        "bots": "Bots",
         "ping": "Ping"
     }
 }
