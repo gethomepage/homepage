@@ -7,16 +7,24 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { userEmail } = widget;
+  const { userEmail, branchName } = widget;
+  const includePR = userEmail !== undefined && branchName !== undefined;
   const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
   const { data: pipelineData, error: pipelineError } = useWidgetAPI(widget, "pipeline");
 
-  if (pipelineError || prError) {
-    const finalError = pipelineError ?? prError;
+  if (
+      pipelineError ||
+      (includePR && (prError || prData?.errorCode !== null))
+    ) {
+    let finalError = pipelineError ?? prError;
+    if (includePR && prData?.errorCode !== null) {
+      // pr call failed possibly with more specific message
+      finalError = { message: prData?.message ?? 'Error communicating with Azure API' }
+    }
     return <Container service={service} error={finalError} />;
   }
 
-  if (!pipelineData || !Array.isArray(pipelineData.value)) {
+  if (!pipelineData || !Array.isArray(pipelineData.value) || (includePR && !prData)) {
     return (
       <Container service={service}>
         <Block label="azuredevops.result" />
@@ -35,22 +43,26 @@ export default function Component({ service }) {
         <Block label="azuredevops.status" value={t(`azuredevops.${pipelineData.value[0].status.toString()}`)} />
       )}
       
-      <Block label="azuredevops.totalPrs" value={t("common.number", { value: prData.count })} />
-      <Block
-        label="azuredevops.myPrs"
-        value={t("common.number", {
-          value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
-            .length,
-        })}
-      />
-      <Block
-        label="azuredevops.approved"
-        value={t("common.number", {
-          value: prData.value
-            ?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
-            .filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length,
-        })}
-      />
+      {includePR && 
+      <>
+        <Block label="azuredevops.totalPrs" value={t("common.number", { value: prData.count })} />
+        <Block
+          label="azuredevops.myPrs"
+          value={t("common.number", {
+            value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
+              .length,
+          })}
+        />
+        <Block
+          label="azuredevops.approved"
+          value={t("common.number", {
+            value: prData.value
+              ?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
+              .filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length,
+          })}
+        />
+      </>
+      }
 
     </Container>
   );

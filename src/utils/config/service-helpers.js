@@ -278,7 +278,6 @@ export function cleanServiceGroups(groups) {
           server, // docker widget
           container,
           currency, // coinmarketcap widget
-          userEmail, // azuredevops
           symbols,
           slugs,
           defaultinterval,
@@ -294,6 +293,8 @@ export function cleanServiceGroups(groups) {
           node, // Proxmox
           snapshotHost, // kopia
           snapshotPath,
+          userEmail, // azuredevops
+          branchName
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -315,6 +316,7 @@ export function cleanServiceGroups(groups) {
 
         if (type === "azuredevops") {
           if (userEmail) cleanedService.widget.userEmail = userEmail;
+          if (branchName) cleanedService.widget.branchName = branchName;
         }
 
         if (type === "coinmarketcap") {
