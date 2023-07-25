@@ -34,33 +34,27 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
 
   // check mdi- or si- prefixed icons
   const prefix = icon.split("-")[0];
-  const suffix = icon.split("-")[icon.split("-").length - 1];
-  
+
   if (prefix in iconSetURLs) {
     // check whether icon ends with color code
-    if (suffix.test(`[#][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]`)) {
+    let iconName;
+    let iconColor;
+    const suffix = icon.split("-")[icon.split("-").length - 1];
 
-      const iconColor = `${suffix}`;
-      const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "").replace(`-${suffix}`, "");
-      const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
-      return (
-        <div
-          style={{
-            width,
-            height,
-            maxWidth: '100%',
-            maxHeight: '100%',
-            background: `${iconColor}`,
-            mask: `url(${iconSource}) no-repeat center / contain`,
-            WebkitMask: `url(${iconSource}) no-repeat center / contain`,
-          }}
-        />
-      );
-    };
-    
-    // default to theme setting if no custom icon color code is provided
-    const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
+    if (!(suffix.match(`[#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]`) == null)) {
+      // set custom color code
+      iconName = icon.replace(`${prefix}-`, "").replace(".svg", "").replace(`-${suffix}`, "");
+      iconColor = `${suffix}`;
+    } else {
+      // default to theme setting if no custom icon color code is provided
+      iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
+      iconColor = settings.iconStyle === "theme" ?
+              `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
+              "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))";
+    }
+
     const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
+
     return (
       <div
         style={{
@@ -68,15 +62,12 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           height,
           maxWidth: '100%',
           maxHeight: '100%',
-          background: settings.iconStyle === "theme" ?
-            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
-            "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
+          background: `${iconColor}`,
           mask: `url(${iconSource}) no-repeat center / contain`,
           WebkitMask: `url(${iconSource}) no-repeat center / contain`,
         }}
       />
     );
-
   }
  
   // fallback to dashboard-icons
