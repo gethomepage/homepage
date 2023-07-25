@@ -41,7 +41,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
     let iconColor;
     const suffix = icon.split("-")[icon.split("-").length - 1];
 
-    if (!(suffix.match(`[#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]`) == null)) {
+    if (!(suffix.match(`[#][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]`) == null)) {
       // set custom color code
       iconName = icon.replace(`${prefix}-`, "").replace(".svg", "").replace(`-${suffix}`, "");
       iconColor = `${suffix}`;
