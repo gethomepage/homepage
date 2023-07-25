@@ -36,21 +36,17 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
   const prefix = icon.split("-")[0];
 
   if (prefix in iconSetURLs) {
-    // check whether icon ends with color code
-    let iconName;
-    let iconColor;
-    const suffix = icon.split("-")[icon.split("-").length - 1];
+    // default to theme setting
+    let iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
+    let iconColor = settings.iconStyle === "theme" ?
+      `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
+      "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))";
 
-    if (!(suffix.match(`[#][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]`) == null)) {
-      // set custom color code
-      iconName = icon.replace(`${prefix}-`, "").replace(".svg", "").replace(`-${suffix}`, "");
-      iconColor = `${suffix}`;
-    } else {
-      // default to theme setting if no custom icon color code is provided
-      iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
-      iconColor = settings.iconStyle === "theme" ?
-              `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
-              "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))";
+    // use custom hex color if provided
+    const colorMatches = icon.match(/[#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]$/i)
+    if (colorMatches?.length) {
+      iconName = icon.replace(`${prefix}-`, "").replace(".svg", "").replace(`-${colorMatches[0]}`, "");
+      iconColor = `${colorMatches[0]}`;
     }
 
     const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
