@@ -291,6 +291,8 @@ export function cleanServiceGroups(groups) {
           volume, // diskstation widget,
           enableQueue, // sonarr/radarr
           node, // Proxmox
+          snapshotHost, // kopia
+          snapshotPath,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -344,6 +346,10 @@ export function cleanServiceGroups(groups) {
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
+        }
+        if (type === "kopia") {
+          if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
+          if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
         }
       }
 

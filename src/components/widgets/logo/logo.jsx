@@ -8,7 +8,9 @@ export default function Logo({ options }) {
     <Container options={options}>
       <Raw>
         {options.icon ?
-        <ResolvedIcon icon={options.icon} width={48} height={48} /> :
+        <div className="mr-3">
+          <ResolvedIcon icon={options.icon} width={48} height={48} />
+        </div> :
         // fallback to homepage logo
         <div className="w-12 h-12">
           <svg
