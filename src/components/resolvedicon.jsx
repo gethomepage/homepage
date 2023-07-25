@@ -33,30 +33,53 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
   }
 
   // check mdi- or si- prefixed icons
-  const prefix = icon.split("-")[0]
+  const prefix = icon.split("-")[0];
+  const suffix = icon.split("-")[icon.split("-").length - 1];
 
+  // get icon source
   if (prefix in iconSetURLs) {
-    // get icon source
-    const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
-    const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
+    // check whether icon ends with color code
+    if (!(suffix.match(`[#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]`) == null)) {
 
-    return (
-      <div
-        style={{
-          width,
-          height,
-          maxWidth: '100%',
-          maxHeight: '100%',
-          background: settings.iconStyle === "theme" ?
-            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
-            "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
-          mask: `url(${iconSource}) no-repeat center / contain`,
-          WebkitMask: `url(${iconSource}) no-repeat center / contain`,
-        }}
-      />
-    );
+      const iconColor = `${suffix}`;
+      const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "").replace(`-${suffix}`, "");
+      const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
+      return (
+        <div
+          style={{
+            width,
+            height,
+            maxWidth: '100%',
+            maxHeight: '100%',
+            background: `${iconColor}`,
+            mask: `url(${iconSource}) no-repeat center / contain`,
+            WebkitMask: `url(${iconSource}) no-repeat center / contain`,
+          }}
+        />
+      );
+    };
+
+    if (suffix.match(`[#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]`) == null) {
+      const iconColor = settings.iconStyle === "theme" ?
+              `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
+              "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))";
+      const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
+      const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
+      return (
+        <div
+          style={{
+            width,
+            height,
+            maxWidth: '100%',
+            maxHeight: '100%',
+            background: `${iconColor}`,
+            mask: `url(${iconSource}) no-repeat center / contain`,
+            WebkitMask: `url(${iconSource}) no-repeat center / contain`,
+          }}
+        />
+      );
+    }
   }
-
  
   // fallback to dashboard-icons
   if (icon.endsWith(".svg")) {
