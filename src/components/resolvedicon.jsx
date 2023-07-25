@@ -57,10 +57,8 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
         />
       );
     };
+    
     // default to theme setting if no custom icon color code is provided
-    const iconColor = settings.iconStyle === "theme" ?
-            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
-            "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))";
     const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "");
     const iconSource = `${iconSetURLs[prefix]}${iconName}.svg`;
     return (
@@ -70,7 +68,9 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           height,
           maxWidth: '100%',
           maxHeight: '100%',
-          background: `${iconColor}`,
+          background: settings.iconStyle === "theme" ?
+            `rgb(var(--color-${ theme === "dark" ? 300 : 900 }) / var(--tw-text-opacity, 1))` :
+            "linear-gradient(180deg, rgb(var(--color-logo-start)), rgb(var(--color-logo-stop)))",
           mask: `url(${iconSource}) no-repeat center / contain`,
           WebkitMask: `url(${iconSource}) no-repeat center / contain`,
         }}
