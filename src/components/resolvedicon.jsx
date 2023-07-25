@@ -38,7 +38,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
   
   if (prefix in iconSetURLs) {
     // check whether icon ends with color code
-    if (!(suffix.match(`[#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]`) == null)) {
+    if (suffix.test(`[#][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]`)) {
 
       const iconColor = `${suffix}`;
       const iconName = icon.replace(`${prefix}-`, "").replace(".svg", "").replace(`-${suffix}`, "");
