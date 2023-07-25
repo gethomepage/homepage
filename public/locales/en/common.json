@@ -665,7 +665,7 @@
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
-    "azureDevOps": {
+    "azuredevops": {
         "result": "Result",
         "status": "Status",
         "buildId": "Build ID",

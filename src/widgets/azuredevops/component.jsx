@@ -7,68 +7,51 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { azureType } = widget;
   const { userEmail } = widget;
-  const { data: pipelineData, error: pipelineError } = useWidgetAPI(widget, "pipeline");
   const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
-  
-  if (azureType === "Pipeline") {
-    if (pipelineError) {
-      return <Container service={service} error={pipelineError} />;
-    }
+  const { data: pipelineData, error: pipelineError } = useWidgetAPI(widget, "pipeline");
 
-    if (!pipelineData || !Array.isArray(pipelineData.value)) {
-      return (
-        <Container service={service}>
-          <Block label="azureDevOps.result" />
-          <Block label="azureDevOps.buildId" />
-        </Container>
-      );
-    }
+  if (pipelineError || prError) {
+    const finalError = pipelineError ?? prError;
+    return <Container service={service} error={finalError} />;
+  }
 
+  if (!pipelineData || !Array.isArray(pipelineData.value)) {
     return (
       <Container service={service}>
-        {pipelineData.value[0].result ? (
-          <Block label="azureDevOps.result" value={t(`azureDevOps.${pipelineData.value[0].result.toString()}`)} />
-        ) : (
-          <Block label="azureDevOps.status" value={t(`azureDevOps.${pipelineData.value[0].status.toString()}`)} />
-        )}
-        <Block label="azureDevOps.buildId" value={pipelineData.value[0].id} />
+        <Block label="azuredevops.result" />
+        <Block label="azuredevops.totalPrs" />
+        <Block label="azuredevops.myPrs" />
+        <Block label="azuredevops.approved" />
       </Container>
     );
   }
-  if (azureType === "PullRequest") {
-    if (prError) {
-      return <Container service={service} error={prError} />;
-    }
 
-    if (!prData) {
-      return (
-        <Container service={service}>
-          <Block label="azureDevOps.totalPrs" />
-          <Block label="azureDevOps.myPrs" />
-          <Block label="azureDevOps.approved" />
-        </Container>
-      );
-    }
+  return (
+    <Container service={service}>
+      {pipelineData.value[0].result ? (
+        <Block label="azuredevops.result" value={t(`azuredevops.${pipelineData.value[0].result.toString()}`)} />
+      ) : (
+        <Block label="azuredevops.status" value={t(`azuredevops.${pipelineData.value[0].status.toString()}`)} />
+      )}
+      
+      <Block label="azuredevops.totalPrs" value={t("common.number", { value: prData.count })} />
+      <Block
+        label="azuredevops.myPrs"
+        value={t("common.number", {
+          value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
+            .length,
+        })}
+      />
+      <Block
+        label="azuredevops.approved"
+        value={t("common.number", {
+          value: prData.value
+            ?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
+            .filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length,
+        })}
+      />
 
-    return (
-      <Container service={service}>
-        <Block label="azureDevOps.totalPrs" value={t("common.number", { value: prData.count })} />
-        <Block
-          label="azureDevOps.myPrs"
-          value={t("common.number", {
-            value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
-              .length,
-          })}
-        />
-        <Block
-          label="azureDevOps.approved"
-          value={t("common.number", {
-            value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase()).filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length
-          })}
-        />
-      </Container>
-    );
-  }
+    </Container>
+  );
 }
