@@ -296,13 +296,6 @@ export function cleanServiceGroups(groups) {
         } = cleanedService.widget;
 
         let fieldsList = fields;
-
-        const MAX_ALLOWED_FIELDS = 4;
-        // Limits max number of displayed fields
-        if (fieldsList != null && fieldsList.length > MAX_ALLOWED_FIELDS) {
-          fieldsList = fieldsList.slice(0, MAX_ALLOWED_FIELDS);
-        }
-
         if (typeof fields === 'string') {
           try { JSON.parse(fields) }
           catch (e) {
