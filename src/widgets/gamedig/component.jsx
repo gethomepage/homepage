@@ -13,6 +13,11 @@ export default function Component({ service }) {
     return <Container service={service} error={serverError} />;
   }
 
+  // Default fields
+  if (widget.fields == null || widget.fields.length === 0) {
+    widget.fields = ["map", "currentPlayers", "ping"];
+  }
+
   if (!serverData) {
     return (
       <Container service={service}>
