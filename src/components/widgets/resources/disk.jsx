@@ -5,11 +5,11 @@ import { useTranslation } from "next-i18next";
 import Resource from "../widget/resource";
 import Error from "../widget/error";
 
-export default function Disk({ options, expanded }) {
+export default function Disk({ options, expanded, refresh = 1500 }) {
   const { t } = useTranslation();
 
   const { data, error } = useSWR(`/api/widgets/resources?type=disk&target=${options.disk}`, {
-    refreshInterval: 1500,
+    refreshInterval: refresh,
   });
 
   if (error || data?.error) {
