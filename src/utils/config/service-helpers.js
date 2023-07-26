@@ -294,7 +294,7 @@ export function cleanServiceGroups(groups) {
           snapshotHost, // kopia
           snapshotPath,
           userEmail, // azuredevops
-          branchName
+          repositoryId
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -316,7 +316,7 @@ export function cleanServiceGroups(groups) {
 
         if (type === "azuredevops") {
           if (userEmail) cleanedService.widget.userEmail = userEmail;
-          if (branchName) cleanedService.widget.branchName = branchName;
+          if (repositoryId) cleanedService.widget.repositoryId = repositoryId;
         }
 
         if (type === "coinmarketcap") {

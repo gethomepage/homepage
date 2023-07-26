@@ -7,14 +7,14 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { userEmail, branchName } = widget;
-  const includePR = userEmail !== undefined && branchName !== undefined;
+  const { userEmail, repositoryId } = widget;
+  const includePR = userEmail !== undefined && repositoryId !== undefined;
   const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
   const { data: pipelineData, error: pipelineError } = useWidgetAPI(widget, "pipeline");
 
   if (
       pipelineError ||
-      (includePR && (prError || prData?.errorCode !== null))
+      (includePR && (prError || prData?.errorCode !== undefined))
     ) {
     let finalError = pipelineError ?? prError;
     if (includePR && prData?.errorCode !== null) {
