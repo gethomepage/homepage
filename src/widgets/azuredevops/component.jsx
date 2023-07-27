@@ -9,7 +9,7 @@ export default function Component({ service }) {
   const { widget } = service;
   const { userEmail, repositoryId } = widget;
   const includePR = userEmail !== undefined && repositoryId !== undefined;
-  const { data: prData, error: prError } = useWidgetAPI(widget, "pr");
+  const { data: prData, error: prError } = useWidgetAPI(widget, includePR ? "pr" : null);
   const { data: pipelineData, error: pipelineError } = useWidgetAPI(widget, "pipeline");
 
   if (
@@ -43,26 +43,22 @@ export default function Component({ service }) {
         <Block label="azuredevops.status" value={t(`azuredevops.${pipelineData.value[0].status.toString()}`)} />
       )}
       
-      {includePR && 
-      <>
-        <Block label="azuredevops.totalPrs" value={t("common.number", { value: prData.count })} />
-        <Block
+      {includePR && <Block label="azuredevops.totalPrs" value={t("common.number", { value: prData.count })} />}
+      {includePR && <Block
           label="azuredevops.myPrs"
           value={t("common.number", {
             value: prData.value?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
               .length,
           })}
-        />
-        <Block
-          label="azuredevops.approved"
-          value={t("common.number", {
-            value: prData.value
-              ?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
-              .filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length,
-          })}
-        />
-      </>
-      }
+        />}
+      {includePR && <Block
+        label="azuredevops.approved"
+        value={t("common.number", {
+          value: prData.value
+            ?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
+            .filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length,
+        })}
+      />}
 
     </Container>
   );
