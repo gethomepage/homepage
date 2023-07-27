@@ -665,5 +665,14 @@
         "failed": "Sikertelen",
         "canceled": "Megszakítva",
         "inProgress": "Folyamatban"
+    },
+    "gamedig": {
+        "ping": "Ping",
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots"
     }
 }
