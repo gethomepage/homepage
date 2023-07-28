@@ -34,6 +34,7 @@ export default function Component({ service }) {
       <Block label="urbackup.ok" value={t("common.number", { value: parseInt(statusData.ok, 10) })} />
       <Block label="urbackup.errored" value={t("common.number", { value: parseInt(statusData.errored, 10) })} />
       <Block label="urbackup.noRecent" value={t("common.number", { value: parseInt(statusData.noRecent, 10) })} />
+      {urbackupData.diskUsage && <Block label="urbackup.totalUsed" value={t("common.bbytes", {value: parseFloat(statusData.totalUsage, 10)})} />}
     </Container>
   );
 }

@@ -37,13 +37,13 @@ function determineClientStatus(client, maxDays){
   return status;
 }
 
-export default function determineStatuses(clientStatuses) {
+export default function determineStatuses(urbackupData) {
   let ok = 0;
   let errored = 0;
   let noRecent = 0;
   let result;
-  clientStatuses.data.forEach((client) => {
-    result = determineClientStatus(client, clientStatuses.maxDays);
+  urbackupData.clientStatuses.forEach((client) => {
+    result = determineClientStatus(client, urbackupData.maxDays);
     switch (result)
     {
       case Status.ok:
@@ -60,7 +60,17 @@ export default function determineStatuses(clientStatuses) {
     }
   });
 
-  return {ok, errored, noRecent};
+  let totalUsage = false;
+
+  // calculate total disk space if provided
+  if (urbackupData.diskUsage){
+    totalUsage = 0.0;
+    urbackupData.diskUsage.forEach((client) => {
+      totalUsage += client.used;
+    });
+  }
+
+  return {ok, errored, noRecent, totalUsage};
 }
 
 

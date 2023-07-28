@@ -686,7 +686,8 @@
     },
     "urbackup": {
         "ok" : "Ok",
-        "errored": "Errored",
-        "noRecent": "Out of Date"
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }

@@ -17,8 +17,14 @@ export default async function urbackupProxyHandler(req, res) {
 await (async () => {
     try {
       const allClients = await server.getStatus({includeRemoved: false});
+      let diskUsage = false
+      if(serviceWidget.diskUsage)
+      {
+        diskUsage = await server.getUsage();
+      }
       res.status(200).send({
-        data: allClients,
+        clientStatuses: allClients,
+        diskUsage,
         maxDays: serviceWidget.maxDays
       });
     } catch (error) {
