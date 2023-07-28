@@ -27,7 +27,7 @@ export default function Component({ service }) {
     );
   }
 
-  const statusData = determineStatuses(urbackupData);
+  const statusData = determineStatuses(urbackupData, widget);
 
   return (
     <Container service={service}>

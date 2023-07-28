@@ -18,7 +18,8 @@ await (async () => {
     try {
       const allClients = await server.getStatus({includeRemoved: false});
       res.status(200).send({
-        data: allClients
+        data: allClients,
+        maxDays: serviceWidget.maxDays
       });
     } catch (error) {
       res.status(500).json({ error: "Something Broke" })
