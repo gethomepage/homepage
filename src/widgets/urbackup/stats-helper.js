@@ -8,12 +8,12 @@ function hasRecentBackups(client, maxDays){
   const days = maxDays || 3;
   const diffTime = days*24*60*60 // 7 days
   const recentFile = (client.lastbackup > (Date.now() / 1000 - diffTime));
-  const recentImage = (client.lastbackup_image > (Date.now() / 1000 - diffTime));
+  const recentImage = ((client.lastbackup_image > (Date.now() / 1000 - diffTime)||client.image_not_supported));
   return (recentFile && recentImage);
 }
 
 function recentBackupsOk(client){
-  return (client.file_ok && client.image_ok);
+  return (client.file_ok && (client.image_ok || client.image_not_supported));
 }
 
 function determineClientStatus(client, maxDays){
