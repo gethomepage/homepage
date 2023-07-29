@@ -1,5 +1,3 @@
-// suppress a false positive - this is in package.json
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {UrbackupServer} from "urbackup-server-api";
 
 import getServiceWidget from "utils/config/service-helpers";
@@ -18,7 +16,7 @@ await (async () => {
     try {
       const allClients = await server.getStatus({includeRemoved: false});
       let diskUsage = false
-      if(serviceWidget.diskUsage)
+      if(serviceWidget.fields?.includes("totalUsed"))
       {
         diskUsage = await server.getUsage();
       }
