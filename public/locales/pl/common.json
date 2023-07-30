@@ -677,5 +677,11 @@
         "canceled": "Canceled",
         "inProgress": "In Progress",
         "totalPrs": "Total PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }
