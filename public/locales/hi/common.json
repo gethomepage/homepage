@@ -677,5 +677,11 @@
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }
