@@ -221,7 +221,8 @@
         "playing": "Playing",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "Connected APs",
@@ -654,5 +655,27 @@
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "inProgress": "In Progress",
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }

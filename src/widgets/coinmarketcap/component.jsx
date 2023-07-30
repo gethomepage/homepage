@@ -19,17 +19,26 @@ export default function Component({ service }) {
 
   const { widget } = service;
   const { symbols } = widget;
+  const { slugs } = widget;
   const currencyCode = widget.currency ?? "USD";
   const interval = widget.defaultinterval ?? dateRangeOptions[0].value;
 
   const [dateRange, setDateRange] = useState(interval);
 
-  const { data: statsData, error: statsError } = useWidgetAPI(widget, "v1/cryptocurrency/quotes/latest", {
-    symbol: `${symbols.join(",")}`,
+  const params = {
     convert: `${currencyCode}`,
-  });
+  }
 
-  if (!symbols || symbols.length === 0) {
+  // slugs >> symbols, not both
+  if (slugs?.length) {
+    params.slug = slugs.join(",");
+  } else if (symbols?.length) {
+    params.symbol = symbols.join(",");
+  }
+
+  const { data: statsData, error: statsError } = useWidgetAPI(widget, "v1/cryptocurrency/quotes/latest", params);
+
+  if ((!symbols && !slugs) || (symbols?.length === 0 && slugs?.length === 0)) {
     return (
       <Container service={service}>
         <Block value={t("coinmarketcap.configure")} />
@@ -50,6 +59,7 @@ export default function Component({ service }) {
   }
 
   const { data } = statsData;
+  const validCryptos = Object.values(data).filter(crypto => crypto.quote[currencyCode][`percent_change_${dateRange}`] !== null)
 
   return (
     <Container service={service}>
@@ -58,28 +68,28 @@ export default function Component({ service }) {
       </div>
 
       <div className="flex flex-col w-full">
-        {symbols.map((symbol) => (
+        {validCryptos.map((crypto) => (
           <div
-            key={data[symbol].symbol}
+            key={crypto.id}
             className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
           >
-            <div className="font-thin pl-2">{data[symbol].name}</div>
+            <div className="font-thin pl-2">{crypto.name}</div>
             <div className="flex flex-row text-right">
               <div className="font-bold mr-2">
                 {t("common.number", {
-                  value: data[symbol].quote[currencyCode].price,
+                  value: crypto.quote[currencyCode].price,
                   style: "currency",
                   currency: currencyCode,
                 })}
               </div>
               <div
                 className={`font-bold w-10 mr-2 ${
-                  data[symbol].quote[currencyCode][`percent_change_${dateRange}`] > 0
+                  crypto.quote[currencyCode][`percent_change_${dateRange}`] > 0
                     ? "text-emerald-300"
                     : "text-rose-300"
                 }`}
               >
-                {data[symbol].quote[currencyCode][`percent_change_${dateRange}`].toFixed(2)}%
+                {crypto.quote[currencyCode][`percent_change_${dateRange}`].toFixed(2)}%
               </div>
             </div>
           </div>

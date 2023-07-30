@@ -5,8 +5,8 @@
         "status": "Statut",
         "information": "Information",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Erreur brute",
+        "response_data": "Données de réponse"
     },
     "search": {
         "placeholder": "Recherche…"
@@ -56,7 +56,8 @@
         "playing": "En lecture",
         "transcoding": "Transcodage",
         "bitrate": "Débit",
-        "no_active": "Aucun flux actif"
+        "no_active": "Aucun flux actif",
+        "plex_connection_error": "Vérifier la connexion à Plex"
     },
     "rutorrent": {
         "active": "Actif",
@@ -578,7 +579,7 @@
     "homeassistant": {
         "people_home": "People Home",
         "lights_on": "Lumières allumées",
-        "switches_on": "Switches On"
+        "switches_on": "Commutateur On"
     },
     "freshrss": {
         "unread": "Non lu",
@@ -652,7 +653,29 @@
         "downloadTotalBytes": "Taille"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Séries",
+        "totalFiles": "Fichiers"
+    },
+    "gamedig": {
+        "name": "Nom",
+        "map": "Carte",
+        "currentPlayers": "Joueurs actuels",
+        "players": "Joueurs",
+        "maxPlayers": "Joueurs max",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }

@@ -37,7 +37,8 @@
         "playing": "Odtwarzanie",
         "transcoding": "Transkodowanie",
         "bitrate": "Bitrate",
-        "no_active": "Brak aktywnych strumieni"
+        "no_active": "Brak aktywnych strumieni",
+        "plex_connection_error": "Check Plex Connection"
     },
     "speedtest": {
         "download": "Pobieranie",
@@ -654,5 +655,27 @@
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "result": "Result",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs"
     }
 }

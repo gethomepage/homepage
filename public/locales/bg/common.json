@@ -89,7 +89,8 @@
         "playing": "Възпроизвежда",
         "transcoding": "Конвертира",
         "bitrate": "Честота",
-        "no_active": "Няма активни потоци"
+        "no_active": "Няма активни потоци",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Rate",
@@ -654,5 +655,27 @@
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }

@@ -62,7 +62,8 @@
         "playing": "Toistaa",
         "transcoding": "Transkoodaa",
         "bitrate": "Bittinopeus",
-        "no_active": "Ei aktiivisia striimejä"
+        "no_active": "Ei aktiivisia striimejä",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Nopeus",
@@ -654,5 +655,27 @@
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }

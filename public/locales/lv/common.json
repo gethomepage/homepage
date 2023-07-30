@@ -97,7 +97,8 @@
         "playing": "Atskaņo",
         "transcoding": "Pārkodē",
         "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju"
+        "no_active": "Nav aktīvu straumju",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "Savienotie piekļuves punkti",
@@ -654,5 +655,27 @@
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed"
     }
 }

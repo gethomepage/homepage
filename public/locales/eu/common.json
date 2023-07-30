@@ -1,139 +1,189 @@
 {
-    "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+    "wmo": {
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "0-day": "Sunny",
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "99-night": "Thunderstorm With Hail"
     },
-    "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
-    },
-    "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
-    },
-    "pyload": {
-        "queue": "Queue",
-        "total": "Total",
-        "speed": "Speed",
-        "active": "Active"
-    },
-    "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
-    },
-    "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
-    },
-    "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
-    },
-    "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "เมม",
-        "cpu": "ซีพียู",
-        "offline": "ออฟไลน์",
-        "error": "ข้อผิดพลาด",
-        "unknown": "ไม่ทราบ",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+    "homebridge": {
+        "updates": "Updates",
+        "available_update": "System",
+        "update_available": "Update Available",
+        "up_to_date": "Up to Date",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "common": {
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
-    "unifi": {
-        "days": "วัน",
-        "wan": "WAN",
-        "lan": "แลน",
-        "wlan": "WLAN",
-        "devices": "อุปกรณ์",
-        "lan_devices": "อุปกรณ์แลน",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown",
-        "users": "ผู้ใช้",
-        "uptime": "เวลาทำงานของระบบ"
-    },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API มีข้อผิดพลาด",
-        "information": "ข้อมูล",
-        "status": "สถานะ",
+        "api_error": "API Error",
+        "information": "Informazioa",
+        "status": "Status",
         "url": "URL",
-        "raw_error": "ข้อมูลต้นฉบับผิดพลาด",
-        "response_data": "ข้อมูลการตอบกลับ"
+        "raw_error": "Raw Error",
+        "response_data": "Response Data"
     },
     "weather": {
-        "current": "สถานที่ปัจจุบัน",
-        "allow": "คลิกเพื่ออนุญาต",
-        "updating": "กำลังปรับปรุง",
-        "wait": "โปรดรอ"
+        "current": "Current Location",
+        "allow": "Click to allow",
+        "updating": "Eguneratzen",
+        "wait": "Itxaron mesedez"
     },
     "search": {
-        "placeholder": "ค้นหา…"
+        "placeholder": "Bilatu…"
     },
     "resources": {
-        "cpu": "ซีพียู",
-        "mem": "เมม",
-        "total": "ทั้งหมด",
-        "free": "ฟรี",
-        "used": "ใช้แล้ว",
-        "load": "โหลด",
-        "hours": "h",
-        "minutes": "m",
+        "cpu": "CPU",
+        "mem": "MEM",
+        "total": "Guztira",
+        "free": "Free",
+        "used": "Erabilita",
+        "load": "Load",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
         "months": "mo",
-        "days": "d"
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
+    },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Egun",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Gailuak",
+        "lan_devices": "LAN Gailuak",
+        "wlan_devices": "WLAN Gailuak",
+        "lan_users": "LAN Erabiltzaileak",
+        "wlan_users": "WLAN Erabiltzaileak",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Itxaron mesedez",
+        "empty_data": "Subsystem status unknown"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "running": "Running",
+        "offline": "Offline",
+        "error": "Error",
+        "unknown": "Ezezaguna",
+        "healthy": "Osasuntsu",
+        "starting": "Abiarazten",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "ping": {
-        "error": "ข้อผิดพลาด",
-        "ping": "ปิง"
+        "error": "Errorea",
+        "ping": "Ping"
     },
     "emby": {
-        "playing": "กำลังเล่น",
-        "transcoding": "การแปลงรหัส",
-        "bitrate": "อัตราบิต",
-        "no_active": "ไม่มีสตรีมที่ใช้งานอยู่",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bit-tasa",
+        "no_active": "No Active Streams",
         "movies": "Movies",
         "series": "Series",
-        "songs": "Songs",
-        "episodes": "Episodes"
+        "episodes": "Episodes",
+        "songs": "Abestiak"
     },
-    "deluge": {
-        "download": "ดาวน์โหลด",
+    "evcc": {
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
+    },
+    "flood": {
+        "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
-    "flood": {
-        "download": "ดาวน์โหลด",
-        "upload": "อัพโหลด",
-        "leech": "Leech",
-        "seed": "Seed"
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     },
     "tautulli": {
         "playing": "Playing",
@@ -156,9 +206,9 @@
     },
     "plex": {
         "streams": "Active Streams",
+        "albums": "Albums",
         "movies": "Movies",
-        "tv": "TV Shows",
-        "albums": "Albums"
+        "tv": "TV Shows"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -167,8 +217,8 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Kargatu",
+        "download": "Deskargatu"
     },
     "transmission": {
         "download": "Download",
@@ -177,6 +227,20 @@
         "seed": "Seed"
     },
     "qbittorrent": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "deluge": {
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
@@ -195,26 +259,6 @@
         "queue": "Queue",
         "unknown": "Unknown"
     },
-    "readarr": {
-        "queued": "Queued",
-        "books": "Books",
-        "wanted": "Wanted"
-    },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
-    },
-    "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
-    },
-    "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
-    },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
@@ -227,6 +271,15 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "artists": "Artists"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
     },
     "ombi": {
         "pending": "Pending",
@@ -244,11 +297,17 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
+    },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
-        "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Blocked %",
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Queries",
@@ -265,6 +324,47 @@
         "running": "Running",
         "stopped": "Stopped",
         "total": "Total"
+    },
+    "tailscale": {
+        "address": "Address",
+        "expires": "Expires",
+        "never": "Never",
+        "last_seen": "Last Seen",
+        "now": "Now",
+        "years": "{{number}}y",
+        "weeks": "{{number}}w",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "{{value}} Ago"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "traefik": {
+        "routers": "Routers",
+        "services": "Services",
+        "middleware": "Middleware"
+    },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
+    "npm": {
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Total"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
     },
     "gotify": {
         "apps": "Applications",
@@ -298,6 +398,13 @@
         "queued": "Queued",
         "series": "Series"
     },
+    "minecraft": {
+        "players": "Jokalariak",
+        "version": "Version",
+        "status": "Status",
+        "up": "Online",
+        "down": "Offline"
+    },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
@@ -315,16 +422,16 @@
     },
     "glances": {
         "cpu": "CPU",
+        "load": "Load",
         "wait": "Please wait",
         "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h",
-        "load": "Load",
         "warn": "Warn",
+        "uptime": "UP",
         "total": "Total",
         "free": "Free",
-        "used": "Used"
+        "used": "Used",
+        "days": "d",
+        "hours": "h"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -334,74 +441,15 @@
         "visit": "Visit",
         "url": "URL"
     },
-    "wmo": {
-        "67-day": "Freezing Rain",
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "67-night": "Freezing Rain",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
-    },
-    "homebridge": {
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}",
-        "available_update": "System",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Offline",
+        "paused": "Paused",
+        "status": "Status",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
@@ -425,6 +473,26 @@
         "uptime": "Uptime",
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Unknown"
     },
     "paperlessngx": {
         "inbox": "Inbox",
@@ -467,6 +535,16 @@
         "origin_ip": "Origin IP",
         "status": "Status"
     },
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Disk Usage",
+        "wanIP": "WAN IP"
+    },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
@@ -481,8 +559,8 @@
     },
     "uptimekuma": {
         "up": "Sites Up",
-        "down": "เว็บไซต์ ล่ม",
-        "uptime": "เวลาทำงาน",
+        "down": "Sites Down",
+        "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
     },
@@ -539,16 +617,6 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
     "pterodactyl": {
         "servers": "Servers",
         "nodes": "Nodes"
@@ -557,13 +625,6 @@
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
-    },
-    "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",
@@ -581,96 +642,35 @@
         "lights_on": "Lights On",
         "switches_on": "Switches On"
     },
-    "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
-    },
-    "channelsdvrserver": {
-        "scheduled": "Scheduled",
-        "passes": "Passes",
-        "shows": "Shows",
-        "recordings": "Recordings"
-    },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
-    "tailscale": {
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "address": "Address",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
-    },
-    "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
-    },
-    "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
-    },
-    "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
-    },
-    "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
-    },
-    "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
-    },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
+        "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
     "gamedig": {
+        "currentPlayers": "Current players",
         "name": "Name",
         "map": "Map",
-        "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
         "ping": "Ping"
     },
     "azuredevops": {
+        "notStarted": "Not Started",
         "result": "Result",
         "status": "Status",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
-        "notStarted": "Not Started",
         "failed": "Failed",
         "canceled": "Canceled",
         "inProgress": "In Progress",

@@ -90,7 +90,8 @@
         "playing": "Reproduzindo",
         "transcoding": "Transcodificando",
         "bitrate": "Taxa de bits",
-        "no_active": "Sem transmissões ativas"
+        "no_active": "Sem transmissões ativas",
+        "plex_connection_error": "Verifique a conexão do Plex"
     },
     "nzbget": {
         "rate": "Taxa",
@@ -113,21 +114,21 @@
         "wanted": "Desejado",
         "queued": "Na fila",
         "series": "Séries",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Fila",
+        "unknown": "Desconhecido"
     },
     "radarr": {
         "wanted": "Desejado",
         "queued": "Na fila",
         "movies": "Filmes",
         "missing": "Faltando",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Fila",
+        "unknown": "Desconhecido"
     },
     "lidarr": {
         "wanted": "Desejado",
         "queued": "Na fila",
-        "artists": "Artists"
+        "artists": "Artistas"
     },
     "readarr": {
         "wanted": "Desejado",
@@ -158,7 +159,7 @@
         "queries": "Consultas",
         "blocked": "Bloqueados",
         "gravity": "Gravidade",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Bloqueado %"
     },
     "adguard": {
         "queries": "Consultas",
@@ -243,11 +244,11 @@
         "uptime": "LIGADO",
         "days": "d",
         "hours": "h",
-        "load": "Load",
-        "warn": "Warn",
+        "load": "Carga",
+        "warn": "Aviso",
         "total": "Total",
-        "free": "Free",
-        "used": "Used"
+        "free": "Livre",
+        "used": "Usado"
     },
     "changedetectionio": {
         "totalObserved": "Observados",
@@ -523,8 +524,8 @@
         "memoryusage": "Memória Utilizada",
         "freespace": "Espaço Livre",
         "activeusers": "Usuários Ativos",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "numfiles": "Arquivos",
+        "numshares": "Itens Compartilhados"
     },
     "kopia": {
         "status": "Status",
@@ -581,78 +582,100 @@
         "switches_on": "Interruptores Ligados"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Assinaturas",
+        "unread": "Não lida"
     },
     "channelsdvrserver": {
         "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "recordings": "Gravações",
+        "scheduled": "Agendado",
         "passes": "Passes"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Monitorando",
+        "updates": "Atualizações"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
+        "address": "Endereço",
+        "expires": "Expira",
+        "never": "Nunca",
+        "last_seen": "Visto pela última vez",
+        "now": "Agora",
+        "years": "{{number}}a",
+        "weeks": "{{number}}s",
         "hours": "{{number}}h",
         "days": "{{number}}d",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Atrás"
     },
     "qnap": {
-        "systemTempC": "System Temp",
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
+        "systemTempC": "Temp Sistema",
+        "cpuUsage": "Uso CPU",
+        "memUsage": "Uso MEM",
         "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Uso Volume",
+        "invalid": "Invalido"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
+        "load": "Média de carga",
+        "memory": "Uso Mem",
         "wanStatus": "WAN Status",
         "up": "Up",
         "down": "Down",
         "temp": "Temp",
-        "disk": "Disk Usage",
+        "disk": "Uso de disco",
         "wanIP": "WAN IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Solicitações atuais",
+        "requests_failed": "Solicitações com falha"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "pv_power": "Produção",
+        "battery_soc": "Bateria",
+        "grid_power": "Grade",
+        "home_power": "Consumo",
+        "charge_power": "Carregador",
         "watt_hour": "Wh"
     },
     "pialert": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Conectado",
+        "new_devices": "Novos dispositivos",
+        "down_alerts": "Alertas de Quedas"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Fila",
+        "downloadSpeed": "Velocidade de download",
+        "downloadBytesRemaining": "Restante",
+        "downloadTotalBytes": "Tamanho"
     },
     "kavita": {
         "seriesCount": "Series",
-        "totalFiles": "Files"
+        "totalFiles": "Arquivos"
+    },
+    "gamedig": {
+        "name": "Nome",
+        "map": "Mapa",
+        "currentPlayers": "Jogadores atuais",
+        "players": "Jogadores",
+        "maxPlayers": "Jogadores Max",
+        "bots": "Robos",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }

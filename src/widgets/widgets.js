@@ -2,6 +2,7 @@ import adguard from "./adguard/widget";
 import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
+import azuredevops from "./azuredevops/widget";
 import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
 import changedetectionio from "./changedetectionio/widget";
@@ -16,6 +17,7 @@ import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
+import gamedig from "./gamedig/widget";
 import ghostfolio from "./ghostfolio/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -91,6 +93,7 @@ const widgets = {
   audiobookshelf,
   authentik,
   autobrr,
+  azuredevops,
   bazarr,
   caddy,
   changedetectionio,
@@ -105,6 +108,7 @@ const widgets = {
   fileflows,
   flood,
   freshrss,
+  gamedig,
   ghostfolio,
   gluetun,
   gotify,

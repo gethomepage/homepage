@@ -198,7 +198,8 @@
         "playing": "Відтворення",
         "transcoding": "Перекодування",
         "bitrate": "Бітрейт",
-        "no_active": "Немає активних потоків"
+        "no_active": "Немає активних потоків",
+        "plex_connection_error": "Перевірте з'єднання Plex"
     },
     "nzbget": {
         "rate": "Швидкість",
@@ -652,7 +653,29 @@
         "downloadTotalBytes": "Розмір"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Серій",
+        "totalFiles": "Файлів"
+    },
+    "gamedig": {
+        "name": "Назва",
+        "map": "Мапа",
+        "currentPlayers": "Поточні гравці",
+        "players": "Гравці",
+        "maxPlayers": "Максимум гравців",
+        "bots": "Ботів",
+        "ping": "Пінг"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }

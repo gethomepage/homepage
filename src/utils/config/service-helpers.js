@@ -7,7 +7,7 @@ import * as shvl from "shvl";
 import { CustomObjectsApi, NetworkingV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
-import checkAndCopyConfig, { substituteEnvironmentVars } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
 
@@ -17,7 +17,7 @@ const logger = createLogger("service-helpers");
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");
 
-  const servicesYaml = path.join(process.cwd(), "config", "services.yaml");
+  const servicesYaml = path.join(CONF_DIR, "services.yaml");
   const rawFileContents = await fs.readFile(servicesYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
   const services = yaml.load(fileContents);
@@ -51,7 +51,7 @@ export async function servicesFromConfig() {
 export async function servicesFromDocker() {
   checkAndCopyConfig("docker.yaml");
 
-  const dockerYaml = path.join(process.cwd(), "config", "docker.yaml");
+  const dockerYaml = path.join(CONF_DIR, "docker.yaml");
   const rawDockerFileContents = await fs.readFile(dockerYaml, "utf8");
   const dockerFileContents = substituteEnvironmentVars(rawDockerFileContents);
   const servers = yaml.load(dockerFileContents);
@@ -279,6 +279,7 @@ export function cleanServiceGroups(groups) {
           container,
           currency, // coinmarketcap widget
           symbols,
+          slugs,
           defaultinterval,
           site, // unifi widget
           namespace, // kubernetes widget
@@ -289,9 +290,21 @@ export function cleanServiceGroups(groups) {
           enableNowPlaying,
           volume, // diskstation widget,
           enableQueue, // sonarr/radarr
+          node, // Proxmox
+          snapshotHost, // kopia
+          snapshotPath,
+          userEmail, // azuredevops
+          repositoryId
         } = cleanedService.widget;
 
-        const fieldsList = typeof fields === 'string' ? JSON.parse(fields) : fields;
+        let fieldsList = fields;
+        if (typeof fields === 'string') {
+          try { JSON.parse(fields) }
+          catch (e) {
+            logger.error("Invalid fields list detected in config for service '%s'", service.name);
+            fieldsList = null;
+          }
+        }
 
         cleanedService.widget = {
           type,
@@ -301,9 +314,17 @@ export function cleanServiceGroups(groups) {
           service_group: serviceGroup.name,
         };
 
-        if (currency) cleanedService.widget.currency = currency;
-        if (symbols) cleanedService.widget.symbols = symbols;
-        if (defaultinterval) cleanedService.widget.defaultinterval = defaultinterval;
+        if (type === "azuredevops") {
+          if (userEmail) cleanedService.widget.userEmail = userEmail;
+          if (repositoryId) cleanedService.widget.repositoryId = repositoryId;
+        }
+
+        if (type === "coinmarketcap") {
+          if (currency) cleanedService.widget.currency = currency;
+          if (symbols) cleanedService.widget.symbols = symbols;
+          if (slugs) cleanedService.widget.slugs = slugs;
+          if (defaultinterval) cleanedService.widget.defaultinterval = defaultinterval;
+        }
 
         if (type === "docker") {
           if (server) cleanedService.widget.server = server;
@@ -311,6 +332,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "unifi") {
           if (site) cleanedService.widget.site = site;
+        }
+        if (type === "proxmox") {
+          if (node) cleanedService.widget.node = node;
         }
         if (type === "kubernetes") {
           if (namespace) cleanedService.widget.namespace = namespace;
@@ -329,6 +353,10 @@ export function cleanServiceGroups(groups) {
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
+        }
+        if (type === "kopia") {
+          if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
+          if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
         }
       }
 

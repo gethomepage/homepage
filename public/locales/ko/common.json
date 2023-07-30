@@ -111,7 +111,8 @@
         "playing": "재생 중",
         "transcoding": "트랜스코딩",
         "bitrate": "비트레이트",
-        "no_active": "활성 스트림 없음"
+        "no_active": "활성 스트림 없음",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "연결된 AP",
@@ -654,5 +655,27 @@
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "ping": "Ping",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }
