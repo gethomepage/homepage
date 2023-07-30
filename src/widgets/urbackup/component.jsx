@@ -1,10 +1,60 @@
 import { useTranslation } from "next-i18next";
 
-import determineStatuses from "./stats-helper";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+
+const Status = Object.freeze({
+  ok: Symbol("Ok"),
+  errored: Symbol("Errored"),
+  noRecent: Symbol("No Recent Backups")
+});
+
+function hasRecentBackups(client, maxDays){
+  const days = maxDays || 3;
+  const diffTime = days*24*60*60 // 7 days
+  const recentFile = (client.lastbackup > (Date.now() / 1000 - diffTime));
+  const recentImage = ((client.lastbackup_image > (Date.now() / 1000 - diffTime)||client.image_not_supported));
+  return (recentFile && recentImage);
+}
+
+function determineStatuses(urbackupData) {
+  let ok = 0;
+  let errored = 0;
+  let noRecent = 0;
+  let status;
+  urbackupData.clientStatuses.forEach((client) => {
+    status = Status.noRecent;
+    if (hasRecentBackups(client, urbackupData.maxDays)) {
+      status = (client.file_ok && (client.image_ok || client.image_not_supported)) ? Status.ok : Status.errored;
+    }
+    switch (status) {
+      case Status.ok:
+        ok += 1;
+        break;
+      case Status.errored:
+        errored += 1;
+        break;
+      case Status.noRecent:
+        noRecent += 1;
+        break;
+      default:
+        break;
+    }
+  });
+
+  let totalUsage = false;
+
+  // calculate total disk space if provided
+  if (urbackupData.diskUsage) {
+    totalUsage = 0.0;
+    urbackupData.diskUsage.forEach((client) => {
+      totalUsage += client.used;
+    });
+  }
+
+  return { ok, errored, noRecent, totalUsage };
+}
 
 export default function Component({ service }) {
   const { t } = useTranslation();
