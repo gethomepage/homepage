@@ -87,6 +87,7 @@ import uptimekuma from "./uptimekuma/widget";
 import watchtower from "./watchtower/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
+import urbackup from "./urbackup/widget";
 
 const widgets = {
   adguard,
@@ -177,6 +178,7 @@ const widgets = {
   unifi_console: unifi,
   unmanic,
   uptimekuma,
+  urbackup,
   watchtower,
   whatsupdocker,
   xteve,

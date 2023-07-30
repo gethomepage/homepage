@@ -686,5 +686,11 @@
         "maxPlayers": "Max players",
         "bots": "Bots",
         "ping": "Ping"
+    },
+    "urbackup": {
+        "ok" : "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }
