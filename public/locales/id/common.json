@@ -494,9 +494,9 @@
     },
     "weather": {
         "wait": "Harap tunggu",
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating"
+        "current": "Lokasi Saat Ini",
+        "allow": "Klik untuk mengizinkan",
+        "updating": "Memperbarui"
     },
     "search": {
         "placeholder": "Telusuri…"
@@ -590,11 +590,11 @@
         "cpu": "CPU",
         "mem": "MEM",
         "total": "Total",
-        "free": "Free",
-        "used": "Used",
+        "free": "Luang",
+        "used": "Digunakan",
         "load": "Load",
         "temp": "TEMP",
-        "max": "Max",
+        "max": "Maks",
         "uptime": "UP",
         "months": "mo",
         "hours": "h",
