@@ -5,11 +5,11 @@ import { useTranslation } from "next-i18next";
 import Resource from "../widget/resource";
 import Error from "../widget/error";
 
-export default function Memory({ expanded }) {
+export default function Memory({ expanded, refresh = 1500 }) {
   const { t } = useTranslation();
 
   const { data, error } = useSWR(`/api/widgets/resources?type=memory`, {
-    refreshInterval: 1500,
+    refreshInterval: refresh,
   });
 
   if (error || data?.error) {

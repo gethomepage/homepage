@@ -665,5 +665,14 @@
         "failed": "Failed",
         "canceled": "Canceled",
         "inProgress": "In Progress"
+    },
+    "gamedig": {
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "name": "Name",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
     }
 }

@@ -677,5 +677,14 @@
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
         "approved": "Approved"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
     }
 }

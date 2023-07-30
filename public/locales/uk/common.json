@@ -665,5 +665,14 @@
         "notStarted": "Не розпочато",
         "canceled": "Скасовано",
         "inProgress": "В процесі"
+    },
+    "gamedig": {
+        "name": "Назва",
+        "map": "Мапа",
+        "currentPlayers": "Поточні гравці",
+        "players": "Гравці",
+        "maxPlayers": "Максимум гравців",
+        "bots": "Ботів",
+        "ping": "Пінг"
     }
 }

@@ -16,6 +16,7 @@
     "compare-versions": "^5.0.1",
     "dockerode": "^3.3.4",
     "follow-redirects": "^1.15.2",
+    "gamedig": "^4.0.6",
     "i18next": "^21.9.2",
     "js-yaml": "^4.1.0",
     "json-rpc-2.0": "^1.4.1",

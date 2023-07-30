@@ -9,11 +9,11 @@ function convertToFahrenheit(t) {
   return t * 9/5 + 32
 }
 
-export default function CpuTemp({ expanded, units }) {
+export default function CpuTemp({ expanded, units, refresh = 1500 }) {
   const { t } = useTranslation();
 
   const { data, error } = useSWR(`/api/widgets/resources?type=cputemp`, {
-    refreshInterval: 1500,
+    refreshInterval: refresh,
   });
 
   if (error || data?.error) {
