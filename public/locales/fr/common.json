@@ -666,16 +666,16 @@
         "ping": "Ping"
     },
     "azuredevops": {
-        "result": "Result",
-        "status": "Status",
+        "result": "Résultat",
+        "status": "Statut",
         "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Approved"
+        "succeeded": "Réussi",
+        "notStarted": "Arrêté",
+        "failed": "Échoué",
+        "canceled": "Annulé",
+        "inProgress": "En cours",
+        "totalPrs": "PRs Total",
+        "myPrs": "Mes PRs",
+        "approved": "Approuvé"
     }
 }
