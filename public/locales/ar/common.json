@@ -677,5 +677,11 @@
         "failed": "Failed",
         "canceled": "Canceled",
         "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }
