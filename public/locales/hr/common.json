@@ -677,5 +677,11 @@
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
         "approved": "Approved"
+    },
+    "urbackup": {
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage",
+        "ok": "Ok",
+        "errored": "Errors"
     }
 }
