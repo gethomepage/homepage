@@ -656,16 +656,6 @@
         "seriesCount": "Serie",
         "totalFiles": "Archivos"
     },
-    "azurePipelines": {
-        "result": "Resultado",
-        "status": "Estado",
-        "buildId": "ID de la compilación",
-        "succeeded": "Con éxito",
-        "notStarted": "No iniciado",
-        "failed": "Fallido",
-        "canceled": "Cancelado",
-        "inProgress": "En proceso"
-    },
     "gamedig": {
         "name": "Nombre",
         "map": "Mapa",

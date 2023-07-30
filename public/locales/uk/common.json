@@ -656,16 +656,6 @@
         "seriesCount": "Серій",
         "totalFiles": "Файлів"
     },
-    "azurePipelines": {
-        "failed": "Невдача",
-        "result": "Результат",
-        "status": "Стан",
-        "buildId": "ID збірки",
-        "succeeded": "Успішно",
-        "notStarted": "Не розпочато",
-        "canceled": "Скасовано",
-        "inProgress": "В процесі"
-    },
     "gamedig": {
         "name": "Назва",
         "map": "Мапа",

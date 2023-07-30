@@ -656,16 +656,6 @@
         "seriesCount": "Sorozatok",
         "totalFiles": "Fájlok"
     },
-    "azurePipelines": {
-        "result": "Eredmény",
-        "status": "Állapot",
-        "buildId": "Build ID",
-        "succeeded": "Sikeres",
-        "notStarted": "Nincs elindítva",
-        "failed": "Sikertelen",
-        "canceled": "Megszakítva",
-        "inProgress": "Folyamatban"
-    },
     "gamedig": {
         "ping": "Ping",
         "name": "Name",
