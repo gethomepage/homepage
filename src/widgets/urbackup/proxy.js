@@ -16,8 +16,7 @@ await (async () => {
     try {
       const allClients = await server.getStatus({includeRemoved: false});
       let diskUsage = false
-      if(serviceWidget.fields?.includes("totalUsed"))
-      {
+      if (serviceWidget.fields?.includes("totalUsed")) {
         diskUsage = await server.getUsage();
       }
       res.status(200).send({
