@@ -664,5 +664,18 @@
         "maxPlayers": "Max players",
         "bots": "Bots",
         "ping": "Ping"
+    },
+    "azuredevops": {
+        "notStarted": "Not Started",
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     }
 }
