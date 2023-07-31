@@ -10,6 +10,7 @@ import Uptime from "./uptime";
 export default function Resources({ options }) {
   const { expanded, units } = options;
   let { refresh } = options;
+  if (!refresh) refresh = 1500;
   refresh = Math.max(refresh, 1000);
   return <Container options={options}>
     <Raw>
