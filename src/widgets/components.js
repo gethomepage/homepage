@@ -24,6 +24,7 @@ const components = {
   freshrss: dynamic(() => import("./freshrss/component")),
   gamedig: dynamic(() => import("./gamedig/component")),
   ghostfolio: dynamic(() => import("./ghostfolio/component")),
+  glances: dynamic(() => import("./glances/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),
   grafana: dynamic(() => import("./grafana/component")),
