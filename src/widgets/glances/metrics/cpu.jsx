@@ -57,7 +57,7 @@ export default function Component({ service }) {
       />
 
       {systemData && !systemError && (
-        <Block position={{bottom: 3, left: 3}}>
+        <Block position="bottom-3 left-3">
           {systemData.linux_distro && (
             <div className="text-xs opacity-50">
               {systemData.linux_distro}
@@ -76,7 +76,7 @@ export default function Component({ service }) {
         </Block>
       )}
 
-      <Block position={{bottom: 3, right: 3}}>
+      <Block position="bottom-3 right-3">
         <div className="text-xs font-bold opacity-75">
             {t("common.number", {
               value: data.total,

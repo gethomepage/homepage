@@ -54,7 +54,7 @@ export default function Component({ service }) {
       />
 
       {data && !error && (
-        <Block position={{bottom: 3, left: 3}}>
+        <Block position="bottom-3 left-3">
           {data.free && (
             <div className="text-xs opacity-50">
               {t("common.bytes", {
@@ -75,7 +75,7 @@ export default function Component({ service }) {
         </Block>
       )}
 
-      <Block position={{bottom: 3, right: 3}}>
+      <Block position="bottom-3 right-3">
         <div className="text-xs font-bold opacity-75">
           {t("common.bytes", {
             value: data.used,

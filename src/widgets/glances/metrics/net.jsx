@@ -64,7 +64,7 @@ export default function Component({ service }) {
         })}
       />
 
-      <Block position={{bottom: 3, left: 3}}>
+      <Block position="bottom-3 left-3">
         {interfaceData && interfaceData.interface_name && (
             <div className="text-xs opacity-50">
               {interfaceData.interface_name}
@@ -79,7 +79,7 @@ export default function Component({ service }) {
         </div>
       </Block>
 
-      <Block position={{bottom: 3, right: 3}}>
+      <Block position="bottom-3 right-3">
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
             value: interfaceData.rx,

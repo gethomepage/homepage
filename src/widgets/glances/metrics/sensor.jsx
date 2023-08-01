@@ -62,7 +62,7 @@ export default function Component({ service }) {
       />
 
       {sensorData && !error && (
-        <Block position={{bottom: 3, left: 3}}>
+        <Block position="bottom-3 left-3">
           {sensorData.warning && (
             <div className="text-xs opacity-50">
               {sensorData.warning}{sensorData.unit} {t("glances.warn")}
@@ -76,7 +76,7 @@ export default function Component({ service }) {
         </Block>
       )}
 
-      <Block position={{bottom: 3, right: 3}}>
+      <Block position="bottom-3 right-3">
         <div className="text-xs opacity-75">
           {t("common.number", {
             value: sensorData.value,

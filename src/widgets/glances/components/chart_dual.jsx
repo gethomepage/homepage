@@ -5,13 +5,13 @@ import CustomTooltip from "./custom_tooltip";
 
 class ChartDual extends PureComponent {
   render() {
-    const { dataPoints, formatter, stack, label } = this.props;
+    const { dataPoints, formatter, stack, label, stackOffset } = this.props;
 
     return (
       <div className="absolute -top-1 -left-1 h-[120px] w-[calc(100%+0.5em)] z-0">
         <div className="overflow-clip z-10 w-full h-full">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={dataPoints}  stackOffset={stack ?? "none"}>
+            <AreaChart data={dataPoints}  stackOffset={stackOffset ?? "none"}>
               <defs>
                 <linearGradient id="colorA" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="rgb(var(--color-800))" stopOpacity={0.8}/>
@@ -25,7 +25,7 @@ class ChartDual extends PureComponent {
 
               <Area
                 name={label[0]}
-                stackId="1"
+                stackId={(stack && stack[0]) ?? "1"}
                 isAnimationActive={false}
                 type="monotoneX"
                 dataKey="a"
@@ -34,7 +34,7 @@ class ChartDual extends PureComponent {
               />
               <Area
                 name={label[1]}
-                stackId="1"
+                stackId={(stack && stack[1]) ?? "1"}
                 isAnimationActive={false}
                 type="monotoneX"
                 dataKey="b"

@@ -36,7 +36,7 @@ export default function Component({ service }) {
 
   return (
     <Container>
-      <Block position={{top: 4, right: 3, left: 3}}>
+      <Block position="top-4 right-3 left-3">
         <div className="flex items-center text-xs">
           <div className="grow" />
           <div className="w-14 text-right italic">{t("resources.cpu")}</div>
@@ -44,7 +44,7 @@ export default function Component({ service }) {
         </div>
       </Block>
 
-      <Block position={{bottom: 4, right: 3, left: 3}}>
+      <Block position="bottom-4 right-3 left-3">
         <div className="pointer-events-none text-theme-900 dark:text-theme-200">
           { data.map((item) => <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
             <div className="flex items-center">

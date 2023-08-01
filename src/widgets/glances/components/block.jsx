@@ -1,8 +1,6 @@
 export default function Block({ position, children }) {
-  const positionClasses = Object.entries(position).map(([key, value]) => `${key}-${value}`).join(' ');
-
   return (
-    <div className={`absolute ${positionClasses} z-20 text-sm`}>
+    <div className={`absolute ${position} z-20 text-sm pointer-events-none`}>
       {children}
     </div>
   );
