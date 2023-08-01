@@ -2,9 +2,13 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
+import Error from "../components/error";
+import Container from "../components/container";
+import Block from "../components/block";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-const ChartDual = dynamic(() => import("./chart_dual"), { ssr: false });
+const ChartDual = dynamic(() => import("../components/chart_dual"), { ssr: false });
 
 const pointsLimit = 15;
 
@@ -44,70 +48,55 @@ export default function Component({ service }) {
   }, [dataPoints]);
 
   if (error) {
-    return <div>
-    <div className="h-[68px] overflow-clip">
-      <div className="absolute bottom-2 left-2 z-20 text-red-400 text-xs opacity-80">
-      {t("widget.api_error")}
-      </div>
-    </div>
-  </div>;
+    return <Container><Error error={error} /></Container>;
   }
 
   if (!data) {
-    return <div>
-    <div className="h-[68px] overflow-clip">
-      <div className="absolute bottom-2 left-2 z-20 text-xs opacity-80">
-        -
-      </div>
-    </div>
-  </div>;
+    return <Container><Block position={{bottom: 2, left: 2}}>-</Block></Container>;
   }
 
   const diskData = data.find((item) => item.disk_name === diskName);
 
   if (!diskData) {
-    return <div>
-      <div className="h-[68px] overflow-clip" />
-    </div>;
+    return <Container><Block position={{bottom: 2, left: 2}}>-</Block></Container>;
   }
 
   const diskRates = calculateRates(dataPoints);
   const currentRate = diskRates[diskRates.length - 1];
 
   return (
-    <>
-      <div className="absolute -top-1 -left-1 h-[120px] w-[calc(100%+0.5em)] z-0">
+    <Container>
       <ChartDual
-          dataPoints={ratePoints}
-          label={[t("glances.read"), t("glances.write")]}
-          max={diskData.critical}
-          formatter={(value) => t("common.bitrate", {
-            value,
-            })}
-        />
-      </div>
-      <div className="absolute bottom-3 left-3 opacity-50 z-10 pointer-events-none">
-        {currentRate && !error && (
-          <>
-            <div className="text-xs opacity-80">
-              {t("common.bitrate", {
-                value: currentRate.a,
-              })} {t("glances.read")}
-            </div>
-            <div className="text-xs opacity-80">
-              {t("common.bitrate", {
-                value: currentRate.b,
-              })} {t("glances.write")}
-            </div>
-          </>
-        )}
-      </div>
-      <div className="absolute bottom-3 right-3 z-10 text-xs opacity-80 pointer-events-none">
-        {t("common.bitrate", {
-          value: currentRate.a + currentRate.b,
-        })}
-      </div>
-      <div className="h-[68px] overflow-clip" />
-    </>
+        dataPoints={ratePoints}
+        label={[t("glances.read"), t("glances.write")]}
+        max={diskData.critical}
+        formatter={(value) => t("common.bitrate", {
+          value,
+          })}
+      />
+
+      {currentRate && !error && (
+        <Block position={{bottom: 3, left: 3}}>
+          <div className="text-xs opacity-50">
+            {t("common.bitrate", {
+              value: currentRate.a,
+            })} {t("glances.read")}
+          </div>
+          <div className="text-xs opacity-50">
+            {t("common.bitrate", {
+              value: currentRate.b,
+            })} {t("glances.write")}
+          </div>
+        </Block>
+      )}
+
+      <Block position={{bottom: 3, right: 3}}>
+        <div className="text-xs opacity-75">
+          {t("common.bitrate", {
+            value: currentRate.a + currentRate.b,
+          })}
+        </div>
+      </Block>
+    </Container>
   );
 }

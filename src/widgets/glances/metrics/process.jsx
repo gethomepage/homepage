@@ -1,5 +1,9 @@
 import { useTranslation } from "next-i18next";
 
+import Error from "../components/error";
+import Container from "../components/container";
+import Block from "../components/block";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import ResolvedIcon from "components/resolvedicon";
 
@@ -21,52 +25,42 @@ export default function Component({ service }) {
   });
 
   if (error) {
-    return <div>
-    <div className="h-[68px] overflow-clip">
-      <div className="absolute bottom-2 left-2 z-20 text-red-400 text-xs opacity-80">
-      {t("widget.api_error")}
-      </div>
-    </div>
-  </div>;
+    return <Container><Error error={error} /></Container>;
   }
 
   if (!data) {
-    return <div>
-    <div className="h-[68px] overflow-clip">
-      <div className="absolute bottom-2 left-2 z-20 text-xs opacity-80">
-        -
-      </div>
-    </div>
-  </div>;
+    return <Container><Block position={{bottom: 2, left: 2}}>-</Block></Container>;
   }
 
   data.splice(5);
 
   return (
-    <>
-      <div className="absolute top-4 right-3 left-3 opacity-30 z-10 pointer-events-none">
+    <Container>
+      <Block position={{top: 4, right: 3, left: 3}}>
         <div className="flex items-center text-xs">
           <div className="grow" />
           <div className="w-14 text-right italic">{t("resources.cpu")}</div>
           <div className="w-14 text-right">{t("resources.mem")}</div>
         </div>
-      </div>
-      <div className="absolute bottom-4 right-3 left-3 z-10 pointer-events-none text-theme-900 dark:text-theme-200">
-        { data.map((item) => <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
+      </Block>
+
+      <Block position={{bottom: 4, right: 3, left: 3}}>
+        <div className="pointer-events-none text-theme-900 dark:text-theme-200">
+          { data.map((item) => <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
             <div className="flex items-center">
-              <div className="w-3 h-3 mr-1.5 opacity-60">
+              <div className="w-3 h-3 mr-1.5 opacity-50">
                 {statusMap[item.status]}
               </div>
-              <div className="opacity-60 grow">{item.name}</div>
-              <div className="opacity-30 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
-              <div className="opacity-30 w-14 text-right">{t("common.bytes", {
+              <div className="opacity-75 grow">{item.name}</div>
+              <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
+              <div className="opacity-25 w-14 text-right">{t("common.bytes", {
                 value: item.memory_info[0],
                 maximumFractionDigits: 0,
               })}</div>
             </div>
           </div>) }
-      </div>
-      <div className="h-[68px] overflow-clip" />
-    </>
+        </div>
+      </Block>
+    </Container>
   );
 }

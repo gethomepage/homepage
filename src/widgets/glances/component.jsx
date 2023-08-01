@@ -1,9 +1,9 @@
-import Memory from "./memory";
-import Cpu from "./cpu";
-import Sensor from "./sensor";
-import Net from "./net";
-import Process from "./process";
-import Disk from "./disk";
+import Memory from "./metrics/memory";
+import Cpu from "./metrics/cpu";
+import Sensor from "./metrics/sensor";
+import Net from "./metrics/net";
+import Process from "./metrics/process";
+import Disk from "./metrics/disk";
 
 export default function Component({ service }) {
   const { widget } = service;
