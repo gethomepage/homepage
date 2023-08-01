@@ -4,6 +4,7 @@ import Sensor from "./metrics/sensor";
 import Net from "./metrics/net";
 import Process from "./metrics/process";
 import Disk from "./metrics/disk";
+import GPU from "./metrics/gpu";
 
 export default function Component({ service }) {
   const { widget } = service;
@@ -26,6 +27,10 @@ export default function Component({ service }) {
 
   if (widget.metric.match(/^disk:/)) {
     return <Disk service={service} />;
+  }
+
+  if (widget.metric.match(/^gpu:/)) {
+    return <GPU service={service} />;
   }
 
   if (widget.metric === "cpu") {

@@ -374,7 +374,9 @@
         "hours": "h",
         "crit": "Crit",
         "read": "Read",
-        "write": "Write"
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
