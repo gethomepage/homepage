@@ -15,7 +15,7 @@ export default function Resource({ children, icon, value, label, expandedValue =
           <div className="pr-1">{expandedLabel}</div>
         </div>
       }
-      { percentage && <UsageBar percent={percentage} /> }
+      { percentage >= 0 && <UsageBar percent={percentage} /> }
       { children }
     </div>
   </div>;
