@@ -5,9 +5,14 @@ import Net from "./metrics/net";
 import Process from "./metrics/process";
 import Disk from "./metrics/disk";
 import GPU from "./metrics/gpu";
+import Info from "./metrics/info";
 
 export default function Component({ service }) {
   const { widget } = service;
+
+  if (widget.metric === "info") {
+    return <Info service={service} />;
+  }
 
   if (widget.metric === "memory") {
     return <Memory service={service} />;

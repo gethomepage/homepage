@@ -376,7 +376,8 @@
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
-        "mem": "Mem"
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
