@@ -248,7 +248,13 @@
         "warn": "Aviso",
         "total": "Total",
         "free": "Livre",
-        "used": "Usado"
+        "used": "Usado",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Observados",
