@@ -19,6 +19,7 @@ import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import gamedig from "./gamedig/widget";
 import ghostfolio from "./ghostfolio/widget";
+import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
@@ -111,6 +112,7 @@ const widgets = {
   freshrss,
   gamedig,
   ghostfolio,
+  glances,
   gluetun,
   gotify,
   grafana,

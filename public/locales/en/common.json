@@ -371,7 +371,13 @@
         "free": "Free",
         "used": "Used",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",

@@ -294,7 +294,8 @@ export function cleanServiceGroups(groups) {
           snapshotHost, // kopia
           snapshotPath,
           userEmail, // azuredevops
-          repositoryId
+          repositoryId,
+          metric, // glances
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -357,6 +358,9 @@ export function cleanServiceGroups(groups) {
         if (type === "kopia") {
           if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
           if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
+        }
+        if (type === "glances") {
+          if (metric) cleanedService.widget.metric = metric;
         }
       }
 

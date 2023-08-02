@@ -30,6 +30,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^11.18.6",
     "react-icons": "^4.4.0",
+    "recharts": "^2.7.2",
     "shvl": "^3.0.0",
     "swr": "^1.3.0",
     "systeminformation": "^5.17.12",
