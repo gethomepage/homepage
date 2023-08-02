@@ -369,7 +369,13 @@
         "total": "Total",
         "free": "Free",
         "used": "Used",
-        "load": "Load"
+        "load": "Load",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
