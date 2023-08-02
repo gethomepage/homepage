@@ -248,7 +248,13 @@
         "load": "Opterećenje",
         "warn": "Upozori",
         "total": "Ukupno",
-        "free": "Slobodno"
+        "free": "Slobodno",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Ukupno promatrano",
