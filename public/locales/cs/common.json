@@ -322,7 +322,13 @@
         "free": "Free",
         "used": "Used",
         "load": "Load",
-        "warn": "Warn"
+        "warn": "Warn",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Záložka",
