@@ -364,7 +364,13 @@
         "load": "Obremenitev",
         "warn": "Opoz.",
         "total": "Skupaj",
-        "used": "V uporabi"
+        "used": "V uporabi",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "authentik": {
         "users": "Uporabniki",
