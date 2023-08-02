@@ -248,7 +248,13 @@
         "warn": "Figyelmeztet",
         "total": "Összes",
         "free": "Szabad",
-        "used": "Felhasznált"
+        "used": "Felhasznált",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Összes Megfigyelt",
