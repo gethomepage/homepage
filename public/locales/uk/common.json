@@ -372,7 +372,13 @@
         "warn": "Увага",
         "total": "Всього",
         "free": "Вільний",
-        "used": "Використовується"
+        "used": "Використовується",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
