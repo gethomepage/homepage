@@ -250,11 +250,11 @@
         "free": "Libre",
         "used": "Utilizado",
         "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "read": "Leer",
+        "write": "Escribir",
         "gpu": "GPU",
-        "mem": "Mem",
-        "swap": "Swap"
+        "mem": "Memoria",
+        "swap": "Intercambiar"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
