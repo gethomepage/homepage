@@ -249,11 +249,11 @@
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
-        "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "crit": "Crit.",
+        "read": "Lect.",
+        "write": "Écrit.",
         "gpu": "GPU",
-        "mem": "Mem",
+        "mem": "Mém.",
         "swap": "Swap"
     },
     "changedetectionio": {
