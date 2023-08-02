@@ -248,7 +248,13 @@
         "used": "已使用",
         "load": "負載量",
         "warn": "警告",
-        "total": "總共"
+        "total": "總共",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "總監測數",
