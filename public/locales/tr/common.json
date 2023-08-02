@@ -248,7 +248,13 @@
         "warn": "Uyarı",
         "total": "Toplam",
         "free": "Boş",
-        "used": "Kullanım"
+        "used": "Kullanım",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Toplam Gözlenen",
