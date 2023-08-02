@@ -145,7 +145,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
 
   return (
     <div className={classNames(
-      "relative z-20 ease-in-out duration-300 transition-opacity",
+      "relative z-40 ease-in-out duration-300 transition-opacity",
       hidden && !isOpen && "hidden",
       !hidden && isOpen && "opacity-100",
       !isOpen && "opacity-0",
