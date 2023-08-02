@@ -41,13 +41,13 @@ export default function Component({ service }) {
   }
 
   if (!data) {
-    return <Container><Block position={{bottom: 2, left: 2}}>-</Block></Container>;
+    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   const sensorData = data.find((item) => item.label === sensorName);
 
   if (!sensorData) {
-    return <Container><Block position={{bottom: 2, left: 2}}>-</Block></Container>;
+    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   return (
