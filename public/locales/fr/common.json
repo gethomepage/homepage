@@ -686,7 +686,7 @@
     },
     "urbackup": {
         "ok": "Ok",
-        "errored": "Erreurs",
+        "errored": "Erreur",
         "noRecent": "Obsolète",
         "totalUsed": "Esp. Utilisé"
     }
