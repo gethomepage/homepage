@@ -14,7 +14,7 @@ function hasRecentBackups(client, maxDays){
   const days = maxDays || 3;
   const diffTime = days*24*60*60 // 7 days
   const recentFile = (client.lastbackup > (Date.now() / 1000 - diffTime));
-  const recentImage = ((client.lastbackup_image > (Date.now() / 1000 - diffTime)||client.image_not_supported));
+  const recentImage = client.image_not_supported || client.image_disabled || (client.lastbackup_image > (Date.now() / 1000 - diffTime));
   return (recentFile && recentImage);
 }
 
@@ -26,7 +26,7 @@ function determineStatuses(urbackupData) {
   urbackupData.clientStatuses.forEach((client) => {
     status = Status.noRecent;
     if (hasRecentBackups(client, urbackupData.maxDays)) {
-      status = (client.file_ok && (client.image_ok || client.image_not_supported)) ? Status.ok : Status.errored;
+      status = (client.file_ok && (client.image_ok || client.image_not_supported || client.image_disabled)) ? Status.ok : Status.errored;
     }
     switch (status) {
       case Status.ok:
