@@ -25,7 +25,7 @@ await (async () => {
         maxDays: serviceWidget.maxDays
       });
     } catch (error) {
-      res.status(500).json({ error: "Something Broke" })
+      res.status(500).json({ error: "Error communicating with UrBackup server" })
     }
   })();
 
