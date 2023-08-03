@@ -45,7 +45,7 @@
         "transcoding": "轉碼",
         "bitrate": "位元率",
         "no_active": "無播放活動",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "檢查Plex的連接狀態"
     },
     "jellyseerr": {
         "pending": "待下載",
@@ -90,15 +90,15 @@
         "wanted": "關注中",
         "queued": "已加入佇列",
         "missing": "缺少",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "佇列",
+        "unknown": "未知的"
     },
     "sonarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
         "series": "影集",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "佇列",
+        "unknown": "未知的"
     },
     "readarr": {
         "wanted": "關注中",
@@ -178,7 +178,7 @@
     "lidarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "artists": "Artists"
+        "artists": "創作者"
     },
     "adguard": {
         "queries": "查詢",
@@ -250,10 +250,10 @@
         "warn": "警告",
         "total": "總共",
         "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "read": "讀取",
+        "write": "寫入",
         "gpu": "GPU",
-        "mem": "Mem",
+        "mem": "記憶體",
         "swap": "Swap"
     },
     "changedetectionio": {
@@ -653,41 +653,41 @@
         "down_alerts": "離線警告"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "下載佇列",
+        "downloadSpeed": "下載速率",
+        "downloadBytesRemaining": "剩餘",
+        "downloadTotalBytes": "總下載量"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "叢刊",
+        "totalFiles": "檔案"
     },
     "gamedig": {
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
+        "name": "名稱",
+        "map": "地圖",
+        "currentPlayers": "當前玩家數",
+        "players": "玩家",
+        "maxPlayers": "玩家數上限",
+        "bots": "機器人",
         "ping": "Ping"
     },
     "azuredevops": {
-        "result": "Result",
-        "status": "Status",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Approved"
+        "result": "結果",
+        "status": "狀態",
+        "buildId": "組建編號",
+        "succeeded": "成功",
+        "notStarted": "尚未啟用",
+        "failed": "失敗",
+        "canceled": "取消",
+        "inProgress": "執行中",
+        "totalPrs": "總提取要求",
+        "myPrs": "我的提取要求",
+        "approved": "已核准"
     },
     "urbackup": {
         "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "errored": "錯誤",
+        "noRecent": "已過時",
+        "totalUsed": "已使用空間"
     }
 }
