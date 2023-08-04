@@ -50,6 +50,7 @@ export default function Component({ service }) {
         formatter={(value) => t("common.bytes", {
           value,
           maximumFractionDigits: 0,
+          binary: true,
         })}
       />
 
@@ -60,6 +61,7 @@ export default function Component({ service }) {
               {t("common.bytes", {
                 value: data.free,
                 maximumFractionDigits: 0,
+                binary: true,
               })} {t("resources.free")}
             </div>
           )}
@@ -69,6 +71,7 @@ export default function Component({ service }) {
               {t("common.bytes", {
                 value: data.total,
                 maximumFractionDigits: 0,
+                binary: true,
               })} {t("resources.total")}
             </div>
           )}
@@ -80,6 +83,7 @@ export default function Component({ service }) {
           {t("common.bytes", {
             value: data.used,
             maximumFractionDigits: 0,
+            binary: true,
           })} {t("resources.used")}
         </div>
       </Block>
