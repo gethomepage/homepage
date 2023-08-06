@@ -296,6 +296,7 @@ export function cleanServiceGroups(groups) {
           userEmail, // azuredevops
           repositoryId,
           metric, // glances
+          stream, // mjpeg
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -361,6 +362,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "glances") {
           if (metric) cleanedService.widget.metric = metric;
+        }
+        if (type === "mjpeg") {
+          if (stream) cleanedService.widget.stream = stream;
         }
       }
 
