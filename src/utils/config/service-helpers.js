@@ -297,6 +297,7 @@ export function cleanServiceGroups(groups) {
           repositoryId,
           metric, // glances
           stream, // mjpeg
+          fit,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -365,6 +366,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;
+          if (fit) cleanedService.widget.fit = fit;
         }
       }
 
