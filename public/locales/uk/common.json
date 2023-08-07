@@ -374,11 +374,11 @@
         "free": "Вільний",
         "used": "Використовується",
         "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "read": "Прочитати",
+        "write": "Написати",
         "gpu": "GPU",
-        "mem": "Mem",
-        "swap": "Swap"
+        "mem": "Пам'ять",
+        "swap": "Обмін"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
@@ -672,22 +672,22 @@
         "ping": "Пінг"
     },
     "azuredevops": {
-        "result": "Result",
-        "status": "Status",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Approved"
+        "result": "Результат",
+        "status": "Статус",
+        "buildId": "ID збірки",
+        "succeeded": "Успішно",
+        "notStarted": "Не розпочато",
+        "failed": "Невдача",
+        "canceled": "Скасовано",
+        "inProgress": "В процесі",
+        "totalPrs": "Всього PR",
+        "myPrs": "Мій PR",
+        "approved": "Затверджено"
     },
     "urbackup": {
-        "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "ok": "Добре",
+        "errored": "Помилки",
+        "noRecent": "Застарілий",
+        "totalUsed": "Використовувана пам'ять"
     }
 }
