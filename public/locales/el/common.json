@@ -163,7 +163,7 @@
         "transcoding": "Μετακωδικοποίηση",
         "bitrate": "Ρυθμός bit",
         "no_active": "Δεν υπάρχουν ενεργές ροές",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Έλεγχος Σύνδεσης με Plex"
     },
     "nzbget": {
         "rate": "Ρυθμός",
@@ -208,8 +208,8 @@
         "series": "Σειρές",
         "wanted": "Επιθυμούντε",
         "queued": "Σε σειρά",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Ούρα",
+        "unknown": "Άγνωστο"
     },
     "downloadstation": {
         "download": "Μεταφόρτωση",
@@ -222,13 +222,13 @@
         "missing": "Απουσιάζει",
         "queued": "Σε σειρά",
         "movies": "Ταινίες",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Ουρά",
+        "unknown": "Άγνωστο"
     },
     "lidarr": {
         "wanted": "Θέλετε",
         "queued": "Στη σειρά",
-        "artists": "Artists"
+        "artists": "Καλλιτέχνες"
     },
     "readarr": {
         "wanted": "Θέλετε",
@@ -621,7 +621,7 @@
         "systemTempC": "Θερμοκρασία συστήματος",
         "poolUsage": "Χρήση πισίνας",
         "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "invalid": "Μη έγκυρο"
     },
     "pfsense": {
         "load": "Load Avg",
