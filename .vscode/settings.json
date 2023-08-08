@@ -2,5 +2,10 @@
     "files.exclude": {
         "**/.next": true,
         "**/node_modules": true
+    },
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#352D19",
+        "titleBar.activeBackground": "#4A3E23",
+        "titleBar.activeForeground": "#FBF9F6"
     }
 }

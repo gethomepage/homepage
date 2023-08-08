@@ -90,6 +90,7 @@ const components = {
   truenas: dynamic(() => import("./truenas/component")),
   unifi: dynamic(() => import("./unifi/component")),
   unmanic: dynamic(() => import("./unmanic/component")),
+  upptime: dynamic(() => import("./upptime/component")),
   uptimekuma: dynamic(() => import("./uptimekuma/component")),
   urbackup: dynamic(() => import("./urbackup/component")),
   watchtower: dynamic(() => import("./watchtower/component")),

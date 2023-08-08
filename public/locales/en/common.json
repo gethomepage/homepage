@@ -632,6 +632,12 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
+    "upptime": {
+        "sites": "Sites",
+        "down": "Sites Down",
+        "response": "Avg Response",
+        "ms": "ms"
+    },
     "pterodactyl": {
         "servers": "Servers",
         "nodes": "Nodes"
