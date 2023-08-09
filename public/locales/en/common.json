@@ -701,5 +701,11 @@
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
+    },
+    "mealie": {
+	"recipes": "Recipes",
+	"users": "Users",
+	"categories": "Categories",
+	"tags": "Tags"
     }
 }

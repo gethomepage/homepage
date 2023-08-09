@@ -42,6 +42,7 @@ const components = {
   kopia: dynamic(() => import("./kopia/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
+  mealie: dynamic(() => import("./mealie/component")),
   medusa: dynamic(() => import("./medusa/component")),
   minecraft: dynamic(() => import("./minecraft/component")),
   miniflux: dynamic(() => import("./miniflux/component")),

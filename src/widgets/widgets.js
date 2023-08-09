@@ -36,6 +36,7 @@ import komga from "./komga/widget";
 import kopia from "./kopia/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
+import mealie from "./mealie/widget";
 import medusa from "./medusa/widget";
 import minecraft from "./minecraft/widget";
 import miniflux from "./miniflux/widget";
@@ -131,6 +132,7 @@ const widgets = {
   kopia,
   lidarr,
   mastodon,
+  mealie,
   medusa,
   minecraft,
   miniflux,
