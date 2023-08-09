@@ -669,7 +669,10 @@
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
     },
     "azuredevops": {
         "approved": "Approved",
