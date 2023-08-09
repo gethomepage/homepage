@@ -669,7 +669,10 @@
         "players": "Гравці",
         "maxPlayers": "Максимум гравців",
         "bots": "Ботів",
-        "ping": "Пінг"
+        "ping": "Пінг",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
     },
     "azuredevops": {
         "result": "Результат",
