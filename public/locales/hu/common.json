@@ -669,7 +669,10 @@
         "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
-        "bots": "Bots"
+        "bots": "Bots",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
     },
     "azuredevops": {
         "status": "Status",
