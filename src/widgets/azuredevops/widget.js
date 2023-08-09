@@ -10,7 +10,7 @@ const widget = {
     },
     
     pipeline: {
-      endpoint: "build/Builds?branchName={branchName}&definitions={definitionId}&$top=1"
+      endpoint: "build/Builds?branchName={branchName}&definitions={definitionId}"
     },
   },
 };
