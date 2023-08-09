@@ -669,7 +669,10 @@
         "players": "玩家",
         "maxPlayers": "玩家數上限",
         "bots": "機器人",
-        "ping": "Ping"
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
     },
     "azuredevops": {
         "result": "結果",
