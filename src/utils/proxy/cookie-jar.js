@@ -48,7 +48,9 @@ export function importCookieHeader(url, cookieHeader) {
         let existingCookie;
         try {
             existingCookie = cookieJar.getCookiesSync(url).find(existing => existing.key === key);
-        } catch {}
+        } catch (e) {
+            console.debug(`Failed to get cookies for ${url}: ${e}`)
+        }
 
         if (existingCookie) {
             existingCookie.value = value;
