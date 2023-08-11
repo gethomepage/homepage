@@ -52,7 +52,7 @@ export function importCookieHeader(url, cookieHeader) {
             // Otherwise we add a new cookie
             cookieJar.setCookieSync(new Cookie({
                 key, value
-            }), url.toString(), { ignoreError: false });
+            }), url.toString(), { ignoreError: true });
         }
     }
 }
