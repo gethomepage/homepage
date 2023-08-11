@@ -3,7 +3,7 @@ import { performance } from "perf_hooks";
 import { getServiceItem } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
-import {importCookieHeader} from "../../utils/proxy/cookie-jar";
+import {importCookieHeader} from "utils/proxy/cookie-jar";
 
 const logger = createLogger("ping");
 

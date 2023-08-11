@@ -39,10 +39,20 @@ export function addCookieToJar(url, headers) {
 }
 
 export function importCookieHeader(url, cookieHeader) {
-    for (const cookiePair of cookieHeader.split(';')) {
-        const [key, value] = cookiePair.trim().split('=')
-        cookieJar.setCookieSync(new Cookie({
-            key, value
-        }), url.toString(), { ignoreError: true });
+    const cookies = cookieHeader.split(';')
+    for (let i = 0; i < cookies.length; i += 1) {
+        const [key, value] = cookies[i].trim().split('=')
+
+        // If there's an existing cookie with a matching key for this url,
+        // we want to update it
+        const existingCookie = cookieJar.getCookiesSync(url).find(existing => existing.key === key)
+        if (existingCookie) {
+            existingCookie.value = value;
+        } else {
+            // Otherwise we add a new cookie
+            cookieJar.setCookieSync(new Cookie({
+                key, value
+            }), url.toString(), { ignoreError: false });
+        }
     }
 }

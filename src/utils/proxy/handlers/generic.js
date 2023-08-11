@@ -4,7 +4,7 @@ import validateWidgetData from "utils/proxy/validate-widget-data";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
-import {importCookieHeader} from "../cookie-jar";
+import {importCookieHeader} from "utils/proxy/cookie-jar";
 
 const logger = createLogger("genericProxyHandler");
 
