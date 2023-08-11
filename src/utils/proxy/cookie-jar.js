@@ -37,3 +37,12 @@ export function addCookieToJar(url, headers) {
     cookieJar.setCookieSync(cookies[i], url.toString(), { ignoreError: true });
   }
 }
+
+export function importCookieHeader(url, cookieHeader) {
+    for (const cookiePair of cookieHeader.split(';')) {
+        const [key, value] = cookiePair.trim().split('=')
+        cookieJar.setCookieSync(new Cookie({
+            key, value
+        }), url.toString(), { ignoreError: true });
+    }
+}
