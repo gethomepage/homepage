@@ -2,7 +2,7 @@ import adguard from "./adguard/widget";
 import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
-import azurePipelines from "./azurePipelines/widget";
+import azuredevops from "./azuredevops/widget";
 import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
 import changedetectionio from "./changedetectionio/widget";
@@ -19,6 +19,7 @@ import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import gamedig from "./gamedig/widget";
 import ghostfolio from "./ghostfolio/widget";
+import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
@@ -87,13 +88,14 @@ import uptimekuma from "./uptimekuma/widget";
 import watchtower from "./watchtower/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
+import urbackup from "./urbackup/widget";
 
 const widgets = {
   adguard,
   audiobookshelf,
   authentik,
   autobrr,
-  azurePipelines,
+  azuredevops,
   bazarr,
   caddy,
   changedetectionio,
@@ -110,6 +112,7 @@ const widgets = {
   freshrss,
   gamedig,
   ghostfolio,
+  glances,
   gluetun,
   gotify,
   grafana,
@@ -177,6 +180,7 @@ const widgets = {
   unifi_console: unifi,
   unmanic,
   uptimekuma,
+  urbackup,
   watchtower,
   whatsupdocker,
   xteve,

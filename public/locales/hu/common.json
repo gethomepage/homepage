@@ -248,7 +248,13 @@
         "warn": "Figyelmeztet",
         "total": "Összes",
         "free": "Szabad",
-        "used": "Felhasznált"
+        "used": "Felhasznált",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Összes Megfigyelt",
@@ -656,14 +662,32 @@
         "seriesCount": "Sorozatok",
         "totalFiles": "Fájlok"
     },
-    "azurePipelines": {
-        "result": "Eredmény",
-        "status": "Állapot",
+    "gamedig": {
+        "ping": "Ping",
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots"
+    },
+    "azuredevops": {
+        "status": "Status",
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "result": "Result",
         "buildId": "Build ID",
-        "succeeded": "Sikeres",
-        "notStarted": "Nincs elindítva",
-        "failed": "Sikertelen",
-        "canceled": "Megszakítva",
-        "inProgress": "Folyamatban"
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }

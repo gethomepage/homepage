@@ -222,7 +222,13 @@
         "wait": "Please wait",
         "used": "Used",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -494,9 +500,9 @@
     },
     "weather": {
         "wait": "Harap tunggu",
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating"
+        "current": "Lokasi Saat Ini",
+        "allow": "Klik untuk mengizinkan",
+        "updating": "Memperbarui"
     },
     "search": {
         "placeholder": "Telusuri…"
@@ -590,11 +596,11 @@
         "cpu": "CPU",
         "mem": "MEM",
         "total": "Total",
-        "free": "Free",
-        "used": "Used",
+        "free": "Luang",
+        "used": "Digunakan",
         "load": "Load",
         "temp": "TEMP",
-        "max": "Max",
+        "max": "Maks",
         "uptime": "UP",
         "months": "mo",
         "hours": "h",
@@ -656,7 +662,16 @@
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
-    "azurePipelines": {
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
         "result": "Result",
         "status": "Status",
         "buildId": "Build ID",
@@ -664,6 +679,15 @@
         "notStarted": "Not Started",
         "failed": "Failed",
         "canceled": "Canceled",
-        "inProgress": "In Progress"
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }

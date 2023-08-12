@@ -293,6 +293,9 @@ export function cleanServiceGroups(groups) {
           node, // Proxmox
           snapshotHost, // kopia
           snapshotPath,
+          userEmail, // azuredevops
+          repositoryId,
+          metric, // glances
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -311,6 +314,11 @@ export function cleanServiceGroups(groups) {
           service_name: service.name,
           service_group: serviceGroup.name,
         };
+
+        if (type === "azuredevops") {
+          if (userEmail) cleanedService.widget.userEmail = userEmail;
+          if (repositoryId) cleanedService.widget.repositoryId = repositoryId;
+        }
 
         if (type === "coinmarketcap") {
           if (currency) cleanedService.widget.currency = currency;
@@ -350,6 +358,9 @@ export function cleanServiceGroups(groups) {
         if (type === "kopia") {
           if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
           if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
+        }
+        if (type === "glances") {
+          if (metric) cleanedService.widget.metric = metric;
         }
       }
 

@@ -369,7 +369,13 @@
         "total": "Total",
         "free": "Free",
         "used": "Used",
-        "load": "Load"
+        "load": "Load",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -656,7 +662,18 @@
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
-    "azurePipelines": {
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
+        "myPrs": "My PRs",
+        "approved": "Approved",
         "result": "Result",
         "status": "Status",
         "buildId": "Build ID",
@@ -664,6 +681,13 @@
         "notStarted": "Not Started",
         "failed": "Failed",
         "canceled": "Canceled",
-        "inProgress": "In Progress"
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }

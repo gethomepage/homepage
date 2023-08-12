@@ -248,7 +248,13 @@
         "warn": "Advertir",
         "total": "Total",
         "free": "Libre",
-        "used": "Utilizado"
+        "used": "Utilizado",
+        "crit": "Crít.",
+        "read": "Leer",
+        "write": "Escribir",
+        "gpu": "GPU",
+        "mem": "Memoria",
+        "swap": "Intercambiar"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
@@ -656,14 +662,32 @@
         "seriesCount": "Serie",
         "totalFiles": "Archivos"
     },
-    "azurePipelines": {
+    "gamedig": {
+        "name": "Nombre",
+        "map": "Mapa",
+        "currentPlayers": "Jugadores actuales",
+        "players": "Jugadores",
+        "maxPlayers": "Jugadores máximos",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
         "result": "Resultado",
         "status": "Estado",
-        "buildId": "ID de la compilación",
-        "succeeded": "Con éxito",
-        "notStarted": "No iniciado",
+        "buildId": "Identificador de la construcción",
+        "succeeded": "Exitoso",
+        "notStarted": "Sin empezar",
         "failed": "Fallido",
         "canceled": "Cancelado",
-        "inProgress": "En proceso"
+        "inProgress": "En curso",
+        "totalPrs": "RP totales",
+        "myPrs": "Mis logros",
+        "approved": "Aprobados"
+    },
+    "urbackup": {
+        "ok": "De acuerdo",
+        "errored": "Errores",
+        "noRecent": "Caducado",
+        "totalUsed": "Almacenamiento usado"
     }
 }

@@ -248,7 +248,13 @@
         "warn": "Warn",
         "total": "Total",
         "free": "Free",
-        "used": "Used"
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "మొత్తం గమనించబడింది",
@@ -656,14 +662,32 @@
         "totalFiles": "Files",
         "seriesCount": "Series"
     },
-    "azurePipelines": {
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
+    "azuredevops": {
         "result": "Result",
         "status": "Status",
+        "myPrs": "My PRs",
+        "approved": "Approved",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
         "failed": "Failed",
         "canceled": "Canceled",
-        "inProgress": "In Progress"
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }

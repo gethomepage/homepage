@@ -372,7 +372,13 @@
         "warn": "Увага",
         "total": "Всього",
         "free": "Вільний",
-        "used": "Використовується"
+        "used": "Використовується",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
@@ -656,14 +662,32 @@
         "seriesCount": "Серій",
         "totalFiles": "Файлів"
     },
-    "azurePipelines": {
-        "failed": "Невдача",
-        "result": "Результат",
-        "status": "Стан",
-        "buildId": "ID збірки",
-        "succeeded": "Успішно",
-        "notStarted": "Не розпочато",
-        "canceled": "Скасовано",
-        "inProgress": "В процесі"
+    "gamedig": {
+        "name": "Назва",
+        "map": "Мапа",
+        "currentPlayers": "Поточні гравці",
+        "players": "Гравці",
+        "maxPlayers": "Максимум гравців",
+        "bots": "Ботів",
+        "ping": "Пінг"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
     }
 }
