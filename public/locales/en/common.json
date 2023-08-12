@@ -676,6 +676,9 @@
         "inProgress": "In Progress"
     },
     "gamedig": {
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
