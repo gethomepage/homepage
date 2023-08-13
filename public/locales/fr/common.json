@@ -248,7 +248,13 @@
         "warn": "Alerte",
         "total": "Total",
         "free": "Libre",
-        "used": "Utilisé"
+        "used": "Utilisé",
+        "crit": "Crit.",
+        "read": "Lect.",
+        "write": "Écrit.",
+        "gpu": "GPU",
+        "mem": "Mém.",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Total Observé",
@@ -656,16 +662,6 @@
         "seriesCount": "Séries",
         "totalFiles": "Fichiers"
     },
-    "azurePipelines": {
-        "result": "Résultat",
-        "status": "Statut",
-        "buildId": "Build ID",
-        "succeeded": "Réussi",
-        "notStarted": "Non démarré",
-        "failed": "Échoué",
-        "canceled": "Annulé",
-        "inProgress": "En cours"
-    },
     "gamedig": {
         "name": "Nom",
         "map": "Carte",
@@ -673,6 +669,28 @@
         "players": "Joueurs",
         "maxPlayers": "Joueurs max",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Ping",
+        "status": "Statut",
+        "online": "En ligne",
+        "offline": "Hors ligne"
+    },
+    "azuredevops": {
+        "result": "Résultat",
+        "status": "Statut",
+        "buildId": "Build ID",
+        "succeeded": "Réussi",
+        "notStarted": "Arrêté",
+        "failed": "Échoué",
+        "canceled": "Annulé",
+        "inProgress": "En cours",
+        "totalPrs": "PRs Total",
+        "myPrs": "Mes PRs",
+        "approved": "Approuvé"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Erreur",
+        "noRecent": "Obsolète",
+        "totalUsed": "Esp. Utilisé"
     }
 }

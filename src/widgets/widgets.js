@@ -40,6 +40,7 @@ import medusa from "./medusa/widget";
 import minecraft from "./minecraft/widget";
 import miniflux from "./miniflux/widget";
 import mikrotik from "./mikrotik/widget";
+import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
@@ -134,6 +135,7 @@ const widgets = {
   minecraft,
   miniflux,
   mikrotik,
+  mjpeg,
   moonraker,
   mylar,
   navidrome,

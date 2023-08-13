@@ -56,7 +56,7 @@ export default function Component({ service }) {
         value={t("common.number", {
           value: prData.value
             ?.filter((item) => item.createdBy.uniqueName.toLowerCase() === userEmail.toLowerCase())
-            .filter((item) => item.reviewers.some((reviewer) => reviewer.vote === 10)).length,
+            .filter((item) => item.reviewers.some((reviewer) => [5,10].includes(reviewer.vote))).length
         })}
       />}
 

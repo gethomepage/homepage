@@ -669,7 +669,10 @@
         "players": "Jugadores",
         "maxPlayers": "Jugadores máximos",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Ping",
+        "status": "Estado",
+        "online": "En línea",
+        "offline": "Sin conexión"
     },
     "azuredevops": {
         "result": "Resultado",
