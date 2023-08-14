@@ -694,11 +694,11 @@
         "totalUsed": "Esp. Utilisé"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Téléchargement",
         "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "running": "Démarré",
+        "stopped": "Arrêté",
+        "passed": "Réussi",
+        "failed": "Échoué"
     }
 }
