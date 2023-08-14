@@ -53,6 +53,7 @@ import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
+import openmediavault from "./openmediavault/widget";
 import paperlessngx from "./paperlessngx/widget";
 import pfsense from "./pfsense/widget";
 import photoprism from "./photoprism/widget";
@@ -148,6 +149,7 @@ const widgets = {
   ombi,
   opnsense,
   overseerr,
+  openmediavault,
   paperlessngx,
   pfsense,
   photoprism,
