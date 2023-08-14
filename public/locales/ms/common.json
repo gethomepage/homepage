@@ -692,5 +692,13 @@
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "downloading": "Downloading",
+        "total": "Total",
+        "failed": "Failed"
     }
 }
