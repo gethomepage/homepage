@@ -694,11 +694,11 @@
         "totalUsed": "Almacenamiento usado"
     },
     "openmediavault": {
-        "running": "Running",
-        "downloading": "Downloading",
+        "running": "Ejecutando",
+        "downloading": "Descargando",
         "total": "Total",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "stopped": "Detenido",
+        "passed": "Aprobado",
+        "failed": "Fallido"
     }
 }
