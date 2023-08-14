@@ -692,5 +692,13 @@
         "errored": "Помилки",
         "noRecent": "Застарілий",
         "totalUsed": "Використовувана пам'ять"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     }
 }
