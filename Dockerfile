@@ -48,7 +48,7 @@ WORKDIR /app
 # Copy files from context (this allows the files to copy before the builder stage is done).
 COPY --link --chown=1000:1000 package.json next.config.js ./
 COPY --link --chown=1000:1000 /public ./public/
-COPY --link ./node_modules/.pnpm/compressjs@1.0.3/node_modules/compressjs/lib/ ./node_modules/.pnpm/compressjs@1.0.3/node_modules/compressjs/lib/
+COPY --link /node_modules/.pnpm/compressjs@1.0.3/node_modules/compressjs/lib/ ./node_modules/.pnpm/compressjs@1.0.3/node_modules/compressjs/lib/
 
 # Copy files from builder
 COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
