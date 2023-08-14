@@ -692,5 +692,13 @@
         "errored": "Erreur",
         "noRecent": "Obsolète",
         "totalUsed": "Esp. Utilisé"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     }
 }
