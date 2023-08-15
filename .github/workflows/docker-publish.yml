@@ -6,7 +6,6 @@ name: Docker
 # documentation.
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: '20 0 * * *'
   push:
@@ -26,7 +25,7 @@ env:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
