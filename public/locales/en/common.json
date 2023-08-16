@@ -708,6 +708,8 @@
         "running": "Running",
         "stopped": "Stopped",
         "passed": "Passed",
-        "failed": "Failed"
+        "failed": "Failed",
+        "zfsHits": "Hits",
+        "zfsMisses": "Misses"
     }
 }
