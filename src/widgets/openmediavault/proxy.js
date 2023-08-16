@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
@@ -11,6 +13,7 @@ const BG_POLL_PERIOD = 500;
 
 const logger = createLogger(PROXY_NAME);
 
+// noinspection DuplicatedCode
 async function getWidget(req) {
   const { group, service } = req.query;
 

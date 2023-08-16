@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
@@ -10,10 +12,11 @@ const downloadReduce = (acc, e) => {
 };
 
 const items = [
-  { label: "openmediavault.downloading", getNumber: (data) => (!data ? null : data.reduce(downloadReduce, 0)) },
-  { label: "openmediavault.total", getNumber: (data) => (!data ? null : data?.length) },
+  { label: "openmediavault.downloading", getNumber: (data) => data.reduce(downloadReduce, 0) },
+  { label: "openmediavault.total", getNumber: (data) => data?.length },
 ];
 
+// noinspection DuplicatedCode
 export default function Component({ service }) {
   const { data, error } = useWidgetAPI(service.widget);
 
@@ -23,7 +26,7 @@ export default function Component({ service }) {
 
   const itemsWithData = items.map((item) => ({
     ...item,
-    number: item.getNumber(data?.response?.data),
+    number: data?.response?.data ? item.getNumber(data?.response?.data) : null,
   }));
 
   return (

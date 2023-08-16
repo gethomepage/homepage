@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
@@ -16,8 +18,8 @@ const failedReduce = (acc, e) => {
 };
 
 const items = [
-  { label: "openmediavault.passed", getNumber: (data) => (!data ? null : data.reduce(passedReduce, 0)) },
-  { label: "openmediavault.failed", getNumber: (data) => (!data ? null : data.reduce(failedReduce, 0)) },
+  { label: "openmediavault.passed", getNumber: (data) => data.reduce(passedReduce, 0) },
+  { label: "openmediavault.failed", getNumber: (data) => data.reduce(failedReduce, 0) },
 ];
 
 export default function Component({ service }) {
@@ -29,7 +31,7 @@ export default function Component({ service }) {
 
   const itemsWithData = items.map((item) => ({
     ...item,
-    number: item.getNumber(JSON.parse(data?.response?.output || "{}")?.data),
+    number: data?.response?.output ? item.getNumber(JSON.parse(data?.response?.output || "{}")?.data) : null,
   }));
 
   return (
