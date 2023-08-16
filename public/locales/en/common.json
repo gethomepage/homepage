@@ -710,6 +710,8 @@
         "passed": "Passed",
         "failed": "Failed",
         "zfsHits": "Hits",
-        "zfsMisses": "Misses"
+        "zfsMisses": "Misses",
+        "updatesAvailable": "Updates available",
+        "packageCount": "Package count: {{ value, number }}"
     }
 }
