@@ -38,10 +38,10 @@ export default function Component({ service }) {
     }
   }, [data]);
 
-  if (error) {
+  if (error || data?.error) {
     return (
       <Container>
-        <Error error={error} />
+        <Error error={error || data?.error} />
       </Container>
     );
   }

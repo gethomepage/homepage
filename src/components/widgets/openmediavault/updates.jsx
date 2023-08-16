@@ -1,14 +1,16 @@
 import useSWR from "swr";
-import { FaCheck } from "react-icons/fa";
+import { FaDownload } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
 
 import Resource from "../widget/resource";
 import Error from "../widget/error";
 
+const params = new URLSearchParams({ method: "apt.enumerateUpgraded" }).toString();
+const useApi = () => useSWR(`/api/widgets/openmediavault?${params}`);
+
 export default function Uptime({ expanded }) {
-  const { t, i18n } = useTranslation();
-  const params = { lang: i18n.language, method: "apt.enumerateUpgraded" };
-  const { data, error } = useSWR(`/api/widgets/openmediavault?${new URLSearchParams(params).toString()}`);
+  const { t } = useTranslation();
+  const { data, error } = useApi();
 
   if (error || data?.error) {
     return <Error />;
@@ -20,7 +22,7 @@ export default function Uptime({ expanded }) {
 
   return (
     <Resource
-      icon={FaCheck}
+      icon={FaDownload}
       value={t("openmediavault.updatesAvailable")}
       expandedValue={t("openmediavault.packageCount", { value: data.response.length })}
       expanded={expanded}
