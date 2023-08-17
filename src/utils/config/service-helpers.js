@@ -298,6 +298,7 @@ export function cleanServiceGroups(groups) {
           metric, // glances
           stream, // mjpeg
           fit,
+          method, // openmediavault widget
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -367,6 +368,9 @@ export function cleanServiceGroups(groups) {
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;
           if (fit) cleanedService.widget.fit = fit;
+        }
+        if (type === "openmediavault") {
+          if (method) cleanedService.widget.method = method;
         }
       }
 

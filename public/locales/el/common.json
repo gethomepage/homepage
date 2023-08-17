@@ -237,17 +237,17 @@
     },
     "bazarr": {
         "missingEpisodes": "Επεισόδια που λείπουν",
-        "missingMovies": "Missing Movies"
+        "missingMovies": "Ταινίες που Λείπουν"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Σε εκκρεμότητα",
+        "approved": "Εγκρίθηκε",
+        "available": "Διαθέσιμο"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Σε εκκρεμότητα",
+        "approved": "Εγκρίθηκε",
+        "available": "Διαθέσιμο"
     },
     "overseerr": {
         "pending": "Pending",
@@ -257,25 +257,25 @@
     },
     "pihole": {
         "queries": "Queries",
-        "blocked": "Blocked",
+        "blocked": "Αποκλεισμένο",
         "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Αποκλεισμένο %"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Αναζητήσεις",
+        "blocked": "Αποκλεισμένο",
+        "filtered": "Φιλτραρισμένα",
+        "latency": "Καθυστέρηση"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Ανέβασμα",
+        "download": "Λήψη",
         "ping": "Ping"
     },
     "portainer": {
         "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "stopped": "Σταματημένο",
+        "total": "Σύνολο"
     },
     "tdarr": {
         "queue": "Queue",
@@ -563,7 +563,7 @@
         "records_total": "Queue Length"
     },
     "pterodactyl": {
-        "servers": "Servers",
+        "servers": "Διακομιστές",
         "nodes": "Nodes"
     },
     "prometheus": {
@@ -595,22 +595,22 @@
         "shows": "Εκπομπές",
         "recordings": "Εγγραφές",
         "scheduled": "Προγραμματισμένα",
-        "passes": "Passes"
+        "passes": "Περάσματα"
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
     "tailscale": {
-        "address": "Address",
-        "never": "Never",
+        "address": "Διεύθυνση",
+        "never": "Ποτέ",
         "years": "{{number}}y",
         "weeks": "{{number}}w",
         "days": "{{number}}d",
         "hours": "{{number}}h",
-        "expires": "Expires",
+        "expires": "Λήγει",
         "last_seen": "Last Seen",
-        "now": "Now",
+        "now": "Τώρα",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
@@ -692,5 +692,13 @@
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     }
 }

@@ -703,9 +703,17 @@
         "totalUsed": "Used Storage"
     },
     "mealie": {
-	"recipes": "Recipes",
-	"users": "Users",
-	"categories": "Categories",
-	"tags": "Tags"
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     }
 }

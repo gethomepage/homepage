@@ -670,9 +670,9 @@
         "maxPlayers": "Максимум гравців",
         "bots": "Ботів",
         "ping": "Пінг",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "status": "Статус",
+        "online": "В мережі",
+        "offline": "Не в мережі"
     },
     "azuredevops": {
         "result": "Результат",
@@ -692,5 +692,13 @@
         "errored": "Помилки",
         "noRecent": "Застарілий",
         "totalUsed": "Використовувана пам'ять"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     }
 }

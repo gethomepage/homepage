@@ -16,11 +16,11 @@
         "free": "Свободно",
         "used": "Использовано",
         "load": "Загрузка",
-        "cpu": "Процессор",
-        "mem": "Память",
-        "temp": "Температура",
+        "cpu": "ЦП",
+        "mem": "ОЗУ",
+        "temp": "Темпер.",
         "max": "Макс.",
-        "uptime": "UP",
+        "uptime": "Работает",
         "months": "мес",
         "days": "д",
         "hours": "ч",
@@ -692,5 +692,13 @@
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "passed": "Passed",
+        "failed": "Failed",
+        "running": "Running",
+        "stopped": "Stopped"
     }
 }
