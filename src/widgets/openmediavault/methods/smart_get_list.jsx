@@ -25,13 +25,13 @@ const items = [
 export default function Component({ service }) {
   const { data, error } = useWidgetAPI(service.widget);
 
-  if (error || data?.error) {
-    return <Container service={service} error={error || data?.error} />;
+  if (error) {
+    return <Container service={service} error={error} />;
   }
 
   const itemsWithData = items.map((item) => ({
     ...item,
-    number: data?.response?.output ? item.getNumber(JSON.parse(data.response.output).data) : null,
+    number: data?.response?.output ? item.getNumber(JSON.parse(data?.response?.output || "{}")?.data) : null,
   }));
 
   return (
