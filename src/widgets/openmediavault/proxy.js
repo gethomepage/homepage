@@ -104,7 +104,12 @@ async function processBg(url, filename) {
   return resp;
 }
 
-export async function processReq(widget, res) {
+export default async function proxyHandler(req, res) {
+  const widget = await getWidget(req);
+  if (!widget) {
+    return res.status(400).json({ error: "Invalid proxy service type" });
+  }
+
   const api = widgets?.[widget.type]?.api;
   if (!api) {
     return res.status(403).json({ error: "Service does not support RPC calls" });
@@ -146,13 +151,4 @@ export async function processReq(widget, res) {
   }
 
   return res.status(resp.status).send(resp.data);
-}
-
-export default async function proxyHandler(req, res) {
-  const widget = await getWidget(req);
-  if (!widget) {
-    return res.status(400).json({ error: "Invalid proxy service type" });
-  }
-
-  return processReq(widget, res);
 }
