@@ -708,6 +708,9 @@
         "running": "Running",
         "stopped": "Stopped",
         "passed": "Passed",
-        "failed": "Failed"
+        "failed": "Failed",
+        "yes": "Yes",
+        "no": "No",
+        "updatesAvailable": "updates available"
     }
 }
