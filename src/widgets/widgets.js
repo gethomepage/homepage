@@ -91,6 +91,7 @@ import truenas from "./truenas/widget";
 import unifi from "./unifi/widget";
 import unmanic from "./unmanic/widget";
 import uptimekuma from "./uptimekuma/widget";
+import uptimerobot from "./uptimerobot/widget";
 import watchtower from "./watchtower/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
@@ -192,6 +193,7 @@ const widgets = {
   unifi_console: unifi,
   unmanic,
   uptimekuma,
+  uptimerobot,
   urbackup,
   watchtower,
   whatsupdocker,

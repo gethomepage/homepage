@@ -97,6 +97,7 @@ const components = {
   unifi: dynamic(() => import("./unifi/component")),
   unmanic: dynamic(() => import("./unmanic/component")),
   uptimekuma: dynamic(() => import("./uptimekuma/component")),
+  uptimerobot: dynamic(() => import("./uptimerobot/component")),
   urbackup: dynamic(() => import("./urbackup/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
