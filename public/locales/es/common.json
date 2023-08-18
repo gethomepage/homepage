@@ -702,9 +702,9 @@
         "failed": "Fallido"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "Recetas",
+        "users": "Usuarios",
+        "categories": "Categorías",
+        "tags": "Etiquetas"
     }
 }
