@@ -700,5 +700,11 @@
         "downloading": "Downloading",
         "total": "Total",
         "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }
