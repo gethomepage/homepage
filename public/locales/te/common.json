@@ -700,5 +700,11 @@
         "running": "Running",
         "stopped": "Stopped",
         "passed": "Passed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }
