@@ -700,5 +700,11 @@
         "stopped": "Arrêté",
         "passed": "Réussi",
         "failed": "Échoué"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }
