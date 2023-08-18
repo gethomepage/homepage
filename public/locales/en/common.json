@@ -702,6 +702,12 @@
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
     "openmediavault": {
         "downloading": "Downloading",
         "total": "Total",
