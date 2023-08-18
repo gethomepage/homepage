@@ -2,15 +2,14 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/en/configs/services
 
-- My First Group:
+- My Apps:
     - My First Service:
-        href: http://localhost/
+        href: https://ashy-hill-0d4183f0f.3.azurestaticapps.net/
         description: Homepage is awesome
 
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
+- News:
+    - Brutalist Report:
+        href: https://brutalist.report/
 
 - My Third Group:
     - My Third Service:
