@@ -709,5 +709,11 @@
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }
