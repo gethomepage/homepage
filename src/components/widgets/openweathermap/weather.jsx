@@ -37,7 +37,7 @@ function Widget({ options }) {
   const timeOfDay = data.dt > data.sys.sunrise && data.dt < data.sys.sunset ? "day" : "night";
 
   return <Container options={options}>
-    <PrimaryText>{options.label && `${options.label}, ` }{t("common.number", { value: data.main.temp, style: "unit", unit })}</PrimaryText>
+    <PrimaryText>{options.label && `${options.label}, ` }{t("common.number", { value: Math.round(data.main.temp), style: "unit", unit })}</PrimaryText>
     <SecondaryText>{data.weather[0].description}</SecondaryText>
     <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
   </Container>;
