@@ -54,8 +54,6 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
-      } else if (widget.type === "calibreweb") {
-        headers["X-Authenticated-User"] = widget.username;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

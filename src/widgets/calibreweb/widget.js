@@ -1,18 +1,12 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import calibreWebProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}/{endpoint}",
-  proxyHandler: credentialedProxyHandler,
+  proxyHandler: calibreWebProxyHandler,
 
   mappings: {
     books: {
-      endpoint: "ajax/listbooks",
-    },
-    authors: {
-      endpoint: "get_authors_json",
-    },
-    series: {
-      endpoint: "get_series_json",
+      endpoint: "opds/books/letter/00",
     },
   },
 };
