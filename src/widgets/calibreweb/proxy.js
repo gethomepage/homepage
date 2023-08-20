@@ -28,8 +28,9 @@ async function getWidget(req) {
   return widget;
 }
 
-async function apiCall(widget, endpoint) {
-  const apiUrl = new URL(formatApiCall(endpoint, { endpoint, ...widget }));
+async function apiCall(widgets, widget, endpoint) {
+  const api = widgets[widget.type].api;
+  const apiUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
   const headers = {
       Authorization: `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`
   };
@@ -57,14 +58,13 @@ async function apiCall(widget, endpoint) {
 export default async function calibreWebProxyHandler(req, res) {
   const widget = await getWidget(req);
   
-  const { service } = req.query;
+  const { endpoint } = req.query;
 
   if (!widget) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const endpoint = widgets[widget.type].mappings[service].endpoint;
-  const { status, contentType, data } = await apiCall(widget, endpoint);
+  const { status, data } = await apiCall(widgets, widget, endpoint);
 
   if (status !== 200) {
     return res.status(status).json({error: {message: "HTTP error communicating with CalibreWeb API", data: Buffer.from(data).toString()}});
