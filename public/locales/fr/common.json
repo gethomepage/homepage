@@ -5,8 +5,8 @@
         "status": "Statut",
         "information": "Information",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Erreur brute",
+        "response_data": "Données de réponse"
     },
     "search": {
         "placeholder": "Recherche…"
@@ -56,7 +56,8 @@
         "playing": "En lecture",
         "transcoding": "Transcodage",
         "bitrate": "Débit",
-        "no_active": "Aucun flux actif"
+        "no_active": "Aucun flux actif",
+        "plex_connection_error": "Vérifier la connexion à Plex"
     },
     "rutorrent": {
         "active": "Actif",
@@ -66,13 +67,17 @@
     "sonarr": {
         "wanted": "Demande",
         "queued": "Attente",
-        "series": "Séries"
+        "series": "Séries",
+        "queue": "Attente",
+        "unknown": "Inconnu"
     },
     "radarr": {
         "wanted": "Demande",
         "queued": "Attente",
         "movies": "Films",
-        "missing": "Manquant"
+        "missing": "Manquant",
+        "queue": "Attente",
+        "unknown": "Inconnu"
     },
     "readarr": {
         "wanted": "Demande",
@@ -173,7 +178,7 @@
     "lidarr": {
         "wanted": "Demandé",
         "queued": "En queue",
-        "albums": "Albums"
+        "artists": "Artistes"
     },
     "adguard": {
         "queries": "Requêtes",
@@ -234,12 +239,22 @@
     },
     "glances": {
         "cpu": "Cpu",
-        "mem": "Mém",
         "wait": "Merci de patienter",
         "temp": "Temp",
         "uptime": "Up",
         "days": "j",
-        "hours": "h"
+        "hours": "h",
+        "load": "Charge",
+        "warn": "Alerte",
+        "total": "Total",
+        "free": "Libre",
+        "used": "Utilisé",
+        "crit": "Crit.",
+        "read": "Lect.",
+        "write": "Écrit.",
+        "gpu": "GPU",
+        "mem": "Mém.",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Total Observé",
@@ -393,7 +408,7 @@
         "queue": "À traiter",
         "processed": "Traité",
         "errored": "En erreur",
-        "saved": "Economisé"
+        "saved": "Libéré"
     },
     "miniflux": {
         "read": "Lu",
@@ -570,7 +585,7 @@
     "homeassistant": {
         "people_home": "People Home",
         "lights_on": "Lumières allumées",
-        "switches_on": "Switches On"
+        "switches_on": "Commutateur On"
     },
     "freshrss": {
         "unread": "Non lu",
@@ -605,8 +620,8 @@
         "memUsage": "Mém",
         "systemTempC": "Temp",
         "poolUsage": "Pool",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Volume",
+        "invalid": "Invalide"
     },
     "pfsense": {
         "load": "Charge moy.",
@@ -633,8 +648,63 @@
     },
     "pialert": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Connecté",
+        "new_devices": "Nouvel Appareil",
+        "down_alerts": "Alertes"
+    },
+    "jdownloader": {
+        "downloadCount": "Total en attente",
+        "downloadSpeed": "Vitesse de téléchargement",
+        "downloadBytesRemaining": "Restant",
+        "downloadTotalBytes": "Taille"
+    },
+    "kavita": {
+        "seriesCount": "Séries",
+        "totalFiles": "Fichiers"
+    },
+    "gamedig": {
+        "name": "Nom",
+        "map": "Carte",
+        "currentPlayers": "Joueurs actuels",
+        "players": "Joueurs",
+        "maxPlayers": "Joueurs max",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Statut",
+        "online": "En ligne",
+        "offline": "Hors ligne"
+    },
+    "azuredevops": {
+        "result": "Résultat",
+        "status": "Statut",
+        "buildId": "Build ID",
+        "succeeded": "Réussi",
+        "notStarted": "Arrêté",
+        "failed": "Échoué",
+        "canceled": "Annulé",
+        "inProgress": "En cours",
+        "totalPrs": "PRs Total",
+        "myPrs": "Mes PRs",
+        "approved": "Approuvé"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Erreur",
+        "noRecent": "Obsolète",
+        "totalUsed": "Esp. Utilisé"
+    },
+    "openmediavault": {
+        "downloading": "Téléchargement",
+        "total": "Total",
+        "running": "Démarré",
+        "stopped": "Arrêté",
+        "passed": "Réussi",
+        "failed": "Échoué"
+    },
+    "mealie": {
+        "recipes": "Recettes",
+        "users": "Utilisateurs",
+        "categories": "Catégories",
+        "tags": "Étiquettes"
     }
 }

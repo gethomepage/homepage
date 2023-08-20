@@ -127,7 +127,7 @@
         "total": "Всього",
         "free": "Вільно",
         "used": "Використано",
-        "load": "Навантаження",
+        "load": "Завантаження",
         "mem": "Пам'ять",
         "temp": "TEMP",
         "max": "Max",
@@ -198,7 +198,8 @@
         "playing": "Відтворення",
         "transcoding": "Перекодування",
         "bitrate": "Бітрейт",
-        "no_active": "Немає активних потоків"
+        "no_active": "Немає активних потоків",
+        "plex_connection_error": "Перевірте з'єднання Plex"
     },
     "nzbget": {
         "rate": "Швидкість",
@@ -232,18 +233,22 @@
     "sonarr": {
         "wanted": "Розшукується",
         "queued": "У черзі",
-        "series": "Серії"
+        "series": "Серії",
+        "queue": "Черга",
+        "unknown": "Невідомо"
     },
     "radarr": {
         "wanted": "Розшукується",
         "missing": "Відсутній",
         "queued": "У черзі",
-        "movies": "Фільми"
+        "movies": "Фільми",
+        "queue": "Черга",
+        "unknown": "Невідомо"
     },
     "lidarr": {
         "wanted": "Розшукується",
         "queued": "У черзі",
-        "albums": "Альбоми"
+        "artists": "Виконавці"
     },
     "traefik": {
         "middleware": "Проміжне програмне забезпечення",
@@ -358,12 +363,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "Пам'ять",
         "wait": "Будь ласка, зачекайте",
         "temp": "TEMP",
         "uptime": "Відправка",
         "days": "д",
-        "hours": "г"
+        "hours": "г",
+        "load": "Завантаження",
+        "warn": "Увага",
+        "total": "Всього",
+        "free": "Вільний",
+        "used": "Використовується",
+        "crit": "Crit",
+        "read": "Прочитати",
+        "write": "Написати",
+        "gpu": "GPU",
+        "mem": "Пам'ять",
+        "swap": "Обмін"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
@@ -605,8 +620,8 @@
         "memUsage": "Використання пам'яті",
         "systemTempC": "Температура системи",
         "poolUsage": "Використання пулу",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Гучність",
+        "invalid": "Недійсний"
     },
     "pfsense": {
         "load": "Середнє завантаження",
@@ -632,9 +647,64 @@
         "watt_hour": "Вт/год"
     },
     "pialert": {
+        "total": "Всього",
+        "connected": "Підключено",
+        "new_devices": "Нові пристрої",
+        "down_alerts": "Сповіщення про збій"
+    },
+    "jdownloader": {
+        "downloadCount": "Черга",
+        "downloadSpeed": "Швидкість",
+        "downloadBytesRemaining": "Залишилося",
+        "downloadTotalBytes": "Розмір"
+    },
+    "kavita": {
+        "seriesCount": "Серій",
+        "totalFiles": "Файлів"
+    },
+    "gamedig": {
+        "name": "Назва",
+        "map": "Мапа",
+        "currentPlayers": "Поточні гравці",
+        "players": "Гравці",
+        "maxPlayers": "Максимум гравців",
+        "bots": "Ботів",
+        "ping": "Пінг",
+        "status": "Статус",
+        "online": "В мережі",
+        "offline": "Не в мережі"
+    },
+    "azuredevops": {
+        "result": "Результат",
+        "status": "Статус",
+        "buildId": "ID збірки",
+        "succeeded": "Успішно",
+        "notStarted": "Не розпочато",
+        "failed": "Невдача",
+        "canceled": "Скасовано",
+        "inProgress": "В процесі",
+        "totalPrs": "Всього PR",
+        "myPrs": "Мій PR",
+        "approved": "Затверджено"
+    },
+    "urbackup": {
+        "ok": "Добре",
+        "errored": "Помилки",
+        "noRecent": "Застарілий",
+        "totalUsed": "Використовувана пам'ять"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

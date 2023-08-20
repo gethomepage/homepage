@@ -21,14 +21,14 @@
         "mem": "記憶體",
         "cpu": "處理器",
         "error": "錯誤",
-        "unknown": "未知的",
+        "unknown": "未知",
         "running": "執行中",
         "starting": "啟動中",
         "unhealthy": "不健康的",
         "not_found": "未找到",
         "exited": "已退出",
         "partial": "部分",
-        "healthy": "健康的"
+        "healthy": "健康"
     },
     "emby": {
         "playing": "正在播放",
@@ -44,7 +44,8 @@
         "playing": "正在播放",
         "transcoding": "轉碼",
         "bitrate": "位元率",
-        "no_active": "無播放活動"
+        "no_active": "無播放活動",
+        "plex_connection_error": "檢查Plex的連接狀態"
     },
     "jellyseerr": {
         "pending": "待下載",
@@ -88,12 +89,16 @@
         "movies": "電影",
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "missing": "缺少"
+        "missing": "缺少",
+        "queue": "佇列",
+        "unknown": "未知的"
     },
     "sonarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "series": "影集"
+        "series": "影集",
+        "queue": "佇列",
+        "unknown": "未知的"
     },
     "readarr": {
         "wanted": "關注中",
@@ -123,8 +128,8 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "運行中",
-        "stopped": "未運行",
+        "running": "運作中",
+        "stopped": "已停止",
         "total": "全部"
     },
     "traefik": {
@@ -163,7 +168,7 @@
         "seed": "已完成下載"
     },
     "jackett": {
-        "configured": "已配置",
+        "configured": "已設置",
         "errored": "發生錯誤"
     },
     "bazarr": {
@@ -173,7 +178,7 @@
     "lidarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
-        "albums": "專輯"
+        "artists": "創作者"
     },
     "adguard": {
         "queries": "查詢",
@@ -200,8 +205,8 @@
     },
     "authentik": {
         "users": "使用者",
-        "loginsLast24H": "登錄(24h)",
-        "failedLoginsLast24H": "登錄失敗(24h)"
+        "loginsLast24H": "登入 (過去 24 小時)",
+        "failedLoginsLast24H": "登入失敗 (過去 24 小時)"
     },
     "proxmox": {
         "mem": "記憶體",
@@ -211,7 +216,7 @@
     },
     "unifi": {
         "users": "使用者",
-        "uptime": "系統運行時間",
+        "uptime": "系統運作時間",
         "days": "天",
         "wan": "WAN",
         "lan_users": "有線使用者",
@@ -222,7 +227,7 @@
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "設備",
-        "lan_devices": "LAN設備",
+        "lan_devices": "有線設備",
         "wlan_devices": "無線設備",
         "empty_data": "子系統狀態未知"
     },
@@ -234,19 +239,29 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "記憶體",
         "wait": "請稍後",
         "temp": "溫度",
         "uptime": "運行時間",
         "days": "天",
-        "hours": "時"
+        "hours": "時",
+        "free": "未使用",
+        "used": "已使用",
+        "load": "負載量",
+        "warn": "警告",
+        "total": "總共",
+        "crit": "Crit",
+        "read": "讀取",
+        "write": "寫入",
+        "gpu": "GPU",
+        "mem": "記憶體",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "總監測數",
         "diffsDetected": "偵測到的變更"
     },
     "wmo": {
-        "0-day": "晴",
+        "0-day": "晴天",
         "0-night": "晴朗",
         "71-day": "小雪",
         "71-night": "小雪",
@@ -308,7 +323,7 @@
         "service": "服務",
         "search": "搜尋",
         "custom": "自訂",
-        "visit": "訪問",
+        "visit": "造訪",
         "url": "網址"
     },
     "homebridge": {
@@ -351,7 +366,7 @@
     },
     "pyload": {
         "speed": "速度",
-        "active": "運行中",
+        "active": "執行中",
         "queue": "佇列",
         "total": "全部"
     },
@@ -521,8 +536,8 @@
     "kopia": {
         "status": "狀態",
         "size": "檔案大小",
-        "lastrun": "上次運行",
-        "nextrun": "下次運行",
+        "lastrun": "上次執行",
+        "nextrun": "下次執行",
         "failed": "失敗"
     },
     "unmanic": {
@@ -587,11 +602,11 @@
         "updates": "可更新"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
+        "address": "位址",
+        "expires": "已失效",
+        "never": "未曾",
         "last_seen": "上次連線",
-        "now": "Now",
+        "now": "現在",
         "years": "{{number}} 年",
         "hours": "{{number}} 小時",
         "minutes": "{{number}} 分鐘",
@@ -605,23 +620,23 @@
         "memUsage": "記憶體使用率",
         "systemTempC": "系統溫度",
         "poolUsage": "儲存池使用率",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "儲存區用量",
+        "invalid": "無效的"
     },
     "pfsense": {
         "load": "平均負載量",
         "memory": "記憶體使用率",
         "wanStatus": "網際網路狀態",
-        "up": "Up",
-        "down": "Down",
+        "up": "已連線",
+        "down": "已離線",
         "temp": "溫度",
         "disk": "硬碟使用率",
-        "wanIP": "WAN IP"
+        "wanIP": "網際網路 IP"
     },
     "caddy": {
         "upstreams": "上行",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "目前請求數",
+        "requests_failed": "失敗請求"
     },
     "evcc": {
         "grid_power": "電網",
@@ -632,9 +647,64 @@
         "watt_hour": "瓦時 (Wh)"
     },
     "pialert": {
+        "total": "全部",
+        "connected": "已連線",
+        "new_devices": "新裝置",
+        "down_alerts": "離線警告"
+    },
+    "jdownloader": {
+        "downloadCount": "下載佇列",
+        "downloadSpeed": "下載速率",
+        "downloadBytesRemaining": "剩餘",
+        "downloadTotalBytes": "總下載量"
+    },
+    "kavita": {
+        "seriesCount": "叢刊",
+        "totalFiles": "檔案"
+    },
+    "gamedig": {
+        "name": "名稱",
+        "map": "地圖",
+        "currentPlayers": "當前玩家數",
+        "players": "玩家",
+        "maxPlayers": "玩家數上限",
+        "bots": "機器人",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "結果",
+        "status": "狀態",
+        "buildId": "組建編號",
+        "succeeded": "成功",
+        "notStarted": "尚未啟用",
+        "failed": "失敗",
+        "canceled": "取消",
+        "inProgress": "執行中",
+        "totalPrs": "總提取要求",
+        "myPrs": "我的提取要求",
+        "approved": "已核准"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "錯誤",
+        "noRecent": "已過時",
+        "totalUsed": "已使用空間"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

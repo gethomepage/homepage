@@ -111,7 +111,8 @@
         "playing": "재생 중",
         "transcoding": "트랜스코딩",
         "bitrate": "비트레이트",
-        "no_active": "활성 스트림 없음"
+        "no_active": "활성 스트림 없음",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "연결된 AP",
@@ -163,18 +164,22 @@
     "sonarr": {
         "wanted": "요청",
         "queued": "대기 중",
-        "series": "시리즈"
+        "series": "시리즈",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "요청",
         "missing": "빠짐",
         "queued": "대기 중",
-        "movies": "영화"
+        "movies": "영화",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "요청",
         "queued": "대기 중",
-        "albums": "앨범"
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "요청",
@@ -301,12 +306,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Please wait",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "down_alerts": "Down Alerts",
         "new_devices": "New Devices"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "ping": "Ping",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

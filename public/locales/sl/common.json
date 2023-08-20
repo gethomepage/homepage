@@ -168,7 +168,8 @@
         "transcoding": "Transkodira",
         "bitrate": "Pasovna širina",
         "playing": "Predvaja",
-        "no_active": "Ni aktivne vsebine"
+        "no_active": "Ni aktivne vsebine",
+        "plex_connection_error": "Check Plex Connection"
     },
     "flood": {
         "download": "Prenos",
@@ -235,18 +236,22 @@
     "sonarr": {
         "wanted": "Iskano",
         "queued": "V vrsti",
-        "series": "Serije"
+        "series": "Serije",
+        "queue": "Vrsta",
+        "unknown": "Neznano"
     },
     "radarr": {
         "wanted": "Iskano",
         "missing": "Manjka",
         "queued": "V vrsti",
-        "movies": "Filmi"
+        "movies": "Filmi",
+        "queue": "Vrsta",
+        "unknown": "Neznano"
     },
     "lidarr": {
         "wanted": "Iskano",
         "queued": "V vrsti",
-        "albums": "Albumi"
+        "artists": "Avtorji"
     },
     "readarr": {
         "wanted": "Iskano",
@@ -350,12 +355,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Prosim počakajte",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "u"
+        "hours": "u",
+        "free": "Prosto",
+        "load": "Obremenitev",
+        "warn": "Opoz.",
+        "total": "Skupaj",
+        "used": "V uporabi",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "authentik": {
         "users": "Uporabniki",
@@ -605,8 +620,8 @@
         "memUsage": "MEM",
         "systemTempC": "Temperatura",
         "poolUsage": "Prostor",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Prostora",
+        "invalid": "Neveljavno"
     },
     "pfsense": {
         "load": "Povp. obremenitev",
@@ -632,9 +647,64 @@
         "watt_hour": "Wh"
     },
     "pialert": {
+        "total": "Skupaj",
+        "connected": "Povezanih",
+        "new_devices": "Nove naprave",
+        "down_alerts": "Izključeno"
+    },
+    "jdownloader": {
+        "downloadCount": "Vrsta",
+        "downloadSpeed": "Hitrost prenosa",
+        "downloadBytesRemaining": "Še ostane",
+        "downloadTotalBytes": "Velikost"
+    },
+    "kavita": {
+        "seriesCount": "Serije",
+        "totalFiles": "Datoteke"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

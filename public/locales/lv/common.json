@@ -97,7 +97,8 @@
         "playing": "Atskaņo",
         "transcoding": "Pārkodē",
         "bitrate": "Bitrate",
-        "no_active": "Nav aktīvu straumju"
+        "no_active": "Nav aktīvu straumju",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "Savienotie piekļuves punkti",
@@ -154,18 +155,22 @@
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series"
+        "series": "Series",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Filmas"
+        "movies": "Filmas",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "albums": "Albumi"
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Wanted",
@@ -290,12 +295,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Please wait",
         "uptime": "UP",
         "days": "d",
         "hours": "h",
-        "temp": "TEMP"
+        "temp": "TEMP",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "online": "Online",
+        "status": "Status",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

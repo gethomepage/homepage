@@ -56,7 +56,8 @@
         "playing": "Spielen",
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
-        "no_active": "Keine aktiven Streams"
+        "no_active": "Keine aktiven Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "rutorrent": {
         "active": "Aktiv",
@@ -66,13 +67,17 @@
     "sonarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
-        "series": "Serien"
+        "series": "Serien",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
         "movies": "Filme",
-        "missing": "Fehlt"
+        "missing": "Fehlt",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Gesucht",
@@ -173,7 +178,7 @@
     "lidarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
-        "albums": "Alben"
+        "artists": "Artists"
     },
     "adguard": {
         "queries": "Anfragen",
@@ -234,12 +239,22 @@
     },
     "glances": {
         "cpu": "Prozessor",
-        "mem": "RAM",
         "wait": "Bitte warten",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "T",
-        "hours": "S"
+        "hours": "S",
+        "load": "Auslastung",
+        "warn": "Warnung",
+        "total": "Gesamt",
+        "free": "Frei",
+        "used": "Verwendet",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap",
+        "crit": "Crit",
+        "read": "Read"
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
@@ -606,7 +621,7 @@
         "systemTempC": "System Temp",
         "poolUsage": "Pool Nutzung",
         "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "invalid": "Ungültig"
     },
     "pfsense": {
         "load": "Durchschnittliche Last",
@@ -625,16 +640,71 @@
     },
     "evcc": {
         "watt_hour": "Wh",
-        "pv_power": "Production",
-        "battery_soc": "Battery",
+        "pv_power": "Produktion",
+        "battery_soc": "Batterie",
         "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger"
+        "home_power": "Verbrauch",
+        "charge_power": "Ladegerät"
     },
     "pialert": {
+        "total": "Gesamt",
+        "connected": "Verbunden",
+        "new_devices": "Neue Geräte",
+        "down_alerts": "Down Alarme"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "maxPlayers": "Max players",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "inProgress": "In Progress"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

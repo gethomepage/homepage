@@ -4,7 +4,7 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig, { getSettings, substituteEnvironmentVars } from "utils/config/config";
+import checkAndCopyConfig, { getSettings, substituteEnvironmentVars, CONF_DIR } from "utils/config/config";
 import {
   servicesFromConfig,
   servicesFromDocker,
@@ -27,7 +27,7 @@ function compareServices(service1, service2) {
 export async function bookmarksResponse() {
   checkAndCopyConfig("bookmarks.yaml");
 
-  const bookmarksYaml = path.join(process.cwd(), "config", "bookmarks.yaml");
+  const bookmarksYaml = path.join(CONF_DIR, "bookmarks.yaml");
   const rawFileContents = await fs.readFile(bookmarksYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
   const bookmarks = yaml.load(fileContents);

@@ -37,7 +37,8 @@
         "playing": "Odtwarzanie",
         "transcoding": "Transkodowanie",
         "bitrate": "Bitrate",
-        "no_active": "Brak aktywnych strumieni"
+        "no_active": "Brak aktywnych strumieni",
+        "plex_connection_error": "Check Plex Connection"
     },
     "speedtest": {
         "download": "Pobieranie",
@@ -110,18 +111,22 @@
     "sonarr": {
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
-        "series": "Seriale"
+        "series": "Seriale",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
         "movies": "Filmy",
-        "missing": "Brakujące"
+        "missing": "Brakujące",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
-        "albums": "Albumy"
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Poszukiwane",
@@ -234,12 +239,22 @@
     },
     "glances": {
         "cpu": "Procesor",
-        "mem": "Pamięć",
         "wait": "Proszę czekać",
         "temp": "TEMP",
         "uptime": "CZAS",
         "days": "dni",
-        "hours": "godz"
+        "hours": "godz",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "diffsDetected": "Wykryto różnic",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "result": "Result",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

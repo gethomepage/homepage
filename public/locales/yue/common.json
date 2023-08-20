@@ -13,7 +13,8 @@
         "playing": "播放緊",
         "no_active": "無任何活動",
         "transcoding": "轉碼緊",
-        "bitrate": "比特率"
+        "bitrate": "比特率",
+        "plex_connection_error": "Check Plex Connection"
     },
     "transmission": {
         "download": "下載速度",
@@ -94,18 +95,22 @@
     "sonarr": {
         "wanted": "想睇",
         "queued": "排緊隊",
-        "series": "電視劇"
+        "series": "電視劇",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "想睇",
         "queued": "排緊隊",
         "movies": "電影",
-        "missing": "Missing"
+        "missing": "Missing",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "想睇",
         "queued": "排緊隊",
-        "albums": "專輯"
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "想睇",
@@ -234,12 +239,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Please wait",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

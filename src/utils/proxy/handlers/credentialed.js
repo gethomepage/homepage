@@ -32,6 +32,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         "authentik",
         "cloudflared",
         "ghostfolio",
+        "mealie",
         "tailscale",
         "truenas",
         "pterodactyl",
@@ -54,6 +55,17 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
+      } else if (widget.type === "paperlessngx") {
+        if (widget.key) {
+          headers.Authorization = `Token ${widget.key}`;
+        } else {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        }
+      }
+      else if (widget.type === "azuredevops") {
+        headers.Authorization = `Basic ${Buffer.from(`$:${widget.key}`).toString("base64")}`;
+      } else if (widget.type === "glances") {
+        headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

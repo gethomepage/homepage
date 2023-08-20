@@ -56,7 +56,8 @@
         "playing": "Reproduzindo",
         "transcoding": "Transcodificação",
         "bitrate": "Taxa de bits",
-        "no_active": "Sem streams ativas"
+        "no_active": "Sem streams ativas",
+        "plex_connection_error": "Check Plex Connection"
     },
     "rutorrent": {
         "active": "Ativo",
@@ -66,13 +67,17 @@
     "sonarr": {
         "wanted": "Desejada",
         "queued": "Em fila",
-        "series": "Séries"
+        "series": "Séries",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Desejado",
         "queued": "Fila",
         "movies": "Filmes",
-        "missing": "Faltando"
+        "missing": "Faltando",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Desejados",
@@ -186,7 +191,7 @@
     "lidarr": {
         "queued": "Enfileirado",
         "wanted": "Desejado",
-        "albums": "Álbuns"
+        "artists": "Artists"
     },
     "adguard": {
         "queries": "Consultas",
@@ -247,12 +252,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Por favor, aguarde",
         "temp": "TEMP",
         "uptime": "Cima",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "Total Observado",
@@ -582,12 +597,12 @@
         "switches_on": "Interruptores Ligados"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Assinaturas",
+        "unread": "Não lida"
     },
     "channelsdvrserver": {
         "shows": "Shows",
-        "recordings": "Recordings",
+        "recordings": "Gravações",
         "scheduled": "Scheduled",
         "passes": "Passes"
     },
@@ -629,21 +644,76 @@
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Solicitações atuais",
+        "requests_failed": "Solicitações com falha"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "pv_power": "Produção",
+        "battery_soc": "Bateria",
+        "grid_power": "Grade",
+        "home_power": "Consumo",
+        "charge_power": "Carregador",
+        "watt_hour": "Kw"
     },
     "pialert": {
         "total": "Total",
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "approved": "Approved",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

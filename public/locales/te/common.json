@@ -79,7 +79,8 @@
         "playing": "ఆడుతున్నారు",
         "transcoding": "ట్రాన్స్‌కోడింగ్",
         "bitrate": "బిట్రేట్",
-        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు"
+        "no_active": "యాక్టివ్ స్ట్రీమ్‌లు లేవు",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "రేట్",
@@ -111,18 +112,22 @@
     "sonarr": {
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
-        "series": "సిరీస్"
+        "series": "సిరీస్",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
         "movies": "సినిమాలు",
-        "missing": "మిస్సింగ్"
+        "missing": "మిస్సింగ్",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "కావలెను",
         "queued": "క్యూయూఎడ్",
-        "albums": "ఆల్బములు"
+        "artists": "Artists"
     },
     "bazarr": {
         "missingEpisodes": "ఎపిసోడ్‌లు లేవు",
@@ -234,12 +239,22 @@
     },
     "glances": {
         "cpu": "సీపియూ",
-        "mem": "MEM",
         "wait": "దయచేసి వేచి ఉండండి",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "changedetectionio": {
         "totalObserved": "మొత్తం గమనించబడింది",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "totalFiles": "Files",
+        "seriesCount": "Series"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "failed": "Failed",
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

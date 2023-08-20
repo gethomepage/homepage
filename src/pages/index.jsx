@@ -160,6 +160,7 @@ const headerStyles = {
     "m-4 mb-0 sm:m-8 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
   underlined: "m-4 mb-0 sm:m-8 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
   clean: "m-4 mb-0 sm:m-8 sm:mb-0",
+  boxedWidgets: "m-4 mb-0 sm:m-8 sm:mb-0 sm:mt-1",
 };
 
 function Home({ initialSettings }) {
@@ -208,6 +209,7 @@ function Home({ initialSettings }) {
       searchProvider = searchProviders[searchWidget.options?.provider];
     }
   }
+  const headerStyle = initialSettings?.headerStyle || "underlined";
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -252,11 +254,11 @@ function Home({ initialSettings }) {
         />
         <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
-      <div className="relative container m-auto flex flex-col justify-between z-10 h-full">
+      <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <div
           className={classNames(
             "flex flex-row flex-wrap  justify-between",
-            headerStyles[initialSettings.headerStyle || "underlined"]
+            headerStyles[headerStyle]
           )}
         >
           <QuickLaunch
@@ -272,14 +274,17 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <Widget key={i} widget={widget} />
+                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false}} />
                 ))}
 
-              <div className="m-auto sm:ml-2 flex flex-wrap grow sm:basis-auto justify-between md:justify-end">
+              <div className={classNames(
+                "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
+                headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
+              )}>
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} />
+                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true}} />
                   ))}
               </div>
             </>
@@ -289,7 +294,13 @@ function Home({ initialSettings }) {
         {services?.length > 0 && (
           <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
             {services.map((group) => (
-              <ServicesGroup key={group.name} services={group} layout={initialSettings.layout?.[group.name]} fiveColumns={settings.fiveColumns} />
+              <ServicesGroup 
+                key={group.name}
+                group={group.name}
+                services={group}
+                layout={initialSettings.layout?.[group.name]}
+                fiveColumns={settings.fiveColumns} 
+                disableCollapse={settings.disableCollapse} />
             ))}
           </div>
         )}
@@ -297,19 +308,24 @@ function Home({ initialSettings }) {
         {bookmarks?.length > 0 && (
           <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
             {bookmarks.map((group) => (
-              <BookmarksGroup key={group.name} group={group} />
+              <BookmarksGroup
+                key={group.name}
+                group={group}
+                disableCollapse={settings.disableCollapse} />
             ))}
           </div>
         )}
 
-        <div className="flex p-8 pb-0 w-full justify-end">
-          {!initialSettings?.color && <ColorToggle />}
-          <Revalidate />
-          {!initialSettings?.theme && <ThemeToggle />}
-        </div>
+        <div className="flex flex-col mt-auto p-8 w-full">
+          <div className="flex w-full justify-end">
+            {!initialSettings?.color && <ColorToggle />}
+            <Revalidate />
+            {!initialSettings?.theme && <ThemeToggle />}
+          </div>
 
-        <div className="flex p-8 pt-4 w-full justify-end">
-          {!initialSettings?.hideVersion && <Version />}
+          <div className="flex mt-4 w-full justify-end">
+            {!initialSettings?.hideVersion && <Version />}
+          </div>
         </div>
       </div>
     </>
@@ -357,7 +373,7 @@ export default function Wrapper({ initialSettings, fallback }) {
         style={wrappedStyle}
       >
         <div
-        id="inner_wrapper" 
+        id="inner_wrapper"
         className={classNames(
           'fixed overflow-auto w-full h-full',
           backgroundBlur && `backdrop-blur${initialSettings.background.blur.length ? '-' : ""}${initialSettings.background.blur}`,

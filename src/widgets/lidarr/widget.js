@@ -1,16 +1,12 @@
 import genericProxyHandler from "utils/proxy/handlers/generic";
-import { jsonArrayFilter } from "utils/proxy/api-helpers";
 
 const widget = {
   api: "{url}/api/v1/{endpoint}?apikey={key}",
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    album: {
-      endpoint: "album",
-      map: (data) => ({
-        have: jsonArrayFilter(data, (item) => item?.statistics?.percentOfTracks === 100).length,
-      }),
+    artist: {
+      endpoint: "artist",
     },
     "wanted/missing": {
       endpoint: "wanted/missing",

@@ -9,12 +9,14 @@
         "queued": "I Kø",
         "movies": "Film",
         "wanted": "Ønskede",
-        "missing": "Mangler"
+        "missing": "Mangler",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Ønsket",
         "queued": "I Kø",
-        "albums": "Albums"
+        "artists": "Artists"
     },
     "jellyseerr": {
         "available": "Tilgængelig",
@@ -68,12 +70,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "RAM",
         "wait": "Vent venligst",
         "uptime": "UP",
         "days": "d",
         "hours": "h",
-        "temp": "TEMP"
+        "temp": "TEMP",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "wmo": {
         "1-day": "Hovedsageligt solrigt",
@@ -228,7 +240,8 @@
         "playing": "Afspiller",
         "transcoding": "Transcoder",
         "bitrate": "Bitrate",
-        "no_active": "Ingen Aktive Streams"
+        "no_active": "Ingen Aktive Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "Rate",
@@ -260,7 +273,9 @@
     "sonarr": {
         "wanted": "Ønsket",
         "queued": "I Kø",
-        "series": "Serier"
+        "series": "Serier",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "readarr": {
         "wanted": "Ønskede",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadSpeed": "Download Speed",
+        "downloadCount": "Queue Count",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

@@ -23,7 +23,7 @@
         "free": "متاح",
         "used": "مستخدم",
         "load": "الضغط",
-        "mem": "MEM",
+        "mem": "الذاكرة",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
@@ -134,14 +134,15 @@
         "episodes": "Episodes"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
+        "totalObserved": "مجموع الملاحظات",
         "diffsDetected": "Diffs Detected"
     },
     "tautulli": {
         "playing": "يشتغل",
         "transcoding": "التحويل",
         "bitrate": "معدل البت",
-        "no_active": "No Active Streams"
+        "no_active": "No Active Streams",
+        "plex_connection_error": "Check Plex Connection"
     },
     "nzbget": {
         "rate": "معدل",
@@ -179,18 +180,22 @@
     "sonarr": {
         "wanted": "مطلوب",
         "queued": "في الإنتظار",
-        "series": "سلسلة"
+        "series": "سلسلة",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "مطلوب",
         "missing": "مفقود",
         "queued": "في الإنتظار",
-        "movies": "أفلام"
+        "movies": "أفلام",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "مطلوب",
         "queued": "في الإنتظار",
-        "albums": "ألبومات"
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "مطلوب",
@@ -296,12 +301,22 @@
     },
     "glances": {
         "cpu": "معالج",
-        "mem": "الذاكرة",
         "wait": "الرجاء الإنتظار",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "مفضلة",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

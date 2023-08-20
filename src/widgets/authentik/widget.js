@@ -9,10 +9,10 @@ const widget = {
       endpoint: "core/users?page_size=1",
     },
     login: {
-      endpoint: "events/events/per_month/?action=login&query={}",
+      endpoint: "events/events/per_month/?action=login",
     },
     login_failed: {
-      endpoint: "events/events/per_month/?action=login_failed&query={}",
+      endpoint: "events/events/per_month/?action=login_failed",
     },
   },
 };

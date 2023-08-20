@@ -33,8 +33,8 @@
     },
     "lidarr": {
         "queued": "Dibaris Gilir",
-        "albums": "Album",
-        "wanted": "Mahu"
+        "wanted": "Mahu",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "Mahu",
@@ -66,12 +66,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Sila tunggu",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Tandabuku",
@@ -196,7 +206,8 @@
         "playing": "Sedang Dimainkan",
         "transcoding": "Transkoding",
         "bitrate": "Kadar bit",
-        "no_active": "Tiada Strim Aktif"
+        "no_active": "Tiada Strim Aktif",
+        "plex_connection_error": "Check Plex Connection"
     },
     "plex": {
         "streams": "Strim Aktif",
@@ -229,13 +240,17 @@
     "sonarr": {
         "wanted": "Mahu",
         "queued": "Dibaris Gilir",
-        "series": "Bersiri"
+        "series": "Bersiri",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Mahu",
         "missing": "Hilang",
         "queued": "Dibaris Gilir",
-        "movies": "Filem"
+        "movies": "Filem",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "bazarr": {
         "missingEpisodes": "Episod Yang Hilang",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "downloading": "Downloading",
+        "total": "Total",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

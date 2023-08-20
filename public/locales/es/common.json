@@ -56,7 +56,8 @@
         "playing": "Reproduciendo",
         "transcoding": "Transcodificando",
         "bitrate": "Tasa de bits",
-        "no_active": "Sin transmisiones activas"
+        "no_active": "Sin transmisiones activas",
+        "plex_connection_error": "Comprueba la conexión a Plex"
     },
     "rutorrent": {
         "active": "Activo",
@@ -66,13 +67,17 @@
     "sonarr": {
         "wanted": "Buscando",
         "queued": "En cola",
-        "series": "Series"
+        "series": "Series",
+        "queue": "Poner a la cola",
+        "unknown": "Desconocido"
     },
     "radarr": {
         "wanted": "Buscando",
         "queued": "En cola",
         "movies": "Películas",
-        "missing": "Faltan"
+        "missing": "Faltan",
+        "queue": "Poner a la cola",
+        "unknown": "Desconocido"
     },
     "readarr": {
         "wanted": "Buscando",
@@ -173,7 +178,7 @@
     "lidarr": {
         "queued": "En cola",
         "wanted": "Buscando",
-        "albums": "Álbumes"
+        "artists": "Artistas"
     },
     "adguard": {
         "queries": "Consultas",
@@ -234,12 +239,22 @@
     },
     "glances": {
         "cpu": "Procesador",
-        "mem": "Memoria",
         "wait": "Espera por favor",
         "temp": "TEMPORAL",
         "uptime": "ARRIBA",
         "days": "Días",
-        "hours": "Horas"
+        "hours": "Horas",
+        "load": "Cargar",
+        "warn": "Advertir",
+        "total": "Total",
+        "free": "Libre",
+        "used": "Utilizado",
+        "crit": "Crít.",
+        "read": "Leer",
+        "write": "Escribir",
+        "gpu": "GPU",
+        "mem": "Memoria",
+        "swap": "Intercambiar"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
@@ -605,8 +620,8 @@
         "memUsage": "Uso de la memoria",
         "systemTempC": "Temperatura del sistema",
         "poolUsage": "Comprobación del uso del grupo de memoria",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Volumen utilizado",
+        "invalid": "No válido"
     },
     "pfsense": {
         "load": "Promedio de carga",
@@ -626,15 +641,70 @@
     "evcc": {
         "pv_power": "Producción",
         "battery_soc": "Batería",
-        "grid_power": "Grid",
+        "grid_power": "Red",
         "home_power": "Consumo",
         "charge_power": "Cargador",
         "watt_hour": "vatio-hora (Wh)"
     },
     "pialert": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Conectado",
+        "new_devices": "Nuevos dispositivos",
+        "down_alerts": "Alertas"
+    },
+    "jdownloader": {
+        "downloadCount": "Cola",
+        "downloadSpeed": "Velocidad",
+        "downloadBytesRemaining": "Restante",
+        "downloadTotalBytes": "Tamaño"
+    },
+    "kavita": {
+        "seriesCount": "Serie",
+        "totalFiles": "Archivos"
+    },
+    "gamedig": {
+        "name": "Nombre",
+        "map": "Mapa",
+        "currentPlayers": "Jugadores actuales",
+        "players": "Jugadores",
+        "maxPlayers": "Jugadores máximos",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Estado",
+        "online": "En línea",
+        "offline": "Sin conexión"
+    },
+    "azuredevops": {
+        "result": "Resultado",
+        "status": "Estado",
+        "buildId": "Identificador de la construcción",
+        "succeeded": "Exitoso",
+        "notStarted": "Sin empezar",
+        "failed": "Fallido",
+        "canceled": "Cancelado",
+        "inProgress": "En curso",
+        "totalPrs": "RP totales",
+        "myPrs": "Mis logros",
+        "approved": "Aprobados"
+    },
+    "urbackup": {
+        "ok": "De acuerdo",
+        "errored": "Errores",
+        "noRecent": "Caducado",
+        "totalUsed": "Almacenamiento usado"
+    },
+    "openmediavault": {
+        "running": "Ejecutando",
+        "downloading": "Descargando",
+        "total": "Total",
+        "stopped": "Detenido",
+        "passed": "Aprobado",
+        "failed": "Fallido"
+    },
+    "mealie": {
+        "recipes": "Recetas",
+        "users": "Usuarios",
+        "categories": "Categorías",
+        "tags": "Etiquetas"
     }
 }

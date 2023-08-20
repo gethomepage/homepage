@@ -8,7 +8,7 @@ const logger = createLogger("qbittorrentProxyHandler");
 async function login(widget) {
   logger.debug("qBittorrent is rejecting the request, logging in.");
   const loginUrl = new URL(`${widget.url}/api/v2/auth/login`).toString();
-  const loginBody = `username=${encodeURI(widget.username)}&password=${encodeURI(widget.password)}`;
+  const loginBody = `username=${encodeURIComponent(widget.username)}&password=${encodeURIComponent(widget.password)}`;
   const loginParams = {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

@@ -63,7 +63,7 @@ async function apiCall(widget, endpoint, service) {
   }
 
   if (status !== 200) {
-    logger.error("Error getting data from Homebridge: %s status %d. Data: %s", url, status, data);
+    logger.error("Error getting data from Homebridge: %s status %d. Data: %s", url, status, JSON.stringify(data));
     return { status, contentType, data: null, responseHeaders };
   }
 

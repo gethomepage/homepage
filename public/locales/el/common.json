@@ -162,7 +162,8 @@
         "playing": "Αναπαράγει",
         "transcoding": "Μετακωδικοποίηση",
         "bitrate": "Ρυθμός bit",
-        "no_active": "Δεν υπάρχουν ενεργές ροές"
+        "no_active": "Δεν υπάρχουν ενεργές ροές",
+        "plex_connection_error": "Έλεγχος Σύνδεσης με Plex"
     },
     "nzbget": {
         "rate": "Ρυθμός",
@@ -206,7 +207,9 @@
     "sonarr": {
         "series": "Σειρές",
         "wanted": "Επιθυμούντε",
-        "queued": "Σε σειρά"
+        "queued": "Σε σειρά",
+        "queue": "Ούρα",
+        "unknown": "Άγνωστο"
     },
     "downloadstation": {
         "download": "Μεταφόρτωση",
@@ -218,12 +221,14 @@
         "wanted": "Επιθυμούντε",
         "missing": "Απουσιάζει",
         "queued": "Σε σειρά",
-        "movies": "Ταινίες"
+        "movies": "Ταινίες",
+        "queue": "Ουρά",
+        "unknown": "Άγνωστο"
     },
     "lidarr": {
         "wanted": "Θέλετε",
         "queued": "Στη σειρά",
-        "albums": "Δίσκοι"
+        "artists": "Καλλιτέχνες"
     },
     "readarr": {
         "wanted": "Θέλετε",
@@ -232,17 +237,17 @@
     },
     "bazarr": {
         "missingEpisodes": "Επεισόδια που λείπουν",
-        "missingMovies": "Missing Movies"
+        "missingMovies": "Ταινίες που Λείπουν"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Σε εκκρεμότητα",
+        "approved": "Εγκρίθηκε",
+        "available": "Διαθέσιμο"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Σε εκκρεμότητα",
+        "approved": "Εγκρίθηκε",
+        "available": "Διαθέσιμο"
     },
     "overseerr": {
         "pending": "Pending",
@@ -252,25 +257,25 @@
     },
     "pihole": {
         "queries": "Queries",
-        "blocked": "Blocked",
+        "blocked": "Αποκλεισμένο",
         "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Αποκλεισμένο %"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Αναζητήσεις",
+        "blocked": "Αποκλεισμένο",
+        "filtered": "Φιλτραρισμένα",
+        "latency": "Καθυστέρηση"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Ανέβασμα",
+        "download": "Λήψη",
         "ping": "Ping"
     },
     "portainer": {
         "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "stopped": "Σταματημένο",
+        "total": "Σύνολο"
     },
     "tdarr": {
         "queue": "Queue",
@@ -355,12 +360,22 @@
     },
     "glances": {
         "cpu": "CPU",
-        "mem": "MEM",
         "wait": "Please wait",
         "temp": "TEMP",
         "uptime": "UP",
         "days": "d",
-        "hours": "h"
+        "hours": "h",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "load": "Load",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -548,7 +563,7 @@
         "records_total": "Queue Length"
     },
     "pterodactyl": {
-        "servers": "Servers",
+        "servers": "Διακομιστές",
         "nodes": "Nodes"
     },
     "prometheus": {
@@ -580,22 +595,22 @@
         "shows": "Εκπομπές",
         "recordings": "Εγγραφές",
         "scheduled": "Προγραμματισμένα",
-        "passes": "Passes"
+        "passes": "Περάσματα"
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
     "tailscale": {
-        "address": "Address",
-        "never": "Never",
+        "address": "Διεύθυνση",
+        "never": "Ποτέ",
         "years": "{{number}}y",
         "weeks": "{{number}}w",
         "days": "{{number}}d",
         "hours": "{{number}}h",
-        "expires": "Expires",
+        "expires": "Λήγει",
         "last_seen": "Last Seen",
-        "now": "Now",
+        "now": "Τώρα",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
@@ -606,7 +621,7 @@
         "systemTempC": "Θερμοκρασία συστήματος",
         "poolUsage": "Χρήση πισίνας",
         "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "invalid": "Μη έγκυρο"
     },
     "pfsense": {
         "load": "Load Avg",
@@ -636,5 +651,60 @@
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "myPrs": "My PRs",
+        "approved": "Approved",
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

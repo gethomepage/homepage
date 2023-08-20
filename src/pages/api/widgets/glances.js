@@ -40,20 +40,32 @@ async function retrieveFromGlancesAPI(privateWidgetOptions, endpoint) {
 }
 
 export default async function handler(req, res) {
-  const { index } = req.query;
+  const { index, cputemp: includeCpuTemp, uptime: includeUptime, disk: includeDisks } = req.query;
 
   const privateWidgetOptions = await getPrivateWidgetOptions("glances", index);
 
   try {
-    const quicklookData = await retrieveFromGlancesAPI(privateWidgetOptions, "quicklook");
-
+    const cpuData = await retrieveFromGlancesAPI(privateWidgetOptions, "cpu");
+    const loadData = await retrieveFromGlancesAPI(privateWidgetOptions, "load");
+    const memoryData = await retrieveFromGlancesAPI(privateWidgetOptions, "mem");
     const data = {
-      quicklook: quicklookData
+      cpu: cpuData,
+      load: loadData,
+      mem: memoryData,
     }
-    
-    data.uptime = await retrieveFromGlancesAPI(privateWidgetOptions, "uptime");
-    
-    data.sensors = await retrieveFromGlancesAPI(privateWidgetOptions, "sensors");
+
+    // Disabled by default, dont call unless needed
+    if (includeUptime) {
+      data.uptime = await retrieveFromGlancesAPI(privateWidgetOptions, "uptime");
+    }
+
+    if (includeCpuTemp) {
+      data.sensors = await retrieveFromGlancesAPI(privateWidgetOptions, "sensors");
+    }
+
+    if (includeDisks) {
+      data.fs = await retrieveFromGlancesAPI(privateWidgetOptions, "fs");
+    }
 
     return res.status(200).send(data);
   } catch (e) {

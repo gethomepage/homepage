@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
+import Container from "../widget/container";
+import Raw from "../widget/raw";
+
 const textSizes = {
   "4xl": "text-4xl",
   "3xl": "text-3xl",
@@ -17,7 +20,7 @@ export default function DateTime({ options }) {
   const { i18n } = useTranslation();
   const [date, setDate] = useState("");
   const dateLocale = locale ?? i18n.language;
-  
+
   useEffect(() => {
     const dateFormat = new Intl.DateTimeFormat(dateLocale, { ...format });
     const interval = setInterval(() => {
@@ -27,12 +30,14 @@ export default function DateTime({ options }) {
   }, [date, setDate, dateLocale, format]);
 
   return (
-    <div className="flex flex-col justify-center first:ml-0 ml-4">
-      <div className="flex flex-row items-center grow justify-end">
-        <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>
-          {date}
-        </span>
-      </div>
-    </div>
+    <Container options={options}>
+      <Raw>
+        <div className="flex flex-row items-center grow justify-end">
+          <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>
+            {date}
+          </span>
+        </div>
+      </Raw>
+    </Container>
   );
 }

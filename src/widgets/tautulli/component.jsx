@@ -122,8 +122,8 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
-  if (activityError) {
-    return <Container service={service} error={activityError} />;
+  if (activityError || (activityData && Object.keys(activityData.response.data).length === 0)) {
+    return <Container service={service} error={activityError ?? { message: t("tautulli.plex_connection_error") } } />;
   }
 
   if (!activityData) {

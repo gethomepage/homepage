@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { join } from "path";
-import { existsSync, readFileSync, copyFileSync } from "fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync } from "fs";
 
 import cache from "memory-cache";
 import yaml from "js-yaml";
@@ -9,8 +9,14 @@ const cacheKey = "homepageEnvironmentVariables";
 const homepageVarPrefix = "HOMEPAGE_VAR_";
 const homepageFilePrefix = "HOMEPAGE_FILE_";
 
+export const CONF_DIR = process.env.HOMEPAGE_CONFIG_DIR ? process.env.HOMEPAGE_CONFIG_DIR : join(process.cwd(), "config");
+
 export default function checkAndCopyConfig(config) {
-  const configYaml = join(process.cwd(), "config", config);
+  if (!existsSync(CONF_DIR)) {
+      mkdirSync(CONF_DIR, { recursive: true });
+  }
+
+  const configYaml = join(CONF_DIR, config);
   if (!existsSync(configYaml)) {
     const configSkeleton = join(process.cwd(), "src", "skeleton", config);
     try {
@@ -62,8 +68,22 @@ export function substituteEnvironmentVars(str) {
 export function getSettings() {
   checkAndCopyConfig("settings.yaml");
 
-  const settingsYaml = join(process.cwd(), "config", "settings.yaml");
+  const settingsYaml = join(CONF_DIR, "settings.yaml");
   const rawFileContents = readFileSync(settingsYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
-  return yaml.load(fileContents) ?? {};
+  const initialSettings = yaml.load(fileContents) ?? {};
+
+  if (initialSettings.layout) {
+    // support yaml list but old spec was object so convert to that
+    // see https://github.com/benphelps/homepage/issues/1546
+    if (Array.isArray(initialSettings.layout)) {
+      const layoutItems = initialSettings.layout
+      initialSettings.layout = {}
+      layoutItems.forEach(i => {
+        const name = Object.keys(i)[0]
+        initialSettings.layout[name] = i[name]
+      })
+    }
+  }
+  return initialSettings
 }

@@ -15,13 +15,23 @@
         "transferRate": "レート"
     },
     "glances": {
-        "mem": "MEM",
         "cpu": "CPU",
         "wait": "お待ちください",
         "temp": "温度",
         "uptime": "UP",
         "days": "日",
-        "hours": "時間"
+        "hours": "時間",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
     },
     "autobrr": {
         "filters": "フィルター",
@@ -59,7 +69,7 @@
     "resources": {
         "cpu": "CPU",
         "total": "合計",
-        "free": "フリー",
+        "free": "Free",
         "used": "使用",
         "load": "ロード",
         "mem": "MEM",
@@ -132,7 +142,8 @@
         "playing": "再生中",
         "transcoding": "変換中",
         "bitrate": "ビットレート",
-        "no_active": "アクティブストリームなし"
+        "no_active": "アクティブストリームなし",
+        "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
         "connectedAp": "接続されたAP",
@@ -189,18 +200,22 @@
     "sonarr": {
         "wanted": "募集中",
         "queued": "待機中",
-        "series": "シリーズ"
+        "series": "シリーズ",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "募集中",
         "missing": "不明",
         "queued": "キュー",
-        "movies": "映画"
+        "movies": "映画",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "募集中",
         "queued": "キュー",
-        "albums": "アルバム"
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "募集中",
@@ -231,7 +246,7 @@
         "queries": "クエリ",
         "blocked": "ブロック中",
         "gravity": "グラビティ",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "ブロック %"
     },
     "adguard": {
         "queries": "クエリ",
@@ -601,11 +616,11 @@
         "ago": "{{value}} 前"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
+        "cpuUsage": "CPU使用量",
+        "memUsage": "MEM使用量",
+        "systemTempC": "システム温度",
+        "poolUsage": "プール使用量",
+        "volumeUsage": "ボリューム使用量",
         "invalid": "Invalid"
     },
     "pfsense": {
@@ -625,16 +640,71 @@
     },
     "evcc": {
         "watt_hour": "Wh",
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger"
+        "pv_power": "発電量",
+        "battery_soc": "バッテリー",
+        "grid_power": "グリッド",
+        "home_power": "消費",
+        "charge_power": "チャージャー"
     },
     "pialert": {
         "total": "Total",
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
+    },
+    "jdownloader": {
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size"
+    },
+    "kavita": {
+        "seriesCount": "Series",
+        "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
+    "urbackup": {
+        "ok": "Ok",
+        "errored": "Errors",
+        "noRecent": "Out of Date",
+        "totalUsed": "Used Storage"
+    },
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     }
 }

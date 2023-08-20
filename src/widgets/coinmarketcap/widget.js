@@ -7,7 +7,8 @@ const widget = {
   mappings: {
     "v1/cryptocurrency/quotes/latest": {
       endpoint: "v1/cryptocurrency/quotes/latest",
-      params: ["symbol", "convert"],
+      params: ["convert"],
+      optionalParams: ["symbol", "slug"],
     },
   },
 };
