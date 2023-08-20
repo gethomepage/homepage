@@ -32,13 +32,14 @@ function Widget({ options }) {
   }
 
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
+  const description = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
 
   const condition = data.weather[0].id;
   const timeOfDay = data.dt > data.sys.sunrise && data.dt < data.sys.sunset ? "day" : "night";
 
   return <Container options={options}>
     <PrimaryText>{options.label && `${options.label}, ` }{t("common.number", { value: data.main.temp, style: "unit", unit })}</PrimaryText>
-    <SecondaryText>{data.weather[0].description}</SecondaryText>
+    <SecondaryText>{description}</SecondaryText>
     <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
   </Container>;
 }
