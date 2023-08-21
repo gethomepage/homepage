@@ -29,9 +29,9 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="calibreweb.books" value={t("common.number", { value: booksData.feed.entry.length })} />
-      <Block label="calibreweb.authors" value={t("common.number", { value: authorsData.feed.entry.length })} />
-      <Block label="calibreweb.series" value={t("common.number", { value: seriesData.feed.entry.length })} />
+      <Block label="calibreweb.books" value={t("common.number", { value: booksData.feed.entry?.length ?? 0 })} />
+      <Block label="calibreweb.authors" value={t("common.number", { value: authorsData.feed.entry?.length ?? 0 })} />
+      <Block label="calibreweb.series" value={t("common.number", { value: seriesData.feed.entry?.length ?? 0 })} />
     </Container>
   );
 }
