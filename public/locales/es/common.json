@@ -706,5 +706,10 @@
         "users": "Usuarios",
         "categories": "Categorías",
         "tags": "Etiquetas"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series"
     }
 }
