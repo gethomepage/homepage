@@ -7,6 +7,10 @@ import Raw from "./raw";
 
 export function getAllClasses(options, additionalClassNames = '') {
   if (options?.style?.header === "boxedWidgets") {
+    if (options?.style?.cardBlur !== undefined) {
+      additionalClassNames = additionalClassNames.concat(additionalClassNames, ` backdrop-blur${options.style.cardBlur.length ? '-' : ""}${options.style.cardBlur}`)
+    }
+
     return classNames(
       "flex flex-col justify-center first:ml-0 ml-2 mr-2",
       "mt-2 m:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-2 pl-3 pr-3",
