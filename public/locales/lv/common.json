@@ -711,5 +711,11 @@
         "books": "Books",
         "authors": "Authors",
         "series": "Series"
+    },
+    "atsumeru": {
+        "chapters": "Chapters",
+        "series": "Series",
+        "archives": "Archives",
+        "categories": "Categories"
     }
 }
