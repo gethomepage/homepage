@@ -8,6 +8,7 @@ import Raw from "./raw";
 export function getAllClasses(options, additionalClassNames = '') {
   if (options?.style?.header === "boxedWidgets") {
     if (options?.style?.cardBlur !== undefined) {
+      // eslint-disable-next-line no-param-reassign
       additionalClassNames = additionalClassNames.concat(additionalClassNames, ` backdrop-blur${options.style.cardBlur.length ? '-' : ""}${options.style.cardBlur}`)
     }
 
