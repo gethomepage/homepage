@@ -708,14 +708,14 @@
         "tags": "Étiquettes"
     },
     "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series"
+        "books": "Ebooks",
+        "authors": "Auteurs",
+        "series": "Séries"
     },
     "atsumeru": {
-        "series": "Series",
+        "series": "Séries",
         "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "chapters": "Chapitres",
+        "categories": "Catégories"
     }
 }
