@@ -492,6 +492,12 @@
         "incident": "Инцидент",
         "m": "м"
     },
+    "atsumeru": {
+        "series": "Серии",
+        "archives": "Архивы",
+        "chapters": "Главы",
+        "categories": "Категории"
+    },
     "komga": {
         "libraries": "Библиотеки",
         "series": "Серии",

@@ -492,6 +492,12 @@
         "incident": "Slučaj",
         "m": "min"
     },
+    "atsumeru": {
+        "series": "Serije",
+        "archives": "Archívum",
+        "chapters": "Fejezetek",
+        "categories": "Kategóriák"
+    },
     "komga": {
         "libraries": "Biblioteke",
         "series": "Serije",

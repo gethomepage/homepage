@@ -513,6 +513,12 @@
         "incident": "Incident",
         "m": "m"
     },
+    "atsumeru": {
+        "series": "시리즈",
+        "archives": "아카이브",
+        "chapters": "챕터",
+        "categories": "카테고리"
+    },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",

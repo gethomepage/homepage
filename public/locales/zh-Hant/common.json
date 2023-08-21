@@ -492,6 +492,12 @@
         "incident": "事件",
         "m": "m"
     },
+    "atsumeru": {
+        "series": "系列",
+        "archives": "档案",
+        "chapters": "章节",
+        "categories": "类别"
+    },
     "komga": {
         "libraries": "文庫",
         "series": "叢刊",
