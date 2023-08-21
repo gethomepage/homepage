@@ -706,5 +706,16 @@
         "users": "Users",
         "categories": "Categories",
         "tags": "Tags"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series"
+    },
+    "atsumeru": {
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories",
+        "series": "Series"
     }
 }

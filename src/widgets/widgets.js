@@ -1,10 +1,12 @@
 import adguard from "./adguard/widget";
+import atsumeru from "./atsumeru/widget";
 import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
 import azuredevops from "./azuredevops/widget";
 import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
+import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
@@ -95,12 +97,14 @@ import urbackup from "./urbackup/widget";
 
 const widgets = {
   adguard,
+  atsumeru,
   audiobookshelf,
   authentik,
   autobrr,
   azuredevops,
   bazarr,
   caddy,
+  calibreweb,
   changedetectionio,
   channelsdvrserver,
   cloudflared,

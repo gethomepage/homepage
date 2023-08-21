@@ -2,12 +2,14 @@ import dynamic from "next/dynamic";
 
 const components = {
   adguard: dynamic(() => import("./adguard/component")),
+  atsumeru: dynamic(() => import("./atsumeru/component")),
   audiobookshelf: dynamic(() => import("./audiobookshelf/component")),
   authentik: dynamic(() => import("./authentik/component")),
   autobrr: dynamic(() => import("./autobrr/component")),
   azuredevops: dynamic(() => import("./azuredevops/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
   caddy: dynamic(() => import("./caddy/component")),
+  calibreweb: dynamic(() => import("./calibreweb/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   channelsdvrserver: dynamic(() => import("./channelsdvrserver/component")),
   cloudflared: dynamic(() => import("./cloudflared/component")),

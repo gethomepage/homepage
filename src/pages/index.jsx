@@ -257,8 +257,9 @@ function Home({ initialSettings }) {
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <div
           className={classNames(
-            "flex flex-row flex-wrap  justify-between",
-            headerStyles[headerStyle]
+            "flex flex-row flex-wrap justify-between",
+            headerStyles[headerStyle],
+            initialSettings.cardBlur !== undefined && headerStyle === "boxed" && `backdrop-blur${initialSettings.cardBlur.length ? '-' : ""}${initialSettings.cardBlur}`
           )}
         >
           <QuickLaunch
@@ -274,7 +275,7 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false}} />
+                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false, cardBlur: initialSettings.cardBlur }} />
                 ))}
 
               <div className={classNames(
@@ -284,7 +285,7 @@ function Home({ initialSettings }) {
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true}} />
+                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true, cardBlur: initialSettings.cardBlur }} />
                   ))}
               </div>
             </>
