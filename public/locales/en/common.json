@@ -667,11 +667,6 @@
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
-    "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series"
-    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
