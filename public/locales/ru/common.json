@@ -708,9 +708,9 @@
         "tags": "Tags"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "series": "Серии",
+        "archives": "Архивы",
+        "chapters": "Главы",
+        "categories": "Категории"
     }
 }
