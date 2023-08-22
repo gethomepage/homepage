@@ -96,7 +96,7 @@ export default function Component({ service }) {
           </div>
         )}
 
-        {quicklookData && quicklookData.swap && (
+        {quicklookData && quicklookData.swap !== 0 && (
           <div className="text-xs opacity-25 flex place-content-between">
             <div>{t("glances.swap")}</div>
             <div className="opacity-75">
