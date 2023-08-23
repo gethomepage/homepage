@@ -709,8 +709,8 @@
     },
     "atsumeru": {
         "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "archives": "Archivos",
+        "chapters": "Capítulos",
+        "categories": "Categorías"
     }
 }
