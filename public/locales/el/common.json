@@ -150,9 +150,9 @@
     },
     "flood": {
         "download": "Λήξη",
-        "upload": "Φόρτωση",
-        "leech": "Αφαίμαξη",
-        "seed": "Σπείρε"
+        "upload": "Μεταφόρτωση",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "changedetectionio": {
         "totalObserved": "Συνολικά παρατηρηθείσα",
@@ -212,8 +212,8 @@
         "unknown": "Άγνωστο"
     },
     "downloadstation": {
-        "download": "Μεταφόρτωση",
-        "upload": "Φόρτωση",
+        "download": "Λήψη",
+        "upload": "Μεταφόρτωση",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -589,7 +589,7 @@
     },
     "freshrss": {
         "subscriptions": "Συνδρομές",
-        "unread": "Αδιάβαστο"
+        "unread": "Μη Διαβασμένο"
     },
     "channelsdvrserver": {
         "shows": "Εκπομπές",
