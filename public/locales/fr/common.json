@@ -670,9 +670,9 @@
         "maxPlayers": "Joueurs max",
         "bots": "Bots",
         "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "status": "Statut",
+        "online": "En ligne",
+        "offline": "Hors ligne"
     },
     "azuredevops": {
         "result": "Résultat",
@@ -692,5 +692,25 @@
         "errored": "Erreur",
         "noRecent": "Obsolète",
         "totalUsed": "Esp. Utilisé"
+    },
+    "openmediavault": {
+        "downloading": "Téléchargement",
+        "total": "Total",
+        "running": "Démarré",
+        "stopped": "Arrêté",
+        "passed": "Réussi",
+        "failed": "Échoué"
+    },
+    "mealie": {
+        "recipes": "Recettes",
+        "users": "Utilisateurs",
+        "categories": "Catégories",
+        "tags": "Étiquettes"
+    },
+    "atsumeru": {
+        "series": "Séries",
+        "archives": "Archives",
+        "chapters": "Chapitres",
+        "categories": "Catégories"
     }
 }

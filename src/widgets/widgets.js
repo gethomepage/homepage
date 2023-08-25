@@ -1,4 +1,5 @@
 import adguard from "./adguard/widget";
+import atsumeru from "./atsumeru/widget";
 import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
@@ -36,6 +37,7 @@ import komga from "./komga/widget";
 import kopia from "./kopia/widget";
 import lidarr from "./lidarr/widget";
 import mastodon from "./mastodon/widget";
+import mealie from "./mealie/widget";
 import medusa from "./medusa/widget";
 import minecraft from "./minecraft/widget";
 import miniflux from "./miniflux/widget";
@@ -53,6 +55,7 @@ import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
+import openmediavault from "./openmediavault/widget";
 import paperlessngx from "./paperlessngx/widget";
 import pfsense from "./pfsense/widget";
 import photoprism from "./photoprism/widget";
@@ -94,6 +97,7 @@ import urbackup from "./urbackup/widget";
 
 const widgets = {
   adguard,
+  atsumeru,
   audiobookshelf,
   authentik,
   autobrr,
@@ -132,6 +136,7 @@ const widgets = {
   kopia,
   lidarr,
   mastodon,
+  mealie,
   medusa,
   minecraft,
   miniflux,
@@ -149,6 +154,7 @@ const widgets = {
   ombi,
   opnsense,
   overseerr,
+  openmediavault,
   paperlessngx,
   pfsense,
   photoprism,

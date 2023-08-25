@@ -55,6 +55,10 @@ export default async function handler(req, res) {
           req.query.endpoint = `${req.query.endpoint}?${query}`;
         }
 
+        if (mapping?.headers) {
+          req.extraHeaders = mapping.headers;
+        }
+
         if (endpointProxy instanceof Function) {
           return endpointProxy(req, res, map);
         }
