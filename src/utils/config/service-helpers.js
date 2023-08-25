@@ -299,6 +299,8 @@ export function cleanServiceGroups(groups) {
           stream, // mjpeg
           fit,
           method, // openmediavault widget
+          mappings, // custom widget
+          refreshInterval,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -371,6 +373,10 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "openmediavault") {
           if (method) cleanedService.widget.method = method;
+        }
+        if (type === "custom") {
+          if (mappings) cleanedService.widget.mappings = mappings;
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
       }
 
