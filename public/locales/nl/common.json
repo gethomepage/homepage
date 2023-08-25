@@ -229,7 +229,7 @@
         "devices": "Apparaten",
         "lan_devices": "LAN Apparaten",
         "wlan_devices": "WLAN Apparaten",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Subsystem status onbekend"
     },
     "plex": {
         "streams": "Actieve Streams",
