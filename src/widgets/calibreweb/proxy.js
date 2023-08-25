@@ -1,5 +1,3 @@
-import { xml2json } from "xml-js";
-
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
@@ -45,13 +43,7 @@ async function apiCall(widget, endpoint) {
     return { status, contentType, data: null };
   }
 
-  try {
-    const dataDecoded = xml2json(data.toString(), { compact: true });
-    return {status, data: JSON.parse(dataDecoded), contentType};
-  } catch (e) {
-    logger.error("Error decoding CalibreWeb API data. Data: %s", data.toString());
-    return {status, data: null, contentType};
-  }
+  return {status, data: JSON.parse(data), contentType};
 }
 
 export default async function calibreWebProxyHandler(req, res) {

@@ -8,16 +8,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const { data: booksData, error: booksError } = useWidgetAPI(widget, "books");
-  const { data: authorsData, error: authorsError } = useWidgetAPI(widget, "authors");
-  const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "series");
+  const { data, error } = useWidgetAPI(widget, "stats");
 
-  if (booksError || authorsError || seriesError) {
-    const finalError = booksError ?? authorsError ?? seriesError;
-    return <Container service={service} error={finalError} />;
+  if (error) {
+    return <Container service={service} error={error} />;
   }
 
-  if (!booksData || !authorsData || !seriesData) {
+  if (!data) {
     return (
       <Container service={service}>
         <Block label="calibreweb.books" />
@@ -29,9 +26,9 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="calibreweb.books" value={t("common.number", { value: booksData.feed.entry?.length ?? 0 })} />
-      <Block label="calibreweb.authors" value={t("common.number", { value: authorsData.feed.entry?.length ?? 0 })} />
-      <Block label="calibreweb.series" value={t("common.number", { value: seriesData.feed.entry?.length ?? 0 })} />
+      <Block label="calibreweb.books" value={t("common.number", { value: data.books })} />
+      <Block label="calibreweb.authors" value={t("common.number", { value: data.authors })} />
+      <Block label="calibreweb.series" value={t("common.number", { value: data.series })} />
     </Container>
   );
 }
