@@ -712,5 +712,11 @@
         "archives": "Архіви",
         "chapters": "Глави",
         "categories": "Категорії"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
     }
 }
