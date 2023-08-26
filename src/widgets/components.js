@@ -9,6 +9,7 @@ const components = {
   azuredevops: dynamic(() => import("./azuredevops/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
   caddy: dynamic(() => import("./caddy/component")),
+  calibreweb: dynamic(() => import("./calibreweb/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   channelsdvrserver: dynamic(() => import("./channelsdvrserver/component")),
   cloudflared: dynamic(() => import("./cloudflared/component")),
