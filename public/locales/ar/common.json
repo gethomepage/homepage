@@ -712,5 +712,11 @@
         "chapters": "Chapters",
         "categories": "Categories",
         "series": "Series"
+    },
+    "calibreweb": {
+        "categories": "Categories",
+        "series": "Series",
+        "books": "Books",
+        "authors": "Authors"
     }
 }
