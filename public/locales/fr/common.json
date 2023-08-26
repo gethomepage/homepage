@@ -714,9 +714,9 @@
         "categories": "Catégories"
     },
     "calibreweb": {
-        "series": "Series",
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories"
+        "series": "Séries",
+        "books": "Ebooks",
+        "authors": "Auteurs",
+        "categories": "Catégories"
     }
 }
