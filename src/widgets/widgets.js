@@ -10,7 +10,7 @@ import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
-import custom from "./custom/widget";
+import customapi from "./customapi/widget";
 import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
@@ -108,7 +108,7 @@ const widgets = {
   channelsdvrserver,
   cloudflared,
   coinmarketcap,
-  custom,
+  customapi,
   deluge,
   diskstation,
   downloadstation,

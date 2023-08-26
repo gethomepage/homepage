@@ -299,7 +299,7 @@ export function cleanServiceGroups(groups) {
           stream, // mjpeg
           fit,
           method, // openmediavault widget
-          mappings, // custom widget
+          mappings, // customapi widget
           refreshInterval,
         } = cleanedService.widget;
 
@@ -374,7 +374,7 @@ export function cleanServiceGroups(groups) {
         if (type === "openmediavault") {
           if (method) cleanedService.widget.method = method;
         }
-        if (type === "custom") {
+        if (type === "customapi") {
           if (mappings) cleanedService.widget.mappings = mappings;
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
