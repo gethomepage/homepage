@@ -431,7 +431,7 @@
     },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
+        "active": "Ενεργό",
         "queue": "Queue",
         "total": "Total"
     },
