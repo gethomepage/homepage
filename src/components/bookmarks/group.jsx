@@ -18,7 +18,7 @@ export default function BookmarksGroup({ group, disableCollapse }) {
           <MdKeyboardArrowDown className={classNames(
             disableCollapse ? 'hidden' : '',
             'transition-all opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl',
-            open ? '' : 'rotate-90'
+            open ? '' : 'rotate-180'
             )} />
         </Disclosure.Button>
         <Transition
