@@ -19,6 +19,7 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="calibreweb.books" />
         <Block label="calibreweb.authors" />
+        <Block label="calibreweb.categories" />
         <Block label="calibreweb.series" />
       </Container>
     );
@@ -28,6 +29,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="calibreweb.books" value={t("common.number", { value: data.books })} />
       <Block label="calibreweb.authors" value={t("common.number", { value: data.authors })} />
+      <Block label="calibreweb.categories" value={t("common.number", { value: data.categories })} />
       <Block label="calibreweb.series" value={t("common.number", { value: data.series })} />
     </Container>
   );
