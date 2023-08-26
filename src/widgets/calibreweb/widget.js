@@ -1,8 +1,8 @@
-import calibreWebProxyHandler from "./proxy";
+import genericProxyHandler from "../../utils/proxy/handlers/generic";
 
 const widget = {
   api: "{url}/{endpoint}",
-  proxyHandler: calibreWebProxyHandler,
+  proxyHandler: genericProxyHandler,
 
   mappings: {
     stats: {
