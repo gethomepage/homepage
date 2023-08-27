@@ -48,7 +48,7 @@
         "bitrate": "Tasa de bits",
         "no_active": "Sin transmisiones activas",
         "movies": "Películas",
-        "series": "Serie",
+        "series": "Series",
         "episodes": "Episodios",
         "songs": "Canciones"
     },
@@ -234,7 +234,7 @@
     "plex": {
         "streams": "Transmisiones activas",
         "movies": "Películas",
-        "tv": "Series",
+        "tv": "Programas de televisión",
         "albums": "Álbumes"
     },
     "glances": {
@@ -461,7 +461,7 @@
     "medusa": {
         "wanted": "Querido",
         "queued": "A la espera",
-        "series": "Serie"
+        "series": "Series"
     },
     "octoprint": {
         "temp_bed": "Temperatura de la plataforma",
@@ -659,7 +659,7 @@
         "downloadTotalBytes": "Tamaño"
     },
     "kavita": {
-        "seriesCount": "Serie",
+        "seriesCount": "Series",
         "totalFiles": "Archivos"
     },
     "gamedig": {
@@ -714,9 +714,9 @@
         "categories": "Categorías"
     },
     "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
+        "books": "Libros",
+        "authors": "Autores",
+        "categories": "Categorías",
         "series": "Series"
     }
 }
