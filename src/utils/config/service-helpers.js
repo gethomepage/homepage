@@ -161,7 +161,7 @@ export async function servicesFromKubernetes() {
     const traefikIngressListContaino = await crd.listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
       .then((response) => response.body)
       .catch(async (error) => {
-        if (error.statusCode != 404) {
+        if (error.statusCode !== 404) {
           logger.error("Error getting traefik ingresses from traefik.containo.us: %d %s %s", error.statusCode, error.body, error.response);
         }
 
@@ -171,7 +171,7 @@ export async function servicesFromKubernetes() {
     const traefikIngressListIo = await crd.listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
       .then((response) => response.body)
       .catch(async (error) => {
-        if (error.statusCode != 404) {
+        if (error.statusCode !== 404) {
           logger.error("Error getting traefik ingresses from traefik.io: %d %s %s", error.statusCode, error.body, error.response);
         }        return null;
       });
