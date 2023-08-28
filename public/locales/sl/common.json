@@ -169,7 +169,7 @@
         "bitrate": "Pasovna širina",
         "playing": "Predvaja",
         "no_active": "Ni aktivne vsebine",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Preveri Plex povezavo"
     },
     "flood": {
         "download": "Prenos",
@@ -365,9 +365,9 @@
         "warn": "Opoz.",
         "total": "Skupaj",
         "used": "V uporabi",
-        "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "crit": "Krit.",
+        "read": "Prebrano",
+        "write": "Zapisano",
         "gpu": "GPU",
         "mem": "Mem",
         "swap": "Swap"
@@ -663,60 +663,60 @@
         "totalFiles": "Datoteke"
     },
     "gamedig": {
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
+        "name": "Naziv",
+        "map": "Zemljevid",
+        "currentPlayers": "Igralcev",
+        "players": "Igralci",
+        "maxPlayers": "Maks igralcev",
+        "bots": "Boti",
         "ping": "Ping",
         "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "online": "Na spletu",
+        "offline": "Nepovezano"
     },
     "azuredevops": {
-        "result": "Result",
+        "result": "Rezultati",
         "status": "Status",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Approved"
+        "buildId": "ID gradnje",
+        "succeeded": "Uspešnih",
+        "notStarted": "Ni zagnano",
+        "failed": "Neuspešno",
+        "canceled": "Preklicano",
+        "inProgress": "V delu",
+        "totalPrs": "Skupaj PR",
+        "myPrs": "Moji PR",
+        "approved": "Odobreno"
     },
     "urbackup": {
-        "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "ok": "V redu",
+        "errored": "Napake",
+        "noRecent": "Zastarano",
+        "totalUsed": "Shramba v uporabi"
     },
     "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "downloading": "Prenašanje",
+        "total": "Skupaj",
+        "running": "V teku",
+        "stopped": "Ustavljeno",
+        "passed": "Opravljeno",
+        "failed": "Neuspešno"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "Recepti",
+        "users": "Uporabniki",
+        "categories": "Kategorije",
+        "tags": "Značke"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "series": "Serije",
+        "archives": "Arhivi",
+        "chapters": "Poglavja",
+        "categories": "Kategorije"
     },
     "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+        "books": "Knjige",
+        "authors": "Avtorji",
+        "categories": "Kategorije",
+        "series": "Serije"
     }
 }
