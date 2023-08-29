@@ -213,8 +213,8 @@ function Home({ initialSettings }) {
 
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.target.tagName === "BODY") {
-        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+      if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
+        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.code === "Tab")) {
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");
@@ -255,6 +255,14 @@ function Home({ initialSettings }) {
         <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
+        <QuickLaunch
+          servicesAndBookmarks={servicesAndBookmarks}
+          searchString={searchString}
+          setSearchString={setSearchString}
+          isOpen={searching}
+          close={setSearching}
+          searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
+        />
         <div
           className={classNames(
             "flex flex-row flex-wrap justify-between",
@@ -262,14 +270,6 @@ function Home({ initialSettings }) {
             initialSettings.cardBlur !== undefined && headerStyle === "boxed" && `backdrop-blur${initialSettings.cardBlur.length ? '-' : ""}${initialSettings.cardBlur}`
           )}
         >
-          <QuickLaunch
-            servicesAndBookmarks={servicesAndBookmarks}
-            searchString={searchString}
-            setSearchString={setSearchString}
-            isOpen={searching}
-            close={setSearching}
-            searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
-          />
           {widgets && (
             <>
               {widgets
@@ -375,6 +375,7 @@ export default function Wrapper({ initialSettings, fallback }) {
       >
         <div
         id="inner_wrapper"
+        tabindex="-1"
         className={classNames(
           'fixed overflow-auto w-full h-full',
           backgroundBlur && `backdrop-blur${initialSettings.background.blur.length ? '-' : ""}${initialSettings.background.blur}`,
