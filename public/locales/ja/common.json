@@ -210,7 +210,7 @@
         "queued": "キュー",
         "movies": "映画",
         "queue": "キュー",
-        "unknown": "不明"
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "募集中",
