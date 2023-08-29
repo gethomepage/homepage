@@ -718,5 +718,19 @@
         "categories": "Categories",
         "authors": "Authors",
         "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Status",
+        "notyetchecked": "Not Yet Checked",
+        "downDuration": "Downtime Duration",
+        "uptime": "Uptime",
+        "lastDown": "Last Downtime",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
+        "up": "Up",
+        "seemsdown": "Seems Down",
+        "down": "Down",
+        "unknown": "Unknown"
     }
 }
