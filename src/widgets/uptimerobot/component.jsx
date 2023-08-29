@@ -37,8 +37,6 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="uptimerobot.status" />
         <Block label="uptimerobot.uptime" />
-        <Block label="uptimerobot.lastDown" />
-        <Block label="uptimerobot.downDuration" />
       </Container>
     );
   }
