@@ -214,7 +214,7 @@ function Home({ initialSettings }) {
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
-        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.code === "Tab")) {
+        if (e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.code === "Tab")) {
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");
@@ -375,7 +375,7 @@ export default function Wrapper({ initialSettings, fallback }) {
       >
         <div
         id="inner_wrapper"
-        tabindex="-1"
+        tabIndex="-1"
         className={classNames(
           'fixed overflow-auto w-full h-full',
           backgroundBlur && `backdrop-blur${initialSettings.background.blur.length ? '-' : ""}${initialSettings.background.blur}`,
