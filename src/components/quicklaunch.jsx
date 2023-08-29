@@ -61,7 +61,6 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
     }
   }
 
-
   function handleItemHover(event) {
     setCurrentItemIndex(parseInt(event.target?.dataset?.index, 10));
   }
@@ -69,6 +68,16 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
   function handleItemClick(event) {
     closeAndReset();
     openCurrentItem(event.metaKey);
+  }
+
+  function handleItemKeyDown(event) {
+    if (!isOpen) return;
+
+    // native button handles other keys
+    if (event.key === "Escape") {
+      closeAndReset();
+      event.preventDefault();
+    }
   }
 
   useEffect(() => {
@@ -162,10 +171,10 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
             {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto m-2">
               {results.map((r, i) => (
                 <li key={r.container ?? r.app ?? `${r.name}-${r.href}`}>
-                  <button type="button" data-index={i} onMouseEnter={handleItemHover} className={classNames(
+                  <button type="button" data-index={i} onMouseEnter={handleItemHover} onClick={handleItemClick} onKeyDown={handleItemKeyDown} className={classNames(
                     "flex flex-row w-full items-center justify-between rounded-md text-sm md:text-xl py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
                     i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
-                    )} onClick={handleItemClick}>
+                    )}>
                     <div className="flex flex-row items-center mr-4 pointer-events-none">
                       {(r.icon || r.abbr) && <div className="w-5 text-xs mr-4">
                         {r.icon && <ResolvedIcon icon={r.icon} />}
