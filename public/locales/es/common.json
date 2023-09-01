@@ -720,17 +720,17 @@
         "series": "Series"
     },
     "uptimerobot": {
-        "status": "Status",
-        "uptime": "Uptime",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
-        "unknown": "Unknown"
+        "status": "Estado",
+        "uptime": "Tiempo de actividad",
+        "lastDown": "Último periodo de inactividad",
+        "downDuration": "Tiempo de inactividad",
+        "sitesUp": "Páginas web con conexión",
+        "sitesDown": "Páginas web caídas",
+        "paused": "Pausado",
+        "notyetchecked": "Aún no verificado",
+        "up": "Arriba",
+        "seemsdown": "Parece caída",
+        "down": "Abajo",
+        "unknown": "Desconocido"
     }
 }
