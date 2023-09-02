@@ -4,7 +4,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState, useMemo } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -209,7 +209,7 @@ function Home({ initialSettings }) {
       searchProvider = searchProviders[searchWidget.options?.provider];
     }
   }
-  const headerStyle = initialSettings?.headerStyle || "underlined";
+  const headerStyle = settings?.headerStyle || "underlined";
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -230,15 +230,55 @@ function Home({ initialSettings }) {
     }
   })
 
+  const servicesAndBookmarksGroups = useMemo(() => {
+    const mergedGroups = [
+      services?.length > 0 ? (
+        <div key="services" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+          {services.map((group) => (
+            <ServicesGroup
+              key={group.name}
+              group={group.name}
+              services={group}
+              layout={settings.layout?.[group.name]}
+              fiveColumns={settings.fiveColumns}
+              disableCollapse={settings.disableCollapse}
+            />
+          ))}
+        </div>
+      ) : null,
+      bookmarks?.length > 0 ? (
+        <div key="bookmarks" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+          {bookmarks.map((group) => (
+            <BookmarksGroup
+              key={group.name}
+              bookmarks={group}
+              layout={settings.layout?.[group.name]}
+              disableCollapse={settings.disableCollapse}
+            />
+          ))}
+        </div>
+      ) : null
+    ];
+
+    return settings.bookmarksOnTop ? mergedGroups.reverse() : mergedGroups;
+  }, [
+    services,
+    bookmarks,
+    settings.layout,
+    settings.fiveColumns,
+    settings.disableCollapse,
+    settings.bookmarksOnTop
+  ]);
+
   return (
     <>
       <Head>
-        <title>{initialSettings.title || "Homepage"}</title>
-        {initialSettings.base && <base href={initialSettings.base} />}
-        {initialSettings.favicon ? (
+        <title>{settings.title || "Homepage"}</title>
+        {settings.base && <base href={settings.base} />}
+        {settings.favicon ? (
           <>
-            <link rel="apple-touch-icon" sizes="180x180" href={initialSettings.favicon} />
-            <link rel="icon" href={initialSettings.favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
+            <link rel="icon" href={settings.favicon} />
           </>
         ) : (
           <>
@@ -248,11 +288,8 @@ function Home({ initialSettings }) {
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
           </>
         )}
-        <meta
-          name="msapplication-TileColor"
-          content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]}
-        />
-        <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
+        <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
+        <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
       </Head>
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <QuickLaunch
@@ -267,7 +304,7 @@ function Home({ initialSettings }) {
           className={classNames(
             "flex flex-row flex-wrap justify-between",
             headerStyles[headerStyle],
-            initialSettings.cardBlur !== undefined && headerStyle === "boxed" && `backdrop-blur${initialSettings.cardBlur.length ? '-' : ""}${initialSettings.cardBlur}`
+            settings.cardBlur !== undefined && headerStyle === "boxed" && `backdrop-blur${settings.cardBlur.length ? '-' : ""}${settings.cardBlur}`
           )}
         >
           {widgets && (
@@ -275,7 +312,7 @@ function Home({ initialSettings }) {
               {widgets
                 .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                 .map((widget, i) => (
-                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false, cardBlur: initialSettings.cardBlur }} />
+                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false, cardBlur: settings.cardBlur }} />
                 ))}
 
               <div className={classNames(
@@ -285,47 +322,24 @@ function Home({ initialSettings }) {
                 {widgets
                   .filter((widget) => rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true, cardBlur: initialSettings.cardBlur }} />
+                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true, cardBlur: settings.cardBlur }} />
                   ))}
               </div>
             </>
           )}
         </div>
 
-        {services?.length > 0 && (
-          <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
-            {services.map((group) => (
-              <ServicesGroup 
-                key={group.name}
-                group={group.name}
-                services={group}
-                layout={initialSettings.layout?.[group.name]}
-                fiveColumns={settings.fiveColumns} 
-                disableCollapse={settings.disableCollapse} />
-            ))}
-          </div>
-        )}
-
-        {bookmarks?.length > 0 && (
-          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
-            {bookmarks.map((group) => (
-              <BookmarksGroup
-                key={group.name}
-                group={group}
-                disableCollapse={settings.disableCollapse} />
-            ))}
-          </div>
-        )}
+        {servicesAndBookmarksGroups}
 
         <div className="flex flex-col mt-auto p-8 w-full">
           <div className="flex w-full justify-end">
-            {!initialSettings?.color && <ColorToggle />}
+            {!settings?.color && <ColorToggle />}
             <Revalidate />
-            {!initialSettings?.theme && <ThemeToggle />}
+            {!settings.theme && <ThemeToggle />}
           </div>
 
           <div className="flex mt-4 w-full justify-end">
-            {!initialSettings?.hideVersion && <Version />}
+            {!settings.hideVersion && <Version />}
           </div>
         </div>
       </div>
