@@ -30,7 +30,7 @@
         "transcoding": "Transcodifica",
         "bitrate": "Bitrate",
         "no_active": "Nessuno Stream Attivo",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Controllo Connessione a Plex"
     },
     "speedtest": {
         "upload": "Upload",
@@ -116,7 +116,7 @@
         "blocked_percent": "Bloccato %"
     },
     "npm": {
-        "enabled": "Attivi",
+        "enabled": "Abilitato",
         "disabled": "Disabilitati",
         "total": "Totali"
     },
@@ -156,7 +156,7 @@
     },
     "prowlarr": {
         "enableIndexers": "Indicizzatori",
-        "numberOfGrabs": "Grabs",
+        "numberOfGrabs": "Grab",
         "numberOfQueries": "Interrogazioni",
         "numberOfFailGrabs": "Grabs Falliti",
         "numberOfFailQueries": "Queries Fallite"
@@ -164,12 +164,12 @@
     "transmission": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "In scaricamento",
         "seed": "Seed"
     },
     "jackett": {
         "configured": "Configurato",
-        "errored": "Errore"
+        "errored": "In errore"
     },
     "bazarr": {
         "missingEpisodes": "Episodi Mancanti",
@@ -188,7 +188,7 @@
     },
     "qbittorrent": {
         "download": "Download",
-        "leech": "Leech",
+        "leech": "In scaricamento",
         "upload": "Upload",
         "seed": "Seed"
     },
@@ -242,18 +242,18 @@
         "wait": "Attendere prego",
         "temp": "TEMP",
         "uptime": "UP",
-        "days": "d",
-        "hours": "h",
+        "days": "g",
+        "hours": "o",
         "load": "Carico",
         "warn": "Avviso",
         "total": "Totale",
         "free": "Libero",
         "used": "Usato",
-        "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "crit": "Critico",
+        "read": "Lettura",
+        "write": "Scrittura",
         "gpu": "GPU",
-        "mem": "Mem",
+        "mem": "Mem.",
         "swap": "Swap"
     },
     "changedetectionio": {
@@ -331,7 +331,7 @@
         "updates": "Aggiornamenti",
         "update_available": "Aggiornamento Disponibile",
         "up_to_date": "Aggiornato",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "Bridge Figli",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
         "pending": "In attesa",
@@ -373,7 +373,7 @@
     "gluetun": {
         "public_ip": "IP pubblico",
         "region": "Località",
-        "country": "Stato"
+        "country": "Paese"
     },
     "hdhomerun": {
         "channels": "Canali",
@@ -395,13 +395,13 @@
     "deluge": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "In scaricamento",
         "seed": "Seed"
     },
     "flood": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "In scaricamento",
         "seed": "Seed"
     },
     "tdarr": {
@@ -432,7 +432,7 @@
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "In scaricamento",
         "seed": "Seed"
     },
     "mikrotik": {
@@ -465,8 +465,8 @@
     },
     "octoprint": {
         "printer_state": "Stato",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
+        "temp_tool": "Temp. utensile",
+        "temp_bed": "Temp. letto",
         "job_completion": "Completamento"
     },
     "cloudflared": {
@@ -474,7 +474,7 @@
         "status": "Stato"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
+        "datastore_usage": "Archivio dati",
         "failed_tasks_24h": "Attività Non Riuscite 24h",
         "cpu_usage": "CPU",
         "memory_usage": "Memoria"
@@ -483,12 +483,12 @@
         "users": "Utenti",
         "photos": "Foto",
         "videos": "Video",
-        "storage": "Memoria"
+        "storage": "Archiviazione"
     },
     "uptimekuma": {
         "up": "Siti On",
         "down": "Siti Down",
-        "uptime": "Uptime",
+        "uptime": "Operatività",
         "incident": "Incidente",
         "m": "m"
     },
@@ -510,7 +510,7 @@
     },
     "diskstation": {
         "days": "Giorni",
-        "uptime": "Uptime",
+        "uptime": "Periodo Attività",
         "volumeAvailable": "Disponibile"
     },
     "fileflows": {
@@ -520,7 +520,7 @@
         "time": "Tempo"
     },
     "grafana": {
-        "dashboards": "Dashboards",
+        "dashboards": "Dashboard",
         "datasources": "Origine dei Dati",
         "totalalerts": "Avvisi Totali",
         "alertstriggered": "Avvisi Attivati"
@@ -560,8 +560,8 @@
         "nodes": "Nodi"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
+        "targets_up": "Target Attivi",
+        "targets_down": "Target Non Attivi",
         "targets_total": "Targets Totali"
     },
     "minecraft": {
@@ -663,74 +663,74 @@
         "totalFiles": "File"
     },
     "gamedig": {
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
+        "name": "Nome",
+        "map": "Mappa",
+        "currentPlayers": "Giocatori attuali",
+        "players": "Giocatori",
+        "maxPlayers": "Giocatori max",
+        "bots": "Bot",
         "ping": "Ping",
-        "status": "Status",
+        "status": "Stato",
         "online": "Online",
         "offline": "Offline"
     },
     "azuredevops": {
-        "result": "Result",
-        "myPrs": "My PRs",
-        "approved": "Approved",
-        "status": "Status",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs"
+        "result": "Risultato",
+        "myPrs": "Miei PR",
+        "approved": "Approvato",
+        "status": "Stato",
+        "buildId": "ID Build",
+        "succeeded": "Riuscito",
+        "notStarted": "Non Avviato",
+        "failed": "Fallito",
+        "canceled": "Cancellato",
+        "inProgress": "In corso",
+        "totalPrs": "PR Totali"
     },
     "urbackup": {
         "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "errored": "Errori",
+        "noRecent": "Obsoleto",
+        "totalUsed": "Spazio usato"
     },
     "openmediavault": {
-        "total": "Total",
-        "running": "Running",
-        "downloading": "Downloading",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "total": "Totale",
+        "running": "In funzione",
+        "downloading": "Download in corso",
+        "stopped": "Fermati",
+        "passed": "Riusciti",
+        "failed": "Falliti"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "Ricette",
+        "users": "Utenti",
+        "categories": "Categorie",
+        "tags": "Tag"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "series": "Serie",
+        "archives": "Archivi",
+        "chapters": "Capitoli",
+        "categories": "Categorie"
     },
     "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+        "books": "Libri",
+        "authors": "Autori",
+        "categories": "Categorie",
+        "series": "Serie"
     },
     "uptimerobot": {
-        "status": "Status",
-        "uptime": "Uptime",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
-        "unknown": "Unknown"
+        "status": "Stato",
+        "uptime": "Tempo di attività",
+        "lastDown": "Ultimo periodo di inattività",
+        "downDuration": "Durata inattività",
+        "sitesUp": "Siti attivi",
+        "sitesDown": "Siti non attivi",
+        "paused": "In pausa",
+        "notyetchecked": "Non ancora controllati",
+        "up": "Attivi",
+        "seemsdown": "Sembrano non attivi",
+        "down": "Non attivi",
+        "unknown": "Sconosciuto"
     }
 }
