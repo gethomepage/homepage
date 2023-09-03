@@ -6,6 +6,7 @@ import Process from "./metrics/process";
 import Disk from "./metrics/disk";
 import GPU from "./metrics/gpu";
 import Info from "./metrics/info";
+import Fs from "./metrics/fs";
 
 export default function Component({ service }) {
   const { widget } = service;
@@ -20,6 +21,10 @@ export default function Component({ service }) {
 
   if (widget.metric === "process") {
     return <Process service={service} />;
+  }
+
+  if (widget.metric === "cpu") {
+    return <Cpu service={service} />;
   }
 
   if (widget.metric.match(/^network:/)) {
@@ -38,7 +43,7 @@ export default function Component({ service }) {
     return <GPU service={service} />;
   }
 
-  if (widget.metric === "cpu") {
-    return <Cpu service={service} />;
+  if (widget.metric.match(/^fs:/)) {
+    return <Fs service={service} />;
   }
 }
