@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import { useTranslation } from "next-i18next";
 
 import Error from "../components/error";
