@@ -34,7 +34,7 @@
         "offline": "Offline",
         "error": "Fehler",
         "unknown": "Unbekannt",
-        "running": "Laufend",
+        "running": "Wird ausgeführt",
         "starting": "Startet",
         "unhealthy": "Unhealthy",
         "not_found": "Nicht gefunden",
@@ -48,7 +48,7 @@
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
         "movies": "Filme",
-        "series": "Serien",
+        "series": "Serie",
         "episodes": "Folgen",
         "songs": "Songs"
     },
@@ -57,7 +57,7 @@
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Plex-Verbindung prüfen"
     },
     "rutorrent": {
         "active": "Aktiv",
@@ -67,17 +67,17 @@
     "sonarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
-        "series": "Serien",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "series": "Serie",
+        "queue": "Warteschlange",
+        "unknown": "Unbekannt"
     },
     "radarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
         "movies": "Filme",
         "missing": "Fehlt",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Warteschlange",
+        "unknown": "Unbekannt"
     },
     "readarr": {
         "wanted": "Gesucht",
@@ -106,7 +106,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Betrieb",
+        "running": "Wird ausgeführt",
         "stopped": "Gestoppt",
         "total": "Gesamt"
     },
@@ -178,7 +178,7 @@
     "lidarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",
-        "artists": "Artists"
+        "artists": "Künstler"
     },
     "adguard": {
         "queries": "Anfragen",
@@ -249,12 +249,12 @@
         "total": "Gesamt",
         "free": "Frei",
         "used": "Verwendet",
-        "write": "Write",
+        "write": "Schreiben",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap",
-        "crit": "Crit",
-        "read": "Read"
+        "swap": "Auslagerung",
+        "crit": "Krit",
+        "read": "Lesen"
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
@@ -438,7 +438,7 @@
     "mikrotik": {
         "cpuLoad": "CPU Auslastung",
         "memoryUsed": "RAM Verbrauch",
-        "uptime": "Laufzeit",
+        "uptime": "Betriebszeit",
         "numberOfLeases": "Leases"
     },
     "xteve": {
@@ -488,7 +488,7 @@
     "uptimekuma": {
         "up": "Seiten verfügbar",
         "down": "Seiten nicht verfügbar",
-        "uptime": "Laufzeit",
+        "uptime": "Betriebszeit",
         "incident": "Vorfall",
         "m": "m"
     },
@@ -510,7 +510,7 @@
     },
     "diskstation": {
         "days": "Tage",
-        "uptime": "Laufzeit",
+        "uptime": "Betriebszeit",
         "volumeAvailable": "Verfügbar"
     },
     "fileflows": {
@@ -642,7 +642,7 @@
         "watt_hour": "Wh",
         "pv_power": "Produktion",
         "battery_soc": "Batterie",
-        "grid_power": "Grid",
+        "grid_power": "Raster",
         "home_power": "Verbrauch",
         "charge_power": "Ladegerät"
     },
@@ -653,84 +653,84 @@
         "down_alerts": "Down Alarme"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Warteschlange",
+        "downloadSpeed": "Geschwindigkeit",
+        "downloadBytesRemaining": "Verbleibend",
+        "downloadTotalBytes": "Größe"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Serie",
+        "totalFiles": "Dateien"
     },
     "gamedig": {
         "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
+        "map": "Karte",
+        "currentPlayers": "Aktuelle Spieler",
+        "players": "Spieler",
         "bots": "Bots",
         "ping": "Ping",
-        "maxPlayers": "Max players",
+        "maxPlayers": "Max. Spieler",
         "status": "Status",
         "online": "Online",
         "offline": "Offline"
     },
     "azuredevops": {
-        "result": "Result",
+        "result": "Ergebnis",
         "status": "Status",
         "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
+        "succeeded": "Erfolgreich",
+        "notStarted": "Nicht gestartet",
+        "failed": "Fehlgeschlagen",
+        "canceled": "Abgebrochen",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "Approved",
-        "inProgress": "In Progress"
+        "approved": "Genehmigt",
+        "inProgress": "In Bearbeitung"
     },
     "urbackup": {
         "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "errored": "Fehler",
+        "noRecent": "Nicht mehr aktuell",
+        "totalUsed": "Belegter Speicherplatz"
     },
     "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "downloading": "Wird heruntergeladen",
+        "total": "Gesamt",
+        "running": "Wird ausgeführt",
+        "stopped": "Gestoppt",
+        "passed": "Bestanden",
+        "failed": "Fehlgeschlagen"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "",
+        "users": "Benutzer",
+        "categories": "Kategorien",
+        "tags": "Schlagwörter"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "series": "Serie",
+        "archives": "Archive",
+        "chapters": "Kapitel",
+        "categories": "Kategorien"
     },
     "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+        "books": "Bücher",
+        "authors": "Autoren",
+        "categories": "Kategorien",
+        "series": "Serie"
     },
     "uptimerobot": {
         "status": "Status",
-        "uptime": "Uptime",
+        "uptime": "Betriebszeit",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
+        "sitesUp": "Seiten verfügbar",
+        "sitesDown": "Seiten nicht verfügbar",
+        "paused": "Pausiert",
+        "notyetchecked": "Noch nicht geprüft",
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Unknown"
+        "unknown": "Unbekannt"
     }
 }
