@@ -700,5 +700,37 @@
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
+    "atsumeru": {
+        "chapters": "Chapters",
+        "series": "Series",
+        "archives": "Archives",
+        "categories": "Categories"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "unknown": "Unknown",
+        "status": "Status",
+        "uptime": "Uptime",
+        "sitesDown": "Sites Down",
+        "lastDown": "Last Downtime",
+        "downDuration": "Downtime Duration",
+        "sitesUp": "Sites Up",
+        "paused": "Paused",
+        "notyetchecked": "Not Yet Checked",
+        "up": "Up",
+        "seemsdown": "Seems Down",
+        "down": "Down"
     }
 }

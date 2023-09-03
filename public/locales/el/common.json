@@ -150,9 +150,9 @@
     },
     "flood": {
         "download": "Λήξη",
-        "upload": "Φόρτωση",
-        "leech": "Αφαίμαξη",
-        "seed": "Σπείρε"
+        "upload": "Μεταφόρτωση",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "changedetectionio": {
         "totalObserved": "Συνολικά παρατηρηθείσα",
@@ -212,8 +212,8 @@
         "unknown": "Άγνωστο"
     },
     "downloadstation": {
-        "download": "Μεταφόρτωση",
-        "upload": "Φόρτωση",
+        "download": "Λήψη",
+        "upload": "Μεταφόρτωση",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -431,7 +431,7 @@
     },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
+        "active": "Ενεργό",
         "queue": "Queue",
         "total": "Total"
     },
@@ -589,7 +589,7 @@
     },
     "freshrss": {
         "subscriptions": "Συνδρομές",
-        "unread": "Αδιάβαστο"
+        "unread": "Μη Διαβασμένο"
     },
     "channelsdvrserver": {
         "shows": "Εκπομπές",
@@ -700,5 +700,37 @@
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Status",
+        "up": "Up",
+        "unknown": "Unknown",
+        "uptime": "Uptime",
+        "lastDown": "Last Downtime",
+        "downDuration": "Downtime Duration",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
+        "notyetchecked": "Not Yet Checked",
+        "seemsdown": "Seems Down",
+        "down": "Down"
     }
 }

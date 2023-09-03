@@ -229,7 +229,7 @@
         "devices": "Apparaten",
         "lan_devices": "LAN Apparaten",
         "wlan_devices": "WLAN Apparaten",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Subsystem status onbekend"
     },
     "plex": {
         "streams": "Actieve Streams",
@@ -700,5 +700,37 @@
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "uptime": "Uptime",
+        "status": "Status",
+        "up": "Up",
+        "lastDown": "Last Downtime",
+        "downDuration": "Downtime Duration",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
+        "notyetchecked": "Not Yet Checked",
+        "seemsdown": "Seems Down",
+        "down": "Down",
+        "unknown": "Unknown"
     }
 }

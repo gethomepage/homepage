@@ -20,15 +20,14 @@ export default async function genericProxyHandler(req, res, map) {
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
-      let headers;
+      const headers = req.extraHeaders ?? widget.headers ?? {};
+      
       if (widget.username && widget.password) {
-        headers = {
-          Authorization: `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`,
-        };
+        headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
       }
 
       const params = {
-        method: req.method,
+        method: widget.method ?? req.method,
         headers,
       }
       if (req.body) {

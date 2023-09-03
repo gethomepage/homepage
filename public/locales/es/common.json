@@ -48,7 +48,7 @@
         "bitrate": "Tasa de bits",
         "no_active": "Sin transmisiones activas",
         "movies": "Películas",
-        "series": "Serie",
+        "series": "Series",
         "episodes": "Episodios",
         "songs": "Canciones"
     },
@@ -234,7 +234,7 @@
     "plex": {
         "streams": "Transmisiones activas",
         "movies": "Películas",
-        "tv": "Series",
+        "tv": "Programas de televisión",
         "albums": "Álbumes"
     },
     "glances": {
@@ -461,7 +461,7 @@
     "medusa": {
         "wanted": "Querido",
         "queued": "A la espera",
-        "series": "Serie"
+        "series": "Series"
     },
     "octoprint": {
         "temp_bed": "Temperatura de la plataforma",
@@ -659,7 +659,7 @@
         "downloadTotalBytes": "Tamaño"
     },
     "kavita": {
-        "seriesCount": "Serie",
+        "seriesCount": "Series",
         "totalFiles": "Archivos"
     },
     "gamedig": {
@@ -700,5 +700,37 @@
         "stopped": "Detenido",
         "passed": "Aprobado",
         "failed": "Fallido"
+    },
+    "mealie": {
+        "recipes": "Recetas",
+        "users": "Usuarios",
+        "categories": "Categorías",
+        "tags": "Etiquetas"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archivos",
+        "chapters": "Capítulos",
+        "categories": "Categorías"
+    },
+    "calibreweb": {
+        "books": "Libros",
+        "authors": "Autores",
+        "categories": "Categorías",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Estado",
+        "uptime": "Tiempo de actividad",
+        "lastDown": "Último periodo de inactividad",
+        "downDuration": "Tiempo de inactividad",
+        "sitesUp": "Páginas web con conexión",
+        "sitesDown": "Páginas web caídas",
+        "paused": "Pausado",
+        "notyetchecked": "Aún no verificado",
+        "up": "Arriba",
+        "seemsdown": "Parece caída",
+        "down": "Abajo",
+        "unknown": "Desconocido"
     }
 }

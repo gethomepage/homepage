@@ -20,12 +20,12 @@
         "mem": "MEM",
         "cpu": "CPU",
         "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "running": "Running",
-        "starting": "Starting",
+        "error": "Eroare",
+        "unknown": "Necunoscut",
+        "running": "Rulează",
+        "starting": "Începe",
         "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
+        "not_found": "Negăsit",
         "exited": "Exited",
         "partial": "Partial",
         "healthy": "Healthy"
@@ -700,5 +700,37 @@
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Status",
+        "uptime": "Uptime",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
+        "lastDown": "Last Downtime",
+        "downDuration": "Downtime Duration",
+        "sitesUp": "Sites Up",
+        "notyetchecked": "Not Yet Checked",
+        "up": "Up",
+        "seemsdown": "Seems Down",
+        "down": "Down",
+        "unknown": "Unknown"
     }
 }

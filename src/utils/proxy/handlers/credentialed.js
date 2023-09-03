@@ -32,6 +32,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         "authentik",
         "cloudflared",
         "ghostfolio",
+        "mealie",
         "tailscale",
         "truenas",
         "pterodactyl",

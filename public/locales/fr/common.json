@@ -700,5 +700,37 @@
         "stopped": "Arrêté",
         "passed": "Réussi",
         "failed": "Échoué"
+    },
+    "mealie": {
+        "recipes": "Recettes",
+        "users": "Utilisateurs",
+        "categories": "Catégories",
+        "tags": "Étiquettes"
+    },
+    "atsumeru": {
+        "series": "Séries",
+        "archives": "Archives",
+        "chapters": "Chapitres",
+        "categories": "Catégories"
+    },
+    "calibreweb": {
+        "series": "Séries",
+        "books": "Ebooks",
+        "authors": "Auteurs",
+        "categories": "Catégories"
+    },
+    "uptimerobot": {
+        "status": "Statut",
+        "uptime": "Disponibilité",
+        "lastDown": "Dernière interruption",
+        "downDuration": "Durée d'interruption",
+        "sitesUp": "Sites en ligne",
+        "sitesDown": "Sites hors ligne",
+        "paused": "En pause",
+        "notyetchecked": "Non vérifié",
+        "up": "En ligne",
+        "seemsdown": "Semble hors ligne",
+        "down": "Hors ligne",
+        "unknown": "Inconnu"
     }
 }
