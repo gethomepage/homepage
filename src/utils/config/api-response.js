@@ -34,6 +34,16 @@ export async function bookmarksResponse() {
 
   if (!bookmarks) return [];
 
+  let initialSettings;
+
+  try {
+    initialSettings = await getSettings();
+  } catch (e) {
+    console.error("Failed to load settings.yaml, please check for errors");
+    if (e) console.error(e.toString());
+    initialSettings = {};
+  }
+
   // map easy to write YAML objects into easy to consume JS arrays
   const bookmarksArray = bookmarks.map((group) => ({
     name: Object.keys(group)[0],
@@ -43,7 +53,21 @@ export async function bookmarksResponse() {
     })),
   }));
 
-  return bookmarksArray;
+  const sortedGroups = [];
+  const unsortedGroups = [];
+  const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
+
+  bookmarksArray.forEach((group) => {
+    if (definedLayouts) {
+      const layoutIndex = definedLayouts.findIndex(layout => layout === group.name);
+      if (layoutIndex > -1) sortedGroups[layoutIndex] = group;
+      else unsortedGroups.push(group);
+    } else {
+      unsortedGroups.push(group);
+    }
+  });
+
+  return [...sortedGroups.filter(g => g), ...unsortedGroups];
 }
 
 export async function widgetsResponse() {
