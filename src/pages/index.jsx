@@ -4,7 +4,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
-import { useEffect, useContext, useState, useMemo } from "react";
+import { useEffect, useContext, useState } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -230,46 +230,6 @@ function Home({ initialSettings }) {
     }
   })
 
-  const servicesAndBookmarksGroups = useMemo(() => {
-    const mergedGroups = [
-      services?.length > 0 ? (
-        <div key="services" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
-          {services.map((group) => (
-            <ServicesGroup
-              key={group.name}
-              group={group.name}
-              services={group}
-              layout={settings.layout?.[group.name]}
-              fiveColumns={settings.fiveColumns}
-              disableCollapse={settings.disableCollapse}
-            />
-          ))}
-        </div>
-      ) : null,
-      bookmarks?.length > 0 ? (
-        <div key="bookmarks" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
-          {bookmarks.map((group) => (
-            <BookmarksGroup
-              key={group.name}
-              bookmarks={group}
-              layout={settings.layout?.[group.name]}
-              disableCollapse={settings.disableCollapse}
-            />
-          ))}
-        </div>
-      ) : null
-    ];
-
-    return settings.bookmarksOnTop ? mergedGroups.reverse() : mergedGroups;
-  }, [
-    services,
-    bookmarks,
-    settings.layout,
-    settings.fiveColumns,
-    settings.disableCollapse,
-    settings.bookmarksOnTop
-  ]);
-
   return (
     <>
       <Head>
@@ -329,7 +289,33 @@ function Home({ initialSettings }) {
           )}
         </div>
 
-        {servicesAndBookmarksGroups}
+        {services?.length > 0 && (
+          <div key="services" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+            {services.map((group) => (
+              <ServicesGroup
+                key={group.name}
+                group={group.name}
+                services={group}
+                layout={settings.layout?.[group.name]}
+                fiveColumns={settings.fiveColumns}
+                disableCollapse={settings.disableCollapse}
+              />
+            ))}
+          </div>
+        )}
+
+        {bookmarks?.length > 0 && (
+          <div key="bookmarks" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+            {bookmarks.map((group) => (
+              <BookmarksGroup
+                key={group.name}
+                bookmarks={group}
+                layout={settings.layout?.[group.name]}
+                disableCollapse={settings.disableCollapse}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="flex flex-col mt-auto p-8 w-full">
           <div className="flex w-full justify-end">
