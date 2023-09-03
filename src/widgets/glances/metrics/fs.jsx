@@ -7,8 +7,6 @@ import Block from "../components/block";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-const Chart = dynamic(() => import("../components/chart"), { ssr: false });
-
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
