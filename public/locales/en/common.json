@@ -306,6 +306,10 @@
         "7days": "7 Days",
         "30days": "30 Days"
     },
+    "customapi": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
     "gotify": {
         "apps": "Applications",
         "clients": "Clients",

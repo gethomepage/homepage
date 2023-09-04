@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import {useTranslation} from "next-i18next";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
@@ -30,46 +30,50 @@ function getValue(field, data) {
 function formatValue(t, mapping, value) {
   switch (mapping?.format) {
     case 'number':
-      return t("common.number", { value: parseInt(value, 10) });
+      return t("common.number", {value: parseInt(value, 10)});
     case 'float':
-      return t("common.number", { value });
+      return t("common.number", {value});
     case 'percent':
-      return t("common.percent", { value });
+      return t("common.percent", {value});
+    case 'percentBinary':
+      return t("common.percent", {value: (100 * value / 255).toFixed()});
+    case 'state':
+      return t(`customapi.${/true/.test(value) ? "active" : "inactive"}`);
     case 'text':
     default:
       return value;
   }
 }
 
-export default function Component({ service }) {
-  const { t } = useTranslation();
+export default function Component({service}) {
+  const {t} = useTranslation();
 
-  const { widget } = service;
+  const {widget} = service;
 
-  const { mappings = [], refreshInterval = 10000 } = widget;
-  const { data: customData, error: customError } = useWidgetAPI(widget, null, {
+  const {mappings = [], refreshInterval = 10000} = widget;
+  const {data: customData, error: customError} = useWidgetAPI(widget, null, {
     refreshInterval: Math.max(1000, refreshInterval),
   });
 
   if (customError) {
-    return <Container service={service} error={customError} />;
+    return <Container service={service} error={customError}/>;
   }
 
   if (!customData) {
     return (
       <Container service={service}>
-        { mappings.slice(0,4).map(item => <Block label={item.label} key={item.field} />) }
+        {mappings.slice(0, 4).map(item => <Block label={item.label} key={item.field}/>)}
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      { mappings.slice(0,4).map(mapping => <Block
+      {mappings.slice(0, 4).map(mapping => <Block
         label={mapping.label}
         key={mapping.field}
         value={formatValue(t, mapping, getValue(mapping.field, customData))}
-      />) }
+      />)}
     </Container>
   );
 }
