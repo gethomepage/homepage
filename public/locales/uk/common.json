@@ -378,7 +378,8 @@
         "write": "Написати",
         "gpu": "GPU",
         "mem": "Пам'ять",
-        "swap": "Обмін"
+        "swap": "Обмін",
+        "_temp": "Temp"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
