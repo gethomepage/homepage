@@ -370,7 +370,8 @@
         "write": "Zapisano",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "authentik": {
         "users": "Uporabniki",
