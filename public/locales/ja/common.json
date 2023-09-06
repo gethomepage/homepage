@@ -31,7 +31,8 @@
         "write": "書き込み",
         "gpu": "GPU",
         "mem": "メモリ",
-        "swap": "スワップ"
+        "swap": "スワップ",
+        "_temp": "Temp"
     },
     "autobrr": {
         "filters": "フィルター",
