@@ -254,7 +254,8 @@
         "write": "Écrit.",
         "gpu": "GPU",
         "mem": "Mém.",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "changedetectionio": {
         "totalObserved": "Total Observé",
