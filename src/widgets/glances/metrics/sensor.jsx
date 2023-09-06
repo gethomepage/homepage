@@ -15,6 +15,7 @@ const pointsLimit = 15;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
+  const { chart } = widget;
   const [, sensorName] = widget.metric.split(':');
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
@@ -51,37 +52,46 @@ export default function Component({ service }) {
   }
 
   return (
-    <Container>
-      <Chart
-        dataPoints={dataPoints}
-        label={[sensorData.unit]}
-        max={sensorData.critical}
-        formatter={(value) => t("common.number", {
-          value,
-          })}
-      />
+    <Container chart={chart}>
+      { chart && (
+        <Chart
+          dataPoints={dataPoints}
+          label={[sensorData.unit]}
+          max={sensorData.critical}
+          formatter={(value) => t("common.number", {
+            value,
+            })}
+        />
+      )}
 
       {sensorData && !error && (
         <Block position="bottom-3 left-3">
-          {sensorData.warning && (
+          {sensorData.warning && chart && (
             <div className="text-xs opacity-50">
-              {sensorData.warning}{sensorData.unit} {t("glances.warn")}
+              {t("glances.warn")} {sensorData.warning} {sensorData.unit}
             </div>
           )}
           {sensorData.critical && (
             <div className="text-xs opacity-50">
-              {sensorData.critical} {sensorData.unit} {t("glances.crit")}
+              {t("glances.crit")} {sensorData.critical} {sensorData.unit}
             </div>
           )}
         </Block>
       )}
 
       <Block position="bottom-3 right-3">
-        <div className="text-xs opacity-75">
-          {t("common.number", {
-            value: sensorData.value,
-          })} {sensorData.unit}
-        </div>
+          <div className="text-xs opacity-50">
+            {sensorData.warning && !chart && (
+              <>
+                {t("glances.warn")} {sensorData.warning} {sensorData.unit}
+              </>
+            )}
+          </div>
+          <div className="text-xs opacity-75">
+            {t("glances.temp")} {t("common.number", {
+              value: sensorData.value,
+            })} {sensorData.unit}
+          </div>
       </Block>
     </Container>
   );

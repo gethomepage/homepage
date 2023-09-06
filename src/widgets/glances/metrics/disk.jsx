@@ -15,6 +15,7 @@ const pointsLimit = 15;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
+  const { chart } = widget;
   const [, diskName] = widget.metric.split(':');
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ read_bytes: 0, write_bytes: 0, time_since_update: 0 }, 0, pointsLimit));
@@ -65,24 +66,26 @@ export default function Component({ service }) {
   const currentRate = diskRates[diskRates.length - 1];
 
   return (
-    <Container>
-      <ChartDual
-        dataPoints={ratePoints}
-        label={[t("glances.read"), t("glances.write")]}
-        max={diskData.critical}
-        formatter={(value) => t("common.bitrate", {
-          value,
-          })}
-      />
+    <Container chart={chart}>
+      { chart && (
+        <ChartDual
+          dataPoints={ratePoints}
+          label={[t("glances.read"), t("glances.write")]}
+          max={diskData.critical}
+          formatter={(value) => t("common.bitrate", {
+            value,
+            })}
+        />
+      )}
 
       {currentRate && !error && (
-        <Block position="bottom-3 left-3">
-          <div className="text-xs opacity-50">
+        <Block position={chart ? "bottom-3 left-3" : "bottom-3 right-3"}>
+          <div className="text-xs opacity-50 text-right">
             {t("common.bitrate", {
               value: currentRate.a,
             })} {t("glances.read")}
           </div>
-          <div className="text-xs opacity-50">
+          <div className="text-xs opacity-50 text-right">
             {t("common.bitrate", {
               value: currentRate.b,
             })} {t("glances.write")}
@@ -90,7 +93,7 @@ export default function Component({ service }) {
         </Block>
       )}
 
-      <Block position="bottom-3 right-3">
+      <Block position={chart ? "bottom-3 right-3" : "bottom-3 left-3"}>
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
             value: currentRate.a + currentRate.b,

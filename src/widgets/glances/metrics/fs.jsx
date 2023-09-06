@@ -9,6 +9,7 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
+  const { chart } = widget;
   const [, fsName] = widget.metric.split(':');
 
   const { data, error } = useWidgetAPI(widget, 'fs', {
@@ -30,35 +31,52 @@ export default function Component({ service }) {
   }
 
   return (
-    <Container>
-      <div className="absolute top-0 left-0 right-0 bottom-0">
-        <div style={{
-          height: `${Math.max(20, (fsData.size/fsData.free))}%`,
-        }} className="absolute bottom-0 border-t border-t-theme-500 bg-gradient-to-b from-theme-500/40 to-theme-500/10 w-full" />
+    <Container chart={chart}>
+      { chart && (
+        <div className="absolute top-0 left-0 right-0 bottom-0">
           <div style={{
-            top: `${100-Math.max(18, (fsData.size/fsData.free))}%`,
-          }} className="relative -my-5 ml-2.5 text-xs opacity-50">
+            height: `${Math.max(20, (fsData.size/fsData.free))}%`,
+          }} className="absolute bottom-0 border-t border-t-theme-500 bg-gradient-to-b from-theme-500/40 to-theme-500/10 w-full" />
+        </div>
+      )}
+
+      <Block position="bottom-3 left-3">
+        { fsData.used && chart && (
+          <div className="text-xs opacity-50">
             {t("common.bbytes", {
               value: fsData.used,
               maximumFractionDigits: 0,
             })} {t("resources.used")}
           </div>
-          <div style={{
-            top: `${100-Math.max(22, (fsData.size/fsData.free))}%`,
-          }} className="relative my-7 ml-2.5 text-xs opacity-50">
-            {t("common.bbytes", {
-              value: fsData.free,
-              maximumFractionDigits: 0,
-            })} {t("resources.free")}
-          </div>
-      </div>
+        )}
 
-      <Block position="top-3 right-3">
-        <div className="border rounded-md px-1.5 py-0.5 bg-theme-400/30 border-white/30 font-bold opacity-75">
+        <div className="text-xs opacity-75">
+          {t("common.bbytes", {
+            value: fsData.free,
+            maximumFractionDigits: 0,
+          })} {t("resources.free")}
+        </div>
+      </Block>
+
+      { !chart && (
+        <Block position="top-3 right-3">
+          {fsData.used && (
+            <div className="text-xs opacity-50">
+              {t("common.bbytes", {
+                value: fsData.used,
+                maximumFractionDigits: 0,
+              })} {t("resources.used")}
+            </div>
+          )}
+        </Block>
+      )}
+
+      <Block position="bottom-3 right-3">
+        <div className="text-xs opacity-75">
           {t("common.bbytes", {
             value: fsData.size,
             maximumFractionDigits: 1,
-          })}
+          })} {t("resources.total")}
         </div>
       </Block>
     </Container>
