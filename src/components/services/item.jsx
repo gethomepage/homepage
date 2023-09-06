@@ -76,7 +76,12 @@ export default function Item({ service, group }) {
             </div>
           )}
 
-          <div className="absolute top-0 right-0 w-1/2 flex flex-row justify-end gap-2 mr-2 z-30">
+          <a
+            href={service.href}
+            target={service.target ?? settings.target ?? "_blank"}
+            rel="noreferrer"
+          >
+            <div className="absolute top-0 right-0 w-1/2 flex flex-row justify-end gap-2 mr-2 z-30">
               {service.ping && (
                 <div className="flex-shrink-0 flex items-center justify-center cursor-pointer">
                   <Ping group={group} service={service.name} />
@@ -104,7 +109,8 @@ export default function Item({ service, group }) {
                   <span className="sr-only">View container stats</span>
                 </button>
               )}
-          </div>
+            </div>
+          </a>
         </div>
 
         {service.container && service.server && (
