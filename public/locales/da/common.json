@@ -85,7 +85,8 @@
         "write": "Skriv",
         "gpu": "GPU",
         "mem": "Ram",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "wmo": {
         "1-day": "Overvejende Solrigt",
