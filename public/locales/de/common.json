@@ -254,7 +254,8 @@
         "mem": "Mem",
         "swap": "Auslagerung",
         "crit": "Krit",
-        "read": "Lesen"
+        "read": "Lesen",
+        "_temp": "Temp"
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
