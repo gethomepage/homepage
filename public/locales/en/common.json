@@ -365,6 +365,7 @@
         "load": "Load",
         "wait": "Please wait",
         "temp": "TEMP",
+        "_temp": "Temp",
         "warn": "Warn",
         "uptime": "UP",
         "total": "Total",

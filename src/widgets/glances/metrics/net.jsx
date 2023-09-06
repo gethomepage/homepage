@@ -15,12 +15,13 @@ const pointsLimit = 15;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const [, interfaceName] = widget.metric.split(':');
+  const { chart, metric } = widget;
+  const [, interfaceName] = metric.split(':');
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(widget, 'network', {
-    refreshInterval: 1000,
+    refreshInterval: chart ? 1000 : 5000,
   });
 
   useEffect(() => {
@@ -54,18 +55,20 @@ export default function Component({ service }) {
   }
 
   return (
-    <Container>
-      <ChartDual
-        dataPoints={dataPoints}
-        label={[t("docker.tx"), t("docker.rx")]}
-        formatter={(value) => t("common.byterate", {
-          value,
-          maximumFractionDigits: 0,
-        })}
-      />
+    <Container chart={chart}>
+      { chart && (
+        <ChartDual
+          dataPoints={dataPoints}
+          label={[t("docker.tx"), t("docker.rx")]}
+          formatter={(value) => t("common.byterate", {
+            value,
+            maximumFractionDigits: 0,
+          })}
+        />
+      )}
 
       <Block position="bottom-3 left-3">
-        {interfaceData && interfaceData.interface_name && (
+        {interfaceData && interfaceData.interface_name && chart && (
             <div className="text-xs opacity-50">
               {interfaceData.interface_name}
             </div>
@@ -78,6 +81,16 @@ export default function Component({ service }) {
           })} {t("docker.tx")}
         </div>
       </Block>
+
+      { !chart && (
+        <Block position="top-3 right-3">
+          {interfaceData && interfaceData.interface_name && (
+              <div className="text-xs opacity-50">
+                {interfaceData.interface_name}
+              </div>
+          )}
+        </Block>
+      )}
 
       <Block position="bottom-3 right-3">
         <div className="text-xs opacity-75">

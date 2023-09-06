@@ -19,6 +19,8 @@ const statusMap = {
 
 export default function Component({ service }) {
   const { t } = useTranslation();
+  const { widget } = service;
+  const { chart } = widget;
 
   const { data, error } = useWidgetAPI(service.widget, 'processlist', {
     refreshInterval: 1000,
@@ -32,10 +34,10 @@ export default function Component({ service }) {
     return <Container><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
-  data.splice(5);
+  data.splice(chart ? 5 : 1);
 
   return (
-    <Container>
+    <Container chart={chart}>
       <Block position="top-4 right-3 left-3">
         <div className="flex items-center text-xs">
           <div className="grow" />
