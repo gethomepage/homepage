@@ -38,17 +38,17 @@ export default function Component({ service }) {
   }, [data, sensorName]);
 
   if (error) {
-    return <Container><Error error={error} /></Container>;
+    return <Container chart={chart}><Error error={error} /></Container>;
   }
 
   if (!data) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   const sensorData = data.find((item) => item.label === sensorName);
 
   if (!sensorData) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   return (

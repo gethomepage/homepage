@@ -37,11 +37,11 @@ export default function Component({ service }) {
   }, [data]);
 
   if (error) {
-    return <Container><Error error={error} /></Container>;
+    return <Container chart={chart}><Error error={error} /></Container>;
   }
 
   if (!data) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   return (

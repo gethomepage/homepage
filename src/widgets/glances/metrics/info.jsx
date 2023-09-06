@@ -74,11 +74,11 @@ export default function Component({ service }) {
   });
 
   if (quicklookError) {
-    return <Container><Error error={quicklookError} /></Container>;
+    return <Container chart={chart}><Error error={quicklookError} /></Container>;
   }
 
   if (systemError) {
-    return <Container><Error error={systemError} /></Container>;
+    return <Container chart={chart}><Error error={systemError} /></Container>;
   }
 
   const dataCharts = [];

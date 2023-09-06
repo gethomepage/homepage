@@ -41,17 +41,17 @@ export default function Component({ service }) {
   }, [data, interfaceName]);
 
   if (error) {
-    return <Container><Error error={error} /></Container>;
+    return <Container chart={chart}><Error error={error} /></Container>;
   }
 
   if (!data) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   const interfaceData = data.find((item) => item[item.key] === interfaceName);
 
   if (!interfaceData) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   return (

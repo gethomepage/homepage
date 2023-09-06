@@ -49,17 +49,17 @@ export default function Component({ service }) {
   }, [dataPoints]);
 
   if (error) {
-    return <Container><Error error={error} /></Container>;
+    return <Container chart={chart}><Error error={error} /></Container>;
   }
 
   if (!data) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   const diskData = data.find((item) => item.disk_name === diskName);
 
   if (!diskData) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   const diskRates = calculateRates(dataPoints);
