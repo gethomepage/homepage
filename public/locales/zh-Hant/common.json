@@ -254,7 +254,8 @@
         "write": "寫入",
         "gpu": "GPU",
         "mem": "記憶體",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "changedetectionio": {
         "totalObserved": "總監測數",
