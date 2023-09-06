@@ -418,7 +418,8 @@
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
