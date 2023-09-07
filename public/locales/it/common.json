@@ -9,11 +9,11 @@
         "unknown": "Sconosciuto",
         "running": "In esecuzione",
         "starting": "In avvio",
-        "unhealthy": "Unhealthy",
+        "unhealthy": "Non sano",
         "not_found": "Non trovato",
         "exited": "Uscito",
         "partial": "Parziale",
-        "healthy": "Healthy"
+        "healthy": "Sano"
     },
     "emby": {
         "playing": "In riproduzione",
@@ -255,7 +255,7 @@
         "gpu": "GPU",
         "mem": "Mem.",
         "swap": "Swap",
-        "_temp": "Temp"
+        "_temp": "Temp."
     },
     "changedetectionio": {
         "totalObserved": "Totale Osservato",
@@ -408,7 +408,7 @@
     "tdarr": {
         "queue": "In coda",
         "processed": "Elaborati",
-        "errored": "Errori",
+        "errored": "In errore",
         "saved": "Salvati"
     },
     "miniflux": {
