@@ -255,7 +255,7 @@
         "swap": "Auslagerung",
         "crit": "Krit",
         "read": "Lesen",
-        "_temp": "Temp"
+        "_temp": "Temperatur"
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
@@ -621,7 +621,7 @@
         "memUsage": "MEM Nutzung",
         "systemTempC": "System Temp",
         "poolUsage": "Pool Nutzung",
-        "volumeUsage": "Volume Usage",
+        "volumeUsage": "Speicher benutzung",
         "invalid": "Ungültig"
     },
     "pfsense": {
