@@ -13,7 +13,7 @@
         "missing_type": "Липсваща приставка: {{type}}",
         "api_error": "API Грешка",
         "status": "Статус",
-        "information": "Information",
+        "information": "Информация",
         "url": "URL",
         "raw_error": "Raw Error",
         "response_data": "Response Data"
@@ -28,7 +28,7 @@
         "placeholder": "Търсене…"
     },
     "resources": {
-        "cpu": "CPU",
+        "cpu": "Процесор",
         "total": "Общо",
         "free": "Свободни",
         "used": "Заети",
@@ -54,9 +54,9 @@
         "wait": "Моля изчакайте",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
+        "devices": "Устройства",
+        "lan_devices": "LAN Устройства",
+        "wlan_devices": "WLAN Устройства",
         "empty_data": "Subsystem status unknown"
     },
     "docker": {
@@ -64,8 +64,8 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "CPU",
-        "error": "Error",
+        "cpu": "Процесор",
+        "error": "Грешка",
         "unknown": "Unknown",
         "partial": "Partial",
         "running": "Running",
@@ -125,7 +125,7 @@
     "radarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "movies": "Movies",
+        "movies": "Филми",
         "missing": "Missing",
         "queue": "Queue",
         "unknown": "Unknown"
@@ -138,38 +138,38 @@
     "readarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "books": "Books"
+        "books": "Книги"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Липсващи Епизоди",
+        "missingMovies": "Липсващи Филми"
     },
     "ombi": {
         "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "approved": "Одобрен",
+        "available": "Наличен"
     },
     "jellyseerr": {
         "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "approved": "Одобрен",
+        "available": "Наличен"
     },
     "overseerr": {
         "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
+        "approved": "Одобрен",
+        "available": "Наличен",
         "processing": "Processing"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "Заявки",
+        "blocked": "Блокирани",
         "gravity": "Gravity",
         "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
+        "blocked": "Блокирани",
+        "filtered": "Филтрирани",
         "latency": "Latency"
     },
     "speedtest": {
@@ -179,7 +179,7 @@
     },
     "portainer": {
         "running": "Running",
-        "stopped": "Stopped",
+        "stopped": "Спрян",
         "total": "Total"
     },
     "traefik": {
@@ -188,15 +188,15 @@
         "middleware": "Middleware"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "Активирано",
+        "disabled": "Деактивирано",
         "total": "Total"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
+        "1hour": "1 Час",
+        "1day": "1 Ден",
+        "7days": "7 Дена",
         "30days": "30 Days"
     },
     "gotify": {
@@ -262,15 +262,15 @@
         "diffsDetected": "Diffs Detected"
     },
     "wmo": {
-        "0-day": "Sunny",
+        "0-day": "Слънчево",
         "57-day": "Freezing Drizzle",
         "57-night": "Freezing Drizzle",
         "96-day": "Thunderstorm With Hail",
         "96-night": "Thunderstorm With Hail",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
+        "0-night": "Ясно",
+        "1-day": "Предимно Слънчево",
+        "1-night": "Предимно Ясно",
+        "2-day": "Частична Облачност",
         "2-night": "Partly Cloudy",
         "3-day": "Cloudy",
         "3-night": "Cloudy",
@@ -363,7 +363,7 @@
     },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "please_wait": "Моля Изчакайте"
     },
     "pyload": {
         "speed": "Speed",
@@ -382,7 +382,7 @@
     },
     "ping": {
         "ping": "Ping",
-        "error": "Error"
+        "error": "Грешка"
     },
     "scrutiny": {
         "passed": "Passed",
