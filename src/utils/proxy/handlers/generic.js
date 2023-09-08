@@ -4,6 +4,7 @@ import validateWidgetData from "utils/proxy/validate-widget-data";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
+import {importCookieHeader} from "utils/proxy/cookie-jar";
 
 const logger = createLogger("genericProxyHandler");
 
@@ -34,14 +35,18 @@ export default async function genericProxyHandler(req, res, map) {
         params.body = req.body;
       }
 
+      if (req.headers.cookie) {
+          importCookieHeader(url, req.headers.cookie)
+      }
+
       const [status, contentType, data] = await httpProxy(url, params);
 
       let resultData = data;
-      
+
       if (resultData.error?.url) {
         resultData.error.url = sanitizeErrorURL(url);
       }
-      
+
       if (status === 200) {
         if (!validateWidgetData(widget, endpoint, resultData)) {
           return res.status(status).json({error: {message: "Invalid data", url: sanitizeErrorURL(url), data: resultData}});

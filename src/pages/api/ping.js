@@ -3,6 +3,7 @@ import { performance } from "perf_hooks";
 import { getServiceItem } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
+import {importCookieHeader} from "utils/proxy/cookie-jar";
 
 const logger = createLogger("ping");
 
@@ -25,20 +26,24 @@ export default async function handler(req, res) {
         });
     }
 
+    if (req.headers.cookie) {
+        importCookieHeader(pingURL, req.headers.cookie)
+    }
+
     try {
       let startTime = performance.now();
       let [status] = await httpProxy(pingURL, {
         method: "HEAD"
       });
       let endTime = performance.now();
-      
+
       if (status > 403) {
         // try one more time as a GET in case HEAD is rejected for whatever reason
         startTime = performance.now();
         [status] = await httpProxy(pingURL);
         endTime = performance.now();
       }
-  
+
       return res.status(200).json({
         status,
         latency: endTime - startTime
