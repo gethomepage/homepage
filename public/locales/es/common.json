@@ -255,7 +255,7 @@
         "gpu": "GPU",
         "mem": "Memoria",
         "swap": "Intercambiar",
-        "_temp": "Temp"
+        "_temp": "Temperatura"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
