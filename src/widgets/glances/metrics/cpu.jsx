@@ -60,7 +60,7 @@ export default function Component({ service }) {
         />
       )}
 
-      { !chart && (
+      { !chart && systemData && !systemError && (
         <Block position="top-3 right-3">
           <div className="text-xs opacity-50">
             {systemData.linux_distro && `${systemData.linux_distro} - ` }
