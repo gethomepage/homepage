@@ -37,27 +37,3 @@ export function addCookieToJar(url, headers) {
     cookieJar.setCookieSync(cookies[i], url.toString(), { ignoreError: true });
   }
 }
-
-export function importCookieHeader(url, cookieHeader) {
-    const cookies = cookieHeader.split(';');
-    for (let i = 0; i < cookies.length; i += 1) {
-        const [key, value] = cookies[i].trim().split('=');
-
-        // If there's an existing cookie with a matching key for this url,
-        // we want to update it. Otherwise, we add a new cookie
-        let existingCookie;
-        try {
-            existingCookie = cookieJar.getCookiesSync(url).find(existing => existing.key === key);
-        } catch (e) {
-            console.debug(`Failed to get cookies for ${url}: ${e}`)
-        }
-
-        if (existingCookie) {
-            existingCookie.value = value;
-        } else {
-            cookieJar.setCookieSync(new Cookie({
-                key, value
-            }), url.toString(), { ignoreError: true });
-        }
-    }
-}
