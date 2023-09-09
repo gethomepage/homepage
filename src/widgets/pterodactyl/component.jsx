@@ -23,7 +23,7 @@ export default function Component({ service }) {
   }
 
   const totalServers = nodesData.data.reduce((total, node) => 
-    node.attributes?.relationships?.servers?.data?.length ?? 0 + total, 0);
+    (node.attributes?.relationships?.servers?.data?.length ?? 0) + total, 0);
 
   return (
     <Container service={service}>
