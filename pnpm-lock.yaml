@@ -38,6 +38,9 @@ dependencies:
   memory-cache:
     specifier: ^0.2.0
     version: 0.2.0
+  mime:
+    specifier: ^3.0.0
+    version: 3.0.0
   minecraft-ping-js:
     specifier: ^1.0.2
     version: 1.0.2
@@ -2696,6 +2699,12 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
+    dev: false
+
+  /mime@3.0.0:
+    resolution: {integrity: sha512-jSCU7/VB1loIWBZe14aEYHU/+1UMEHoaO7qxCOVJOw9GgH72VAWppxNcjU+x9a2k3GSIBXNKxXQFqRvvZ7vr3A==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
     dev: false
 
   /mimic-fn@2.1.0:

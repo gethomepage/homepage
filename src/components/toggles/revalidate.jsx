@@ -10,7 +10,7 @@ export default function Revalidate() {
   };
 
   return (
-    <div className="rounded-full flex align-middle self-center mr-3">
+    <div id="revalidate" className="rounded-full flex align-middle self-center mr-3">
       <MdRefresh onClick={() => revalidate()} className="text-theme-800 dark:text-theme-200 w-6 h-6 cursor-pointer" />
     </div>
   );

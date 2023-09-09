@@ -25,7 +25,7 @@ export default function Version() {
   const latestRelease = releaseData?.[0];
 
   return (
-    <div className="flex flex-row items-center">
+    <div id="version" className="flex flex-row items-center">
       <span className="text-xs text-theme-500 dark:text-theme-400">
         {version === "main" || version === "dev" || version === "nightly" ? (
           <>

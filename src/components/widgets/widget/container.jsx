@@ -35,9 +35,9 @@ export function getAllClasses(options, additionalClassNames = '') {
 
 export function getInnerBlock(children) {
   // children won't be an array if it's Raw component
-  return Array.isArray(children) && <div className="flex flex-row items-center justify-end">
-    <div className="flex flex-col items-center">{children.find(child => child.type === WidgetIcon)}</div>
-    <div className="flex flex-col ml-3 text-left">
+  return Array.isArray(children) && <div className="flex flex-row items-center justify-end widget-inner">
+    <div className="flex flex-col items-center widget-inner-icon">{children.find(child => child.type === WidgetIcon)}</div>
+    <div className="flex flex-col ml-3 text-left widget-inner-text">
       {children.find(child => child.type === PrimaryText)}
       {children.find(child => child.type === SecondaryText)}
     </div>
@@ -54,7 +54,7 @@ export function getBottomBlock(children) {
 
 export default function Container({ children = [], options, additionalClassNames = '' }) {
   return (
-    <div className={getAllClasses(options, additionalClassNames)}>
+    <div className={getAllClasses(options, `${ additionalClassNames } widget-container`)}>
       {getInnerBlock(children)}
       {getBottomBlock(children)}
     </div>

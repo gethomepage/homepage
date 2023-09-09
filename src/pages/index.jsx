@@ -8,6 +8,7 @@ import { useEffect, useContext, useState, useMemo } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+import FileContent from "components/filecontent";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
@@ -311,6 +312,22 @@ function Home({ initialSettings }) {
         <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
         <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
       </Head>
+
+      <style alt="custom">
+        <FileContent path="custom.css"
+          loadingValue="/* Loading custom CSS... */"
+          errorValue="/* Failed to load custom CSS... */"
+          emptyValue="/* No custom CSS */"
+        />
+      </style>
+      <script alt="custom">
+        <FileContent path="custom.js"
+          loadingValue="/* Loading custom JS... */"
+          errorValue="/* Failed to load custom JS... */"
+          emptyValue="/* No custom JS */"
+        />
+      </script>
+
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <QuickLaunch
           servicesAndBookmarks={servicesAndBookmarks}
@@ -321,6 +338,7 @@ function Home({ initialSettings }) {
           searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
         />
         <div
+          id="information-widgets"
           className={classNames(
             "flex flex-row flex-wrap justify-between",
             headerStyles[headerStyle],
@@ -335,7 +353,7 @@ function Home({ initialSettings }) {
                   <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false, cardBlur: settings.cardBlur }} />
                 ))}
 
-              <div className={classNames(
+              <div id="information-widgets-right" className={classNames(
                 "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
                 headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
               )}>
@@ -351,14 +369,14 @@ function Home({ initialSettings }) {
 
         {servicesAndBookmarksGroups}
 
-        <div className="flex flex-col mt-auto p-8 w-full">
-          <div className="flex w-full justify-end">
+        <div id="footer" className="flex flex-col mt-auto p-8 w-full">
+          <div id="style" className="flex w-full justify-end">
             {!settings?.color && <ColorToggle />}
             <Revalidate />
             {!settings.theme && <ThemeToggle />}
           </div>
 
-          <div className="flex mt-4 w-full justify-end">
+          <div id="version" className="flex mt-4 w-full justify-end">
             {!settings.hideVersion && <Version />}
           </div>
         </div>

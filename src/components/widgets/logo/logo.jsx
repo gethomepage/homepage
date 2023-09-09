@@ -5,14 +5,14 @@ import ResolvedIcon from "components/resolvedicon"
 
 export default function Logo({ options }) {
   return (
-    <Container options={options}>
+    <Container options={options} additionalClassNames={`information-widget-logo ${  options.icon ? 'resolved' : 'fallback'}`}>
       <Raw>
         {options.icon ?
-        <div className="mr-3">
+        <div className="resolved mr-3">
           <ResolvedIcon icon={options.icon} width={48} height={48} />
         </div> :
         // fallback to homepage logo
-        <div className="w-12 h-12">
+        <div className="fallback w-12 h-12">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1024 1024"
