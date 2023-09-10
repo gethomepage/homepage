@@ -28,13 +28,13 @@ function getValue(field, data) {
 }
 
 function formatValue(t, mapping, rawValue) {
-  var value = rawValue;
+  let value = rawValue;
 
   // Remap the value.
   const remaps = mapping?.remap ?? [];
-  for (let i = 0; i < remaps.length; i++) {
-    let remap = remaps[i];
-    if (remap?.any || remap?.value == value) {
+  for (let i = 0; i < remaps.length; i += 1) {
+    const remap = remaps[i];
+    if (remap?.any || remap?.value === value) {
       value = remap.to;
       break;
     }
@@ -43,12 +43,12 @@ function formatValue(t, mapping, rawValue) {
   // Scale the value. Accepts either a number to multiply by or a string
   // like "12/345".
   const scale = mapping?.scale;
-  if (typeof scale == 'number') {
-    value = value * scale;
-  } else if (typeof scale == 'string') {
-    let parts = scale.split('/');
-    let numerator = parts[0] ? parseFloat(parts[0]) : 1;
-    let denominator = parts[1] ? parseFloat(parts[1]) : 1;
+  if (typeof scale === 'number') {
+    value *= scale;
+  } else if (typeof scale === 'string') {
+    const parts = scale.split('/');
+    const numerator = parts[0] ? parseFloat(parts[0]) : 1;
+    const denominator = parts[1] ? parseFloat(parts[1]) : 1;
     value = value * numerator / denominator;
   }
 
@@ -69,12 +69,15 @@ function formatValue(t, mapping, rawValue) {
     case 'bitrate':
       value = t("common.bitrate", { value });
       break;
+    case 'text':
+    default:
+      // nothing
   }
 
   // Apply fixed suffix.
   const suffix = mapping?.suffix;
   if (suffix) {
-    value = value + ' ' + suffix;
+    value = `${value} ${suffix}`;
   }
 
   return value;
