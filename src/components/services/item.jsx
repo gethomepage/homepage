@@ -36,8 +36,8 @@ export default function Item({ service, group }) {
       <div
         className={classNames(
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? '-' : ""}${settings.cardBlur}`,
-          'transition-all h-15 mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip',
-          'service-card'
+          hasLink && "cursor-pointer",
+          "transition-all h-15 mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip service-card"
         )}
       >
         <div className="flex select-none z-0 service-title">
@@ -90,7 +90,7 @@ export default function Item({ service, group }) {
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-                  className="flex-shrink-0 flex items-center justify-center cursor-pointer pointer-events-auto service-tag service-container-stats"
+                  className="flex-shrink-0 flex items-center justify-center cursor-pointer service-tag service-container-stats"
                 >
                   <Status service={service} />
                   <span className="sr-only">View container stats</span>
@@ -100,7 +100,7 @@ export default function Item({ service, group }) {
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-                  className="flex-shrink-0 flex items-center justify-center cursor-pointer pointer-events-auto service-tag service-app"
+                  className="flex-shrink-0 flex items-center justify-center cursor-pointer service-tag service-app"
                 >
                   <KubernetesStatus service={service} />
                   <span className="sr-only">View container stats</span>
@@ -113,8 +113,7 @@ export default function Item({ service, group }) {
           <div
             className={classNames(
               showStats || (statsOpen && !statsClosing) ? "max-h-[110px] opacity-100" : " max-h-[0] opacity-0",
-              "w-full overflow-hidden transition-all duration-300 ease-in-out",
-              "service-stats"
+              "w-full overflow-hidden transition-all duration-300 ease-in-out service-stats"
             )}
           >
             {(showStats || statsOpen) && <Docker service={{ widget: { container: service.container, server: service.server } }} />}
@@ -124,8 +123,7 @@ export default function Item({ service, group }) {
           <div
             className={classNames(
               showStats || (statsOpen && !statsClosing) ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
-              "w-full overflow-hidden transition-all duration-300 ease-in-out",
-              "service-stats"
+              "w-full overflow-hidden transition-all duration-300 ease-in-out service-stats"
             )}
           >
             {(showStats || statsOpen) && <Kubernetes service={{ widget: { namespace: service.namespace, app: service.app, podSelector: service.podSelector } }} />}
