@@ -17,6 +17,7 @@ export default async function handler(req, res) {
   if (!['custom.css', 'custom.js'].includes(relativePath))
   {
     res.status(422).end('Unsupported file')
+    return // do not continue in the function
   }
 
   const filePath = path.join(CONF_DIR, relativePath);
