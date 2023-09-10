@@ -27,18 +27,57 @@ function getValue(field, data) {
   return value[lastField] ?? null;
 }
 
-function formatValue(t, mapping, value) {
+function formatValue(t, mapping, rawValue) {
+  var value = rawValue;
+
+  // Remap the value.
+  const remaps = mapping?.remap ?? [];
+  for (let i = 0; i < remaps.length; i++) {
+    let remap = remaps[i];
+    if (remap?.any || remap?.value == value) {
+      value = remap.to;
+      break;
+    }
+  }
+
+  // Scale the value. Accepts either a number to multiply by or a string
+  // like "12/345".
+  const scale = mapping?.scale;
+  if (typeof scale == 'number') {
+    value = value * scale;
+  } else if (typeof scale == 'string') {
+    let parts = scale.split('/');
+    let numerator = parts[0] ? parseFloat(parts[0]) : 1;
+    let denominator = parts[1] ? parseFloat(parts[1]) : 1;
+    value = value * numerator / denominator;
+  }
+
+  // Format the value using a known type.
   switch (mapping?.format) {
     case 'number':
-      return t("common.number", { value: parseInt(value, 10) });
+      value = t("common.number", { value: parseInt(value, 10) });
+      break;
     case 'float':
-      return t("common.number", { value });
+      value = t("common.number", { value });
+      break;
     case 'percent':
-      return t("common.percent", { value });
-    case 'text':
-    default:
-      return value;
+      value = t("common.percent", { value });
+      break;
+    case 'bytes':
+      value = t("common.bytes", { value });
+      break;
+    case 'bitrate':
+      value = t("common.bitrate", { value });
+      break;
   }
+
+  // Apply fixed suffix.
+  const suffix = mapping?.suffix;
+  if (suffix) {
+    value = value + ' ' + suffix;
+  }
+
+  return value;
 }
 
 export default function Component({ service }) {
