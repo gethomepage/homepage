@@ -240,7 +240,7 @@ function Home({ initialSettings }) {
     const bookmarkGroups = bookmarks.filter(group => settings.layout?.[group.name] === undefined);
 
     return <>
-      {layoutGroups.length > 0 && <div key="layoutGroups" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+      {layoutGroups.length > 0 && <div key="layoutGroups" id="layout-groups" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
         {layoutGroups.map((group) => (
           group.services ? 
             (<ServicesGroup
@@ -260,7 +260,7 @@ function Home({ initialSettings }) {
         )
       )}
       </div>}
-      {serviceGroups?.length > 0 && <div key="services" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+      {serviceGroups?.length > 0 && <div key="services" id="services" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
         {serviceGroups.map((group) => (
           <ServicesGroup
             key={group.name}
@@ -272,7 +272,7 @@ function Home({ initialSettings }) {
           />
         ))}
       </div>}
-      {bookmarkGroups?.length > 0 && <div key="bookmarks" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+      {bookmarkGroups?.length > 0 && <div key="bookmarks" id="bookmarks" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
         {bookmarkGroups.map((group) => (
           <BookmarksGroup
             key={group.name}
