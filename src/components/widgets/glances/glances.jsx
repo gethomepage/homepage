@@ -70,7 +70,7 @@ export default function Widget({ options }) {
       : [data.fs.find((d) => d.mnt_point === options.disk)].filter((d) => d);
   }
 
-  const addedClasses = classNames('information-widget-glances', { 'information-widget-expanded': options.expanded })
+  const addedClasses = classNames('information-widget-glances', { 'expanded': options.expanded })
 
   return (
     <Resources options={options} target={settings.target ?? "_blank"} additionalClassNames={addedClasses}>

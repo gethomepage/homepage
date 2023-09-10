@@ -8,7 +8,7 @@ export default function Node({ data, expanded, labels }) {
   const { t } = useTranslation();
 
   return <Resource
-    additionalClassNames="information-widget-node"
+    additionalClassNames="information-widget-longhorn-node"
     icon={FaThermometerHalf}
     value={t("common.bytes", { value: data.node.available })}
     label={t("resources.free")}
