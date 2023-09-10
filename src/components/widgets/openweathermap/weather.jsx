@@ -24,7 +24,7 @@ function Widget({ options }) {
   }
 
   if (!data) {
-    return <Container options={options}>
+    return <Container options={options} additionalClassNames="information-widget-openweathermap">
       <PrimaryText>{t("weather.updating")}</PrimaryText>
       <SecondaryText>{t("weather.wait")}</SecondaryText>
       <WidgetIcon icon={WiCloudDown} size="l" />
@@ -36,7 +36,7 @@ function Widget({ options }) {
   const condition = data.weather[0].id;
   const timeOfDay = data.dt > data.sys.sunrise && data.dt < data.sys.sunset ? "day" : "night";
 
-  return <Container options={options}>
+  return <Container options={options} additionalClassNames="information-widget-openweathermap">
     <PrimaryText>{options.label && `${options.label}, ` }{t("common.number", { value: data.main.temp, style: "unit", unit })}</PrimaryText>
     <SecondaryText>{data.weather[0].description}</SecondaryText>
     <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />

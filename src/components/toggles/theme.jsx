@@ -11,7 +11,7 @@ export default function ThemeToggle() {
   }
 
   return (
-    <div className="rounded-full flex self-end">
+    <div id="theme" className="rounded-full flex self-end">
       <MdLightMode className="text-theme-800 dark:text-theme-200 w-5 h-5 m-1.5" />
       {theme === "dark" ? (
         <MdToggleOn

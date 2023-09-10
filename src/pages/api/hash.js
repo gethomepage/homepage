@@ -4,7 +4,7 @@ import { readFileSync } from "fs";
 
 import checkAndCopyConfig, { CONF_DIR } from "utils/config/config";
 
-const configs = ["docker.yaml", "settings.yaml", "services.yaml", "bookmarks.yaml", "widgets.yaml"];
+const configs = ["docker.yaml", "settings.yaml", "services.yaml", "bookmarks.yaml", "widgets.yaml", "custom.css", "custom.js"];
 
 function hash(buffer) {
   const hashSum = createHash("sha256");

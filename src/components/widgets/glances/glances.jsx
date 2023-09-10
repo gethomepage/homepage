@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu, FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
+import classNames from "classnames";
 
 import Error from "../widget/error";
 import Resource from "../widget/resource";
@@ -32,7 +33,7 @@ export default function Widget({ options }) {
   }
 
   if (!data) {
-    return <Resources options={options}>
+    return <Resources options={options} additionalClassNames="information-widget-glances">
       { options.cpu !== false && <Resource icon={FiCpu} label={t("glances.wait")} percentage="0" /> }
       { options.mem !== false && <Resource icon={FaMemory} label={t("glances.wait")} percentage="0" /> }
       { options.cputemp && <Resource icon={FaThermometerHalf} label={t("glances.wait")} percentage="0" /> }
@@ -69,8 +70,10 @@ export default function Widget({ options }) {
       : [data.fs.find((d) => d.mnt_point === options.disk)].filter((d) => d);
   }
 
+  const addedClasses = classNames('information-widget-glances', { 'expanded': options.expanded })
+
   return (
-    <Resources options={options} target={settings.target ?? "_blank"}>
+    <Resources options={options} target={settings.target ?? "_blank"} additionalClassNames={addedClasses}>
       {options.cpu !== false && <Resource
         icon={FiCpu}
         value={t("common.number", {

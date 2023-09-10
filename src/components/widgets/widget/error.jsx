@@ -8,7 +8,7 @@ import WidgetIcon from "./widget_icon";
 export default function Error({ options }) {
   const { t } = useTranslation();
 
-  return <Container options={options}>
+  return <Container options={options} additionalClassNames="information-widget-error">
     <PrimaryText>{t("widget.api_error")}</PrimaryText>
     <WidgetIcon icon={BiError} size="l" />
   </Container>;

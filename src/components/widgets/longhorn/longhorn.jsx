@@ -17,14 +17,14 @@ export default function Longhorn({ options }) {
   }
 
   if (!data) {
-    return <Container options={options}>
+    return <Container options={options} additionalClassNames="infomation-widget-longhorn">
       <Raw>
         <div className="flex flex-row self-center flex-wrap justify-between" />
       </Raw>
     </Container>;
   }
 
-  return <Container options={options}>
+  return <Container options={options} additionalClassNames="infomation-widget-longhorn">
     <Raw>
       <div className="flex flex-row self-center flex-wrap justify-between">
         {data.nodes

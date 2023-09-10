@@ -24,7 +24,7 @@ function Widget({ options }) {
   }
 
   if (!data) {
-    return <Container options={options}>
+    return <Container options={options} additionalClassNames="information-widget-openmeteo">
       <PrimaryText>{t("weather.updating")}</PrimaryText>
       <SecondaryText>{t("weather.wait")}</SecondaryText>
       <WidgetIcon icon={WiCloudDown} size="l" />
@@ -35,7 +35,7 @@ function Widget({ options }) {
   const condition = data.current_weather.weathercode;
   const timeOfDay = data.current_weather.time > data.daily.sunrise[0] && data.current_weather.time < data.daily.sunset[0] ? "day" : "night";
 
-  return <Container options={options}>
+  return <Container options={options} additionalClassNames="information-widget-openmeteo">
     <PrimaryText>
       {options.label && `${options.label}, `}
       {t("common.number", {
@@ -81,7 +81,7 @@ export default function OpenMeteo({ options }) {
   // if (!requesting && !location) requestLocation();
 
   if (!location) {
-    return <ContainerButton options={options} callback={requestLocation} >
+    return <ContainerButton options={options} callback={requestLocation} additionalClassNames="information-widget-openmeteo-location-button">
       <PrimaryText>{t("weather.current")}</PrimaryText>
       <SecondaryText>{t("weather.allow")}</SecondaryText>
       <WidgetIcon icon={ requesting ? MdLocationSearching : MdLocationDisabled} size="m" pulse />

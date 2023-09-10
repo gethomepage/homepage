@@ -30,7 +30,7 @@ export default function DateTime({ options }) {
   }, [date, setDate, dateLocale, format]);
 
   return (
-    <Container options={options}>
+    <Container options={options} additionalClassNames="information-widget-datetime">
       <Raw>
         <div className="flex flex-row items-center grow justify-end">
           <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>

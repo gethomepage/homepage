@@ -29,28 +29,30 @@ export default function Item({ service, group }) {
     }
   };
 
+
+
   return (
-    <li key={service.name}>
+    <li key={service.name} id={service.id} className="service" data-name={service.name || ""}>
       <div
         className={classNames(
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? '-' : ""}${settings.cardBlur}`,
           hasLink && "cursor-pointer",
-          'transition-all h-15 mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip'
+          "transition-all h-15 mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip service-card"
         )}
       >
-        <div className="flex select-none z-0">
+        <div className="flex select-none z-0 service-title">
           {service.icon &&
             (hasLink ? (
               <a
                 href={service.href}
                 target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
-                className="flex-shrink-0 flex items-center justify-center w-12 "
+                className="flex-shrink-0 flex items-center justify-center w-12 service-icon"
               >
                 <ResolvedIcon icon={service.icon} />
               </a>
             ) : (
-              <div className="flex-shrink-0 flex items-center justify-center w-12 ">
+              <div className="flex-shrink-0 flex items-center justify-center w-12 service-icon">
                 <ResolvedIcon icon={service.icon} />
               </div>
             ))}
@@ -60,25 +62,25 @@ export default function Item({ service, group }) {
               href={service.href}
               target={service.target ?? settings.target ?? "_blank"}
               rel="noreferrer"
-              className="flex-1 flex items-center justify-between rounded-r-md "
+              className="flex-1 flex items-center justify-between rounded-r-md service-title-text"
             >
-              <div className="flex-1 px-2 py-2 text-sm text-left z-10">
+              <div className="flex-1 px-2 py-2 text-sm text-left z-10 service-name">
                 {service.name}
-                <p className="text-theme-500 dark:text-theme-300 text-xs font-light">{service.description}</p>
+                <p className="text-theme-500 dark:text-theme-300 text-xs font-light service-description">{service.description}</p>
               </div>
             </a>
           ) : (
-            <div className="flex-1 flex items-center justify-between rounded-r-md ">
-              <div className="flex-1 px-2 py-2 text-sm text-left z-10">
+            <div className="flex-1 flex items-center justify-between rounded-r-md service-title-text">
+              <div className="flex-1 px-2 py-2 text-sm text-left z-10 service-name">
                 {service.name}
-                <p className="text-theme-500 dark:text-theme-300 text-xs font-light">{service.description}</p>
+                <p className="text-theme-500 dark:text-theme-300 text-xs font-light service-description">{service.description}</p>
               </div>
             </div>
           )}
 
-          <div className="absolute top-0 right-0 w-1/2 flex flex-row justify-end gap-2 mr-2 z-30 pointer-events-none">
+          <div className="absolute top-0 right-0 flex flex-row justify-end gap-2 mr-2 z-30 pointer-events-none service-tags">
               {service.ping && (
-                <div className="flex-shrink-0 flex items-center justify-center cursor-pointer">
+                <div className="flex-shrink-0 flex items-center justify-center service-tag service-ping">
                   <Ping group={group} service={service.name} />
                   <span className="sr-only">Ping status</span>
                 </div>
@@ -88,7 +90,7 @@ export default function Item({ service, group }) {
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-                  className="flex-shrink-0 flex items-center justify-center cursor-pointer"
+                  className="flex-shrink-0 flex items-center justify-center cursor-pointer service-tag service-container-stats"
                 >
                   <Status service={service} />
                   <span className="sr-only">View container stats</span>
@@ -98,7 +100,7 @@ export default function Item({ service, group }) {
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-                  className="flex-shrink-0 flex items-center justify-center cursor-pointer"
+                  className="flex-shrink-0 flex items-center justify-center cursor-pointer service-tag service-app"
                 >
                   <KubernetesStatus service={service} />
                   <span className="sr-only">View container stats</span>
@@ -111,7 +113,7 @@ export default function Item({ service, group }) {
           <div
             className={classNames(
               showStats || (statsOpen && !statsClosing) ? "max-h-[110px] opacity-100" : " max-h-[0] opacity-0",
-              "w-full overflow-hidden transition-all duration-300 ease-in-out"
+              "w-full overflow-hidden transition-all duration-300 ease-in-out service-stats"
             )}
           >
             {(showStats || statsOpen) && <Docker service={{ widget: { container: service.container, server: service.server } }} />}
@@ -121,7 +123,7 @@ export default function Item({ service, group }) {
           <div
             className={classNames(
               showStats || (statsOpen && !statsClosing) ? "max-h-[55px] opacity-100" : " max-h-[0] opacity-0",
-              "w-full overflow-hidden transition-all duration-300 ease-in-out"
+              "w-full overflow-hidden transition-all duration-300 ease-in-out service-stats"
             )}
           >
             {(showStats || statsOpen) && <Kubernetes service={{ widget: { namespace: service.namespace, app: service.app, podSelector: service.podSelector } }} />}

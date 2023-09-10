@@ -13,6 +13,7 @@ export default function BookmarksGroup({ bookmarks, layout, disableCollapse }) {
     <div
       key={bookmarks.name}
       className={classNames(
+        "bookmark-group",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/4 lg:basis-1/5 xl:basis-1/6",
         layout?.header === false ? "flex-1 px-1 -my-1" : "flex-1 p-1"
       )}
@@ -23,11 +24,11 @@ export default function BookmarksGroup({ bookmarks, layout, disableCollapse }) {
             {layout?.header !== false && (
               <Disclosure.Button disabled={disableCollapse} className="flex w-full select-none items-center group">
                 {layout?.icon && (
-                  <div className="flex-shrink-0 mr-2 w-7 h-7">
+                  <div className="flex-shrink-0 mr-2 w-7 h-7 bookmark-group-icon">
                     <ResolvedIcon icon={layout.icon} />
                   </div>
                 )}
-                <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium">{bookmarks.name}</h2>
+                <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium bookmark-group-name">{bookmarks.name}</h2>
                 <MdKeyboardArrowDown
                   className={classNames(
                     disableCollapse ? "hidden" : "",

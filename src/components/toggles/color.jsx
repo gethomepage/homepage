@@ -38,7 +38,7 @@ export default function ColorToggle() {
   }
 
   return (
-    <div className="w-full self-center">
+    <div id="color" className="w-full self-center">
       <Popover className="relative flex items-center">
         <Popover.Button className="outline-none">
           <IoColorPalette
