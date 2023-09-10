@@ -1,10 +1,8 @@
 import useSWR from "swr"
 
-export default function FileContent({ path, loadingValue, errorValue, emptyValue = '', refresh = 1500 }) {
+export default function FileContent({ path, loadingValue, errorValue, emptyValue = '' }) {
   const fetcher = (url) => fetch(url).then((res) => res.text())
-  const { data, error, isLoading } = useSWR(`/api/config/${ path }`, fetcher, {
-    refreshInterval: refresh,
-  })
+  const { data, error, isLoading } = useSWR(`/api/config/${ path }`, fetcher)
 
   if (error) return (errorValue)
   if (isLoading) return (loadingValue)
