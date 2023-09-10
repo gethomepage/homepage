@@ -16,8 +16,7 @@ export default async function handler(req, res) {
   // only two supported files, for now
   if (!['custom.css', 'custom.js'].includes(relativePath))
   {
-    res.status(422).end('Unsupported file')
-    return // do not continue in the function
+    return res.status(422).end('Unsupported file');
   }
 
   const filePath = path.join(CONF_DIR, relativePath);
@@ -28,9 +27,9 @@ export default async function handler(req, res) {
       // hard-coded since we only support two known files for now
       const mimeType = (relativePath === 'custom.css') ? 'text/css' : 'text/javascript';
       res.setHeader('Content-Type', mimeType);
-      res.status(200).send(fileContent);
+      return res.status(200).send(fileContent);
     } catch (error) {
       logger.error(error);
-      res.status(500).end('Internal Server Error');
+      return res.status(500).end('Internal Server Error');
     }
 }
