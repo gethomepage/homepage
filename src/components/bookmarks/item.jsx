@@ -9,7 +9,7 @@ export default function Item({ bookmark }) {
   const { settings } = useContext(SettingsContext);
 
   return (
-    <li key={bookmark.name} id={bookmark.id} className="bookmark">
+    <li key={bookmark.name} id={bookmark.id} className="bookmark" data-name={bookmark.name}>
       <a
         href={bookmark.href}
         title={bookmark.name}
