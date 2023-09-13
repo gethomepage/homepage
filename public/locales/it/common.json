@@ -53,7 +53,7 @@
         "status": "Stato",
         "url": "URL",
         "information": "Informazione",
-        "raw_error": "Raw Error",
+        "raw_error": "Errore non processato",
         "response_data": "Dati risposta"
     },
     "search": {
