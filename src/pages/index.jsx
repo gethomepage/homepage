@@ -236,17 +236,13 @@ function Home({ initialSettings }) {
     }
   })
 
-  const tabs = useMemo( () => {
-    if (!settings.layout) return [];
-
-     return [
-      ...new Set(
-        Object.keys(settings.layout).map(
-          (groupName) => settings.layout[groupName]?.tab
-        ).filter(group => group)
-      )
-     ]
-  }, [settings.layout]);
+  const tabs = useMemo( () => [
+    ...new Set(
+      Object.keys(settings.layout ?? {}).map(
+        (groupName) => settings.layout[groupName]?.tab
+      ).filter(group => group)
+    )
+  ], [settings.layout]);
 
   if (!activeTab) {
     const initialTab = decodeURI(asPath.substring(asPath.indexOf("#") + 1));
