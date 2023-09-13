@@ -11,6 +11,7 @@ import nextI18nextConfig from "../../next-i18next.config";
 import { ColorProvider } from "utils/contexts/color";
 import { ThemeProvider } from "utils/contexts/theme";
 import { SettingsProvider } from "utils/contexts/settings";
+import { TabProvider } from "utils/contexts/tab";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -26,7 +27,9 @@ function MyApp({ Component, pageProps }) {
       <ColorProvider>
         <ThemeProvider>
           <SettingsProvider>
-            <Component {...pageProps} />
+            <TabProvider>
+              <Component {...pageProps} />
+            </TabProvider>
           </SettingsProvider>
         </ThemeProvider>
       </ColorProvider>

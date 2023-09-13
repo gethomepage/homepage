@@ -286,6 +286,7 @@ export async function servicesFromKubernetes() {
 export function cleanServiceGroups(groups) {
   return groups.map((serviceGroup) => ({
     name: serviceGroup.name,
+    tabs: serviceGroup?.tabs,
     services: serviceGroup.services.map((service) => {
       const cleanedService = { ...service };
       if (cleanedService.showStats !== undefined) cleanedService.showStats = JSON.parse(cleanedService.showStats);
