@@ -313,7 +313,7 @@ function Home({ initialSettings }) {
         <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
       </Head>
 
-      <link rel="preload" href="/api/config/custom.css" as="fetch" crossorigin="anonymous" />
+      <link rel="preload" href="/api/config/custom.css" as="fetch" crossOrigin="anonymous" />
       <style data-name="custom.css">
         <FileContent path="custom.css"
           loadingValue="/* Loading custom CSS... */"
@@ -321,7 +321,7 @@ function Home({ initialSettings }) {
           emptyValue="/* No custom CSS */"
         />
       </style>
-      <link rel="preload" href="/api/config/custom.js" as="fetch" crossorigin="anonymous" />
+      <link rel="preload" href="/api/config/custom.js" as="fetch" crossOrigin="anonymous" />
       <script data-name="custom.js">
         <FileContent path="custom.js"
           loadingValue="/* Loading custom JS... */"
