@@ -271,7 +271,10 @@ function Home({ initialSettings }) {
 
     return <>
       {tabs.length > 0 && <div key="tabs" id="tabs" className="p-4 sm:p-8 sm:pt-4 sm:pb-0">
-        <ul className="sm:flex" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+        <ul className={classNames(
+          "sm:flex rounded-md bg-theme-100/20 dark:bg-white/5",
+          settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? '-': "" }${settings.cardBlur}`
+         )} id="myTab" data-tabs-toggle="#myTabContent" role="tablist" >
           {tabs.map(tab => <Tab key={tab} tab={tab} />)}
         </ul>
       </div>}
@@ -325,7 +328,8 @@ function Home({ initialSettings }) {
     bookmarks,
     settings.layout,
     settings.fiveColumns,
-    settings.disableCollapse
+    settings.disableCollapse,
+    settings.cardBlur
   ]);
 
   return (
