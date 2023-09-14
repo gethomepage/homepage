@@ -7,7 +7,9 @@ import { useTranslation } from "next-i18next";
 import { useEffect, useContext, useState, useMemo } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 
+import Tab from "components/tab";
 import FileContent from "components/filecontent";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
@@ -19,6 +21,7 @@ import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
+import { TabContext } from "utils/contexts/tab";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
@@ -169,6 +172,8 @@ function Home({ initialSettings }) {
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);
   const { settings, setSettings } = useContext(SettingsContext);
+  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { asPath } = useRouter();
 
   useEffect(() => {
     setSettings(initialSettings);
@@ -231,18 +236,51 @@ function Home({ initialSettings }) {
     }
   })
 
-  const servicesAndBookmarksGroups = useMemo(() => {
-    const layoutGroups = settings.layout ? Object.keys(settings.layout).map(
-      (groupName) => services?.find(g => g.name === groupName) ?? bookmarks?.find(b => b.name === groupName)
-    ).filter(g => g) : [];
+  const tabs = useMemo( () => [
+    ...new Set(
+      Object.keys(settings.layout ?? {}).map(
+        (groupName) => settings.layout[groupName]?.tab
+      ).filter(group => group)
+    )
+  ], [settings.layout]);
 
-    const serviceGroups = services?.filter(group => settings.layout?.[group.name] === undefined);
-    const bookmarkGroups = bookmarks.filter(group => settings.layout?.[group.name] === undefined);
+  if (!activeTab) {
+    const initialTab = decodeURI(asPath.substring(asPath.indexOf("#") + 1));
+    if (initialTab !== '/') {
+      setActiveTab(initialTab)
+    } else {
+      setActiveTab(tabs['0'] ?? false)
+    }
+  }
+
+  const servicesAndBookmarksGroups = useMemo(() => {
+    const tabGroupFilter = g => g && [activeTab, undefined].includes(settings.layout?.[g.name]?.tab);
+    const undefinedGroupFilter = g => settings.layout?.[g.name] === undefined;
+
+    const layoutGroups = Object.keys(settings.layout ?? {}).map(
+      (groupName) => services?.find(g => g.name === groupName) ?? bookmarks?.find(b => b.name === groupName)
+    ).filter(tabGroupFilter);
+
+    if (!settings.layout || !layoutGroups) {
+      // wait for settings to populate, otherwise all the widgets will be requested initially even if we are on a single tab
+      return <div />;
+    }
+
+    const serviceGroups = services?.filter(tabGroupFilter).filter(undefinedGroupFilter);
+    const bookmarkGroups = bookmarks.filter(tabGroupFilter).filter(undefinedGroupFilter);
 
     return <>
+      {tabs.length > 0 && <div key="tabs" id="tabs" className="p-4 sm:p-8 sm:pt-4 sm:pb-0">
+        <ul className={classNames(
+          "sm:flex rounded-md bg-theme-100/20 dark:bg-white/5",
+          settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? '-': "" }${settings.cardBlur}`
+         )} id="myTab" data-tabs-toggle="#myTabContent" role="tablist" >
+          {tabs.map(tab => <Tab key={tab} tab={tab} />)}
+        </ul>
+      </div>}
       {layoutGroups.length > 0 && <div key="layoutGroups" id="layout-groups" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
         {layoutGroups.map((group) => (
-          group.services ? 
+          group.services ?
             (<ServicesGroup
               key={group.name}
               group={group.name}
@@ -284,11 +322,14 @@ function Home({ initialSettings }) {
       </div>}
       </>
   }, [
+    tabs,
+    activeTab,
     services,
     bookmarks,
     settings.layout,
     settings.fiveColumns,
-    settings.disableCollapse
+    settings.disableCollapse,
+    settings.cardBlur
   ]);
 
   return (
