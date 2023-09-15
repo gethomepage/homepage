@@ -247,11 +247,7 @@ function Home({ initialSettings }) {
   useEffect(() => {
     if (!activeTab) {
       const initialTab = decodeURI(asPath.substring(asPath.indexOf("#") + 1));
-      if (initialTab !== '/') {
-        setActiveTab(initialTab)
-      } else {
-        setActiveTab(tabs['0'] ?? false)
-      }
+      setActiveTab(initialTab === '/' ? slugify(tabs['0']) : initialTab)
     }
   })
 
