@@ -244,14 +244,16 @@ function Home({ initialSettings }) {
     )
   ], [settings.layout]);
 
-  if (!activeTab) {
-    const initialTab = decodeURI(asPath.substring(asPath.indexOf("#") + 1));
-    if (initialTab !== '/') {
-      setActiveTab(initialTab)
-    } else {
-      setActiveTab(tabs['0'] ?? false)
+  useEffect(() => {
+    if (!activeTab) {
+      const initialTab = decodeURI(asPath.substring(asPath.indexOf("#") + 1));
+      if (initialTab !== '/') {
+        setActiveTab(initialTab)
+      } else {
+        setActiveTab(tabs['0'] ?? false)
+      }
     }
-  }
+  })
 
   const servicesAndBookmarksGroups = useMemo(() => {
     const tabGroupFilter = g => g && [activeTab, undefined].includes(settings.layout?.[g.name]?.tab);
