@@ -9,7 +9,7 @@ import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
-import Tab from "components/tab";
+import Tab, { slugify } from "components/tab";
 import FileContent from "components/filecontent";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
@@ -256,7 +256,7 @@ function Home({ initialSettings }) {
   })
 
   const servicesAndBookmarksGroups = useMemo(() => {
-    const tabGroupFilter = g => g && [activeTab, undefined].includes(settings.layout?.[g.name]?.tab);
+    const tabGroupFilter = g => g && [activeTab, undefined].includes(slugify(settings.layout?.[g.name]?.tab));
     const undefinedGroupFilter = g => settings.layout?.[g.name] === undefined;
 
     const layoutGroups = Object.keys(settings.layout ?? {}).map(
