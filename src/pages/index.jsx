@@ -261,8 +261,8 @@ function Home({ initialSettings }) {
       (groupName) => services?.find(g => g.name === groupName) ?? bookmarks?.find(b => b.name === groupName)
     ).filter(tabGroupFilter);
 
-    if (!settings.layout || !layoutGroups) {
-      // wait for settings to populate, otherwise all the widgets will be requested initially even if we are on a single tab
+    if (!settings.layout && JSON.stringify(settings.layout) !== JSON.stringify(initialSettings.layout)) {
+      // wait for settings to populate (if different from initial settings), otherwise all the widgets will be requested initially even if we are on a single tab
       return <div />;
     }
 
@@ -329,7 +329,8 @@ function Home({ initialSettings }) {
     settings.layout,
     settings.fiveColumns,
     settings.disableCollapse,
-    settings.cardBlur
+    settings.cardBlur,
+    initialSettings.layout
   ]);
 
   return (
