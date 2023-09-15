@@ -256,7 +256,7 @@ function Home({ initialSettings }) {
   })
 
   const servicesAndBookmarksGroups = useMemo(() => {
-    const tabGroupFilter = g => g && [activeTab, undefined].includes(slugify(settings.layout?.[g.name]?.tab));
+    const tabGroupFilter = g => g && [activeTab, ''].includes(slugify(settings.layout?.[g.name]?.tab));
     const undefinedGroupFilter = g => settings.layout?.[g.name] === undefined;
 
     const layoutGroups = Object.keys(settings.layout ?? {}).map(
