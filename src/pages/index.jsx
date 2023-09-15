@@ -261,9 +261,7 @@ function Home({ initialSettings }) {
       (groupName) => services?.find(g => g.name === groupName) ?? bookmarks?.find(b => b.name === groupName)
     ).filter(tabGroupFilter);
 
-    if ((!settings.layout || !layoutGroups) &&
-      JSON.stringify(settings.layout ?? {}) !== JSON.stringify(initialSettings.layout ?? {})
-    ) {
+    if (!settings.layout && JSON.stringify(settings.layout) !== JSON.stringify(initialSettings.layout)) {
       // wait for settings to populate (if different from initial settings), otherwise all the widgets will be requested initially even if we are on a single tab
       return <div />;
     }
