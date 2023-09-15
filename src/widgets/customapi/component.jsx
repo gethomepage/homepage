@@ -100,7 +100,7 @@ export default function Component({ service }) {
   if (!customData) {
     return (
       <Container service={service}>
-        { mappings.slice(0,4).map(item => <Block label={item.label} key={item.field} />) }
+        { mappings.slice(0,4).map(item => <Block label={item.label} key={item.label} />) }
       </Container>
     );
   }
@@ -109,7 +109,7 @@ export default function Component({ service }) {
     <Container service={service}>
       { mappings.slice(0,4).map(mapping => <Block
         label={mapping.label}
-        key={mapping.field}
+        key={mapping.label}
         value={formatValue(t, mapping, getValue(mapping.field, customData))}
       />) }
     </Container>
