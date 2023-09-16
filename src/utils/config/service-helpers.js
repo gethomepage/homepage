@@ -198,7 +198,7 @@ export async function servicesFromKubernetes() {
 
     const traefikIngressList = [...traefikIngressListContaino, ...traefikIngressListIo];
 
-    if (traefikIngressList && traefikIngressList.items.length > 0) {
+    if (traefikIngressList?.items?.length > 0) {
       const traefikServices = traefikIngressList.items.filter(
         (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`]
       );
