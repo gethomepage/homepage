@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { TabContext } from "utils/contexts/tab";
 
 export function slugify(tabName) {
-  return tabName ? encodeURIComponent(tabName.replace(/\s+/g, '-').toLowerCase()) : ''
+  return tabName ? encodeURIComponent(tabName.toString().replace(/\s+/g, '-').toLowerCase()) : ''
 }
 
 export default function Tab({ tab }) {
