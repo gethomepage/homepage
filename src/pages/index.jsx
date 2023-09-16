@@ -239,7 +239,7 @@ function Home({ initialSettings }) {
   const tabs = useMemo( () => [
     ...new Set(
       Object.keys(settings.layout ?? {}).map(
-        (groupName) => settings.layout[groupName]?.tab
+        (groupName) => settings.layout[groupName]?.tab?.toString()
       ).filter(group => group)
     )
   ], [settings.layout]);
