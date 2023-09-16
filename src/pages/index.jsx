@@ -161,10 +161,10 @@ function Index({ initialSettings, fallback }) {
 
 const headerStyles = {
   boxed:
-    "m-4 mb-0 sm:m-8 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-  underlined: "m-4 mb-0 sm:m-8 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
-  clean: "m-4 mb-0 sm:m-8 sm:mb-0",
-  boxedWidgets: "m-4 mb-0 sm:m-8 sm:mb-0 sm:mt-1",
+    "m-6 mb-0 sm:m-9 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+  underlined: "m-6 mb-0 sm:m-9 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
+  clean: "m-6 mb-0 sm:m-9 sm:mb-0",
+  boxedWidgets: "m-6 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
 };
 
 function Home({ initialSettings }) {
@@ -268,7 +268,7 @@ function Home({ initialSettings }) {
     const bookmarkGroups = bookmarks.filter(tabGroupFilter).filter(undefinedGroupFilter);
 
     return <>
-      {tabs.length > 0 && <div key="tabs" id="tabs" className="p-4 sm:p-8 sm:pt-4 sm:pb-0">
+      {tabs.length > 0 && <div key="tabs" id="tabs" className="m-6 sm:m-9 sm:mt-4 sm:mb-0">
         <ul className={classNames(
           "sm:flex rounded-md bg-theme-100/20 dark:bg-white/5",
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? '-': "" }${settings.cardBlur}`
@@ -276,7 +276,7 @@ function Home({ initialSettings }) {
           {tabs.map(tab => <Tab key={tab} tab={tab} />)}
         </ul>
       </div>}
-      {layoutGroups.length > 0 && <div key="layoutGroups" id="layout-groups" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+      {layoutGroups.length > 0 && <div key="layoutGroups" id="layout-groups" className="flex flex-wrap m-4 sm:m-8 sm:mt-4 items-start mb-2">
         {layoutGroups.map((group) => (
           group.services ?
             (<ServicesGroup
@@ -296,7 +296,7 @@ function Home({ initialSettings }) {
         )
       )}
       </div>}
-      {serviceGroups?.length > 0 && <div key="services" id="services" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+      {serviceGroups?.length > 0 && <div key="services" id="services" className="flex flex-wrap m-4 sm:m-8 sm:mt-4 items-start mb-2">
         {serviceGroups.map((group) => (
           <ServicesGroup
             key={group.name}
@@ -308,7 +308,7 @@ function Home({ initialSettings }) {
           />
         ))}
       </div>}
-      {bookmarkGroups?.length > 0 && <div key="bookmarks" id="bookmarks" className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
+      {bookmarkGroups?.length > 0 && <div key="bookmarks" id="bookmarks" className="flex flex-wrap m-4 sm:m-8 sm:mt-4 items-start mb-2">
         {bookmarkGroups.map((group) => (
           <BookmarksGroup
             key={group.name}
@@ -387,26 +387,33 @@ function Home({ initialSettings }) {
             settings.cardBlur !== undefined && headerStyle === "boxed" && `backdrop-blur${settings.cardBlur.length ? '-' : ""}${settings.cardBlur}`
           )}
         >
-          {widgets && (
-            <>
-              {widgets
-                .filter((widget) => !rightAlignedWidgets.includes(widget.type))
-                .map((widget, i) => (
-                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false, cardBlur: settings.cardBlur }} />
-                ))}
-
-              <div id="information-widgets-right" className={classNames(
-                "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
-                headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
-              )}>
+          <div id="widgets-wrap"
+            style={{width: 'calc(100% + 1rem)'}}
+            className={classNames(
+              "flex flex-row w-full flex-wrap justify-between -ml-2 -mr-2"
+            )}
+          >
+            {widgets && (
+              <>
                 {widgets
-                  .filter((widget) => rightAlignedWidgets.includes(widget.type))
+                  .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true, cardBlur: settings.cardBlur }} />
+                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false, cardBlur: settings.cardBlur }} />
                   ))}
-              </div>
-            </>
-          )}
+
+                <div id="information-widgets-right" className={classNames(
+                  "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
+                  headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
+                )}>
+                  {widgets
+                    .filter((widget) => rightAlignedWidgets.includes(widget.type))
+                    .map((widget, i) => (
+                      <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true, cardBlur: settings.cardBlur }} />
+                    ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
 
         {servicesAndBookmarksGroups}
