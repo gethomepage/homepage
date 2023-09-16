@@ -168,7 +168,7 @@ export async function servicesFromKubernetes() {
       .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
       .then((response) => response.body)
       .catch(async (error) => {
-        if (error.statusCode !== 404) {
+        if (error.statusCode !== 403) {
           logger.error(
             "Error getting traefik ingresses from traefik.containo.us: %d %s %s",
             error.statusCode,
@@ -184,7 +184,7 @@ export async function servicesFromKubernetes() {
       .listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
       .then((response) => response.body)
       .catch(async (error) => {
-        if (error.statusCode !== 404) {
+        if (error.statusCode !== 403) {
           logger.error(
             "Error getting traefik ingresses from traefik.io: %d %s %s",
             error.statusCode,
