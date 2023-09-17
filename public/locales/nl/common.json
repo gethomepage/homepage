@@ -5,14 +5,14 @@
         "status": "Status",
         "information": "Informatie",
         "url": "URL",
-        "raw_error": "Raw Fout",
-        "response_data": "Reactiegegevens"
+        "raw_error": "Raw Error",
+        "response_data": "Responsgegevens"
     },
     "resources": {
         "total": "Totaal",
         "free": "Vrij",
         "used": "Gebruikt",
-        "load": "Laadt",
+        "load": "lading",
         "cpu": "CPU",
         "mem": "MEM",
         "days": "d",
@@ -31,7 +31,7 @@
         "offline": "Offline",
         "error": "Fout",
         "unknown": "Onbekend",
-        "running": "Running",
+        "running": "Lopend",
         "starting": "Starten",
         "unhealthy": "Ongezond",
         "not_found": "Niet Gevonden",
@@ -72,8 +72,8 @@
         "playing": "Afspelen",
         "transcoding": "Transcodering",
         "bitrate": "Bitsnelheid",
-        "no_active": "Geen Actieve Streams",
-        "plex_connection_error": "Check Plex Connection"
+        "no_active": "Geen actieve streams",
+        "plex_connection_error": "Controleer Plex Connectie"
     },
     "rutorrent": {
         "active": "Actief",
@@ -84,16 +84,16 @@
         "wanted": "Gezocht",
         "queued": "In de wachtrij",
         "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Rij",
+        "unknown": "Onbekend"
     },
     "radarr": {
         "movies": "Films",
         "wanted": "Gezocht",
         "queued": "In de wachtrij",
         "missing": "Missend",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Rij",
+        "unknown": "Onbekend"
     },
     "readarr": {
         "wanted": "Gezocht",
@@ -114,7 +114,7 @@
         "queries": "Queries",
         "blocked": "Geblokkeerd",
         "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Geblokkerde %"
     },
     "traefik": {
         "routers": "Routers",
@@ -135,15 +135,15 @@
     "sabnzbd": {
         "rate": "Rate",
         "queue": "Wachtrij",
-        "timeleft": "Time Left"
+        "timeleft": "Tijd Over"
     },
     "nzbget": {
-        "rate": "Rate",
+        "rate": "Tarief",
         "remaining": "Resterend",
         "downloaded": "Gedownload"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
+        "configure": "Configureer een of meer crypto eenheiden om bij te houden",
         "1hour": "1 Uur",
         "7days": "7 Dagen",
         "1day": "1 Dag",
@@ -151,7 +151,7 @@
     },
     "gotify": {
         "apps": "Applicaties",
-        "clients": "Clients",
+        "clients": "Cliënten",
         "messages": "Berichten"
     },
     "prowlarr": {
@@ -164,7 +164,7 @@
     "transmission": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "Bloedzuiger",
         "seed": "Seed"
     },
     "jackett": {
@@ -178,28 +178,28 @@
     "lidarr": {
         "wanted": "Gezocht",
         "queued": "In de wachtrij",
-        "artists": "Artists"
+        "artists": "Artiesten"
     },
     "adguard": {
         "queries": "Queries",
         "blocked": "Geblokkeerd",
-        "filtered": "Filtered",
+        "filtered": "Gefilterde",
         "latency": "Latency"
     },
     "qbittorrent": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "Bloedzuiger",
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Gebruikers",
         "status_count": "Posts",
         "domain_count": "Domeinen"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
+        "numActiveSessions": "Sessies",
+        "numConnections": "Connecties",
         "dataRelayed": "Relayed",
         "transferRate": "Rate"
     },
@@ -223,7 +223,7 @@
         "wlan_users": "WLAN Gebruikers",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Wachten aub",
+        "wait": "Even geduld",
         "lan": "LAN",
         "wlan": "WLAN",
         "devices": "Apparaten",
@@ -396,7 +396,7 @@
     "deluge": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "Bloedzuiger",
         "seed": "Seed"
     },
     "flood": {
@@ -409,7 +409,7 @@
         "queue": "Wachtrij",
         "processed": "Processed",
         "errored": "Errored",
-        "saved": "Saved"
+        "saved": "Opgeslagen"
     },
     "miniflux": {
         "read": "Gelezen",
@@ -424,16 +424,16 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "omada": {
-        "connectedAp": "Connected APs",
+        "connectedAp": "Verbonden APs",
         "activeUser": "Actieve apparaten",
         "alerts": "Meldingen",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedGateway": "Verbonden gateways",
+        "connectedSwitches": "Verbonden switches"
     },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "Bloedzuiger",
         "seed": "Seed"
     },
     "mikrotik": {
@@ -460,7 +460,7 @@
         "layers": "Layers"
     },
     "medusa": {
-        "wanted": "Wanted",
+        "wanted": "Gewild",
         "queued": "Queued",
         "series": "Series"
     },
@@ -589,13 +589,13 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Abonnementen",
+        "unread": "Ongelezen"
     },
     "channelsdvrserver": {
         "shows": "Shows",
         "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "scheduled": "Geplanned",
         "passes": "Passes"
     },
     "whatsupdocker": {
@@ -604,25 +604,25 @@
     },
     "tailscale": {
         "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
+        "expires": "Verloopt",
+        "never": "Nooit",
+        "last_seen": "Laatst Gezien",
+        "now": "Nu",
         "years": "{{number}}y",
         "weeks": "{{number}}w",
         "days": "{{number}}d",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Geleden"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
+        "cpuUsage": "CPU Verbruik",
+        "memUsage": "MEM Gebruik",
+        "systemTempC": "Systeem Temperatuur",
+        "poolUsage": "Pool Gebruik",
         "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "invalid": "ongeldig"
     },
     "pfsense": {
         "load": "Load Avg",
@@ -636,21 +636,21 @@
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Momentele verzoeken",
+        "requests_failed": "Gefaalde verzoeken"
     },
     "evcc": {
-        "pv_power": "Production",
+        "pv_power": "Productie",
         "battery_soc": "Battery",
         "grid_power": "Grid",
         "home_power": "Consumption",
-        "charge_power": "Charger",
+        "charge_power": "Oplader",
         "watt_hour": "Wh"
     },
     "pialert": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
+        "connected": "Verbonden",
+        "new_devices": "Nieuwe Apparaten",
         "down_alerts": "Down Alerts"
     },
     "jdownloader": {
