@@ -2,18 +2,18 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "error": "Chyba",
+        "unknown": "Neznáme",
+        "running": "Beží",
+        "starting": "Spúšťa sa",
+        "unhealthy": "Nezdravý",
+        "not_found": "Nenájdené",
+        "exited": "Ukončené",
+        "partial": "Čiastočný",
+        "healthy": "Zdravý"
     },
     "rutorrent": {
         "active": "Active",
@@ -21,10 +21,10 @@
         "download": "Download"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Fronta",
+        "processed": "Spracované",
+        "errored": "Chybné",
+        "saved": "Uložené"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
@@ -144,74 +144,74 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "widget": {
-        "api_error": "API Error",
-        "missing_type": "Missing Widget Type: {{type}}",
-        "information": "Information",
-        "status": "Status",
+        "api_error": "Chyba API",
+        "missing_type": "Chýba typ widgetu: {{type}}",
+        "information": "Informácia",
+        "status": "Stav",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Nevyriešená chyba",
+        "response_data": "Dáta odpovede"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Aktuálna poloha",
+        "allow": "Klikni pre povolenie",
+        "updating": "Prebieha aktualizácia",
+        "wait": "Počkajte prosím"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Hľadať…"
     },
     "resources": {
         "cpu": "CPU",
-        "mem": "MEM",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load",
-        "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
+        "mem": "RAM",
+        "total": "Celkovo",
+        "free": "Voľné",
+        "used": "Využité",
+        "load": "Záťaž",
+        "temp": "TEPLOTA",
+        "max": "Max.",
+        "uptime": "BEŽÍ",
+        "months": "mes.",
         "days": "d",
         "hours": "h",
         "minutes": "m"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Používatelia",
+        "uptime": "Doba prevádzky",
+        "days": "Dní",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown"
+        "devices": "Zariadenia",
+        "lan_devices": "Zariadenia LAN",
+        "wlan_devices": "Zariadenia WLAN",
+        "lan_users": "Používatelia LAN",
+        "wlan_users": "Používatelia WLAN",
+        "up": "BEŽÍ",
+        "down": "NEBEŽÍ",
+        "wait": "Počkajte prosím",
+        "empty_data": "Stav podsystému neznámy"
     },
     "ping": {
-        "error": "Error",
-        "ping": "Ping"
+        "error": "Chyba",
+        "ping": "Odozva"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Prehrávané",
+        "transcoding": "Prekódovávané",
+        "bitrate": "Prenosová rýchlosť",
+        "no_active": "Žiadny aktívny stream",
+        "movies": "Filmy",
+        "series": "Seriály",
+        "episodes": "Epizódy",
+        "songs": "Skladby"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Sťahovanie",
+        "upload": "Odosielanie",
+        "leech": "Leechovanie",
+        "seed": "Seedovanie"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
@@ -276,70 +276,70 @@
         "queued": "Queued",
         "series": "Series",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "Neznáme"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
-        "movies": "Movies",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "wanted": "Chcené",
+        "missing": "Chýbajúce",
+        "queued": "Vo fronte",
+        "movies": "Filmy",
+        "queue": "Fronta",
+        "unknown": "Neznáme"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "artists": "Artists"
+        "wanted": "Chcené",
+        "queued": "Vo fronte",
+        "artists": "Interpreti"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Chcené",
+        "queued": "Vo fronte",
+        "books": "Knihy"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Chýbajúce epizódy",
+        "missingMovies": "Chýbajúce filmy"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Čakajúce",
+        "approved": "Schválené",
+        "available": "Dostupné"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Čakajúce",
+        "approved": "Schválené",
+        "available": "Dostupné"
     },
     "overseerr": {
-        "pending": "Pending",
-        "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Čakajúce",
+        "processing": "Spracovávané",
+        "approved": "Schválené",
+        "available": "Dostupné"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "queries": "Dopyty",
+        "blocked": "Zablokované",
+        "gravity": "Gravitácia",
+        "blocked_percent": "Blokované %"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Dopyty",
+        "blocked": "Blokované",
+        "filtered": "Filtrované",
+        "latency": "Odozva"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Odosielanie",
+        "download": "Sťahovanie",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Spustené",
+        "stopped": "Zastavené",
+        "total": "Celkovo"
     },
     "traefik": {
-        "routers": "Routers",
+        "routers": "Routery",
         "services": "Services",
         "middleware": "Middleware"
     },
@@ -589,8 +589,8 @@
         "switches_on": "Switches On"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Odbery",
+        "unread": "Neprečítané"
     },
     "channelsdvrserver": {
         "shows": "Shows",
@@ -603,18 +603,18 @@
         "updates": "Updates"
     },
     "tailscale": {
-        "address": "Address",
-        "years": "{{number}}y",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "weeks": "{{number}}w",
+        "address": "Adresa",
+        "years": "{{number}}r",
+        "expires": "Vyprší",
+        "never": "Nikdy",
+        "last_seen": "Naposledy videné",
+        "now": "Teraz",
+        "weeks": "{{number}}t",
         "days": "{{number}}d",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "Pred {{value}}"
     },
     "qnap": {
         "cpuUsage": "CPU Usage",
@@ -635,23 +635,23 @@
         "wanIP": "WAN IP"
     },
     "caddy": {
-        "upstreams": "Upstreams",
+        "upstreams": "Odosielanie dát",
         "requests": "Current requests",
         "requests_failed": "Failed requests"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "pv_power": "Produkcia",
+        "battery_soc": "Batéria",
+        "grid_power": "Mriežka",
+        "home_power": "Spotreba",
+        "charge_power": "Nabíjačka",
         "watt_hour": "Wh"
     },
     "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "total": "Celkovo",
+        "connected": "Pripojené",
+        "new_devices": "Nové zariadenia",
+        "down_alerts": "Upozornenia o výpadkoch"
     },
     "jdownloader": {
         "downloadCount": "Queue Count",
