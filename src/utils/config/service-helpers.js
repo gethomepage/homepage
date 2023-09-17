@@ -219,9 +219,9 @@ export async function servicesFromKubernetes() {
         return [];
       });
 
-    const traefikIngressList = [...traefikIngressListContaino, ...traefikIngressListIo];
+    const traefikIngressList = [...traefikIngressListContaino?.items ?? [], ...traefikIngressListIo?.items ?? []];
 
-    if (traefikIngressList?.items?.length > 0) {
+    if (traefikIngressList.length > 0) {
       const traefikServices = traefikIngressList.items.filter(
         (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`]
       );
