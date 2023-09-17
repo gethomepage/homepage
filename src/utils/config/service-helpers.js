@@ -4,7 +4,7 @@ import path from "path";
 import yaml from "js-yaml";
 import Docker from "dockerode";
 import * as shvl from "shvl";
-import { CustomObjectsApi, NetworkingV1Api } from "@kubernetes/client-node";
+import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
@@ -141,6 +141,26 @@ function getUrlFromIngress(ingress) {
   return `${urlSchema}://${urlHost}${urlPath}`;
 }
 
+export async function checkCRD(kc, name) {
+  const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
+  const exist = await apiExtensions
+    .readCustomResourceDefinitionStatus(name)
+    .then(() => true)
+    .catch(async (error) => {
+      if (error.statusCode === 403) {
+        logger.error(
+          "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
+          name,
+          error.statusCode,
+          error.body.message
+        );
+      }
+      return false
+    });
+
+  return exist
+}
+
 export async function servicesFromKubernetes() {
   const ANNOTATION_BASE = "gethomepage.dev";
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
@@ -164,11 +184,14 @@ export async function servicesFromKubernetes() {
         return null;
       });
 
+    const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
+    const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
+
     const traefikIngressListContaino = await crd
       .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
       .then((response) => response.body ?? [])
       .catch(async (error) => {
-        if (![403, 404].includes(error.statusCode)) {
+        if (traefikContainoExists) {
           logger.error(
             "Error getting traefik ingresses from traefik.containo.us: %d %s %s",
             error.statusCode,
@@ -184,7 +207,7 @@ export async function servicesFromKubernetes() {
       .listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
       .then((response) => response.body ?? [])
       .catch(async (error) => {
-        if (![403, 404].includes(error.statusCode)) {
+        if (traefikExists) {
           logger.error(
             "Error getting traefik ingresses from traefik.io: %d %s %s",
             error.statusCode,
@@ -196,9 +219,9 @@ export async function servicesFromKubernetes() {
         return [];
       });
 
-    const traefikIngressList = [...traefikIngressListContaino, ...traefikIngressListIo];
+    const traefikIngressList = [...traefikIngressListContaino?.items ?? [], ...traefikIngressListIo?.items ?? []];
 
-    if (traefikIngressList?.items?.length > 0) {
+    if (traefikIngressList.length > 0) {
       const traefikServices = traefikIngressList.items.filter(
         (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`]
       );
