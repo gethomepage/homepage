@@ -5,7 +5,7 @@
         "status": "Status",
         "url": "URL",
         "information": "Informationen",
-        "raw_error": "Roher Fehler",
+        "raw_error": "Raw Fehler",
         "response_data": "Empfangene Daten"
     },
     "search": {
@@ -14,7 +14,7 @@
     "resources": {
         "total": "Gesamt",
         "free": "Frei",
-        "used": "In Verwendung",
+        "used": "In Benutzung",
         "load": "Last",
         "cpu": "Prozessor",
         "mem": "Speicher",
@@ -43,21 +43,21 @@
         "healthy": "Healthy"
     },
     "emby": {
-        "playing": "Aktuelle Wiedergaben",
-        "transcoding": "Transkodieren",
+        "playing": "Wiedergabe",
+        "transcoding": "Transcodiert",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
         "movies": "Filme",
-        "series": "Serie",
+        "series": "Serien",
         "episodes": "Folgen",
         "songs": "Songs"
     },
     "tautulli": {
-        "playing": "Spielen",
+        "playing": "Wiedergabe",
         "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
-        "plex_connection_error": "Plex-Verbindung prüfen"
+        "plex_connection_error": "Prüfe Plex Verbindung"
     },
     "rutorrent": {
         "active": "Aktiv",
@@ -106,7 +106,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Wird ausgeführt",
+        "running": "In Betrieb",
         "stopped": "Gestoppt",
         "total": "Gesamt"
     },
@@ -159,10 +159,10 @@
         "numberOfGrabs": "Abrufungen",
         "numberOfQueries": "Anfragen",
         "numberOfFailGrabs": "Fehlgeschlagene Abrufungen",
-        "numberOfFailQueries": "Fehlgeschlagene Anfragen"
+        "numberOfFailQueries": "Fehlgeschlagene Abfragen"
     },
     "transmission": {
-        "download": "Herunterladen",
+        "download": "Download",
         "upload": "Hochladen",
         "leech": "Leech",
         "seed": "Seed"
@@ -193,7 +193,7 @@
         "seed": "Seed"
     },
     "mastodon": {
-        "user_count": "Nutzer",
+        "user_count": "Benutzer",
         "status_count": "Beiträge",
         "domain_count": "Domänen"
     },
@@ -209,14 +209,14 @@
         "failedLoginsLast24H": "fehlerhafte Anmeldungen (24h)"
     },
     "proxmox": {
-        "mem": "RAM",
+        "mem": "Speicher",
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "unifi": {
         "users": "Benutzer",
-        "uptime": "System-Betriebszeit",
+        "uptime": "System-Laufzeit",
         "days": "Tage",
         "wan": "WAN",
         "lan_users": "LAN Benutzer",
@@ -229,7 +229,7 @@
         "devices": "Geräte",
         "lan_devices": "LAN-Geräte",
         "wlan_devices": "WLAN-Geräte",
-        "empty_data": "Subsystem-Status unbekannt"
+        "empty_data": "Subsystem Status unbekannt"
     },
     "plex": {
         "streams": "Aktive Streams",
@@ -251,8 +251,8 @@
         "used": "Verwendet",
         "write": "Schreiben",
         "gpu": "GPU",
-        "mem": "Mem",
-        "swap": "Auslagerung",
+        "mem": "Speicher",
+        "swap": "Swap",
         "crit": "Krit",
         "read": "Lesen",
         "_temp": "Temperatur"
@@ -262,36 +262,36 @@
         "diffsDetected": "Erkannte Differenzen"
     },
     "wmo": {
-        "0-day": "Sonnig",
-        "0-night": "Klar",
-        "1-day": "Überwiegend sonnig",
-        "1-night": "Überwiegend klar",
-        "2-day": "Teilweise bewölkt",
-        "2-night": "Teilweise bewölkt",
+        "0-day": "sonnig",
+        "0-night": "klar",
+        "1-day": "überwiegend sonnig",
+        "1-night": "überwiegend klar",
+        "2-day": "teilweise bewölkt",
+        "2-night": "teilweise bewölkt",
         "3-day": "bewölkt",
-        "57-day": "Gefrierender Nieselregen",
-        "61-day": "Leichter Regen",
-        "65-night": "Starker Regen",
+        "57-day": "gefrierender Nieselregen",
+        "61-day": "leichter Regen",
+        "65-night": "starker Regen",
         "66-day": "Gefrierender Regen",
         "66-night": "Gefrierender Regen",
-        "3-night": "Bewölkt",
-        "45-day": "Neblig",
-        "45-night": "Neblig",
-        "48-day": "Neblig",
-        "48-night": "Neblig",
-        "51-day": "Leichter Nieselregen",
-        "51-night": "Leichter Nieselregen",
-        "55-day": "Starker Nieselregen",
+        "3-night": "bewölkt",
+        "45-day": "neblig",
+        "45-night": "neblig",
+        "48-day": "neblig",
+        "48-night": "neblig",
+        "51-day": "leichter Nieselregen",
+        "51-night": "leichter Nieselregen",
+        "55-day": "starker Nieselregen",
         "53-day": "Nieselregen",
         "53-night": "Nieselregen",
-        "55-night": "Starker Nieselregen",
-        "56-day": "Leichter gefrierender Nieselregen",
-        "56-night": "Leichter eisiger Nieselregen",
-        "57-night": "Gefrierender Nieselregen",
-        "61-night": "Leichter Regen",
+        "55-night": "starker Nieselregen",
+        "56-day": "leichter gefrierender Nieselregen",
+        "56-night": "leichter eisiger Nieselregen",
+        "57-night": "gefrierender Nieselregen",
+        "61-night": "leichter Regen",
         "63-day": "Regen",
         "63-night": "Regen",
-        "65-day": "Starker Regen",
+        "65-day": "starker Regen",
         "67-day": "Gefrierender Regen",
         "67-night": "Gefrierender Regen",
         "71-day": "Leichter Schneefall",
@@ -362,7 +362,7 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "Keine Aktiven Übertragungen",
+        "nothing_streaming": "Keine aktiven Wiedergaben",
         "please_wait": "Bitte warten"
     },
     "pyload": {
@@ -416,7 +416,7 @@
         "read": "Lesen"
     },
     "nextdns": {
-        "wait": "Bitte Warten",
+        "wait": "Bitte warten",
         "no_devices": "Keine Daten empfangen"
     },
     "common": {
@@ -426,9 +426,9 @@
     "omada": {
         "connectedAp": "Verbundene APs",
         "activeUser": "Aktive Geräte",
-        "alerts": "Meldungen",
+        "alerts": "Alarme",
         "connectedGateway": "Verbundene Gateways",
-        "connectedSwitches": "Verbundene Switches"
+        "connectedSwitches": "Verbundene Switche"
     },
     "downloadstation": {
         "download": "Download",
@@ -558,7 +558,7 @@
     },
     "pterodactyl": {
         "servers": "Server",
-        "nodes": "Nodes"
+        "nodes": "Knotenpunkte"
     },
     "prometheus": {
         "targets_up": "Ziele Up",
@@ -621,7 +621,7 @@
         "memUsage": "MEM Nutzung",
         "systemTempC": "System Temp",
         "poolUsage": "Pool Nutzung",
-        "volumeUsage": "Speicher benutzung",
+        "volumeUsage": "Speicher Nutzung",
         "invalid": "Ungültig"
     },
     "pfsense": {
@@ -643,8 +643,8 @@
         "watt_hour": "Wh",
         "pv_power": "Produktion",
         "battery_soc": "Batterie",
-        "grid_power": "Raster",
-        "home_power": "Verbrauch",
+        "grid_power": "Netzstrom",
+        "home_power": "verbauch",
         "charge_power": "Ladegerät"
     },
     "pialert": {
@@ -678,13 +678,13 @@
     "azuredevops": {
         "result": "Ergebnis",
         "status": "Status",
-        "buildId": "Build ID",
+        "buildId": "Build-ID",
         "succeeded": "Erfolgreich",
         "notStarted": "Nicht gestartet",
         "failed": "Fehlgeschlagen",
         "canceled": "Abgebrochen",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
+        "totalPrs": "Gesamt PRs",
+        "myPrs": "Meine PRs",
         "approved": "Genehmigt",
         "inProgress": "In Bearbeitung"
     },
@@ -703,7 +703,7 @@
         "failed": "Fehlgeschlagen"
     },
     "mealie": {
-        "recipes": "Recipes",
+        "recipes": "Rezepte",
         "users": "Benutzer",
         "categories": "Kategorien",
         "tags": "Schlagwörter"
@@ -723,15 +723,15 @@
     "uptimerobot": {
         "status": "Status",
         "uptime": "Betriebszeit",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
+        "lastDown": "Letzte Ausfallzeit",
+        "downDuration": "Ausfallzeit Dauer",
         "sitesUp": "Seiten verfügbar",
         "sitesDown": "Seiten nicht verfügbar",
         "paused": "Pausiert",
         "notyetchecked": "Noch nicht geprüft",
         "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
+        "seemsdown": "Scheint nicht verfügbar",
+        "down": "nicht verfügbar",
         "unknown": "Unbekannt"
     }
 }
