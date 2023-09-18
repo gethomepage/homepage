@@ -1,7 +1,7 @@
 {
     "widget": {
         "missing_type": "Missend Widget Type: {{type}}",
-        "api_error": "API Error",
+        "api_error": "API fout",
         "status": "Status",
         "information": "Informatie",
         "url": "URL",
@@ -14,7 +14,7 @@
         "used": "Gebruikt",
         "load": "lading",
         "cpu": "CPU",
-        "mem": "MEM",
+        "mem": "GEH",
         "days": "d",
         "hours": "h",
         "temp": "TEMP",
