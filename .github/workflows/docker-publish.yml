@@ -25,7 +25,7 @@ env:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
@@ -49,11 +49,11 @@ jobs:
       # https://github.com/marketplace/actions/docker-setup-buildx#with-qemu
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v3
-      
+
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v3
-        
+
       # This step is being disabled because the runner is on a self-hosted machine
       # where the cache will stick between runs.
       # - name: Cache Docker layers
@@ -101,8 +101,8 @@ jobs:
           # https://github.com/docker/setup-qemu-action#about
           # platforms: linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
           platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
@@ -120,7 +120,8 @@ jobs:
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252
       # https://github.com/moby/buildkit/issues/1896
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+      # INFO: MikaelElkiaer: Obsolete when using gha cache exporter
+      # - name: Move cache
+      #   run: |
+      #     rm -rf /tmp/.buildx-cache
+      #     mv /tmp/.buildx-cache-new /tmp/.buildx-cache
