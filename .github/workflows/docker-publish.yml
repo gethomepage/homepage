@@ -84,6 +84,30 @@ jobs:
           flavor: |
             latest=auto
 
+      # Build and load Docker image with Buildx
+      # https://github.com/docker/build-push-action
+      - name: Build and load Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          load: true
+          tags: test
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            BUILDTIME=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
+            VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
+            REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
+          # https://github.com/docker/setup-qemu-action#about
+          # platforms: linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
+          platforms: linux/amd64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Test in Kubernetes
+        uses: ./.gitbub/actions/test-in-k8s
+        with:
+          test-image-tag: test
+
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image

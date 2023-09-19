@@ -1,0 +1,24 @@
+name: Test in Kubernetes
+description: Run tests in Kubernetes (KIND)
+
+inputs:
+  test-image-tag:
+    description: Image to load
+
+runs:
+  using: composite
+  steps:
+    - name: Install Kubernetes
+      uses: helm/kind-action@v1.8.0
+    - name: Load test image
+      run: |
+        kind load docker-image ${{ inputs.test-image-tag }}
+      shell: bash
+    - name: Install Traefik
+      run: |
+        helm install traefik traefik --repo https://traefik.github.io/charts --wait --timeout 120s
+      shell: bash
+    - name: Install Homepage
+      run: |
+        helm install homepage homepage --repo http://jameswynn.github.io/helm-charts --wait --timeout 120s
+      shell: bash
