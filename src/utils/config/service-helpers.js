@@ -189,7 +189,7 @@ export async function servicesFromKubernetes() {
 
     const traefikIngressListContaino = await crd
       .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
-      .then((response) => response.body ?? [])
+      .then((response) => response.body)
       .catch(async (error) => {
         if (traefikContainoExists) {
           logger.error(
@@ -205,7 +205,7 @@ export async function servicesFromKubernetes() {
 
     const traefikIngressListIo = await crd
       .listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
-      .then((response) => response.body ?? [])
+      .then((response) => response.body)
       .catch(async (error) => {
         if (traefikExists) {
           logger.error(
