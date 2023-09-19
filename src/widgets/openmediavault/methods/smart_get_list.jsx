@@ -3,13 +3,13 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 
 const passedReduce = (acc, e) => {
-  if (e.overallstatus === "GOOD") {
+  if (e.monitor && e.overallstatus === "GOOD") {
     return acc + 1;
   }
   return acc;
 };
 const failedReduce = (acc, e) => {
-  if (e.overallstatus !== "GOOD") {
+  if (e.monitor && e.overallstatus !== "GOOD") {
     return acc + 1;
   }
   return acc;
