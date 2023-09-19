@@ -362,7 +362,7 @@ function Home({ initialSettings }) {
         />
       </style>
       <link rel="preload" href="/api/config/custom.js" as="fetch" crossOrigin="anonymous" />
-      <script data-name="custom.js" src="/api/config/custom.js" async="{true}" />
+      <script data-name="custom.js" src="/api/config/custom.js" async />
 
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <QuickLaunch
