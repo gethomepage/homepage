@@ -176,11 +176,9 @@ export default async function jdownloaderProxyHandler(req, res) {
     let totalSpeed = 0;
     packageStatus.forEach(file => {
         totalBytes += file.bytesTotal;
-        if (file.finished !== true) {
-          totalLoaded += file.bytesLoaded;
-            if (file.speed) {
-                totalSpeed += file.speed;
-            }
+        totalLoaded += file.bytesLoaded;
+        if (file.finished !== true && file.speed) {
+            totalSpeed += file.speed;
         }
     });
 
