@@ -220,7 +220,7 @@ function Home({ initialSettings }) {
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
-        if (e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.code === "Tab")) {
+        if (e.key.length === 1 && e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");
