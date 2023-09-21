@@ -249,13 +249,13 @@
         "load": "負載量",
         "warn": "警告",
         "total": "總共",
-        "crit": "Crit",
+        "crit": "重大的",
         "read": "讀取",
         "write": "寫入",
         "gpu": "GPU",
         "mem": "記憶體",
         "swap": "Swap",
-        "_temp": "Temp"
+        "_temp": "溫度"
     },
     "changedetectionio": {
         "totalObserved": "總監測數",
@@ -495,7 +495,7 @@
     },
     "komga": {
         "libraries": "文庫",
-        "series": "叢刊",
+        "series": "系列",
         "books": "叢書"
     },
     "mylar": {
@@ -548,7 +548,7 @@
     },
     "healthchecks": {
         "new": "新建立",
-        "up": "上線",
+        "up": "在線",
         "grace": "延緩中",
         "down": "離線",
         "paused": "擱置中",
@@ -569,7 +569,7 @@
         "players": "玩家",
         "version": "版本",
         "status": "狀態",
-        "up": "上線",
+        "up": "在線",
         "down": "離線"
     },
     "ghostfolio": {
@@ -671,9 +671,9 @@
         "maxPlayers": "玩家數上限",
         "bots": "機器人",
         "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "status": "狀態",
+        "online": "在線",
+        "offline": "離線"
     },
     "azuredevops": {
         "result": "結果",
@@ -695,43 +695,43 @@
         "totalUsed": "已使用空間"
     },
     "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "downloading": "下載中",
+        "total": "總數",
+        "running": "運行中",
+        "stopped": "未運行",
+        "passed": "通過",
+        "failed": "失敗"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "食譜",
+        "users": "使用者",
+        "categories": "類別",
+        "tags": "標籤"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "series": "系列",
+        "archives": "檔案",
+        "chapters": "章節",
+        "categories": "類別"
     },
     "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+        "books": "叢書",
+        "authors": "作者",
+        "categories": "類別",
+        "series": "系列"
     },
     "uptimerobot": {
-        "status": "Status",
-        "uptime": "Uptime",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
-        "unknown": "Unknown"
+        "status": "狀態",
+        "uptime": "在線時間",
+        "lastDown": "近一次停機時間",
+        "downDuration": "歷時停機時間",
+        "sitesUp": "在線網站",
+        "sitesDown": "離線網站",
+        "paused": "擱置中",
+        "notyetchecked": "尚未檢查",
+        "up": "在線",
+        "seemsdown": "似乎離線",
+        "down": "離線",
+        "unknown": "未知的"
     }
 }
