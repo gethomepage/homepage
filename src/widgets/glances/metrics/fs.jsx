@@ -53,7 +53,7 @@ export default function Component({ service }) {
         <div className="text-xs opacity-75">
           {t("common.bbytes", {
             value: fsData.free,
-            maximumFractionDigits: 0,
+            maximumFractionDigits: 1,
           })} {t("resources.free")}
         </div>
       </Block>
