@@ -28,7 +28,8 @@ export default async function handler(req, res) {
     try {
       let startTime = performance.now();
       let [status] = await httpProxy(pingURL, {
-        method: "HEAD"
+        method: "HEAD",
+        headers: {"User-Agent":"homepage"},
       });
       let endTime = performance.now();
       
