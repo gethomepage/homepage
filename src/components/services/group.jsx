@@ -49,6 +49,7 @@ export default function ServicesGroup({ group, services, layout, fiveColumns, di
             beforeEnter={() => {
               panel.current.style.height = `0px`;
               setTimeout(() => {panel.current.style.height = `${panel.current.scrollHeight}px`}, 1);
+              setTimeout(() => {panel.current.style.height = 'auto'}, 150); // animation is 150ms
             }}
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
