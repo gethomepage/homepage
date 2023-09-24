@@ -17,7 +17,7 @@ export default function Disk({ options, expanded, refresh = 1500 }) {
     return <Error options={options} />
   }
 
-  if (_.isEmpty(data)) {
+  if (!data || Object.keys(data).length === 0) {
     return <Resource
       icon={FiHardDrive}
       value="-"

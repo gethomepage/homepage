@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3030",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -20,7 +20,6 @@
     "i18next": "^21.9.2",
     "js-yaml": "^4.1.0",
     "json-rpc-2.0": "^1.4.1",
-    "lodash": "^4.17.21",
     "memory-cache": "^0.2.0",
     "minecraft-ping-js": "^1.0.2",
     "next": "^12.3.1",
