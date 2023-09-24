@@ -16,7 +16,7 @@ export default function Disk({ options, expanded, refresh = 1500 }) {
     return <Error options={options} />
   }
 
-  if (!data) {
+  if (!data || !data.drive) {
     return <Resource
       icon={FiHardDrive}
       value="-"
