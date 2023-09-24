@@ -1,3 +1,4 @@
+import _ from "lodash";
 import useSWR from "swr";
 import { FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
@@ -16,7 +17,7 @@ export default function Disk({ options, expanded, refresh = 1500 }) {
     return <Error options={options} />
   }
 
-  if (!data) {
+  if (_.isEmpty(data)) {
     return <Resource
       icon={FiHardDrive}
       value="-"
