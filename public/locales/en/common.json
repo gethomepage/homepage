@@ -529,6 +529,11 @@
         "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
     },
+    "opendtu": {
+        "relativeGeneration": "Power Generation %",
+        "absoluteGeneration": "Power Generation",
+        "limit": "Power Limit"
+    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",
