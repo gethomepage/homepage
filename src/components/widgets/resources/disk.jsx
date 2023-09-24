@@ -1,4 +1,3 @@
-import _ from "lodash";
 import useSWR from "swr";
 import { FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
