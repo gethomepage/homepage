@@ -65,7 +65,7 @@ export default function Component({ service }) {
             <div className="text-xs opacity-50">
               {t("common.bytes", {
                 value: data.free,
-                maximumFractionDigits: 0,
+                maximumFractionDigits: 1,
                 binary: true,
               })} {t("resources.free")}
             </div>
@@ -75,7 +75,7 @@ export default function Component({ service }) {
             <div className="text-xs opacity-50">
               {t("common.bytes", {
                 value: data.total,
-                maximumFractionDigits: 0,
+                maximumFractionDigits: 1,
                 binary: true,
               })} {t("resources.total")}
             </div>
@@ -89,7 +89,7 @@ export default function Component({ service }) {
             <div className="text-xs opacity-50">
               {t("common.bytes", {
                 value: data.free,
-                maximumFractionDigits: 0,
+                maximumFractionDigits: 1,
                 binary: true,
               })} {t("resources.free")}
             </div>
@@ -101,7 +101,7 @@ export default function Component({ service }) {
         <div className="text-xs font-bold opacity-75">
           {t("common.bytes", {
             value: data.used,
-            maximumFractionDigits: 0,
+            maximumFractionDigits: 1,
             binary: true,
           })} {t("resources.used")}
         </div>
