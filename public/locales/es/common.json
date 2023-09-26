@@ -733,5 +733,11 @@
         "seemsdown": "Parece caída",
         "down": "Abajo",
         "unknown": "Desconocido"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     }
 }
