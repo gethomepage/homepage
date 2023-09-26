@@ -733,5 +733,11 @@
         "seemsdown": "似乎離線",
         "down": "離線",
         "unknown": "未知的"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     }
 }
