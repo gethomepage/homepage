@@ -113,7 +113,7 @@
     "traefik": {
         "routers": "Router",
         "services": "Dienste",
-        "middleware": "Zwischenanwendung"
+        "middleware": "Middleware"
     },
     "npm": {
         "enabled": "Aktiviert",
@@ -735,9 +735,9 @@
         "unknown": "Unbekannt"
     },
     "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
+        "relativePower": "Produktion %",
+        "yieldDay": "Heute",
         "limit": "Limit",
-        "absolutePower": "Power"
+        "absolutePower": "Produktion"
     }
 }
