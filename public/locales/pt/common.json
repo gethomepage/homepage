@@ -742,5 +742,11 @@
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
         "up": "Up"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     }
 }
