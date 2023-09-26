@@ -1,13 +1,13 @@
 name: Bug report
 description: Create a report to help us improve
-title: "[Bug] "
+title: "[Bug] Concise description of the issue"
 labels: ["bug, unconfirmed"]
 body:
   - type: markdown
     attributes:
       value: |
         ## ⚠️ Please remember: issues are for *bugs*
-        That is, something you believe affects every single homepage user, not just you. If you're not sure, start with one of the other options below.
+        That is, something you believe affects every single homepage user, not just you. Otherwise, start with one of the other options below.
   - type: markdown
     attributes:
       value: |
