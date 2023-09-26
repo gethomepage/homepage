@@ -8,6 +8,12 @@ export default function Component({ service }) {
   const { data: printerStats, error: printerStatsError } = useWidgetAPI(widget, "printer_stats");
   const { data: jobStats, error: jobStatsError } = useWidgetAPI(widget, "job_stats");
 
+  if (printerStatsError && jobStats && jobStats.state==="Offline") {
+    return <Container service={service}>
+        <Block label="STATUS" value="Not Operational" />
+      </Container>
+  }
+
   if (printerStatsError) {
     return <Container service={service} error={printerStatsError} />;
   }
