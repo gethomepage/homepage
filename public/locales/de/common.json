@@ -733,5 +733,11 @@
         "seemsdown": "Scheint nicht verfügbar",
         "down": "nicht verfügbar",
         "unknown": "Unbekannt"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     }
 }
