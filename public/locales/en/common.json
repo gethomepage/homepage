@@ -530,9 +530,10 @@
         "streams_xepg": "XEPG Channels"
     },
     "opendtu": {
-        "relativeGeneration": "Power Generation %",
-        "absoluteGeneration": "Power Generation",
-        "limit": "Power Limit"
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "CPU Load",

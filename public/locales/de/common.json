@@ -448,8 +448,9 @@
         "streams_xepg": "XEPG Kanäle"
     },
     "opendtu": {
-        "absoluteGeneration": "Gesamterzeugung",
-        "relativeGeneration": "Gesamterzeugung %",
+        "yieldDay": "Heute",
+        "absolutePower": "Produktion",
+        "relativePower": "Produktion %",
         "limit": "Limit"
     },
     "opnsense": {

@@ -9,37 +9,40 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: opendtuLiveData, error: opendtuError } = useWidgetAPI(widget);
+  const { data: opendtuData, error: opendtuError } = useWidgetAPI(widget);
 
   if (opendtuError) {
     return <Container service={service} error={opendtuError} />;
   }
   
-  if (!opendtuLiveData) {
+  if (!opendtuData) {
     return (
       <Container service={service}>
-        <Block label="opendtu.relativeGeneration" />
-        <Block label="opendtu.totalGeneration" />
+        <Block label="opendtu.yieldDay" />
+        <Block label="opendtu.relativePower" />
+        <Block label="opendtu.absolutePower" />
         <Block label="opendtu.limit" />
       </Container>
     );
   }
 
-  const totalGeneration = opendtuLiveData.inverters.map(inverter => 
-      Object.values(inverter.AC).map(
-        AC => AC.Power.v
-      ).reduce((a,b) => a+b))
-    .reduce((a,b) => a+b);
-  
-  const totalLimit = opendtuLiveData.inverters.map(inverter => inverter.limit_absolute).reduce((a,b) => a+b);
+  const yieldDay = opendtuData.total.YieldDay.v
+  const yieldDayUnit = opendtuData.total.YieldDay.u
 
-  const usagePercentage = (totalGeneration / totalLimit) * 100
+  const power = opendtuData.total.Power.v 
+  const powerUnit = opendtuData.total.Power.u
+
+  const totalLimit = opendtuData.inverters.map(inverter => inverter.limit_absolute).reduce((a,b) => a+b);
+  const totalLimitUnit = "W"
+  
+  const powerPercentage = (power / totalLimit) * 100
 
   return (
     <Container service={service}>
-      <Block label="opendtu.relativeGeneration" value={t("common.number", { value: Math.round(usagePercentage), style: "unit", unit: "percent" })} />
-      <Block label="opendtu.totalGeneration" value={`${t("common.number", { value: Math.round(totalGeneration), style: "unit"})}W`} />
-      <Block label="opendtu.limit" value={`${t("common.number", { value: Math.round(totalLimit), style: "unit"})}W`} />
+      <Block label="opendtu.yieldDay" value={`${t("common.number", { value: Math.round(yieldDay), style: "unit" })}${yieldDayUnit}`} />
+      <Block label="opendtu.relativePower" value={t("common.number", { value: Math.round(powerPercentage), style: "unit", unit: "percent" })} />
+      <Block label="opendtu.absolutePower" value={`${t("common.number", { value: Math.round(power), style: "unit" })}${powerUnit}`} />
+      <Block label="opendtu.limit" value={`${t("common.number", { value: Math.round(totalLimit), style: "unit" })}${totalLimitUnit}`} />
     </Container>
   );
 }
