@@ -8,6 +8,12 @@ export default function Component({ service }) {
   const { data: printerStats, error: printerStatsError } = useWidgetAPI(widget, "printer_stats");
   const { data: jobStats, error: jobStatsError } = useWidgetAPI(widget, "job_stats");
 
+  if (printerStatsError && jobStats) {
+    return <Container service={service}>
+        <Block label="octoprint.printer_state" value={jobStats.state} />
+      </Container>
+  }
+
   if (printerStatsError) {
     return <Container service={service} error={printerStatsError} />;
   }
