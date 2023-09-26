@@ -6,6 +6,11 @@ body:
   - type: markdown
     attributes:
       value: |
+        ## ⚠️ Please remember: issues are for *bugs*
+        That is, something you believe affects every single homepage user, not just you. If you're not sure, start with one of the other options below.
+  - type: markdown
+    attributes:
+      value: |
         Have a question? 👉 [Start a new discussion](https://github.com/benphelps/homepage/discussions/new) or [ask in chat](https://discord.gg/SaPGSzrEZC).
 
         Before opening an issue, please double check:
