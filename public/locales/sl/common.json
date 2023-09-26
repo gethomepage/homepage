@@ -733,5 +733,11 @@
         "sitesDown": "Sites Down",
         "seemsdown": "Seems Down",
         "down": "Down"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     }
 }
