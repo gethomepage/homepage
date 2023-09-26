@@ -30,7 +30,7 @@
         "transcoding": "Transcodifica",
         "bitrate": "Bitrate",
         "no_active": "Nessuno Stream Attivo",
-        "plex_connection_error": "Controllo Connessione a Plex"
+        "plex_connection_error": "Controllare la connessione a Plex"
     },
     "speedtest": {
         "upload": "Upload",
@@ -76,8 +76,8 @@
     },
     "rutorrent": {
         "active": "Attivo",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Caricamento",
+        "download": "Scaricamento"
     },
     "sonarr": {
         "series": "Serie",
@@ -162,8 +162,8 @@
         "numberOfFailQueries": "Queries Fallite"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Scaricamento",
+        "upload": "Caricamento",
         "leech": "In scaricamento",
         "seed": "Seed"
     },
@@ -187,9 +187,9 @@
         "latency": "Latenza"
     },
     "qbittorrent": {
-        "download": "Download",
+        "download": "Scaricamento",
         "leech": "In scaricamento",
-        "upload": "Upload",
+        "upload": "Caricamento",
         "seed": "Seed"
     },
     "mastodon": {
@@ -394,8 +394,8 @@
         "total": "Totali"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Scaricamento",
+        "upload": "Caricamento",
         "leech": "In scaricamento",
         "seed": "Seed"
     },
