@@ -10,7 +10,7 @@ export default function Component({ service }) {
 
   if (printerStatsError && jobStats && jobStats.state==="Offline") {
     return <Container service={service}>
-        <Block label="STATUS" value="Not Operational" />
+        <Block label="octoprint.printer_state" value="Not Operational" />
       </Container>
   }
 
