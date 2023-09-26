@@ -735,9 +735,9 @@
         "unknown": "Inconnu"
     },
     "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "relativePower": "Puissance %",
+        "yieldDay": "Aujourd'hui",
+        "limit": "Limite",
+        "absolutePower": "Puissance"
     }
 }
