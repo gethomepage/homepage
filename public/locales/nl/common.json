@@ -733,5 +733,11 @@
         "seemsdown": "Lijkt onbereikbaar",
         "down": "Neer",
         "unknown": "Onbekend"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     }
 }
