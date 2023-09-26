@@ -61,6 +61,7 @@ const components = {
   octoprint: dynamic(() => import("./octoprint/component")),
   omada: dynamic(() => import("./omada/component")),
   ombi: dynamic(() => import("./ombi/component")),
+  opendtu: dynamic(() => import("./opendtu/component")),
   opnsense: dynamic(() => import("./opnsense/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   openmediavault: dynamic(() => import("./openmediavault/component")),

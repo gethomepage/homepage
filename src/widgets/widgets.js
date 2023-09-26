@@ -55,6 +55,7 @@ import nzbget from "./nzbget/widget";
 import octoprint from "./octoprint/widget";
 import omada from "./omada/widget";
 import ombi from "./ombi/widget";
+import opendtu from "./opendtu/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import openmediavault from "./openmediavault/widget";
@@ -156,6 +157,7 @@ const widgets = {
   octoprint,
   omada,
   ombi,
+  opendtu,
   opnsense,
   overseerr,
   openmediavault,

@@ -529,6 +529,12 @@
         "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
     },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
+    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",
