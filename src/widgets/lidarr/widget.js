@@ -14,6 +14,10 @@ const widget = {
     "queue/status": {
       endpoint: "queue/status",
     },
+    calendar: {
+      endpoint: "calendar",
+      params: ["start", "end", "unmonitored", "includeArtist"],
+    },
   },
 };
 
