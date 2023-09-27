@@ -52,6 +52,10 @@ const widget = {
         return 0;
       })
     },
+    calendar: {
+      endpoint: "calendar",
+      params: ["start", "end", "unmonitored"],
+    },
   },
 };
 
