@@ -153,3 +153,5 @@ For bug reports, please open an issue on the [Issues](https://github.com/benphel
 Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
 
 Thanks to the over 200 contributors who have helped make this project what it is today!
+
+Especially huge thanks to [@shamoon](https://github.com/shamoon), who has been the backbone of this community from the very start.
