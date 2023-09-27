@@ -23,8 +23,8 @@ export default function Ping({ group, service, style }) {
     );
   }
 
-  var statusText = `HTTP status ${data.status}`;
-  var status;
+  let statusText = `HTTP status ${data.status}`;
+  let status;
 
   if (data.status > 403) {
     if (style === "basic") {
@@ -43,7 +43,7 @@ export default function Ping({ group, service, style }) {
   }
 
   // Sucessful ping
-  var ping = t("common.ms", { value: data.latency, style: "unit", unit: "millisecond", maximumFractionDigits: 0 })
+  const ping = t("common.ms", { value: data.latency, style: "unit", unit: "millisecond", maximumFractionDigits: 0 })
 
   statusText += ` (${ping})`;
 
