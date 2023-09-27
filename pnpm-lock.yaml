@@ -35,6 +35,9 @@ dependencies:
   json-rpc-2.0:
     specifier: ^1.4.1
     version: 1.5.1
+  luxon:
+    specifier: ^3.4.3
+    version: 3.4.3
   memory-cache:
     specifier: ^0.2.0
     version: 0.2.0
@@ -2645,6 +2648,11 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /luxon@3.4.3:
+    resolution: {integrity: sha512-tFWBiv3h7z+T/tDaoxA8rqTxy1CHV6gHS//QdaH4pulbq/JuBSGgQspQQqcgnwdAx6pNI7cmvz5Sv/addzHmUg==}
+    engines: {node: '>=12'}
+    dev: false
 
   /memory-cache@0.2.0:
     resolution: {integrity: sha512-OcjA+jzjOYzKmKS6IQVALHLVz+rNTMPoJvCztFaZxwG14wtAW7VRZjwTQu06vKCYOxh4jVnik7ya0SXTB0W+xA==}
