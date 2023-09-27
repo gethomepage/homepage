@@ -29,8 +29,6 @@ export default function Item({ service, group }) {
     }
   };
 
-
-
   return (
     <li key={service.name} id={service.id} className="service" data-name={service.name || ""}>
       <div
@@ -81,7 +79,7 @@ export default function Item({ service, group }) {
           <div className="absolute top-0 right-0 flex flex-row justify-end gap-2 mr-2 z-30 service-tags">
               {service.ping && (
                 <div className="flex-shrink-0 flex items-center justify-center service-tag service-ping">
-                  <Ping group={group} service={service.name} />
+                  <Ping group={group} service={service.name} style={service.pingStyle} />
                   <span className="sr-only">Ping status</span>
                 </div>
               )}
