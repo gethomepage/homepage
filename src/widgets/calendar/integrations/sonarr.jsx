@@ -8,7 +8,7 @@ import Error from "../../../components/services/widget/error";
 export default function Integration({ config, params }) {
   const { setEvents } = useContext(EventContext);
   const { data: sonarrData, error: sonarrError } = useWidgetAPI(config, "calendar",
-    { ...params, includeSeries: 'false', includeEpisodeFile: 'false', includeEpisodeImages: 'false',  ...config?.params ?? {} }
+    { ...params, includeSeries: 'true', includeEpisodeFile: 'false', includeEpisodeImages: 'false',  ...config?.params ?? {} }
   );
 
   useEffect(() => {
