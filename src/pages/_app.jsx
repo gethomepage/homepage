@@ -12,6 +12,7 @@ import { ColorProvider } from "utils/contexts/color";
 import { ThemeProvider } from "utils/contexts/theme";
 import { SettingsProvider } from "utils/contexts/settings";
 import { TabProvider } from "utils/contexts/tab";
+import { EventProvider, ShowDateProvider } from "utils/contexts/calendar";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -28,7 +29,11 @@ function MyApp({ Component, pageProps }) {
         <ThemeProvider>
           <SettingsProvider>
             <TabProvider>
-              <Component {...pageProps} />
+              <EventProvider>
+                <ShowDateProvider>
+                  <Component {...pageProps} />
+                </ShowDateProvider>
+              </EventProvider>
             </TabProvider>
           </SettingsProvider>
         </ThemeProvider>

@@ -18,6 +18,10 @@ const widget = {
     "wanted/missing": {
       endpoint: "wanted/missing",
     },
+    calendar: {
+      endpoint: "calendar",
+      params: ["start", "end", "unmonitored", "includeAuthor"],
+    },
   },
 };
 

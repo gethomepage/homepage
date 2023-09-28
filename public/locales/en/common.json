@@ -748,5 +748,10 @@
         "seemsdown": "Seems Down",
         "down": "Down",
         "unknown": "Unknown"
+    },
+    "calendar": {
+        "inCinemas": "In cinemas",
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release"
     }
 }
