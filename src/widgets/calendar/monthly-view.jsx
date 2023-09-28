@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { DateTime, Info } from "luxon";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
@@ -95,9 +95,11 @@ export default function MonthlyView({ service }) {
   const { events } = useContext(EventContext);
   const currentDate = DateTime.now().setLocale(i18n.language).startOf("day");
 
-  if (!showDate) {
-    setShowDate(currentDate);
-  }
+  useEffect(() => {
+    if (!showDate) {
+      setShowDate(currentDate);
+    }
+  })
 
   const dayNames = Info.weekdays("short", { locale: i18n.language });
 
