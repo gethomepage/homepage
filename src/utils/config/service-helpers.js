@@ -357,7 +357,7 @@ export function cleanServiceGroups(groups) {
           method, // openmediavault widget
           mappings, // customapi widget
           refreshInterval,
-          integration, // calendar widget
+          integrations, // calendar widget
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -442,7 +442,7 @@ export function cleanServiceGroups(groups) {
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
         if (type === "calendar") {
-          if (integration) cleanedService.widget.integration = integration;
+          if (integrations) cleanedService.widget.integrations = integrations;
         }
       }
 

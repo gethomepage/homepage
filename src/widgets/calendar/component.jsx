@@ -25,10 +25,10 @@ export default function Component({ service }) {
   }, [showDate]);
 
   // Load active integrations
-  const integrations = useMemo(() => widget.integration?.map(integration => ({
+  const integrations = useMemo(() => widget.integrations?.map(integration => ({
     service: dynamic(() => import(`./integrations/${integration?.type}`)),
     widget: integration,
-  })) ?? [], [widget.integration]);
+  })) ?? [], [widget.integrations]);
 
   return <Container service={service}>
     <div className="flex flex-col">
