@@ -31,7 +31,7 @@ export default function Component({ service }) {
   })) ?? [], [widget.integrations]);
 
   return <Container service={service}>
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <div className="sticky top-0">
         {integrations.map(integration => {
           const Integration = integration.service;

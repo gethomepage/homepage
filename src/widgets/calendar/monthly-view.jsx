@@ -71,15 +71,10 @@ export function Day({ weekNumber, weekday, events }) {
 }
 
 export function Event({ event }) {
-  let title = event.title.slice(0,55);
-  if (title !== event.title) {
-    title += "...";
-  }
-
   return <div
     key={event.title}
     className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
-  ><span className="absolute left-2 text-xs mt-[2px]">{title}</span>
+  ><span className="absolute left-2 text-left text-xs mt-[2px] truncate text-ellipsis" style={{width: '96%'}}>{event.title}</span>
   </div>
 }
 
