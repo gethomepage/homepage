@@ -24,12 +24,12 @@ export default function Ping({ group, service, style }) {
   } else if (data.status > 403) {
     colorClass = "text-rose-500/80"
     statusTitle += ` ${data.status}`
-    
+
     if (style === "basic") {
       statusText = t("docker.offline")
     } else if (style === "dot") {
       statusText = "◉"
-      textSize += "text-[10px]"
+      textSize = "text-[14px]"
       backgroundClass = ""
     } else {
       statusText = data.status
@@ -43,7 +43,7 @@ export default function Ping({ group, service, style }) {
       statusText = t("docker.running")
     } else if (style === "dot") {
       statusText = "◉"
-      textSize += "text-[10px]"
+      textSize = "text-[14px]"
       backgroundClass = ""
     } else {
       statusText = ping
