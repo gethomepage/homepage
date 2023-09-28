@@ -19,7 +19,7 @@ export default function Integration({ config, params }) {
     const eventsToAdd = {};
 
     sonarrData?.forEach(event => {
-      const title = `${event.series.title} - S${event.seasonNumber}E${event.episodeNumber}`;
+      const title = `${event.series.title ?? event.title} - S${event.seasonNumber}E${event.episodeNumber}`;
 
       eventsToAdd[title] = {
         title,
