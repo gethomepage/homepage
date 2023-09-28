@@ -739,5 +739,10 @@
         "yieldDay": "Hoy",
         "limit": "Límite",
         "absolutePower": "Encender"
+    },
+    "calendar": {
+        "physicalRelease": "Physical release",
+        "inCinemas": "In cinemas",
+        "digitalRelease": "Digital release"
     }
 }
