@@ -527,7 +527,7 @@
         "alertstriggered": "Alertes déclenchées"
     },
     "nextcloud": {
-        "freespace": "Espace Libre",
+        "freespace": "Libre",
         "activeusers": "Utilisateurs Actifs",
         "cpuload": "Charge Cpu",
         "memoryusage": "Utilisation Mémoire",
@@ -741,8 +741,8 @@
         "absolutePower": "Puissance"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
-        "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Release physique",
+        "inCinemas": "En salle",
+        "digitalRelease": "Release digitale"
     }
 }
