@@ -8,7 +8,7 @@ import Error from "../../../components/services/widget/error";
 export default function Integration({ config, params }) {
   const { setEvents } = useContext(EventContext);
   const { data: readarrData, error: readarrError } = useWidgetAPI(config, "calendar",
-    { ...params, includeAuthor: 'false', ...config?.params ?? {} },
+    { ...params, includeAuthor: 'true', ...config?.params ?? {} },
   );
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Integration({ config, params }) {
     const eventsToAdd = {};
 
     readarrData?.forEach(event => {
-      const authorName = event.authorTitle.replace(event.title, '');
+      const authorName = event.author?.authorName ?? event.authorTitle.replace(event.title, '');
       const title = `${authorName} - ${event.title} ${event?.seriesTitle ? `(${event.seriesTitle})` : ''} `;
 
       eventsToAdd[title] = {
