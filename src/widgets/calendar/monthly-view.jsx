@@ -98,13 +98,13 @@ export default function MonthlyView({ service }) {
 
   const dayNames = Info.weekdays("short", { locale: i18n.language });
 
-  const firstDayInCalendar = widget?.firstDayInCalendar ? widget?.firstDayInCalendar?.toLowerCase() : "monday";
-  for (let i = 1; i < dayInWeekId[firstDayInCalendar]; i+=1) {
+  const firstDayInWeekCalendar = widget?.firstDayInWeek ? widget?.firstDayInWeek?.toLowerCase() : "monday";
+  for (let i = 1; i < dayInWeekId[firstDayInWeekCalendar]; i+=1) {
     dayNames.push(dayNames.shift());
   }
 
-  const daysInWeek = useMemo(() => [ ...Array(7).keys() ].map( i => i + dayInWeekId[firstDayInCalendar]
-  ), [(firstDayInCalendar)]);
+  const daysInWeek = useMemo(() => [ ...Array(7).keys() ].map( i => i + dayInWeekId[firstDayInWeekCalendar]
+  ), [(firstDayInWeekCalendar)]);
 
   if (!showDate) {
     return <div className="w-full text-center" />;
