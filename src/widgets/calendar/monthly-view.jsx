@@ -98,13 +98,13 @@ export default function MonthlyView({ service }) {
 
   const dayNames = Info.weekdays("short", { locale: i18n.language });
 
-  const firstDayInCalendar = widget?.firstDayInCalendar ? widget?.firstDayInCalendar?.toLowerCase() : "monday";
-  for (let i = 1; i < dayInWeekId[firstDayInCalendar]; i+=1) {
+  const firstDayInWeekCalendar = widget?.firstDayInWeek ? widget?.firstDayInWeek?.toLowerCase() : "monday";
+  for (let i = 1; i < dayInWeekId[firstDayInWeekCalendar]; i+=1) {
     dayNames.push(dayNames.shift());
   }
 
-  const daysInWeek = useMemo(() => [ ...Array(7).keys() ].map( i => i + dayInWeekId[firstDayInCalendar]
-  ), [(firstDayInCalendar)]);
+  const daysInWeek = useMemo(() => [ ...Array(7).keys() ].map( i => i + dayInWeekId[firstDayInWeekCalendar]
+  ), [firstDayInWeekCalendar]);
 
   if (!showDate) {
     return <div className="w-full text-center" />;
@@ -112,8 +112,9 @@ export default function MonthlyView({ service }) {
 
   const firstWeek = DateTime.local(showDate.year, showDate.month, 1).setLocale(i18n.language);
 
+  const weekIncrementChange = dayInWeekId[firstDayInWeekCalendar] > firstWeek.weekday ? -1 : 0;
   let weekNumbers = [ ...Array(Math.ceil(5) + 1).keys() ]
-    .map(i => firstWeek.weekNumber+i);
+    .map(i => firstWeek.weekNumber + weekIncrementChange + i);
 
   if (weekNumbers.includes(55)) {
     // if we went too far with the weeks, it's the beginning of the year
