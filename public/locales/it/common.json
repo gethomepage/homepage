@@ -735,14 +735,14 @@
         "unknown": "Sconosciuto"
     },
     "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "relativePower": "Potenza %",
+        "yieldDay": "Oggi",
+        "limit": "Limite",
+        "absolutePower": "Potenza"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
-        "inCinemas": "In cinemas",
+        "physicalRelease": "Release fisici",
+        "inCinemas": "Al cinema",
         "digitalRelease": "Digital release"
     }
 }
