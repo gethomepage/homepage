@@ -6,7 +6,7 @@ site_url: https://gethomepage.dev/
 # Repository
 repo_name: benphelps/homepage
 repo_url: https://github.com/benphelps/homepage
-edit_uri: https://github.com/benphelps/homepage-docs/tree/main/docs/
+edit_uri: https://github.com/benphelps/homepage/tree/main/docs/
 
 nav:
   - "Home":
