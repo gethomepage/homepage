@@ -300,8 +300,8 @@
         "73-night": "Nevada",
         "75-day": "Fuertes Nevadas",
         "75-night": "Fuertes Nevadas",
-        "77-day": "Nevada Leve",
-        "77-night": "Nevada Leve",
+        "77-day": "Granizada",
+        "77-night": "Granizada",
         "80-day": "Llovizna",
         "80-night": "Llovizna",
         "81-day": "Lluvia",
@@ -741,8 +741,8 @@
         "absolutePower": "Encender"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
-        "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Lanzamiento en físico",
+        "inCinemas": "En cine",
+        "digitalRelease": "Lanzamiento en digital"
     }
 }
