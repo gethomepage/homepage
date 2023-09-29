@@ -140,7 +140,21 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to start.
 
-This is a [Next.js](https://nextjs.org/) application, see their documentation for more information:
+This is a [Next.js](https://nextjs.org/) application, see their documentation for more information.
+
+# Documentation
+
+Homepage uses Material for MkDocs for documentation. To run the documentation locally, first install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then run the development server:
+
+```bash
+mkdocs serve # or build, to build the static site
+```
 
 # Support & Suggestions
 
