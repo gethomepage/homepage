@@ -28,6 +28,7 @@ jobs:
           filters: |
             docs:
               - 'docs/**'
+              - 'mkdocs.yml'
   test:
     needs: changes
     name: Test Build
