@@ -27,3 +27,5 @@ Supported colors can be found on [color palette](../../configs/settings.md#color
 !!! tip
 
     Clicking the month name will take you back to the current day.
+
+Test
