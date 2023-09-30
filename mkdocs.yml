@@ -63,7 +63,6 @@ nav:
       - widgets/services/homeassistant.md
       - widgets/services/homebridge.md
       - widgets/services/immich.md
-      - widgets/services/index.md
       - widgets/services/jackett.md
       - widgets/services/jdownloader.md
       - widgets/services/jellyfin.md
