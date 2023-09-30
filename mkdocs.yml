@@ -193,6 +193,13 @@ extra_css:
 extra:
   version:
     provider: mike
+  social:
+    - icon: fontawesome/brands/discord 
+      link: https://discord.gg/k4ruYNrudu
+    - icon: fontawesome/regular/message
+      link: https://github.com/benphelps/homepage/discussions
+    - icon: fontawesome/brands/github
+      link: https://github.com/benphelps/homepage
 
 markdown_extensions:
   - pymdownx.highlight:
