@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   test:
-    name: Test 
+    name: Test Build
     if: github.repository == 'benphelps/homepage' && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
