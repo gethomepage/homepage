@@ -126,7 +126,7 @@ export default function MonthlyView({ service }) {
   return <div className="w-full text-center">
     <div className="flex-col">
       <span><button type="button" onClick={ () => setShowDate(showDate.minus({ months: 1 }).startOf("day")) } className={classNames(monthButton)}>&lt;</button></span>
-      <span>{ showDate.setLocale(i18n.language).toFormat("MMMM y") }</span>
+      <span><button type="button" onClick={ () => setShowDate(currentDate.startOf("day")) }>{ showDate.setLocale(i18n.language).toFormat("MMMM y") }</button></span>
       <span><button type="button" onClick={ () => setShowDate(showDate.plus({ months: 1 }).startOf("day")) } className={classNames(monthButton)}>&gt;</button></span>
     </div>
 
