@@ -46,6 +46,7 @@ jobs:
             - 'tailwind.config.js'
             - 'postcss.config.js'
   build:
+    name: Docker Build & Push
     needs: changes
     if: needs.changes.outputs.src == 'true' && github.repository == 'benphelps/homepage'
     runs-on: self-hosted
