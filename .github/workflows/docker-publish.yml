@@ -32,19 +32,20 @@ jobs:
     outputs:
       src: ${{ steps.filter.outputs.src }}
     steps:
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
-          src:
-            - 'src/**'
-            - 'Dockerfile'
-            - 'docker-entrypoint.sh'
-            - 'package.json'
-            - 'package-lock.json'
-            - 'pnpm-lock.yaml'
-            - 'tailwind.config.js'
-            - 'postcss.config.js'
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            src:
+              - 'src/**'
+              - 'Dockerfile'
+              - 'docker-entrypoint.sh'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'pnpm-lock.yaml'
+              - 'tailwind.config.js'
+              - 'postcss.config.js'
   build:
     name: Docker Build & Push
     needs: changes
