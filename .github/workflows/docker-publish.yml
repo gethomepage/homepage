@@ -24,7 +24,7 @@ env:
 
 jobs:
   build:
-
+    if: github.repository == 'benphelps/homepage'
     runs-on: self-hosted
     permissions:
       contents: read
