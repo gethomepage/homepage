@@ -4,6 +4,7 @@ on:
   push:
     tags: [ 'v*.*.*' ]
     branches: ['main']
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -40,11 +41,14 @@ jobs:
           git checkout gh-pages
           git pull origin gh-pages
           git checkout main
-      - name: Mike Deploy for Main
-        if: github.ref == 'refs/heads/main'
+      - name: Docs Deploy for Main
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: MKINSIDERS=true mike deploy --update --push ${{github.ref_name}}
-      - name: Mike Deploy for Tags
-        if: github.ref != 'refs/heads/main'
+      - name: Docs Deploy for Tags
+        if: github.event_name != 'pull_request' && github.ref != 'refs/heads/main'
         run: MKINSIDERS=true mike deploy --update --push ${{github.ref_name}} latest
+      - name: Docs Test Build
+        if: github.event_name == 'pull_request'
+        run: MKINSIDERS=true mkdocs build
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
