@@ -12,8 +12,14 @@ on:
     branches: [ "main" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
+    paths-ignore:
+      - 'docs/**'
+      - 'mkdocs.yml'
   pull_request:
     branches: [ "main" ]
+    paths-ignore:
+      - 'docs/**'
+      - 'mkdocs.yml'
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -24,7 +30,8 @@ env:
 
 jobs:
   build:
-    if: github.repository == 'benphelps/homepage'
+    name: Docker Build & Push
+    if:  github.repository == 'benphelps/homepage'
     runs-on: self-hosted
     permissions:
       contents: read
@@ -40,7 +47,7 @@ jobs:
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' 
         uses: sigstore/cosign-installer@main
         with:
           cosign-release: 'v1.13.1' # optional
