@@ -23,3 +23,7 @@ widget:
 Currently integrated widgets are [sonarr](sonarr.md), [radarr](radarr.md), [lidarr](lidarr.md) and [readarr](readarr.md).
 
 Supported colors can be found on [color palette](../../configs/settings.md#color-palette).
+
+!!! tip
+
+    Clicking the month name will take you back to the current day.
