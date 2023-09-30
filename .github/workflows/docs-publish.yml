@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   changes:
+    name: Detect Changes
     runs-on: ubuntu-latest
     # Required permissions
     permissions:
