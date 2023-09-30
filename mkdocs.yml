@@ -194,7 +194,7 @@ extra:
   version:
     provider: mike
   social:
-    - icon: fontawesome/brands/discord 
+    - icon: fontawesome/brands/discord
       link: https://discord.gg/k4ruYNrudu
     - icon: fontawesome/regular/message
       link: https://github.com/benphelps/homepage/discussions
@@ -223,10 +223,13 @@ markdown_extensions:
   - admonition
 
 plugins:
+  - group:
+      enabled: !ENV MKINSIDERS
+      plugins:
+        - optimize
+        - typeset
+        - social
   - tags
-  - typeset
-#   - social
-  - optimize
   - search:
       pipeline:
         - stemmer
