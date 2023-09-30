@@ -48,3 +48,6 @@ next-env.d.ts
 
 # MkDocs documentation
 site*/
+
+# venv
+.venv/
