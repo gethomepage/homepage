@@ -12,8 +12,14 @@ on:
     branches: [ "main" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
+    paths-ignore:
+      - 'docs/**'
+      - 'mkdocs.yml'
   pull_request:
     branches: [ "main" ]
+    paths-ignore:
+      - 'docs/**'
+      - 'mkdocs.yml'
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -23,34 +29,9 @@ env:
 
 
 jobs:
-  changes:
-    name: Detect Changes
-    runs-on: ubuntu-latest
-    # Required permissions
-    permissions:
-      pull-requests: read
-    # Set job outputs to values from filter step
-    outputs:
-      src: ${{ steps.filter.outputs.src }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            src:
-              - 'src/**'
-              - 'Dockerfile'
-              - 'docker-entrypoint.sh'
-              - 'package.json'
-              - 'package-lock.json'
-              - 'pnpm-lock.yaml'
-              - 'tailwind.config.js'
-              - 'postcss.config.js'
   build:
     name: Docker Build & Push
-    needs: changes
-    if: needs.changes.outputs.src == 'true' && github.repository == 'benphelps/homepage'
+    if:  github.repository == 'benphelps/homepage'
     runs-on: self-hosted
     permissions:
       contents: read
