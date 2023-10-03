@@ -266,7 +266,9 @@
         "total": "Total"
     },
     "tailscale": {
+        "hostname": "Hostname",
         "address": "Address",
+        "name": "Name",
         "expires": "Expires",
         "never": "Never",
         "last_seen": "Last Seen",
@@ -277,7 +279,8 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Ago",
+        "client_version": "Client Version"
     },
     "tdarr": {
         "queue": "Queue",

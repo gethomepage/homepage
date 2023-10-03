@@ -18,18 +18,24 @@ export default function Component({ service }) {
   if (!statsData) {
     return (
       <Container service={service}>
+        <Block label="tailscale.hostname" />
         <Block label="tailscale.address" />
+        <Block label="tailscale.name" />
         <Block label="tailscale.last_seen" />
         <Block label="tailscale.expires" />
+        <Block label="tailscale.client_version" />
       </Container>
     );
   }
 
   const {
+    hostname,
     addresses: [address],
+    name,
     keyExpiryDisabled,
     lastSeen,
     expires,
+    clientVersion,
   } = statsData;
 
   const now = new Date();
@@ -64,9 +70,12 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
+      <Block label="tailscale.hostname" value={hostname} />
       <Block label="tailscale.address" value={address} />
+      <Block label="tailscale.name" value={name} />
       <Block label="tailscale.last_seen" value={getLastSeen()} />
       <Block label="tailscale.expires" value={getExpiry()} />
+      <Block label="tailscale.client_version" value={clientVersion} />
     </Container>
   );
 }

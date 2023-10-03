@@ -7,7 +7,7 @@ You will need to generate an API access token from the [keys page](https://login
 
 To find your device ID, go to the [machine overview page](https://login.tailscale.com/admin/machines) and select your machine. In the "Machine Details" section, copy your `ID`. It will end with `CNTRL`.
 
-Allowed fields: `["address", "last_seen", "expires"]`.
+Allowed fields: `["hostname", "address", "name", "last_seen", "expires", "client_version"]`.
 
 ```yaml
 widget:
