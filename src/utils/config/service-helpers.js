@@ -184,6 +184,30 @@ export async function servicesFromKubernetes() {
         return null;
       });
 
+    const openshiftRouteExists = await checkCRD(kc, "routes.route.openshift.io");
+
+    const openshiftRouteList = await crd
+    	.listClusterCustomObject("route.openshift.io", "v1", "routes")
+    	.then((response) => response.body)
+    	.catch(async (error) => {
+    		if (openshiftRouteExists) {
+    			logger.error(
+    				"Error getting openshift route from route.openshift.io: %d %s %s",
+    				error.statusCode,
+    				error.body,
+    				error.response
+    			);
+    		}
+    		return [];
+    	});	    
+
+    if (openshiftRouteList.length > 0) {
+    	const openshiftRouteServices = openshiftRouteList.filter(
+    		(ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`]
+    	);
+    	ingressList.items.push(...openshiftRouteServices);
+    }	    
+    
     const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
     const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
 
