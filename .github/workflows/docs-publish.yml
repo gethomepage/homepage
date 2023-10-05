@@ -11,6 +11,7 @@ on:
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
+  merge_group:
   workflow_dispatch:
 
 permissions:

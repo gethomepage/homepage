@@ -20,6 +20,7 @@ on:
     paths-ignore:
       - 'docs/**'
       - 'mkdocs.yml'
+  merge_group:
 
 env:
   # Use docker.io for Docker Hub if empty
