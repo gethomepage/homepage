@@ -382,7 +382,9 @@
     },
     "ping": {
         "ping": "Ping",
-        "error": "Грешка"
+        "error": "Грешка",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Passed",
