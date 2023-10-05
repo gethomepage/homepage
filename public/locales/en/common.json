@@ -76,9 +76,7 @@
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Partial",
-        "up": "Up",
-        "down": "Down"
+        "partial": "Partial"
     },
     "ping": {
         "error": "Error",
