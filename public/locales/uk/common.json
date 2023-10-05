@@ -172,7 +172,9 @@
     },
     "ping": {
         "error": "Помилка",
-        "ping": "Пінг"
+        "ping": "Пінг",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Відтворення",
