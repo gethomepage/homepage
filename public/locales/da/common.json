@@ -382,7 +382,9 @@
     },
     "ping": {
         "error": "Fejl",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Bestået",
