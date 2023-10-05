@@ -32,7 +32,7 @@ export default function Ping({ group, service, style }) {
   } else {
     const ping = t("common.ms", { value: data.latency, style: "unit", unit: "millisecond", maximumFractionDigits: 0 })
     statusTitle += ` ${data.status} (${ping})`;
-    colorClass = "text-emerald-500/80"
+    colorClass = "text-emerald-500/80 lowercase"
 
     if (style === "basic") {
       statusText = t("ping.up")
