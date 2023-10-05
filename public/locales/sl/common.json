@@ -152,7 +152,9 @@
     },
     "ping": {
         "error": "Napaka",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Predvaja",
