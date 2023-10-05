@@ -79,10 +79,12 @@
         "partial": "Partial"
     },
     "ping": {
+        "http_status": "HTTP status",
         "error": "Error",
         "ping": "Ping",
         "down": "Down",
-        "up": "Up"
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Playing",
