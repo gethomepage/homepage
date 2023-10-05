@@ -382,7 +382,9 @@
     },
     "ping": {
         "error": "Fout",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Gepasseerd",
