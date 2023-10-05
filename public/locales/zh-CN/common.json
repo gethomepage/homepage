@@ -382,7 +382,9 @@
     },
     "ping": {
         "error": "错误",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "通过",
