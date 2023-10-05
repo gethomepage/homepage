@@ -123,14 +123,7 @@ Services may have an optional `ping` property that allows you to monitor the ava
 
 <img width="1038" alt="Ping" src="https://github.com/benphelps/homepage/assets/88257202/7bc13bd3-0d0b-44e3-888c-a20e069a3233">
 
-You can also apply different styles to the ping indicator by using the `statusStyle` property. The default is no value, and displays the response time in ms, but you can also use `dot` or `basic`. `dot` shows a green dot for a successful ping, and `basic` shows either ONLINE or OFFLINE to match the status style of Docker containers. For example:
-
-```yaml
-    - Sonarr:
-        ...
-        ping: http://sonarr.host/
-        statusStyle: dot
-```
+You can also apply different styles to the ping indicator by using the `statusStyle` property, see [settings](settings.md#status-style).
 
 ## Docker Integration
 
