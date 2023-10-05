@@ -382,7 +382,9 @@
     },
     "ping": {
         "error": "Erro",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Passou",
