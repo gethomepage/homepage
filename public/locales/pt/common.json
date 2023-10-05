@@ -395,7 +395,9 @@
     },
     "ping": {
         "error": "Erro",
-        "ping": "Tempo de resposta"
+        "ping": "Tempo de resposta",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Aprovado",
