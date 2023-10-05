@@ -9,7 +9,7 @@ Using docker compose:
 version: "3.3"
 services:
     homepage:
-        image: ghcr.io/benphelps/homepage:latest
+        image: ghcr.io/gethomepage/homepage:latest
         container_name: homepage
         ports:
             - 3000:3000
@@ -30,7 +30,7 @@ In the docker compose example below, the environment variables `$PUID` and `$PGI
 version: "3.3"
 services:
     homepage:
-        image: ghcr.io/benphelps/homepage:latest
+        image: ghcr.io/gethomepage/homepage:latest
         container_name: homepage
         ports:
             - 3000:3000
@@ -45,7 +45,7 @@ services:
 ### With Docker Run
 
 ```bash
-docker run -p 3000:3000 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:latest
+docker run -p 3000:3000 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/gethomepage/homepage:latest
 ```
 
 ### Using Environment Secrets

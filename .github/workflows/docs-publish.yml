@@ -19,7 +19,7 @@ permissions:
 jobs:
   test:
     name: Test Build
-    if: github.repository == 'benphelps/homepage' && github.event_name == 'pull_request'
+    if: github.repository == 'gethomepage/homepage' && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,7 +40,7 @@ jobs:
         run: MKINSIDERS=false mkdocs build
   deploy:
     name: Build & Deploy 
-    if: github.repository == 'benphelps/homepage' && github.event_name != 'pull_request'
+    if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

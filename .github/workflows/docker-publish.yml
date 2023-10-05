@@ -31,7 +31,7 @@ env:
 jobs:
   build:
     name: Docker Build & Push
-    if:  github.repository == 'benphelps/homepage'
+    if:  github.repository == 'gethomepage/homepage'
     runs-on: self-hosted
     permissions:
       contents: read

@@ -291,7 +291,7 @@ spec:
             enableServiceLinks: true
             containers:
                 - name: homepage
-                  image: "ghcr.io/benphelps/homepage:latest"
+                  image: "ghcr.io/gethomepage/homepage:latest"
                   imagePullPolicy: Always
                   ports:
                       - name: http
