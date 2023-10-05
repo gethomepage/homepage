@@ -7,7 +7,6 @@ export default function Ping({ group, service, style }) {
     refreshInterval: 30000
   });
 
-  let textSize = "text-[8px]";
   let colorClass = ""
   let backgroundClass = "bg-theme-500/10 dark:bg-theme-900/50";
   let statusTitle = "HTTP status";
@@ -27,10 +26,6 @@ export default function Ping({ group, service, style }) {
 
     if (style === "basic") {
       statusText = t("docker.offline")
-    } else if (style === "dot") {
-      statusText = "◉"
-      textSize = "text-[14px]"
-      backgroundClass = ""
     } else {
       statusText = data.status
     }
@@ -41,18 +36,23 @@ export default function Ping({ group, service, style }) {
 
     if (style === "basic") {
       statusText = t("docker.running")
-    } else if (style === "dot") {
-      statusText = "◉"
-      textSize = "text-[14px]"
-      backgroundClass = ""
     } else {
       statusText = ping
     }
   }
 
+  if (style === "dot") {
+    backgroundClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d$/, '')
+  }
+
   return (
-    <div className={`w-auto px-1.5 py-0.5 text-center rounded-b-[3px] overflow-hidden ping-status-invalid ${backgroundClass}`} title={statusTitle}>
-      <div className={`font-bold uppercase ${textSize} ${colorClass}`}>{statusText}</div>
-    </div>
+    <>
+    {style !== 'dot' &&
+      <div className={`w-auto px-1.5 py-0.5 text-center rounded-b-[3px] overflow-hidden ping-status-invalid ${style !== 'dot' ? backgroundClass : ''}`} title={statusTitle}>
+       <div className={`font-bold uppercase text-[8px] ${colorClass}`}>{statusText}</div>
+      </div>
+    }
+    {style == 'dot' && <div className={`rounded-full h-[9px] w-[9px] ${backgroundClass}`} title={statusTitle}></div>}
+    </>
   );
 }
