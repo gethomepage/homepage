@@ -136,7 +136,9 @@
     },
     "ping": {
         "error": "Σφάλμα",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Παίζει",
