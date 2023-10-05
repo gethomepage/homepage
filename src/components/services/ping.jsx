@@ -7,44 +7,43 @@ export default function Ping({ group, service, style }) {
     refreshInterval: 30000
   });
 
-  let colorClass = ""
+  let colorClass = "text-black/20 dark:text-white/40";
   let backgroundClass = "bg-theme-500/10 dark:bg-theme-900/50 px-1.5 py-0.5";
-  let statusTitle = "HTTP status";
-  let statusText;
+  let statusTitle = t("ping.http_status");
+  let statusText = "";
 
   if (error) {
-    colorClass = "text-rose-500"
-    statusText = t("ping.error")
-    statusTitle += " error"
+    colorClass = "text-rose-500";
+    statusText = t("ping.error");
+    statusTitle += ` ${t("ping.error")}`;
   } else if (!data) {
-    colorClass = "text-black/20 dark:text-white/40"
-    statusText = t("ping.ping")
-    statusTitle += " not available"
+    statusText = t("ping.ping");
+    statusTitle += ` ${t("ping.not_available")}`;
   } else if (data.status > 403) {
-    colorClass = "text-rose-500/80"
-    statusTitle += ` ${data.status}`
+    colorClass = "text-rose-500/80";
+    statusTitle += ` ${data.status}`;
 
     if (style === "basic") {
-      statusText = t("ping.down")
+      statusText = t("ping.down");
     } else {
-      statusText = data.status
+      statusText = data.status;
     }
   } else {
     const ping = t("common.ms", { value: data.latency, style: "unit", unit: "millisecond", maximumFractionDigits: 0 })
     statusTitle += ` ${data.status} (${ping})`;
-    colorClass = "text-emerald-500/80"
+    colorClass = "text-emerald-500/80";
 
     if (style === "basic") {
-      statusText = t("ping.up")
+      statusText = t("ping.up");
     } else {
-      statusText = ping
-      colorClass += " lowercase"
+      statusText = ping;
+      colorClass += " lowercase";
     }
   }
 
   if (style === "dot") {
     backgroundClass = 'p-3';
-    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d$/, '');
+    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d/, '');
   }
 
   return (
