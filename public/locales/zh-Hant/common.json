@@ -382,7 +382,9 @@
     },
     "ping": {
         "error": "錯誤",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "通過",
