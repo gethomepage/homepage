@@ -1,22 +1,167 @@
 {
-    "common": {
-        "bytes": "{{value, bytes}}",
-        "bits": "{{value, bytes(bits: true)}}",
-        "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true; binary: true)}}",
-        "byterate": "{{value, rate(bits: false)}}",
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bitrate": "{{value, rate(bits: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
-        "percent": "{{value, percent}}",
-        "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+    "plex": {
+        "movies": "Film",
+        "tv": "TV-Shows",
+        "streams": "Aktive Streams",
+        "albums": "Albums"
+    },
+    "radarr": {
+        "queued": "I Kø",
+        "movies": "Film",
+        "wanted": "Ønskede",
+        "missing": "Mangler",
+        "queue": "Kø",
+        "unknown": "Ukendt"
+    },
+    "lidarr": {
+        "wanted": "Ønsket",
+        "queued": "I Kø",
+        "artists": "Artister"
+    },
+    "jellyseerr": {
+        "available": "Tilgængelig",
+        "pending": "Afventer",
+        "approved": "Godkendt"
+    },
+    "overseerr": {
+        "pending": "Afventer",
+        "approved": "Godkendt",
+        "available": "Tilgængelig",
+        "processing": "Behandler"
+    },
+    "adguard": {
+        "queries": "Forespørgsler",
+        "blocked": "Blokerede",
+        "filtered": "Filtreret",
+        "latency": "Latenstid"
+    },
+    "speedtest": {
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
+    },
+    "npm": {
+        "total": "Total",
+        "enabled": "Aktiveret",
+        "disabled": "Deaktiveret"
+    },
+    "coinmarketcap": {
+        "30days": "30 Dage",
+        "1day": "1 Dag",
+        "configure": "Konfigurer en eller flere crypto valutaer til tracking",
+        "7days": "7 Dage",
+        "1hour": "1 time"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessioner",
+        "dataRelayed": "Videresendt",
+        "numConnections": "Forbindelser",
+        "transferRate": "Rate"
+    },
+    "mastodon": {
+        "domain_count": "Domæner",
+        "status_count": "Indlæg",
+        "user_count": "Brugere"
+    },
+    "authentik": {
+        "users": "Brugere",
+        "loginsLast24H": "Login (24 timer)",
+        "failedLoginsLast24H": "Mislykkede logins (24 timer)"
+    },
+    "glances": {
+        "cpu": "CPU",
+        "wait": "Vent venligst",
+        "uptime": "UP",
+        "days": "d",
+        "hours": "t",
+        "temp": "TEMP",
+        "load": "Load",
+        "warn": "Advar",
+        "total": "Total",
+        "free": "Ledig",
+        "used": "Brugt",
+        "crit": "Crit",
+        "read": "Læs",
+        "write": "Skriv",
+        "gpu": "GPU",
+        "mem": "Ram",
+        "swap": "Swap",
+        "_temp": "Temp"
+    },
+    "wmo": {
+        "1-day": "Overvejende Solrigt",
+        "48-day": "Tåget",
+        "48-night": "Tåget",
+        "51-day": "Let Støvregn",
+        "51-night": "Let Støvregn",
+        "66-night": "Frysende Regn",
+        "67-day": "Frysende Regn",
+        "67-night": "Frysende Regn",
+        "71-day": "Let Sne",
+        "75-night": "Kraftig Sne",
+        "86-day": "Snebyger",
+        "86-night": "Snebyger",
+        "95-day": "Tordenvejr",
+        "99-day": "Tordenvejr Med Hagl",
+        "99-night": "Tordenvejr Med Hagl",
+        "0-day": "Solrig",
+        "0-night": "Klart",
+        "1-night": "Overvejende Skyfrit",
+        "2-day": "Delvist Overskyet",
+        "2-night": "Delvist Overskyet",
+        "3-day": "Skyet",
+        "3-night": "Skyet",
+        "45-day": "Tåget",
+        "65-day": "Kraftig Regn",
+        "65-night": "Kraftig Regn",
+        "45-night": "Tåget",
+        "53-day": "Støvregn",
+        "53-night": "Støvregn",
+        "55-day": "Kraftig Støvregn",
+        "55-night": "Kraftig Støvregn",
+        "56-day": "Let Frysende Støvregn",
+        "56-night": "Let Frysende Støvregn",
+        "57-day": "Frysende Støvregn",
+        "57-night": "Frysende Støvregn",
+        "61-day": "Let Regn",
+        "61-night": "Let Regn",
+        "63-day": "Regn",
+        "63-night": "Regn",
+        "66-day": "Frysende Regn",
+        "71-night": "Let Sne",
+        "73-day": "Sne",
+        "73-night": "Sne",
+        "75-day": "Kraftig Sne",
+        "77-day": "Snekorn",
+        "80-day": "Lette Byger",
+        "80-night": "Lette Byger",
+        "81-day": "Byger",
+        "77-night": "Snekorn",
+        "81-night": "Byger",
+        "82-day": "Kraftige Byger",
+        "82-night": "Kraftige Byger",
+        "85-day": "Snebyger",
+        "85-night": "Snebyger",
+        "95-night": "Tordenvejr",
+        "96-day": "Tordenvejr Med Hagl",
+        "96-night": "Tordenvejr Med Hagl"
+    },
+    "homebridge": {
+        "available_update": "System",
+        "updates": "Opdateringer",
+        "update_available": "Opdateringer Tilgængelige",
+        "up_to_date": "Opdateret",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Oppe",
+        "pending": "Afventer",
+        "down": "Nede"
     },
     "widget": {
         "missing_type": "Manglende Widget Type: {{type}}",
         "api_error": "API fejl",
-        "information": "Information",
         "status": "Status",
+        "information": "Information",
         "url": "URL",
         "raw_error": "Rå Fejl",
         "response_data": "Svardata"
@@ -32,18 +177,18 @@
     },
     "resources": {
         "cpu": "CPU",
-        "mem": "RAM",
         "total": "Total",
         "free": "Fri",
         "used": "Brugt",
         "load": "Belastning",
+        "mem": "RAM",
+        "hours": "t",
+        "minutes": "m",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
         "months": "mdr",
-        "days": "d",
-        "hours": "t",
-        "minutes": "m"
+        "days": "d"
     },
     "unifi": {
         "users": "Brugere",
@@ -57,34 +202,26 @@
         "wlan_devices": "WLAN Enheder",
         "lan_users": "LAN Brugere",
         "wlan_users": "WLAN Brugere",
-        "up": "UP",
+        "up": "Oppe",
         "down": "NED",
         "wait": "Vent venligst",
         "empty_data": "Subsystem status ukendt"
     },
     "docker": {
+        "cpu": "CPU",
         "rx": "RX",
         "tx": "TX",
         "mem": "RAM",
-        "cpu": "CPU",
-        "running": "Kører",
         "offline": "Offline",
         "error": "Error",
         "unknown": "Ukendt",
-        "healthy": "Sund",
+        "running": "Kører",
         "starting": "Starter",
         "unhealthy": "Usund",
         "not_found": "Ikke Fundet",
         "exited": "Forladt",
-        "partial": "Delvis"
-    },
-    "ping": {
-        "http_status": "HTTP status",
-        "error": "Error",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "partial": "Delvis",
+        "healthy": "Sund"
     },
     "emby": {
         "playing": "Afspiller",
@@ -96,38 +233,9 @@
         "episodes": "Episoder",
         "songs": "Sange"
     },
-    "evcc": {
-        "pv_power": "Produktion",
-        "battery_soc": "Batteri",
-        "grid_power": "Gitter",
-        "home_power": "Forbrug",
-        "charge_power": "Oplader",
-        "watt_hour": "Wh"
-    },
-    "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "freshrss": {
-        "subscriptions": "Abonnementer",
-        "unread": "Ulæst"
-    },
-    "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Aktuelle anmodninger",
-        "requests_failed": "Mislykkede anmodninger"
-    },
     "changedetectionio": {
         "totalObserved": "Total Observeret",
         "diffsDetected": "Forskelle Detekteret"
-    },
-    "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Optagelser",
-        "scheduled": "Planlagt",
-        "passes": "Passes"
     },
     "tautulli": {
         "playing": "Afspiller",
@@ -136,23 +244,10 @@
         "no_active": "Ingen Aktive Streams",
         "plex_connection_error": "Tjek Plex-forbindelse"
     },
-    "omada": {
-        "connectedAp": "Forbundne APs",
-        "activeUser": "Aktive enheder",
-        "alerts": "Advarsler",
-        "connectedGateway": "Forbundne gateways",
-        "connectedSwitches": "Forbundne switches"
-    },
     "nzbget": {
         "rate": "Rate",
         "remaining": "Manglende",
         "downloaded": "Hentet"
-    },
-    "plex": {
-        "streams": "Aktive Streams",
-        "albums": "Albums",
-        "movies": "Film",
-        "tv": "TV-Shows"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -165,34 +260,14 @@
         "download": "Download"
     },
     "transmission": {
-        "download": "Download",
         "upload": "Upload",
+        "download": "Download",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "qnap": {
-        "cpuUsage": "CPU Forbrug",
-        "memUsage": "MEM Forbrug",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Forbrug",
-        "volumeUsage": "Volume Forbrug",
-        "invalid": "Ugyldig"
-    },
-    "deluge": {
         "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -203,21 +278,8 @@
         "queue": "Kø",
         "unknown": "Ukendt"
     },
-    "radarr": {
-        "wanted": "Ønsket",
-        "missing": "Mangler",
-        "queued": "I Kø",
-        "movies": "Film",
-        "queue": "Kø",
-        "unknown": "Ukendt"
-    },
-    "lidarr": {
-        "wanted": "Ønsket",
-        "queued": "I Kø",
-        "artists": "Artister"
-    },
     "readarr": {
-        "wanted": "Ønsket",
+        "wanted": "Ønskede",
         "queued": "I Kø",
         "books": "Bøger"
     },
@@ -230,85 +292,21 @@
         "approved": "Godkendt",
         "available": "Tilgængelig"
     },
-    "jellyseerr": {
-        "pending": "Afventer",
-        "approved": "Godkendt",
-        "available": "Tilgængelig"
-    },
-    "overseerr": {
-        "pending": "Afventer",
-        "processing": "Behandler",
-        "approved": "Godkendt",
-        "available": "Tilgængelig"
-    },
-    "pialert": {
-        "total": "Total",
-        "connected": "Forbundet",
-        "new_devices": "Nye Enheder",
-        "down_alerts": "Nedadvarsler"
-    },
     "pihole": {
-        "queries": "Forespørgsler",
         "blocked": "Blokerede",
-        "blocked_percent": "Blokeret %",
-        "gravity": "Gravity"
-    },
-    "adguard": {
+        "gravity": "Gravity",
         "queries": "Forespørgsler",
-        "blocked": "Blokerede",
-        "filtered": "Filtreret",
-        "latency": "Latenstid"
-    },
-    "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "blocked_percent": "Blokeret %"
     },
     "portainer": {
-        "running": "Kører",
+        "running": "Kørende",
         "stopped": "Stoppede",
         "total": "Total"
-    },
-    "tailscale": {
-        "address": "Adresse",
-        "expires": "Udløber",
-        "never": "Aldrig",
-        "last_seen": "Sidst Set",
-        "now": "Nu",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Siden"
-    },
-    "tdarr": {
-        "queue": "Kø",
-        "processed": "Behandlet",
-        "errored": "Fejlet",
-        "saved": "Gemt"
     },
     "traefik": {
         "routers": "Routere",
         "services": "Services",
         "middleware": "Middleware"
-    },
-    "navidrome": {
-        "nothing_streaming": "Ingen Aktive Streams",
-        "please_wait": "Vent venligst"
-    },
-    "npm": {
-        "enabled": "Aktiveret",
-        "disabled": "Deaktiveret",
-        "total": "Total"
-    },
-    "coinmarketcap": {
-        "configure": "Konfigurer en eller flere crypto valutaer til tracking",
-        "1hour": "1 time",
-        "1day": "1 Dag",
-        "7days": "7 Dage",
-        "30days": "30 Dage"
     },
     "gotify": {
         "apps": "Applikationer",
@@ -324,65 +322,13 @@
     },
     "jackett": {
         "configured": "Konfigureret",
-        "errored": "Fejlet"
-    },
-    "strelaysrv": {
-        "numActiveSessions": "Sessioner",
-        "numConnections": "Forbindelser",
-        "dataRelayed": "Videresendt",
-        "transferRate": "Rate"
-    },
-    "mastodon": {
-        "user_count": "Brugere",
-        "status_count": "Indlæg",
-        "domain_count": "Domæner"
-    },
-    "medusa": {
-        "wanted": "Ønsket",
-        "queued": "I Kø",
-        "series": "Serier"
-    },
-    "minecraft": {
-        "players": "Afspillere",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
-    },
-    "miniflux": {
-        "read": "Læst",
-        "unread": "Ulæst"
-    },
-    "authentik": {
-        "users": "Brugere",
-        "loginsLast24H": "Login (24 timer)",
-        "failedLoginsLast24H": "Mislykkede logins (24 timer)"
+        "errored": "Fejlede"
     },
     "proxmox": {
         "mem": "RAM",
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
-    },
-    "glances": {
-        "cpu": "CPU",
-        "load": "Belastning",
-        "wait": "Vent venligst",
-        "temp": "TEMP",
-        "_temp": "Temp",
-        "warn": "Advar",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Fri",
-        "used": "Brugt",
-        "days": "d",
-        "hours": "t",
-        "crit": "Crit",
-        "read": "Læst",
-        "write": "Skriv",
-        "gpu": "GPU",
-        "mem": "Ram",
-        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bogmærker",
@@ -392,95 +338,16 @@
         "visit": "Besøg",
         "url": "URL"
     },
-    "wmo": {
-        "0-day": "Solrig",
-        "0-night": "Klart",
-        "1-day": "Overvejende Solrigt",
-        "1-night": "Overvejende Skyfrit",
-        "2-day": "Delvist Overskyet",
-        "2-night": "Delvist Overskyet",
-        "3-day": "Skyet",
-        "3-night": "Skyet",
-        "45-day": "Tåget",
-        "45-night": "Tåget",
-        "48-day": "Tåget",
-        "48-night": "Tåget",
-        "51-day": "Let Støvregn",
-        "51-night": "Let Støvregn",
-        "53-day": "Støvregn",
-        "53-night": "Støvregn",
-        "55-day": "Kraftig Støvregn",
-        "55-night": "Kraftig Støvregn",
-        "56-day": "Let Frysende Støvregn",
-        "56-night": "Let Frysende Støvregn",
-        "57-day": "Frysende Støvregn",
-        "57-night": "Frysende Støvregn",
-        "61-day": "Let Regn",
-        "61-night": "Let Regn",
-        "63-day": "Regn",
-        "63-night": "Regn",
-        "65-day": "Kraftig Regn",
-        "65-night": "Kraftig Regn",
-        "66-day": "Frysende Regn",
-        "66-night": "Frysende Regn",
-        "67-day": "Frysende Regn",
-        "67-night": "Frysende Regn",
-        "71-day": "Let Sne",
-        "71-night": "Let Sne",
-        "73-day": "Sne",
-        "73-night": "Sne",
-        "75-day": "Kraftig Sne",
-        "75-night": "Kraftig Sne",
-        "77-day": "Snekorn",
-        "77-night": "Snekorn",
-        "80-day": "Lette Byger",
-        "80-night": "Lette Byger",
-        "81-day": "Byger",
-        "81-night": "Byger",
-        "82-day": "Kraftige Byger",
-        "82-night": "Kraftige Byger",
-        "85-day": "Snebyger",
-        "85-night": "Snebyger",
-        "86-day": "Snebyger",
-        "86-night": "Snebyger",
-        "95-day": "Tordenvejr",
-        "95-night": "Tordenvejr",
-        "96-day": "Tordenvejr Med Hagl",
-        "96-night": "Tordenvejr Med Hagl",
-        "99-day": "Tordenvejr Med Hagl",
-        "99-night": "Tordenvejr Med Hagl"
-    },
-    "homebridge": {
-        "available_update": "System",
-        "updates": "Opdateringer",
-        "update_available": "Opdateringer Tilgængelige",
-        "up_to_date": "Opdateret",
-        "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Afventer",
-        "down": "Down"
-    },
-    "healthchecks": {
-        "new": "Ny",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Pause",
-        "status": "Status",
-        "last_ping": "Sidste Ping",
-        "never": "Ingen Pings Endnu"
-    },
     "watchtower": {
         "containers_scanned": "Scannet",
         "containers_updated": "Opdateret",
         "containers_failed": "Fejlet"
     },
     "autobrr": {
-        "approvedPushes": "Godkendt",
+        "indexers": "Indeksører",
+        "approvedPushes": "Godkendte",
         "rejectedPushes": "Afviste",
-        "filters": "Filtre",
-        "indexers": "Indeksører"
+        "filters": "Filtre"
     },
     "tubearchivist": {
         "downloads": "Kø",
@@ -493,6 +360,10 @@
         "uptime": "Oppetid",
         "alerts": "Advarsler",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "navidrome": {
+        "nothing_streaming": "Ingen Aktive Streams",
+        "please_wait": "Vent venligst"
     },
     "pyload": {
         "speed": "Hastighed",
@@ -509,18 +380,63 @@
         "channels": "Kanaler",
         "hd": "HD"
     },
+    "ping": {
+        "error": "Fejl",
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
+    },
     "scrutiny": {
         "passed": "Bestået",
-        "failed": "Fejlet",
+        "failed": "Mislykket",
         "unknown": "Ukendt"
     },
     "paperlessngx": {
         "inbox": "Indbakke",
         "total": "Total"
     },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "flood": {
+        "leech": "Leech",
+        "download": "Download",
+        "upload": "Upload",
+        "seed": "Seed"
+    },
+    "tdarr": {
+        "queue": "Kø",
+        "processed": "Behandlet",
+        "errored": "Fejlet",
+        "saved": "Gemt"
+    },
+    "miniflux": {
+        "read": "Læst",
+        "unread": "Ulæst"
+    },
     "nextdns": {
-        "wait": "Vent venligst",
+        "wait": "Vent Venligst",
         "no_devices": "Ingen Enhedsdata Modtaget"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "connectedAp": "Forbundne APs",
+        "activeUser": "Aktive enheder",
+        "alerts": "Advarsler",
+        "connectedGateway": "Forbundne gateways",
+        "connectedSwitches": "Forbundne switches"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "mikrotik": {
         "cpuLoad": "CPU Belastning",
@@ -532,12 +448,6 @@
         "streams_all": "Alle Streams",
         "streams_active": "Aktive Streams",
         "streams_xepg": "XEPG Kanaler"
-    },
-    "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "CPU Belastning",
@@ -551,6 +461,11 @@
         "print_progress": "Fremskridt",
         "layers": "Lag"
     },
+    "medusa": {
+        "wanted": "Ønskede",
+        "queued": "I Kø",
+        "series": "Serier"
+    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
@@ -560,16 +475,6 @@
     "cloudflared": {
         "origin_ip": "Oprindelses-IP",
         "status": "Status"
-    },
-    "pfsense": {
-        "load": "Belastning Gns",
-        "memory": "Hukommelse Forbrug",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Forbrug",
-        "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datalager",
@@ -590,32 +495,26 @@
         "incident": "Hændelse",
         "m": "m"
     },
-    "atsumeru": {
-        "series": "Serier",
-        "archives": "Arkiver",
-        "chapters": "Kapitler",
-        "categories": "Kategorier"
-    },
     "komga": {
         "libraries": "Biblioteker",
         "series": "Serier",
         "books": "Bøger"
     },
-    "diskstation": {
-        "days": "Dage",
-        "uptime": "Oppetid",
-        "volumeAvailable": "Tilgængelig"
-    },
     "mylar": {
         "series": "Serier",
         "issues": "Problemer",
-        "wanted": "Ønsket"
+        "wanted": "Ønskede"
     },
     "photoprism": {
         "albums": "Albums",
         "photos": "Billeder",
         "videos": "Videoer",
         "people": "Mennesker"
+    },
+    "diskstation": {
+        "days": "Dage",
+        "uptime": "Oppetid",
+        "volumeAvailable": "Tilgængelig"
     },
     "fileflows": {
         "queue": "Kø",
@@ -624,14 +523,14 @@
         "time": "Tid"
     },
     "grafana": {
+        "totalalerts": "Totale Advarsler",
         "dashboards": "Dashboards",
         "datasources": "Data Kilder",
-        "totalalerts": "Totale Advarsler",
         "alertstriggered": "Advarsler Udløst"
     },
     "nextcloud": {
-        "cpuload": "Cpu Belastning",
         "memoryusage": "Hukommelse Forbrug",
+        "cpuload": "Cpu Belastning",
         "freespace": "Ledig Plads",
         "activeusers": "Aktive Brugere",
         "numfiles": "Filer",
@@ -642,12 +541,22 @@
         "size": "Størrelse",
         "lastrun": "Sidst Kørt",
         "nextrun": "Næste Kørsel",
-        "failed": "Fejlet"
+        "failed": "Mislykket"
     },
     "unmanic": {
         "active_workers": "Aktive Arbejdere",
         "total_workers": "Totale Arbejdere",
         "records_total": "Kø Længde"
+    },
+    "healthchecks": {
+        "new": "Ny",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Offline",
+        "paused": "Pause",
+        "status": "Status",
+        "last_ping": "Sidste Ping",
+        "never": "Ingen Pings Endnu"
     },
     "pterodactyl": {
         "servers": "Servere",
@@ -658,41 +567,115 @@
         "targets_down": "Mål Nede",
         "targets_total": "Totale Mål"
     },
+    "minecraft": {
+        "players": "Afspillere",
+        "version": "Version",
+        "status": "Status",
+        "up": "Online",
+        "down": "Offline"
+    },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "I Dag",
         "gross_percent_1y": "Et År",
         "gross_percent_max": "Altid"
     },
     "audiobookshelf": {
+        "booksDuration": "Varighed",
         "podcasts": "Podcasts",
         "books": "Bøger",
-        "podcastsDuration": "Varighed",
-        "booksDuration": "Varighed"
+        "podcastsDuration": "Varighed"
     },
     "homeassistant": {
         "people_home": "Personer Hjemme",
         "lights_on": "Lys Tændt",
         "switches_on": "Kontakter Tændt"
     },
+    "freshrss": {
+        "subscriptions": "Abonnementer",
+        "unread": "Ulæst"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Optagelser",
+        "scheduled": "Planlagt",
+        "passes": "Passes"
+    },
     "whatsupdocker": {
         "monitoring": "Overvåger",
         "updates": "Opdateringer"
     },
-    "calibreweb": {
-        "books": "Bøger",
-        "authors": "Forfattere",
-        "categories": "Kategorier",
-        "series": "Serier"
+    "tailscale": {
+        "address": "Adresse",
+        "expires": "Udløber",
+        "now": "Nu",
+        "years": "{{number}}y",
+        "weeks": "{{number}}w",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "never": "Aldrig",
+        "last_seen": "Sidst Set",
+        "ago": "{{value}} Siden"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Forbrug",
+        "memUsage": "MEM Forbrug",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Forbrug",
+        "volumeUsage": "Volume Forbrug",
+        "invalid": "Ugyldig"
+    },
+    "pfsense": {
+        "load": "Belastning Gns",
+        "memory": "Hukommelse Forbrug",
+        "wanStatus": "WAN Status",
+        "up": "Op",
+        "down": "Ned",
+        "temp": "Temp",
+        "disk": "Disk Forbrug",
+        "wanIP": "WAN IP"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Aktuelle anmodninger",
+        "requests_failed": "Mislykkede anmodninger"
+    },
+    "evcc": {
+        "pv_power": "Produktion",
+        "battery_soc": "Batteri",
+        "grid_power": "Gitter",
+        "home_power": "Forbrug",
+        "charge_power": "Oplader",
+        "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Forbundet",
+        "new_devices": "Nye Enheder",
+        "down_alerts": "Nedadvarsler"
     },
     "jdownloader": {
+        "downloadSpeed": "Hastighed",
         "downloadCount": "Kø",
-        "downloadBytesRemaining": "Manglende",
-        "downloadTotalBytes": "Størrelse",
-        "downloadSpeed": "Hastighed"
+        "downloadBytesRemaining": "Tilbage",
+        "downloadTotalBytes": "Størrelse"
     },
     "kavita": {
         "seriesCount": "Serier",
         "totalFiles": "Filer"
+    },
+    "gamedig": {
+        "name": "Navn",
+        "map": "Kort",
+        "currentPlayers": "Nuværende Spillere",
+        "players": "Spillere",
+        "maxPlayers": "Maks spillere",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
     },
     "azuredevops": {
         "result": "Resultat",
@@ -700,24 +683,12 @@
         "buildId": "Build ID",
         "succeeded": "Lykkedes",
         "notStarted": "Ikke Startet",
-        "failed": "Fejlet",
+        "failed": "Mislykket",
         "canceled": "Annulleret",
         "inProgress": "I Gang",
         "totalPrs": "Total PRs",
         "myPrs": "Mine PRs",
         "approved": "Godkendt"
-    },
-    "gamedig": {
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline",
-        "name": "Navn",
-        "map": "Kort",
-        "currentPlayers": "Nuværende Spillere",
-        "players": "Afspillere",
-        "maxPlayers": "Maks spillere",
-        "bots": "Bots",
-        "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
@@ -725,37 +696,55 @@
         "noRecent": "Uddateret",
         "totalUsed": "Brugt Lager"
     },
+    "openmediavault": {
+        "downloading": "Downloader",
+        "total": "Total",
+        "running": "Kører",
+        "stopped": "Stoppet",
+        "passed": "Gennemført",
+        "failed": "Mislykket"
+    },
     "mealie": {
         "recipes": "Opskrifter",
         "users": "Brugere",
         "categories": "Kategorier",
         "tags": "Tags"
     },
-    "openmediavault": {
-        "downloading": "Downloader",
-        "total": "Total",
-        "running": "Kører",
-        "stopped": "Stoppede",
-        "passed": "Bestået",
-        "failed": "Fejlet"
+    "atsumeru": {
+        "series": "Serier",
+        "archives": "Arkiver",
+        "chapters": "Kapitler",
+        "categories": "Kategorier"
+    },
+    "calibreweb": {
+        "books": "Bøger",
+        "authors": "Forfattere",
+        "categories": "Kategorier",
+        "series": "Serier"
     },
     "uptimerobot": {
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
         "status": "Status",
-        "uptime": "Oppetid",
+        "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
-        "sitesUp": "Sider Oppe",
-        "sitesDown": "Sider Nede",
-        "paused": "Pause",
         "notyetchecked": "Not Yet Checked",
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Ukendt"
+        "unknown": "Unknown"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
+        "inCinemas": "In cinemas",
         "digitalRelease": "Digital release"
     }
 }
