@@ -79,10 +79,12 @@
         "partial": "Parta"
     },
     "ping": {
+        "http_status": "HTTP status",
         "error": "Eraro",
         "ping": "Sondaĵo",
         "down": "Down",
-        "up": "Up"
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Ludante",
