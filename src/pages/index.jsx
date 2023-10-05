@@ -27,6 +27,7 @@ import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
 import { getStoredProvider, searchProviders } from "components/widgets/search/search";
+import ResolvedIcon from "components/resolvedicon";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -167,6 +168,17 @@ const headerStyles = {
   boxedWidgets: "m-6 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
 };
 
+const deprecatedNotificationDismissedStorageKey = "deprecated-notification-dismissed";
+
+const getNotificationDismissed = () => {
+  if (typeof window !== "undefined" && window.localStorage) {
+    const dismissed = window.localStorage.getItem(deprecatedNotificationDismissedStorageKey);
+    return dismissed;
+  }
+
+  return false;
+};
+
 function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
@@ -174,6 +186,9 @@ function Home({ initialSettings }) {
   const { settings, setSettings } = useContext(SettingsContext);
   const { activeTab, setActiveTab } = useContext(TabContext);
   const { asPath } = useRouter();
+
+  const isDeprecatedRepo = process.env.NEXT_PUBLIC_DEPRECATED_REPO;
+  const [notificationDismissed, setNotificationDismissed] = useState(getNotificationDismissed);
 
   useEffect(() => {
     setSettings(initialSettings);
@@ -420,6 +435,23 @@ function Home({ initialSettings }) {
           </div>
 
           <div id="version" className="flex mt-4 w-full justify-end">
+            {isDeprecatedRepo && !notificationDismissed && // outside version in case its hidden
+              <div className="flex flex-row items-center py-1 pl-2 mr-3 rounded-md text-xs text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-rose-900/80">
+                <a className="italic flex flex-row items-center" href="https://gethomepage.dev/latest/more/homepage-move/" title="Read more..." target="_blank" rel="noreferrer">
+                  <span className="inline-block flex-shrink-0 mr-1 w-3 h-3">
+                    <ResolvedIcon icon="mdi-alert" />
+                  </span>
+                  Homepage has moved!
+                </a>
+                <button type="button" className="ml-2 w-4 h-4 mr-1" title="Hide this notification"
+                    onClick={() => {
+                      setNotificationDismissed(true);
+                      localStorage.setItem(deprecatedNotificationDismissedStorageKey, true);
+                    }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/></svg>
+                </button>
+              </div>
+            }
             {!settings.hideVersion && <Version />}
           </div>
         </div>
