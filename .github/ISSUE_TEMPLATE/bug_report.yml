@@ -11,13 +11,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        Have a question? 👉 [Start a new discussion](https://github.com/benphelps/homepage/discussions/new) or [ask in chat](https://discord.gg/SaPGSzrEZC).
+        Have a question? 👉 [Start a new discussion](https://github.com/gethomepage/homepage/discussions/new) or [ask in chat](https://discord.gg/SaPGSzrEZC).
 
         Before opening an issue, please double check:
 
         - [The troubleshooting guide](https://gethomepage.dev/latest/more/troubleshooting/).
         - [The homepage documentation](https://gethomepage.dev/)
-        - [Existing issues](https://github.com/benphelps/homepage/search?q=&type=issues) and [discussions](https://github.com/benphelps/homepage/search?q=&type=discussions).
+        - [Existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) and [discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions).
   - type: textarea
     id: description
     attributes:
@@ -95,5 +95,5 @@ body:
           required: true
         - label: Follow [the troubleshooting guide](https://gethomepage.dev/latest/more/troubleshooting/) (please include output above if applicable).
           required: true
-        - label: Search [existing issues](https://github.com/benphelps/homepage/search?q=&type=issues) and [discussions](https://github.com/benphelps/homepage/search?q=&type=discussions).
+        - label: Search [existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) and [discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions).
           required: true

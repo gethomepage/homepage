@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/benphelps/homepage/actions/workflows/docker-publish.yml"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/benphelps/homepage/docker-publish.yml"></a>
+  <a href="https://github.com/gethomepage/homepage/actions/workflows/docker-publish.yml"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/gethomepage/homepage/docker-publish.yml"></a>
   &nbsp;
   <a href="https://hosted.weblate.org/engage/homepage/"><img src="https://hosted.weblate.org/widgets/homepage/-/homepage/svg-badge.svg" alt="Weblate"></a>
   &nbsp;
@@ -65,7 +65,7 @@ Using docker compose:
 version: "3.3"
 services:
   homepage:
-    image: ghcr.io/benphelps/homepage:latest
+    image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
       PUID: 1000 -- optional, your user id
@@ -88,7 +88,7 @@ docker run --name homepage \
   -v /path/to/config:/app/config \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   --restart unless-stopped \
-  ghcr.io/benphelps/homepage:latest
+  ghcr.io/gethomepage/homepage:latest
 ```
 
 ## With Node
@@ -96,7 +96,7 @@ docker run --name homepage \
 First, clone the repository:
 
 ```bash
-git clone https://github.com/benphelps/homepage.git
+git clone https://github.com/gethomepage/homepage.git
 ```
 
 Then install dependencies and build the production bundle (I'm using pnpm here, you can use npm or yarn if you like):
@@ -158,9 +158,9 @@ mkdocs serve # or build, to build the static site
 
 # Support & Suggestions
 
-If you have any questions, suggestions, or general issues, please start a discussion on the [Discussions](https://github.com/benphelps/homepage/discussions) page.
+If you have any questions, suggestions, or general issues, please start a discussion on the [Discussions](https://github.com/gethomepage/homepage/discussions) page.
 
-For bug reports, please open an issue on the [Issues](https://github.com/benphelps/homepage/issues) page.
+For bug reports, please open an issue on the [Issues](https://github.com/gethomepage/homepage/issues) page.
 
 ## Contributing & Contributers
 

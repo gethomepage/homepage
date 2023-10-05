@@ -13,8 +13,8 @@ We use github to host code, to track issues and feature requests, as well as acc
 ## Any contributions you make will be under the GNU General Public License v3.0
 In short, when you submit code changes, your submissions are understood to be under the same [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/benphelps/homepage/issues)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/benphelps/homepage/issues/new); it's that easy!
+## Report bugs using Github's [issues](https://github.com/gethomepage/homepage/issues)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/gethomepage/homepage/issues/new); it's that easy!
 
 ## Write bug reports with detail, background, and sample configurations
 Homepage includes a lot of configuration options and is often deploying in larger systems.  Please include as much information (configurations, deployment method, Docker & API versions, etc) as you can when reporting an issue.

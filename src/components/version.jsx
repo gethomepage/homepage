@@ -33,7 +33,7 @@ export default function Version() {
           </>
         ) : (
           <a
-            href={`https://github.com/benphelps/homepage/releases/tag/${version}`}
+            href={`https://github.com/gethomepage/homepage/releases/tag/${version}`}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 text-xs text-theme-500 dark:text-theme-400 flex flex-row items-center"

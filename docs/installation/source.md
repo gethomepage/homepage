@@ -6,7 +6,7 @@ description: Install and run homepage from source
 First, clone the repository:
 
 ```bash
-git clone https://github.com/benphelps/homepage.git
+git clone https://github.com/gethomepage/homepage.git
 ```
 
 Then install dependencies and build the production bundle (I'm using pnpm here, you can use npm or yarn if you like):

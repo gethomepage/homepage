@@ -3,7 +3,7 @@ title: Glances
 description: Glances Widget Configuration
 ---
 
-<img width="1614" alt="glances" src="https://github.com/benphelps/homepage-docs/assets/82196/25648c97-2c1b-4db0-b5a5-f1509806079c">
+<img width="1614" alt="glances" src="https://github.com/gethomepage/homepage-docs/assets/82196/25648c97-2c1b-4db0-b5a5-f1509806079c">
 
 _(Find the Glances information widget [here](../info/glances.md))_
 
@@ -59,7 +59,7 @@ The metric field in the configuration determines the type of system monitoring d
 
 All widgets offer an alternative to the full or "graph" view, which is the compact, or "graphless" view.
 
-<img width="970" alt="Screenshot 2023-09-06 at 1 51 48 PM" src="https://github.com/benphelps/homepage-docs/assets/82196/cc6b9adc-4218-4274-96ca-36c3e64de5d0">
+<img width="970" alt="Screenshot 2023-09-06 at 1 51 48 PM" src="https://github.com/gethomepage/homepage-docs/assets/82196/cc6b9adc-4218-4274-96ca-36c3e64de5d0">
 
 To switch to the alternative "graphless" view, simply passs `chart: false` as an option to the widget, like so:
 
