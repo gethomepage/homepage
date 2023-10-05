@@ -382,7 +382,9 @@
     },
     "ping": {
         "error": "Chyba",
-        "ping": "Odezva"
+        "ping": "Odezva",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Úspěšné",
