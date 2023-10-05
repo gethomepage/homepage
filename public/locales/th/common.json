@@ -107,7 +107,9 @@
     },
     "ping": {
         "error": "ข้อผิดพลาด",
-        "ping": "ปิง"
+        "ping": "ปิง",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "กำลังเล่น",
