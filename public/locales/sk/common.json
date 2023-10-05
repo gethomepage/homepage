@@ -195,7 +195,9 @@
     },
     "ping": {
         "error": "Chyba",
-        "ping": "Odozva"
+        "ping": "Odozva",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Prehrávané",
