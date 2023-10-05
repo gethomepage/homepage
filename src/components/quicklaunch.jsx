@@ -152,6 +152,11 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
     return <span>{parts.map((part, i) => part.toLowerCase() === searchString.toLowerCase() ? <span key={`${searchString}_${i}`} className="bg-theme-300/10">{part}</span> : part)}</span>;
   }
 
+  function getRandomKeyId() {
+    // as these are dynamically generated elements, we can generate random keys
+    return Math.floor(Math.random() * 100000);
+  }
+
   return (
     <div className={classNames(
       "relative z-40 ease-in-out duration-300 transition-opacity",
@@ -168,7 +173,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
               results.length === 0 && "rounded-md",
               "w-full p-4 m-0 border-0 border-b border-slate-700 focus:border-slate-700 focus:outline-0 focus:ring-0 text-sm md:text-xl text-theme-700 dark:text-theme-200 bg-theme-60 dark:bg-theme-800"
               )} type="text" autoCorrect="false" ref={searchField} value={searchString} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown} />
-            {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto m-2">
+            {results.length > 0 && <ul className="max-h-[60vh] overflow-y-auto m-2" key={`results-${getRandomKeyId()}`}>
               {results.map((r, i) => (
                 <li key={r.container ?? r.app ?? `${r.name}-${r.href}`}>
                   <button type="button" data-index={i} onMouseEnter={handleItemHover} onClick={handleItemClick} onKeyDown={handleItemKeyDown} className={classNames(
