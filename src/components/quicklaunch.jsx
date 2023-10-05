@@ -84,7 +84,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
     if (searchString.length === 0) setResults([]);
     else {
       let newResults = servicesAndBookmarks.filter(r => {
-        const nameMatch = r.name.toLowerCase().includes(searchString);
+        const nameMatch = r?.name?.toLowerCase()?.includes(searchString);
         let descriptionMatch;
         if (searchDescriptions) {
           descriptionMatch = r.description?.toLowerCase().includes(searchString)
