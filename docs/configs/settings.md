@@ -384,14 +384,11 @@ If you have both set the per-service settings take precedence.
 
 You can choose from the following styles for docker or k8s status and ping: `dot` or `basic`
 
-The default is no value, and displays the ping response time in ms. `dot` shows a green dot for a successful ping or healthy status, and `basic` shows either ONLINE or OFFLINE to match the status style of Docker containers. For example:
+- The default is no value, and displays the ping response time in ms and the docker / k8s container status
+- `dot` shows a green dot for a successful ping or healthy status.
+- `basic` shows either UP or DOWN for ping
 
-```yaml
-    - Sonarr:
-        ...
-        ping: http://sonarr.host/
-        statusStyle: dot
-```
+For example:
 
 ```yaml
 statusStyle: 'dot'

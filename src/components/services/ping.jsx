@@ -25,7 +25,7 @@ export default function Ping({ group, service, style }) {
     statusTitle += ` ${data.status}`
 
     if (style === "basic") {
-      statusText = t("docker.offline")
+      statusText = t("ping.down")
     } else {
       statusText = data.status
     }
@@ -35,7 +35,7 @@ export default function Ping({ group, service, style }) {
     colorClass = "text-emerald-500/80"
 
     if (style === "basic") {
-      statusText = t("docker.running")
+      statusText = t("ping.up")
     } else {
       statusText = ping
     }

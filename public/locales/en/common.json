@@ -76,11 +76,15 @@
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Partial"
+        "partial": "Partial",
+        "up": "Up",
+        "down": "Down"
     },
     "ping": {
         "error": "Error",
-        "ping": "Ping"
+        "ping": "Ping",
+        "down": "Down",
+        "up": "Up"
     },
     "emby": {
         "playing": "Playing",
