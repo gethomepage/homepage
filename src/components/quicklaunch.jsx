@@ -117,7 +117,7 @@ export default function QuickLaunch({servicesAndBookmarks, searchString, setSear
         )
       }
 
-      setResults(newResults);
+      setResults(newResults.filter(r => r?.href));
 
       if (newResults.length) {
         setCurrentItemIndex(0);
