@@ -79,10 +79,12 @@
         "partial": "部分"
     },
     "ping": {
+        "http_status": "HTTP status",
         "error": "錯誤",
         "ping": "Ping",
         "down": "Down",
-        "up": "Up"
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "播放緊",
