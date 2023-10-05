@@ -259,6 +259,9 @@ export async function servicesFromKubernetes() {
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
           constructedService.ping = ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`];
         }
+        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
+          constructedService.statusStyle = ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
+        }
         Object.keys(ingress.metadata.annotations).forEach((annotation) => {
           if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
             shvl.set(
