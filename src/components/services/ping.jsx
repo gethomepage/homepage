@@ -7,7 +7,7 @@ export default function Ping({ group, service, style }) {
     refreshInterval: 30000
   });
 
-  let colorClass = "text-black/20 dark:text-white/40";
+  let colorClass = "text-black/20 dark:text-white/40 opacity-20";
   let backgroundClass = "bg-theme-500/10 dark:bg-theme-900/50 px-1.5 py-0.5";
   let statusTitle = t("ping.http_status");
   let statusText = "";
@@ -28,7 +28,7 @@ export default function Ping({ group, service, style }) {
     } else {
       statusText = data.status;
     }
-  } else {
+  } else if (data) {
     const ping = t("common.ms", { value: data.latency, style: "unit", unit: "millisecond", maximumFractionDigits: 0 })
     statusTitle += ` ${data.status} (${ping})`;
     colorClass = "text-emerald-500/80";
@@ -42,8 +42,8 @@ export default function Ping({ group, service, style }) {
   }
 
   if (style === "dot") {
-    backgroundClass = 'p-3';
-    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d/, '');
+    backgroundClass = 'p-4';
+    colorClass = colorClass.replace(/text-/g, 'bg-').replace(/\/\d\d/g, '');
   }
 
   return (

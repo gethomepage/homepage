@@ -8,7 +8,7 @@ export default function KubernetesStatus({ service, style }) {
   let statusLabel = t("docker.unknown");
   let statusTitle = "";
   let backgroundClass = "px-1.5 py-0.5 bg-theme-500/10 dark:bg-theme-900/50";
-  let colorClass = "text-black/20 dark:text-white/40 ";
+  let colorClass = "text-black/20 dark:text-white/40 opacity-20";
 
   if (error) {
     statusTitle = t("docker.error");
@@ -29,8 +29,8 @@ export default function KubernetesStatus({ service, style }) {
   }
 
   if (style === 'dot') {
-    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d/, '');
-    backgroundClass = "p-3 hover:bg-theme-500/10 dark:hover:bg-theme-900/20";
+    colorClass = colorClass.replace(/text-/g, 'bg-').replace(/\/\d\d/g, '');
+    backgroundClass = "p-4 hover:bg-theme-500/10 dark:hover:bg-theme-900/20";
   }
 
   return (

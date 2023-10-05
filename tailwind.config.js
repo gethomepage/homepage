@@ -70,5 +70,8 @@ module.exports = {
     'lg:grid-cols-6',
     'lg:grid-cols-7',
     'lg:grid-cols-8',
+    'bg-white',
+    'bg-black',
+    'dark:bg-white',
   ],
 }
