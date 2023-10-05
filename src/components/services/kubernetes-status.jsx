@@ -29,7 +29,7 @@ export default function KubernetesStatus({ service, style }) {
   }
 
   if (style === 'dot') {
-    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d$/, '');
+    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d/, '');
     backgroundClass = "p-3 hover:bg-theme-500/10 dark:hover:bg-theme-900/20";
   }
 
