@@ -117,7 +117,9 @@
     },
     "ping": {
         "error": "エラー",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "再生中",
