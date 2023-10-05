@@ -4,9 +4,9 @@ site_name: homepage
 site_url: https://gethomepage.dev/
 
 # Repository
-repo_name: benphelps/homepage
-repo_url: https://github.com/benphelps/homepage
-edit_uri: https://github.com/benphelps/homepage/tree/main/docs/
+repo_name: gethomepage/homepage
+repo_url: https://github.com/gethomepage/homepage
+edit_uri: https://github.com/gethomepage/homepage/tree/main/docs/
 
 nav:
   - "Home":
@@ -196,9 +196,9 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/k4ruYNrudu
     - icon: fontawesome/regular/message
-      link: https://github.com/benphelps/homepage/discussions
+      link: https://github.com/gethomepage/homepage/discussions
     - icon: fontawesome/brands/github
-      link: https://github.com/benphelps/homepage
+      link: https://github.com/gethomepage/homepage
 
 markdown_extensions:
   - pymdownx.highlight:
