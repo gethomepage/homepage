@@ -1,20 +1,151 @@
 {
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "RAM",
+        "cpu": "CPU",
+        "offline": "Offline",
+        "error": "Chyba",
+        "unknown": "Neznáme",
+        "running": "Beží",
+        "starting": "Spúšťa sa",
+        "unhealthy": "Nezdravý",
+        "not_found": "Nenájdené",
+        "exited": "Ukončené",
+        "partial": "Čiastočný",
+        "healthy": "Zdravý"
+    },
+    "rutorrent": {
+        "active": "Active",
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "tdarr": {
+        "queue": "Fronta",
+        "processed": "Spracované",
+        "errored": "Chybné",
+        "saved": "Uložené"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sessions",
+        "numConnections": "Connections",
+        "dataRelayed": "Relayed",
+        "transferRate": "Rate"
+    },
+    "proxmox": {
+        "vms": "VMs",
+        "mem": "MEM",
+        "cpu": "CPU",
+        "lxc": "LXC"
+    },
+    "wmo": {
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "0-day": "Sunny",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_xepg": "XEPG Channels",
+        "streams_active": "Active Streams"
+    },
+    "moonraker": {
+        "layers": "Layers",
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress"
+    },
+    "immich": {
+        "storage": "Storage",
+        "users": "Users",
+        "videos": "Videos",
+        "photos": "Photos"
+    },
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "m"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
+    },
+    "pterodactyl": {
+        "servers": "Servers",
+        "nodes": "Nodes"
+    },
     "common": {
-        "bytes": "{{value, bytes}}",
-        "bits": "{{value, bytes(bits: true)}}",
-        "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true; binary: true)}}",
-        "byterate": "{{value, rate(bits: false)}}",
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bitrate": "{{value, rate(bits: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
-        "percent": "{{value, percent}}",
-        "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
     },
     "widget": {
-        "missing_type": "Chýba typ widgetu: {{type}}",
         "api_error": "Chyba API",
+        "missing_type": "Chýba typ widgetu: {{type}}",
         "information": "Informácia",
         "status": "Stav",
         "url": "URL",
@@ -62,29 +193,11 @@
         "wait": "Počkajte prosím",
         "empty_data": "Stav podsystému neznámy"
     },
-    "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "RAM",
-        "cpu": "CPU",
-        "running": "Beží",
-        "offline": "Offline",
-        "error": "Chyba",
-        "unknown": "Neznáme",
-        "healthy": "Zdravý",
-        "starting": "Spúšťa sa",
-        "unhealthy": "Nezdravý",
-        "not_found": "Nenájdené",
-        "exited": "Ukončené",
-        "partial": "Čiastočný"
-    },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Chyba",
         "ping": "Odozva",
-        "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "down": "Down"
     },
     "emby": {
         "playing": "Prehrávané",
@@ -96,44 +209,21 @@
         "episodes": "Epizódy",
         "songs": "Skladby"
     },
-    "evcc": {
-        "pv_power": "Produkcia",
-        "battery_soc": "Batéria",
-        "grid_power": "Mriežka",
-        "home_power": "Spotreba",
-        "charge_power": "Nabíjačka",
-        "watt_hour": "Wh"
-    },
     "flood": {
         "download": "Sťahovanie",
         "upload": "Odosielanie",
         "leech": "Leechovanie",
         "seed": "Seedovanie"
     },
-    "freshrss": {
-        "subscriptions": "Odbery",
-        "unread": "Neprečítané"
-    },
-    "caddy": {
-        "upstreams": "Odosielanie dát",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
-    },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
     },
-    "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
-    },
     "tautulli": {
-        "playing": "Prehrávané",
-        "transcoding": "Prekódovávané",
-        "bitrate": "Prenosová rýchlosť",
-        "no_active": "Žiadny aktívny stream",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
@@ -150,75 +240,62 @@
     },
     "plex": {
         "streams": "Active Streams",
-        "albums": "Albums",
-        "movies": "Filmy",
-        "tv": "TV Shows"
+        "movies": "Movies",
+        "tv": "TV Shows",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rate",
         "queue": "Queue",
         "timeleft": "Time Left"
     },
-    "rutorrent": {
-        "active": "Active",
-        "upload": "Odosielanie",
-        "download": "Sťahovanie"
-    },
     "transmission": {
-        "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
-    },
-    "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "deluge": {
-        "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "downloadstation": {
-        "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Seriály",
+        "series": "Series",
         "queue": "Queue",
         "unknown": "Neznáme"
     },
     "radarr": {
-        "wanted": "Wanted",
+        "wanted": "Chcené",
         "missing": "Chýbajúce",
-        "queued": "Queued",
+        "queued": "Vo fronte",
         "movies": "Filmy",
-        "queue": "Queue",
+        "queue": "Fronta",
         "unknown": "Neznáme"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Chcené",
+        "queued": "Vo fronte",
         "artists": "Interpreti"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Chcené",
+        "queued": "Vo fronte",
         "books": "Knihy"
     },
     "bazarr": {
@@ -241,53 +318,27 @@
         "approved": "Schválené",
         "available": "Dostupné"
     },
-    "pialert": {
-        "total": "Celkovo",
-        "connected": "Pripojené",
-        "new_devices": "Nové zariadenia",
-        "down_alerts": "Upozornenia o výpadkoch"
-    },
     "pihole": {
         "queries": "Dopyty",
         "blocked": "Zablokované",
-        "blocked_percent": "Blokované %",
-        "gravity": "Gravitácia"
+        "gravity": "Gravitácia",
+        "blocked_percent": "Blokované %"
     },
     "adguard": {
         "queries": "Dopyty",
-        "blocked": "Zablokované",
+        "blocked": "Blokované",
         "filtered": "Filtrované",
         "latency": "Odozva"
     },
     "speedtest": {
         "upload": "Odosielanie",
         "download": "Sťahovanie",
-        "ping": "Odozva"
+        "ping": "Ping"
     },
     "portainer": {
-        "running": "Beží",
+        "running": "Spustené",
         "stopped": "Zastavené",
         "total": "Celkovo"
-    },
-    "tailscale": {
-        "address": "Adresa",
-        "expires": "Vyprší",
-        "never": "Nikdy",
-        "last_seen": "Naposledy videné",
-        "now": "Teraz",
-        "years": "{{number}}r",
-        "weeks": "{{number}}t",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "Pred {{value}}"
-    },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Spracované",
-        "errored": "Chybné",
-        "saved": "Uložené"
     },
     "traefik": {
         "routers": "Routery",
@@ -295,13 +346,13 @@
         "middleware": "Middleware"
     },
     "navidrome": {
-        "nothing_streaming": "Žiadny aktívny stream",
+        "nothing_streaming": "No Active Streams",
         "please_wait": "Please Wait"
     },
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Celkovo"
+        "total": "Total"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -318,71 +369,59 @@
     "prowlarr": {
         "enableIndexers": "Indexers",
         "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Dopyty",
+        "numberOfQueries": "Queries",
         "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
         "configured": "Configured",
-        "errored": "Chybné"
-    },
-    "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "errored": "Errored"
     },
     "mastodon": {
-        "user_count": "Používatelia",
+        "user_count": "Users",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
     "medusa": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Seriály"
+        "series": "Series"
     },
     "minecraft": {
         "players": "Players",
         "version": "Version",
-        "status": "Stav",
+        "status": "Status",
         "up": "Online",
         "down": "Offline"
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Neprečítané"
+        "unread": "Unread"
     },
     "authentik": {
-        "users": "Používatelia",
+        "users": "Users",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
-    "proxmox": {
-        "mem": "RAM",
-        "cpu": "CPU",
-        "lxc": "LXC",
-        "vms": "VMs"
-    },
     "glances": {
         "cpu": "CPU",
-        "load": "Záťaž",
-        "wait": "Počkajte prosím",
-        "temp": "TEPLOTA",
-        "_temp": "Temp",
-        "warn": "Warn",
-        "uptime": "BEŽÍ",
-        "total": "Celkovo",
-        "free": "Voľné",
-        "used": "Využité",
+        "wait": "Please wait",
+        "temp": "TEMP",
+        "uptime": "UP",
         "days": "d",
         "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -392,64 +431,6 @@
         "visit": "Visit",
         "url": "URL"
     },
-    "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
-    },
     "homebridge": {
         "available_update": "System",
         "updates": "Updates",
@@ -458,7 +439,7 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "pending": "Čakajúce",
+        "pending": "Pending",
         "down": "Down"
     },
     "healthchecks": {
@@ -467,7 +448,7 @@
         "grace": "In Grace Period",
         "down": "Offline",
         "paused": "Paused",
-        "status": "Stav",
+        "status": "Status",
         "last_ping": "Last Ping",
         "never": "No pings yet"
     },
@@ -477,7 +458,7 @@
         "containers_failed": "Failed"
     },
     "autobrr": {
-        "approvedPushes": "Schválené",
+        "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",
         "filters": "Filters",
         "indexers": "Indexers"
@@ -498,25 +479,21 @@
         "speed": "Speed",
         "active": "Active",
         "queue": "Queue",
-        "total": "Celkovo"
+        "total": "Total"
     },
     "gluetun": {
         "public_ip": "Public IP",
         "region": "Region",
         "country": "Country"
     },
-    "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
-    },
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
-        "unknown": "Neznáme"
+        "unknown": "Unknown"
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Celkovo"
+        "total": "Total"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -528,48 +505,21 @@
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
-    "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
-    },
-    "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
-    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     },
-    "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
-    },
     "octoprint": {
-        "printer_state": "Stav",
+        "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Stav"
-    },
-    "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
+        "status": "Status"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
@@ -577,50 +527,20 @@
         "cpu_usage": "CPU",
         "memory_usage": "Memory"
     },
-    "immich": {
-        "users": "Používatelia",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
-    },
-    "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
-        "m": "m"
-    },
-    "atsumeru": {
-        "series": "Seriály",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
     "komga": {
         "libraries": "Libraries",
-        "series": "Seriály",
-        "books": "Knihy"
-    },
-    "diskstation": {
-        "days": "Dní",
-        "uptime": "Uptime",
-        "volumeAvailable": "Dostupné"
+        "series": "Series",
+        "books": "Books"
     },
     "mylar": {
-        "series": "Seriály",
+        "series": "Series",
         "issues": "Issues",
         "wanted": "Wanted"
     },
-    "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
-    },
     "fileflows": {
         "queue": "Queue",
-        "processing": "Spracovávané",
-        "processed": "Spracované",
+        "processing": "Processing",
+        "processed": "Processed",
         "time": "Time"
     },
     "grafana": {
@@ -630,28 +550,24 @@
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
         "freespace": "Free Space",
         "activeusers": "Active Users",
+        "cpuload": "Cpu Load",
+        "memoryusage": "Memory Usage",
         "numfiles": "Files",
         "numshares": "Shared Items"
     },
     "kopia": {
-        "status": "Stav",
+        "status": "Status",
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
         "failed": "Failed"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
         "total_workers": "Total Workers",
-        "records_total": "Queue Length"
-    },
-    "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "records_total": "Queue Length",
+        "active_workers": "Active Workers"
     },
     "prometheus": {
         "targets_up": "Targets Up",
@@ -665,7 +581,7 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Knihy",
+        "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
     },
@@ -674,50 +590,105 @@
         "lights_on": "Lights On",
         "switches_on": "Switches On"
     },
+    "freshrss": {
+        "subscriptions": "Odbery",
+        "unread": "Neprečítané"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
+    },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
-    "calibreweb": {
-        "books": "Knihy",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Seriály"
+    "tailscale": {
+        "address": "Adresa",
+        "years": "{{number}}r",
+        "expires": "Vyprší",
+        "never": "Nikdy",
+        "last_seen": "Naposledy videné",
+        "now": "Teraz",
+        "weeks": "{{number}}t",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "Pred {{value}}"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "up": "Up",
+        "disk": "Disk Usage",
+        "down": "Down",
+        "temp": "Temp",
+        "wanIP": "WAN IP"
+    },
+    "caddy": {
+        "upstreams": "Odosielanie dát",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
+    },
+    "evcc": {
+        "pv_power": "Produkcia",
+        "battery_soc": "Batéria",
+        "grid_power": "Mriežka",
+        "home_power": "Spotreba",
+        "charge_power": "Nabíjačka",
+        "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Celkovo",
+        "connected": "Pripojené",
+        "new_devices": "Nové zariadenia",
+        "down_alerts": "Upozornenia o výpadkoch"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
         "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size",
-        "downloadSpeed": "Speed"
+        "downloadTotalBytes": "Size"
     },
     "kavita": {
-        "seriesCount": "Seriály",
+        "seriesCount": "Series",
         "totalFiles": "Files"
     },
-    "azuredevops": {
-        "result": "Result",
-        "status": "Stav",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Schválené"
-    },
     "gamedig": {
-        "status": "Stav",
-        "online": "Online",
-        "offline": "Offline",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Odozva"
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "azuredevops": {
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "inProgress": "In Progress",
+        "result": "Result",
+        "status": "Status",
+        "buildId": "Build ID",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
     },
     "urbackup": {
         "ok": "Ok",
@@ -725,22 +696,34 @@
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
-    "mealie": {
-        "recipes": "Recipes",
-        "users": "Používatelia",
-        "categories": "Categories",
-        "tags": "Tags"
-    },
     "openmediavault": {
+        "total": "Total",
         "downloading": "Downloading",
-        "total": "Celkovo",
-        "running": "Beží",
-        "stopped": "Zastavené",
+        "running": "Running",
+        "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
     },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
     "uptimerobot": {
-        "status": "Stav",
+        "status": "Status",
         "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
@@ -751,11 +734,17 @@
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Neznáme"
+        "unknown": "Unknown"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
+        "inCinemas": "In cinemas",
         "digitalRelease": "Digital release"
     }
 }

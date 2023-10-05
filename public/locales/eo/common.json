@@ -1,17 +1,4 @@
 {
-    "common": {
-        "bytes": "{{value, bytes}}",
-        "bits": "{{value, bytes(bits: true)}}",
-        "bbytes": "{{value, bytes(binary: true)}}",
-        "bbits": "{{value, bytes(bits: true; binary: true)}}",
-        "byterate": "{{value, rate(bits: false)}}",
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bitrate": "{{value, rate(bits: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
-        "percent": "{{value, percent}}",
-        "number": "{{value, number}}",
-        "ms": "{{value, number}}"
-    },
     "widget": {
         "missing_type": "Manka Tipo de Fenestraĵo: {{type}}",
         "api_error": "Eraro de API",
@@ -32,15 +19,15 @@
     },
     "resources": {
         "cpu": "Ĉefprocesoro",
-        "mem": "MEM",
         "total": "Totalo",
         "free": "Libera",
         "used": "Uzata",
         "load": "Ŝarĝo",
+        "mem": "MEM",
         "temp": "TEMP",
+        "months": "mo",
         "max": "Maks",
         "uptime": "UP",
-        "months": "mo",
         "days": "t",
         "hours": "h",
         "minutes": "m"
@@ -66,25 +53,23 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "Ĉefprocesoro",
-        "running": "Rulata",
+        "cpu": "CPO",
         "offline": "Malkonekta",
         "error": "Eraro",
         "unknown": "Nekonata",
-        "healthy": "Sana",
+        "running": "Rulata",
         "starting": "Lanĉante",
         "unhealthy": "Malsana",
         "not_found": "Ne trovita",
         "exited": "Eliris",
-        "partial": "Parta"
+        "partial": "Parta",
+        "healthy": "Sana"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Eraro",
         "ping": "Sondaĵo",
-        "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "down": "Down"
     },
     "emby": {
         "playing": "Ludante",
@@ -96,52 +81,16 @@
         "episodes": "Epizodoj",
         "songs": "Kantoj"
     },
-    "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
-    },
-    "flood": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
-    },
-    "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
-    },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
     },
-    "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
-    },
     "tautulli": {
-        "playing": "Ludante",
-        "transcoding": "Transkodigo",
-        "bitrate": "Bitrapido",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
         "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
-    },
-    "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
     },
     "nzbget": {
         "rate": "Rate",
@@ -150,9 +99,9 @@
     },
     "plex": {
         "streams": "Active Streams",
-        "albums": "Albums",
         "movies": "Filmoj",
-        "tv": "Televidprogramoj"
+        "tv": "Televidprogramoj",
+        "albums": "Albums"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -161,47 +110,33 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Alŝuti",
-        "download": "Elŝuti"
+        "upload": "Alŝuto",
+        "download": "Elŝuto"
     },
     "transmission": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
+        "download": "Elŝuto",
+        "upload": "Alŝuto",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
+        "download": "Elŝuto",
+        "upload": "Alŝuto",
         "leech": "Leech",
         "seed": "Seed"
-    },
-    "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
     },
     "deluge": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "downloadstation": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
+        "download": "Elŝuto",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Serioj",
+        "series": "Serio",
         "queue": "Queue",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Wanted",
@@ -209,7 +144,7 @@
         "queued": "Queued",
         "movies": "Filmoj",
         "queue": "Queue",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Wanted",
@@ -241,53 +176,27 @@
         "approved": "Aprobita",
         "available": "Havebla"
     },
-    "pialert": {
-        "total": "Totalo",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
-    },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
-        "blocked_percent": "Blocked %",
-        "gravity": "Gravity"
+        "gravity": "Gravity",
+        "blocked_percent": "Blocked %"
     },
     "adguard": {
         "queries": "Queries",
-        "blocked": "Blocked",
+        "blocked": "Blokitaj",
         "filtered": "Filtritaj",
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Alŝuti",
-        "download": "Elŝuti",
-        "ping": "Sondaĵo"
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
     },
     "portainer": {
-        "running": "Rulata",
+        "running": "Running",
         "stopped": "Stopped",
         "total": "Totalo"
-    },
-    "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
-    },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
     },
     "traefik": {
         "routers": "Routers",
@@ -301,7 +210,7 @@
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Totalo"
+        "total": "Total"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -337,52 +246,36 @@
         "status_count": "Afiŝoj",
         "domain_count": "Domains"
     },
-    "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Serioj"
-    },
-    "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Stato",
-        "up": "Online",
-        "down": "Malkonekta"
-    },
-    "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
-    },
     "authentik": {
-        "users": "Uzantoj",
+        "users": "Users",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "Memoro",
         "cpu": "Ĉefprocesoro",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
         "cpu": "Ĉefprocesoro",
-        "load": "Ŝarĝo",
         "wait": "Bonvolu atendi",
         "temp": "TEMP",
-        "_temp": "Temp",
-        "warn": "Warn",
         "uptime": "UP",
-        "total": "Totalo",
-        "free": "Libera",
-        "used": "Uzata",
-        "days": "t",
+        "days": "d",
         "hours": "h",
+        "load": "Load",
+        "warn": "Warn",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -461,23 +354,13 @@
         "pending": "Pending",
         "down": "Down"
     },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Malkonekta",
-        "paused": "Paused",
-        "status": "Stato",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
     "watchtower": {
         "containers_scanned": "Scanned",
         "containers_updated": "Updated",
         "containers_failed": "Failed"
     },
     "autobrr": {
-        "approvedPushes": "Aprobita",
+        "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",
         "filters": "Filtriloj",
         "indexers": "Indexers"
@@ -496,9 +379,9 @@
     },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
+        "active": "Aktiva",
         "queue": "Queue",
-        "total": "Totalo"
+        "total": "Total"
     },
     "gluetun": {
         "public_ip": "Public IP",
@@ -512,15 +395,48 @@
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
     },
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Totalo"
     },
+    "flood": {
+        "download": "Elŝuti",
+        "upload": "Alŝuti",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
+    },
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
+    },
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "mikrotik": {
         "cpuLoad": "CPU Load",
@@ -533,12 +449,6 @@
         "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
     },
-    "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
-    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",
@@ -548,37 +458,32 @@
     "moonraker": {
         "printer_state": "Printer State",
         "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "layers": "Layers",
+        "print_progress": "Progress"
+    },
+    "medusa": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     },
     "octoprint": {
-        "printer_state": "Stato",
+        "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Stato"
-    },
-    "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
+        "status": "Status"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "Ĉefprocesoro",
+        "cpu_usage": "CPU",
         "memory_usage": "Memory"
     },
     "immich": {
-        "users": "Uzantoj",
+        "users": "Users",
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
@@ -590,24 +495,13 @@
         "incident": "Incident",
         "m": "m"
     },
-    "atsumeru": {
-        "series": "Serioj",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
     "komga": {
         "libraries": "Libraries",
-        "series": "Serioj",
-        "books": "Libroj"
-    },
-    "diskstation": {
-        "days": "Tagoj",
-        "uptime": "Uptime",
-        "volumeAvailable": "Havebla"
+        "series": "Series",
+        "books": "Books"
     },
     "mylar": {
-        "series": "Serioj",
+        "series": "Series",
         "issues": "Issues",
         "wanted": "Wanted"
     },
@@ -616,6 +510,11 @@
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     },
     "fileflows": {
         "queue": "Queue",
@@ -630,15 +529,15 @@
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
+        "activeusers": "Active Users",
         "cpuload": "Cpu Load",
         "memoryusage": "Memory Usage",
         "freespace": "Free Space",
-        "activeusers": "Active Users",
         "numfiles": "Files",
         "numshares": "Shared Items"
     },
     "kopia": {
-        "status": "Stato",
+        "status": "Status",
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
@@ -649,6 +548,16 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Offline",
+        "paused": "Paused",
+        "status": "Status",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
+    },
     "pterodactyl": {
         "servers": "Servers",
         "nodes": "Nodes"
@@ -658,6 +567,13 @@
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
     },
+    "minecraft": {
+        "players": "Players",
+        "version": "Version",
+        "status": "Status",
+        "up": "Online",
+        "down": "Offline"
+    },
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
@@ -665,7 +581,7 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Libroj",
+        "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
     },
@@ -674,29 +590,96 @@
         "lights_on": "Lights On",
         "switches_on": "Switches On"
     },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
+    },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
-    "calibreweb": {
-        "books": "Libroj",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Serioj"
+    "tailscale": {
+        "address": "Address",
+        "expires": "Expires",
+        "never": "Never",
+        "last_seen": "Last Seen",
+        "now": "Now",
+        "years": "{{number}}y",
+        "weeks": "{{number}}w",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "{{value}} Ago"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Disk Usage",
+        "wanIP": "WAN IP"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
+    },
+    "evcc": {
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
+        "downloadCount": "Queue Count",
+        "downloadSpeed": "Download Speed",
         "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size",
-        "downloadSpeed": "Speed"
+        "downloadTotalBytes": "Size"
     },
     "kavita": {
-        "seriesCount": "Serioj",
+        "seriesCount": "Series",
         "totalFiles": "Files"
+    },
+    "gamedig": {
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
     },
     "azuredevops": {
         "result": "Result",
-        "status": "Stato",
+        "status": "Status",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
@@ -705,19 +688,7 @@
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "Aprobita"
-    },
-    "gamedig": {
-        "status": "Stato",
-        "online": "Online",
-        "offline": "Malkonekta",
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
-        "ping": "Sondaĵo"
+        "approved": "Approved"
     },
     "urbackup": {
         "ok": "Ok",
@@ -725,37 +696,55 @@
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
-    "mealie": {
-        "recipes": "Recipes",
-        "users": "Uzantoj",
-        "categories": "Categories",
-        "tags": "Tags"
-    },
     "openmediavault": {
         "downloading": "Downloading",
-        "total": "Totalo",
-        "running": "Rulata",
+        "total": "Total",
+        "running": "Running",
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
     },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "categories": "Categories",
+        "authors": "Authors",
+        "series": "Series"
+    },
     "uptimerobot": {
-        "status": "Stato",
+        "status": "Status",
+        "notyetchecked": "Not Yet Checked",
+        "downDuration": "Downtime Duration",
         "uptime": "Uptime",
         "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
         "sitesDown": "Sites Down",
         "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
+        "inCinemas": "In cinemas",
         "digitalRelease": "Digital release"
     }
 }
