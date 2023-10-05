@@ -105,7 +105,6 @@ jobs:
             BUILDTIME=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
             VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
             REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
-            DEPRECATED_REPO=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.source'] == 'https://github.com/gethomepage/homepage' }}
           # https://github.com/docker/setup-qemu-action#about
           # platforms: linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
           platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6

@@ -23,7 +23,6 @@ WORKDIR /app
 ARG BUILDTIME
 ARG VERSION
 ARG REVISION
-ARG DEPRECATED_REPO
 
 COPY --link --from=deps /app/node_modules ./node_modules/
 COPY . .
@@ -31,7 +30,7 @@ COPY . .
 SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
 RUN npm run telemetry \
  && mkdir config \
- && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION NEXT_PUBLIC_DEPRECATED_REPO=$DEPRECATED_REPO npm run build
+ && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
 
 # Production image, copy all the files and run next
 FROM docker.io/node:18-alpine AS runner
