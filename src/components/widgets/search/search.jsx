@@ -120,7 +120,7 @@ export default function Search({ options }) {
           placeholder={t("search.placeholder")}
           onChange={(s) => setQuery(s.currentTarget.value)}
           required
-          autoCapitalize="off"
+          autoCapitalize="none"
           autoCorrect="off"
           autoComplete="off"
           // eslint-disable-next-line jsx-a11y/no-autofocus
