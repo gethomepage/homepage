@@ -8,7 +8,7 @@ export default function Ping({ group, service, style }) {
   });
 
   let colorClass = ""
-  let backgroundClass = "bg-theme-500/10 dark:bg-theme-900/50";
+  let backgroundClass = "bg-theme-500/10 dark:bg-theme-900/50 px-1.5 py-0.5";
   let statusTitle = "HTTP status";
   let statusText;
 
@@ -42,17 +42,14 @@ export default function Ping({ group, service, style }) {
   }
 
   if (style === "dot") {
-    backgroundClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d$/, '')
+    backgroundClass = 'p-3';
+    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d$/, '');
   }
 
   return (
-    <>
-    {style !== 'dot' &&
-      <div className={`w-auto px-1.5 py-0.5 text-center rounded-b-[3px] overflow-hidden ping-status-invalid ${style !== 'dot' ? backgroundClass : ''}`} title={statusTitle}>
-       <div className={`font-bold uppercase text-[8px] ${colorClass}`}>{statusText}</div>
-      </div>
-    }
-    {style == 'dot' && <div className={`rounded-full h-[9px] w-[9px] ${backgroundClass}`} title={statusTitle}></div>}
-    </>
+    <div className={`w-auto text-center rounded-b-[3px] overflow-hidden ping-status ${backgroundClass}`} title={statusTitle}>
+      {style !== 'dot' && <div className={`font-bold uppercase text-[8px] ${colorClass}`}>{statusText}</div>}
+      {style == 'dot' && <div className={`rounded-full h-3 w-3 ${colorClass}`}></div>}
+    </div>
   );
 }

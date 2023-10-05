@@ -77,7 +77,7 @@ export default function Item({ service, group }) {
             </div>
           )}
 
-          <div className="absolute top-0 right-0 flex flex-row justify-end gap-2 mr-2 z-30 service-tags">
+          <div className={`absolute top-0 right-0 flex flex-row justify-end ${statusStyle === 'dot' ? 'gap-0' : 'gap-2'} mr-2 z-30 service-tags`}>
               {service.ping && (
                 <div className="flex-shrink-0 flex items-center justify-center service-tag service-ping">
                   <Ping group={group} service={service.name} style={statusStyle} />
@@ -91,7 +91,7 @@ export default function Item({ service, group }) {
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
                   className="flex-shrink-0 flex items-center justify-center cursor-pointer service-tag service-container-stats"
                 >
-                  <Status service={service} />
+                  <Status service={service} style={statusStyle} />
                   <span className="sr-only">View container stats</span>
                 </button>
               )}
@@ -101,7 +101,7 @@ export default function Item({ service, group }) {
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
                   className="flex-shrink-0 flex items-center justify-center cursor-pointer service-tag service-app"
                 >
-                  <KubernetesStatus service={service} />
+                  <KubernetesStatus service={service} style={statusStyle} />
                   <span className="sr-only">View container stats</span>
                 </button>
               )}
