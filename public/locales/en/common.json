@@ -80,7 +80,9 @@
     },
     "ping": {
         "error": "Error",
-        "ping": "Ping"
+        "ping": "Ping",
+        "down": "Down",
+        "up": "Up"
     },
     "emby": {
         "playing": "Playing",

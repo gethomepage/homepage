@@ -7,9 +7,8 @@ export default function Ping({ group, service, style }) {
     refreshInterval: 30000
   });
 
-  let textSize = "text-[8px]";
   let colorClass = ""
-  let backgroundClass = "bg-theme-500/10 dark:bg-theme-900/50";
+  let backgroundClass = "bg-theme-500/10 dark:bg-theme-900/50 px-1.5 py-0.5";
   let statusTitle = "HTTP status";
   let statusText;
 
@@ -26,11 +25,7 @@ export default function Ping({ group, service, style }) {
     statusTitle += ` ${data.status}`
 
     if (style === "basic") {
-      statusText = t("docker.offline")
-    } else if (style === "dot") {
-      statusText = "◉"
-      textSize = "text-[14px]"
-      backgroundClass = ""
+      statusText = t("ping.down")
     } else {
       statusText = data.status
     }
@@ -40,19 +35,21 @@ export default function Ping({ group, service, style }) {
     colorClass = "text-emerald-500/80"
 
     if (style === "basic") {
-      statusText = t("docker.running")
-    } else if (style === "dot") {
-      statusText = "◉"
-      textSize = "text-[14px]"
-      backgroundClass = ""
+      statusText = t("ping.up")
     } else {
       statusText = ping
     }
   }
 
+  if (style === "dot") {
+    backgroundClass = 'p-3';
+    colorClass = colorClass.replace('text-', 'bg-').replace(/\/\d\d$/, '');
+  }
+
   return (
-    <div className={`w-auto px-1.5 py-0.5 text-center rounded-b-[3px] overflow-hidden ping-status-invalid ${backgroundClass}`} title={statusTitle}>
-      <div className={`font-bold uppercase ${textSize} ${colorClass}`}>{statusText}</div>
+    <div className={`w-auto text-center rounded-b-[3px] overflow-hidden ping-status ${backgroundClass}`} title={statusTitle}>
+      {style !== 'dot' && <div className={`font-bold uppercase text-[8px] ${colorClass}`}>{statusText}</div>}
+      {style === 'dot' && <div className={`rounded-full h-3 w-3 ${colorClass}`}/>}
     </div>
   );
 }
