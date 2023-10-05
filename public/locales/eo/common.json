@@ -67,7 +67,9 @@
     },
     "ping": {
         "error": "Eraro",
-        "ping": "Sondaĵo"
+        "ping": "Sondaĵo",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Ludante",
