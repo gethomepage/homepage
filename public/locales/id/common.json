@@ -610,7 +610,9 @@
     },
     "ping": {
         "error": "Error",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Playing",
