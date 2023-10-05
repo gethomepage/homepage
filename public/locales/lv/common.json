@@ -71,7 +71,9 @@
     },
     "ping": {
         "error": "Kļūda",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Atskaņo",
