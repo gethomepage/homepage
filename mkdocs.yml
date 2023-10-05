@@ -149,6 +149,7 @@ nav:
     - more/index.md
     - more/development.md
     - more/translations.md
+    - more/homepage-move.md
 
 theme:
   name: material
