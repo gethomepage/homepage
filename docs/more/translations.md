@@ -3,12 +3,17 @@ title: Translations
 description: Contributing Translations
 ---
 
-Homepage is developed in English, most other supported languages are provided via Google Translate. When a i18n key is not found, the fallback language is English.
+Homepage is developed in English, component contributions must be in English.  All translations are community provided, so a huge thanks go out to all those who have helped out so far!
 
 ## Support Translations
 
-If you'd like to lend a hand in translating Homepage into more languages, or to improve existing translations, the process is very simple.
+If you'd like to lend a hand in translating Homepage into more languages, or to improve existing translations, the process is very simple:
 
-Everything can be done from a simple to use web interface here: https://crowdin.com/project/gethomepage
+1. Create a free account at [Crowdin](https://crowdin.com/join)
+2. Visit the [Homepage project](https://crowdin.com/project/gethomepage)
+3. Select the language you'd like to translate
+4. Start translating!
 
-When creating a new language, it can take 5 to 10 minutes before you'll see translatable strings added, but the process _is_ automatic. Once the strings are added, you can then start translating them.
+## Adding a new language
+
+If you'd like to add a new language, please [create a new Discussion on Crowdin](https://crowdin.com/project/gethomepage/discussions), and we'll add it to the project.
