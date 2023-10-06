@@ -18,7 +18,7 @@
         "information": "Informatie",
         "status": "Status",
         "url": "URL",
-        "raw_error": "Raw Error",
+        "raw_error": "Raw fout",
         "response_data": "Responsgegevens"
     },
     "weather": {
@@ -82,9 +82,9 @@
         "http_status": "HTTP status",
         "error": "Fout",
         "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Offline",
+        "up": "Online",
+        "not_available": "Niet Beschikbaar"
     },
     "emby": {
         "playing": "Afspelen",
@@ -181,7 +181,7 @@
         "memUsage": "MEM Gebruik",
         "systemTempC": "Systeem Temperatuur",
         "poolUsage": "Pool Gebruik",
-        "volumeUsage": "Volume Usage",
+        "volumeUsage": "Volume Gebruik",
         "invalid": "ongeldig"
     },
     "deluge": {
@@ -291,7 +291,7 @@
     },
     "traefik": {
         "routers": "Routers",
-        "services": "Services",
+        "services": "Diensten",
         "middleware": "Middleware"
     },
     "navidrome": {
@@ -386,7 +386,7 @@
     },
     "quicklaunch": {
         "bookmark": "Bladwijzer",
-        "service": "Service",
+        "service": "Dienst",
         "search": "Zoek",
         "custom": "Aangepast",
         "visit": "Bezoek",
@@ -454,12 +454,12 @@
         "available_update": "Systeem",
         "updates": "Updates",
         "update_available": "Update Beschikbaar",
-        "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges",
+        "up_to_date": "Bijgewerkt",
+        "child_bridges": "Onderliggende bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Online",
         "pending": "In afwachting",
-        "down": "Down"
+        "down": "Offline"
     },
     "healthchecks": {
         "new": "Nieuw",
@@ -534,16 +534,16 @@
         "streams_xepg": "XEPG Kanalen"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "yieldDay": "Vandaag",
+        "absolutePower": "Vermogen",
+        "relativePower": "Vermogen %",
+        "limit": "Limiet"
     },
     "opnsense": {
         "cpu": "CPU Belasting",
         "memory": "Actief Geheugen",
         "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "wanDownload": "WAN download"
     },
     "moonraker": {
         "printer_state": "Printer Status",
@@ -565,8 +565,8 @@
         "load": "Load Gem",
         "memory": "Geh Gebruik",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Online",
+        "down": "Offline",
         "temp": "Temp",
         "disk": "Schijf Gebruik",
         "wanIP": "WAN IP"
@@ -624,7 +624,7 @@
         "time": "Tijd"
     },
     "grafana": {
-        "dashboards": "Dashboards",
+        "dashboards": "Overzichten",
         "datasources": "Data Bronnen",
         "totalalerts": "Totaal Waarschuwingen",
         "alertstriggered": "Getriggerde meldingen"
@@ -659,7 +659,7 @@
         "targets_total": "Totaal aantal doelen"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "Vandaag",
         "gross_percent_1y": "Een jaar",
         "gross_percent_max": "Altijd"
     },
@@ -712,7 +712,7 @@
         "online": "Bereikbaar",
         "offline": "Onbereikbaar",
         "name": "Naam",
-        "map": "Map",
+        "map": "Kaart",
         "currentPlayers": "Huidige spelers",
         "players": "Spelers",
         "maxPlayers": "Max spelers",
@@ -732,7 +732,7 @@
         "tags": "Label"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Downloaden",
         "total": "Totaal",
         "running": "Lopend",
         "stopped": "Gestopt",
@@ -748,14 +748,14 @@
         "sitesDown": "Sites Onbereikbaar",
         "paused": "Gepauzeerd",
         "notyetchecked": "Nog niet gecontroleerd",
-        "up": "Up",
+        "up": "Online",
         "seemsdown": "Lijkt onbereikbaar",
-        "down": "Down",
+        "down": "Offline",
         "unknown": "Onbekend"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release"
+        "inCinemas": "In bioscopen",
+        "physicalRelease": "Fysieke versie",
+        "digitalRelease": "Digitale versie"
     }
 }
