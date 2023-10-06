@@ -81,6 +81,7 @@ import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
+import synapse from "./synapse/widget";
 import strelaysrv from "./strelaysrv/widget";
 import tailscale from "./tailscale/widget";
 import tautulli from "./tautulli/widget";
@@ -183,6 +184,7 @@ const widgets = {
   scrutiny,
   sonarr,
   speedtest,
+  synapse,
   strelaysrv,
   tailscale,
   tautulli,

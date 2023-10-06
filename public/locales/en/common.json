@@ -757,5 +757,10 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release"
+    },
+    "synapse": {
+        "users": "Users",
+        "rooms": "Rooms",
+        "peers": "Peers"
     }
 }
