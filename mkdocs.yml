@@ -59,6 +59,7 @@ nav:
       - widgets/services/gluetun.md
       - widgets/services/gotify.md
       - widgets/services/grafana.md
+      - widgets/services/hdhomerun.md
       - widgets/services/healthchecks.md
       - widgets/services/homeassistant.md
       - widgets/services/homebridge.md
