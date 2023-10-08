@@ -122,7 +122,7 @@ pnpm dev
 
 # Configuration
 
-Please refere to the [homepage documentation](https://gethomepage.dev/) website for more information. Everything you need to know about configuring Homepage is there. Please read everything carefully before asking for help, as most questions are answered there or are simple YAML configuration issues.
+Please refer to the [homepage documentation](https://gethomepage.dev/) website for more information. Everything you need to know about configuring Homepage is there. Please read everything carefully before asking for help, as most questions are answered there or are simple YAML configuration issues.
 
 # Development
 
@@ -143,6 +143,8 @@ Open [http://localhost:3000](http://localhost:3000) to start.
 This is a [Next.js](https://nextjs.org/) application, see their documentation for more information.
 
 # Documentation
+
+The homepage documentation is available at [https://gethomepage.dev/](https://gethomepage.dev/).
 
 Homepage uses Material for MkDocs for documentation. To run the documentation locally, first install the dependencies:
 
