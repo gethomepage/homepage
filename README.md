@@ -13,6 +13,8 @@
   <img src="images/1.png?v=2" />
 </p>
 
+<p align="center"><a href="https://gethomepage.dev/v0.7.3/">Go to homepage</a></p>
+
 <p align="center">
   <a href="https://github.com/gethomepage/homepage/actions/workflows/docker-publish.yml"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/gethomepage/homepage/docker-publish.yml"></a>
   &nbsp;
