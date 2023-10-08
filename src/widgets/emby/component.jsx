@@ -35,11 +35,7 @@ function SingleSessionEntry({ playCommand, session }) {
 
   const RunTimeTicks = session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
-  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {
-    IsVideoDirect: true,
-    VideoDecoderIsHardware: true,
-    VideoEncoderIsHardware: true,
-  };
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || { IsVideoDirect: true }; // if no transcodinginfo its videodirect
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
@@ -106,7 +102,7 @@ function SessionEntry({ playCommand, session }) {
 
   const RunTimeTicks = session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
-  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {};
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || { IsVideoDirect: true }; // if no transcodinginfo its videodirect
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
