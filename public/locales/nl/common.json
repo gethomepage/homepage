@@ -370,7 +370,7 @@
         "wait": "Even geduld",
         "temp": "TEMP",
         "_temp": "Temp",
-        "warn": "Waarschuwing",
+        "warn": "Alert",
         "uptime": "OP",
         "total": "Totaal",
         "free": "Vrij",
@@ -626,7 +626,7 @@
     "grafana": {
         "dashboards": "Overzichten",
         "datasources": "Data Bronnen",
-        "totalalerts": "Totaal Waarschuwingen",
+        "totalalerts": "Totaal Alerts",
         "alertstriggered": "Getriggerde meldingen"
     },
     "nextcloud": {
