@@ -107,8 +107,8 @@
     "flood": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Profiteur",
+        "seed": "Delen"
     },
     "freshrss": {
         "subscriptions": "Abonnementen",
@@ -167,14 +167,14 @@
     "transmission": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Profiteur",
+        "seed": "Delen"
     },
     "qbittorrent": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Profiteur",
+        "seed": "Delen"
     },
     "qnap": {
         "cpuUsage": "CPU Verbruik",
@@ -187,14 +187,14 @@
     "deluge": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Profiteur",
+        "seed": "Delen"
     },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Profiteur",
+        "seed": "Delen"
     },
     "sonarr": {
         "wanted": "Gezocht",
