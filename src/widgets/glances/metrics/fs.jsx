@@ -10,7 +10,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart } = widget;
-  const [, fsName] = widget.metric.split(':');
+  const [, fsName] = widget.metric.split('fs:');
 
   const { data, error } = useWidgetAPI(widget, 'fs', {
     refreshInterval: 1000,
