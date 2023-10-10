@@ -72,7 +72,7 @@ export default function Component({ service }) {
             timeLeft={queueEntry.timeLeft}
             title={getTitle(queueEntry, seriesData) ?? t("sonarr.unknown")}
             activity={formatDownloadState(queueEntry.trackedDownloadState)}
-            key={`${queueEntry.seriesId}-${queueEntry.sizeLeft}`}
+            key={`${queueEntry.seriesId}-${queueEntry.episodeId}`}
           />
         ))
       }
