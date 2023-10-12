@@ -21,43 +21,45 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 
 2. Verify the homepage installation can connect to the IP address or host you are using for the widget `url`. This is most simply achieved by pinging the server from the homepage machine, in Docker this means _from inside the container_ itself, e.g.:
 
-   ```
-   docker exec homepage ping SERVICEIPORDOMAIN
-   ```
+    ```
+    docker exec homepage ping SERVICEIPORDOMAIN
+    ```
 
-   If your homepage install (container) cannot reach the service then you need to figure out why, for example in Docker this can mean putting the two containers on the same network, checking firewall issues, etc.
+    If your homepage install (container) cannot reach the service then you need to figure out why, for example in Docker this can mean putting the two containers on the same network, checking firewall issues, etc.
 
 3. If you have verified that homepage can in fact reach the service then you can also check the API output using e.g. `curl`, which is often helpful if you do need to file a bug report. Again, depending on your networking setup this may need to be run from _inside the container_ as IP / hostname resolution can differ inside vs outside.
 
-   _Note: `curl` is not installed in the base image by default but can be added inside the container with `apk add curl`._
+    !!! note
+            
+        `curl` is not installed in the base image by default but can be added inside the container with `apk add curl`.
 
-   The exact API endpoints and authentication vary of course, but in many cases instructions can be found by searching the web or if you feel comfortable looking at the homepage source code (e.g. `src/widgets/{widget}/widget.js`).
+    The exact API endpoints and authentication vary of course, but in many cases instructions can be found by searching the web or if you feel comfortable looking at the homepage source code (e.g. `src/widgets/{widget}/widget.js`).
 
-   It is out of the scope of this to go into full detail about how to , but an example for PiHole would be:
+    It is out of the scope of this to go into full detail about how to , but an example for PiHole would be:
 
-   ```
-   curl -L -k http://PIHOLEIPORHOST/admin/api.php
-   ```
+    ```
+    curl -L -k http://PIHOLEIPORHOST/admin/api.php
+    ```
 
-   Or for AdGuard:
+    Or for AdGuard:
 
-   ```
-   curl -L -k -u 'username:password' http://ADGUARDIPORHOST/control/stats
-   ```
+    ```
+    curl -L -k -u 'username:password' http://ADGUARDIPORHOST/control/stats
+    ```
 
-   Or for Portainer:
+    Or for Portainer:
 
-   ```
-   curl -L -k -H 'X-Api-Key:YOURKEY' 'https://PORTAINERIPORHOST:PORT/api/endpoints/2/docker/containers/json'
-   ```
+    ```
+    curl -L -k -H 'X-Api-Key:YOURKEY' 'https://PORTAINERIPORHOST:PORT/api/endpoints/2/docker/containers/json'
+    ```
 
-   Sonarr:
+    Sonarr:
 
-   ```
-   curl -L -k 'http://SONARRIPORHOST:PORT/api/v3/queue?apikey=YOURAPIKEY'
-   ```
+    ```
+    curl -L -k 'http://SONARRIPORHOST:PORT/api/v3/queue?apikey=YOURAPIKEY'
+    ```
 
-   This will return some data which may reveal an issue causing a true bug in the service widget.
+    This will return some data which may reveal an issue causing a true bug in the service widget.
 
 ## Missing custom icons
 
