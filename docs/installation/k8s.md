@@ -298,10 +298,32 @@ spec:
                         containerPort: 3000
                         protocol: TCP
                   volumeMounts:
-                      - name: homepage-config
-                        mountPath: /app/config
-                      - name: logs
-                        mountPath: /app/config/logs
+                      - mountPath: /app/config/custom.js
+                        name: homepage-config
+                        subPath: custom.js
+                      - mountPath: /app/config/custom.css
+                        name: homepage-config
+                        subPath: custom.css
+                      - mountPath: /app/config/bookmarks.yaml
+                        name: homepage-config
+                        subPath: bookmarks.yaml
+                      - mountPath: /app/config/docker.yaml
+                        name: homepage-config
+                        subPath: docker.yaml
+                      - mountPath: /app/config/kubernetes.yaml
+                        name: homepage-config
+                        subPath: kubernetes.yaml
+                      - mountPath: /app/config/services.yaml
+                        name: homepage-config
+                        subPath: services.yaml
+                      - mountPath: /app/config/settings.yaml
+                        name: homepage-config
+                        subPath: settings.yaml
+                      - mountPath: /app/config/widgets.yaml
+                        name: homepage-config
+                        subPath: widgets.yaml
+                      - mountPath: /app/config/logs
+                        name: logs
             volumes:
                 - name: homepage-config
                   configMap:
