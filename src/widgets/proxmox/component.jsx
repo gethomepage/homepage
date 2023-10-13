@@ -34,7 +34,7 @@ export default function Component({ service }) {
   const { data } = clusterData ;
   const vms = data.filter(item => item.type === "qemu" && item.template === 0 && (widget.node === undefined || widget.node === item.node)) || [];
   const lxc = data.filter(item => item.type === "lxc" && item.template === 0 && (widget.node === undefined || widget.node === item.node)) || [];
-  const nodes = data.filter(item => item.type === "node" && (widget.node === undefined || widget.node === item.node)) || [];
+  const nodes = data.filter(item => item.type === "node" && item.status === "online" && (widget.node === undefined || widget.node === item.node)) || [];
   const runningVMs = vms.reduce(calcRunning, 0);
   const runningLXC = lxc.reduce(calcRunning, 0);
 
