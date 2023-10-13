@@ -18,7 +18,7 @@
         "information": "Informationen",
         "status": "Status",
         "url": "URL",
-        "raw_error": "Raw Fehler",
+        "raw_error": "Rohfehler",
         "response_data": "Empfangene Daten"
     },
     "weather": {
@@ -55,8 +55,8 @@
         "devices": "Geräte",
         "lan_devices": "LAN-Geräte",
         "wlan_devices": "WLAN-Geräte",
-        "lan_users": "LAN Benutzer",
-        "wlan_users": "WLAN Benutzer",
+        "lan_users": "LAN-Benutzer",
+        "wlan_users": "WLAN-Benutzer",
         "up": "UP",
         "down": "EMPFANGEN",
         "wait": "Bitte warten",
@@ -71,9 +71,9 @@
         "offline": "Offline",
         "error": "Fehler",
         "unknown": "Unbekannt",
-        "healthy": "Healthy",
+        "healthy": "Fehlerfrei",
         "starting": "Startet",
-        "unhealthy": "Unhealthy",
+        "unhealthy": "Fehlerhaft",
         "not_found": "Nicht gefunden",
         "exited": "Beendet",
         "partial": "Teilweise"
@@ -82,8 +82,8 @@
         "http_status": "HTTP-Status",
         "error": "Fehler",
         "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
+        "down": "Empfangen",
+        "up": "Senden",
         "not_available": "Nicht verfügbar"
     },
     "emby": {
@@ -134,14 +134,14 @@
         "transcoding": "Transcodiert",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
-        "plex_connection_error": "Prüfe Plex Verbindung"
+        "plex_connection_error": "Prüfe Plex-Verbindung"
     },
     "omada": {
         "connectedAp": "Verbundene APs",
         "activeUser": "Aktive Geräte",
         "alerts": "Alarme",
         "connectedGateway": "Verbundene Gateways",
-        "connectedSwitches": "Verbundene Switche"
+        "connectedSwitches": "Verbundene Switches"
     },
     "nzbget": {
         "rate": "Geschwindigkeit",
@@ -152,7 +152,7 @@
         "streams": "Aktive Streams",
         "albums": "Alben",
         "movies": "Filme",
-        "tv": "TV Sendungen"
+        "tv": "TV-Serien"
     },
     "sabnzbd": {
         "rate": "Geschwindigkeit",
@@ -177,11 +177,11 @@
         "seed": "Seed"
     },
     "qnap": {
-        "cpuUsage": "CPU Nutzung",
-        "memUsage": "MEM Nutzung",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Nutzung",
-        "volumeUsage": "Speicher Nutzung",
+        "cpuUsage": "CPU-Nutzung",
+        "memUsage": "Speichernutzung",
+        "systemTempC": "Systemtemperatur",
+        "poolUsage": "Pool-Nutzung",
+        "volumeUsage": "Speichernutzung",
         "invalid": "Ungültig"
     },
     "deluge": {
@@ -205,7 +205,7 @@
     },
     "radarr": {
         "wanted": "Gesucht",
-        "missing": "Fehlt",
+        "missing": "Fehlend",
         "queued": "In Warteschlange",
         "movies": "Filme",
         "queue": "Warteschlange",
@@ -245,12 +245,12 @@
         "total": "Gesamt",
         "connected": "Verbunden",
         "new_devices": "Neue Geräte",
-        "down_alerts": "Down Alarme"
+        "down_alerts": "Down-Warnungen"
     },
     "pihole": {
         "queries": "Abfragen",
         "blocked": "Blockiert",
-        "blocked_percent": "Geblockt %",
+        "blocked_percent": "Blockiert %",
         "gravity": "Gravity"
     },
     "adguard": {
@@ -275,11 +275,11 @@
         "never": "Nie",
         "last_seen": "Zuletzt gesehen",
         "now": "Jetzt",
-        "years": "{{number}}J",
-        "weeks": "{{number}}W",
-        "days": "{{number}}T",
-        "hours": "{{number}}S",
-        "minutes": "{{number}}m",
+        "years": "{{number}}a",
+        "weeks": "{{number}} Woche(n)",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}min",
         "seconds": "{{number}}s",
         "ago": "Vor {{value}}"
     },
@@ -304,7 +304,7 @@
         "total": "Gesamt"
     },
     "coinmarketcap": {
-        "configure": "Konfiguriere eine oder mehrere Kryptowährungen zur Verfolgung",
+        "configure": "Konfiguriere eine oder mehrere Kryptowährungen zur Beobachtung",
         "1hour": "1 Stunde",
         "1day": "1 Tag",
         "7days": "7 Tage",
@@ -455,11 +455,11 @@
         "updates": "Aktualisierungen",
         "update_available": "Aktualisierung verfügbar",
         "up_to_date": "Aktuell",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "Unter-Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Senden",
         "pending": "Ausstehend",
-        "down": "Down"
+        "down": "Empfangen"
     },
     "healthchecks": {
         "new": "Neu",
@@ -489,7 +489,7 @@
         "playlists": "Wiedergabelisten"
     },
     "truenas": {
-        "load": "Systembelastung",
+        "load": "Systemlast",
         "uptime": "Betriebszeit",
         "alerts": "Alarme",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
@@ -523,38 +523,38 @@
         "no_devices": "Keine Daten empfangen"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Auslastung",
+        "cpuLoad": "CPU-Auslastung",
         "memoryUsed": "RAM Verbrauch",
         "uptime": "Betriebszeit",
-        "numberOfLeases": "Leases"
+        "numberOfLeases": "Leasen"
     },
     "xteve": {
         "streams_all": "Keine Übertragungen",
         "streams_active": "Aktive Streams",
-        "streams_xepg": "XEPG Kanäle"
+        "streams_xepg": "XEPG-Kanäle"
     },
     "opendtu": {
         "yieldDay": "Heute",
-        "absolutePower": "Produktion",
-        "relativePower": "Produktion %",
+        "absolutePower": "Leistung",
+        "relativePower": "Leistung %",
         "limit": "Grenze"
     },
     "opnsense": {
-        "cpu": "CPU Auslastung",
+        "cpu": "CPU-Auslastung",
         "memory": "Aktiver RAM",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "wanUpload": "WAN-Upload",
+        "wanDownload": "WAN-Download"
     },
     "moonraker": {
-        "printer_state": "Drucker Status",
-        "print_status": "Druck Status",
+        "printer_state": "Druckerstatus",
+        "print_status": "Druckstatus",
         "print_progress": "Fortschritt",
         "layers": "Schichten"
     },
     "octoprint": {
         "printer_state": "Status",
-        "temp_tool": "Düsen Temp",
-        "temp_bed": "Bett Temp",
+        "temp_tool": "Düsentemperatur",
+        "temp_bed": "Betttemperatur",
         "job_completion": "Fortschritt"
     },
     "cloudflared": {
@@ -564,9 +564,9 @@
     "pfsense": {
         "load": "Durchschnittliche Last",
         "memory": "Speichernutzung",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "wanStatus": "WAN-Status",
+        "up": "Senden",
+        "down": "Empfangen",
         "temp": "Temperatur",
         "disk": "Datenträgernutzung",
         "wanIP": "WAN-IP"
@@ -626,8 +626,8 @@
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Datenquellen",
-        "totalalerts": "Gesamte Meldungen",
-        "alertstriggered": "Ausgelöste Alarme"
+        "totalalerts": "Gesamte Warnungen",
+        "alertstriggered": "Ausgelöste Warnungen"
     },
     "nextcloud": {
         "cpuload": "CPU Last",
@@ -670,12 +670,12 @@
         "booksDuration": "Dauer"
     },
     "homeassistant": {
-        "people_home": "Personen daheim",
+        "people_home": "Personen zuhause",
         "lights_on": "Lichter an",
         "switches_on": "Schalter an"
     },
     "whatsupdocker": {
-        "monitoring": "Überwacht",
+        "monitoring": "Überwachung",
         "updates": "Aktualisierungen"
     },
     "calibreweb": {
@@ -742,15 +742,15 @@
     "uptimerobot": {
         "status": "Status",
         "uptime": "Betriebszeit",
-        "lastDown": "Letzte Ausfallzeit",
-        "downDuration": "Ausfallzeit Dauer",
+        "lastDown": "Letzter Ausfall",
+        "downDuration": "Ausfalldauer",
         "sitesUp": "Seiten verfügbar",
         "sitesDown": "Seiten nicht verfügbar",
         "paused": "Pausiert",
         "notyetchecked": "Noch nicht geprüft",
-        "up": "Up",
+        "up": "Senden",
         "seemsdown": "Scheint nicht verfügbar",
-        "down": "Down",
+        "down": "Empfangen",
         "unknown": "Unbekannt"
     },
     "calendar": {
