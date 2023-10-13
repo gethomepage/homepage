@@ -43,7 +43,7 @@
         "months": "Mo.",
         "days": "d",
         "hours": "h",
-        "minutes": "m"
+        "minutes": "min"
     },
     "unifi": {
         "users": "Benutzer",
@@ -79,12 +79,12 @@
         "partial": "Teilweise"
     },
     "ping": {
-        "http_status": "HTTP status",
+        "http_status": "HTTP-Status",
         "error": "Fehler",
         "ping": "Ping",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Nicht verfügbar"
     },
     "emby": {
         "playing": "Wiedergabe",
@@ -124,7 +124,7 @@
         "diffsDetected": "Erkannte Differenzen"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
+        "shows": "Serien",
         "recordings": "Aufnahmen",
         "scheduled": "Geplant",
         "passes": "Pässe"
@@ -537,7 +537,7 @@
         "yieldDay": "Heute",
         "absolutePower": "Produktion",
         "relativePower": "Produktion %",
-        "limit": "Limit"
+        "limit": "Grenze"
     },
     "opnsense": {
         "cpu": "CPU Auslastung",
@@ -569,7 +569,7 @@
         "down": "Down",
         "temp": "Temperatur",
         "disk": "Datenträgernutzung",
-        "wanIP": "WAN IP"
+        "wanIP": "WAN-IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datenspeicher",
@@ -588,7 +588,7 @@
         "down": "Seiten nicht verfügbar",
         "uptime": "Betriebszeit",
         "incident": "Vorfall",
-        "m": "m"
+        "m": "min"
     },
     "atsumeru": {
         "series": "Serien",
@@ -720,7 +720,7 @@
         "ping": "Ping"
     },
     "urbackup": {
-        "ok": "Ok",
+        "ok": "OK",
         "errored": "Fehler",
         "noRecent": "Nicht mehr aktuell",
         "totalUsed": "Belegter Speicherplatz"
@@ -754,8 +754,8 @@
         "unknown": "Unbekannt"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release"
+        "inCinemas": "Im Kino",
+        "physicalRelease": "Physische Version",
+        "digitalRelease": "Digitale Version"
     }
 }
