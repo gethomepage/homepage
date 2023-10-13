@@ -31,7 +31,7 @@
         "placeholder": "Suche…"
     },
     "resources": {
-        "cpu": "Prozessor",
+        "cpu": "CPU",
         "mem": "RAM",
         "total": "Gesamt",
         "free": "Frei",
@@ -63,11 +63,11 @@
         "empty_data": "Subsystem Status unbekannt"
     },
     "docker": {
-        "rx": "Rx",
-        "tx": "Tx",
+        "rx": "RX",
+        "tx": "TX",
         "mem": "RAM",
-        "cpu": "Prozessor",
-        "running": "Wird ausgeführt",
+        "cpu": "CPU",
+        "running": "Läuft",
         "offline": "Offline",
         "error": "Fehler",
         "unknown": "Unbekannt",
@@ -93,7 +93,7 @@
         "no_active": "Keine aktiven Streams",
         "movies": "Filme",
         "series": "Serien",
-        "episodes": "Folgen",
+        "episodes": "Episoden",
         "songs": "Songs"
     },
     "evcc": {
@@ -265,7 +265,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Wird ausgeführt",
+        "running": "Läuft",
         "stopped": "Gestoppt",
         "total": "Gesamt"
     },
@@ -360,12 +360,12 @@
     },
     "proxmox": {
         "mem": "RAM",
-        "cpu": "Prozessor",
+        "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "Prozessor",
+        "cpu": "CPU",
         "load": "Last",
         "wait": "Bitte warten",
         "temp": "TEMP",
@@ -515,7 +515,7 @@
         "unknown": "Unbekannt"
     },
     "paperlessngx": {
-        "inbox": "Eingang",
+        "inbox": "Posteingang",
         "total": "Gesamt"
     },
     "nextdns": {
@@ -574,7 +574,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datenspeicher",
         "failed_tasks_24h": "Fehlgeschlagene Prozesse 24h",
-        "cpu_usage": "Prozessor",
+        "cpu_usage": "CPU",
         "memory_usage": "RAM"
     },
     "immich": {
@@ -734,7 +734,7 @@
     "openmediavault": {
         "downloading": "Wird heruntergeladen",
         "total": "Gesamt",
-        "running": "Wird ausgeführt",
+        "running": "Läuft",
         "stopped": "Gestoppt",
         "passed": "Bestanden",
         "failed": "Fehlgeschlagen"
