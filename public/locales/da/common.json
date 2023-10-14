@@ -553,8 +553,8 @@
     },
     "octoprint": {
         "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
+        "temp_tool": "Værktøj temp",
+        "temp_bed": "Seng temp",
         "job_completion": "Færdiggørelse"
     },
     "cloudflared": {
@@ -624,7 +624,7 @@
         "time": "Tid"
     },
     "grafana": {
-        "dashboards": "Dashboards",
+        "dashboards": "Kontrolpanel",
         "datasources": "Data Kilder",
         "totalalerts": "Totale Advarsler",
         "alertstriggered": "Advarsler Udløst"
@@ -742,20 +742,20 @@
     "uptimerobot": {
         "status": "Status",
         "uptime": "Oppetid",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
+        "lastDown": "Seneste Nedetid",
+        "downDuration": "Nedetid Varighed",
         "sitesUp": "Sider Oppe",
         "sitesDown": "Sider Nede",
         "paused": "Pause",
-        "notyetchecked": "Not Yet Checked",
+        "notyetchecked": "Endnu Ikke Kontrolleret",
         "up": "Op",
-        "seemsdown": "Seems Down",
+        "seemsdown": "Synes Ned",
         "down": "Ned",
         "unknown": "Ukendt"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release"
+        "inCinemas": "I biografen",
+        "physicalRelease": "Fysisk udgivelse",
+        "digitalRelease": "Digitale udgivelser"
     }
 }
