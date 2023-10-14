@@ -67,7 +67,9 @@
     },
     "ping": {
         "error": "Eraro",
-        "ping": "Sondaĵo"
+        "ping": "Sondaĵo",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Ludante",
@@ -272,7 +274,8 @@
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -706,5 +709,42 @@
         "users": "Users",
         "categories": "Categories",
         "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "categories": "Categories",
+        "authors": "Authors",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Status",
+        "notyetchecked": "Not Yet Checked",
+        "downDuration": "Downtime Duration",
+        "uptime": "Uptime",
+        "lastDown": "Last Downtime",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
+        "up": "Up",
+        "seemsdown": "Seems Down",
+        "down": "Down",
+        "unknown": "Unknown"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
+    },
+    "calendar": {
+        "physicalRelease": "Physical release",
+        "inCinemas": "In cinemas",
+        "digitalRelease": "Digital release"
     }
 }

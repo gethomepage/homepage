@@ -4,10 +4,13 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState, useMemo } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 
+import Tab, { slugify } from "components/tab";
+import FileContent from "components/filecontent";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
@@ -18,6 +21,7 @@ import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
+import { TabContext } from "utils/contexts/tab";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
@@ -157,10 +161,10 @@ function Index({ initialSettings, fallback }) {
 
 const headerStyles = {
   boxed:
-    "m-4 mb-0 sm:m-8 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-  underlined: "m-4 mb-0 sm:m-8 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
-  clean: "m-4 mb-0 sm:m-8 sm:mb-0",
-  boxedWidgets: "m-4 mb-0 sm:m-8 sm:mb-0 sm:mt-1",
+    "m-6 mb-0 sm:m-9 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+  underlined: "m-6 mb-0 sm:m-9 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
+  clean: "m-6 mb-0 sm:m-9 sm:mb-0",
+  boxedWidgets: "m-6 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
 };
 
 function Home({ initialSettings }) {
@@ -168,6 +172,8 @@ function Home({ initialSettings }) {
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);
   const { settings, setSettings } = useContext(SettingsContext);
+  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { asPath } = useRouter();
 
   useEffect(() => {
     setSettings(initialSettings);
@@ -177,7 +183,7 @@ function Home({ initialSettings }) {
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
-  const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()]
+  const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()].filter(i => i?.href);
 
   useEffect(() => {
     if (settings.language) {
@@ -209,12 +215,12 @@ function Home({ initialSettings }) {
       searchProvider = searchProviders[searchWidget.options?.provider];
     }
   }
-  const headerStyle = initialSettings?.headerStyle || "underlined";
+  const headerStyle = settings?.headerStyle || "underlined";
 
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.target.tagName === "BODY") {
-        if (String.fromCharCode(e.keyCode).match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+      if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
+        if (e.key.length === 1 && e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");
@@ -230,15 +236,110 @@ function Home({ initialSettings }) {
     }
   })
 
+  const tabs = useMemo( () => [
+    ...new Set(
+      Object.keys(settings.layout ?? {}).map(
+        (groupName) => settings.layout[groupName]?.tab?.toString()
+      ).filter(group => group)
+    )
+  ], [settings.layout]);
+
+  useEffect(() => {
+    if (!activeTab) {
+      const initialTab = decodeURI(asPath.substring(asPath.indexOf("#") + 1));
+      setActiveTab(initialTab === '/' ? slugify(tabs['0']) : initialTab)
+    }
+  })
+
+  const servicesAndBookmarksGroups = useMemo(() => {
+    const tabGroupFilter = g => g && [activeTab, ''].includes(slugify(settings.layout?.[g.name]?.tab));
+    const undefinedGroupFilter = g => settings.layout?.[g.name] === undefined;
+
+    const layoutGroups = Object.keys(settings.layout ?? {}).map(
+      (groupName) => services?.find(g => g.name === groupName) ?? bookmarks?.find(b => b.name === groupName)
+    ).filter(tabGroupFilter);
+
+    if (!settings.layout && JSON.stringify(settings.layout) !== JSON.stringify(initialSettings.layout)) {
+      // wait for settings to populate (if different from initial settings), otherwise all the widgets will be requested initially even if we are on a single tab
+      return <div />;
+    }
+
+    const serviceGroups = services?.filter(tabGroupFilter).filter(undefinedGroupFilter);
+    const bookmarkGroups = bookmarks.filter(tabGroupFilter).filter(undefinedGroupFilter);
+
+    return <>
+      {tabs.length > 0 && <div key="tabs" id="tabs" className="m-6 sm:m-9 sm:mt-4 sm:mb-0">
+        <ul className={classNames(
+          "sm:flex rounded-md bg-theme-100/20 dark:bg-white/5",
+          settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? '-': "" }${settings.cardBlur}`
+         )} id="myTab" data-tabs-toggle="#myTabContent" role="tablist" >
+          {tabs.map(tab => <Tab key={tab} tab={tab} />)}
+        </ul>
+      </div>}
+      {layoutGroups.length > 0 && <div key="layoutGroups" id="layout-groups" className="flex flex-wrap m-4 sm:m-8 sm:mt-4 items-start mb-2">
+        {layoutGroups.map((group) => (
+          group.services ?
+            (<ServicesGroup
+              key={group.name}
+              group={group.name}
+              services={group}
+              layout={settings.layout?.[group.name]}
+              fiveColumns={settings.fiveColumns}
+              disableCollapse={settings.disableCollapse}
+            />) :
+            (<BookmarksGroup
+              key={group.name}
+              bookmarks={group}
+              layout={settings.layout?.[group.name]}
+              disableCollapse={settings.disableCollapse}
+            />)
+        )
+      )}
+      </div>}
+      {serviceGroups?.length > 0 && <div key="services" id="services" className="flex flex-wrap m-4 sm:m-8 sm:mt-4 items-start mb-2">
+        {serviceGroups.map((group) => (
+          <ServicesGroup
+            key={group.name}
+            group={group.name}
+            services={group}
+            layout={settings.layout?.[group.name]}
+            fiveColumns={settings.fiveColumns}
+            disableCollapse={settings.disableCollapse}
+          />
+        ))}
+      </div>}
+      {bookmarkGroups?.length > 0 && <div key="bookmarks" id="bookmarks" className="flex flex-wrap m-4 sm:m-8 sm:mt-4 items-start mb-2">
+        {bookmarkGroups.map((group) => (
+          <BookmarksGroup
+            key={group.name}
+            bookmarks={group}
+            layout={settings.layout?.[group.name]}
+            disableCollapse={settings.disableCollapse}
+          />
+        ))}
+      </div>}
+      </>
+  }, [
+    tabs,
+    activeTab,
+    services,
+    bookmarks,
+    settings.layout,
+    settings.fiveColumns,
+    settings.disableCollapse,
+    settings.cardBlur,
+    initialSettings.layout
+  ]);
+
   return (
     <>
       <Head>
-        <title>{initialSettings.title || "Homepage"}</title>
-        {initialSettings.base && <base href={initialSettings.base} />}
-        {initialSettings.favicon ? (
+        <title>{settings.title || "Homepage"}</title>
+        {settings.base && <base href={settings.base} />}
+        {settings.favicon ? (
           <>
-            <link rel="apple-touch-icon" sizes="180x180" href={initialSettings.favicon} />
-            <link rel="icon" href={initialSettings.favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
+            <link rel="icon" href={settings.favicon} />
           </>
         ) : (
           <>
@@ -248,83 +349,78 @@ function Home({ initialSettings }) {
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
           </>
         )}
-        <meta
-          name="msapplication-TileColor"
-          content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]}
-        />
-        <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
+        <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
+        <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
       </Head>
+
+      <link rel="preload" href="/api/config/custom.css" as="fetch" crossOrigin="anonymous" />
+      <style data-name="custom.css">
+        <FileContent path="custom.css"
+          loadingValue="/* Loading custom CSS... */"
+          errorValue="/* Failed to load custom CSS... */"
+          emptyValue="/* No custom CSS */"
+        />
+      </style>
+      <link rel="preload" href="/api/config/custom.js" as="fetch" crossOrigin="anonymous" />
+      <script data-name="custom.js" src="/api/config/custom.js" async />
+
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
+        <QuickLaunch
+          servicesAndBookmarks={servicesAndBookmarks}
+          searchString={searchString}
+          setSearchString={setSearchString}
+          isOpen={searching}
+          close={setSearching}
+          searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
+        />
         <div
+          id="information-widgets"
           className={classNames(
-            "flex flex-row flex-wrap  justify-between",
-            headerStyles[headerStyle]
+            "flex flex-row flex-wrap justify-between",
+            headerStyles[headerStyle],
+            settings.cardBlur !== undefined && headerStyle === "boxed" && `backdrop-blur${settings.cardBlur.length ? '-' : ""}${settings.cardBlur}`
           )}
         >
-          <QuickLaunch
-            servicesAndBookmarks={servicesAndBookmarks}
-            searchString={searchString}
-            setSearchString={setSearchString}
-            isOpen={searching}
-            close={setSearching}
-            searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
-          />
-          {widgets && (
-            <>
-              {widgets
-                .filter((widget) => !rightAlignedWidgets.includes(widget.type))
-                .map((widget, i) => (
-                  <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false}} />
-                ))}
-
-              <div className={classNames(
-                "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
-                headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
-              )}>
+          <div id="widgets-wrap"
+            style={{width: 'calc(100% + 1rem)'}}
+            className={classNames(
+              "flex flex-row w-full flex-wrap justify-between -ml-2 -mr-2"
+            )}
+          >
+            {widgets && (
+              <>
                 {widgets
-                  .filter((widget) => rightAlignedWidgets.includes(widget.type))
+                  .filter((widget) => !rightAlignedWidgets.includes(widget.type))
                   .map((widget, i) => (
-                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true}} />
+                    <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: false, cardBlur: settings.cardBlur }} />
                   ))}
-              </div>
-            </>
-          )}
+
+                <div id="information-widgets-right" className={classNames(
+                  "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
+                  headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2"
+                )}>
+                  {widgets
+                    .filter((widget) => rightAlignedWidgets.includes(widget.type))
+                    .map((widget, i) => (
+                      <Widget key={i} widget={widget} style={{ header: headerStyle, isRightAligned: true, cardBlur: settings.cardBlur }} />
+                    ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
 
-        {services?.length > 0 && (
-          <div className="flex flex-wrap p-4 sm:p-8 sm:pt-4 items-start pb-2">
-            {services.map((group) => (
-              <ServicesGroup 
-                key={group.name}
-                group={group.name}
-                services={group}
-                layout={initialSettings.layout?.[group.name]}
-                fiveColumns={settings.fiveColumns} 
-                disableCollapse={settings.disableCollapse} />
-            ))}
-          </div>
-        )}
+        {servicesAndBookmarksGroups}
 
-        {bookmarks?.length > 0 && (
-          <div className={`grow flex flex-wrap pt-0 p-4 sm:p-8 gap-2 grid-cols-1 lg:grid-cols-2 lg:grid-cols-${Math.min(6, bookmarks.length)}`}>
-            {bookmarks.map((group) => (
-              <BookmarksGroup
-                key={group.name}
-                group={group}
-                disableCollapse={settings.disableCollapse} />
-            ))}
-          </div>
-        )}
-
-        <div className="flex flex-col mt-auto p-8 w-full">
-          <div className="flex w-full justify-end">
-            {!initialSettings?.color && <ColorToggle />}
+        <div id="footer" className="flex flex-col mt-auto p-8 w-full">
+          <div id="style" className="flex w-full justify-end">
+            {!settings?.color && <ColorToggle />}
             <Revalidate />
-            {!initialSettings?.theme && <ThemeToggle />}
+            {!settings.theme && <ThemeToggle />}
           </div>
 
-          <div className="flex mt-4 w-full justify-end">
-            {!initialSettings?.hideVersion && <Version />}
+          <div id="version" className="flex mt-4 w-full justify-end">
+            {!settings.hideVersion && <Version />}
           </div>
         </div>
       </div>
@@ -374,6 +470,7 @@ export default function Wrapper({ initialSettings, fallback }) {
       >
         <div
         id="inner_wrapper"
+        tabIndex="-1"
         className={classNames(
           'fixed overflow-auto w-full h-full',
           backgroundBlur && `backdrop-blur${initialSettings.background.blur.length ? '-' : ""}${initialSettings.background.blur}`,

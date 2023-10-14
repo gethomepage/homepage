@@ -36,9 +36,9 @@ RUN npm run telemetry \
 FROM docker.io/node:18-alpine AS runner
 LABEL org.opencontainers.image.title "Homepage"
 LABEL org.opencontainers.image.description "A self-hosted services landing page, with docker and service integrations."
-LABEL org.opencontainers.image.url="https://github.com/benphelps/homepage"
-LABEL org.opencontainers.image.documentation='https://github.com/benphelps/homepage/wiki'
-LABEL org.opencontainers.image.source='https://github.com/benphelps/homepage'
+LABEL org.opencontainers.image.url="https://github.com/gethomepage/homepage"
+LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/homepage/wiki'
+LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
 LABEL org.opencontainers.image.licenses='Apache-2.0'
 
 ENV NODE_ENV production
@@ -52,8 +52,6 @@ COPY --link --chown=1000:1000 /public ./public/
 # Copy files from builder
 COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
 COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static/
-# see https://github.com/benphelps/homepage/issues/1795
-COPY --link --from=builder /app/node_modules/.pnpm/compressjs@1.0.3/node_modules/compressjs/lib/ ./node_modules/.pnpm/compressjs@1.0.3/node_modules/compressjs/lib/
 COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec

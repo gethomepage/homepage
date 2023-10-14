@@ -103,7 +103,7 @@ export default function Search({ options }) {
     localStorage.setItem(localStorageKey, provider.name);
   }
 
-  return <ContainerForm options={options} callback={submitCallback} additionalClassNames="grow" >
+  return <ContainerForm options={options} callback={submitCallback} additionalClassNames="grow information-widget-search" >
     <Raw>
       <div className="flex-col relative h-8 my-4 min-w-fit">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />

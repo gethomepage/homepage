@@ -11,5 +11,6 @@ export function calculateCPUPercent(stats) {
 }
 
 export function calculateUsedMemory(stats) {
-  return stats.memory_stats.usage - (stats.memory_stats.stats.cache ?? 0)
+  // see https://github.com/docker/cli/blob/dcc161076861177b5eef6cb321722520db3184e7/cli/command/container/stats_helpers.go#L239
+  return stats.memory_stats.usage - (stats.memory_stats.total_inactive_file ?? stats.memory_stats.stats.inactive_file ?? 0)
 }

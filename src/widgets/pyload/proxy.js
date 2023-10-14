@@ -24,7 +24,7 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
     },
   };
 
-  // see https://github.com/benphelps/homepage/issues/517
+  // see https://github.com/gethomepage/homepage/issues/517
   const isNg = cache.get(`${isNgCacheKey}.${service}`);
   if (isNg && !params) {
     delete options.body;
@@ -50,7 +50,7 @@ async function login(loginUrl, service, username, password = '') {
   if (status !== 200 || sessionId === false) {
     logger.error(`HTTP ${status} logging into Pyload API, returned: ${JSON.stringify(sessionId)}`);
   } else if (responseHeaders['set-cookie']?.join().includes('pyload_session')) {
-    // Support pyload-ng, see https://github.com/benphelps/homepage/issues/517
+    // Support pyload-ng, see https://github.com/gethomepage/homepage/issues/517
     cache.put(`${isNgCacheKey}.${service}`, true);
     const sessionCookie = responseHeaders['set-cookie'][0];
     cache.put(`${sessionCacheKey}.${service}`, sessionCookie, 60 * 60 * 23 * 1000); // cache for 23h

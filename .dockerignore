@@ -16,7 +16,6 @@
 **/compose*
 **/Dockerfile*
 **/node_modules
-!**/node_modules/.pnpm/compressjs@*/**
 **/npm-debug.log
 **/obj
 **/secrets.dev.yaml

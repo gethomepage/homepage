@@ -75,7 +75,7 @@ export function getSettings() {
 
   if (initialSettings.layout) {
     // support yaml list but old spec was object so convert to that
-    // see https://github.com/benphelps/homepage/issues/1546
+    // see https://github.com/gethomepage/homepage/issues/1546
     if (Array.isArray(initialSettings.layout)) {
       const layoutItems = initialSettings.layout
       initialSettings.layout = {}

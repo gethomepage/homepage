@@ -1,0 +1,20 @@
+[data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
+    position: absolute;
+    top: .3rem;
+    right: .3rem;
+    display: block;
+    padding: .1rem .4rem;
+    color: var(--md-default-fg-color--lighter);
+    font-weight: bold;
+    font-size: .8rem;
+    border: .05rem solid var(--md-default-fg-color--lighter);
+    border-radius: .1rem;
+    content: "/";
+  }
+
+[data-md-color-scheme="default"][data-md-color-primary="black"] {
+    [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
+        color: var(--md-default-bg-color--lighter);
+        border-color: var(--md-default-bg-color--lighter);
+    }
+}

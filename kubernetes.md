@@ -98,7 +98,7 @@ be configured on the service entry.
 This works by creating a label selector `app.kubernetes.io/name=home-assistant`,
 which typically will be the same both for the ingress and the deployment. However,
 some deployments can be complex and will not conform to this rule. In such
-cases the `podSelector` variable can bridge the gap. Any field selector can
+cases the `pod-selector` variable can bridge the gap. Any field selector can
 be used in it which allows for some powerful selection capabilities.
 
 For instance, it can be utilized to roll multiple underlying deployments under
@@ -112,7 +112,7 @@ one application to see a high-level aggregate:
         description: Matrix Synapse Powered Chat
         app: matrix-element
         namespace: comms
-        podSelector: >-
+        pod-selector: >-
             app.kubernetes.io/instance in (
                 matrix-element,
                 matrix-media-repo,

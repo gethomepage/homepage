@@ -25,7 +25,7 @@ export default function Widget({ options }) {
   const defaultSite = options.site ? statsData?.data.find(s => s.desc === options.site) : statsData?.data?.find(s => s.name === "default");
 
   if (!defaultSite) {
-    return <Container options={options}>
+    return <Container options={options} additionalClassNames="information-widget-unifi-console">
       <PrimaryText>{t("unifi.wait")}</PrimaryText>
       <WidgetIcon icon={SiUbiquiti} />
     </Container>;
@@ -43,7 +43,7 @@ export default function Widget({ options }) {
 
   const dataEmpty = !(wan.show || lan.show || wlan.show || uptime);
 
-  return <Container options={options}>
+  return <Container options={options} additionalClassNames="information-widget-unifi-console">
     <Raw>
       <div className="flex-none flex flex-row items-center mr-3 py-1.5">
       <div className="flex flex-col">

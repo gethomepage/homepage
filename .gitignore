@@ -46,4 +46,9 @@ next-env.d.ts
 # IDEs
 /.idea/
 
+# MkDocs documentation
+site*/
+.cache/
 
+# venv
+.venv/

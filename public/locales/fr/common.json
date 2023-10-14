@@ -254,7 +254,8 @@
         "write": "Écrit.",
         "gpu": "GPU",
         "mem": "Mém.",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "changedetectionio": {
         "totalObserved": "Total Observé",
@@ -381,7 +382,9 @@
     },
     "ping": {
         "error": "Erreur",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Réussi",
@@ -526,7 +529,7 @@
         "alertstriggered": "Alertes déclenchées"
     },
     "nextcloud": {
-        "freespace": "Espace Libre",
+        "freespace": "Libre",
         "activeusers": "Utilisateurs Actifs",
         "cpuload": "Charge Cpu",
         "memoryusage": "Utilisation Mémoire",
@@ -702,9 +705,46 @@
         "failed": "Échoué"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "Recettes",
+        "users": "Utilisateurs",
+        "categories": "Catégories",
+        "tags": "Étiquettes"
+    },
+    "atsumeru": {
+        "series": "Séries",
+        "archives": "Archives",
+        "chapters": "Chapitres",
+        "categories": "Catégories"
+    },
+    "calibreweb": {
+        "series": "Séries",
+        "books": "Ebooks",
+        "authors": "Auteurs",
+        "categories": "Catégories"
+    },
+    "uptimerobot": {
+        "status": "Statut",
+        "uptime": "Disponibilité",
+        "lastDown": "Dernière interruption",
+        "downDuration": "Durée d'interruption",
+        "sitesUp": "Sites en ligne",
+        "sitesDown": "Sites hors ligne",
+        "paused": "En pause",
+        "notyetchecked": "Non vérifié",
+        "up": "En ligne",
+        "seemsdown": "Semble hors ligne",
+        "down": "Hors ligne",
+        "unknown": "Inconnu"
+    },
+    "opendtu": {
+        "relativePower": "Puissance %",
+        "yieldDay": "Aujourd'hui",
+        "limit": "Limite",
+        "absolutePower": "Puissance"
+    },
+    "calendar": {
+        "physicalRelease": "Release physique",
+        "inCinemas": "En salle",
+        "digitalRelease": "Release digitale"
     }
 }

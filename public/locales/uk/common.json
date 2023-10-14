@@ -172,7 +172,9 @@
     },
     "ping": {
         "error": "Помилка",
-        "ping": "Пінг"
+        "ping": "Пінг",
+        "up": "Up",
+        "down": "Down"
     },
     "emby": {
         "playing": "Відтворення",
@@ -378,7 +380,8 @@
         "write": "Написати",
         "gpu": "GPU",
         "mem": "Пам'ять",
-        "swap": "Обмін"
+        "swap": "Обмін",
+        "_temp": "Temp"
     },
     "quicklaunch": {
         "bookmark": "Закладка",
@@ -706,5 +709,42 @@
         "users": "Users",
         "categories": "Categories",
         "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Серії",
+        "archives": "Архіви",
+        "chapters": "Глави",
+        "categories": "Категорії"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Status",
+        "uptime": "Uptime",
+        "lastDown": "Last Downtime",
+        "downDuration": "Downtime Duration",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
+        "notyetchecked": "Not Yet Checked",
+        "up": "Up",
+        "seemsdown": "Seems Down",
+        "down": "Down",
+        "unknown": "Unknown"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
+    },
+    "calendar": {
+        "physicalRelease": "Physical release",
+        "inCinemas": "In cinemas",
+        "digitalRelease": "Digital release"
     }
 }

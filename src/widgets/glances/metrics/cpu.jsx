@@ -14,6 +14,8 @@ const pointsLimit = 15;
 
 export default function Component({ service }) {
   const { t } = useTranslation();
+  const { widget } = service;
+  const { chart } = widget;
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
@@ -36,40 +38,53 @@ export default function Component({ service }) {
   }, [data]);
 
   if (error) {
-    return <Container><Error error={error} /></Container>;
+    return <Container chart={chart}><Error error={error} /></Container>;
   }
 
   if (!data) {
-    return <Container><Block position="bottom-3 left-3">-</Block></Container>;
+    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
   }
 
   return (
-    <Container>
-      <Chart
-        dataPoints={dataPoints}
-        label={[t("resources.used")]}
-        formatter={(value) => t("common.number", {
-          value,
-          style: "unit",
-          unit: "percent",
-          maximumFractionDigits: 0,
-          })}
-      />
+    <Container chart={chart}>
+      { chart && (
+        <Chart
+          dataPoints={dataPoints}
+          label={[t("resources.used")]}
+          formatter={(value) => t("common.number", {
+            value,
+            style: "unit",
+            unit: "percent",
+            maximumFractionDigits: 0,
+            })}
+        />
+      )}
+
+      { !chart && systemData && !systemError && (
+        <Block position="top-3 right-3">
+          <div className="text-xs opacity-50">
+            {systemData.linux_distro && `${systemData.linux_distro} - ` }
+            {systemData.os_version && systemData.os_version }
+          </div>
+        </Block>
+      )}
 
       {systemData && !systemError && (
         <Block position="bottom-3 left-3">
-          {systemData.linux_distro && (
+          {systemData.linux_distro && chart && (
             <div className="text-xs opacity-50">
               {systemData.linux_distro}
             </div>
           )}
-          {systemData.os_version && (
+
+          {systemData.os_version && chart && (
             <div className="text-xs opacity-50">
               {systemData.os_version}
             </div>
           )}
+
           {systemData.hostname && (
-            <div className="text-xs opacity-75">
+            <div className="text-xs opacity-50">
               {systemData.hostname}
             </div>
           )}

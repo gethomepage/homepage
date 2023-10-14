@@ -48,7 +48,7 @@
         "bitrate": "Tasa de bits",
         "no_active": "Sin transmisiones activas",
         "movies": "Películas",
-        "series": "Serie",
+        "series": "Series",
         "episodes": "Episodios",
         "songs": "Canciones"
     },
@@ -254,7 +254,8 @@
         "write": "Escribir",
         "gpu": "GPU",
         "mem": "Memoria",
-        "swap": "Intercambiar"
+        "swap": "Intercambiar",
+        "_temp": "Temperatura"
     },
     "changedetectionio": {
         "totalObserved": "Total Observados",
@@ -299,8 +300,8 @@
         "73-night": "Nevada",
         "75-day": "Fuertes Nevadas",
         "75-night": "Fuertes Nevadas",
-        "77-day": "Nevada Leve",
-        "77-night": "Nevada Leve",
+        "77-day": "Granizada",
+        "77-night": "Granizada",
         "80-day": "Llovizna",
         "80-night": "Llovizna",
         "81-day": "Lluvia",
@@ -381,7 +382,9 @@
     },
     "ping": {
         "error": "Error",
-        "ping": "Ping"
+        "ping": "Ping",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "passed": "Aprobado",
@@ -461,7 +464,7 @@
     "medusa": {
         "wanted": "Querido",
         "queued": "A la espera",
-        "series": "Serie"
+        "series": "Series"
     },
     "octoprint": {
         "temp_bed": "Temperatura de la plataforma",
@@ -659,7 +662,7 @@
         "downloadTotalBytes": "Tamaño"
     },
     "kavita": {
-        "seriesCount": "Serie",
+        "seriesCount": "Series",
         "totalFiles": "Archivos"
     },
     "gamedig": {
@@ -702,9 +705,46 @@
         "failed": "Fallido"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "Recetas",
+        "users": "Usuarios",
+        "categories": "Categorías",
+        "tags": "Etiquetas"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archivos",
+        "chapters": "Capítulos",
+        "categories": "Categorías"
+    },
+    "calibreweb": {
+        "books": "Libros",
+        "authors": "Autores",
+        "categories": "Categorías",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Estado",
+        "uptime": "Tiempo de actividad",
+        "lastDown": "Último periodo de inactividad",
+        "downDuration": "Tiempo de inactividad",
+        "sitesUp": "Páginas web con conexión",
+        "sitesDown": "Páginas web caídas",
+        "paused": "Pausado",
+        "notyetchecked": "Aún no verificado",
+        "up": "Arriba",
+        "seemsdown": "Parece caída",
+        "down": "Abajo",
+        "unknown": "Desconocido"
+    },
+    "opendtu": {
+        "relativePower": "Encender %",
+        "yieldDay": "Hoy",
+        "limit": "Límite",
+        "absolutePower": "Encender"
+    },
+    "calendar": {
+        "physicalRelease": "Lanzamiento en físico",
+        "inCinemas": "En cine",
+        "digitalRelease": "Lanzamiento en digital"
     }
 }

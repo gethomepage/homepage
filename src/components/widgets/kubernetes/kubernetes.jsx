@@ -36,7 +36,7 @@ export default function Widget({ options }) {
   }
 
   if (!data) {
-    return <Container options={options}>
+    return <Container options={options} additionalClassNames="information-widget-kubernetes">
       <Raw>
         <div className="flex flex-row self-center flex-wrap justify-between">
           {cluster.show &&
@@ -50,7 +50,7 @@ export default function Widget({ options }) {
     </Container>;
   }
 
-  return <Container options={options}>
+  return <Container options={options} additionalClassNames="information-widget-kubernetes">
     <Raw>
       <div className="flex flex-row self-center flex-wrap justify-between">
         {cluster.show &&

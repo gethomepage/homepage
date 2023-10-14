@@ -36,8 +36,8 @@ options:
     switchCurrentContext: false
   runtime:
     gpuRequest: ""
-    serversMemory: "1024Mi"
-    agentsMemory: "1024Mi"
+    serversMemory: "1024MiB"
+    agentsMemory: "1024MiB"
     labels:
       - label: foo=bar
         nodeFilters:

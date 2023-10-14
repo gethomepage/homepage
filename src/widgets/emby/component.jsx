@@ -29,17 +29,15 @@ function ticksToString(ticks) {
 
 function SingleSessionEntry({ playCommand, session }) {
   const {
-    NowPlayingItem: { Name, SeriesName, RunTimeTicks },
+    NowPlayingItem: { Name, SeriesName },
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
 
-  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {
-    IsVideoDirect: true,
-    VideoDecoderIsHardware: true,
-    VideoEncoderIsHardware: true,
-  };
+  const RunTimeTicks = session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
-  const percent = (PositionTicks / RunTimeTicks) * 100;
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || { IsVideoDirect: true }; // if no transcodinginfo its videodirect
+
+  const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
   return (
     <>
@@ -98,13 +96,15 @@ function SingleSessionEntry({ playCommand, session }) {
 
 function SessionEntry({ playCommand, session }) {
   const {
-    NowPlayingItem: { Name, SeriesName, RunTimeTicks },
+    NowPlayingItem: { Name, SeriesName },
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
 
-  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {};
+  const RunTimeTicks = session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
-  const percent = (PositionTicks / RunTimeTicks) * 100;
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || { IsVideoDirect: true }; // if no transcodinginfo its videodirect
+
+  const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">

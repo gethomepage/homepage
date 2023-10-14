@@ -26,6 +26,7 @@ export async function getServerSideProps({ res }) {
     theme_color: themes[color][theme],
     background_color: themes[color][theme],
     display: "standalone",
+    start_url: settings.startUrl || "/",
   };
 
   res.setHeader("Content-Type", "application/manifest+json");

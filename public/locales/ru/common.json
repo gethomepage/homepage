@@ -18,7 +18,7 @@
         "load": "Загрузка",
         "cpu": "ЦП",
         "mem": "ОЗУ",
-        "temp": "Темпер.",
+        "temp": "Температура",
         "max": "Макс.",
         "uptime": "Работает",
         "months": "мес",
@@ -254,7 +254,8 @@
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap"
+        "swap": "Swap",
+        "_temp": "Temp"
     },
     "changedetectionio": {
         "totalObserved": "Всего наблюдаемых",
@@ -381,7 +382,9 @@
     },
     "ping": {
         "error": "Ошибка",
-        "ping": "Пинг"
+        "ping": "Пинг",
+        "up": "Up",
+        "down": "Down"
     },
     "scrutiny": {
         "failed": "Неудачно",
@@ -706,5 +709,42 @@
         "users": "Users",
         "categories": "Categories",
         "tags": "Tags"
+    },
+    "atsumeru": {
+        "series": "Серии",
+        "archives": "Архивы",
+        "chapters": "Главы",
+        "categories": "Категории"
+    },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
+    "uptimerobot": {
+        "status": "Status",
+        "uptime": "Uptime",
+        "lastDown": "Last Downtime",
+        "downDuration": "Downtime Duration",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
+        "notyetchecked": "Not Yet Checked",
+        "up": "Up",
+        "seemsdown": "Seems Down",
+        "down": "Down",
+        "unknown": "Unknown"
+    },
+    "opendtu": {
+        "relativePower": "Power %",
+        "yieldDay": "Today",
+        "limit": "Limit",
+        "absolutePower": "Power"
+    },
+    "calendar": {
+        "physicalRelease": "Physical release",
+        "inCinemas": "In cinemas",
+        "digitalRelease": "Digital release"
     }
 }

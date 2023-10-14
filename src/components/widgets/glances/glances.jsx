@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu, FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
+import classNames from "classnames";
 
 import Error from "../widget/error";
 import Resource from "../widget/resource";
@@ -32,9 +33,9 @@ export default function Widget({ options }) {
   }
 
   if (!data) {
-    return <Resources options={options}>
-      <Resource icon={FiCpu} label={t("glances.wait")} percentage="0" />
-      <Resource icon={FaMemory} label={t("glances.wait")} percentage="0" />
+    return <Resources options={options} additionalClassNames="information-widget-glances">
+      { options.cpu !== false && <Resource icon={FiCpu} label={t("glances.wait")} percentage="0" /> }
+      { options.mem !== false && <Resource icon={FaMemory} label={t("glances.wait")} percentage="0" /> }
       { options.cputemp && <Resource icon={FaThermometerHalf} label={t("glances.wait")} percentage="0" /> }
       { options.disk && !Array.isArray(options.disk) && <Resource key={options.disk} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> }
       { options.disk && Array.isArray(options.disk) && options.disk.map((disk) => <Resource key={`disk_${disk}`} icon={FiHardDrive} label={t("glances.wait")} percentage="0" /> ) }
@@ -69,9 +70,11 @@ export default function Widget({ options }) {
       : [data.fs.find((d) => d.mnt_point === options.disk)].filter((d) => d);
   }
 
+  const addedClasses = classNames('information-widget-glances', { 'expanded': options.expanded })
+
   return (
-    <Resources options={options} target={settings.target ?? "_blank"}>
-      <Resource
+    <Resources options={options} target={settings.target ?? "_blank"} additionalClassNames={addedClasses}>
+      {options.cpu !== false && <Resource
         icon={FiCpu}
         value={t("common.number", {
           value: data.cpu.total,
@@ -89,8 +92,8 @@ export default function Widget({ options }) {
         expandedLabel={t("glances.load")}
         percentage={data.cpu.total}
         expanded={options.expanded}
-      />
-      <Resource
+      />}
+      {options.mem !== false && <Resource
         icon={FaMemory}
         value={t("common.bytes", {
           value: data.mem.free,
@@ -106,7 +109,7 @@ export default function Widget({ options }) {
         expandedLabel={t("glances.total")}
         percentage={data.mem.percent}
         expanded={options.expanded}
-      />
+      />}
       {disks.map((disk) => (
         <Resource key={`disk_${disk.mnt_point ?? disk.device_name}`}
           icon={FiHardDrive}

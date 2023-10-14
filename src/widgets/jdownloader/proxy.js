@@ -153,7 +153,7 @@ export default async function jdownloaderProxyHandler(req, res) {
     })
 
     const packageStatus = await queryPackages(loginData[4], deviceData[1], loginData[5], {
-        "bytesLoaded": false,
+        "bytesLoaded": true,
         "bytesTotal": true,
         "comment": false,
         "enabled": true,
@@ -171,22 +171,20 @@ export default async function jdownloaderProxyHandler(req, res) {
     }
     )
 
-    let bytesRemaining = 0;
+    let totalLoaded = 0;
     let totalBytes = 0;
     let totalSpeed = 0;
     packageStatus.forEach(file => {
         totalBytes += file.bytesTotal;
-        if (file.finished !== true) {
-            bytesRemaining += file.bytesTotal;
-            if (file.speed) {
-                totalSpeed += file.speed;
-            }
+        totalLoaded += file.bytesLoaded;
+        if (file.finished !== true && file.speed) {
+            totalSpeed += file.speed;
         }
     });
 
     const data = {
         downloadCount: packageStatus.length,
-        bytesRemaining,
+        bytesRemaining: totalBytes - totalLoaded,
         totalBytes,
         totalSpeed
     };

@@ -1,18 +1,23 @@
 name: Bug report
 description: Create a report to help us improve
-title: "[Bug] "
+title: "[Bug] Concise description of the issue"
 labels: ["bug, unconfirmed"]
 body:
   - type: markdown
     attributes:
       value: |
-        Have a question? 👉 [Start a new discussion](https://github.com/benphelps/homepage/discussions/new) or [ask in chat](https://discord.gg/SaPGSzrEZC).
+        ## ⚠️ Please remember: issues are for *bugs*
+        That is, something you believe affects every single homepage user, not just you. Otherwise, start with one of the other options below.
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? 👉 [Start a new discussion](https://github.com/gethomepage/homepage/discussions/new) or [ask in chat](https://discord.gg/SaPGSzrEZC).
 
         Before opening an issue, please double check:
 
-        - [The troubleshooting guide](https://gethomepage.dev/en/more/troubleshooting/).
+        - [The troubleshooting guide](https://gethomepage.dev/latest/more/troubleshooting/).
         - [The homepage documentation](https://gethomepage.dev/)
-        - [Existing issues](https://github.com/benphelps/homepage/search?q=&type=issues) and [discussions](https://github.com/benphelps/homepage/search?q=&type=discussions).
+        - [Existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) and [discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions).
   - type: textarea
     id: description
     attributes:
@@ -73,7 +78,7 @@ body:
     id: troubleshooting
     attributes:
       label: Troubleshooting
-      description: Please include output from your [troubleshooting tests](https://gethomepage.dev/en/more/troubleshooting/#service-widget-errors). If this is a service widget issue and you do not include any information here your issue will be closed. If it is not, indicate e.g. 'n/a'
+      description: Please include output from your [troubleshooting tests](https://gethomepage.dev/latest/more/troubleshooting/#service-widget-errors). If this is a service widget issue and you do not include any information here your issue will be closed. If it is not, indicate e.g. 'n/a'
     validations:
       required: true
   - type: textarea
@@ -88,7 +93,7 @@ body:
       options:
         - label: Check [the documentation](https://gethomepage.dev/)
           required: true
-        - label: Follow [the troubleshooting guide](https://gethomepage.dev/en/more/troubleshooting/) (please include output above if applicable).
+        - label: Follow [the troubleshooting guide](https://gethomepage.dev/latest/more/troubleshooting/) (please include output above if applicable).
           required: true
-        - label: Search [existing issues](https://github.com/benphelps/homepage/search?q=&type=issues) and [discussions](https://github.com/benphelps/homepage/search?q=&type=discussions).
+        - label: Search [existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) and [discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions).
           required: true
