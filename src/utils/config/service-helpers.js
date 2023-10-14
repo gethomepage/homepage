@@ -164,7 +164,6 @@ export async function checkCRD(kc, name) {
 export async function servicesFromKubernetes() {
   const ANNOTATION_BASE = "gethomepage.dev";
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
-  const ANNOTATION_POD_SELECTOR = `${ANNOTATION_BASE}/pod-selector`;
 
   checkAndCopyConfig("kubernetes.yaml");
 
@@ -253,8 +252,8 @@ export async function servicesFromKubernetes() {
           constructedService.external =
             String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
         }
-        if (ingress.metadata.annotations[ANNOTATION_POD_SELECTOR]) {
-          constructedService.podSelector = ingress.metadata.annotations[ANNOTATION_POD_SELECTOR];
+        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`]) {
+          constructedService.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
         }
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
           constructedService.ping = ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`];
