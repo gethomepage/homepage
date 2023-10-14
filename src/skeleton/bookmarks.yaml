@@ -2,10 +2,16 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/bookmarks
 
-- Developer:
-    - Github:
-        - abbr: GH
-          href: https://github.com/
+- News:
+    - Brutalist Report:
+        - abbr: BR
+          href: https://brutalist.report/
+    - Inoreader:
+        - abbr: IR
+          href: https://www.inoreader.com/all_articles/
+    - NYTimes:
+        - abbr: NYT
+          href: https://www.nytimes.com/trending/
 
 - Social:
     - Reddit:
