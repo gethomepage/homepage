@@ -19,6 +19,14 @@ widget:
 ```
 
 _Please note, this widget does not need an `href`, `icon` or `description` on its parent service. To achive the same effect as the examples above, see as an example:_
+If you want the widget to be clickable
+```yaml
+    widget:
+      type: glances
+      url: http://10.3.1.5:61208
+      metric: info
+      chart: true
+    href: http://10.3.1.5:61208
 
 ```yaml
 - CPU Usage:
