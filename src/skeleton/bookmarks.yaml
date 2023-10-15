@@ -2,23 +2,82 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/bookmarks
 
-- News:
-    - Brutalist Report:
+- Bookmarks:
+    - Pinboard:
+        - abbr: PI
+          href: https://pinboard.in/u:mateja
+    - GMail:
+        - abbr: GM
+          href: https://mail.google.com/mail/u/0/#inbox
+    - Openai:
+        - abbr: OP
+          href: https://chat.openai.com/
+    - Huggingface:
+        - abbr: HU
+          href: https://huggingface.co/chat/
+    - Brutalist:
         - abbr: BR
           href: https://brutalist.report/
-    - Inoreader:
-        - abbr: IR
-          href: https://www.inoreader.com/all_articles/
-    - NYTimes:
-        - abbr: NYT
+    - Nytimes:
+        - abbr: NY
           href: https://www.nytimes.com/trending/
-
-- Social:
+    - Inoreader:
+        - abbr: IN
+          href: https://www.inoreader.com/all_articles
+    - Hacker News:
+        - abbr: HN
+          href: https://news.ycombinator.com/active
+    - Kagi:
+        - abbr: KA
+          href: https://kagi.com/fastgpt
+    - Github Popular:
+        - abbr: GI
+          href: https://github.com/trending/python?since=weekly
+    - Popville:
+        - abbr: PO
+          href: https://www.popville.com/category/dc-crime/
     - Reddit:
         - abbr: RE
-          href: https://reddit.com/
-
-- Entertainment:
-    - YouTube:
-        - abbr: YT
-          href: https://youtube.com/
+          href: https://www.reddit.com/r/washdc/
+    - Rennlist:
+        - abbr: RE
+          href: https://rennlist.com/forums/cayenne-955-957-2003-2010-77/
+    - Dorkiphus:
+        - abbr: DO
+          href: https://dorkiphus.net/porsche/index.php
+    - Discord:
+        - abbr: DI
+          href: https://discord.com/channels/693469700109369394/693473676527403048
+    - Azure:
+        - abbr: AZ
+          href: https://portal.azure.com/
+    - Oracle:
+        - abbr: OR
+          href: https://cloud.oracle.com/invoices-and-orders/upgrade-and-payment?region=us-ashburn-1
+    - Sciencedaily:
+        - abbr: SC
+          href: https://www.sciencedaily.com/news/computers_math/computer_science/
+    - Rtorr:
+        - abbr: RT
+          href: https://vim.rtorr.com/
+    - Instapaper:
+        - abbr: IN
+          href: https://www.instapaper.com/u
+    - Libgen:
+        - abbr: LI
+          href: https://libgen.rs/
+    - Mynoise:
+        - abbr: MY
+          href: https://mynoise.net/noiseMachines.php
+    - Spotify:
+        - abbr: SP
+          href: https://open.spotify.com/
+    - Pluto:
+        - abbr: PL
+          href: https://pluto.tv/
+    - Classic:
+        - abbr: CL
+          href: https://www.classic.com/m/porsche/911/996/9962/carrera-4s/coupe-manual?sort=-lot_date
+    - Proton:
+        - abbr: PR
+          href: https://mail.proton.me/u/0/inbox
