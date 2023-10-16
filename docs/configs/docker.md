@@ -153,6 +153,23 @@ labels:
     - homepage.widget.fields=["field1","field2"] # optional
 ```
 
+You can add specify fields for e.g. the [CustomAPI](/widgets/services/customapi) widget by using array-style dot notation:
+
+```yaml
+labels:
+    - homepage.group=Media
+    - homepage.name=Emby
+    - homepage.icon=emby.png
+    - homepage.href=http://emby.home/
+    - homepage.description=Media server
+    - homepage.widget.type=customapi
+    - homepage.widget.url=http://argus.service/api/v1/service/summary/emby
+    - homepage.widget.field[0].label=Deployed Version
+    - homepage.widget.field[0].field.status=deployed_version
+    - homepage.widget.field[1].label=Latest Version
+    - homepage.widget.field[1].field.status=latest_version
+```
+
 ## Docker Swarm
 
 Docker swarm is supported and Docker services are specified with the same `server` and `container` notation. To enable swarm support you will need to include a `swarm` setting in your docker.yaml, e.g.
