@@ -110,6 +110,7 @@ metadata:
         gethomepage.dev/description: Media Server
         gethomepage.dev/group: Media
         gethomepage.dev/icon: emby.png
+        gethomepage.dev/app: emby-app # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
         gethomepage.dev/name: Emby
         gethomepage.dev/widget.type: "emby"
         gethomepage.dev/widget.url: "https://emby.example.com"

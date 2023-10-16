@@ -237,7 +237,7 @@ export async function servicesFromKubernetes() {
       )
       .map((ingress) => {
         let constructedService = {
-          app: ingress.metadata.name,
+          app: ingress.metadata.annotations[`${ANNOTATION_BASE}/app`] || ingress.metadata.name,
           namespace: ingress.metadata.namespace,
           href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
           name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
