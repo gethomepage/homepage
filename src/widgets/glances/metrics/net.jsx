@@ -30,7 +30,7 @@ export default function Component({ service }) {
 
       if (interfaceData) {
         setDataPoints((prevDataPoints) => {
-          const newDataPoints = [...prevDataPoints, { a: interfaceData.tx, b: interfaceData.rx }];
+          const newDataPoints = [...prevDataPoints, { a: (interfaceData.rx * 8) / interfaceData.time_since_update, b: (interfaceData.tx * 8) / interfaceData.time_since_update }];
             if (newDataPoints.length > pointsLimit) {
                 newDataPoints.shift();
             }
@@ -59,8 +59,8 @@ export default function Component({ service }) {
       { chart && (
         <ChartDual
           dataPoints={dataPoints}
-          label={[t("docker.tx"), t("docker.rx")]}
-          formatter={(value) => t("common.byterate", {
+          label={[t("docker.rx"), t("docker.tx")]}
+          formatter={(value) => t("common.bitrate", {
             value,
             maximumFractionDigits: 0,
           })}
@@ -76,9 +76,9 @@ export default function Component({ service }) {
 
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
-            value: interfaceData.tx,
+            value: (interfaceData.rx * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
-          })} {t("docker.tx")}
+          })} {t("docker.rx")}
         </div>
       </Block>
 
@@ -95,9 +95,9 @@ export default function Component({ service }) {
       <Block position="bottom-3 right-3">
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
-            value: interfaceData.rx,
+            value: (interfaceData.tx * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
-          })} {t("docker.rx")}
+          })} {t("docker.tx")}
         </div>
       </Block>
     </Container>
