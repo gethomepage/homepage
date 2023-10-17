@@ -47,7 +47,7 @@
     },
     "unifi": {
         "users": "Gebruikers",
-        "uptime": "Systeem Uptime",
+        "uptime": "Online",
         "days": "Dagen",
         "wan": "WAN",
         "lan": "LAN",
@@ -205,7 +205,7 @@
     },
     "radarr": {
         "wanted": "Gezocht",
-        "missing": "Missend",
+        "missing": "Ontbreekt",
         "queued": "Wachtrij",
         "movies": "Films",
         "queue": "Wachtrij",
@@ -248,13 +248,13 @@
         "down_alerts": "Geen verbinding"
     },
     "pihole": {
-        "queries": "Zoekvragen",
+        "queries": "Query 's",
         "blocked": "Geblokkeerd",
         "blocked_percent": "Geblokkerde %",
         "gravity": "Gewicht"
     },
     "adguard": {
-        "queries": "Zoekvragen",
+        "queries": "Query 's",
         "blocked": "Geblokkeerd",
         "filtered": "Gefilterde",
         "latency": "Vertraging"
@@ -318,9 +318,9 @@
     "prowlarr": {
         "enableIndexers": "Indexeerders",
         "numberOfGrabs": "Resultaten",
-        "numberOfQueries": "Zoekvragen",
-        "numberOfFailGrabs": "Niet gepakt",
-        "numberOfFailQueries": "Mislukte zoekvragen"
+        "numberOfQueries": "Query 's",
+        "numberOfFailGrabs": "Ophalen mislukt",
+        "numberOfFailQueries": "Mislukte query's"
     },
     "jackett": {
         "configured": "Geconfigureerd",
@@ -489,8 +489,8 @@
         "playlists": "Speellijsten"
     },
     "truenas": {
-        "load": "Systeem Load",
-        "uptime": "Bereikbaarheid",
+        "load": "Belasting",
+        "uptime": "Online",
         "alerts": "Meldingen",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
@@ -525,7 +525,7 @@
     "mikrotik": {
         "cpuLoad": "CPU Belasting",
         "memoryUsed": "Geheugen Gebruikt",
-        "uptime": "Bereikbaarheid",
+        "uptime": "Online",
         "numberOfLeases": "Leases"
     },
     "xteve": {
@@ -586,7 +586,7 @@
     "uptimekuma": {
         "up": "Sites Bereikbaar",
         "down": "Sites Onbereikbaar",
-        "uptime": "Bereikbaarheid",
+        "uptime": "Online",
         "incident": "Incident",
         "m": "m"
     },
@@ -603,7 +603,7 @@
     },
     "diskstation": {
         "days": "Dagen",
-        "uptime": "Bereikbaarheid",
+        "uptime": "Online",
         "volumeAvailable": "Beschikbaar"
     },
     "mylar": {
@@ -741,7 +741,7 @@
     },
     "uptimerobot": {
         "status": "Status",
-        "uptime": "Bereikbaarheid",
+        "uptime": "Online",
         "lastDown": "Laatste Downtime",
         "downDuration": "Duur Downtime",
         "sitesUp": "Sites Bereikbaar",
