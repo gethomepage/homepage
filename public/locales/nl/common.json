@@ -107,7 +107,7 @@
     "flood": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Profiteur",
+        "leech": "Leech",
         "seed": "Delen"
     },
     "freshrss": {
@@ -167,13 +167,13 @@
     "transmission": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Profiteur",
+        "leech": "Leech",
         "seed": "Delen"
     },
     "qbittorrent": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Profiteur",
+        "leech": "Leech",
         "seed": "Delen"
     },
     "qnap": {
@@ -187,18 +187,18 @@
     "deluge": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Profiteur",
+        "leech": "Leech",
         "seed": "Delen"
     },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Profiteur",
+        "leech": "Leech",
         "seed": "Delen"
     },
     "sonarr": {
         "wanted": "Gezocht",
-        "queued": "In de wachtrij",
+        "queued": "Wachtrij",
         "series": "Series",
         "queue": "Wachtrij",
         "unknown": "Onbekend"
@@ -206,19 +206,19 @@
     "radarr": {
         "wanted": "Gezocht",
         "missing": "Missend",
-        "queued": "In de wachtrij",
+        "queued": "Wachtrij",
         "movies": "Films",
         "queue": "Wachtrij",
         "unknown": "Onbekend"
     },
     "lidarr": {
         "wanted": "Gezocht",
-        "queued": "In de wachtrij",
+        "queued": "Wachtrij",
         "artists": "Artiesten"
     },
     "readarr": {
         "wanted": "Gezocht",
-        "queued": "In de wachtrij",
+        "queued": "Wachtrij",
         "books": "Boeken"
     },
     "bazarr": {
@@ -339,7 +339,7 @@
     },
     "medusa": {
         "wanted": "Gezocht",
-        "queued": "In de wachtrij",
+        "queued": "Wachtrij",
         "series": "Series"
     },
     "minecraft": {
