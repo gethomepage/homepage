@@ -31,6 +31,15 @@ Once dependencies have been installed you can lint your code with
 pnpm lint
 ```
 
+## Code formatting with pre-commit hooks
+
+To ensure a consistent style and formatting across the project source, the project utilizes Git [`pre-commit`](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) hooks to perform some formatting and linting before a commit is allowed.
+That way, everyone uses the same style and some common issues can be caught early on.
+
+Once installed, hooks will run when you commit. If the formatting isn't quite right or a linter catches something, the commit will be rejected.
+You'll need to look at the output and fix the issue. Some hooks will format failing files, so all you need to do is `git add` those files again
+and retry your commit.
+
 ## Service Widget Guidelines
 
 To ensure cohesiveness of various widgets, the following should be used as a guide for developing new widgets:
