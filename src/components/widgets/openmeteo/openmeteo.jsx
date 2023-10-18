@@ -15,7 +15,7 @@ import mapIcon from "../../../utils/weather/openmeteo-condition-map";
 function Widget({ options }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`api/widgets/openmeteo?${new URLSearchParams({ ...options }).toString()}`);
+  const { data, error } = useSWR(`/api/widgets/openmeteo?${new URLSearchParams({ ...options }).toString()}`);
 
   if (error || data?.error) {
     return <Error options={options} />;

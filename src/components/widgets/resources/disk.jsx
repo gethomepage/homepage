@@ -8,7 +8,7 @@ import Error from "../widget/error";
 export default function Disk({ options, expanded, refresh = 1500 }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`api/widgets/resources?type=disk&target=${options.disk}`, {
+  const { data, error } = useSWR(`/api/widgets/resources?type=disk&target=${options.disk}`, {
     refreshInterval: refresh,
   });
 

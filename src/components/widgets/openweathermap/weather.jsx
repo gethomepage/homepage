@@ -16,7 +16,7 @@ function Widget({ options }) {
   const { t, i18n } = useTranslation();
 
   const { data, error } = useSWR(
-    `api/widgets/openweathermap?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`,
+    `/api/widgets/openweathermap?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`,
   );
 
   if (error || data?.cod === 401 || data?.error) {

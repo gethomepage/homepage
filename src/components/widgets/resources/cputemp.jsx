@@ -12,7 +12,7 @@ function convertToFahrenheit(t) {
 export default function CpuTemp({ expanded, units, refresh = 1500 }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`api/widgets/resources?type=cputemp`, {
+  const { data, error } = useSWR(`/api/widgets/resources?type=cputemp`, {
     refreshInterval: refresh,
   });
 

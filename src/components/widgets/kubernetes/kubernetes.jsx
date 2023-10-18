@@ -25,7 +25,7 @@ export default function Widget({ options }) {
     },
   };
 
-  const { data, error } = useSWR(`api/widgets/kubernetes?${new URLSearchParams({ lang: i18n.language }).toString()}`, {
+  const { data, error } = useSWR(`/api/widgets/kubernetes?${new URLSearchParams({ lang: i18n.language }).toString()}`, {
     refreshInterval: 1500,
   });
 

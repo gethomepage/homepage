@@ -4,7 +4,7 @@ import useSWR from "swr";
 export default function Status({ service, style }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`api/docker/status/${service.container}/${service.server || ""}`);
+  const { data, error } = useSWR(`/api/docker/status/${service.container}/${service.server || ""}`);
 
   let statusLabel = t("docker.unknown");
   let statusTitle = "";
