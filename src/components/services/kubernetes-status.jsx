@@ -35,8 +35,10 @@ export default function KubernetesStatus({ service, style }) {
 
   return (
     <div className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] k8s-status`} title={statusTitle}>
-      {style !== 'dot' && <div className={`text-[8px] font-bold ${colorClass} uppercase`}>{statusLabel}</div>}
-      {style === 'dot' && <div className={`rounded-full h-3 w-3 ${colorClass}`}/>}
+      {style !== 'dot' ? 
+        <div className={`text-[8px] font-bold ${colorClass} uppercase`}>{statusLabel}</div> :
+        <div className={`rounded-full h-3 w-3 ${colorClass}`}/>
+      }
     </div>
   );
 }
