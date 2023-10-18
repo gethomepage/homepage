@@ -7,7 +7,7 @@ Find your API key under `Settings > API`.
 
 ```yaml
 widget:
-    type: changedetectionio
-    url: http://changedetection.host.or.ip:port
-    key: apikeyapikeyapikeyapikeyapikey
+  type: changedetectionio
+  url: http://changedetection.host.or.ip:port
+  key: apikeyapikeyapikeyapikeyapikey
 ```

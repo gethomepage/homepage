@@ -33,7 +33,7 @@ export default function Dropdown({ options, value, setValue }) {
                   type="button"
                   className={classNames(
                     value === option.value ? "bg-theme-300/40 dark:bg-theme-900/40" : "",
-                    "w-full block px-3 py-1.5 text-sm hover:bg-theme-300/70 hover:dark:bg-theme-900/70 text-left"
+                    "w-full block px-3 py-1.5 text-sm hover:bg-theme-300/70 hover:dark:bg-theme-900/70 text-left",
                   )}
                 >
                   {option.label}

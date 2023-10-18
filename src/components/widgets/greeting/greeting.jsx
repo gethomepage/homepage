@@ -14,12 +14,14 @@ const textSizes = {
 
 export default function Greeting({ options }) {
   if (options.text) {
-    return <Container options={options} additionalClassNames="information-widget-greeting">
-      <Raw>
-        <span className={`text-theme-800 dark:text-theme-200 mr-3 ${textSizes[options.text_size || "xl"]}`}>
-          {options.text}
-        </span>
-      </Raw>
-    </Container>;
+    return (
+      <Container options={options} additionalClassNames="information-widget-greeting">
+        <Raw>
+          <span className={`text-theme-800 dark:text-theme-200 mr-3 ${textSizes[options.text_size || "xl"]}`}>
+            {options.text}
+          </span>
+        </Raw>
+      </Container>
+    );
   }
 }

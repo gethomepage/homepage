@@ -3,7 +3,7 @@ title: Translations
 description: Contributing Translations
 ---
 
-Homepage is developed in English, component contributions must be in English.  All translations are community provided, so a huge thanks go out to all those who have helped out so far!
+Homepage is developed in English, component contributions must be in English. All translations are community provided, so a huge thanks go out to all those who have helped out so far!
 
 ## Support Translations
 

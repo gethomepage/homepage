@@ -11,7 +11,7 @@ Allowed fields: `["address", "last_seen", "expires"]`.
 
 ```yaml
 widget:
-    type: tailscale
-    deviceid: deviceid
-    key: tailscalekey
+  type: tailscale
+  deviceid: deviceid
+  key: tailscalekey
 ```

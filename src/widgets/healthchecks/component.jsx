@@ -15,11 +15,15 @@ function formatDate(dateString) {
     hour: "numeric",
     minute: "numeric",
   };
-  
-  if (date.getFullYear() === now.getFullYear() && date.getMonth() === now.getMonth() && date.getDate() === now.getDate()) {
+
+  if (
+    date.getFullYear() === now.getFullYear() &&
+    date.getMonth() === now.getMonth() &&
+    date.getDate() === now.getDate()
+  ) {
     dateOptions = { timeStyle: "short" };
   }
-  
+
   return new Intl.DateTimeFormat(i18n.language, dateOptions).format(date);
 }
 

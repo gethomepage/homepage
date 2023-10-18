@@ -15,26 +15,26 @@ _Note: unfortunately, the package used for getting CPU temp ([systeminformation]
 
 ```yaml
 - resources:
-      cpu: true
-      memory: true
-      disk: /disk/mount/path
-      cputemp: true
-      uptime: true
-      units: imperial # only used by cpu temp
-      refresh: 3000 # optional, in ms
+    cpu: true
+    memory: true
+    disk: /disk/mount/path
+    cputemp: true
+    uptime: true
+    units: imperial # only used by cpu temp
+    refresh: 3000 # optional, in ms
 ```
 
 You can also pass a `label` option, which allows you to group resources under named sections,
 
 ```yaml
 - resources:
-      label: System
-      cpu: true
-      memory: true
+    label: System
+    cpu: true
+    memory: true
 
 - resources:
-      label: Storage
-      disk: /mnt/storage
+    label: Storage
+    disk: /mnt/storage
 ```
 
 Which produces something like this,
@@ -45,11 +45,11 @@ If you have more than a single disk and would like to group them together under 
 
 ```yaml
 - resources:
-      label: Storage
-      disk:
-          - /mnt/storage
-          - /mnt/backup
-          - /mnt/media
+    label: Storage
+    disk:
+      - /mnt/storage
+      - /mnt/backup
+      - /mnt/media
 ```
 
 To produce something like this,
@@ -60,12 +60,12 @@ You can additionally supply an optional `expanded` property set to true in order
 
 ```yaml
 - resources:
-      label: Array Disks
-      expanded: true
-      disk:
-          - /disk1
-          - /disk2
-          - /disk3
+    label: Array Disks
+    expanded: true
+    disk:
+      - /disk1
+      - /disk2
+      - /disk3
 ```
 
 ![194136533-c4238c82-4d67-41a4-b3c8-18bf26d33ac2](https://user-images.githubusercontent.com/3441425/194728642-a9885274-922b-4027-acf5-a746f58fdfce.png)

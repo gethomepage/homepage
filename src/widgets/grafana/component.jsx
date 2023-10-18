@@ -31,7 +31,10 @@ export default function Component({ service }) {
       <Block label="grafana.dashboards" value={t("common.number", { value: statsData.dashboards })} />
       <Block label="grafana.datasources" value={t("common.number", { value: statsData.datasources })} />
       <Block label="grafana.totalalerts" value={t("common.number", { value: statsData.alerts })} />
-      <Block label="grafana.alertstriggered" value={t("common.number", { value: alertsData.filter(a => a.state === "alerting").length })} />
+      <Block
+        label="grafana.alertstriggered"
+        value={t("common.number", { value: alertsData.filter((a) => a.state === "alerting").length })}
+      />
     </Container>
   );
 }

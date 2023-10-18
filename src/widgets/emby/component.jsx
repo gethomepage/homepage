@@ -33,9 +33,12 @@ function SingleSessionEntry({ playCommand, session }) {
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
 
-  const RunTimeTicks = session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
+  const RunTimeTicks =
+    session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
-  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || { IsVideoDirect: true }; // if no transcodinginfo its videodirect
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {
+    IsVideoDirect: true,
+  }; // if no transcodinginfo its videodirect
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
@@ -100,9 +103,12 @@ function SessionEntry({ playCommand, session }) {
     PlayState: { PositionTicks, IsPaused, IsMuted },
   } = session;
 
-  const RunTimeTicks = session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
+  const RunTimeTicks =
+    session.NowPlayingItem?.RunTimeTicks ?? session.NowPlayingItem?.CurrentProgram?.RunTimeTicks ?? 0;
 
-  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || { IsVideoDirect: true }; // if no transcodinginfo its videodirect
+  const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {
+    IsVideoDirect: true,
+  }; // if no transcodinginfo its videodirect
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
@@ -153,27 +159,27 @@ function CountBlocks({ service, countData }) {
   const { t } = useTranslation();
   // allows filtering
   // eslint-disable-next-line no-param-reassign
-  if (service.widget?.type === 'jellyfin') service.widget.type = 'emby'
+  if (service.widget?.type === "jellyfin") service.widget.type = "emby";
 
   if (!countData) {
     return (
       <Container service={service}>
         <Block label="emby.movies" />
         <Block label="emby.series" />
-        <Block label="emby.episodes" /> 
+        <Block label="emby.episodes" />
         <Block label="emby.songs" />
       </Container>
-    )
+    );
   }
 
   return (
     <Container service={service}>
       <Block label="emby.movies" value={t("common.number", { value: countData.MovieCount })} />
       <Block label="emby.series" value={t("common.number", { value: countData.SeriesCount })} />
-      <Block label="emby.episodes" value={t("common.number", { value: countData.EpisodeCount })} /> 
+      <Block label="emby.episodes" value={t("common.number", { value: countData.EpisodeCount })} />
       <Block label="emby.songs" value={t("common.number", { value: countData.SongCount })} />
     </Container>
-  )
+  );
 }
 
 export default function Component({ service }) {
@@ -189,11 +195,9 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
-  const {
-    data: countData,
-    error: countError,
-  } = useWidgetAPI(widget, "Count", {
-    refreshInterval: 60000,});
+  const { data: countData, error: countError } = useWidgetAPI(widget, "Count", {
+    refreshInterval: 60000,
+  });
 
   async function handlePlayCommand(session, command) {
     const url = formatProxyUrlWithSegments(widget, "PlayControl", {
@@ -209,21 +213,23 @@ export default function Component({ service }) {
     return <Container service={service} error={sessionsError ?? countError} />;
   }
 
-  const enableBlocks = service.widget?.enableBlocks
-  const enableNowPlaying = service.widget?.enableNowPlaying ?? true
+  const enableBlocks = service.widget?.enableBlocks;
+  const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
 
   if (!sessionsData || !countData) {
     return (
       <>
-      {enableBlocks && <CountBlocks service={service} countData={null} />}
-      {enableNowPlaying && <div className="flex flex-col pb-1">
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
-        </div>
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
-        </div>
-      </div>}
+        {enableBlocks && <CountBlocks service={service} countData={null} />}
+        {enableNowPlaying && (
+          <div className="flex flex-col pb-1">
+            <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+              <span className="absolute left-2 text-xs mt-[2px]">-</span>
+            </div>
+            <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+              <span className="absolute left-2 text-xs mt-[2px]">-</span>
+            </div>
+          </div>
+        )}
       </>
     );
   }
@@ -240,58 +246,56 @@ export default function Component({ service }) {
         }
         return 0;
       });
-  
+
     if (playing.length === 0) {
       return (
         <>
-        {enableBlocks && <CountBlocks service={service} countData={countData} />}
-        <div className="flex flex-col pb-1 mx-1">
-          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-            <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
+          {enableBlocks && <CountBlocks service={service} countData={countData} />}
+          <div className="flex flex-col pb-1 mx-1">
+            <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+              <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
+            </div>
+            <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+              <span className="absolute left-2 text-xs mt-[2px]">-</span>
+            </div>
           </div>
-          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-            <span className="absolute left-2 text-xs mt-[2px]">-</span>
-          </div>
-        </div>
         </>
       );
     }
-  
+
     if (playing.length === 1) {
       const session = playing[0];
       return (
         <>
-        {enableBlocks && <CountBlocks service={service} countData={countData} />}
-        <div className="flex flex-col pb-1 mx-1">
-          <SingleSessionEntry
-            playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
-            session={session}
-          />
-        </div>
+          {enableBlocks && <CountBlocks service={service} countData={countData} />}
+          <div className="flex flex-col pb-1 mx-1">
+            <SingleSessionEntry
+              playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
+              session={session}
+            />
+          </div>
         </>
       );
     }
-  
+
     if (playing.length > 0)
-    return (
-      <>
-      {enableBlocks && <CountBlocks service={service} countData={countData} />}
-      <div className="flex flex-col pb-1 mx-1">
-        {playing.map((session) => (
-          <SessionEntry
-            key={session.Id}
-            playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
-            session={session}
-          />
-        ))}
-      </div>
-      </>
-    );
+      return (
+        <>
+          {enableBlocks && <CountBlocks service={service} countData={countData} />}
+          <div className="flex flex-col pb-1 mx-1">
+            {playing.map((session) => (
+              <SessionEntry
+                key={session.Id}
+                playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
+                session={session}
+              />
+            ))}
+          </div>
+        </>
+      );
   }
 
   if (enableBlocks) {
-    return (
-      <CountBlocks service={service} countData={countData} />
-    )
+    return <CountBlocks service={service} countData={countData} />;
   }
 }

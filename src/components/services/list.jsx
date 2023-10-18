@@ -9,7 +9,7 @@ export default function List({ group, services, layout }) {
     <ul
       className={classNames(
         layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col",
-        "mt-3 services-list"
+        "mt-3 services-list",
       )}
     >
       {services.map((service) => (

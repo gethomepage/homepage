@@ -16,13 +16,13 @@ export default function getKubeConfig() {
   const kc = new KubeConfig();
 
   switch (config?.mode) {
-    case 'cluster':
+    case "cluster":
       kc.loadFromCluster();
       break;
-    case 'default':
+    case "default":
       kc.loadFromDefault();
       break;
-    case 'disabled':
+    case "disabled":
     default:
       return null;
   }

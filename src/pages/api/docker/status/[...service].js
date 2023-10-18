@@ -44,7 +44,9 @@ export default async function handler(req, res) {
     }
 
     if (dockerArgs.swarm) {
-      const serviceInfo = await docker.getService(containerName).inspect()
+      const serviceInfo = await docker
+        .getService(containerName)
+        .inspect()
         .catch(() => undefined);
 
       if (!serviceInfo) {
@@ -77,15 +79,16 @@ export default async function handler(req, res) {
         }
       } else {
         // Global service, prefer 'local' containers
-        const localContainerIDs = containers.map(c => c.Id);
-        const task = tasks.find(t => localContainerIDs.includes(t.Status?.ContainerStatus?.ContainerID)) ?? tasks.at(0);
+        const localContainerIDs = containers.map((c) => c.Id);
+        const task =
+          tasks.find((t) => localContainerIDs.includes(t.Status?.ContainerStatus?.ContainerID)) ?? tasks.at(0);
         const taskContainerId = task?.Status?.ContainerStatus?.ContainerID;
-        
+
         if (taskContainerId) {
           try {
             const container = docker.getContainer(taskContainerId);
             const info = await container.inspect();
-    
+
             return res.status(200).json({
               status: info.State.Status,
               health: info.State.Health?.Status,
@@ -93,8 +96,8 @@ export default async function handler(req, res) {
           } catch (e) {
             if (task) {
               return res.status(200).json({
-                status: task.Status.State
-              })
+                status: task.Status.State,
+              });
             }
           }
         }
@@ -107,7 +110,7 @@ export default async function handler(req, res) {
   } catch (e) {
     logger.error(e);
     return res.status(500).send({
-      error: {message: e?.message ?? "Unknown error"},
+      error: { message: e?.message ?? "Unknown error" },
     });
   }
 }

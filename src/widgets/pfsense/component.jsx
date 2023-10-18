@@ -12,9 +12,9 @@ export default function Component({ service }) {
   const { data: systemData, error: systemError } = useWidgetAPI(widget, "system");
   const { data: interfaceData, error: interfaceError } = useWidgetAPI(widget, "interface");
 
-  const showWanIP = widget.fields?.filter(f => f !== 'wanIP').length <= 4 && widget.fields?.includes('wanIP');
-  const showDiskUsage = widget.fields?.filter(f => f !== 'disk').length <= 4 && widget.fields?.includes('disk');
-  
+  const showWanIP = widget.fields?.filter((f) => f !== "wanIP").length <= 4 && widget.fields?.includes("wanIP");
+  const showDiskUsage = widget.fields?.filter((f) => f !== "disk").length <= 4 && widget.fields?.includes("disk");
+
   if (systemError || interfaceError) {
     const finalError = systemError ?? interfaceError;
     return <Container service={service} error={finalError} />;
@@ -22,30 +22,47 @@ export default function Component({ service }) {
 
   if (!systemData || !interfaceData) {
     return (
-      <Container service={service}>      
+      <Container service={service}>
         <Block label="pfsense.load" />
         <Block label="pfsense.memory" />
         <Block label="pfsense.temp" />
-        <Block label="pfsense.wanStatus" />  
+        <Block label="pfsense.wanStatus" />
         {showWanIP && <Block label="pfsense.wanIP" />}
         {showDiskUsage && <Block label="pfsense.disk" />}
       </Container>
     );
   }
 
-  const wan = interfaceData.data.filter(l => l.hwif === widget.wan)[0];
+  const wan = interfaceData.data.filter((l) => l.hwif === widget.wan)[0];
 
   return (
     <Container service={service}>
       <Block label="pfsense.load" value={systemData.data.load_avg[0]} />
-      <Block label="pfsense.memory" value={t("common.percent", { value: (systemData.data.mem_usage * 100).toFixed(2) })} />
-      <Block label="pfsense.temp" value={t("common.number", { value: systemData.data.temp_c, style: "unit", unit: "celsius" })} />
-      <Block label="pfsense.wanStatus" value={wan.status === "up" ? 
-        <span className="text-green-500">{t("pfsense.up")}</span>:
-        <span className="text-red-500">{t("pfsense.down")}</span>} 
+      <Block
+        label="pfsense.memory"
+        value={t("common.percent", { value: (systemData.data.mem_usage * 100).toFixed(2) })}
+      />
+      <Block
+        label="pfsense.temp"
+        value={t("common.number", { value: systemData.data.temp_c, style: "unit", unit: "celsius" })}
+      />
+      <Block
+        label="pfsense.wanStatus"
+        value={
+          wan.status === "up" ? (
+            <span className="text-green-500">{t("pfsense.up")}</span>
+          ) : (
+            <span className="text-red-500">{t("pfsense.down")}</span>
+          )
+        }
       />
       {showWanIP && <Block label="pfsense.wanIP" value={wan.ipaddr} />}
-      {showDiskUsage && <Block label="pfsense.disk" value={t("common.percent", { value: (systemData.data.disk_usage * 100).toFixed(2) })} />}
+      {showDiskUsage && (
+        <Block
+          label="pfsense.disk"
+          value={t("common.percent", { value: (systemData.data.disk_usage * 100).toFixed(2) })}
+        />
+      )}
     </Container>
   );
 }

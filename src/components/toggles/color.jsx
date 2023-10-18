@@ -65,7 +65,7 @@ export default function ColorToggle() {
                       title={color}
                       className={classNames(
                         active === color ? "border-2" : "border-0",
-                        `rounded-md w-5 h-5 border-black/50 dark:border-white/50 theme-${color} bg-theme-400`
+                        `rounded-md w-5 h-5 border-black/50 dark:border-white/50 theme-${color} bg-theme-400`,
                       )}
                     />
                     <span className="sr-only">{color}</span>

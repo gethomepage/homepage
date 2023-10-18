@@ -1,6 +1,6 @@
 import { existsSync } from "fs";
 
-const si = require('systeminformation');
+const si = require("systeminformation");
 
 export default async function handler(req, res) {
   const { type, target } = req.query;
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     const fsSize = await si.fsSize();
 
     return res.status(200).json({
-      drive: fsSize.find(fs => fs.mount === target) ?? fsSize.find(fs => fs.mount === "/")
+      drive: fsSize.find((fs) => fs.mount === target) ?? fsSize.find((fs) => fs.mount === "/"),
     });
   }
 
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
   if (type === "uptime") {
     const timeData = await si.time();
     return res.status(200).json({
-      uptime: timeData.uptime
+      uptime: timeData.uptime,
     });
   }
 

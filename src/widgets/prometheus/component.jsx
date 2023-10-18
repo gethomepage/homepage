@@ -24,8 +24,8 @@ export default function Component({ service }) {
     );
   }
 
-  const upCount = targetsData.data.activeTargets.filter(a => a.health === "up").length;
-  const downCount = targetsData.data.activeTargets.filter(a => a.health === "down").length;
+  const upCount = targetsData.data.activeTargets.filter((a) => a.health === "up").length;
+  const downCount = targetsData.data.activeTargets.filter((a) => a.health === "down").length;
   const totalCount = targetsData.data.activeTargets.length;
 
   return (

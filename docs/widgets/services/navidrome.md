@@ -9,9 +9,9 @@ Allowed fields: no configurable fields for this widget.
 
 ```yaml
 widget:
-    type: navidrome
-    url: http://navidrome.host.or.ip:port
-    user: username
-    token: token #md5(password + salt)
-    salt: randomsalt
+  type: navidrome
+  url: http://navidrome.host.or.ip:port
+  user: username
+  token: token #md5(password + salt)
+  salt: randomsalt
 ```

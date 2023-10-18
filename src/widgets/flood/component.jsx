@@ -12,7 +12,7 @@ export default function Component({ service }) {
   const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents");
 
   if (torrentError || !torrentData?.torrents) {
-    return <Container service={service} error={torrentError ?? {message: "No torrent data returned"}} />;
+    return <Container service={service} error={torrentError ?? { message: "No torrent data returned" }} />;
   }
 
   if (!torrentData || !torrentData.torrents) {
@@ -31,16 +31,16 @@ export default function Component({ service }) {
   let completed = 0;
   let leech = 0;
 
-  Object.values(torrentData.torrents).forEach(torrent => {
+  Object.values(torrentData.torrents).forEach((torrent) => {
     rateDl += torrent.downRate;
     rateUl += torrent.upRate;
-    if(torrent.status.includes('complete')){
+    if (torrent.status.includes("complete")) {
       completed += 1;
     }
-    if(torrent.status.includes('downloading')){
+    if (torrent.status.includes("downloading")) {
       leech += 1;
     }
-  })
+  });
 
   return (
     <Container service={service}>

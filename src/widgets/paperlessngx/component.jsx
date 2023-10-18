@@ -22,7 +22,9 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      {statisticsData.documents_inbox !== undefined && <Block label="paperlessngx.inbox" value={statisticsData.documents_inbox} />}
+      {statisticsData.documents_inbox !== undefined && (
+        <Block label="paperlessngx.inbox" value={statisticsData.documents_inbox} />
+      )}
       <Block label="paperlessngx.total" value={statisticsData.documents_total} />
     </Container>
   );

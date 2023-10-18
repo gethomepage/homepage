@@ -17,9 +17,9 @@ Allowed fields: `["load", "memory", "temp", "wanStatus", "wanIP", "disk"]` (maxi
 
 ```yaml
 widget:
-    type: pfsense
-    url: http://pfsense.host.or.ip:port
-    username: user
-    password: pass
-    wan: igb0
+  type: pfsense
+  url: http://pfsense.host.or.ip:port
+  username: user
+  password: pass
+  wan: igb0
 ```

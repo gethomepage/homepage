@@ -1,4 +1,4 @@
-import synologyProxyHandler from '../../utils/proxy/handlers/synology'
+import synologyProxyHandler from "../../utils/proxy/handlers/synology";
 
 const widget = {
   // cgiPath and maxVersion are discovered at runtime, don't supply
@@ -6,21 +6,21 @@ const widget = {
   proxyHandler: synologyProxyHandler,
 
   mappings: {
-    "system_storage": {
+    system_storage: {
       apiName: "SYNO.Core.System",
-      apiMethod: "info&type=\"storage\"",
-      endpoint: "system_storage"
+      apiMethod: 'info&type="storage"',
+      endpoint: "system_storage",
     },
-    "system_info": {
+    system_info: {
       apiName: "SYNO.Core.System",
       apiMethod: "info",
-      endpoint: "system_info"
+      endpoint: "system_info",
     },
-    "utilization": {
+    utilization: {
       apiName: "SYNO.Core.System.Utilization",
       apiMethod: "get",
-      endpoint: "utilization"
-    }
+      endpoint: "utilization",
+    },
   },
 };
 

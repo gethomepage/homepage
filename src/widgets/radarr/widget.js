@@ -17,40 +17,41 @@ const widget = {
     },
     "queue/status": {
       endpoint: "queue/status",
-      validate: [
-        "totalCount"
-      ]
+      validate: ["totalCount"],
     },
     "queue/details": {
       endpoint: "queue/details",
-      map: (data) => asJson(data).map((entry) => ({
-        trackedDownloadState: entry.trackedDownloadState,
-        trackedDownloadStatus: entry.trackedDownloadStatus,
-        timeLeft: entry.timeleft,
-        size: entry.size,
-        sizeLeft: entry.sizeleft,
-        movieId: entry.movieId ?? entry.id,
-        status: entry.status
-      })).sort((a, b) => {
-        const downloadingA = a.trackedDownloadState === "downloading"
-        const downloadingB = b.trackedDownloadState === "downloading"
-        if (downloadingA && !downloadingB) {
-          return -1;
-        }
-        if (downloadingB && !downloadingA) {
-          return 1;
-        }
+      map: (data) =>
+        asJson(data)
+          .map((entry) => ({
+            trackedDownloadState: entry.trackedDownloadState,
+            trackedDownloadStatus: entry.trackedDownloadStatus,
+            timeLeft: entry.timeleft,
+            size: entry.size,
+            sizeLeft: entry.sizeleft,
+            movieId: entry.movieId ?? entry.id,
+            status: entry.status,
+          }))
+          .sort((a, b) => {
+            const downloadingA = a.trackedDownloadState === "downloading";
+            const downloadingB = b.trackedDownloadState === "downloading";
+            if (downloadingA && !downloadingB) {
+              return -1;
+            }
+            if (downloadingB && !downloadingA) {
+              return 1;
+            }
 
-        const percentA = a.sizeLeft / a.size;
-        const percentB = b.sizeLeft / b.size;
-        if (percentA < percentB) {
-          return -1;
-        }
-        if (percentA > percentB) {
-          return 1;
-        }
-        return 0;
-      })
+            const percentA = a.sizeLeft / a.size;
+            const percentB = b.sizeLeft / b.size;
+            if (percentA < percentB) {
+              return -1;
+            }
+            if (percentA > percentB) {
+              return 1;
+            }
+            return 0;
+          }),
     },
     calendar: {
       endpoint: "calendar",

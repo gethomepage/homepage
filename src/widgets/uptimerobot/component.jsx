@@ -5,9 +5,9 @@ import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function secondsToDhms(seconds) {
-  const d = Math.floor(seconds / (3600*24));
-  const h = Math.floor(seconds % (3600*24) / 3600);
-  const m = Math.floor(seconds % 3600 / 60);
+  const d = Math.floor(seconds / (3600 * 24));
+  const h = Math.floor((seconds % (3600 * 24)) / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
 
   const dDisplay = d > 0 ? d + (d === 1 ? " day, " : " days, ") : "";
@@ -43,7 +43,7 @@ export default function Component({ service }) {
 
   // multiple monitors
   if (uptimerobotData.pagination?.total > 1) {
-    const sitesUp = uptimerobotData.monitors.filter(m => m.status === 2).length;
+    const sitesUp = uptimerobotData.monitors.filter((m) => m.status === 2).length;
 
     return (
       <Container service={service}>

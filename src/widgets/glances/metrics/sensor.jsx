@@ -16,11 +16,11 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart } = widget;
-  const [, sensorName] = widget.metric.split(':');
+  const [, sensorName] = widget.metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, 'sensors', {
+  const { data, error } = useWidgetAPI(service.widget, "sensors", {
     refreshInterval: 1000,
   });
 
@@ -29,38 +29,52 @@ export default function Component({ service }) {
       const sensorData = data.find((item) => item.label === sensorName);
       setDataPoints((prevDataPoints) => {
         const newDataPoints = [...prevDataPoints, { value: sensorData.value }];
-          if (newDataPoints.length > pointsLimit) {
-              newDataPoints.shift();
-          }
-          return newDataPoints;
+        if (newDataPoints.length > pointsLimit) {
+          newDataPoints.shift();
+        }
+        return newDataPoints;
       });
     }
   }, [data, sensorName]);
 
   if (error) {
-    return <Container chart={chart}><Error error={error} /></Container>;
+    return (
+      <Container chart={chart}>
+        <Error error={error} />
+      </Container>
+    );
   }
 
   if (!data) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   const sensorData = data.find((item) => item.label === sensorName);
 
   if (!sensorData) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   return (
     <Container chart={chart}>
-      { chart && (
+      {chart && (
         <Chart
           dataPoints={dataPoints}
           label={[sensorData.unit]}
           max={sensorData.critical}
-          formatter={(value) => t("common.number", {
-            value,
-            })}
+          formatter={(value) =>
+            t("common.number", {
+              value,
+            })
+          }
         />
       )}
 
@@ -80,18 +94,20 @@ export default function Component({ service }) {
       )}
 
       <Block position="bottom-3 right-3">
-          <div className="text-xs opacity-50">
-            {sensorData.warning && !chart && (
-              <>
-                {t("glances.warn")} {sensorData.warning} {sensorData.unit}
-              </>
-            )}
-          </div>
-          <div className="text-xs opacity-75">
-            {t("glances.temp")} {t("common.number", {
-              value: sensorData.value,
-            })} {sensorData.unit}
-          </div>
+        <div className="text-xs opacity-50">
+          {sensorData.warning && !chart && (
+            <>
+              {t("glances.warn")} {sensorData.warning} {sensorData.unit}
+            </>
+          )}
+        </div>
+        <div className="text-xs opacity-75">
+          {t("glances.temp")}{" "}
+          {t("common.number", {
+            value: sensorData.value,
+          })}{" "}
+          {sensorData.unit}
+        </div>
       </Block>
     </Container>
   );

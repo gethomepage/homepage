@@ -12,18 +12,18 @@ It can show the aggregate metrics and/or the individual node metrics.
 
 ```yaml
 - longhorn:
-      # Show the expanded view
-      expanded: true
-      # Shows a node representing the aggregate values
-      total: true
-      # Shows the node names as labels
-      labels: true
-      # Show the nodes
-      nodes: true
-      # An explicit list of nodes to show. All are shown by default if "nodes" is true
-      include:
-          - node1
-          - node2
+    # Show the expanded view
+    expanded: true
+    # Shows a node representing the aggregate values
+    total: true
+    # Shows the node names as labels
+    labels: true
+    # Show the nodes
+    nodes: true
+    # An explicit list of nodes to show. All are shown by default if "nodes" is true
+    include:
+      - node1
+      - node2
 ```
 
 The Longhorn URL and credentials are stored in the `providers` section of the `settings.yaml`.

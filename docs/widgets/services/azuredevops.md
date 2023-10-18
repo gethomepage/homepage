@@ -15,12 +15,12 @@ You will need to generate a personal access token for an existing user, see the 
 
 ```yaml
 widget:
-    type: azuredevops
-    organization: myOrganization
-    project: myProject
-    definitionId: pipelineDefinitionId # required for pipelines
-    branchName: branchName # optional for pipelines, leave empty for all
-    userEmail: email # required for pull requests
-    repositoryId: prRepositoryId # required for pull requests
-    key: personalaccesstoken
+  type: azuredevops
+  organization: myOrganization
+  project: myProject
+  definitionId: pipelineDefinitionId # required for pipelines
+  branchName: branchName # optional for pipelines, leave empty for all
+  userEmail: email # required for pull requests
+  repositoryId: prRepositoryId # required for pull requests
+  key: personalaccesstoken
 ```

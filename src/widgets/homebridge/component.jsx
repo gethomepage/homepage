@@ -27,25 +27,24 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block
-        label="widget.status"
-        value={t(`homebridge.${homebridgeData.status}`)}
-      />
+      <Block label="widget.status" value={t(`homebridge.${homebridgeData.status}`)} />
       <Block
         label="homebridge.updates"
         value={
-          (homebridgeData.updateAvailable || homebridgeData.plugins?.updatesAvailable)
+          homebridgeData.updateAvailable || homebridgeData.plugins?.updatesAvailable
             ? t("homebridge.update_available")
-            : t("homebridge.up_to_date")}
+            : t("homebridge.up_to_date")
+        }
       />
-      {homebridgeData?.childBridges?.total > 0 &&
+      {homebridgeData?.childBridges?.total > 0 && (
         <Block
           label="homebridge.child_bridges"
           value={t("homebridge.child_bridges_status", {
             total: homebridgeData.childBridges.total,
-            ok: homebridgeData.childBridges.running
+            ok: homebridgeData.childBridges.running,
           })}
-        />}
+        />
+      )}
     </Container>
   );
 }

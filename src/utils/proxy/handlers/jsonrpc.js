@@ -11,8 +11,8 @@ const logger = createLogger("jsonrpcProxyHandler");
 export async function sendJsonRpcRequest(url, method, params, username, password) {
   const headers = {
     "content-type": "application/json",
-    "accept": "application/json"
-  }
+    accept: "application/json",
+  };
 
   if (username && password) {
     headers.authorization = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
@@ -23,7 +23,7 @@ export async function sendJsonRpcRequest(url, method, params, username, password
     const httpRequestParams = {
       method: "POST",
       headers,
-      body
+      body,
     };
 
     // eslint-disable-next-line no-unused-vars
@@ -33,7 +33,7 @@ export async function sendJsonRpcRequest(url, method, params, username, password
 
       // in order to get access to the underlying error object in the JSON response
       // you must set `result` equal to undefined
-      if (json.error && (json.result === null)) {
+      if (json.error && json.result === null) {
         json.result = undefined;
       }
       return client.receive(json);
@@ -45,15 +45,14 @@ export async function sendJsonRpcRequest(url, method, params, username, password
   try {
     const response = await client.request(method, params);
     return [200, "application/json", JSON.stringify(response)];
-  }
-  catch (e) {
+  } catch (e) {
     if (e instanceof JSONRPCErrorException) {
       logger.debug("Error calling JSONPRC endpoint: %s.  %s", url, e.message);
-      return [200, "application/json", JSON.stringify({result: null, error: {code: e.code, message: e.message}})];
+      return [200, "application/json", JSON.stringify({ result: null, error: { code: e.code, message: e.message } })];
     }
 
     logger.warn("Error calling JSONPRC endpoint: %s.  %s", url, e);
-    return [500, "application/json", JSON.stringify({result: null, error: {code: 2, message: e.toString()}})];
+    return [500, "application/json", JSON.stringify({ result: null, error: { code: 2, message: e.toString() } })];
   }
 }
 

@@ -7,9 +7,7 @@ const widget = {
   mappings: {
     "analytics/status": {
       endpoint: "analytics/status",
-      validate: [
-        "data",
-      ]
+      validate: ["data"],
     },
   },
 };

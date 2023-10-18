@@ -7,7 +7,7 @@ Api key is found under Account > API, profile ID is found under Setup > Endpoint
 
 ```yaml
 widget:
-    type: nextdns
-    profile: profileid
-    key: yourapikeyhere
+  type: nextdns
+  profile: profileid
+  key: yourapikeyhere
 ```

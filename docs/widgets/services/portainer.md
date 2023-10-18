@@ -9,8 +9,8 @@ Allowed fields: `["running", "stopped", "total"]`.
 
 ```yaml
 widget:
-    type: portainer
-    url: https://portainer.host.or.ip:9443
-    env: 1
-    key: ptr_accesskeyaccesskeyaccesskeyaccesskey
+  type: portainer
+  url: https://portainer.host.or.ip:9443
+  env: 1
+  key: ptr_accesskeyaccesskeyaccesskeyaccesskey
 ```

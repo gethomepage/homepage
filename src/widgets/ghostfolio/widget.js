@@ -6,13 +6,13 @@ const widget = {
 
   mappings: {
     today: {
-      endpoint: "1d"
+      endpoint: "1d",
     },
     year: {
-      endpoint: "1y"
+      endpoint: "1y",
     },
     max: {
-      endpoint: "max"
+      endpoint: "max",
     },
   },
 };

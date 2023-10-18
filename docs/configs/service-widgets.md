@@ -13,13 +13,13 @@ Using Emby as an example, this is how you would attach the Emby service widget.
 
 ```yaml
 - Emby:
-      icon: emby.png
-      href: http://emby.host.or.ip/
-      description: Movies & TV Shows
-      widget:
-          type: emby
-          url: http://emby.host.or.ip
-          key: apikeyapikeyapikeyapikeyapikey
+    icon: emby.png
+    href: http://emby.host.or.ip/
+    description: Movies & TV Shows
+    widget:
+      type: emby
+      url: http://emby.host.or.ip
+      key: apikeyapikeyapikeyapikeyapikey
 ```
 
 ## Field Visibility
@@ -30,11 +30,11 @@ Each widget can optionally provide a list of which fields should be visible via 
 
 ```yaml
 - Sonarr:
-      icon: sonarr.png
-      href: http://sonarr.host.or.ip
-      widget:
-          type: sonarr
-          fields: ["wanted", "queued"]
-          url: http://sonarr.host.or.ip
-          key: apikeyapikeyapikeyapikeyapikey
+    icon: sonarr.png
+    href: http://sonarr.host.or.ip
+    widget:
+      type: sonarr
+      fields: ["wanted", "queued"]
+      url: http://sonarr.host.or.ip
+      key: apikeyapikeyapikeyapikeyapikey
 ```

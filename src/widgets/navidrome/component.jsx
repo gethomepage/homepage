@@ -31,17 +31,13 @@ export default function Component({ service }) {
   }
 
   if (!navidromeData) {
-    return (
-      <SinglePlayingEntry entry={{ title: t("navidrome.please_wait") }} />
-    );
+    return <SinglePlayingEntry entry={{ title: t("navidrome.please_wait") }} />;
   }
 
   const { nowPlaying } = navidromeData["subsonic-response"];
   if (!nowPlaying.entry) {
     // nothing playing
-    return (
-      <SinglePlayingEntry entry={{ title: t("navidrome.nothing_streaming") }} />
-    );
+    return <SinglePlayingEntry entry={{ title: t("navidrome.nothing_streaming") }} />;
   }
 
   const nowPlayingEntries = Object.values(nowPlaying.entry);

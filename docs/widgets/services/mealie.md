@@ -9,7 +9,7 @@ Allowed fields: `["recipes", "users", "categories", "tags"]`.
 
 ```yaml
 widget:
-    type: mealie
-    url: http://mealie-frontend.host.or.ip
-    key: mealieapitoken
+  type: mealie
+  url: http://mealie-frontend.host.or.ip
+  key: mealieapitoken
 ```

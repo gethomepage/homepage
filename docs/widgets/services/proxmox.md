@@ -13,15 +13,15 @@ You will need to generate an API Token for new or an existing user. Here is an e
 4. Name the group something informative, like api-ro-users
 5. Click on the Permissions "folder"
 6. Click Add -> Group Permission
-    - Path: /
-    - Group: group from bullet 4 above
-    - Role: PVEAuditor
-    - Propagate: Checked
+   - Path: /
+   - Group: group from bullet 4 above
+   - Role: PVEAuditor
+   - Propagate: Checked
 7. Expand Permissions, click on Users
 8. Click the Add button
-    - User name: something informative like `api`
-    - Realm: Linux PAM standard authentication
-    - Group: group from bullet 4 above
+   - User name: something informative like `api`
+   - Realm: Linux PAM standard authentication
+   - Group: group from bullet 4 above
 9. Expand Permissions, click on API Tokens
 10. Click the Add button
     - User: user from bullet 8 above
@@ -42,9 +42,9 @@ You can set the optional `node` setting when you want to show metrics for a sing
 
 ```yaml
 widget:
-    type: proxmox
-    url: https://proxmox.host.or.ip:8006
-    username: api_token_id
-    password: api_token_secret
-    node: pve-1 # optional
+  type: proxmox
+  url: https://proxmox.host.or.ip:8006
+  username: api_token_id
+  password: api_token_secret
+  node: pve-1 # optional
 ```

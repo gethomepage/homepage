@@ -9,8 +9,8 @@ Allowed fields: `["rate", "remaining", "downloaded"]`.
 
 ```yaml
 widget:
-    type: nzbget
-    url: http://nzbget.host.or.ip
-    username: controlusername
-    password: controlpassword
+  type: nzbget
+  url: http://nzbget.host.or.ip
+  username: controlusername
+  password: controlpassword
 ```

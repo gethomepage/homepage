@@ -20,7 +20,7 @@ export default function KubernetesStatus({ service, style }) {
       statusLabel = statusTitle;
       colorClass = "text-emerald-500/80";
     }
-  
+
     if (data.status === "not found" || data.status === "down" || data.status === "partial") {
       statusTitle = data.status;
       statusLabel = statusTitle;
@@ -28,17 +28,21 @@ export default function KubernetesStatus({ service, style }) {
     }
   }
 
-  if (style === 'dot') {
-    colorClass = colorClass.replace(/text-/g, 'bg-').replace(/\/\d\d/g, '');
+  if (style === "dot") {
+    colorClass = colorClass.replace(/text-/g, "bg-").replace(/\/\d\d/g, "");
     backgroundClass = "p-4 hover:bg-theme-500/10 dark:hover:bg-theme-900/20";
   }
 
   return (
-    <div className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] k8s-status`} title={statusTitle}>
-      {style !== 'dot' ? 
-        <div className={`text-[8px] font-bold ${colorClass} uppercase`}>{statusLabel}</div> :
-        <div className={`rounded-full h-3 w-3 ${colorClass}`}/>
-      }
+    <div
+      className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] k8s-status`}
+      title={statusTitle}
+    >
+      {style !== "dot" ? (
+        <div className={`text-[8px] font-bold ${colorClass} uppercase`}>{statusLabel}</div>
+      ) : (
+        <div className={`rounded-full h-3 w-3 ${colorClass}`} />
+      )}
     </div>
   );
 }

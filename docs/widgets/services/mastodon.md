@@ -9,6 +9,6 @@ Allowed fields: `["user_count", "status_count", "domain_count"]`.
 
 ```yaml
 widget:
-    type: mastodon
-    url: https://mastodon.host.name
+  type: mastodon
+  url: https://mastodon.host.name
 ```

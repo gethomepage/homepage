@@ -9,6 +9,6 @@ Pass the stream URL from a service like [µStreamer](https://github.com/pikvm/us
 
 ```yaml
 widget:
-    type: mjpeg
-    stream: http://mjpeg.host.or.ip/webcam/stream
+  type: mjpeg
+  stream: http://mjpeg.host.or.ip/webcam/stream
 ```

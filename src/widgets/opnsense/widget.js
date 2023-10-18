@@ -1,4 +1,3 @@
-
 import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
@@ -8,16 +7,12 @@ const widget = {
   mappings: {
     activity: {
       endpoint: "diagnostics/activity/getActivity",
-      validate: [
-        "headers"
-      ]
+      validate: ["headers"],
     },
     interface: {
       endpoint: "diagnostics/traffic/interface",
-      validate: [
-        "interfaces"
-      ]
-    }
+      validate: ["interfaces"],
+    },
   },
 };
 

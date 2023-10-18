@@ -4,11 +4,11 @@ export function parseCpu(cpuStr) {
   const units = cpuStr.substring(cpuStr.length - unitLength);
   if (Number.isNaN(Number(units))) {
     switch (units) {
-      case 'n':
+      case "n":
         return base / 1000000000;
-      case 'u':
+      case "u":
         return base / 1000000;
-      case 'm':
+      case "m":
         return base / 1000;
       default:
         return base;
@@ -19,22 +19,22 @@ export function parseCpu(cpuStr) {
 }
 
 export function parseMemory(memStr) {
-  const unitLength = (memStr.substring(memStr.length - 1) === 'i' ? 2 : 1);
+  const unitLength = memStr.substring(memStr.length - 1) === "i" ? 2 : 1;
   const base = Number.parseInt(memStr, 10);
   const units = memStr.substring(memStr.length - unitLength);
   if (Number.isNaN(Number(units))) {
     switch (units) {
-      case 'Ki':
+      case "Ki":
         return base * 1000;
-      case 'K':
+      case "K":
         return base * 1024;
-      case 'Mi':
+      case "Mi":
         return base * 1000000;
-      case 'M':
+      case "M":
         return base * 1024 * 1024;
-      case 'Gi':
+      case "Gi":
         return base * 1000000000;
-      case 'G':
+      case "G":
         return base * 1024 * 1024 * 1024;
       default:
         return base;

@@ -9,9 +9,10 @@ import Error from "../../../components/services/widget/error";
 export default function Integration({ config, params }) {
   const { t } = useTranslation();
   const { setEvents } = useContext(EventContext);
-  const { data: radarrData, error: radarrError } = useWidgetAPI(config, "calendar",
-    { ...params,  ...config?.params ?? {} }
-  );
+  const { data: radarrData, error: radarrError } = useWidgetAPI(config, "calendar", {
+    ...params,
+    ...(config?.params ?? {}),
+  });
   useEffect(() => {
     if (!radarrData || radarrError) {
       return;
@@ -19,7 +20,7 @@ export default function Integration({ config, params }) {
 
     const eventsToAdd = {};
 
-    radarrData?.forEach(event => {
+    radarrData?.forEach((event) => {
       const cinemaTitle = `${event.title} - ${t("calendar.inCinemas")}`;
       const physicalTitle = `${event.title} - ${t("calendar.physicalRelease")}`;
       const digitalTitle = `${event.title} - ${t("calendar.digitalRelease")}`;
@@ -27,23 +28,23 @@ export default function Integration({ config, params }) {
       eventsToAdd[cinemaTitle] = {
         title: cinemaTitle,
         date: DateTime.fromISO(event.inCinemas),
-        color: config?.color ?? 'amber'
+        color: config?.color ?? "amber",
       };
       eventsToAdd[physicalTitle] = {
         title: physicalTitle,
         date: DateTime.fromISO(event.physicalRelease),
-        color: config?.color ?? 'cyan'
+        color: config?.color ?? "cyan",
       };
       eventsToAdd[digitalTitle] = {
         title: digitalTitle,
         date: DateTime.fromISO(event.digitalRelease),
-        color: config?.color ?? 'emerald'
+        color: config?.color ?? "emerald",
       };
-    })
+    });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
   }, [radarrData, radarrError, config, setEvents, t]);
 
   const error = radarrError ?? radarrData?.error;
-  return error && <Error error={{ message: `${config.type}: ${error.message ?? error}`}} />
+  return error && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
 }

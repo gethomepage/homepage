@@ -17,13 +17,13 @@ export default function Status({ service, style }) {
   } else if (data) {
     if (data.status?.includes("running")) {
       if (data.health === "starting") {
-          statusTitle = t("docker.starting");
-          colorClass = "text-blue-500/80";
+        statusTitle = t("docker.starting");
+        colorClass = "text-blue-500/80";
       }
 
       if (data.health === "unhealthy") {
-          statusTitle = t("docker.unhealthy");
-          colorClass = "text-orange-400/50 dark:text-orange-400/80";
+        statusTitle = t("docker.unhealthy");
+        colorClass = "text-orange-400/50 dark:text-orange-400/80";
       }
 
       if (!data.health) {
@@ -35,27 +35,31 @@ export default function Status({ service, style }) {
       statusTitle = statusLabel;
       colorClass = "text-emerald-500/80";
     }
-    
+
     if (data.status === "not found" || data.status === "exited" || data.status?.startsWith("partial")) {
-      if (data.status === "not found") statusLabel = t("docker.not_found")
-      else if (data.status === "exited") statusLabel = t("docker.exited")
-      else statusLabel = data.status.replace("partial", t("docker.partial"))
+      if (data.status === "not found") statusLabel = t("docker.not_found");
+      else if (data.status === "exited") statusLabel = t("docker.exited");
+      else statusLabel = data.status.replace("partial", t("docker.partial"));
       colorClass = "text-orange-400/50 dark:text-orange-400/80";
     }
   }
 
-  if (style === 'dot') {
-    colorClass = colorClass.replace(/text-/g, 'bg-').replace(/\/\d\d/g, '');
+  if (style === "dot") {
+    colorClass = colorClass.replace(/text-/g, "bg-").replace(/\/\d\d/g, "");
     backgroundClass = "p-4 hover:bg-theme-500/10 dark:hover:bg-theme-900/20";
     statusTitle = statusLabel;
   }
 
   return (
-    <div className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] docker-status`} title={statusTitle}>
-      {style !== 'dot' ?
-        <div className={`text-[8px] font-bold ${colorClass} uppercase`}>{statusLabel}</div> :
-        <div className={`rounded-full h-3 w-3 ${colorClass}`}/>
-      }
+    <div
+      className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] docker-status`}
+      title={statusTitle}
+    >
+      {style !== "dot" ? (
+        <div className={`text-[8px] font-bold ${colorClass} uppercase`}>{statusLabel}</div>
+      ) : (
+        <div className={`rounded-full h-3 w-3 ${colorClass}`} />
+      )}
     </div>
   );
 }

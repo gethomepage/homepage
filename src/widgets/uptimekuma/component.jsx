@@ -19,10 +19,10 @@ export default function Component({ service }) {
   if (!statusData || !heartbeatData) {
     return (
       <Container service={service}>
-        <Block label="uptimekuma.up"/>
-        <Block label="uptimekuma.down"/>
-        <Block label="uptimekuma.uptime"/>
-        <Block label="uptimekuma.incidents"/>
+        <Block label="uptimekuma.up" />
+        <Block label="uptimekuma.down" />
+        <Block label="uptimekuma.uptime" />
+        <Block label="uptimekuma.incidents" />
       </Container>
     );
   }
@@ -42,14 +42,21 @@ export default function Component({ service }) {
   const uptimeList = Object.values(heartbeatData.uptimeList);
   const percent = uptimeList.reduce((a, b) => a + b, 0) / uptimeList.length || 0;
   const uptime = (percent * 100).toFixed(1);
-  const incidentTime = statusData.incident ? (Math.abs(new Date(statusData.incident?.createdDate) - new Date()) / 1000) / (60 * 60) : null;
+  const incidentTime = statusData.incident
+    ? Math.abs(new Date(statusData.incident?.createdDate) - new Date()) / 1000 / (60 * 60)
+    : null;
 
   return (
     <Container service={service}>
       <Block label="uptimekuma.up" value={t("common.number", { value: sitesUp })} />
       <Block label="uptimekuma.down" value={t("common.number", { value: sitesDown })} />
       <Block label="uptimekuma.uptime" value={t("common.percent", { value: uptime })} />
-      {incidentTime && <Block label="uptimekuma.incident" value={t("common.number", { value: Math.round(incidentTime) }) + t("uptimekuma.m")} />}
+      {incidentTime && (
+        <Block
+          label="uptimekuma.incident"
+          value={t("common.number", { value: Math.round(incidentTime) }) + t("uptimekuma.m")}
+        />
+      )}
     </Container>
   );
 }

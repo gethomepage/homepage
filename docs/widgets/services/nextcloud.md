@@ -11,15 +11,15 @@ Note "cpuload" and "memoryusage" were deprecated in v0.6.18 and a maximum of 4 f
 
 ```yaml
 widget:
-    type: nextcloud
-    url: https://nextcloud.host.or.ip:port
-    key: token
+  type: nextcloud
+  url: https://nextcloud.host.or.ip:port
+  key: token
 ```
 
 ```yaml
 widget:
-    type: nextcloud
-    url: https://nextcloud.host.or.ip:port
-    username: username
-    password: password
+  type: nextcloud
+  url: https://nextcloud.host.or.ip:port
+  username: username
+  password: password
 ```

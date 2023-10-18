@@ -1,16 +1,14 @@
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
+  const { widget } = service;
 
-  const {widget} = service;
-
-  const {data: nodesData, error: nodesError} = useWidgetAPI(widget, "nodes");
+  const { data: nodesData, error: nodesError } = useWidgetAPI(widget, "nodes");
 
   if (nodesError) {
-    return <Container service={service} error={ nodesError } />;
+    return <Container service={service} error={nodesError} />;
   }
 
   if (!nodesData) {
@@ -22,8 +20,10 @@ export default function Component({ service }) {
     );
   }
 
-  const totalServers = nodesData.data.reduce((total, node) => 
-    (node.attributes?.relationships?.servers?.data?.length ?? 0) + total, 0);
+  const totalServers = nodesData.data.reduce(
+    (total, node) => (node.attributes?.relationships?.servers?.data?.length ?? 0) + total,
+    0,
+  );
 
   return (
     <Container service={service}>

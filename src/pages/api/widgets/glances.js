@@ -15,23 +15,25 @@ async function retrieveFromGlancesAPI(privateWidgetOptions, endpoint) {
 
   const apiUrl = `${url}/api/3/${endpoint}`;
   const headers = {
-    "Accept-Encoding": "application/json"
+    "Accept-Encoding": "application/json",
   };
   if (privateWidgetOptions.username && privateWidgetOptions.password) {
-    headers.Authorization = `Basic ${Buffer.from(`${privateWidgetOptions.username}:${privateWidgetOptions.password}`).toString("base64")}`
+    headers.Authorization = `Basic ${Buffer.from(
+      `${privateWidgetOptions.username}:${privateWidgetOptions.password}`,
+    ).toString("base64")}`;
   }
   const params = { method: "GET", headers };
 
   const [status, , data] = await httpProxy(apiUrl, params);
 
   if (status === 401) {
-    errorMessage = `Authorization failure getting data from glances API. Data: ${data.toString()}`
+    errorMessage = `Authorization failure getting data from glances API. Data: ${data.toString()}`;
     logger.error(errorMessage);
     throw new Error(errorMessage);
   }
-  
+
   if (status !== 200) {
-    errorMessage = `HTTP ${status} getting data from glances API. Data: ${data.toString()}`
+    errorMessage = `HTTP ${status} getting data from glances API. Data: ${data.toString()}`;
     logger.error(errorMessage);
     throw new Error(errorMessage);
   }
@@ -52,7 +54,7 @@ export default async function handler(req, res) {
       cpu: cpuData,
       load: loadData,
       mem: memoryData,
-    }
+    };
 
     // Disabled by default, dont call unless needed
     if (includeUptime) {

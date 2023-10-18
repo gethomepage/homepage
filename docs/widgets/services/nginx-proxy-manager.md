@@ -9,8 +9,8 @@ Allowed fields: `["enabled", "disabled", "total"]`.
 
 ```yaml
 widget:
-    type: npm
-    url: http://npm.host.or.ip
-    username: admin_username
-    password: admin_password
+  type: npm
+  url: http://npm.host.or.ip
+  username: admin_username
+  password: admin_password
 ```

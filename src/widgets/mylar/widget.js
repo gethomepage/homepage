@@ -6,13 +6,13 @@ const widget = {
 
   mappings: {
     issues: {
-      endpoint: "getIndex"
+      endpoint: "getIndex",
     },
     series: {
-      endpoint: "seriesjsonListing"
+      endpoint: "seriesjsonListing",
     },
     wanted: {
-      endpoint: "getWanted"
+      endpoint: "getWanted",
     },
   },
 };

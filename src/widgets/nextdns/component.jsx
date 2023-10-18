@@ -33,7 +33,9 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      {nextdnsData.data.map(d => <Block key={d.status} label={d.status} value={t("common.number", { value: d.queries })} />)}
+      {nextdnsData.data.map((d) => (
+        <Block key={d.status} label={d.status} value={t("common.number", { value: d.queries })} />
+      ))}
     </Container>
   );
 }

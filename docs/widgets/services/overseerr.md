@@ -9,7 +9,7 @@ Allowed fields: `["pending", "approved", "available", "processing"]`.
 
 ```yaml
 widget:
-    type: overseerr
-    url: http://overseerr.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: overseerr
+  url: http://overseerr.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

@@ -47,7 +47,7 @@ function parseLonghornData(data) {
 export default async function handler(req, res) {
   const settings = getSettings();
   const longhornSettings = settings?.providers?.longhorn || {};
-  const {url, username, password} = longhornSettings;
+  const { url, username, password } = longhornSettings;
 
   if (!url) {
     const errorMessage = "Missing Longhorn URL";
@@ -57,10 +57,10 @@ export default async function handler(req, res) {
 
   const apiUrl = `${url}/v1/nodes`;
   const headers = {
-    "Accept-Encoding": "application/json"
+    "Accept-Encoding": "application/json",
   };
   if (username && password) {
-    headers.Authorization = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`
+    headers.Authorization = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
   }
   const params = { method: "GET", headers };
 

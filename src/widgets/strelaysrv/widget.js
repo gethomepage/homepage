@@ -7,11 +7,7 @@ const widget = {
   mappings: {
     status: {
       endpoint: "status",
-      validate: [
-        "numActiveSessions",
-        "numConnections",
-        "bytesProxied"
-      ]
+      validate: ["numActiveSessions", "numConnections", "bytesProxied"],
     },
   },
 };

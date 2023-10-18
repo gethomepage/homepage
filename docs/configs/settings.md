@@ -391,7 +391,7 @@ You can choose from the following styles for docker or k8s status and ping: `dot
 For example:
 
 ```yaml
-statusStyle: 'dot'
+statusStyle: "dot"
 ```
 
 or per-service (`services.yaml`) with:

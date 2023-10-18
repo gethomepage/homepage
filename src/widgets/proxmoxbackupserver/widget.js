@@ -1,6 +1,6 @@
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
-const since = Date.now() - (24 * 60 * 60 * 1000);
+const since = Date.now() - 24 * 60 * 60 * 1000;
 
 const widget = {
   api: "{url}/api2/json/{endpoint}",

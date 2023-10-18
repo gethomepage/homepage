@@ -7,7 +7,7 @@ const widget = {
   mappings: {
     info: {
       endpoint: "/",
-    }
+    },
   },
 };
 

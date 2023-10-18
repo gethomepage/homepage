@@ -17,7 +17,7 @@ Allowed fields: `["gross_percent_today", "gross_percent_1y", "gross_percent_max"
 
 ```yaml
 widget:
-    type: ghostfolio
-    url: http://ghostfoliohost:port
-    key: ghostfoliobearertoken
+  type: ghostfolio
+  url: http://ghostfoliohost:port
+  key: ghostfoliobearertoken
 ```

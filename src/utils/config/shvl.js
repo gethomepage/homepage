@@ -27,16 +27,14 @@ SOFTWARE.
 */
 
 export function get(object, path, def) {
-  return (
-    // Split the path into keys and reduce the object to the target value
-    object = path.split(/[.[\]]+/).reduce(function (obj, p) {
-      // Check each nested object to see if the key exists
-      return obj && obj[p] !== undefined ? obj[p] : undefined;
-    }, object)
-  ) === undefined
-    // If the final value is undefined, return the default value
-    ? def
-    : object;  // Otherwise, return the value found
+  // Split the path into keys and reduce the object to the target value
+  return (object = path.split(/[.[\]]+/).reduce(function (obj, p) {
+    // Check each nested object to see if the key exists
+    return obj && obj[p] !== undefined ? obj[p] : undefined;
+  }, object)) === undefined
+    ? // If the final value is undefined, return the default value
+      def
+    : object; // Otherwise, return the value found
 }
 
 export function set(obj, path, val) {
@@ -58,13 +56,11 @@ export function set(obj, path, val) {
     const isIndex = /^\d+$/.test(keys[i + 1]);
 
     // If current key doesn't exist, initialise it as an array or object
-    acc[key] = Array.isArray(acc[key])
-      ? acc[key]
-      : (isIndex ? [] : acc[key] || {});
+    acc[key] = Array.isArray(acc[key]) ? acc[key] : isIndex ? [] : acc[key] || {};
 
     // Return nested object for next iteration
     return acc[key];
-  }, obj)[lastKey] = val;  // Finally set the value
+  }, obj)[lastKey] = val; // Finally set the value
 
   return obj;
 }

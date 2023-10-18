@@ -9,7 +9,7 @@ Allowed fields: `["wanted", "queued", "artists"]`.
 
 ```yaml
 widget:
-    type: lidarr
-    url: http://lidarr.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: lidarr
+  url: http://lidarr.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

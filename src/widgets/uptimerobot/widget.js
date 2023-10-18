@@ -8,10 +8,10 @@ const widget = {
     getmonitors: {
       method: "POST",
       endpoint: "getMonitors",
-      body: 'format=json&logs=1',
+      body: "format=json&logs=1",
       headers: {
         "content-type": "application/x-www-form-urlencoded",
-        "cache-control": "no-cache"
+        "cache-control": "no-cache",
       },
     },
   },

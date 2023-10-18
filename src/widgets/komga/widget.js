@@ -14,15 +14,11 @@ const widget = {
     },
     series: {
       endpoint: "series",
-      validate: [
-        "totalElements"
-      ]
+      validate: ["totalElements"],
     },
     books: {
       endpoint: "books",
-      validate: [
-        "totalElements"
-      ]
+      validate: ["totalElements"],
     },
   },
 };

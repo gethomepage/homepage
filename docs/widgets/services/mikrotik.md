@@ -9,8 +9,8 @@ Allowed fields: `["uptime", "cpuLoad", "memoryUsed", "numberOfLeases"]`.
 
 ```yaml
 widget:
-    type: mikrotik
-    url: https://mikrotik.host.or.ip
-    username: username
-    password: password
+  type: mikrotik
+  url: https://mikrotik.host.or.ip
+  username: username
+  password: password
 ```

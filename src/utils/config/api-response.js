@@ -9,7 +9,7 @@ import {
   servicesFromConfig,
   servicesFromDocker,
   cleanServiceGroups,
-  servicesFromKubernetes
+  servicesFromKubernetes,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
@@ -59,7 +59,7 @@ export async function bookmarksResponse() {
 
   bookmarksArray.forEach((group) => {
     if (definedLayouts) {
-      const layoutIndex = definedLayouts.findIndex(layout => layout === group.name);
+      const layoutIndex = definedLayouts.findIndex((layout) => layout === group.name);
       if (layoutIndex > -1) sortedGroups[layoutIndex] = group;
       else unsortedGroups.push(group);
     } else {
@@ -67,7 +67,7 @@ export async function bookmarksResponse() {
     }
   });
 
-  return [...sortedGroups.filter(g => g), ...unsortedGroups];
+  return [...sortedGroups.filter((g) => g), ...unsortedGroups];
 }
 
 export async function widgetsResponse() {
@@ -126,11 +126,13 @@ export async function servicesResponse() {
   }
 
   const mergedGroupsNames = [
-    ...new Set([
-      discoveredDockerServices.map((group) => group.name),
-      discoveredKubernetesServices.map((group) => group.name),
-      configuredServices.map((group) => group.name),
-    ].flat()),
+    ...new Set(
+      [
+        discoveredDockerServices.map((group) => group.name),
+        discoveredKubernetesServices.map((group) => group.name),
+        configuredServices.map((group) => group.name),
+      ].flat(),
+    ),
   ];
 
   const sortedGroups = [];
@@ -138,22 +140,23 @@ export async function servicesResponse() {
   const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
 
   mergedGroupsNames.forEach((groupName) => {
-    const discoveredDockerGroup = discoveredDockerServices.find((group) => group.name === groupName) || { services: [] };
-    const discoveredKubernetesGroup = discoveredKubernetesServices.find((group) => group.name === groupName) || { services: [] };
+    const discoveredDockerGroup = discoveredDockerServices.find((group) => group.name === groupName) || {
+      services: [],
+    };
+    const discoveredKubernetesGroup = discoveredKubernetesServices.find((group) => group.name === groupName) || {
+      services: [],
+    };
     const configuredGroup = configuredServices.find((group) => group.name === groupName) || { services: [] };
 
     const mergedGroup = {
       name: groupName,
-      services: [
-        ...discoveredDockerGroup.services,
-        ...discoveredKubernetesGroup.services,
-        ...configuredGroup.services
-      ].filter((service) => service)
+      services: [...discoveredDockerGroup.services, ...discoveredKubernetesGroup.services, ...configuredGroup.services]
+        .filter((service) => service)
         .sort(compareServices),
     };
 
     if (definedLayouts) {
-      const layoutIndex = definedLayouts.findIndex(layout => layout === mergedGroup.name);
+      const layoutIndex = definedLayouts.findIndex((layout) => layout === mergedGroup.name);
       if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
       else unsortedGroups.push(mergedGroup);
     } else {
@@ -161,5 +164,5 @@ export async function servicesResponse() {
     }
   });
 
-  return [...sortedGroups.filter(g => g), ...unsortedGroups];
+  return [...sortedGroups.filter((g) => g), ...unsortedGroups];
 }

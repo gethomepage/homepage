@@ -9,8 +9,8 @@ Allowed fields: `["series", "archives", "chapters", "categories"]`.
 
 ```yaml
 widget:
-    type: atsumeru
-    url: http://atsumeru.host.or.ip:port
-    username: username
-    password: password
+  type: atsumeru
+  url: http://atsumeru.host.or.ip:port
+  username: username
+  password: password
 ```

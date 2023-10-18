@@ -5,9 +5,9 @@ const widget = {
   proxyHandler: freshrssProxyHandler,
   mappings: {
     info: {
-      endpoint: "/"
-    }
-  }
+      endpoint: "/",
+    },
+  },
 };
 
 export default widget;

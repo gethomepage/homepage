@@ -11,7 +11,7 @@ All the commands in the document should be run from the `k3d` directory.
 ## Requisite Tools
 
 | Tool                                                        | Description                                              |
-|-------------------------------------------------------------|----------------------------------------------------------|
+| ----------------------------------------------------------- | -------------------------------------------------------- |
 | [docker](https://docker.io)                                 | Docker container runtime                                 |
 | [kubectl](https://kubernetes.io/releases/download/#kubectl) | Kubernetes CLI                                           |
 | [helm](https://helm.sh)                                     | Kubernetes package manager                               |
@@ -19,7 +19,6 @@ All the commands in the document should be run from the `k3d` directory.
 | [k9s](https://k9scli.io)                                    | (Optional) Command line view for kubernetes cluster      |
 | [tilt](https://tilt.dev)                                    | (Optional) Local CI loop for kubernetes deployment       |
 | [direnv](https://direnv.net/)                               | (Optional) Automatically loads `kubeconfig` via `.envrc` |
-
 
 ## One-off Test Deployments
 
@@ -57,7 +56,7 @@ tilt up
 
 Press space bar to open the tilt web UI, which is quite informative.
 
-Open the Homepage deployment:
+Finally, open the Homepage deployment:
 
 ```sh
 xdg-open http://homepage.k3d.localhost:8080/

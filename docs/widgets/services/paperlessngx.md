@@ -9,15 +9,15 @@ Allowed fields: `["total", "inbox"]`.
 
 ```yaml
 widget:
-    type: paperlessngx
-    url: http://paperlessngx.host.or.ip:port
-    username: username
-    password: password
+  type: paperlessngx
+  url: http://paperlessngx.host.or.ip:port
+  username: username
+  password: password
 ```
 
 ```yaml
 widget:
-    type: paperlessngx
-    url: http://paperlessngx.host.or.ip:port
-    key: token
+  type: paperlessngx
+  url: http://paperlessngx.host.or.ip:port
+  key: token
 ```

@@ -13,7 +13,7 @@ export default function Uptime({ refresh = 1500 }) {
   });
 
   if (error || data?.error) {
-    return <Error />
+    return <Error />;
   }
 
   if (!data) {
@@ -21,9 +21,9 @@ export default function Uptime({ refresh = 1500 }) {
   }
 
   const mo = Math.floor(data.uptime / (3600 * 24 * 31));
-  const d = Math.floor(data.uptime % (3600 * 24 * 31) / (3600 * 24));
-  const h = Math.floor(data.uptime % (3600 * 24) / 3600);
-  const m = Math.floor(data.uptime % 3600 / 60);
+  const d = Math.floor((data.uptime % (3600 * 24 * 31)) / (3600 * 24));
+  const h = Math.floor((data.uptime % (3600 * 24)) / 3600);
+  const m = Math.floor((data.uptime % 3600) / 60);
 
   let uptime;
   if (mo > 0) uptime = `${mo}${t("resources.months")} ${d}${t("resources.days")}`;
