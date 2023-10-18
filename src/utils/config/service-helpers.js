@@ -3,13 +3,13 @@ import path from "path";
 
 import yaml from "js-yaml";
 import Docker from "dockerode";
-import * as shvl from "shvl";
 import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
+import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
 

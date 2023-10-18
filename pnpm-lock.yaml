@@ -71,9 +71,6 @@ dependencies:
   recharts:
     specifier: ^2.7.2
     version: 2.7.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
-  shvl:
-    specifier: ^3.0.0
-    version: 3.0.0
   swr:
     specifier: ^1.3.0
     version: 1.3.0(react@18.2.0)
@@ -3612,10 +3609,6 @@ packages:
       glob: 7.2.3
       interpret: 1.4.0
       rechoir: 0.6.2
-    dev: false
-
-  /shvl@3.0.0:
-    resolution: {integrity: sha512-5IomAM3ykE/g9K9L6lhODc+TpCuN03rrhlboegeKyyfh66DDdpRD5JN37DYhNHH+RaYjiIDx64K/Ms/xQYOR5w==}
     dev: false
 
   /side-channel@1.0.4:
