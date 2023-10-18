@@ -42,7 +42,7 @@ Please see the [documentation regarding development](https://gethomepage.dev/lat
 
 ## Use a Consistent Coding Style
 
-Please see information in the docs regarding [code formatting with pre-commit hooks](https://gethomepage.dev/latest/more/development.md#code-formatting-with-pre-commit-hooks).
+Please see information in the docs regarding [code formatting with pre-commit hooks](https://gethomepage.dev/latest/more/development/#code-formatting-with-pre-commit-hooks).
 
 ## License
 
