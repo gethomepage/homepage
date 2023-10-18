@@ -45,7 +45,7 @@ export default async function handler(req, res) {
 
     if (pods.length === 0) {
       res.status(404).send({
-        error: "not found"
+        error: `no pods found with namespace=${namespace} and labelSelector=${labelSelector}`,
       });
       return;
     }
