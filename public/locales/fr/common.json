@@ -755,7 +755,7 @@
     },
     "calendar": {
         "inCinemas": "En salle",
-        "physicalRelease": "Release physique",
-        "digitalRelease": "Release digitale"
+        "physicalRelease": "Sortie physique",
+        "digitalRelease": "Sortie numérique"
     }
 }
