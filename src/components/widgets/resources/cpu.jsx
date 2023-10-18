@@ -8,7 +8,7 @@ import Error from "../widget/error";
 export default function Cpu({ expanded, refresh = 1500 }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/resources?type=cpu`, {
+  const { data, error } = useSWR(`api/widgets/resources?type=cpu`, {
     refreshInterval: refresh,
   });
 
