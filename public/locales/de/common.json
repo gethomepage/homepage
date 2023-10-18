@@ -67,7 +67,7 @@
         "tx": "TX",
         "mem": "RAM",
         "cpu": "CPU",
-        "running": "Läuft",
+        "running": "Wird ausgeführt",
         "offline": "Offline",
         "error": "Fehler",
         "unknown": "Unbekannt",
@@ -265,7 +265,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Läuft",
+        "running": "Wird ausgeführt",
         "stopped": "Gestoppt",
         "total": "Gesamt"
     },
@@ -734,7 +734,7 @@
     "openmediavault": {
         "downloading": "Wird heruntergeladen",
         "total": "Gesamt",
-        "running": "Läuft",
+        "running": "Wird ausgeführt",
         "stopped": "Gestoppt",
         "passed": "Bestanden",
         "failed": "Fehlgeschlagen"
