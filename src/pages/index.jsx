@@ -56,10 +56,10 @@ export async function getStaticProps() {
       props: {
         initialSettings: settings,
         fallback: {
-          "/api/services": services,
-          "/api/bookmarks": bookmarks,
-          "/api/widgets": widgets,
-          "/api/hash": false,
+          "api/services": services,
+          "api/bookmarks": bookmarks,
+          "api/widgets": widgets,
+          "api/hash": false,
         },
         ...(await serverSideTranslations(settings.language ?? "en")),
       },
@@ -72,10 +72,10 @@ export async function getStaticProps() {
       props: {
         initialSettings: {},
         fallback: {
-          "/api/services": [],
-          "/api/bookmarks": [],
-          "/api/widgets": [],
-          "/api/hash": false,
+          "api/services": [],
+          "api/bookmarks": [],
+          "api/widgets": [],
+          "api/hash": false,
         },
         ...(await serverSideTranslations("en")),
       },
@@ -86,8 +86,8 @@ export async function getStaticProps() {
 function Index({ initialSettings, fallback }) {
   const windowFocused = useWindowFocus();
   const [stale, setStale] = useState(false);
-  const { data: errorsData } = useSWR("/api/validate");
-  const { data: hashData, mutate: mutateHash } = useSWR("/api/hash");
+  const { data: errorsData } = useSWR("api/validate");
+  const { data: hashData, mutate: mutateHash } = useSWR("api/hash");
 
   useEffect(() => {
     if (windowFocused) {
@@ -108,7 +108,7 @@ function Index({ initialSettings, fallback }) {
           setStale(true);
           localStorage.setItem("hash", hashData.hash);
 
-          fetch("/api/revalidate").then((res) => {
+          fetch("api/revalidate").then((res) => {
             if (res.ok) {
               window.location.reload();
             }
@@ -179,9 +179,9 @@ function Home({ initialSettings }) {
     setSettings(initialSettings);
   }, [initialSettings, setSettings]);
 
-  const { data: services } = useSWR("/api/services");
-  const { data: bookmarks } = useSWR("/api/bookmarks");
-  const { data: widgets } = useSWR("/api/widgets");
+  const { data: services } = useSWR("api/services");
+  const { data: bookmarks } = useSWR("api/bookmarks");
+  const { data: widgets } = useSWR("api/widgets");
 
   const servicesAndBookmarks = [...services.map(sg => sg.services).flat(), ...bookmarks.map(bg => bg.bookmarks).flat()].filter(i => i?.href);
 
@@ -343,17 +343,17 @@ function Home({ initialSettings }) {
           </>
         ) : (
           <>
-            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4" />
-            <link rel="shortcut icon" href="/homepage.ico" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
+            <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4" />
+            <link rel="shortcut icon" href="homepage.ico" />
+            <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=4" />
+            <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=4" />
           </>
         )}
         <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
         <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
       </Head>
 
-      <link rel="preload" href="/api/config/custom.css" as="fetch" crossOrigin="anonymous" />
+      <link rel="preload" href="api/config/custom.css" as="fetch" crossOrigin="anonymous" />
       <style data-name="custom.css">
         <FileContent path="custom.css"
           loadingValue="/* Loading custom CSS... */"
@@ -361,7 +361,7 @@ function Home({ initialSettings }) {
           emptyValue="/* No custom CSS */"
         />
       </style>
-      <link rel="preload" href="/api/config/custom.js" as="fetch" crossOrigin="anonymous" />
+      <link rel="preload" href="api/config/custom.js" as="fetch" crossOrigin="anonymous" />
       <script data-name="custom.js" src="/api/config/custom.js" async />
 
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">

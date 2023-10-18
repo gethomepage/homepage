@@ -23,7 +23,7 @@ export default function Widget({ options }) {
   const { settings } = useContext(SettingsContext);
 
   const { data, error } = useSWR(
-    `/api/widgets/glances?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`, {
+    `api/widgets/glances?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`, {
       refreshInterval: 1500,
     }
   );

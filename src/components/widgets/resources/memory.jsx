@@ -8,7 +8,7 @@ import Error from "../widget/error";
 export default function Memory({ expanded, refresh = 1500 }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/resources?type=memory`, {
+  const { data, error } = useSWR(`api/widgets/resources?type=memory`, {
     refreshInterval: refresh,
   });
 

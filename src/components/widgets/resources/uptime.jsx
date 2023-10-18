@@ -8,7 +8,7 @@ import Error from "../widget/error";
 export default function Uptime({ refresh = 1500 }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/widgets/resources?type=uptime`, {
+  const { data, error } = useSWR(`api/widgets/resources?type=uptime`, {
     refreshInterval: refresh,
   });
 

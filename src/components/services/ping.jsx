@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 export default function Ping({ group, service, style }) {
   const { t } = useTranslation();
-  const { data, error } = useSWR(`/api/ping?${new URLSearchParams({ group, service }).toString()}`, {
+  const { data, error } = useSWR(`api/ping?${new URLSearchParams({ group, service }).toString()}`, {
     refreshInterval: 30000
   });
 
