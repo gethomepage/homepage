@@ -30,10 +30,28 @@ env:
 
 
 jobs:
+  pre-commit:
+    name: Linting Checks
+    runs-on: ubuntu-22.04
+    steps:
+      -
+        name: Checkout repository
+        uses: actions/checkout@v4
+      -
+        name: Install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      -
+        name: Check files
+        uses: pre-commit/action@v3.0.0
+
   build:
     name: Docker Build & Push
     if:  github.repository == 'gethomepage/homepage'
     runs-on: self-hosted
+    needs:
+      - pre-commit
     permissions:
       contents: read
       packages: write
