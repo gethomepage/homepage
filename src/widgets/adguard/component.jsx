@@ -14,7 +14,7 @@ export default function Component({ service }) {
   if (adguardError) {
     return <Container service={service} error={adguardError} />;
   }
-  
+
   if (!adguardData) {
     return (
       <Container service={service}>

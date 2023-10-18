@@ -92,7 +92,7 @@ export async function servicesFromDocker() {
               shvl.set(
                 constructedService,
                 label.replace("homepage.", ""),
-                substituteEnvironmentVars(containerLabels[label])
+                substituteEnvironmentVars(containerLabels[label]),
               );
             }
           });
@@ -105,7 +105,7 @@ export async function servicesFromDocker() {
         // a server failed, but others may succeed
         return { server: serverName, services: [] };
       }
-    })
+    }),
   );
 
   const mappedServiceGroups = [];
@@ -152,13 +152,13 @@ export async function checkCRD(kc, name) {
           "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
           name,
           error.statusCode,
-          error.body.message
+          error.body.message,
         );
       }
-      return false
+      return false;
     });
 
-  return exist
+  return exist;
 }
 
 export async function servicesFromKubernetes() {
@@ -195,7 +195,7 @@ export async function servicesFromKubernetes() {
             "Error getting traefik ingresses from traefik.containo.us: %d %s %s",
             error.statusCode,
             error.body,
-            error.response
+            error.response,
           );
         }
 
@@ -211,18 +211,18 @@ export async function servicesFromKubernetes() {
             "Error getting traefik ingresses from traefik.io: %d %s %s",
             error.statusCode,
             error.body,
-            error.response
+            error.response,
           );
         }
 
         return [];
       });
 
-    const traefikIngressList = [...traefikIngressListContaino?.items ?? [], ...traefikIngressListIo?.items ?? []];
+    const traefikIngressList = [...(traefikIngressListContaino?.items ?? []), ...(traefikIngressListIo?.items ?? [])];
 
     if (traefikIngressList.length > 0) {
       const traefikServices = traefikIngressList.filter(
-        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`]
+        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`],
       );
       ingressList.items.push(...traefikServices);
     }
@@ -233,7 +233,7 @@ export async function servicesFromKubernetes() {
     const services = ingressList.items
       .filter(
         (ingress) =>
-          ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true"
+          ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true",
       )
       .map((ingress) => {
         let constructedService = {
@@ -266,7 +266,7 @@ export async function servicesFromKubernetes() {
             shvl.set(
               constructedService,
               annotation.replace(`${ANNOTATION_BASE}/`, ""),
-              ingress.metadata.annotations[annotation]
+              ingress.metadata.annotations[annotation],
             );
           }
         });

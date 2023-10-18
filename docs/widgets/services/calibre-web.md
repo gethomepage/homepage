@@ -9,8 +9,8 @@ Allowed fields: `["books", "authors", "categories", "series"]`.
 
 ```yaml
 widget:
-    type: calibreweb
-    url: http://your.calibreweb.host:port
-    username: username
-    password: password
+  type: calibreweb
+  url: http://your.calibreweb.host:port
+  username: username
+  password: password
 ```

@@ -9,9 +9,9 @@ Allowed fields: `["queries", "blocked", "blocked_percent", "gravity"]`.
 
 ```yaml
 widget:
-    type: pihole
-    url: http://pi.hole.or.ip
-    key: yourpiholeapikey # optional
+  type: pihole
+  url: http://pi.hole.or.ip
+  key: yourpiholeapikey # optional
 ```
 
 _Added in v0.1.0, udpated in v0.6.18_

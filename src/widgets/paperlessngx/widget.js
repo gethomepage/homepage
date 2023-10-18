@@ -5,11 +5,9 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    "statistics": {
+    statistics: {
       endpoint: "statistics/?format=json",
-      validate: [
-        "documents_total"
-      ]
+      validate: ["documents_total"],
     },
   },
 };

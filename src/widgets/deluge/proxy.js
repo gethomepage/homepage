@@ -8,8 +8,17 @@ const logger = createLogger("delugeProxyHandler");
 
 const dataMethod = "web.update_ui";
 const dataParams = [
-  ["queue", "name", "total_wanted", "state", "progress", "download_payload_rate", "upload_payload_rate", "total_remaining"],
-  {}
+  [
+    "queue",
+    "name",
+    "total_wanted",
+    "state",
+    "progress",
+    "download_payload_rate",
+    "upload_payload_rate",
+    "total_remaining",
+  ],
+  {},
 ];
 const loginMethod = "auth.login";
 
@@ -45,7 +54,7 @@ export default async function delugeProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const api = widgets?.[widget.type]?.api
+  const api = widgets?.[widget.type]?.api;
   const url = new URL(formatApiCall(api, { ...widget }));
 
   let [status, contentType, data] = await sendRpc(url, dataMethod, dataParams);

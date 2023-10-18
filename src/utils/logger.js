@@ -5,7 +5,6 @@ import winston from "winston";
 
 import checkAndCopyConfig, { getSettings, CONF_DIR } from "utils/config/config";
 
-
 let winstonLogger;
 
 function init() {
@@ -48,7 +47,7 @@ function init() {
           combineMessageAndSplat(),
           winston.format.timestamp(),
           winston.format.colorize(),
-          winston.format.printf(messageFormatter)
+          winston.format.printf(messageFormatter),
         ),
         handleExceptions: true,
         handleRejections: true,
@@ -59,7 +58,7 @@ function init() {
           winston.format.errors({ stack: true }),
           combineMessageAndSplat(),
           winston.format.timestamp(),
-          winston.format.printf(messageFormatter)
+          winston.format.printf(messageFormatter),
         ),
         filename: `${logpath}/logs/homepage.log`,
         handleExceptions: true,

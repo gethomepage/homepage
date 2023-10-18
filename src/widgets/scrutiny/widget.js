@@ -7,16 +7,12 @@ const widget = {
   mappings: {
     summary: {
       endpoint: "summary",
-      validate: [
-        "data",
-      ]
+      validate: ["data"],
     },
     settings: {
       endpoint: "settings",
-      validate: [
-        "settings",
-      ]
-    }
+      validate: ["settings"],
+    },
   },
 };
 

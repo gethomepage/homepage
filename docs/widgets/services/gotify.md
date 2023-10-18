@@ -9,7 +9,7 @@ Allowed fields: `["apps", "clients", "messages"]`.
 
 ```yaml
 widget:
-    type: gotify
-    url: http://gotify.host.or.ip
-    key: clientoken
+  type: gotify
+  url: http://gotify.host.or.ip
+  key: clientoken
 ```

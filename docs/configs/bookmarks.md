@@ -13,20 +13,20 @@ By default, the description will use the hostname of the link, but you can overr
 
 ```yaml
 - Developer:
-      - Github:
-            - abbr: GH
-              href: https://github.com/
+    - Github:
+        - abbr: GH
+          href: https://github.com/
 
 - Social:
-      - Reddit:
-            - icon: reddit.png
-              href: https://reddit.com/
-              description: The front page of the internet
+    - Reddit:
+        - icon: reddit.png
+          href: https://reddit.com/
+          description: The front page of the internet
 
 - Entertainment:
-      - YouTube:
-            - abbr: YT
-              href: https://youtube.com/
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/
 ```
 
 <img width="1000" alt="Bookmarks" src="https://user-images.githubusercontent.com/19408/269307009-d7e45885-230f-4e07-b421-9822017ae878.png">

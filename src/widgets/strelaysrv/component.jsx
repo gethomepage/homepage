@@ -27,10 +27,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block
-        label="strelaysrv.numActiveSessions"
-        value={t("common.number", { value: statsData.numActiveSessions })}
-      />
+      <Block label="strelaysrv.numActiveSessions" value={t("common.number", { value: statsData.numActiveSessions })} />
       <Block label="strelaysrv.numConnections" value={t("common.number", { value: statsData.numConnections })} />
       <Block label={t("strelaysrv.dataRelayed")} value={t("common.bytes", { value: statsData.bytesProxied })} />
       <Block

@@ -9,6 +9,6 @@ Allowed fields: `["configured", "errored"]`.
 
 ```yaml
 widget:
-    type: jackett
-    url: http://jackett.host.or.ip
+  type: jackett
+  url: http://jackett.host.or.ip
 ```

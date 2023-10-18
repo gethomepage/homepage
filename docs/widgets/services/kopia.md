@@ -9,10 +9,10 @@ You may optionally pass values for `snapshotHost` and / or `snapshotPath` to sel
 
 ```yaml
 widget:
-    type: kopia
-    url: http://kopia.host.or.ip:port
-    username: username
-    password: password
-    snapshotHost: hostname # optional
-    snapshotPath: path # optional
+  type: kopia
+  url: http://kopia.host.or.ip:port
+  username: username
+  password: password
+  snapshotHost: hostname # optional
+  snapshotPath: path # optional
 ```

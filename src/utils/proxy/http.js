@@ -25,21 +25,21 @@ function handleRequest(requestor, url, params) {
     addCookieHandler(url, params);
     if (params?.body) {
       params.headers = params.headers ?? {};
-      params.headers['content-length'] = Buffer.byteLength(params.body);
+      params.headers["content-length"] = Buffer.byteLength(params.body);
     }
 
     const request = requestor.request(url, params, (response) => {
       const data = [];
-      const contentEncoding = response.headers['content-encoding']?.trim().toLowerCase();
+      const contentEncoding = response.headers["content-encoding"]?.trim().toLowerCase();
 
       let responseContent = response;
-      if (contentEncoding === 'gzip' || contentEncoding === 'deflate') {
+      if (contentEncoding === "gzip" || contentEncoding === "deflate") {
         // https://github.com/request/request/blob/3c0cddc7c8eb60b470e9519da85896ed7ee0081e/request.js#L1018-L1025
         // Be more lenient with decoding compressed responses, in case of invalid gzip responses that are still accepted
         // by common browsers.
         responseContent = createUnzip({
           flush: zlibConstants.Z_SYNC_FLUSH,
-          finishFlush: zlibConstants.Z_SYNC_FLUSH
+          finishFlush: zlibConstants.Z_SYNC_FLUSH,
         });
 
         // zlib errors
@@ -100,14 +100,13 @@ export async function httpProxy(url, params = {}) {
   try {
     const [status, contentType, data, responseHeaders] = await request;
     return [status, contentType, data, responseHeaders];
-  }
-  catch (err) {
+  } catch (err) {
     logger.error(
       "Error calling %s//%s%s%s...",
       constructedUrl.protocol,
       constructedUrl.hostname,
-      constructedUrl.port ? `:${constructedUrl.port}` : '',
-      constructedUrl.pathname
+      constructedUrl.port ? `:${constructedUrl.port}` : "",
+      constructedUrl.pathname,
     );
     logger.error(err);
     return [500, "application/json", { error: { message: err?.message ?? "Unknown error", url, rawError: err } }, null];

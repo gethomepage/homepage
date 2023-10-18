@@ -7,7 +7,7 @@ const widget = {
   mappings: {
     state: {
       endpoint: "state",
-    }
+    },
   },
 };
 

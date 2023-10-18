@@ -44,7 +44,8 @@ export default async function handler(req, res) {
 
     // Try with a service deployed in Docker Swarm, if enabled
     if (dockerArgs.swarm) {
-      const tasks = await docker.listTasks({
+      const tasks = await docker
+        .listTasks({
           filters: {
             service: [containerName],
             // A service can have several offline containers, so we only look for an active one.
@@ -55,10 +56,10 @@ export default async function handler(req, res) {
 
       // TODO: Show the result for all replicas/containers?
       // We can only get stats for 'local' containers so try to find one
-      const localContainerIDs = containers.map(c => c.Id);
-      const task = tasks.find(t => localContainerIDs.includes(t.Status?.ContainerStatus?.ContainerID)) ?? tasks.at(0);
+      const localContainerIDs = containers.map((c) => c.Id);
+      const task = tasks.find((t) => localContainerIDs.includes(t.Status?.ContainerStatus?.ContainerID)) ?? tasks.at(0);
       const taskContainerId = task?.Status?.ContainerStatus?.ContainerID;
-      
+
       if (taskContainerId) {
         try {
           const container = docker.getContainer(taskContainerId);
@@ -69,8 +70,8 @@ export default async function handler(req, res) {
           });
         } catch (e) {
           return res.status(200).json({
-            error: "Unable to retrieve stats"
-          })
+            error: "Unable to retrieve stats",
+          });
         }
       }
     }
@@ -81,7 +82,7 @@ export default async function handler(req, res) {
   } catch (e) {
     logger.error(e);
     return res.status(500).send({
-      error: {message: e?.message ?? "Unknown error"},
+      error: { message: e?.message ?? "Unknown error" },
     });
   }
 }

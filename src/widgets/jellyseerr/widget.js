@@ -7,11 +7,7 @@ const widget = {
   mappings: {
     "request/count": {
       endpoint: "request/count",
-      validate: [
-        "pending",
-        "approved",
-        "available"
-      ]
+      validate: ["pending", "approved", "available"],
     },
   },
 };

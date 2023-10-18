@@ -9,7 +9,7 @@ Allowed fields: no configurable fields for this widget.
 
 ```yaml
 widget:
-    type: tautulli
-    url: http://tautulli.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: tautulli
+  url: http://tautulli.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

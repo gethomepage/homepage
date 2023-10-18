@@ -9,6 +9,6 @@ Allowed fields: `["total", "connected", "new_devices", "down_alerts"]`.
 
 ```yaml
 widget:
-    type: pialert
-    url: http://ip:port
+  type: pialert
+  url: http://ip:port
 ```

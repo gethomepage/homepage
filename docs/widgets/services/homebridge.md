@@ -9,8 +9,8 @@ Allowed fields: `["updates", "child_bridges"]`.
 
 ```yaml
 widget:
-    type: homebridge
-    url: http://homebridge.host.or.ip:port
-    username: username
-    password: password
+  type: homebridge
+  url: http://homebridge.host.or.ip:port
+  username: username
+  password: password
 ```

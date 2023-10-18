@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
 import QueueEntry from "../../components/widgets/queue/queueEntry";
 
@@ -8,7 +8,7 @@ import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getProgress(sizeLeft, size) {
-  return sizeLeft === 0 ? 100 : (1 - sizeLeft / size) * 100
+  return sizeLeft === 0 ? 100 : (1 - sizeLeft / size) * 100;
 }
 
 export default function Component({ service }) {
@@ -65,8 +65,7 @@ export default function Component({ service }) {
             activity={formatDownloadState(queueEntry.trackedDownloadState)}
             key={`${queueEntry.movieId}-${queueEntry.sizeLeft}`}
           />
-        ))
-      }
+        ))}
     </>
   );
 }

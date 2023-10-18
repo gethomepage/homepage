@@ -5,7 +5,7 @@ const widget = {
   proxyHandler: xteveProxyHandler,
 
   mappings: {
-    "api": {
+    api: {
       endpoint: "api/",
     },
   },

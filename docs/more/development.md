@@ -35,8 +35,8 @@ pnpm lint
 
 To ensure cohesiveness of various widgets, the following should be used as a guide for developing new widgets:
 
--   Please only submit widgets that have been requested and have at least 5 'up-votes'
--   Widgets should be only one row of blocks
--   Widgets should be no more than 4 blocks wide
--   Minimize the number of API calls
--   Avoid the use of custom proxy unless absolutely necessary
+- Please only submit widgets that have been requested and have at least 5 'up-votes'
+- Widgets should be only one row of blocks
+- Widgets should be no more than 4 blocks wide
+- Minimize the number of API calls
+- Avoid the use of custom proxy unless absolutely necessary

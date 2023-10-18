@@ -9,8 +9,8 @@ Allowed fields: `["leech", "download", "seed", "upload"]`.
 
 ```yaml
 widget:
-    type: downloadstation
-    url: http://downloadstation.host.or.ip:port
-    username: username
-    password: password
+  type: downloadstation
+  url: http://downloadstation.host.or.ip:port
+  username: username
+  password: password
 ```

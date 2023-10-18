@@ -16,11 +16,11 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart } = widget;
-  const [, gpuName] = widget.metric.split(':');
+  const [, gpuName] = widget.metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(widget, 'gpu', {
+  const { data, error } = useWidgetAPI(widget, "gpu", {
     refreshInterval: 1000,
   });
 
@@ -32,68 +32,80 @@ export default function Component({ service }) {
       if (gpuData) {
         setDataPoints((prevDataPoints) => {
           const newDataPoints = [...prevDataPoints, { a: gpuData.mem, b: gpuData.proc }];
-            if (newDataPoints.length > pointsLimit) {
-                newDataPoints.shift();
-            }
-            return newDataPoints;
+          if (newDataPoints.length > pointsLimit) {
+            newDataPoints.shift();
+          }
+          return newDataPoints;
         });
       }
     }
   }, [data, gpuName]);
 
   if (error) {
-    return <Container chart={chart}><Error error={error} /></Container>;
+    return (
+      <Container chart={chart}>
+        <Error error={error} />
+      </Container>
+    );
   }
 
   if (!data) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   // eslint-disable-next-line eqeqeq
   const gpuData = data.find((item) => item[item.key] == gpuName);
 
   if (!gpuData) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   return (
     <Container chart={chart}>
-      { chart && (
-          <ChartDual
+      {chart && (
+        <ChartDual
           dataPoints={dataPoints}
           label={[t("glances.mem"), t("glances.gpu")]}
-          stack={['mem', 'proc']}
-          formatter={(value) => t("common.percent", {
-            value,
-            maximumFractionDigits: 1,
-          })}
+          stack={["mem", "proc"]}
+          formatter={(value) =>
+            t("common.percent", {
+              value,
+              maximumFractionDigits: 1,
+            })
+          }
         />
       )}
 
-      { chart && (
+      {chart && (
         <Block position="bottom-3 left-3">
-          {gpuData && gpuData.name && (
-              <div className="text-xs opacity-50">
-                {gpuData.name}
-              </div>
-          )}
+          {gpuData && gpuData.name && <div className="text-xs opacity-50">{gpuData.name}</div>}
 
           <div className="text-xs opacity-50">
             {t("common.number", {
               value: gpuData.mem,
               maximumFractionDigits: 1,
-            })}% {t("resources.mem")}
+            })}
+            % {t("resources.mem")}
           </div>
         </Block>
       )}
 
-      { !chart && (
+      {!chart && (
         <Block position="bottom-3 left-3">
           <div className="text-xs opacity-50">
             {t("common.number", {
               value: gpuData.temperature,
               maximumFractionDigits: 1,
-            })}&deg; C
+            })}
+            &deg; C
           </div>
         </Block>
       )}
@@ -105,36 +117,33 @@ export default function Component({ service }) {
               {t("common.number", {
                 value: gpuData.proc,
                 maximumFractionDigits: 1,
-              })}% {t("glances.gpu")}
+              })}
+              % {t("glances.gpu")}
             </div>
           )}
-          { !chart && (
-            <>&bull;</>
-          )}
+          {!chart && <>&bull;</>}
           <div className="inline-block ml-1">
             {t("common.number", {
               value: gpuData.proc,
               maximumFractionDigits: 1,
-            })}% {t("glances.gpu")}
+            })}
+            % {t("glances.gpu")}
           </div>
         </div>
       </Block>
 
       <Block position="top-3 right-3">
-        { chart && (
+        {chart && (
           <div className="text-xs opacity-50">
             {t("common.number", {
               value: gpuData.temperature,
               maximumFractionDigits: 1,
-            })}&deg; C
+            })}
+            &deg; C
           </div>
         )}
 
-        {gpuData && gpuData.name && !chart && (
-          <div className="text-xs opacity-50">
-            {gpuData.name}
-          </div>
-        )}
+        {gpuData && gpuData.name && !chart && <div className="text-xs opacity-50">{gpuData.name}</div>}
       </Block>
     </Container>
   );

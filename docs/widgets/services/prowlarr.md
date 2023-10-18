@@ -9,7 +9,7 @@ Allowed fields: `["numberOfGrabs", "numberOfQueries", "numberOfFailGrabs", "numb
 
 ```yaml
 widget:
-    type: prowlarr
-    url: http://prowlarr.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: prowlarr
+  url: http://prowlarr.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

@@ -17,10 +17,9 @@ export default function Component({ service }) {
   const { widget } = service;
   const { chart } = widget;
 
-
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, 'mem', {
+  const { data, error } = useWidgetAPI(service.widget, "mem", {
     refreshInterval: chart ? 1000 : 5000,
   });
 
@@ -28,34 +27,44 @@ export default function Component({ service }) {
     if (data) {
       setDataPoints((prevDataPoints) => {
         const newDataPoints = [...prevDataPoints, { a: data.used, b: data.free }];
-          if (newDataPoints.length > pointsLimit) {
-              newDataPoints.shift();
-          }
-          return newDataPoints;
+        if (newDataPoints.length > pointsLimit) {
+          newDataPoints.shift();
+        }
+        return newDataPoints;
       });
     }
   }, [data]);
 
   if (error) {
-    return <Container chart={chart}><Error error={error} /></Container>;
+    return (
+      <Container chart={chart}>
+        <Error error={error} />
+      </Container>
+    );
   }
 
   if (!data) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   return (
-    <Container chart={chart} >
+    <Container chart={chart}>
       {chart && (
         <ChartDual
           dataPoints={dataPoints}
           max={data.total}
           label={[t("resources.used"), t("resources.free")]}
-          formatter={(value) => t("common.bytes", {
-            value,
-            maximumFractionDigits: 0,
-            binary: true,
-          })}
+          formatter={(value) =>
+            t("common.bytes", {
+              value,
+              maximumFractionDigits: 0,
+              binary: true,
+            })
+          }
         />
       )}
 
@@ -67,7 +76,8 @@ export default function Component({ service }) {
                 value: data.free,
                 maximumFractionDigits: 1,
                 binary: true,
-              })} {t("resources.free")}
+              })}{" "}
+              {t("resources.free")}
             </div>
           )}
 
@@ -77,13 +87,14 @@ export default function Component({ service }) {
                 value: data.total,
                 maximumFractionDigits: 1,
                 binary: true,
-              })} {t("resources.total")}
+              })}{" "}
+              {t("resources.total")}
             </div>
           )}
         </Block>
       )}
 
-      { !chart && (
+      {!chart && (
         <Block position="top-3 right-3">
           {data.free && (
             <div className="text-xs opacity-50">
@@ -91,7 +102,8 @@ export default function Component({ service }) {
                 value: data.free,
                 maximumFractionDigits: 1,
                 binary: true,
-              })} {t("resources.free")}
+              })}{" "}
+              {t("resources.free")}
             </div>
           )}
         </Block>
@@ -103,7 +115,8 @@ export default function Component({ service }) {
             value: data.used,
             maximumFractionDigits: 1,
             binary: true,
-          })} {t("resources.used")}
+          })}{" "}
+          {t("resources.used")}
         </div>
       </Block>
     </Container>

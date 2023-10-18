@@ -9,7 +9,7 @@ Allowed fields: `["leech", "download", "seed", "upload"]`.
 
 ```yaml
 widget:
-    type: deluge
-    url: http://deluge.host.or.ip
-    password: password # webui password
+  type: deluge
+  url: http://deluge.host.or.ip
+  password: password # webui password
 ```

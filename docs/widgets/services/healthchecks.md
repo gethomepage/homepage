@@ -13,8 +13,8 @@ Allowed fields: `["status", "last_ping"]`.
 
 ```yaml
 widget:
-    type: healthchecks
-    url: http://healthchecks.host.or.ip:port
-    key: <YOUR_API_KEY>
-    uuid: <YOUR_CHECK_UUID>
+  type: healthchecks
+  url: http://healthchecks.host.or.ip:port
+  key: <YOUR_API_KEY>
+  uuid: <YOUR_CHECK_UUID>
 ```

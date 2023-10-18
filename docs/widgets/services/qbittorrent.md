@@ -9,8 +9,8 @@ Allowed fields: `["leech", "download", "seed", "upload"]`.
 
 ```yaml
 widget:
-    type: qbittorrent
-    url: http://qbittorrent.host.or.ip
-    username: username
-    password: password
+  type: qbittorrent
+  url: http://qbittorrent.host.or.ip
+  username: username
+  password: password
 ```

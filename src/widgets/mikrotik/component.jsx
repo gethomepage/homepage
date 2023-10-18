@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   if (statsError || leasesError) {
     const finalError = statsError ?? leasesError;
-    return <Container service={service} error={ finalError } />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!statsData || !leasesData) {
@@ -28,14 +28,14 @@ export default function Component({ service }) {
     );
   }
 
-  const memoryUsed = 100 - (statsData['free-memory'] / statsData['total-memory'])*100
+  const memoryUsed = 100 - (statsData["free-memory"] / statsData["total-memory"]) * 100;
 
-  const numberOfLeases = leasesData.length
+  const numberOfLeases = leasesData.length;
 
   return (
     <Container service={service}>
-      <Block label="mikrotik.uptime" value={ statsData.uptime } />
-      <Block label="mikrotik.cpuLoad" value={t("common.percent", { value: statsData['cpu-load'] })} />
+      <Block label="mikrotik.uptime" value={statsData.uptime} />
+      <Block label="mikrotik.cpuLoad" value={t("common.percent", { value: statsData["cpu-load"] })} />
       <Block label="mikrotik.memoryUsed" value={t("common.percent", { value: memoryUsed })} />
       <Block label="mikrotik.numberOfLeases" value={t("common.number", { value: numberOfLeases })} />
     </Container>

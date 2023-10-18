@@ -5,12 +5,9 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    "cfd_tunnel": {
+    cfd_tunnel: {
       endpoint: "cfd_tunnel",
-      validate: [
-        "success",
-        "result"
-      ]
+      validate: ["success", "result"],
     },
   },
 };

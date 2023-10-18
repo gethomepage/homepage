@@ -5,10 +5,10 @@ const widget = {
   proxyHandler: pyloadProxyHandler,
 
   mappings: {
-    "status": {
+    status: {
       endpoint: "statusServer",
-    }
-  }
-}
+    },
+  },
+};
 
 export default widget;

@@ -9,7 +9,7 @@ Allowed fields: `["missingEpisodes", "missingMovies"]`.
 
 ```yaml
 widget:
-    type: bazarr
-    url: http://bazarr.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: bazarr
+  url: http://bazarr.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

@@ -9,9 +9,9 @@ As of v0.6.11 the widget supports fields `["movies", "series", "episodes", "song
 
 ```yaml
 widget:
-    type: jellyfin
-    url: http://jellyfin.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
-    enableBlocks: true # optional, defaults to false
-    enableNowPlaying: true # optional, defaults to true
+  type: jellyfin
+  url: http://jellyfin.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
+  enableBlocks: true # optional, defaults to false
+  enableNowPlaying: true # optional, defaults to true
 ```

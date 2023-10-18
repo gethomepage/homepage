@@ -12,12 +12,12 @@ const logger = createLogger(proxyName);
 
 async function login(widget, service) {
   const endpoint = "Account/login";
-  const api = widgets?.[widget.type]?.api
+  const api = widgets?.[widget.type]?.api;
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
   const loginBody = { username: widget.username, password: widget.password };
-  const headers = { "Content-Type": "application/json", "accept": "text/plain" };
+  const headers = { "Content-Type": "application/json", accept: "text/plain" };
 
-  const [, , data,] = await httpProxy(loginUrl, {
+  const [, , data] = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify(loginBody),
     headers,
@@ -38,8 +38,8 @@ async function apiCall(widget, endpoint, service) {
   const key = `${sessionTokenCacheKey}.${service}`;
   const headers = {
     "content-type": "application/json",
-    "Authorization": `Bearer ${cache.get(key)}`,
-  }
+    Authorization: `Bearer ${cache.get(key)}`,
+  };
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
   const method = "GET";
@@ -91,6 +91,6 @@ export default async function KavitaProxyHandler(req, res) {
 
   return res.status(200).send({
     seriesCount: statsData?.seriesCount,
-    totalFiles: statsData?.totalFiles
+    totalFiles: statsData?.totalFiles,
   });
 }

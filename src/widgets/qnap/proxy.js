@@ -17,11 +17,11 @@ async function login(widget, service) {
   const loginUrl = new URL(formatApiCall(endpoint, widget));
   const headers = { "Content-Type": "application/x-www-form-urlencoded" };
 
-  const [, , data,] = await httpProxy(loginUrl, {
+  const [, , data] = await httpProxy(loginUrl, {
     method: "POST",
     body: new URLSearchParams({
       user: widget.username,
-      pwd: Buffer.from(`${widget.password}`).toString("base64")
+      pwd: Buffer.from(`${widget.password}`).toString("base64"),
     }).toString(),
     headers,
   });
@@ -59,7 +59,7 @@ async function apiCall(widget, endpoint, service) {
 
   let dataDecoded = JSON.parse(xml2json(data.toString(), { compact: true }).toString());
 
-  if (dataDecoded.QDocRoot.authPassed._cdata === '0') {
+  if (dataDecoded.QDocRoot.authPassed._cdata === "0") {
     logger.error("QNAP API rejected the request, attempting to obtain new session token");
     key = await login(widget, service);
     apiUrl = new URL(formatApiCall(`${endpoint}&sid=${key}`, widget));
@@ -69,7 +69,7 @@ async function apiCall(widget, endpoint, service) {
       logger.error("Error getting data from QNAP: %s status %d. Data: %s", apiUrl, status, data);
       return { status, contentType, data: null, responseHeaders };
     }
-    
+
     dataDecoded = JSON.parse(xml2json(data.toString(), { compact: true }).toString());
   }
 
@@ -94,11 +94,19 @@ export default async function qnapProxyHandler(req, res) {
     await login(widget, service);
   }
 
-  const { data: systemStatsData } = await apiCall(widget, "{url}/cgi-bin/management/manaRequest.cgi?subfunc=sysinfo&hd=no&multicpu=1", service);
-  const { data: volumeStatsData } = await apiCall(widget, "{url}/cgi-bin/management/chartReq.cgi?chart_func=disk_usage&disk_select=all&include=all", service);
+  const { data: systemStatsData } = await apiCall(
+    widget,
+    "{url}/cgi-bin/management/manaRequest.cgi?subfunc=sysinfo&hd=no&multicpu=1",
+    service,
+  );
+  const { data: volumeStatsData } = await apiCall(
+    widget,
+    "{url}/cgi-bin/management/chartReq.cgi?chart_func=disk_usage&disk_select=all&include=all",
+    service,
+  );
 
   return res.status(200).send({
     system: systemStatsData.QDocRoot.func.ownContent.root,
-    volume: volumeStatsData.QDocRoot
+    volume: volumeStatsData.QDocRoot,
   });
 }

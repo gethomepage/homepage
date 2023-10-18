@@ -12,7 +12,7 @@ const logger = createLogger(proxyName);
 
 async function login(widget, service) {
   const endpoint = "auth/login";
-  const api = widgets?.[widget.type]?.api
+  const api = widgets?.[widget.type]?.api;
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
   const loginBody = { username: widget.username, password: widget.password };
   const headers = { "Content-Type": "application/json" };
@@ -25,8 +25,8 @@ async function login(widget, service) {
 
   try {
     const { access_token: accessToken, expires_in: expiresIn } = JSON.parse(data.toString());
-  
-    cache.put(`${sessionTokenCacheKey}.${service}`, accessToken, (expiresIn * 1000) - 5 * 60 * 1000); // expiresIn (s) - 5m
+
+    cache.put(`${sessionTokenCacheKey}.${service}`, accessToken, expiresIn * 1000 - 5 * 60 * 1000); // expiresIn (s) - 5m
     return { accessToken };
   } catch (e) {
     logger.error("Unable to login to Homebridge API: %s", e);
@@ -39,8 +39,8 @@ async function apiCall(widget, endpoint, service) {
   const key = `${sessionTokenCacheKey}.${service}`;
   const headers = {
     "content-type": "application/json",
-    "Authorization": `Bearer ${cache.get(key)}`,
-  }
+    Authorization: `Bearer ${cache.get(key)}`,
+  };
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
   const method = "GET";
@@ -95,14 +95,14 @@ export default async function homebridgeProxyHandler(req, res) {
   const { data: pluginsData } = await apiCall(widget, "plugins", service);
 
   return res.status(200).send({
-      status: statusData?.status,
-      updateAvailable: versionData?.updateAvailable,
-      plugins: {
-        updatesAvailable: pluginsData?.filter(p => p.updateAvailable).length,
-      },
-      childBridges: {
-        running: childBridgeData?.filter(cb => cb.status === "ok").length,
-        total: childBridgeData?.length
-      }
+    status: statusData?.status,
+    updateAvailable: versionData?.updateAvailable,
+    plugins: {
+      updatesAvailable: pluginsData?.filter((p) => p.updateAvailable).length,
+    },
+    childBridges: {
+      running: childBridgeData?.filter((cb) => cb.status === "ok").length,
+      total: childBridgeData?.length,
+    },
   });
 }

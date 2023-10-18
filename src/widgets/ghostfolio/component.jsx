@@ -5,7 +5,10 @@ import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getPerformancePercent(t, performanceRange) {
-  return `${(performanceRange.performance.currentGrossPerformancePercent > 0 ? "+" : "")}${t("common.percent", { value: performanceRange.performance.currentGrossPerformancePercent * 100, maximumFractionDigits: 2 })}`
+  return `${performanceRange.performance.currentGrossPerformancePercent > 0 ? "+" : ""}${t("common.percent", {
+    value: performanceRange.performance.currentGrossPerformancePercent * 100,
+    maximumFractionDigits: 2,
+  })}`;
 }
 
 export default function Component({ service }) {
@@ -17,7 +20,7 @@ export default function Component({ service }) {
   const { data: performanceMax, error: ghostfolioErrorMax } = useWidgetAPI(widget, "max");
 
   if (ghostfolioErrorToday || ghostfolioErrorYear || ghostfolioErrorMax) {
-    const finalError = ghostfolioErrorToday ?? ghostfolioErrorYear ?? ghostfolioErrorMax
+    const finalError = ghostfolioErrorToday ?? ghostfolioErrorYear ?? ghostfolioErrorMax;
     return <Container service={service} error={finalError} />;
   }
 

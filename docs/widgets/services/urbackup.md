@@ -15,9 +15,9 @@ Allowed fields: `["ok", "errored", "noRecent", "totalUsed"]`. _Note that `totalU
 
 ```yaml
 widget:
-    type: urbackup
-    username: urbackupUsername
-    password: urbackupPassword
-    url: http://urbackupUrl:55414
-    maxDays: 5 # optional
+  type: urbackup
+  username: urbackupUsername
+  password: urbackupPassword
+  url: http://urbackupUrl:55414
+  maxDays: 5 # optional
 ```

@@ -6,7 +6,7 @@ const widget = {
 
   mappings: {
     containers: {
-      endpoint: "api/containers"
+      endpoint: "api/containers",
     },
   },
 };

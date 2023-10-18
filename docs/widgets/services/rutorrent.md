@@ -9,8 +9,8 @@ Allowed fields: `["active", "upload", "download"]`.
 
 ```yaml
 widget:
-    type: rutorrent
-    url: http://rutorrent.host.or.ip
-    username: username # optional, false if not used
-    password: password # optional, false if not used
+  type: rutorrent
+  url: http://rutorrent.host.or.ip
+  username: username # optional, false if not used
+  password: password # optional, false if not used
 ```

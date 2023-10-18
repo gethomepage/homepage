@@ -7,6 +7,6 @@ Allowed fields: `["passed", "failed", "unknown"]`.
 
 ```yaml
 widget:
-    type: scrutiny
-    url: http://scrutiny.host.or.ip
+  type: scrutiny
+  url: http://scrutiny.host.or.ip
 ```

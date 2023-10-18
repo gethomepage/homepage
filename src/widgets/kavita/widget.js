@@ -1,13 +1,13 @@
 import kavitaProxyHandler from "./proxy";
 
 const widget = {
-api: "{url}/api/{endpoint}",
+  api: "{url}/api/{endpoint}",
   proxyHandler: kavitaProxyHandler,
   mappings: {
     info: {
-      endpoint: "/"
-    }
-  }
+      endpoint: "/",
+    },
+  },
 };
 
 export default widget;

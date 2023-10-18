@@ -7,7 +7,7 @@ Allowed fields: `["wanted", "queued", "series"]`.
 
 ```yaml
 widget:
-    type: medusa
-    url: http://medusa.host.or.ip:port
-    key: medusaapikeyapikeyapikeyapikeyapikey
+  type: medusa
+  url: http://medusa.host.or.ip:port
+  key: medusaapikeyapikeyapikeyapikeyapikey
 ```

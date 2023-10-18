@@ -25,24 +25,24 @@ export default async function xteveProxyHandler(req, res) {
 
   if (widget.username && widget.password) {
     // eslint-disable-next-line no-unused-vars
-     const [status, contentType, data] = await httpProxy(url, {
+    const [status, contentType, data] = await httpProxy(url, {
       method,
       body: JSON.stringify({
         cmd: "login",
         username: widget.username,
         password: widget.password,
-      })
+      }),
     });
 
     if (status !== 200) {
       logger.debug("Error logging into xteve", status, url);
-      return res.status(status).json({error: {message: `HTTP Error ${status} logging into xteve`, url, data}});
+      return res.status(status).json({ error: { message: `HTTP Error ${status} logging into xteve`, url, data } });
     }
 
     const json = JSON.parse(data.toString());
 
     if (json?.status !== true) {
-      return res.status(401).json({error: {message: "Authentication failed", url, data}});
+      return res.status(401).json({ error: { message: "Authentication failed", url, data } });
     }
 
     payload.token = json.token;
@@ -50,12 +50,12 @@ export default async function xteveProxyHandler(req, res) {
 
   const [status, contentType, data] = await httpProxy(url, {
     method,
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
   });
 
   if (status !== 200) {
     logger.debug("Error %d calling xteve endpoint %s", status, url);
-    return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
+    return res.status(status).json({ error: { message: `HTTP Error ${status}`, url, data } });
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);

@@ -9,7 +9,7 @@ export default function Component({ service }) {
   const { data: serverData, error: serverError } = useWidgetAPI(widget, "status");
   const { t } = useTranslation();
 
-  if(serverError){
+  if (serverError) {
     return <Container service={service} error={serverError} />;
   }
 
@@ -26,26 +26,32 @@ export default function Component({ service }) {
   if (!serverData) {
     return (
       <Container service={service}>
-      <Block label="gamedig.status"/>
-      <Block label="gamedig.name"/>
-      <Block label="gamedig.map"/>
-      <Block label="gamedig.currentPlayers" />
-      <Block label="gamedig.players" />
-      <Block label="gamedig.maxPlayers" />
-      <Block label="gamedig.bots" />
-      <Block label="gamedig.ping" />
+        <Block label="gamedig.status" />
+        <Block label="gamedig.name" />
+        <Block label="gamedig.map" />
+        <Block label="gamedig.currentPlayers" />
+        <Block label="gamedig.players" />
+        <Block label="gamedig.maxPlayers" />
+        <Block label="gamedig.bots" />
+        <Block label="gamedig.ping" />
       </Container>
     );
   }
 
-  const status = serverData.online ? <span className="text-green-500">{t("gamedig.online")}</span> : <span className="text-red-500">{t("gamedig.offline")}</span>;
+  const status = serverData.online ? (
+    <span className="text-green-500">{t("gamedig.online")}</span>
+  ) : (
+    <span className="text-red-500">{t("gamedig.offline")}</span>
+  );
   const name = serverData.online ? serverData.name : "-";
   const map = serverData.online ? serverData.map : "-";
   const currentPlayers = serverData.online ? `${serverData.players} / ${serverData.maxplayers}` : "-";
   const players = serverData.online ? `${serverData.players}` : "-";
   const maxPlayers = serverData.online ? `${serverData.maxplayers}` : "-";
   const bots = serverData.online ? `${serverData.bots}` : "-";
-  const ping = serverData.online ? `${t("common.ms", { value: serverData.ping, style: "unit", unit: "millisecond" })}` : "-";
+  const ping = serverData.online
+    ? `${t("common.ms", { value: serverData.ping, style: "unit", unit: "millisecond" })}`
+    : "-";
 
   return (
     <Container service={service}>

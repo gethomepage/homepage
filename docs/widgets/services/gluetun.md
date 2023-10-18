@@ -9,6 +9,6 @@ Allowed fields: `["public_ip", "region", "country"]`.
 
 ```yaml
 widget:
-    type: gluetun
-    url: http://gluetun.host.or.ip
+  type: gluetun
+  url: http://gluetun.host.or.ip
 ```

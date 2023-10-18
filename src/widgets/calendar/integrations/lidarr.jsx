@@ -7,9 +7,11 @@ import Error from "../../../components/services/widget/error";
 
 export default function Integration({ config, params }) {
   const { setEvents } = useContext(EventContext);
-  const { data: lidarrData, error: lidarrError } = useWidgetAPI(config, "calendar",
-    { ...params, includeArtist: 'false', ...config?.params ?? {} }
-  );
+  const { data: lidarrData, error: lidarrError } = useWidgetAPI(config, "calendar", {
+    ...params,
+    includeArtist: "false",
+    ...(config?.params ?? {}),
+  });
 
   useEffect(() => {
     if (!lidarrData || lidarrError) {
@@ -18,19 +20,19 @@ export default function Integration({ config, params }) {
 
     const eventsToAdd = {};
 
-    lidarrData?.forEach(event => {
+    lidarrData?.forEach((event) => {
       const title = `${event.artist.artistName} - ${event.title}`;
 
       eventsToAdd[title] = {
         title,
         date: DateTime.fromISO(event.releaseDate),
-        color: config?.color ?? 'green'
+        color: config?.color ?? "green",
       };
-    })
+    });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
   }, [lidarrData, lidarrError, config, setEvents]);
 
   const error = lidarrError ?? lidarrData?.error;
-  return error && <Error error={{ message: `${config.type}: ${error.message ?? error}`}} />
+  return error && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
 }

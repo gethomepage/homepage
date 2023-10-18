@@ -7,6 +7,6 @@ Allowed fields: `["active_workers", "total_workers", "records_total"]`.
 
 ```yaml
 widget:
-    type: unmanic
-    url: http://unmanic.host.or.ip:port
+  type: unmanic
+  url: http://unmanic.host.or.ip:port
 ```

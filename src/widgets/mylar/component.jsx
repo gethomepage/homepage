@@ -32,7 +32,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="mylar.series" value={t("common.number", { value: seriesData.data.length })} />  
+      <Block label="mylar.series" value={t("common.number", { value: seriesData.data.length })} />
       <Block label="mylar.issues" value={t("common.number", { value: totalIssues })} />
       <Block label="mylar.wanted" value={t("common.number", { value: wantedData.issues.length })} />
     </Container>

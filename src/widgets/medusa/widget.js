@@ -7,17 +7,13 @@ const widget = {
   mappings: {
     stats: {
       endpoint: "?cmd=shows.stats",
-      validate: [
-        "data"
-      ]
+      validate: ["data"],
     },
     future: {
       endpoint: "?cmd=future",
-      validate: [
-        "data"
-      ]
-    }
-  }
+      validate: ["data"],
+    },
+  },
 };
 
 export default widget;

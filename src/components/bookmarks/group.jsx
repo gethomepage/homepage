@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import classNames from "classnames";
-import { Disclosure, Transition } from '@headlessui/react';
+import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 import ErrorBoundary from "components/errorboundry";
@@ -15,7 +15,7 @@ export default function BookmarksGroup({ bookmarks, layout, disableCollapse }) {
       className={classNames(
         "bookmark-group",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/4 lg:basis-1/5 xl:basis-1/6",
-        layout?.header === false ? "flex-1 px-1 -my-1" : "flex-1 p-1"
+        layout?.header === false ? "flex-1 px-1 -my-1" : "flex-1 p-1",
       )}
     >
       <Disclosure defaultOpen>
@@ -28,12 +28,14 @@ export default function BookmarksGroup({ bookmarks, layout, disableCollapse }) {
                     <ResolvedIcon icon={layout.icon} />
                   </div>
                 )}
-                <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium bookmark-group-name">{bookmarks.name}</h2>
+                <h2 className="text-theme-800 dark:text-theme-300 text-xl font-medium bookmark-group-name">
+                  {bookmarks.name}
+                </h2>
                 <MdKeyboardArrowDown
                   className={classNames(
                     disableCollapse ? "hidden" : "",
                     "transition-all opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl",
-                    open ? "" : "rotate-180"
+                    open ? "" : "rotate-180",
                   )}
                 />
               </Disclosure.Button>

@@ -13,7 +13,7 @@ async function login(widget) {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: loginBody,
-  }
+  };
 
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);

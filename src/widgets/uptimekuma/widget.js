@@ -12,7 +12,7 @@ const widget = {
     heartbeat: {
       endpoint: "status-page/heartbeat",
     },
-  }
+  },
 };
 
 export default widget;

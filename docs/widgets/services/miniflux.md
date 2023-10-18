@@ -9,7 +9,7 @@ Allowed fields: `["unread", "read"]`.
 
 ```yaml
 widget:
-    type: miniflux
-    url: http://miniflux.host.or.ip:port
-    key: minifluxapikey
+  type: miniflux
+  url: http://miniflux.host.or.ip:port
+  key: minifluxapikey
 ```

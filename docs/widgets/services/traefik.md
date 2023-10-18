@@ -10,8 +10,8 @@ Allowed fields: `["routers", "services", "middleware"]`.
 
 ```yaml
 widget:
-    type: traefik
-    url: http://traefik.host.or.ip
-    username: username # optional
-    password: password # optional
+  type: traefik
+  url: http://traefik.host.or.ip
+  username: username # optional
+  password: password # optional
 ```

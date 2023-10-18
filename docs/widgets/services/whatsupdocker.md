@@ -9,6 +9,6 @@ Allowed fields: `["monitoring", "updates"]`.
 
 ```yaml
 widget:
-    type: whatsupdocker
-    url: http://whatsupdocker:port
+  type: whatsupdocker
+  url: http://whatsupdocker:port
 ```

@@ -40,7 +40,7 @@ jobs:
       - name: Test Docs Build
         run: MKINSIDERS=false mkdocs build
   deploy:
-    name: Build & Deploy 
+    name: Build & Deploy
     if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:

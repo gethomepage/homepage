@@ -9,8 +9,8 @@ Allowed fields: `["libraries", "series", "books"]`.
 
 ```yaml
 widget:
-    type: komga
-    url: http://komga.host.or.ip:port
-    username: username
-    password: password
+  type: komga
+  url: http://komga.host.or.ip:port
+  username: username
+  password: password
 ```

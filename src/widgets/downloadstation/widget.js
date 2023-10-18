@@ -1,4 +1,4 @@
-import synologyProxyHandler from '../../utils/proxy/handlers/synology'
+import synologyProxyHandler from "../../utils/proxy/handlers/synology";
 
 const widget = {
   // cgiPath and maxVersion are discovered at runtime, don't supply
@@ -6,10 +6,10 @@ const widget = {
   proxyHandler: synologyProxyHandler,
 
   mappings: {
-    "list": {
+    list: {
       apiName: "SYNO.DownloadStation.Task",
       apiMethod: "list&additional=transfer",
-      endpoint: "list"
+      endpoint: "list",
     },
   },
 };

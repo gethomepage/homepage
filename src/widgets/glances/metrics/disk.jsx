@@ -16,19 +16,22 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart } = widget;
-  const [, diskName] = widget.metric.split(':');
+  const [, diskName] = widget.metric.split(":");
 
-  const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ read_bytes: 0, write_bytes: 0, time_since_update: 0 }, 0, pointsLimit));
+  const [dataPoints, setDataPoints] = useState(
+    new Array(pointsLimit).fill({ read_bytes: 0, write_bytes: 0, time_since_update: 0 }, 0, pointsLimit),
+  );
   const [ratePoints, setRatePoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, 'diskio', {
+  const { data, error } = useWidgetAPI(service.widget, "diskio", {
     refreshInterval: 1000,
   });
 
-  const calculateRates = (d) => d.map(item => ({
-              a: item.read_bytes / item.time_since_update,
-              b: item.write_bytes / item.time_since_update
-          }));
+  const calculateRates = (d) =>
+    d.map((item) => ({
+      a: item.read_bytes / item.time_since_update,
+      b: item.write_bytes / item.time_since_update,
+    }));
 
   useEffect(() => {
     if (data) {
@@ -36,10 +39,10 @@ export default function Component({ service }) {
 
       setDataPoints((prevDataPoints) => {
         const newDataPoints = [...prevDataPoints, diskData];
-          if (newDataPoints.length > pointsLimit) {
-              newDataPoints.shift();
-          }
-          return newDataPoints;
+        if (newDataPoints.length > pointsLimit) {
+          newDataPoints.shift();
+        }
+        return newDataPoints;
       });
     }
   }, [data, diskName]);
@@ -49,17 +52,29 @@ export default function Component({ service }) {
   }, [dataPoints]);
 
   if (error) {
-    return <Container chart={chart}><Error error={error} /></Container>;
+    return (
+      <Container chart={chart}>
+        <Error error={error} />
+      </Container>
+    );
   }
 
   if (!data) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   const diskData = data.find((item) => item.disk_name === diskName);
 
   if (!diskData) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   const diskRates = calculateRates(dataPoints);
@@ -67,14 +82,16 @@ export default function Component({ service }) {
 
   return (
     <Container chart={chart}>
-      { chart && (
+      {chart && (
         <ChartDual
           dataPoints={ratePoints}
           label={[t("glances.read"), t("glances.write")]}
           max={diskData.critical}
-          formatter={(value) => t("common.bitrate", {
-            value,
-            })}
+          formatter={(value) =>
+            t("common.bitrate", {
+              value,
+            })
+          }
         />
       )}
 
@@ -83,12 +100,14 @@ export default function Component({ service }) {
           <div className="text-xs opacity-50 text-right">
             {t("common.bitrate", {
               value: currentRate.a,
-            })} {t("glances.read")}
+            })}{" "}
+            {t("glances.read")}
           </div>
           <div className="text-xs opacity-50 text-right">
             {t("common.bitrate", {
               value: currentRate.b,
-            })} {t("glances.write")}
+            })}{" "}
+            {t("glances.write")}
           </div>
         </Block>
       )}

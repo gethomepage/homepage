@@ -7,27 +7,19 @@ const widget = {
   mappings: {
     downloads: {
       endpoint: "download",
-      validate: [
-        "paginate",
-      ]
+      validate: ["paginate"],
     },
     videos: {
       endpoint: "video",
-      validate: [
-        "paginate",
-      ]
+      validate: ["paginate"],
     },
     channels: {
       endpoint: "channel",
-      validate: [
-        "paginate",
-      ]
+      validate: ["paginate"],
     },
     playlists: {
       endpoint: "playlist",
-      validate: [
-        "paginate",
-      ]
+      validate: ["paginate"],
     },
   },
 };

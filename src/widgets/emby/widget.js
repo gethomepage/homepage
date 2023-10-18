@@ -10,12 +10,7 @@ const widget = {
     },
     Count: {
       endpoint: "Items/Counts",
-      segments: [
-          "MovieCount",
-          "SeriesCount",
-          "EpisodeCount",
-          "SongCount"
-      ]
+      segments: ["MovieCount", "SeriesCount", "EpisodeCount", "SongCount"],
     },
     PlayControl: {
       method: "POST",

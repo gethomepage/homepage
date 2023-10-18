@@ -10,10 +10,12 @@ export default function Component({ service }) {
   const { widget } = service;
   const podSelectorString = widget.podSelector !== undefined ? `podSelector=${widget.podSelector}` : "";
   const { data: statusData, error: statusError } = useSWR(
-    `/api/kubernetes/status/${widget.namespace}/${widget.app}?${podSelectorString}`);
+    `/api/kubernetes/status/${widget.namespace}/${widget.app}?${podSelectorString}`,
+  );
 
   const { data: statsData, error: statsError } = useSWR(
-    `/api/kubernetes/stats/${widget.namespace}/${widget.app}?${podSelectorString}`);
+    `/api/kubernetes/stats/${widget.namespace}/${widget.app}?${podSelectorString}`,
+  );
 
   if (statsError || statusError) {
     return <Container service={service} error={statsError ?? statusError} />;
@@ -38,10 +40,12 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      {statsData.stats.cpuLimit && (
+      {(statsData.stats.cpuLimit && (
         <Block label="docker.cpu" value={t("common.percent", { value: statsData.stats.cpuUsage })} />
-      ) || (
-        <Block label="docker.cpu" value={t("common.number", { value: statsData.stats.cpu, maximumFractionDigits: 4 })}
+      )) || (
+        <Block
+          label="docker.cpu"
+          value={t("common.number", { value: statsData.stats.cpu, maximumFractionDigits: 4 })}
         />
       )}
       <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.mem })} />

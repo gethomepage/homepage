@@ -16,11 +16,11 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart, metric } = widget;
-  const [, interfaceName] = metric.split(':');
+  const [, interfaceName] = metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(widget, 'network', {
+  const { data, error } = useWidgetAPI(widget, "network", {
     refreshInterval: chart ? 1000 : 5000,
   });
 
@@ -30,64 +30,81 @@ export default function Component({ service }) {
 
       if (interfaceData) {
         setDataPoints((prevDataPoints) => {
-          const newDataPoints = [...prevDataPoints, { a: (interfaceData.rx * 8) / interfaceData.time_since_update, b: (interfaceData.tx * 8) / interfaceData.time_since_update }];
-            if (newDataPoints.length > pointsLimit) {
-                newDataPoints.shift();
-            }
-            return newDataPoints;
+          const newDataPoints = [
+            ...prevDataPoints,
+            {
+              a: (interfaceData.rx * 8) / interfaceData.time_since_update,
+              b: (interfaceData.tx * 8) / interfaceData.time_since_update,
+            },
+          ];
+          if (newDataPoints.length > pointsLimit) {
+            newDataPoints.shift();
+          }
+          return newDataPoints;
         });
       }
     }
   }, [data, interfaceName]);
 
   if (error) {
-    return <Container chart={chart}><Error error={error} /></Container>;
+    return (
+      <Container chart={chart}>
+        <Error error={error} />
+      </Container>
+    );
   }
 
   if (!data) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   const interfaceData = data.find((item) => item[item.key] === interfaceName);
 
   if (!interfaceData) {
-    return <Container chart={chart}><Block position="bottom-3 left-3">-</Block></Container>;
+    return (
+      <Container chart={chart}>
+        <Block position="bottom-3 left-3">-</Block>
+      </Container>
+    );
   }
 
   return (
     <Container chart={chart}>
-      { chart && (
+      {chart && (
         <ChartDual
           dataPoints={dataPoints}
           label={[t("docker.rx"), t("docker.tx")]}
-          formatter={(value) => t("common.bitrate", {
-            value,
-            maximumFractionDigits: 0,
-          })}
+          formatter={(value) =>
+            t("common.bitrate", {
+              value,
+              maximumFractionDigits: 0,
+            })
+          }
         />
       )}
 
       <Block position="bottom-3 left-3">
         {interfaceData && interfaceData.interface_name && chart && (
-            <div className="text-xs opacity-50">
-              {interfaceData.interface_name}
-            </div>
+          <div className="text-xs opacity-50">{interfaceData.interface_name}</div>
         )}
 
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
             value: (interfaceData.rx * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
-          })} {t("docker.rx")}
+          })}{" "}
+          {t("docker.rx")}
         </div>
       </Block>
 
-      { !chart && (
+      {!chart && (
         <Block position="top-3 right-3">
           {interfaceData && interfaceData.interface_name && (
-              <div className="text-xs opacity-50">
-                {interfaceData.interface_name}
-              </div>
+            <div className="text-xs opacity-50">{interfaceData.interface_name}</div>
           )}
         </Block>
       )}
@@ -97,7 +114,8 @@ export default function Component({ service }) {
           {t("common.bitrate", {
             value: (interfaceData.tx * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
-          })} {t("docker.tx")}
+          })}{" "}
+          {t("docker.tx")}
         </div>
       </Block>
     </Container>

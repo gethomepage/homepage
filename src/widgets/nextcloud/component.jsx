@@ -22,12 +22,12 @@ export default function Component({ service }) {
     // If all fields are enabled, drop cpuload and memoryusage
     if (widget.fields.length === 6) return [false, false];
 
-    const hasCpuLoad = widget.fields?.includes('cpuload');
-    const hasMemoryUsage = widget.fields?.includes('memoryusage');
-    
+    const hasCpuLoad = widget.fields?.includes("cpuload");
+    const hasMemoryUsage = widget.fields?.includes("memoryusage");
+
     // If (for some reason) 5 fields are set, drop memoryusage
     if (hasCpuLoad && hasMemoryUsage) return [true, false];
-    return [!hasCpuLoad, !hasMemoryUsage]
+    return [!hasCpuLoad, !hasMemoryUsage];
   }, [widget.fields]);
 
   if (nextcloudError) {
@@ -48,13 +48,21 @@ export default function Component({ service }) {
   }
 
   const { nextcloud: nextcloudInfo, activeUsers } = nextcloudData.ocs.data;
-  const memoryUsage = 100 * ((parseFloat(nextcloudInfo.system.mem_total) - parseFloat(nextcloudInfo.system.mem_free)) / parseFloat(nextcloudInfo.system.mem_total));
+  const memoryUsage =
+    100 *
+    ((parseFloat(nextcloudInfo.system.mem_total) - parseFloat(nextcloudInfo.system.mem_free)) /
+      parseFloat(nextcloudInfo.system.mem_total));
 
   return (
     <Container service={service}>
-      {showCpuLoad && <Block label="nextcloud.cpuload" value={t("common.percent", { value: nextcloudInfo.system.cpuload[0] })} />}
-      {showMemoryUsage && <Block label="nextcloud.memoryusage" value={t("common.percent", { value:memoryUsage })} />}
-      <Block label="nextcloud.freespace" value={t("common.bbytes", { value: nextcloudInfo.system.freespace, maximumFractionDigits: 1 })} />
+      {showCpuLoad && (
+        <Block label="nextcloud.cpuload" value={t("common.percent", { value: nextcloudInfo.system.cpuload[0] })} />
+      )}
+      {showMemoryUsage && <Block label="nextcloud.memoryusage" value={t("common.percent", { value: memoryUsage })} />}
+      <Block
+        label="nextcloud.freespace"
+        value={t("common.bbytes", { value: nextcloudInfo.system.freespace, maximumFractionDigits: 1 })}
+      />
       <Block label="nextcloud.activeusers" value={t("common.number", { value: activeUsers.last24hours })} />
       <Block label="nextcloud.numfiles" value={t("common.number", { value: nextcloudInfo.storage.num_files })} />
       <Block label="nextcloud.numshares" value={t("common.number", { value: nextcloudInfo.shares.num_shares })} />

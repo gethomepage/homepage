@@ -9,7 +9,7 @@ Allowed fields: `["podcasts", "podcastsDuration", "books", "booksDuration"]`
 
 ```yaml
 widget:
-    type: audiobookshelf
-    url: http://audiobookshelf.host.or.ip:port
-    key: audiobookshelflapikey
+  type: audiobookshelf
+  url: http://audiobookshelf.host.or.ip:port
+  key: audiobookshelflapikey
 ```
