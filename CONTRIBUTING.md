@@ -42,7 +42,7 @@ Please see the [documentation regarding development](https://gethomepage.dev/lat
 
 ## Use a Consistent Coding Style
 
-This project follows the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript), please follow it when submitting pull requests.
+Please see information in the docs regarding [code formatting with pre-commit hooks](https://gethomepage.dev/latest/more/development.md#code-formatting-with-pre-commit-hooks).
 
 ## License
 
