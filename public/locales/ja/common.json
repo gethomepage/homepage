@@ -425,16 +425,16 @@
         "66-night": "着氷性の雨",
         "67-day": "着氷性の雨",
         "67-night": "着氷性の雨",
-        "71-day": "雪",
-        "71-night": "雪",
+        "71-day": "小雪",
+        "71-night": "小雪",
         "73-day": "雪",
         "73-night": "雪",
         "75-day": "大雪",
         "75-night": "大雪",
-        "77-day": "粒雪",
-        "77-night": "粒雪",
-        "80-day": "にわか雨",
-        "80-night": "にわか雨",
+        "77-day": "霧雪",
+        "77-night": "霧雪",
+        "80-day": "弱いにわか雨",
+        "80-night": "弱いにわか雨",
         "81-day": "にわか雨",
         "81-night": "にわか雨",
         "82-day": "強いにわか雨",
@@ -515,7 +515,7 @@
         "unknown": "不明"
     },
     "paperlessngx": {
-        "inbox": "受信箱",
+        "inbox": "受信トレイ",
         "total": "合計"
     },
     "nextdns": {
@@ -524,12 +524,12 @@
     },
     "mikrotik": {
         "cpuLoad": "CPU負荷",
-        "memoryUsed": "使用メモリ",
+        "memoryUsed": "使用済みメモリ",
         "uptime": "稼働時間",
         "numberOfLeases": "リース"
     },
     "xteve": {
-        "streams_all": "全ストリーム",
+        "streams_all": "すべてのストリーム",
         "streams_active": "アクティブストリーム",
         "streams_xepg": "XEPGチャンネル"
     },
@@ -640,8 +640,8 @@
     "kopia": {
         "status": "状態",
         "size": "サイズ",
-        "lastrun": "最終実行",
-        "nextrun": "次の実行",
+        "lastrun": "前回の実行",
+        "nextrun": "次回の実行",
         "failed": "失敗"
     },
     "unmanic": {
@@ -715,7 +715,7 @@
         "map": "マップ",
         "currentPlayers": "現在のプレーヤー",
         "players": "プレイヤー",
-        "maxPlayers": "最大プレーヤー",
+        "maxPlayers": "最大プレイヤー数",
         "bots": "ボット",
         "ping": "Ping"
     },
@@ -743,7 +743,7 @@
         "status": "状態",
         "uptime": "稼働時間",
         "lastDown": "最後のダウンタイム",
-        "downDuration": "ダウンタイムの時間",
+        "downDuration": "ダウンタイム感覚",
         "sitesUp": "サイトUp",
         "sitesDown": "サイトDown",
         "paused": "一時停止中",
@@ -754,7 +754,7 @@
         "unknown": "不明"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
+        "inCinemas": "映画館内",
         "physicalRelease": "物理的なリリース",
         "digitalRelease": "デジタル・リリース"
     }
