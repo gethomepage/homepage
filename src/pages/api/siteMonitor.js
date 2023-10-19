@@ -44,7 +44,7 @@ export default async function handler(req, res) {
       latency: endTime - startTime,
     });
   } catch (e) {
-    logger.debug("Error attempting http monitor: %s", JSON.stringify(e));
+    logger.debug("Error attempting http monitor: %s", e);
     return res.status(400).send({
       error: "Error attempting http monitor, see logs.",
     });

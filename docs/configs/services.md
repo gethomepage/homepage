@@ -101,29 +101,49 @@ To use a local icon, first create a Docker mount to `/app/public/icons` and then
 
 ## Ping
 
-Services may have an optional `ping` property that allows you to monitor the availability of an endpoint you chose and have the response time displayed. You do not need to set your ping URL equal to your href URL.
-
-!!! note
-
-    The ping feature works by making an http `HEAD` request to the URL, and falls back to `GET` in case that fails. It will not, for example, login if the URL requires auth or is behind e.g. Authelia. In the case of a reverse proxy and/or auth this usually requires the use of an 'internal' URL to make the ping feature correctly display status.
+Services may have an optional `ping` property that allows you to monitor the availability of an external host. As of v0.7.5, the ping feature uses the true ping command on the underlying host.
 
 ```yaml
 - Group A:
     - Sonarr:
         icon: sonarr.png
         href: http://sonarr.host/
-        ping: http://sonarr.host/
+        ping: sonarr.host
 
 - Group B:
     - Radarr:
         icon: radarr.png
         href: http://radarr.host/
-        ping: http://some.other.host/
+        ping: some.other.host
 ```
 
 <img width="1038" alt="Ping" src="https://github.com/gethomepage/homepage/assets/88257202/7bc13bd3-0d0b-44e3-888c-a20e069a3233">
 
 You can also apply different styles to the ping indicator by using the `statusStyle` property, see [settings](settings.md#status-style).
+
+## Site Monitor
+
+Services may have an optional `siteMonitor` property (formerly `ping`) that allows you to monitor the availability of a URL you chose and have the response time displayed. You do not need to set your monitor URL equal to your href or ping URL.
+
+!!! note
+
+    The site monitor feature works by making an http `HEAD` request to the URL, and falls back to `GET` in case that fails. It will not, for example, login if the URL requires auth or is behind e.g. Authelia. In the case of a reverse proxy and/or auth this usually requires the use of an 'internal' URL to make the site monitor feature correctly display status.
+
+```yaml
+- Group A:
+    - Sonarr:
+        icon: sonarr.png
+        href: http://sonarr.host/
+        siteMonitor: http://sonarr.host/
+
+- Group B:
+    - Radarr:
+        icon: radarr.png
+        href: http://radarr.host/
+        siteMonitor: http://some.other.host/
+```
+
+You can also apply different styles to the site monitor indicator by using the `statusStyle` property, see [settings](settings.md#status-style).
 
 ## Docker Integration
 

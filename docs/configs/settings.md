@@ -382,11 +382,11 @@ If you have both set the per-service settings take precedence.
 
 ## Status Style
 
-You can choose from the following styles for docker or k8s status and ping: `dot` or `basic`
+You can choose from the following styles for docker or k8s status, site monitor and ping: `dot` or `basic`
 
-- The default is no value, and displays the ping response time in ms and the docker / k8s container status
-- `dot` shows a green dot for a successful ping or healthy status.
-- `basic` shows either UP or DOWN for ping
+- The default is no value, and displays the montior and ping response time in ms and the docker / k8s container status
+- `dot` shows a green dot for a successful monitor ping or healthy status.
+- `basic` shows either UP or DOWN for monitor & ping
 
 For example:
 
