@@ -26,9 +26,11 @@ export default function Integration({ config, params }) {
       const title = `${event.series.title ?? event.title} - S${event.seasonNumber}E${event.episodeNumber}`;
 
       eventsToAdd[title] = {
-        title,
+        title: `${event.series.title ?? event.title}`,
         date: DateTime.fromISO(event.airDateUtc),
         color: config?.color ?? "teal",
+        isCompleted: event.hasFile,
+        additional: `S${event.seasonNumber} E${event.episodeNumber}`,
       };
     });
 

@@ -27,6 +27,8 @@ export default function Integration({ config, params }) {
         title,
         date: DateTime.fromISO(event.releaseDate),
         color: config?.color ?? "green",
+        isCompleted: event.grabbed,
+        additional: "",
       };
     });
 
