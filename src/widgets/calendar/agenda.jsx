@@ -37,21 +37,6 @@ export function Event({ event, colorVariants, showDate = false }) {
   );
 }
 
-export function AgendaDay({ events, colorVariants }) {
-  return (
-    <>
-      {events.map((event, i) => (
-        <Event
-          key={`event${event.title}-${event.date}`}
-          event={event}
-          colorVariants={colorVariants}
-          showDate={i === 0}
-        />
-      ))}
-    </>
-  );
-}
-
 export default function Agenda({ service, colorVariants, showDate }) {
   const { widget } = service;
   const { events } = useContext(EventContext);
@@ -99,7 +84,16 @@ export default function Agenda({ service, colorVariants, showDate }) {
     <div className="p-2">
       <div className={classNames("flex flex-col pt-1 pb-1", !eventsArray.length && !events.length && "animate-pulse")}>
         {eventsByDay.map((eventsDay, i) => (
-          <AgendaDay events={eventsDay} key={days[i]} colorVariants={colorVariants} />
+          <div key={days[i]}>
+            {eventsDay.map((event, j) => (
+              <Event
+                key={`event${event.title}-${event.date}`}
+                event={event}
+                colorVariants={colorVariants}
+                showDate={j === 0}
+              />
+            ))}
+          </div>
         ))}
       </div>
     </div>
