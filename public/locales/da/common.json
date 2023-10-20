@@ -79,9 +79,16 @@
         "partial": "Delvis"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Fejl",
         "ping": "Ping",
+        "down": "Ned",
+        "up": "Op",
+        "not_available": "Ikke tilgængelig"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Fejl",
+        "response": "Response",
         "down": "Ned",
         "up": "Op",
         "not_available": "Ikke tilgængelig"
