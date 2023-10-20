@@ -79,9 +79,16 @@
         "partial": "Gedeeltelijk"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Fout",
         "ping": "Ping",
+        "down": "Offline",
+        "up": "Online",
+        "not_available": "Niet Beschikbaar"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Fout",
+        "response": "Response",
         "down": "Offline",
         "up": "Online",
         "not_available": "Niet Beschikbaar"
