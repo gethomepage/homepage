@@ -79,9 +79,16 @@
         "partial": "部分"
     },
     "ping": {
-        "http_status": "HTTP 状态",
         "error": "错误",
         "ping": "Ping",
+        "down": "离线",
+        "up": "在线",
+        "not_available": "不可用"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "错误",
+        "response": "Response",
         "down": "离线",
         "up": "在线",
         "not_available": "不可用"
