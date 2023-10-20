@@ -6,21 +6,21 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 import { EventContext } from "../../utils/contexts/calendar";
 
-function formatDate(date, i18n) {
-  return date.setLocale(i18n.language).startOf("day").toLocaleString({ month: "short", day: "numeric" });
-}
 export function Event({ event, colorVariants, i18n }) {
   const title = event.title.length > 42 ? `${event.title.slice(0, 42)}...` : event.title;
   const [hover, setHover] = useState(false);
-  const onHover = () => setHover(!hover);
 
   return (
     <div
       key={title}
       className="flex flex-row text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
+      onMouseEnter={() => setHover(!hover)}
+      onMouseLeave={() => setHover(!hover)}
     >
-      <span className="inline-flex items-center ml-2 w-10" onMouseEnter={onHover} onMouseLeave={onHover}>
-        <span>{hover ? event.additional : formatDate(event.date, i18n)}</span>
+      <span className="inline-flex items-center ml-2 w-10">
+        <span>
+          {event.date.setLocale(i18n.language).startOf("day").toLocaleString({ month: "short", day: "numeric" })}
+        </span>
       </span>
       <span className="inline-flex items-center">
         <span
@@ -29,7 +29,7 @@ export function Event({ event, colorVariants, i18n }) {
         />
       </span>
       <span className="inline-flex flex-auto left-1 text-left text-xs mt-[2px] truncate text-ellipsis overflow-hidden visible">
-        {title}
+        {hover && event.additional ? event.additional : title}
       </span>
       {event.isCompleted && (
         <span className="text-xs mr-1 mt-1 z-10">
