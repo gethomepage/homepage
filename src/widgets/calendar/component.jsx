@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next";
 
-import MonthlyView from "./monthly-view";
+import Monthly from "./monthly";
 import Agenda from "./agenda";
 
 import Container from "components/services/widget/container";
@@ -91,7 +91,7 @@ export default function Component({ service }) {
           })}
         </div>
         {(!widget?.view || widget?.view === "monthly") && (
-          <MonthlyView
+          <Monthly
             service={service}
             colorVariants={colorVariants}
             showDate={showDate}

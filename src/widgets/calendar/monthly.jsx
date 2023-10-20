@@ -99,7 +99,7 @@ const dayInWeekId = {
   sunday: 7,
 };
 
-export default function MonthlyView({ service, colorVariants, showDate, setShowDate }) {
+export default function Monthly({ service, colorVariants, showDate, setShowDate }) {
   const { widget } = service;
   const { i18n } = useTranslation();
   const { events } = useContext(EventContext);
