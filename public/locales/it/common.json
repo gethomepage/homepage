@@ -79,9 +79,16 @@
         "partial": "Parziale"
     },
     "ping": {
-        "http_status": "Stato HTTP",
         "error": "Errore",
         "ping": "Ping",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Non disponibile"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Errore",
+        "response": "Response",
         "down": "Down",
         "up": "Up",
         "not_available": "Non disponibile"
