@@ -6,9 +6,10 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 import { EventContext } from "../../utils/contexts/calendar";
 
-export function Event({ event, colorVariants, i18n }) {
+export function Event({ event, colorVariants, showDate = false }) {
   const title = event.title.length > 42 ? `${event.title.slice(0, 42)}...` : event.title;
   const [hover, setHover] = useState(false);
+  const { i18n } = useTranslation();
 
   return (
     <div
@@ -19,7 +20,8 @@ export function Event({ event, colorVariants, i18n }) {
     >
       <span className="inline-flex items-center ml-2 w-10">
         <span>
-          {event.date.setLocale(i18n.language).startOf("day").toLocaleString({ month: "short", day: "numeric" })}
+          {showDate &&
+            event.date.setLocale(i18n.language).startOf("day").toLocaleString({ month: "short", day: "numeric" })}
         </span>
       </span>
       <span className="inline-flex items-center">
@@ -28,7 +30,7 @@ export function Event({ event, colorVariants, i18n }) {
           className={classNames("inline-flex h-2 w-2 m-1.5 rounded", colorVariants[event.color] ?? "gray")}
         />
       </span>
-      <span className="inline-flex flex-auto left-1 text-left text-xs mt-[2px] truncate text-ellipsis overflow-hidden visible">
+      <span className="inline-flex flex-auto w-9/12 text-left text-xs mt-[2px] truncate text-ellipsis overflow-hidden visible">
         {hover && event.additional ? event.additional : title}
       </span>
       {event.isCompleted && (
@@ -40,11 +42,25 @@ export function Event({ event, colorVariants, i18n }) {
   );
 }
 
+export function AgendaDay({ events, colorVariants }) {
+  return (
+    <>
+      {events.map((event, i) => (
+        <Event
+          key={`event${event.title}-${event.date}`}
+          event={event}
+          colorVariants={colorVariants}
+          showDate={i === 0}
+        />
+      ))}
+    </>
+  );
+}
+
 export default function Agenda({ service, colorVariants, showDate }) {
   const { widget } = service;
   const { events } = useContext(EventContext);
   const { i18n } = useTranslation();
-  const currentDate = DateTime.now();
 
   if (!showDate) {
     return <div className="w-full text-center" />;
@@ -58,27 +74,41 @@ export default function Agenda({ service, colorVariants, showDate }) {
     .sort((a, b) => a.date - b.date)
     .slice(0, widget?.maxEvents ?? 10);
 
+  if (!eventsArray.length) {
+    return (
+      <div className="w-full text-center">
+        <div className="p-2 w-full">
+          <div
+            className={classNames("flex flex-col pt-1 pb-1", !eventsArray.length && !events.length && "animate-pulse")}
+          >
+            <Event
+              key="no-event"
+              event={{
+                title: `No events for today!`,
+                date: DateTime.now(),
+                color: "gray",
+              }}
+              colorVariants={colorVariants}
+              i18n={i18n}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const days = Array.from(new Set(eventsArray.map((e) => e.date.ts)));
+  const eventsByDay = days.map((d) => eventsArray.filter((e) => e.date.ts === d));
+
   return (
     <div className="w-full text-center">
       <div className="p-2 w-full">
         <div
           className={classNames("flex flex-col pt-1 pb-1", !eventsArray.length && !events.length && "animate-pulse")}
         >
-          {eventsArray?.map((event) => (
-            <Event key={`event${event.title}-${event.date}`} event={event} colorVariants={colorVariants} i18n={i18n} />
+          {eventsByDay.map((eventsDay, i) => (
+            <AgendaDay events={eventsDay} key={days[i]} colorVariants={colorVariants} />
           ))}
-          {!eventsArray?.length && (
-            <Event
-              key="no-event"
-              event={{
-                title: `No events for today!`,
-                date: currentDate,
-                color: "gray",
-              }}
-              colorVariants={colorVariants}
-              i18n={i18n}
-            />
-          )}
         </div>
       </div>
     </div>
