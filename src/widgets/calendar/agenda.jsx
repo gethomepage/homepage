@@ -13,7 +13,6 @@ export function Event({ event, colorVariants, showDate = false }) {
 
   return (
     <div
-      key={title}
       className="flex flex-row text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
       onMouseEnter={() => setHover(!hover)}
       onMouseLeave={() => setHover(!hover)}
@@ -25,10 +24,7 @@ export function Event({ event, colorVariants, showDate = false }) {
         </span>
       </span>
       <span className="inline-flex items-center">
-        <span
-          key={event.date.toLocaleString() + event.color + title}
-          className={classNames("inline-flex h-2 w-2 m-1.5 rounded", colorVariants[event.color] ?? "gray")}
-        />
+        <span className={classNames("inline-flex h-2 w-2 m-1.5 rounded", colorVariants[event.color] ?? "gray")} />
       </span>
       <span className="inline-flex flex-auto w-9/12 text-left text-xs mt-[2px] truncate text-ellipsis overflow-hidden visible">
         {hover && event.additional ? event.additional : title}
