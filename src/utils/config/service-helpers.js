@@ -258,6 +258,9 @@ export async function servicesFromKubernetes() {
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
           constructedService.ping = ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`];
         }
+        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
+          constructedService.siteMonitor = ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
+        }
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
           constructedService.statusStyle = ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
         }
