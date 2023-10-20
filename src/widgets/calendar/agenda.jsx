@@ -7,30 +7,29 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { EventContext } from "../../utils/contexts/calendar";
 
 export function Event({ event, colorVariants, showDate = false }) {
-  const title = event.title.length > 42 ? `${event.title.slice(0, 42)}...` : event.title;
   const [hover, setHover] = useState(false);
   const { i18n } = useTranslation();
 
   return (
     <div
-      className="flex flex-row text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
+      className="flex flex-row text-theme-700 dark:text-theme-200 items-center text-xs text-left h-5 rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
       onMouseEnter={() => setHover(!hover)}
       onMouseLeave={() => setHover(!hover)}
     >
-      <span className="inline-flex items-center ml-2 w-10">
+      <span className="ml-2 w-10">
         <span>
           {showDate &&
             event.date.setLocale(i18n.language).startOf("day").toLocaleString({ month: "short", day: "numeric" })}
         </span>
       </span>
-      <span className="inline-flex items-center">
-        <span className={classNames("inline-flex h-2 w-2 m-1.5 rounded", colorVariants[event.color] ?? "gray")} />
+      <span className="ml-2 h-2 w-2">
+        <span className={classNames("block w-2 h-2 rounded", colorVariants[event.color] ?? "gray")} />
       </span>
-      <span className="inline-flex flex-auto w-9/12 text-left text-xs mt-[2px] truncate text-ellipsis overflow-hidden visible">
-        {hover && event.additional ? event.additional : title}
-      </span>
+      <div className="ml-2 h-5 text-left relative truncate" style={{ width: "70%" }}>
+        <div className="absolute mt-0.5 text-xs">{hover && event.additional ? event.additional : event.title}</div>
+      </div>
       {event.isCompleted && (
-        <span className="text-xs mr-1 mt-1 z-10">
+        <span className="text-xs mr-1 ml-auto z-10">
           <IoMdCheckmarkCircleOutline />
         </span>
       )}
@@ -59,7 +58,7 @@ export default function Agenda({ service, colorVariants, showDate }) {
   const { i18n } = useTranslation();
 
   if (!showDate) {
-    return <div className="w-full text-center" />;
+    return <div className=" text-center" />;
   }
 
   const eventsArray = Object.keys(events)
@@ -72,8 +71,8 @@ export default function Agenda({ service, colorVariants, showDate }) {
 
   if (!eventsArray.length) {
     return (
-      <div className="w-full text-center">
-        <div className="p-2 w-full">
+      <div className="text-center">
+        <div className="p-2 ">
           <div
             className={classNames("flex flex-col pt-1 pb-1", !eventsArray.length && !events.length && "animate-pulse")}
           >
@@ -97,15 +96,11 @@ export default function Agenda({ service, colorVariants, showDate }) {
   const eventsByDay = days.map((d) => eventsArray.filter((e) => e.date.ts === d));
 
   return (
-    <div className="w-full text-center">
-      <div className="p-2 w-full">
-        <div
-          className={classNames("flex flex-col pt-1 pb-1", !eventsArray.length && !events.length && "animate-pulse")}
-        >
-          {eventsByDay.map((eventsDay, i) => (
-            <AgendaDay events={eventsDay} key={days[i]} colorVariants={colorVariants} />
-          ))}
-        </div>
+    <div className="p-2">
+      <div className={classNames("flex flex-col pt-1 pb-1", !eventsArray.length && !events.length && "animate-pulse")}>
+        {eventsByDay.map((eventsDay, i) => (
+          <AgendaDay events={eventsDay} key={days[i]} colorVariants={colorVariants} />
+        ))}
       </div>
     </div>
   );
