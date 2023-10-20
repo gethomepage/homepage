@@ -31,15 +31,15 @@
         "placeholder": "Recherche…"
     },
     "resources": {
-        "cpu": "cpu",
-        "mem": "MÉM",
+        "cpu": "Cpu",
+        "mem": "Mém",
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
         "load": "Charge",
-        "temp": "temp",
+        "temp": "Temp",
         "max": "Max",
-        "uptime": "up",
+        "uptime": "Up",
         "months": "m",
         "days": "j",
         "hours": "h",
@@ -57,7 +57,7 @@
         "wlan_devices": "Équipt. WLAN",
         "lan_users": "Utilisateurs LAN",
         "wlan_users": "Utilisateurs WLAN",
-        "up": "up",
+        "up": "Up",
         "down": "INACTIF",
         "wait": "Veuillez patienter",
         "empty_data": "Statut sous-système inconnu"
@@ -65,8 +65,8 @@
     "docker": {
         "rx": "Rx",
         "tx": "Tx",
-        "mem": "MÉM",
-        "cpu": "cpu",
+        "mem": "Mém",
+        "cpu": "Cpu",
         "running": "Démarré",
         "offline": "Hors ligne",
         "error": "Erreur",
@@ -366,19 +366,19 @@
         "failedLoginsLast24H": "Cnx. échouées (24h)"
     },
     "proxmox": {
-        "mem": "MÉM",
-        "cpu": "cpu",
+        "mem": "Mém",
+        "cpu": "Cpu",
         "lxc": "LxC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "cpu",
+        "cpu": "Cpu",
         "load": "Charge",
         "wait": "Veuillez patienter",
-        "temp": "temp",
+        "temp": "Temp",
         "_temp": "T°",
         "warn": "Alerte",
-        "uptime": "up",
+        "uptime": "Up",
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
@@ -581,7 +581,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Tâches échouées 24h",
-        "cpu_usage": "cpu",
+        "cpu_usage": "Cpu",
         "memory_usage": "Mémoire"
     },
     "immich": {
