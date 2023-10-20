@@ -79,9 +79,16 @@
         "partial": "部分"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "錯誤",
         "ping": "Ping",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "錯誤",
+        "response": "Response",
         "down": "Down",
         "up": "Up",
         "not_available": "Not Available"
