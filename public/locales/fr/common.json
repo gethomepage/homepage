@@ -13,11 +13,11 @@
         "ms": "{{value, number}}"
     },
     "widget": {
-        "missing_type": "Type de widget manquant: {{type}}",
+        "missing_type": "Widget manquant: {{type}}",
         "api_error": "Erreur de l'API",
-        "information": "Information",
+        "information": "Informations",
         "status": "Statut",
-        "url": "URL",
+        "url": "Url",
         "raw_error": "Erreur brute",
         "response_data": "Données de réponse"
     },
@@ -31,17 +31,17 @@
         "placeholder": "Recherche…"
     },
     "resources": {
-        "cpu": "CPU",
+        "cpu": "cpu",
         "mem": "MÉM",
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
         "load": "Charge",
-        "temp": "TEMP",
+        "temp": "temp",
         "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
+        "uptime": "up",
+        "months": "m",
+        "days": "j",
         "hours": "h",
         "minutes": "mn"
     },
@@ -57,8 +57,8 @@
         "wlan_devices": "Équipt. WLAN",
         "lan_users": "Utilisateurs LAN",
         "wlan_users": "Utilisateurs WLAN",
-        "up": "UP",
-        "down": "DOWN",
+        "up": "up",
+        "down": "INACTIF",
         "wait": "Veuillez patienter",
         "empty_data": "Statut sous-système inconnu"
     },
@@ -66,7 +66,7 @@
         "rx": "Rx",
         "tx": "Tx",
         "mem": "MÉM",
-        "cpu": "CPU",
+        "cpu": "cpu",
         "running": "Démarré",
         "offline": "Hors ligne",
         "error": "Erreur",
@@ -282,9 +282,9 @@
         "never": "Jamais",
         "last_seen": "Vu pour la dernière fois",
         "now": "Maintenant",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
+        "years": "{{number}}a",
+        "weeks": "{{number}}s",
+        "days": "{{number}}j",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
@@ -367,29 +367,29 @@
     },
     "proxmox": {
         "mem": "MÉM",
-        "cpu": "CPU",
+        "cpu": "cpu",
         "lxc": "LxC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
+        "cpu": "cpu",
         "load": "Charge",
         "wait": "Veuillez patienter",
-        "temp": "TEMP",
-        "_temp": "Temp",
+        "temp": "temp",
+        "_temp": "T°",
         "warn": "Alerte",
-        "uptime": "UP",
+        "uptime": "up",
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
-        "days": "d",
+        "days": "j",
         "hours": "h",
         "crit": "Crit.",
         "read": "Lu",
         "write": "Écrit.",
-        "gpu": "GPU",
+        "gpu": "gpu",
         "mem": "Mém.",
-        "swap": "Swap"
+        "swap": "swap"
     },
     "quicklaunch": {
         "bookmark": "Signet",
@@ -397,7 +397,7 @@
         "search": "Recherche",
         "custom": "Personnalisé",
         "visit": "Aller vers",
-        "url": "URL"
+        "url": "Url"
     },
     "wmo": {
         "0-day": "Ensoleillé",
@@ -499,7 +499,7 @@
         "load": "Charge Système",
         "uptime": "Démarré depuis",
         "alerts": "Alertes",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "time": "{{value, number(style: unitDisplay: long;)}}"
     },
     "pyload": {
         "speed": "Débit",
@@ -560,8 +560,8 @@
     },
     "octoprint": {
         "printer_state": "Statut",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
+        "temp_tool": "Tool T°",
+        "temp_bed": "Bed T°",
         "job_completion": "Achèvement"
     },
     "cloudflared": {
@@ -574,14 +574,14 @@
         "wanStatus": "Statut WAN",
         "up": "Up",
         "down": "Down",
-        "temp": "Temp",
+        "temp": "T°",
         "disk": "Util. Disque",
         "wanIP": "IP WAN"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Tâches échouées 24h",
-        "cpu_usage": "CPU",
+        "cpu_usage": "cpu",
         "memory_usage": "Mémoire"
     },
     "immich": {
@@ -615,7 +615,7 @@
     },
     "mylar": {
         "series": "Séries TV",
-        "issues": "Issues",
+        "issues": "Anomalies",
         "wanted": "Demande"
     },
     "photoprism": {
@@ -661,9 +661,9 @@
         "nodes": "Nœuds"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Up",
+        "targets_down": "Down",
+        "targets_total": "Total"
     },
     "ghostfolio": {
         "gross_percent_today": "Aujourd'hui",
