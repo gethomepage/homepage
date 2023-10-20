@@ -86,9 +86,9 @@
         "not_available": "Non disponible"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "Statut HTTP",
         "error": "Erreur",
-        "response": "Response",
+        "response": "Réponse",
         "down": "Down",
         "up": "Up",
         "not_available": "Non disponible"
