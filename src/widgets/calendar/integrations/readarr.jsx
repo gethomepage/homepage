@@ -28,6 +28,8 @@ export default function Integration({ config, params }) {
         title,
         date: DateTime.fromISO(event.releaseDate),
         color: config?.color ?? "rose",
+        isCompleted: event.grabbed,
+        additional: "",
       };
     });
 

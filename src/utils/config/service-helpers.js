@@ -364,6 +364,8 @@ export function cleanServiceGroups(groups) {
           refreshInterval,
           integrations, // calendar widget
           firstDayInWeek,
+          view,
+          maxEvents,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -450,6 +452,8 @@ export function cleanServiceGroups(groups) {
         if (type === "calendar") {
           if (integrations) cleanedService.widget.integrations = integrations;
           if (firstDayInWeek) cleanedService.widget.firstDayInWeek = firstDayInWeek;
+          if (view) cleanedService.widget.view = view;
+          if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
         }
       }
 

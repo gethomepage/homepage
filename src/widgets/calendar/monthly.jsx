@@ -1,43 +1,16 @@
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { DateTime, Info } from "luxon";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
-import { EventContext, ShowDateContext } from "../../utils/contexts/calendar";
-
-const colorVariants = {
-  // https://tailwindcss.com/docs/content-configuration#dynamic-class-names
-  amber: "bg-amber-500",
-  blue: "bg-blue-500",
-  cyan: "bg-cyan-500",
-  emerald: "bg-emerald-500",
-  fuchsia: "bg-fuchsia-500",
-  gray: "bg-gray-500",
-  green: "bg-green-500",
-  indigo: "bg-indigo-500",
-  lime: "bg-lime-500",
-  neutral: "bg-neutral-500",
-  orange: "bg-orange-500",
-  pink: "bg-pink-500",
-  purple: "bg-purple-500",
-  red: "bg-red-500",
-  rose: "bg-rose-500",
-  sky: "bg-sky-500",
-  slate: "bg-slate-500",
-  stone: "bg-stone-500",
-  teal: "bg-teal-500",
-  violet: "bg-violet-500",
-  white: "bg-white-500",
-  yellow: "bg-yellow-500",
-  zinc: "bg-zinc-500",
-};
+import { EventContext } from "../../utils/contexts/calendar";
 
 const cellStyle = "relative w-10 flex items-center justify-center flex-col";
 const monthButton = "pl-6 pr-6 ml-2 mr-2 hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
 
-export function Day({ weekNumber, weekday, events }) {
+export function Day({ weekNumber, weekday, events, colorVariants, showDate, setShowDate }) {
   const currentDate = DateTime.now();
-  const { showDate, setShowDate } = useContext(ShowDateContext);
 
   const cellDate = showDate.set({ weekday, weekNumber }).startOf("day");
   const filteredEvents = events?.filter(
@@ -105,7 +78,13 @@ export function Event({ event }) {
     >
       <span className="absolute left-2 text-left text-xs mt-[2px] truncate text-ellipsis" style={{ width: "96%" }}>
         {event.title}
+        {event.additional ? ` - ${event.additional}` : ""}
       </span>
+      {event.isCompleted && (
+        <span className="text-right text-xs flex justify-end mr-1 mt-1 z-10 ">
+          <IoMdCheckmarkCircleOutline />
+        </span>
+      )}
     </div>
   );
 }
@@ -120,18 +99,11 @@ const dayInWeekId = {
   sunday: 7,
 };
 
-export default function MonthlyView({ service }) {
+export default function Monthly({ service, colorVariants, showDate, setShowDate }) {
   const { widget } = service;
   const { i18n } = useTranslation();
-  const { showDate, setShowDate } = useContext(ShowDateContext);
   const { events } = useContext(EventContext);
   const currentDate = DateTime.now().setLocale(i18n.language).startOf("day");
-
-  useEffect(() => {
-    if (!showDate) {
-      setShowDate(currentDate);
-    }
-  });
 
   const dayNames = Info.weekdays("short", { locale: i18n.language });
 
@@ -211,6 +183,9 @@ export default function MonthlyView({ service }) {
                 weekNumber={weekNumber}
                 weekday={dayInWeek}
                 events={eventsArray}
+                colorVariants={colorVariants}
+                showDate={showDate}
+                setShowDate={setShowDate}
               />
             )),
           )}
@@ -219,8 +194,9 @@ export default function MonthlyView({ service }) {
         <div className="flex flex-col pt-1 pb-1">
           {eventsArray
             ?.filter((event) => showDate.startOf("day").toUnixInteger() === event.date?.startOf("day").toUnixInteger())
+            .slice(0, widget?.maxEvents ?? 10)
             .map((event) => (
-              <Event key={`event${event.title}`} event={event} />
+              <Event key={`event${event.title}-${event.additional}`} event={event} />
             ))}
         </div>
       </div>

@@ -29,16 +29,22 @@ export default function Integration({ config, params }) {
         title: cinemaTitle,
         date: DateTime.fromISO(event.inCinemas),
         color: config?.color ?? "amber",
+        isCompleted: event.isAvailable,
+        additional: "",
       };
       eventsToAdd[physicalTitle] = {
         title: physicalTitle,
         date: DateTime.fromISO(event.physicalRelease),
         color: config?.color ?? "cyan",
+        isCompleted: event.isAvailable,
+        additional: "",
       };
       eventsToAdd[digitalTitle] = {
         title: digitalTitle,
         date: DateTime.fromISO(event.digitalRelease),
         color: config?.color ?? "emerald",
+        isCompleted: event.isAvailable,
+        additional: "",
       };
     });
 
