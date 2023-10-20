@@ -77,8 +77,8 @@ export default function Agenda({ service, colorVariants, showDate }) {
     );
   }
 
-  const days = Array.from(new Set(eventsArray.map((e) => e.date.ts)));
-  const eventsByDay = days.map((d) => eventsArray.filter((e) => e.date.ts === d));
+  const days = Array.from(new Set(eventsArray.map((e) => e.date.startOf("day").ts)));
+  const eventsByDay = days.map((d) => eventsArray.filter((e) => e.date.startOf("day").ts === d));
 
   return (
     <div className="p-2">
