@@ -65,7 +65,7 @@ export default function Agenda({ service, colorVariants, showDate }) {
           className={classNames("flex flex-col pt-1 pb-1", !eventsArray.length && !events.length && "animate-pulse")}
         >
           {eventsArray?.map((event) => (
-            <Event key={`event${event.title}`} event={event} colorVariants={colorVariants} i18n={i18n} />
+            <Event key={`event${event.title}-${event.date}`} event={event} colorVariants={colorVariants} i18n={i18n} />
           ))}
           {!eventsArray?.length && (
             <Event
