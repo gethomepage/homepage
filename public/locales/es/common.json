@@ -13,8 +13,8 @@
         "ms": "{{value, number}}"
     },
     "widget": {
-        "missing_type": "Tipo de Widget que falta: {{type}}",
-        "api_error": "Error en API",
+        "missing_type": "Falta el tipo de widget: {{type}}",
+        "api_error": "Error de API",
         "information": "Información",
         "status": "Estado",
         "url": "Enlace",
@@ -86,9 +86,9 @@
         "not_available": "No Disponible"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "Estado HTTP",
         "error": "Fallo",
-        "response": "Response",
+        "response": "Respuesta",
         "down": "Abajo",
         "up": "Arriba",
         "not_available": "No Disponible"
