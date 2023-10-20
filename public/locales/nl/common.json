@@ -88,7 +88,7 @@
     "siteMonitor": {
         "http_status": "HTTP status",
         "error": "Fout",
-        "response": "Antwoord",
+        "response": "Reactie",
         "down": "Offline",
         "up": "Online",
         "not_available": "Niet Beschikbaar"
