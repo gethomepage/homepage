@@ -763,6 +763,7 @@
     "calendar": {
         "inCinemas": "In bioscopen",
         "physicalRelease": "Fysieke versie",
-        "digitalRelease": "Digitale versie"
+        "digitalRelease": "Digitale versie",
+        "noEventsToday": "No events for today!"
     }
 }
