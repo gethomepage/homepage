@@ -14,7 +14,7 @@
     },
     "widget": {
         "missing_type": "Widget manquant: {{type}}",
-        "api_error": "Erreur de l'API",
+        "api_error": "Erreur API",
         "information": "Informations",
         "status": "Statut",
         "url": "Url",
@@ -763,6 +763,7 @@
     "calendar": {
         "inCinemas": "En salle",
         "physicalRelease": "Sortie physique",
-        "digitalRelease": "Sortie numérique"
+        "digitalRelease": "Sortie numérique",
+        "noEventsToday": "No events for today!"
     }
 }
