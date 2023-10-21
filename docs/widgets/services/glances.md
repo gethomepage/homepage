@@ -18,7 +18,7 @@ widget:
   metric: cpu
 ```
 
-_Please note, this widget does not need an `href`, `icon` or `description` on its parent service. To achive the same effect as the examples above, see as an example:_
+_Please note, this widget does not need an `href`, `icon` or `description` on its parent service. To achieve the same effect as the examples above, see as an example:_
 
 ```yaml
 - CPU Usage:
@@ -45,15 +45,15 @@ The metric field in the configuration determines the type of system monitoring d
 
 `process`: Top 5 processes based on CPU usage. Gives an overview of which processes are consuming the most resources.
 
-`network:<interface_name>`: Network data usage for the specified interface. Replace `<interface_name>` with the name of your network interface, e.g., `network:enp0s25`, as specificed in glances.
+`network:<interface_name>`: Network data usage for the specified interface. Replace `<interface_name>` with the name of your network interface, e.g., `network:enp0s25`, as specified in glances.
 
-`sensor:<sensor_id>`: Temperature of the specified sensor, typically used to monitor CPU temperature. Replace `<sensor_id>` with the name of your sensor, e.g., `sensor:Package id 0` as specificed in glances.
+`sensor:<sensor_id>`: Temperature of the specified sensor, typically used to monitor CPU temperature. Replace `<sensor_id>` with the name of your sensor, e.g., `sensor:Package id 0` as specified in glances.
 
-`disk:<disk_id>`: Disk I/O data for the specified disk. Replace `<disk_id>` with the id of your disk, e.g., `disk:sdb`, as specificed in glances.
+`disk:<disk_id>`: Disk I/O data for the specified disk. Replace `<disk_id>` with the id of your disk, e.g., `disk:sdb`, as specified in glances.
 
-`gpu:<gpu_id>`: GPU usage for the specified GPU. Replace `<gpu_id>` with the id of your GPU, e.g., `gpu:0`, as specificed in glances.
+`gpu:<gpu_id>`: GPU usage for the specified GPU. Replace `<gpu_id>` with the id of your GPU, e.g., `gpu:0`, as specified in glances.
 
-`fs:<mnt_point>`: Disk usage for the specified mount point. Replace `<mnt_point>` with the path of your disk, e.g., `/mnt/storage`, as specificed in glances.
+`fs:<mnt_point>`: Disk usage for the specified mount point. Replace `<mnt_point>` with the path of your disk, e.g., `/mnt/storage`, as specified in glances.
 
 ## Views
 
@@ -61,7 +61,7 @@ All widgets offer an alternative to the full or "graph" view, which is the compa
 
 <img width="970" alt="Screenshot 2023-09-06 at 1 51 48 PM" src="https://github-production-user-asset-6210df.s3.amazonaws.com/82196/265985295-cc6b9adc-4218-4274-96ca-36c3e64de5d0.png">
 
-To switch to the alternative "graphless" view, simply passs `chart: false` as an option to the widget, like so:
+To switch to the alternative "graphless" view, simply pass `chart: false` as an option to the widget, like so:
 
 ```yaml
 - Network Usage:

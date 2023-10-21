@@ -3,7 +3,7 @@ title: OpenWeatherMap
 description: OpenWeatherMap Information Widget Configuration
 ---
 
-The free tier "One Call API" is all thats required, you will need to [subscribe](https://home.openweathermap.org/subscriptions/unauth_subscribe/onecall_30/base) and grab your API key.
+The free tier "One Call API" is all that's required, you will need to [subscribe](https://home.openweathermap.org/subscriptions/unauth_subscribe/onecall_30/base) and grab your API key.
 
 ```yaml
 - openweathermap:

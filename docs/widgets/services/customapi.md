@@ -60,7 +60,7 @@ For the following JSON object from the API:
 }
 ```
 
-Define the `mappings` section as an aray, for example:
+Define the `mappings` section as an array, for example:
 
 ```yaml
 mappings:
