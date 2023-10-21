@@ -5,7 +5,7 @@ description: Service Widget Configuration
 
 Unless otherwise noted, URLs should not end with a `/` or other API path. Each widget will handle the path on its own.
 
-Each service can have one widget attached to it (often matching the service type, but thats not forced).
+Each service can have one widget attached to it (often matching the service type, but that's not forced).
 
 In addition to the href of the service, you can also specify the target location in which to open that link. See [Link Target](settings.md#link-target) for more details.
 
