@@ -763,6 +763,7 @@
     "calendar": {
         "inCinemas": "上映中",
         "physicalRelease": "实体发行",
-        "digitalRelease": "数字发行"
+        "digitalRelease": "数字发行",
+        "noEventsToday": "No events for today!"
     }
 }
