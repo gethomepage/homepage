@@ -68,7 +68,7 @@
         "mem": "PAM",
         "cpu": "Procesor",
         "running": "Działa",
-        "offline": "Offline",
+        "offline": "Nieosiągalny",
         "error": "Błąd",
         "unknown": "Nieznany",
         "healthy": "Zdrowy",
@@ -81,17 +81,17 @@
     "ping": {
         "error": "Błąd",
         "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Niedostępny",
+        "up": "Dostępny",
+        "not_available": "Niedostępny"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "Status HTTP",
         "error": "Błąd",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "response": "Odpowiedź",
+        "down": "Niedostępny",
+        "up": "Dostępny",
+        "not_available": "Niedostępny"
     },
     "emby": {
         "playing": "Odtwarzanie",
@@ -104,11 +104,11 @@
         "songs": "Piosenki"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
+        "pv_power": "Produkcja",
+        "battery_soc": "Bateria",
         "grid_power": "Siatka",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "home_power": "Zużycie",
+        "charge_power": "Ładowarka",
         "watt_hour": "Wh"
     },
     "flood": {
@@ -123,25 +123,25 @@
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Aktualne zapytania",
+        "requests_failed": "Nieudane zapytania"
     },
     "changedetectionio": {
         "totalObserved": "Obserwowanych ogółem",
         "diffsDetected": "Wykryto różnic"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
+        "shows": "Seriale",
         "recordings": "Nagrywanie",
         "scheduled": "W kolejce",
-        "passes": "Passes"
+        "passes": "Przebiegi"
     },
     "tautulli": {
         "playing": "Odtwarzanie",
         "transcoding": "Transkodowanie",
         "bitrate": "Bitrate",
         "no_active": "Brak aktywnych strumieni",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Sprawdź połączenie z Plex"
     },
     "omada": {
         "connectedAp": "Połączone punkty dostępowe",
@@ -184,12 +184,12 @@
         "seed": "Seed"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "Użycie CPU",
+        "memUsage": "Użycie pamięci",
+        "systemTempC": "Temperatura systemu",
+        "poolUsage": "Wykorzystanie puli",
+        "volumeUsage": "Wykorzystanie woluminu",
+        "invalid": "Nieprawidłowy"
     },
     "deluge": {
         "download": "Pobieranie",
@@ -221,7 +221,7 @@
     "lidarr": {
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
-        "artists": "Artists"
+        "artists": "Artyści"
     },
     "readarr": {
         "wanted": "Poszukiwane",
@@ -250,14 +250,14 @@
     },
     "pialert": {
         "total": "Całkowite",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Połączony",
+        "new_devices": "Nowe urządzenia",
+        "down_alerts": "Powiadomienia o niedostępności"
     },
     "pihole": {
         "queries": "Zapytania",
         "blocked": "Zablokowane",
-        "blocked_percent": "Blocked %",
+        "blocked_percent": "Zablokowano %",
         "gravity": "Grawitacja"
     },
     "adguard": {
@@ -277,12 +277,12 @@
         "total": "Całkowite"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
+        "address": "Adres",
+        "expires": "Wygasa za",
         "never": "Nigdy",
-        "last_seen": "Last Seen",
+        "last_seen": "Ostatnio dostępny",
         "now": "Teraz",
-        "years": "{{number}}y",
+        "years": "{{number}}lat",
         "weeks": "{{number}}w",
         "days": "{{number}}d",
         "hours": "{{number}}h",
@@ -354,7 +354,7 @@
         "version": "Wersja",
         "status": "Stan",
         "up": "Online",
-        "down": "Offline"
+        "down": "Nieosiągalny"
     },
     "miniflux": {
         "read": "Przeczytane",
@@ -464,15 +464,15 @@
         "up_to_date": "Aktualny",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Dostępny",
         "pending": "Oczekiwane",
-        "down": "Down"
+        "down": "Niedostępny"
     },
     "healthchecks": {
         "new": "Nowy",
         "up": "Online",
         "grace": "In Grace Period",
-        "down": "Offline",
+        "down": "Nieosiągalny",
         "paused": "Zatrzymane",
         "status": "Stan",
         "last_ping": "Last Ping",
@@ -572,8 +572,8 @@
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Dostępny",
+        "down": "Niedostępny",
         "temp": "Temperatura",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
@@ -717,7 +717,7 @@
     "gamedig": {
         "status": "Stan",
         "online": "Online",
-        "offline": "Offline",
+        "offline": "Nieosiągalny",
         "name": "Nazwa",
         "map": "Mapa",
         "currentPlayers": "Current players",
@@ -755,9 +755,9 @@
         "sitesDown": "Niedziałające strony",
         "paused": "Zatrzymane",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Dostępny",
         "seemsdown": "Seems Down",
-        "down": "Down",
+        "down": "Niedostępny",
         "unknown": "Nieznany"
     },
     "calendar": {
