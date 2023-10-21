@@ -282,13 +282,13 @@
         "never": "Nigdy",
         "last_seen": "Ostatnio dostępny",
         "now": "Teraz",
-        "years": "{{number}}lat",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "years": "{{number}}rok/lat",
+        "weeks": "{{number}}tygodni",
+        "days": "{{number}}dni",
+        "hours": "{{number}}godzin",
+        "minutes": "{{number}}miesięcy",
+        "seconds": "{{number}}sekund",
+        "ago": "{{value}} temu"
     },
     "tdarr": {
         "queue": "Kolejka",
@@ -353,7 +353,7 @@
         "players": "Gracze",
         "version": "Wersja",
         "status": "Stan",
-        "up": "Online",
+        "up": "Dostępny",
         "down": "Nieosiągalny"
     },
     "miniflux": {
@@ -470,7 +470,7 @@
     },
     "healthchecks": {
         "new": "Nowy",
-        "up": "Online",
+        "up": "Dostępny",
         "grace": "In Grace Period",
         "down": "Nieosiągalny",
         "paused": "Zatrzymane",
@@ -716,7 +716,7 @@
     },
     "gamedig": {
         "status": "Stan",
-        "online": "Online",
+        "online": "Dostępny",
         "offline": "Nieosiągalny",
         "name": "Nazwa",
         "map": "Mapa",
