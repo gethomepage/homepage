@@ -763,6 +763,7 @@
     "calendar": {
         "inCinemas": "I biografen",
         "physicalRelease": "Fysisk udgivelse",
-        "digitalRelease": "Digitale udgivelser"
+        "digitalRelease": "Digitale udgivelser",
+        "noEventsToday": "No events for today!"
     }
 }
