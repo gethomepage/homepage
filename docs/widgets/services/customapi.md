@@ -31,9 +31,13 @@ widget:
             another: key3
       label: Field 3
       format: percent # optional - defaults to text
+    - field: key # needs to be YAML string or object
+      label: Field 4
+      format: date # optional - defaults to text
+      dateStyle: long # optional - defaults to "long". Allowed values: `["full", "long", "medium", "short"]`.
 ```
 
-Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes` and `bitrate`.
+Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate` and `date`.
 
 ## Example
 
