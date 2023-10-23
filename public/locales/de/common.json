@@ -104,9 +104,9 @@
         "songs": "Songs"
     },
     "evcc": {
-        "pv_power": "Produktion",
+        "pv_power": "Erzeugung",
         "battery_soc": "Batterie",
-        "grid_power": "Netzstrom",
+        "grid_power": "Netz",
         "home_power": "verbauch",
         "charge_power": "Ladegerät",
         "watt_hour": "Wh"
