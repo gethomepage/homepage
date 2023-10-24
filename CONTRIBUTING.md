@@ -10,11 +10,11 @@ We love your input! We want to make contributing to this project as easy and tra
 
 ## We Develop with Github
 
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
+We use github to host code, to track issues and feature requests as well as accept pull requests.
 
 ## Any contributions you make will be under the GNU General Public License v3.0
 
-In short, when you submit code changes, your submissions are understood to be under the same [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
+In short, when you submit code changes, your submissions are assumed to be covered under the same [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## Report bugs using Github's [issues](https://github.com/gethomepage/homepage/issues)
 
@@ -22,7 +22,7 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new issue]
 
 ## Write bug reports with detail, background, and sample configurations
 
-Homepage includes a lot of configuration options and is often deploying in larger systems. Please include as much information (configurations, deployment method, Docker & API versions, etc) as you can when reporting an issue.
+Homepage includes a lot of configuration options and is often deployed in larger systems. Please include as much information (configurations, deployment method, Docker & API versions, etc) as you can when reporting an issue.
 
 **Great Bug Reports** tend to have:
 
