@@ -5,6 +5,12 @@
   </picture>
 </p>
 
+<h1 align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com/?lines=Hello,+There!+👋;Welcome+to+HOMEPAGE&center=true&size=30">
+  </a>
+</h1>
+
 <p align="center">
   A modern, <em>fully static, fast</em>, secure <em>fully proxied</em>, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.
 </p>
