@@ -1,17 +1,31 @@
 .theme-white {
   --color-50: 255 255 255;
-  --color-100: 255 255 255;
-  --color-200: 255 255 255;
-  --color-300: 255 255 255;
-  --color-400: 255 255 255;
+  --color-100: 120 120 120;
+  --color-200: 120 120 120;
+  --color-300: 120 120 120;
+  --color-400: 120 120 120;
   --color-500: 60 60 60;
-  --color-600: 255 255 255;
+  --color-600: 120 120 120;
   --color-700: 40 40 40;
   --color-800: 255 255 255;
-  --color-900: 255 255 255;
+  --color-900: 120 120 120;
 
   --color-logo-start: 128 128 128 / 20%;
   --color-logo-stop: 128 128 128 / 40%;
+}
+
+.theme-white .bg-theme-100\/20,
+.theme-white .dark\:bg-white\/5 {
+  background-color: rgb(245, 245, 245);
+}
+
+.theme-white .bg-theme-100\/20:hover,
+.theme-white .dark\:bg-white\/5:hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.theme-white .text-theme-800 {
+  color: rgb(120, 120, 120);
 }
 
 .theme-slate {

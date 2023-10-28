@@ -5,7 +5,7 @@ description: Weather API Information Widget Configuration
 
 **Note: this widget is considered 'deprecated' since there is no longer a free Weather API tier for new members. See the openmeteo or openweathermap widgets for alternatives.**
 
-The free tier is all thats required, you will need to [register](https://www.weatherapi.com/signup.aspx) and grab your API key.
+The free tier is all that's required, you will need to [register](https://www.weatherapi.com/signup.aspx) and grab your API key.
 
 ```yaml
 - weatherapi:

@@ -123,6 +123,9 @@ module.exports = {
         i18next.services.formatter.add("percent", (value, lng, options) =>
           new Intl.NumberFormat(lng, { style: "percent", ...options }).format(parseFloat(value) / 100.0),
         );
+        i18next.services.formatter.add("date", (value, lng, options) =>
+          new Intl.DateTimeFormat(lng, { ...options }).format(new Date(value)),
+        );
       },
       type: "3rdParty",
     },

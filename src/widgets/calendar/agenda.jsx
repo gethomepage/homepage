@@ -40,7 +40,7 @@ export function Event({ event, colorVariants, showDate = false }) {
 export default function Agenda({ service, colorVariants, showDate }) {
   const { widget } = service;
   const { events } = useContext(EventContext);
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   if (!showDate) {
     return <div className=" text-center" />;
@@ -64,12 +64,11 @@ export default function Agenda({ service, colorVariants, showDate }) {
             <Event
               key="no-event"
               event={{
-                title: `No events for today!`,
+                title: t("calendar.noEventsToday"),
                 date: DateTime.now(),
                 color: "gray",
               }}
               colorVariants={colorVariants}
-              i18n={i18n}
             />
           </div>
         </div>

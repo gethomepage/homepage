@@ -6,7 +6,7 @@ const widget = {
 
   mappings: {
     users: {
-      endpoint: "core/users?page_size=1",
+      endpoint: "core/users/?page_size=1",
     },
     login: {
       endpoint: "events/events/per_month/?action=login",

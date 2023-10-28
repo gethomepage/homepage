@@ -69,6 +69,9 @@ function formatValue(t, mapping, rawValue) {
     case "bitrate":
       value = t("common.bitrate", { value });
       break;
+    case "date":
+      value = t("common.date", { value, dateStyle: mapping?.dateStyle ?? "long" });
+      break;
     case "text":
     default:
     // nothing
