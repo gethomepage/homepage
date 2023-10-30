@@ -21,9 +21,10 @@ export default function Component({ service }) {
     return undefined;
   }, [refreshTimer, widget?.refreshInterval]);
 
-  const scrollingDisableStyle = widget?.allowScrolling
-    ? "pointer-events:none; overflow: hidden;"
-    : "";
+  const scrollingDisableStyle =
+    widget?.allowScrolling === "no"
+      ? "pointer-events:none; overflow: hidden"
+      : "";
 
   const sizeClasses = `h-${widget?.sizes?.xs || 80} sm:h-${
     widget?.sizes?.sm || 80
@@ -52,7 +53,6 @@ export default function Component({ service }) {
     </Container>
   );
 }
-
 
 function Block({ children }) {
   return (
