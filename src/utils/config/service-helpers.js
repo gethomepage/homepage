@@ -423,14 +423,14 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "iframe") {
           if (src) cleanedService.widget.src = src
-          if (src) cleanedService.widget.sizes = sizes
-          if (src) cleanedService.widget.referrerPolicy = referrerPolicy
-          if (src) cleanedService.widget.allowPolicy = allowPolicy
-          if (src) cleanedService.widget.allowFullscreen = allowFullscreen
-          if (src) cleanedService.widget.loadingStrategy = loadingStrategy
-          if (src) cleanedService.widget.allowScrolling = allowScrolling
-          if (src) cleanedService.widget.border = border
-          if (src) cleanedService.widget.refreshInterval = refreshInterval
+          if (sizes) cleanedService.widget.sizes = sizes
+          if (referrerPolicy) cleanedService.widget.referrerPolicy = referrerPolicy
+          if (allowPolicy) cleanedService.widget.allowPolicy = allowPolicy
+          if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen
+          if (loadingStrategy) cleanedService.widget.loadingStrategy = loadingStrategy
+          if (allowScrolling) cleanedService.widget.allowScrolling = allowScrolling
+          if (border) cleanedService.widget.border = border
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) cleanedService.widget.wan = wan;
