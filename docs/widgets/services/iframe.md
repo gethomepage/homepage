@@ -2,7 +2,9 @@
 title: iFrame
 Description: Add a custom iFrame Widget
 ---
+
 ### name
+
 **Type:** string <br>
 **Default:** null <br>
 **Required:** Yes <br>
@@ -10,6 +12,7 @@ Description: Add a custom iFrame Widget
 **Example:** "myIframe"
 
 ### src
+
 **Type:** string (URL) <br>
 **Default:** null <br>
 **Required:** Yes <br>
@@ -17,6 +20,7 @@ Description: Add a custom iFrame Widget
 **Example:** "http://example.com"
 
 ### sizes
+
 **Type:** object <br>
 **Default:** {"xs": '60', "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80"} <br>
 **Required:** No <br>
@@ -24,6 +28,7 @@ Description: Add a custom iFrame Widget
 **Example:** "{"xs": '32', "sm": "12", "md": "44", "lg": "60", "xl": "72", "2xl": "80"}"
 
 ### referrerpolicy
+
 **Type:** string ["no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "same-origin" | "strict-origin-when-cross-origin" | "unsafe-url"] <br>
 **Default:** null <br>
 **Required:** No <br>
@@ -31,6 +36,7 @@ Description: Add a custom iFrame Widget
 **Example:** "no-referrer"
 
 ### allowfullscreen
+
 **Type:** boolean [true | false] <br>
 **Default:** null <br>
 **Required:** No <br>
@@ -38,6 +44,7 @@ Description: Add a custom iFrame Widget
 **Example:** false
 
 ### loading
+
 **Type:** string ["eager" | "lazy"] <br>
 **Default:** null <br>
 **Required:** No <br>
@@ -45,6 +52,7 @@ Description: Add a custom iFrame Widget
 **Example:** "lazy"
 
 ### allowScrolling
+
 **Type:** string ["yes" | "no"] <br>
 **Default:** null <br>
 **Required:** No <br>
@@ -52,6 +60,7 @@ Description: Add a custom iFrame Widget
 **Example:** "no"
 
 ### border
+
 **Type:** number <br>
 **Default:** null <br>
 **Required:** No <br>
@@ -59,6 +68,7 @@ Description: Add a custom iFrame Widget
 **Example:** 2
 
 ### refreshInterval
+
 **Type:** number (in milliseconds) <br>
 **Default:** null <br>
 **Required:** No <br>
@@ -66,6 +76,7 @@ Description: Add a custom iFrame Widget
 **Example:** 2000
 
 ### allowPolicy
+
 **Type:** string <br>
 **Default:** null <br>
 **Required:** No <br>
@@ -77,7 +88,7 @@ widget:
   type: iframe
   name: myIframe
   src: "http://example.com"
-  sizes: {"xs": '60', "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80"}
+  sizes: { "xs": "60", "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80" }
   referrerPolicy: "same-origin"
   allowPolicy: ""
   allowFullscreen: "false"
@@ -88,4 +99,3 @@ widget:
   border: 0
   refreshInterval: 2000
 ```
-

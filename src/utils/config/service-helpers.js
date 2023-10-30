@@ -366,14 +366,14 @@ export function cleanServiceGroups(groups) {
           firstDayInWeek,
           view,
           maxEvents,
-          src,
+          src, // iframe widget
           sizes,
           referrerPolicy,
           allowPolicy,
           allowFullscreen,
           loadingStrategy,
           allowScrolling,
-          border
+          border,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -422,15 +422,15 @@ export function cleanServiceGroups(groups) {
           if (podSelector) cleanedService.widget.podSelector = podSelector;
         }
         if (type === "iframe") {
-          if (src) cleanedService.widget.src = src
-          if (sizes) cleanedService.widget.sizes = sizes
-          if (referrerPolicy) cleanedService.widget.referrerPolicy = referrerPolicy
-          if (allowPolicy) cleanedService.widget.allowPolicy = allowPolicy
-          if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen
-          if (loadingStrategy) cleanedService.widget.loadingStrategy = loadingStrategy
-          if (allowScrolling) cleanedService.widget.allowScrolling = allowScrolling
-          if (border) cleanedService.widget.border = border
-          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval
+          if (src) cleanedService.widget.src = src;
+          if (sizes) cleanedService.widget.sizes = sizes;
+          if (referrerPolicy) cleanedService.widget.referrerPolicy = referrerPolicy;
+          if (allowPolicy) cleanedService.widget.allowPolicy = allowPolicy;
+          if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen;
+          if (loadingStrategy) cleanedService.widget.loadingStrategy = loadingStrategy;
+          if (allowScrolling) cleanedService.widget.allowScrolling = allowScrolling;
+          if (border) cleanedService.widget.border = border;
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) cleanedService.widget.wan = wan;

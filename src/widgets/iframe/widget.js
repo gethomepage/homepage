@@ -1,4 +1,3 @@
-const widget = {
-};
+const widget = {};
 
 export default widget;

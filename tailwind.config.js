@@ -78,7 +78,7 @@ module.exports = {
     "dark:bg-orange-400",
     {
       pattern: /h-([0-96])/,
-      variants: ["sm","md","lg","xl","2xl"],
+      variants: ["sm", "md", "lg", "xl", "2xl"],
     },
   ],
 };
