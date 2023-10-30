@@ -25,7 +25,7 @@ widget:
   type: iframe
   name: myIframe
   src: "http://example.com"
-  sizes: { "xs": "60", "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80" } # optional - sets height of the iframe. The value for each breakpoint size must map directly to a field in the Tailwind Height CSS classes, see https://tailwindcss.com/docs/height
+  sizes: { "xs": "60", "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80" } # optional, height of the iframe. The value for each breakpoint size must map directly to a field in the Tailwind Height CSS classes, see https://tailwindcss.com/docs/height
   referrerPolicy: "same-origin" # string - optional - no default
   allowPolicy: "autoplay fullscreen gamepad" # optional, no default
   allowFullscreen: false # optional, default: true
