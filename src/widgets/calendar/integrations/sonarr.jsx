@@ -5,7 +5,7 @@ import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import { EventContext } from "../../../utils/contexts/calendar";
 import Error from "../../../components/services/widget/error";
 
-export default function Integration({ config, params }) {
+export default function Integration({ config, params, hideErrors = false }) {
   const { setEvents } = useContext(EventContext);
   const { data: sonarrData, error: sonarrError } = useWidgetAPI(config, "calendar", {
     ...params,
@@ -38,5 +38,5 @@ export default function Integration({ config, params }) {
   }, [sonarrData, sonarrError, config, setEvents]);
 
   const error = sonarrError ?? sonarrData?.error;
-  return error && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
+  return error && !hideErrors && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
 }

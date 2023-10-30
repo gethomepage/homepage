@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useContext } from "react";
 import dynamic from "next/dynamic";
 import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next";
@@ -7,6 +7,7 @@ import Monthly from "./monthly";
 import Agenda from "./agenda";
 
 import Container from "components/services/widget/container";
+import { SettingsContext } from "utils/contexts/settings";
 
 const colorVariants = {
   // https://tailwindcss.com/docs/content-configuration#dynamic-class-names
@@ -40,6 +41,7 @@ export default function Component({ service }) {
   const { i18n } = useTranslation();
   const [showDate, setShowDate] = useState(null);
   const currentDate = DateTime.now().setLocale(i18n.language).startOf("day");
+  const { settings } = useContext(SettingsContext);
 
   useEffect(() => {
     if (!showDate) {
@@ -85,6 +87,7 @@ export default function Component({ service }) {
                 key={key}
                 config={integration.widget}
                 params={params}
+                hideErrors={settings.hideErrors}
                 className="fixed bottom-0 left-0 bg-red-500 w-screen h-12"
               />
             );
