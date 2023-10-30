@@ -11,9 +11,12 @@ export default function Component({ service }) {
 
   useEffect(() => {
     if (widget?.refreshInterval) {
-      const refreshInterval = setInterval(() => {
-        setRefreshTimer(refreshTimer + 1);
-      }, widget?.refreshInterval);
+      const refreshInterval = setInterval(
+        () => {
+          setRefreshTimer(refreshTimer + 1);
+        },
+        widget?.refreshInterval < 1000 ? 1000 : widget?.refreshInterval
+      );
       return () => clearInterval(refreshInterval);
     }
     return undefined;
