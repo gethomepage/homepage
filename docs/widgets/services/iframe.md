@@ -25,7 +25,7 @@ widget:
   type: iframe
   name: myIframe # string - required - Also helps if you would like to target the iframe with a button
   src: "http://example.com" # string - required - URL of the content to load within the iFrame
-  classes: "" # string - optional - Apply any tailwind height, rounding or width classes you would like Default: 'h-60 sm:h-60 md:h-60 lg:h-60 xl:h-60 2xl:h-72 w-full rounded'
+  classes: "h-60 sm:h-60 md:h-60 lg:h-60 xl:h-60 2xl:h-72 w-full rounded" # string - optional - Apply any tailwind height, rounding or width classes you would like
   referrerPolicy: "same-origin" # string - optional - no default
   allowPolicy: "autoplay fullscreen gamepad" # optional, no default
   allowFullscreen: false # optional, default: true
