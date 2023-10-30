@@ -3,8 +3,6 @@ title: iFrame
 description: Add a custom iFrame Widget
 ---
 
-Find your API key under `Settings > General`.
-
 src
 Type: string (URL)
 Description: URL of the content to load within the iFrame
