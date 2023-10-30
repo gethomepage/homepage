@@ -12,28 +12,23 @@ export default function Component({ service }) {
     if (widget?.refreshInterval) {
       setInterval(
         () => setRefreshTimer(refreshTimer + 1),
-        widget?.refreshInterval < 1000 ? 1000 : widget?.refreshInterval
+        widget?.refreshInterval < 1000 ? 1000 : widget?.refreshInterval,
       );
     }
   }, [refreshTimer, widget?.refreshInterval]);
 
-  const scrollingDisableStyle =
-    widget?.allowScrolling === "no"
-      ? { pointerEvents: "none", overflow: "hidden" }
-      : {};
+  const scrollingDisableStyle = widget?.allowScrolling === "no" ? { pointerEvents: "none", overflow: "hidden" } : {};
 
-  const sizeClasses = `h-${widget?.sizes?.xs || 80} sm:h-${
-    widget?.sizes?.sm || 80
-  } md:h-${widget?.sizes?.md || 80} lg:h-${widget?.sizes?.lg || 80} xl:h-${
-    widget?.sizes?.xl || 80
-  } 2xl:h-${widget?.sizes?.["2xl"] || 80}`;
+  const sizeClasses = `h-${widget?.sizes?.xs || 80} sm:h-${widget?.sizes?.sm || 80} md:h-${
+    widget?.sizes?.md || 80
+  } lg:h-${widget?.sizes?.lg || 80} xl:h-${widget?.sizes?.xl || 80} 2xl:h-${widget?.sizes?.["2xl"] || 80}`;
 
   return (
     <Container service={service}>
       <div
         className={classNames(
           "bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-col items-center justify-center text-center",
-          "service-block"
+          "service-block",
         )}
       >
         <iframe
