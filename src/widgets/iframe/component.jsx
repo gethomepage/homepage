@@ -42,7 +42,7 @@ export default function Component({ service }) {
           loading={widget?.loadingStrategy}
           scrolling={widget?.allowScrolling}
           frameBorder={widget?.border}
-          style={{ width: "100%", scrollingDisableStyle }}
+          style={{ width: "100%", "border-radius": "4px", scrollingDisableStyle }}
           className={sizeClasses}
         />
       </div>
