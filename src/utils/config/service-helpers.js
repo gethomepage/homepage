@@ -367,7 +367,7 @@ export function cleanServiceGroups(groups) {
           view,
           maxEvents,
           src, // iframe widget
-          sizes,
+          classes,
           referrerPolicy,
           allowPolicy,
           allowFullscreen,
@@ -423,7 +423,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "iframe") {
           if (src) cleanedService.widget.src = src;
-          if (sizes) cleanedService.widget.sizes = sizes;
+          if (classes) cleanedService.widget.classes = classes;
           if (referrerPolicy) cleanedService.widget.referrerPolicy = referrerPolicy;
           if (allowPolicy) cleanedService.widget.allowPolicy = allowPolicy;
           if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen;
