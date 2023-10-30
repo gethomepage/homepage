@@ -38,8 +38,8 @@ export default function Component({ service }) {
           name={widget?.name}
           title={widget?.name}
           allow={widget?.allowPolicy}
-          allowfullscreen={widget?.allowfullscreen}
-          referrerpolicy={widget?.referrerPolicy}
+          allowFullScreen={widget?.allowfullscreen}
+          referrerPolicy={widget?.referrerPolicy}
           loading={widget?.loadingStrategy}
           scrolling={widget?.allowScrolling}
           frameBorder={widget?.border}
