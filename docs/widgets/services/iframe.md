@@ -19,14 +19,7 @@ widget:
   type: iframe
   name: myIframe # string - required - Also helps if you would like to target the iframe with a button
   src: "http://example.com" # string - required - URL of the content to load within the iFrame
-  sizes: {
-      "xs": "60",
-      "sm": "60",
-      "md": "80",
-      "lg": "80",
-      "xl": "80",
-      "2xl": "80",
-    } # optional - Controls the height of the iframe (width is always 100%) The value for each breakpoint size must map directly to a field in the Tailwind Height CSS classes
+  sizes: { "xs": "60", "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80" } # optional - Controls the height of the iframe (width is always 100%) The value for each breakpoint size must map directly to a field in the Tailwind Height CSS classes
   referrerPolicy: "same-origin" # string - optional - no default
   allowPolicy: "autoplay fullscreen gamepad" # string - optional - no default - Control the permissions for the iFrame content
   allowFullscreen: false # boolean - optional - default: true - Controls whether you can interact with a fullscreen button from within the iframe content and have the content expand into fullscreen
