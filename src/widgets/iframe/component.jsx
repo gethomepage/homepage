@@ -16,7 +16,8 @@ export default function Component({ service }) {
       }, widget?.refreshInterval);
       return () => clearInterval(refreshInterval);
     }
-  }, [refreshTimer]);
+    return undefined;
+  }, [refreshTimer, widget?.refreshInterval]);
 
   const scrollingDisableStyle = widget.scrolling
     ? "pointer-events:none; overflow: hidden;"
