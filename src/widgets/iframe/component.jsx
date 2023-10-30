@@ -39,7 +39,6 @@ export default function Component({ service }) {
           referrerPolicy={widget?.referrerPolicy}
           loading={widget?.loadingStrategy}
           scrolling={widget?.allowScrolling}
-          frameBorder={widget?.border}
           style={{
             scrollingDisableStyle,
           }}

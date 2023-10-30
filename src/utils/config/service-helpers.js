@@ -373,7 +373,6 @@ export function cleanServiceGroups(groups) {
           allowFullscreen,
           loadingStrategy,
           allowScrolling,
-          border,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -429,7 +428,6 @@ export function cleanServiceGroups(groups) {
           if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen;
           if (loadingStrategy) cleanedService.widget.loadingStrategy = loadingStrategy;
           if (allowScrolling) cleanedService.widget.allowScrolling = allowScrolling;
-          if (border) cleanedService.widget.border = border;
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
         if (["opnsense", "pfsense"].includes(type)) {
