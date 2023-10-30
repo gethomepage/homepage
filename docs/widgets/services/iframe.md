@@ -19,7 +19,14 @@ widget:
   type: iframe
   name: myIframe # string - required - Also helps if you would like to target the iframe with a button
   src: "http://example.com" # string - required - URL of the content to load within the iFrame
-  sizes: { "xs": "60", "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80" } # optional - Controls the height of the iframe (width is always 100%) The value for each breakpoint size must map directly to a field in the Tailwind Height CSS classes
+  sizes: {
+      "xs": "60",
+      "sm": "60",
+      "md": "80",
+      "lg": "80",
+      "xl": "80",
+      "2xl": "80",
+    } # optional - Controls the height of the iframe (width is always 100%) The value for each breakpoint size must map directly to a field in the Tailwind Height CSS classes
   referrerPolicy: "same-origin" # string - optional - no default
   allowPolicy: "autoplay fullscreen gamepad" # string - optional - no default - Control the permissions for the iFrame content
   allowFullscreen: false # boolean - optional - default: true - Controls whether you can interact with a fullscreen button from within the iframe content and have the content expand into fullscreen
@@ -30,13 +37,14 @@ widget:
 ```
 
 ### Available Sizes
+
 [Tailwind Docs](https://tailwindcss.com/docs/height)
 
 ### References
-[referrerPolicy MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
-[allowFullscreen MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#allowfullscreen)
-[loading MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#loading)
-[scrolling MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#scrolling)
-[border MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#frameborder)
-[allowPolicy MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy)
 
+[referrerPolicy MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) <br>
+[allowFullscreen MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#allowfullscreen) <br>
+[loading MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#loading) <br>
+[scrolling MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#scrolling) <br>
+[border MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#frameborder) <br>
+[allowPolicy MSDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy)
