@@ -2,6 +2,9 @@
 title: iFrame
 description: Add a custom iFrame Widget
 ---
+name
+Type: string
+Description: Important to allow the iframe to be unique on the page and helps if you would like to target the iframe with a button
 
 src
 Type: string (URL)
@@ -42,6 +45,7 @@ Description: Allows you to control some of the permissions and functionality tha
 ```yaml
 widget:
   type: iframe
+  name: myIframe
   src: "http://example.com"
   sizes: {"xs": '60', "sm": "60", "md": "80", "lg": "80", "xl": "80", "2xl": "80"}
   referrerPolicy: "same-origin"
