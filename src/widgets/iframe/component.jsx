@@ -19,7 +19,7 @@ export default function Component({ service }) {
 
   const scrollingDisableStyle = widget?.allowScrolling === "no" ? { pointerEvents: "none", overflow: "hidden" } : {};
 
-  const classes = widget?.classes || "h-60 sm:h-60 md:h-60 lg:h-60 xl:h-60 2xl:h-72 w-full rounded";
+  const classes = widget?.classes || "h-60 sm:h-60 md:h-60 lg:h-60 xl:h-60 2xl:h-72";
 
   return (
     <Container service={service}>
@@ -43,7 +43,7 @@ export default function Component({ service }) {
           style={{
             scrollingDisableStyle,
           }}
-          className={classes}
+          className={`rounded w-full ${classes}`}
         />
       </div>
     </Container>

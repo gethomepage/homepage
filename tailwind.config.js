@@ -80,13 +80,5 @@ module.exports = {
       pattern: /h-([0-96])/,
       variants: ["sm", "md", "lg", "xl", "2xl"],
     },
-    {
-      pattern: /w-([0-96])/,
-      variants: ["sm", "md", "lg", "xl", "2xl"],
-    },
-    {
-      pattern: /rounded-(sm|md|lg|xl|2xl|3xl|full)/,
-      variants: ["sm", "md", "lg", "xl", "2xl"],
-    },
   ],
 };
