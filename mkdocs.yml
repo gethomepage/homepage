@@ -63,6 +63,7 @@ nav:
       - widgets/services/healthchecks.md
       - widgets/services/homeassistant.md
       - widgets/services/homebridge.md
+      - widgets/services/iframe.md
       - widgets/services/immich.md
       - widgets/services/jackett.md
       - widgets/services/jdownloader.md

@@ -366,6 +366,13 @@ export function cleanServiceGroups(groups) {
           firstDayInWeek,
           view,
           maxEvents,
+          src, // iframe widget
+          classes,
+          referrerPolicy,
+          allowPolicy,
+          allowFullscreen,
+          loadingStrategy,
+          allowScrolling,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -412,6 +419,16 @@ export function cleanServiceGroups(groups) {
           if (namespace) cleanedService.widget.namespace = namespace;
           if (app) cleanedService.widget.app = app;
           if (podSelector) cleanedService.widget.podSelector = podSelector;
+        }
+        if (type === "iframe") {
+          if (src) cleanedService.widget.src = src;
+          if (classes) cleanedService.widget.classes = classes;
+          if (referrerPolicy) cleanedService.widget.referrerPolicy = referrerPolicy;
+          if (allowPolicy) cleanedService.widget.allowPolicy = allowPolicy;
+          if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen;
+          if (loadingStrategy) cleanedService.widget.loadingStrategy = loadingStrategy;
+          if (allowScrolling) cleanedService.widget.allowScrolling = allowScrolling;
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) cleanedService.widget.wan = wan;
