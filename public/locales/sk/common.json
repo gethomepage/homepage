@@ -18,7 +18,7 @@
         "api_error": "Chyba API",
         "information": "Informácia",
         "status": "Stav",
-        "url": "URL",
+        "url": "Odkaz",
         "raw_error": "Nevyriešená chyba",
         "response_data": "Dáta odpovede"
     },
@@ -32,7 +32,7 @@
         "placeholder": "Hľadať…"
     },
     "resources": {
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "mem": "RAM",
         "total": "Celkovo",
         "free": "Voľné",
@@ -67,7 +67,7 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "RAM",
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "running": "Beží",
         "offline": "Offline",
         "error": "Chyba",
@@ -142,33 +142,33 @@
         "transcoding": "Prekódovávané",
         "bitrate": "Prenosová rýchlosť",
         "no_active": "Žiadny aktívny stream",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Skontroluj spojenie s Plex"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Pripojené prístupové body",
+        "activeUser": "Aktívne zariadenia",
+        "alerts": "Upozornenia",
+        "connectedGateway": "Pripojené sieťové brány",
+        "connectedSwitches": "Pripojené prepínače"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Rýchlosť",
+        "remaining": "Zostávajúce",
+        "downloaded": "Stiahnuté"
     },
     "plex": {
-        "streams": "Active Streams",
-        "albums": "Albums",
+        "streams": "Aktívne vysielanie",
+        "albums": "Albumy",
         "movies": "Filmy",
-        "tv": "TV Shows"
+        "tv": "Seriály"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Rýchlosť",
+        "queue": "V poradí",
+        "timeleft": "Zostávajúci čas"
     },
     "rutorrent": {
-        "active": "Active",
+        "active": "Aktívne",
         "upload": "Odosielanie",
         "download": "Sťahovanie"
     },
@@ -185,12 +185,12 @@
         "seed": "Seedovanie"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "Využitie procesora",
+        "memUsage": "Využitie pamäte",
+        "systemTempC": "Teplota systému",
+        "poolUsage": "Využitie zväzku",
+        "volumeUsage": "Využitie partície",
+        "invalid": "Neplatný"
     },
     "deluge": {
         "download": "Sťahovanie",
@@ -205,28 +205,28 @@
         "seed": "Seedovanie"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Žiadané",
+        "queued": "V poradí",
         "series": "Seriály",
-        "queue": "Queue",
+        "queue": "V poradí",
         "unknown": "Neznáme"
     },
     "radarr": {
-        "wanted": "Wanted",
+        "wanted": "Žiadané",
         "missing": "Chýbajúce",
-        "queued": "Queued",
+        "queued": "V poradí",
         "movies": "Filmy",
-        "queue": "Queue",
+        "queue": "V poradí",
         "unknown": "Neznáme"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Žiadané",
+        "queued": "V poradí",
         "artists": "Interpreti"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Žiadané",
+        "queued": "V poradí",
         "books": "Knihy"
     },
     "bazarr": {
@@ -292,7 +292,7 @@
         "ago": "Pred {{value}}"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "V poradí",
         "processed": "Spracované",
         "errored": "Chybné",
         "saved": "Uložené"
@@ -338,7 +338,7 @@
         "numActiveSessions": "Sessions",
         "numConnections": "Connections",
         "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "transferRate": "Rýchlosť"
     },
     "mastodon": {
         "user_count": "Používatelia",
@@ -346,8 +346,8 @@
         "domain_count": "Domains"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Žiadané",
+        "queued": "V poradí",
         "series": "Seriály"
     },
     "minecraft": {
@@ -368,12 +368,12 @@
     },
     "proxmox": {
         "mem": "RAM",
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "load": "Záťaž",
         "wait": "Počkajte prosím",
         "temp": "TEPLOTA",
@@ -398,7 +398,7 @@
         "search": "Search",
         "custom": "Custom",
         "visit": "Visit",
-        "url": "URL"
+        "url": "Odkaz"
     },
     "wmo": {
         "0-day": "Sunny",
@@ -491,7 +491,7 @@
         "indexers": "Indexers"
     },
     "tubearchivist": {
-        "downloads": "Queue",
+        "downloads": "V poradí",
         "videos": "Videos",
         "channels": "Channels",
         "playlists": "Playlists"
@@ -499,13 +499,13 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
+        "alerts": "Upozornenia",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
+        "active": "Aktívne",
+        "queue": "V poradí",
         "total": "Celkovo"
     },
     "gluetun": {
@@ -538,7 +538,7 @@
     },
     "xteve": {
         "streams_all": "All Streams",
-        "streams_active": "Active Streams",
+        "streams_active": "Aktívne vysielanie",
         "streams_xepg": "XEPG Channels"
     },
     "opendtu": {
@@ -582,7 +582,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "CPU",
+        "cpu_usage": "Procesor",
         "memory_usage": "Memory"
     },
     "immich": {
@@ -617,16 +617,16 @@
     "mylar": {
         "series": "Seriály",
         "issues": "Issues",
-        "wanted": "Wanted"
+        "wanted": "Žiadané"
     },
     "photoprism": {
-        "albums": "Albums",
+        "albums": "Albumy",
         "photos": "Photos",
         "videos": "Videos",
         "people": "People"
     },
     "fileflows": {
-        "queue": "Queue",
+        "queue": "V poradí",
         "processing": "Spracovávané",
         "processed": "Spracované",
         "time": "Time"
@@ -693,8 +693,8 @@
         "series": "Seriály"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
-        "downloadBytesRemaining": "Remaining",
+        "downloadCount": "V poradí",
+        "downloadBytesRemaining": "Zostávajúce",
         "downloadTotalBytes": "Size",
         "downloadSpeed": "Speed"
     },
