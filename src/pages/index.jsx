@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import useSWR, { SWRConfig } from "swr";
 import Head from "next/head";
+import {headers} from "next/header"; 
 import dynamic from "next/dynamic";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
@@ -27,6 +28,7 @@ import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
 import { getStoredProvider, searchProviders } from "components/widgets/search/search";
+import { NullPermissions, createAuthFromSettings } from "utils/auth/auth-helpers";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -46,11 +48,11 @@ export async function getStaticProps() {
   let logger;
   try {
     logger = createLogger("index");
-    const { providers, ...settings } = getSettings();
+    const { providers, auth, ...settings } = getSettings();
 
-    const services = await servicesResponse();
-    const bookmarks = await bookmarksResponse();
-    const widgets = await widgetsResponse();
+    const services = await servicesResponse(NullPermissions);
+    const bookmarks = await bookmarksResponse(NullPermissions);
+    const widgets = await widgetsResponse(NullPermissions);
 
     return {
       props: {
@@ -179,9 +181,11 @@ function Home({ initialSettings }) {
     setSettings(initialSettings);
   }, [initialSettings, setSettings]);
 
-  const { data: services } = useSWR("/api/services");
-  const { data: bookmarks } = useSWR("/api/bookmarks");
-  const { data: widgets } = useSWR("/api/widgets");
+  const auth = createAuthFromSettings(); 
+
+  const { data: services } = useSWR(auth.cacheContext("/api/services"), auth.fetcher);
+  const { data: bookmarks } = useSWR(auth.cacheContext("/api/bookmarks"), auth.fetcher); 
+  const { data: widgets } = useSWR(auth.cacheContext("/api/widgets"), auth.fetcher);
 
   const servicesAndBookmarks = [
     ...services.map((sg) => sg.services).flat(),
