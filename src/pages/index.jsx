@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import useSWR, { SWRConfig } from "swr";
 import Head from "next/head";
+import {headers} from "next/header"; 
 import Script from "next/script";
 import dynamic from "next/dynamic";
 import classNames from "classnames";
@@ -20,6 +21,8 @@ import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
 import ErrorBoundary from "components/errorboundry";
 import QuickLaunch from "components/quicklaunch";
+import { getStoredProvider, searchProviders } from "components/widgets/search/search";
+import { NullPermissions, createAuthFromSettings } from "utils/auth/auth-helpers";
 
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import themes from "utils/styles/themes";
@@ -45,11 +48,11 @@ export async function getStaticProps() {
   let logger;
   try {
     logger = createLogger("index");
-    const { providers, ...settings } = getSettings();
+    const { providers, auth, ...settings } = getSettings();
 
-    const services = await servicesResponse();
-    const bookmarks = await bookmarksResponse();
-    const widgets = await widgetsResponse();
+    const services = await servicesResponse(NullPermissions);
+    const bookmarks = await bookmarksResponse(NullPermissions);
+    const widgets = await widgetsResponse(NullPermissions);
 
     return {
       props: {
@@ -209,9 +212,11 @@ function Home({ initialSettings }) {
     setSettings(initialSettings);
   }, [initialSettings, setSettings]);
 
-  const { data: services } = useSWR("/api/services");
-  const { data: bookmarks } = useSWR("/api/bookmarks");
-  const { data: widgets } = useSWR("/api/widgets");
+  const auth = createAuthFromSettings(); 
+
+  const { data: services } = useSWR(auth.cacheContext("/api/services"), auth.fetcher);
+  const { data: bookmarks } = useSWR(auth.cacheContext("/api/bookmarks"), auth.fetcher); 
+  const { data: widgets } = useSWR(auth.cacheContext("/api/widgets"), auth.fetcher);
 
   const servicesAndBookmarks = [...bookmarks.map((bg) => bg.bookmarks).flat(), ...getAllServices(services)].filter(
     (i) => i?.href,
