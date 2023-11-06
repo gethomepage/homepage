@@ -12,6 +12,13 @@ import {
   servicesFromKubernetes,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
+import { filterAuthBookmarks } from "utils/auth/auth-helpers";
+
+import {
+  filterAllowedBookmarks,
+  filterAllowedServices, 
+  filterAllowedWidgets
+} from "utils/auth/auth-helpers"; 
 
 /**
  * Compares services by weight then by name.
@@ -24,13 +31,13 @@ function compareServices(service1, service2) {
   return service1.name.localeCompare(service2.name);
 }
 
-export async function bookmarksResponse() {
+export async function bookmarksResponse(perms) {
   checkAndCopyConfig("bookmarks.yaml");
 
   const bookmarksYaml = path.join(CONF_DIR, "bookmarks.yaml");
   const rawFileContents = await fs.readFile(bookmarksYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
-  const bookmarks = yaml.load(fileContents);
+  const bookmarks = yaml.load(fileContents); 
 
   if (!bookmarks) return [];
 
@@ -45,13 +52,15 @@ export async function bookmarksResponse() {
   }
 
   // map easy to write YAML objects into easy to consume JS arrays
-  const bookmarksArray = bookmarks.map((group) => ({
-    name: Object.keys(group)[0],
-    bookmarks: group[Object.keys(group)[0]].map((entries) => ({
-      name: Object.keys(entries)[0],
-      ...entries[Object.keys(entries)[0]][0],
-    })),
-  }));
+  const bookmarksArray = filterAllowedBookmarks(perms, 
+    bookmarks.map((group) => ({
+      name: Object.keys(group)[0],
+      bookmarks: group[Object.keys(group)[0]].map((entries) => ({
+        name: Object.keys(entries)[0],
+        ...entries[Object.keys(entries)[0]][0],
+      })),
+    }))
+  );
 
   const sortedGroups = [];
   const unsortedGroups = [];
@@ -70,11 +79,11 @@ export async function bookmarksResponse() {
   return [...sortedGroups.filter((g) => g), ...unsortedGroups];
 }
 
-export async function widgetsResponse() {
+export async function widgetsResponse(perms) {
   let configuredWidgets;
 
   try {
-    configuredWidgets = cleanWidgetGroups(await widgetsFromConfig());
+    configuredWidgets = filterAllowedWidgets(perms, cleanWidgetGroups(await widgetsFromConfig()));
   } catch (e) {
     console.error("Failed to load widgets, please check widgets.yaml for errors or remove example entries.");
     if (e) console.error(e);
@@ -84,14 +93,14 @@ export async function widgetsResponse() {
   return configuredWidgets;
 }
 
-export async function servicesResponse() {
+export async function servicesResponse(perms) {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
   let configuredServices;
   let initialSettings;
 
   try {
-    discoveredDockerServices = cleanServiceGroups(await servicesFromDocker());
+    discoveredDockerServices = filterAllowedServices(perms, cleanServiceGroups(await servicesFromDocker()));
     if (discoveredDockerServices?.length === 0) {
       console.debug("No containers were found with homepage labels.");
     }
@@ -102,7 +111,7 @@ export async function servicesResponse() {
   }
 
   try {
-    discoveredKubernetesServices = cleanServiceGroups(await servicesFromKubernetes());
+    discoveredKubernetesServices = filterAllowedServices(perms, cleanServiceGroups(await servicesFromKubernetes()));
   } catch (e) {
     console.error("Failed to discover services, please check kubernetes.yaml for errors or remove example entries.");
     if (e) console.error(e.toString());
@@ -110,7 +119,7 @@ export async function servicesResponse() {
   }
 
   try {
-    configuredServices = cleanServiceGroups(await servicesFromConfig());
+    configuredServices = filterAllowedServices(perms, cleanServiceGroups(await servicesFromConfig()));
   } catch (e) {
     console.error("Failed to load services.yaml, please check for errors");
     if (e) console.error(e.toString());
