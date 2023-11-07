@@ -83,7 +83,7 @@ export async function widgetsResponse(perms) {
   let configuredWidgets;
 
   try {
-    configuredWidgets = filterAllowedWidgets(perms, cleanWidgetGroups(await widgetsFromConfig()));
+    configuredWidgets = filterAllowedWidgets(perms, await cleanWidgetGroups(await widgetsFromConfig()));
   } catch (e) {
     console.error("Failed to load widgets, please check widgets.yaml for errors or remove example entries.");
     if (e) console.error(e);
