@@ -33,54 +33,54 @@
     },
     "resources": {
         "cpu": "SVE",
-        "mem": "MEM",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load",
+        "mem": "GEH",
+        "total": "Totaal",
+        "free": "Beskikbaar",
+        "used": "Gebruik",
+        "load": "Las",
         "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
+        "max": "Mak",
+        "uptime": "OP",
+        "months": "ma",
         "days": "d",
         "hours": "h",
         "minutes": "m"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
+        "users": "Gebruikers",
+        "uptime": "Stelsel Bedryfstyd",
+        "days": "Daë",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
+        "devices": "Toestelle",
+        "lan_devices": "LAN Toestelle",
+        "wlan_devices": "WLAN Toestelle",
+        "lan_users": "LAN Gebruikers",
+        "wlan_users": "WLAN Gebruikers",
+        "up": "OP",
+        "down": "AF",
         "wait": "Wag asseblief",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Substelsel status onbekend"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "GEH",
         "cpu": "SVE",
-        "running": "Running",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
+        "running": "Lopend",
+        "offline": "Vanlyn",
+        "error": "Fout",
+        "unknown": "Onbekend",
+        "healthy": "Gesond",
+        "starting": "Begin",
+        "unhealthy": "Ongesond",
+        "not_found": "Nie Gevind Nie",
+        "exited": "Verlaat",
         "partial": "Partial"
     },
     "ping": {
-        "error": "Error",
+        "error": "Fout",
         "ping": "Ping",
         "down": "Down",
         "up": "Up",
@@ -88,7 +88,7 @@
     },
     "siteMonitor": {
         "http_status": "HTTP status",
-        "error": "Error",
+        "error": "Fout",
         "response": "Response",
         "down": "Down",
         "up": "Up",
@@ -209,7 +209,7 @@
         "queued": "Queued",
         "series": "Series",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "Onbekend"
     },
     "radarr": {
         "wanted": "Wanted",
@@ -217,7 +217,7 @@
         "queued": "Queued",
         "movies": "Movies",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "Onbekend"
     },
     "lidarr": {
         "wanted": "Wanted",
@@ -250,7 +250,7 @@
         "available": "Available"
     },
     "pialert": {
-        "total": "Total",
+        "total": "Totaal",
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
@@ -273,9 +273,9 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
+        "running": "Lopend",
         "stopped": "Stopped",
-        "total": "Total"
+        "total": "Totaal"
     },
     "tailscale": {
         "address": "Address",
@@ -309,7 +309,7 @@
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Total"
+        "total": "Totaal"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -341,7 +341,7 @@
         "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Gebruikers",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
@@ -355,34 +355,34 @@
         "version": "Version",
         "status": "Status",
         "up": "Online",
-        "down": "Offline"
+        "down": "Vanlyn"
     },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Gebruikers",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "GEH",
         "cpu": "SVE",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
         "cpu": "SVE",
-        "load": "Load",
+        "load": "Las",
         "wait": "Wag asseblief",
         "temp": "TEMP",
         "_temp": "Temp",
         "warn": "Warn",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
+        "uptime": "OP",
+        "total": "Totaal",
+        "free": "Beskikbaar",
+        "used": "Gebruik",
         "days": "d",
         "hours": "h",
         "crit": "Crit",
@@ -473,7 +473,7 @@
         "new": "New",
         "up": "Online",
         "grace": "In Grace Period",
-        "down": "Offline",
+        "down": "Vanlyn",
         "paused": "Paused",
         "status": "Status",
         "last_ping": "Last Ping",
@@ -506,7 +506,7 @@
         "speed": "Speed",
         "active": "Active",
         "queue": "Queue",
-        "total": "Total"
+        "total": "Totaal"
     },
     "gluetun": {
         "public_ip": "Public IP",
@@ -520,11 +520,11 @@
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
-        "unknown": "Unknown"
+        "unknown": "Onbekend"
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
+        "total": "Totaal"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -586,7 +586,7 @@
         "memory_usage": "Memory"
     },
     "immich": {
-        "users": "Users",
+        "users": "Gebruikers",
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
@@ -610,7 +610,7 @@
         "books": "Books"
     },
     "diskstation": {
-        "days": "Days",
+        "days": "Daë",
         "uptime": "Uptime",
         "volumeAvailable": "Available"
     },
@@ -718,7 +718,7 @@
     "gamedig": {
         "status": "Status",
         "online": "Online",
-        "offline": "Offline",
+        "offline": "Vanlyn",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
@@ -735,14 +735,14 @@
     },
     "mealie": {
         "recipes": "Recipes",
-        "users": "Users",
+        "users": "Gebruikers",
         "categories": "Categories",
         "tags": "Tags"
     },
     "openmediavault": {
         "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
+        "total": "Totaal",
+        "running": "Lopend",
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
@@ -759,7 +759,7 @@
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Unknown"
+        "unknown": "Onbekend"
     },
     "calendar": {
         "inCinemas": "In cinemas",
