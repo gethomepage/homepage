@@ -81,8 +81,12 @@ export default async function unifiProxyHandler(req, res) {
     [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
     prefix = "";
     if (responseHeaders?.["x-csrf-token"]) {
+      // Unifi OS < 3.2.5 passes & requires csrf-token
       prefix = udmpPrefix;
       csrfToken = responseHeaders["x-csrf-token"];
+    } else if (responseHeaders?.["access-control-expose-headers"]) {
+      // Unifi OS ≥ 3.2.5 doesnt pass csrf token but still uses different endpoint
+      prefix = udmpPrefix;
     }
     cache.put(`${prefixCacheKey}.${service}`, prefix);
   }
