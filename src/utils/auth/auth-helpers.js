@@ -31,13 +31,14 @@ function filterAllowedItems({user, groups}, itemGroups, groupKey) {
     return itemGroups.map((group) => ({
         name: group.name,
         [groupKey]: group[groupKey].filter((item) => authItemFilter({user, groups}, item))
-    })).filter((group) => !group[groupKey].length);
+    })).filter((group) => group[groupKey].length);
 }
 
 function authItemFilter({user, groups}, item) {
-    const groupAllow = (!('allowGroups' in item)) || groups.some(group => item.allowGroups.includes(group));
-    const userAllow = (!('allowUsers' in item)) || item.allowUsers.includes(user); 
+    const groupAllow = (('allowGroups' in item)) && groups.some(group => item.allowGroups.includes(group));
+    const userAllow = (('allowUsers' in item)) && item.allowUsers.includes(user); 
+    const allowAll = (!('allowGroups' in item)) && (!('allowUsers' in item));
 
-    return userAllow || groupAllow; 
+    return userAllow || groupAllow || allowAll; 
 }
 
