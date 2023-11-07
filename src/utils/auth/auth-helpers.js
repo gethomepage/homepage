@@ -1,41 +1,42 @@
-import { getSettings } from "utils/config/config";
-import { ProxyAuthKey, createProxyAuth } from "./proxy";
+import { ProxyAuthProvider} from "./proxy";
+import { NullAuthProvider} from "./null"; 
 
-export const NullPermissions = { user: null, groups:[]}
+const AuthProviders = {
+    NullAuthProvider,
+    ProxyAuthProvider
+}; 
 
-export const NullAuth = {
-    permissions: (request) => NullPermissions,
-    cacheContext: (key) => key, 
-    fetcher: (key) => fetch(key).then((res) => res.json()) 
+function getProviderByKey(key) {
+    return AuthProviders.find((provider) => provider.key == key) ?? NullAuthProvider;
 }
 
-export function createAuthFromSettings() { 
-    const {auth} = getSettings(); 
+export function createAuthorizer({auth}) { 
     if (auth) {
-        switch (Object.keys(auth)[0]) {
-            case ProxyAuthKey: 
-                return createProxyAuth(auth[ProxyAuthKey]); 
-            default: 
-                return NullAuth; 
-        }
+        getProviderByKey(Object.keys(auth)[0]).create(auth[ProxyAuthKey]);
     } 
-    return NullAuth
+    return NullAuthProvider.create(); 
+}
+
+export async function fetchWithAuth(key, context) {
+    return getProviderByKey(context.provider).fetch([key, context]);
 }
 
 export const filterAllowedServices = (perms, services) => filterAllowedItems(perms, services, 'services'); 
 export const filterAllowedBookmarks = (perms, bookmarks) => filterAllowedItems(perms, bookmarks, 'bookmarks'); 
-export const filterAllowedWidgets = (perms, widgets) => filterAllowedItems(perms, widgets, 'widgets')
+export const filterAllowedWidgets = (perms, widgets) => {
+    return widgets.filter((widget) => authItemFilter(perms, widget.options) )
+}
 
 function filterAllowedItems({user, groups}, itemGroups, groupKey) {
     return itemGroups.map((group) => ({
         name: group.name,
         [groupKey]: group[groupKey].filter((item) => authItemFilter({user, groups}, item))
-    })).filter((group) => !group[groupKey].length)
+    })).filter((group) => !group[groupKey].length);
 }
 
 function authItemFilter({user, groups}, item) {
-    const groupAllow = (!(allowGroups in item)) || groups.some(group => item.allowGroups.includes(group));
-    const userAllow = (!(allowUsers in item)) || item.allowUsers.includes(user); 
+    const groupAllow = (!('allowGroups' in item)) || groups.some(group => item.allowGroups.includes(group));
+    const userAllow = (!('allowUsers' in item)) || item.allowUsers.includes(user); 
 
     return userAllow || groupAllow; 
 }
