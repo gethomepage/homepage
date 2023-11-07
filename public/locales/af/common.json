@@ -14,25 +14,25 @@
         "date": "{{value, date}}"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
+        "missing_type": "Ontbrekende legstuk-tipe: {{type}}",
+        "api_error": "API Fout",
+        "information": "Informasie",
         "status": "Status",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Onverwerkte Fout",
+        "response_data": "Reaksie Data"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Huidige Ligging",
+        "allow": "Klik om toe te laat",
+        "updating": "Bywerking",
+        "wait": "Wag asseblief"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Soek…"
     },
     "resources": {
-        "cpu": "CPU",
+        "cpu": "SVE",
         "mem": "MEM",
         "total": "Total",
         "free": "Free",
@@ -60,14 +60,14 @@
         "wlan_users": "WLAN Users",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Wag asseblief",
         "empty_data": "Subsystem status unknown"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "CPU",
+        "cpu": "SVE",
         "running": "Running",
         "offline": "Offline",
         "error": "Error",
@@ -368,14 +368,14 @@
     },
     "proxmox": {
         "mem": "MEM",
-        "cpu": "CPU",
+        "cpu": "SVE",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
+        "cpu": "SVE",
         "load": "Load",
-        "wait": "Please wait",
+        "wait": "Wag asseblief",
         "temp": "TEMP",
         "_temp": "Temp",
         "warn": "Warn",
@@ -582,7 +582,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "CPU",
+        "cpu_usage": "SVE",
         "memory_usage": "Memory"
     },
     "immich": {
