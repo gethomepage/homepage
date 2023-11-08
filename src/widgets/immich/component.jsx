@@ -8,10 +8,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data: immichData, error: immichError } = useWidgetAPI(widget);
+  const { data: versionData, error: versionError } = useWidgetAPI(widget, "version");
+  // see https://github.com/gethomepage/homepage/issues/2282
+  const endpoint = versionData?.major >= 1 && versionData?.minor > 84 ? "statistics" : "stats";
+  const { data: immichData, error: immichError } = useWidgetAPI(widget, endpoint);
 
-  if (immichError || immichData?.statusCode === 401) {
-    return <Container service={service} error={immichError ?? immichData} />;
+  if (immichError || versionError || immichData?.statusCode === 401) {
+    return <Container service={service} error={immichData ?? immichError ?? versionError} />;
   }
 
   if (!immichData) {
