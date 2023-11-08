@@ -89,7 +89,7 @@
     "siteMonitor": {
         "http_status": "HTTP status",
         "error": "错误",
-        "response": "Response",
+        "response": "响应",
         "down": "离线",
         "up": "在线",
         "not_available": "不可用"
@@ -765,6 +765,6 @@
         "inCinemas": "上映中",
         "physicalRelease": "实体发行",
         "digitalRelease": "数字发行",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "今天没有活动！"
     }
 }
