@@ -78,7 +78,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: sudo apt-get install pngquant
-      - run: pip install mike
+      - run: pip install mike==1.1.2
       - run: pip install git+https://${GH_TOKEN}@github.com/benphelps/mkdocs-material-insiders.git
       - name: Set Git config
         run: |
