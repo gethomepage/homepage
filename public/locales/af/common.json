@@ -77,53 +77,53 @@
         "unhealthy": "Ongesond",
         "not_found": "Nie Gevind Nie",
         "exited": "Verlaat",
-        "partial": "Partial"
+        "partial": "Gedeeltelik"
     },
     "ping": {
         "error": "Fout",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "ping": "Pieng",
+        "down": "Af",
+        "up": "Op",
+        "not_available": "Onbeskikbaar"
     },
     "siteMonitor": {
         "http_status": "HTTP status",
         "error": "Fout",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "response": "Reaksie",
+        "down": "Af",
+        "up": "Op",
+        "not_available": "Onbeskikbaar"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
+        "playing": "Speel",
+        "transcoding": "Transkodering",
+        "bitrate": "Bistempo",
+        "no_active": "Geen aktiewe strome nie",
+        "movies": "Flieks",
+        "series": "Reekse",
         "episodes": "Episodes",
-        "songs": "Songs"
+        "songs": "Liedjies"
     },
     "evcc": {
-        "pv_power": "Production",
+        "pv_power": "Produksie",
         "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "grid_power": "Rooster",
+        "home_power": "Verbruik",
+        "charge_power": "Laaier",
         "watt_hour": "Wh"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Intekenings",
+        "unread": "Ongelees"
     },
     "caddy": {
-        "upstreams": "Upstreams",
+        "upstreams": "Stroomop",
         "requests": "Current requests",
         "requests_failed": "Failed requests"
     },
@@ -138,10 +138,10 @@
         "passes": "Passes"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "Speel",
+        "transcoding": "Transkodering",
+        "bitrate": "Bistempo",
+        "no_active": "Geen aktiewe strome nie",
         "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
@@ -159,7 +159,7 @@
     "plex": {
         "streams": "Active Streams",
         "albums": "Albums",
-        "movies": "Movies",
+        "movies": "Flieks",
         "tv": "TV Shows"
     },
     "sabnzbd": {
@@ -169,20 +169,20 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Laai Op",
+        "download": "Aflaai"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "qnap": {
         "cpuUsage": "CPU Usage",
@@ -193,21 +193,21 @@
         "invalid": "Invalid"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series",
+        "series": "Reekse",
         "queue": "Queue",
         "unknown": "Onbekend"
     },
@@ -215,7 +215,7 @@
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Movies",
+        "movies": "Flieks",
         "queue": "Queue",
         "unknown": "Onbekend"
     },
@@ -268,9 +268,9 @@
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "Laai Op",
+        "download": "Aflaai",
+        "ping": "Pieng"
     },
     "portainer": {
         "running": "Lopend",
@@ -303,7 +303,7 @@
         "middleware": "Middleware"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
+        "nothing_streaming": "Geen aktiewe strome nie",
         "please_wait": "Please Wait"
     },
     "npm": {
@@ -348,7 +348,7 @@
     "medusa": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series"
+        "series": "Reekse"
     },
     "minecraft": {
         "players": "Players",
@@ -359,7 +359,7 @@
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Unread"
+        "unread": "Ongelees"
     },
     "authentik": {
         "users": "Gebruikers",
@@ -465,9 +465,9 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Op",
         "pending": "Pending",
-        "down": "Down"
+        "down": "Af"
     },
     "healthchecks": {
         "new": "New",
@@ -573,8 +573,8 @@
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Op",
+        "down": "Af",
         "temp": "Temp",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
@@ -599,14 +599,14 @@
         "m": "m"
     },
     "atsumeru": {
-        "series": "Series",
+        "series": "Reekse",
         "archives": "Archives",
         "chapters": "Chapters",
         "categories": "Categories"
     },
     "komga": {
         "libraries": "Libraries",
-        "series": "Series",
+        "series": "Reekse",
         "books": "Books"
     },
     "diskstation": {
@@ -615,7 +615,7 @@
         "volumeAvailable": "Available"
     },
     "mylar": {
-        "series": "Series",
+        "series": "Reekse",
         "issues": "Issues",
         "wanted": "Wanted"
     },
@@ -690,7 +690,7 @@
         "books": "Books",
         "authors": "Authors",
         "categories": "Categories",
-        "series": "Series"
+        "series": "Reekse"
     },
     "jdownloader": {
         "downloadCount": "Queue",
@@ -699,7 +699,7 @@
         "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "Series",
+        "seriesCount": "Reekse",
         "totalFiles": "Files"
     },
     "azuredevops": {
@@ -725,7 +725,7 @@
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Pieng"
     },
     "urbackup": {
         "ok": "Ok",
@@ -756,9 +756,9 @@
         "sitesDown": "Sites Down",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Op",
         "seemsdown": "Seems Down",
-        "down": "Down",
+        "down": "Af",
         "unknown": "Onbekend"
     },
     "calendar": {
