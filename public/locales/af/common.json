@@ -14,122 +14,122 @@
         "date": "{{value, date}}"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API 오류",
-        "information": "정보",
-        "status": "상태",
+        "missing_type": "Ontbrekende legstuk-tipe: {{type}}",
+        "api_error": "API Fout",
+        "information": "Informasie",
+        "status": "Status",
         "url": "URL",
-        "raw_error": "Raw 오류",
-        "response_data": "응답 데이터"
+        "raw_error": "Onverwerkte Fout",
+        "response_data": "Reaksie Data"
     },
     "weather": {
-        "current": "현재 위치",
-        "allow": "클릭하여 허용",
-        "updating": "갱신 중",
-        "wait": "잠시만 기다리세요"
+        "current": "Huidige Ligging",
+        "allow": "Klik om toe te laat",
+        "updating": "Bywerking",
+        "wait": "Wag asseblief"
     },
     "search": {
-        "placeholder": "검색…"
+        "placeholder": "Soek…"
     },
     "resources": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "total": "총합",
-        "free": "남음",
-        "used": "사용",
-        "load": "부하",
-        "temp": "온도",
-        "max": "최대",
-        "uptime": "가동",
-        "months": "달",
-        "days": "일",
-        "hours": "시간",
-        "minutes": "분"
+        "cpu": "SVE",
+        "mem": "GEH",
+        "total": "Totaal",
+        "free": "Beskikbaar",
+        "used": "Gebruik",
+        "load": "Las",
+        "temp": "TEMP",
+        "max": "Mak",
+        "uptime": "OP",
+        "months": "ma",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
     },
     "unifi": {
-        "users": "사용자",
-        "uptime": "시스템 업타임",
-        "days": "일",
+        "users": "Gebruikers",
+        "uptime": "Stelsel Bedryfstyd",
+        "days": "Daë",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "장치",
-        "lan_devices": "LAN 장치",
-        "wlan_devices": "WLAN 장치",
-        "lan_users": "LAN 사용자",
-        "wlan_users": "WLAN 사용자",
-        "up": "가동",
-        "down": "DOWN",
-        "wait": "잠시만 기다리세요",
-        "empty_data": "서브시스템 상태 알 수 없음"
+        "devices": "Toestelle",
+        "lan_devices": "LAN Toestelle",
+        "wlan_devices": "WLAN Toestelle",
+        "lan_users": "LAN Gebruikers",
+        "wlan_users": "WLAN Gebruikers",
+        "up": "OP",
+        "down": "AF",
+        "wait": "Wag asseblief",
+        "empty_data": "Substelsel status onbekend"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "running": "가동 중",
-        "offline": "중지",
-        "error": "오류",
-        "unknown": "알 수 없음",
-        "healthy": "좋음",
-        "starting": "시작 중",
-        "unhealthy": "이상",
-        "not_found": "찾을 수 없음",
-        "exited": "종료됨",
-        "partial": "부분적"
+        "mem": "GEH",
+        "cpu": "SVE",
+        "running": "Lopend",
+        "offline": "Vanlyn",
+        "error": "Fout",
+        "unknown": "Onbekend",
+        "healthy": "Gesond",
+        "starting": "Begin",
+        "unhealthy": "Ongesond",
+        "not_found": "Nie Gevind Nie",
+        "exited": "Verlaat",
+        "partial": "Gedeeltelik"
     },
     "ping": {
-        "error": "오류",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "error": "Fout",
+        "ping": "Pieng",
+        "down": "Af",
+        "up": "Op",
+        "not_available": "Onbeskikbaar"
     },
     "siteMonitor": {
         "http_status": "HTTP status",
-        "error": "오류",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "error": "Fout",
+        "response": "Reaksie",
+        "down": "Af",
+        "up": "Op",
+        "not_available": "Onbeskikbaar"
     },
     "emby": {
-        "playing": "재생 중",
-        "transcoding": "트랜스코딩",
-        "bitrate": "비트레이트",
-        "no_active": "활성 스트림 없음",
-        "movies": "영화",
-        "series": "시리즈",
-        "episodes": "에피소드",
-        "songs": "음악"
+        "playing": "Speel",
+        "transcoding": "Transkodering",
+        "bitrate": "Bistempo",
+        "no_active": "Geen aktiewe strome nie",
+        "movies": "Flieks",
+        "series": "Reekse",
+        "episodes": "Episodes",
+        "songs": "Liedjies"
     },
     "evcc": {
-        "pv_power": "Production",
+        "pv_power": "Produksie",
         "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "grid_power": "Rooster",
+        "home_power": "Verbruik",
+        "charge_power": "Laaier",
         "watt_hour": "Wh"
     },
     "flood": {
-        "download": "다운로드",
-        "upload": "업로드",
-        "leech": "리치",
-        "seed": "시드"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Intekenings",
+        "unread": "Ongelees"
     },
     "caddy": {
-        "upstreams": "Upstreams",
+        "upstreams": "Stroomop",
         "requests": "Current requests",
         "requests_failed": "Failed requests"
     },
     "changedetectionio": {
         "totalObserved": "Total Observed",
-        "diffsDetected": "변경 감지됨"
+        "diffsDetected": "Diffs Detected"
     },
     "channelsdvrserver": {
         "shows": "Shows",
@@ -138,51 +138,51 @@
         "passes": "Passes"
     },
     "tautulli": {
-        "playing": "재생 중",
-        "transcoding": "트랜스코딩",
-        "bitrate": "비트레이트",
-        "no_active": "활성 스트림 없음",
+        "playing": "Speel",
+        "transcoding": "Transkodering",
+        "bitrate": "Bistempo",
+        "no_active": "Geen aktiewe strome nie",
         "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
-        "connectedAp": "연결된 AP",
-        "activeUser": "활성 장치",
-        "alerts": "경고",
-        "connectedGateway": "연결된 게이트웨이",
-        "connectedSwitches": "연결된 스위치"
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
     },
     "nzbget": {
-        "rate": "비율",
-        "remaining": "남음",
-        "downloaded": "다운로드됨"
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Downloaded"
     },
     "plex": {
-        "streams": "활성 스트림",
+        "streams": "Active Streams",
         "albums": "Albums",
-        "movies": "영화",
-        "tv": "TV 쇼"
+        "movies": "Flieks",
+        "tv": "TV Shows"
     },
     "sabnzbd": {
-        "rate": "비율",
-        "queue": "대기열",
-        "timeleft": "남은 시간"
+        "rate": "Rate",
+        "queue": "Queue",
+        "timeleft": "Time Left"
     },
     "rutorrent": {
-        "active": "활성",
-        "upload": "업로드",
-        "download": "다운로드"
+        "active": "Active",
+        "upload": "Laai Op",
+        "download": "Aflaai"
     },
     "transmission": {
-        "download": "다운로드",
-        "upload": "업로드",
-        "leech": "리치",
-        "seed": "시드"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "qbittorrent": {
-        "download": "다운로드",
-        "upload": "업로드",
-        "leech": "리치",
-        "seed": "시드"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "qnap": {
         "cpuUsage": "CPU Usage",
@@ -193,89 +193,89 @@
         "invalid": "Invalid"
     },
     "deluge": {
-        "download": "다운로드",
-        "upload": "업로드",
-        "leech": "리치",
-        "seed": "시드"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "downloadstation": {
-        "download": "다운로드",
-        "upload": "업로드",
-        "leech": "리치",
-        "seed": "시드"
+        "download": "Aflaai",
+        "upload": "Laai Op",
+        "leech": "Seier",
+        "seed": "Vul"
     },
     "sonarr": {
-        "wanted": "요청",
-        "queued": "대기 중",
-        "series": "시리즈",
-        "queue": "대기열",
-        "unknown": "알 수 없음"
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Reekse",
+        "queue": "Queue",
+        "unknown": "Onbekend"
     },
     "radarr": {
-        "wanted": "요청",
-        "missing": "빠짐",
-        "queued": "대기 중",
-        "movies": "영화",
-        "queue": "대기열",
-        "unknown": "알 수 없음"
+        "wanted": "Wanted",
+        "missing": "Missing",
+        "queued": "Queued",
+        "movies": "Flieks",
+        "queue": "Queue",
+        "unknown": "Onbekend"
     },
     "lidarr": {
-        "wanted": "요청",
-        "queued": "대기 중",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "artists": "Artists"
     },
     "readarr": {
-        "wanted": "요청",
-        "queued": "대기 중",
-        "books": "책"
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
     },
     "bazarr": {
-        "missingEpisodes": "빠진 에피소드",
-        "missingMovies": "빠진 영화"
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
     },
     "ombi": {
-        "pending": "대기 중",
-        "approved": "승인됨",
-        "available": "이용 가능"
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "jellyseerr": {
-        "pending": "대기 중",
-        "approved": "승인됨",
-        "available": "이용 가능"
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "overseerr": {
-        "pending": "대기 중",
-        "processing": "처리 중",
-        "approved": "승인됨",
-        "available": "이용 가능"
+        "pending": "Pending",
+        "processing": "Processing",
+        "approved": "Approved",
+        "available": "Available"
     },
     "pialert": {
-        "total": "총합",
+        "total": "Totaal",
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
     },
     "pihole": {
-        "queries": "쿼리",
-        "blocked": "차단됨",
+        "queries": "Queries",
+        "blocked": "Blocked",
         "blocked_percent": "Blocked %",
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "쿼리",
-        "blocked": "차단됨",
-        "filtered": "필터링됨",
-        "latency": "지연"
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
     },
     "speedtest": {
-        "upload": "업로드",
-        "download": "다운로드",
-        "ping": "Ping"
+        "upload": "Laai Op",
+        "download": "Aflaai",
+        "ping": "Pieng"
     },
     "portainer": {
-        "running": "가동 중",
-        "stopped": "중지",
-        "total": "총합"
+        "running": "Lopend",
+        "stopped": "Stopped",
+        "total": "Totaal"
     },
     "tailscale": {
         "address": "Address",
@@ -292,99 +292,99 @@
         "ago": "{{value}} Ago"
     },
     "tdarr": {
-        "queue": "대기열",
-        "processed": "처리됨",
-        "errored": "오류",
-        "saved": "저장됨"
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
     },
     "traefik": {
-        "routers": "라우터",
-        "services": "서비스",
-        "middleware": "미들웨어"
+        "routers": "Routers",
+        "services": "Services",
+        "middleware": "Middleware"
     },
     "navidrome": {
-        "nothing_streaming": "활성 스트림 없음",
-        "please_wait": "잠시만 기다리세요"
+        "nothing_streaming": "Geen aktiewe strome nie",
+        "please_wait": "Please Wait"
     },
     "npm": {
-        "enabled": "활성",
-        "disabled": "비활성",
-        "total": "총합"
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Totaal"
     },
     "coinmarketcap": {
-        "configure": "한 개 이상의 가상화폐를 설정하여 추적",
-        "1hour": "1시간",
-        "1day": "1일",
-        "7days": "7일",
-        "30days": "30일"
+        "configure": "Configure one or more crypto currencies to track",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
     },
     "gotify": {
-        "apps": "어플리케이션",
-        "clients": "클라이언트",
-        "messages": "메시지"
+        "apps": "Applications",
+        "clients": "Clients",
+        "messages": "Messages"
     },
     "prowlarr": {
-        "enableIndexers": "인덱서",
+        "enableIndexers": "Indexers",
         "numberOfGrabs": "Grabs",
-        "numberOfQueries": "쿼리",
+        "numberOfQueries": "Queries",
         "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
         "configured": "Configured",
-        "errored": "오류"
+        "errored": "Errored"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
         "numConnections": "Connections",
         "dataRelayed": "Relayed",
-        "transferRate": "비율"
+        "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "사용자",
+        "user_count": "Gebruikers",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
     "medusa": {
-        "wanted": "요청",
-        "queued": "대기 중",
-        "series": "시리즈"
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Reekse"
     },
     "minecraft": {
         "players": "Players",
         "version": "Version",
-        "status": "상태",
+        "status": "Status",
         "up": "Online",
-        "down": "중지"
+        "down": "Vanlyn"
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Unread"
+        "unread": "Ongelees"
     },
     "authentik": {
-        "users": "사용자",
+        "users": "Gebruikers",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "GEH",
+        "cpu": "SVE",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
-        "load": "부하",
-        "wait": "잠시만 기다리세요",
-        "temp": "온도",
+        "cpu": "SVE",
+        "load": "Las",
+        "wait": "Wag asseblief",
+        "temp": "TEMP",
         "_temp": "Temp",
         "warn": "Warn",
-        "uptime": "가동",
-        "total": "총합",
-        "free": "남음",
-        "used": "사용",
-        "days": "일",
-        "hours": "시간",
+        "uptime": "OP",
+        "total": "Totaal",
+        "free": "Beskikbaar",
+        "used": "Gebruik",
+        "days": "d",
+        "hours": "h",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
@@ -465,17 +465,17 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "대기 중",
-        "down": "Down"
+        "up": "Op",
+        "pending": "Pending",
+        "down": "Af"
     },
     "healthchecks": {
         "new": "New",
         "up": "Online",
         "grace": "In Grace Period",
-        "down": "중지",
+        "down": "Vanlyn",
         "paused": "Paused",
-        "status": "상태",
+        "status": "Status",
         "last_ping": "Last Ping",
         "never": "No pings yet"
     },
@@ -485,13 +485,13 @@
         "containers_failed": "Failed"
     },
     "autobrr": {
-        "approvedPushes": "승인됨",
+        "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",
         "filters": "Filters",
-        "indexers": "인덱서"
+        "indexers": "Indexers"
     },
     "tubearchivist": {
-        "downloads": "대기열",
+        "downloads": "Queue",
         "videos": "Videos",
         "channels": "Channels",
         "playlists": "Playlists"
@@ -499,14 +499,14 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "경고",
+        "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "pyload": {
         "speed": "Speed",
-        "active": "활성",
-        "queue": "대기열",
-        "total": "총합"
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Totaal"
     },
     "gluetun": {
         "public_ip": "Public IP",
@@ -520,14 +520,14 @@
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
-        "unknown": "알 수 없음"
+        "unknown": "Onbekend"
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "총합"
+        "total": "Totaal"
     },
     "nextdns": {
-        "wait": "잠시만 기다리세요",
+        "wait": "Please Wait",
         "no_devices": "No Device Data Received"
     },
     "mikrotik": {
@@ -538,7 +538,7 @@
     },
     "xteve": {
         "streams_all": "All Streams",
-        "streams_active": "활성 스트림",
+        "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
     },
     "opendtu": {
@@ -560,21 +560,21 @@
         "layers": "Layers"
     },
     "octoprint": {
-        "printer_state": "상태",
+        "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "상태"
+        "status": "Status"
     },
     "pfsense": {
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Op",
+        "down": "Af",
         "temp": "Temp",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
@@ -582,11 +582,11 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "CPU",
+        "cpu_usage": "SVE",
         "memory_usage": "Memory"
     },
     "immich": {
-        "users": "사용자",
+        "users": "Gebruikers",
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
@@ -596,28 +596,28 @@
         "down": "Sites Down",
         "uptime": "Uptime",
         "incident": "Incident",
-        "m": "분"
+        "m": "m"
     },
     "atsumeru": {
-        "series": "시리즈",
+        "series": "Reekse",
         "archives": "Archives",
         "chapters": "Chapters",
         "categories": "Categories"
     },
     "komga": {
         "libraries": "Libraries",
-        "series": "시리즈",
-        "books": "책"
+        "series": "Reekse",
+        "books": "Books"
     },
     "diskstation": {
-        "days": "일",
+        "days": "Daë",
         "uptime": "Uptime",
-        "volumeAvailable": "이용 가능"
+        "volumeAvailable": "Available"
     },
     "mylar": {
-        "series": "시리즈",
+        "series": "Reekse",
         "issues": "Issues",
-        "wanted": "요청"
+        "wanted": "Wanted"
     },
     "photoprism": {
         "albums": "Albums",
@@ -626,9 +626,9 @@
         "people": "People"
     },
     "fileflows": {
-        "queue": "대기열",
-        "processing": "처리 중",
-        "processed": "처리됨",
+        "queue": "Queue",
+        "processing": "Processing",
+        "processed": "Processed",
         "time": "Time"
     },
     "grafana": {
@@ -646,7 +646,7 @@
         "numshares": "Shared Items"
     },
     "kopia": {
-        "status": "상태",
+        "status": "Status",
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
@@ -673,7 +673,7 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "책",
+        "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
     },
@@ -687,24 +687,24 @@
         "updates": "Updates"
     },
     "calibreweb": {
-        "books": "책",
+        "books": "Books",
         "authors": "Authors",
         "categories": "Categories",
-        "series": "시리즈"
+        "series": "Reekse"
     },
     "jdownloader": {
-        "downloadCount": "대기열",
-        "downloadBytesRemaining": "남음",
+        "downloadCount": "Queue",
+        "downloadBytesRemaining": "Remaining",
         "downloadTotalBytes": "Size",
         "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "시리즈",
+        "seriesCount": "Reekse",
         "totalFiles": "Files"
     },
     "azuredevops": {
         "result": "Result",
-        "status": "상태",
+        "status": "Status",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
@@ -713,19 +713,19 @@
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "승인됨"
+        "approved": "Approved"
     },
     "gamedig": {
-        "status": "상태",
+        "status": "Status",
         "online": "Online",
-        "offline": "중지",
+        "offline": "Vanlyn",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Pieng"
     },
     "urbackup": {
         "ok": "Ok",
@@ -735,20 +735,20 @@
     },
     "mealie": {
         "recipes": "Recipes",
-        "users": "사용자",
+        "users": "Gebruikers",
         "categories": "Categories",
         "tags": "Tags"
     },
     "openmediavault": {
         "downloading": "Downloading",
-        "total": "총합",
-        "running": "가동 중",
-        "stopped": "중지",
+        "total": "Totaal",
+        "running": "Lopend",
+        "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
     },
     "uptimerobot": {
-        "status": "상태",
+        "status": "Status",
         "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
@@ -756,10 +756,10 @@
         "sitesDown": "Sites Down",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Op",
         "seemsdown": "Seems Down",
-        "down": "Down",
-        "unknown": "알 수 없음"
+        "down": "Af",
+        "unknown": "Onbekend"
     },
     "calendar": {
         "inCinemas": "In cinemas",

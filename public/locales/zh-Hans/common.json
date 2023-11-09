@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "缺失的组件类型: {{type}}",
@@ -79,9 +80,16 @@
         "partial": "部分"
     },
     "ping": {
-        "http_status": "HTTP 状态",
         "error": "错误",
         "ping": "Ping",
+        "down": "离线",
+        "up": "在线",
+        "not_available": "不可用"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "错误",
+        "response": "响应",
         "down": "离线",
         "up": "在线",
         "not_available": "不可用"
@@ -756,6 +764,7 @@
     "calendar": {
         "inCinemas": "上映中",
         "physicalRelease": "实体发行",
-        "digitalRelease": "数字发行"
+        "digitalRelease": "数字发行",
+        "noEventsToday": "今天没有活动！"
     }
 }

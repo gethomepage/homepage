@@ -1,76 +1,17 @@
 {
-    "wmo": {
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "99-night": "Thunderstorm With Hail"
-    },
-    "homebridge": {
-        "updates": "Updates",
-        "available_update": "System",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges",
-        "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
-    },
     "common": {
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+        "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "percent": "{{value, percent}}",
+        "number": "{{value, number}}",
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
@@ -139,10 +80,19 @@
         "partial": "Partial"
     },
     "ping": {
-        "error": "Errorea",
+        "error": "Error",
         "ping": "Ping",
+        "down": "Down",
         "up": "Up",
-        "down": "Down"
+        "not_available": "Not Available"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Error",
+        "response": "Response",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Playing",
@@ -190,7 +140,7 @@
     "tautulli": {
         "playing": "Playing",
         "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
+        "bitrate": "Bit-tasa",
         "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
     },
@@ -219,8 +169,8 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Kargatu",
-        "download": "Deskargatu"
+        "upload": "Upload",
+        "download": "Download"
     },
     "transmission": {
         "download": "Download",
@@ -259,7 +209,7 @@
         "queued": "Queued",
         "series": "Series",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "Ezezaguna"
     },
     "radarr": {
         "wanted": "Wanted",
@@ -267,7 +217,7 @@
         "queued": "Queued",
         "movies": "Movies",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "Ezezaguna"
     },
     "lidarr": {
         "wanted": "Wanted",
@@ -300,7 +250,7 @@
         "available": "Available"
     },
     "pialert": {
-        "total": "Total",
+        "total": "Guztira",
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
@@ -325,7 +275,7 @@
     "portainer": {
         "running": "Running",
         "stopped": "Stopped",
-        "total": "Total"
+        "total": "Guztira"
     },
     "tailscale": {
         "address": "Address",
@@ -359,7 +309,7 @@
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Total"
+        "total": "Guztira"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -425,13 +375,14 @@
     "glances": {
         "cpu": "CPU",
         "load": "Load",
-        "wait": "Please wait",
+        "wait": "Itxaron mesedez",
         "temp": "TEMP",
+        "_temp": "Temp",
         "warn": "Warn",
         "uptime": "UP",
-        "total": "Total",
+        "total": "Guztira",
         "free": "Free",
-        "used": "Used",
+        "used": "Erabilita",
         "days": "d",
         "hours": "h",
         "crit": "Crit",
@@ -439,8 +390,7 @@
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap",
-        "_temp": "Temp"
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -449,6 +399,75 @@
         "custom": "Custom",
         "visit": "Visit",
         "url": "URL"
+    },
+    "wmo": {
+        "0-day": "Sunny",
+        "0-night": "Clear",
+        "1-day": "Mainly Sunny",
+        "1-night": "Mainly Clear",
+        "2-day": "Partly Cloudy",
+        "2-night": "Partly Cloudy",
+        "3-day": "Cloudy",
+        "3-night": "Cloudy",
+        "45-day": "Foggy",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "homebridge": {
+        "available_update": "System",
+        "updates": "Updates",
+        "update_available": "Update Available",
+        "up_to_date": "Up to Date",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "healthchecks": {
         "new": "New",
@@ -487,7 +506,7 @@
         "speed": "Speed",
         "active": "Active",
         "queue": "Queue",
-        "total": "Total"
+        "total": "Guztira"
     },
     "gluetun": {
         "public_ip": "Public IP",
@@ -501,11 +520,11 @@
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
-        "unknown": "Unknown"
+        "unknown": "Ezezaguna"
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
+        "total": "Guztira"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -521,6 +540,12 @@
         "streams_all": "All Streams",
         "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
+    },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "CPU Load",
@@ -573,13 +598,19 @@
         "incident": "Incident",
         "m": "m"
     },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",
         "books": "Books"
     },
     "diskstation": {
-        "days": "Days",
+        "days": "Egun",
         "uptime": "Uptime",
         "volumeAvailable": "Available"
     },
@@ -655,6 +686,12 @@
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
+    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
@@ -665,24 +702,12 @@
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
-    "gamedig": {
-        "currentPlayers": "Current players",
-        "name": "Name",
-        "map": "Map",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
-        "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
-    },
     "azuredevops": {
-        "notStarted": "Not Started",
         "result": "Result",
         "status": "Status",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
+        "notStarted": "Not Started",
         "failed": "Failed",
         "canceled": "Canceled",
         "inProgress": "In Progress",
@@ -690,19 +715,23 @@
         "myPrs": "My PRs",
         "approved": "Approved"
     },
+    "gamedig": {
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline",
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Jokalariak",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
+    },
     "urbackup": {
         "ok": "Ok",
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
-    },
-    "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
     },
     "mealie": {
         "recipes": "Recipes",
@@ -710,21 +739,17 @@
         "categories": "Categories",
         "tags": "Tags"
     },
-    "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
-    "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Guztira",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     },
     "uptimerobot": {
-        "uptime": "Uptime",
         "status": "Status",
+        "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
@@ -734,17 +759,12 @@
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Unknown"
-    },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "unknown": "Ezezaguna"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release",
+        "noEventsToday": "No events for today!"
     }
 }
