@@ -124,51 +124,51 @@
     },
     "caddy": {
         "upstreams": "Stroomop",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Huidige versoeke",
+        "requests_failed": "Mislukte versoeke"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Totaal Waargeneem",
+        "diffsDetected": "Verskille Bespeur"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "Vertone",
+        "recordings": "Opnames",
+        "scheduled": "Geskeduleerd",
+        "passes": "Passe"
     },
     "tautulli": {
         "playing": "Speel",
         "transcoding": "Transkodering",
         "bitrate": "Bistempo",
         "no_active": "Geen aktiewe strome nie",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Gaan Plex-verbinding Na"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Gekoppelde APs",
+        "activeUser": "Aktiewe toestelle",
+        "alerts": "Waarskuwings",
+        "connectedGateway": "Gekoppelde poorte",
+        "connectedSwitches": "Gekoppelde skakelaars"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Koers",
+        "remaining": "Oorblywende",
+        "downloaded": "Afgelaai"
     },
     "plex": {
-        "streams": "Active Streams",
+        "streams": "Aktiewe Strome",
         "albums": "Albums",
         "movies": "Flieks",
-        "tv": "TV Shows"
+        "tv": "TV Programme"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Koers",
+        "queue": "Tou",
+        "timeleft": "Oorblywende Tyd"
     },
     "rutorrent": {
-        "active": "Active",
+        "active": "Aktief",
         "upload": "Laai Op",
         "download": "Aflaai"
     },
@@ -185,12 +185,12 @@
         "seed": "Vul"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "SVE Gebruik",
+        "memUsage": "MEM Gebruik",
+        "systemTempC": "Stelsel Temp",
+        "poolUsage": "Poel Gebruik",
+        "volumeUsage": "Volume Gebruik",
+        "invalid": "Ongeldig"
     },
     "deluge": {
         "download": "Aflaai",
@@ -205,67 +205,67 @@
         "seed": "Vul"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Gesoek",
+        "queued": "In ry",
         "series": "Reekse",
-        "queue": "Queue",
+        "queue": "Tou",
         "unknown": "Onbekend"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
+        "wanted": "Gesoek",
+        "missing": "Vermis",
+        "queued": "In ry",
         "movies": "Flieks",
-        "queue": "Queue",
+        "queue": "Tou",
         "unknown": "Onbekend"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "artists": "Artists"
+        "wanted": "Gesoek",
+        "queued": "In ry",
+        "artists": "Kunstenaars"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Gesoek",
+        "queued": "In ry",
+        "books": "Boeke"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Ontbrekende Episodes",
+        "missingMovies": "Ontbrekende Flieke"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Afwagtend",
+        "approved": "Goedgekeur",
+        "available": "Beskikbaar"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Afwagtend",
+        "approved": "Goedgekeur",
+        "available": "Beskikbaar"
     },
     "overseerr": {
-        "pending": "Pending",
-        "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Afwagtend",
+        "processing": "Verwerking",
+        "approved": "Goedgekeur",
+        "available": "Beskikbaar"
     },
     "pialert": {
         "total": "Totaal",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Gekoppel",
+        "new_devices": "Nuwe Toestelle",
+        "down_alerts": "Aflyn Waarskuwings"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "blocked_percent": "Blocked %",
-        "gravity": "Gravity"
+        "queries": "Navraë",
+        "blocked": "Geblok",
+        "blocked_percent": "Geblok %",
+        "gravity": "Swaartekrag"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Navraë",
+        "blocked": "Geblok",
+        "filtered": "Gefiltreer",
+        "latency": "Latensie"
     },
     "speedtest": {
         "upload": "Laai Op",
@@ -274,103 +274,103 @@
     },
     "portainer": {
         "running": "Lopend",
-        "stopped": "Stopped",
+        "stopped": "Gestop",
         "total": "Totaal"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
+        "address": "Adres",
+        "expires": "Verval",
+        "never": "Nooit",
+        "last_seen": "Laaste Gesien",
+        "now": "Nou",
         "years": "{{number}}y",
         "weeks": "{{number}}w",
         "days": "{{number}}d",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Terug"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Tou",
+        "processed": "Verwerk",
+        "errored": "Fout",
+        "saved": "Gestoor"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Roeteerders",
+        "services": "Dienste",
+        "middleware": "Filtreerprogramme"
     },
     "navidrome": {
         "nothing_streaming": "Geen aktiewe strome nie",
-        "please_wait": "Please Wait"
+        "please_wait": "Wag Asseblief"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "Geaktiveer",
+        "disabled": "Onaktief",
         "total": "Totaal"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Stel een of meer kripto-geldeenhede op om na te spoor",
+        "1hour": "1 Uur",
+        "1day": "1 Dag",
+        "7days": "7 Dae",
+        "30days": "30 Dae"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Toepassings",
+        "clients": "Kliënte",
+        "messages": "Boodskappe"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Indekseerders",
+        "numberOfGrabs": "Grype",
+        "numberOfQueries": "Navraë",
+        "numberOfFailGrabs": "Mislukte Grype",
+        "numberOfFailQueries": "Mislukte Navrae"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Opgestel",
+        "errored": "Fout"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Sessies",
+        "numConnections": "Konneksies",
+        "dataRelayed": "Oorgedra",
+        "transferRate": "Koers"
     },
     "mastodon": {
         "user_count": "Gebruikers",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "status_count": "Plasings",
+        "domain_count": "Domeine"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Gesoek",
+        "queued": "In ry",
         "series": "Reekse"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
+        "players": "Spelers",
+        "version": "Weergawe",
         "status": "Status",
-        "up": "Online",
+        "up": "Aanlyn",
         "down": "Vanlyn"
     },
     "miniflux": {
-        "read": "Read",
+        "read": "Gelees",
         "unread": "Ongelees"
     },
     "authentik": {
         "users": "Gebruikers",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "loginsLast24H": "Aantekenings (24h)",
+        "failedLoginsLast24H": "Mislukte Aantekenings (24h)"
     },
     "proxmox": {
         "mem": "GEH",
         "cpu": "SVE",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "VMe"
     },
     "glances": {
         "cpu": "SVE",
@@ -386,22 +386,22 @@
         "days": "d",
         "hours": "h",
         "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "read": "Gelees",
+        "write": "Skryf",
         "gpu": "GPU",
         "mem": "Mem",
         "swap": "Swap"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "bookmark": "Boekmerk",
+        "service": "Diens",
+        "search": "Soek",
+        "custom": "Pasgemaak",
+        "visit": "Besoek",
         "url": "URL"
     },
     "wmo": {
-        "0-day": "Sunny",
+        "0-day": "Sonnig",
         "0-night": "Clear",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
@@ -466,12 +466,12 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Op",
-        "pending": "Pending",
+        "pending": "Afwagtend",
         "down": "Af"
     },
     "healthchecks": {
         "new": "New",
-        "up": "Online",
+        "up": "Aanlyn",
         "grace": "In Grace Period",
         "down": "Vanlyn",
         "paused": "Paused",
@@ -485,13 +485,13 @@
         "containers_failed": "Failed"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
+        "approvedPushes": "Goedgekeur",
         "rejectedPushes": "Rejected",
         "filters": "Filters",
-        "indexers": "Indexers"
+        "indexers": "Indekseerders"
     },
     "tubearchivist": {
-        "downloads": "Queue",
+        "downloads": "Tou",
         "videos": "Videos",
         "channels": "Channels",
         "playlists": "Playlists"
@@ -499,13 +499,13 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
+        "alerts": "Waarskuwings",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
+        "active": "Aktief",
+        "queue": "Tou",
         "total": "Totaal"
     },
     "gluetun": {
@@ -527,7 +527,7 @@
         "total": "Totaal"
     },
     "nextdns": {
-        "wait": "Please Wait",
+        "wait": "Wag Asseblief",
         "no_devices": "No Device Data Received"
     },
     "mikrotik": {
@@ -538,7 +538,7 @@
     },
     "xteve": {
         "streams_all": "All Streams",
-        "streams_active": "Active Streams",
+        "streams_active": "Aktiewe Strome",
         "streams_xepg": "XEPG Channels"
     },
     "opendtu": {
@@ -607,17 +607,17 @@
     "komga": {
         "libraries": "Libraries",
         "series": "Reekse",
-        "books": "Books"
+        "books": "Boeke"
     },
     "diskstation": {
         "days": "Daë",
         "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "volumeAvailable": "Beskikbaar"
     },
     "mylar": {
         "series": "Reekse",
         "issues": "Issues",
-        "wanted": "Wanted"
+        "wanted": "Gesoek"
     },
     "photoprism": {
         "albums": "Albums",
@@ -626,9 +626,9 @@
         "people": "People"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
+        "queue": "Tou",
+        "processing": "Verwerking",
+        "processed": "Verwerk",
         "time": "Time"
     },
     "grafana": {
@@ -673,7 +673,7 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
+        "books": "Boeke",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
     },
@@ -687,14 +687,14 @@
         "updates": "Updates"
     },
     "calibreweb": {
-        "books": "Books",
+        "books": "Boeke",
         "authors": "Authors",
         "categories": "Categories",
         "series": "Reekse"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
-        "downloadBytesRemaining": "Remaining",
+        "downloadCount": "Tou",
+        "downloadBytesRemaining": "Oorblywende",
         "downloadTotalBytes": "Size",
         "downloadSpeed": "Speed"
     },
@@ -713,16 +713,16 @@
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "Approved"
+        "approved": "Goedgekeur"
     },
     "gamedig": {
         "status": "Status",
-        "online": "Online",
+        "online": "Aanlyn",
         "offline": "Vanlyn",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
-        "players": "Players",
+        "players": "Spelers",
         "maxPlayers": "Max players",
         "bots": "Bots",
         "ping": "Pieng"
@@ -743,7 +743,7 @@
         "downloading": "Downloading",
         "total": "Totaal",
         "running": "Lopend",
-        "stopped": "Stopped",
+        "stopped": "Gestop",
         "passed": "Passed",
         "failed": "Failed"
     },
