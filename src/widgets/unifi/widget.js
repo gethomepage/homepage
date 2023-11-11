@@ -8,7 +8,7 @@ const widget = {
     "stat/sites": {
       endpoint: "stat/sites",
     },
-  }
+  },
 };
 
 export default widget;

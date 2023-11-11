@@ -1,76 +1,17 @@
 {
-    "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
-    },
-    "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
-    },
-    "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
-    },
-    "pyload": {
-        "queue": "Queue",
-        "total": "Total",
-        "speed": "Speed",
-        "active": "Active"
-    },
-    "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
-    },
-    "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
-    },
-    "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
-    },
-    "docker": {
-        "rx": "RX",
-        "tx": "TX",
-        "mem": "เมม",
-        "cpu": "ซีพียู",
-        "offline": "ออฟไลน์",
-        "error": "ข้อผิดพลาด",
-        "unknown": "ไม่ทราบ",
-        "running": "Running",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
-    },
     "common": {
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
-    },
-    "unifi": {
-        "days": "วัน",
-        "wan": "WAN",
-        "lan": "แลน",
-        "wlan": "WLAN",
-        "devices": "อุปกรณ์",
-        "lan_devices": "อุปกรณ์แลน",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown",
-        "users": "ผู้ใช้",
-        "uptime": "เวลาทำงานของระบบ"
+        "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "percent": "{{value, percent}}",
+        "number": "{{value, number}}",
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
@@ -97,19 +38,61 @@
         "free": "ฟรี",
         "used": "ใช้แล้ว",
         "load": "โหลด",
-        "hours": "h",
-        "minutes": "m",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
         "months": "mo",
-        "days": "d"
+        "days": "d",
+        "hours": "h",
+        "minutes": "m"
+    },
+    "unifi": {
+        "users": "ผู้ใช้",
+        "uptime": "เวลาทำงานของระบบ",
+        "days": "วัน",
+        "wan": "WAN",
+        "lan": "แลน",
+        "wlan": "WLAN",
+        "devices": "อุปกรณ์",
+        "lan_devices": "อุปกรณ์แลน",
+        "wlan_devices": "WLAN Devices",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "โปรดรอ",
+        "empty_data": "Subsystem status unknown"
+    },
+    "docker": {
+        "rx": "RX",
+        "tx": "TX",
+        "mem": "เมม",
+        "cpu": "ซีพียู",
+        "running": "Running",
+        "offline": "ออฟไลน์",
+        "error": "ข้อผิดพลาด",
+        "unknown": "ไม่ทราบ",
+        "healthy": "Healthy",
+        "starting": "Starting",
+        "unhealthy": "Unhealthy",
+        "not_found": "Not Found",
+        "exited": "Exited",
+        "partial": "Partial"
     },
     "ping": {
         "error": "ข้อผิดพลาด",
         "ping": "ปิง",
+        "down": "Down",
         "up": "Up",
-        "down": "Down"
+        "not_available": "Not Available"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "ข้อผิดพลาด",
+        "response": "Response",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "กำลังเล่น",
@@ -118,14 +101,16 @@
         "no_active": "ไม่มีสตรีมที่ใช้งานอยู่",
         "movies": "Movies",
         "series": "Series",
-        "songs": "Songs",
-        "episodes": "Episodes"
+        "episodes": "Episodes",
+        "songs": "Songs"
     },
-    "deluge": {
-        "download": "ดาวน์โหลด",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+    "evcc": {
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
     },
     "flood": {
         "download": "ดาวน์โหลด",
@@ -133,15 +118,30 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
+    },
     "changedetectionio": {
         "totalObserved": "Total Observed",
         "diffsDetected": "Diffs Detected"
     },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
+    },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "กำลังเล่น",
+        "transcoding": "การแปลงรหัส",
+        "bitrate": "อัตราบิต",
+        "no_active": "ไม่มีสตรีมที่ใช้งานอยู่",
         "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
@@ -158,9 +158,9 @@
     },
     "plex": {
         "streams": "Active Streams",
+        "albums": "Albums",
         "movies": "Movies",
-        "tv": "TV Shows",
-        "albums": "Albums"
+        "tv": "TV Shows"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -169,24 +169,38 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "อัพโหลด",
+        "download": "ดาวน์โหลด"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "ดาวน์โหลด",
+        "upload": "อัพโหลด",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "ดาวน์โหลด",
+        "upload": "อัพโหลด",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "deluge": {
+        "download": "ดาวน์โหลด",
+        "upload": "อัพโหลด",
         "leech": "Leech",
         "seed": "Seed"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "ดาวน์โหลด",
+        "upload": "อัพโหลด",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -195,27 +209,7 @@
         "queued": "Queued",
         "series": "Series",
         "queue": "Queue",
-        "unknown": "Unknown"
-    },
-    "readarr": {
-        "queued": "Queued",
-        "books": "Books",
-        "wanted": "Wanted"
-    },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
-    },
-    "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
-    },
-    "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "unknown": "ไม่ทราบ"
     },
     "radarr": {
         "wanted": "Wanted",
@@ -223,12 +217,21 @@
         "queued": "Queued",
         "movies": "Movies",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "ไม่ทราบ"
     },
     "lidarr": {
         "wanted": "Wanted",
         "queued": "Queued",
         "artists": "Artists"
+    },
+    "readarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "books": "Books"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
     },
     "ombi": {
         "pending": "Pending",
@@ -246,11 +249,17 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "pialert": {
+        "total": "ทั้งหมด",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
+    },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
-        "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Blocked %",
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Queries",
@@ -259,14 +268,55 @@
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "อัพโหลด",
+        "download": "ดาวน์โหลด",
+        "ping": "ปิง"
     },
     "portainer": {
         "running": "Running",
         "stopped": "Stopped",
-        "total": "Total"
+        "total": "ทั้งหมด"
+    },
+    "tailscale": {
+        "address": "Address",
+        "expires": "Expires",
+        "never": "Never",
+        "last_seen": "Last Seen",
+        "now": "Now",
+        "years": "{{number}}y",
+        "weeks": "{{number}}w",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "{{value}} Ago"
+    },
+    "tdarr": {
+        "queue": "Queue",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "traefik": {
+        "routers": "Routers",
+        "services": "Services",
+        "middleware": "Middleware"
+    },
+    "navidrome": {
+        "nothing_streaming": "ไม่มีสตรีมที่ใช้งานอยู่",
+        "please_wait": "Please Wait"
+    },
+    "npm": {
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "ทั้งหมด"
+    },
+    "coinmarketcap": {
+        "configure": "Configure one or more crypto currencies to track",
+        "1hour": "1 Hour",
+        "1day": "1 Day",
+        "7days": "7 Days",
+        "30days": "30 Days"
     },
     "gotify": {
         "apps": "Applications",
@@ -291,7 +341,7 @@
         "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "ผู้ใช้",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
@@ -300,40 +350,47 @@
         "queued": "Queued",
         "series": "Series"
     },
+    "minecraft": {
+        "players": "Players",
+        "version": "Version",
+        "status": "สถานะ",
+        "up": "Online",
+        "down": "ออฟไลน์"
+    },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
     },
     "authentik": {
-        "users": "Users",
+        "users": "ผู้ใช้",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "เมม",
+        "cpu": "ซีพียู",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
-        "wait": "Please wait",
+        "cpu": "ซีพียู",
+        "load": "โหลด",
+        "wait": "โปรดรอ",
         "temp": "TEMP",
+        "_temp": "Temp",
+        "warn": "Warn",
         "uptime": "UP",
+        "total": "ทั้งหมด",
+        "free": "ฟรี",
+        "used": "ใช้แล้ว",
         "days": "d",
         "hours": "h",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap",
-        "_temp": "Temp"
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -344,15 +401,10 @@
         "url": "URL"
     },
     "wmo": {
-        "67-day": "Freezing Rain",
         "0-day": "Sunny",
         "0-night": "Clear",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
         "2-day": "Partly Cloudy",
         "2-night": "Partly Cloudy",
         "3-day": "Cloudy",
@@ -375,7 +427,17 @@
         "61-night": "Light Rain",
         "63-day": "Rain",
         "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
         "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
         "75-night": "Heavy Snow",
         "77-day": "Snow Grains",
         "77-night": "Snow Grains",
@@ -387,11 +449,6 @@
         "82-night": "Heavy Showers",
         "85-day": "Snow Showers",
         "85-night": "Snow Showers",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
         "86-day": "Snow Showers",
         "86-night": "Snow Showers",
         "95-day": "Thunderstorm",
@@ -402,15 +459,25 @@
         "99-night": "Thunderstorm With Hail"
     },
     "homebridge": {
+        "available_update": "System",
         "updates": "Updates",
         "update_available": "Update Available",
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "available_update": "System",
         "up": "Up",
         "pending": "Pending",
         "down": "Down"
+    },
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "ออฟไลน์",
+        "paused": "Paused",
+        "status": "สถานะ",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
@@ -435,9 +502,29 @@
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Active",
+        "queue": "Queue",
+        "total": "ทั้งหมด"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "ไม่ทราบ"
+    },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
+        "total": "ทั้งหมด"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -454,6 +541,12 @@
         "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
     },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
+    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",
@@ -467,23 +560,33 @@
         "layers": "Layers"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "สถานะ",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status"
+        "status": "สถานะ"
+    },
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Disk Usage",
+        "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "CPU",
+        "cpu_usage": "ซีพียู",
         "memory_usage": "Memory"
     },
     "immich": {
-        "users": "Users",
+        "users": "ผู้ใช้",
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
@@ -491,9 +594,15 @@
     "uptimekuma": {
         "up": "Sites Up",
         "down": "เว็บไซต์ ล่ม",
-        "uptime": "เวลาทำงาน",
+        "uptime": "Uptime",
         "incident": "Incident",
         "m": "m"
+    },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
     },
     "komga": {
         "libraries": "Libraries",
@@ -501,7 +610,7 @@
         "books": "Books"
     },
     "diskstation": {
-        "days": "Days",
+        "days": "วัน",
         "uptime": "Uptime",
         "volumeAvailable": "Available"
     },
@@ -537,7 +646,7 @@
         "numshares": "Shared Items"
     },
     "kopia": {
-        "status": "Status",
+        "status": "สถานะ",
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
@@ -548,16 +657,6 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
     "pterodactyl": {
         "servers": "Servers",
         "nodes": "Nodes"
@@ -566,13 +665,6 @@
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
-    },
-    "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",
@@ -590,96 +682,29 @@
         "lights_on": "Lights On",
         "switches_on": "Switches On"
     },
-    "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
-    },
-    "channelsdvrserver": {
-        "scheduled": "Scheduled",
-        "passes": "Passes",
-        "shows": "Shows",
-        "recordings": "Recordings"
-    },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
-    "tailscale": {
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "address": "Address",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
-    },
-    "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
-    },
-    "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
-    },
-    "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
-    },
-    "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
-    },
-    "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+    "calibreweb": {
+        "books": "Books",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
+        "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
-    "gamedig": {
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
-        "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
-    },
     "azuredevops": {
         "result": "Result",
-        "status": "Status",
+        "status": "สถานะ",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
@@ -690,61 +715,56 @@
         "myPrs": "My PRs",
         "approved": "Approved"
     },
+    "gamedig": {
+        "status": "สถานะ",
+        "online": "Online",
+        "offline": "ออฟไลน์",
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "ปิง"
+    },
     "urbackup": {
         "ok": "Ok",
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "ผู้ใช้",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
     "openmediavault": {
         "downloading": "Downloading",
-        "total": "Total",
+        "total": "ทั้งหมด",
         "running": "Running",
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
     },
-    "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
-    },
-    "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
-    "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
-    },
     "uptimerobot": {
-        "status": "Status",
+        "status": "สถานะ",
         "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
+        "sitesDown": "เว็บไซต์ ล่ม",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Unknown"
-    },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "unknown": "ไม่ทราบ"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release",
+        "noEventsToday": "No events for today!"
     }
 }

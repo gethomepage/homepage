@@ -87,7 +87,7 @@ async function processBg(url, filename) {
       service: "exec",
       method: "getOutput",
       params: { pos, filename },
-    })
+    }),
   );
 
   if (resp == null) {

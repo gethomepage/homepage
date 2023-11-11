@@ -7,6 +7,6 @@ Allowed fields: `["players", "version", "status"]`.
 
 ```yaml
 widget:
-    type: minecraft
-    url: udp://minecraftserveripordomain:port
+  type: minecraft
+  url: udp://minecraftserveripordomain:port
 ```

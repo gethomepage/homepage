@@ -28,17 +28,12 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
-      } else if ([
-        "authentik",
-        "cloudflared",
-        "ghostfolio",
-        "mealie",
-        "tailscale",
-        "truenas",
-        "pterodactyl",
-        ].includes(widget.type))
-        {
-          headers.Authorization = `Bearer ${widget.key}`;
+      } else if (
+        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "truenas", "pterodactyl"].includes(
+          widget.type,
+        )
+      ) {
+        headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
@@ -62,8 +57,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         }
-      }
-      else if (widget.type === "azuredevops") {
+      } else if (widget.type === "azuredevops") {
         headers.Authorization = `Basic ${Buffer.from(`$:${widget.key}`).toString("base64")}`;
       } else if (widget.type === "glances") {
         headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
@@ -91,10 +85,12 @@ export default async function credentialedProxyHandler(req, res, map) {
       if (status >= 400) {
         logger.error("HTTP Error %d calling %s", status, url.toString());
       }
-      
+
       if (status === 200) {
         if (!validateWidgetData(widget, endpoint, resultData)) {
-          return res.status(500).json({error: {message: "Invalid data", url: sanitizeErrorURL(url), data: resultData}});
+          return res
+            .status(500)
+            .json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: resultData } });
         }
         if (map) resultData = map(resultData);
       }

@@ -1,7 +1,17 @@
 {
     "common": {
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
         "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+        "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "percent": "{{value, percent}}",
+        "number": "{{value, number}}",
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Iztrūkst logrīka tips: {{type}}",
@@ -23,11 +33,11 @@
     },
     "resources": {
         "cpu": "CPU",
+        "mem": "MEM",
         "total": "Kopā",
         "free": "Brīvs",
         "used": "Izmantojas",
         "load": "Ielādē",
-        "mem": "MEM",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
@@ -48,7 +58,7 @@
         "wlan_devices": "WLAN ierīces",
         "lan_users": "LAN lietotāji",
         "wlan_users": "WLAN lietotāji",
-        "up": "DARBOJAS",
+        "up": "UP",
         "down": "NEDARBOJAS",
         "wait": "Lūdzu, uzgaidiet",
         "empty_data": "Subsystem status unknown"
@@ -56,24 +66,33 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "Atmiņa",
+        "mem": "MEM",
         "cpu": "CPU",
+        "running": "Running",
         "offline": "Bezsaistē",
         "error": "Kļūda",
         "unknown": "Nezināms",
-        "running": "Running",
+        "healthy": "Healthy",
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "partial": "Partial"
     },
     "ping": {
         "error": "Kļūda",
         "ping": "Ping",
+        "down": "Down",
         "up": "Up",
-        "down": "Down"
+        "not_available": "Not Available"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Kļūda",
+        "response": "Response",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Atskaņo",
@@ -85,15 +104,38 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
+    "evcc": {
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
+    },
     "flood": {
         "download": "Lejupielāde",
         "upload": "Augšupielāde",
         "leech": "Ņēmēji",
         "seed": "Devēji"
     },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
+    },
     "changedetectionio": {
         "totalObserved": "Kopā novēro",
         "diffsDetected": "Atšķirības atrastas"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
     },
     "tautulli": {
         "playing": "Atskaņo",
@@ -116,9 +158,9 @@
     },
     "plex": {
         "streams": "Aktīvās straumes",
-        "movies": "Filmas",
-        "tv": "TV pārraides",
-        "albums": "Albums"
+        "albums": "Albums",
+        "movies": "Movies",
+        "tv": "TV pārraides"
     },
     "sabnzbd": {
         "rate": "Rate",
@@ -133,41 +175,49 @@
     "transmission": {
         "download": "Lejupielāde",
         "upload": "Augšupielāde",
-        "leech": "Leech",
+        "leech": "Ņēmēji",
         "seed": "Devēji"
     },
     "qbittorrent": {
         "download": "Lejupielāde",
         "upload": "Augšupielāde",
-        "leech": "Leech",
+        "leech": "Ņēmēji",
         "seed": "Devēji"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
     },
     "deluge": {
         "download": "Lejupielāde",
         "upload": "Augšupielāde",
-        "leech": "Leech",
+        "leech": "Ņēmēji",
         "seed": "Devēji"
     },
     "downloadstation": {
-        "download": "Download",
+        "download": "Lejupielāde",
         "upload": "Augšupielāde",
-        "leech": "Leech",
-        "seed": "Seed"
+        "leech": "Ņēmēji",
+        "seed": "Devēji"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
         "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Rindā",
+        "unknown": "Nezināms"
     },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Filmas",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "movies": "Movies",
+        "queue": "Rindā",
+        "unknown": "Nezināms"
     },
     "lidarr": {
         "wanted": "Wanted",
@@ -199,11 +249,17 @@
         "approved": "Approved",
         "available": "Available"
     },
+    "pialert": {
+        "total": "Kopā",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
+    },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
-        "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Blocked %",
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Queries",
@@ -212,17 +268,31 @@
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Augšupielāde",
+        "download": "Lejupielāde",
         "ping": "Ping"
     },
     "portainer": {
         "running": "Running",
         "stopped": "Stopped",
-        "total": "Total"
+        "total": "Kopā"
+    },
+    "tailscale": {
+        "address": "Address",
+        "expires": "Expires",
+        "never": "Never",
+        "last_seen": "Last Seen",
+        "now": "Now",
+        "years": "{{number}}y",
+        "weeks": "{{number}}w",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "{{value}} Ago"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "Rindā",
         "processed": "Processed",
         "errored": "Errored",
         "saved": "Saved"
@@ -233,13 +303,13 @@
         "middleware": "Middleware"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
+        "nothing_streaming": "Nav aktīvu straumju",
         "please_wait": "Please Wait"
     },
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Total"
+        "total": "Kopā"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -271,7 +341,7 @@
         "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Lietotāji",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
@@ -280,12 +350,19 @@
         "queued": "Queued",
         "series": "Series"
     },
+    "minecraft": {
+        "players": "Players",
+        "version": "Version",
+        "status": "Statuss",
+        "up": "Online",
+        "down": "Bezsaistē"
+    },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Lietotāji",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
@@ -297,23 +374,23 @@
     },
     "glances": {
         "cpu": "CPU",
-        "wait": "Please wait",
+        "load": "Ielādē",
+        "wait": "Lūdzu, uzgaidiet",
+        "temp": "TEMP",
+        "_temp": "Temp",
+        "warn": "Warn",
         "uptime": "UP",
+        "total": "Kopā",
+        "free": "Brīvs",
+        "used": "Izmantojas",
         "days": "d",
         "hours": "h",
-        "temp": "TEMP",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap",
-        "_temp": "Temp"
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Bookmark",
@@ -345,7 +422,7 @@
         "56-day": "Neliels stindzinošs lietus",
         "56-night": "Neliels stindzinošs lietus",
         "57-day": "Sasalstošs lietus",
-        "57-night": "Freezing Drizzle",
+        "57-night": "Sasalstošs lietus",
         "61-day": "Viegls lietus",
         "61-night": "Viegls lietus",
         "63-day": "Lietus",
@@ -392,6 +469,16 @@
         "pending": "Pending",
         "down": "Down"
     },
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Bezsaistē",
+        "paused": "Paused",
+        "status": "Statuss",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
+    },
     "watchtower": {
         "containers_scanned": "Scanned",
         "containers_updated": "Updated",
@@ -404,7 +491,7 @@
         "indexers": "Indexers"
     },
     "tubearchivist": {
-        "downloads": "Queue",
+        "downloads": "Rindā",
         "videos": "Videos",
         "channels": "Channels",
         "playlists": "Playlists"
@@ -412,14 +499,14 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
+        "alerts": "Paziņojumi",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "active": "Aktīvs",
+        "queue": "Rindā",
+        "total": "Kopā"
     },
     "gluetun": {
         "public_ip": "Public IP",
@@ -433,11 +520,11 @@
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
-        "unknown": "Unknown"
+        "unknown": "Nezināms"
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
+        "total": "Kopā"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -451,8 +538,14 @@
     },
     "xteve": {
         "streams_all": "All Streams",
-        "streams_active": "Active Streams",
+        "streams_active": "Aktīvās straumes",
         "streams_xepg": "XEPG Channels"
+    },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "CPU Load",
@@ -467,14 +560,24 @@
         "layers": "Layers"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "Statuss",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status"
+        "status": "Statuss"
+    },
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Disk Usage",
+        "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
@@ -483,7 +586,7 @@
         "memory_usage": "Memory"
     },
     "immich": {
-        "users": "Users",
+        "users": "Lietotāji",
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
@@ -495,10 +598,21 @@
         "incident": "Incident",
         "m": "m"
     },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",
-        "books": "Books"
+        "books": "Grāmatas"
+    },
+    "diskstation": {
+        "days": "Dienas",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     },
     "mylar": {
         "series": "Series",
@@ -511,13 +625,8 @@
         "videos": "Videos",
         "people": "People"
     },
-    "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
-    },
     "fileflows": {
-        "queue": "Queue",
+        "queue": "Rindā",
         "processing": "Processing",
         "processed": "Processed",
         "time": "Time"
@@ -537,7 +646,7 @@
         "numshares": "Shared Items"
     },
     "kopia": {
-        "status": "Status",
+        "status": "Statuss",
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
@@ -548,16 +657,6 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
     "pterodactyl": {
         "servers": "Servers",
         "nodes": "Nodes"
@@ -567,13 +666,6 @@
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
     },
-    "minecraft": {
-        "down": "Offline",
-        "players": "Players",
-        "status": "Status",
-        "up": "Online",
-        "version": "Version"
-    },
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
@@ -581,7 +673,7 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
+        "books": "Grāmatas",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
     },
@@ -590,105 +682,50 @@
         "lights_on": "Lights On",
         "switches_on": "Switches On"
     },
-    "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
-    },
-    "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
-    },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
-    "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
-    },
-    "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
-    },
-    "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
-    },
-    "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
-    },
-    "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
-    },
-    "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+    "calibreweb": {
+        "books": "Grāmatas",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Rindā",
+        "downloadBytesRemaining": "Palika",
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Statuss",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Approved"
+    },
     "gamedig": {
+        "status": "Statuss",
+        "online": "Online",
+        "offline": "Bezsaistē",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Ping",
-        "online": "Online",
-        "status": "Status",
-        "offline": "Offline"
-    },
-    "azuredevops": {
-        "result": "Result",
-        "status": "Status",
-        "buildId": "Build ID",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Approved",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed"
+        "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
@@ -696,55 +733,38 @@
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Lietotāji",
+        "categories": "Categories",
+        "tags": "Tags"
+    },
     "openmediavault": {
         "downloading": "Downloading",
-        "total": "Total",
+        "total": "Kopā",
         "running": "Running",
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
     },
-    "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
-    },
-    "atsumeru": {
-        "chapters": "Chapters",
-        "series": "Series",
-        "archives": "Archives",
-        "categories": "Categories"
-    },
-    "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
-    },
     "uptimerobot": {
-        "unknown": "Unknown",
-        "status": "Status",
+        "status": "Statuss",
         "uptime": "Uptime",
-        "sitesDown": "Sites Down",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
         "up": "Up",
         "seemsdown": "Seems Down",
-        "down": "Down"
-    },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "down": "Down",
+        "unknown": "Nezināms"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release",
+        "noEventsToday": "No events for today!"
     }
 }

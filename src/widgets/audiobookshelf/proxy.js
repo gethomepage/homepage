@@ -10,7 +10,7 @@ const logger = createLogger(proxyName);
 async function retrieveFromAPI(url, key) {
   const headers = {
     "content-type": "application/json",
-    "Authorization": `Bearer ${key}`
+    Authorization: `Bearer ${key}`,
   };
 
   const [status, , data] = await httpProxy(url, { headers });
@@ -48,17 +48,22 @@ export default async function audiobookshelfProxyHandler(req, res) {
     const url = new URL(formatApiCall(apiURL, { endpoint, ...widget }));
     const libraryData = await retrieveFromAPI(url, widget.key);
 
-    const libraryStats = await Promise.all(libraryData.libraries.map(async l => {
-      const stats = await retrieveFromAPI(new URL(formatApiCall(apiURL, { endpoint: `libraries/${l.id}/stats`, ...widget })), widget.key);
-      return {
-        ...l,
-        stats
-      };
-    }));
-  
+    const libraryStats = await Promise.all(
+      libraryData.libraries.map(async (l) => {
+        const stats = await retrieveFromAPI(
+          new URL(formatApiCall(apiURL, { endpoint: `libraries/${l.id}/stats`, ...widget })),
+          widget.key,
+        );
+        return {
+          ...l,
+          stats,
+        };
+      }),
+    );
+
     return res.status(200).send(libraryStats);
   } catch (e) {
     logger.error(e.message);
-    return res.status(500).send({error: {message: e.message}});
+    return res.status(500).send({ error: { message: e.message } });
   }
 }

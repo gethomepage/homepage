@@ -29,10 +29,12 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="omada.connectedAp" value={t( "common.number", { value: omadaData.connectedAp})} />
-      <Block label="omada.activeUser" value={t( "common.number", { value: omadaData.activeUser })} />
-      <Block label="omada.alerts" value={t( "common.number", { value: omadaData.alerts })} />
-      { omadaData.connectedGateways > 0 && <Block label="omada.connectedGateway" value={t("common.number", { value: omadaData.connectedGateways})} /> }
+      <Block label="omada.connectedAp" value={t("common.number", { value: omadaData.connectedAp })} />
+      <Block label="omada.activeUser" value={t("common.number", { value: omadaData.activeUser })} />
+      <Block label="omada.alerts" value={t("common.number", { value: omadaData.alerts })} />
+      {omadaData.connectedGateways > 0 && (
+        <Block label="omada.connectedGateway" value={t("common.number", { value: omadaData.connectedGateways })} />
+      )}
     </Container>
   );
 }

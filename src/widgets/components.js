@@ -15,6 +15,7 @@ const components = {
   channelsdvrserver: dynamic(() => import("./channelsdvrserver/component")),
   cloudflared: dynamic(() => import("./cloudflared/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
+  iframe: dynamic(() => import("./iframe/component")),
   customapi: dynamic(() => import("./customapi/component")),
   deluge: dynamic(() => import("./deluge/component")),
   diskstation: dynamic(() => import("./diskstation/component")),

@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
@@ -79,9 +80,16 @@
         "partial": "Partial"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Error",
         "ping": "Ping",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Error",
+        "response": "Response",
         "down": "Down",
         "up": "Up",
         "not_available": "Not Available"
@@ -756,6 +764,7 @@
     "calendar": {
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release"
+        "digitalRelease": "Digital release",
+        "noEventsToday": "No events for today!"
     }
 }

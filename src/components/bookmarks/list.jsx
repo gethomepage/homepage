@@ -9,7 +9,7 @@ export default function List({ bookmarks, layout }) {
     <ul
       className={classNames(
         layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col",
-        "mt-3 bookmark-list"
+        "mt-3 bookmark-list",
       )}
     >
       {bookmarks.map((bookmark) => (

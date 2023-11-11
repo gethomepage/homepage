@@ -9,9 +9,9 @@ Allowed fields: `["connectedAp", "activeUser", "alerts", "connectedGateways", "c
 
 ```yaml
 widget:
-    type: omada
-    url: http://omada.host.or.ip:port
-    username: username
-    password: password
-    site: sitename
+  type: omada
+  url: http://omada.host.or.ip:port
+  username: username
+  password: password
+  site: sitename
 ```

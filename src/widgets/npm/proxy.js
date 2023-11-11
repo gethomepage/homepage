@@ -24,10 +24,10 @@ async function login(loginUrl, username, password, service) {
 
   try {
     data = JSON.parse(Buffer.from(authResponse[2]).toString());
-    
+
     if (status === 200) {
       const expiration = new Date(data.expires) - Date.now();
-      cache.put(`${tokenCacheKey}.${service}`, data.token, expiration - (5 * 60 * 1000)); // expiration -5 minutes
+      cache.put(`${tokenCacheKey}.${service}`, data.token, expiration - 5 * 60 * 1000); // expiration -5 minutes
     }
   } catch (e) {
     logger.error(`Error ${status} logging into npm`, authResponse[2]);
@@ -52,7 +52,7 @@ export default async function npmProxyHandler(req, res) {
       let status;
       let contentType;
       let data;
-      
+
       let token = cache.get(`${tokenCacheKey}.${service}`);
       if (!token) {
         [status, token] = await login(loginUrl, widget.username, widget.password, service);

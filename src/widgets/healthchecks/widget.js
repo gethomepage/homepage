@@ -7,10 +7,7 @@ const widget = {
   mappings: {
     checks: {
       endpoint: "checks",
-      validate: [
-        "status",
-        "last_ping",
-      ]
+      validate: ["status", "last_ping"],
     },
   },
 };

@@ -9,8 +9,12 @@ export default function Component({ service }) {
   if (error) {
     return <Container service={service} error={error} />;
   }
-  
-  return <Container service={service}>
-    {data?.map(d => <Block label={d.label} value={d.value} key={d.label} />)}
-  </Container>;
+
+  return (
+    <Container service={service}>
+      {data?.map((d) => (
+        <Block label={d.label} value={d.value} key={d.label} />
+      ))}
+    </Container>
+  );
 }

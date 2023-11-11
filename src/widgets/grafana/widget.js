@@ -10,9 +10,7 @@ const widget = {
     },
     stats: {
       endpoint: "admin/stats",
-      validate: [
-        "dashboards"
-      ]
+      validate: ["dashboards"],
     },
   },
 };

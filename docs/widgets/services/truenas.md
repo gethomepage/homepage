@@ -9,9 +9,9 @@ To create an API Key, follow [the official TrueNAS documentation](https://www.tr
 
 ```yaml
 widget:
-    type: truenas
-    url: http://truenas.host.or.ip
-    username: user # not required if using api key
-    password: pass # not required if using api key
-    key: yourtruenasapikey # not required if using username / password
+  type: truenas
+  url: http://truenas.host.or.ip
+  username: user # not required if using api key
+  password: pass # not required if using api key
+  key: yourtruenasapikey # not required if using username / password
 ```

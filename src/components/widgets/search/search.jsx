@@ -54,7 +54,7 @@ function getAvailableProviderIds(options) {
 const localStorageKey = "search-name";
 
 export function getStoredProvider() {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const storedName = localStorage.getItem(localStorageKey);
     if (storedName) {
       return Object.values(searchProviders).find((el) => el.name === storedName);
@@ -69,7 +69,9 @@ export default function Search({ options }) {
   const availableProviderIds = getAvailableProviderIds(options);
 
   const [query, setQuery] = useState("");
-  const [selectedProvider, setSelectedProvider] = useState(searchProviders[availableProviderIds[0] ?? searchProviders.google]);
+  const [selectedProvider, setSelectedProvider] = useState(
+    searchProviders[availableProviderIds[0] ?? searchProviders.google],
+  );
 
   useEffect(() => {
     const storedProvider = getStoredProvider();
@@ -80,19 +82,22 @@ export default function Search({ options }) {
     }
   }, [availableProviderIds]);
 
-  const submitCallback = useCallback(event =>  {
-    const q = encodeURIComponent(query);
-    const { url } = selectedProvider;
-    if (url) {
-      window.open(`${url}${q}`, options.target || "_blank");
-    } else {
-      window.open(`${options.url}${q}`, options.target || "_blank");
-    }
+  const submitCallback = useCallback(
+    (event) => {
+      const q = encodeURIComponent(query);
+      const { url } = selectedProvider;
+      if (url) {
+        window.open(`${url}${q}`, options.target || "_blank");
+      } else {
+        window.open(`${options.url}${q}`, options.target || "_blank");
+      }
 
-    event.preventDefault();
-    event.target.reset();
-    setQuery("");
-  }, [options.target, options.url, query, selectedProvider]);
+      event.preventDefault();
+      event.target.reset();
+      setQuery("");
+    },
+    [options.target, options.url, query, selectedProvider],
+  );
 
   if (!availableProviderIds) {
     return null;
@@ -101,15 +106,16 @@ export default function Search({ options }) {
   const onChangeProvider = (provider) => {
     setSelectedProvider(provider);
     localStorage.setItem(localStorageKey, provider.name);
-  }
+  };
 
-  return <ContainerForm options={options} callback={submitCallback} additionalClassNames="grow information-widget-search" >
-    <Raw>
-      <div className="flex-col relative h-8 my-4 min-w-fit">
-        <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
-        <input
-          type="text"
-          className="
+  return (
+    <ContainerForm options={options} callback={submitCallback} additionalClassNames="grow information-widget-search">
+      <Raw>
+        <div className="flex-col relative h-8 my-4 min-w-fit">
+          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
+          <input
+            type="text"
+            className="
             overflow-hidden w-full h-full rounded-md
             text-xs text-theme-900 dark:text-white
             placeholder-theme-900 dark:placeholder-white/80
@@ -117,65 +123,72 @@ export default function Search({ options }) {
             focus:ring-theme-500 dark:focus:ring-white/50
             focus:border-theme-500 dark:focus:border-white/50
             border border-theme-300 dark:border-theme-200/50"
-          placeholder={t("search.placeholder")}
-          onChange={(s) => setQuery(s.currentTarget.value)}
-          required
-          autoCapitalize="off"
-          autoCorrect="off"
-          autoComplete="off"
-          // eslint-disable-next-line jsx-a11y/no-autofocus
-          autoFocus={options.focus}
-        />
-        <Listbox as="div" value={selectedProvider} onChange={onChangeProvider} className="relative text-left" disabled={availableProviderIds?.length === 1}>
-          <div>
-            <Listbox.Button
-              className="
+            placeholder={t("search.placeholder")}
+            onChange={(s) => setQuery(s.currentTarget.value)}
+            required
+            autoCapitalize="off"
+            autoCorrect="off"
+            autoComplete="off"
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus={options.focus}
+          />
+          <Listbox
+            as="div"
+            value={selectedProvider}
+            onChange={onChangeProvider}
+            className="relative text-left"
+            disabled={availableProviderIds?.length === 1}
+          >
+            <div>
+              <Listbox.Button
+                className="
           absolute right-0.5 bottom-0.5 rounded-r-md px-4 py-2 border-1
           text-white font-medium text-sm
           bg-theme-600/40 dark:bg-white/10
           focus:ring-theme-500 dark:focus:ring-white/50"
+              >
+                <selectedProvider.icon className="text-white w-3 h-3" />
+                <span className="sr-only">{t("search.search")}</span>
+              </Listbox.Button>
+            </div>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
             >
-              <selectedProvider.icon className="text-white w-3 h-3" />
-              <span className="sr-only">{t("search.search")}</span>
-            </Listbox.Button>
-          </div>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Listbox.Options
-              className="absolute right-0 z-10 mt-1 origin-top-right rounded-md
+              <Listbox.Options
+                className="absolute right-0 z-10 mt-1 origin-top-right rounded-md
               bg-theme-100 dark:bg-theme-600 shadow-lg
               ring-1 ring-black ring-opacity-5 focus:outline-none"
-            >
-              <div className="flex flex-col">
-                {availableProviderIds.map((providerId) => {
-                  const p = searchProviders[providerId];
-                  return (
-                    <Listbox.Option key={providerId} value={p} as={Fragment}>
-                      {({ active }) => (
-                        <li
-                          className={classNames(
-                            "rounded-md cursor-pointer",
-                            active ? "bg-theme-600/10 dark:bg-white/10 dark:text-gray-900" : "dark:text-gray-100"
-                          )}
-                        >
-                          <p.icon className="h-4 w-4 mx-4 my-2" />
-                        </li>
-                      )}
-                    </Listbox.Option>
-                  );
-                })}
-              </div>
-            </Listbox.Options>
-          </Transition>
-        </Listbox>
-      </div>
-    </Raw>
-  </ContainerForm>;
+              >
+                <div className="flex flex-col">
+                  {availableProviderIds.map((providerId) => {
+                    const p = searchProviders[providerId];
+                    return (
+                      <Listbox.Option key={providerId} value={p} as={Fragment}>
+                        {({ active }) => (
+                          <li
+                            className={classNames(
+                              "rounded-md cursor-pointer",
+                              active ? "bg-theme-600/10 dark:bg-white/10 dark:text-gray-900" : "dark:text-gray-100",
+                            )}
+                          >
+                            <p.icon className="h-4 w-4 mx-4 my-2" />
+                          </li>
+                        )}
+                      </Listbox.Option>
+                    );
+                  })}
+                </div>
+              </Listbox.Options>
+            </Transition>
+          </Listbox>
+        </div>
+      </Raw>
+    </ContainerForm>
+  );
 }

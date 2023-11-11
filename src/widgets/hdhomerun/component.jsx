@@ -20,13 +20,12 @@ export default function Component({ service }) {
     );
   }
 
-const hdChannels = channelsData?.filter((channel) => channel.HD === 1);
+  const hdChannels = channelsData?.filter((channel) => channel.HD === 1);
 
   return (
     <Container service={service}>
-      <Block label="hdhomerun.channels" value={channelsData.length } />
+      <Block label="hdhomerun.channels" value={channelsData.length} />
       <Block label="hdhomerun.hd" value={hdChannels.length} />
-      
     </Container>
   );
 }

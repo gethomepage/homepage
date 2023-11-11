@@ -50,6 +50,9 @@ dependencies:
   next-i18next:
     specifier: ^12.0.1
     version: 12.1.0(next@12.3.4)(react-dom@18.2.0)(react@18.2.0)
+  ping:
+    specifier: ^0.4.4
+    version: 0.4.4
   pretty-bytes:
     specifier: ^6.0.0
     version: 6.1.0
@@ -71,9 +74,6 @@ dependencies:
   recharts:
     specifier: ^2.7.2
     version: 2.7.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
-  shvl:
-    specifier: ^3.0.0
-    version: 3.0.0
   swr:
     specifier: ^1.3.0
     version: 1.3.0(react@18.2.0)
@@ -115,8 +115,8 @@ devDependencies:
     specifier: ^12.3.1
     version: 12.3.4(eslint@8.37.0)(typescript@4.9.5)
   eslint-config-prettier:
-    specifier: ^8.5.0
-    version: 8.8.0(eslint@8.37.0)
+    specifier: ^9.0.0
+    version: 9.0.0(eslint@8.37.0)
   eslint-plugin-import:
     specifier: ^2.26.0
     version: 2.27.5(@typescript-eslint/parser@5.57.0)(eslint-import-resolver-typescript@2.7.1)(eslint@8.37.0)
@@ -125,7 +125,7 @@ devDependencies:
     version: 6.7.1(eslint@8.37.0)
   eslint-plugin-prettier:
     specifier: ^4.2.1
-    version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.37.0)(prettier@2.8.7)
+    version: 4.2.1(eslint-config-prettier@9.0.0)(eslint@8.37.0)(prettier@3.0.3)
   eslint-plugin-react:
     specifier: ^7.31.8
     version: 7.32.2(eslint@8.37.0)
@@ -136,8 +136,8 @@ devDependencies:
     specifier: ^8.4.16
     version: 8.4.21
   prettier:
-    specifier: ^2.7.1
-    version: 2.8.7
+    specifier: ^3.0.3
+    version: 3.0.3
   tailwind-scrollbar:
     specifier: ^2.0.1
     version: 2.1.0(tailwindcss@3.3.0)
@@ -1503,8 +1503,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-config-prettier@8.8.0(eslint@8.37.0):
-    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
+  /eslint-config-prettier@9.0.0(eslint@8.37.0):
+    resolution: {integrity: sha512-IcJsTkJae2S35pRsRAwoCE+925rJJStOdkKnLVgtE+tEpqU0EVVM7OqrwxqgptKdX29NUwC82I5pXsGFIgSevw==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -1628,7 +1628,7 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.37.0)(prettier@2.8.7):
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@9.0.0)(eslint@8.37.0)(prettier@3.0.3):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -1640,8 +1640,8 @@ packages:
         optional: true
     dependencies:
       eslint: 8.37.0
-      eslint-config-prettier: 8.8.0(eslint@8.37.0)
-      prettier: 2.8.7
+      eslint-config-prettier: 9.0.0(eslint@8.37.0)
+      prettier: 3.0.3
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -3106,6 +3106,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /ping@0.4.4:
+    resolution: {integrity: sha512-56ZMC0j7SCsMMLdOoUg12VZCfj/+ZO+yfOSjaNCRrmZZr6GLbN2X/Ui56T15dI8NhiHckaw5X2pvyfAomanwqQ==}
+    engines: {node: '>=4.0.0'}
+    dev: false
+
   /pirates@4.0.5:
     resolution: {integrity: sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==}
     engines: {node: '>= 6'}
@@ -3206,9 +3211,10 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier@2.8.7:
-    resolution: {integrity: sha512-yPngTo3aXUUmyuTjeTUT75txrf+aMh9FiD7q9ZE/i6r0bPb22g4FsE6Y338PQX1bmfy08i9QQCB7/rcUAVntfw==}
-    engines: {node: '>=10.13.0'}
+  /prettier@3.0.3:
+    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /pretty-bytes@6.1.0:
@@ -3612,10 +3618,6 @@ packages:
       glob: 7.2.3
       interpret: 1.4.0
       rechoir: 0.6.2
-    dev: false
-
-  /shvl@3.0.0:
-    resolution: {integrity: sha512-5IomAM3ykE/g9K9L6lhODc+TpCuN03rrhlboegeKyyfh66DDdpRD5JN37DYhNHH+RaYjiIDx64K/Ms/xQYOR5w==}
     dev: false
 
   /side-channel@1.0.4:

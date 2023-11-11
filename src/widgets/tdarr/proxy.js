@@ -27,10 +27,10 @@ export default async function tdarrProxyHandler(req, res) {
   const [status, contentType, data] = await httpProxy(url, {
     method: "POST",
     body: JSON.stringify({
-      "data": {
-        "collection": "StatisticsJSONDB",
-        "mode": "getById",
-        "docID": "statistics"
+      data: {
+        collection: "StatisticsJSONDB",
+        mode: "getById",
+        docID: "statistics",
       },
     }),
     headers: {
@@ -40,7 +40,7 @@ export default async function tdarrProxyHandler(req, res) {
 
   if (status !== 200) {
     logger.error("Error getting data from Tdarr: %d.  Data: %s", status, data);
-    return res.status(500).send({error: {message:"Error getting data from Tdarr", url, data}});
+    return res.status(500).send({ error: { message: "Error getting data from Tdarr", url, data } });
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);

@@ -7,11 +7,11 @@ export default function useWidgetAPI(widget, ...options) {
   if (options && options[1]?.refreshInterval) {
     config.refreshInterval = options[1].refreshInterval;
   }
-  let url = formatProxyUrl(widget, ...options)
+  let url = formatProxyUrl(widget, ...options);
   if (options[0] === "") {
-    url = null
+    url = null;
   }
   const { data, error, mutate } = useSWR(url, config);
   // make the data error the top-level error
-  return { data, error: data?.error ?? error, mutate }
+  return { data, error: data?.error ?? error, mutate };
 }

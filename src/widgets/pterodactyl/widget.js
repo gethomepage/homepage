@@ -7,9 +7,7 @@ const widget = {
   mappings: {
     nodes: {
       endpoint: "nodes?include=servers",
-      validate: [
-        "data"
-      ]
+      validate: ["data"],
     },
   },
 };

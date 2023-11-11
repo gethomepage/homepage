@@ -69,7 +69,7 @@ function prettyBytes(number, options) {
 
   const exponent = Math.min(
     Math.floor(options.binary ? Math.log(number) / Math.log(1024) : Math.log10(number) / 3),
-    UNITS.length - 1
+    UNITS.length - 1,
   );
   number /= (options.binary ? 1024 : 1000) ** exponent;
 
@@ -94,13 +94,18 @@ module.exports = {
     {
       init: (i18next) => {
         i18next.services.formatter.add("bytes", (value, lng, options) =>
-          prettyBytes(parseFloat(value), { locale: lng, ...options })
+          prettyBytes(parseFloat(value), { locale: lng, ...options }),
         );
 
         i18next.services.formatter.add("rate", (value, lng, options) => {
-
           const k = options.binary ? 1024 : 1000;
-          const sizes = options.bits ? (options.binary ? BIBIT_UNITS : BIT_UNITS) : (options.binary ? BIBYTE_UNITS : BYTE_UNITS);
+          const sizes = options.bits
+            ? options.binary
+              ? BIBIT_UNITS
+              : BIT_UNITS
+            : options.binary
+            ? BIBYTE_UNITS
+            : BYTE_UNITS;
 
           if (value === 0) return `0 ${sizes[0]}/s`;
 
@@ -109,14 +114,17 @@ module.exports = {
           const i = options.binary ? 2 : Math.floor(Math.log(value) / Math.log(k));
 
           const formatted = new Intl.NumberFormat(lng, { maximumFractionDigits: dm, minimumFractionDigits: dm }).format(
-            parseFloat(value / k ** i)
+            parseFloat(value / k ** i),
           );
 
           return `${formatted} ${sizes[i]}/s`;
         });
 
         i18next.services.formatter.add("percent", (value, lng, options) =>
-          new Intl.NumberFormat(lng, { style: "percent", ...options }).format(parseFloat(value) / 100.0)
+          new Intl.NumberFormat(lng, { style: "percent", ...options }).format(parseFloat(value) / 100.0),
+        );
+        i18next.services.formatter.add("date", (value, lng, options) =>
+          new Intl.DateTimeFormat(lng, { ...options }).format(new Date(value)),
         );
       },
       type: "3rdParty",

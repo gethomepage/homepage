@@ -13,30 +13,34 @@ export default function Memory({ expanded, refresh = 1500 }) {
   });
 
   if (error || data?.error) {
-    return <Error />
+    return <Error />;
   }
 
   if (!data) {
-    return <Resource
-      icon={FaMemory}
-      value="-"
-      label={t("resources.free")}
-      expandedValue="-"
-      expandedLabel={t("resources.total")}
-      expanded={expanded}
-      percentage="0"
-    />;
+    return (
+      <Resource
+        icon={FaMemory}
+        value="-"
+        label={t("resources.free")}
+        expandedValue="-"
+        expandedLabel={t("resources.total")}
+        expanded={expanded}
+        percentage="0"
+      />
+    );
   }
 
   const percent = Math.round((data.memory.active / data.memory.total) * 100);
 
-  return <Resource
-    icon={FaMemory}
-    value={t("common.bytes", { value: data.memory.available, maximumFractionDigits: 1, binary: true })}
-    label={t("resources.free")}
-    expandedValue={t("common.bytes", { value: data.memory.total, maximumFractionDigits: 1, binary: true })}
-    expandedLabel={t("resources.total")}
-    percentage={percent}
-    expanded={expanded}
-  />;
+  return (
+    <Resource
+      icon={FaMemory}
+      value={t("common.bytes", { value: data.memory.available, maximumFractionDigits: 1, binary: true })}
+      label={t("resources.free")}
+      expandedValue={t("common.bytes", { value: data.memory.total, maximumFractionDigits: 1, binary: true })}
+      expandedLabel={t("resources.total")}
+      percentage={percent}
+      expanded={expanded}
+    />
+  );
 }

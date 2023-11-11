@@ -67,7 +67,7 @@ background:
 
 ### Card Background Blur
 
-You can apply a blur filter to the service & bookmark cards. Note this option is incompatible with the backround blur, saturate and brightness filters.
+You can apply a blur filter to the service & bookmark cards. Note this option is incompatible with the background blur, saturate and brightness filters.
 
 ```yaml
 cardBlur: sm # sm, "", md, etc... see https://tailwindcss.com/docs/backdrop-blur
@@ -329,7 +329,7 @@ You can then pass `provider` instead of `apiKey` in your widget configuration.
 
 ## Quick Launch
 
-You can use the 'Quick Launch' feature to search services, perform a web search or open a URL. To use Quick Launch, just start typing while on your homepage (as long as the search widget doesnt have focus).
+You can use the 'Quick Launch' feature to search services, perform a web search or open a URL. To use Quick Launch, just start typing while on your homepage (as long as the search widget doesn't have focus).
 
 <img width="1000" alt="quicklaunch" src="https://user-images.githubusercontent.com/4887959/216880811-90ff72cb-2990-4475-889b-7c3a31e6beef.png">
 
@@ -382,16 +382,16 @@ If you have both set the per-service settings take precedence.
 
 ## Status Style
 
-You can choose from the following styles for docker or k8s status and ping: `dot` or `basic`
+You can choose from the following styles for docker or k8s status, site monitor and ping: `dot` or `basic`
 
-- The default is no value, and displays the ping response time in ms and the docker / k8s container status
-- `dot` shows a green dot for a successful ping or healthy status.
-- `basic` shows either UP or DOWN for ping
+- The default is no value, and displays the monitor and ping response time in ms and the docker / k8s container status
+- `dot` shows a green dot for a successful monitor ping or healthy status.
+- `basic` shows either UP or DOWN for monitor & ping
 
 For example:
 
 ```yaml
-statusStyle: 'dot'
+statusStyle: "dot"
 ```
 
 or per-service (`services.yaml`) with:
@@ -422,4 +422,4 @@ or per service widget (`services.yaml`) with:
         hideErrors: true
 ```
 
-If either value is set to true, the errror message will be hidden.
+If either value is set to true, the error message will be hidden.

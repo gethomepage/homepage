@@ -9,7 +9,7 @@ Allowed fields: `["series", "issues", "wanted"]`.
 
 ```yaml
 widget:
-    type: mylar
-    url: http://mylar3.host.or.ip:port
-    key: yourmylar3apikey
+  type: mylar
+  url: http://mylar3.host.or.ip:port
+  key: yourmylar3apikey
 ```

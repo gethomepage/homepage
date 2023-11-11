@@ -15,9 +15,10 @@ const logger = createLogger(proxyName);
 
 async function getWidget(req) {
   const { group, service, type } = req.query;
-  
+
   let widget = null;
-  if (type === "unifi_console") { // info widget
+  if (type === "unifi_console") {
+    // info widget
     const index = req.query?.query ? JSON.parse(req.query.query).index : undefined;
     widget = await getPrivateWidgetOptions(type, index);
     if (!widget) {
@@ -30,7 +31,7 @@ async function getWidget(req) {
       logger.debug("Invalid or missing service '%s' or group '%s'", service, group);
       return null;
     }
-  
+
     widget = await getServiceWidget(group, service);
 
     if (!widget) {
@@ -43,7 +44,7 @@ async function getWidget(req) {
 }
 
 async function login(widget, csrfToken) {
-  const endpoint = (widget.prefix === udmpPrefix) ? "auth/login" : "login";
+  const endpoint = widget.prefix === udmpPrefix ? "auth/login" : "login";
   const api = widgets?.[widget.type]?.api?.replace("{prefix}", ""); // no prefix for login url
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
   const loginBody = { username: widget.username, password: widget.password, remember: true };
@@ -80,8 +81,12 @@ export default async function unifiProxyHandler(req, res) {
     [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
     prefix = "";
     if (responseHeaders?.["x-csrf-token"]) {
+      // Unifi OS < 3.2.5 passes & requires csrf-token
       prefix = udmpPrefix;
       csrfToken = responseHeaders["x-csrf-token"];
+    } else if (responseHeaders?.["access-control-expose-headers"]) {
+      // Unifi OS ≥ 3.2.5 doesnt pass csrf token but still uses different endpoint
+      prefix = udmpPrefix;
     }
     cache.put(`${prefixCacheKey}.${service}`, prefix);
   }
@@ -93,9 +98,9 @@ export default async function unifiProxyHandler(req, res) {
   setCookieHeader(url, params);
 
   [status, contentType, data, responseHeaders] = await httpProxy(url, params);
-  
+
   if (status === 401) {
-    logger.debug("Unifi isn't logged in or rejected the reqeust, attempting login.");  
+    logger.debug("Unifi isn't logged in or rejected the reqeust, attempting login.");
     if (responseHeaders?.["x-csrf-token"]) {
       csrfToken = responseHeaders["x-csrf-token"];
     }
@@ -103,7 +108,7 @@ export default async function unifiProxyHandler(req, res) {
 
     if (status !== 200) {
       logger.error("HTTP %d logging in to Unifi. Data: %s", status, data);
-      return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
+      return res.status(status).json({ error: { message: `HTTP Error ${status}`, url, data } });
     }
 
     const json = JSON.parse(data.toString());
@@ -121,7 +126,7 @@ export default async function unifiProxyHandler(req, res) {
 
   if (status !== 200) {
     logger.error("HTTP %d getting data from Unifi endpoint %s. Data: %s", status, url.href, data);
-    return res.status(status).json({error: {message: `HTTP Error ${status}`, url, data}});
+    return res.status(status).json({ error: { message: `HTTP Error ${status}`, url, data } });
   }
 
   if (contentType) res.setHeader("Content-Type", contentType);

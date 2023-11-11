@@ -9,16 +9,16 @@ async function login(widget) {
   logger.debug("flood is rejecting the request, logging in.");
   const loginUrl = new URL(`${widget.url}/api/auth/authenticate`).toString();
 
-  const loginParams = { 
-    method: "POST", 
-    headers: { "Content-Type": "application/json" }, 
-    body: null
+  const loginParams = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: null,
   };
 
   if (widget.username && widget.password) {
     loginParams.body = JSON.stringify({
-      "username": widget.username,
-      "password": widget.password
+      username: widget.username,
+      password: widget.password,
     });
   }
 

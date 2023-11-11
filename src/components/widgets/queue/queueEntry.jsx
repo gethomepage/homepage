@@ -1,4 +1,4 @@
-export default function QueueEntry({ title, activity, timeLeft, progress}) {
+export default function QueueEntry({ title, activity, timeLeft, progress }) {
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 rounded-md bg-theme-200/50 dark:bg-theme-900/20 m-1 px-1 flex">
       <div

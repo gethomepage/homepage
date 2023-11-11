@@ -11,13 +11,14 @@ export default async function handler(req, res) {
     const kc = getKubeConfig();
     if (!kc) {
       return res.status(500).send({
-        error: "No kubernetes configuration"
+        error: "No kubernetes configuration",
       });
     }
     const coreApi = kc.makeApiClient(CoreV1Api);
     const metricsApi = new Metrics(kc);
 
-    const nodes = await coreApi.listNode()
+    const nodes = await coreApi
+      .listNode()
       .then((response) => response.body)
       .catch((error) => {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
@@ -25,7 +26,7 @@ export default async function handler(req, res) {
       });
     if (!nodes) {
       return res.status(500).send({
-        error: "unknown error"
+        error: "unknown error",
       });
     }
     let cpuTotal = 0;
@@ -37,16 +38,18 @@ export default async function handler(req, res) {
     nodes.items.forEach((node) => {
       const cpu = Number.parseInt(node.status.capacity.cpu, 10);
       const mem = parseMemory(node.status.capacity.memory);
-      const ready = node.status.conditions.filter(condition => condition.type === "Ready" && condition.status === "True").length > 0;
+      const ready =
+        node.status.conditions.filter((condition) => condition.type === "Ready" && condition.status === "True").length >
+        0;
       nodeMap[node.metadata.name] = {
         name: node.metadata.name,
         ready,
         cpu: {
-          total: cpu
+          total: cpu,
         },
         memory: {
-          total: mem
-        }
+          total: mem,
+        },
       };
       cpuTotal += cpu;
       memTotal += mem;
@@ -68,7 +71,7 @@ export default async function handler(req, res) {
     } catch (error) {
       logger.error("Error getting metrics, ensure you have metrics-server installed: s", JSON.stringify(error));
       return res.status(500).send({
-        error: "Error getting metrics, check logs for more details"
+        error: "Error getting metrics, check logs for more details",
       });
     }
 
@@ -76,24 +79,24 @@ export default async function handler(req, res) {
       cpu: {
         load: cpuUsage,
         total: cpuTotal,
-        percent: (cpuUsage / cpuTotal) * 100
+        percent: (cpuUsage / cpuTotal) * 100,
       },
       memory: {
         used: memUsage,
         total: memTotal,
-        free: (memTotal - memUsage),
-        percent: (memUsage / memTotal) * 100
-      }
+        free: memTotal - memUsage,
+        percent: (memUsage / memTotal) * 100,
+      },
     };
 
     return res.status(200).json({
       cluster,
-      nodes: Object.entries(nodeMap).map(([name, node]) => ({ name, ...node }))
+      nodes: Object.entries(nodeMap).map(([name, node]) => ({ name, ...node })),
     });
   } catch (e) {
     logger.error("exception %s", e);
     return res.status(500).send({
-      error: "unknown error"
+      error: "unknown error",
     });
   }
 }

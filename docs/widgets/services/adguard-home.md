@@ -9,8 +9,8 @@ Allowed fields: `["queries", "blocked", "filtered", "latency"]`.
 
 ```yaml
 widget:
-    type: adguard
-    url: http://adguard.host.or.ip
-    username: admin
-    password: password
+  type: adguard
+  url: http://adguard.host.or.ip
+  username: admin
+  password: password
 ```

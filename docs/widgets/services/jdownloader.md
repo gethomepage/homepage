@@ -9,8 +9,8 @@ Allowed fields: `["downloadCount", "downloadTotalBytes","downloadBytesRemaining"
 
 ```yaml
 widget:
-    type: jdownloader
-    username: JDownloader Username
-    password: JDownloader Password
-    client: Name of JDownloader Instance
+  type: jdownloader
+  username: JDownloader Username
+  password: JDownloader Password
+  client: Name of JDownloader Instance
 ```

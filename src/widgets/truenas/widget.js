@@ -5,9 +5,10 @@ import getServiceWidget from "utils/config/service-helpers";
 
 const widget = {
   api: "{url}/api/v2.0/{endpoint}",
-  proxyHandler: async (req, res, map) => { // choose proxy handler based on widget settings
+  proxyHandler: async (req, res, map) => {
+    // choose proxy handler based on widget settings
     const { group, service } = req.query;
-  
+
     if (group && service) {
       const widgetOpts = await getServiceWidget(group, service);
       let handler;
@@ -19,11 +20,11 @@ const widget = {
 
       if (handler) {
         return handler(req, res, map);
-      } 
-        
+      }
+
       return res.status(500).json({ error: "Username / password or API key required" });
     }
-    
+
     return res.status(500).json({ error: "Error parsing widget request" });
   },
 
@@ -36,10 +37,7 @@ const widget = {
     },
     status: {
       endpoint: "system/info",
-      validate: [
-        "loadavg",
-        "uptime_seconds"
-      ]
+      validate: ["loadavg", "uptime_seconds"],
     },
   },
 };

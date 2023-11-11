@@ -15,38 +15,43 @@ import mapIcon from "../../../utils/weather/openmeteo-condition-map";
 function Widget({ options }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(
-    `/api/widgets/openmeteo?${new URLSearchParams({ ...options }).toString()}`
-  );
+  const { data, error } = useSWR(`/api/widgets/openmeteo?${new URLSearchParams({ ...options }).toString()}`);
 
   if (error || data?.error) {
-    return <Error options={options} />
+    return <Error options={options} />;
   }
 
   if (!data) {
-    return <Container options={options} additionalClassNames="information-widget-openmeteo">
-      <PrimaryText>{t("weather.updating")}</PrimaryText>
-      <SecondaryText>{t("weather.wait")}</SecondaryText>
-      <WidgetIcon icon={WiCloudDown} size="l" />
-    </Container>;
+    return (
+      <Container options={options} additionalClassNames="information-widget-openmeteo">
+        <PrimaryText>{t("weather.updating")}</PrimaryText>
+        <SecondaryText>{t("weather.wait")}</SecondaryText>
+        <WidgetIcon icon={WiCloudDown} size="l" />
+      </Container>
+    );
   }
 
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
   const condition = data.current_weather.weathercode;
-  const timeOfDay = data.current_weather.time > data.daily.sunrise[0] && data.current_weather.time < data.daily.sunset[0] ? "day" : "night";
+  const timeOfDay =
+    data.current_weather.time > data.daily.sunrise[0] && data.current_weather.time < data.daily.sunset[0]
+      ? "day"
+      : "night";
 
-  return <Container options={options} additionalClassNames="information-widget-openmeteo">
-    <PrimaryText>
-      {options.label && `${options.label}, `}
-      {t("common.number", {
-        value: data.current_weather.temperature,
-        style: "unit",
-        unit,
-      })}
-    </PrimaryText>
-    <SecondaryText>{t(`wmo.${data.current_weather.weathercode}-${timeOfDay}`)}</SecondaryText>
-    <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
-  </Container>;
+  return (
+    <Container options={options} additionalClassNames="information-widget-openmeteo">
+      <PrimaryText>
+        {options.label && `${options.label}, `}
+        {t("common.number", {
+          value: data.current_weather.temperature,
+          style: "unit",
+          unit,
+        })}
+      </PrimaryText>
+      <SecondaryText>{t(`wmo.${data.current_weather.weathercode}-${timeOfDay}`)}</SecondaryText>
+      <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
+    </Container>
+  );
 }
 
 export default function OpenMeteo({ options }) {
@@ -73,7 +78,7 @@ export default function OpenMeteo({ options }) {
           enableHighAccuracy: true,
           maximumAge: 1000 * 60 * 60 * 3,
           timeout: 1000 * 30,
-        }
+        },
       );
     }
   };
@@ -81,11 +86,17 @@ export default function OpenMeteo({ options }) {
   // if (!requesting && !location) requestLocation();
 
   if (!location) {
-    return <ContainerButton options={options} callback={requestLocation} additionalClassNames="information-widget-openmeteo-location-button">
-      <PrimaryText>{t("weather.current")}</PrimaryText>
-      <SecondaryText>{t("weather.allow")}</SecondaryText>
-      <WidgetIcon icon={ requesting ? MdLocationSearching : MdLocationDisabled} size="m" pulse />
-    </ContainerButton>;
+    return (
+      <ContainerButton
+        options={options}
+        callback={requestLocation}
+        additionalClassNames="information-widget-openmeteo-location-button"
+      >
+        <PrimaryText>{t("weather.current")}</PrimaryText>
+        <SecondaryText>{t("weather.allow")}</SecondaryText>
+        <WidgetIcon icon={requesting ? MdLocationSearching : MdLocationDisabled} size="m" pulse />
+      </ContainerButton>
+    );
   }
 
   return <Widget options={{ ...location, ...options }} />;

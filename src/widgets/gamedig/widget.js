@@ -1,7 +1,7 @@
 import gamedigProxyHandler from "./proxy";
 
 const widget = {
-  proxyHandler: gamedigProxyHandler
-}
+  proxyHandler: gamedigProxyHandler,
+};
 
 export default widget;

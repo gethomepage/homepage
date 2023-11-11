@@ -7,7 +7,7 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 function getValue(field, data) {
   let value = data;
   let lastField = field;
-  let key = '';
+  let key = "";
 
   while (typeof lastField === "object") {
     key = Object.keys(lastField)[0] ?? null;
@@ -20,7 +20,7 @@ function getValue(field, data) {
     lastField = lastField[key];
   }
 
-  if (typeof value === 'undefined') {
+  if (typeof value === "undefined") {
     return null;
   }
 
@@ -43,35 +43,38 @@ function formatValue(t, mapping, rawValue) {
   // Scale the value. Accepts either a number to multiply by or a string
   // like "12/345".
   const scale = mapping?.scale;
-  if (typeof scale === 'number') {
+  if (typeof scale === "number") {
     value *= scale;
-  } else if (typeof scale === 'string') {
-    const parts = scale.split('/');
+  } else if (typeof scale === "string") {
+    const parts = scale.split("/");
     const numerator = parts[0] ? parseFloat(parts[0]) : 1;
     const denominator = parts[1] ? parseFloat(parts[1]) : 1;
-    value = value * numerator / denominator;
+    value = (value * numerator) / denominator;
   }
 
   // Format the value using a known type.
   switch (mapping?.format) {
-    case 'number':
+    case "number":
       value = t("common.number", { value: parseInt(value, 10) });
       break;
-    case 'float':
+    case "float":
       value = t("common.number", { value });
       break;
-    case 'percent':
+    case "percent":
       value = t("common.percent", { value });
       break;
-    case 'bytes':
+    case "bytes":
       value = t("common.bytes", { value });
       break;
-    case 'bitrate':
+    case "bitrate":
       value = t("common.bitrate", { value });
       break;
-    case 'text':
+    case "date":
+      value = t("common.date", { value, dateStyle: mapping?.dateStyle ?? "long", timeStyle: mapping?.timeStyle });
+      break;
+    case "text":
     default:
-      // nothing
+    // nothing
   }
 
   // Apply fixed suffix.
@@ -100,18 +103,22 @@ export default function Component({ service }) {
   if (!customData) {
     return (
       <Container service={service}>
-        { mappings.slice(0,4).map(item => <Block label={item.label} key={item.label} />) }
+        {mappings.slice(0, 4).map((item) => (
+          <Block label={item.label} key={item.label} />
+        ))}
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      { mappings.slice(0,4).map(mapping => <Block
-        label={mapping.label}
-        key={mapping.label}
-        value={formatValue(t, mapping, getValue(mapping.field, customData))}
-      />) }
+      {mappings.slice(0, 4).map((mapping) => (
+        <Block
+          label={mapping.label}
+          key={mapping.label}
+          value={formatValue(t, mapping, getValue(mapping.field, customData))}
+        />
+      ))}
     </Container>
   );
 }

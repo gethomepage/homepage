@@ -14,8 +14,8 @@ class Chart extends PureComponent {
             <AreaChart data={dataPoints}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="rgb(var(--color-500))" stopOpacity={0.4}/>
-                  <stop offset="95%" stopColor="rgb(var(--color-500))" stopOpacity={0.1}/>
+                  <stop offset="5%" stopColor="rgb(var(--color-500))" stopOpacity={0.4} />
+                  <stop offset="95%" stopColor="rgb(var(--color-500))" stopOpacity={0.1} />
                 </linearGradient>
               </defs>
               <Area
@@ -24,7 +24,8 @@ class Chart extends PureComponent {
                 type="monotoneX"
                 dataKey="value"
                 stroke="rgb(var(--color-500))"
-                fillOpacity={1} fill="url(#color)"
+                fillOpacity={1}
+                fill="url(#color)"
                 baseLine={0}
               />
               <Tooltip
@@ -34,7 +35,7 @@ class Chart extends PureComponent {
                 classNames="rounded-md text-xs p-0.5"
                 contentStyle={{
                   backgroundColor: "rgb(var(--color-800))",
-                  color: "rgb(var(--color-100))"
+                  color: "rgb(var(--color-100))",
                 }}
               />
             </AreaChart>

@@ -16,37 +16,41 @@ function Widget({ options }) {
   const { t, i18n } = useTranslation();
 
   const { data, error } = useSWR(
-    `/api/widgets/weather?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`
+    `/api/widgets/weather?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`,
   );
 
   if (error || data?.error) {
-    return <Error options={options} />
+    return <Error options={options} />;
   }
 
   if (!data) {
-    return <Container options={options} additionalClassNames="information-widget-weather">
-      <PrimaryText>{t("weather.updating")}</PrimaryText>
-      <SecondaryText>{t("weather.wait")}</SecondaryText>
-      <WidgetIcon icon={WiCloudDown} size="l" />
-    </Container>;
+    return (
+      <Container options={options} additionalClassNames="information-widget-weather">
+        <PrimaryText>{t("weather.updating")}</PrimaryText>
+        <SecondaryText>{t("weather.wait")}</SecondaryText>
+        <WidgetIcon icon={WiCloudDown} size="l" />
+      </Container>
+    );
   }
 
   const unit = options.units === "metric" ? "celsius" : "fahrenheit";
   const condition = data.current.condition.code;
   const timeOfDay = data.current.is_day ? "day" : "night";
 
-  return <Container options={options} additionalClassNames="information-widget-weather">
-    <PrimaryText>
-      {options.label && `${options.label}, `}
-      {t("common.number", {
-        value: options.units === "metric" ? data.current.temp_c : data.current.temp_f,
-        style: "unit",
-        unit,
-      })}
-    </PrimaryText>
-    <SecondaryText>{data.current.condition.text}</SecondaryText>
-    <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
-  </Container>;
+  return (
+    <Container options={options} additionalClassNames="information-widget-weather">
+      <PrimaryText>
+        {options.label && `${options.label}, `}
+        {t("common.number", {
+          value: options.units === "metric" ? data.current.temp_c : data.current.temp_f,
+          style: "unit",
+          unit,
+        })}
+      </PrimaryText>
+      <SecondaryText>{data.current.condition.text}</SecondaryText>
+      <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />
+    </Container>
+  );
 }
 
 export default function WeatherApi({ options }) {
@@ -73,17 +77,19 @@ export default function WeatherApi({ options }) {
           enableHighAccuracy: true,
           maximumAge: 1000 * 60 * 60 * 3,
           timeout: 1000 * 30,
-        }
+        },
       );
     }
   };
 
   if (!location) {
-    return <ContainerButton options={options} callback={requestLocation} >
-      <PrimaryText>{t("weather.current")}</PrimaryText>
-      <SecondaryText>{t("weather.allow")}</SecondaryText>
-      <WidgetIcon icon={requesting ? MdLocationSearching : MdLocationDisabled} size="m" pulse />
-    </ContainerButton>;
+    return (
+      <ContainerButton options={options} callback={requestLocation}>
+        <PrimaryText>{t("weather.current")}</PrimaryText>
+        <SecondaryText>{t("weather.allow")}</SecondaryText>
+        <WidgetIcon icon={requesting ? MdLocationSearching : MdLocationDisabled} size="m" pulse />
+      </ContainerButton>
+    );
   }
 
   return <Widget options={{ ...location, ...options }} />;

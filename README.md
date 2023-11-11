@@ -45,11 +45,11 @@ Homepage has built-in support for Docker, and can automatically discover and add
 
 ## Service Widgets
 
-Homepage also has support for over 100 3rd party services, including all popular starr apps, and most popular self-hosted apps. Some examples include: Radarr, Sonarr, Lidarr, Bazarr, Ombi, Tautulli, Plex, Jellyfin, Emby, Transmission, qBittorrent, Deluge, Jackett, NZBGet, SABnzbd, etc. As well as service integrations, Homepage also has a number of information providers, sourcing information from a variety of external 3rd party APIs. See the [Service](https://gethomepage.dev/latest/configs/service-widgets/) page for more information.
+Homepage also has support for over 100 3rd party services, including all popular starr apps, and most popular self-hosted apps. Some examples include: Radarr, Sonarr, Lidarr, Bazarr, Ombi, Tautulli, Plex, Jellyfin, Emby, Transmission, qBittorrent, Deluge, Jackett, NZBGet, SABnzbd, etc. As well as service integrations, Homepage also has a number of information providers, sourcing information from a variety of external 3rd party APIs. See the [Service](https://gethomepage.dev/latest/widgets/) page for more information.
 
 ## Information Widgets
 
-Homepage has built-in support for a number of information providers, including weather, time, date, search, glances and more. System and status information presented at the top of the page. See the [Information Providers](https://gethomepage.dev/latest/configs/widgets/) page for more information.
+Homepage has built-in support for a number of information providers, including weather, time, date, search, glances and more. System and status information presented at the top of the page. See the [Information Providers](https://gethomepage.dev/latest/widgets/) page for more information.
 
 ## Customization
 
@@ -166,7 +166,7 @@ If you have any questions, suggestions, or general issues, please start a discus
 
 For bug reports, please open an issue on the [Issues](https://github.com/gethomepage/homepage/issues) page.
 
-## Contributing & Contributers
+## Contributing & Contributors
 
 Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
 

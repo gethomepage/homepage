@@ -17,9 +17,9 @@ To access these system metrics you need to connect to the DiskStation with an ac
 4. On the `Permissions` tab check the top box for `No Access`, effectively prohibiting the user from accessing anything in the shared folders.
 5. Under `Applications` check the box next to `Deny` in the header to explicitly prohibit login to all applications.
 6. Now _only_ allow login to the `Download Station` application, either by
-    - unchecking `Deny` in the respective row, or (if inheriting permission doesn't work because of other group settings)
-    - checking `Allow` for this app, or
-    - checking `By IP` for this app to limit the source of login attempts to one or more IP addresses/subnets.
+   - unchecking `Deny` in the respective row, or (if inheriting permission doesn't work because of other group settings)
+   - checking `Allow` for this app, or
+   - checking `By IP` for this app to limit the source of login attempts to one or more IP addresses/subnets.
 7. When the `Preview` column shows `Allow` in the `Download Station` row, click `Save`.
 
 Now configure the widget with the correct login information and test it.
@@ -28,9 +28,9 @@ If you encounter issues during testing, make sure to uncheck the option for auto
 
 ```yaml
 widget:
-    type: diskstation
-    url: http://diskstation.host.or.ip:port
-    username: username
-    password: password
-    volume: volume_N # optional
+  type: diskstation
+  url: http://diskstation.host.or.ip:port
+  username: username
+  password: password
+  volume: volume_N # optional
 ```

@@ -6,32 +6,32 @@ const logger = createLogger(proxyName);
 const gamedig = require("gamedig");
 
 export default async function gamedigProxyHandler(req, res) {
-    const { group, service } = req.query;
-    const serviceWidget = await getServiceWidget(group, service);
-    const url = new URL(serviceWidget.url);
+  const { group, service } = req.query;
+  const serviceWidget = await getServiceWidget(group, service);
+  const url = new URL(serviceWidget.url);
 
-    try {
-        const serverData = await gamedig.query({
-            type: serviceWidget.serverType,
-            host: url.hostname,
-            port: url.port,
-            givenPortOnly: true,
-        });
+  try {
+    const serverData = await gamedig.query({
+      type: serviceWidget.serverType,
+      host: url.hostname,
+      port: url.port,
+      givenPortOnly: true,
+    });
 
-        res.status(200).send({
-            online: true,
-            name: serverData.name,
-            map: serverData.map,
-            players: serverData.players.length,
-            maxplayers: serverData.maxplayers,
-            bots: serverData.bots.length,
-            ping: serverData.ping,
-        });
-    } catch (e) {
-        logger.error(e);
+    res.status(200).send({
+      online: true,
+      name: serverData.name,
+      map: serverData.map,
+      players: serverData.players.length,
+      maxplayers: serverData.maxplayers,
+      bots: serverData.bots.length,
+      ping: serverData.ping,
+    });
+  } catch (e) {
+    logger.error(e);
 
-        res.status(200).send({
-            online: false
-        });
-    }
+    res.status(200).send({
+      online: false,
+    });
+  }
 }

@@ -9,7 +9,7 @@ Allowed fields: `["pending", "approved", "available"]`.
 
 ```yaml
 widget:
-    type: ombi
-    url: http://ombi.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: ombi
+  url: http://ombi.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

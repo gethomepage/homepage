@@ -9,7 +9,7 @@ Allowed fields: `["approvedPushes", "rejectedPushes", "filters", "indexers"]`.
 
 ```yaml
 widget:
-    type: autobrr
-    url: http://autobrr.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: autobrr
+  url: http://autobrr.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

@@ -14,7 +14,6 @@ export default function Component({ service }) {
     return <Container service={service} error={finalError} />;
   }
 
-
   if (!appsData || !messagesData || !clientsData) {
     return (
       <Container service={service}>

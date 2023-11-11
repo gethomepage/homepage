@@ -1,23 +1,43 @@
 {
+    "common": {
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "percent": "{{value, percent}}",
+        "number": "{{value, number}}",
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
+    },
     "widget": {
         "missing_type": "Thiếu loại Widget: {{type}}",
         "api_error": "Lỗi API",
-        "status": "Trạng thái",
         "information": "Information",
+        "status": "Trạng thái",
         "url": "URL",
         "raw_error": "Raw Error",
         "response_data": "Response Data"
+    },
+    "weather": {
+        "current": "Vị trí hiện tại",
+        "allow": "Bấm để đồng ý",
+        "updating": "Đang cập nhật",
+        "wait": "Vui lòng chờ"
     },
     "search": {
         "placeholder": "Tìm kiếm…"
     },
     "resources": {
+        "cpu": "CPU",
+        "mem": "MEM",
         "total": "Tổng",
         "free": "Dư",
         "used": "Đã dùng",
         "load": "Load",
-        "cpu": "CPU",
-        "mem": "MEM",
         "temp": "TEMP",
         "max": "Max",
         "uptime": "UP",
@@ -26,21 +46,53 @@
         "hours": "h",
         "minutes": "m"
     },
+    "unifi": {
+        "users": "Users",
+        "uptime": "System Uptime",
+        "days": "Days",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Devices",
+        "lan_devices": "LAN Devices",
+        "wlan_devices": "WLAN Devices",
+        "lan_users": "LAN Users",
+        "wlan_users": "WLAN Users",
+        "up": "UP",
+        "down": "DOWN",
+        "wait": "Vui lòng chờ",
+        "empty_data": "Subsystem status unknown"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "BỘ NHỚ",
+        "mem": "MEM",
         "cpu": "CPU",
+        "running": "Running",
         "offline": "Ngoại tuyến",
         "error": "Error",
         "unknown": "Unknown",
-        "running": "Running",
+        "healthy": "Healthy",
         "starting": "Starting",
         "unhealthy": "Unhealthy",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "partial": "Partial"
+    },
+    "ping": {
+        "error": "Error",
+        "ping": "Ping",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Error",
+        "response": "Response",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Đang chơi",
@@ -52,6 +104,39 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
+    "evcc": {
+        "pv_power": "Production",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
+    },
+    "flood": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "freshrss": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
+    },
+    "caddy": {
+        "upstreams": "Upstreams",
+        "requests": "Current requests",
+        "requests_failed": "Failed requests"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total Observed",
+        "diffsDetected": "Diffs Detected"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
+    },
     "tautulli": {
         "playing": "Đang chơi",
         "transcoding": "Chuyển định dạng",
@@ -59,30 +144,94 @@
         "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
     },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
+    },
+    "nzbget": {
+        "rate": "Rate",
+        "remaining": "Remaining",
+        "downloaded": "Đã tải"
+    },
+    "plex": {
+        "streams": "Active Streams",
+        "albums": "Albums",
+        "movies": "Movies",
+        "tv": "TV Shows"
+    },
+    "sabnzbd": {
+        "rate": "Rate",
+        "queue": "Hàng chờ",
+        "timeleft": "Thời gian còn lại"
+    },
     "rutorrent": {
         "active": "Hoạt động",
-        "upload": "Tải lên",
-        "download": "Tải xuống"
+        "upload": "Upload",
+        "download": "Download"
+    },
+    "transmission": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qbittorrent": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "deluge": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "downloadstation": {
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
         "series": "Series",
-        "queue": "Queue",
+        "queue": "Hàng chờ",
         "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Wanted",
-        "queued": "Queued",
-        "movies": "Phim",
         "missing": "Missing",
-        "queue": "Queue",
+        "queued": "Queued",
+        "movies": "Movies",
+        "queue": "Hàng chờ",
         "unknown": "Unknown"
     },
+    "lidarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "artists": "Artists"
+    },
     "readarr": {
-        "wanted": "Đang tìm",
-        "queued": "Đang chờ",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "books": "Sách"
+    },
+    "bazarr": {
+        "missingEpisodes": "Missing Episodes",
+        "missingMovies": "Missing Movies"
     },
     "ombi": {
         "pending": "Đang xử lý",
@@ -90,15 +239,33 @@
         "available": "Available"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
+        "pending": "Đang xử lý",
+        "approved": "Đã duyệt",
         "available": "Available"
+    },
+    "overseerr": {
+        "pending": "Đang xử lý",
+        "processing": "Processing",
+        "approved": "Đã duyệt",
+        "available": "Available"
+    },
+    "pialert": {
+        "total": "Tổng",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Queries",
         "blocked": "Blocked",
-        "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
+        "blocked_percent": "Blocked %",
+        "gravity": "Gravity"
+    },
+    "adguard": {
+        "queries": "Queries",
+        "blocked": "Blocked",
+        "filtered": "Filtered",
+        "latency": "Latency"
     },
     "speedtest": {
         "upload": "Upload",
@@ -108,39 +275,41 @@
     "portainer": {
         "running": "Running",
         "stopped": "Stopped",
-        "total": "Total"
+        "total": "Tổng"
+    },
+    "tailscale": {
+        "address": "Address",
+        "expires": "Expires",
+        "never": "Never",
+        "last_seen": "Last Seen",
+        "now": "Now",
+        "years": "{{number}}y",
+        "weeks": "{{number}}w",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "{{value}} Ago"
+    },
+    "tdarr": {
+        "queue": "Hàng chờ",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
     },
     "traefik": {
         "routers": "Routers",
         "services": "Services",
         "middleware": "Middleware"
     },
+    "navidrome": {
+        "nothing_streaming": "No Active Streams",
+        "please_wait": "Please Wait"
+    },
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Total"
-    },
-    "weather": {
-        "current": "Vị trí hiện tại",
-        "allow": "Bấm để đồng ý",
-        "updating": "Đang cập nhật",
-        "wait": "Vui lòng chờ"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "approved": "Đã duyệt",
-        "available": "Available",
-        "processing": "Processing"
-    },
-    "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Hàng chờ",
-        "timeleft": "Thời gian còn lại"
-    },
-    "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Đã tải"
+        "total": "Tổng"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -155,53 +324,42 @@
         "messages": "Messages"
     },
     "prowlarr": {
-        "numberOfFailGrabs": "Fail Grabs",
         "enableIndexers": "Indexers",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Queries",
+        "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
-    },
-    "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
     },
     "jackett": {
         "configured": "Configured",
         "errored": "Errored"
-    },
-    "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
-    },
-    "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "artists": "Artists"
-    },
-    "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
-    },
-    "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
         "numConnections": "Connections",
         "dataRelayed": "Relayed",
         "transferRate": "Rate"
+    },
+    "mastodon": {
+        "user_count": "Users",
+        "status_count": "Posts",
+        "domain_count": "Domains"
+    },
+    "medusa": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
+    },
+    "minecraft": {
+        "players": "Players",
+        "version": "Version",
+        "status": "Trạng thái",
+        "up": "Online",
+        "down": "Ngoại tuyến"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Unread"
     },
     "authentik": {
         "users": "Users",
@@ -214,66 +372,37 @@
         "lxc": "LXC",
         "vms": "VMs"
     },
-    "unifi": {
-        "users": "Users",
-        "uptime": "System Uptime",
-        "days": "Days",
-        "wan": "WAN",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
-        "lan": "LAN",
-        "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "empty_data": "Subsystem status unknown"
-    },
-    "plex": {
-        "streams": "Active Streams",
-        "movies": "Movies",
-        "tv": "TV Shows",
-        "albums": "Albums"
-    },
     "glances": {
         "cpu": "CPU",
-        "wait": "Please wait",
+        "load": "Load",
+        "wait": "Vui lòng chờ",
         "temp": "TEMP",
+        "_temp": "Temp",
+        "warn": "Warn",
         "uptime": "UP",
+        "total": "Tổng",
+        "free": "Dư",
+        "used": "Đã dùng",
         "days": "d",
         "hours": "h",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap",
-        "_temp": "Temp"
+        "swap": "Swap"
     },
-    "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+    "quicklaunch": {
+        "bookmark": "Bookmark",
+        "service": "Service",
+        "search": "Search",
+        "custom": "Custom",
+        "visit": "Visit",
+        "url": "URL"
     },
     "wmo": {
         "0-day": "Sunny",
         "0-night": "Clear",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "80-day": "Light Showers",
-        "81-day": "Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
         "2-day": "Partly Cloudy",
@@ -296,14 +425,14 @@
         "57-night": "Freezing Drizzle",
         "61-day": "Light Rain",
         "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
         "65-day": "Heavy Rain",
         "65-night": "Heavy Rain",
         "66-day": "Freezing Rain",
         "66-night": "Freezing Rain",
         "67-day": "Freezing Rain",
         "67-night": "Freezing Rain",
-        "77-night": "Snow Grains",
-        "80-night": "Light Showers",
         "71-day": "Light Snow",
         "71-night": "Light Snow",
         "73-day": "Snow",
@@ -311,21 +440,23 @@
         "75-day": "Heavy Snow",
         "75-night": "Heavy Snow",
         "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
         "81-night": "Showers",
         "82-day": "Heavy Showers",
         "82-night": "Heavy Showers",
         "85-day": "Snow Showers",
         "85-night": "Snow Showers",
         "86-day": "Snow Showers",
-        "86-night": "Snow Showers"
-    },
-    "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
-        "url": "URL"
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
     },
     "homebridge": {
         "available_update": "System",
@@ -335,22 +466,32 @@
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
-        "down": "Down",
-        "pending": "Pending"
+        "pending": "Đang xử lý",
+        "down": "Down"
     },
-    "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Ngoại tuyến",
+        "paused": "Paused",
+        "status": "Trạng thái",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
     },
     "watchtower": {
         "containers_scanned": "Scanned",
         "containers_updated": "Updated",
         "containers_failed": "Failed"
     },
+    "autobrr": {
+        "approvedPushes": "Đã duyệt",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexers"
+    },
     "tubearchivist": {
-        "downloads": "Queue",
+        "downloads": "Hàng chờ",
         "videos": "Videos",
         "channels": "Channels",
         "playlists": "Playlists"
@@ -361,15 +502,11 @@
         "alerts": "Alerts",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
-    "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
-    },
     "pyload": {
         "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "active": "Hoạt động",
+        "queue": "Hàng chờ",
+        "total": "Tổng"
     },
     "gluetun": {
         "public_ip": "Public IP",
@@ -380,12 +517,6 @@
         "channels": "Channels",
         "hd": "HD"
     },
-    "ping": {
-        "error": "Error",
-        "ping": "Ping",
-        "up": "Up",
-        "down": "Down"
-    },
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
@@ -393,61 +524,28 @@
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Total"
-    },
-    "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "seed": "Seed",
-        "leech": "Leech"
-    },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
-    },
-    "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "total": "Tổng"
     },
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
     },
-    "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
-    },
-    "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
-    },
-    "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
     "mikrotik": {
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases",
         "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used"
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
     },
     "xteve": {
         "streams_all": "All Streams",
         "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
+    },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "CPU Load",
@@ -461,20 +559,25 @@
         "print_progress": "Progress",
         "layers": "Layers"
     },
-    "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
-    },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "Trạng thái",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status"
+        "status": "Trạng thái"
+    },
+    "pfsense": {
+        "load": "Load Avg",
+        "memory": "Mem Usage",
+        "wanStatus": "WAN Status",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Disk Usage",
+        "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
@@ -495,10 +598,21 @@
         "incident": "Incident",
         "m": "m"
     },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
     "komga": {
         "libraries": "Libraries",
         "series": "Series",
-        "books": "Books"
+        "books": "Sách"
+    },
+    "diskstation": {
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     },
     "mylar": {
         "series": "Series",
@@ -506,18 +620,13 @@
         "wanted": "Wanted"
     },
     "photoprism": {
+        "albums": "Albums",
         "photos": "Photos",
         "videos": "Videos",
-        "people": "People",
-        "albums": "Albums"
-    },
-    "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "people": "People"
     },
     "fileflows": {
-        "queue": "Queue",
+        "queue": "Hàng chờ",
         "processing": "Processing",
         "processed": "Processed",
         "time": "Time"
@@ -537,7 +646,7 @@
         "numshares": "Shared Items"
     },
     "kopia": {
-        "status": "Status",
+        "status": "Trạng thái",
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
@@ -548,16 +657,6 @@
         "total_workers": "Total Workers",
         "records_total": "Queue Length"
     },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
     "pterodactyl": {
         "servers": "Servers",
         "nodes": "Nodes"
@@ -567,13 +666,6 @@
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
     },
-    "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
-    },
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
@@ -581,7 +673,7 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Books",
+        "books": "Sách",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
     },
@@ -590,96 +682,29 @@
         "lights_on": "Lights On",
         "switches_on": "Switches On"
     },
-    "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
-    },
-    "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
-    },
     "whatsupdocker": {
         "monitoring": "Monitoring",
         "updates": "Updates"
     },
-    "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "hours": "{{number}}h",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
-    },
-    "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
-    },
-    "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
-        "wanIP": "WAN IP"
-    },
-    "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
-    },
-    "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
-    },
-    "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+    "calibreweb": {
+        "books": "Sách",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Series"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
+        "downloadCount": "Hàng chờ",
         "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
-    "gamedig": {
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
-        "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
-    },
     "azuredevops": {
         "result": "Result",
-        "status": "Status",
+        "status": "Trạng thái",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
@@ -688,7 +713,19 @@
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "Approved"
+        "approved": "Đã duyệt"
+    },
+    "gamedig": {
+        "status": "Trạng thái",
+        "online": "Online",
+        "offline": "Ngoại tuyến",
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
@@ -696,35 +733,22 @@
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
-    "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
-    },
     "mealie": {
         "recipes": "Recipes",
         "users": "Users",
         "categories": "Categories",
         "tags": "Tags"
     },
-    "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
-    "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Tổng",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     },
     "uptimerobot": {
-        "up": "Up",
-        "status": "Status",
+        "status": "Trạng thái",
         "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
@@ -732,19 +756,15 @@
         "sitesDown": "Sites Down",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
+        "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
         "unknown": "Unknown"
     },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
-    },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release",
+        "noEventsToday": "No events for today!"
     }
 }

@@ -9,8 +9,8 @@ Allowed fields: `["subscriptions", "unread"]`.
 
 ```yaml
 widget:
-    type: freshrss
-    url: http://freshrss.host.or.ip:port
-    username: username
-    password: password
+  type: freshrss
+  url: http://freshrss.host.or.ip:port
+  username: username
+  password: password
 ```

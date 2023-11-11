@@ -3,13 +3,13 @@ import path from "path";
 
 import yaml from "js-yaml";
 import Docker from "dockerode";
-import * as shvl from "shvl";
 import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
+import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
 
@@ -92,7 +92,7 @@ export async function servicesFromDocker() {
               shvl.set(
                 constructedService,
                 label.replace("homepage.", ""),
-                substituteEnvironmentVars(containerLabels[label])
+                substituteEnvironmentVars(containerLabels[label]),
               );
             }
           });
@@ -105,7 +105,7 @@ export async function servicesFromDocker() {
         // a server failed, but others may succeed
         return { server: serverName, services: [] };
       }
-    })
+    }),
   );
 
   const mappedServiceGroups = [];
@@ -152,13 +152,13 @@ export async function checkCRD(kc, name) {
           "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
           name,
           error.statusCode,
-          error.body.message
+          error.body.message,
         );
       }
-      return false
+      return false;
     });
 
-  return exist
+  return exist;
 }
 
 export async function servicesFromKubernetes() {
@@ -195,7 +195,7 @@ export async function servicesFromKubernetes() {
             "Error getting traefik ingresses from traefik.containo.us: %d %s %s",
             error.statusCode,
             error.body,
-            error.response
+            error.response,
           );
         }
 
@@ -211,18 +211,18 @@ export async function servicesFromKubernetes() {
             "Error getting traefik ingresses from traefik.io: %d %s %s",
             error.statusCode,
             error.body,
-            error.response
+            error.response,
           );
         }
 
         return [];
       });
 
-    const traefikIngressList = [...traefikIngressListContaino?.items ?? [], ...traefikIngressListIo?.items ?? []];
+    const traefikIngressList = [...(traefikIngressListContaino?.items ?? []), ...(traefikIngressListIo?.items ?? [])];
 
     if (traefikIngressList.length > 0) {
       const traefikServices = traefikIngressList.filter(
-        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`]
+        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`],
       );
       ingressList.items.push(...traefikServices);
     }
@@ -233,11 +233,11 @@ export async function servicesFromKubernetes() {
     const services = ingressList.items
       .filter(
         (ingress) =>
-          ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true"
+          ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true",
       )
       .map((ingress) => {
         let constructedService = {
-          app: ingress.metadata.name,
+          app: ingress.metadata.annotations[`${ANNOTATION_BASE}/app`] || ingress.metadata.name,
           namespace: ingress.metadata.namespace,
           href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
           name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
@@ -258,6 +258,9 @@ export async function servicesFromKubernetes() {
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
           constructedService.ping = ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`];
         }
+        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
+          constructedService.siteMonitor = ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
+        }
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
           constructedService.statusStyle = ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
         }
@@ -266,7 +269,7 @@ export async function servicesFromKubernetes() {
             shvl.set(
               constructedService,
               annotation.replace(`${ANNOTATION_BASE}/`, ""),
-              ingress.metadata.annotations[annotation]
+              ingress.metadata.annotations[annotation],
             );
           }
         });
@@ -361,6 +364,15 @@ export function cleanServiceGroups(groups) {
           refreshInterval,
           integrations, // calendar widget
           firstDayInWeek,
+          view,
+          maxEvents,
+          src, // iframe widget
+          classes,
+          referrerPolicy,
+          allowPolicy,
+          allowFullscreen,
+          loadingStrategy,
+          allowScrolling,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -408,6 +420,16 @@ export function cleanServiceGroups(groups) {
           if (app) cleanedService.widget.app = app;
           if (podSelector) cleanedService.widget.podSelector = podSelector;
         }
+        if (type === "iframe") {
+          if (src) cleanedService.widget.src = src;
+          if (classes) cleanedService.widget.classes = classes;
+          if (referrerPolicy) cleanedService.widget.referrerPolicy = referrerPolicy;
+          if (allowPolicy) cleanedService.widget.allowPolicy = allowPolicy;
+          if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen;
+          if (loadingStrategy) cleanedService.widget.loadingStrategy = loadingStrategy;
+          if (allowScrolling) cleanedService.widget.allowScrolling = allowScrolling;
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
+        }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) cleanedService.widget.wan = wan;
         }
@@ -447,6 +469,8 @@ export function cleanServiceGroups(groups) {
         if (type === "calendar") {
           if (integrations) cleanedService.widget.integrations = integrations;
           if (firstDayInWeek) cleanedService.widget.firstDayInWeek = firstDayInWeek;
+          if (view) cleanedService.widget.view = view;
+          if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
         }
       }
 

@@ -9,9 +9,9 @@ As of v0.6.11 the widget supports fields `["movies", "series", "episodes", "song
 
 ```yaml
 widget:
-    type: emby
-    url: http://emby.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
-    enableBlocks: true # optional, defaults to false
-    enableNowPlaying: true # optional, defaults to true
+  type: emby
+  url: http://emby.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
+  enableBlocks: true # optional, defaults to false
+  enableNowPlaying: true # optional, defaults to true
 ```

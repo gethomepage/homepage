@@ -1,4 +1,3 @@
-
 import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
@@ -8,16 +7,11 @@ const widget = {
   mappings: {
     system: {
       endpoint: "system/resource",
-      validate: [
-        "cpu-load",
-        "free-memory",
-        "total-memory",
-        "uptime"
-      ]
+      validate: ["cpu-load", "free-memory", "total-memory", "uptime"],
     },
     leases: {
       endpoint: "ip/dhcp-server/lease",
-    }
+    },
   },
 };
 

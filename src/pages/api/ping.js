@@ -1,52 +1,44 @@
-import { performance } from "perf_hooks";
+import { promise as ping } from "ping";
 
 import { getServiceItem } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("ping");
 
 export default async function handler(req, res) {
-    const { group, service } = req.query;
-    const serviceItem = await getServiceItem(group, service);
-    if (!serviceItem) {
-        logger.debug(`No service item found for group ${group} named ${service}`);
-        return res.status(400).send({
-          error: "Unable to find service, see log for details.",
-        });
-    }
+  const { group, service } = req.query;
+  const serviceItem = await getServiceItem(group, service);
+  if (!serviceItem) {
+    logger.debug(`No service item found for group ${group} named ${service}`);
+    return res.status(400).send({
+      error: "Unable to find service, see log for details.",
+    });
+  }
 
-    const { ping: pingURL } = serviceItem;
+  const { ping: pingHostOrURL } = serviceItem;
 
-    if (!pingURL) {
-        logger.debug("No ping URL specified");
-        return res.status(400).send({
-        error: "No ping URL given",
-        });
-    }
+  if (!pingHostOrURL) {
+    logger.debug("No ping host specified");
+    return res.status(400).send({
+      error: "No ping host given",
+    });
+  }
 
-    try {
-      let startTime = performance.now();
-      let [status] = await httpProxy(pingURL, {
-        method: "HEAD"
-      });
-      let endTime = performance.now();
-      
-      if (status > 403) {
-        // try one more time as a GET in case HEAD is rejected for whatever reason
-        startTime = performance.now();
-        [status] = await httpProxy(pingURL);
-        endTime = performance.now();
-      }
-  
-      return res.status(200).json({
-        status,
-        latency: endTime - startTime
-      });
-    } catch (e) {
-      logger.debug("Error attempting ping: %s", JSON.stringify(e));
-      return res.status(400).send({
-        error: 'Error attempting ping, see logs.',
-      });
-    }
+  let hostname = pingHostOrURL;
+  try {
+    // maintain backwards compatibility with old ping where may be http://...
+    hostname = new URL(pingHostOrURL).hostname;
+  } catch (e) {
+    // eslint-disable-line no-empty
+  }
+
+  try {
+    const response = await ping.probe(hostname);
+    return res.status(200).json(response);
+  } catch (e) {
+    logger.debug("Error attempting ping: %s", e);
+    return res.status(400).send({
+      error: "Error attempting ping, see logs.",
+    });
+  }
 }

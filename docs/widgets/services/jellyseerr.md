@@ -9,7 +9,7 @@ Allowed fields: `["pending", "approved", "available"]`.
 
 ```yaml
 widget:
-    type: jellyseerr
-    url: http://jellyseerr.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: jellyseerr
+  url: http://jellyseerr.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

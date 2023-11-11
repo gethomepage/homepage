@@ -9,7 +9,7 @@ Allowed fields: `["rate", "queue", "timeleft"]`.
 
 ```yaml
 widget:
-    type: sabnzbd
-    url: http://sabnzbd.host.or.ip
-    key: apikeyapikeyapikeyapikeyapikey
+  type: sabnzbd
+  url: http://sabnzbd.host.or.ip
+  key: apikeyapikeyapikeyapikeyapikey
 ```

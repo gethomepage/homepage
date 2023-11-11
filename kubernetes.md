@@ -2,9 +2,9 @@
 
 ## Requirements
 
-* Kubernetes 1.19+
-* Metrics service
-* An Ingress controller
+- Kubernetes 1.19+
+- Metrics service
+- An Ingress controller
 
 ## Deployment
 

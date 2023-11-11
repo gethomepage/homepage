@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   if (activityError || interfaceError) {
     const finalError = activityError ?? interfaceError;
-    return <Container service={service} error={ finalError } />;
+    return <Container service={service} error={finalError} />;
   }
 
   if (!activityData || !interfaceData) {
@@ -28,7 +28,6 @@ export default function Component({ service }) {
     );
   }
 
-
   const cpuIdle = activityData.headers[2].match(/ ([0-9.]+)% idle/)[1];
   const cpu = 100 - parseFloat(cpuIdle);
   const memory = activityData.headers[3].match(/Mem: (.+) Active,/)[1];
@@ -37,10 +36,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })}  />
+      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })} />
       <Block label="opnsense.memory" value={memory} />
-      {wan && <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wan['bytes transmitted'] })} />}
-      {wan && <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wan['bytes received'] })} />}
+      {wan && <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wan["bytes transmitted"] })} />}
+      {wan && <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wan["bytes received"] })} />}
     </Container>
   );
 }

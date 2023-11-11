@@ -7,7 +7,8 @@ import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
 const INFO_ENDPOINT = "{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query";
-const AUTH_ENDPOINT = "{url}/webapi/{path}?api=SYNO.API.Auth&version={maxVersion}&method=login&account={username}&passwd={password}&session=DownloadStation&format=cookie";
+const AUTH_ENDPOINT =
+  "{url}/webapi/{path}?api=SYNO.API.Auth&version={maxVersion}&method=login&account={username}&passwd={password}&session=DownloadStation&format=cookie";
 const AUTH_API_NAME = "SYNO.API.Auth";
 
 const proxyName = "synologyProxyHandler";
@@ -40,7 +41,7 @@ async function login(loginUrl) {
 }
 
 async function getApiInfo(serviceWidget, apiName, serviceName) {
-  const cacheKey = `${proxyName}__${apiName}__${serviceName}`
+  const cacheKey = `${proxyName}__${apiName}__${serviceName}`;
   let { cgiPath, maxVersion } = cache.get(cacheKey) ?? {};
   if (cgiPath && maxVersion) {
     return [cgiPath, maxVersion];
@@ -56,12 +57,13 @@ async function getApiInfo(serviceWidget, apiName, serviceName) {
       if (json?.data?.[apiName]) {
         cgiPath = json.data[apiName].path;
         maxVersion = json.data[apiName].maxVersion;
-        logger.debug(`Detected ${serviceWidget.type}: apiName '${apiName}', cgiPath '${cgiPath}', and maxVersion ${maxVersion}`);
+        logger.debug(
+          `Detected ${serviceWidget.type}: apiName '${apiName}', cgiPath '${cgiPath}', and maxVersion ${maxVersion}`,
+        );
         cache.put(cacheKey, { cgiPath, maxVersion });
         return [cgiPath, maxVersion];
       }
-    }
-    catch {
+    } catch {
       logger.warn(`Error ${status} obtaining ${apiName} info`);
     }
   }
@@ -124,7 +126,7 @@ function toError(url, synologyError) {
       error.error = synologyError.message ?? "Unknown error.";
       break;
   }
-  logger.warn(`Unable to call ${url}.  code: ${code}, error: ${error.error}.`)
+  logger.warn(`Unable to call ${url}.  code: ${code}, error: ${error.error}.`);
   return error;
 }
 
@@ -144,7 +146,7 @@ export default async function synologyProxyHandler(req, res) {
 
   const [cgiPath, maxVersion] = await getApiInfo(serviceWidget, mapping.apiName, service);
   if (!cgiPath || !maxVersion) {
-    return res.status(400).json({ error: `Unrecognized API name: ${mapping.apiName}`})
+    return res.status(400).json({ error: `Unrecognized API name: ${mapping.apiName}` });
   }
 
   const url = formatApiCall(widget.api, {
@@ -152,7 +154,7 @@ export default async function synologyProxyHandler(req, res) {
     apiMethod: mapping.apiMethod,
     cgiPath,
     maxVersion,
-    ...serviceWidget
+    ...serviceWidget,
   });
   let [status, contentType, data] = await httpProxy(url);
   if (status !== 200) {

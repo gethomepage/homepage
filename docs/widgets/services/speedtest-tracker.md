@@ -11,6 +11,6 @@ Allowed fields: `["download", "upload", "ping"]`.
 
 ```yaml
 widget:
-    type: speedtest
-    url: http://speedtest.host.or.ip
+  type: speedtest
+  url: http://speedtest.host.or.ip
 ```

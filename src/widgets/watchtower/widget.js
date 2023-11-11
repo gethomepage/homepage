@@ -5,7 +5,7 @@ const widget = {
   proxyHandler: watchtowerProxyHandler,
 
   mappings: {
-    "watchtower": {
+    watchtower: {
       endpoint: "v1/metrics",
     },
   },

@@ -6,8 +6,8 @@ const widget = {
 
   mappings: {
     info: {
-      endpoint: "info"
-    }
+      endpoint: "info",
+    },
   },
 };
 

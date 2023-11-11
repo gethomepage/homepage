@@ -9,7 +9,7 @@ Note that API key must be from admin user.
 
 ```yaml
 widget:
-    type: immich
-    url: http://immich.host.or.ip
-    key: adminapikeyadminapikeyadminapikey
+  type: immich
+  url: http://immich.host.or.ip
+  key: adminapikeyadminapikeyadminapikey
 ```

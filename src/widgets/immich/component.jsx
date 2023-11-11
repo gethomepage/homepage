@@ -8,10 +8,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data: immichData, error: immichError } = useWidgetAPI(widget);
+  const { data: versionData, error: versionError } = useWidgetAPI(widget, "version");
+  // see https://github.com/gethomepage/homepage/issues/2282
+  const endpoint = versionData?.major >= 1 && versionData?.minor > 84 ? "statistics" : "stats";
+  const { data: immichData, error: immichError } = useWidgetAPI(widget, endpoint);
 
-  if (immichError || immichData?.statusCode === 401) {
-    return <Container service={service} error={immichError ?? immichData} />;
+  if (immichError || versionError || immichData?.statusCode === 401) {
+    return <Container service={service} error={immichData ?? immichError ?? versionError} />;
   }
 
   if (!immichData) {
@@ -30,17 +33,19 @@ export default function Component({ service }) {
       <Block label="immich.users" value={immichData.usageByUser.length} />
       <Block label="immich.photos" value={immichData.photos} />
       <Block label="immich.videos" value={immichData.videos} />
-      <Block label="immich.storage"
+      <Block
+        label="immich.storage"
         value={
           // backwards-compatible e.g. '9 GiB'
-          immichData.usage.toString().toLowerCase().includes('b') ? 
-          immichData.usage : 
-          t("common.bytes", {
-            value: immichData.usage,
-            maximumFractionDigits: 1,
-            binary: true // match immich
-          })
-        } />
+          immichData.usage.toString().toLowerCase().includes("b")
+            ? immichData.usage
+            : t("common.bytes", {
+                value: immichData.usage,
+                maximumFractionDigits: 1,
+                binary: true, // match immich
+              })
+        }
+      />
     </Container>
   );
 }
