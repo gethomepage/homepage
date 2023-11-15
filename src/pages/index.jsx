@@ -362,12 +362,12 @@ function Home({ initialSettings }) {
   return (
     <>
       <Head>
-        <title>{settings.title || "Homepage"}</title>
-        {settings.base && <base href={settings.base} />}
-        {settings.favicon ? (
+        <title>{initialSettings.title || "Homepage"}</title>
+        {initialSettings.base && <base href={initialSettings.base} />}
+        {initialSettings.favicon ? (
           <>
-            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
-            <link rel="icon" href={settings.favicon} />
+            <link rel="icon" href={initialSettings.favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={initialSettings.favicon} />
           </>
         ) : (
           <>
@@ -377,8 +377,11 @@ function Home({ initialSettings }) {
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
           </>
         )}
-        <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
-        <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
+        <meta
+          name="msapplication-TileColor"
+          content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]}
+        />
+        <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
       </Head>
 
       <link rel="preload" href="/api/config/custom.css" as="fetch" crossOrigin="anonymous" />
