@@ -402,61 +402,61 @@
     },
     "wmo": {
         "0-day": "Солнечно",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "0-night": "Ясно",
+        "1-day": "Переменно солнечно",
+        "1-night": "Малооблачно",
+        "2-day": "Частичная облачность",
+        "2-night": "Частичная облачность",
+        "3-day": "Облачно",
+        "3-night": "Облачно",
+        "45-day": "Туманно",
+        "45-night": "Туманно",
+        "48-day": "Туманно",
+        "48-night": "Туманно",
+        "51-day": "Легкая морось",
+        "51-night": "Легкая морось",
+        "53-day": "Морось",
+        "53-night": "Морось",
+        "55-day": "Сильная морось",
+        "55-night": "Сильная морось",
+        "56-day": "Легкая морозная морось",
+        "56-night": "Легкая морозная морось",
+        "57-day": "Морозная морось",
+        "57-night": "Морозная морось",
+        "61-day": "Слабый дождь",
+        "61-night": "Слабый дождь",
+        "63-day": "Дождь",
+        "63-night": "Дождь",
+        "65-day": "Сильный дождь",
+        "65-night": "Сильный дождь",
+        "66-day": "Град",
+        "66-night": "Град",
+        "67-day": "Град",
+        "67-night": "Град",
+        "71-day": "Легкий снег",
+        "71-night": "Легкий снег",
+        "73-day": "Снег",
+        "73-night": "Снег",
+        "75-day": "Сильный снег",
+        "75-night": "Сильный снег",
+        "77-day": "Снежная крупа",
+        "77-night": "Снежная крупа",
+        "80-day": "Лёгкие ливни",
+        "80-night": "Лёгкие ливни",
+        "81-day": "Ливни",
+        "81-night": "Ливни",
+        "82-day": "Сильные ливни",
+        "82-night": "Сильные ливни",
+        "85-day": "Снегопады",
+        "85-night": "Снегопады",
+        "86-day": "Снегопады",
+        "86-night": "Снегопады",
+        "95-day": "Гроза",
+        "95-night": "Гроза",
+        "96-day": "Гроза с градом",
+        "96-night": "Гроза с градом",
+        "99-day": "Гроза с градом",
+        "99-night": "Гроза с градом"
     },
     "homebridge": {
         "available_update": "Система",
@@ -570,42 +570,42 @@
         "status": "Статус"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
+        "load": "Средняя нагрузка",
+        "memory": "Использование ОЗУ",
+        "wanStatus": "Статус WAN",
         "up": "Онлайн",
         "down": "Офлайн",
         "temp": "Температура",
-        "disk": "Disk Usage",
+        "disk": "Использование диска",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "Хранилище данных",
+        "failed_tasks_24h": "Неудачные задачи 24 часа",
         "cpu_usage": "ЦПУ",
-        "memory_usage": "Memory"
+        "memory_usage": "ОЗУ"
     },
     "immich": {
         "users": "Пользователи",
-        "photos": "Photos",
+        "photos": "Фото",
         "videos": "Видео",
-        "storage": "Storage"
+        "storage": "Хранилище"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Активные сайты",
+        "down": "Неактивные сайты",
         "uptime": "Время работы",
-        "incident": "Incident",
+        "incident": "Происшествия",
         "m": "м"
     },
     "atsumeru": {
         "series": "Серии",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "archives": "Архивы",
+        "chapters": "Главы",
+        "categories": "Категории"
     },
     "komga": {
-        "libraries": "Libraries",
+        "libraries": "Библиотеки",
         "series": "Серии",
         "books": "Книги"
     },
@@ -616,91 +616,91 @@
     },
     "mylar": {
         "series": "Серии",
-        "issues": "Issues",
+        "issues": "Вопросы",
         "wanted": "Розыск"
     },
     "photoprism": {
         "albums": "Альбомы",
-        "photos": "Photos",
+        "photos": "Фото",
         "videos": "Видео",
-        "people": "People"
+        "people": "Люди"
     },
     "fileflows": {
         "queue": "Очередь",
         "processing": "В процессе",
         "processed": "Обработано",
-        "time": "Time"
+        "time": "Время"
     },
     "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "dashboards": "Панели",
+        "datasources": "Источники данных",
+        "totalalerts": "Предупреждения",
+        "alertstriggered": "Сработали предупреждения"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "cpuload": "Загрузка ЦПУ",
+        "memoryusage": "Использование ОЗУ",
+        "freespace": "Свободно места",
+        "activeusers": "Активные пользователи",
+        "numfiles": "Файлов",
+        "numshares": "Опубликованных объектов"
     },
     "kopia": {
         "status": "Статус",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
+        "size": "Размер",
+        "lastrun": "Последний запуск",
+        "nextrun": "Следующий запуск",
         "failed": "Провалено"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Активные обработчики",
+        "total_workers": "Всего обработчиков",
+        "records_total": "Длина очереди"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Серверы",
+        "nodes": "Ноды"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Активные цели",
+        "targets_down": "Неактивные цели",
+        "targets_total": "Всего целей"
     },
     "ghostfolio": {
         "gross_percent_today": "Сегодня",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_1y": "Один год",
+        "gross_percent_max": "Все время"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
+        "podcasts": "Подкасты",
         "books": "Книги",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcastsDuration": "Длительность",
+        "booksDuration": "Длительность"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Люди дома",
+        "lights_on": "Свет включен",
+        "switches_on": "Включается"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
+        "monitoring": "Мониторинг",
         "updates": "Обновления"
     },
     "calibreweb": {
         "books": "Книги",
-        "authors": "Authors",
-        "categories": "Categories",
+        "authors": "Авторы",
+        "categories": "Категории",
         "series": "Серии"
     },
     "jdownloader": {
         "downloadCount": "Очередь",
         "downloadBytesRemaining": "Осталось",
-        "downloadTotalBytes": "Size",
+        "downloadTotalBytes": "Размер",
         "downloadSpeed": "Скорость"
     },
     "kavita": {
         "seriesCount": "Серии",
-        "totalFiles": "Files"
+        "totalFiles": "Файлов"
     },
     "azuredevops": {
         "result": "Результат",
@@ -736,7 +736,7 @@
     "mealie": {
         "recipes": "Рецепты",
         "users": "Пользователи",
-        "categories": "Categories",
+        "categories": "Категории",
         "tags": "Теги"
     },
     "openmediavault": {
@@ -752,8 +752,8 @@
         "uptime": "Время работы",
         "lastDown": "Время последнего падения",
         "downDuration": "Длительность падения",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
+        "sitesUp": "Активные сайты",
+        "sitesDown": "Неактивные сайты",
         "paused": "Приостановлено",
         "notyetchecked": "Ещё не проверено",
         "up": "Онлайн",
