@@ -41,7 +41,7 @@ export default function Component({ service }) {
     );
   }
 
-  const { rx_bytes, tx_bytes } = calculateThroughput(statsData.stats);
+  const { rxBytes, txBytes } = calculateThroughput(statsData.stats);
 
   return (
     <Container service={service}>
@@ -51,8 +51,8 @@ export default function Component({ service }) {
       )}
       {statsData.stats.networks && (
         <>
-          <Block label="docker.rx" value={t("common.bytes", { value: rx_bytes })} />
-          <Block label="docker.tx" value={t("common.bytes", { value: tx_bytes })} />
+          <Block label="docker.rx" value={t("common.bytes", { value: rxBytes })} />
+          <Block label="docker.tx" value={t("common.bytes", { value: txBytes })} />
         </>
       )}
     </Container>
