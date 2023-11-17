@@ -14,13 +14,13 @@
   --color-logo-stop: 128 128 128 / 40%;
 }
 
-.theme-white .bg-theme-100\/20,
-.theme-white .dark\:bg-white\/5 {
+.theme-white .bg-theme-100\/20:not([class^="backdrop-blur"]),
+.theme-white .dark\:bg-white\/5:not([class^="backdrop-blur"]) {
   background-color: rgb(245, 245, 245);
 }
 
-.theme-white .bg-theme-100\/20:hover,
-.theme-white .dark\:bg-white\/5:hover {
+.theme-white .bg-theme-100\/20:hover:not([class^="backdrop-blur"]),
+.theme-white .dark\:bg-white\/5:hover:not([class^="backdrop-blur"]) {
   background-color: rgb(250, 250, 250);
 }
 
