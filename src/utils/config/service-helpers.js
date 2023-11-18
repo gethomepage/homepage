@@ -59,7 +59,7 @@ export async function servicesFromDocker() {
     return [];
   }
 
-  const {instanceName} = getSettings()
+  const { instanceName } = getSettings();
 
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
@@ -84,9 +84,9 @@ export async function servicesFromDocker() {
 
           Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.")) {
-              let value = label.replace("homepage.", "")
+              let value = label.replace("homepage.", "");
               if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
-                value = value.replace(`instance.${instanceName}.`, "")
+                value = value.replace(`instance.${instanceName}.`, "");
               } else if (value.startsWith("instance.")) {
                 return;
               }
@@ -98,11 +98,7 @@ export async function servicesFromDocker() {
                   type: "service",
                 };
               }
-              shvl.set(
-                constructedService,
-                value,
-                substituteEnvironmentVars(containerLabels[label]),
-              );
+              shvl.set(constructedService, value, substituteEnvironmentVars(containerLabels[label]));
             }
           });
 
