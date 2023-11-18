@@ -206,6 +206,7 @@ In order to detect every service within the Docker swarm it is necessary that se
 The optional field `instanceName` can be configured in [settings.md](settings.md#instance-name) to differentiate between multiple homepage instances.
 
 To limit a label to an instance, insert `.instance.{{instanceName}}` after the `homepage` prefix.
+
 ```yaml
 labels:
   - homepage.group=Media
