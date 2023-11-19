@@ -27,7 +27,7 @@ import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
 import { getStoredProvider, searchProviders } from "components/widgets/search/search";
-import { createAuthorizer, fetchWithAuth } from "utils/auth/auth-helpers";
+import { fetchWithAuth, readAuthSettings } from "utils/auth/auth-helpers";
 import { NullAuthProvider } from "utils/auth/null";
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -48,12 +48,12 @@ export async function getServerSideProps({req}) {
   try {
     logger = createLogger("index");
     const { providers, auth, ...settings } = getSettings();
-    const authProvider = createAuthorizer({auth: auth}); 
+    const { provider, groups } = readAuthSettings(auth); 
 
-    const services = await servicesResponse(authProvider.authorize(req));
-    const bookmarks = await bookmarksResponse(authProvider.authorize(req));
-    const widgets = await widgetsResponse(authProvider.authorize(req));
-    const authContext = authProvider.getContext(req); 
+    const services = await servicesResponse(provider.authorize(req), groups);
+    const bookmarks = await bookmarksResponse(provider.authorize(req), groups);
+    const widgets = await widgetsResponse(provider.authorize(req));
+    const authContext = provider.getContext(req); 
 
     return {
       props: {
