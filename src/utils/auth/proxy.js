@@ -1,6 +1,6 @@
-// Proxy auth is meant to be used by a reverse proxy that injects permission headers into the origin 
+// 'proxy' auth provider is meant to be used by a reverse proxy that injects permission headers into the origin 
 // request. In this case we are relying on our proxy to authenitcate our users and validate. 
-const ProxyAuthKey="proxy_auth"
+const ProxyAuthKey="proxy"
 
 function getProxyPermissions(userHeader, groupHeader, request) { 
     const user = (userHeader)?request.headers.get(userHeader):None; 
@@ -13,11 +13,9 @@ function createProxyAuth({groupHeader, userHeader}) {
     return {
         getContext : (request) => {
             return { 
-                provider: ProxyAuthKey,
-                headers: {
-                    ...userHeader && {[userHeader]: request.headers.get(userHeader) }, 
-                    ...groupHeader && {[groupHeader]: request.headers.get(groupHeader)}
-                }
+                type: ProxyAuthKey,
+                ...userHeader && {[userHeader]: request.headers.get(userHeader) }, 
+                ...groupHeader && {[groupHeader]: request.headers.get(groupHeader)}
             }
         },
         authorize : (request) => getProxyPermissions(userHeader, groupHeader, request)

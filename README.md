@@ -5,6 +5,11 @@
   </picture>
 </p>
 
+!!! Note: 
+
+This is a custom fork of the original homepage that integrates some per-user and per-group configuration settings
+via proxy auth. Use at your own risk. 
+
 <p align="center">
   A modern, <em>fully static, fast</em>, secure <em>fully proxied</em>, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.
 </p>

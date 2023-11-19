@@ -12,7 +12,6 @@ import {
   servicesFromKubernetes,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
-import { filterAuthBookmarks } from "utils/auth/auth-helpers";
 
 import {
   filterAllowedBookmarks,
@@ -31,7 +30,7 @@ function compareServices(service1, service2) {
   return service1.name.localeCompare(service2.name);
 }
 
-export async function bookmarksResponse(perms) {
+export async function bookmarksResponse(perms, authGroups) {
   checkAndCopyConfig("bookmarks.yaml");
 
   const bookmarksYaml = path.join(CONF_DIR, "bookmarks.yaml");
@@ -52,7 +51,7 @@ export async function bookmarksResponse(perms) {
   }
 
   // map easy to write YAML objects into easy to consume JS arrays
-  const bookmarksArray = filterAllowedBookmarks(perms, 
+  const bookmarksArray = filterAllowedBookmarks(perms, authGroups,
     bookmarks.map((group) => ({
       name: Object.keys(group)[0],
       bookmarks: group[Object.keys(group)[0]].map((entries) => ({
@@ -93,14 +92,14 @@ export async function widgetsResponse(perms) {
   return configuredWidgets;
 }
 
-export async function servicesResponse(perms) {
+export async function servicesResponse(perms, authGroups) {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
   let configuredServices;
   let initialSettings;
 
   try {
-    discoveredDockerServices = filterAllowedServices(perms, cleanServiceGroups(await servicesFromDocker()));
+    discoveredDockerServices = filterAllowedServices(perms, authGroups, cleanServiceGroups(await servicesFromDocker()));
     if (discoveredDockerServices?.length === 0) {
       console.debug("No containers were found with homepage labels.");
     }
@@ -111,7 +110,7 @@ export async function servicesResponse(perms) {
   }
 
   try {
-    discoveredKubernetesServices = filterAllowedServices(perms, cleanServiceGroups(await servicesFromKubernetes()));
+    discoveredKubernetesServices = filterAllowedServices(perms, authGroups, cleanServiceGroups(await servicesFromKubernetes()));
   } catch (e) {
     console.error("Failed to discover services, please check kubernetes.yaml for errors or remove example entries.");
     if (e) console.error(e.toString());
@@ -119,7 +118,7 @@ export async function servicesResponse(perms) {
   }
 
   try {
-    configuredServices = filterAllowedServices(perms, cleanServiceGroups(await servicesFromConfig()));
+    configuredServices = filterAllowedServices(perms, authGroups, cleanServiceGroups(await servicesFromConfig()));
   } catch (e) {
     console.error("Failed to load services.yaml, please check for errors");
     if (e) console.error(e.toString());
