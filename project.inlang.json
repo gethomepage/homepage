@@ -1,13 +1,60 @@
 {
 	"$schema": "https://inlang.com/schema/project-settings",
 	"sourceLanguageTag": "en",
-	"languageTags": ["af", "ar", "bg", "ca", "cs", "da", "de", "el", "en", "eo", "es", "eu", "fi", "fr", "he", "hi", "hr", "hu", "id", "it", "ja", "ko", "lv", "ms", "nb-NO", "nl", "no", "pl", "pt-BR", "pt", "ro", "ru", "sk", "sl", "sr", "sv", "te", "th", "tr", "uk", "vi", "yue", "zh-CN", "zh-Hans", "zh-Hant"],
+	"languageTags": [
+		"af",
+		"ar",
+		"bg",
+		"ca",
+		"cs",
+		"da",
+		"de",
+		"el",
+		"en",
+		"eo",
+		"es",
+		"eu",
+		"fi",
+		"fr",
+		"he",
+		"hi",
+		"hr",
+		"hu",
+		"id",
+		"it",
+		"ja",
+		"ko",
+		"lv",
+		"ms",
+		"nb-NO",
+		"nl",
+		"no",
+		"pl",
+		"pt-BR",
+		"pt",
+		"ro",
+		"ru",
+		"sk",
+		"sl",
+		"sr",
+		"sv",
+		"te",
+		"th",
+		"tr",
+		"uk",
+		"vi",
+		"yue",
+		"zh-CN",
+		"zh-Hans",
+		"zh-Hant"
+	],
 	"modules": [
-		"https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@latest/dist/index.js"
+		"https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@latest/dist/index.js",
+		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-missing-translation@latest/dist/index.js"
 	],
 	"plugin.inlang.i18next": {
-        "pathPattern": {
-            "common": "./public/locales/{languageTag}/common.json"
-        }
-            }
+		"pathPattern": {
+			"common": "./public/locales/{languageTag}/common.json"
+		}
+	}
 }
