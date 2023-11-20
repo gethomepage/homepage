@@ -42,7 +42,6 @@
         "max": "Max",
         "uptime": "UP",
         "months": "Mo.",
-        "days": "d",
         "hours": "h",
         "minutes": "min"
     },
@@ -96,7 +95,7 @@
     },
     "emby": {
         "playing": "Wiedergabe",
-        "transcoding": "Transcodiert",
+        "transcoding": "Transcodierung",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
         "movies": "Filme",
@@ -129,7 +128,7 @@
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
-        "diffsDetected": "Erkannte Differenzen"
+        "diffsDetected": " Differenzen"
     },
     "channelsdvrserver": {
         "shows": "Serien",
@@ -259,7 +258,7 @@
         "queries": "Anfragen",
         "blocked": "Blockiert",
         "blocked_percent": "Blockiert %",
-        "gravity": "Gravity"
+        "gravity": "Gravitation "
     },
     "adguard": {
         "queries": "Anfragen",
