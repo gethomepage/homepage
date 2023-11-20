@@ -1,23 +1,33 @@
 {
+    "common": {
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
+    },
     "widget": {
         "missing_type": "缺少小部件类型：{{type}}",
         "api_error": "API错误",
-        "status": "状态",
         "information": "信息",
+        "status": "状态",
         "url": "URL",
         "raw_error": "原始错误",
         "response_data": "返回数据"
+    },
+    "weather": {
+        "current": "当前定位",
+        "allow": "点击并允许",
+        "updating": "更新中",
+        "wait": "请稍候"
     },
     "search": {
         "placeholder": "搜索…"
     },
     "resources": {
+        "cpu": "处理器",
+        "mem": "内存",
         "total": "总计",
         "free": "空闲",
         "used": "已用",
         "load": "负载",
-        "cpu": "处理器",
-        "mem": "内存",
         "temp": "温度",
         "max": "最大",
         "uptime": "运行时间",
@@ -26,21 +36,44 @@
         "hours": "时",
         "minutes": "分"
     },
+    "unifi": {
+        "users": "用户",
+        "uptime": "系统运行时间",
+        "days": "天",
+        "wan": "广域网",
+        "lan": "局域网",
+        "wlan": "无线局域网",
+        "devices": "设备",
+        "lan_devices": "局域网设备",
+        "wlan_devices": "无线局域网设备",
+        "lan_users": "局域网用户",
+        "wlan_users": "无线局域网用户",
+        "up": "向上",
+        "down": "向下",
+        "wait": "请稍候",
+        "empty_data": "子系统状态未知"
+    },
     "docker": {
         "rx": "接收",
         "tx": "发送",
         "mem": "内存",
         "cpu": "处理器",
+        "running": "运行中",
         "offline": "离线",
         "error": "错误",
         "unknown": "未知问题",
+        "healthy": "健康的",
         "starting": "启动中",
         "unhealthy": "不健康的",
         "not_found": "未找到",
-        "running": "运行中",
         "exited": "已退出",
-        "partial": "部分",
-        "healthy": "健康的"
+        "partial": "部分"
+    },
+    "ping": {
+        "error": "错误",
+        "ping": "Ping",
+        "down": "Down",
+        "up": "Up"
     },
     "emby": {
         "playing": "播放中",
@@ -52,6 +85,39 @@
         "episodes": "剧集",
         "songs": "歌曲"
     },
+    "evcc": {
+        "pv_power": "正式环境",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
+    },
+    "flood": {
+        "download": "下载",
+        "upload": "上传",
+        "leech": "下载中",
+        "seed": "做种"
+    },
+    "freshrss": {
+        "subscriptions": "订阅",
+        "unread": "未读"
+    },
+    "caddy": {
+        "upstreams": "上游",
+        "requests": "当前请求",
+        "requests_failed": "失败请求"
+    },
+    "changedetectionio": {
+        "totalObserved": "观察到的总数",
+        "diffsDetected": "检测到差异"
+    },
+    "channelsdvrserver": {
+        "shows": "节目",
+        "recordings": "录像",
+        "scheduled": "已计划的",
+        "passes": "通行证"
+    },
     "tautulli": {
         "playing": "播放中",
         "transcoding": "转码",
@@ -59,10 +125,65 @@
         "no_active": "暂无播放",
         "plex_connection_error": "Check Plex Connection"
     },
+    "omada": {
+        "connectedAp": "连接中的AP",
+        "activeUser": "活跃设备",
+        "alerts": "警报",
+        "connectedGateway": "已连接网关",
+        "connectedSwitches": "已连接开关"
+    },
+    "nzbget": {
+        "rate": "速率",
+        "remaining": "剩余",
+        "downloaded": "下载"
+    },
+    "plex": {
+        "streams": "活动流",
+        "albums": "专辑",
+        "movies": "电影",
+        "tv": "电视节目"
+    },
+    "sabnzbd": {
+        "rate": "速率",
+        "queue": "队列",
+        "timeleft": "剩余时间"
+    },
     "rutorrent": {
         "active": "活动中",
         "upload": "上传",
         "download": "下载"
+    },
+    "transmission": {
+        "download": "下载",
+        "upload": "上传",
+        "leech": "下载中",
+        "seed": "做种"
+    },
+    "qbittorrent": {
+        "download": "下载",
+        "upload": "上传",
+        "leech": "下载中",
+        "seed": "做种"
+    },
+    "qnap": {
+        "cpuUsage": "处理器",
+        "memUsage": "内存",
+        "systemTempC": "系统温度",
+        "poolUsage": "存储池",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "deluge": {
+        "download": "下载",
+        "upload": "上传",
+        "leech": "下载中",
+        "seed": "做种"
+    },
+    "downloadstation": {
+        "download": "下载",
+        "upload": "上传",
+        "leech": "下载中",
+        "seed": "做种"
     },
     "sonarr": {
         "wanted": "想看",
@@ -73,16 +194,25 @@
     },
     "radarr": {
         "wanted": "想看",
+        "missing": "丢失",
         "queued": "队列",
         "movies": "电影",
-        "missing": "丢失",
         "queue": "Queue",
         "unknown": "Unknown"
+    },
+    "lidarr": {
+        "wanted": "订阅",
+        "queued": "队列",
+        "artists": "Artists"
     },
     "readarr": {
         "wanted": "订阅",
         "queued": "队列",
         "books": "书籍"
+    },
+    "bazarr": {
+        "missingEpisodes": "缺少的剧集",
+        "missingMovies": "缺少的电影"
     },
     "ombi": {
         "pending": "待办的",
@@ -94,11 +224,29 @@
         "approved": "得到正式认可的",
         "available": "可用的"
     },
+    "overseerr": {
+        "pending": "待办",
+        "processing": "处理中",
+        "approved": "已批准",
+        "available": "可用"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
+    },
     "pihole": {
         "queries": "查询",
         "blocked": "阻止",
-        "gravity": "重力",
-        "blocked_percent": "拦截 %"
+        "blocked_percent": "拦截 %",
+        "gravity": "重力"
+    },
+    "adguard": {
+        "queries": "查询",
+        "blocked": "阻止",
+        "filtered": "过滤",
+        "latency": "延迟"
     },
     "speedtest": {
         "upload": "上传",
@@ -110,37 +258,39 @@
         "stopped": "停止",
         "total": "总计"
     },
+    "tailscale": {
+        "address": "地址",
+        "expires": "失效",
+        "never": "从不",
+        "last_seen": "最后上线",
+        "now": "现在",
+        "years": "{{number}}年",
+        "weeks": "{{number}}周",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "{{value}} 以前"
+    },
+    "tdarr": {
+        "queue": "队列",
+        "processed": "已处理",
+        "errored": "出错",
+        "saved": "已保存"
+    },
     "traefik": {
         "routers": "路由器",
         "services": "服务",
         "middleware": "中间件"
     },
+    "navidrome": {
+        "nothing_streaming": "暂无播放",
+        "please_wait": "请等待"
+    },
     "npm": {
         "enabled": "已启用",
         "disabled": "禁用",
         "total": "全部的"
-    },
-    "weather": {
-        "current": "当前定位",
-        "allow": "点击并允许",
-        "updating": "更新中",
-        "wait": "请稍候"
-    },
-    "overseerr": {
-        "pending": "待办",
-        "approved": "已批准",
-        "available": "可用",
-        "processing": "处理中"
-    },
-    "sabnzbd": {
-        "rate": "速率",
-        "queue": "队列",
-        "timeleft": "剩余时间"
-    },
-    "nzbget": {
-        "rate": "速率",
-        "remaining": "剩余",
-        "downloaded": "下载"
     },
     "coinmarketcap": {
         "configure": "配置一个或多个需要追踪的加密",
@@ -161,47 +311,36 @@
         "numberOfFailGrabs": "抓取失败",
         "numberOfFailQueries": "查询失败"
     },
-    "transmission": {
-        "download": "下载",
-        "upload": "上传",
-        "leech": "下载中",
-        "seed": "做种"
-    },
     "jackett": {
         "configured": "已配置",
         "errored": "出错了"
     },
-    "bazarr": {
-        "missingEpisodes": "缺少的剧集",
-        "missingMovies": "缺少的电影"
-    },
-    "lidarr": {
-        "wanted": "订阅",
-        "queued": "队列",
-        "artists": "Artists"
-    },
-    "adguard": {
-        "queries": "查询",
-        "blocked": "阻止",
-        "filtered": "过滤",
-        "latency": "延迟"
-    },
-    "qbittorrent": {
-        "download": "下载",
-        "upload": "上传",
-        "leech": "下载中",
-        "seed": "做种"
+    "strelaysrv": {
+        "numActiveSessions": "会话",
+        "numConnections": "连接",
+        "dataRelayed": "中继",
+        "transferRate": "速度"
     },
     "mastodon": {
         "user_count": "用户",
         "status_count": "帖子",
         "domain_count": "域"
     },
-    "strelaysrv": {
-        "numActiveSessions": "会话",
-        "dataRelayed": "中继",
-        "numConnections": "连接",
-        "transferRate": "速度"
+    "medusa": {
+        "wanted": "关注中",
+        "queued": "已加入队列",
+        "series": "Series"
+    },
+    "minecraft": {
+        "players": "玩家",
+        "version": "版本",
+        "status": "状态",
+        "up": "在线的",
+        "down": "离线"
+    },
+    "miniflux": {
+        "read": "已读",
+        "unread": "未读"
     },
     "authentik": {
         "users": "用户",
@@ -214,69 +353,48 @@
         "lxc": "容器",
         "vms": "虚拟机"
     },
-    "unifi": {
-        "users": "用户",
-        "uptime": "系统运行时间",
-        "days": "天",
-        "wan": "广域网",
-        "lan_users": "局域网用户",
-        "wlan_users": "无线局域网用户",
-        "up": "向上",
-        "down": "向下",
-        "wait": "请稍候",
-        "lan": "局域网",
-        "wlan": "无线局域网",
-        "devices": "设备",
-        "lan_devices": "局域网设备",
-        "wlan_devices": "无线局域网设备",
-        "empty_data": "子系统状态未知"
-    },
-    "plex": {
-        "streams": "活动流",
-        "movies": "电影",
-        "tv": "电视节目",
-        "albums": "专辑"
-    },
     "glances": {
         "cpu": "处理器",
+        "load": "Load",
         "wait": "请稍等",
         "temp": "温度",
-        "uptime": "运行时间",
-        "days": "天",
-        "hours": "时",
-        "load": "Load",
+        "_temp": "Temp",
         "warn": "Warn",
+        "uptime": "运行时间",
         "total": "Total",
         "free": "Free",
         "used": "Used",
+        "days": "天",
+        "hours": "时",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap",
-        "_temp": "Temp"
+        "swap": "Swap"
     },
-    "changedetectionio": {
-        "totalObserved": "观察到的总数",
-        "diffsDetected": "检测到差异"
+    "quicklaunch": {
+        "bookmark": "书签",
+        "service": "服务",
+        "search": "搜索",
+        "custom": "自定",
+        "visit": "访问",
+        "url": "网址"
     },
     "wmo": {
         "0-day": "晴天",
         "0-night": "晴朗",
         "1-day": "主要是晴天",
-        "3-day": "阴天",
-        "3-night": "阴天",
-        "45-day": "有雾",
-        "48-day": "有雾",
-        "51-day": "小雨",
-        "73-night": "中雪",
-        "75-day": "大雪",
         "1-night": "大部晴朗",
         "2-day": "多云",
         "2-night": "多云",
+        "3-day": "阴天",
+        "3-night": "阴天",
+        "45-day": "有雾",
         "45-night": "有雾",
+        "48-day": "有雾",
         "48-night": "有雾",
+        "51-day": "小雨",
         "51-night": "小雨",
         "53-day": "小雨",
         "53-night": "小雨",
@@ -299,6 +417,8 @@
         "71-day": "小雪",
         "71-night": "小雪",
         "73-day": "中雪",
+        "73-night": "中雪",
+        "75-day": "大雪",
         "75-night": "大雪",
         "77-day": "雪粒",
         "77-night": "雪粒",
@@ -319,14 +439,6 @@
         "99-day": "雷雨伴随冰雹",
         "99-night": "雷雨伴随冰雹"
     },
-    "quicklaunch": {
-        "bookmark": "书签",
-        "service": "服务",
-        "search": "搜索",
-        "custom": "自定",
-        "visit": "访问",
-        "url": "网址"
-    },
     "homebridge": {
         "available_update": "System",
         "updates": "更新",
@@ -338,16 +450,26 @@
         "pending": "待定中",
         "down": "Down"
     },
-    "autobrr": {
-        "approvedPushes": "已核准",
-        "rejectedPushes": "拒绝",
-        "filters": "Filters",
-        "indexers": "索引器"
+    "healthchecks": {
+        "new": "新建立",
+        "up": "在线的",
+        "grace": "延缓中",
+        "down": "离线",
+        "paused": "暂停",
+        "status": "状态",
+        "last_ping": "上次检查",
+        "never": "尚未检查"
     },
     "watchtower": {
         "containers_scanned": "已扫描",
         "containers_updated": "已升级",
         "containers_failed": "失败"
+    },
+    "autobrr": {
+        "approvedPushes": "已核准",
+        "rejectedPushes": "拒绝",
+        "filters": "Filters",
+        "indexers": "索引器"
     },
     "tubearchivist": {
         "downloads": "队列",
@@ -360,10 +482,6 @@
         "uptime": "运行时间",
         "alerts": "警报",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
-    },
-    "navidrome": {
-        "nothing_streaming": "暂无播放",
-        "please_wait": "请等待"
     },
     "pyload": {
         "speed": "速度",
@@ -380,12 +498,6 @@
         "channels": "频道",
         "hd": "HD"
     },
-    "ping": {
-        "error": "错误",
-        "ping": "Ping",
-        "up": "Up",
-        "down": "Down"
-    },
     "scrutiny": {
         "passed": "通过",
         "failed": "失败",
@@ -395,48 +507,9 @@
         "inbox": "收件箱",
         "total": "Total"
     },
-    "deluge": {
-        "download": "下载",
-        "upload": "上传",
-        "leech": "下载中",
-        "seed": "做种"
-    },
-    "flood": {
-        "leech": "下载中",
-        "download": "下载",
-        "upload": "上传",
-        "seed": "做种"
-    },
-    "tdarr": {
-        "saved": "已保存",
-        "queue": "队列",
-        "processed": "已处理",
-        "errored": "出错"
-    },
-    "miniflux": {
-        "read": "已读",
-        "unread": "未读"
-    },
     "nextdns": {
         "wait": "请稍候",
         "no_devices": "没有接收到设备数据"
-    },
-    "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
-    },
-    "omada": {
-        "connectedAp": "连接中的AP",
-        "activeUser": "活跃设备",
-        "alerts": "警报",
-        "connectedGateway": "已连接网关",
-        "connectedSwitches": "已连接开关"
-    },
-    "downloadstation": {
-        "download": "下载",
-        "upload": "上传",
-        "leech": "下载中",
-        "seed": "做种"
     },
     "mikrotik": {
         "cpuLoad": "处理器",
@@ -448,6 +521,12 @@
         "streams_all": "所有播放活动",
         "streams_active": "正在播放",
         "streams_xepg": "XEPG 频道"
+    },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "处理器",
@@ -461,11 +540,6 @@
         "print_progress": "打印进程",
         "layers": "层"
     },
-    "medusa": {
-        "wanted": "关注中",
-        "queued": "已加入队列",
-        "series": "Series"
-    },
     "octoprint": {
         "printer_state": "打印机状态",
         "temp_tool": "喷头温度",
@@ -475,6 +549,16 @@
     "cloudflared": {
         "origin_ip": "源IP",
         "status": "状态"
+    },
+    "pfsense": {
+        "load": "平均负载",
+        "memory": "内存",
+        "wanStatus": "WAN 状态",
+        "up": "上传",
+        "down": "下载",
+        "temp": "温度",
+        "disk": "磁盘",
+        "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "数据存储",
@@ -495,10 +579,21 @@
         "incident": "严重事件",
         "m": "m"
     },
+    "atsumeru": {
+        "series": "Series",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
     "komga": {
         "libraries": "书库",
         "series": "系列",
         "books": "书刊"
+    },
+    "diskstation": {
+        "days": "天",
+        "uptime": "运行时间",
+        "volumeAvailable": "剩余存储"
     },
     "mylar": {
         "series": "系列",
@@ -511,11 +606,6 @@
         "videos": "视频",
         "people": "人物"
     },
-    "diskstation": {
-        "uptime": "运行时间",
-        "volumeAvailable": "剩余存储",
-        "days": "天"
-    },
     "fileflows": {
         "queue": "队列",
         "processing": "处理中",
@@ -523,9 +613,9 @@
         "time": "时间"
     },
     "grafana": {
-        "totalalerts": "警报总数",
         "dashboards": "控制面板",
         "datasources": "数据来源",
+        "totalalerts": "警报总数",
         "alertstriggered": "触发的警报"
     },
     "nextcloud": {
@@ -548,16 +638,6 @@
         "total_workers": "工作节点总数",
         "records_total": "队列长度"
     },
-    "healthchecks": {
-        "new": "新建立",
-        "up": "在线的",
-        "grace": "延缓中",
-        "down": "离线",
-        "paused": "暂停",
-        "status": "状态",
-        "last_ping": "上次检查",
-        "never": "尚未检查"
-    },
     "pterodactyl": {
         "servers": "服务器",
         "nodes": "节点"
@@ -566,13 +646,6 @@
         "targets_up": "目标上线",
         "targets_down": "目标在线",
         "targets_total": "总目标"
-    },
-    "minecraft": {
-        "players": "玩家",
-        "version": "版本",
-        "status": "状态",
-        "up": "在线的",
-        "down": "离线"
     },
     "ghostfolio": {
         "gross_percent_today": "今天",
@@ -590,111 +663,62 @@
         "lights_on": "照明开",
         "switches_on": "开关开"
     },
-    "freshrss": {
-        "subscriptions": "订阅",
-        "unread": "未读"
-    },
-    "channelsdvrserver": {
-        "shows": "节目",
-        "recordings": "录像",
-        "scheduled": "已计划的",
-        "passes": "通行证"
-    },
     "whatsupdocker": {
         "monitoring": "监测中",
         "updates": "可更新"
     },
-    "tailscale": {
-        "address": "地址",
-        "expires": "失效",
-        "never": "从不",
-        "last_seen": "最后上线",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} 以前",
-        "now": "现在",
-        "years": "{{number}}年",
-        "weeks": "{{number}}周"
-    },
-    "qnap": {
-        "cpuUsage": "处理器",
-        "memUsage": "内存",
-        "systemTempC": "系统温度",
-        "poolUsage": "存储池",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
-    },
-    "pfsense": {
-        "load": "平均负载",
-        "memory": "内存",
-        "wanStatus": "WAN 状态",
-        "up": "上传",
-        "down": "下载",
-        "temp": "温度",
-        "disk": "磁盘",
-        "wanIP": "WAN IP"
-    },
-    "caddy": {
-        "upstreams": "上游",
-        "requests": "当前请求",
-        "requests_failed": "失败请求"
-    },
-    "evcc": {
-        "pv_power": "正式环境",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
-    },
-    "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+    "calibreweb": {
+        "books": "书籍",
+        "authors": "作者",
+        "categories": "分类",
+        "series": "丛书"
     },
     "jdownloader": {
         "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
         "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Download Speed"
     },
     "kavita": {
         "seriesCount": "系列",
         "totalFiles": "文件"
     },
-    "gamedig": {
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
-        "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
-    },
     "azuredevops": {
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
         "result": "Result",
         "status": "Status",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
         "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
         "approved": "Approved"
+    },
+    "gamedig": {
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline",
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Players",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
+    },
+    "mealie": {
+        "recipes": "Recipes",
+        "users": "Users",
+        "categories": "Categories",
+        "tags": "Tags"
     },
     "openmediavault": {
         "downloading": "Downloading",
@@ -703,24 +727,6 @@
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
-    },
-    "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
-    },
-    "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
-    "calibreweb": {
-        "books": "书籍",
-        "authors": "作者",
-        "categories": "分类",
-        "series": "丛书"
     },
     "uptimerobot": {
         "status": "Status",
@@ -736,15 +742,9 @@
         "down": "Down",
         "unknown": "Unknown"
     },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
-    },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
+        "physicalRelease": "Physical release",
         "digitalRelease": "Digital release"
     }
 }
