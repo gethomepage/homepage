@@ -51,7 +51,8 @@
 	"modules": [
 		"https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@latest/dist/index.js",
 		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-missing-translation@latest/dist/index.js",
-		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-empty-pattern@latest/dist/index.js"
+		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-empty-pattern@latest/dist/index.js",
+		"https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-identical-pattern@latest/dist/index.js"
 	],
 	"plugin.inlang.i18next": {
 		"pathPattern": {
