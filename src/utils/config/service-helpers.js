@@ -6,7 +6,7 @@ import Docker from "dockerode";
 import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
-import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
@@ -59,6 +59,8 @@ export async function servicesFromDocker() {
     return [];
   }
 
+  const { instanceName } = getSettings();
+
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
       try {
@@ -82,6 +84,13 @@ export async function servicesFromDocker() {
 
           Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.")) {
+              let value = label.replace("homepage.", "");
+              if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
+                value = value.replace(`instance.${instanceName}.`, "");
+              } else if (value.startsWith("instance.")) {
+                return;
+              }
+
               if (!constructedService) {
                 constructedService = {
                   container: containerName.replace(/^\//, ""),
@@ -89,11 +98,7 @@ export async function servicesFromDocker() {
                   type: "service",
                 };
               }
-              shvl.set(
-                constructedService,
-                label.replace("homepage.", ""),
-                substituteEnvironmentVars(containerLabels[label]),
-              );
+              shvl.set(constructedService, value, substituteEnvironmentVars(containerLabels[label]));
             }
           });
 

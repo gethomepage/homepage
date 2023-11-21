@@ -201,6 +201,22 @@ In order to detect every service within the Docker swarm it is necessary that se
 ...
 ```
 
+## Multiple Homepage Instances
+
+The optional field `instanceName` can be configured in [settings.md](settings.md#instance-name) to differentiate between multiple homepage instances.
+
+To limit a label to an instance, insert `.instance.{{instanceName}}` after the `homepage` prefix.
+
+```yaml
+labels:
+  - homepage.group=Media
+  - homepage.name=Emby
+  - homepage.icon=emby.png
+  - homepage.instance.internal.href=http://emby.lan/
+  - homepage.instance.public.href=https://emby.mydomain.com/
+  - homepage.description=Media server
+```
+
 ## Ordering
 
 As of v0.6.4 discovered services can include an optional `weight` field to determine sorting such that:

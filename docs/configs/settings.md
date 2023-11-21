@@ -404,6 +404,16 @@ or per-service (`services.yaml`) with:
 
 If you have both set, the per-service settings take precedence.
 
+## Instance Name
+
+Name used by automatic docker service discovery to differentiate between multiple homepage instances.
+
+For example:
+
+```yaml
+instanceName: public
+```
+
 ## Hide Widget Error Messages
 
 Hide the visible API error messages either globally in `settings.yaml`:
