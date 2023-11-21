@@ -11,8 +11,5 @@ Allowed fields: `["public_ip", "region", "country"]`.
 ```yaml
 widget:
   type: gluetun
-  # Default port for HTTP control server. If you have changed 
-  # Gluetun's HTTP control server port, you will need to change
-  # the port here to match.
-  url: http://gluetun.host.or.ip:8000
+  url: http://gluetun.host.or.ip:port
 ```
