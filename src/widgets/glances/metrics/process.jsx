@@ -25,7 +25,7 @@ export default function Component({ service }) {
   const { chart, refreshInterval = defaultInterval } = widget;
 
   const { data, error } = useWidgetAPI(service.widget, "processlist", {
-    refreshInterval,
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   if (error) {

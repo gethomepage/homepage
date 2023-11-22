@@ -22,7 +22,7 @@ export default function Component({ service }) {
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(widget, "gpu", {
-    refreshInterval,
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   useEffect(() => {

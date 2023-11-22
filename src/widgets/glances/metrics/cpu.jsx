@@ -21,7 +21,7 @@ export default function Component({ service }) {
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(service.widget, "cpu", {
-    refreshInterval,
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   const { data: systemData, error: systemError } = useWidgetAPI(service.widget, "system");

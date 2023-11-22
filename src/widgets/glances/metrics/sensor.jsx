@@ -22,7 +22,7 @@ export default function Component({ service }) {
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(service.widget, "sensors", {
-    refreshInterval,
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   useEffect(() => {

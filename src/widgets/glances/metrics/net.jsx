@@ -24,7 +24,7 @@ export default function Component({ service }) {
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(widget, "network", {
-    refreshInterval,
+    refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
   });
 
   useEffect(() => {

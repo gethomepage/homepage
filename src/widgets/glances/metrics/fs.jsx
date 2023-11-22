@@ -15,7 +15,7 @@ export default function Component({ service }) {
   const [, fsName] = widget.metric.split("fs:");
 
   const { data, error } = useWidgetAPI(widget, "fs", {
-    refreshInterval,
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   if (error) {
