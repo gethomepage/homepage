@@ -337,47 +337,48 @@ export function cleanServiceGroups(groups) {
       if (cleanedService.widget) {
         // whitelisted set of keys to pass to the frontend
         const {
-          allowFullscreen,
-          allowPolicy,
-          allowScrolling,
-          app,
-          chart, // glances
-          classes,
+          type, // all widgets
+          fields,
+          hideErrors,
+          server, // docker widget
           container,
           currency, // coinmarketcap widget
+          symbols,
+          slugs,
           defaultinterval,
+          site, // unifi widget
+          namespace, // kubernetes widget
+          app,
+          podSelector,
+          wan, // opnsense widget, pfsense widget
           enableBlocks, // emby/jellyfin
           enableNowPlaying,
+          volume, // diskstation widget,
           enableQueue, // sonarr/radarr
-          fields,
-          firstDayInWeek,
-          fit,
-          hideErrors,
-          integrations, // calendar widget
-          loadingStrategy,
-          mappings, // customapi widget
-          maxEvents,
-          method, // openmediavault widget
-          metric, // glances
-          namespace, // kubernetes widget
           node, // Proxmox
-          podSelector,
-          pointsLimit, // glances
-          refreshInterval,
-          referrerPolicy,
-          repositoryId,
-          server, // docker widget
-          site, // unifi widget
           snapshotHost, // kopia
           snapshotPath,
-          src, // iframe widget
-          stream, // mjpeg
-          symbols,
-          type, // all widgets
           userEmail, // azuredevops
+          repositoryId,
+          metric, // glances
+          chart, // glances
+          pointsLimit, // glances
+          stream, // mjpeg
+          fit,
+          method, // openmediavault widget
+          mappings, // customapi widget
+          refreshInterval,
+          integrations, // calendar widget
+          firstDayInWeek,
           view,
-          volume, // diskstation widget,
-          wan, // opnsense widget, pfsense widget
+          maxEvents,
+          src, // iframe widget
+          classes,
+          referrerPolicy,
+          allowPolicy,
+          allowFullscreen,
+          loadingStrategy,
+          allowScrolling,
         } = cleanedService.widget;
 
         let fieldsList = fields;
