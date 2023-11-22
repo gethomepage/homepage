@@ -3,19 +3,21 @@ const NullAuthKey = "none"
 
 function createNullAuth() {
     return {
-        authorize: (request) => NullPermissions,
-        getContext: (request) => { return {
+        authorize: () => NullPermissions,
+        getContext: () => ({
             provider: NullAuthKey
-        } }, 
+        }), 
     }
 } 
 
-async function fetchNullAuth([key, context]) {
+async function fetchNullAuth([key]) {
     return fetch(key).then((res) => res.json())
 }
 
-export const NullAuthProvider = {
+const NullAuthProvider = {
     key: NullAuthKey, 
     create: createNullAuth, 
     fetch: fetchNullAuth
 }
+
+export default NullAuthProvider;
