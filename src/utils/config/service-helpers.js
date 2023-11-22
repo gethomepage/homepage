@@ -337,47 +337,47 @@ export function cleanServiceGroups(groups) {
       if (cleanedService.widget) {
         // whitelisted set of keys to pass to the frontend
         const {
-          type, // all widgets
-          fields,
-          hideErrors,
-          server, // docker widget
+          allowFullscreen,
+          allowPolicy,
+          allowScrolling,
+          app,
+          chart, // glances
+          classes,
           container,
           currency, // coinmarketcap widget
-          symbols,
-          slugs,
           defaultinterval,
-          site, // unifi widget
-          namespace, // kubernetes widget
-          app,
-          podSelector,
-          wan, // opnsense widget, pfsense widget
           enableBlocks, // emby/jellyfin
           enableNowPlaying,
-          volume, // diskstation widget,
           enableQueue, // sonarr/radarr
+          fields,
+          firstDayInWeek,
+          fit,
+          hideErrors,
+          integrations, // calendar widget
+          loadingStrategy,
+          mappings, // customapi widget
+          maxEvents,
+          method, // openmediavault widget
+          metric, // glances
+          namespace, // kubernetes widget
           node, // Proxmox
+          podSelector,
+          pointsLimit, // glances
+          refreshInterval,
+          referrerPolicy,
+          repositoryId,
+          server, // docker widget
+          site, // unifi widget
           snapshotHost, // kopia
           snapshotPath,
-          userEmail, // azuredevops
-          repositoryId,
-          metric, // glances
-          chart, // glances
-          stream, // mjpeg
-          fit,
-          method, // openmediavault widget
-          mappings, // customapi widget
-          refreshInterval,
-          integrations, // calendar widget
-          firstDayInWeek,
-          view,
-          maxEvents,
           src, // iframe widget
-          classes,
-          referrerPolicy,
-          allowPolicy,
-          allowFullscreen,
-          loadingStrategy,
-          allowScrolling,
+          stream, // mjpeg
+          symbols,
+          type, // all widgets
+          userEmail, // azuredevops
+          view,
+          volume, // diskstation widget,
+          wan, // opnsense widget, pfsense widget
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -458,6 +458,12 @@ export function cleanServiceGroups(groups) {
             cleanedService.widget.chart = chart;
           } else {
             cleanedService.widget.chart = true;
+          }
+          if(refreshInterval && Number.isInteger(refreshInterval) && refreshInterval > 0){
+            cleanedService.widget.refreshInterval = refreshInterval;
+          }
+          if(pointsLimit && Number.isInteger(pointsLimit) && pointsLimit > 0){
+            cleanedService.widget.pointsLimit = pointsLimit;
           }
         }
         if (type === "mjpeg") {
