@@ -378,7 +378,7 @@ export function cleanServiceGroups(groups) {
           metric,
           pointsLimit,
 
-          // glances, customapi
+          // glances, customapi, iframe
           refreshInterval,
 
           // iframe
@@ -498,12 +498,8 @@ export function cleanServiceGroups(groups) {
           } else {
             cleanedService.widget.chart = true;
           }
-          if (refreshInterval && Number.isInteger(refreshInterval) && refreshInterval > 0) {
-            cleanedService.widget.refreshInterval = refreshInterval;
-          }
-          if (pointsLimit && Number.isInteger(pointsLimit) && pointsLimit > 0) {
-            cleanedService.widget.pointsLimit = pointsLimit;
-          }
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
+          if (pointsLimit) cleanedService.widget.pointsLimit = pointsLimit;
         }
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;
