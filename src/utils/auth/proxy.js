@@ -3,21 +3,19 @@
 const ProxyAuthKey="proxy"
 
 function getProxyPermissions(userHeader, groupHeader, request) { 
-    const user = (userHeader)?request.headers.get(userHeader):None; 
+    const user = (userHeader)?request.headers.get(userHeader):null; 
     const groupsString = (groupHeader)?request.headers.get(groupHeader):""; 
 
-    return {user: user, groups: (groupsString)?groupsString.split(",").map((v) => v.trimStart()):[]}
+    return {user, groups: (groupsString)?groupsString.split(",").map((v) => v.trimStart()):[]}
 }
 
 function createProxyAuth({groupHeader, userHeader}) {
     return {
-        getContext : (request) => {
-            return { 
+        getContext : (request) => ({ 
                 type: ProxyAuthKey,
                 ...userHeader && {[userHeader]: request.headers.get(userHeader) }, 
                 ...groupHeader && {[groupHeader]: request.headers.get(groupHeader)}
-            }
-        },
+            }),
         authorize : (request) => getProxyPermissions(userHeader, groupHeader, request)
     } 
 }
@@ -26,8 +24,10 @@ async function fetchProxyAuth([key, context]) {
     return fetch(key, {headers: context.headers}).then((res) => res.json())
 }
 
-export const ProxyAuthProvider =  {
+const ProxyAuthProvider =  {
     key: ProxyAuthKey,
     create: createProxyAuth, 
     fetch: fetchProxyAuth
 }
+
+export default ProxyAuthProvider; 

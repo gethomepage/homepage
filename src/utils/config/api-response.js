@@ -13,7 +13,6 @@ import {
   findGroupByName,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
-
 import {
   filterAllowedBookmarks,
   filterAllowedServices, 
