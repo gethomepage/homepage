@@ -36,7 +36,7 @@ export default function Component({ service }) {
         return newDataPoints;
       });
     }
-  }, [data, sensorName]);
+  }, [data, sensorName, pointsLimit]);
 
   if (error) {
     return (

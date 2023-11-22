@@ -47,7 +47,7 @@ export default function Component({ service }) {
         });
       }
     }
-  }, [data, interfaceName]);
+  }, [data, interfaceName, pointsLimit]);
 
   if (error) {
     return (

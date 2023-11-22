@@ -46,7 +46,7 @@ export default function Component({ service }) {
         return newDataPoints;
       });
     }
-  }, [data, diskName]);
+  }, [data, diskName, pointsLimit]);
 
   useEffect(() => {
     setRatePoints(calculateRates(dataPoints));

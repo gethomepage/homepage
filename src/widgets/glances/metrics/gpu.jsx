@@ -40,7 +40,7 @@ export default function Component({ service }) {
         });
       }
     }
-  }, [data, gpuName]);
+  }, [data, gpuName, pointsLimit]);
 
   if (error) {
     return (

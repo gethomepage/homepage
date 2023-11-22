@@ -36,7 +36,7 @@ export default function Component({ service }) {
         return newDataPoints;
       });
     }
-  }, [data]);
+  }, [data, pointsLimit]);
 
   if (error) {
     return (
