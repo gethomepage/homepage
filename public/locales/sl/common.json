@@ -59,7 +59,7 @@
         "lan_users": "LAN uporabniki",
         "wlan_users": "WLAN uporabniki",
         "up": "Gor",
-        "down": "Dol",
+        "down": "DOL",
         "wait": "Prosimo počakajte",
         "empty_data": "Neznani status podsistema"
     },
@@ -82,17 +82,17 @@
     "ping": {
         "error": "Napaka",
         "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Nepovezan",
+        "up": "Povezan",
+        "not_available": "Ni na voljo"
     },
     "siteMonitor": {
         "http_status": "HTTP status",
         "error": "Napaka",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "response": "Odgovor",
+        "down": "Nepovezan",
+        "up": "Povezan",
+        "not_available": "Ni na voljo"
     },
     "emby": {
         "playing": "Predvaja",
@@ -465,9 +465,9 @@
         "up_to_date": "Posodobljeno",
         "child_bridges": "Otroški mostovi",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Povezan",
         "pending": "V teku",
-        "down": "Down"
+        "down": "Nepovezan"
     },
     "healthchecks": {
         "new": "Nov",
@@ -542,9 +542,9 @@
         "streams_xepg": "XEPG kanali"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
+        "yieldDay": "Danes",
+        "absolutePower": "Napajanje",
+        "relativePower": "Napajanje %",
         "limit": "Limit"
     },
     "opnsense": {
@@ -572,9 +572,9 @@
     "pfsense": {
         "load": "Povp. obremenitev",
         "memory": "Poraba spomina",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "wanStatus": "WAN status",
+        "up": "Povezan",
+        "down": "Nepovezan",
         "temp": "Temp",
         "disk": "Poraba diska",
         "wanIP": "WAN IP"
@@ -667,7 +667,7 @@
         "targets_total": "Skupaj tarč"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "Danes",
         "gross_percent_1y": "Eno leto",
         "gross_percent_max": "Celoten čas"
     },
@@ -750,21 +750,21 @@
     "uptimerobot": {
         "status": "Stanje",
         "uptime": "Čas delovanja",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
+        "lastDown": "Zadnjič nepovezan",
+        "downDuration": "Dolžina izpada",
         "sitesUp": "Deluje",
         "sitesDown": "Ne deluje",
         "paused": "Pavziran",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
+        "notyetchecked": "Še nepreverjeno",
+        "up": "Povezan",
+        "seemsdown": "Ne deluje",
+        "down": "Nepovezan",
         "unknown": "Neznano"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!"
+        "inCinemas": "V kinu",
+        "physicalRelease": "Fizična izdaja",
+        "digitalRelease": "Digitalna izdaja",
+        "noEventsToday": "Za danes ni dogodkov!"
     }
 }
