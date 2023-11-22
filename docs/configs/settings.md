@@ -483,11 +483,14 @@ Auth can be configured on the service, bookmark, and widget level using the `all
     - User3
 ```
 
-Auth for groups can be set in the `groups` under `auth`. 
+Auth for groups can be set in the `groups` under `auth`.  In general the `groups` tag follows the format of the `layout` 
+section.  For example: 
 
 ```yaml 
 auth: 
   groups: 
-    My Service Group: 
+    My Service Group:
       allowGroups: ['Group1', 'Group2']
+    My Other Group:
+      allowGroups: ['Group1']
 ```
