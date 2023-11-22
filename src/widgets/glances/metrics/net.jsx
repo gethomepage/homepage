@@ -11,13 +11,13 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 const ChartDual = dynamic(() => import("../components/chart_dual"), { ssr: false });
 
 const defaultPointsLimit = 15;
-const defaultInterval = (isChart) => isChart ? 1000 : 5000;
+const defaultInterval = (isChart) => (isChart ? 1000 : 5000);
 
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart, metric } = widget;
-  const {refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit } = widget;
+  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit } = widget;
 
   const [, interfaceName] = metric.split(":");
 

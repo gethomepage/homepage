@@ -336,49 +336,87 @@ export function cleanServiceGroups(groups) {
 
       if (cleanedService.widget) {
         // whitelisted set of keys to pass to the frontend
+        // alphabetical, grouped by widget(s)
         const {
-          type, // all widgets
+          // all widgets
           fields,
           hideErrors,
-          server, // docker widget
-          container,
-          currency, // coinmarketcap widget
-          symbols,
-          slugs,
-          defaultinterval,
-          site, // unifi widget
-          namespace, // kubernetes widget
-          app,
-          podSelector,
-          wan, // opnsense widget, pfsense widget
-          enableBlocks, // emby/jellyfin
-          enableNowPlaying,
-          volume, // diskstation widget,
-          enableQueue, // sonarr/radarr
-          node, // Proxmox
-          snapshotHost, // kopia
-          snapshotPath,
-          userEmail, // azuredevops
+          type,
+
+          // azuredevops
           repositoryId,
-          metric, // glances
-          chart, // glances
-          pointsLimit, // glances
-          stream, // mjpeg
-          fit,
-          method, // openmediavault widget
-          mappings, // customapi widget
-          refreshInterval,
-          integrations, // calendar widget
+          userEmail,
+
+          // calendar
           firstDayInWeek,
-          view,
+          integrations,
           maxEvents,
-          src, // iframe widget
-          classes,
-          referrerPolicy,
-          allowPolicy,
+          view,
+
+          // coinmarketcap
+          currency,
+          defaultinterval,
+          slugs,
+          symbols,
+
+          // customapi
+          mappings,
+
+          // diskstation
+          volume,
+
+          // docker
+          container,
+          server,
+
+          // emby, jellyfin
+          enableBlocks,
+          enableNowPlaying,
+
+          // glances
+          chart,
+          metric,
+          pointsLimit,
+
+          // glances, customapi
+          refreshInterval,
+
+          // iframe
           allowFullscreen,
-          loadingStrategy,
+          allowPolicy,
           allowScrolling,
+          classes,
+          loadingStrategy,
+          referrerPolicy,
+          src,
+
+          // kopia
+          snapshotHost,
+          snapshotPath,
+
+          // kubernetes
+          app,
+          namespace,
+          podSelector,
+
+          // mjpeg
+          fit,
+          stream,
+
+          // openmediavault
+          method,
+
+          // opnsense, pfsense
+          wan,
+
+          // proxmox
+          node,
+
+          // sonarr, radarr
+          enableQueue,
+
+          // unifi
+          site,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -460,10 +498,10 @@ export function cleanServiceGroups(groups) {
           } else {
             cleanedService.widget.chart = true;
           }
-          if(refreshInterval && Number.isInteger(refreshInterval) && refreshInterval > 0){
+          if (refreshInterval && Number.isInteger(refreshInterval) && refreshInterval > 0) {
             cleanedService.widget.refreshInterval = refreshInterval;
           }
-          if(pointsLimit && Number.isInteger(pointsLimit) && pointsLimit > 0){
+          if (pointsLimit && Number.isInteger(pointsLimit) && pointsLimit > 0) {
             cleanedService.widget.pointsLimit = pointsLimit;
           }
         }
