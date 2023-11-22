@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
     try {
         if (checkAllowedGroup(provider.permissions(req), groups, group)) {
-            res.json({ group: group})
+            res.json({group})
         } else {
             res.status(401).json({message:"Group unathorized"})
         }
