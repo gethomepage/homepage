@@ -10,18 +10,21 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const ChartDual = dynamic(() => import("../components/chart_dual"), { ssr: false });
 
-const pointsLimit = 15;
+const defaultPointsLimit = 15;
+const defaultInterval = (isChart) => (isChart ? 1000 : 5000);
 
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart, metric } = widget;
+  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit } = widget;
+
   const [, interfaceName] = metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(widget, "network", {
-    refreshInterval: chart ? 1000 : 5000,
+    refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
   });
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export default function Component({ service }) {
         });
       }
     }
-  }, [data, interfaceName]);
+  }, [data, interfaceName, pointsLimit]);
 
   if (error) {
     return (

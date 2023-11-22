@@ -10,17 +10,18 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const Chart = dynamic(() => import("../components/chart"), { ssr: false });
 
-const pointsLimit = 15;
+const defaultPointsLimit = 15;
+const defaultInterval = 1000;
 
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart } = widget;
+  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit } = widget;
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(service.widget, "cpu", {
-    refreshInterval: 1000,
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   const { data: systemData, error: systemError } = useWidgetAPI(service.widget, "system");
@@ -35,7 +36,7 @@ export default function Component({ service }) {
         return newDataPoints;
       });
     }
-  }, [data]);
+  }, [data, pointsLimit]);
 
   if (error) {
     return (
