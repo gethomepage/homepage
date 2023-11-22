@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import useSWR, { unstable_serialize, SWRConfig } from "swr";
+import useSWR, { unstable_serialize as unstableSerialize, SWRConfig } from "swr";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import classNames from "classnames";
@@ -9,6 +9,7 @@ import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
+import NullAuthProvider from "utils/auth/null";
 import Tab, { slugify } from "components/tab";
 import FileContent from "components/filecontent";
 import ServicesGroup from "components/services/group";
@@ -28,7 +29,7 @@ import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
 import { getStoredProvider, searchProviders } from "components/widgets/search/search";
 import { fetchWithAuth, readAuthSettings } from "utils/auth/auth-helpers";
-import { NullAuthProvider } from "utils/auth/null";
+
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
 });
@@ -59,12 +60,12 @@ export async function getServerSideProps({req}) {
       props: {
         initialSettings: settings,
         fallback: {
-          [unstable_serialize(["/api/services", authContext])]: services,
-          [unstable_serialize(["/api/bookmarks", authContext])]: bookmarks,
-          [unstable_serialize(["/api/widgets", authContext])]: widgets,
+          [unstableSerialize(["/api/services", authContext])]: services,
+          [unstableSerialize(["/api/bookmarks", authContext])]: bookmarks,
+          [unstableSerialize(["/api/widgets", authContext])]: widgets,
           "/api/hash": false,
         },
-        authContext: authContext,
+        authContext,
         ...(await serverSideTranslations(settings.language ?? "en")),
       },
     };
@@ -77,12 +78,12 @@ export async function getServerSideProps({req}) {
       props: {
         initialSettings: {},
         fallback: {
-          [unstable_serialize(["/api/services", authContext])]: [],
-          [unstable_serialize(["/api/bookmarks", authContext])]: [],
-          [unstable_serialize(["/api/widgets", authContext])]: [],
+          [unstableSerialize(["/api/services", authContext])]: [],
+          [unstableSerialize(["/api/bookmarks", authContext])]: [],
+          [unstableSerialize(["/api/widgets", authContext])]: [],
           "/api/hash": false,
         },
-        authContext: authContext,
+        authContext,
         ...(await serverSideTranslations("en")),
       },
     };
