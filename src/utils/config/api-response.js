@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
-import { promises as fs } from "fs";
-import path from "path";
-
-import yaml from "js-yaml";
-
-import checkAndCopyConfig, { getSettings, substituteEnvironmentVars, CONF_DIR } from "utils/config/config";
+import {getSettings} from "utils/config/config";
+import {
+  bookmarksFromConfig,
+  bookmarksFromDocker
+} from "utils/config/bookmark-helpers";
 import {
   servicesFromConfig,
   servicesFromDocker,
@@ -25,16 +24,29 @@ function compareServices(service1, service2) {
 }
 
 export async function bookmarksResponse() {
-  checkAndCopyConfig("bookmarks.yaml");
-
-  const bookmarksYaml = path.join(CONF_DIR, "bookmarks.yaml");
-  const rawFileContents = await fs.readFile(bookmarksYaml, "utf8");
-  const fileContents = substituteEnvironmentVars(rawFileContents);
-  const bookmarks = yaml.load(fileContents);
-
-  if (!bookmarks) return [];
-
+  let discoveredDockerBookmarks;
+  let configuredBookmarks;
   let initialSettings;
+  console.debug("Bookmark response called");
+
+  try {
+    discoveredDockerBookmarks = await bookmarksFromDocker();
+    if (discoveredDockerBookmarks?.length === 0) {
+      console.debug("No containers were found with bookmark labels");
+    }
+  } catch (e) {
+    console.error("Failed to discover bookmarks, please check docker.yaml for errors or remove example entries.")
+    if (e) console.error(e.toString());
+    discoveredDockerBookmarks = [];
+  }
+
+  try {
+    configuredBookmarks = await bookmarksFromConfig();
+  } catch (e) {
+    console.error("Failed to load bookmarks.yaml");
+    if (e) console.error(e.toString());
+    configuredBookmarks = [];
+  }
 
   try {
     initialSettings = await getSettings();
@@ -44,26 +56,39 @@ export async function bookmarksResponse() {
     initialSettings = {};
   }
 
-  // map easy to write YAML objects into easy to consume JS arrays
-  const bookmarksArray = bookmarks.map((group) => ({
-    name: Object.keys(group)[0],
-    bookmarks: group[Object.keys(group)[0]].map((entries) => ({
-      name: Object.keys(entries)[0],
-      ...entries[Object.keys(entries)[0]][0],
-    })),
-  }));
-
   const sortedGroups = [];
   const unsortedGroups = [];
   const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
 
-  bookmarksArray.forEach((group) => {
-    if (definedLayouts) {
-      const layoutIndex = definedLayouts.findIndex((layout) => layout === group.name);
-      if (layoutIndex > -1) sortedGroups[layoutIndex] = group;
-      else unsortedGroups.push(group);
+  const mergedGroupsNames = [
+    ...new Set(
+      [
+        discoveredDockerBookmarks.map((group) => group.name),
+        configuredBookmarks.map((group) => group.name),
+      ].flat(),
+    )
+  ]
+  mergedGroupsNames.forEach((groupName) => {
+
+const discoveredDockerGroup = discoveredDockerBookmarks.find((group) => group.name === groupName) || {
+      bookmarks: [],
+    };
+    const configuredGroup = configuredBookmarks.find((group) => group.name === groupName) || { bookmarks: [] };
+
+
+  const mergedGroup = {
+    name: groupName,
+    bookmarks: [...discoveredDockerGroup.bookmarks, ...configuredGroup.bookmarks]
+      .filter((bookmark) => bookmark)
+      // .sort(compareBookmarks), // TODO is a sort needed?
+  }
+
+  if (definedLayouts) {
+      const layoutIndex = definedLayouts.findIndex((layout) => layout === mergedGroup.name);
+      if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
+      else unsortedGroups.push(mergedGroup);
     } else {
-      unsortedGroups.push(group);
+      unsortedGroups.push(mergedGroup);
     }
   });
 
