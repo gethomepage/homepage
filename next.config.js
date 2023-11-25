@@ -4,6 +4,7 @@ const { i18n } = require("./next-i18next.config");
 const nextConfig = {
   reactStrictMode: true,
   output: "standalone",
+  swcMinify: false,
   images: {
     domains: ["cdn.jsdelivr.net"],
     unoptimized: true,
