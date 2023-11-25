@@ -81,7 +81,7 @@ export default function Component({ service }) {
         <div className="sticky top-0">
           {integrations.map((integration) => {
             const Integration = integration.service;
-            const key = `integration-${integration.widget.type}-${integration.widget.service_name}-${integration.widget.service_group}-${integration.widget?.name}`;
+            const key = `integration-${integration.widget.type}-${integration.widget.service_name}-${integration.widget.service_group}-${integration.widget.name}`;
 
             return (
               <Integration
