@@ -766,5 +766,9 @@
         "physicalRelease": "Sortie physique",
         "digitalRelease": "Sortie numérique",
         "noEventsToday": "Rien pour aujourd'hui !"
+    },
+    "n8n":{
+        "workflows": "Workflows",
+        "executions": "Executions"
     }
 }

@@ -766,5 +766,9 @@
         "physicalRelease": "Release fisici",
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!"
+    },
+    "n8n":{
+        "workflows": "Workflows",
+        "executions": "Executions"
     }
 }

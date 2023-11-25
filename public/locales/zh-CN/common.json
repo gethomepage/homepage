@@ -746,5 +746,9 @@
         "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
         "digitalRelease": "Digital release"
+    },
+    "n8n":{
+        "workflows": "Workflows",
+        "executions": "Executions"
     }
 }

@@ -766,5 +766,9 @@
         "physicalRelease": "物理的なリリース",
         "digitalRelease": "デジタル・リリース",
         "noEventsToday": "No events for today!"
+    },
+    "n8n":{
+        "workflows": "Workflows",
+        "executions": "Executions"
     }
 }

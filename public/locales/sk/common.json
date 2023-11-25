@@ -766,5 +766,9 @@
         "physicalRelease": "Fyzické vydanie",
         "digitalRelease": "Digitálne vydanie",
         "noEventsToday": "Žiadne udalosti na dnešný deň!"
+    },
+    "n8n":{
+        "workflows": "Workflows",
+        "executions": "Executions"
     }
 }

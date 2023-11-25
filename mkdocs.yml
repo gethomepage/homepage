@@ -82,6 +82,7 @@ nav:
       - widgets/services/mjpeg.md
       - widgets/services/moonraker.md
       - widgets/services/mylar.md
+      - widgets/services/n8n.md
       - widgets/services/navidrome.md
       - widgets/services/nextcloud.md
       - widgets/services/nextdns.md
