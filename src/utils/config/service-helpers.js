@@ -351,6 +351,7 @@ export function cleanServiceGroups(groups) {
           firstDayInWeek,
           integrations,
           maxEvents,
+          showTime,
           previousDays,
           view,
 
@@ -519,6 +520,7 @@ export function cleanServiceGroups(groups) {
           if (view) cleanedService.widget.view = view;
           if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
           if (previousDays) cleanedService.widget.previousDays = previousDays;
+          if (showTime) cleanedService.widget.showTime = showTime;
         }
       }
 

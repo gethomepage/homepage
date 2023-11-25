@@ -6,6 +6,7 @@ import autobrr from "./autobrr/widget";
 import azuredevops from "./azuredevops/widget";
 import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
+import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
@@ -131,6 +132,7 @@ const widgets = {
   homeassistant,
   homebridge,
   healthchecks,
+  ical: calendar,
   immich,
   jackett,
   jdownloader,

@@ -1,12 +1,10 @@
 import { DateTime } from "luxon";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
-import { EventContext } from "../../../utils/contexts/calendar";
 import Error from "../../../components/services/widget/error";
 
-export default function Integration({ config, params, hideErrors = false }) {
-  const { setEvents } = useContext(EventContext);
+export default function Integration({ config, params, setEvents, hideErrors = false }) {
   const { data: sonarrData, error: sonarrError } = useWidgetAPI(config, "calendar", {
     ...params,
     includeSeries: "true",

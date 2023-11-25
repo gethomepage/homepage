@@ -1,14 +1,12 @@
 import { DateTime } from "luxon";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
-import { EventContext } from "../../../utils/contexts/calendar";
 import Error from "../../../components/services/widget/error";
 
-export default function Integration({ config, params, hideErrors = false }) {
+export default function Integration({ config, params, setEvents, hideErrors = false }) {
   const { t } = useTranslation();
-  const { setEvents } = useContext(EventContext);
   const { data: radarrData, error: radarrError } = useWidgetAPI(config, "calendar", {
     ...params,
     ...(config?.params ?? {}),
