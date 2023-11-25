@@ -33,6 +33,7 @@ widget:
   type: calendar
   view: agenda
   maxEvents: 10 # optional - defaults to 10
+  previousDays: 3 # optional - shows events since three days ago - defaults to 0
   integrations: # same as in Monthly view example
 ```
 
