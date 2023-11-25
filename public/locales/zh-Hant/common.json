@@ -765,6 +765,7 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
-        "noEventsToday": "今日無事件"
+        "noEventsToday": "今日無事件",
+        "noEventsFound": "No events found"
     }
 }
