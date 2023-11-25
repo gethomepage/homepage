@@ -48,7 +48,9 @@ export default function Agenda({ service, colorVariants, showDate }) {
 
   const eventsArray = Object.keys(events)
     .filter(
-      (eventKey) => showDate.startOf("day").toUnixInteger() <= events[eventKey].date?.startOf("day").toUnixInteger(),
+      (eventKey) =>
+        showDate.minus({ days: widget?.previousDays ?? 0 }).startOf("day").ts <=
+        events[eventKey].date?.startOf("day").ts,
     )
     .map((eventKey) => events[eventKey])
     .sort((a, b) => a.date - b.date)
