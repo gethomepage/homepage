@@ -25,27 +25,35 @@ export default function Integration({ config, params, hideErrors = false }) {
       const physicalTitle = `${event.title} - ${t("calendar.physicalRelease")}`;
       const digitalTitle = `${event.title} - ${t("calendar.digitalRelease")}`;
 
-      eventsToAdd[cinemaTitle] = {
-        title: cinemaTitle,
-        date: DateTime.fromISO(event.inCinemas),
-        color: config?.color ?? "amber",
-        isCompleted: event.isAvailable,
-        additional: "",
-      };
-      eventsToAdd[physicalTitle] = {
-        title: physicalTitle,
-        date: DateTime.fromISO(event.physicalRelease),
-        color: config?.color ?? "cyan",
-        isCompleted: event.isAvailable,
-        additional: "",
-      };
-      eventsToAdd[digitalTitle] = {
-        title: digitalTitle,
-        date: DateTime.fromISO(event.digitalRelease),
-        color: config?.color ?? "emerald",
-        isCompleted: event.isAvailable,
-        additional: "",
-      };
+      if (event.inCinemas) {
+        eventsToAdd[cinemaTitle] = {
+          title: cinemaTitle,
+          date: DateTime.fromISO(event.inCinemas),
+          color: config?.color ?? "amber",
+          isCompleted: event.hasFile,
+          additional: "",
+        };
+      }
+
+      if (event.physicalRelease) {
+        eventsToAdd[physicalTitle] = {
+          title: physicalTitle,
+          date: DateTime.fromISO(event.physicalRelease),
+          color: config?.color ?? "cyan",
+          isCompleted: event.hasFile,
+          additional: "",
+        };
+      }
+
+      if (event.digitalRelease) {
+        eventsToAdd[digitalTitle] = {
+          title: digitalTitle,
+          date: DateTime.fromISO(event.digitalRelease),
+          color: config?.color ?? "emerald",
+          isCompleted: event.hasFile,
+          additional: "",
+        };
+      }
     });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
