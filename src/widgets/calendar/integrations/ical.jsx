@@ -10,13 +10,21 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
     refreshInterval: 300000, // 5 minutes
   });
 
+  let parsedIcal;
+
+  if (!icalError && icalData && !icalData.error) {
+    parsedIcal = parseString(icalData.data);
+    if (parsedIcal.events.length === 0) {
+      icalData.error = { message: "No events found" };
+    }
+  }
+
   useEffect(() => {
-    if (!icalData || icalError || !params) {
+    if (icalError || !parsedIcal) {
       return;
     }
 
     const eventsToAdd = {};
-    const parsedIcal = parseString(icalData.data);
     const events = parsedIcal?.getEventsBetweenDates(
       DateTime.fromISO(params.start).toJSDate(),
       DateTime.fromISO(params.end).toJSDate(),
@@ -41,7 +49,7 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
     });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
-  }, [icalData, icalError, config, params, setEvents]);
+  }, [parsedIcal, icalError, config, params, setEvents]);
 
   const error = icalError ?? icalData?.error;
   return error && !hideErrors && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
