@@ -257,7 +257,7 @@ export async function servicesFromKubernetes() {
           constructedService.external =
             String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
         }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`]) {
+        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
           constructedService.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
         }
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
