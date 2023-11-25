@@ -18,11 +18,9 @@ export default async function genericProxyHandler(req, res, map) {
     }
 
     if (widget) {
-      const integration = widget?.integrations?.find((i) => i.name === endpoint) ?? {};
-
       // if there are more than one question marks, replace others to &
       const url = new URL(
-        formatApiCall(widgets[widget.type].api, { endpoint, ...widget, ...integration }).replace(/(?<=\?.*)\?/g, "&"),
+        formatApiCall(widgets[widget.type].api, { endpoint, ...widget }).replace(/(?<=\?.*)\?/g, "&"),
       );
 
       const headers = req.extraHeaders ?? widget.headers ?? {};
@@ -48,9 +46,6 @@ export default async function genericProxyHandler(req, res, map) {
       }
 
       if (status === 200) {
-        if (integration?.url) {
-          return res.status(status).json({ data: resultData.toString() });
-        }
         if (!validateWidgetData(widget, endpoint, resultData)) {
           return res
             .status(status)

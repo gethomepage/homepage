@@ -1,8 +1,8 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import calendarProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: calendarProxyHandler,
 };
 
 export default widget;

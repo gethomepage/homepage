@@ -31,7 +31,6 @@ import hdhomerun from "./hdhomerun/widget";
 import homeassistant from "./homeassistant/widget";
 import homebridge from "./homebridge/widget";
 import healthchecks from "./healthchecks/widget";
-import ical from "./ical/widget";
 import immich from "./immich/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
@@ -113,7 +112,6 @@ const widgets = {
   changedetectionio,
   channelsdvrserver,
   cloudflared,
-  calendar,
   coinmarketcap,
   customapi,
   deluge,
@@ -134,7 +132,7 @@ const widgets = {
   homeassistant,
   homebridge,
   healthchecks,
-  ical,
+  ical: calendar,
   immich,
   jackett,
   jdownloader,
