@@ -765,6 +765,7 @@
         "inCinemas": "В кинотеатрах",
         "physicalRelease": "Физический релиз",
         "digitalRelease": "Цифровой релиз",
-        "noEventsToday": "Нет событий на сегодня!"
+        "noEventsToday": "Нет событий на сегодня!",
+        "noEventsFound": "No events found"
     }
 }
