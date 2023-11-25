@@ -765,6 +765,7 @@
         "inCinemas": "In fliekteaters",
         "physicalRelease": "Fisiese Vrylating",
         "digitalRelease": "Digitale Vrylating",
-        "noEventsToday": "Geen gebeure vir vandag nie!"
+        "noEventsToday": "Geen gebeure vir vandag nie!",
+        "noEventsFound": "No events found"
     }
 }
