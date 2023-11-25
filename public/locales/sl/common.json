@@ -765,6 +765,7 @@
         "inCinemas": "V kinu",
         "physicalRelease": "Fizična izdaja",
         "digitalRelease": "Digitalna izdaja",
-        "noEventsToday": "Za danes ni dogodkov!"
+        "noEventsToday": "Za danes ni dogodkov!",
+        "noEventsFound": "No events found"
     }
 }
