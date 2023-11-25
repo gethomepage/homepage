@@ -129,7 +129,7 @@
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
-        "diffsDetected": "Erkannte Differenzen"
+        "diffsDetected": "Erkannte Änderungen"
     },
     "channelsdvrserver": {
         "shows": "Serien",
@@ -328,7 +328,7 @@
         "numberOfGrabs": "Abrufungen",
         "numberOfQueries": "Anfragen",
         "numberOfFailGrabs": "Fehlgeschlagene Abrufungen",
-        "numberOfFailQueries": "Fehlgeschlagene Abfragen"
+        "numberOfFailQueries": "Fehlgeschlagene Anfragen"
     },
     "jackett": {
         "configured": "Konfiguriert",

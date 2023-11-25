@@ -115,7 +115,7 @@
     "flood": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "freshrss": {
@@ -175,13 +175,13 @@
     "transmission": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "qbittorrent": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "qnap": {
@@ -195,13 +195,13 @@
     "deluge": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "downloadstation": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "sonarr": {

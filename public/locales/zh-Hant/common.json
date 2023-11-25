@@ -51,8 +51,8 @@
         "uptime": "系統運作時間",
         "days": "天",
         "wan": "WAN",
-        "lan": "LAN",
-        "wlan": "WLAN",
+        "lan": "區域網路",
+        "wlan": "無線區域網路",
         "devices": "設備",
         "lan_devices": "有線設備",
         "wlan_devices": "無線設備",
@@ -81,18 +81,18 @@
     },
     "ping": {
         "error": "錯誤",
-        "ping": "Ping",
+        "ping": "延遲",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "不可用"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "HTTP 狀態",
         "error": "錯誤",
-        "response": "Response",
+        "response": "回應",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "不可用"
     },
     "emby": {
         "playing": "正在播放",
@@ -270,7 +270,7 @@
     "speedtest": {
         "upload": "上傳速率",
         "download": "下載速率",
-        "ping": "Ping"
+        "ping": "延遲"
     },
     "portainer": {
         "running": "執行中",
@@ -542,7 +542,7 @@
         "streams_xepg": "XEPG頻道"
     },
     "opendtu": {
-        "yieldDay": "Today",
+        "yieldDay": "今日",
         "absolutePower": "Power",
         "relativePower": "Power %",
         "limit": "Limit"
@@ -667,7 +667,7 @@
         "targets_total": "目標總數"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "今日",
         "gross_percent_1y": "一年",
         "gross_percent_max": "所有時間"
     },
@@ -725,10 +725,10 @@
         "players": "玩家",
         "maxPlayers": "玩家數上限",
         "bots": "機器人",
-        "ping": "Ping"
+        "ping": "延遲"
     },
     "urbackup": {
-        "ok": "Ok",
+        "ok": "確定",
         "errored": "錯誤",
         "noRecent": "已過時",
         "totalUsed": "已使用空間"
@@ -765,6 +765,6 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "今日無事件"
     }
 }
