@@ -153,7 +153,7 @@ labels:
   - homepage.widget.fields=["field1","field2"] # optional
 ```
 
-You can add specify fields for e.g. the [CustomAPI](/widgets/services/customapi) widget by using array-style dot notation:
+You can add specify fields for e.g. the [CustomAPI](../widgets/services/customapi.md) widget by using array-style dot notation:
 
 ```yaml
 labels:
