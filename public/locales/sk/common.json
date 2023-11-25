@@ -765,6 +765,7 @@
         "inCinemas": "V kinách",
         "physicalRelease": "Fyzické vydanie",
         "digitalRelease": "Digitálne vydanie",
-        "noEventsToday": "Žiadne udalosti na dnešný deň!"
+        "noEventsToday": "Žiadne udalosti na dnešný deň!",
+        "noEventsFound": "No events found"
     }
 }
