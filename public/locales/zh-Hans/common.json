@@ -765,6 +765,7 @@
         "inCinemas": "上映中",
         "physicalRelease": "实体发行",
         "digitalRelease": "数字发行",
-        "noEventsToday": "今天没有活动！"
+        "noEventsToday": "今天没有活动！",
+        "noEventsFound": "No events found"
     }
 }
