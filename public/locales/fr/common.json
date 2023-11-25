@@ -690,7 +690,7 @@
         "books": "Livres",
         "authors": "Auteurs",
         "categories": "Catégories",
-        "series": "Séries TV"
+        "series": "Séries"
     },
     "jdownloader": {
         "downloadCount": "En attente",
@@ -765,6 +765,7 @@
         "inCinemas": "En salle",
         "physicalRelease": "Sortie physique",
         "digitalRelease": "Sortie numérique",
-        "noEventsToday": "Rien pour aujourd'hui !"
+        "noEventsToday": "Rien pour aujourd'hui !",
+        "noEventsFound": "No events found"
     }
 }
