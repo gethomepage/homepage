@@ -351,6 +351,7 @@ export function cleanServiceGroups(groups) {
           firstDayInWeek,
           integrations,
           maxEvents,
+          showTime,
           view,
 
           // coinmarketcap
@@ -517,6 +518,7 @@ export function cleanServiceGroups(groups) {
           if (firstDayInWeek) cleanedService.widget.firstDayInWeek = firstDayInWeek;
           if (view) cleanedService.widget.view = view;
           if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
+          if (showTime) cleanedService.widget.showTime = showTime;
         }
       }
 

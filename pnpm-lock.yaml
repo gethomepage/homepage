@@ -11,6 +11,9 @@ dependencies:
   '@kubernetes/client-node':
     specifier: ^0.17.1
     version: 0.17.1
+  cal-parser:
+    specifier: ^1.0.2
+    version: 1.0.2
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
@@ -862,6 +865,13 @@ packages:
       mimic-response: 4.0.0
       normalize-url: 8.0.0
       responselike: 3.0.0
+    dev: false
+
+  /cal-parser@1.0.2:
+    resolution: {integrity: sha512-wlQwcF0fl4eLclyGdncF9rcNNq0ipRYZGagG6h3LVgRXvCWE1fdMUaCLXwfC9YWoz9jKKbjQAq7TpO2Y3yrvmA==}
+    dependencies:
+      ical-date-parser: 4.0.0
+      rrule: 2.7.2
     dev: false
 
   /call-bind@1.0.2:
@@ -2232,6 +2242,10 @@ packages:
       '@babel/runtime': 7.21.0
     dev: false
 
+  /ical-date-parser@4.0.0:
+    resolution: {integrity: sha512-XRCK/FU1akC2ZaJOdKIeZI6BLLgzWUuE0pegSrrkEva89GOan5mNkLVqCU4EMhCJ9nkG5TLWdMXrVX1fNAkFzw==}
+    dev: false
+
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -3537,6 +3551,12 @@ packages:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     dependencies:
       glob: 7.2.3
+
+  /rrule@2.7.2:
+    resolution: {integrity: sha512-NkBsEEB6FIZOZ3T8frvEBOB243dm46SPufpDckY/Ap/YH24V1zLeMmDY8OA10lk452NdrF621+ynDThE7FQU2A==}
+    dependencies:
+      tslib: 2.5.0
+    dev: false
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
