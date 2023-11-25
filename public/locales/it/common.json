@@ -765,6 +765,7 @@
         "inCinemas": "Al cinema",
         "physicalRelease": "Release fisici",
         "digitalRelease": "Versione digitale",
-        "noEventsToday": "Nessun evento per oggi!"
+        "noEventsToday": "Nessun evento per oggi!",
+        "noEventsFound": "No events found"
     }
 }
