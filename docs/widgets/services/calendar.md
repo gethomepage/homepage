@@ -41,6 +41,7 @@ widget:
   view: agenda
   maxEvents: 10 # optional - defaults to 10
   showTime: true # optional - show time for event happening today - defaults to false
+  previousDays: 3 # optional - shows events since three days ago - defaults to 0
   integrations: # same as in Monthly view example
 ```
 
