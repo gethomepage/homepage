@@ -1,25 +1,27 @@
 import { DateTime } from "luxon";
 import { parseString } from "cal-parser";
 import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
 
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import Error from "../../../components/services/widget/error";
 
 export default function Integration({ config, params, setEvents, hideErrors }) {
+  const { t } = useTranslation();
   const { data: icalData, error: icalError } = useWidgetAPI(config, config.name, {
     refreshInterval: 300000, // 5 minutes
   });
 
-  let parsedIcal;
-
-  if (!icalError && icalData && !icalData.error) {
-    parsedIcal = parseString(icalData.data);
-    if (parsedIcal.events.length === 0) {
-      icalData.error = { message: "No events found" };
-    }
-  }
-
   useEffect(() => {
+    let parsedIcal;
+
+    if (!icalError && icalData && !icalData.error) {
+      parsedIcal = parseString(icalData.data);
+      if (parsedIcal.events.length === 0) {
+        icalData.error = { message: `'${config.name}': ${t("calendar.noEventsFound")}` };
+      }
+    }
+
     if (icalError || !parsedIcal) {
       return;
     }
@@ -49,7 +51,7 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
     });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
-  }, [parsedIcal, icalError, config, params, setEvents]);
+  }, [icalData, icalError, config, params, setEvents, t]);
 
   const error = icalError ?? icalData?.error;
   return error && !hideErrors && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
