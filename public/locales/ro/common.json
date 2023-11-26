@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Utilizatori",
-        "uptime": "Timp de funcționare a sistemului",
+        "uptime": "Uptime",
         "days": "Zile",
         "wan": "WAN",
         "lan": "LAN",
