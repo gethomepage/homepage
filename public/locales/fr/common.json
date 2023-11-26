@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Utilisateurs",
-        "uptime": "Disponibilité du système",
+        "uptime": "Démarré depuis",
         "days": "Jours",
         "wan": "WAN",
         "lan": "LAN",
