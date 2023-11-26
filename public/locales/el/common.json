@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Χρήστες",
-        "uptime": "Χρόνος λειτουργίας συστήματος",
+        "uptime": "Uptime",
         "days": "Ημέρες",
         "wan": "WAN",
         "lan": "LAN",
