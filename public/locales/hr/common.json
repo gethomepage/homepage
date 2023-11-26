@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Korisnici",
-        "uptime": "Radno vrijeme sustava",
+        "uptime": "Radno vrijeme",
         "days": "Dani",
         "wan": "WAN",
         "lan": "LAN",
