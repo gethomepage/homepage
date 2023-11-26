@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Felhasználók",
-        "uptime": "Rendszer üzemidő",
+        "uptime": "Üzemidő",
         "days": "Napok",
         "wan": "WAN",
         "lan": "LAN",
