@@ -26,12 +26,12 @@ export default function Component({ service }) {
   }
 
   // Default fields
-  if (widget.fields == null || widget.fields.length === 0) {
+  if (!widget.fields?.length > 0) {
     widget.fields = ["connectionStatus", "uptime", "maxDown", "maxUp"];
   }
   const MAX_ALLOWED_FIELDS = 4;
   // Limits max number of displayed fields
-  if (widget.fields != null && widget.fields.length > MAX_ALLOWED_FIELDS) {
+  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
