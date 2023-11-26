@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Uživatelé",
-        "uptime": "Doba provozu",
+        "uptime": "Doba spuštění",
         "days": "dní",
         "wan": "WAN",
         "lan": "LAN",
