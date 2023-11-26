@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Потребители",
-        "uptime": "Активен от",
+        "uptime": "Uptime",
         "days": "Дни",
         "wan": "WAN",
         "lan": "LAN",
