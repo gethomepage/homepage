@@ -16,15 +16,6 @@ const formatUptime = (timestamp) => {
   return hourDuration + minDuration + secDuration;
 };
 
-function formatBytes(bytes, decimals) {
-  if (bytes === 0) return "0 Bytes";
-  const k = 1024;
-  const dm = decimals || 2;
-  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
-}
-
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
@@ -64,12 +55,12 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="fritzbox.connectionStatus" value={t(`fritzbox.connectionStatus${fritzboxData.connectionStatus}`)} />
       <Block label="fritzbox.uptime" value={formatUptime(fritzboxData.uptime)} />
-      <Block label="fritzbox.maxDown" value={`${formatBytes(fritzboxData.maxDown / 8)}/s`} />
-      <Block label="fritzbox.maxUp" value={`${formatBytes(fritzboxData.maxUp / 8)}/s`} />
-      <Block label="fritzbox.down" value={`${formatBytes(fritzboxData.down)}/s`} />
-      <Block label="fritzbox.up" value={`${formatBytes(fritzboxData.up)}/s`} />
-      <Block label="fritzbox.received" value={formatBytes(fritzboxData.received)} />
-      <Block label="fritzbox.sent" value={formatBytes(fritzboxData.sent)} />
+      <Block label="fritzbox.maxDown" value={t("common.byterate", { value: fritzboxData.maxDown / 8, decimals: 1 })} />
+      <Block label="fritzbox.maxUp" value={t("common.byterate", { value: fritzboxData.maxUp / 8, decimals: 1 })} />
+      <Block label="fritzbox.down" value={t("common.byterate", { value: fritzboxData.down, decimals: 1 })} />
+      <Block label="fritzbox.up" value={t("common.byterate", { value: fritzboxData.up, decimals: 1 })} />
+      <Block label="fritzbox.received" value={t("common.bytes", { value: fritzboxData.received })} />
+      <Block label="fritzbox.sent" value={t("common.bytes", { value: fritzboxData.sent })} />
       <Block label="fritzbox.externalIPAddress" value={fritzboxData.externalIPAddress} />
     </Container>
   );
