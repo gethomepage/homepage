@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Utilizadores",
-        "uptime": "Sistema Ativo",
+        "uptime": "Ligado",
         "days": "Dias",
         "wan": "WAN",
         "lan": "LAN",
