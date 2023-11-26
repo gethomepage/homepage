@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "ユーザ",
-        "uptime": "システム・アップタイム",
+        "uptime": "稼働時間",
         "days": "日",
         "wan": "WAN",
         "lan": "LAN",
