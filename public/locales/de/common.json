@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Benutzer",
-        "uptime": "System-Laufzeit",
+        "uptime": "Betriebszeit",
         "days": "Tage",
         "wan": "WAN",
         "lan": "LAN",
