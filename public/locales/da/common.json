@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Brugere",
-        "uptime": "System Oppetid",
+        "uptime": "Oppetid",
         "days": "Dage",
         "wan": "WAN",
         "lan": "LAN",
