@@ -122,6 +122,24 @@
         "subscriptions": "الاشتراكات",
         "unread": "غير مقروءة"
     },
+    "fritzbox": {
+        "connectionStatus": "الحالة",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "متصل",
+        "uptime": "مدة التشغيل",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "لا يعمل",
+        "up": "يعمل",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "تدفق",
         "requests": "طلبات الحالية",
