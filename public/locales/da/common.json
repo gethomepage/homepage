@@ -122,6 +122,24 @@
         "subscriptions": "Abonnementer",
         "unread": "Ulæst"
     },
+    "fritzbox": {
+        "connectionStatus": "Status",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Forbundet",
+        "uptime": "Oppetid",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Ned",
+        "up": "Op",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Upstreams",
         "requests": "Aktuelle anmodninger",
