@@ -132,13 +132,13 @@
         "connectionStatusDisconnected": "Getrennt",
         "connectionStatusConnected": "Verbunden",
         "uptime": "Betriebszeit",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "Max. Empfang",
+        "maxUp": "Max. Senden",
         "down": "Empfangen",
         "up": "Senden",
         "received": "Empfangen",
         "sent": "Gesendet",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "Externe IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
