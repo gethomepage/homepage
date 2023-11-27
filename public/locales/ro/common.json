@@ -122,6 +122,24 @@
         "subscriptions": "Abonări",
         "unread": "Necitit"
     },
+    "fritzbox": {
+        "connectionStatus": "Stare",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Connected",
+        "uptime": "Uptime",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Jos",
+        "up": "Sus",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Upstreamuri",
         "requests": "Solicitări curente",
