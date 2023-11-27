@@ -127,7 +127,7 @@
         "connectionStatusUnconfigured": "Unkonfiguriert",
         "connectionStatusConnecting": "Verbinde",
         "connectionStatusAuthenticating": "Authenifiziere",
-        "connectionStatusPendingDisconnect": "Anstehende Trennung",
+        "connectionStatusPendingDisconnect": "Ausstehende Trennung",
         "connectionStatusDisconnecting": "Trenne",
         "connectionStatusDisconnected": "Getrennt",
         "connectionStatusConnected": "Verbunden",
