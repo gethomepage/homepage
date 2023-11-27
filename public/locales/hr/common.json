@@ -122,6 +122,24 @@
         "subscriptions": "Pretplate",
         "unread": "Nepročitano"
     },
+    "fritzbox": {
+        "connectionStatus": "Stanje",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Povezano",
+        "uptime": "Radno vrijeme",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Glavne grane",
         "requests": "Aktualni zahtjevi",
