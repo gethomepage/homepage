@@ -122,6 +122,24 @@
         "subscriptions": "订阅",
         "unread": "未读"
     },
+    "fritzbox": {
+        "connectionStatus": "状态",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "已连接",
+        "uptime": "运行时间",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "离线",
+        "up": "在线",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "上行",
         "requests": "当前请求",
