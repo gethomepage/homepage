@@ -8,6 +8,7 @@ This allows you to display the homepage logo, you can optionally specify your ow
 ```yaml
 - logo:
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/I_Love_New_York.svg/1101px-I_Love_New_York.svg.png # optional
+    href: 'https://www.nyc.gov/' # Optional
 ```
 
-_Added in v0.4.18, updated in 0.X.X_
+_Added in v0.4.18, updated in 0.8.X_
