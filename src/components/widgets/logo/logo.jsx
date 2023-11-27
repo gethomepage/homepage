@@ -12,7 +12,13 @@ export default function Logo({ options }) {
       <Raw>
         {options.icon ? (
           <div className="resolved mr-3">
-            <ResolvedIcon icon={options.icon} width={48} height={48} />
+            {options.href ? (
+              <a href={options.href} target="_blank" rel="noreferrer">
+                <ResolvedIcon icon={options.icon} width={48} height={48} />
+              </a>
+            ) : (
+              <ResolvedIcon icon={options.icon} width={48} height={48} />
+            )}
           </div>
         ) : (
           // fallback to homepage logo
