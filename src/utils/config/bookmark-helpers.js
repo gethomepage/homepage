@@ -4,7 +4,7 @@ import path from "path";
 import yaml from "js-yaml";
 import Docker from "dockerode";
 
-import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
+import checkAndCopyConfig, { getSettings, CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import * as shvl from "utils/config/shvl";
 
@@ -91,6 +91,8 @@ export async function bookmarksFromDocker() {
     return [];
   }
 
+  const { instanceName } = getSettings();
+
   const bookmarkServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
       try {
@@ -99,26 +101,28 @@ export async function bookmarksFromDocker() {
         const discovered = containers.map((container) => {
           let constructedBookmark = null;
           const containerLabels = isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels;
+          const containerName = isSwarm ? shvl.get(container, "Spec.Name") : container.Names[0];
 
           Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.bookmarks.")) {
-              const cleanLabel = label.replace("homepage.bookmarks.", "");
+              const containerNameNoSlash = containerName.replace(/^\//, "");
+              const cleanLabel = label.replace(`homepage.bookmarks.${containerNameNoSlash}.`, "");
 
-              // homepage.bookmarks.this_is_bookmark_group.this_is_bookmark_name.abbr = "href"
+              let value = cleanLabel;
+              if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
+                value = value.replace(`instance.${instanceName}.`, "");
+              } else if (value.startsWith("instance.")) {
+                return;
+              }
 
-              // this_is_bookmark_group.this_is_bookmark_name.abbr = "href"
-              // TODO should I add error handling for badly formatted labels?
-              const [bookmarkGroup, bookmarkName, bookmarkAbbr] = cleanLabel.split('.');
-              const bookmarkHref= containerLabels[label];
-
-              constructedBookmark = {
-                group: bookmarkGroup,
-                name: bookmarkName,
-                href: bookmarkHref,
-                abbr: bookmarkAbbr,
-                type: "bookmark"
-              };
-
+              if (!constructedBookmark) {
+                constructedBookmark = {
+                  container: containerNameNoSlash,
+                  server: serverName,
+                  type: "bookmark",
+                };
+              }
+              shvl.set(constructedBookmark, value, substituteEnvironmentVars(containerLabels[label]));
             }
           });
 
