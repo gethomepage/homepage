@@ -122,6 +122,24 @@
         "subscriptions": "Abonnements",
         "unread": "Non lu"
     },
+    "fritzbox": {
+        "connectionStatus": "Statut",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Connecté",
+        "uptime": "Démarré depuis",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Upstreams",
         "requests": "Demandes en cours",
