@@ -122,6 +122,24 @@
         "subscriptions": "Передплата",
         "unread": "Не прочитано"
     },
+    "fritzbox": {
+        "connectionStatus": "Стан",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Підключено",
+        "uptime": "Час роботи",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Потоки",
         "requests": "Поточні запити",
