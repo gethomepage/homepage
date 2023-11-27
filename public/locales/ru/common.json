@@ -122,6 +122,24 @@
         "subscriptions": "Подписки",
         "unread": "Не прочитано"
     },
+    "fritzbox": {
+        "connectionStatus": "Статус",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Подключено",
+        "uptime": "Время работы",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Офлайн",
+        "up": "Онлайн",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Входящие каналы",
         "requests": "Текущие запросы",
