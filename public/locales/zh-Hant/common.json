@@ -138,7 +138,7 @@
         "up": "在線",
         "received": "已接收",
         "sent": "已送出",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "外部 IP"
     },
     "caddy": {
         "upstreams": "上行",
@@ -387,8 +387,8 @@
     "proxmox": {
         "mem": "記憶體",
         "cpu": "CPU",
-        "lxc": "LXC",
-        "vms": "VMs"
+        "lxc": "Linux 容器",
+        "vms": "虛擬機"
     },
     "glances": {
         "cpu": "CPU",
@@ -408,7 +408,7 @@
         "write": "寫入",
         "gpu": "GPU",
         "mem": "記憶體",
-        "swap": "Swap"
+        "swap": "交換空間"
     },
     "quicklaunch": {
         "bookmark": "書籤",
@@ -481,7 +481,7 @@
         "updates": "更新",
         "update_available": "有可用的更新",
         "up_to_date": "已更新至最新",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "子網橋",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "在線",
         "pending": "待下載",
@@ -561,9 +561,9 @@
     },
     "opendtu": {
         "yieldDay": "今日",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "absolutePower": "功率",
+        "relativePower": "功率百分比",
+        "limit": "上限"
     },
     "opnsense": {
         "cpu": "CPU負載",
@@ -780,10 +780,10 @@
         "unknown": "未知"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
+        "inCinemas": "上映中",
+        "physicalRelease": "實體發行",
+        "digitalRelease": "數位發行",
         "noEventsToday": "今日無事件",
-        "noEventsFound": "No events found"
+        "noEventsFound": "未找到事件"
     }
 }
