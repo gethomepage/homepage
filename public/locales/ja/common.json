@@ -122,6 +122,24 @@
         "subscriptions": "購読",
         "unread": "未読"
     },
+    "fritzbox": {
+        "connectionStatus": "状態",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "接続済み",
+        "uptime": "稼働時間",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "下へ",
+        "up": "上へ",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "アップストリーム",
         "requests": "現在のリクエスト",
