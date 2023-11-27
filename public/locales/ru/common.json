@@ -124,21 +124,21 @@
     },
     "fritzbox": {
         "connectionStatus": "Статус",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "PendingDisconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusUnconfigured": "Не настроено",
+        "connectionStatusConnecting": "Подключение",
+        "connectionStatusAuthenticating": "Авторизация",
+        "connectionStatusPendingDisconnect": "В ожидании отключения",
+        "connectionStatusDisconnecting": "Отключение",
+        "connectionStatusDisconnected": "Отключено",
         "connectionStatusConnected": "Подключено",
         "uptime": "Время работы",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "Макс. Загрузка",
+        "maxUp": "Макс. Отдача",
         "down": "Офлайн",
         "up": "Онлайн",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "Получено",
+        "sent": "Отправлено",
+        "externalIPAddress": "Внеш. IP"
     },
     "caddy": {
         "upstreams": "Входящие каналы",
@@ -784,6 +784,6 @@
         "physicalRelease": "Физический релиз",
         "digitalRelease": "Цифровой релиз",
         "noEventsToday": "Нет событий на сегодня!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "Событий не найдено"
     }
 }
