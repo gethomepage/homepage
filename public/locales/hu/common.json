@@ -122,6 +122,24 @@
         "subscriptions": "Előfizetések",
         "unread": "Olvasatlan"
     },
+    "fritzbox": {
+        "connectionStatus": "Státusz",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Csatlakoztatott",
+        "uptime": "Üzemidő",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Upstreamek",
         "requests": "Jelenlegi kérelmek",
