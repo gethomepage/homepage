@@ -362,12 +362,12 @@ function Home({ initialSettings }) {
   return (
     <>
       <Head>
-        <title>{initialSettings.title || "Homepage"}</title>
-        {initialSettings.base && <base href={initialSettings.base} />}
-        {initialSettings.favicon ? (
+        <title>{settings.title || "Homepage"}</title>
+        {settings.base && <base href={settings.base} />}
+        {settings.favicon ? (
           <>
-            <link rel="icon" href={initialSettings.favicon} />
-            <link rel="apple-touch-icon" sizes="180x180" href={initialSettings.favicon} />
+            <link rel="icon" href={settings.favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
           </>
         ) : (
           <>
@@ -378,11 +378,8 @@ function Home({ initialSettings }) {
             <link rel="mask-icon" href="/safari-pinned-tab.svg?v=4" color="#1e9cd7" />
           </>
         )}
-        <meta
-          name="msapplication-TileColor"
-          content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]}
-        />
-        <meta name="theme-color" content={themes[initialSettings.color || "slate"][initialSettings.theme || "dark"]} />
+        <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
+        <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
       </Head>
 
       <link rel="preload" href="/api/config/custom.css" as="fetch" crossOrigin="anonymous" />
