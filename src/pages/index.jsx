@@ -491,7 +491,7 @@ export default function Wrapper({ initialSettings, fallback }) {
         rgb(var(--bg-color) / ${opacityValue}),
         rgb(var(--bg-color) / ${opacityValue})
       ),
-      url(${backgroundImage})`;
+      url('${backgroundImage}')`;
     wrappedStyle.backgroundPosition = "center";
     wrappedStyle.backgroundSize = "cover";
   }
