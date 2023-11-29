@@ -124,8 +124,8 @@
     },
     "fritzbox": {
         "connectionStatus": "Status",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
+        "connectionStatusUnconfigured": "Ongekonfigureer",
+        "connectionStatusConnecting": "Verbind",
         "connectionStatusAuthenticating": "Authenticating",
         "connectionStatusPendingDisconnect": "PendingDisconnect",
         "connectionStatusDisconnecting": "Disconnecting",
