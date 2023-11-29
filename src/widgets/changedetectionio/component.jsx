@@ -28,7 +28,7 @@ export default function Component({ service }) {
   let diffsDetected = 0;
 
   Object.keys(data).forEach((key) => {
-    if (data[key].last_changed > 0 && data[key].last_checked === data[key].last_changed) {
+    if (data[key].last_changed > 0 && data[key].last_checked === data[key].last_changed && !data[key].viewed) {
       diffsDetected += 1;
     }
   });
