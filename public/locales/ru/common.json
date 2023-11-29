@@ -124,7 +124,7 @@
     },
     "fritzbox": {
         "connectionStatus": "Статус",
-        "connectionStatusUnconfigured": "Не настроено",
+        "connectionStatusUnconfigured": "Не настроен",
         "connectionStatusConnecting": "Подключение",
         "connectionStatusAuthenticating": "Авторизация",
         "connectionStatusPendingDisconnect": "В ожидании отключения",
