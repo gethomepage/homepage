@@ -126,18 +126,18 @@
         "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Ongekonfigureer",
         "connectionStatusConnecting": "Verbind",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "PendingDisconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusAuthenticating": "Stel geldigheid vas",
+        "connectionStatusPendingDisconnect": "Hangende Ontkoppeling",
+        "connectionStatusDisconnecting": "Ontkoppel",
+        "connectionStatusDisconnected": "Ontkoppel",
         "connectionStatusConnected": "Gekoppel",
         "uptime": "Optyd",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "Maks. Af",
+        "maxUp": "Maks. Op",
         "down": "Af",
         "up": "Op",
-        "received": "Received",
-        "sent": "Sent",
+        "received": "Ontvang",
+        "sent": "Gestuur",
         "externalIPAddress": "Ext. IP"
     },
     "caddy": {
@@ -784,6 +784,6 @@
         "physicalRelease": "Fisiese Vrylating",
         "digitalRelease": "Digitale Vrylating",
         "noEventsToday": "Geen gebeure vir vandag nie!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "Geen gebeure gevind nie"
     }
 }
