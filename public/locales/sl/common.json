@@ -124,21 +124,21 @@
     },
     "fritzbox": {
         "connectionStatus": "Stanje",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "PendingDisconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusUnconfigured": "Nenastavljeno",
+        "connectionStatusConnecting": "Se povezuje",
+        "connectionStatusAuthenticating": "Avtentikacija",
+        "connectionStatusPendingDisconnect": "Čaka na prekinitev",
+        "connectionStatusDisconnecting": "Prekinitev",
+        "connectionStatusDisconnected": "Prekinjeno",
         "connectionStatusConnected": "Povezanih",
         "uptime": "Čas delovanja",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "Maks. dol",
+        "maxUp": "Maks. gor",
         "down": "Nepovezan",
         "up": "Povezan",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "Prejeto",
+        "sent": "Poslano",
+        "externalIPAddress": "Zun. IP"
     },
     "caddy": {
         "upstreams": "Pretok gor",
@@ -784,6 +784,6 @@
         "physicalRelease": "Fizična izdaja",
         "digitalRelease": "Digitalna izdaja",
         "noEventsToday": "Za danes ni dogodkov!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "Ni dogodkov"
     }
 }
