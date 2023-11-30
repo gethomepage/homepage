@@ -124,20 +124,20 @@
     },
     "fritzbox": {
         "connectionStatus": "Status",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "PendingDisconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusUnconfigured": "Niet-geconfigureerd",
+        "connectionStatusConnecting": "Bezig met verbinden",
+        "connectionStatusAuthenticating": "Verificatie",
+        "connectionStatusPendingDisconnect": "Verbinding verbreken",
+        "connectionStatusDisconnecting": "Verbinding verbreken...",
+        "connectionStatusDisconnected": "Verbinding verbroken",
         "connectionStatusConnected": "Verbonden",
         "uptime": "Online",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "Max. Omlaag",
+        "maxUp": "Max. omhoog",
         "down": "Offline",
         "up": "Online",
-        "received": "Received",
-        "sent": "Sent",
+        "received": "Ontvangen",
+        "sent": "Verzonden",
         "externalIPAddress": "Ext. IP"
     },
     "caddy": {
@@ -784,6 +784,6 @@
         "physicalRelease": "Fysieke versie",
         "digitalRelease": "Digitale versie",
         "noEventsToday": "Geen gebeurtenissen voor vandaag!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "Geen gebeurtenissen gevonden"
     }
 }
