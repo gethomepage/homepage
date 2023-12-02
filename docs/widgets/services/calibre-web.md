@@ -3,7 +3,7 @@ title: Calibre-web
 description: Calibre-web Widget Configuration
 ---
 
-**Note: widget requires calibre-web ≥ v0.6.21.**  
+**Note: widget requires calibre-web ≥ v0.6.21.**
 
 Allowed fields: `["books", "authors", "categories", "series"]`.
 
