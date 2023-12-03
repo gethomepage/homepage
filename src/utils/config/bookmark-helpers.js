@@ -3,9 +3,12 @@ import path from "path";
 
 import yaml from "js-yaml";
 import Docker from "dockerode";
+import { CustomObjectsApi, NetworkingV1Api } from "@kubernetes/client-node";
 
 import checkAndCopyConfig, { getSettings, CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
+import getKubeConfig from "utils/config/kubernetes";
+import { checkCRD, getUrlFromIngress } from "./service-helpers";
 import * as shvl from "utils/config/shvl";
 
 export async function bookmarksFromConfig() {
@@ -45,7 +48,7 @@ const listDockerContainers = async (servers, serverName) => {
   const docker = new Docker(getDockerArguments(serverName).conn);
   const listProperties = { all: true };
   const containers = await (isSwarm
-    ? docker.listServices(listProperties)
+    ? docker.listbookmarks(listProperties)
     : docker.listContainers(listProperties));
 
   // bad docker connections can result in a <Buffer ...> object?
@@ -140,3 +143,140 @@ export async function bookmarksFromDocker() {
   const mappedBookmarkGroups = mapObjectsToGroup(bookmarkServers, 'bookmarks');
   return mappedBookmarkGroups;
 }
+
+
+export async function bookmarksFromKubernetes() {
+  const ANNOTATION_BASE = "gethomepage.dev";
+  const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+
+  checkAndCopyConfig("kubernetes.yaml");
+
+  try {
+    const kc = getKubeConfig();
+    if (!kc) {
+      return [];
+    }
+    const networking = kc.makeApiClient(NetworkingV1Api);
+    const crd = kc.makeApiClient(CustomObjectsApi);
+
+    const ingressList = await networking
+      .listIngressForAllNamespaces(null, null, null, null)
+      .then((response) => response.body)
+      .catch((error) => {
+        logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        return null;
+      });
+
+    const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
+    const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
+
+    const traefikIngressListContaino = await crd
+      .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
+      .then((response) => response.body)
+      .catch(async (error) => {
+        if (traefikContainoExists) {
+          logger.error(
+            "Error getting traefik ingresses from traefik.containo.us: %d %s %s",
+            error.statusCode,
+            error.body,
+            error.response,
+          );
+        }
+
+        return [];
+      });
+
+    const traefikIngressListIo = await crd
+      .listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
+      .then((response) => response.body)
+      .catch(async (error) => {
+        if (traefikExists) {
+          logger.error(
+            "Error getting traefik ingresses from traefik.io: %d %s %s",
+            error.statusCode,
+            error.body,
+            error.response,
+          );
+        }
+
+        return [];
+      });
+
+    const traefikIngressList = [...(traefikIngressListContaino?.items ?? []), ...(traefikIngressListIo?.items ?? [])];
+
+    if (traefikIngressList.length > 0) {
+      const traefikbookmarks = traefikIngressList.filter(
+        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`],
+      );
+      ingressList.items.push(...traefikbookmarks);
+    }
+
+    if (!ingressList) {
+      return [];
+    }
+    const bookmarks = ingressList.items
+      .filter(
+        (ingress) =>
+          ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true",
+      )
+      .map((ingress) => {
+        let constructedBookmark = {
+          app: ingress.metadata.annotations[`${ANNOTATION_BASE}/app`] || ingress.metadata.name,
+          namespace: ingress.metadata.namespace,
+          href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
+          name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
+          group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
+          icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
+          description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
+          type: "bookmark",
+        };
+        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`]) {
+          constructedBookmark.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
+        }
+        Object.keys(ingress.metadata.annotations).forEach((annotation) => {
+          if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+            shvl.set(
+              constructedBookmark,
+              annotation.replace(`${ANNOTATION_BASE}/`, ""),
+              ingress.metadata.annotations[annotation],
+            );
+          }
+        });
+
+        try {
+          constructedBookmark = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedBookmark)));
+        } catch (e) {
+          logger.error("Error attempting k8s environment variable substitution.");
+        }
+
+        return constructedBookmark;
+      });
+
+    const mappedBookmarkGroups = [];
+
+    bookmarks.forEach((serverBookmark) => {
+      let serverGroup = mappedBookmarkGroups.find((searchedGroup) => searchedGroup.name === serverBookmark.group);
+      if (!serverGroup) {
+        mappedBookmarkGroups.push({
+          name: serverBookmark.group,
+          bookmarks: [],
+        });
+        serverGroup = mappedBookmarkGroups[mappedBookmarkGroups.length - 1];
+      }
+
+      const { name: bookmarkName, group: serverBookmarkGroup, ...pushedBookmark } = serverBookmark;
+      const result = {
+        name: bookmarkName,
+        ...pushedBookmark,
+      };
+
+      serverGroup.bookmarks.push(result);
+    });
+
+    return mappedBookmarkGroups;
+  } catch (e) {
+    logger.error(e);
+    throw e;
+  }
+}
+

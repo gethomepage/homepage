@@ -139,7 +139,7 @@ export async function servicesFromDocker() {
   return mappedServiceGroups;
 }
 
-function getUrlFromIngress(ingress) {
+export function getUrlFromIngress(ingress) {
   const urlHost = ingress.spec.rules[0].host;
   const urlPath = ingress.spec.rules[0].http.paths[0].path;
   const urlSchema = ingress.spec.tls ? "https" : "http";
