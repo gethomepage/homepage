@@ -20,7 +20,7 @@
         "status": "Status",
         "url": "URL",
         "raw_error": "Rohfehler",
-        "response_data": "Antwortdaten"
+        "response_data": "Empfangene Daten"
     },
     "weather": {
         "current": "Aktueller Standort",
