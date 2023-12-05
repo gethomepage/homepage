@@ -1,5 +1,7 @@
 import { xml2json } from "xml-js";
 
+import { fritzboxDefaultFields } from "./component";
+
 import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
@@ -46,10 +48,12 @@ async function requestEndpoint(apiBaseUrl, service, action) {
 export default async function fritzboxProxyHandler(req, res) {
   const { group, service } = req.query;
   const serviceWidget = await getServiceWidget(group, service);
+
   if (!serviceWidget) {
     res.status(500).json({ error: "Service widget not found" });
     return;
   }
+
   if (!serviceWidget.url) {
     res.status(500).json({ error: "Service widget url not configured" });
     return;
@@ -59,23 +63,31 @@ export default async function fritzboxProxyHandler(req, res) {
   const port = serviceWidgetUrl.protocol === "https:" ? 49443 : 49000;
   const apiBaseUrl = `${serviceWidgetUrl.protocol}//${serviceWidgetUrl.hostname}:${port}`;
 
+  if (!serviceWidget.fields?.length > 0) {
+    serviceWidget.fields = fritzboxDefaultFields;
+  }
+  const requestStatusInfo = ["connectionStatus", "uptime"].some((field) => serviceWidget.fields.includes(field));
+  const requestLinkProperties = ["maxDown", "maxUp"].some((field) => serviceWidget.fields.includes(field));
+  const requestAddonInfos = ["down", "up", "received", "sent"].some((field) => serviceWidget.fields.includes(field));
+  const requestExternalIPAddress = ["externalIPAddress"].some((field) => serviceWidget.fields.includes(field));
+
   await Promise.all([
-    requestEndpoint(apiBaseUrl, "WANIPConnection", "GetStatusInfo"),
-    requestEndpoint(apiBaseUrl, "WANIPConnection", "GetExternalIPAddress"),
-    requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetCommonLinkProperties"),
-    requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetAddonInfos"),
+    requestStatusInfo ? requestEndpoint(apiBaseUrl, "WANIPConnection", "GetStatusInfo") : null,
+    requestLinkProperties ? requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetCommonLinkProperties") : null,
+    requestAddonInfos ? requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetAddonInfos") : null,
+    requestExternalIPAddress ? requestEndpoint(apiBaseUrl, "WANIPConnection", "GetExternalIPAddress") : null,
   ])
-    .then(([statusInfo, externalIPAddress, linkProperties, addonInfos]) => {
+    .then(([statusInfo, linkProperties, addonInfos, externalIPAddress]) => {
       res.status(200).json({
-        connectionStatus: statusInfo.NewConnectionStatus,
-        uptime: statusInfo.NewUptime,
-        maxDown: linkProperties.NewLayer1DownstreamMaxBitRate,
-        maxUp: linkProperties.NewLayer1UpstreamMaxBitRate,
-        down: addonInfos.NewByteReceiveRate,
-        up: addonInfos.NewByteSendRate,
-        received: addonInfos.NewX_AVM_DE_TotalBytesReceived64,
-        sent: addonInfos.NewX_AVM_DE_TotalBytesSent64,
-        externalIPAddress: externalIPAddress.NewExternalIPAddress,
+        connectionStatus: statusInfo?.NewConnectionStatus || "Unconfigured",
+        uptime: statusInfo?.NewUptime || 0,
+        maxDown: linkProperties?.NewLayer1DownstreamMaxBitRate || 0,
+        maxUp: linkProperties?.NewLayer1UpstreamMaxBitRate || 0,
+        down: addonInfos?.NewByteReceiveRate || 0,
+        up: addonInfos?.NewByteSendRate || 0,
+        received: addonInfos?.NewX_AVM_DE_TotalBytesReceived64 || 0,
+        sent: addonInfos?.NewX_AVM_DE_TotalBytesSent64 || 0,
+        externalIPAddress: externalIPAddress?.NewExternalIPAddress || null,
       });
     })
     .catch((error) => {

@@ -4,6 +4,8 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+export const fritzboxDefaultFields = ["connectionStatus", "uptime", "maxDown", "maxUp"];
+
 const formatUptime = (timestamp) => {
   const hours = Math.floor(timestamp / 3600);
   const minutes = Math.floor((timestamp % 3600) / 60);
@@ -27,7 +29,7 @@ export default function Component({ service }) {
 
   // Default fields
   if (!widget.fields?.length > 0) {
-    widget.fields = ["connectionStatus", "uptime", "maxDown", "maxUp"];
+    widget.fields = fritzboxDefaultFields;
   }
   const MAX_ALLOWED_FIELDS = 4;
   // Limits max number of displayed fields

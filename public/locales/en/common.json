@@ -127,7 +127,7 @@
         "connectionStatusUnconfigured": "Unconfigured",
         "connectionStatusConnecting": "Connecting",
         "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "PendingDisconnect",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
         "connectionStatusDisconnecting": "Disconnecting",
         "connectionStatusDisconnected": "Disconnected",
         "connectionStatusConnected": "Connected",
