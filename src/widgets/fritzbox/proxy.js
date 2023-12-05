@@ -60,7 +60,8 @@ export default async function fritzboxProxyHandler(req, res) {
   }
 
   const serviceWidgetUrl = new URL(serviceWidget.url);
-  const apiBaseUrl = `http://${serviceWidgetUrl.hostname}:49000`;
+  const port = serviceWidgetUrl.protocol === "https:" ? 49443 : 49000;
+  const apiBaseUrl = `${serviceWidgetUrl.protocol}//${serviceWidgetUrl.hostname}:${port}`;
 
   if (!serviceWidget.fields?.length > 0) {
     serviceWidget.fields = fritzboxDefaultFields;
