@@ -307,6 +307,7 @@ function Home({ initialSettings }) {
                   layout={settings.layout?.[group.name]}
                   fiveColumns={settings.fiveColumns}
                   disableCollapse={settings.disableCollapse}
+                  useEqualHeights={settings.useEqualHeights}
                 />
               ) : (
                 <BookmarksGroup
@@ -355,6 +356,7 @@ function Home({ initialSettings }) {
     settings.layout,
     settings.fiveColumns,
     settings.disableCollapse,
+    settings.useEqualHeights,
     settings.cardBlur,
     initialSettings.layout,
   ]);

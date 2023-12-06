@@ -229,6 +229,28 @@ disableCollapse: true
 
 By default the feature is enabled.
 
+### Use Equal Height Cards
+
+You can enable equal height cards for groups of services, this will make all cards in a row the same height.
+
+Global setting in `settings.yaml`:
+
+```yaml
+useEqualHeights: true
+```
+
+Per layout group in `settings.yaml`:
+
+```yaml
+useEqualHeights: false
+layout:
+  ...
+  Group Name:
+    useEqualHeights: true # overrides global setting
+```
+
+By default the feature is disabled
+
 ## Header Style
 
 There are currently 4 options for header styles, you can see each one below.
