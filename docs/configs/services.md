@@ -65,7 +65,7 @@ Services may have descriptions,
 
 Services may have an icon attached to them, you can use icons from [Dashboard Icons](https://github.com/walkxcode/dashboard-icons) automatically, by passing the name of the icon, with, or without `.png` or with `.svg` to use the svg version.
 
-You can also specify prefixed icons from [Material Design Icons](https://materialdesignicons.com) with `mdi-XX` or [Simple Icons](https://simpleicons.org/) with `si-XX`.
+You can also specify prefixed icons from [Material Design Icons](https://materialdesignicons.com) with `mdi-XX`, [Simple Icons](https://simpleicons.org/) with `si-XX` or [Tabler Icons](https://tabler-icons.io) with `tb-XX`.
 
 You can specify a custom color by adding a hex color code as suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
 
