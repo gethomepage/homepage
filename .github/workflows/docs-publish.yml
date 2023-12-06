@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
       -
         name: Install python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
       -
@@ -42,7 +42,7 @@ jobs:
       - pre-commit
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
