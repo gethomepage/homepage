@@ -40,17 +40,17 @@ export default function Component({ service }) {
   if (!data) {
     return (
       <Container service={service}>
-        <Block label={t("healthchecks.status")} />
-        <Block label={t("healthchecks.last_ping")} />
+        <Block label="healthchecks.status" />
+        <Block label="healthchecks.last_ping" />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label={t("healthchecks.status")} value={t(`healthchecks.${data.status}`)} />
+      <Block label="healthchecks.status" value={t(`healthchecks.${data.status}`)} />
       <Block
-        label={t("healthchecks.last_ping")}
+        label="healthchecks.last_ping"
         value={data.last_ping ? formatDate(data.last_ping) : t("healthchecks.never")}
       />
     </Container>
