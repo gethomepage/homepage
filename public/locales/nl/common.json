@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Ontbrekende Widget Type: {{type}}",
@@ -39,7 +40,7 @@
         "load": "Belasting",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "OP",
+        "uptime": "UP",
         "months": "ma",
         "days": "d",
         "hours": "u",
@@ -47,7 +48,7 @@
     },
     "unifi": {
         "users": "Gebruikers",
-        "uptime": "Online",
+        "uptime": "Systeem Uptime",
         "days": "Dagen",
         "wan": "WAN",
         "lan": "LAN",
@@ -57,8 +58,8 @@
         "wlan_devices": "WLAN Apparaten",
         "lan_users": "LAN Gebruikers",
         "wlan_users": "WLAN Gebruikers",
-        "up": "OP",
-        "down": "NEER",
+        "up": "UP",
+        "down": "OFFLINE",
         "wait": "Even geduld",
         "empty_data": "Subsysteem status onbekend"
     },
@@ -79,9 +80,16 @@
         "partial": "Gedeeltelijk"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Fout",
         "ping": "Ping",
+        "down": "Offline",
+        "up": "Online",
+        "not_available": "Niet Beschikbaar"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Fout",
+        "response": "Reactie",
         "down": "Offline",
         "up": "Online",
         "not_available": "Niet Beschikbaar"
@@ -371,7 +379,7 @@
         "temp": "TEMP",
         "_temp": "Temp",
         "warn": "Alert",
-        "uptime": "OP",
+        "uptime": "UP",
         "total": "Totaal",
         "free": "Vrij",
         "used": "Gebruikt",
@@ -756,6 +764,7 @@
     "calendar": {
         "inCinemas": "In bioscopen",
         "physicalRelease": "Fysieke versie",
-        "digitalRelease": "Digitale versie"
+        "digitalRelease": "Digitale versie",
+        "noEventsToday": "Geen gebeurtenissen voor vandaag!"
     }
 }

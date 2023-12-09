@@ -18,3 +18,7 @@
         border-color: var(--md-default-bg-color--lighter);
     }
 }
+
+#glimeRoot * {
+    font-family: var(--md-text-font) !important;
+}

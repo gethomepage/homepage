@@ -35,6 +35,7 @@ widget:
       label: Field 4
       format: date # optional - defaults to text
       dateStyle: long # optional - defaults to "long". Allowed values: `["full", "long", "medium", "short"]`.
+      timeStyle: medium # optional - Allowed values: `["full", "long", "medium", "short"]`.
 ```
 
 Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate` and `date`.

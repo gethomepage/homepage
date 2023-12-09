@@ -10,11 +10,12 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
-        "missing_type": "Tipo de Widget que falta: {{type}}",
-        "api_error": "Error en API",
+        "missing_type": "Falta el tipo de widget: {{type}}",
+        "api_error": "Error de API",
         "information": "Información",
         "status": "Estado",
         "url": "Enlace",
@@ -79,9 +80,16 @@
         "partial": "Parcial"
     },
     "ping": {
-        "http_status": "Estado HTTP",
         "error": "Fallo",
         "ping": "Ping",
+        "down": "Abajo",
+        "up": "Arriba",
+        "not_available": "No Disponible"
+    },
+    "siteMonitor": {
+        "http_status": "Estado HTTP",
+        "error": "Fallo",
+        "response": "Respuesta",
         "down": "Abajo",
         "up": "Arriba",
         "not_available": "No Disponible"
@@ -107,7 +115,7 @@
     "flood": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "freshrss": {
@@ -167,13 +175,13 @@
     "transmission": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "qbittorrent": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "qnap": {
@@ -187,13 +195,13 @@
     "deluge": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "downloadstation": {
         "download": "Descarga",
         "upload": "Subida",
-        "leech": "Depender",
+        "leech": "Descargas",
         "seed": "Semillas"
     },
     "sonarr": {
@@ -756,6 +764,7 @@
     "calendar": {
         "inCinemas": "En cine",
         "physicalRelease": "Lanzamiento en físico",
-        "digitalRelease": "Lanzamiento en digital"
+        "digitalRelease": "Lanzamiento en digital",
+        "noEventsToday": "Sin eventos para hoy"
     }
 }

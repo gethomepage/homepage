@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Fehlender Widget-Typ: {{type}}",
@@ -19,7 +20,7 @@
         "status": "Status",
         "url": "URL",
         "raw_error": "Rohfehler",
-        "response_data": "Empfangene Daten"
+        "response_data": "Antwortdaten"
     },
     "weather": {
         "current": "Aktueller Standort",
@@ -60,7 +61,7 @@
         "up": "UP",
         "down": "EMPFANGEN",
         "wait": "Bitte warten",
-        "empty_data": "Subsystem Status unbekannt"
+        "empty_data": "Subsystem-Status unbekannt"
     },
     "docker": {
         "rx": "RX",
@@ -79,9 +80,16 @@
         "partial": "Teilweise"
     },
     "ping": {
-        "http_status": "HTTP-Status",
         "error": "Fehler",
         "ping": "Ping",
+        "down": "Empfangen",
+        "up": "Senden",
+        "not_available": "Nicht verfügbar"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP-Status",
+        "error": "Fehler",
+        "response": "Antwort",
         "down": "Empfangen",
         "up": "Senden",
         "not_available": "Nicht verfügbar"
@@ -97,9 +105,9 @@
         "songs": "Songs"
     },
     "evcc": {
-        "pv_power": "Produktion",
+        "pv_power": "Erzeugung",
         "battery_soc": "Batterie",
-        "grid_power": "Netzstrom",
+        "grid_power": "Netz",
         "home_power": "verbauch",
         "charge_power": "Ladegerät",
         "watt_hour": "Wh"
@@ -114,6 +122,24 @@
         "subscriptions": "Abonnements",
         "unread": "Ungelesen"
     },
+    "fritzbox": {
+        "connectionStatus": "Status",
+        "connectionStatusUnconfigured": "Unkonfiguriert",
+        "connectionStatusConnecting": "Verbinde",
+        "connectionStatusAuthenticating": "Authenifiziere",
+        "connectionStatusPendingDisconnect": "Anstehende Trennung",
+        "connectionStatusDisconnecting": "Trenne",
+        "connectionStatusDisconnected": "Getrennt",
+        "connectionStatusConnected": "Verbunden",
+        "uptime": "Betriebszeit",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Empfangen",
+        "sent": "Gesendet",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Upstreams",
         "requests": "Aktuelle Anfragen",
@@ -121,7 +147,7 @@
     },
     "changedetectionio": {
         "totalObserved": "Gesamt beobachtet",
-        "diffsDetected": "Erkannte Differenzen"
+        "diffsDetected": "Erkannte Änderungen"
     },
     "channelsdvrserver": {
         "shows": "Serien",
@@ -139,7 +165,7 @@
     "omada": {
         "connectedAp": "Verbundene APs",
         "activeUser": "Aktive Geräte",
-        "alerts": "Alarme",
+        "alerts": "Warnungen",
         "connectedGateway": "Verbundene Gateways",
         "connectedSwitches": "Verbundene Switches"
     },
@@ -248,13 +274,13 @@
         "down_alerts": "Down-Warnungen"
     },
     "pihole": {
-        "queries": "Abfragen",
+        "queries": "Anfragen",
         "blocked": "Blockiert",
         "blocked_percent": "Blockiert %",
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "Abfragen",
+        "queries": "Anfragen",
         "blocked": "Blockiert",
         "filtered": "Gefiltert",
         "latency": "Latenz"
@@ -265,7 +291,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Wird ausgeführt",
+        "running": "Werden ausgeführt",
         "stopped": "Gestoppt",
         "total": "Gesamt"
     },
@@ -318,9 +344,9 @@
     "prowlarr": {
         "enableIndexers": "Indexer",
         "numberOfGrabs": "Abrufungen",
-        "numberOfQueries": "Abfragen",
+        "numberOfQueries": "Anfragen",
         "numberOfFailGrabs": "Fehlgeschlagene Abrufungen",
-        "numberOfFailQueries": "Fehlgeschlagene Abfragen"
+        "numberOfFailQueries": "Fehlgeschlagene Anfragen"
     },
     "jackett": {
         "configured": "Konfiguriert",
@@ -396,11 +422,11 @@
         "0-day": "sonnig",
         "0-night": "klar",
         "1-day": "überwiegend sonnig",
-        "1-night": "überwiegend klar",
-        "2-day": "teilweise bewölkt",
-        "2-night": "teilweise bewölkt",
-        "3-day": "bewölkt",
-        "3-night": "bewölkt",
+        "1-night": "Überwiegend klar",
+        "2-day": "Teilweise bewölkt",
+        "2-night": "Teilweise bewölkt",
+        "3-day": "Bewölkt",
+        "3-night": "Bewölkt",
         "45-day": "neblig",
         "45-night": "neblig",
         "48-day": "neblig",
@@ -429,16 +455,16 @@
         "71-night": "Leichter Schneefall",
         "73-day": "Schnee",
         "73-night": "Schnee",
-        "75-day": "Schwerer Schnee",
-        "75-night": "Schwerer Schnee",
+        "75-day": "Starker Schneefall",
+        "75-night": "Starker Schneefall",
         "77-day": "Schneegriesel",
         "77-night": "Schneegriesel",
-        "80-day": "Leichter Schauer",
-        "80-night": "Leichter Schauer",
+        "80-day": "Leichte Schauer",
+        "80-night": "Leichte Schauer",
         "81-day": "Schauer",
         "81-night": "Schauer",
-        "82-day": "Starke Regenschauer",
-        "82-night": "Starke Regenschauer",
+        "82-day": "Starke Schauer",
+        "82-night": "Starke Schauer",
         "85-day": "Schneeschauer",
         "85-night": "Schneeschauer",
         "86-day": "Schneeschauer",
@@ -491,7 +517,7 @@
     "truenas": {
         "load": "Systemlast",
         "uptime": "Betriebszeit",
-        "alerts": "Alarme",
+        "alerts": "Warnungen",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "pyload": {
@@ -626,8 +652,8 @@
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Datenquellen",
-        "totalalerts": "Gesamte Warnungen",
-        "alertstriggered": "Ausgelöste Warnungen"
+        "totalalerts": "Warnungen gesamt",
+        "alertstriggered": "Warnungen ausgelöst"
     },
     "nextcloud": {
         "cpuload": "CPU Last",
@@ -661,7 +687,7 @@
     "ghostfolio": {
         "gross_percent_today": "Heute",
         "gross_percent_1y": "Ein Jahr",
-        "gross_percent_max": "Alle Zeit"
+        "gross_percent_max": "Gesamt"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
@@ -675,7 +701,7 @@
         "switches_on": "Schalter an"
     },
     "whatsupdocker": {
-        "monitoring": "Überwachung",
+        "monitoring": "Überwacht",
         "updates": "Aktualisierungen"
     },
     "calibreweb": {
@@ -703,7 +729,7 @@
         "failed": "Fehlgeschlagen",
         "canceled": "Abgebrochen",
         "inProgress": "In Bearbeitung",
-        "totalPrs": "Gesamt PRs",
+        "totalPrs": "PRs gesamt",
         "myPrs": "Meine PRs",
         "approved": "Genehmigt"
     },
@@ -722,7 +748,7 @@
     "urbackup": {
         "ok": "OK",
         "errored": "Fehler",
-        "noRecent": "Nicht mehr aktuell",
+        "noRecent": "Veraltet",
         "totalUsed": "Belegter Speicherplatz"
     },
     "mealie": {
@@ -756,6 +782,7 @@
     "calendar": {
         "inCinemas": "Im Kino",
         "physicalRelease": "Physische Version",
-        "digitalRelease": "Digitale Version"
+        "digitalRelease": "Digitale Version",
+        "noEventsToday": "Heute keine Ereignisse!"
     }
 }

@@ -1,9 +1,23 @@
 {
+    "common": {
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "percent": "{{value, percent}}",
+        "number": "{{value, number}}",
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
+    },
     "widget": {
         "missing_type": "遺失小工具的類型: {{type}}",
         "api_error": "API 錯誤",
-        "status": "狀態",
         "information": "資訊",
+        "status": "狀態",
         "url": "網址",
         "raw_error": "原始錯誤",
         "response_data": "回應資料"
@@ -14,21 +28,71 @@
         "updating": "更新中",
         "wait": "請稍後"
     },
+    "search": {
+        "placeholder": "搜尋…"
+    },
+    "resources": {
+        "cpu": "CPU",
+        "mem": "記憶體",
+        "total": "全部",
+        "free": "剩餘",
+        "used": "已使用",
+        "load": "負載",
+        "temp": "溫度",
+        "max": "最大",
+        "uptime": "運作時間",
+        "months": "月",
+        "days": "日",
+        "hours": "時",
+        "minutes": "分"
+    },
+    "unifi": {
+        "users": "使用者",
+        "uptime": "系統運作時間",
+        "days": "天",
+        "wan": "WAN",
+        "lan": "區域網路",
+        "wlan": "無線區域網路",
+        "devices": "設備",
+        "lan_devices": "有線設備",
+        "wlan_devices": "無線設備",
+        "lan_users": "有線使用者",
+        "wlan_users": "無線使用者",
+        "up": "運作時間",
+        "down": "離線",
+        "wait": "請稍後",
+        "empty_data": "子系統狀態未知"
+    },
     "docker": {
         "rx": "接收",
-        "offline": "離線",
         "tx": "發送",
         "mem": "記憶體",
-        "cpu": "處理器",
+        "cpu": "CPU",
+        "running": "執行中",
+        "offline": "離線",
         "error": "錯誤",
         "unknown": "未知",
-        "running": "執行中",
+        "healthy": "健康",
         "starting": "啟動中",
         "unhealthy": "不健康的",
         "not_found": "未找到",
         "exited": "已退出",
-        "partial": "部分",
-        "healthy": "健康"
+        "partial": "部分"
+    },
+    "ping": {
+        "error": "錯誤",
+        "ping": "延遲",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "不可用"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP 狀態",
+        "error": "錯誤",
+        "response": "回應",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "不可用"
     },
     "emby": {
         "playing": "正在播放",
@@ -40,6 +104,39 @@
         "episodes": "集",
         "songs": "曲目"
     },
+    "evcc": {
+        "pv_power": "正式環境",
+        "battery_soc": "電池",
+        "grid_power": "電網",
+        "home_power": "電源使用率",
+        "charge_power": "充電",
+        "watt_hour": "瓦時 (Wh)"
+    },
+    "flood": {
+        "download": "下載速率",
+        "upload": "上傳速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
+    },
+    "freshrss": {
+        "subscriptions": "訂閱",
+        "unread": "未讀"
+    },
+    "caddy": {
+        "upstreams": "上行",
+        "requests": "目前請求數",
+        "requests_failed": "失敗請求"
+    },
+    "changedetectionio": {
+        "totalObserved": "總監測數",
+        "diffsDetected": "偵測到的變更"
+    },
+    "channelsdvrserver": {
+        "shows": "節目",
+        "recordings": "錄影",
+        "scheduled": "已排定",
+        "passes": "通行證"
+    },
     "tautulli": {
         "playing": "正在播放",
         "transcoding": "轉碼",
@@ -47,33 +144,23 @@
         "no_active": "無播放活動",
         "plex_connection_error": "檢查Plex的連接狀態"
     },
-    "jellyseerr": {
-        "pending": "待下載",
-        "approved": "已核准",
-        "available": "可觀看"
-    },
-    "search": {
-        "placeholder": "搜尋…"
-    },
-    "resources": {
-        "total": "全部",
-        "free": "剩餘",
-        "used": "已使用",
-        "load": "負載",
-        "cpu": "CPU",
-        "mem": "記憶體",
-        "temp": "溫度",
-        "max": "最大",
-        "uptime": "運作時間",
-        "months": "月",
-        "days": "日",
-        "hours": "時",
-        "minutes": "分"
+    "omada": {
+        "connectedAp": "已連接的存取點",
+        "activeUser": "在線裝置",
+        "alerts": "警示",
+        "connectedGateway": "已連接的閘道",
+        "connectedSwitches": "已連接的交換器"
     },
     "nzbget": {
         "rate": "速率",
         "remaining": "剩餘",
         "downloaded": "已下載"
+    },
+    "plex": {
+        "streams": "正在播放",
+        "albums": "專輯",
+        "movies": "電影",
+        "tv": "影集"
     },
     "sabnzbd": {
         "rate": "速率",
@@ -82,65 +169,142 @@
     },
     "rutorrent": {
         "active": "活動中",
-        "upload": "上行速率",
-        "download": "下行速率"
+        "upload": "上傳速率",
+        "download": "下載速率"
     },
-    "radarr": {
-        "movies": "電影",
-        "wanted": "關注中",
-        "queued": "已加入佇列",
-        "missing": "缺少",
-        "queue": "佇列",
-        "unknown": "未知的"
+    "transmission": {
+        "download": "下載速率",
+        "upload": "上傳速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
+    },
+    "qbittorrent": {
+        "download": "下載速率",
+        "upload": "上傳速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
+    },
+    "qnap": {
+        "cpuUsage": "CPU 使用率",
+        "memUsage": "記憶體使用率",
+        "systemTempC": "系統溫度",
+        "poolUsage": "儲存池使用率",
+        "volumeUsage": "儲存區用量",
+        "invalid": "無效的"
+    },
+    "deluge": {
+        "download": "下載速率",
+        "upload": "上傳速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
+    },
+    "downloadstation": {
+        "download": "下載速率",
+        "upload": "上傳速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
     },
     "sonarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
         "series": "影集",
         "queue": "佇列",
-        "unknown": "未知的"
+        "unknown": "未知"
+    },
+    "radarr": {
+        "wanted": "關注中",
+        "missing": "缺少",
+        "queued": "已加入佇列",
+        "movies": "電影",
+        "queue": "佇列",
+        "unknown": "未知"
+    },
+    "lidarr": {
+        "wanted": "關注中",
+        "queued": "已加入佇列",
+        "artists": "創作者"
     },
     "readarr": {
         "wanted": "關注中",
         "queued": "已加入佇列",
         "books": "叢書"
     },
+    "bazarr": {
+        "missingEpisodes": "缺少的劇集",
+        "missingMovies": "缺少的電影"
+    },
     "ombi": {
+        "pending": "待下載",
+        "approved": "已核准",
+        "available": "可觀看"
+    },
+    "jellyseerr": {
         "pending": "待下載",
         "approved": "已核准",
         "available": "可觀看"
     },
     "overseerr": {
         "pending": "待下載",
+        "processing": "處理中",
         "approved": "已核准",
-        "available": "可觀看",
-        "processing": "處理中"
+        "available": "可觀看"
+    },
+    "pialert": {
+        "total": "全部",
+        "connected": "已連線",
+        "new_devices": "新裝置",
+        "down_alerts": "離線警告"
     },
     "pihole": {
         "queries": "查詢",
         "blocked": "已阻擋",
-        "gravity": "阻擋清單",
-        "blocked_percent": "已封鎖 %"
+        "blocked_percent": "已封鎖 %",
+        "gravity": "阻擋清單"
+    },
+    "adguard": {
+        "queries": "查詢",
+        "blocked": "已阻擋",
+        "filtered": "已過濾",
+        "latency": "延遲"
     },
     "speedtest": {
-        "upload": "上行速率",
-        "download": "下行速率",
-        "ping": "Ping"
+        "upload": "上傳速率",
+        "download": "下載速率",
+        "ping": "延遲"
     },
     "portainer": {
-        "running": "運作中",
+        "running": "執行中",
         "stopped": "已停止",
         "total": "全部"
+    },
+    "tailscale": {
+        "address": "位址",
+        "expires": "已失效",
+        "never": "未曾",
+        "last_seen": "上次連線",
+        "now": "現在",
+        "years": "{{number}} 年",
+        "weeks": "{{number}} 週",
+        "days": "{{number}} 天",
+        "hours": "{{number}} 小時",
+        "minutes": "{{number}} 分鐘",
+        "seconds": "{{number}} 秒",
+        "ago": "{{value}} 前"
+    },
+    "tdarr": {
+        "queue": "佇列",
+        "processed": "已處理",
+        "errored": "發生錯誤",
+        "saved": "已儲存"
     },
     "traefik": {
         "routers": "路由器",
         "services": "服務",
         "middleware": "中介軟體"
     },
-    "gotify": {
-        "clients": "客戶端",
-        "apps": "應用程式",
-        "messages": "訊息"
+    "navidrome": {
+        "nothing_streaming": "無播放活動",
+        "please_wait": "請稍後"
     },
     "npm": {
         "enabled": "已啟用",
@@ -154,6 +318,11 @@
         "7days": "7天",
         "30days": "30天"
     },
+    "gotify": {
+        "apps": "應用程式",
+        "clients": "客戶端",
+        "messages": "訊息"
+    },
     "prowlarr": {
         "enableIndexers": "索引器",
         "numberOfGrabs": "抓取",
@@ -161,47 +330,36 @@
         "numberOfFailGrabs": "抓取失敗",
         "numberOfFailQueries": "查詢失敗"
     },
-    "transmission": {
-        "download": "下行速率",
-        "upload": "上行速率",
-        "leech": "未完成下載",
-        "seed": "已完成下載"
-    },
     "jackett": {
         "configured": "已設置",
         "errored": "發生錯誤"
-    },
-    "bazarr": {
-        "missingEpisodes": "缺少的劇集",
-        "missingMovies": "缺少的電影"
-    },
-    "lidarr": {
-        "wanted": "關注中",
-        "queued": "已加入佇列",
-        "artists": "創作者"
-    },
-    "adguard": {
-        "queries": "查詢",
-        "blocked": "已阻擋",
-        "filtered": "已過濾",
-        "latency": "延遲"
-    },
-    "qbittorrent": {
-        "download": "下行速率",
-        "upload": "上行速率",
-        "leech": "未完成下載",
-        "seed": "已完成下載"
-    },
-    "mastodon": {
-        "user_count": "使用者",
-        "status_count": "文章",
-        "domain_count": "網域"
     },
     "strelaysrv": {
         "numActiveSessions": "工作階段",
         "numConnections": "連線",
         "dataRelayed": "中繼",
         "transferRate": "速率"
+    },
+    "mastodon": {
+        "user_count": "使用者",
+        "status_count": "文章",
+        "domain_count": "網域"
+    },
+    "medusa": {
+        "wanted": "關注中",
+        "queued": "已加入佇列",
+        "series": "影集"
+    },
+    "minecraft": {
+        "players": "玩家",
+        "version": "版本",
+        "status": "狀態",
+        "up": "在線",
+        "down": "離線"
+    },
+    "miniflux": {
+        "read": "已讀",
+        "unread": "未讀"
     },
     "authentik": {
         "users": "使用者",
@@ -214,58 +372,37 @@
         "lxc": "LXC",
         "vms": "VMs"
     },
-    "unifi": {
-        "users": "使用者",
-        "uptime": "系統運作時間",
-        "days": "天",
-        "wan": "WAN",
-        "lan_users": "有線使用者",
-        "wlan_users": "無線使用者",
-        "up": "上線",
-        "down": "離線",
-        "wait": "請稍後",
-        "lan": "LAN",
-        "wlan": "WLAN",
-        "devices": "設備",
-        "lan_devices": "有線設備",
-        "wlan_devices": "無線設備",
-        "empty_data": "子系統狀態未知"
-    },
-    "plex": {
-        "streams": "正在播放",
-        "movies": "電影",
-        "tv": "影集",
-        "albums": "專輯"
-    },
     "glances": {
         "cpu": "CPU",
+        "load": "負載",
         "wait": "請稍後",
         "temp": "溫度",
-        "uptime": "運行時間",
-        "days": "天",
-        "hours": "時",
-        "free": "未使用",
-        "used": "已使用",
-        "load": "負載量",
+        "_temp": "溫度",
         "warn": "警告",
-        "total": "總共",
+        "uptime": "運作時間",
+        "total": "全部",
+        "free": "剩餘",
+        "used": "已使用",
+        "days": "日",
+        "hours": "時",
         "crit": "重大的",
-        "read": "讀取",
+        "read": "已讀",
         "write": "寫入",
         "gpu": "GPU",
         "mem": "記憶體",
-        "swap": "Swap",
-        "_temp": "溫度"
+        "swap": "Swap"
     },
-    "changedetectionio": {
-        "totalObserved": "總監測數",
-        "diffsDetected": "偵測到的變更"
+    "quicklaunch": {
+        "bookmark": "書籤",
+        "service": "服務",
+        "search": "搜尋",
+        "custom": "自訂",
+        "visit": "造訪",
+        "url": "網址"
     },
     "wmo": {
         "0-day": "晴天",
         "0-night": "晴朗",
-        "71-day": "小雪",
-        "71-night": "小雪",
         "1-day": "晴時多雲",
         "1-night": "晴時多雲",
         "2-day": "多雲時陰",
@@ -296,6 +433,8 @@
         "66-night": "凍雨",
         "67-day": "凍雨",
         "67-night": "凍雨",
+        "71-day": "小雪",
+        "71-night": "小雪",
         "73-day": "雪",
         "73-night": "雪",
         "75-day": "大雪",
@@ -319,14 +458,6 @@
         "99-day": "雷雨伴隨冰雹",
         "99-night": "雷雨伴隨冰雹"
     },
-    "quicklaunch": {
-        "bookmark": "書籤",
-        "service": "服務",
-        "search": "搜尋",
-        "custom": "自訂",
-        "visit": "造訪",
-        "url": "網址"
-    },
     "homebridge": {
         "available_update": "系統",
         "updates": "更新",
@@ -334,20 +465,30 @@
         "up_to_date": "已更新至最新",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Up",
+        "pending": "待下載",
+        "down": "Down"
+    },
+    "healthchecks": {
+        "new": "新建立",
         "up": "在線",
-        "pending": "處理中",
-        "down": "離線"
+        "grace": "延緩中",
+        "down": "離線",
+        "paused": "擱置中",
+        "status": "狀態",
+        "last_ping": "上次檢查",
+        "never": "尚未檢查"
+    },
+    "watchtower": {
+        "containers_scanned": "已掃描",
+        "containers_updated": "已更新",
+        "containers_failed": "失敗"
     },
     "autobrr": {
         "approvedPushes": "已核准",
         "rejectedPushes": "拒絕",
         "filters": "篩選器",
         "indexers": "索引器"
-    },
-    "watchtower": {
-        "containers_scanned": "已掃描",
-        "containers_updated": "已更新",
-        "containers_failed": "失敗"
     },
     "tubearchivist": {
         "downloads": "佇列",
@@ -361,13 +502,9 @@
         "alerts": "警示",
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
-    "navidrome": {
-        "nothing_streaming": "無播放活動",
-        "please_wait": "請稍後"
-    },
     "pyload": {
         "speed": "速度",
-        "active": "執行中",
+        "active": "活動中",
         "queue": "佇列",
         "total": "全部"
     },
@@ -380,63 +517,18 @@
         "channels": "頻道",
         "hd": "高畫質"
     },
-    "ping": {
-        "error": "錯誤",
-        "ping": "Ping",
-        "up": "Up",
-        "down": "Down"
-    },
     "scrutiny": {
         "passed": "通過",
         "failed": "失敗",
-        "unknown": "未知的"
+        "unknown": "未知"
     },
     "paperlessngx": {
         "inbox": "收件箱",
         "total": "全部"
     },
-    "deluge": {
-        "download": "下行速率",
-        "upload": "上行速率",
-        "leech": "未完成下載",
-        "seed": "已完成下載"
-    },
-    "flood": {
-        "download": "下載速率",
-        "upload": "上傳速率",
-        "leech": "未完成下載",
-        "seed": "已完成下載"
-    },
-    "tdarr": {
-        "queue": "佇列",
-        "processed": "已處理",
-        "errored": "發生錯誤",
-        "saved": "已儲存"
-    },
-    "miniflux": {
-        "read": "已讀",
-        "unread": "未讀"
-    },
     "nextdns": {
         "wait": "請稍後",
         "no_devices": "未收到裝置資料"
-    },
-    "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
-    },
-    "omada": {
-        "connectedAp": "已連接的存取點",
-        "activeUser": "在線裝置",
-        "alerts": "警示",
-        "connectedGateway": "已連接的閘道",
-        "connectedSwitches": "已連接的交換器"
-    },
-    "downloadstation": {
-        "download": "下行速率",
-        "upload": "上行速率",
-        "leech": "未完成下載",
-        "seed": "已完成下載"
     },
     "mikrotik": {
         "cpuLoad": "CPU負載",
@@ -448,6 +540,12 @@
         "streams_all": "所有播放活動",
         "streams_active": "正在播放",
         "streams_xepg": "XEPG頻道"
+    },
+    "opendtu": {
+        "yieldDay": "今日",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "CPU負載",
@@ -461,11 +559,6 @@
         "print_progress": "進度",
         "layers": "層"
     },
-    "medusa": {
-        "wanted": "關注中",
-        "queued": "已加入佇列",
-        "series": "影集"
-    },
     "octoprint": {
         "printer_state": "狀態",
         "temp_tool": "噴頭溫度",
@@ -475,6 +568,16 @@
     "cloudflared": {
         "origin_ip": "源頭IP",
         "status": "狀態"
+    },
+    "pfsense": {
+        "load": "平均負載量",
+        "memory": "記憶體使用率",
+        "wanStatus": "網際網路狀態",
+        "up": "Up",
+        "down": "Down",
+        "temp": "溫度",
+        "disk": "硬碟使用率",
+        "wanIP": "網際網路 IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "數據存儲",
@@ -491,30 +594,36 @@
     "uptimekuma": {
         "up": "在線網站",
         "down": "離線網站",
-        "uptime": "在線時間",
+        "uptime": "運行時間",
         "incident": "事件",
-        "m": "m"
+        "m": "分"
+    },
+    "atsumeru": {
+        "series": "影集",
+        "archives": "檔案",
+        "chapters": "章節",
+        "categories": "類別"
     },
     "komga": {
         "libraries": "文庫",
-        "series": "系列",
+        "series": "影集",
         "books": "叢書"
-    },
-    "mylar": {
-        "series": "系列",
-        "issues": "出版",
-        "wanted": "關注中"
-    },
-    "photoprism": {
-        "albums": "相簿",
-        "photos": "照片",
-        "videos": "影片",
-        "people": "人物"
     },
     "diskstation": {
         "days": "天",
         "uptime": "運行時間",
-        "volumeAvailable": "剩餘容量"
+        "volumeAvailable": "可觀看"
+    },
+    "mylar": {
+        "series": "影集",
+        "issues": "出版",
+        "wanted": "關注中"
+    },
+    "photoprism": {
+        "albums": "專輯",
+        "photos": "照片",
+        "videos": "影片",
+        "people": "人物"
     },
     "fileflows": {
         "queue": "佇列",
@@ -548,16 +657,6 @@
         "total_workers": "總工作程序",
         "records_total": "佇列長度"
     },
-    "healthchecks": {
-        "new": "新建立",
-        "up": "在線",
-        "grace": "延緩中",
-        "down": "離線",
-        "paused": "擱置中",
-        "status": "狀態",
-        "last_ping": "上次檢查",
-        "never": "尚未檢查"
-    },
     "pterodactyl": {
         "servers": "伺服器",
         "nodes": "節點"
@@ -566,13 +665,6 @@
         "targets_up": "目標上線",
         "targets_down": "目標離線",
         "targets_total": "目標總數"
-    },
-    "minecraft": {
-        "players": "玩家",
-        "version": "版本",
-        "status": "狀態",
-        "up": "在線",
-        "down": "離線"
     },
     "ghostfolio": {
         "gross_percent_today": "今日",
@@ -590,92 +682,25 @@
         "lights_on": "燈亮著",
         "switches_on": "開關開著"
     },
-    "freshrss": {
-        "subscriptions": "訂閱",
-        "unread": "未讀"
-    },
-    "channelsdvrserver": {
-        "shows": "節目",
-        "recordings": "錄影",
-        "scheduled": "已排定",
-        "passes": "通行證"
-    },
     "whatsupdocker": {
         "monitoring": "監測中",
-        "updates": "可更新"
+        "updates": "更新"
     },
-    "tailscale": {
-        "address": "位址",
-        "expires": "已失效",
-        "never": "未曾",
-        "last_seen": "上次連線",
-        "now": "現在",
-        "years": "{{number}} 年",
-        "hours": "{{number}} 小時",
-        "minutes": "{{number}} 分鐘",
-        "seconds": "{{number}} 秒",
-        "ago": "{{value}} 前",
-        "weeks": "{{number}} 週",
-        "days": "{{number}} 天"
-    },
-    "qnap": {
-        "cpuUsage": "CPU 使用率",
-        "memUsage": "記憶體使用率",
-        "systemTempC": "系統溫度",
-        "poolUsage": "儲存池使用率",
-        "volumeUsage": "儲存區用量",
-        "invalid": "無效的"
-    },
-    "pfsense": {
-        "load": "平均負載量",
-        "memory": "記憶體使用率",
-        "wanStatus": "網際網路狀態",
-        "up": "已連線",
-        "down": "已離線",
-        "temp": "溫度",
-        "disk": "硬碟使用率",
-        "wanIP": "網際網路 IP"
-    },
-    "caddy": {
-        "upstreams": "上行",
-        "requests": "目前請求數",
-        "requests_failed": "失敗請求"
-    },
-    "evcc": {
-        "grid_power": "電網",
-        "home_power": "電源使用率",
-        "charge_power": "充電",
-        "pv_power": "正式環境",
-        "battery_soc": "電池",
-        "watt_hour": "瓦時 (Wh)"
-    },
-    "pialert": {
-        "total": "全部",
-        "connected": "已連線",
-        "new_devices": "新裝置",
-        "down_alerts": "離線警告"
+    "calibreweb": {
+        "books": "叢書",
+        "authors": "作者",
+        "categories": "類別",
+        "series": "影集"
     },
     "jdownloader": {
-        "downloadCount": "下載佇列",
-        "downloadSpeed": "下載速率",
+        "downloadCount": "佇列",
         "downloadBytesRemaining": "剩餘",
-        "downloadTotalBytes": "總下載量"
+        "downloadTotalBytes": "檔案大小",
+        "downloadSpeed": "速度"
     },
     "kavita": {
-        "seriesCount": "叢刊",
+        "seriesCount": "影集",
         "totalFiles": "檔案"
-    },
-    "gamedig": {
-        "name": "名稱",
-        "map": "地圖",
-        "currentPlayers": "當前玩家數",
-        "players": "玩家",
-        "maxPlayers": "玩家數上限",
-        "bots": "機器人",
-        "ping": "Ping",
-        "status": "狀態",
-        "online": "在線",
-        "offline": "離線"
     },
     "azuredevops": {
         "result": "結果",
@@ -690,19 +715,23 @@
         "myPrs": "我的提取要求",
         "approved": "已核准"
     },
+    "gamedig": {
+        "status": "狀態",
+        "online": "在線",
+        "offline": "離線",
+        "name": "名稱",
+        "map": "地圖",
+        "currentPlayers": "當前玩家數",
+        "players": "玩家",
+        "maxPlayers": "玩家數上限",
+        "bots": "機器人",
+        "ping": "延遲"
+    },
     "urbackup": {
-        "ok": "Ok",
+        "ok": "確定",
         "errored": "錯誤",
         "noRecent": "已過時",
         "totalUsed": "已使用空間"
-    },
-    "openmediavault": {
-        "downloading": "下載中",
-        "total": "總數",
-        "running": "運行中",
-        "stopped": "未運行",
-        "passed": "通過",
-        "failed": "失敗"
     },
     "mealie": {
         "recipes": "食譜",
@@ -710,41 +739,32 @@
         "categories": "類別",
         "tags": "標籤"
     },
-    "atsumeru": {
-        "series": "系列",
-        "archives": "檔案",
-        "chapters": "章節",
-        "categories": "類別"
-    },
-    "calibreweb": {
-        "books": "叢書",
-        "authors": "作者",
-        "categories": "類別",
-        "series": "系列"
+    "openmediavault": {
+        "downloading": "下載中",
+        "total": "全部",
+        "running": "執行中",
+        "stopped": "已停止",
+        "passed": "通過",
+        "failed": "失敗"
     },
     "uptimerobot": {
         "status": "狀態",
-        "uptime": "在線時間",
+        "uptime": "運行時間",
         "lastDown": "近一次停機時間",
         "downDuration": "歷時停機時間",
         "sitesUp": "在線網站",
         "sitesDown": "離線網站",
         "paused": "擱置中",
         "notyetchecked": "尚未檢查",
-        "up": "在線",
+        "up": "Up",
         "seemsdown": "似乎離線",
-        "down": "離線",
-        "unknown": "未知的"
-    },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "down": "Down",
+        "unknown": "未知"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release",
+        "noEventsToday": "今日無事件"
     }
 }

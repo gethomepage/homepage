@@ -17,13 +17,15 @@ const statusMap = {
   X: <ResolvedIcon icon="mdi-rhombus-outline" width={32} height={32} />, // dead
 };
 
+const defaultInterval = 1000;
+
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart } = widget;
+  const { chart, refreshInterval = defaultInterval } = widget;
 
   const { data, error } = useWidgetAPI(service.widget, "processlist", {
-    refreshInterval: 1000,
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   if (error) {

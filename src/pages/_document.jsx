@@ -10,7 +10,6 @@ export default function Document() {
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="manifest" href="/site.webmanifest?v=4" crossOrigin="use-credentials" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg?v=4" color="#1e9cd7" />
       </Head>
       <body>
         <Main />

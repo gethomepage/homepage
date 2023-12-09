@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Manglende Widget Type: {{type}}",
@@ -79,9 +80,16 @@
         "partial": "Delvis"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Fejl",
         "ping": "Ping",
+        "down": "Ned",
+        "up": "Op",
+        "not_available": "Ikke tilgængelig"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Fejl",
+        "response": "Response",
         "down": "Ned",
         "up": "Op",
         "not_available": "Ikke tilgængelig"
@@ -756,6 +764,7 @@
     "calendar": {
         "inCinemas": "I biografen",
         "physicalRelease": "Fysisk udgivelse",
-        "digitalRelease": "Digitale udgivelser"
+        "digitalRelease": "Digitale udgivelser",
+        "noEventsToday": "No events for today!"
     }
 }

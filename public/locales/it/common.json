@@ -10,12 +10,13 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Tipo del Widget Mancante: {{type}}",
         "api_error": "Errore API",
-        "information": "Informazione",
+        "information": "Informazioni",
         "status": "Stato",
         "url": "URL",
         "raw_error": "Errore non processato",
@@ -79,9 +80,16 @@
         "partial": "Parziale"
     },
     "ping": {
-        "http_status": "Stato HTTP",
         "error": "Errore",
         "ping": "Ping",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Non disponibile"
+    },
+    "siteMonitor": {
+        "http_status": "Stato HTTP",
+        "error": "Errore",
+        "response": "Risposta",
         "down": "Down",
         "up": "Up",
         "not_available": "Non disponibile"
@@ -107,7 +115,7 @@
     "flood": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "In scaricamento",
+        "leech": "In download",
         "seed": "Seed"
     },
     "freshrss": {
@@ -120,7 +128,7 @@
         "requests_failed": "Richieste fallite"
     },
     "changedetectionio": {
-        "totalObserved": "Totale Osservato",
+        "totalObserved": "Totale Osservati",
         "diffsDetected": "Differenze Rilevate"
     },
     "channelsdvrserver": {
@@ -152,7 +160,7 @@
         "streams": "Trasmissioni attive",
         "albums": "Album",
         "movies": "Film",
-        "tv": "Programma televisivo"
+        "tv": "Programmi televisivi"
     },
     "sabnzbd": {
         "rate": "Rapporto",
@@ -167,13 +175,13 @@
     "transmission": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "In scaricamento",
+        "leech": "In download",
         "seed": "Seed"
     },
     "qbittorrent": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "In scaricamento",
+        "leech": "In download",
         "seed": "Seed"
     },
     "qnap": {
@@ -187,13 +195,13 @@
     "deluge": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "In scaricamento",
+        "leech": "In download",
         "seed": "Seed"
     },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "In scaricamento",
+        "leech": "In download",
         "seed": "Seed"
     },
     "sonarr": {
@@ -275,10 +283,10 @@
         "never": "Mai",
         "last_seen": "Ultima visualizzazione",
         "now": "Adesso",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
+        "years": "{{number}}a",
+        "weeks": "{{number}}st",
+        "days": "{{number}}g",
+        "hours": "{{number}}o",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Fa"
@@ -334,7 +342,7 @@
     },
     "mastodon": {
         "user_count": "Utenti",
-        "status_count": "Posts",
+        "status_count": "Messaggi",
         "domain_count": "Domini"
     },
     "medusa": {
@@ -756,6 +764,7 @@
     "calendar": {
         "inCinemas": "Al cinema",
         "physicalRelease": "Release fisici",
-        "digitalRelease": "Digital release"
+        "digitalRelease": "Versione digitale",
+        "noEventsToday": "Nessun evento per oggi!"
     }
 }

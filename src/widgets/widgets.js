@@ -6,6 +6,7 @@ import autobrr from "./autobrr/widget";
 import azuredevops from "./azuredevops/widget";
 import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
+import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
@@ -20,6 +21,7 @@ import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
+import fritzbox from "./fritzbox/widget";
 import gamedig from "./gamedig/widget";
 import ghostfolio from "./ghostfolio/widget";
 import glances from "./glances/widget";
@@ -121,6 +123,7 @@ const widgets = {
   fileflows,
   flood,
   freshrss,
+  fritzbox,
   gamedig,
   ghostfolio,
   glances,
@@ -131,6 +134,7 @@ const widgets = {
   homeassistant,
   homebridge,
   healthchecks,
+  ical: calendar,
   immich,
   jackett,
   jdownloader,

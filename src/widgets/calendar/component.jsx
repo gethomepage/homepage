@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useContext } from "react";
 import dynamic from "next/dynamic";
 import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next";
@@ -7,6 +7,7 @@ import Monthly from "./monthly";
 import Agenda from "./agenda";
 
 import Container from "components/services/widget/container";
+import { SettingsContext } from "utils/contexts/settings";
 
 const colorVariants = {
   // https://tailwindcss.com/docs/content-configuration#dynamic-class-names
@@ -39,7 +40,9 @@ export default function Component({ service }) {
   const { widget } = service;
   const { i18n } = useTranslation();
   const [showDate, setShowDate] = useState(null);
+  const [events, setEvents] = useState({});
   const currentDate = DateTime.now().setLocale(i18n.language).startOf("day");
+  const { settings } = useContext(SettingsContext);
 
   useEffect(() => {
     if (!showDate) {
@@ -67,9 +70,9 @@ export default function Component({ service }) {
         ?.filter((integration) => integration?.type)
         .map((integration) => ({
           service: dynamic(() => import(`./integrations/${integration.type}`)),
-          widget: integration,
+          widget: { ...widget, ...integration },
         })) ?? [],
-    [widget.integrations],
+    [widget],
   );
 
   return (
@@ -78,13 +81,15 @@ export default function Component({ service }) {
         <div className="sticky top-0">
           {integrations.map((integration) => {
             const Integration = integration.service;
-            const key = integration.widget.type + integration.widget.service_name + integration.widget.service_group;
+            const key = `integration-${integration.widget.type}-${integration.widget.service_name}-${integration.widget.service_group}-${integration.widget.name}`;
 
             return (
               <Integration
                 key={key}
                 config={integration.widget}
                 params={params}
+                setEvents={setEvents}
+                hideErrors={settings.hideErrors}
                 className="fixed bottom-0 left-0 bg-red-500 w-screen h-12"
               />
             );
@@ -92,8 +97,10 @@ export default function Component({ service }) {
         </div>
         {(!widget?.view || widget?.view === "monthly") && (
           <Monthly
+            key={`monthly-${showDate?.toFormat("yyyy-MM-dd")}`}
             service={service}
             colorVariants={colorVariants}
+            events={events}
             showDate={showDate}
             setShowDate={setShowDate}
             className="flex"
@@ -101,8 +108,10 @@ export default function Component({ service }) {
         )}
         {widget?.view === "agenda" && (
           <Agenda
+            key={`agenda-${showDate?.toFormat("yyyy-MM-dd")}`}
             service={service}
             colorVariants={colorVariants}
+            events={events}
             showDate={showDate}
             setShowDate={setShowDate}
             className="flex"

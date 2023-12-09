@@ -1,132 +1,204 @@
 {
+    "common": {
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "percent": "{{value, percent}}",
+        "number": "{{value, number}}",
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
+    },
+    "widget": {
+        "missing_type": "Lipsește Tipul de Widget: {{type}}",
+        "api_error": "Eroare API",
+        "information": "Informație",
+        "status": "Stare",
+        "url": "URL",
+        "raw_error": "Eroare Raw",
+        "response_data": "Date de raspuns"
+    },
+    "weather": {
+        "current": "Locația Curentă",
+        "allow": "Click pentru a permite",
+        "updating": "Se actualizează",
+        "wait": "Va rugăm așteptați"
+    },
+    "search": {
+        "placeholder": "Caută…"
+    },
     "resources": {
-        "used": "Utilizați",
-        "load": "Sarcină",
-        "total": "Total",
-        "free": "Disponibili",
         "cpu": "Procesor",
         "mem": "MEM",
+        "total": "Total",
+        "free": "Disponibili",
+        "used": "Utilizați",
+        "load": "Sarcină",
         "temp": "TEMP",
-        "max": "Max",
+        "max": "Maxim",
         "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "months": "lună",
+        "days": "zi",
+        "hours": "ora",
+        "minutes": "min"
+    },
+    "unifi": {
+        "users": "Utilizatori",
+        "uptime": "Timp de funcționare a sistemului",
+        "days": "Zile",
+        "wan": "WAN",
+        "lan": "LAN",
+        "wlan": "WLAN",
+        "devices": "Dispozitive",
+        "lan_devices": "Dispozitive LAN",
+        "wlan_devices": "Dispozitive WLAN",
+        "lan_users": "Utilizatori LAN",
+        "wlan_users": "Utilizatori WLAN",
+        "up": "UP",
+        "down": "Oprit",
+        "wait": "Va rugăm așteptați",
+        "empty_data": "Starea subsistemului este necunoscut"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "CPU",
+        "cpu": "Procesor",
+        "running": "Rulează",
         "offline": "Offline",
         "error": "Eroare",
         "unknown": "Necunoscut",
-        "running": "Rulează",
+        "healthy": "Sănătos",
         "starting": "Începe",
-        "unhealthy": "Unhealthy",
+        "unhealthy": "Nesănătos",
         "not_found": "Negăsit",
-        "exited": "Exited",
-        "partial": "Partial",
-        "healthy": "Healthy"
+        "exited": "Ieşit",
+        "partial": "Parțial"
     },
-    "jellyseerr": {
-        "approved": "Aprobate",
-        "available": "Disponibile",
-        "pending": "În așteptare"
+    "ping": {
+        "error": "Eroare",
+        "ping": "Ping",
+        "down": "Jos",
+        "up": "Sus",
+        "not_available": "Indisponibil"
     },
-    "overseerr": {
-        "pending": "În așteptare",
-        "approved": "Aprobate",
-        "available": "Disponibile",
-        "processing": "Processing"
+    "siteMonitor": {
+        "http_status": "Stare HTTP",
+        "error": "Eroare",
+        "response": "Răspuns",
+        "down": "Jos",
+        "up": "Sus",
+        "not_available": "Indisponibil"
     },
-    "pihole": {
-        "queries": "Cereri",
-        "blocked": "Blocate",
-        "gravity": "Gravity",
-        "blocked_percent": "Blocked %"
-    },
-    "adguard": {
-        "blocked": "Blocate",
-        "filtered": "Filtrate",
-        "queries": "Cereri",
-        "latency": "Latentă"
-    },
-    "traefik": {
-        "services": "Servicii",
-        "middleware": "Middleware",
-        "routers": "Routere"
-    },
-    "npm": {
-        "enabled": "Activat",
-        "disabled": "Dezactivat",
-        "total": "Total"
-    },
-    "coinmarketcap": {
-        "configure": "Configurați una sau mai multe criptomonede pe care să le urmăriți",
-        "1hour": "1 Oră",
-        "1day": "1 Zi",
-        "7days": "7 Zile",
-        "30days": "30 Zile"
-    },
-    "weather": {
-        "allow": "Click pentru a permite",
-        "updating": "Se actualizează",
-        "current": "Locația Curentă",
-        "wait": "Va rugăm așteptați"
-    },
-    "widget": {
-        "missing_type": "Lipsește Tipul de Widget: {{type}}",
-        "api_error": "Eroare API",
-        "status": "Status",
-        "information": "Informație",
-        "url": "URL",
-        "raw_error": "Eroare Raw",
-        "response_data": "Date de raspuns"
-    },
-    "search": {
-        "placeholder": "Caută…"
-    },
-    "tautulli": {
-        "no_active": "Niciun stream activ",
+    "emby": {
         "playing": "Activ",
         "transcoding": "Transcodare",
-        "bitrate": "Bitrate",
+        "bitrate": "Rata de biți",
+        "no_active": "Niciun stream activ",
+        "movies": "Filme",
+        "series": "Serie",
+        "episodes": "Episoade",
+        "songs": "Melodii"
+    },
+    "evcc": {
+        "pv_power": "Producție",
+        "battery_soc": "Baterie",
+        "grid_power": "Grilă",
+        "home_power": "Consum",
+        "charge_power": "Încărcător",
+        "watt_hour": "Wh"
+    },
+    "flood": {
+        "download": "Descarcă",
+        "upload": "Încarcă",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "freshrss": {
+        "subscriptions": "Abonări",
+        "unread": "Necitit"
+    },
+    "caddy": {
+        "upstreams": "Upstreamuri",
+        "requests": "Solicitări curente",
+        "requests_failed": "Solicitări eșuate"
+    },
+    "changedetectionio": {
+        "totalObserved": "Total observat",
+        "diffsDetected": "Diffuri detectate"
+    },
+    "channelsdvrserver": {
+        "shows": "Shows",
+        "recordings": "Recordings",
+        "scheduled": "Scheduled",
+        "passes": "Passes"
+    },
+    "tautulli": {
+        "playing": "Activ",
+        "transcoding": "Transcodare",
+        "bitrate": "Rata de biți",
+        "no_active": "Niciun stream activ",
         "plex_connection_error": "Check Plex Connection"
+    },
+    "omada": {
+        "connectedAp": "Connected APs",
+        "activeUser": "Active devices",
+        "alerts": "Alerts",
+        "connectedGateway": "Connected gateways",
+        "connectedSwitches": "Connected switches"
     },
     "nzbget": {
         "rate": "Rată",
         "remaining": "Rămas",
         "downloaded": "Descărcat"
     },
-    "emby": {
-        "playing": "Activ",
-        "transcoding": "Transcodare",
-        "bitrate": "Bitrate",
-        "no_active": "Niciun stream activ",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+    "plex": {
+        "streams": "Fluxuri active",
+        "albums": "Albums",
+        "movies": "Filme",
+        "tv": "Seriale"
     },
     "sabnzbd": {
         "rate": "Rată",
         "queue": "Coadă",
         "timeleft": "Timp rămas"
     },
-    "transmission": {
-        "leech": "Leech",
-        "seed": "Seed",
-        "download": "Descarcă",
-        "upload": "Încarcă"
-    },
     "rutorrent": {
         "active": "Activ",
         "upload": "Încarcă",
         "download": "Descarcă"
     },
+    "transmission": {
+        "download": "Descarcă",
+        "upload": "Încarcă",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
     "qbittorrent": {
+        "download": "Descarcă",
+        "upload": "Încarcă",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "qnap": {
+        "cpuUsage": "CPU Usage",
+        "memUsage": "MEM Usage",
+        "systemTempC": "System Temp",
+        "poolUsage": "Pool Usage",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "deluge": {
+        "download": "Descarcă",
+        "upload": "Încarcă",
+        "leech": "Leech",
+        "seed": "Seed"
+    },
+    "downloadstation": {
         "download": "Descarcă",
         "upload": "Încarcă",
         "leech": "Leech",
@@ -135,17 +207,17 @@
     "sonarr": {
         "wanted": "Dorite",
         "queued": "În coadă",
-        "series": "Seriale",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "series": "Serie",
+        "queue": "Coadă",
+        "unknown": "Necunoscut"
     },
     "radarr": {
-        "queued": "În coadă",
         "wanted": "Dorite",
-        "movies": "Filme",
         "missing": "Missing",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queued": "În coadă",
+        "movies": "Filme",
+        "queue": "Coadă",
+        "unknown": "Necunoscut"
     },
     "lidarr": {
         "wanted": "Dorite",
@@ -166,443 +238,44 @@
         "approved": "Aprobate",
         "available": "Disponibile"
     },
+    "jellyseerr": {
+        "pending": "În așteptare",
+        "approved": "Aprobate",
+        "available": "Disponibile"
+    },
+    "overseerr": {
+        "pending": "În așteptare",
+        "processing": "Processing",
+        "approved": "Aprobate",
+        "available": "Disponibile"
+    },
+    "pialert": {
+        "total": "Total",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
+    },
+    "pihole": {
+        "queries": "Cereri",
+        "blocked": "Blocate",
+        "blocked_percent": "Blocked %",
+        "gravity": "Gravity"
+    },
+    "adguard": {
+        "queries": "Cereri",
+        "blocked": "Blocate",
+        "filtered": "Filtrate",
+        "latency": "Latentă"
+    },
     "speedtest": {
         "upload": "Încarcă",
         "download": "Descarcă",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Activ",
+        "running": "Rulează",
         "stopped": "Oprit",
         "total": "Total"
-    },
-    "gotify": {
-        "apps": "Aplicații",
-        "clients": "Clienți",
-        "messages": "Mesaje"
-    },
-    "prowlarr": {
-        "numberOfFailGrabs": "Descărcări eșuate",
-        "numberOfFailQueries": "Cereri eșuate",
-        "enableIndexers": "Indexatori",
-        "numberOfGrabs": "Descărcate",
-        "numberOfQueries": "Cereri"
-    },
-    "jackett": {
-        "configured": "Configurat",
-        "errored": "Cu erori"
-    },
-    "strelaysrv": {
-        "numActiveSessions": "Sesiuni",
-        "numConnections": "Conexiuni",
-        "dataRelayed": "Retransmise",
-        "transferRate": "Rată"
-    },
-    "mastodon": {
-        "user_count": "Utilizatori",
-        "status_count": "Postări",
-        "domain_count": "Domenii"
-    },
-    "authentik": {
-        "users": "Utilizatori",
-        "loginsLast24H": "Autentificări (24h)",
-        "failedLoginsLast24H": "Conectări eșuate (24h)"
-    },
-    "proxmox": {
-        "vms": "Masini Virtuale",
-        "mem": "Memorie",
-        "cpu": "Procesor",
-        "lxc": "Container"
-    },
-    "unifi": {
-        "users": "Utilizatori",
-        "uptime": "Timp de funcționare a sistemului",
-        "days": "Zile",
-        "wan": "WAN",
-        "lan_users": "Utilizatori LAN",
-        "wlan_users": "Utilizatori WLAN",
-        "up": "Pornit",
-        "down": "Oprit",
-        "wait": "Vă rugăm așteptați",
-        "lan": "LAN",
-        "wlan": "WLAN",
-        "devices": "Dispozitive",
-        "lan_devices": "Dispozitive LAN",
-        "wlan_devices": "Dispozitive WLAN",
-        "empty_data": "Starea subsistemului este necunoscut"
-    },
-    "plex": {
-        "streams": "Fluxuri active",
-        "movies": "Filme",
-        "tv": "Seriale",
-        "albums": "Albums"
-    },
-    "glances": {
-        "cpu": "Procesor",
-        "wait": "Te rugam sa astepti",
-        "temp": "TEMP",
-        "uptime": "UP",
-        "days": "d",
-        "hours": "h",
-        "load": "Load",
-        "warn": "Warn",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
-        "gpu": "GPU",
-        "mem": "Mem",
-        "swap": "Swap",
-        "_temp": "Temp"
-    },
-    "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
-    },
-    "wmo": {
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "99-night": "Thunderstorm With Hail",
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail"
-    },
-    "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
-        "url": "URL"
-    },
-    "homebridge": {
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges",
-        "available_update": "System",
-        "updates": "Updates",
-        "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
-    },
-    "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
-    },
-    "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
-    },
-    "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
-    },
-    "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
-    },
-    "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
-    },
-    "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
-    },
-    "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
-    },
-    "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
-    },
-    "ping": {
-        "error": "Error",
-        "ping": "Ping",
-        "up": "Up",
-        "down": "Down"
-    },
-    "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
-    },
-    "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
-    },
-    "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
-    },
-    "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
-    },
-    "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
-    },
-    "common": {
-        "bibyterate": "{{valoare, rata(bits: fals; binar: adevarat)}}",
-        "bibitrate": "{{valoare, rata(biti: adevarat; binar: adevarat)}}"
-    },
-    "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
-    },
-    "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
-    },
-    "mikrotik": {
-        "numberOfLeases": "Leases",
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime"
-    },
-    "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
-    },
-    "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
-    },
-    "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
-    },
-    "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
-    },
-    "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
-    },
-    "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
-    },
-    "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "CPU",
-        "memory_usage": "Memory"
-    },
-    "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
-    },
-    "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
-        "m": "m"
-    },
-    "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
-    },
-    "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
-    },
-    "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
-    },
-    "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
-    },
-    "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
-    },
-    "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
-    },
-    "nextcloud": {
-        "activeusers": "Active Users",
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
-    },
-    "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Eșuat"
-    },
-    "unmanic": {
-        "active_workers": "Muncitori activi",
-        "total_workers": "Muncitori totali",
-        "records_total": "Lungimea cozii"
-    },
-    "healthchecks": {
-        "new": "New",
-        "up": "Online",
-        "grace": "In Grace Period",
-        "down": "Offline",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
-    },
-    "pterodactyl": {
-        "servers": "Servere",
-        "nodes": "Noduri"
-    },
-    "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
-    },
-    "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
-    },
-    "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
-    },
-    "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
-    },
-    "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
-    },
-    "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
-    },
-    "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
-    },
-    "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Acutalizari"
     },
     "tailscale": {
         "address": "Address",
@@ -618,77 +291,441 @@
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
     },
-    "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+    "tdarr": {
+        "queue": "Coadă",
+        "processed": "Processed",
+        "errored": "Errored",
+        "saved": "Saved"
+    },
+    "traefik": {
+        "routers": "Routere",
+        "services": "Servicii",
+        "middleware": "Middleware"
+    },
+    "navidrome": {
+        "nothing_streaming": "Niciun stream activ",
+        "please_wait": "Please Wait"
+    },
+    "npm": {
+        "enabled": "Activat",
+        "disabled": "Dezactivat",
+        "total": "Total"
+    },
+    "coinmarketcap": {
+        "configure": "Configurați una sau mai multe criptomonede pe care să le urmăriți",
+        "1hour": "1 Oră",
+        "1day": "1 Zi",
+        "7days": "7 Zile",
+        "30days": "30 Zile"
+    },
+    "gotify": {
+        "apps": "Aplicații",
+        "clients": "Clienți",
+        "messages": "Mesaje"
+    },
+    "prowlarr": {
+        "enableIndexers": "Indexatori",
+        "numberOfGrabs": "Descărcate",
+        "numberOfQueries": "Cereri",
+        "numberOfFailGrabs": "Descărcări eșuate",
+        "numberOfFailQueries": "Cereri eșuate"
+    },
+    "jackett": {
+        "configured": "Configurat",
+        "errored": "Errored"
+    },
+    "strelaysrv": {
+        "numActiveSessions": "Sesiuni",
+        "numConnections": "Conexiuni",
+        "dataRelayed": "Retransmise",
+        "transferRate": "Rată"
+    },
+    "mastodon": {
+        "user_count": "Utilizatori",
+        "status_count": "Postări",
+        "domain_count": "Domenii"
+    },
+    "medusa": {
+        "wanted": "Dorite",
+        "queued": "În coadă",
+        "series": "Serie"
+    },
+    "minecraft": {
+        "players": "Players",
+        "version": "Version",
+        "status": "Stare",
+        "up": "Online",
+        "down": "Offline"
+    },
+    "miniflux": {
+        "read": "Read",
+        "unread": "Necitit"
+    },
+    "authentik": {
+        "users": "Utilizatori",
+        "loginsLast24H": "Autentificări (24h)",
+        "failedLoginsLast24H": "Conectări eșuate (24h)"
+    },
+    "proxmox": {
+        "mem": "MEM",
+        "cpu": "Procesor",
+        "lxc": "Container",
+        "vms": "Masini Virtuale"
+    },
+    "glances": {
+        "cpu": "Procesor",
+        "load": "Sarcină",
+        "wait": "Va rugăm așteptați",
+        "temp": "TEMP",
+        "_temp": "Temp",
+        "warn": "Warn",
+        "uptime": "UP",
+        "total": "Total",
+        "free": "Disponibili",
+        "used": "Utilizați",
+        "days": "zi",
+        "hours": "ora",
+        "crit": "Crit",
+        "read": "Read",
+        "write": "Write",
+        "gpu": "GPU",
+        "mem": "Mem",
+        "swap": "Swap"
+    },
+    "quicklaunch": {
+        "bookmark": "Marcaj",
+        "service": "Serviciu",
+        "search": "Caută",
+        "custom": "Personalizat",
+        "visit": "Vizită",
+        "url": "URL"
+    },
+    "wmo": {
+        "0-day": "Însorit",
+        "0-night": "Fără nori",
+        "1-day": "Aproape însorit",
+        "1-night": "Aproape fără nori",
+        "2-day": "Parţial Înnorat",
+        "2-night": "Parţial Înnorat",
+        "3-day": "Înnorat",
+        "3-night": "Înnorat",
+        "45-day": "Ceaţă",
+        "45-night": "Ceaţă",
+        "48-day": "Ceaţă",
+        "48-night": "Ceaţă",
+        "51-day": "Light Drizzle",
+        "51-night": "Light Drizzle",
+        "53-day": "Drizzle",
+        "53-night": "Drizzle",
+        "55-day": "Heavy Drizzle",
+        "55-night": "Heavy Drizzle",
+        "56-day": "Light Freezing Drizzle",
+        "56-night": "Light Freezing Drizzle",
+        "57-day": "Freezing Drizzle",
+        "57-night": "Freezing Drizzle",
+        "61-day": "Light Rain",
+        "61-night": "Light Rain",
+        "63-day": "Rain",
+        "63-night": "Rain",
+        "65-day": "Heavy Rain",
+        "65-night": "Heavy Rain",
+        "66-day": "Freezing Rain",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
+        "71-day": "Light Snow",
+        "71-night": "Light Snow",
+        "73-day": "Snow",
+        "73-night": "Snow",
+        "75-day": "Heavy Snow",
+        "75-night": "Heavy Snow",
+        "77-day": "Snow Grains",
+        "77-night": "Snow Grains",
+        "80-day": "Light Showers",
+        "80-night": "Light Showers",
+        "81-day": "Showers",
+        "81-night": "Showers",
+        "82-day": "Heavy Showers",
+        "82-night": "Heavy Showers",
+        "85-day": "Snow Showers",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
+        "95-day": "Thunderstorm",
+        "95-night": "Thunderstorm",
+        "96-day": "Thunderstorm With Hail",
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
+    },
+    "homebridge": {
+        "available_update": "System",
+        "updates": "Updates",
+        "update_available": "Update Available",
+        "up_to_date": "Up to Date",
+        "child_bridges": "Child Bridges",
+        "child_bridges_status": "{{ok}}/{{total}}",
+        "up": "Sus",
+        "pending": "În așteptare",
+        "down": "Jos"
+    },
+    "healthchecks": {
+        "new": "New",
+        "up": "Online",
+        "grace": "In Grace Period",
+        "down": "Offline",
+        "paused": "Paused",
+        "status": "Stare",
+        "last_ping": "Last Ping",
+        "never": "No pings yet"
+    },
+    "watchtower": {
+        "containers_scanned": "Scanned",
+        "containers_updated": "Updated",
+        "containers_failed": "Failed"
+    },
+    "autobrr": {
+        "approvedPushes": "Aprobate",
+        "rejectedPushes": "Rejected",
+        "filters": "Filters",
+        "indexers": "Indexatori"
+    },
+    "tubearchivist": {
+        "downloads": "Coadă",
+        "videos": "Videos",
+        "channels": "Channels",
+        "playlists": "Playlists"
+    },
+    "truenas": {
+        "load": "System Load",
+        "uptime": "Uptime",
+        "alerts": "Alerts",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    },
+    "pyload": {
+        "speed": "Speed",
+        "active": "Activ",
+        "queue": "Coadă",
+        "total": "Total"
+    },
+    "gluetun": {
+        "public_ip": "Public IP",
+        "region": "Region",
+        "country": "Country"
+    },
+    "hdhomerun": {
+        "channels": "Channels",
+        "hd": "HD"
+    },
+    "scrutiny": {
+        "passed": "Passed",
+        "failed": "Failed",
+        "unknown": "Necunoscut"
+    },
+    "paperlessngx": {
+        "inbox": "Inbox",
+        "total": "Total"
+    },
+    "nextdns": {
+        "wait": "Please Wait",
+        "no_devices": "No Device Data Received"
+    },
+    "mikrotik": {
+        "cpuLoad": "CPU Load",
+        "memoryUsed": "Memory Used",
+        "uptime": "Uptime",
+        "numberOfLeases": "Leases"
+    },
+    "xteve": {
+        "streams_all": "All Streams",
+        "streams_active": "Fluxuri active",
+        "streams_xepg": "XEPG Channels"
+    },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
+    },
+    "opnsense": {
+        "cpu": "CPU Load",
+        "memory": "Active Memory",
+        "wanUpload": "WAN Upload",
+        "wanDownload": "WAN Download"
+    },
+    "moonraker": {
+        "printer_state": "Printer State",
+        "print_status": "Print Status",
+        "print_progress": "Progress",
+        "layers": "Layers"
+    },
+    "octoprint": {
+        "printer_state": "Stare",
+        "temp_tool": "Tool temp",
+        "temp_bed": "Bed temp",
+        "job_completion": "Completion"
+    },
+    "cloudflared": {
+        "origin_ip": "Origin IP",
+        "status": "Stare"
     },
     "pfsense": {
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Sus",
+        "down": "Jos",
         "temp": "Temp",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
     },
-    "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+    "proxmoxbackupserver": {
+        "datastore_usage": "Datastore",
+        "failed_tasks_24h": "Failed Tasks 24h",
+        "cpu_usage": "Procesor",
+        "memory_usage": "Memory"
     },
-    "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "watt_hour": "Wh"
+    "immich": {
+        "users": "Utilizatori",
+        "photos": "Photos",
+        "videos": "Videos",
+        "storage": "Storage"
     },
-    "pialert": {
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts",
-        "total": "Total",
-        "connected": "Connected"
+    "uptimekuma": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime",
+        "incident": "Incident",
+        "m": "min"
+    },
+    "atsumeru": {
+        "series": "Serie",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
+    "komga": {
+        "libraries": "Libraries",
+        "series": "Serie",
+        "books": "Cărți"
+    },
+    "diskstation": {
+        "days": "Zile",
+        "uptime": "Uptime",
+        "volumeAvailable": "Disponibile"
+    },
+    "mylar": {
+        "series": "Serie",
+        "issues": "Issues",
+        "wanted": "Dorite"
+    },
+    "photoprism": {
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
+        "people": "People"
+    },
+    "fileflows": {
+        "queue": "Coadă",
+        "processing": "Processing",
+        "processed": "Processed",
+        "time": "Time"
+    },
+    "grafana": {
+        "dashboards": "Dashboards",
+        "datasources": "Data Sources",
+        "totalalerts": "Total Alerts",
+        "alertstriggered": "Alerts Triggered"
+    },
+    "nextcloud": {
+        "cpuload": "Cpu Load",
+        "memoryusage": "Memory Usage",
+        "freespace": "Free Space",
+        "activeusers": "Active Users",
+        "numfiles": "Files",
+        "numshares": "Shared Items"
+    },
+    "kopia": {
+        "status": "Stare",
+        "size": "Size",
+        "lastrun": "Last Run",
+        "nextrun": "Next Run",
+        "failed": "Failed"
+    },
+    "unmanic": {
+        "active_workers": "Muncitori activi",
+        "total_workers": "Muncitori totali",
+        "records_total": "Lungimea cozii"
+    },
+    "pterodactyl": {
+        "servers": "Servere",
+        "nodes": "Noduri"
+    },
+    "prometheus": {
+        "targets_up": "Targets Up",
+        "targets_down": "Targets Down",
+        "targets_total": "Total Targets"
+    },
+    "ghostfolio": {
+        "gross_percent_today": "Today",
+        "gross_percent_1y": "One year",
+        "gross_percent_max": "All time"
+    },
+    "audiobookshelf": {
+        "podcasts": "Podcasts",
+        "books": "Cărți",
+        "podcastsDuration": "Duration",
+        "booksDuration": "Duration"
+    },
+    "homeassistant": {
+        "people_home": "People Home",
+        "lights_on": "Lights On",
+        "switches_on": "Switches On"
+    },
+    "whatsupdocker": {
+        "monitoring": "Monitoring",
+        "updates": "Updates"
+    },
+    "calibreweb": {
+        "books": "Cărți",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Serie"
     },
     "jdownloader": {
-        "downloadCount": "Queue Count",
-        "downloadSpeed": "Download Speed",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Coadă",
+        "downloadBytesRemaining": "Rămas",
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "Series",
+        "seriesCount": "Serie",
         "totalFiles": "Files"
     },
+    "azuredevops": {
+        "result": "Result",
+        "status": "Stare",
+        "buildId": "Build ID",
+        "succeeded": "Succeeded",
+        "notStarted": "Not Started",
+        "failed": "Failed",
+        "canceled": "Canceled",
+        "inProgress": "In Progress",
+        "totalPrs": "Total PRs",
+        "myPrs": "My PRs",
+        "approved": "Aprobate"
+    },
     "gamedig": {
+        "status": "Stare",
+        "online": "Online",
+        "offline": "Offline",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
-    },
-    "azuredevops": {
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Approved",
-        "result": "Result",
-        "status": "Status",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed"
+        "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
@@ -696,55 +733,38 @@
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
-    "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
-    },
     "mealie": {
         "recipes": "Recipes",
-        "users": "Users",
+        "users": "Utilizatori",
         "categories": "Categories",
         "tags": "Tags"
     },
-    "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
-    "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Total",
+        "running": "Rulează",
+        "stopped": "Oprit",
+        "passed": "Passed",
+        "failed": "Failed"
     },
     "uptimerobot": {
-        "status": "Status",
+        "status": "Stare",
         "uptime": "Uptime",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Sus",
         "seemsdown": "Seems Down",
-        "down": "Down",
-        "unknown": "Unknown"
-    },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "down": "Jos",
+        "unknown": "Necunoscut"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release",
+        "noEventsToday": "No events for today!"
     }
 }

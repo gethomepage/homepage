@@ -1,21 +1,23 @@
 {
-    "tubearchivist": {
-        "videos": "Videa",
-        "channels": "Kanály",
-        "playlists": "Playlisty",
-        "downloads": "Fronta"
-    },
-    "truenas": {
-        "load": "Zatížení systému",
-        "uptime": "Doba spuštění",
-        "alerts": "Upozornění",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+    "common": {
+        "bytes": "{{value, bytes}}",
+        "bits": "{{value, bytes(bits: true)}}",
+        "bbytes": "{{value, bytes(binary: true)}}",
+        "bbits": "{{value, bytes(bits: true; binary: true)}}",
+        "byterate": "{{value, rate(bits: false)}}",
+        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bitrate": "{{value, rate(bits: true)}}",
+        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "percent": "{{value, percent}}",
+        "number": "{{value, number}}",
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Chybí typ widgetu: {{type}}",
         "api_error": "Chyba API",
-        "status": "Stav",
         "information": "Informace",
+        "status": "Stav",
         "url": "URL",
         "raw_error": "Nevyřešená chyba",
         "response_data": "Data odezvy"
@@ -31,18 +33,18 @@
     },
     "resources": {
         "cpu": "CPU",
+        "mem": "RAM",
         "total": "Celkem",
         "free": "Volné",
         "used": "Využité",
         "load": "Zatížení",
-        "mem": "RAM",
+        "temp": "TEPLOTA",
         "max": "Max.",
         "uptime": "BĚŽÍ",
         "months": "měs.",
         "days": "d",
         "hours": "h",
-        "minutes": "m",
-        "temp": "TEPLOTA"
+        "minutes": "m"
     },
     "unifi": {
         "users": "Uživatelé",
@@ -56,7 +58,7 @@
         "wlan_devices": "Zařízení WLAN",
         "lan_users": "Uživatelé LAN",
         "wlan_users": "Uživatelé WLAN",
-        "up": "FUNKČNÍ",
+        "up": "BĚŽÍ",
         "down": "NEFUNKČNÍ",
         "wait": "Počkejte prosím",
         "empty_data": "Stav podsystému neznámý"
@@ -66,16 +68,31 @@
         "tx": "TX",
         "mem": "RAM",
         "cpu": "CPU",
+        "running": "Běží",
         "offline": "Offline",
         "error": "Chyba",
         "unknown": "Neznámý",
-        "running": "Běží",
+        "healthy": "Zdravý",
         "starting": "Spouští se",
         "unhealthy": "Nezdravý",
         "not_found": "Nenalezen",
         "exited": "Ukončen",
-        "partial": "Částečný",
-        "healthy": "Zdravý"
+        "partial": "Částečný"
+    },
+    "ping": {
+        "error": "Chyba",
+        "ping": "Odezva",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Chyba",
+        "response": "Response",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Přehrává",
@@ -87,9 +104,38 @@
         "episodes": "Epizody",
         "songs": "Skladby"
     },
+    "evcc": {
+        "pv_power": "Produkce",
+        "battery_soc": "Battery",
+        "grid_power": "Grid",
+        "home_power": "Consumption",
+        "charge_power": "Charger",
+        "watt_hour": "Wh"
+    },
+    "flood": {
+        "download": "Stahování",
+        "upload": "Nahrávání",
+        "leech": "Leechované",
+        "seed": "Seedované"
+    },
+    "freshrss": {
+        "subscriptions": "Odběry",
+        "unread": "Nepřečteno"
+    },
+    "caddy": {
+        "upstreams": "Odesílání dat",
+        "requests": "Aktuální požadavky",
+        "requests_failed": "Selhavší požadavky"
+    },
     "changedetectionio": {
         "totalObserved": "Celkem zjištěno",
         "diffsDetected": "Rozdíly detekovány"
+    },
+    "channelsdvrserver": {
+        "shows": "Pořady",
+        "recordings": "Nahrávky",
+        "scheduled": "Naplánováno",
+        "passes": "Průchody"
     },
     "tautulli": {
         "playing": "Přehrává",
@@ -98,6 +144,13 @@
         "no_active": "Žádný aktivní stream",
         "plex_connection_error": "Check Plex Connection"
     },
+    "omada": {
+        "connectedAp": "Připojené APs",
+        "activeUser": "Aktivní zařízení",
+        "alerts": "Upozornění",
+        "connectedGateway": "Připojené brány",
+        "connectedSwitches": "Připojené přepínače"
+    },
     "nzbget": {
         "rate": "Rychlost",
         "remaining": "Zbývá",
@@ -105,9 +158,9 @@
     },
     "plex": {
         "streams": "Aktivní streamy",
+        "albums": "Alba",
         "movies": "Filmy",
-        "tv": "Seriály",
-        "albums": "Alba"
+        "tv": "Seriály"
     },
     "sabnzbd": {
         "rate": "Rychlost",
@@ -131,20 +184,40 @@
         "leech": "Leechované",
         "seed": "Seedované"
     },
+    "qnap": {
+        "cpuUsage": "Využití procesoru",
+        "memUsage": "Využití paměti",
+        "systemTempC": "Teplota systému",
+        "poolUsage": "Využití fondu",
+        "volumeUsage": "Volume Usage",
+        "invalid": "Invalid"
+    },
+    "deluge": {
+        "download": "Stahování",
+        "upload": "Nahrávání",
+        "leech": "Leechované",
+        "seed": "Seedované"
+    },
+    "downloadstation": {
+        "download": "Stahování",
+        "upload": "Nahrávání",
+        "leech": "Leechované",
+        "seed": "Seedované"
+    },
     "sonarr": {
         "wanted": "Hledané",
         "queued": "Ve frontě",
         "series": "Seriály",
-        "unknown": "Unknown",
-        "queue": "Queue"
+        "queue": "Fronta",
+        "unknown": "Neznámý"
     },
     "radarr": {
         "wanted": "Hledané",
         "missing": "Chybějící",
         "queued": "Ve frontě",
         "movies": "Filmy",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Fronta",
+        "unknown": "Neznámý"
     },
     "lidarr": {
         "wanted": "Hledané",
@@ -172,15 +245,21 @@
     },
     "overseerr": {
         "pending": "Čeká",
+        "processing": "Zpracovávání",
         "approved": "Schváleno",
-        "available": "Dostupné",
-        "processing": "Zpracovávání"
+        "available": "Dostupné"
+    },
+    "pialert": {
+        "total": "Celkem",
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Dotazy",
         "blocked": "Blokováno",
-        "gravity": "Gravity",
-        "blocked_percent": "Blokováno"
+        "blocked_percent": "Blokováno",
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Dotazy",
@@ -191,22 +270,46 @@
     "speedtest": {
         "upload": "Nahrávání",
         "download": "Stahování",
-        "ping": "Ping"
+        "ping": "Odezva"
     },
     "portainer": {
-        "running": "Spuštěno",
+        "running": "Běží",
         "stopped": "Zastaveno",
         "total": "Celkem"
+    },
+    "tailscale": {
+        "address": "Adresa",
+        "expires": "Vyprší",
+        "never": "Nikdy",
+        "last_seen": "Naposledy viděno",
+        "now": "Nyní",
+        "years": "{{number}}r",
+        "weeks": "{{number}}t",
+        "days": "{{number}}d",
+        "hours": "{{number}}h",
+        "minutes": "{{number}}m",
+        "seconds": "{{number}}s",
+        "ago": "Před {{value}}"
+    },
+    "tdarr": {
+        "queue": "Fronta",
+        "processed": "Zpracováno",
+        "errored": "Chybné",
+        "saved": "Uložené"
     },
     "traefik": {
         "routers": "Routery",
         "services": "Služby",
         "middleware": "Prostředník"
     },
+    "navidrome": {
+        "nothing_streaming": "Žádný aktivní stream",
+        "please_wait": "Čekejte prosím"
+    },
     "npm": {
         "enabled": "Povoleno",
         "disabled": "Zakázáno",
-        "total": "Celkově"
+        "total": "Celkem"
     },
     "coinmarketcap": {
         "configure": "Nakonfigurujte alespoň jednu crypto měnu ke sledování",
@@ -214,64 +317,6 @@
         "1day": "1 Den",
         "7days": "7 Dní",
         "30days": "30 Dní"
-    },
-    "wmo": {
-        "1-night": "Převážně jasno",
-        "2-day": "Polojasno",
-        "0-day": "Slunečno",
-        "0-night": "Jasno",
-        "1-day": "Převážně slunečno",
-        "2-night": "Polojasno",
-        "3-day": "Oblačno",
-        "3-night": "Oblačno",
-        "45-day": "Mlha",
-        "45-night": "Mlha",
-        "48-day": "Mlha",
-        "48-night": "Mlha",
-        "51-day": "Lehké mrholení",
-        "53-day": "Mrholení",
-        "53-night": "Mrholení",
-        "55-day": "Silné mrholení",
-        "55-night": "Silné mrholení",
-        "56-day": "Mírné mrznoucí mrholení",
-        "56-night": "Mírné mrznoucí mrholení",
-        "57-day": "Mrznoucí mrholení",
-        "57-night": "Mrznoucí mrholení",
-        "61-day": "Slabý déšť",
-        "61-night": "Slabý déšť",
-        "51-night": "Lehké mrholení",
-        "63-day": "Déšť",
-        "63-night": "Déšť",
-        "65-day": "Silný déšť",
-        "65-night": "Silný déšť",
-        "66-day": "Mrznoucí déšť",
-        "66-night": "Mrznoucí déšť",
-        "67-day": "Mrznoucí déšť",
-        "67-night": "Mrznoucí déšť",
-        "71-day": "Slabé sněžení",
-        "73-night": "Sněžení",
-        "75-day": "Silné sněžení",
-        "75-night": "Silné sněžení",
-        "77-day": "Sněhová zrna",
-        "71-night": "Slabé sněžení",
-        "73-day": "Sněžení",
-        "77-night": "Sněhová zrna",
-        "80-day": "Lehké přeháňky",
-        "80-night": "Lehké přeháňky",
-        "81-day": "Přeháňky",
-        "81-night": "Přeháňky",
-        "82-day": "Silné přeháňky",
-        "82-night": "Silné přeháňky",
-        "85-day": "Déšť se sněhem",
-        "85-night": "Déšť se sněhem",
-        "86-day": "Déšť se sněhem",
-        "86-night": "Déšť se sněhem",
-        "95-day": "Bouřka",
-        "95-night": "Bouřka",
-        "96-day": "Bouřka s krupobitím",
-        "96-night": "Bouřka s krupobitím",
-        "99-day": "Bouřka s krupobitím",
-        "99-night": "Bouřka s krupobitím"
     },
     "gotify": {
         "apps": "Aplikace",
@@ -293,12 +338,28 @@
         "numActiveSessions": "Sezení",
         "numConnections": "Připojení",
         "dataRelayed": "Přenášení",
-        "transferRate": "Tempo"
+        "transferRate": "Rychlost"
     },
     "mastodon": {
         "user_count": "Uživatelé",
         "status_count": "Příspěvky",
         "domain_count": "Domény"
+    },
+    "medusa": {
+        "wanted": "Hledané",
+        "queued": "Ve frontě",
+        "series": "Seriály"
+    },
+    "minecraft": {
+        "players": "Hráči",
+        "version": "Verze",
+        "status": "Stav",
+        "up": "Online",
+        "down": "Offline"
+    },
+    "miniflux": {
+        "read": "Přečteno",
+        "unread": "Nepřečteno"
     },
     "authentik": {
         "users": "Uživatelé",
@@ -313,23 +374,23 @@
     },
     "glances": {
         "cpu": "CPU",
-        "wait": "Prosím počkejte",
+        "load": "Zatížení",
+        "wait": "Počkejte prosím",
         "temp": "TEPLOTA",
+        "_temp": "Temp",
+        "warn": "Warn",
         "uptime": "BĚŽÍ",
+        "total": "Celkem",
+        "free": "Volné",
+        "used": "Využité",
         "days": "d",
         "hours": "h",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load",
-        "warn": "Warn",
         "crit": "Crit",
-        "read": "Read",
+        "read": "Přečteno",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap",
-        "_temp": "Temp"
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Záložka",
@@ -339,16 +400,84 @@
         "visit": "Navštivte",
         "url": "URL"
     },
+    "wmo": {
+        "0-day": "Slunečno",
+        "0-night": "Jasno",
+        "1-day": "Převážně slunečno",
+        "1-night": "Převážně jasno",
+        "2-day": "Polojasno",
+        "2-night": "Polojasno",
+        "3-day": "Oblačno",
+        "3-night": "Oblačno",
+        "45-day": "Mlha",
+        "45-night": "Mlha",
+        "48-day": "Mlha",
+        "48-night": "Mlha",
+        "51-day": "Lehké mrholení",
+        "51-night": "Lehké mrholení",
+        "53-day": "Mrholení",
+        "53-night": "Mrholení",
+        "55-day": "Silné mrholení",
+        "55-night": "Silné mrholení",
+        "56-day": "Mírné mrznoucí mrholení",
+        "56-night": "Mírné mrznoucí mrholení",
+        "57-day": "Mrznoucí mrholení",
+        "57-night": "Mrznoucí mrholení",
+        "61-day": "Slabý déšť",
+        "61-night": "Slabý déšť",
+        "63-day": "Déšť",
+        "63-night": "Déšť",
+        "65-day": "Silný déšť",
+        "65-night": "Silný déšť",
+        "66-day": "Mrznoucí déšť",
+        "66-night": "Mrznoucí déšť",
+        "67-day": "Mrznoucí déšť",
+        "67-night": "Mrznoucí déšť",
+        "71-day": "Slabé sněžení",
+        "71-night": "Slabé sněžení",
+        "73-day": "Sněžení",
+        "73-night": "Sněžení",
+        "75-day": "Silné sněžení",
+        "75-night": "Silné sněžení",
+        "77-day": "Sněhová zrna",
+        "77-night": "Sněhová zrna",
+        "80-day": "Lehké přeháňky",
+        "80-night": "Lehké přeháňky",
+        "81-day": "Přeháňky",
+        "81-night": "Přeháňky",
+        "82-day": "Silné přeháňky",
+        "82-night": "Silné přeháňky",
+        "85-day": "Déšť se sněhem",
+        "85-night": "Déšť se sněhem",
+        "86-day": "Déšť se sněhem",
+        "86-night": "Déšť se sněhem",
+        "95-day": "Bouřka",
+        "95-night": "Bouřka",
+        "96-day": "Bouřka s krupobitím",
+        "96-night": "Bouřka s krupobitím",
+        "99-day": "Bouřka s krupobitím",
+        "99-night": "Bouřka s krupobitím"
+    },
     "homebridge": {
-        "update_available": "Dostupná",
-        "up_to_date": "Žádné",
         "available_update": "Systém",
         "updates": "Aktualizace",
+        "update_available": "Dostupná",
+        "up_to_date": "Žádné",
         "child_bridges": "Podřízené můstky",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Zapnutý",
-        "pending": "Čeká se",
-        "down": "Vypnutý"
+        "up": "Up",
+        "pending": "Čeká",
+        "down": "Down"
+    },
+    "healthchecks": {
+        "new": "Nové",
+        "up": "Online",
+        "grace": "V období odkladu",
+        "down": "Offline",
+        "paused": "Pozastaveno",
+        "status": "Stav",
+        "last_ping": "Poslední ping",
+        "never": "Zatím žádné pingy"
     },
     "watchtower": {
         "containers_scanned": "Prohledáno",
@@ -361,9 +490,17 @@
         "filters": "Filtry",
         "indexers": "Indexery"
     },
-    "navidrome": {
-        "nothing_streaming": "Žádné aktivní streamy",
-        "please_wait": "Čekejte prosím"
+    "tubearchivist": {
+        "downloads": "Fronta",
+        "videos": "Videa",
+        "channels": "Kanály",
+        "playlists": "Playlisty"
+    },
+    "truenas": {
+        "load": "Zatížení systému",
+        "uptime": "Doba spuštění",
+        "alerts": "Upozornění",
+        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "pyload": {
         "speed": "Rychlost",
@@ -380,74 +517,35 @@
         "channels": "Kanály",
         "hd": "HD"
     },
-    "ping": {
-        "error": "Chyba",
-        "ping": "Odezva",
-        "up": "Up",
-        "down": "Down"
-    },
     "scrutiny": {
         "passed": "Úspěšné",
-        "failed": "Neúspěšné",
-        "unknown": "Neznámé"
+        "failed": "Selhalo",
+        "unknown": "Neznámý"
     },
     "paperlessngx": {
         "inbox": "Doručená pošta",
         "total": "Celkem"
     },
-    "deluge": {
-        "upload": "Nahrávání",
-        "leech": "Leechované",
-        "seed": "Seedované",
-        "download": "Stahování"
-    },
-    "flood": {
-        "download": "Stahování",
-        "upload": "Nahrávání",
-        "leech": "Leechované",
-        "seed": "Seedované"
-    },
-    "tdarr": {
-        "queue": "Fronta",
-        "processed": "Zpracováno",
-        "errored": "Chybné",
-        "saved": "Uložené"
-    },
-    "miniflux": {
-        "read": "Přečteno",
-        "unread": "Nepřečteno"
-    },
     "nextdns": {
-        "wait": "Počkejte prosím",
+        "wait": "Čekejte prosím",
         "no_devices": "Žádná přijatá data zařízení"
-    },
-    "common": {
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}"
-    },
-    "omada": {
-        "connectedAp": "Připojené APs",
-        "activeUser": "Aktivní zařízení",
-        "alerts": "Upozornění",
-        "connectedGateway": "Připojené brány",
-        "connectedSwitches": "Připojené přepínače"
-    },
-    "downloadstation": {
-        "download": "Stahování",
-        "upload": "Nahrávání",
-        "leech": "Leechované",
-        "seed": "Seedované"
     },
     "mikrotik": {
         "cpuLoad": "Zatížení procesoru",
         "memoryUsed": "Použitá paměť",
-        "uptime": "Doba provozu",
+        "uptime": "Doba spuštění",
         "numberOfLeases": "Pronájmy"
     },
     "xteve": {
         "streams_all": "Všechny streamy",
         "streams_active": "Aktivní streamy",
         "streams_xepg": "Kanály XEPG"
+    },
+    "opendtu": {
+        "yieldDay": "Today",
+        "absolutePower": "Power",
+        "relativePower": "Power %",
+        "limit": "Limit"
     },
     "opnsense": {
         "cpu": "Zatížení procesoru",
@@ -456,15 +554,10 @@
         "wanDownload": "Stahování WAN"
     },
     "moonraker": {
-        "print_progress": "Průběh",
         "printer_state": "Stav tiskárny",
         "print_status": "Stav tisku",
+        "print_progress": "Průběh",
         "layers": "Vrstvy"
-    },
-    "medusa": {
-        "wanted": "Hledané",
-        "queued": "Fronta",
-        "series": "Série"
     },
     "octoprint": {
         "printer_state": "Stav",
@@ -475,6 +568,16 @@
     "cloudflared": {
         "origin_ip": "Původní IP",
         "status": "Stav"
+    },
+    "pfsense": {
+        "load": "Prům. zatížení",
+        "memory": "Využití paměti",
+        "wanStatus": "Stav WAN",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
+        "disk": "Využití disku",
+        "wanIP": "IP WAN"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datové úložiště",
@@ -491,19 +594,30 @@
     "uptimekuma": {
         "up": "Stránky Up",
         "down": "Stránky Down",
-        "uptime": "Doba provozu",
+        "uptime": "Doba spuštění",
         "incident": "Incident",
         "m": "m"
     },
+    "atsumeru": {
+        "series": "Seriály",
+        "archives": "Archives",
+        "chapters": "Chapters",
+        "categories": "Categories"
+    },
     "komga": {
         "libraries": "Knihovny",
-        "series": "Série",
+        "series": "Seriály",
         "books": "Knihy"
     },
+    "diskstation": {
+        "days": "dní",
+        "uptime": "Doba spuštění",
+        "volumeAvailable": "Dostupné"
+    },
     "mylar": {
-        "series": "Série",
+        "series": "Seriály",
         "issues": "Problémy",
-        "wanted": "Hledá se"
+        "wanted": "Hledané"
     },
     "photoprism": {
         "albums": "Alba",
@@ -511,14 +625,9 @@
         "videos": "Videa",
         "people": "Lidé"
     },
-    "diskstation": {
-        "days": "dní",
-        "uptime": "Doba provozu",
-        "volumeAvailable": "K dispozici"
-    },
     "fileflows": {
         "queue": "Fronta",
-        "processing": "Zpracování",
+        "processing": "Zpracovávání",
         "processed": "Zpracováno",
         "time": "Čas"
     },
@@ -541,41 +650,24 @@
         "size": "Velikost",
         "lastrun": "Poslední spuštění",
         "nextrun": "Další spuštění",
-        "failed": "Neúspěšné"
+        "failed": "Selhalo"
     },
     "unmanic": {
         "active_workers": "Aktivní workers",
         "total_workers": "Workers celkem",
         "records_total": "Délka fronty"
     },
-    "healthchecks": {
-        "new": "Nové",
-        "up": "Online",
-        "grace": "V období odkladu",
-        "down": "Offline",
-        "paused": "Pozastaveno",
-        "status": "Stav",
-        "last_ping": "Poslední ping",
-        "never": "Zatím žádné pingy"
-    },
     "pterodactyl": {
         "servers": "Servery",
         "nodes": "Uzly"
     },
     "prometheus": {
+        "targets_up": "Cíle zapnuté",
         "targets_down": "Cíle vypnuté",
-        "targets_total": "Cíle celkem",
-        "targets_up": "Cíle zapnuté"
-    },
-    "minecraft": {
-        "up": "Online",
-        "down": "Offline",
-        "players": "Hráči",
-        "version": "Verze",
-        "status": "Stav"
+        "targets_total": "Cíle celkem"
     },
     "ghostfolio": {
-        "gross_percent_today": "Dnes",
+        "gross_percent_today": "Today",
         "gross_percent_1y": "Jeden rok",
         "gross_percent_max": "Za celou dobu"
     },
@@ -590,105 +682,50 @@
         "lights_on": "Rozsvícená světla",
         "switches_on": "Zapnuté přepínače"
     },
-    "freshrss": {
-        "subscriptions": "Odběry",
-        "unread": "Nepřečteno"
-    },
-    "channelsdvrserver": {
-        "shows": "Pořady",
-        "recordings": "Nahrávky",
-        "scheduled": "Naplánováno",
-        "passes": "Průchody"
-    },
     "whatsupdocker": {
         "monitoring": "Sledování",
         "updates": "Aktualizace"
     },
-    "tailscale": {
-        "address": "Adresa",
-        "expires": "Vyprší",
-        "never": "Nikdy",
-        "last_seen": "Naposledy viděno",
-        "now": "Nyní",
-        "years": "{{number}}r",
-        "weeks": "{{number}}t",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "Před {{value}}"
-    },
-    "qnap": {
-        "memUsage": "Využití paměti",
-        "systemTempC": "Teplota systému",
-        "poolUsage": "Využití fondu",
-        "cpuUsage": "Využití procesoru",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
-    },
-    "pfsense": {
-        "load": "Prům. zatížení",
-        "memory": "Využití paměti",
-        "wanStatus": "Stav WAN",
-        "up": "Běží",
-        "down": "Neběží",
-        "temp": "Teplota",
-        "disk": "Využití disku",
-        "wanIP": "IP WAN"
-    },
-    "caddy": {
-        "upstreams": "Odesílání dat",
-        "requests": "Aktuální požadavky",
-        "requests_failed": "Selhavší požadavky"
-    },
-    "evcc": {
-        "watt_hour": "Wh",
-        "pv_power": "Produkce",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger"
-    },
-    "pialert": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+    "calibreweb": {
+        "books": "Knihy",
+        "authors": "Authors",
+        "categories": "Categories",
+        "series": "Seriály"
     },
     "jdownloader": {
-        "downloadSpeed": "Download Speed",
-        "downloadCount": "Queue Count",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size"
+        "downloadCount": "Fronta",
+        "downloadBytesRemaining": "Zbývá",
+        "downloadTotalBytes": "Velikost",
+        "downloadSpeed": "Rychlost"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
-    },
-    "gamedig": {
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "name": "Name",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
-        "ping": "Ping",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "seriesCount": "Seriály",
+        "totalFiles": "Soubory"
     },
     "azuredevops": {
         "result": "Result",
-        "status": "Status",
+        "status": "Stav",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
-        "failed": "Failed",
+        "failed": "Selhalo",
         "canceled": "Canceled",
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "Approved"
+        "approved": "Schváleno"
+    },
+    "gamedig": {
+        "status": "Stav",
+        "online": "Online",
+        "offline": "Offline",
+        "name": "Name",
+        "map": "Map",
+        "currentPlayers": "Current players",
+        "players": "Hráči",
+        "maxPlayers": "Max players",
+        "bots": "Bots",
+        "ping": "Odezva"
     },
     "urbackup": {
         "ok": "Ok",
@@ -696,55 +733,38 @@
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
-    "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
-    },
     "mealie": {
         "recipes": "Recipes",
-        "users": "Users",
+        "users": "Uživatelé",
         "categories": "Categories",
         "tags": "Tags"
     },
-    "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
-    },
-    "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+    "openmediavault": {
+        "downloading": "Downloading",
+        "total": "Celkem",
+        "running": "Běží",
+        "stopped": "Zastaveno",
+        "passed": "Úspěšné",
+        "failed": "Selhalo"
     },
     "uptimerobot": {
-        "status": "Status",
-        "uptime": "Uptime",
+        "status": "Stav",
+        "uptime": "Doba spuštění",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
+        "sitesUp": "Stránky Up",
+        "sitesDown": "Stránky Down",
+        "paused": "Pozastaveno",
         "notyetchecked": "Not Yet Checked",
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Unknown"
-    },
-    "opendtu": {
-        "relativePower": "Power %",
-        "yieldDay": "Today",
-        "limit": "Limit",
-        "absolutePower": "Power"
+        "unknown": "Neznámý"
     },
     "calendar": {
-        "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
-        "digitalRelease": "Digital release"
+        "physicalRelease": "Physical release",
+        "digitalRelease": "Digital release",
+        "noEventsToday": "No events for today!"
     }
 }
