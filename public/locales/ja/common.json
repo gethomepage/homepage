@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "ユーザ",
-        "uptime": "システム・アップタイム",
+        "uptime": "稼働時間",
         "days": "日",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "購読",
         "unread": "未読"
+    },
+    "fritzbox": {
+        "connectionStatus": "状態",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "接続済み",
+        "uptime": "稼働時間",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "下へ",
+        "up": "上へ",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "アップストリーム",
@@ -765,6 +783,7 @@
         "inCinemas": "映画館内",
         "physicalRelease": "物理的なリリース",
         "digitalRelease": "デジタル・リリース",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
     }
 }

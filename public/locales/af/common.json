@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Gebruikers",
-        "uptime": "Stelsel Bedryfstyd",
+        "uptime": "Optyd",
         "days": "Daë",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Intekenings",
         "unread": "Ongelees"
+    },
+    "fritzbox": {
+        "connectionStatus": "Status",
+        "connectionStatusUnconfigured": "Ongekonfigureer",
+        "connectionStatusConnecting": "Verbind",
+        "connectionStatusAuthenticating": "Stel geldigheid vas",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Ontkoppel",
+        "connectionStatusDisconnected": "Ontkoppel",
+        "connectionStatusConnected": "Gekoppel",
+        "uptime": "Optyd",
+        "maxDown": "Maks. Af",
+        "maxUp": "Maks. Op",
+        "down": "Af",
+        "up": "Op",
+        "received": "Ontvang",
+        "sent": "Gestuur",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Stroomop",
@@ -765,6 +783,7 @@
         "inCinemas": "In fliekteaters",
         "physicalRelease": "Fisiese Vrylating",
         "digitalRelease": "Digitale Vrylating",
-        "noEventsToday": "Geen gebeure vir vandag nie!"
+        "noEventsToday": "Geen gebeure vir vandag nie!",
+        "noEventsFound": "Geen gebeure gevind nie"
     }
 }

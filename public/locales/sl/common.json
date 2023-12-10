@@ -122,6 +122,24 @@
         "subscriptions": "Naročnine",
         "unread": "Neprebrano"
     },
+    "fritzbox": {
+        "connectionStatus": "Stanje",
+        "connectionStatusUnconfigured": "Nenastavljeno",
+        "connectionStatusConnecting": "Se povezuje",
+        "connectionStatusAuthenticating": "Avtentikacija",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Prekinitev",
+        "connectionStatusDisconnected": "Prekinjeno",
+        "connectionStatusConnected": "Povezanih",
+        "uptime": "Čas delovanja",
+        "maxDown": "Maks. dol",
+        "maxUp": "Maks. gor",
+        "down": "Nepovezan",
+        "up": "Povezan",
+        "received": "Prejeto",
+        "sent": "Poslano",
+        "externalIPAddress": "Zun. IP"
+    },
     "caddy": {
         "upstreams": "Pretok gor",
         "requests": "Trenutnih zahtev",
@@ -765,6 +783,7 @@
         "inCinemas": "V kinu",
         "physicalRelease": "Fizična izdaja",
         "digitalRelease": "Digitalna izdaja",
-        "noEventsToday": "Za danes ni dogodkov!"
+        "noEventsToday": "Za danes ni dogodkov!",
+        "noEventsFound": "Ni dogodkov"
     }
 }

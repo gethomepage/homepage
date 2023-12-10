@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Benutzer",
-        "uptime": "System-Laufzeit",
+        "uptime": "Betriebszeit",
         "days": "Tage",
         "wan": "WAN",
         "lan": "LAN",
@@ -126,19 +126,19 @@
         "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Unkonfiguriert",
         "connectionStatusConnecting": "Verbinde",
-        "connectionStatusAuthenticating": "Authenifiziere",
-        "connectionStatusPendingDisconnect": "Anstehende Trennung",
+        "connectionStatusAuthenticating": "Authentifiziere",
+        "connectionStatusPendingDisconnect": "Ausstehende Trennung",
         "connectionStatusDisconnecting": "Trenne",
         "connectionStatusDisconnected": "Getrennt",
         "connectionStatusConnected": "Verbunden",
         "uptime": "Betriebszeit",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
+        "maxDown": "Max. Empfang",
+        "maxUp": "Max. Senden",
+        "down": "Empfangen",
+        "up": "Senden",
         "received": "Empfangen",
         "sent": "Gesendet",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "Externe IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -170,7 +170,7 @@
         "connectedSwitches": "Verbundene Switches"
     },
     "nzbget": {
-        "rate": "Geschwindigkeit",
+        "rate": "Datenrate",
         "remaining": "Verbleibend",
         "downloaded": "Heruntergeladen"
     },
@@ -181,7 +181,7 @@
         "tv": "TV-Serien"
     },
     "sabnzbd": {
-        "rate": "Geschwindigkeit",
+        "rate": "Datenrate",
         "queue": "Warteschlange",
         "timeleft": "Verbleibende Zeit"
     },
@@ -356,7 +356,7 @@
         "numActiveSessions": "Sitzungen",
         "numConnections": "Verbindungen",
         "dataRelayed": "Weitergeleitet",
-        "transferRate": "Geschwindigkeit"
+        "transferRate": "Datenrate"
     },
     "mastodon": {
         "user_count": "Benutzer",
@@ -521,7 +521,7 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "pyload": {
-        "speed": "Geschwindigkeit",
+        "speed": "Datenrate",
         "active": "Aktiv",
         "queue": "Warteschlange",
         "total": "Gesamt"
@@ -714,7 +714,7 @@
         "downloadCount": "Warteschlange",
         "downloadBytesRemaining": "Verbleibend",
         "downloadTotalBytes": "Größe",
-        "downloadSpeed": "Geschwindigkeit"
+        "downloadSpeed": "Datenrate"
     },
     "kavita": {
         "seriesCount": "Serien",
@@ -783,6 +783,7 @@
         "inCinemas": "Im Kino",
         "physicalRelease": "Physische Version",
         "digitalRelease": "Digitale Version",
-        "noEventsToday": "Heute keine Ereignisse!"
+        "noEventsToday": "Heute keine Ereignisse!",
+        "noEventsFound": "Keine Termine gefunden"
     }
 }

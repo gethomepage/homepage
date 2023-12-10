@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Utilizatori",
-        "uptime": "Timp de funcționare a sistemului",
+        "uptime": "Uptime",
         "days": "Zile",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Abonări",
         "unread": "Necitit"
+    },
+    "fritzbox": {
+        "connectionStatus": "Stare",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Connected",
+        "uptime": "Uptime",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Jos",
+        "up": "Sus",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Upstreamuri",
@@ -765,6 +783,7 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
     }
 }

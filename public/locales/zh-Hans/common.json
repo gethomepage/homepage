@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "用户数",
-        "uptime": "系统运行时间",
+        "uptime": "运行时间",
         "days": "天",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "订阅",
         "unread": "未读"
+    },
+    "fritzbox": {
+        "connectionStatus": "状态",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "已连接",
+        "uptime": "运行时间",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "离线",
+        "up": "在线",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "上行",
@@ -765,6 +783,7 @@
         "inCinemas": "上映中",
         "physicalRelease": "实体发行",
         "digitalRelease": "数字发行",
-        "noEventsToday": "今天没有活动！"
+        "noEventsToday": "今天没有活动！",
+        "noEventsFound": "未找到事件"
     }
 }

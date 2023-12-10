@@ -18,7 +18,7 @@
         "api_error": "Помилка API",
         "information": "Інформація",
         "status": "Стан",
-        "url": "URL",
+        "url": "URL-адреса",
         "raw_error": "Помилка Raw",
         "response_data": "Дані відповіді"
     },
@@ -32,14 +32,14 @@
         "placeholder": "Пошук…"
     },
     "resources": {
-        "cpu": "CPU",
-        "mem": "Пам'ять",
-        "total": "Всього",
+        "cpu": "ЦП",
+        "mem": "ОЗП",
+        "total": "Усього",
         "free": "Вільно",
         "used": "Використано",
         "load": "Завантаження",
-        "temp": "TEMP",
-        "max": "Max",
+        "temp": "Температура",
+        "max": "Макс.",
         "uptime": "Відправка",
         "months": "міс",
         "days": "д",
@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Користувачі",
-        "uptime": "Час роботи системи",
+        "uptime": "Час роботи",
         "days": "Днів",
         "wan": "WAN",
         "lan": "LAN",
@@ -66,8 +66,8 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "Пам'ять",
-        "cpu": "CPU",
+        "mem": "ОЗП",
+        "cpu": "ЦП",
         "running": "Запущено",
         "offline": "Офлайн",
         "error": "Помилка",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Передплата",
         "unread": "Не прочитано"
+    },
+    "fritzbox": {
+        "connectionStatus": "Стан",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Підключено",
+        "uptime": "Час роботи",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Потоки",
@@ -250,7 +268,7 @@
         "available": "Доступно"
     },
     "pialert": {
-        "total": "Всього",
+        "total": "Усього",
         "connected": "Підключено",
         "new_devices": "Нові пристрої",
         "down_alerts": "Сповіщення про збій"
@@ -275,7 +293,7 @@
     "portainer": {
         "running": "Запущено",
         "stopped": "Зупинено",
-        "total": "Всього"
+        "total": "Усього"
     },
     "tailscale": {
         "address": "Адреса",
@@ -309,7 +327,7 @@
     "npm": {
         "enabled": "Увімкнено",
         "disabled": "Вимкнено",
-        "total": "Всього"
+        "total": "Усього"
     },
     "coinmarketcap": {
         "configure": "Налаштуйте одну або кілька криптовалют для відстеження",
@@ -367,20 +385,20 @@
         "failedLoginsLast24H": "Невдалі входи (24 години)"
     },
     "proxmox": {
-        "mem": "Пам'ять",
-        "cpu": "CPU",
+        "mem": "ОЗП",
+        "cpu": "ЦП",
         "lxc": "Контейнери Linux",
         "vms": "Віртуальні машини"
     },
     "glances": {
-        "cpu": "CPU",
+        "cpu": "ЦП",
         "load": "Завантаження",
         "wait": "Будь ласка, зачекайте",
-        "temp": "TEMP",
+        "temp": "Температура",
         "_temp": "Temp",
         "warn": "Увага",
         "uptime": "Відправка",
-        "total": "Всього",
+        "total": "Усього",
         "free": "Вільно",
         "used": "Використано",
         "days": "д",
@@ -398,7 +416,7 @@
         "search": "Пошук",
         "custom": "Користувацький",
         "visit": "Відвідайте",
-        "url": "URL"
+        "url": "URL-адреса"
     },
     "wmo": {
         "0-day": "Сонячно",
@@ -506,7 +524,7 @@
         "speed": "Швидкість",
         "active": "Активний",
         "queue": "Черга",
-        "total": "Всього"
+        "total": "Усього"
     },
     "gluetun": {
         "public_ip": "Публічний IP",
@@ -524,7 +542,7 @@
     },
     "paperlessngx": {
         "inbox": "Вхідні",
-        "total": "Всього"
+        "total": "Усього"
     },
     "nextdns": {
         "wait": "Будь ласка, зачекайте",
@@ -582,7 +600,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Сховище даних",
         "failed_tasks_24h": "Невиконані завдання 24 години",
-        "cpu_usage": "CPU",
+        "cpu_usage": "ЦП",
         "memory_usage": "Пам'ять"
     },
     "immich": {
@@ -741,7 +759,7 @@
     },
     "openmediavault": {
         "downloading": "Downloading",
-        "total": "Всього",
+        "total": "Усього",
         "running": "Запущено",
         "stopped": "Зупинено",
         "passed": "Пройшов",
@@ -765,6 +783,7 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
     }
 }
