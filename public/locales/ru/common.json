@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Пользователи",
-        "uptime": "Время работы системы",
+        "uptime": "Время работы",
         "days": "Дней",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Подписки",
         "unread": "Не прочитано"
+    },
+    "fritzbox": {
+        "connectionStatus": "Статус",
+        "connectionStatusUnconfigured": "Не настроено",
+        "connectionStatusConnecting": "Подключение",
+        "connectionStatusAuthenticating": "Авторизация",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Отключение",
+        "connectionStatusDisconnected": "Отключено",
+        "connectionStatusConnected": "Подключено",
+        "uptime": "Время работы",
+        "maxDown": "Макс. Загрузка",
+        "maxUp": "Макс. Отдача",
+        "down": "Офлайн",
+        "up": "Онлайн",
+        "received": "Получено",
+        "sent": "Отправлено",
+        "externalIPAddress": "Внеш. IP"
     },
     "caddy": {
         "upstreams": "Входящие каналы",
@@ -765,6 +783,7 @@
         "inCinemas": "В кинотеатрах",
         "physicalRelease": "Физический релиз",
         "digitalRelease": "Цифровой релиз",
-        "noEventsToday": "Нет событий на сегодня!"
+        "noEventsToday": "Нет событий на сегодня!",
+        "noEventsFound": "Событий не найдено"
     }
 }

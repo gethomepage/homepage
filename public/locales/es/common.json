@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Usuarios",
-        "uptime": "Tiempo de actividad",
+        "uptime": "Tiempo de la actividad",
         "days": "Días",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Suscripciones",
         "unread": "Sin leer"
+    },
+    "fritzbox": {
+        "connectionStatus": "Estado",
+        "connectionStatusUnconfigured": "Sin configurar",
+        "connectionStatusConnecting": "Conectando",
+        "connectionStatusAuthenticating": "Autenticando",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Desconectando",
+        "connectionStatusDisconnected": "Desconectado",
+        "connectionStatusConnected": "Conectado",
+        "uptime": "Tiempo de la actividad",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Abajo",
+        "up": "Arriba",
+        "received": "Recibido",
+        "sent": "Enviado",
+        "externalIPAddress": "IP pública"
     },
     "caddy": {
         "upstreams": "Upstream (desarrollo de software)",
@@ -765,6 +783,7 @@
         "inCinemas": "En cine",
         "physicalRelease": "Lanzamiento en físico",
         "digitalRelease": "Lanzamiento en digital",
-        "noEventsToday": "Sin eventos para hoy"
+        "noEventsToday": "Sin eventos para hoy",
+        "noEventsFound": "No events found"
     }
 }
