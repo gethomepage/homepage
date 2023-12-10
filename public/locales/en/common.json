@@ -544,6 +544,14 @@
         "inbox": "Inbox",
         "total": "Total"
     },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
+    },
     "nextdns": {
         "wait": "Please Wait",
         "no_devices": "No Device Data Received"
