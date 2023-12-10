@@ -33,9 +33,9 @@ async function requestEndpoint(apiBaseUrl, service, action) {
   const response = {};
   try {
     const jsonData = JSON.parse(xml2json(data));
-    const responseElements = jsonData?.elements[0]?.elements[0]?.elements[0]?.elements || [];
+    const responseElements = jsonData?.elements?.[0]?.elements?.[0]?.elements?.[0]?.elements || [];
     responseElements.forEach((element) => {
-      response[element.name] = element.elements[0]?.text || "";
+      response[element.name] = element.elements?.[0].text || "";
     });
   } catch (e) {
     logger.debug(`Failed parsing ${service}->${action} response:`, data);
