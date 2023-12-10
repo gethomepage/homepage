@@ -100,8 +100,8 @@ export default async function handler(req, res) {
     });
     stats.cpuLimit = cpuLimit;
     stats.memLimit = memLimit;
-    stats.cpuUsage = cpuLimit ? stats.cpu / cpuLimit : 0;
-    stats.memUsage = memLimit ? stats.mem / memLimit : 0;
+    stats.cpuUsage = cpuLimit ? 100 * (stats.cpu / cpuLimit) : 0;
+    stats.memUsage = memLimit ? 100 * (stats.mem / memLimit) : 0;
     res.status(200).json({
       stats,
     });
