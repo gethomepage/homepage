@@ -52,15 +52,18 @@ export default function Component({ service }) {
 
   // params for API fetch
   const params = useMemo(() => {
-    if (!showDate) {
-      return {};
+    const constructedParams = {
+      start: "",
+      end: "",
+      unmonitored: false,
+    };
+
+    if (showDate) {
+      constructedParams.start = showDate.minus({ months: 3 }).toFormat("yyyy-MM-dd");
+      constructedParams.end = showDate.plus({ months: 3 }).toFormat("yyyy-MM-dd");
     }
 
-    return {
-      start: showDate.minus({ months: 3 }).toFormat("yyyy-MM-dd"),
-      end: showDate.plus({ months: 3 }).toFormat("yyyy-MM-dd"),
-      unmonitored: "false",
-    };
+    return constructedParams;
   }, [showDate]);
 
   // Load active integrations
