@@ -27,8 +27,8 @@ dependencies:
     specifier: ^1.15.2
     version: 1.15.2
   gamedig:
-    specifier: ^4.1.0
-    version: 4.1.0
+    specifier: ^4.3.0
+    version: 4.3.0
   i18next:
     specifier: ^21.9.2
     version: 21.10.0
@@ -1973,8 +1973,8 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: true
 
-  /gamedig@4.1.0:
-    resolution: {integrity: sha512-jvLUEakihJgpiw9t9yQRsbcemeALeTNlnaWY1gvYdwI63ZlkxznTaLqX5K/eluRTTCtAWNW3YceT6NVjyAZIwA==}
+  /gamedig@4.3.0:
+    resolution: {integrity: sha512-73wQM/mYLh0giljtg9OmF7QySxTGUj52+MxGklm2cveakOuB2zk0cvQl7vIFYcv6uI3HwenjOZKZ5507c/ZyzA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
