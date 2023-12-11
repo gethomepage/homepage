@@ -179,7 +179,7 @@ Services may be connected to a Docker container, either running on the local mac
 
 Services may also have a service widget (or integration) attached to them, this works independently of the Docker integration.
 
-You can find information and configuration for each of the supported integrations on the [Service Widgets](service-widgets.md) page.
+You can find information and configuration for each of the supported integrations on the [Widgets](../widgets/index.md) page.
 
 Here is an example of a Radarr & Sonarr service, with their respective integrations.
 
