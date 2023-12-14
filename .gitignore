@@ -52,3 +52,6 @@ site*/
 
 # venv
 .venv/
+
+.vscode/
+.vscode/settings.json
