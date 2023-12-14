@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "Manglende Widget Type: {{type}}",
@@ -47,7 +48,7 @@
     },
     "unifi": {
         "users": "Brugere",
-        "uptime": "System Oppetid",
+        "uptime": "Oppetid",
         "days": "Dage",
         "wan": "WAN",
         "lan": "LAN",
@@ -79,9 +80,16 @@
         "partial": "Delvis"
     },
     "ping": {
-        "http_status": "HTTP status",
         "error": "Fejl",
         "ping": "Ping",
+        "down": "Ned",
+        "up": "Op",
+        "not_available": "Ikke tilgængelig"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "Fejl",
+        "response": "Response",
         "down": "Ned",
         "up": "Op",
         "not_available": "Ikke tilgængelig"
@@ -113,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Abonnementer",
         "unread": "Ulæst"
+    },
+    "fritzbox": {
+        "connectionStatus": "Status",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Forbundet",
+        "uptime": "Oppetid",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Ned",
+        "up": "Op",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -756,6 +782,8 @@
     "calendar": {
         "inCinemas": "I biografen",
         "physicalRelease": "Fysisk udgivelse",
-        "digitalRelease": "Digitale udgivelser"
+        "digitalRelease": "Digitale udgivelser",
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
     }
 }

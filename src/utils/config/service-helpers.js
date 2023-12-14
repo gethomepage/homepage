@@ -6,7 +6,7 @@ import Docker from "dockerode";
 import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
-import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
@@ -59,6 +59,8 @@ export async function servicesFromDocker() {
     return [];
   }
 
+  const { instanceName } = getSettings();
+
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
       try {
@@ -82,6 +84,13 @@ export async function servicesFromDocker() {
 
           Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.")) {
+              let value = label.replace("homepage.", "");
+              if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
+                value = value.replace(`instance.${instanceName}.`, "");
+              } else if (value.startsWith("instance.")) {
+                return;
+              }
+
               if (!constructedService) {
                 constructedService = {
                   container: containerName.replace(/^\//, ""),
@@ -89,11 +98,7 @@ export async function servicesFromDocker() {
                   type: "service",
                 };
               }
-              shvl.set(
-                constructedService,
-                label.replace("homepage.", ""),
-                substituteEnvironmentVars(containerLabels[label]),
-              );
+              shvl.set(constructedService, value, substituteEnvironmentVars(containerLabels[label]));
             }
           });
 
@@ -252,7 +257,7 @@ export async function servicesFromKubernetes() {
           constructedService.external =
             String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
         }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`]) {
+        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
           constructedService.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
         }
         if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
@@ -331,41 +336,89 @@ export function cleanServiceGroups(groups) {
 
       if (cleanedService.widget) {
         // whitelisted set of keys to pass to the frontend
+        // alphabetical, grouped by widget(s)
         const {
-          type, // all widgets
+          // all widgets
           fields,
           hideErrors,
-          server, // docker widget
-          container,
-          currency, // coinmarketcap widget
-          symbols,
-          slugs,
-          defaultinterval,
-          site, // unifi widget
-          namespace, // kubernetes widget
-          app,
-          podSelector,
-          wan, // opnsense widget, pfsense widget
-          enableBlocks, // emby/jellyfin
-          enableNowPlaying,
-          volume, // diskstation widget,
-          enableQueue, // sonarr/radarr
-          node, // Proxmox
-          snapshotHost, // kopia
-          snapshotPath,
-          userEmail, // azuredevops
+          type,
+
+          // azuredevops
           repositoryId,
-          metric, // glances
-          chart, // glances
-          stream, // mjpeg
-          fit,
-          method, // openmediavault widget
-          mappings, // customapi widget
-          refreshInterval,
-          integrations, // calendar widget
+          userEmail,
+
+          // calendar
           firstDayInWeek,
-          view,
+          integrations,
           maxEvents,
+          showTime,
+          previousDays,
+          view,
+
+          // coinmarketcap
+          currency,
+          defaultinterval,
+          slugs,
+          symbols,
+
+          // customapi
+          mappings,
+
+          // diskstation
+          volume,
+
+          // docker
+          container,
+          server,
+
+          // emby, jellyfin
+          enableBlocks,
+          enableNowPlaying,
+
+          // glances
+          chart,
+          metric,
+          pointsLimit,
+
+          // glances, customapi, iframe
+          refreshInterval,
+
+          // iframe
+          allowFullscreen,
+          allowPolicy,
+          allowScrolling,
+          classes,
+          loadingStrategy,
+          referrerPolicy,
+          src,
+
+          // kopia
+          snapshotHost,
+          snapshotPath,
+
+          // kubernetes
+          app,
+          namespace,
+          podSelector,
+
+          // mjpeg
+          fit,
+          stream,
+
+          // openmediavault
+          method,
+
+          // opnsense, pfsense
+          wan,
+
+          // proxmox
+          node,
+
+          // sonarr, radarr
+          enableQueue,
+
+          // unifi
+          site,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -413,6 +466,16 @@ export function cleanServiceGroups(groups) {
           if (app) cleanedService.widget.app = app;
           if (podSelector) cleanedService.widget.podSelector = podSelector;
         }
+        if (type === "iframe") {
+          if (src) cleanedService.widget.src = src;
+          if (classes) cleanedService.widget.classes = classes;
+          if (referrerPolicy) cleanedService.widget.referrerPolicy = referrerPolicy;
+          if (allowPolicy) cleanedService.widget.allowPolicy = allowPolicy;
+          if (allowFullscreen) cleanedService.widget.allowFullscreen = allowFullscreen;
+          if (loadingStrategy) cleanedService.widget.loadingStrategy = loadingStrategy;
+          if (allowScrolling) cleanedService.widget.allowScrolling = allowScrolling;
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
+        }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) cleanedService.widget.wan = wan;
         }
@@ -437,6 +500,8 @@ export function cleanServiceGroups(groups) {
           } else {
             cleanedService.widget.chart = true;
           }
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
+          if (pointsLimit) cleanedService.widget.pointsLimit = pointsLimit;
         }
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;
@@ -454,6 +519,8 @@ export function cleanServiceGroups(groups) {
           if (firstDayInWeek) cleanedService.widget.firstDayInWeek = firstDayInWeek;
           if (view) cleanedService.widget.view = view;
           if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
+          if (previousDays) cleanedService.widget.previousDays = previousDays;
+          if (showTime) cleanedService.widget.showTime = showTime;
         }
       }
 

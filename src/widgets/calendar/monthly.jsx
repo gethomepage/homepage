@@ -1,10 +1,9 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 import { DateTime, Info } from "luxon";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
-import { EventContext } from "../../utils/contexts/calendar";
+import Event from "./event";
 
 const cellStyle = "relative w-10 flex items-center justify-center flex-col";
 const monthButton = "pl-6 pr-6 ml-2 mr-2 hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
@@ -32,11 +31,11 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
 
     // selected same day style
     style +=
-      displayDate.toFormat("MM-dd-yyyy") === showDate.toFormat("MM-dd-yyyy")
+      displayDate.startOf("day").ts === showDate.startOf("day").ts
         ? "text-black-500 bg-theme-100/20 dark:bg-white/10 rounded-md "
         : "";
 
-    if (displayDate.toFormat("MM-dd-yyyy") === currentDate.toFormat("MM-dd-yyyy")) {
+    if (displayDate.startOf("day").ts === currentDate.startOf("day").ts) {
       // today style
       style += "text-black-500 bg-theme-100/20 dark:bg-black/20 rounded-md ";
     } else {
@@ -61,31 +60,12 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
             .slice(0, 4)
             .map((event) => (
               <span
-                key={event.date.toLocaleString() + event.color + event.title}
+                key={`${event.date.ts}+${event.color}-${event.title}-${event.additional}`}
                 className={classNames("inline-flex h-1 w-1 m-0.5 rounded", colorVariants[event.color] ?? "gray")}
               />
             ))}
       </span>
     </button>
-  );
-}
-
-export function Event({ event }) {
-  return (
-    <div
-      key={event.title}
-      className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
-    >
-      <span className="absolute left-2 text-left text-xs mt-[2px] truncate text-ellipsis" style={{ width: "96%" }}>
-        {event.title}
-        {event.additional ? ` - ${event.additional}` : ""}
-      </span>
-      {event.isCompleted && (
-        <span className="text-right text-xs flex justify-end mr-1 mt-1 z-10 ">
-          <IoMdCheckmarkCircleOutline />
-        </span>
-      )}
-    </div>
   );
 }
 
@@ -99,10 +79,9 @@ const dayInWeekId = {
   sunday: 7,
 };
 
-export default function Monthly({ service, colorVariants, showDate, setShowDate }) {
+export default function Monthly({ service, colorVariants, events, showDate, setShowDate }) {
   const { widget } = service;
   const { i18n } = useTranslation();
-  const { events } = useContext(EventContext);
   const currentDate = DateTime.now().setLocale(i18n.language).startOf("day");
 
   const dayNames = Info.weekdays("short", { locale: i18n.language });
@@ -161,7 +140,7 @@ export default function Monthly({ service, colorVariants, showDate, setShowDate 
         </span>
       </div>
 
-      <div className="p-2 w-full">
+      <div className="pl-1 pr-1 pb-1 w-full">
         <div className="flex justify-between flex-wrap">
           {dayNames.map((name) => (
             <span key={name} className={classNames(cellStyle)} style={{ width: "14%" }}>
@@ -172,7 +151,7 @@ export default function Monthly({ service, colorVariants, showDate, setShowDate 
 
         <div
           className={classNames(
-            "flex justify-between flex-wrap",
+            "flex justify-between flex-wrap pb-1",
             !eventsArray.length && widget?.integrations?.length && "animate-pulse",
           )}
         >
@@ -191,12 +170,18 @@ export default function Monthly({ service, colorVariants, showDate, setShowDate 
           )}
         </div>
 
-        <div className="flex flex-col pt-1 pb-1">
+        <div className="flex flex-col">
           {eventsArray
-            ?.filter((event) => showDate.startOf("day").toUnixInteger() === event.date?.startOf("day").toUnixInteger())
+            ?.filter((event) => showDate.startOf("day").ts === event.date?.startOf("day").ts)
             .slice(0, widget?.maxEvents ?? 10)
             .map((event) => (
-              <Event key={`event${event.title}-${event.additional}`} event={event} />
+              <Event
+                key={`event-monthly-${event.title}-${event.date}-${event.additional}`}
+                event={event}
+                colorVariants={colorVariants}
+                showDateColumn={widget?.showTime ?? false}
+                showTime={widget?.showTime && event.date.startOf("day").ts === showDate.startOf("day").ts}
+              />
             ))}
         </div>
       </div>

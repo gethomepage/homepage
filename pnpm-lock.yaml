@@ -11,6 +11,9 @@ dependencies:
   '@kubernetes/client-node':
     specifier: ^0.17.1
     version: 0.17.1
+  cal-parser:
+    specifier: ^1.0.2
+    version: 1.0.2
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
@@ -24,8 +27,8 @@ dependencies:
     specifier: ^1.15.2
     version: 1.15.2
   gamedig:
-    specifier: ^4.1.0
-    version: 4.1.0
+    specifier: ^4.3.0
+    version: 4.3.0
   i18next:
     specifier: ^21.9.2
     version: 21.10.0
@@ -74,6 +77,9 @@ dependencies:
   recharts:
     specifier: ^2.7.2
     version: 2.7.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+  rrule:
+    specifier: ^2.8.1
+    version: 2.8.1
   swr:
     specifier: ^1.3.0
     version: 1.3.0(react@18.2.0)
@@ -862,6 +868,13 @@ packages:
       mimic-response: 4.0.0
       normalize-url: 8.0.0
       responselike: 3.0.0
+    dev: false
+
+  /cal-parser@1.0.2:
+    resolution: {integrity: sha512-wlQwcF0fl4eLclyGdncF9rcNNq0ipRYZGagG6h3LVgRXvCWE1fdMUaCLXwfC9YWoz9jKKbjQAq7TpO2Y3yrvmA==}
+    dependencies:
+      ical-date-parser: 4.0.0
+      rrule: 2.8.1
     dev: false
 
   /call-bind@1.0.2:
@@ -1960,8 +1973,8 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: true
 
-  /gamedig@4.1.0:
-    resolution: {integrity: sha512-jvLUEakihJgpiw9t9yQRsbcemeALeTNlnaWY1gvYdwI63ZlkxznTaLqX5K/eluRTTCtAWNW3YceT6NVjyAZIwA==}
+  /gamedig@4.3.0:
+    resolution: {integrity: sha512-73wQM/mYLh0giljtg9OmF7QySxTGUj52+MxGklm2cveakOuB2zk0cvQl7vIFYcv6uI3HwenjOZKZ5507c/ZyzA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -2230,6 +2243,10 @@ packages:
     resolution: {integrity: sha512-YeuIBmFsGjUfO3qBmMOc0rQaun4mIpGKET5WDwvu8lU7gvwpcariZLNtL0Fzj+zazcHUrlXHiptcFhBMFaxzfg==}
     dependencies:
       '@babel/runtime': 7.21.0
+    dev: false
+
+  /ical-date-parser@4.0.0:
+    resolution: {integrity: sha512-XRCK/FU1akC2ZaJOdKIeZI6BLLgzWUuE0pegSrrkEva89GOan5mNkLVqCU4EMhCJ9nkG5TLWdMXrVX1fNAkFzw==}
     dev: false
 
   /iconv-lite@0.4.24:
@@ -3537,6 +3554,12 @@ packages:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     dependencies:
       glob: 7.2.3
+
+  /rrule@2.8.1:
+    resolution: {integrity: sha512-hM3dHSBMeaJ0Ktp7W38BJZ7O1zOgaFEsn41PDk+yHoEtfLV+PoJt9E9xAlZiWgf/iqEqionN0ebHFZIDAp+iGw==}
+    dependencies:
+      tslib: 2.5.0
+    dev: false
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}

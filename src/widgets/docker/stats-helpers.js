@@ -13,6 +13,21 @@ export function calculateCPUPercent(stats) {
 export function calculateUsedMemory(stats) {
   // see https://github.com/docker/cli/blob/dcc161076861177b5eef6cb321722520db3184e7/cli/command/container/stats_helpers.go#L239
   return (
-    stats.memory_stats.usage - (stats.memory_stats.total_inactive_file ?? stats.memory_stats.stats.inactive_file ?? 0)
+    stats.memory_stats.usage - (stats.memory_stats.total_inactive_file ?? stats.memory_stats.stats?.inactive_file ?? 0)
   );
+}
+
+export function calculateThroughput(stats) {
+  let rxBytes = 0;
+  let txBytes = 0;
+  if (stats.networks?.network) {
+    rxBytes = stats.networks?.network.rx_bytes;
+    txBytes = stats.networks?.network.tx_bytes;
+  } else if (stats.networks && Array.isArray(Object.values(stats.networks))) {
+    Object.values(stats.networks).forEach((containerInterface) => {
+      rxBytes += containerInterface.rx_bytes;
+      txBytes += containerInterface.tx_bytes;
+    });
+  }
+  return { rxBytes, txBytes };
 }

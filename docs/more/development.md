@@ -39,11 +39,16 @@ Once installed, hooks will run when you commit. If the formatting isn't quite ri
 
 See the [pre-commit documentation](https://pre-commit.com/#install) to get started.
 
+## New Feature Guidelines
+
+- New features should be linked to an existing feature request with at least 5 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
+- If you have ideas for a larger feature, please open a discussion first.
+
 ## Service Widget Guidelines
 
 To ensure cohesiveness of various widgets, the following should be used as a guide for developing new widgets:
 
-- Please only submit widgets that have been requested and have at least 5 'up-votes'
+- Please only submit widgets that have been requested and have at least 5 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of service widgets that might only benefit a small number of users.
 - Widgets should be only one row of blocks
 - Widgets should be no more than 4 blocks wide
 - Minimize the number of API calls

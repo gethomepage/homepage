@@ -1,12 +1,10 @@
 import { DateTime } from "luxon";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
-import { EventContext } from "../../../utils/contexts/calendar";
 import Error from "../../../components/services/widget/error";
 
-export default function Integration({ config, params }) {
-  const { setEvents } = useContext(EventContext);
+export default function Integration({ config, params, setEvents, hideErrors = false }) {
   const { data: lidarrData, error: lidarrError } = useWidgetAPI(config, "calendar", {
     ...params,
     includeArtist: "false",
@@ -36,5 +34,5 @@ export default function Integration({ config, params }) {
   }, [lidarrData, lidarrError, config, setEvents]);
 
   const error = lidarrError ?? lidarrData?.error;
-  return error && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
+  return error && !hideErrors && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
 }

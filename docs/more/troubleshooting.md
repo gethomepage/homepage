@@ -6,6 +6,10 @@ hide:
   - navigation
 ---
 
+## Introducing the Homepage AI Bot
+
+Thanks to the generous folks at [Glime](https://glimelab.ai), Homepage is now equipped with a pretty helpful AI-powered bot. The bot has full knowledge of our docs, GitHub issues and discussions and great at answering specific questions about setting up your Homepage. To use the bot, just hit the 'Ask AI' button on any page in our docs or check out the [#ai-support channel on Discord](https://discord.com/channels/1019316731635834932/1177885603552038993)!
+
 ## General Troubleshooting Tips
 
 - For API errors, clicking the "API Error Information" button in the widget will usually show some helpful information as to whether the issue is reaching the service host, an authentication issue, etc.
