@@ -223,7 +223,10 @@ function Home({ initialSettings }) {
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
-        if (e.key.length === 1 && e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) {
+        if (
+          (e.key.length === 1 && e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
+          (e.key === "v" && (e.ctrlKey || e.metaKey))
+        ) {
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");
@@ -304,6 +307,7 @@ function Home({ initialSettings }) {
                   layout={settings.layout?.[group.name]}
                   fiveColumns={settings.fiveColumns}
                   disableCollapse={settings.disableCollapse}
+                  useEqualHeights={settings.useEqualHeights}
                 />
               ) : (
                 <BookmarksGroup
@@ -352,6 +356,7 @@ function Home({ initialSettings }) {
     settings.layout,
     settings.fiveColumns,
     settings.disableCollapse,
+    settings.useEqualHeights,
     settings.cardBlur,
     initialSettings.layout,
   ]);
@@ -363,8 +368,8 @@ function Home({ initialSettings }) {
         {settings.base && <base href={settings.base} />}
         {settings.favicon ? (
           <>
-            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
             <link rel="icon" href={settings.favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
           </>
         ) : (
           <>
@@ -372,6 +377,7 @@ function Home({ initialSettings }) {
             <link rel="shortcut icon" href="/homepage.ico" />
             <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" />
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4" />
+            <link rel="mask-icon" href="/safari-pinned-tab.svg?v=4" color="#1e9cd7" />
           </>
         )}
         <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
@@ -487,7 +493,7 @@ export default function Wrapper({ initialSettings, fallback }) {
         rgb(var(--bg-color) / ${opacityValue}),
         rgb(var(--bg-color) / ${opacityValue})
       ),
-      url(${backgroundImage})`;
+      url('${backgroundImage}')`;
     wrappedStyle.backgroundPosition = "center";
     wrappedStyle.backgroundSize = "cover";
   }

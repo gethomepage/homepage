@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "缺失的组件类型: {{type}}",
@@ -47,7 +48,7 @@
     },
     "unifi": {
         "users": "用户数",
-        "uptime": "系统运行时间",
+        "uptime": "运行时间",
         "days": "天",
         "wan": "WAN",
         "lan": "LAN",
@@ -79,9 +80,16 @@
         "partial": "部分"
     },
     "ping": {
-        "http_status": "HTTP 状态",
         "error": "错误",
         "ping": "Ping",
+        "down": "离线",
+        "up": "在线",
+        "not_available": "不可用"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "错误",
+        "response": "响应",
         "down": "离线",
         "up": "在线",
         "not_available": "不可用"
@@ -113,6 +121,24 @@
     "freshrss": {
         "subscriptions": "订阅",
         "unread": "未读"
+    },
+    "fritzbox": {
+        "connectionStatus": "状态",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "已连接",
+        "uptime": "运行时间",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "离线",
+        "up": "在线",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "上行",
@@ -756,6 +782,8 @@
     "calendar": {
         "inCinemas": "上映中",
         "physicalRelease": "实体发行",
-        "digitalRelease": "数字发行"
+        "digitalRelease": "数字发行",
+        "noEventsToday": "今天没有活动！",
+        "noEventsFound": "未找到事件"
     }
 }

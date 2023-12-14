@@ -26,4 +26,12 @@ It can show the aggregate metrics and/or the individual node metrics.
       - node2
 ```
 
-The Longhorn URL and credentials are stored in the `providers` section of the `settings.yaml`.
+The Longhorn URL and credentials are stored in the `providers` section of the `settings.yaml`. e.g.:
+
+```yaml
+providers:
+  longhorn:
+    username: "longhorn-username" # optional
+    password: "very-secret-longhorn-password" # optional
+    url: https://longhorn.aesop.network
+```

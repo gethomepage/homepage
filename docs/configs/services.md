@@ -101,7 +101,7 @@ To use a local icon, first create a Docker mount to `/app/public/icons` and then
 
 ## Ping
 
-Services may have an optional `ping` property that allows you to monitor the availability of an external host. As of v0.7.5, the ping feature uses the true ping command on the underlying host.
+Services may have an optional `ping` property that allows you to monitor the availability of an external host. As of v0.8.0, the ping feature attempts to use a true (ICMP) ping command on the underlying host.
 
 ```yaml
 - Group A:
@@ -179,7 +179,7 @@ Services may be connected to a Docker container, either running on the local mac
 
 Services may also have a service widget (or integration) attached to them, this works independently of the Docker integration.
 
-You can find information and configuration for each of the supported integrations on the [Service Widgets](service-widgets.md) page.
+You can find information and configuration for each of the supported integrations on the [Widgets](../widgets/index.md) page.
 
 Here is an example of a Radarr & Sonarr service, with their respective integrations.
 

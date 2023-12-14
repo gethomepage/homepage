@@ -10,7 +10,8 @@
         "bibitrate": "{{value, rate(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
-        "ms": "{{value, number}}"
+        "ms": "{{value, number}}",
+        "date": "{{value, date}}"
     },
     "widget": {
         "missing_type": "見つからないウィジェットタイプ: {{type}}",
@@ -47,7 +48,7 @@
     },
     "unifi": {
         "users": "ユーザ",
-        "uptime": "システム・アップタイム",
+        "uptime": "稼働時間",
         "days": "日",
         "wan": "WAN",
         "lan": "LAN",
@@ -79,9 +80,16 @@
         "partial": "部分的"
     },
     "ping": {
-        "http_status": "HTTP ステータス",
         "error": "エラー",
         "ping": "Ping",
+        "down": "下へ",
+        "up": "上へ",
+        "not_available": "利用できません。"
+    },
+    "siteMonitor": {
+        "http_status": "HTTP status",
+        "error": "エラー",
+        "response": "Response",
         "down": "下へ",
         "up": "上へ",
         "not_available": "利用できません。"
@@ -113,6 +121,24 @@
     "freshrss": {
         "subscriptions": "購読",
         "unread": "未読"
+    },
+    "fritzbox": {
+        "connectionStatus": "状態",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "接続済み",
+        "uptime": "稼働時間",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "下へ",
+        "up": "上へ",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "アップストリーム",
@@ -756,6 +782,8 @@
     "calendar": {
         "inCinemas": "映画館内",
         "physicalRelease": "物理的なリリース",
-        "digitalRelease": "デジタル・リリース"
+        "digitalRelease": "デジタル・リリース",
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
     }
 }

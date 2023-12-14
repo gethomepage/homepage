@@ -9,7 +9,9 @@ on:
   schedule:
     - cron: '20 0 * * *'
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - feature/**
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
     paths-ignore:
@@ -39,7 +41,7 @@ jobs:
         uses: actions/checkout@v4
       -
         name: Install python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
       -
@@ -117,7 +119,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
+          push: ${{ github.event_name != 'pull_request' && !(github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature')) }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |

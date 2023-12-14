@@ -53,6 +53,7 @@ nav:
       - widgets/services/fileflows.md
       - widgets/services/flood.md
       - widgets/services/freshrss.md
+      - widgets/services/fritzbox.md
       - widgets/services/gamedig.md
       - widgets/services/ghostfolio.md
       - widgets/services/glances.md
@@ -63,6 +64,7 @@ nav:
       - widgets/services/healthchecks.md
       - widgets/services/homeassistant.md
       - widgets/services/homebridge.md
+      - widgets/services/iframe.md
       - widgets/services/immich.md
       - widgets/services/jackett.md
       - widgets/services/jdownloader.md
@@ -94,6 +96,7 @@ nav:
       - widgets/services/opnsense.md
       - widgets/services/overseerr.md
       - widgets/services/paperlessngx.md
+      - widgets/services/peanut.md
       - widgets/services/pfsense.md
       - widgets/services/photoprism.md
       - widgets/services/pialert.md
@@ -190,6 +193,8 @@ theme:
 
 extra_css:
   - "stylesheets/extra.css"
+extra_javascript:
+  - "scripts/extra.js"
 
 extra:
   version:

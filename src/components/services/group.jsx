@@ -6,7 +6,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function ServicesGroup({ group, services, layout, fiveColumns, disableCollapse }) {
+export default function ServicesGroup({ group, services, layout, fiveColumns, disableCollapse, useEqualHeights }) {
   const panel = useRef();
 
   return (
@@ -62,7 +62,7 @@ export default function ServicesGroup({ group, services, layout, fiveColumns, di
               }}
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
-                <List group={group} services={services.services} layout={layout} />
+                <List group={group} services={services.services} layout={layout} useEqualHeights={useEqualHeights} />
               </Disclosure.Panel>
             </Transition>
           </>

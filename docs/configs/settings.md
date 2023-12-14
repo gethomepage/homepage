@@ -229,6 +229,28 @@ disableCollapse: true
 
 By default the feature is enabled.
 
+### Use Equal Height Cards
+
+You can enable equal height cards for groups of services, this will make all cards in a row the same height.
+
+Global setting in `settings.yaml`:
+
+```yaml
+useEqualHeights: true
+```
+
+Per layout group in `settings.yaml`:
+
+```yaml
+useEqualHeights: false
+layout:
+  ...
+  Group Name:
+    useEqualHeights: true # overrides global setting
+```
+
+By default the feature is disabled
+
 ## Header Style
 
 There are currently 4 options for header styles, you can see each one below.
@@ -384,7 +406,7 @@ If you have both set the per-service settings take precedence.
 
 You can choose from the following styles for docker or k8s status, site monitor and ping: `dot` or `basic`
 
-- The default is no value, and displays the montior and ping response time in ms and the docker / k8s container status
+- The default is no value, and displays the monitor and ping response time in ms and the docker / k8s container status
 - `dot` shows a green dot for a successful monitor ping or healthy status.
 - `basic` shows either UP or DOWN for monitor & ping
 
@@ -403,6 +425,16 @@ or per-service (`services.yaml`) with:
 ```
 
 If you have both set, the per-service settings take precedence.
+
+## Instance Name
+
+Name used by automatic docker service discovery to differentiate between multiple homepage instances.
+
+For example:
+
+```yaml
+instanceName: public
+```
 
 ## Hide Widget Error Messages
 

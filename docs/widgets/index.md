@@ -7,7 +7,7 @@ Homepage has two types of widgets: info and service. Below we'll cover each type
 
 ## Service Widgets
 
-Service widgets are used to display the status of a service, often a web service or API. Services (and their widgets) are defined in your `services.yml` file. Here's an example:
+Service widgets are used to display the status of a service, often a web service or API. Services (and their widgets) are defined in your `services.yaml` file. Here's an example:
 
 ```yaml
 - Plex:
@@ -24,7 +24,7 @@ Service widgets are used to display the status of a service, often a web service
 
 ## Info Widgets
 
-Info widgets are used to display information in the header, often about your system or environment. Info widgets are defined your `widgets.yml` file. Here's an example:
+Info widgets are used to display information in the header, often about your system or environment. Info widgets are defined your `widgets.yaml` file. Here's an example:
 
 ```yaml
 - openmeteo:
