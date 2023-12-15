@@ -17,10 +17,12 @@ const formatUptime = (timestamp) => {
   if (days) {
     uptimeStr += `${days}d`;
   }
-  if (hours || days) {
+  if (days || hours) {
     uptimeStr += `${format(hours)}h`;
   }
-  uptimeStr += `${format(minutes)}m`;
+  if (days || hours || minutes) {
+    uptimeStr += `${format(minutes)}m`;
+  }
   if (!days) {
     uptimeStr += `${format(seconds)}s `;
   }
