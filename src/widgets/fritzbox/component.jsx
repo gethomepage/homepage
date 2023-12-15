@@ -10,7 +10,7 @@ const formatUptime = (timestamp) => {
   const days = Math.floor(timestamp / (3600 * 24));
   const hours = Math.floor((timestamp % (3600 * 24)) / 3600);
   const minutes = Math.floor((timestamp % 3600) / 60);
-  const seconds = timestamp % 60;
+  const seconds = Math.floor(timestamp % 60);
   const format = (num) => String(num).padStart(2, "0");
 
   let uptimeStr = "";
