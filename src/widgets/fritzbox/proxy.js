@@ -50,12 +50,12 @@ export default async function fritzboxProxyHandler(req, res) {
   const serviceWidget = await getServiceWidget(group, service);
 
   if (!serviceWidget) {
-    res.status(500).json({ error: "Service widget not found" });
+    res.status(500).json({ error: { message: "Service widget not found" } });
     return;
   }
 
   if (!serviceWidget.url) {
-    res.status(500).json({ error: "Service widget url not configured" });
+    res.status(500).json({ error: { message: "Service widget url not configured" } });
     return;
   }
 
@@ -91,6 +91,6 @@ export default async function fritzboxProxyHandler(req, res) {
       });
     })
     .catch((error) => {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ error: { message: error.message } });
     });
 }
