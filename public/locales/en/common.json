@@ -519,8 +519,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Speed",
