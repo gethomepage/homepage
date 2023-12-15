@@ -6,21 +6,21 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export const fritzboxDefaultFields = ["connectionStatus", "uptime", "maxDown", "maxUp"];
 
-const formatUptime = (timestamp) => {
-  const days = Math.floor(timestamp / (3600 * 24));
-  const hours = Math.floor((timestamp % (3600 * 24)) / 3600);
-  const minutes = Math.floor((timestamp % 3600) / 60);
-  const seconds = Math.floor(timestamp % 60);
+const formatUptime = (uptimeInSeconds) => {
+  const days = Math.floor(uptimeInSeconds / (3600 * 24));
+  const hours = Math.floor((uptimeInSeconds % (3600 * 24)) / 3600);
+  const minutes = Math.floor((uptimeInSeconds % 3600) / 60);
+  const seconds = Math.floor(uptimeInSeconds) % 60;
   const format = (num) => String(num).padStart(2, "0");
 
   let uptimeStr = "";
   if (days) {
     uptimeStr += `${days}d`;
   }
-  if (days || hours) {
+  if (uptimeInSeconds >= 3600) {
     uptimeStr += `${format(hours)}h`;
   }
-  if (days || hours || minutes) {
+  if (uptimeInSeconds >= 60) {
     uptimeStr += `${format(minutes)}m`;
   }
   if (!days) {
