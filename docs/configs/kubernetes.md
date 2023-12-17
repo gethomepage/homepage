@@ -94,7 +94,9 @@ spec:
             pathType: Prefix
 ```
 
-When the Kubernetes cluster connection has been properly configured, this service will be automatically discovered and added to your Homepage. **You do not need to specify the `namespace` or `app` values, as they will be automatically inferred.** In case of multiple instances of homepage, instance annotation can be specified to limit to a specific instance, if no instance is provided, the service will be visible on all instances.
+When the Kubernetes cluster connection has been properly configured, this service will be automatically discovered and added to your Homepage. **You do not need to specify the `namespace` or `app` values, as they will be automatically inferred.** 
+
+If you are using multiple instances of homepage, an `instance` annotation can be specified to limit services to a specific instance. If no instance is provided, the service will be visible on all instances.
 
 ### Traefik IngressRoute support
 
