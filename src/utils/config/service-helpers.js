@@ -170,7 +170,7 @@ export async function servicesFromKubernetes() {
   const ANNOTATION_BASE = "gethomepage.dev";
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
   const { instanceName } = getSettings();
-  
+
   checkAndCopyConfig("kubernetes.yaml");
 
   try {
@@ -239,7 +239,10 @@ export async function servicesFromKubernetes() {
     const services = ingressList.items
       .filter(
         (ingress) =>
-          ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" && (!ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] || ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName),
+          ingress.metadata.annotations &&
+          ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
+          (!ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
+            ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName),
       )
       .map((ingress) => {
         let constructedService = {
