@@ -121,6 +121,22 @@ one application to see a high-level aggregate:
             )
 ```
 
+## Bookmark Discovery
+
+Sample yaml:
+
+```yaml
+kind: Ingress
+metadata:
+  name: homepage
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/bookmarks.gh.group: Developer Tools
+    gethomepage.dev/bookmarks.gh.name: Github
+    gethomepage.dev/bookmarks.gh.icon: gh-light
+    gethomepage.dev/bookmarks.gh.href: https://github.com
+```
+
 ## Longhorn Widget
 
 There is a widget for showing storage stats from [Longhorn](https://longhorn.io).

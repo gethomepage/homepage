@@ -170,6 +170,26 @@ labels:
   - homepage.widget.field[1].field.status=latest_version
 ```
 
+## Automatic Bookmark Discovery
+
+Homepage can load bookmarks from docker labels attached to any container using the proper configuration. Note that the bookmarks
+do not have to be related to the service, in fact you could use these labels on the homepage container itself.
+
+```yaml
+services:
+  service:
+    ...
+    labels:
+      - homepage.bookmarks.gh.group=Developer Tools
+      - homepage.bookmarks.gh.name=Github
+      - homepage.bookmarks.gh.icon=github-light
+      - homepage.bookmarks.gh.href=https://github.com/
+      - homepage.bookmarks.wnyc.group=News
+      - homepage.bookmarks.wnyc.name=WNYC
+      - homepage.bookmarks.wnyc.abbr=NY
+      - homepage.bookmarks.wnyc.href=https://wnyc.org
+```
+
 ## Docker Swarm
 
 Docker swarm is supported and Docker services are specified with the same `server` and `container` notation. To enable swarm support you will need to include a `swarm` setting in your docker.yaml, e.g.
