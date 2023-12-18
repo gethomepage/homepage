@@ -89,6 +89,7 @@ export async function checkCRD(kc, name) {
 
 export const ANNOTATION_BASE = "gethomepage.dev";
 export const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+export const ANNOTATION_BOOKMARK_BASE = `${ANNOTATION_BASE}/bookmarks.`;
 
 export async function getIngressList() {
   checkAndCopyConfig("kubernetes.yaml");

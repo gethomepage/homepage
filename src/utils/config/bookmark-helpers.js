@@ -6,11 +6,10 @@ import yaml from "js-yaml";
 import {
   getDockerServers,
   listDockerContainers,
-  getUrlFromIngress,
   mapObjectsToGroup,
   getIngressList,
   ANNOTATION_BASE,
-  ANNOTATION_WIDGET_BASE,
+  ANNOTATION_BOOKMARK_BASE,
 } from "./integration-helpers";
 
 import createLogger from "utils/logger";
@@ -55,38 +54,36 @@ export async function bookmarksFromDocker() {
       try {
         const isSwarm = !!servers[serverName].swarm;
         const containers = await listDockerContainers(servers, serverName);
-        const discovered = containers.map((container) => {
+        const constructed = [];
+        containers.forEach((container) => {
           let constructedBookmark = null;
           const containerLabels = isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels;
-          const containerName = isSwarm ? shvl.get(container, "Spec.Name") : container.Names[0];
 
           Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.bookmarks.")) {
-              const containerNameNoSlash = containerName.replace(/^\//, "");
-
-              let value = label.replace(`homepage.bookmarks.${containerNameNoSlash}.`, "");
+              let value = label.replace("homepage.bookmarks.", "");
+              const bookmarkKey = value.substring(0, value.indexOf("."));
+              value = value.replace(`${bookmarkKey}.`, "");
               if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
                 value = value.replace(`instance.${instanceName}.`, "");
               } else if (value.startsWith("instance.")) {
                 return;
               }
 
-              if (!constructedBookmark) {
+              if (!constructedBookmark || constructedBookmark.key !== bookmarkKey) {
                 constructedBookmark = {
-                  container: containerNameNoSlash,
-                  server: serverName,
                   type: "bookmark",
+                  key: bookmarkKey,
                 };
+                constructed.push(constructedBookmark);
               }
               shvl.set(constructedBookmark, value, substituteEnvironmentVars(containerLabels[label]));
             }
           });
-
-          return constructedBookmark;
         });
-
-        return { server: serverName, bookmarks: discovered.filter((filteredBookmark) => filteredBookmark) };
+        return { server: serverName, bookmarks: constructed.filter((filteredBookmark) => filteredBookmark) };
       } catch (e) {
+        logger.error(e);
         // a server failed, but others may succeed
         return { server: serverName, bookmarks: [] };
       }
@@ -103,27 +100,29 @@ export async function bookmarksFromKubernetes() {
     if (!ingressList) {
       return [];
     }
-    const bookmarks = ingressList.items
+    const constructed = [];
+    ingressList.items
       .filter(
         (ingress) =>
           ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true",
       )
-      .map((ingress) => {
-        let constructedBookmark = {
-          app: ingress.metadata.annotations[`${ANNOTATION_BASE}/app`] || ingress.metadata.name,
-          namespace: ingress.metadata.namespace,
-          href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
-          name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
-          group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
-          icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
-          description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
-          type: "bookmark",
-        };
+      .forEach((ingress) => {
+        let constructedBookmark = null;
         Object.keys(ingress.metadata.annotations).forEach((annotation) => {
-          if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+          if (annotation.startsWith(ANNOTATION_BOOKMARK_BASE)) {
+            const trimmedAnnotation = annotation.replace(`${ANNOTATION_BOOKMARK_BASE}.`, "");
+            const bookmarkKey = trimmedAnnotation.substring(0, trimmedAnnotation.indexOf("."));
+
+            if (!constructedBookmark || constructedBookmark.key !== bookmarkKey) {
+              constructedBookmark = {
+                type: "bookmark",
+                key: bookmarkKey,
+              };
+              constructed.push(constructedBookmark);
+            }
             shvl.set(
               constructedBookmark,
-              annotation.replace(`${ANNOTATION_BASE}/`, ""),
+              annotation.replace(`${ANNOTATION_BOOKMARK_BASE}.${bookmarkKey}.`, ""),
               ingress.metadata.annotations[annotation],
             );
           }
@@ -140,7 +139,7 @@ export async function bookmarksFromKubernetes() {
 
     const mappedBookmarkGroups = [];
 
-    bookmarks.forEach((serverBookmark) => {
+    constructed.forEach((serverBookmark) => {
       let serverGroup = mappedBookmarkGroups.find((searchedGroup) => searchedGroup.name === serverBookmark.group);
       if (!serverGroup) {
         mappedBookmarkGroups.push({
