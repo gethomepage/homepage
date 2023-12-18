@@ -229,9 +229,12 @@ markdown_extensions:
   - admonition
 
 plugins:
-  - optimize
-  - typeset
-  - social
+  - group:
+      enabled: !ENV MKINSIDERS
+      plugins:
+        - optimize
+        - typeset
+        - social
   - tags
   - search:
       pipeline:
