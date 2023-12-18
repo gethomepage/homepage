@@ -2,17 +2,24 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import yaml from "js-yaml";
-import Docker from "dockerode";
-import { CustomObjectsApi, NetworkingV1Api } from "@kubernetes/client-node";
 
+import {
+  getDockerServers,
+  listDockerContainers,
+  getUrlFromIngress,
+  mapObjectsToGroup,
+  getIngressList,
+  ANNOTATION_BASE,
+  ANNOTATION_WIDGET_BASE,
+} from "./integration-helpers";
+
+import createLogger from "utils/logger";
 import checkAndCopyConfig, { getSettings, CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
-import getDockerArguments from "utils/config/docker";
-import getKubeConfig from "utils/config/kubernetes";
-import { checkCRD, getUrlFromIngress } from "./service-helpers";
 import * as shvl from "utils/config/shvl";
 
-export async function bookmarksFromConfig() {
+const logger = createLogger("bookmark-helpers");
 
+export async function bookmarksFromConfig() {
   checkAndCopyConfig("bookmarks.yaml");
 
   const bookmarksYaml = path.join(CONF_DIR, "bookmarks.yaml");
@@ -32,62 +39,9 @@ export async function bookmarksFromConfig() {
   }));
 
   return bookmarksArray;
-
-}
-
-const getDockerServers = async () => {
-  checkAndCopyConfig("docker.yaml");
-  const dockerYaml = path.join(CONF_DIR, "docker.yaml");
-  const rawDockerFileContents = await fs.readFile(dockerYaml, "utf8");
-  const dockerFileContents = substituteEnvironmentVars(rawDockerFileContents);
-  return yaml.load(dockerFileContents);
-}
-
-const listDockerContainers = async (servers, serverName) => {
-  const isSwarm = !!servers[serverName].swarm;
-  const docker = new Docker(getDockerArguments(serverName).conn);
-  const listProperties = { all: true };
-  const containers = await (isSwarm
-    ? docker.listbookmarks(listProperties)
-    : docker.listContainers(listProperties));
-
-  // bad docker connections can result in a <Buffer ...> object?
-  // in any case, this ensures the result is the expected array
-  if (!Array.isArray(containers)) {
-    return [];
-  }
-  return containers;
-}
-
-const mapObjectsToGroup = (servers, objectName) => {
-  const mappedObjectGroups = [];
-
-  servers.forEach((server) => {
-    server[objectName].forEach((serverObject) => {
-      let serverGroup = mappedObjectGroups.find((searchedGroup) => searchedGroup.name === serverObject.group);
-      if (!serverGroup) {
-        const gObject = {name: serverObject.group}
-        gObject[objectName] = []
-        mappedObjectGroups.push(gObject);
-        serverGroup = mappedObjectGroups[mappedObjectGroups.length - 1];
-      }
-
-      const { name: serverObjectName, group: serverObjectGroup, ...pushedObject } = serverObject;
-      const result = {
-        name: serverObjectName,
-        ...pushedObject,
-      };
-
-      serverGroup[objectName].push(result);
-    });
-  });
-
-  return mappedObjectGroups;
-
 }
 
 export async function bookmarksFromDocker() {
-
   const servers = await getDockerServers();
 
   if (!servers) {
@@ -109,9 +63,8 @@ export async function bookmarksFromDocker() {
           Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.bookmarks.")) {
               const containerNameNoSlash = containerName.replace(/^\//, "");
-              const cleanLabel = label.replace(`homepage.bookmarks.${containerNameNoSlash}.`, "");
 
-              let value = cleanLabel;
+              let value = label.replace(`homepage.bookmarks.${containerNameNoSlash}.`, "");
               if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
                 value = value.replace(`instance.${instanceName}.`, "");
               } else if (value.startsWith("instance.")) {
@@ -140,76 +93,12 @@ export async function bookmarksFromDocker() {
     }),
   );
 
-  const mappedBookmarkGroups = mapObjectsToGroup(bookmarkServers, 'bookmarks');
-  return mappedBookmarkGroups;
+  return mapObjectsToGroup(bookmarkServers, "bookmarks");
 }
 
-
 export async function bookmarksFromKubernetes() {
-  const ANNOTATION_BASE = "gethomepage.dev";
-  const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
-
-  checkAndCopyConfig("kubernetes.yaml");
-
   try {
-    const kc = getKubeConfig();
-    if (!kc) {
-      return [];
-    }
-    const networking = kc.makeApiClient(NetworkingV1Api);
-    const crd = kc.makeApiClient(CustomObjectsApi);
-
-    const ingressList = await networking
-      .listIngressForAllNamespaces(null, null, null, null)
-      .then((response) => response.body)
-      .catch((error) => {
-        logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
-        return null;
-      });
-
-    const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
-    const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
-
-    const traefikIngressListContaino = await crd
-      .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
-      .then((response) => response.body)
-      .catch(async (error) => {
-        if (traefikContainoExists) {
-          logger.error(
-            "Error getting traefik ingresses from traefik.containo.us: %d %s %s",
-            error.statusCode,
-            error.body,
-            error.response,
-          );
-        }
-
-        return [];
-      });
-
-    const traefikIngressListIo = await crd
-      .listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
-      .then((response) => response.body)
-      .catch(async (error) => {
-        if (traefikExists) {
-          logger.error(
-            "Error getting traefik ingresses from traefik.io: %d %s %s",
-            error.statusCode,
-            error.body,
-            error.response,
-          );
-        }
-
-        return [];
-      });
-
-    const traefikIngressList = [...(traefikIngressListContaino?.items ?? []), ...(traefikIngressListIo?.items ?? [])];
-
-    if (traefikIngressList.length > 0) {
-      const traefikbookmarks = traefikIngressList.filter(
-        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`],
-      );
-      ingressList.items.push(...traefikbookmarks);
-    }
+    const ingressList = await getIngressList();
 
     if (!ingressList) {
       return [];
@@ -230,9 +119,6 @@ export async function bookmarksFromKubernetes() {
           description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
           type: "bookmark",
         };
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`]) {
-          constructedBookmark.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
-        }
         Object.keys(ingress.metadata.annotations).forEach((annotation) => {
           if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
             shvl.set(
@@ -279,4 +165,3 @@ export async function bookmarksFromKubernetes() {
     throw e;
   }
 }
-

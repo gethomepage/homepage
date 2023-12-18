@@ -5,6 +5,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import ResolvedIcon from "components/resolvedicon";
 
 export default function Item({ bookmark }) {
+  console.log(bookmark);
   const description = bookmark.description ?? new URL(bookmark.href).hostname;
   const { settings } = useContext(SettingsContext);
 

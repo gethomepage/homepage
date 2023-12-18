@@ -1,9 +1,6 @@
 /* eslint-disable no-console */
-import {getSettings} from "utils/config/config";
-import {
-  bookmarksFromConfig,
-  bookmarksFromDocker
-} from "utils/config/bookmark-helpers";
+import { getSettings } from "utils/config/config";
+import { bookmarksFromConfig, bookmarksFromDocker } from "utils/config/bookmark-helpers";
 import {
   servicesFromConfig,
   servicesFromDocker,
@@ -27,15 +24,13 @@ export async function bookmarksResponse() {
   let discoveredDockerBookmarks;
   let configuredBookmarks;
   let initialSettings;
-  console.debug("Bookmark response called");
-
   try {
     discoveredDockerBookmarks = await bookmarksFromDocker();
     if (discoveredDockerBookmarks?.length === 0) {
-      console.debug("No containers were found with bookmark labels");
+      console.debug("No containers were found with homepage bookmark labels");
     }
   } catch (e) {
-    console.error("Failed to discover bookmarks, please check docker.yaml for errors or remove example entries.")
+    console.error("Failed to discover bookmarks, please check docker.yaml for errors or remove example entries.");
     if (e) console.error(e.toString());
     discoveredDockerBookmarks = [];
   }
@@ -62,28 +57,22 @@ export async function bookmarksResponse() {
 
   const mergedGroupsNames = [
     ...new Set(
-      [
-        discoveredDockerBookmarks.map((group) => group.name),
-        configuredBookmarks.map((group) => group.name),
-      ].flat(),
-    )
-  ]
+      [discoveredDockerBookmarks.map((group) => group.name), configuredBookmarks.map((group) => group.name)].flat(),
+    ),
+  ];
   mergedGroupsNames.forEach((groupName) => {
-
-const discoveredDockerGroup = discoveredDockerBookmarks.find((group) => group.name === groupName) || {
+    const discoveredDockerGroup = discoveredDockerBookmarks.find((group) => group.name === groupName) || {
       bookmarks: [],
     };
     const configuredGroup = configuredBookmarks.find((group) => group.name === groupName) || { bookmarks: [] };
 
-
-  const mergedGroup = {
-    name: groupName,
-    bookmarks: [...discoveredDockerGroup.bookmarks, ...configuredGroup.bookmarks]
-      .filter((bookmark) => bookmark)
+    const mergedGroup = {
+      name: groupName,
+      bookmarks: [...discoveredDockerGroup.bookmarks, ...configuredGroup.bookmarks].filter((bookmark) => bookmark),
       // .sort(compareBookmarks), // TODO is a sort needed?
-  }
+    };
 
-  if (definedLayouts) {
+    if (definedLayouts) {
       const layoutIndex = definedLayouts.findIndex((layout) => layout === mergedGroup.name);
       if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
       else unsortedGroups.push(mergedGroup);
