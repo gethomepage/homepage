@@ -84,6 +84,22 @@ function prettyBytes(number, options) {
   return `${prefix + numberString} ${unit}`;
 }
 
+function uptime(uptimeInSeconds, i18next) {
+  const mo = Math.floor(uptimeInSeconds / (3600 * 24 * 31));
+  const d = Math.floor((uptimeInSeconds % (3600 * 24 * 31)) / (3600 * 24));
+  const h = Math.floor((uptimeInSeconds % (3600 * 24)) / 3600);
+  const m = Math.floor((uptimeInSeconds % 3600) / 60);
+  const s = Math.floor(uptimeInSeconds % 60);
+
+  const moDisplay = mo > 0 ? mo + i18next.t("common.months") : "";
+  const dDisplay = d > 0 ? d + i18next.t("common.days") : "";
+  const hDisplay = h > 0 && mo === 0 ? h + i18next.t("common.hours") : "";
+  const mDisplay = m > 0 && mo === 0 && d === 0 ? m + i18next.t("common.minutes") : "";
+  const sDisplay = s > 0 && mo === 0 && d === 0 && h === 0 ? s + i18next.t("common.seconds") : "";
+
+  return (moDisplay + dDisplay + hDisplay + mDisplay + sDisplay).replace(/,\s*$/, "");
+}
+
 module.exports = {
   i18n: {
     defaultLocale: "en",
@@ -126,6 +142,7 @@ module.exports = {
         i18next.services.formatter.add("date", (value, lng, options) =>
           new Intl.DateTimeFormat(lng, { ...options }).format(new Date(value)),
         );
+        i18next.services.formatter.add("uptime", (value, lng) => uptime(value, i18next));
       },
       type: "3rdParty",
     },
