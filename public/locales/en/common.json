@@ -662,7 +662,8 @@
         "dashboards": "Dashboards",
         "datasources": "Data Sources",
         "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "alertstriggered": "Alerts Triggered",
+        "alertmanager": "Alerts Triggered"
     },
     "nextcloud": {
         "cpuload": "Cpu Load",
@@ -755,7 +756,7 @@
         "ping": "Ping"
     },
     "urbackup": {
-        "ok" : "Ok",
+        "ok": "Ok",
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
