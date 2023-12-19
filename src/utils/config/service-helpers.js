@@ -9,7 +9,9 @@ import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } 
 import getDockerArguments from "utils/config/docker";
 import kubernetes from "utils/kubernetes/export";
 import { getKubeConfig } from "utils/config/kubernetes";
+import getNomadArguments, { parseServiceTags } from "utils/config/nomad";
 import * as shvl from "utils/config/shvl";
+import Nomad from "utils/nomad/client";
 
 const logger = createLogger("service-helpers");
 
@@ -218,11 +220,145 @@ export async function servicesFromKubernetes() {
       return groups;
     }, []);
 
-    return mappedServiceGroups;
-  } catch (e) {
-    if (e) logger.error(e);
-    throw e;
+  return mappedServiceGroups;
+}
+
+export async function servicesFromNomad() {
+  const ANNOTATION_BASE = "gethomepage.dev";
+  const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+
+  checkAndCopyConfig("nomad.yaml");
+
+  const nomadYaml = path.join(CONF_DIR, "nomad.yaml");
+  const rawNomadFileContents = await fs.readFile(nomadYaml, "utf8");
+  const nomadFileContents = substituteEnvironmentVars(rawNomadFileContents);
+  const clusters = yaml.load(nomadFileContents);
+
+  if (!clusters) {
+    return [];
   }
+
+  const { instanceName } = getSettings();
+
+  const clusterServices = await Promise.all(
+    Object.keys(clusters).map(async (clusterName) => {
+      try {
+        const nomadArguments = getNomadArguments(clusterName);
+        if (nomadArguments === null) {
+          return [];
+        }
+
+        const nomad = new Nomad(nomadArguments.endpoint, nomadArguments.token, nomadArguments.namespace);
+        const jobServices = await nomad.listServices();
+
+        if (jobServices.length === 0) {
+          return [];
+        }
+
+        const discovered = [];
+        jobServices.forEach((jobService) => {
+          const serviceTags = parseServiceTags(jobService.Tags);
+
+          if (serviceTags[`${ANNOTATION_BASE}/enabled`] !== "true" ||
+            (serviceTags[`${ANNOTATION_BASE}/instance`] &&
+              serviceTags[`${ANNOTATION_BASE}/instance`] !== instanceName)) {
+            return;
+          }
+
+          const serverAddress = `http://${jobService.Address}:${jobService.Port}`;
+          let constructedService = {
+            job: jobService.JobID,
+            datacenter: jobService.Datacenter,
+            namespace: jobService.Namespace,
+            href: serviceTags[`${ANNOTATION_BASE}/href`] || serverAddress,
+            name: serviceTags[`${ANNOTATION_BASE}/name`] || jobService.ServiceName,
+            group: serviceTags[`${ANNOTATION_BASE}/group`] || "Nomad",
+            weight: serviceTags[`${ANNOTATION_BASE}/weight`] || "0",
+            icon: serviceTags[`${ANNOTATION_BASE}/icon`] || "",
+            description: serviceTags[`${ANNOTATION_BASE}/description`] || "",
+            type: "service",
+          };
+          if (jobService.Tags[`${ANNOTATION_BASE}/ping`]) {
+            constructedService.ping = jobService.Tags[`${ANNOTATION_BASE}/ping`];
+          }
+          if (jobService.Tags[`${ANNOTATION_BASE}/siteMonitor`]) {
+            constructedService.siteMonitor = jobService.Tags[`${ANNOTATION_BASE}/siteMonitor`];
+          }
+          if (jobService.Tags[`${ANNOTATION_BASE}/statusStyle`]) {
+            constructedService.statusStyle = jobService.Tags[`${ANNOTATION_BASE}/statusStyle`];
+          }
+          Object.keys(jobService.Tags).forEach((annotation) => {
+            if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+              shvl.set(
+                constructedService,
+                annotation.replace(`${ANNOTATION_BASE}/`, ""),
+                jobService.Tags[annotation],
+              );
+            }
+          });
+
+          try {
+            constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
+          } catch (e) {
+            logger.error("Error attempting nomad environment variable substitution.");
+          }
+
+          discovered.push(constructedService);
+        });
+
+        const mappedServiceGroups = [];
+
+        discovered.forEach((service) => {
+          let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === service.group);
+          if (!serverGroup) {
+            mappedServiceGroups.push({
+              name: service.group,
+              services: [],
+            });
+            serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
+          }
+
+          const { name: serviceName, group: serverServiceGroup, ...pushedService } = service;
+          const result = {
+            name: serviceName,
+            ...pushedService,
+          };
+
+          serverGroup.services.push(result);
+        });
+
+        return { server: clusterName, services: discovered.flat() };
+      } catch (e) {
+        // a server failed, but others may succeed
+        return { server: clusterName, services: [] };
+      }
+    }),
+  );
+
+  const mappedServiceGroups = [];
+
+  clusterServices.forEach((cluster) => {
+    cluster.services.forEach((clusterService) => {
+      let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === clusterService.group);
+      if (!serverGroup) {
+        mappedServiceGroups.push({
+          name: clusterService.group,
+          services: [],
+        });
+        serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
+      }
+
+      const { name: serviceName, group: serverServiceGroup, ...pushedService } = clusterService;
+      const result  = {
+        name: serviceName,
+        ...pushedService,
+      };
+
+      serverGroup.services.push(result);
+    });
+  });
+
+  return mappedServiceGroups;
 }
 
 export function cleanServiceGroups(groups) {
@@ -605,6 +741,13 @@ export async function getServiceItem(group, service) {
   if (kubernetesServiceGroup) {
     const kubernetesServiceEntry = kubernetesServiceGroup.services.find((s) => s.name === service);
     if (kubernetesServiceEntry) return kubernetesServiceEntry;
+  }
+
+  const nomadServices = await servicesFromNomad();
+  const nomadServiceGroup = nomadServices.find((g) => g.name === group);
+  if (nomadServiceGroup) {
+    const nomadServiceEntry = dockerServiceGroup.services.find((s) => s.name === service);
+    if (nomadServiceEntry) return nomadServiceEntry;
   }
 
   return false;

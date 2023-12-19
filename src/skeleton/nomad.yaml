@@ -1,0 +1,8 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/nomad/
+
+# nomad-cluster:
+#   endpoint: http://127.0.0.1:4646/v1
+#   token: <token>
+#   namespace: *

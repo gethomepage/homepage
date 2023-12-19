@@ -11,6 +11,7 @@ import {
   cleanServiceGroups,
   servicesFromKubernetes,
   findGroupByName,
+  servicesFromNomad,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
@@ -99,6 +100,7 @@ function mergeSubgroups(configuredGroups, mergedGroup) {
 export async function servicesResponse() {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
+  let discoveredNomadServices;
   let configuredServices;
   let initialSettings;
 
@@ -122,6 +124,14 @@ export async function servicesResponse() {
   }
 
   try {
+    discoveredNomadServices = cleanServiceGroups(await servicesFromNomad());
+  } catch (e) {
+    console.error("Failed to discover services, please check nomad.yaml for errors or remove example entries.");
+    if (e) console.error(e.toString());
+    discoveredNomadServices = [];
+  }
+
+  try {
     configuredServices = cleanServiceGroups(await servicesFromConfig());
   } catch (e) {
     console.error("Failed to load services.yaml, please check for errors");
@@ -142,6 +152,7 @@ export async function servicesResponse() {
       [
         discoveredDockerServices.map((group) => group.name),
         discoveredKubernetesServices.map((group) => group.name),
+        discoveredNomadServices.map((group) => group.name),
         configuredServices.map((group) => group.name),
       ].flat(),
     ),
@@ -158,11 +169,19 @@ export async function servicesResponse() {
     const discoveredKubernetesGroup = findGroupByName(discoveredKubernetesServices, groupName) || {
       services: [],
     };
+    const discoveredNomadGroup = discoveredNomadServices.find((group) => group.name === groupName) || {
+      services: [],
+    };
     const configuredGroup = findGroupByName(configuredServices, groupName) || { services: [], groups: [] };
 
     const mergedGroup = {
       name: groupName,
-      services: [...discoveredDockerGroup.services, ...discoveredKubernetesGroup.services, ...configuredGroup.services]
+      services: [
+        ...discoveredDockerGroup.services,
+        ...discoveredKubernetesGroup.services,
+        ...discoveredNomadGroup.services,
+        ...configuredGroup.services
+      ]
         .filter((service) => service)
         .sort(compareServices),
       groups: [...configuredGroup.groups],
