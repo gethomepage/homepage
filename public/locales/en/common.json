@@ -662,8 +662,7 @@
         "dashboards": "Dashboards",
         "datasources": "Data Sources",
         "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered",
-        "alertmanager": "Alerts Triggered"
+        "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
         "cpuload": "Cpu Load",

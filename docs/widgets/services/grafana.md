@@ -3,9 +3,7 @@ title: Grafana
 description: Grafana Widget Configuration
 ---
 
-Allowed fields: `["dashboards", "datasources", "totalalerts", "alertstriggered", "alertmanager"]`.
-
-`alertmanager` is for the new grafana alerts api since the api used by `alertstriggered` has been deprecated. If `alertstriggered` does not work, try `alertmanager`.
+Allowed fields: `["dashboards", "datasources", "totalalerts", "alertstriggered"]`.
 
 ```yaml
 widget:
