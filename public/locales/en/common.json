@@ -756,7 +756,7 @@
         "ping": "Ping"
     },
     "urbackup": {
-        "ok": "Ok",
+        "ok" : "Ok",
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"

@@ -37,10 +37,7 @@ export default function Component({ service }) {
         label="grafana.alertstriggered"
         value={t("common.number", { value: alertsData.filter((a) => a.state === "alerting").length })}
       />
-      <Block
-        label="grafana.alertmanager"
-        value={t("common.number", { value: alertmanagerData.length })}
-      />
+      <Block label="grafana.alertmanager" value={t("common.number", { value: alertmanagerData.length })} />
     </Container>
   );
 }
