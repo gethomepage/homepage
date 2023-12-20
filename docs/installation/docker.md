@@ -20,7 +20,7 @@ services:
 
 ### Running as non-root
 
-By default, the Homepage container runs as root. Homepage also supports running your container as non-root via the standard `PUID` and `PGID` environment variables. When using these variables, make sure that any volumes mounted in to the container have the correct ownership and permissions set.
+By default, the Homepage container runs as root. Homepage also supports running your container as non-root via the common `PUID` and `PGID` environment variables. When using these variables, make sure that any volumes mounted in to the container have the correct ownership and permissions set.
 
 _Using the docker socket directly is not the recommended method of integration and requires either running homepage as root or that the user be part of the docker group_
 
