@@ -4,5 +4,5 @@
 
 # nomad-cluster:
 #   endpoint: http://127.0.0.1:4646/v1
-#   token: <token>
-#   namespace: *
+#   token: "<token>"
+#   namespace: "*"
