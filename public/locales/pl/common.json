@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Użytkownicy",
-        "uptime": "Czas pracy systemu",
+        "uptime": "Czas działania",
         "days": "Dni",
         "wan": "Sieć WAN",
         "lan": "Sieć LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Subskrypcje",
         "unread": "Nieprzeczytane"
+    },
+    "fritzbox": {
+        "connectionStatus": "Stan",
+        "connectionStatusUnconfigured": "Nieskonfigurowane",
+        "connectionStatusConnecting": "Łączenie",
+        "connectionStatusAuthenticating": "Uwierzytelnianie",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Rozłączanie",
+        "connectionStatusDisconnected": "Rozłączono",
+        "connectionStatusConnected": "Połączony",
+        "uptime": "Czas działania",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Niedostępny",
+        "up": "Dostępny",
+        "received": "Odebrane",
+        "sent": "Wysłane",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -476,7 +494,7 @@
         "down": "Nieosiągalny",
         "paused": "Zatrzymane",
         "status": "Stan",
-        "last_ping": "Last Ping",
+        "last_ping": "Ostatni ping",
         "never": "No pings yet"
     },
     "watchtower": {
@@ -571,12 +589,12 @@
     },
     "pfsense": {
         "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
+        "memory": "Użycie pamięci",
+        "wanStatus": "Status WAN",
         "up": "Dostępny",
         "down": "Niedostępny",
         "temp": "Temperatura",
-        "disk": "Disk Usage",
+        "disk": "Użycie dysku",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
@@ -600,9 +618,9 @@
     },
     "atsumeru": {
         "series": "Seriale",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "archives": "Archiwa",
+        "chapters": "Rozdziały",
+        "categories": "Kategorie"
     },
     "komga": {
         "libraries": "Biblioteki",
@@ -632,7 +650,7 @@
         "time": "Czas"
     },
     "grafana": {
-        "dashboards": "Dashboards",
+        "dashboards": "Panel główny",
         "datasources": "Źródła danych",
         "totalalerts": "Total Alerts",
         "alertstriggered": "Alerts Triggered"
@@ -649,7 +667,7 @@
         "status": "Stan",
         "size": "Rozmiar",
         "lastrun": "Ostatnie uruchomienie",
-        "nextrun": "Next Run",
+        "nextrun": "Następne uruchomienie",
         "failed": "Niepowodzenie"
     },
     "unmanic": {
@@ -659,7 +677,7 @@
     },
     "pterodactyl": {
         "servers": "Serwery",
-        "nodes": "Nodes"
+        "nodes": "Węzły"
     },
     "prometheus": {
         "targets_up": "Targets Up",
@@ -669,7 +687,7 @@
     "ghostfolio": {
         "gross_percent_today": "Dzisiaj",
         "gross_percent_1y": "Rok",
-        "gross_percent_max": "All time"
+        "gross_percent_max": "Od początku"
     },
     "audiobookshelf": {
         "podcasts": "Podcasty",
@@ -688,8 +706,8 @@
     },
     "calibreweb": {
         "books": "Książki",
-        "authors": "Authors",
-        "categories": "Categories",
+        "authors": "Autorzy",
+        "categories": "Kategorie",
         "series": "Seriale"
     },
     "jdownloader": {
@@ -703,14 +721,14 @@
         "totalFiles": "Pliki"
     },
     "azuredevops": {
-        "result": "Result",
+        "result": "Wynik",
         "status": "Stan",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
+        "buildId": "ID kompilacji",
+        "succeeded": "Ukończono",
         "notStarted": "Not Started",
         "failed": "Niepowodzenie",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
+        "canceled": "Anulowano",
+        "inProgress": "W trakcie",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
         "approved": "Zaakceptowane"
@@ -723,24 +741,24 @@
         "map": "Mapa",
         "currentPlayers": "Current players",
         "players": "Gracze",
-        "maxPlayers": "Max players",
+        "maxPlayers": "Maksymalna ilość graczy",
         "bots": "Boty",
         "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
+        "errored": "Błędy",
+        "noRecent": "Nieaktualne",
         "totalUsed": "Used Storage"
     },
     "mealie": {
         "recipes": "Recipes",
         "users": "Użytkownicy",
-        "categories": "Categories",
+        "categories": "Kategorie",
         "tags": "Tagi"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Pobieranie",
         "total": "Całkowite",
         "running": "Działa",
         "stopped": "Zatrzymane",
@@ -765,6 +783,7 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
     }
 }

@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "المستخدمون",
-        "uptime": "مدة تشغيل النظام",
+        "uptime": "مدة التشغيل",
         "days": "أيام",
         "wan": "الشبكة الواسعة",
         "lan": "الشبكة المحلية",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "الاشتراكات",
         "unread": "غير مقروءة"
+    },
+    "fritzbox": {
+        "connectionStatus": "الحالة",
+        "connectionStatusUnconfigured": "لم تتم تهيئته",
+        "connectionStatusConnecting": "جاري الاتصال",
+        "connectionStatusAuthenticating": "جار المصادقة",
+        "connectionStatusPendingDisconnect": "في انتظار قطع الاتصال",
+        "connectionStatusDisconnecting": "جار قطع الاتصال",
+        "connectionStatusDisconnected": "غير متصل",
+        "connectionStatusConnected": "متصل",
+        "uptime": "مدة التشغيل",
+        "maxDown": "أقصى حد للتنزيل",
+        "maxUp": "أقصى حد للتحميل",
+        "down": "لا يعمل",
+        "up": "يعمل",
+        "received": "تم الإستلام",
+        "sent": "تم الإرسال",
+        "externalIPAddress": "IP الخارجي"
     },
     "caddy": {
         "upstreams": "تدفق",
@@ -765,6 +783,7 @@
         "inCinemas": "في دور السينما",
         "physicalRelease": "الإصدار المادي",
         "digitalRelease": "الإصدار الرقمي",
-        "noEventsToday": "لا توجد أحداث اليوم!"
+        "noEventsToday": "لا توجد أحداث اليوم!",
+        "noEventsFound": "لم يتم العثور على أحداث"
     }
 }

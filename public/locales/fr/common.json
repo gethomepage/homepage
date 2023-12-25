@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Utilisateurs",
-        "uptime": "Disponibilité du système",
+        "uptime": "Démarré depuis",
         "days": "Jours",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Abonnements",
         "unread": "Non lu"
+    },
+    "fritzbox": {
+        "connectionStatus": "Statut",
+        "connectionStatusUnconfigured": "Non-configuré",
+        "connectionStatusConnecting": "Connexion en cours",
+        "connectionStatusAuthenticating": "Authentification en cours",
+        "connectionStatusPendingDisconnect": "Déconnexion en attente",
+        "connectionStatusDisconnecting": "Déconnexion en cours",
+        "connectionStatusDisconnected": "Déconnecté",
+        "connectionStatusConnected": "Connecté",
+        "uptime": "Démarré depuis",
+        "maxDown": "Max. Bas",
+        "maxUp": "Max. Haut",
+        "down": "Down",
+        "up": "Up",
+        "received": "Reçu",
+        "sent": "Envoyé",
+        "externalIPAddress": "IP externe"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -690,7 +708,7 @@
         "books": "Livres",
         "authors": "Auteurs",
         "categories": "Catégories",
-        "series": "Séries TV"
+        "series": "Séries"
     },
     "jdownloader": {
         "downloadCount": "En attente",
@@ -765,6 +783,7 @@
         "inCinemas": "En salle",
         "physicalRelease": "Sortie physique",
         "digitalRelease": "Sortie numérique",
-        "noEventsToday": "Rien pour aujourd'hui !"
+        "noEventsToday": "Rien pour aujourd'hui !",
+        "noEventsFound": "Aucun événement trouvé"
     }
 }

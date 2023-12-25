@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "Brugere",
-        "uptime": "System Oppetid",
+        "uptime": "Oppetid",
         "days": "Dage",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "Abonnementer",
         "unread": "Ulæst"
+    },
+    "fritzbox": {
+        "connectionStatus": "Status",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Forbundet",
+        "uptime": "Oppetid",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Ned",
+        "up": "Op",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -765,6 +783,7 @@
         "inCinemas": "I biografen",
         "physicalRelease": "Fysisk udgivelse",
         "digitalRelease": "Digitale udgivelser",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
     }
 }

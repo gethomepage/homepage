@@ -122,6 +122,24 @@
         "subscriptions": "Odbery",
         "unread": "Neprečítané"
     },
+    "fritzbox": {
+        "connectionStatus": "Stav",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Pripojené",
+        "uptime": "Doba prevádzky",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Sťahovanie",
+        "up": "Nahrávanie",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
+    },
     "caddy": {
         "upstreams": "Odosielanie dát",
         "requests": "Aktuálne požiadavky",
@@ -765,6 +783,7 @@
         "inCinemas": "V kinách",
         "physicalRelease": "Fyzické vydanie",
         "digitalRelease": "Digitálne vydanie",
-        "noEventsToday": "Žiadne udalosti na dnešný deň!"
+        "noEventsToday": "Žiadne udalosti na dnešný deň!",
+        "noEventsFound": "No events found"
     }
 }

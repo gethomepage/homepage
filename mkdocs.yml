@@ -96,6 +96,7 @@ nav:
       - widgets/services/opnsense.md
       - widgets/services/overseerr.md
       - widgets/services/paperlessngx.md
+      - widgets/services/peanut.md
       - widgets/services/pfsense.md
       - widgets/services/photoprism.md
       - widgets/services/pialert.md

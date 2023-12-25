@@ -48,7 +48,7 @@
     },
     "unifi": {
         "users": "使用者",
-        "uptime": "系統運作時間",
+        "uptime": "運行時間",
         "days": "天",
         "wan": "WAN",
         "lan": "區域網路",
@@ -82,16 +82,16 @@
     "ping": {
         "error": "錯誤",
         "ping": "延遲",
-        "down": "Down",
-        "up": "Up",
+        "down": "離線",
+        "up": "在線",
         "not_available": "不可用"
     },
     "siteMonitor": {
         "http_status": "HTTP 狀態",
         "error": "錯誤",
         "response": "回應",
-        "down": "Down",
-        "up": "Up",
+        "down": "離線",
+        "up": "在線",
         "not_available": "不可用"
     },
     "emby": {
@@ -121,6 +121,24 @@
     "freshrss": {
         "subscriptions": "訂閱",
         "unread": "未讀"
+    },
+    "fritzbox": {
+        "connectionStatus": "狀態",
+        "connectionStatusUnconfigured": "未設置",
+        "connectionStatusConnecting": "連線中",
+        "connectionStatusAuthenticating": "驗證中",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "正在中斷連線",
+        "connectionStatusDisconnected": "連接已中斷",
+        "connectionStatusConnected": "已連線",
+        "uptime": "運行時間",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "離線",
+        "up": "在線",
+        "received": "已接收",
+        "sent": "已送出",
+        "externalIPAddress": "外部 IP"
     },
     "caddy": {
         "upstreams": "上行",
@@ -369,8 +387,8 @@
     "proxmox": {
         "mem": "記憶體",
         "cpu": "CPU",
-        "lxc": "LXC",
-        "vms": "VMs"
+        "lxc": "Linux 容器",
+        "vms": "虛擬機"
     },
     "glances": {
         "cpu": "CPU",
@@ -390,7 +408,7 @@
         "write": "寫入",
         "gpu": "GPU",
         "mem": "記憶體",
-        "swap": "Swap"
+        "swap": "交換空間"
     },
     "quicklaunch": {
         "bookmark": "書籤",
@@ -463,11 +481,11 @@
         "updates": "更新",
         "update_available": "有可用的更新",
         "up_to_date": "已更新至最新",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "子網橋",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "在線",
         "pending": "待下載",
-        "down": "Down"
+        "down": "離線"
     },
     "healthchecks": {
         "new": "新建立",
@@ -543,9 +561,9 @@
     },
     "opendtu": {
         "yieldDay": "今日",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "absolutePower": "功率",
+        "relativePower": "功率百分比",
+        "limit": "上限"
     },
     "opnsense": {
         "cpu": "CPU負載",
@@ -573,8 +591,8 @@
         "load": "平均負載量",
         "memory": "記憶體使用率",
         "wanStatus": "網際網路狀態",
-        "up": "Up",
-        "down": "Down",
+        "up": "在線",
+        "down": "離線",
         "temp": "溫度",
         "disk": "硬碟使用率",
         "wanIP": "網際網路 IP"
@@ -756,15 +774,16 @@
         "sitesDown": "離線網站",
         "paused": "擱置中",
         "notyetchecked": "尚未檢查",
-        "up": "Up",
+        "up": "在線",
         "seemsdown": "似乎離線",
-        "down": "Down",
+        "down": "離線",
         "unknown": "未知"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
-        "noEventsToday": "今日無事件"
+        "inCinemas": "上映中",
+        "physicalRelease": "實體發行",
+        "digitalRelease": "數位發行",
+        "noEventsToday": "今日無事件",
+        "noEventsFound": "未找到事件"
     }
 }
