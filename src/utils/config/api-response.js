@@ -12,11 +12,7 @@ import {
   servicesFromKubernetes,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
-import {
-  filterAllowedBookmarks,
-  filterAllowedServices, 
-  filterAllowedWidgets
-} from "utils/auth/auth-helpers"; 
+import { filterAllowedBookmarks, filterAllowedServices, filterAllowedWidgets } from "utils/auth/auth-helpers";
 
 /**
  * Compares services by weight then by name.
@@ -35,7 +31,7 @@ export async function bookmarksResponse(perms, authGroups) {
   const bookmarksYaml = path.join(CONF_DIR, "bookmarks.yaml");
   const rawFileContents = await fs.readFile(bookmarksYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
-  const bookmarks = yaml.load(fileContents); 
+  const bookmarks = yaml.load(fileContents);
 
   if (!bookmarks) return [];
 
@@ -50,14 +46,16 @@ export async function bookmarksResponse(perms, authGroups) {
   }
 
   // map easy to write YAML objects into easy to consume JS arrays
-  const bookmarksArray = filterAllowedBookmarks(perms, authGroups,
+  const bookmarksArray = filterAllowedBookmarks(
+    perms,
+    authGroups,
     bookmarks.map((group) => ({
       name: Object.keys(group)[0],
       bookmarks: group[Object.keys(group)[0]].map((entries) => ({
         name: Object.keys(entries)[0],
         ...entries[Object.keys(entries)[0]][0],
       })),
-    }))
+    })),
   );
 
   const sortedGroups = [];
@@ -109,7 +107,11 @@ export async function servicesResponse(perms, authGroups) {
   }
 
   try {
-    discoveredKubernetesServices = filterAllowedServices(perms, authGroups, cleanServiceGroups(await servicesFromKubernetes()));
+    discoveredKubernetesServices = filterAllowedServices(
+      perms,
+      authGroups,
+      cleanServiceGroups(await servicesFromKubernetes()),
+    );
   } catch (e) {
     console.error("Failed to discover services, please check kubernetes.yaml for errors or remove example entries.");
     if (e) console.error(e.toString());
