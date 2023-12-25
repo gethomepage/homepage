@@ -44,17 +44,17 @@ const Version = dynamic(() => import("components/version"), {
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
 
-export async function getServerSideProps({req}) {
+export async function getServerSideProps({ req }) {
   let logger;
   try {
     logger = createLogger("index");
     const { providers, auth, ...settings } = getSettings();
-    const { provider, groups } = readAuthSettings(auth); 
+    const { provider, groups } = readAuthSettings(auth);
 
     const services = await servicesResponse(provider.authorize(req), groups);
     const bookmarks = await bookmarksResponse(provider.authorize(req), groups);
     const widgets = await widgetsResponse(provider.authorize(req));
-    const authContext = provider.getContext(req); 
+    const authContext = provider.getContext(req);
 
     return {
       props: {
@@ -160,7 +160,7 @@ function Index({ initialSettings, fallback, authContext }) {
   return (
     <SWRConfig value={{ fallback, fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()) }}>
       <ErrorBoundary>
-        <Home initialSettings={initialSettings} authContext={authContext}/>
+        <Home initialSettings={initialSettings} authContext={authContext} />
       </ErrorBoundary>
     </SWRConfig>
   );
@@ -187,7 +187,7 @@ function Home({ initialSettings, authContext }) {
   }, [initialSettings, setSettings]);
 
   const { data: services } = useSWR(["/api/services", authContext], fetchWithAuth);
-  const { data: bookmarks } = useSWR(["/api/bookmarks", authContext], fetchWithAuth); 
+  const { data: bookmarks } = useSWR(["/api/bookmarks", authContext], fetchWithAuth);
   const { data: widgets } = useSWR(["/api/widgets", authContext], fetchWithAuth);
 
   const servicesAndBookmarks = [
@@ -530,7 +530,7 @@ export default function Wrapper({ initialSettings, fallback, authContext }) {
             backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
           )}
         >
-          <Index initialSettings={initialSettings} fallback={fallback} authContext={authContext}/>
+          <Index initialSettings={initialSettings} fallback={fallback} authContext={authContext} />
         </div>
       </div>
     </div>
