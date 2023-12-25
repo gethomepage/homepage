@@ -3,6 +3,6 @@ import { bookmarksResponse } from "utils/config/api-response";
 import { getSettings } from "utils/config/config";
 
 export default async function handler(req, res) {
-  const { provider, groups } = readAuthSettings(getSettings().auth)
+  const { provider, groups } = readAuthSettings(getSettings().auth);
   res.send(await bookmarksResponse(provider.permissions(req), groups));
 }
