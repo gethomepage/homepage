@@ -10,6 +10,7 @@
     "telemetry": "next telemetry disable"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^9.7.2",
     "@headlessui/react": "^1.7.2",
     "@kubernetes/client-node": "^0.17.1",
     "cal-parser": "^1.0.2",

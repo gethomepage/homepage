@@ -52,3 +52,13 @@ site*/
 
 # venv
 .venv/
+
+# Service Worker
+**/public/workbox-*.js
+**/public/workbox-*.js.map
+**/public/sw.js
+**/public/sw.js.map
+**/public/worker-*.js
+**/public/worker-*.js.map
+**/public/fallback-*.js
+**/public/fallback-*.js.map
