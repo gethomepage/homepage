@@ -34,6 +34,15 @@ module.exports = {
         "3xl": "1800px",
         // => @media (min-width: 1800px) { ... }
       },
+      keyframes: {
+        'appear-top': {
+          '0%': { transform: 'translateY(-100%)', opacity: 0 },
+          '100%': { transform: 'translateY(0%)', opacity: 1 },
+        }
+      },
+      animation: {
+        'appear-top': 'appear-top 250ms ease-out'
+      }
     },
   },
   plugins: [tailwindForms, tailwindScrollbars],

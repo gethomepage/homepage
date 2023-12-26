@@ -8,6 +8,7 @@ import { useEffect, useContext, useState, useMemo } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
+import { MdOutlineCloudOff } from "react-icons/md";
 
 import Tab, { slugify } from "components/tab";
 import FileContent from "components/filecontent";
@@ -27,6 +28,8 @@ import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
 import { getStoredProvider, searchProviders } from "components/widgets/search/search";
+import useOffline from "utils/hooks/offline";
+import TopNotification from "components/topnotification";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -473,6 +476,9 @@ function Home({ initialSettings }) {
 }
 
 export default function Wrapper({ initialSettings, fallback }) {
+  const { isOffline } = useOffline();
+  const { t } = useTranslation();
+
   const wrappedStyle = {};
   let backgroundBlur = false;
   let backgroundSaturate = false;
@@ -507,6 +513,11 @@ export default function Wrapper({ initialSettings, fallback }) {
         initialSettings.color && `theme-${initialSettings.color}`,
       )}
     >
+      {isOffline ? (
+        <TopNotification icon={<MdOutlineCloudOff size={16} />}>
+          {t('network.offline_mode_notification')}
+        </TopNotification>
+      ) : null}
       <div
         id="page_container"
         className="fixed overflow-auto w-full h-full bg-theme-50 dark:bg-theme-800 transition-all"

@@ -19,6 +19,9 @@
         "minutes": "m",
         "seconds": "s"
     },
+    "network": {
+        "offline_mode_notification": "Offline mode. Cached data will be displayed"
+    },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
