@@ -14,7 +14,7 @@ export default function Component({ service }) {
 
   let alertsInt = 0;
 
-  if ((alertsError && alertsError.message === "HTTP Error") || !alertsData || alertsData.length === 0) {
+  if (alertsError || !alertsData || alertsData.length === 0) {
     if (alertmanagerData) {
       alertsInt = alertmanagerData.length;
     }
