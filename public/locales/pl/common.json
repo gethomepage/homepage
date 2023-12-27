@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Brakujący typ widżetu: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Obciążenie",
         "temp": "TEMP.",
         "max": "Maks",
-        "uptime": "CZAS",
-        "months": "miesiąc",
-        "days": "dni",
-        "hours": "godz",
-        "minutes": "min"
+        "uptime": "CZAS"
     },
     "unifi": {
         "users": "Użytkownicy",
@@ -401,8 +403,8 @@
         "total": "Całkowite",
         "free": "Wolne",
         "used": "Użyte",
-        "days": "dni",
-        "hours": "godz",
+        "days": "d",
+        "hours": "h",
         "crit": "Crit",
         "read": "Przeczytane",
         "write": "Zapis",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Obciążenie systemu",
         "uptime": "Czas działania",
-        "alerts": "Alarmy",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alarmy"
     },
     "pyload": {
         "speed": "Prędkość",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Skrzynka odbiorcza",
         "total": "Całkowite"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Dostępny",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Proszę czekać",
@@ -614,7 +623,7 @@
         "down": "Niedziałające strony",
         "uptime": "Czas działania",
         "incident": "Incydent",
-        "m": "min"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Seriale",

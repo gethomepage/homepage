@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Tipo del Widget Mancante: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Carico",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "UP",
-        "months": "me",
-        "days": "g",
-        "hours": "o",
-        "minutes": "m"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Utenti",
@@ -401,8 +403,8 @@
         "total": "Totale",
         "free": "Libero",
         "used": "In utilizzo",
-        "days": "g",
-        "hours": "o",
+        "days": "d",
+        "hours": "h",
         "crit": "Critico",
         "read": "Letti",
         "write": "Scrittura",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Carico di Sistema",
         "uptime": "Tempo di attività",
-        "alerts": "Allarmi",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Allarmi"
     },
     "pyload": {
         "speed": "Velocità",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "In arrivo",
         "total": "Totale"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Attendere prego",
