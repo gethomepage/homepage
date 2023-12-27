@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Manglende Widget Type: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Belastning",
         "temp": "TEMP",
         "max": "Maks",
-        "uptime": "OP",
-        "months": "mdr",
-        "days": "d",
-        "hours": "t",
-        "minutes": "m"
+        "uptime": "OP"
     },
     "unifi": {
         "users": "Brugere",
@@ -402,7 +404,7 @@
         "free": "Fri",
         "used": "Brugt",
         "days": "d",
-        "hours": "t",
+        "hours": "h",
         "crit": "Crit",
         "read": "Læst",
         "write": "Skriv",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Systembelastning",
         "uptime": "Oppetid",
-        "alerts": "Advarsler",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Advarsler"
     },
     "pyload": {
         "speed": "Hastighed",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Indbakke",
         "total": "Total"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Vent venligst",

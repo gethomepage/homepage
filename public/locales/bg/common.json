@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Липсваща приставка: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Натоварване",
         "temp": "Температура",
         "max": "Макс.",
-        "uptime": "Онлайн",
-        "months": "мес",
-        "days": "д",
-        "hours": "ч",
-        "minutes": "мин"
+        "uptime": "Онлайн"
     },
     "unifi": {
         "users": "Потребители",
@@ -401,8 +403,8 @@
         "total": "Общо",
         "free": "Свободни",
         "used": "Заети",
-        "days": "д",
-        "hours": "ч",
+        "days": "d",
+        "hours": "h",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Предупреждения",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Предупреждения"
     },
     "pyload": {
         "speed": "Speed",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Общо"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Моля Изчакайте",
@@ -614,7 +623,7 @@
         "down": "Sites Down",
         "uptime": "Uptime",
         "incident": "Incident",
-        "m": "мин"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Series",

@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Widget manquant: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Charge",
         "temp": "Temp",
         "max": "Max",
-        "uptime": "Up",
-        "months": "m",
-        "days": "j",
-        "hours": "h",
-        "minutes": "mn"
+        "uptime": "Up"
     },
     "unifi": {
         "users": "Utilisateurs",
@@ -401,14 +403,14 @@
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
-        "days": "j",
+        "days": "d",
         "hours": "h",
         "crit": "Crit.",
         "read": "Lu",
         "write": "Écrit.",
-        "gpu": "gpu",
+        "gpu": "GPU",
         "mem": "Mém.",
-        "swap": "swap"
+        "swap": "Swap"
     },
     "quicklaunch": {
         "bookmark": "Signet",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Charge Système",
         "uptime": "Démarré depuis",
-        "alerts": "Alertes",
-        "time": "{{value, number(style: unitDisplay: long;)}}"
+        "alerts": "Alertes"
     },
     "pyload": {
         "speed": "Débit",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Boîte de réception",
         "total": "Total"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "En ligne",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Merci de patienter",
@@ -614,7 +623,7 @@
         "down": "Hors ligne",
         "uptime": "Démarré depuis",
         "incident": "Incident",
-        "m": "mn"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Séries TV",

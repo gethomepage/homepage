@@ -11,14 +11,20 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Chybí typ widgetu: {{type}}",
         "api_error": "Chyba API",
         "information": "Informace",
         "status": "Stav",
-        "url": "URL",
+        "url": "Odkaz",
         "raw_error": "Nevyřešená chyba",
         "response_data": "Data odezvy"
     },
@@ -32,7 +38,7 @@
         "placeholder": "Hledat…"
     },
     "resources": {
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "mem": "RAM",
         "total": "Celkem",
         "free": "Volné",
@@ -40,11 +46,7 @@
         "load": "Zatížení",
         "temp": "TEPLOTA",
         "max": "Max.",
-        "uptime": "BĚŽÍ",
-        "months": "měs.",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "BĚŽÍ"
     },
     "unifi": {
         "users": "Uživatelé",
@@ -67,7 +69,7 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "RAM",
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "running": "Běží",
         "offline": "Offline",
         "error": "Chyba",
@@ -386,12 +388,12 @@
     },
     "proxmox": {
         "mem": "RAM",
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "lxc": "LXC",
         "vms": "Virtuální Stroje"
     },
     "glances": {
-        "cpu": "CPU",
+        "cpu": "Procesor",
         "load": "Zatížení",
         "wait": "Počkejte prosím",
         "temp": "TEPLOTA",
@@ -416,7 +418,7 @@
         "search": "Hledat",
         "custom": "Vlastní",
         "visit": "Navštivte",
-        "url": "URL"
+        "url": "Odkaz"
     },
     "wmo": {
         "0-day": "Slunečno",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Zatížení systému",
         "uptime": "Doba spuštění",
-        "alerts": "Upozornění",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Upozornění"
     },
     "pyload": {
         "speed": "Rychlost",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Doručená pošta",
         "total": "Celkem"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Čekejte prosím",
@@ -600,7 +609,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datové úložiště",
         "failed_tasks_24h": "Neúspěšné úlohy 24h",
-        "cpu_usage": "CPU",
+        "cpu_usage": "Procesor",
         "memory_usage": "Paměť"
     },
     "immich": {

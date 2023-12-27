@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Jenis Widget Hilang: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Beban",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Pengguna",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Beban Sistem",
         "uptime": "Masa Hidup",
-        "alerts": "Alerts",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Kelajuan",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Peti Masuk",
         "total": "Jumlah"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Sila tunggu",

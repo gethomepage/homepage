@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "min",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Fehlender Widget-Typ: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Last",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "UP",
-        "months": "Mo.",
-        "days": "d",
-        "hours": "h",
-        "minutes": "min"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Benutzer",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Systemlast",
         "uptime": "Betriebszeit",
-        "alerts": "Warnungen",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Warnungen"
     },
     "pyload": {
         "speed": "Datenrate",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Posteingang",
         "total": "Gesamt"
+    },
+    "peanut": {
+        "battery_charge": "Akkuladung",
+        "ups_load": "USV-Auslastung",
+        "ups_status": "USV-Status",
+        "online": "Online",
+        "on_battery": "Im Akkubetrieb",
+        "low_battery": "Akkustand niedrig"
     },
     "nextdns": {
         "wait": "Bitte warten",
