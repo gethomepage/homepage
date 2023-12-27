@@ -24,6 +24,7 @@ export default function Component({ service }) {
     );
   }
 
+  // backwards compatibility with peanut v1
   if ('battery.charge' in upsData) {
     upsData.battery_charge = upsData['battery.charge'];
   }
