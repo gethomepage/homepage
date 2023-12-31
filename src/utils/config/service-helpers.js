@@ -102,6 +102,16 @@ export async function servicesFromDocker() {
             }
           });
 
+          if (!constructedService.name || !constructedService.group) {
+            logger.error(
+              `Error constructing service using homepage labels for container '${containerName.replace(
+                /^\//,
+                "",
+              )}'. Ensure required labels are present.`,
+            );
+            return null;
+          }
+
           return constructedService;
         });
 
