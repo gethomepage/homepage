@@ -64,7 +64,7 @@ async function tryLogin(widget) {
   const resp = await rpc(url, {
     method: "login",
     service: "session",
-    params: { username, password },
+    params: { username: username.toString(), password: password.toString() },
   });
 
   if (resp.status !== 200) {
