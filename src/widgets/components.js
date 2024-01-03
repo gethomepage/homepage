@@ -96,6 +96,7 @@ const components = {
   tautulli: dynamic(() => import("./tautulli/component")),
   tdarr: dynamic(() => import("./tdarr/component")),
   traefik: dynamic(() => import("./traefik/component")),
+  todo: dynamic(() => import("./todo/component")),
   transmission: dynamic(() => import("./transmission/component")),
   tubearchivist: dynamic(() => import("./tubearchivist/component")),
   truenas: dynamic(() => import("./truenas/component")),

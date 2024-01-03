@@ -122,6 +122,7 @@ nav:
       - widgets/services/syncthing-relay-server.md
       - widgets/services/tailscale.md
       - widgets/services/tdarr.md
+      - widgets/services/todo.md
       - widgets/services/traefik.md
       - widgets/services/transmission.md
       - widgets/services/truenas.md

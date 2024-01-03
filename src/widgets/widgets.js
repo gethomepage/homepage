@@ -88,6 +88,7 @@ import strelaysrv from "./strelaysrv/widget";
 import tailscale from "./tailscale/widget";
 import tautulli from "./tautulli/widget";
 import tdarr from "./tdarr/widget";
+import todo from "./todo/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
@@ -193,6 +194,7 @@ const widgets = {
   tailscale,
   tautulli,
   tdarr,
+  todo,
   traefik,
   transmission,
   tubearchivist,
