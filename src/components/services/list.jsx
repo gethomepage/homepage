@@ -14,7 +14,7 @@ export default function List({ group, services, layout, useEqualHeights }) {
     >
       {services.map((service) => (
         <Item
-          key={service.container ?? service.app ?? service.name}
+          key={[service.container, service.app, service.name].filter((s) => s).join("-")}
           service={service}
           group={group}
           useEqualHeights={layout?.useEqualHeights ?? useEqualHeights}
