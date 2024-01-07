@@ -397,6 +397,9 @@ export function cleanServiceGroups(groups) {
           // glances, customapi, iframe
           refreshInterval,
 
+          // healthchecks
+          uuid,
+
           // iframe
           allowFullscreen,
           allowPolicy,
@@ -535,6 +538,9 @@ export function cleanServiceGroups(groups) {
           if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
           if (previousDays) cleanedService.widget.previousDays = previousDays;
           if (showTime) cleanedService.widget.showTime = showTime;
+        }
+        if (type === "healthchecks") {
+          if (uuid !== undefined) cleanedService.widget.uuid = uuid;
         }
       }
 
