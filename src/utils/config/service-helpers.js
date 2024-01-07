@@ -433,6 +433,9 @@ export function cleanServiceGroups(groups) {
 
           // unifi
           site,
+
+          // healthchecks
+          uuid,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -535,6 +538,9 @@ export function cleanServiceGroups(groups) {
           if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
           if (previousDays) cleanedService.widget.previousDays = previousDays;
           if (showTime) cleanedService.widget.showTime = showTime;
+        }
+        if (type === "healthchecks") {
+          if (uuid !== undefined) cleanedService.widget.uuid = uuid;
         }
       }
 
