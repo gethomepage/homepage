@@ -397,6 +397,9 @@ export function cleanServiceGroups(groups) {
           // glances, customapi, iframe
           refreshInterval,
 
+          // healthchecks
+          uuid,
+
           // iframe
           allowFullscreen,
           allowPolicy,
@@ -433,9 +436,6 @@ export function cleanServiceGroups(groups) {
 
           // unifi
           site,
-
-          // healthchecks
-          uuid,
         } = cleanedService.widget;
 
         let fieldsList = fields;
