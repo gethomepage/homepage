@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "ش",
+        "days": "ي",
+        "hours": "س",
+        "minutes": "د",
+        "seconds": "ث"
     },
     "widget": {
         "missing_type": "نوع القطعة مفقود: {{type}}",
@@ -40,11 +46,7 @@
         "load": "الضغط",
         "temp": "مؤقت",
         "max": "الحد الأقصى",
-        "uptime": "تعمل",
-        "months": "ش",
-        "days": "ي",
-        "hours": "س",
-        "minutes": "د"
+        "uptime": "تعمل"
     },
     "unifi": {
         "users": "المستخدمون",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "حمل النظام",
         "uptime": "مدة التشغيل",
-        "alerts": "تنبيهات",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "تنبيهات"
     },
     "pyload": {
         "speed": "السرعة",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "صندوق الوارد",
         "total": "المجموع"
+    },
+    "peanut": {
+        "battery_charge": "شحن البطارية",
+        "ups_load": "حمل UPS",
+        "ups_status": "حالة UPS",
+        "online": "مُتّصل",
+        "on_battery": "على البطارية",
+        "low_battery": "البطارية منخفضة"
     },
     "nextdns": {
         "wait": "الرجاء الإنتظار",

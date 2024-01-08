@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Λείπει ο τύπος widget: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Φόρτωση",
         "temp": "ΘΕΡΜΟΚΡΑΣΪΑ",
         "max": "Μέγιστο",
-        "uptime": "ΠΑΝΩ",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "ΠΑΝΩ"
     },
     "unifi": {
         "users": "Χρήστες",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Ειδοποιήσεις",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Ειδοποιήσεις"
     },
     "pyload": {
         "speed": "Speed",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Σύνολο"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Please Wait",

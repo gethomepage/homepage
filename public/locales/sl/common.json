@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mes",
+        "days": "d",
+        "hours": "u",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Manjka tip widgeta: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Bremenitev",
         "temp": "TEMP",
         "max": "Maks.",
-        "uptime": "Gor",
-        "months": "me",
-        "days": "d",
-        "hours": "u",
-        "minutes": "u"
+        "uptime": "Gor"
     },
     "unifi": {
         "users": "Uporabniki",
@@ -127,7 +129,7 @@
         "connectionStatusUnconfigured": "Nenastavljeno",
         "connectionStatusConnecting": "Se povezuje",
         "connectionStatusAuthenticating": "Avtentikacija",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusPendingDisconnect": "Čakanje na prekinitev",
         "connectionStatusDisconnecting": "Prekinitev",
         "connectionStatusDisconnected": "Prekinjeno",
         "connectionStatusConnected": "Povezanih",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Obremenitev sistema",
         "uptime": "Čas delovanja",
-        "alerts": "Opozorila",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Opozorila"
     },
     "pyload": {
         "speed": "Hitrost",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Prejeto",
         "total": "Skupaj"
+    },
+    "peanut": {
+        "battery_charge": "Napolnjenost baterije",
+        "ups_load": "UPS obremenitev",
+        "ups_status": "UPS status",
+        "online": "Na spletu",
+        "on_battery": "Na bateriji",
+        "low_battery": "Prazna baterija"
     },
     "nextdns": {
         "wait": "Prosim počakajte",
@@ -614,7 +623,7 @@
         "down": "Ne deluje",
         "uptime": "Čas delovanja",
         "incident": "Incident",
-        "m": "u"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Serije",

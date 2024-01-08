@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Manka Tipo de Fenestraĵo: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Ŝarĝo",
         "temp": "TEMP",
         "max": "Maks",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "t",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Uzantoj",
@@ -401,7 +403,7 @@
         "total": "Totalo",
         "free": "Libera",
         "used": "Uzata",
-        "days": "t",
+        "days": "d",
         "hours": "h",
         "crit": "Crit",
         "read": "Read",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Speed",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Totalo"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Please Wait",
