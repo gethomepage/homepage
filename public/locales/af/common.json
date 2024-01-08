@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Ontbrekende legstuk-tipe: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Las",
         "temp": "TEMP",
         "max": "Mak",
-        "uptime": "OP",
-        "months": "ma",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "OP"
     },
     "unifi": {
         "users": "Gebruikers",
@@ -127,7 +129,7 @@
         "connectionStatusUnconfigured": "Ongekonfigureer",
         "connectionStatusConnecting": "Verbind",
         "connectionStatusAuthenticating": "Stel geldigheid vas",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusPendingDisconnect": "Hangende Ontkoppel",
         "connectionStatusDisconnecting": "Ontkoppel",
         "connectionStatusDisconnected": "Ontkoppel",
         "connectionStatusConnected": "Gekoppel",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Stelsellading",
         "uptime": "Optyd",
-        "alerts": "Waarskuwings",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Waarskuwings"
     },
     "pyload": {
         "speed": "Spoed",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Inmandjie",
         "total": "Totaal"
+    },
+    "peanut": {
+        "battery_charge": "Batterylading",
+        "ups_load": "SVE-lading",
+        "ups_status": "SVE Status",
+        "online": "Aanlyn",
+        "on_battery": "Op Battery",
+        "low_battery": "Battery Laag"
     },
     "nextdns": {
         "wait": "Wag Asseblief",

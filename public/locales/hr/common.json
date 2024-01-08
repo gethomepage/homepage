@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Nedostajuća vrsta widgeta: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Opterećenje",
         "temp": "TEMP",
         "max": "Maks",
-        "uptime": "UP",
-        "months": "mj",
-        "days": "d",
-        "hours": "h",
-        "minutes": "min"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Korisnici",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Opterećenje sustava",
         "uptime": "Radno vrijeme",
-        "alerts": "Upozorenja",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Upozorenja"
     },
     "pyload": {
         "speed": "Brzina",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Ulazni sandučić",
         "total": "Ukupno"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Pričekaj",
@@ -614,7 +623,7 @@
         "down": "Neaktivne stranice",
         "uptime": "Radno vrijeme",
         "incident": "Slučaj",
-        "m": "min"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Serije",

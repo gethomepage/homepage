@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Kayıp Araç Türü: {{type}}",
@@ -40,11 +46,7 @@
         "load": "Yük",
         "temp": "Geçici",
         "max": "En Yüksek",
-        "uptime": "Çalışma Süresi",
-        "months": "Ay",
-        "days": "Gün",
-        "hours": "Saat",
-        "minutes": "Dakika"
+        "uptime": "Çalışma Süresi"
     },
     "unifi": {
         "users": "Kullanıcılar",
@@ -401,8 +403,8 @@
         "total": "Toplam",
         "free": "Boşta",
         "used": "Kullanımda",
-        "days": "Gün",
-        "hours": "Saat",
+        "days": "d",
+        "hours": "h",
         "crit": "Crit",
         "read": "Oku",
         "write": "Write",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "Sistem Yükü",
         "uptime": "Çalışma Süresi",
-        "alerts": "Alarmlar",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alarmlar"
     },
     "pyload": {
         "speed": "Hız",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Gelen Kutusu",
         "total": "Toplam"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Çevrimiçi",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Lütfen Bekleyin",
@@ -614,7 +623,7 @@
         "down": "Sites Down",
         "uptime": "Çalışma Süresi",
         "incident": "Incident",
-        "m": "Dakika"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Diziler",

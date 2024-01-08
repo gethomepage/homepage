@@ -24,6 +24,17 @@ export default function Component({ service }) {
     );
   }
 
+  // backwards compatibility with peanut v1
+  if ("battery.charge" in upsData) {
+    upsData.battery_charge = upsData["battery.charge"];
+  }
+  if ("ups.load" in upsData) {
+    upsData.ups_load = upsData["ups.load"];
+  }
+  if ("ups.status" in upsData) {
+    upsData.ups_status = upsData["ups.status"];
+  }
+
   let status;
   switch (upsData.ups_status) {
     case "OL":
