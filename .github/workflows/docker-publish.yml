@@ -77,8 +77,8 @@ jobs:
       # This step is being disabled because the runner is on a self-hosted machine
       # where the cache will stick between runs.
       - name: Cache Docker layers
-         uses: actions/cache@v3
-         with:
+        uses: actions/cache@v3
+        with:
            path: /tmp/.buildx-cache
            key: ${{ runner.os }}-buildx-${{ github.sha }}
            restore-keys: |
