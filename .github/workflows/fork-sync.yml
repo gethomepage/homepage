@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '2 */12 * * *'
+
+jobs:
+  synchronize-upstream: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - run: gh repo sync discretizer/homepage
+        env: 
+          GH_TOKEN ${{ secres.GITHUB_ENV }}
