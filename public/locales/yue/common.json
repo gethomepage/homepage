@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "缺少小部件類型：{{type}}",
@@ -40,11 +46,7 @@
         "load": "負荷",
         "temp": "溫度",
         "max": "最大",
-        "uptime": "運作時間",
-        "months": "月",
-        "days": "日",
-        "hours": "時",
-        "minutes": "分"
+        "uptime": "運作時間"
     },
     "unifi": {
         "users": "使用者",
@@ -401,8 +403,8 @@
         "total": "全部",
         "free": "剩餘",
         "used": "用咗",
-        "days": "日",
-        "hours": "時",
+        "days": "d",
+        "hours": "h",
         "crit": "重大的",
         "read": "已讀",
         "write": "寫入",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "系統負載",
         "uptime": "運行時間",
-        "alerts": "警示",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "警示"
     },
     "pyload": {
         "speed": "速度",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "收件箱",
         "total": "全部"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "在線",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "請稍後",
@@ -614,7 +623,7 @@
         "down": "離線網站",
         "uptime": "運行時間",
         "incident": "事件",
-        "m": "分"
+        "m": "m"
     },
     "atsumeru": {
         "series": "影集",

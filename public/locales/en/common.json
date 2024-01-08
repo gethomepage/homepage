@@ -491,9 +491,9 @@
     },
     "healthchecks": {
         "new": "New",
-        "up": "Online",
+        "up": "Up",
         "grace": "In Grace Period",
-        "down": "Offline",
+        "down": "Down",
         "paused": "Paused",
         "status": "Status",
         "last_ping": "Last Ping",

@@ -11,7 +11,13 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
@@ -40,11 +46,7 @@
         "load": "부하",
         "temp": "온도",
         "max": "최대",
-        "uptime": "가동",
-        "months": "달",
-        "days": "일",
-        "hours": "시간",
-        "minutes": "분"
+        "uptime": "가동"
     },
     "unifi": {
         "users": "사용자",
@@ -401,8 +403,8 @@
         "total": "총합",
         "free": "남음",
         "used": "사용",
-        "days": "일",
-        "hours": "시간",
+        "days": "d",
+        "hours": "h",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
@@ -517,8 +519,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "경고",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "경고"
     },
     "pyload": {
         "speed": "Speed",
@@ -543,6 +544,14 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "총합"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "잠시만 기다리세요",
@@ -614,7 +623,7 @@
         "down": "Sites Down",
         "uptime": "Uptime",
         "incident": "Incident",
-        "m": "분"
+        "m": "m"
     },
     "atsumeru": {
         "series": "시리즈",
