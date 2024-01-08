@@ -4,9 +4,9 @@ on:
     - cron: '2 */12 * * *'
 
 jobs:
-  synchronize-upstream: 
-    runs-on: ubuntu-latest 
-    steps: 
+  synchronize-upstream:
+    runs-on: ubuntu-latest
+    steps:
       - run: gh repo sync discretizer/homepage
-        env: 
+        env:
           GH_TOKEN: ${{ secrets.GITHUB_ENV }}
