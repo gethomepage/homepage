@@ -36,7 +36,7 @@ jobs:
 
   test:
     name: Test Build
-    if: github.repository == 'gethomepage/homepage' && github.event_name == 'pull_request'
+    if: github.repository == 'discretizer/homepage' && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     needs:
       - pre-commit
@@ -59,7 +59,7 @@ jobs:
         run: MKINSIDERS=false mkdocs build
   deploy:
     name: Build & Deploy
-    if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request'
+    if: github.repository == 'discretizer/homepage' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     needs:
       - pre-commit
