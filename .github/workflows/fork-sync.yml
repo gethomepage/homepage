@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest 
     steps: 
       - run: gh repo sync discretizer/homepage
-        env: 
-          GH_TOKEN ${{ secres.GITHUB_ENV }}
+        env:
+          GH_TOKEN: ${{ github.token }}
