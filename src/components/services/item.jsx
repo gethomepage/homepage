@@ -49,6 +49,7 @@ export default function Item({ service, group, useEqualHeights }) {
                 target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 service-icon"
+                aria-label={service.icon}
               >
                 <ResolvedIcon icon={service.icon} />
               </a>
