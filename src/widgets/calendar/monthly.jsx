@@ -111,6 +111,7 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
   }
 
   const eventsArray = Object.keys(events).map((eventKey) => events[eventKey]);
+  eventsArray.sort((a, b) => a.date - b.date);
 
   return (
     <div className="w-full text-center">
