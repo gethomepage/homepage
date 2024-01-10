@@ -9,4 +9,4 @@ jobs:
     steps:
       - run: gh repo sync discretizer/homepage
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_ENV }}
+          GH_TOKEN: ${{ github.token }}

@@ -79,10 +79,10 @@ jobs:
       - name: Cache Docker layers
         uses: actions/cache@v3
         with:
-           path: /tmp/.buildx-cache
-           key: ${{ runner.os }}-buildx-${{ github.sha }}
-           restore-keys: |
-             ${{ runner.os }}-buildx-
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
