@@ -110,7 +110,9 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
     weekNumbers = weekNumbers.map((weekNum) => weekNum - 52);
   }
 
-  const eventsArray = Object.keys(events).map((eventKey) => events[eventKey]);
+  const eventsArray = Object.keys(events)
+    .map((eventKey) => events[eventKey])
+    .sort((a, b) => a.date - b.date);
 
   return (
     <div className="w-full text-center">
