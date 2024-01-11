@@ -26,7 +26,7 @@ You will need to generate an API Token for new or an existing user. Here is an e
 10. Click the Add button
     - User: user from bullet 8 above
     - Token ID: something informative like the application or purpose like `homepage`
-    - Privilege Separation: Checked
+    - Privilege Separation: Unchecked
 11. Go back to the "Permissions" menu
 12. Click Add -> API Token Permission
     - Path: /
