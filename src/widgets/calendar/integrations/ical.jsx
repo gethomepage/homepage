@@ -55,8 +55,9 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
         }
       };
 
-      if (event?.recurrenceRule?.options) {
-        const rule = new RRule(event.recurrenceRule.options);
+      const recurrenceOptions = event?.recurrenceRule?.origOptions;
+      if (recurrenceOptions && Object.keys(recurrenceOptions).length !== 0) {
+        const rule = new RRule(recurrenceOptions);
         const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
 
         recurringEvents.forEach((date, i) => eventToAdd(date, i, "recurring"));
