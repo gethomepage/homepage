@@ -27,6 +27,7 @@ widget:
       url: https://domain.url/with/link/to.ics # URL with calendar events
       name: My Events # required - name for these calendar events
       color: zinc # optional - defaults to pre-defined color for the service (zinc for ical)
+      timezone: America/Los_Angeles # optional - force timezone for events when they are shown at the wrong time
       params: # optional - additional params for the service
         showName: true # optional - show name before event title in event line - defaults to false
 ```
