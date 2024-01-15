@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 
-import Event from "./event";
+import Event, { compareDateTimezoneAware } from "./event";
 
 export default function Agenda({ service, colorVariants, events, showDate }) {
   const { widget } = service;
@@ -15,8 +15,10 @@ export default function Agenda({ service, colorVariants, events, showDate }) {
   const eventsArray = Object.keys(events)
     .filter(
       (eventKey) =>
-        showDate.minus({ days: widget?.previousDays ?? 0 }).startOf("day").ts <=
-        events[eventKey].date?.startOf("day").ts,
+        showDate
+          .setZone(events[eventKey].date.zoneName)
+          .minus({ days: widget?.previousDays ?? 0 })
+          .startOf("day").ts <= events[eventKey].date?.startOf("day").ts,
     )
     .map((eventKey) => events[eventKey])
     .sort((a, b) => a.date - b.date)
@@ -56,7 +58,7 @@ export default function Agenda({ service, colorVariants, events, showDate }) {
                 event={event}
                 colorVariants={colorVariants}
                 showDate={j === 0}
-                showTime={widget?.showTime && event.date.startOf("day").ts === showDate.startOf("day").ts}
+                showTime={widget?.showTime && compareDateTimezoneAware(showDate, event)}
               />
             ))}
           </div>
