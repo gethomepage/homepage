@@ -40,6 +40,6 @@ export default function Event({ event, colorVariants, showDate = false, showTime
   );
 }
 
-export function compareIfSameAsEventDateTime(date, event) {
+export function compareDateTimezoneAware(date, event) {
   return date.setZone(event.date.zoneName).startOf("day").valueOf() === event.date.startOf("day").valueOf();
 }

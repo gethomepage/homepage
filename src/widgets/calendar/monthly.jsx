@@ -3,7 +3,7 @@ import { DateTime, Info } from "luxon";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 
-import Event, { compareIfSameAsEventDateTime } from "./event";
+import Event, { compareDateTimezoneAware } from "./event";
 
 const cellStyle = "relative w-10 flex items-center justify-center flex-col";
 const monthButton = "pl-6 pr-6 ml-2 mr-2 hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
@@ -12,7 +12,7 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
   const currentDate = DateTime.now();
 
   const cellDate = showDate.set({ weekday, weekNumber }).startOf("day");
-  const filteredEvents = events?.filter((event) => compareIfSameAsEventDateTime(cellDate, event));
+  const filteredEvents = events?.filter((event) => compareDateTimezoneAware(cellDate, event));
 
   const dayStyles = (displayDate) => {
     let style = "h-9 ";
@@ -171,7 +171,7 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
 
         <div className="flex flex-col">
           {eventsArray
-            ?.filter((event) => compareIfSameAsEventDateTime(showDate, event))
+            ?.filter((event) => compareDateTimezoneAware(showDate, event))
             .slice(0, widget?.maxEvents ?? 10)
             .map((event) => (
               <Event
@@ -179,7 +179,7 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
                 event={event}
                 colorVariants={colorVariants}
                 showDateColumn={widget?.showTime ?? false}
-                showTime={widget?.showTime && compareIfSameAsEventDateTime(showDate, event)}
+                showTime={widget?.showTime && compareDateTimezoneAware(showDate, event)}
               />
             ))}
         </div>
