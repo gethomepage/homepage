@@ -38,7 +38,7 @@ export async function servicesFromConfig() {
   // add default weight to services based on their position in the configuration
   servicesArray.forEach((group, groupIndex) => {
     group.services.forEach((service, serviceIndex) => {
-      if (!service.weight) {
+      if (service.weight === undefined) {
         servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
       }
     });
