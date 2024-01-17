@@ -794,5 +794,9 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
     }
 }
