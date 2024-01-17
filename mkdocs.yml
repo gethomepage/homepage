@@ -84,6 +84,7 @@ nav:
       - widgets/services/moonraker.md
       - widgets/services/mylar.md
       - widgets/services/navidrome.md
+      - widgets/services/netdata.md
       - widgets/services/nextcloud.md
       - widgets/services/nextdns.md
       - widgets/services/nginx-proxy-manager.md
