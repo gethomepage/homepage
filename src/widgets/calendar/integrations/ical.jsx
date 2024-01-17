@@ -7,7 +7,7 @@ import { RRule } from "rrule";
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import Error from "../../../components/services/widget/error";
 
-export default function Integration({ config, params, setEvents, hideErrors }) {
+export default function Integration({ config, params, setEvents, hideErrors, timezone }) {
   const { t } = useTranslation();
   const { data: icalData, error: icalError } = useWidgetAPI(config, config.name, {
     refreshInterval: 300000, // 5 minutes
@@ -23,9 +23,8 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
       }
     }
 
-    const zone = config?.timezone || null;
-    const startDate = DateTime.fromISO(params.start, { zone });
-    const endDate = DateTime.fromISO(params.end, { zone });
+    const startDate = DateTime.fromISO(params.start);
+    const endDate = DateTime.fromISO(params.end);
 
     if (icalError || !parsedIcal || !startDate.isValid || !endDate.isValid) {
       return;
@@ -33,6 +32,7 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
 
     const eventsToAdd = {};
     const events = parsedIcal?.getEventsBetweenDates(startDate.toJSDate(), endDate.toJSDate());
+    const now = timezone ? DateTime.now().setZone(timezone) : DateTime.now();
 
     events?.forEach((event) => {
       let title = `${event?.summary?.value}`;
@@ -44,8 +44,7 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
         const duration = event.dtend.value - event.dtstart.value;
         const days = duration / (1000 * 60 * 60 * 24);
 
-        const now = DateTime.now().setZone(zone);
-        const eventDate = DateTime.fromJSDate(date, { zone });
+        const eventDate = timezone ? DateTime.fromJSDate(date, { zone: timezone }) : DateTime.fromJSDate(date);
 
         for (let j = 0; j < days; j += 1) {
           eventsToAdd[`${event?.uid?.value}${i}${j}${type}`] = {
@@ -72,7 +71,7 @@ export default function Integration({ config, params, setEvents, hideErrors }) {
     });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
-  }, [icalData, icalError, config, params, setEvents, t]);
+  }, [icalData, icalError, config, params, setEvents, timezone, t]);
 
   const error = icalError ?? icalData?.error;
   return error && !hideErrors && <Error error={{ message: `${config.type}: ${error.message ?? error}` }} />;
