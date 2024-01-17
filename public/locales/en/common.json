@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",

@@ -100,6 +100,17 @@ function uptime(uptimeInSeconds, i18next) {
   return (moDisplay + dDisplay + hDisplay + mDisplay + sDisplay).replace(/,\s*$/, "");
 }
 
+function relativeDate(date, formatter) {
+  const cutoffs = [60, 3600, 86400, 86400 * 7, 86400 * 30, 86400 * 365, Infinity];
+  const units = ["second", "minute", "hour", "day", "week", "month", "year"];
+
+  const delta = Math.round((date.getTime() - Date.now()) / 1000);
+  const unitIndex = cutoffs.findIndex((cutoff) => cutoff > Math.abs(delta));
+  const divisor = unitIndex ? cutoffs[unitIndex - 1] : 1;
+
+  return formatter.format(Math.floor(delta / divisor), units[unitIndex]);
+}
+
 module.exports = {
   i18n: {
     defaultLocale: "en",
@@ -141,6 +152,9 @@ module.exports = {
         );
         i18next.services.formatter.add("date", (value, lng, options) =>
           new Intl.DateTimeFormat(lng, { ...options }).format(new Date(value)),
+        );
+        i18next.services.formatter.add("relativeDate", (value, lng, options) =>
+          relativeDate(new Date(value), new Intl.RelativeTimeFormat(lng, { ...options })),
         );
         i18next.services.formatter.add("uptime", (value, lng) => uptime(value, i18next));
       },
