@@ -70,7 +70,7 @@ function formatValue(t, mapping, rawValue) {
       value = t("common.bitrate", { value });
       break;
     case "date":
-      value = t("common.date", { value, dateStyle: mapping?.dateStyle ?? "long", timeStyle: mapping?.timeStyle });
+      value = t("common.date", { value, lng: mapping?.locale, dateStyle: mapping?.dateStyle ?? "long", timeStyle: mapping?.timeStyle });
       break;
     case "text":
     default:

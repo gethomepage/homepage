@@ -34,6 +34,7 @@ widget:
     - field: key # needs to be YAML string or object
       label: Field 4
       format: date # optional - defaults to text
+      locale: nl # optional
       dateStyle: long # optional - defaults to "long". Allowed values: `["full", "long", "medium", "short"]`.
       timeStyle: medium # optional - Allowed values: `["full", "long", "medium", "short"]`.
 ```
