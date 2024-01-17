@@ -105,7 +105,7 @@ function relativeDate(date, formatter) {
   const units = ["second", "minute", "hour", "day", "week", "month", "year"];
 
   const delta = Math.round((date.getTime() - Date.now()) / 1000);
-  const unitIndex = cutoffs.findIndex(cutoff => cutoff > Math.abs(delta));
+  const unitIndex = cutoffs.findIndex((cutoff) => cutoff > Math.abs(delta));
   const divisor = unitIndex ? cutoffs[unitIndex - 1] : 1;
 
   return formatter.format(Math.floor(delta / divisor), units[unitIndex]);
