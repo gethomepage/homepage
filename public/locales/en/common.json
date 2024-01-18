@@ -795,5 +795,9 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "netdata": {
+      "warnings": "Warnings",
+      "criticals": "Criticals"
     }
 }

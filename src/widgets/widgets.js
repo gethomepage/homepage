@@ -50,6 +50,7 @@ import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
+import netdata from "./netdata/widget";
 import nextcloud from "./nextcloud/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
@@ -155,6 +156,7 @@ const widgets = {
   moonraker,
   mylar,
   navidrome,
+  netdata,
   nextcloud,
   nextdns,
   npm,
