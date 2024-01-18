@@ -90,6 +90,11 @@ function formatValue(t, mapping, rawValue) {
     // nothing
   }
 
+  // Apply fixed prefix.
+  const prefix = mapping?.prefix;
+  if (prefix) {
+    value = `${prefix}${value}`;
+  }
   // Apply fixed suffix.
   const suffix = mapping?.suffix;
   if (suffix) {
