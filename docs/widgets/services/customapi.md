@@ -93,7 +93,7 @@ mappings:
 
 ## Data Transformation
 
-You can manipulate data with the following tools `remap`, `scale` and `suffix`, for example:
+You can manipulate data with the following tools `remap`, `scale`, `prefix` and `suffix`, for example:
 
 ```yaml
 - field: key4
@@ -111,6 +111,10 @@ You can manipulate data with the following tools `remap`, `scale` and `suffix`, 
   format: float
   scale: 0.001 # can be number or string e.g. 1/16
   suffix: kW
+- field: key6
+  label: Cost
+  format: float
+  prefix: "£"
 ```
 
 ## Custom Headers
