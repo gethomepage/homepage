@@ -30,7 +30,7 @@ jobs:
       - name: Bump Current
         run: | 
           git checkout upstream 
-          git merge upstream/master upstream
+          git merge upstream/main upstream
         working-directory: homepage
       - name: Create Tags
         if: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
