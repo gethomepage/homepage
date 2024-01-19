@@ -58,7 +58,7 @@ jobs:
           git checkout -b current upstream
           git rev-list --no-merges --reverse origin/feature/add_auth ^upstream | git cherry-pick --stdin
           git rev-list --no-merges --reverse origin/fork/automation ^upstream -- .github/**| git cherry-pick --stdin
-          git push upstream current
+          git push -u origin upstream current
     env:
       GH_TOKEN: ${{ github.token }}
 
