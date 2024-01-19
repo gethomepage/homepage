@@ -28,26 +28,24 @@ jobs:
             r=%(refname)
             echo ${r#refs/tags/}
           '
-          echo 'NEW_TAGS<<EOF' >> $GITHUB_OUTPUT      
+          echo 'NEW_TAGS<<EOF' >> $GITHUB_OUTPUT
           $(eval `git for-each-ref --format=$fmt --no-merge upstream refs/tags`) >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       - name: Set Identity
-        run: | 
+        run: |
           git config user.name "Github Action"
           git config user.email "bot@github-actions"
       - name: Create Tags
         if: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
-        run: | 
-          for TAG in ${NEW_TAGS}; do 
+        run: |
+          for TAG in ${NEW_TAGS}; do
             git checkout -b release/${TAG} ${TAG}
             git rev-list --no-merges --reverse main ^upstream | git cherry-pick --stdin
             git tag -d ${TAG}
             git tag ${TAG} release/${TAG}
           done
-          for TAG in ${NEW_TAGS}; do git push -u origin release/${TAG}; done 
-        env: 
+          for TAG in ${NEW_TAGS}; do git push -u origin release/${TAG}; done
+        env:
           NEW_TAGS: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
     env:
       GH_TOKEN: ${{ github.token }}
-
-      
