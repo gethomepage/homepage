@@ -3,6 +3,8 @@ title: Coin Market Cap
 description: Coin Market Cap Widget Configuration
 ---
 
+[Coin Market Cap] (https://coinmarketcap.com/api) - Track over 45,000+ active crypto markets and compare cryptocurrencies based on their price, market cap and volume.
+
 Get your API key from your [CoinMarketCap Pro Dashboard](https://pro.coinmarketcap.com/account).
 
 Allowed fields: no configurable fields for this widget.
