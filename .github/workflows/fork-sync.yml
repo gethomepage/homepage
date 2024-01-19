@@ -27,6 +27,10 @@ jobs:
           $(eval `git for-each-ref --format=$fmt --no-merge upstream refs/tags`) >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
         working-directory: homepage
+      - name: Set Identity
+        run: | 
+         git config user.name "Github Action"
+         git config user.email "bot@github-actions"
       - name: Bump Current
         run: | 
           git checkout upstream 
