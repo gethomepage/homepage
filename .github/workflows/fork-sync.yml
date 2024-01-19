@@ -13,7 +13,7 @@ jobs:
   synchronize-upstream:
     runs-on: ubuntu-latest
     steps:
-      - run: gh repo clone dicretizer/homepage && cd homepage
+      - run: gh repo clone discretizer/homepage && cd homepage
       - name: Fetch Upstream Tags
         id: fetch-upstream-tags
         if:  ${{ !inputs.tags }}
