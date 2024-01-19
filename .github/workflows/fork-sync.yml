@@ -13,7 +13,7 @@ jobs:
   synchronize-upstream:
     runs-on: ubuntu-latest
     steps:
-      - run: gh repo clone discretizer/homepage && cd homepage
+      - run: gh repo clone discretizer/homepage
       - name: Fetch Upstream Tags
         id: fetch-upstream-tags
         if:  ${{ !inputs.tags }}
@@ -26,10 +26,12 @@ jobs:
           echo 'NEW_TAGS<<EOF' >> $GITHUB_OUTPUT      
           $(eval `git for-each-ref --format=$fmt --no-merge upstream refs/tags`) >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
+        working-directory: homepage
       - name: Bump Current
         run: | 
           git checkout upstream 
           git merge upstream/master upstream
+        working-directory: homepage
       - name: Create Tags
         if: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
         run: | 
@@ -40,9 +42,11 @@ jobs:
             git tag ${TAG} release/${TAG}
           done
           for TAG in ${NEW_TAGS}; do git push -u origin release/${TAG} ${TAG}; done 
+        working-directory: homepage
         env: 
           NEW_TAGS: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
       - name: Push Current
+        working-directory: homepage
         run: |
           git checkout -b current upstream
           git rev-list --no-merges --reverse origin/feature/add_auth ^upstream | git cherry-pick --stdin
