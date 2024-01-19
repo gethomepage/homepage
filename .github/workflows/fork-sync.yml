@@ -44,7 +44,8 @@ jobs:
             git checkout -b release/${TAG} ${TAG}
             git rev-list --no-merges --reverse origin/feature/add_auth ^upstream | git cherry-pick --stdin
             git rev-list --no-merges --reverse origin/fork/automation ^upstream -- .github/**| git cherry-pick --stdin
-            git tag -d ${TAG} release/${TAG}
+            git tag -d ${TAG}
+            git tag ${TAG} release/${TAG}
           done
           for TAG in ${NEW_TAGS}; do git push -u origin release/${TAG} ${TAG}; done 
         working-directory: homepage
