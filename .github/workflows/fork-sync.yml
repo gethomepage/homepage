@@ -8,7 +8,8 @@ on:
         default: ''
   schedule:
     - cron: '2 */12 * * *'
-
+permissions:
+  contents: write
 jobs:
   synchronize-upstream:
     runs-on: ubuntu-latest
