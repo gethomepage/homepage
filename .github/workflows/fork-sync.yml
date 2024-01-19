@@ -35,9 +35,14 @@ jobs:
         run: | 
           git checkout upstream 
           git merge upstream/main upstream
+      - name: Set Identity
+        run: | 
+          git config user.name "Github Action"
+          git config user.email "bot@github-actions"
       - name: Create Tags
         if: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
         run: | 
+
           for TAG in ${NEW_TAGS}; do 
             git checkout -b release/${TAG} ${TAG}
             git rev-list --no-merges --reverse origin/feature/add_auth ^upstream | git cherry-pick --stdin
