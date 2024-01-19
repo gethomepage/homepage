@@ -13,11 +13,11 @@ jobs:
   synchronize-upstream:
     runs-on: ubuntu-latest
     steps:
+      - run: gh repo clone dicretizer/homepage && cd homepage
       - name: Fetch Upstream Tags
         id: fetch-upstream-tags
         if:  ${{ !inputs.tags }}
         run: |
-          gh repo clone dicretizer/homepage && cd homepage
           git fetch --tags
           fmt='
             r=%(refname)
