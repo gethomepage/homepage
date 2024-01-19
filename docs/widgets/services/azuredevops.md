@@ -3,6 +3,8 @@ title: Azure DevOps
 description: Azure DevOps Widget Configuration
 ---
 
+[Azure DevOps](https://azure.microsoft.com/en-us/products/devops) - Azure DevOps provides an integrated set of services and tools to manage your software projects, from planning and development through testing and deployment.
+
 This widget has 2 functions:
 
 1. Pipelines: checks if the relevant pipeline is running or not, and if not, reports the last status.\
