@@ -3,6 +3,8 @@ title: Home Assistant
 description: Home Assistant Widget Configuration
 ---
 
+[Home Assistant](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.
+
 You will need to generate a long-lived access token for an existing Home Assistant user in its profile.
 
 Allowed fields: `["people_home", "lights_on", "switches_on"]`.
