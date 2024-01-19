@@ -1,3 +1,4 @@
+name: Sync Fork
 on:
   workflow_dispatch:
     inputs:
