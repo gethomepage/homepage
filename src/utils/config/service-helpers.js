@@ -368,6 +368,7 @@ export function cleanServiceGroups(groups) {
           showTime,
           previousDays,
           view,
+          timezone,
 
           // coinmarketcap
           currency,
@@ -538,6 +539,7 @@ export function cleanServiceGroups(groups) {
           if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
           if (previousDays) cleanedService.widget.previousDays = previousDays;
           if (showTime) cleanedService.widget.showTime = showTime;
+          if (timezone) cleanedService.widget.timezone = timezone;
         }
         if (type === "healthchecks") {
           if (uuid !== undefined) cleanedService.widget.uuid = uuid;

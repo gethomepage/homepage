@@ -799,5 +799,9 @@
     "romm": {
         "platforms": "Platforms",
         "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+      "warnings": "Warnings",
+      "criticals": "Criticals"
     }
 }
