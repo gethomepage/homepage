@@ -29,7 +29,7 @@ jobs:
             echo ${r#refs/tags/}
           '
           echo 'NEW_TAGS<<EOF' >> $GITHUB_OUTPUT
-          $(eval `git for-each-ref --format=$fmt --no-merge upstream refs/tags`) >> $GITHUB_OUTPUT
+          $(eval `git for-each-ref --format=$fmt --no-merge main refs/tags`) >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       - name: Set Identity
         run: |
@@ -40,7 +40,7 @@ jobs:
         run: |
           for TAG in ${NEW_TAGS}; do
             git checkout -b release/${TAG} ${TAG}
-            git rev-list --no-merges --reverse main ^upstream | git cherry-pick --stdin
+            git rev-list --reverse main ^upstream/main | git cherry-pick --stdin
             git tag -d ${TAG}
             git tag ${TAG} release/${TAG}
           done
