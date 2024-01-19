@@ -29,8 +29,9 @@ jobs:
         working-directory: homepage
       - name: Set Identity
         run: | 
-         git config user.name "Github Action"
-         git config user.email "bot@github-actions"
+          git config user.name "Github Action"
+          git config user.email "bot@github-actions"
+        working-directory: homepage
       - name: Bump Current
         run: | 
           git checkout upstream 
