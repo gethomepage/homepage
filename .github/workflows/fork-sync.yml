@@ -18,7 +18,7 @@ jobs:
         with:
           ref: upstream
           fetch-depth: 0
-      - run: git remote add upstream https://github.com/gethomepage/homepage.git
+      - run: git remote add upstream https://github.com/gethomepage/homepage.git && git fetch upstream
       - name: Fetch Upstream Tags
         id: fetch-upstream-tags
         if:  ${{ !inputs.tags }}
