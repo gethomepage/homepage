@@ -3,6 +3,8 @@ title: Health checks
 description: Health checks Widget Configuration
 ---
 
+[Health Checks](https://github.com/healthchecks/healthchecks) - Open-source cron job and background task monitoring service, written in Python & Django
+
 Specify a single check by including the `uuid` field or show the total 'up' and 'down' for all
 checks by leaving off the `uuid` field.
 
