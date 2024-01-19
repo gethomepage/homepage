@@ -40,20 +40,13 @@ jobs:
         run: | 
           for TAG in ${NEW_TAGS}; do 
             git checkout -b release/${TAG} ${TAG}
-            git rev-list --no-merges --reverse origin/feature/add_auth ^upstream | git cherry-pick --stdin
-            git rev-list --no-merges --reverse origin/fork/automation ^upstream -- .github/**| git cherry-pick --stdin
+            git rev-list --no-merges --reverse main ^upstream | git cherry-pick --stdin
             git tag -d ${TAG}
             git tag ${TAG} release/${TAG}
           done
           for TAG in ${NEW_TAGS}; do git push -u origin release/${TAG}; done 
         env: 
           NEW_TAGS: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
-      - name: Push Current
-        run: |
-          git checkout -b current upstream
-          git rev-list --no-merges --reverse origin/feature/add_auth ^upstream | git cherry-pick --stdin
-          git rev-list --no-merges --reverse origin/fork/automation ^upstream -- .github/**| git cherry-pick --stdin
-          git push -u origin upstream current
     env:
       GH_TOKEN: ${{ github.token }}
 
