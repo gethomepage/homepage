@@ -203,7 +203,17 @@
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Seed",
+        "total": "Total",
+        "error": "Error",
+        "checking": "Checking",
+        "moving": "Moving",
+        "activeUl": "Active Uploads",
+        "activeDl": "Active Downloads",
+        "active": "Active",
+        "paused": "Paused",
+        "queued": "Queued",
+        "stalled": "Stalled"
     },
     "qnap": {
         "cpuUsage": "CPU Usage",

@@ -5,7 +5,9 @@ description: qBittorrent Widget Configuration
 
 Uses the same username and password used to login from the web.
 
-Allowed fields: `["leech", "download", "seed", "upload"]`.
+Allowed fields: `["leech", "download", "seed", "upload", "total", "error",
+"checking", "moving", "activeDl", "activeUl", "active", "paused", "queued",
+"stalled"]`.
 
 ```yaml
 widget:
