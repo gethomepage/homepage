@@ -3,6 +3,8 @@ title: OpenMediaVault
 description: OpenMediaVault Widget Configuration
 ---
 
+[OpenMediaVault](https://www.openmediavault.org/) - openmediavault is the next generation network attached storage (NAS) solution based on Debian Linux.
+
 Provides useful information from your OpenMediaVault
 
 ```yaml
