@@ -101,6 +101,7 @@ import watchtower from "./watchtower/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
 import urbackup from "./urbackup/widget";
+import romm from "./romm/widget";
 
 const widgets = {
   adguard,
@@ -186,6 +187,7 @@ const widgets = {
   qnap,
   radarr,
   readarr,
+  romm,
   rutorrent,
   sabnzbd,
   scrutiny,

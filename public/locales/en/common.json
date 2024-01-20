@@ -796,6 +796,10 @@
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
     },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
     "netdata": {
       "warnings": "Warnings",
       "criticals": "Criticals"

@@ -115,6 +115,7 @@ nav:
       - widgets/services/qnap.md
       - widgets/services/radarr.md
       - widgets/services/readarr.md
+      - widgets/services/romm.md
       - widgets/services/rutorrent.md
       - widgets/services/sabnzbd.md
       - widgets/services/scrutiny.md
