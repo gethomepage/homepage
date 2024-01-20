@@ -60,11 +60,16 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
 
       const recurrenceOptions = event?.recurrenceRule?.origOptions;
       if (recurrenceOptions && Object.keys(recurrenceOptions).length !== 0) {
-        const rule = new RRule(recurrenceOptions);
-        const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
+        try {
+          const rule = new RRule(recurrenceOptions);
+          const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
 
-        recurringEvents.forEach((date, i) => eventToAdd(date, i, "recurring"));
-        return;
+          recurringEvents.forEach((date, i) => eventToAdd(date, i, "recurring"));
+          return;
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error("Unable to parse recurring events from iCal: %s", e);
+        }
       }
 
       event.matchingDates.forEach((date, i) => eventToAdd(date, i, "single"));
