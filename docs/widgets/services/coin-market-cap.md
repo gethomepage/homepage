@@ -16,7 +16,7 @@ widget:
   defaultinterval: 7d # Optional
 ```
 
-You can also specify slugs instead of symbols (since symbols aren't garaunteed to be unique). If you supply both, slugs will be used. For example:
+You can also specify slugs instead of symbols (since symbols aren't guaranteed to be unique). If you supply both, slugs will be used. For example:
 
 ```yaml
 widget:
