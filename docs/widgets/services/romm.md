@@ -9,4 +9,6 @@ Allowed fields: `["platforms", "totalRoms"]`.
 widget:
   type: Romm
   url: http://romm.host.or.ip
+  username: username # optional
+  password: password # optional
 ```
