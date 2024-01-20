@@ -12,11 +12,12 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "mes",
         "days": "d",
         "hours": "h",
-        "minutes": "m",
+        "minutes": "min",
         "seconds": "s"
     },
     "widget": {
@@ -30,7 +31,7 @@
     },
     "weather": {
         "current": "Localização atual",
-        "allow": "Clicar para permitir",
+        "allow": "Clique para permitir",
         "updating": "Atualizando",
         "wait": "Por favor aguarde"
     },
@@ -126,21 +127,21 @@
     },
     "fritzbox": {
         "connectionStatus": "Estado",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusUnconfigured": "Não configurado",
+        "connectionStatusConnecting": "A conectar",
+        "connectionStatusAuthenticating": "Autenticando",
+        "connectionStatusPendingDisconnect": "Desconexão pendente",
+        "connectionStatusDisconnecting": "Desconectando",
+        "connectionStatusDisconnected": "Desconectado",
         "connectionStatusConnected": "Conectado",
         "uptime": "Ligado",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "Máx. de Descarga",
+        "maxUp": "Max. de Envio",
         "down": "Down",
         "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "Recebido",
+        "sent": "Enviado",
+        "externalIPAddress": "Endereço IP externo"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -439,20 +440,20 @@
         "53-night": "Chuvisco",
         "55-day": "Aguaceiro Forte",
         "55-night": "Aguaceiro Forte",
-        "56-day": "Leve Garoa Congelante",
-        "56-night": "Leve Garoa Congelante",
-        "57-day": "Garoa Congelante",
-        "57-night": "Garoa Congelante",
+        "56-day": "Granizo Leve",
+        "56-night": "Granizo Leve",
+        "57-day": "Granizo",
+        "57-night": "Granizo",
         "61-day": "Chuva fraca",
         "61-night": "Chuva fraca",
         "63-day": "Chuva",
         "63-night": "Chuva",
         "65-day": "Chuva forte",
         "65-night": "Chuva forte",
-        "66-day": "Chuva Congelante",
-        "66-night": "Chuva Congelante",
-        "67-day": "Chuva Congelante",
-        "67-night": "Chuva Congelante",
+        "66-day": "Granizo",
+        "66-night": "Granizo",
+        "67-day": "Granizo",
+        "67-night": "Granizo",
         "71-day": "Neve fraca",
         "71-night": "Neve fraca",
         "73-day": "Neve",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Novo",
-        "up": "Online",
+        "up": "Up",
         "grace": "Em Período Gratuito",
-        "down": "Desligado",
+        "down": "Down",
         "paused": "Pausado",
         "status": "Estado",
         "last_ping": "Ultimo Ping",
@@ -546,12 +547,12 @@
         "total": "Total"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "battery_charge": "Carga da bateria",
+        "ups_load": "Carga da UPS",
+        "ups_status": "Estado da UPS",
         "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Em bateria",
+        "low_battery": "Bateria Fraca"
     },
     "nextdns": {
         "wait": "Por favor aguarde",
@@ -623,7 +624,7 @@
         "down": "Sites Fora do Ar",
         "uptime": "Ligado",
         "incident": "Incidente",
-        "m": "m"
+        "m": "min"
     },
     "atsumeru": {
         "series": "Séries",
@@ -793,6 +794,14 @@
         "physicalRelease": "Lançamento físico",
         "digitalRelease": "Lançamento digital",
         "noEventsToday": "Não existem eventos hoje!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "Nenhum evento encontrado"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

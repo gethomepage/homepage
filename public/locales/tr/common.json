@@ -12,11 +12,12 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
+        "months": "ay",
+        "days": "g",
+        "hours": "sa",
+        "minutes": "dk",
         "seconds": "s"
     },
     "widget": {
@@ -83,18 +84,18 @@
     },
     "ping": {
         "error": "Hata",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "ping": "Gecikme",
+        "down": "İndirme",
+        "up": "Yükleme",
+        "not_available": "Mevcut Değil"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "HTTPS durumu",
         "error": "Hata",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "response": "Yanıt",
+        "down": "İndirme",
+        "up": "Yükleme",
+        "not_available": "Mevcut Değil"
     },
     "emby": {
         "playing": "Oynatılıyor",
@@ -126,20 +127,20 @@
     },
     "fritzbox": {
         "connectionStatus": "Durum",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusUnconfigured": "Yapılandırılmamış",
+        "connectionStatusConnecting": "Bağlanıyor",
+        "connectionStatusAuthenticating": "Kimlik doğrulanıyor",
         "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusDisconnecting": "Bağlantı kesiliyor...",
+        "connectionStatusDisconnected": "Bağlantı kesildi",
         "connectionStatusConnected": "Bağlandı",
         "uptime": "Çalışma Süresi",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
+        "down": "İndirme",
+        "up": "Yükleme",
+        "received": "Alınan",
+        "sent": "Gönderilen",
         "externalIPAddress": "Ext. IP"
     },
     "caddy": {
@@ -242,7 +243,7 @@
     "lidarr": {
         "wanted": "Aranan",
         "queued": "Kuyrukta",
-        "artists": "Artists"
+        "artists": "Sanatçılar"
     },
     "readarr": {
         "wanted": "Aranan",
@@ -290,7 +291,7 @@
     "speedtest": {
         "upload": "Yükle",
         "download": "İndir",
-        "ping": "Ping"
+        "ping": "Gecikme"
     },
     "portainer": {
         "running": "Çalışan",
@@ -397,19 +398,19 @@
         "load": "Yük",
         "wait": "Lütfen bekleyin",
         "temp": "Geçici",
-        "_temp": "Temp",
+        "_temp": "Sıcaklık",
         "warn": "Uyarı",
         "uptime": "Çalışma Süresi",
         "total": "Toplam",
         "free": "Boşta",
         "used": "Kullanımda",
-        "days": "d",
-        "hours": "h",
-        "crit": "Crit",
+        "days": "g",
+        "hours": "sa",
+        "crit": "Kritik",
         "read": "Oku",
-        "write": "Write",
+        "write": "Yazma",
         "gpu": "GPU",
-        "mem": "Mem",
+        "mem": "Hafıza",
         "swap": "Swap"
     },
     "quicklaunch": {
@@ -485,18 +486,18 @@
         "up_to_date": "Güncel",
         "child_bridges": "Alt Köprüler",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Yükleme",
         "pending": "Bekliyor",
-        "down": "Down"
+        "down": "İndirme"
     },
     "healthchecks": {
         "new": "New",
-        "up": "Çevrimiçi",
+        "up": "Yükleme",
         "grace": "In Grace Period",
-        "down": "Çevrimdışı",
+        "down": "İndirme",
         "paused": "Paused",
         "status": "Durum",
-        "last_ping": "Last Ping",
+        "last_ping": "Son Ping",
         "never": "No pings yet"
     },
     "watchtower": {
@@ -546,11 +547,11 @@
         "total": "Toplam"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
+        "battery_charge": "Pil Yüzdesi",
         "ups_load": "UPS Load",
         "ups_status": "UPS Status",
         "online": "Çevrimiçi",
-        "on_battery": "On Battery",
+        "on_battery": "Pilde",
         "low_battery": "Low Battery"
     },
     "nextdns": {
@@ -600,9 +601,9 @@
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
+        "up": "Yükleme",
+        "down": "İndirme",
+        "temp": "Sıcaklık",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
     },
@@ -623,7 +624,7 @@
         "down": "Sites Down",
         "uptime": "Çalışma Süresi",
         "incident": "Incident",
-        "m": "m"
+        "m": "dk"
     },
     "atsumeru": {
         "series": "Diziler",
@@ -752,7 +753,7 @@
         "players": "Oyuncular",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Gecikme"
     },
     "urbackup": {
         "ok": "Ok",
@@ -783,9 +784,9 @@
         "sitesDown": "Sites Down",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Yükleme",
         "seemsdown": "Seems Down",
-        "down": "Down",
+        "down": "İndirme",
         "unknown": "Bilinmiyor"
     },
     "calendar": {
@@ -794,5 +795,13 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

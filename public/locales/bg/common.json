@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Нови",
-        "up": "Online",
+        "up": "Up",
         "grace": "Гратисен период",
-        "down": "Изключен",
+        "down": "Down",
         "paused": "Paused",
         "status": "Статус",
         "last_ping": "Last Ping",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "Няма събития за днес!",
         "noEventsFound": "Няма намерени събития"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

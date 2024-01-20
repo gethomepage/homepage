@@ -12,7 +12,8 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{value, date}",
-        "uptime": "{{value, čas prevádzky}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
         "months": "mes",
         "days": "d",
         "hours": "h",
@@ -51,7 +52,7 @@
     "unifi": {
         "users": "Používatelia",
         "uptime": "Prevádzka",
-        "days": "dní",
+        "days": "Dní",
         "wan": "WAN",
         "lan": "Lokálna sieť",
         "wlan": "WLAN",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nový",
-        "up": "Online",
+        "up": "Nahrávanie",
         "grace": "V dodatočnej lehote",
-        "down": "Nedostupný",
+        "down": "Sťahovanie",
         "paused": "Pozastavené",
         "status": "Stav",
         "last_ping": "Poslendný ping",
@@ -637,7 +638,7 @@
         "books": "Knihy"
     },
     "diskstation": {
-        "days": "dní",
+        "days": "Dní",
         "uptime": "Prevádzka",
         "volumeAvailable": "Dostupné"
     },
@@ -794,5 +795,13 @@
         "digitalRelease": "Digitálne vydanie",
         "noEventsToday": "Žiadne udalosti na dnešný deň!",
         "noEventsFound": "Žiadne udalosti"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nouveau",
-        "up": "En ligne",
+        "up": "Up",
         "grace": "En Période de Grâce",
-        "down": "Hors ligne",
+        "down": "Down",
         "paused": "En Pause",
         "status": "Statut",
         "last_ping": "Dernier Ping",
@@ -547,11 +548,11 @@
     },
     "peanut": {
         "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "ups_load": "Charge de l'UPS",
+        "ups_status": "État de l'UPS",
         "online": "En ligne",
         "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "low_battery": "Batterie Faible"
     },
     "nextdns": {
         "wait": "Merci de patienter",
@@ -794,5 +795,13 @@
         "digitalRelease": "Sortie numérique",
         "noEventsToday": "Rien pour aujourd'hui !",
         "noEventsFound": "Aucun événement trouvé"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }
