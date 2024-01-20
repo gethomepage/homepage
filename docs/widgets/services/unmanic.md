@@ -3,6 +3,8 @@ title: Unmanic
 description: Unmanic Widget Configuration
 ---
 
+[Unmanic](https://github.com/Unmanic/unmanic) - Unmanic - Library Optimiser.
+
 Allowed fields: `["active_workers", "total_workers", "records_total"]`.
 
 ```yaml
