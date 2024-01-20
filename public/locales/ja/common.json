@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "新着",
-        "up": "オンライン",
+        "up": "上へ",
         "grace": "猶予期間中",
-        "down": "オフライン",
+        "down": "下へ",
         "paused": "一時停止中",
         "status": "状態",
         "last_ping": "最後のPing",
@@ -794,5 +795,13 @@
         "digitalRelease": "デジタル・リリース",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

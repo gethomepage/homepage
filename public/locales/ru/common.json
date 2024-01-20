@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Новый",
-        "up": "В сети",
+        "up": "Онлайн",
         "grace": "Пробный период",
-        "down": "Не в сети",
+        "down": "Офлайн",
         "paused": "Приостановлено",
         "status": "Статус",
         "last_ping": "Последний пинг",
@@ -794,5 +795,13 @@
         "digitalRelease": "Цифровой релиз",
         "noEventsToday": "Нет событий на сегодня!",
         "noEventsFound": "Событий не найдено"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

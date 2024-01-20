@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -50,7 +51,7 @@
     },
     "unifi": {
         "users": "Χρήστες",
-        "uptime": "Uptime",
+        "uptime": "Χρόνος Λειτουργίας",
         "days": "Ημέρες",
         "wan": "WAN",
         "lan": "LAN",
@@ -86,15 +87,15 @@
         "ping": "Ping",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Μη διαθέσιμο"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "Κατάσταση HTTP",
         "error": "Σφάλμα",
-        "response": "Response",
+        "response": "Απόκριση",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Μη διαθέσιμο"
     },
     "emby": {
         "playing": "Παίζει",
@@ -126,14 +127,14 @@
     },
     "fritzbox": {
         "connectionStatus": "Κατάσταση",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
+        "connectionStatusUnconfigured": "Μη Ρυθμισμένο",
+        "connectionStatusConnecting": "Κατάσταση Σύνδεσης",
         "connectionStatusAuthenticating": "Authenticating",
         "connectionStatusPendingDisconnect": "Pending Disconnect",
         "connectionStatusDisconnecting": "Disconnecting",
         "connectionStatusDisconnected": "Disconnected",
         "connectionStatusConnected": "Connected",
-        "uptime": "Uptime",
+        "uptime": "Χρόνος Λειτουργίας",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
         "down": "Down",
@@ -309,7 +310,7 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} πρίν"
     },
     "tdarr": {
         "queue": "Ουρά",
@@ -324,45 +325,45 @@
     },
     "navidrome": {
         "nothing_streaming": "Δεν υπάρχουν ενεργές ροές",
-        "please_wait": "Please Wait"
+        "please_wait": "Παρακαλώ περιμένετε"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "Ενεργοποιημένο",
+        "disabled": "Απενεργοποιημένο",
         "total": "Σύνολο"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Ρυθμίστε ένα ή περισσότερα κρυπτονομίσματα για παρακολούθηση",
+        "1hour": "1 Ώρα",
+        "1day": "1 ημέρα",
+        "7days": "7 Ημέρες",
+        "30days": "30 Ημέρες"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Εφαρμογές",
+        "clients": "Πελάτες",
+        "messages": "Μηνύματα"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
+        "enableIndexers": "Ευρετήρια",
+        "numberOfGrabs": "Αρπαγές",
         "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
+        "numberOfFailGrabs": "Αποτυχημένες Αρπαγές",
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
-        "configured": "Configured",
+        "configured": "Ρυθμισμένο",
         "errored": "Errored"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
+        "numActiveSessions": "Συνεδρίες",
+        "numConnections": "Συνδέσεις",
         "dataRelayed": "Relayed",
         "transferRate": "Ρυθμός"
     },
     "mastodon": {
         "user_count": "Χρήστες",
-        "status_count": "Posts",
+        "status_count": "Δημοσιεύσεις",
         "domain_count": "Domains"
     },
     "medusa": {
@@ -371,10 +372,10 @@
         "series": "Σειρές"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
+        "players": "Παίκτες",
+        "version": "Έκδοση",
         "status": "Κατάσταση",
-        "up": "Online",
+        "up": "Συνδεδεμένοι",
         "down": "Εκτός σύνδεσης"
     },
     "miniflux": {
@@ -383,8 +384,8 @@
     },
     "authentik": {
         "users": "Χρήστες",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "loginsLast24H": "Συνδέσεις (24h)",
+        "failedLoginsLast24H": "Αποτυχημένες Συνδέσεις (24h)"
     },
     "proxmox": {
         "mem": "MEM",
@@ -409,7 +410,7 @@
         "read": "Read",
         "write": "Write",
         "gpu": "GPU",
-        "mem": "Mem",
+        "mem": "Μνήμη",
         "swap": "Swap"
     },
     "quicklaunch": {
@@ -421,22 +422,22 @@
         "url": "URL"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
+        "0-day": "Λιακάδα",
+        "0-night": "Καθαρή",
+        "1-day": "Κυρίως Ηλιόλουστη",
+        "1-night": "Κυρίως καθαρή",
+        "2-day": "Αραιές Νεφώσεις",
+        "2-night": "Αραιές Νεφώσεις",
+        "3-day": "Συννεφιές",
+        "3-night": "Συννεφιές",
+        "45-day": "Ομίχλη",
+        "45-night": "Ομίχλη",
+        "48-day": "Ομίχλη",
+        "48-night": "Ομίχλη",
+        "51-day": "Ψιλόβροχο",
+        "51-night": "Ψιλόβροχο",
+        "53-day": "Ψιλόβροχο",
+        "53-night": "Ψιλόβροχο",
         "55-day": "Heavy Drizzle",
         "55-night": "Heavy Drizzle",
         "56-day": "Light Freezing Drizzle",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "New",
-        "up": "Online",
+        "up": "Up",
         "grace": "In Grace Period",
-        "down": "Εκτός σύνδεσης",
+        "down": "Down",
         "paused": "Paused",
         "status": "Κατάσταση",
         "last_ping": "Last Ping",
@@ -508,7 +509,7 @@
         "approvedPushes": "Εγκρίθηκε",
         "rejectedPushes": "Rejected",
         "filters": "Filters",
-        "indexers": "Indexers"
+        "indexers": "Ευρετήρια"
     },
     "tubearchivist": {
         "downloads": "Ουρά",
@@ -517,20 +518,20 @@
         "playlists": "Playlists"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
+        "load": "Φόρτος Συστήματος",
+        "uptime": "Χρόνος Λειτουργίας",
         "alerts": "Ειδοποιήσεις"
     },
     "pyload": {
-        "speed": "Speed",
+        "speed": "Ταχύτητα",
         "active": "Ενεργό",
         "queue": "Ουρά",
         "total": "Σύνολο"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "Δημόσια ΙΡ",
+        "region": "Περιοχή",
+        "country": "Χώρα"
     },
     "hdhomerun": {
         "channels": "Channels",
@@ -549,19 +550,19 @@
         "battery_charge": "Battery Charge",
         "ups_load": "UPS Load",
         "ups_status": "UPS Status",
-        "online": "Online",
+        "online": "Συνδεδεμένοι",
         "on_battery": "On Battery",
         "low_battery": "Low Battery"
     },
     "nextdns": {
-        "wait": "Please Wait",
+        "wait": "Παρακαλώ περιμένετε",
         "no_devices": "No Device Data Received"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "Φόρτος CPU",
+        "memoryUsed": "Χρήση μνήμης",
+        "uptime": "Χρόνος Λειτουργίας",
+        "numberOfLeases": "Μισθώσεις"
     },
     "xteve": {
         "streams_all": "All Streams",
@@ -569,20 +570,20 @@
         "streams_xepg": "XEPG Channels"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
+        "yieldDay": "Σήμερα",
+        "absolutePower": "Ισχύς",
+        "relativePower": "Ισχύς %",
         "limit": "Limit"
     },
     "opnsense": {
-        "cpu": "CPU Load",
+        "cpu": "Φόρτος CPU",
         "memory": "Active Memory",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
+        "printer_state": "Κατάσταση Εκτυπωτή",
+        "print_status": "Κατάσταση Εκτύπωσης",
         "print_progress": "Progress",
         "layers": "Layers"
     },
@@ -590,7 +591,7 @@
         "printer_state": "Κατάσταση",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "job_completion": "Ολοκλήρωση"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
@@ -621,7 +622,7 @@
     "uptimekuma": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime",
+        "uptime": "Χρόνος Λειτουργίας",
         "incident": "Incident",
         "m": "m"
     },
@@ -638,7 +639,7 @@
     },
     "diskstation": {
         "days": "Ημέρες",
-        "uptime": "Uptime",
+        "uptime": "Χρόνος Λειτουργίας",
         "volumeAvailable": "Διαθέσιμο"
     },
     "mylar": {
@@ -694,7 +695,7 @@
         "targets_total": "Total Targets"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "Σήμερα",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
     },
@@ -723,7 +724,7 @@
         "downloadCount": "Ουρά",
         "downloadBytesRemaining": "Υπόλοιπο",
         "downloadTotalBytes": "Size",
-        "downloadSpeed": "Speed"
+        "downloadSpeed": "Ταχύτητα"
     },
     "kavita": {
         "seriesCount": "Σειρές",
@@ -744,12 +745,12 @@
     },
     "gamedig": {
         "status": "Κατάσταση",
-        "online": "Online",
+        "online": "Συνδεδεμένοι",
         "offline": "Εκτός σύνδεσης",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
-        "players": "Players",
+        "players": "Παίκτες",
         "maxPlayers": "Max players",
         "bots": "Bots",
         "ping": "Ping"
@@ -776,7 +777,7 @@
     },
     "uptimerobot": {
         "status": "Κατάσταση",
-        "uptime": "Uptime",
+        "uptime": "Χρόνος Λειτουργίας",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

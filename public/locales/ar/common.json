@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "ش",
         "days": "ي",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "جديد(ة)",
-        "up": "مُتّصل",
+        "up": "يعمل",
         "grace": "في فترة السماح",
-        "down": "غير متصل",
+        "down": "لا يعمل",
         "paused": "متوقف",
         "status": "الحالة",
         "last_ping": "آخر Ping",
@@ -794,5 +795,13 @@
         "digitalRelease": "الإصدار الرقمي",
         "noEventsToday": "لا توجد أحداث اليوم!",
         "noEventsFound": "لم يتم العثور على أحداث"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

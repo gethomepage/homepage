@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mes",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nov",
-        "up": "Na spletu",
+        "up": "Povezan",
         "grace": "V podaljšanem roku",
-        "down": "Ni povezan",
+        "down": "Nepovezan",
         "paused": "Pavziran",
         "status": "Stanje",
         "last_ping": "Zadnji Ping",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digitalna izdaja",
         "noEventsToday": "Za danes ni dogodkov!",
         "noEventsFound": "Ni dogodkov"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Opozorila",
+        "criticals": "Kritično"
     }
 }
