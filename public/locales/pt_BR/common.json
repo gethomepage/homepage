@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Tipo de Widget ausente: {{type}}",
@@ -40,15 +47,11 @@
         "load": "Carga",
         "temp": "TEMP",
         "max": "Máximo",
-        "uptime": "CIMA",
-        "months": "mês",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "CIMA"
     },
     "unifi": {
         "users": "Utilizadores",
-        "uptime": "Sistema Ativo",
+        "uptime": "Ligado",
         "days": "Dias",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +124,24 @@
     "freshrss": {
         "subscriptions": "Assinaturas",
         "unread": "Não lida"
+    },
+    "fritzbox": {
+        "connectionStatus": "Estado",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Connected",
+        "uptime": "Ligado",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -471,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Novo",
-        "up": "Online",
+        "up": "Up",
         "grace": "Em Período Gratuito",
-        "down": "Desligado",
+        "down": "Down",
         "paused": "Pausado",
         "status": "Estado",
         "last_ping": "Ultimo Ping",
@@ -499,8 +520,7 @@
     "truenas": {
         "load": "Carga do sistema",
         "uptime": "Ligado",
-        "alerts": "Alertas",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alertas"
     },
     "pyload": {
         "speed": "Velocidade",
@@ -525,6 +545,14 @@
     "paperlessngx": {
         "inbox": "Caixa de entrada",
         "total": "Total"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Por favor aguarde",
@@ -765,6 +793,15 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

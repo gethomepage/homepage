@@ -199,7 +199,7 @@ export default function QuickLaunch({
             {results.length > 0 && (
               <ul className="max-h-[60vh] overflow-y-auto m-2">
                 {results.map((r, i) => (
-                  <li key={r.container ?? r.app ?? `${r.name}-${r.href}`}>
+                  <li key={[r.name, r.container, r.app, r.href].filter((s) => s).join("-")}>
                     <button
                       type="button"
                       data-index={i}

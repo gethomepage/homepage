@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "min",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Fehlender Widget-Typ: {{type}}",
@@ -40,15 +47,11 @@
         "load": "Last",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "UP",
-        "months": "Mo.",
-        "days": "d",
-        "hours": "h",
-        "minutes": "min"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Benutzer",
-        "uptime": "System-Laufzeit",
+        "uptime": "Betriebszeit",
         "days": "Tage",
         "wan": "WAN",
         "lan": "LAN",
@@ -126,19 +129,19 @@
         "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Unkonfiguriert",
         "connectionStatusConnecting": "Verbinde",
-        "connectionStatusAuthenticating": "Authenifiziere",
-        "connectionStatusPendingDisconnect": "Anstehende Trennung",
+        "connectionStatusAuthenticating": "Authentifiziere",
+        "connectionStatusPendingDisconnect": "Ausstehende Trennung",
         "connectionStatusDisconnecting": "Trenne",
         "connectionStatusDisconnected": "Getrennt",
         "connectionStatusConnected": "Verbunden",
         "uptime": "Betriebszeit",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
+        "maxDown": "Max. Empfang",
+        "maxUp": "Max. Senden",
+        "down": "Empfangen",
+        "up": "Senden",
         "received": "Empfangen",
         "sent": "Gesendet",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "Externe IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -167,10 +170,10 @@
         "activeUser": "Aktive Geräte",
         "alerts": "Warnungen",
         "connectedGateway": "Verbundene Gateways",
-        "connectedSwitches": "Verbundene Switches"
+        "connectedSwitches": "Verbundene Switche"
     },
     "nzbget": {
-        "rate": "Geschwindigkeit",
+        "rate": "Datenrate",
         "remaining": "Verbleibend",
         "downloaded": "Heruntergeladen"
     },
@@ -181,7 +184,7 @@
         "tv": "TV-Serien"
     },
     "sabnzbd": {
-        "rate": "Geschwindigkeit",
+        "rate": "Datenrate",
         "queue": "Warteschlange",
         "timeleft": "Verbleibende Zeit"
     },
@@ -356,7 +359,7 @@
         "numActiveSessions": "Sitzungen",
         "numConnections": "Verbindungen",
         "dataRelayed": "Weitergeleitet",
-        "transferRate": "Geschwindigkeit"
+        "transferRate": "Datenrate"
     },
     "mastodon": {
         "user_count": "Benutzer",
@@ -381,8 +384,8 @@
     },
     "authentik": {
         "users": "Benutzer",
-        "loginsLast24H": "Anmeldungen (24h)",
-        "failedLoginsLast24H": "fehlerhafte Anmeldungen (24h)"
+        "loginsLast24H": "Anmeldungen (24 h)",
+        "failedLoginsLast24H": "Fehlgeschlagene Anmeldungen (24 h)"
     },
     "proxmox": {
         "mem": "RAM",
@@ -489,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Neu",
-        "up": "Online",
+        "up": "Senden",
         "grace": "In Karenzzeit",
-        "down": "Offline",
+        "down": "Empfangen",
         "paused": "Pausiert",
         "status": "Status",
         "last_ping": "Letzter Ping",
@@ -517,11 +520,10 @@
     "truenas": {
         "load": "Systemlast",
         "uptime": "Betriebszeit",
-        "alerts": "Warnungen",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Warnungen"
     },
     "pyload": {
-        "speed": "Geschwindigkeit",
+        "speed": "Datenrate",
         "active": "Aktiv",
         "queue": "Warteschlange",
         "total": "Gesamt"
@@ -544,6 +546,14 @@
         "inbox": "Posteingang",
         "total": "Gesamt"
     },
+    "peanut": {
+        "battery_charge": "Akkuladung",
+        "ups_load": "USV-Auslastung",
+        "ups_status": "USV-Status",
+        "online": "Online",
+        "on_battery": "Im Akkubetrieb",
+        "low_battery": "Akkustand niedrig"
+    },
     "nextdns": {
         "wait": "Bitte warten",
         "no_devices": "Keine Daten empfangen"
@@ -552,7 +562,7 @@
         "cpuLoad": "CPU-Auslastung",
         "memoryUsed": "RAM Verbrauch",
         "uptime": "Betriebszeit",
-        "numberOfLeases": "Leasen"
+        "numberOfLeases": "Leases"
     },
     "xteve": {
         "streams_all": "Keine Übertragungen",
@@ -599,7 +609,7 @@
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datenspeicher",
-        "failed_tasks_24h": "Fehlgeschlagene Prozesse 24h",
+        "failed_tasks_24h": "Fehlgeschlagene Prozesse (24 h)",
         "cpu_usage": "CPU",
         "memory_usage": "RAM"
     },
@@ -714,7 +724,7 @@
         "downloadCount": "Warteschlange",
         "downloadBytesRemaining": "Verbleibend",
         "downloadTotalBytes": "Größe",
-        "downloadSpeed": "Geschwindigkeit"
+        "downloadSpeed": "Datenrate"
     },
     "kavita": {
         "seriesCount": "Serien",
@@ -783,6 +793,15 @@
         "inCinemas": "Im Kino",
         "physicalRelease": "Physische Version",
         "digitalRelease": "Digitale Version",
-        "noEventsToday": "Heute keine Ereignisse!"
+        "noEventsToday": "Heute keine Ereignisse!",
+        "noEventsFound": "Keine Termine gefunden"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnungen",
+        "criticals": "Kritisch"
     }
 }

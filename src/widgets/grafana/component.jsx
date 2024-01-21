@@ -10,12 +10,23 @@ export default function Component({ service }) {
   const { widget } = service;
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
   const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
+  const { data: alertmanagerData, error: alertmanagerError } = useWidgetAPI(widget, "alertmanager");
 
-  if (statsError || alertsError) {
+  let alertsInt = 0;
+
+  if (alertsError || !alertsData || alertsData.length === 0) {
+    if (alertmanagerData) {
+      alertsInt = alertmanagerData.length;
+    }
+  } else {
+    alertsInt = alertsData.filter((a) => a.state === "alerting").length;
+  }
+
+  if (statsError || (alertsError && alertmanagerError)) {
     return <Container service={service} error={statsError ?? alertsError} />;
   }
 
-  if (!statsData || !alertsData) {
+  if (!statsData || (!alertsData && !alertmanagerData)) {
     return (
       <Container service={service}>
         <Block label="grafana.dashboards" />
@@ -31,10 +42,7 @@ export default function Component({ service }) {
       <Block label="grafana.dashboards" value={t("common.number", { value: statsData.dashboards })} />
       <Block label="grafana.datasources" value={t("common.number", { value: statsData.datasources })} />
       <Block label="grafana.totalalerts" value={t("common.number", { value: statsData.alerts })} />
-      <Block
-        label="grafana.alertstriggered"
-        value={t("common.number", { value: alertsData.filter((a) => a.state === "alerting").length })}
-      />
+      <Block label="grafana.alertstriggered" value={t("common.number", { value: alertsInt })} />
     </Container>
   );
 }

@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{value, date}"
+        "date": "{value, date}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mes",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Chýba typ widgetu: {{type}}",
@@ -32,7 +39,7 @@
         "placeholder": "Hľadať…"
     },
     "resources": {
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "mem": "RAM",
         "total": "Celkovo",
         "free": "Voľné",
@@ -40,24 +47,20 @@
         "load": "Záťaž",
         "temp": "TEPLOTA",
         "max": "Max.",
-        "uptime": "BEŽÍ",
-        "months": "mes.",
-        "days": "d",
-        "hours": "h",
-        "minutes": "min"
+        "uptime": "BEŽÍ"
     },
     "unifi": {
         "users": "Používatelia",
-        "uptime": "Doba prevádzky",
+        "uptime": "Prevádzka",
         "days": "Dní",
         "wan": "WAN",
         "lan": "Lokálna sieť",
-        "wlan": "Bezdrôtová sieť",
+        "wlan": "WLAN",
         "devices": "Zariadenia",
         "lan_devices": "Zariadenia LAN",
         "wlan_devices": "Zariadenia WLAN",
-        "lan_users": "Používatelia LAN",
-        "wlan_users": "Používatelia WLAN",
+        "lan_users": "Použ. LAN",
+        "wlan_users": "Použ. WLAN",
         "up": "BEŽÍ",
         "down": "NEBEŽÍ",
         "wait": "Počkajte prosím",
@@ -67,7 +70,7 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "RAM",
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "running": "Beží",
         "offline": "Nedostupný",
         "error": "Chyba",
@@ -114,13 +117,31 @@
     },
     "flood": {
         "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "upload": "Nahrávanie",
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "freshrss": {
         "subscriptions": "Odbery",
         "unread": "Neprečítané"
+    },
+    "fritzbox": {
+        "connectionStatus": "Stav",
+        "connectionStatusUnconfigured": "Nenastavený",
+        "connectionStatusConnecting": "Pripájanie",
+        "connectionStatusAuthenticating": "Overovanie",
+        "connectionStatusPendingDisconnect": "Čakám na odpojenie",
+        "connectionStatusDisconnecting": "Odpájanie",
+        "connectionStatusDisconnected": "Odpojené",
+        "connectionStatusConnected": "Pripojené",
+        "uptime": "Prevádzka",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Sťahovanie",
+        "up": "Nahrávanie",
+        "received": "Prijaté",
+        "sent": "Odoslané",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Odosielanie dát",
@@ -169,23 +190,23 @@
     },
     "rutorrent": {
         "active": "Aktívne",
-        "upload": "Odosielanie",
+        "upload": "Nahrávanie",
         "download": "Sťahovanie"
     },
     "transmission": {
         "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "upload": "Nahrávanie",
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "qbittorrent": {
         "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "upload": "Nahrávanie",
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "qnap": {
-        "cpuUsage": "Využitie procesora",
+        "cpuUsage": "Využitie CPU",
         "memUsage": "Využitie pamäte",
         "systemTempC": "Teplota systému",
         "poolUsage": "Využitie zväzku",
@@ -194,15 +215,15 @@
     },
     "deluge": {
         "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "upload": "Nahrávanie",
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "downloadstation": {
         "download": "Sťahovanie",
-        "upload": "Odosielanie",
-        "leech": "Leechovanie",
-        "seed": "Seedovanie"
+        "upload": "Nahrávanie",
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "sonarr": {
         "wanted": "Žiadané",
@@ -258,8 +279,8 @@
     "pihole": {
         "queries": "Dopyty",
         "blocked": "Zablokované",
-        "blocked_percent": "Blokované %",
-        "gravity": "Gravitácia"
+        "blocked_percent": "Blokované",
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Dopyty",
@@ -268,7 +289,7 @@
         "latency": "Odozva"
     },
     "speedtest": {
-        "upload": "Odosielanie",
+        "upload": "Nahrávanie",
         "download": "Sťahovanie",
         "ping": "Odozva"
     },
@@ -324,10 +345,10 @@
         "messages": "Správy"
     },
     "prowlarr": {
-        "enableIndexers": "Indexéry",
-        "numberOfGrabs": "Počet zachytení",
+        "enableIndexers": "Indexery",
+        "numberOfGrabs": "Zachytení",
         "numberOfQueries": "Dopyty",
-        "numberOfFailGrabs": "Počet neúspešných zachytení",
+        "numberOfFailGrabs": "Neúspešné zachytenia",
         "numberOfFailQueries": "Neúspešné dopyty"
     },
     "jackett": {
@@ -363,17 +384,17 @@
     },
     "authentik": {
         "users": "Používatelia",
-        "loginsLast24H": "Prihlásenia (24 hod.)",
-        "failedLoginsLast24H": "Neúspešné prihlásenia (24 hod.)"
+        "loginsLast24H": "Prihlás. (24 hod.)",
+        "failedLoginsLast24H": "Neúspešné prihlás. (24 hod.)"
     },
     "proxmox": {
         "mem": "RAM",
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "lxc": "LXC",
         "vms": "Virtuálne stroje"
     },
     "glances": {
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "load": "Záťaž",
         "wait": "Počkajte prosím",
         "temp": "TEPLOTA",
@@ -395,7 +416,7 @@
     "quicklaunch": {
         "bookmark": "Záložka",
         "service": "Služba",
-        "search": "Vyhľadať",
+        "search": "Hľadať",
         "custom": "Vlastné",
         "visit": "Navštíviť",
         "url": "Odkaz"
@@ -471,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nový",
-        "up": "Online",
+        "up": "Nahrávanie",
         "grace": "V dodatočnej lehote",
-        "down": "Nedostupný",
+        "down": "Sťahovanie",
         "paused": "Pozastavené",
         "status": "Stav",
         "last_ping": "Poslendný ping",
@@ -488,7 +509,7 @@
         "approvedPushes": "Schválené",
         "rejectedPushes": "Odmietnuté",
         "filters": "Filtre",
-        "indexers": "Indexéry"
+        "indexers": "Indexery"
     },
     "tubearchivist": {
         "downloads": "V poradí",
@@ -498,9 +519,8 @@
     },
     "truenas": {
         "load": "Záťaž systému",
-        "uptime": "Doba prevádzky",
-        "alerts": "Upozornenia",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "uptime": "Prevádzka",
+        "alerts": "Upozornenia"
     },
     "pyload": {
         "speed": "Rýchlosť",
@@ -526,14 +546,22 @@
         "inbox": "Schránka správ",
         "total": "Celkovo"
     },
+    "peanut": {
+        "battery_charge": "Nabitie batérie",
+        "ups_load": "Záťaž UPS",
+        "ups_status": "Status UPS",
+        "online": "Online",
+        "on_battery": "Na batérii",
+        "low_battery": "Slabá batéria"
+    },
     "nextdns": {
         "wait": "Počkajte prosím",
         "no_devices": "Informácie o zariadení nezískané"
     },
     "mikrotik": {
-        "cpuLoad": "Využitie procesora",
+        "cpuLoad": "Využitie CPU",
         "memoryUsed": "Využitie pamäte",
-        "uptime": "Doba prevádzky",
+        "uptime": "Prevádzka",
         "numberOfLeases": "Pridelené adresy"
     },
     "xteve": {
@@ -548,7 +576,7 @@
         "limit": "Limit"
     },
     "opnsense": {
-        "cpu": "Využitie procesora",
+        "cpu": "Využitie CPU",
         "memory": "Aktívna pamäť",
         "wanUpload": "WAN nahrávanie",
         "wanDownload": "WAN sťahovanie"
@@ -582,7 +610,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Dátové úložisko",
         "failed_tasks_24h": "Zlyhané úlohy za 24h",
-        "cpu_usage": "Procesor",
+        "cpu_usage": "CPU",
         "memory_usage": "Pamäť"
     },
     "immich": {
@@ -594,9 +622,9 @@
     "uptimekuma": {
         "up": "Weby dostupné",
         "down": "Weby nedostupné",
-        "uptime": "Doba prevádzky",
+        "uptime": "Prevádzka",
         "incident": "Udalosť",
-        "m": "min"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Seriály",
@@ -611,7 +639,7 @@
     },
     "diskstation": {
         "days": "Dní",
-        "uptime": "Doba prevádzky",
+        "uptime": "Prevádzka",
         "volumeAvailable": "Dostupné"
     },
     "mylar": {
@@ -638,11 +666,11 @@
         "alertstriggered": "Spustené upozornenia"
     },
     "nextcloud": {
-        "cpuload": "Využitie procesora",
+        "cpuload": "Využitie CPU",
         "memoryusage": "Využitie pamäte",
         "freespace": "Dostupné miesto",
         "activeusers": "Aktívni používatelia",
-        "numfiles": "Počet súborov",
+        "numfiles": "Súborov",
         "numshares": "Zdieľané položky"
     },
     "kopia": {
@@ -700,7 +728,7 @@
     },
     "kavita": {
         "seriesCount": "Seriály",
-        "totalFiles": "Počet súborov"
+        "totalFiles": "Súborov"
     },
     "azuredevops": {
         "result": "Výsledok",
@@ -749,7 +777,7 @@
     },
     "uptimerobot": {
         "status": "Stav",
-        "uptime": "Doba prevádzky",
+        "uptime": "Prevádzka",
         "lastDown": "Posledný čas nedostupnosti",
         "downDuration": "Trvanie nedostupnosti",
         "sitesUp": "Weby dostupné",
@@ -765,6 +793,15 @@
         "inCinemas": "V kinách",
         "physicalRelease": "Fyzické vydanie",
         "digitalRelease": "Digitálne vydanie",
-        "noEventsToday": "Žiadne udalosti na dnešný deň!"
+        "noEventsToday": "Žiadne udalosti na dnešný deň!",
+        "noEventsFound": "Žiadne udalosti"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

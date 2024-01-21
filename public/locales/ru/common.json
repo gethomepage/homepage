@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Отсутствует тип виджета: {{type}}",
@@ -40,15 +47,11 @@
         "load": "Загрузка",
         "temp": "Температура",
         "max": "Максимально",
-        "uptime": "Онлайн",
-        "months": "мес",
-        "days": "д",
-        "hours": "ч",
-        "minutes": "м"
+        "uptime": "Онлайн"
     },
     "unifi": {
         "users": "Пользователи",
-        "uptime": "Время работы системы",
+        "uptime": "Время работы",
         "days": "Дней",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +124,24 @@
     "freshrss": {
         "subscriptions": "Подписки",
         "unread": "Не прочитано"
+    },
+    "fritzbox": {
+        "connectionStatus": "Статус",
+        "connectionStatusUnconfigured": "Не настроено",
+        "connectionStatusConnecting": "Подключение",
+        "connectionStatusAuthenticating": "Авторизация",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Отключение",
+        "connectionStatusDisconnected": "Отключено",
+        "connectionStatusConnected": "Подключено",
+        "uptime": "Время работы",
+        "maxDown": "Макс. Загрузка",
+        "maxUp": "Макс. Отдача",
+        "down": "Офлайн",
+        "up": "Онлайн",
+        "received": "Получено",
+        "sent": "Отправлено",
+        "externalIPAddress": "Внеш. IP"
     },
     "caddy": {
         "upstreams": "Входящие каналы",
@@ -383,8 +404,8 @@
         "total": "Всего",
         "free": "Свободно",
         "used": "Использовано",
-        "days": "д",
-        "hours": "ч",
+        "days": "d",
+        "hours": "h",
         "crit": "Крит",
         "read": "Прочитано",
         "write": "Запись",
@@ -471,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Новый",
-        "up": "В сети",
+        "up": "Онлайн",
         "grace": "Пробный период",
-        "down": "Не в сети",
+        "down": "Офлайн",
         "paused": "Приостановлено",
         "status": "Статус",
         "last_ping": "Последний пинг",
@@ -499,8 +520,7 @@
     "truenas": {
         "load": "Нагрузка системы",
         "uptime": "Время работы",
-        "alerts": "Предупреждения",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Предупреждения"
     },
     "pyload": {
         "speed": "Скорость",
@@ -525,6 +545,14 @@
     "paperlessngx": {
         "inbox": "Входящие",
         "total": "Всего"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "В сети",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Пожалуйста, подождите",
@@ -596,7 +624,7 @@
         "down": "Неактивные сайты",
         "uptime": "Время работы",
         "incident": "Происшествия",
-        "m": "м"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Серии",
@@ -765,6 +793,15 @@
         "inCinemas": "В кинотеатрах",
         "physicalRelease": "Физический релиз",
         "digitalRelease": "Цифровой релиз",
-        "noEventsToday": "Нет событий на сегодня!"
+        "noEventsToday": "Нет событий на сегодня!",
+        "noEventsFound": "Событий не найдено"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

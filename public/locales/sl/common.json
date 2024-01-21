@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mes",
+        "days": "d",
+        "hours": "u",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Manjka tip widgeta: {{type}}",
@@ -40,11 +47,7 @@
         "load": "Bremenitev",
         "temp": "TEMP",
         "max": "Maks.",
-        "uptime": "Gor",
-        "months": "me",
-        "days": "d",
-        "hours": "u",
-        "minutes": "u"
+        "uptime": "Gor"
     },
     "unifi": {
         "users": "Uporabniki",
@@ -121,6 +124,24 @@
     "freshrss": {
         "subscriptions": "Naročnine",
         "unread": "Neprebrano"
+    },
+    "fritzbox": {
+        "connectionStatus": "Stanje",
+        "connectionStatusUnconfigured": "Nenastavljeno",
+        "connectionStatusConnecting": "Se povezuje",
+        "connectionStatusAuthenticating": "Avtentikacija",
+        "connectionStatusPendingDisconnect": "Čakanje na prekinitev",
+        "connectionStatusDisconnecting": "Prekinitev",
+        "connectionStatusDisconnected": "Prekinjeno",
+        "connectionStatusConnected": "Povezanih",
+        "uptime": "Čas delovanja",
+        "maxDown": "Maks. dol",
+        "maxUp": "Maks. gor",
+        "down": "Nepovezan",
+        "up": "Povezan",
+        "received": "Prejeto",
+        "sent": "Poslano",
+        "externalIPAddress": "Zun. IP"
     },
     "caddy": {
         "upstreams": "Pretok gor",
@@ -471,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nov",
-        "up": "Na spletu",
+        "up": "Povezan",
         "grace": "V podaljšanem roku",
-        "down": "Ni povezan",
+        "down": "Nepovezan",
         "paused": "Pavziran",
         "status": "Stanje",
         "last_ping": "Zadnji Ping",
@@ -499,8 +520,7 @@
     "truenas": {
         "load": "Obremenitev sistema",
         "uptime": "Čas delovanja",
-        "alerts": "Opozorila",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Opozorila"
     },
     "pyload": {
         "speed": "Hitrost",
@@ -525,6 +545,14 @@
     "paperlessngx": {
         "inbox": "Prejeto",
         "total": "Skupaj"
+    },
+    "peanut": {
+        "battery_charge": "Napolnjenost baterije",
+        "ups_load": "UPS obremenitev",
+        "ups_status": "UPS status",
+        "online": "Na spletu",
+        "on_battery": "Na bateriji",
+        "low_battery": "Prazna baterija"
     },
     "nextdns": {
         "wait": "Prosim počakajte",
@@ -596,7 +624,7 @@
         "down": "Ne deluje",
         "uptime": "Čas delovanja",
         "incident": "Incident",
-        "m": "u"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Serije",
@@ -765,6 +793,15 @@
         "inCinemas": "V kinu",
         "physicalRelease": "Fizična izdaja",
         "digitalRelease": "Digitalna izdaja",
-        "noEventsToday": "Za danes ni dogodkov!"
+        "noEventsToday": "Za danes ni dogodkov!",
+        "noEventsFound": "Ni dogodkov"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Opozorila",
+        "criticals": "Kritično"
     }
 }

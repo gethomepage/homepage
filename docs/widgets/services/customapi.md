@@ -34,11 +34,20 @@ widget:
     - field: key # needs to be YAML string or object
       label: Field 4
       format: date # optional - defaults to text
+      locale: nl # optional
       dateStyle: long # optional - defaults to "long". Allowed values: `["full", "long", "medium", "short"]`.
       timeStyle: medium # optional - Allowed values: `["full", "long", "medium", "short"]`.
+    - field: key # needs to be YAML string or object
+      label: Field 5
+      format: relativeDate # optional - defaults to text
+      locale: nl # optional
+      style: short # optional - defaults to "long". Allowed values: `["long", "short", "narrow"]`.
+      numeric: auto # optional - defaults to "always". Allowed values `["always", "auto"]`.
 ```
 
-Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate` and `date`.
+Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate`, `date` and `relativeDate`.
+
+The `dateStyle` and `timeStyle` options of the `date` format are passed directly to [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) and the `style` and `numeric` options of `relativeDate` are passed to [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat).
 
 ## Example
 

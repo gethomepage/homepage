@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Manka Tipo de Fenestraĵo: {{type}}",
@@ -40,15 +47,11 @@
         "load": "Ŝarĝo",
         "temp": "TEMP",
         "max": "Maks",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "t",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Uzantoj",
-        "uptime": "Uptempo de la Sistemo",
+        "uptime": "Uptime",
         "days": "Tagoj",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +124,24 @@
     "freshrss": {
         "subscriptions": "Subscriptions",
         "unread": "Unread"
+    },
+    "fritzbox": {
+        "connectionStatus": "Stato",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Connected",
+        "uptime": "Uptime",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Down",
+        "up": "Up",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -383,7 +404,7 @@
         "total": "Totalo",
         "free": "Libera",
         "used": "Uzata",
-        "days": "t",
+        "days": "d",
         "hours": "h",
         "crit": "Crit",
         "read": "Read",
@@ -471,9 +492,9 @@
     },
     "healthchecks": {
         "new": "New",
-        "up": "Online",
+        "up": "Up",
         "grace": "In Grace Period",
-        "down": "Malkonekta",
+        "down": "Down",
         "paused": "Paused",
         "status": "Stato",
         "last_ping": "Last Ping",
@@ -499,8 +520,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Speed",
@@ -525,6 +545,14 @@
     "paperlessngx": {
         "inbox": "Inbox",
         "total": "Totalo"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Please Wait",
@@ -765,6 +793,15 @@
         "inCinemas": "In cinemas",
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

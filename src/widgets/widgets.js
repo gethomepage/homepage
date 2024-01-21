@@ -50,6 +50,7 @@ import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
+import netdata from "./netdata/widget";
 import nextcloud from "./nextcloud/widget";
 import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
@@ -100,6 +101,7 @@ import watchtower from "./watchtower/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
 import urbackup from "./urbackup/widget";
+import romm from "./romm/widget";
 
 const widgets = {
   adguard,
@@ -155,6 +157,7 @@ const widgets = {
   moonraker,
   mylar,
   navidrome,
+  netdata,
   nextcloud,
   nextdns,
   npm,
@@ -184,6 +187,7 @@ const widgets = {
   qnap,
   radarr,
   readarr,
+  romm,
   rutorrent,
   sabnzbd,
   scrutiny,

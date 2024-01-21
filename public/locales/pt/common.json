@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mes",
+        "days": "d",
+        "hours": "h",
+        "minutes": "min",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Tipo de Widget ausente: {{type}}",
@@ -24,7 +31,7 @@
     },
     "weather": {
         "current": "Localização atual",
-        "allow": "Clicar para permitir",
+        "allow": "Clique para permitir",
         "updating": "Atualizando",
         "wait": "Por favor aguarde"
     },
@@ -40,15 +47,11 @@
         "load": "Carga",
         "temp": "TEMP",
         "max": "Máximo",
-        "uptime": "CIMA",
-        "months": "mês",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "CIMA"
     },
     "unifi": {
         "users": "Utilizadores",
-        "uptime": "Sistema Ativo",
+        "uptime": "Ligado",
         "days": "Dias",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +124,24 @@
     "freshrss": {
         "subscriptions": "Assinaturas",
         "unread": "Não lida"
+    },
+    "fritzbox": {
+        "connectionStatus": "Estado",
+        "connectionStatusUnconfigured": "Não configurado",
+        "connectionStatusConnecting": "A conectar",
+        "connectionStatusAuthenticating": "Autenticando",
+        "connectionStatusPendingDisconnect": "Desconexão pendente",
+        "connectionStatusDisconnecting": "Desconectando",
+        "connectionStatusDisconnected": "Desconectado",
+        "connectionStatusConnected": "Conectado",
+        "uptime": "Ligado",
+        "maxDown": "Máx. de Descarga",
+        "maxUp": "Max. de Envio",
+        "down": "Down",
+        "up": "Up",
+        "received": "Recebido",
+        "sent": "Enviado",
+        "externalIPAddress": "Endereço IP externo"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -419,20 +440,20 @@
         "53-night": "Chuvisco",
         "55-day": "Aguaceiro Forte",
         "55-night": "Aguaceiro Forte",
-        "56-day": "Leve Garoa Congelante",
-        "56-night": "Leve Garoa Congelante",
-        "57-day": "Garoa Congelante",
-        "57-night": "Garoa Congelante",
+        "56-day": "Granizo Leve",
+        "56-night": "Granizo Leve",
+        "57-day": "Granizo",
+        "57-night": "Granizo",
         "61-day": "Chuva fraca",
         "61-night": "Chuva fraca",
         "63-day": "Chuva",
         "63-night": "Chuva",
         "65-day": "Chuva forte",
         "65-night": "Chuva forte",
-        "66-day": "Chuva Congelante",
-        "66-night": "Chuva Congelante",
-        "67-day": "Chuva Congelante",
-        "67-night": "Chuva Congelante",
+        "66-day": "Granizo",
+        "66-night": "Granizo",
+        "67-day": "Granizo",
+        "67-night": "Granizo",
         "71-day": "Neve fraca",
         "71-night": "Neve fraca",
         "73-day": "Neve",
@@ -471,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Novo",
-        "up": "Online",
+        "up": "Up",
         "grace": "Em Período Gratuito",
-        "down": "Desligado",
+        "down": "Down",
         "paused": "Pausado",
         "status": "Estado",
         "last_ping": "Ultimo Ping",
@@ -499,8 +520,7 @@
     "truenas": {
         "load": "Carga do sistema",
         "uptime": "Ligado",
-        "alerts": "Alertas",
-        "time": "{{value, number(estilo: unidade; unitDisplay: long;)}}"
+        "alerts": "Alertas"
     },
     "pyload": {
         "speed": "Velocidade",
@@ -525,6 +545,14 @@
     "paperlessngx": {
         "inbox": "Caixa de entrada",
         "total": "Total"
+    },
+    "peanut": {
+        "battery_charge": "Carga da bateria",
+        "ups_load": "Carga da UPS",
+        "ups_status": "Estado da UPS",
+        "online": "Online",
+        "on_battery": "Em bateria",
+        "low_battery": "Bateria Fraca"
     },
     "nextdns": {
         "wait": "Por favor aguarde",
@@ -596,7 +624,7 @@
         "down": "Sites Fora do Ar",
         "uptime": "Ligado",
         "incident": "Incidente",
-        "m": "m"
+        "m": "min"
     },
     "atsumeru": {
         "series": "Séries",
@@ -765,6 +793,15 @@
         "inCinemas": "Em cinemas",
         "physicalRelease": "Lançamento físico",
         "digitalRelease": "Lançamento digital",
-        "noEventsToday": "Não existem eventos hoje!"
+        "noEventsToday": "Não existem eventos hoje!",
+        "noEventsFound": "Nenhum evento encontrado"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

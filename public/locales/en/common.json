@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
@@ -40,11 +47,7 @@
         "load": "Load",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "UP",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "Users",
@@ -489,9 +492,9 @@
     },
     "healthchecks": {
         "new": "New",
-        "up": "Online",
+        "up": "Up",
         "grace": "In Grace Period",
-        "down": "Offline",
+        "down": "Down",
         "paused": "Paused",
         "status": "Status",
         "last_ping": "Last Ping",
@@ -517,8 +520,7 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerts",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Speed",
@@ -793,5 +795,13 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+      "warnings": "Warnings",
+      "criticals": "Criticals"
     }
 }

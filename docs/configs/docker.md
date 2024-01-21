@@ -164,10 +164,10 @@ labels:
   - homepage.description=Media server
   - homepage.widget.type=customapi
   - homepage.widget.url=http://argus.service/api/v1/service/summary/emby
-  - homepage.widget.field[0].label=Deployed Version
-  - homepage.widget.field[0].field.status=deployed_version
-  - homepage.widget.field[1].label=Latest Version
-  - homepage.widget.field[1].field.status=latest_version
+  - homepage.widget.mappings[0].label=Deployed Version
+  - homepage.widget.mappings[0].field.status=deployed_version
+  - homepage.widget.mappings[1].label=Latest Version
+  - homepage.widget.mappings[1].field.status=latest_version
 ```
 
 ## Docker Swarm

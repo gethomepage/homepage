@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Manglende Widget Type: {{type}}",
@@ -40,15 +47,11 @@
         "load": "Belastning",
         "temp": "TEMP",
         "max": "Maks",
-        "uptime": "OP",
-        "months": "mdr",
-        "days": "d",
-        "hours": "t",
-        "minutes": "m"
+        "uptime": "OP"
     },
     "unifi": {
         "users": "Brugere",
-        "uptime": "System Oppetid",
+        "uptime": "Oppetid",
         "days": "Dage",
         "wan": "WAN",
         "lan": "LAN",
@@ -121,6 +124,24 @@
     "freshrss": {
         "subscriptions": "Abonnementer",
         "unread": "Ulæst"
+    },
+    "fritzbox": {
+        "connectionStatus": "Status",
+        "connectionStatusUnconfigured": "Unconfigured",
+        "connectionStatusConnecting": "Connecting",
+        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusDisconnecting": "Disconnecting",
+        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusConnected": "Forbundet",
+        "uptime": "Oppetid",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
+        "down": "Ned",
+        "up": "Op",
+        "received": "Received",
+        "sent": "Sent",
+        "externalIPAddress": "Ext. IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -384,7 +405,7 @@
         "free": "Fri",
         "used": "Brugt",
         "days": "d",
-        "hours": "t",
+        "hours": "h",
         "crit": "Crit",
         "read": "Læst",
         "write": "Skriv",
@@ -471,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Ny",
-        "up": "Online",
+        "up": "Op",
         "grace": "Henstandsperiode",
-        "down": "Offline",
+        "down": "Ned",
         "paused": "Pause",
         "status": "Status",
         "last_ping": "Sidste Ping",
@@ -499,8 +520,7 @@
     "truenas": {
         "load": "Systembelastning",
         "uptime": "Oppetid",
-        "alerts": "Advarsler",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Advarsler"
     },
     "pyload": {
         "speed": "Hastighed",
@@ -525,6 +545,14 @@
     "paperlessngx": {
         "inbox": "Indbakke",
         "total": "Total"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Online",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Vent venligst",
@@ -765,6 +793,15 @@
         "inCinemas": "I biografen",
         "physicalRelease": "Fysisk udgivelse",
         "digitalRelease": "Digitale udgivelser",
-        "noEventsToday": "No events for today!"
+        "noEventsToday": "No events for today!",
+        "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

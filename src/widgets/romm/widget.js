@@ -5,15 +5,8 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    alerts: {
-      endpoint: "alerts",
-    },
-    alertmanager: {
-      endpoint: "alertmanager/grafana/api/v2/alerts",
-    },
-    stats: {
-      endpoint: "admin/stats",
-      validate: ["dashboards"],
+    statistics: {
+      endpoint: "platforms",
     },
   },
 };

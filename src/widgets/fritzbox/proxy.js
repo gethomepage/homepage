@@ -33,9 +33,9 @@ async function requestEndpoint(apiBaseUrl, service, action) {
   const response = {};
   try {
     const jsonData = JSON.parse(xml2json(data));
-    const responseElements = jsonData?.elements[0]?.elements[0]?.elements[0]?.elements || [];
+    const responseElements = jsonData?.elements?.[0]?.elements?.[0]?.elements?.[0]?.elements || [];
     responseElements.forEach((element) => {
-      response[element.name] = element.elements[0]?.text || "";
+      response[element.name] = element.elements?.[0].text || "";
     });
   } catch (e) {
     logger.debug(`Failed parsing ${service}->${action} response:`, data);
@@ -50,12 +50,12 @@ export default async function fritzboxProxyHandler(req, res) {
   const serviceWidget = await getServiceWidget(group, service);
 
   if (!serviceWidget) {
-    res.status(500).json({ error: "Service widget not found" });
+    res.status(500).json({ error: { message: "Service widget not found" } });
     return;
   }
 
   if (!serviceWidget.url) {
-    res.status(500).json({ error: "Service widget url not configured" });
+    res.status(500).json({ error: { message: "Service widget url not configured" } });
     return;
   }
 
@@ -91,6 +91,6 @@ export default async function fritzboxProxyHandler(req, res) {
       });
     })
     .catch((error) => {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ error: { message: error.message } });
     });
 }

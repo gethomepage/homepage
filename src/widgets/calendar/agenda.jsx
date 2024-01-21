@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 
-import Event from "./event";
+import Event, { compareDateTimezone } from "./event";
 
 export default function Agenda({ service, colorVariants, events, showDate }) {
   const { widget } = service;
@@ -56,7 +56,7 @@ export default function Agenda({ service, colorVariants, events, showDate }) {
                 event={event}
                 colorVariants={colorVariants}
                 showDate={j === 0}
-                showTime={widget?.showTime && event.date.startOf("day").ts === showDate.startOf("day").ts}
+                showTime={widget?.showTime && compareDateTimezone(showDate, event)}
               />
             ))}
           </div>
