@@ -78,6 +78,7 @@ const components = {
   proxmoxbackupserver: dynamic(() => import("./proxmoxbackupserver/component")),
   pialert: dynamic(() => import("./pialert/component")),
   pihole: dynamic(() => import("./pihole/component")),
+  plantit: dynamic(() => import("./plantit/component")),
   plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),
   prometheus: dynamic(() => import("./prometheus/component")),

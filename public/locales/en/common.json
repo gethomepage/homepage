@@ -825,5 +825,11 @@
     "netdata": {
       "warnings": "Warnings",
       "criticals": "Criticals"
+    },
+    "plantit": {
+        "events": "Events",
+        "plants": "Plants",
+        "photos": "Photos",
+        "species": "Species"
     }
 }
