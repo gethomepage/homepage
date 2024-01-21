@@ -7,6 +7,6 @@ Allowed fields: `["warnings", "criticals"]`.
 
 ```yaml
 widget:
-  type: Netdata
+  type: netdata
   url: http://netdata.host.or.ip
 ```
