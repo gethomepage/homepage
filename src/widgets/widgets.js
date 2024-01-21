@@ -34,6 +34,7 @@ import homeassistant from "./homeassistant/widget";
 import homebridge from "./homebridge/widget";
 import healthchecks from "./healthchecks/widget";
 import immich from "./immich/widget";
+import plantit from "./plantit/widget";
 import jackett from "./jackett/widget";
 import jellyseerr from "./jellyseerr/widget";
 import jdownloader from "./jdownloader/widget";
@@ -142,6 +143,7 @@ const widgets = {
   healthchecks,
   ical: calendar,
   immich,
+  plantit,
   jackett,
   jdownloader,
   jellyfin: emby,

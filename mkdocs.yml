@@ -67,6 +67,7 @@ nav:
       - widgets/services/homebridge.md
       - widgets/services/iframe.md
       - widgets/services/immich.md
+      - widgets/services/plantit.md
       - widgets/services/jackett.md
       - widgets/services/jdownloader.md
       - widgets/services/jellyfin.md
