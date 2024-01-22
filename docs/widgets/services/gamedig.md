@@ -3,7 +3,7 @@ title: GameDig
 description: GameDig Widget Configuration
 ---
 
-[GameDig](https://github.com/gamedig/node-gamedig) - GameDig is a game server query library, capable of querying for the status of nearly any game or voice server. If a server makes its status publically available, GameDig can fetch it for you.
+[GameDig](https://github.com/gamedig/node-gamedig)
 
 Uses the [GameDig](https://www.npmjs.com/package/gamedig) library to get game server information for any supported server type.
 
