@@ -3,7 +3,8 @@ title: Speedtest Tracker
 description: Speedtest Tracker Widget Configuration
 ---
 
-[Speedtest Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker) - Continuously track your internet speed.
+[Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) or
+[Speedtest Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker)
 
 No extra configuration is required.
 
