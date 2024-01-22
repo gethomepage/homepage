@@ -3,7 +3,7 @@ title: Autobrr
 description: Autobrr Widget Configuration
 ---
 
-[Autobrr](https://github.com/autobrr/autobrr) - Modern, easy to use download automation for torrents and usenet.
+[Autobrr](https://github.com/autobrr/autobrr)
 
 Find your API key under `Settings > API Keys`.
 
