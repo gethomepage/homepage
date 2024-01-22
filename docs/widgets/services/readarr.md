@@ -3,7 +3,7 @@ title: Readarr
 description: Readarr Widget Configuration
 ---
 
-[Readarr](https://github.com/Readarr/Readarr) - Book Manager and Automation (Sonarr for Ebooks).
+[Readarr](https://github.com/Readarr/Readarr)
 
 Find your API key under `Settings > General`.
 
