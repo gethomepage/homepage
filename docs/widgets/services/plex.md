@@ -3,7 +3,7 @@ title: Plex
 description: Plex Widget Configuration
 ---
 
-[Plex](https://www.plex.tv/) - Plex is your destination to stream TV shows, movies, and sports. Find great movies to watch and stream all your personal media libraries on every device.
+[Plex](https://www.plex.tv/)
 
 The core Plex API is somewhat limited but basic info regarding library sizes and the number of active streams is supported. For more detailed info regarding active streams see the [Plex Tautulli widget](plex-tautulli.md).
 
