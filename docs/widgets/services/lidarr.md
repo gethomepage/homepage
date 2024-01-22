@@ -3,7 +3,7 @@ title: Lidarr
 description: Lidarr Widget Configuration
 ---
 
-[Lidarr](https://github.com/Lidarr/Lidarr) - Looks and smells like Sonarr but made for music.
+[Lidarr](https://github.com/Lidarr/Lidarr)
 
 Find your API key under `Settings > General`.
 
