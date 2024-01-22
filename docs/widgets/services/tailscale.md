@@ -3,7 +3,7 @@ title: Tailscale
 description: Tailscale Widget Configuration
 ---
 
-[Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA.
+[Tailscale](https://github.com/tailscale/tailscale)
 
 You will need to generate an API access token from the [keys page](https://login.tailscale.com/admin/settings/keys) on the Tailscale dashboard.
 
