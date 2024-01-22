@@ -3,7 +3,7 @@ title: Pyload
 description: Pyload Widget Configuration
 ---
 
-[Pyload](https://github.com/pyload/pyload) - The free and open-source Download Manager written in pure Python.
+[Pyload](https://github.com/pyload/pyload)
 
 Allowed fields: `["speed", "active", "queue", "total"]`.
 
