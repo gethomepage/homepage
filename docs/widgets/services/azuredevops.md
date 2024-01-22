@@ -3,7 +3,7 @@ title: Azure DevOps
 description: Azure DevOps Widget Configuration
 ---
 
-[Azure DevOps](https://azure.microsoft.com/en-us/products/devops) - Azure DevOps provides an integrated set of services and tools to manage your software projects, from planning and development through testing and deployment.
+[Azure DevOps](https://azure.microsoft.com/en-us/products/devops)
 
 This widget has 2 functions:
 
