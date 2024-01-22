@@ -3,7 +3,7 @@ title: Adguard Home
 description: Adguard Home Widget Configuration
 ---
 
-[Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Network-wide ads & trackers blocking DNS server
+[Adguard Home](https://github.com/AdguardTeam/AdGuardHome)
 
 The username and password are the same as used to login to the web interface.
 
