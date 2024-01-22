@@ -3,7 +3,7 @@ title: PhotoPrism
 description: PhotoPrism Widget Configuration
 ---
 
-[PhotoPrism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web.
+[PhotoPrism](https://github.com/photoprism/photoprism).
 
 Allowed fields: `["albums", "photos", "videos", "people"]`.
 
