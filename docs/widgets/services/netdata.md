@@ -3,7 +3,7 @@ title: Netdata
 description: Netdata Widget Configuration
 ---
 
-[Netdata](https://github.com/netdata/netdata) - Monitor your servers, containers, and applications, in high-resolution and in real-time!
+[Netdata](https://github.com/netdata/netdata)
 
 Allowed fields: `["warnings", "criticals"]`.
 
