@@ -23,6 +23,7 @@ import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import fritzbox from "./fritzbox/widget";
 import gamedig from "./gamedig/widget";
+import gatus from "./gatus/widget";
 import ghostfolio from "./ghostfolio/widget";
 import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
@@ -128,6 +129,7 @@ const widgets = {
   freshrss,
   fritzbox,
   gamedig,
+  gatus,
   ghostfolio,
   glances,
   gluetun,
