@@ -3,7 +3,7 @@ title: OPNSense
 description: OPNSense Widget Configuration
 ---
 
-[OPNSense](https://opnsense.org/) - OPNsense is an open source, FreeBSD-based firewall and routing software developed by Deciso, a company in the Netherlands that makes hardware and sells support packages for OPNsense. 
+[OPNSense](https://opnsense.org/)
 
 The API key & secret can be generated via the webui by creating a new user at _System/Access/Users_. Ensure "Generate a scrambled password to prevent local database logins for this user" is checked and then edit the effective privileges selecting **only**:
 
