@@ -3,7 +3,7 @@ title: Komga
 description: Komga Widget Configuration
 ---
 
-[Komga](https://github.com/gotson/komga) - Media server for comics/mangas/BDs/magazines/eBooks with API and OPDS support
+[Komga](https://github.com/gotson/komga)
 
 Uses the same username and password used to login from the web.
 
