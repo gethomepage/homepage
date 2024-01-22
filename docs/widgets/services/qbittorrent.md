@@ -3,7 +3,7 @@ title: qBittorrent
 description: qBittorrent Widget Configuration
 ---
 
-[qBittorrent](https://github.com/qbittorrent/qBittorrent) - qBittorrent BitTorrent client.
+[qBittorrent](https://github.com/qbittorrent/qBittorrent)
 
 Uses the same username and password used to login from the web.
 
