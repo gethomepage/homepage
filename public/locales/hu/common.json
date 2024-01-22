@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Új",
-        "up": "Csatlakozva",
+        "up": "Fel",
         "grace": "Türelmi idő alatt",
-        "down": "Offline",
+        "down": "Le",
         "paused": "Szünetel",
         "status": "Státusz",
         "last_ping": "Legutóbbi Ping",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digitális kiadás",
         "noEventsToday": "Ezen a napon nincsenek események!",
         "noEventsFound": "Nem található esemény"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

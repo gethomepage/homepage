@@ -102,7 +102,7 @@ export async function servicesFromDocker() {
             }
           });
 
-          if (!constructedService.name || !constructedService.group) {
+          if (constructedService && (!constructedService.name || !constructedService.group)) {
             logger.error(
               `Error constructing service using homepage labels for container '${containerName.replace(
                 /^\//,

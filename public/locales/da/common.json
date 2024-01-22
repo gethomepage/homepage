@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Ny",
-        "up": "Online",
+        "up": "Op",
         "grace": "Henstandsperiode",
-        "down": "Offline",
+        "down": "Ned",
         "paused": "Pause",
         "status": "Status",
         "last_ping": "Sidste Ping",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digitale udgivelser",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

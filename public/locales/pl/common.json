@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -493,7 +494,7 @@
         "new": "Nowy",
         "up": "Dostępny",
         "grace": "In Grace Period",
-        "down": "Nieosiągalny",
+        "down": "Niedostępny",
         "paused": "Zatrzymane",
         "status": "Stan",
         "last_ping": "Ostatni ping",
@@ -619,8 +620,8 @@
         "storage": "Pamięć"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Niedziałające strony",
+        "up": "Działające",
+        "down": "Niedziałające",
         "uptime": "Czas działania",
         "incident": "Incydent",
         "m": "m"
@@ -779,8 +780,8 @@
         "uptime": "Czas działania",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Niedziałające strony",
+        "sitesUp": "Działające",
+        "sitesDown": "Niedziałające",
         "paused": "Zatrzymane",
         "notyetchecked": "Not Yet Checked",
         "up": "Dostępny",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

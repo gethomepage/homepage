@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mnd",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nieuw",
-        "up": "Bereikbaar",
+        "up": "Online",
         "grace": "In de respijt periode",
-        "down": "Onbereikbaar",
+        "down": "Offline",
         "paused": "Gepauzeerd",
         "status": "Status",
         "last_ping": "Laatste Ping",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digitale versie",
         "noEventsToday": "Geen gebeurtenissen voor vandaag!",
         "noEventsFound": "Geen gebeurtenissen gevonden"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Waarschuwingen",
+        "criticals": "Kritiek"
     }
 }
