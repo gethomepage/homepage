@@ -3,7 +3,7 @@ title: Gluetun
 description: Gluetun Widget Configuration
 ---
 
-[Glueton](https://github.com/qdm12/gluetun) - VPN client in a thin Docker container for multiple VPN providers, written in Go, and using OpenVPN or Wireguard, DNS over TLS, with a few proxy servers built-in.
+[Glueton](https://github.com/qdm12/gluetun)
 
 !!! note
 
