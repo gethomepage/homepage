@@ -3,7 +3,7 @@ title: Scrutiny
 description: Scrutiny Widget Configuration
 ---
 
-[Scrutiny](https://github.com/AnalogJ/scrutiny) - Hard Drive S.M.A.R.T Monitoring, Historical Trends & Real World Failure Thresholds
+[Scrutiny](https://github.com/AnalogJ/scrutiny)
 
 Allowed fields: `["passed", "failed", "unknown"]`.
 
