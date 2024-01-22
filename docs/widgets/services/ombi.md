@@ -3,7 +3,7 @@ title: Ombi
 description: Ombi Widget Configuration
 ---
 
-[Ombi](https://github.com/Ombi-app/Ombi) - Want a Movie or TV Show on Plex/Emby/Jellyfin? Use Ombi!
+[Ombi](https://github.com/Ombi-app/Ombi)
 
 Find your API key under `Settings > Configuration > General`.
 
