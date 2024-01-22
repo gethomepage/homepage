@@ -3,6 +3,8 @@ title: Ghostfolio
 description: Ghostfolio Widget Configuration
 ---
 
+[Ghostfolio](https://github.com/ghostfolio/ghostfolio)
+
 Authentication requires manually obtaining a Bearer token which can be obtained by make a POST request to the API e.g.
 
 ```

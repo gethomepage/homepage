@@ -3,6 +3,8 @@ title: Pterodactyl
 description: Pterodactyl Widget Configuration
 ---
 
+[Pterodactyl](https://github.com/pterodactyl)
+
 Allowed fields: `["nodes", "servers"]`
 
 ```yaml

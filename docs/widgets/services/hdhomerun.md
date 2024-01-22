@@ -3,6 +3,8 @@ title: HDHomerun
 description: HDHomerun Widget Configuration
 ---
 
+[HDHomerun](https://www.silicondust.com/support/downloads/)
+
 Allowed fields: `["channels", "hd"]`.
 
 ```yaml

@@ -3,6 +3,8 @@ title: PhotoPrism
 description: PhotoPrism Widget Configuration
 ---
 
+[PhotoPrism](https://github.com/photoprism/photoprism).
+
 Allowed fields: `["albums", "photos", "videos", "people"]`.
 
 ```yaml

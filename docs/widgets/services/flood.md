@@ -3,6 +3,8 @@ title: Flood
 description: Flood Widget Configuration
 ---
 
+[Flood](https://github.com/jesec/flood)
+
 Allowed fields: `["leech", "download", "seed", "upload"]`.
 
 ```yaml

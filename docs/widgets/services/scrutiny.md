@@ -3,6 +3,8 @@ title: Scrutiny
 description: Scrutiny Widget Configuration
 ---
 
+[Scrutiny](https://github.com/AnalogJ/scrutiny)
+
 Allowed fields: `["passed", "failed", "unknown"]`.
 
 ```yaml

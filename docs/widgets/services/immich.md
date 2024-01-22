@@ -3,6 +3,8 @@ title: Immich
 description: Immich Widget Configuration
 ---
 
+[Immich](https://github.com/immich-app/immich)
+
 Find your API key under `Account Settings > API Keys`.
 
 Allowed fields: `["users" ,"photos", "videos", "storage"]`.
