@@ -3,7 +3,7 @@ title: TrueNas
 description: TrueNas Scale Widget Configuration
 ---
 
-[TrueNas](https://www.truenas.com/) - TrueNAS® SCALE is an Open Source Hyperconverged Infrastructure (HCI) solution.
+[TrueNas](https://www.truenas.com/)
 
 Allowed fields: `["load", "uptime", "alerts"]`.
 
