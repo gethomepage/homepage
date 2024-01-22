@@ -3,7 +3,7 @@ title: Authentik
 description: Authentik Widget Configuration
 ---
 
-[Authentik](https://github.com/goauthentik/authentik) - An open-source Identity Provider focused on flexibility and versatility.
+[Authentik](https://github.com/goauthentik/authentik)
 
 This widget reads the number of active users in the system, as well as logins for the last 24 hours.
 
