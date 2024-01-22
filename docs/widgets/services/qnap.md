@@ -3,7 +3,7 @@ title: QNAP
 description: QNAP Widget Configuration
 ---
 
-[QNAP](https://www.qnap.com) - QNAP offers NAS/DAS, networking, and intelligent video solutions, as well as myQNAPcloud Storage cloud storage and Cloud NAS.
+[QNAP](https://www.qnap.com)
 
 Allowed fields: `["cpuUsage", "memUsage", "systemTempC", "poolUsage", "volumeUsage"]`.
 
