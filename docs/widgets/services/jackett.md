@@ -3,7 +3,7 @@ title: Jackett
 description: Jackett Widget Configuration
 ---
 
-[Jackett](https://github.com/Jackett/Jackett) - API Support for your favorite torrent trackers.
+[Jackett](https://github.com/Jackett/Jackett)
 
 Jackett must not have any authentication for the widget to work.
 
