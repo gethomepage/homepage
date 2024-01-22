@@ -3,7 +3,7 @@ title: Kopia
 description: Kopia Widget Configuration
 ---
 
-[Kopia](https://github.com/kopia/kopia) - Cross-platform backup tool for Windows, macOS & Linux with fast, incremental backups, client-side end-to-end encryption, compression and data deduplication. CLI and GUI included.
+[Kopia](https://github.com/kopia/kopia)
 
 Allowed fields: `["status", "size", "lastrun", "nextrun"]`.
 
