@@ -3,7 +3,7 @@ title: Watchtower
 description: Watchtower Widget Configuration
 ---
 
-[Watchtower](https://github.com/containrrr/watchtower) - A process for automating Docker container base image updates.
+[Watchtower](https://github.com/containrrr/watchtower)
 
 To use this widget, Watchtower needs to be configured to to [enable metrics](https://containrrr.dev/watchtower/metrics/).
 
