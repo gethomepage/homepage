@@ -3,7 +3,7 @@ title: Synology Disk Station
 description: Synology Disk Station Widget Configuration
 ---
 
-[Synology Disk Station](https://www.synology.com/en-global/dsm) - Synology DiskStation Manager (DSM) is the intuitive operating system that powers every Synology NAS. Let us organize and protect your data so you can focus on what you do best.
+[Synology Disk Station](https://www.synology.com/en-global/dsm)
 
 Note: the widget is not compatible with 2FA.
 
