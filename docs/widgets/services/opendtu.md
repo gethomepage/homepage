@@ -3,7 +3,7 @@ title: OpenDTU
 description: OpenDTU Widget
 ---
 
-[OpenDTU](https://github.com/tbnobody/OpenDTU) - Software for ESP32 to talk to Hoymiles Inverters.
+[OpenDTU](https://github.com/tbnobody/OpenDTU)
 
 Allowed fields: `["yieldDay", "relativePower", "absolutePower", "limit"]`.
 
