@@ -3,7 +3,7 @@ title: Proxmox
 description: Proxmox Widget Configuration
 ---
 
-[Proxmox](https://www.proxmox.com/en/) - Proxmox Virtual Environment is a complete open-source platform for enterprise virtualization.
+[Proxmox](https://www.proxmox.com/en/)
 
 This widget shows the running and total counts of both QEMU VMs and LX Containers in the Proxmox cluster. It also shows the CPU and memory usage of the first node in the cluster.
 
