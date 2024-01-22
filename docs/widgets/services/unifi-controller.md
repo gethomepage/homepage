@@ -3,7 +3,7 @@ title: Unifi Controller
 description: Unifi Controller Widget Configuration
 ---
 
-[Unifi Controller](https://ui.com/) - Streamlined Network Management. Host your UniFi applications natively on a UniFi OS Console.
+[Unifi Controller](https://ui.com/)
 
 _(Find the Unifi Controller information widget [here](../info/unifi_controller.md))_
 
