@@ -3,7 +3,7 @@ title: Nginx Proxy Manager
 description: Nginx Proxy Manager Widget Configuration
 ---
 
-[Nginx Proxy Manager](https://nginxproxymanager.com/) - Docker container and built in Web Application for managing Nginx proxy hosts with a simple, powerful interface.
+[Nginx Proxy Manager](https://nginxproxymanager.com/)
 
 Login with the same admin username and password used to access the web UI.
 
