@@ -3,7 +3,7 @@ title: Sonarr
 description: Sonarr Widget Configuration
 ---
 
-[Sonarr](https://github.com/Sonarr/Sonarr) - Smart PVR for newsgroup and bittorrent users.
+[Sonarr](https://github.com/Sonarr/Sonarr)
 
 Find your API key under `Settings > General`.
 
