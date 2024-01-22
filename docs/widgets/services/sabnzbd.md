@@ -3,7 +3,7 @@ title: SABnzbd
 description: SABnzbd Widget Configuration
 ---
 
-[SABnzbd](https://github.com/sabnzbd/sabnzbd) - SABnzbd - The automated Usenet download tool.
+[SABnzbd](https://github.com/sabnzbd/sabnzbd)
 
 Find your API key under `Config > General`.
 
