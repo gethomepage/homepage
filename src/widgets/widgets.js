@@ -103,6 +103,7 @@ import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
 import urbackup from "./urbackup/widget";
 import romm from "./romm/widget";
+import prusalink from "./prusalink/widget";
 
 const widgets = {
   adguard,
@@ -212,6 +213,7 @@ const widgets = {
   watchtower,
   whatsupdocker,
   xteve,
+  prusalink,
 };
 
 export default widgets;

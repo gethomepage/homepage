@@ -110,6 +110,7 @@ const components = {
   watchtower: dynamic(() => import("./watchtower/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
+  prusalink: dynamic(() => import("./prusalink/component")),
 };
 
 export default components;

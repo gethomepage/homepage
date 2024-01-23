@@ -808,5 +808,10 @@
     "netdata": {
       "warnings": "Warnings",
       "criticals": "Criticals"
+    },
+    "prusalink": {
+      "print_progress": "Progress",
+      "print_time": "Print time",
+      "print_time_left": "Remaining time"
     }
 }
