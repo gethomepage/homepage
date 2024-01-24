@@ -3,7 +3,7 @@ title: Atsumeru
 description: Atsumeru Widget Configuration
 ---
 
-[Atsumeru](https://github.com/AtsumeruDev/Atsumeru)
+Learn more about [Atsumeru](https://github.com/AtsumeruDev/Atsumeru).
 
 Define same username and password that is used for login from web or supported apps
 

@@ -3,7 +3,7 @@ title: PeaNUT
 description: PeaNUT Widget Configuration
 ---
 
-[PeaNUT](https://github.com/Brandawg93/PeaNUT)
+Learn more about [PeaNUT](https://github.com/Brandawg93/PeaNUT).
 
 This widget adds support for [Network UPS Tools](https://networkupstools.org/) via a third party tool, [PeaNUT](https://github.com/Brandawg93/PeaNUT).
 

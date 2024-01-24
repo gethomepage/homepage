@@ -3,7 +3,7 @@ title: Lidarr
 description: Lidarr Widget Configuration
 ---
 
-[Lidarr](https://github.com/Lidarr/Lidarr)
+Learn more about [Lidarr](https://github.com/Lidarr/Lidarr).
 
 Find your API key under `Settings > General`.
 

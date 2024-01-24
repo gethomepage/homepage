@@ -3,7 +3,7 @@ title: Bazarr
 description: Bazarr Widget Configuration
 ---
 
-[Bazarr](https://github.com/morpheus65535/bazarr)
+Learn more about [Bazarr](https://github.com/morpheus65535/bazarr).
 
 Find your API key under `Settings > General`.
 

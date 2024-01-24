@@ -3,7 +3,7 @@ title: Sonarr
 description: Sonarr Widget Configuration
 ---
 
-[Sonarr](https://github.com/Sonarr/Sonarr)
+Learn more about [Sonarr](https://github.com/Sonarr/Sonarr).
 
 Find your API key under `Settings > General`.
 

@@ -3,7 +3,7 @@ title: Azure DevOps
 description: Azure DevOps Widget Configuration
 ---
 
-[Azure DevOps](https://azure.microsoft.com/en-us/products/devops)
+Learn more about [Azure DevOps](https://azure.microsoft.com/en-us/products/devops).
 
 This widget has 2 functions:
 

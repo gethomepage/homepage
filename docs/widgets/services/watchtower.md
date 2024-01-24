@@ -3,7 +3,7 @@ title: Watchtower
 description: Watchtower Widget Configuration
 ---
 
-[Watchtower](https://github.com/containrrr/watchtower)
+Learn more about [Watchtower](https://github.com/containrrr/watchtower).
 
 To use this widget, Watchtower needs to be configured to to [enable metrics](https://containrrr.dev/watchtower/metrics/).
 

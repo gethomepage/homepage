@@ -3,7 +3,7 @@ title: Immich
 description: Immich Widget Configuration
 ---
 
-[Immich](https://github.com/immich-app/immich)
+Learn more about [Immich](https://github.com/immich-app/immich).
 
 Find your API key under `Account Settings > API Keys`.
 

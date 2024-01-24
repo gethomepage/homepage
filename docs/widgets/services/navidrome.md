@@ -3,7 +3,7 @@ title: Navidrome
 description: Navidrome Widget Configuration
 ---
 
-[Navidrome](https://github.com/navidrome/navidrome)
+Learn more about [Navidrome](https://github.com/navidrome/navidrome).
 
 For detailed information about how to generate the token see http://www.subsonic.org/pages/api.jsp.
 

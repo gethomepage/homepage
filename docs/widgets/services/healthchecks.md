@@ -3,7 +3,7 @@ title: Health checks
 description: Health checks Widget Configuration
 ---
 
-[Health Checks](https://github.com/healthchecks/healthchecks)
+Learn more about [Health Checks](https://github.com/healthchecks/healthchecks).
 
 Specify a single check by including the `uuid` field or show the total 'up' and 'down' for all
 checks by leaving off the `uuid` field.

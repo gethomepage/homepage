@@ -3,7 +3,7 @@ title: Mealie
 description: Mealie Widget Configuration
 ---
 
-[Mealie](https://github.com/mealie-recipes/mealie)
+Learn more about [Mealie](https://github.com/mealie-recipes/mealie).
 
 Generate a user API key under `Profile > Manage Your API Tokens > Generate`.
 

@@ -3,7 +3,7 @@ title: GameDig
 description: GameDig Widget Configuration
 ---
 
-[GameDig](https://github.com/gamedig/node-gamedig)
+Learn more about [GameDig](https://github.com/gamedig/node-gamedig).
 
 Uses the [GameDig](https://www.npmjs.com/package/gamedig) library to get game server information for any supported server type.
 

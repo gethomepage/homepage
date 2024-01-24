@@ -3,7 +3,7 @@ title: Kavita
 description: Kavita Widget Configuration
 ---
 
-[Kavita](https://github.com/Kareadita/Kavita)
+Learn more about [Kavita](https://github.com/Kareadita/Kavita).
 
 Uses the same username and password used to login from the web.
 

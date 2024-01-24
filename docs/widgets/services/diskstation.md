@@ -3,7 +3,7 @@ title: Synology Disk Station
 description: Synology Disk Station Widget Configuration
 ---
 
-[Synology Disk Station](https://www.synology.com/en-global/dsm)
+Learn more about [Synology Disk Station](https://www.synology.com/en-global/dsm).
 
 Note: the widget is not compatible with 2FA.
 

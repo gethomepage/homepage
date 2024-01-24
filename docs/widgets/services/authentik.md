@@ -3,7 +3,7 @@ title: Authentik
 description: Authentik Widget Configuration
 ---
 
-[Authentik](https://github.com/goauthentik/authentik)
+Learn more about [Authentik](https://github.com/goauthentik/authentik).
 
 This widget reads the number of active users in the system, as well as logins for the last 24 hours.
 

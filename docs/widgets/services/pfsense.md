@@ -3,7 +3,7 @@ title: pfSense
 description: pfSense Widget Configuration
 ---
 
-[pfSense](https://github.com/pfsense/pfsense)
+Learn more about [pfSense](https://github.com/pfsense/pfsense).
 
 This widget requires the installation of the [pfsense-api](https://github.com/jaredhendrickson13/pfsense-api) which is a 3rd party package for pfSense routers.
 

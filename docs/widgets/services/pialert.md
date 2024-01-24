@@ -3,7 +3,7 @@ title: PiAlert
 description: PiAlert Widget Configuration
 ---
 
-[PiAlert](https://github.com/pucherot/Pi.Alert)
+Learn more about [PiAlert](https://github.com/pucherot/Pi.Alert).
 
 Widget for [PiAlert](https://github.com/jokob-sk/Pi.Alert).
 

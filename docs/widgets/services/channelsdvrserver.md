@@ -3,7 +3,7 @@ title: Channels DVR Server
 description: Channels DVR Server Widget Configuration
 ---
 
-[Channels DVR Server](https://getchannels.com/dvr-server/)
+Learn more about [Channels DVR Server](https://getchannels.com/dvr-server/).
 
 ```yaml
 widget:

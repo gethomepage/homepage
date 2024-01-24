@@ -3,7 +3,7 @@ title: Flood
 description: Flood Widget Configuration
 ---
 
-[Flood](https://github.com/jesec/flood)
+Learn more about [Flood](https://github.com/jesec/flood).
 
 Allowed fields: `["leech", "download", "seed", "upload"]`.
 

@@ -3,7 +3,7 @@ title: Calibre-web
 description: Calibre-web Widget Configuration
 ---
 
-[Calibre-web](https://github.com/janeczku/calibre-web)
+Learn more about [Calibre-web](https://github.com/janeczku/calibre-web).
 
 **Note: widget requires calibre-web ≥ v0.6.21.**
 

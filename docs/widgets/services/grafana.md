@@ -3,7 +3,7 @@ title: Grafana
 description: Grafana Widget Configuration
 ---
 
-[Grafana](https://github.com/grafana/grafana)
+Learn more about [Grafana](https://github.com/grafana/grafana).
 
 Allowed fields: `["dashboards", "datasources", "totalalerts", "alertstriggered"]`.
 

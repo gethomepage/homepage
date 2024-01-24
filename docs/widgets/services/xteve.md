@@ -3,7 +3,7 @@ title: Xteve
 description: Xteve Widget Configuration
 ---
 
-[Xteve](https://github.com/xteve-project/xTeVe)
+Learn more about [Xteve](https://github.com/xteve-project/xTeVe).
 
 Allowed fields: `["streams_all", "streams_active", "streams_xepg"]`.
 

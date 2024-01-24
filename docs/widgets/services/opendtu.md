@@ -3,7 +3,7 @@ title: OpenDTU
 description: OpenDTU Widget
 ---
 
-[OpenDTU](https://github.com/tbnobody/OpenDTU)
+Learn more about [OpenDTU](https://github.com/tbnobody/OpenDTU).
 
 Allowed fields: `["yieldDay", "relativePower", "absolutePower", "limit"]`.
 

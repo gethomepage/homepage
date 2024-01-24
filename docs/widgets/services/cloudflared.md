@@ -3,7 +3,7 @@ title: Cloudflare Tunnels
 description: Cloudflare Tunnels Widget Configuration
 ---
 
-[Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/)
+Learn more about [Cloudflare Tunnels](https://www.cloudflare.com/products/tunnel/).
 
 _As of v0.6.10 this widget no longer accepts a Cloudflare global API key (or account email) due to security concerns. Instead, you should setup an API token which only requires the permissions `Account.Cloudflare Tunnel:Read`._
 

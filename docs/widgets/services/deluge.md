@@ -3,7 +3,7 @@ title: Deluge
 description: Deluge Widget Configuration
 ---
 
-[Deluge](https://deluge-torrent.org/)
+Learn more about [Deluge](https://deluge-torrent.org/).
 
 Uses the same password used to login to the webui, see [the deluge FAQ](https://dev.deluge-torrent.org/wiki/Faq#Whatisthedefaultpassword).
 

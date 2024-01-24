@@ -3,7 +3,7 @@ title: Mylar3
 description: Mylar3 Widget Configuration
 ---
 
-[Mylar3](https://github.com/mylar3/mylar3)
+Learn more about [Mylar3](https://github.com/mylar3/mylar3).
 
 API must be enabled in Mylar3 settings.
 

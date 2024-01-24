@@ -3,7 +3,7 @@ title: Coin Market Cap
 description: Coin Market Cap Widget Configuration
 ---
 
-[Coin Market Cap](https://coinmarketcap.com/api)
+Learn more about [Coin Market Cap](https://coinmarketcap.com/api).
 
 Get your API key from your [CoinMarketCap Pro Dashboard](https://pro.coinmarketcap.com/account).
 

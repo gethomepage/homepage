@@ -3,7 +3,7 @@ title: Jellyfin
 description: Jellyfin Widget Configuration
 ---
 
-[Jellyfin](https://github.com/jellyfin/jellyfin)
+Learn more about [Jellyfin](https://github.com/jellyfin/jellyfin).
 
 You can create an API key from inside Jellyfin at `Settings > Advanced > Api Keys`.
 

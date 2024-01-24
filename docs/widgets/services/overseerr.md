@@ -3,7 +3,7 @@ title: Overseerr
 description: Overseerr Widget Configuration
 ---
 
-[Overseerr](https://github.com/sct/overseerr)
+Learn more about [Overseerr](https://github.com/sct/overseerr).
 
 Find your API key under `Settings > General`.
 

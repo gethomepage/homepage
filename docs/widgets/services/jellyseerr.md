@@ -3,7 +3,7 @@ title: Jellyseerr
 description: Jellyseerr Widget Configuration
 ---
 
-[Jellyseerr](https://github.com/Fallenbagel/jellyseerr)
+Learn more about [Jellyseerr](https://github.com/Fallenbagel/jellyseerr).
 
 Find your API key under `Settings > General > API Key`.
 

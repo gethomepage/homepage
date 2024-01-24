@@ -3,7 +3,7 @@ title: Radarr
 description: Radarr Widget Configuration
 ---
 
-[Radarr](https://github.com/Radarr/Radarr)
+Learn more about [Radarr](https://github.com/Radarr/Radarr).
 
 Find your API key under `Settings > General`.
 

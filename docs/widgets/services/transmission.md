@@ -3,7 +3,7 @@ title: Transmission
 description: Transmission Widget Configuration
 ---
 
-[Transmission](https://github.com/transmission/transmission)
+Learn more about [Transmission](https://github.com/transmission/transmission).
 
 Uses the same username and password used to login from the web.
 

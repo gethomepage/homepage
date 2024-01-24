@@ -3,7 +3,7 @@ title: Autobrr
 description: Autobrr Widget Configuration
 ---
 
-[Autobrr](https://github.com/autobrr/autobrr)
+Learn more about [Autobrr](https://github.com/autobrr/autobrr).
 
 Find your API key under `Settings > API Keys`.
 

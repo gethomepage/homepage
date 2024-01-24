@@ -3,7 +3,7 @@ title: Komga
 description: Komga Widget Configuration
 ---
 
-[Komga](https://github.com/gotson/komga)
+Learn more about [Komga](https://github.com/gotson/komga).
 
 Uses the same username and password used to login from the web.
 

@@ -3,7 +3,7 @@ title: OpenMediaVault
 description: OpenMediaVault Widget Configuration
 ---
 
-[OpenMediaVault](https://www.openmediavault.org/)
+Learn more about [OpenMediaVault](https://www.openmediavault.org/).
 
 Provides useful information from your OpenMediaVault
 

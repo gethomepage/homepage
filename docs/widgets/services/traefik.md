@@ -3,7 +3,7 @@ title: Traefik
 description: Traefik Widget Configuration
 ---
 
-[Traefik](https://github.com/traefik/traefik)
+Learn more about [Traefik](https://github.com/traefik/traefik).
 
 No extra configuration is required.
 If your traefik install requires authentication, include the username and password used to login to the web interface.

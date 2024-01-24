@@ -3,7 +3,7 @@ title: UptimeRobot
 description: UptimeRobot Widget Configuration
 ---
 
-[UptimeRobot](https://uptimerobot.com/)
+Learn more about [UptimeRobot](https://uptimerobot.com/).
 
 To generate an API key, select `My Settings`, and either `Monitor-Specific API Key` or `Read-Only API Key`.
 

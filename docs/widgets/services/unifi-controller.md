@@ -3,7 +3,7 @@ title: Unifi Controller
 description: Unifi Controller Widget Configuration
 ---
 
-[Unifi Controller](https://ui.com/)
+Learn more about [Unifi Controller](https://ui.com/).
 
 _(Find the Unifi Controller information widget [here](../info/unifi_controller.md))_
 

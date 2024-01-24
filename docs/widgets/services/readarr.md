@@ -3,7 +3,7 @@ title: Readarr
 description: Readarr Widget Configuration
 ---
 
-[Readarr](https://github.com/Readarr/Readarr)
+Learn more about [Readarr](https://github.com/Readarr/Readarr).
 
 Find your API key under `Settings > General`.
 

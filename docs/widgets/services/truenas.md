@@ -3,7 +3,7 @@ title: TrueNas
 description: TrueNas Scale Widget Configuration
 ---
 
-[TrueNas](https://www.truenas.com/)
+Learn more about [TrueNas](https://www.truenas.com/).
 
 Allowed fields: `["load", "uptime", "alerts"]`.
 

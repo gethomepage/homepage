@@ -3,7 +3,7 @@ title: Nextcloud
 description: Nextcloud Widget Configuration
 ---
 
-[Nextcloud](https://github.com/nextcloud)
+Learn more about [Nextcloud](https://github.com/nextcloud).
 
 Use username & password, or the `NC-Token` key. Information about the token can be found under **Settings** > **System**. If both are provided, NC-Token will be used.
 

@@ -3,7 +3,7 @@ title: Home Assistant
 description: Home Assistant Widget Configuration
 ---
 
-[Home Assistant](https://www.home-assistant.io/)
+Learn more about [Home Assistant](https://www.home-assistant.io/).
 
 You will need to generate a long-lived access token for an existing Home Assistant user in its profile.
 

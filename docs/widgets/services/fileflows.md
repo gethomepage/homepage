@@ -3,7 +3,7 @@ title: Fileflows
 description: Fileflows Widget Configuration
 ---
 
-[FileFlows](https://github.com/revenz/FileFlows)
+Learn more about [FileFlows](https://github.com/revenz/FileFlows).
 
 Allowed fields: `["queue", "processing", "processed", "time"]`.
 

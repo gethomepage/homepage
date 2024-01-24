@@ -3,7 +3,7 @@ title: Emby
 description: Emby Widget Configuration
 ---
 
-[Emby](https://github.com/MediaBrowser/Emby)
+Learn more about [Emby](https://github.com/MediaBrowser/Emby).
 
 You can create an API key from inside Emby at `Settings > Advanced > Api Keys`.
 

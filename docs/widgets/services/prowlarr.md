@@ -3,7 +3,7 @@ title: Prowlarr
 description: Prowlarr Widget Configuration
 ---
 
-[Prowlarr](https://github.com/Prowlarr/Prowlarr)
+Learn more about [Prowlarr](https://github.com/Prowlarr/Prowlarr).
 
 Find your API key under `Settings > General`.
 

@@ -3,7 +3,7 @@ title: Miniflux
 description: Miniflux Widget Configuration
 ---
 
-[Miniflux](https://github.com/miniflux/v2)
+Learn more about [Miniflux](https://github.com/miniflux/v2).
 
 Api key is found under Settings > API keys
 

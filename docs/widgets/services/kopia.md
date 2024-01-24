@@ -3,7 +3,7 @@ title: Kopia
 description: Kopia Widget Configuration
 ---
 
-[Kopia](https://github.com/kopia/kopia)
+Learn more about [Kopia](https://github.com/kopia/kopia).
 
 Allowed fields: `["status", "size", "lastrun", "nextrun"]`.
 

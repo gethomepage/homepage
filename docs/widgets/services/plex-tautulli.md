@@ -3,7 +3,7 @@ title: Tautulli (Plex)
 description: Tautulli Widget Configuration
 ---
 
-[Tautulli](https://github.com/Tautulli/Tautulli)
+Learn more about [Tautulli](https://github.com/Tautulli/Tautulli).
 
 Provides detailed information about currently active streams. You can find the API key from inside Tautulli at `Settings > Web Interface > API`.
 
