@@ -48,8 +48,8 @@ function generateDefinitions(channelsData, statusData, tuner) {
 }
 
 export default function Component({ service }) {
-  const { widget, tuner = 0 } = service;
-  const { refreshInterval = 10000, fields = ["channels", "hd"] } = widget;
+  const { widget } = service;
+  const { tuner = 0, refreshInterval = 10000, fields = ["channels", "hd"] } = widget;
 
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "lineup", {
     refreshInterval: Math.max(1000, refreshInterval),

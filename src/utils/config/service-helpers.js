@@ -398,6 +398,9 @@ export function cleanServiceGroups(groups) {
           // glances, customapi, iframe
           refreshInterval,
 
+          // hdhomerun
+          tuner,
+
           // healthchecks
           uuid,
 
@@ -540,6 +543,9 @@ export function cleanServiceGroups(groups) {
           if (previousDays) cleanedService.widget.previousDays = previousDays;
           if (showTime) cleanedService.widget.showTime = showTime;
           if (timezone) cleanedService.widget.timezone = timezone;
+        }
+        if (type === "hdhomerun") {
+          if (tuner !== undefined) cleanedService.widget.tuner = tuner;
         }
         if (type === "healthchecks") {
           if (uuid !== undefined) cleanedService.widget.uuid = uuid;
