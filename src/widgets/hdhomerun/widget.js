@@ -8,6 +8,9 @@ const widget = {
     lineup: {
       endpoint: "lineup.json",
     },
+    status: {
+      endpoint: "status.json",
+    },
   },
 };
 
