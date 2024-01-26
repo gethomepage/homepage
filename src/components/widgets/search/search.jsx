@@ -12,7 +12,7 @@ export const searchProviders = {
   google: {
     name: "Google",
     url: "https://www.google.com/search?q=",
-    suggestionUrl: "https://www.google.com/complete/search?client=chrome&q=home",
+    suggestionUrl: "https://www.google.com/complete/search?client=chrome&q=",
     icon: SiGoogle,
   },
   duckduckgo: {
