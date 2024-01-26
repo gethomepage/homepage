@@ -7,8 +7,7 @@ Learn more about [HDHomerun](https://www.silicondust.com/support/downloads/).
 
 Allowed fields: `["channels", "hd", "tunerCount", "channelNumber", "channelNetwork", "signalStrength", "signalQuality", "symbolQuality", "networkRate", "clientIP" ]`.
 
-If more than 4 fields are provided, only the first 4 are displayed. The
-order that fields are configured is preserved for display.
+If more than 4 fields are provided, only the first 4 are displayed.
 
 ```yaml
 widget:
