@@ -115,29 +115,33 @@ export default function QuickLaunch({
         });
 
         if (!hideSearchSuggestions) {
-          fetch(`/api/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${searchProvider.name}`).then(async (searchSuggestionResult) => {
-            const newSearchSuggestions = (await searchSuggestionResult.json())[1];
-
-            // Check if there is a search suggestion
-            if (newSearchSuggestions) {
-              // Restrict the searchSuggestion to 4 entries
-              if (newSearchSuggestions.length - 4 > 0) {
-                newSearchSuggestions.splice(-(newSearchSuggestions.length-4));
-              }
+          if (searchString.trim() !== searchSuggestions[0]) {
+            fetch(`/api/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${searchProvider.name}`).then(async (searchSuggestionResult) => {
+              const newSearchSuggestions = await searchSuggestionResult.json();
               
-              // Save the new search suggestions in their state.
-              setSearchSuggestions(newSearchSuggestions);
-            }
-          }).catch(() => {
-            // If there is an error, just ignore it. There just will be no search suggestions.
-          });
+              // Check if there is a search suggestion
+              if (newSearchSuggestions) {
+                // Restrict the searchSuggestion to 4 entries
+                if (newSearchSuggestions[1].length - 4 > 0) {
+                  newSearchSuggestions[1].splice(-(newSearchSuggestions[1].length-4));
+                }
+                
+                // Save the new search suggestions in their state.
+                setSearchSuggestions(newSearchSuggestions);
+              }
+            }).catch(() => {
+              // If there is an error, just ignore it. There just will be no search suggestions.
+            });
+          }
 
           // Show search suggestions from their state. This will show the "old" suggestions until they are updated.
-          newResults = newResults.concat(searchSuggestions.map((suggestion)=>({
-            href: searchProvider.url + encodeURIComponent(suggestion),
-            name: suggestion,
-            type: "search",
-          })));
+          if (searchSuggestions[1]) {
+            newResults = newResults.concat(searchSuggestions[1].map((suggestion)=>({
+              href: searchProvider.url + encodeURIComponent(suggestion),
+              name: suggestion,
+              type: "search",
+            })));
+          }
         }
       }
 
