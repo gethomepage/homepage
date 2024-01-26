@@ -12,31 +12,37 @@ export const searchProviders = {
   google: {
     name: "Google",
     url: "https://www.google.com/search?q=",
+    suggestionUrl: "https://www.google.com/complete/search?client=chrome&q=home",
     icon: SiGoogle,
   },
   duckduckgo: {
     name: "DuckDuckGo",
     url: "https://duckduckgo.com/?q=",
+    suggestionUrl: "https://duckduckgo.com/ac/?type=list&q=",
     icon: SiDuckduckgo,
   },
   bing: {
     name: "Bing",
     url: "https://www.bing.com/search?q=",
+    suggestionUrl: "https://api.bing.com/osjson.aspx?query=",
     icon: SiMicrosoftbing,
   },
   baidu: {
     name: "Baidu",
     url: "https://www.baidu.com/s?wd=",
+    suggestionUrl: "http://suggestion.baidu.com/su?&action=opensearch&ie=utf-8&wd=",
     icon: SiBaidu,
   },
   brave: {
     name: "Brave",
     url: "https://search.brave.com/search?q=",
+    suggestionUrl: "https://search.brave.com/api/suggest?&rich=false&q=",
     icon: SiBrave,
   },
   custom: {
     name: "Custom",
     url: false,
+    suggestionUrl: false,
     icon: FiSearch,
   },
 };

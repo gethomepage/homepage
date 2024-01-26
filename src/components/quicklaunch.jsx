@@ -16,9 +16,9 @@ export default function QuickLaunch({
 }) {
   const { t } = useTranslation();
   const { settings } = useContext(SettingsContext);
-  const { searchDescriptions, hideVisitURL } = settings?.quicklaunch
+  const { searchDescriptions, hideVisitURL, hideSearchSuggestions } = settings?.quicklaunch
     ? settings.quicklaunch
-    : { searchDescriptions: false, hideVisitURL: false };
+    : { searchDescriptions: false, hideVisitURL: false, hideSearchSuggestions: false };
 
   const searchField = useRef();
 
@@ -90,45 +90,66 @@ export default function QuickLaunch({
   }
 
   useEffect(() => {
-    if (searchString.length === 0) setResults([]);
-    else {
-      let newResults = servicesAndBookmarks.filter((r) => {
-        const nameMatch = r.name.toLowerCase().includes(searchString);
-        let descriptionMatch;
+    (async () => {
+      if (searchString.length === 0) setResults([]);
+      else {
+        let newResults = servicesAndBookmarks.filter((r) => {
+          const nameMatch = r.name.toLowerCase().includes(searchString);
+          let descriptionMatch;
+          if (searchDescriptions) {
+            descriptionMatch = r.description?.toLowerCase().includes(searchString);
+            r.priority = nameMatch ? 2 * +nameMatch : +descriptionMatch; // eslint-disable-line no-param-reassign
+          }
+          return nameMatch || descriptionMatch;
+        });
+
         if (searchDescriptions) {
-          descriptionMatch = r.description?.toLowerCase().includes(searchString);
-          r.priority = nameMatch ? 2 * +nameMatch : +descriptionMatch; // eslint-disable-line no-param-reassign
+          newResults = newResults.sort((a, b) => b.priority - a.priority);
         }
-        return nameMatch || descriptionMatch;
-      });
 
-      if (searchDescriptions) {
-        newResults = newResults.sort((a, b) => b.priority - a.priority);
+        if (searchProvider) {
+          newResults.push({
+            href: searchProvider.url + encodeURIComponent(searchString),
+            name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")}`,
+            type: "search",
+          });
+
+          if (!hideSearchSuggestions) {
+            const searchSuggestionResult = await fetch(`/api/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${searchProvider.name}`);
+            const searchSuggestion = (await searchSuggestionResult.json())[1];
+            
+            // Check if there is a search suggestion
+            if (searchSuggestion) {
+              // Restrict the searchSuggestion to 4 entries
+              if (searchSuggestion.length - 4 > 0) {
+                searchSuggestion.splice(-(searchSuggestion.length-4));
+              }
+              
+              newResults = newResults.concat(searchSuggestion.map((suggestion)=>({
+                href: searchProvider.url + encodeURIComponent(suggestion),
+                name: suggestion,
+                type: "search",
+              })));
+            }
+          }
+        }
+
+        if (!hideVisitURL && url) {
+          newResults.unshift({
+            href: url.toString(),
+            name: `${t("quicklaunch.visit")} URL`,
+            type: "url",
+          });
+        }
+
+        setResults(newResults);
+
+        if (newResults.length) {
+          setCurrentItemIndex(0);
+        }
       }
-
-      if (searchProvider) {
-        newResults.push({
-          href: searchProvider.url + encodeURIComponent(searchString),
-          name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")} `,
-          type: "search",
-        });
-      }
-
-      if (!hideVisitURL && url) {
-        newResults.unshift({
-          href: url.toString(),
-          name: `${t("quicklaunch.visit")} URL`,
-          type: "url",
-        });
-      }
-
-      setResults(newResults);
-
-      if (newResults.length) {
-        setCurrentItemIndex(0);
-      }
-    }
-  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchProvider, url, t]);
+    })()
+  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, hideSearchSuggestions, searchProvider, url, t]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
