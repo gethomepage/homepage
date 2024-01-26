@@ -114,7 +114,7 @@ export default function QuickLaunch({
           type: "search",
         });
 
-        if (!hideSearchSuggestions) {
+        if (!hideSearchSuggestions && searchProvider.suggestionUrl) {
           if (searchString.trim() !== searchSuggestions[0]) {
             fetch(`/api/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${searchProvider.name}`).then(async (searchSuggestionResult) => {
               const newSearchSuggestions = await searchSuggestionResult.json();
