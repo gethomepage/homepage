@@ -426,6 +426,9 @@ export function cleanServiceGroups(groups) {
           // openmediavault
           method,
 
+          // openwrt
+          interfaceName,
+
           // opnsense, pfsense
           wan,
 
@@ -527,6 +530,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "openmediavault") {
           if (method) cleanedService.widget.method = method;
+        }
+        if (type === "openwrt") {
+          if (interfaceName) cleanedService.widget.interfaceName = interfaceName;
         }
         if (type === "customapi") {
           if (mappings) cleanedService.widget.mappings = mappings;
