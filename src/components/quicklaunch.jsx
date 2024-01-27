@@ -92,6 +92,8 @@ export default function QuickLaunch({
   }
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     if (searchString.length === 0) setResults([]);
     else {
       let newResults = servicesAndBookmarks.filter((r) => {
@@ -117,7 +119,10 @@ export default function QuickLaunch({
 
         if (!hideSearchSuggestions && searchProvider.suggestionUrl) {
           if (searchString.trim() !== searchSuggestions[0]) {
-            fetch(`/api/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${searchProvider.name}`)
+            fetch(
+              `/api/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${searchProvider.name}`,
+              { signal: abortController.signal },
+            )
               .then(async (searchSuggestionResult) => {
                 const newSearchSuggestions = await searchSuggestionResult.json();
 
@@ -164,6 +169,10 @@ export default function QuickLaunch({
         setCurrentItemIndex(0);
       }
     }
+
+    return () => {
+      abortController.abort();
+    };
   }, [
     searchString,
     servicesAndBookmarks,
