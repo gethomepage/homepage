@@ -17,7 +17,8 @@ or for a custom search:
 ```yaml
 - search:
     provider: custom
-    url: https://lougle.com/?q=
+    url: https://www.ecosia.org/search?q=
+    suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
     target: _blank
 ```
 
@@ -27,5 +28,26 @@ multiple providers is also supported via a dropdown (excluding custom):
 - search:
     provider: [brave, google, duckduckgo]
 ```
+
+The response body for the URL provided with the `suggestionUrl` option should looke like this:
+
+```json
+[
+  "home",
+  [
+    "home depot",
+    "home depot near me",
+    "home equity loan",
+    "homeworkify",
+    "homedepot.com",
+    "homebase login",
+    "home depot credit card",
+    "home goods"
+  ]
+]
+```
+
+The first entry of the array contains the search query, the second one is an array of the suggestions.
+In the example above, the search query was **home**.
 
 _Added in v0.1.6, updated in 0.6.0_
