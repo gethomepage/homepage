@@ -11,7 +11,9 @@ You can display general connectivity status from your Unifi (Network) Controller
 
 An optional 'site' parameter can be supplied, if it is not the widget will use the default site for the controller.
 
-Allowed fields: `["uptime", "wan", "lan_users", "wlan_users"]`.
+Allowed fields: `["uptime", "wan", "lan", "lan_users", "lan_devices", "wlan" "wlan_users", "wlan_devices" ]`.
+
+If more than 4 fields are provided, only the first 4 are displayed.
 
 ```yaml
 widget:
@@ -22,4 +24,4 @@ widget:
   site: Site Name # optional
 ```
 
-_Added in v0.4.18, updated in 0.6.7_
+_Added in v0.4.18, updated in 0.8.7_

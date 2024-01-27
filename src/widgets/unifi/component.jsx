@@ -52,22 +52,40 @@ export default function Component({ service }) {
     );
   }
 
+  // If fields are not configured, set the dynamically determined fields.
+  if (!widget.fields) {
+    widget.fields = [];
+    if (uptime) {
+      widget.fields.push("unifi.uptime");
+    }
+    if (wan.show) {
+      widget.fields.push("unifi.wan");
+    }
+    if (lan.show && !wlan.show) {
+      widget.fields.push("unifi.lan_users");
+      widget.fields.push("unifi.lan");
+    }
+    if (wlan.show) {
+      widget.fields.push("unifi.wlan_users");
+    }
+    if (wlan.show && !lan.show) {
+      widget.fields.push("unifi.wlan_devices");
+      widget.fields.push("unifi.wlan");
+    }
+  }
+  // Limit to the first 4 available
+  widget.fields = widget.fields.slice(0, 4);
+
   return (
     <Container service={service}>
-      {uptime && <Block label="unifi.uptime" value={uptime} />}
-      {wan.show && <Block label="unifi.wan" value={wan.status === "ok" ? t("unifi.up") : t("unifi.down")} />}
-
-      {lan.show && <Block label="unifi.lan_users" value={t("common.number", { value: lan.num_user })} />}
-      {lan.show && !wlan.show && (
-        <Block label="unifi.lan_devices" value={t("common.number", { value: lan.num_adopted })} />
-      )}
-      {lan.show && !wlan.show && <Block label="unifi.lan" value={lan.up ? t("unifi.up") : t("unifi.down")} />}
-
-      {wlan.show && <Block label="unifi.wlan_users" value={t("common.number", { value: wlan.num_user })} />}
-      {wlan.show && !lan.show && (
-        <Block label="unifi.wlan_devices" value={t("common.number", { value: wlan.num_adopted })} />
-      )}
-      {wlan.show && !lan.show && <Block label="unifi.wlan" value={wlan.up ? t("unifi.up") : t("unifi.down")} />}
+      <Block label="unifi.uptime" value={uptime} />
+      <Block label="unifi.wan" value={wan.status === "ok" ? t("unifi.up") : t("unifi.down")} />
+      <Block label="unifi.lan_users" value={t("common.number", { value: lan.num_user })} />
+      <Block label="unifi.lan_devices" value={t("common.number", { value: lan.num_adopted })} />
+      <Block label="unifi.lan" value={lan.up ? t("unifi.up") : t("unifi.down")} />
+      <Block label="unifi.wlan_users" value={t("common.number", { value: wlan.num_user })} />
+      <Block label="unifi.wlan_devices" value={t("common.number", { value: wlan.num_adopted })} />
+      <Block label="unifi.wlan" value={wlan.up ? t("unifi.up") : t("unifi.down")} />
     </Container>
   );
 }
