@@ -25,6 +25,7 @@ export default function QuickLaunch({
   const [results, setResults] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
   const [url, setUrl] = useState(null);
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
@@ -36,8 +37,9 @@ export default function QuickLaunch({
     setTimeout(() => {
       setSearchString("");
       setCurrentItemIndex(null);
+      setSearchSuggestions([]);
     }, 200); // delay a little for animations
-  }, [close, setSearchString, setCurrentItemIndex]);
+  }, [close, setSearchString, setCurrentItemIndex, setSearchSuggestions]);
 
   function handleSearchChange(event) {
     const rawSearchString = event.target.value.toLowerCase();
@@ -89,7 +91,6 @@ export default function QuickLaunch({
     }
   }
 
-  const [searchSuggestions, setSearchSuggestions] = useState([]);
   useEffect(() => {
     if (searchString.length === 0) setResults([]);
     else {
