@@ -16,9 +16,9 @@ export default function QuickLaunch({
 }) {
   const { t } = useTranslation();
   const { settings } = useContext(SettingsContext);
-  const { searchDescriptions, hideVisitURL, hideSearchSuggestions } = settings?.quicklaunch
+  const { searchDescriptions, hideVisitURL, showSearchSuggestions } = settings?.quicklaunch
     ? settings.quicklaunch
-    : { searchDescriptions: false, hideVisitURL: false, hideSearchSuggestions: false };
+    : { searchDescriptions: false, hideVisitURL: false, showSearchSuggestions: false };
 
   const searchField = useRef();
 
@@ -117,7 +117,7 @@ export default function QuickLaunch({
           type: "search",
         });
 
-        if (!hideSearchSuggestions && searchProvider.suggestionUrl) {
+        if (showSearchSuggestions && searchProvider.suggestionUrl) {
           if (searchString.trim() !== searchSuggestions[0]) {
             fetch(
               `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
@@ -180,7 +180,7 @@ export default function QuickLaunch({
     servicesAndBookmarks,
     searchDescriptions,
     hideVisitURL,
-    hideSearchSuggestions,
+    showSearchSuggestions,
     searchSuggestions,
     searchProvider,
     url,
