@@ -120,7 +120,9 @@ export default function QuickLaunch({
         if (!hideSearchSuggestions && searchProvider.suggestionUrl) {
           if (searchString.trim() !== searchSuggestions[0]) {
             fetch(
-              `/api/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${searchProvider.name}`,
+              `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
+                searchProvider.name
+              }`,
               { signal: abortController.signal },
             )
               .then(async (searchSuggestionResult) => {
