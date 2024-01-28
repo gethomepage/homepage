@@ -1,0 +1,49 @@
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the issue or question. If applicable, add screenshots to help explain your problem.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: homepage version
+      placeholder: e.g. v0.4.18 (4ea2798)
+    validations:
+      required: true
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Installation method
+      options:
+        - Docker
+        - Unraid
+        - Source
+        - Other (please describe above)
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration
+      description: Please provide any relevant service, widget or otherwise related configuration here
+      render: yaml
+  - type: textarea
+    id: container-logs
+    attributes:
+      label: Container Logs
+      description: Please review and provide any logs from the container, if relevant
+  - type: textarea
+    id: browser-logs
+    attributes:
+      label: Browser Logs
+      description: Please review and provide any logs from the browser, if relevant
+  - type: textarea
+    id: troubleshooting
+    attributes:
+      label: Troubleshooting
+      description: Please include output from your [troubleshooting tests](https://gethomepage.dev/latest/more/troubleshooting/#service-widget-errors), if relevant.
+    validations:
+      required: true
