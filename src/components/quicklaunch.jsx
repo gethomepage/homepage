@@ -131,8 +131,8 @@ export default function QuickLaunch({
                 // Check if there is a search suggestion
                 if (newSearchSuggestions) {
                   // Restrict the searchSuggestion to 4 entries
-                  if (newSearchSuggestions[1].length - 4 > 0) {
-                    newSearchSuggestions[1].splice(-(newSearchSuggestions[1].length - 4));
+                  if (newSearchSuggestions[1].length > 4) {
+                    newSearchSuggestions[1].splice(0, 4);
                   }
 
                   // Save the new search suggestions in their state.
