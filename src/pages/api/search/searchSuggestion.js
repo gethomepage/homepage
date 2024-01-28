@@ -11,8 +11,8 @@ export default async function handler(req, res) {
     const widgets = await widgetsFromConfig();
     const searchWidget = widgets.find((w) => w.type === "search");
 
-    provider.url = searchWidget.options.url ?? "";
-    provider.suggestionUrl = searchWidget.options.suggestionUrl ?? "";
+    provider.url = searchWidget.options.url;
+    provider.suggestionUrl = searchWidget.options.suggestionUrl;
   }
 
   if (!provider.suggestionUrl) {
