@@ -150,7 +150,7 @@ export default function QuickLaunch({
               searchSuggestions[1].map((suggestion) => ({
                 href: searchProvider.url + encodeURIComponent(suggestion),
                 name: suggestion,
-                type: "search",
+                type: "searchSuggestion",
               })),
             );
           }
