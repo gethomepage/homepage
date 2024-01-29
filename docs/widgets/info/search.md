@@ -9,6 +9,7 @@ You can add a search bar to your top widget area that can search using Google, D
 - search:
     provider: google # google, duckduckgo, bing, baidu, brave or custom
     focus: true # Optional, will set focus to the search bar on page load
+    showSearchSuggestions: true # Optional, will show search suggestions
     target: _blank # One of _self, _blank, _parent or _top
 ```
 
