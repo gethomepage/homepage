@@ -22,12 +22,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block
         label="openwrt.uptime"
-        value={t("openwrt.uptimeValue", {
-          days: Math.floor(uptime / 86400),
-          hours: Math.floor((uptime % 86400) / 3600),
-          minutes: Math.floor((uptime % 3600) / 60),
-          seconds: uptime % 60,
-        })}
+        value={t("common.uptime", { value: uptime })}
       />
       <Block label="openwrt.cpuLoad" value={cpuLoad} />
     </Container>

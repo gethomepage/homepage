@@ -13,12 +13,12 @@ widget:
   url: http://host.or.ip
   username: homepage
   password: pass
-  interfaceName: eth0
+  interfaceName: eth0 # optional
 ```
 
 ## Interface
 
-Adding an interfaceName (e.g eth0) will display information for that particular device, otherwise it will display general system info.
+Setting `interfaceName` (e.g. eth0) will display information for that particular device, otherwise the widget will display general system info.
 
 ## Authorization
 

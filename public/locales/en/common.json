@@ -782,10 +782,9 @@
     },
     "openwrt": {
         "uptime": "Uptime",
-        "uptimeValue": "{{days}}d {{hours}}h {{minutes}}m {{seconds}}s",
-        "cpuLoad": "CPU Load Avg (5 mins)",
-        "up": "UP",
-        "down": "DOWN",
+        "cpuLoad": "CPU Load Avg (5m)",
+        "up": "Up",
+        "down": "Down",
         "bytesTx": "Transmitted",
         "bytesRx": "Received"
     },
