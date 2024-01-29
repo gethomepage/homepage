@@ -788,6 +788,14 @@
         "passed": "Passed",
         "failed": "Failed"
     },
+    "openwrt": {
+        "uptime": "Uptime",
+        "cpuLoad": "CPU Load Avg (5m)",
+        "up": "Up",
+        "down": "Down",
+        "bytesTx": "Transmitted",
+        "bytesRx": "Received"
+    },
     "uptimerobot": {
         "status": "Status",
         "uptime": "Uptime",
