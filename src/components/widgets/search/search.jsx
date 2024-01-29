@@ -42,7 +42,6 @@ export const searchProviders = {
   custom: {
     name: "Custom",
     url: false,
-    suggestionUrl: false,
     icon: FiSearch,
   },
 };

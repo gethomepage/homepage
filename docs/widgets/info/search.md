@@ -29,7 +29,7 @@ multiple providers is also supported via a dropdown (excluding custom):
     provider: [brave, google, duckduckgo]
 ```
 
-The response body for the URL provided with the `suggestionUrl` option should looke like this:
+The response body for the URL provided with the `suggestionUrl` option should look like this:
 
 ```json
 [
