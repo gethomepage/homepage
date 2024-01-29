@@ -633,8 +633,8 @@
         "categories": "Catégories"
     },
     "komga": {
-        "libraries": "Librairies",
-        "series": "Séries TV",
+        "libraries": "Bibliothèques",
+        "series": "Collections",
         "books": "Livres"
     },
     "diskstation": {
@@ -727,7 +727,7 @@
         "downloadSpeed": "Débit"
     },
     "kavita": {
-        "seriesCount": "Séries TV",
+        "seriesCount": "Collections",
         "totalFiles": "Fichiers"
     },
     "azuredevops": {
