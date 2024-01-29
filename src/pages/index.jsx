@@ -212,11 +212,8 @@ function Home({ initialSettings }) {
       searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
     } else if (searchWidget.options?.provider === "custom") {
       searchProvider = {
-        ...searchProviders.custom,
-        ...{
-          url: searchWidget.options.url,
-          suggestionUrl: searchWidget.options.suggestionUrl,
-        },
+        url: searchWidget.options.url,
+        suggestionUrl: searchWidget.options.suggestionUrl,
       };
     } else {
       searchProvider = searchProviders[searchWidget.options?.provider];
