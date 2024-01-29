@@ -51,8 +51,7 @@ async function login(url, username, password) {
 }
 
 async function fetchInterface(url, interfaceName) {
-  // eslint-disable-next-line no-unused-vars
-  const [_status, contentType, data] = await sendJsonRpcRequest(url, RPC_METHOD, [authToken, ...PARAMS.device]);
+  const [, contentType, data] = await sendJsonRpcRequest(url, RPC_METHOD, [authToken, ...PARAMS.device]);
   if (isUnauthorized(data)) {
     return [401, contentType, data];
   }
@@ -71,8 +70,7 @@ async function fetchInterface(url, interfaceName) {
 }
 
 async function fetchSystem(url) {
-  // eslint-disable-next-line no-unused-vars
-  const [_status, contentType, data] = await sendJsonRpcRequest(url, RPC_METHOD, [authToken, ...PARAMS.system]);
+  const [, contentType, data] = await sendJsonRpcRequest(url, RPC_METHOD, [authToken, ...PARAMS.system]);
   if (isUnauthorized(data)) {
     return [401, contentType, data];
   }
@@ -112,16 +110,14 @@ export default async function proxyHandler(req, res) {
   const api = widgets?.[widget.type]?.api;
   const url = new URL(formatApiCall(api, { ...widget }));
 
-  let [status, contentType, data] = await fetchData(url, widget);
+  let [status, , data] = await fetchData(url, widget);
 
   if (status === 401) {
-    // eslint-disable-next-line no-unused-vars
-    const [loginStatus, loginContentType, loginData] = await login(url, widget.username, widget.password);
+    const [loginStatus, , loginData] = await login(url, widget.username, widget.password);
     if (loginStatus !== 200) {
       return res.status(loginStatus).end(loginData);
     }
-    // eslint-disable-next-line no-unused-vars
-    [status, contentType, data] = await fetchData(url, widget);
+    [status, , data] = await fetchData(url, widget);
 
     if (status === 401) {
       return res.status(401).json({ error: "Unauthorized" });
