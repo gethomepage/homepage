@@ -20,10 +20,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block
-        label="openwrt.uptime"
-        value={t("common.uptime", { value: uptime })}
-      />
+      <Block label="openwrt.uptime" value={t("common.uptime", { value: uptime })} />
       <Block label="openwrt.cpuLoad" value={cpuLoad} />
     </Container>
   );
