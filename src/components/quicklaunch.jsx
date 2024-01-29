@@ -276,7 +276,15 @@ export default function QuickLaunch({
                           </div>
                         )}
                         <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
-                          <span className="mr-4">{r.name}</span>
+                          {r.type !== "searchSuggestion" && <span className="mr-4">{r.name}</span>}
+                          {r.type === "searchSuggestion" && (
+                            <>
+                              <span className="whitespace-pre">{searchString}</span>
+                              <span className="mr-4 whitespace-pre opacity-50">
+                                {r.name.substring(searchString.length)}
+                              </span>
+                            </>
+                          )}
                           {r.description && (
                             <span className="text-xs text-theme-600 text-light">
                               {searchDescriptions && r.priority < 2 ? highlightText(r.description) : r.description}
