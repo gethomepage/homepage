@@ -215,6 +215,8 @@ function Home({ initialSettings }) {
     } else {
       searchProvider = searchProviders[searchWidget.options?.provider];
     }
+    // to pass to quicklaunch
+    searchProvider.showSearchSuggestions = searchWidget.options?.showSearchSuggestions;
   }
   const headerStyle = settings?.headerStyle || "underlined";
 
