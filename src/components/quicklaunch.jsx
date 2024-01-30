@@ -138,14 +138,10 @@ export default function QuickLaunch({
               .then(async (searchSuggestionResult) => {
                 const newSearchSuggestions = await searchSuggestionResult.json();
 
-                // Check if there is a search suggestion
                 if (newSearchSuggestions) {
-                  // Restrict the searchSuggestion to 4 entries
                   if (newSearchSuggestions[1].length > 4) {
                     newSearchSuggestions[1] = newSearchSuggestions[1].splice(0, 4);
                   }
-
-                  // Save the new search suggestions in their state.
                   setSearchSuggestions(newSearchSuggestions);
                 }
               })
@@ -154,7 +150,6 @@ export default function QuickLaunch({
               });
           }
 
-          // Show search suggestions from their state. This will show the "old" suggestions until they are updated.
           if (searchSuggestions[1]) {
             newResults = newResults.concat(
               searchSuggestions[1].map((suggestion) => ({

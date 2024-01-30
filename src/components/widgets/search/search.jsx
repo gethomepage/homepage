@@ -102,14 +102,10 @@ export default function Search({ options }) {
         .then(async (searchSuggestionResult) => {
           const newSearchSuggestions = await searchSuggestionResult.json();
 
-          // Check if there is a search suggestion
           if (newSearchSuggestions) {
-            // Restrict the searchSuggestion to 4 entries
             if (newSearchSuggestions[1].length > 4) {
               newSearchSuggestions[1] = newSearchSuggestions[1].splice(0, 4);
             }
-
-            // Save the new search suggestions in their state.
             setSearchSuggestions(newSearchSuggestions);
           }
         })
@@ -172,7 +168,6 @@ export default function Search({ options }) {
               // eslint-disable-next-line jsx-a11y/no-autofocus
               autoFocus={options.focus}
             />
-
             <Listbox
               as="div"
               value={selectedProvider}
@@ -233,7 +228,6 @@ export default function Search({ options }) {
               <Combobox.Options className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg">
                 <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
                   <Combobox.Option key={query} value={query} />
-
                   {searchSuggestions[1].map((suggestion) => (
                     <Combobox.Option key={suggestion} value={suggestion} className="flex w-full">
                       {({ active }) => (
