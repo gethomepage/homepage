@@ -9,7 +9,7 @@ You can add a search bar to your top widget area that can search using Google, D
 - search:
     provider: google # google, duckduckgo, bing, baidu, brave or custom
     focus: true # Optional, will set focus to the search bar on page load
-    showSearchSuggestions: true # Optional, will show search suggestions
+    showSearchSuggestions: true # Optional, will show search suggestions. Defaults to false
     target: _blank # One of _self, _blank, _parent or _top
 ```
 
@@ -19,8 +19,9 @@ or for a custom search:
 - search:
     provider: custom
     url: https://www.ecosia.org/search?q=
-    suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
     target: _blank
+    suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q= # Optional
+    showSearchSuggestions: true # Optional
 ```
 
 multiple providers is also supported via a dropdown (excluding custom):
