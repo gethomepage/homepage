@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
-import useSWR from "swr";
 
 import ResolvedIcon from "./resolvedicon";
 
@@ -17,18 +16,11 @@ export default function QuickLaunch({
 }) {
   const { t } = useTranslation();
 
-  const { data: widgets } = useSWR("/api/widgets");
-  const searchWidget = Object.values(widgets).find((w) => w.type === "search");
-
   const { settings } = useContext(SettingsContext);
-  const { searchDescriptions, hideVisitURL } = settings?.quicklaunch
-    ? settings.quicklaunch
-    : {
-        searchDescriptions: false,
-        hideVisitURL: false,
-      };
-  const showSearchSuggestions =
-    settings?.quicklaunch?.showSearchSuggestions ?? searchWidget.options.showSearchSuggestions ?? false;
+  const { searchDescriptions = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
+  const showSearchSuggestions = !!(
+    settings?.quicklaunch?.showSearchSuggestions ?? searchProvider.showSearchSuggestions
+  );
 
   const searchField = useRef();
 
