@@ -12,15 +12,17 @@ export default function Resources({ options }) {
   let { refresh } = options;
   if (!refresh) refresh = 1500;
   refresh = Math.max(refresh, 1000);
+  let { used } = options;
+  if (!used) used = false;
   return (
     <Container options={options}>
       <Raw>
         <div className="flex flex-row self-center flex-wrap justify-between">
           {options.cpu && <Cpu expanded={expanded} refresh={refresh} />}
-          {options.memory && <Memory expanded={expanded} refresh={refresh} />}
+          {options.memory && <Memory expanded={expanded} refresh={refresh} used={used} />}
           {Array.isArray(options.disk)
-            ? options.disk.map((disk) => <Disk key={disk} options={{ disk }} expanded={expanded} refresh={refresh} />)
-            : options.disk && <Disk options={options} expanded={expanded} refresh={refresh} />}
+            ? options.disk.map((disk) => <Disk key={disk} options={{ disk }} expanded={expanded} refresh={refresh} used={used} />)
+            : options.disk && <Disk options={options} expanded={expanded} refresh={refresh} used={used} />}
           {options.cputemp && <CpuTemp expanded={expanded} units={units} refresh={refresh} />}
           {options.uptime && <Uptime refresh={refresh} />}
         </div>

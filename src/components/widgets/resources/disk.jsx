@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import Resource from "../widget/resource";
 import Error from "../widget/error";
 
-export default function Disk({ options, expanded, refresh = 1500 }) {
+export default function Disk({ options, expanded, refresh = 1500, used = false }) {
   const { t } = useTranslation();
 
   const { data, error } = useSWR(`/api/widgets/resources?type=disk&target=${options.disk}`, {
@@ -36,8 +36,8 @@ export default function Disk({ options, expanded, refresh = 1500 }) {
   return (
     <Resource
       icon={FiHardDrive}
-      value={t("common.bytes", { value: data.drive.available })}
-      label={t("resources.free")}
+      value={t("common.bytes", { value: used ? (data.drive.size - data.drive.available) : data.drive.available })}
+      label={t(used ? "resources.used" : "resources.free")}
       expandedValue={t("common.bytes", { value: data.drive.size })}
       expandedLabel={t("resources.total")}
       percentage={percent}

@@ -113,11 +113,11 @@ export default function Widget({ options }) {
         <Resource
           icon={FaMemory}
           value={t("common.bytes", {
-            value: data.mem.free,
+            value: options.used ? (data.mem.total - data.mem.free) : data.mem.free,
             maximumFractionDigits: 1,
             binary: true,
           })}
-          label={t("glances.free")}
+          label={t(options.used ? "glances.used" : "glances.free")}
           expandedValue={t("common.bytes", {
             value: data.mem.total,
             maximumFractionDigits: 1,
@@ -132,8 +132,8 @@ export default function Widget({ options }) {
         <Resource
           key={`disk_${disk.mnt_point ?? disk.device_name}`}
           icon={FiHardDrive}
-          value={t("common.bytes", { value: disk.free })}
-          label={t("glances.free")}
+          value={t("common.bytes", { value: options.used ? (disk.size - disk.free) : disk.free })}
+          label={t(options.used ? "glances.used" : "glances.free")}
           expandedValue={t("common.bytes", { value: disk.size })}
           expandedLabel={t("glances.total")}
           percentage={disk.percent}

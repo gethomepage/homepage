@@ -18,6 +18,7 @@ The Glances widget allows you to monitor the resources (CPU, memory, storage, te
     uptime: true # disabled by default
     disk: / # disabled by default, use mount point of disk(s) in glances. Can also be a list (see below)
     expanded: true # show the expanded view
+    used: false # show used values instead of free
     label: MyMachine # optional
 ```
 

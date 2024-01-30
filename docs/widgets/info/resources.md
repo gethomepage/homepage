@@ -68,4 +68,15 @@ You can additionally supply an optional `expanded` property set to true in order
       - /disk3
 ```
 
+You can additionally supply an optional `used` property set to true in order to show used capacity instead of free capacity for memory and disk resources. By default the used property is set to false when not supplied.
+
+```yaml
+- resources:
+    label: Memory Resouces
+    used: true
+    memory: true
+    disk:
+      - /disk1
+```
+
 ![194136533-c4238c82-4d67-41a4-b3c8-18bf26d33ac2](https://user-images.githubusercontent.com/3441425/194728642-a9885274-922b-4027-acf5-a746f58fdfce.png)
