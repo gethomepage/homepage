@@ -3,7 +3,7 @@ title: Gluetun
 description: Gluetun Widget Configuration
 ---
 
-Learn more about [Glueton](https://github.com/qdm12/gluetun).
+Learn more about [Gluetun](https://github.com/qdm12/gluetun).
 
 !!! note
 
