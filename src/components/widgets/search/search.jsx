@@ -91,7 +91,11 @@ export default function Search({ options }) {
   useEffect(() => {
     const abortController = new AbortController();
 
-    if (options.showSearchSuggestions && selectedProvider.suggestionUrl && query.trim() !== searchSuggestions[0]) {
+    if (
+      options.showSearchSuggestions &&
+      (selectedProvider.suggestionUrl || options.suggestionUrl) && // custom providers pass url via options
+      query.trim() !== searchSuggestions[0]
+    ) {
       fetch(`/api/search/searchSuggestion?query=${encodeURIComponent(query)}&providerName=${selectedProvider.name}`, {
         signal: abortController.signal,
       })
@@ -117,7 +121,7 @@ export default function Search({ options }) {
     return () => {
       abortController.abort();
     };
-  }, [selectedProvider, options.showSearchSuggestions, query, searchSuggestions]);
+  }, [selectedProvider, options, query, searchSuggestions]);
 
   const submitCallback = useCallback(
     (value) => {
