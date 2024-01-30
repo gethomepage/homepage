@@ -276,9 +276,11 @@ export default function QuickLaunch({
                           {r.type !== "searchSuggestion" && <span className="mr-4">{r.name}</span>}
                           {r.type === "searchSuggestion" && (
                             <>
-                              <span className="whitespace-pre">{searchString}</span>
+                              <span className="whitespace-pre">
+                                {r.name.indexOf(searchString) === 0 ? searchString : ""}
+                              </span>
                               <span className="mr-4 whitespace-pre opacity-50">
-                                {r.name.substring(searchString.length)}
+                                {r.name.indexOf(searchString) === 0 ? r.name.substring(searchString.length) : r.name}
                               </span>
                             </>
                           )}
