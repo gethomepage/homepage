@@ -12,7 +12,11 @@ export default async function cachedFetch(url, duration) {
     return cached;
   }
 
-  const data = await fetch(url).then((res) => res.json());
+  const data = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0",
+    },
+  }).then((res) => res.json());
   cache.put(url, data, duration * 1000 * 60);
   return data;
 }
