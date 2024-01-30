@@ -146,7 +146,7 @@ export default function Search({ options }) {
   return (
     <ContainerForm options={options} additionalClassNames="grow information-widget-search">
       <Raw>
-        <div className="flex-col relative h-8 my-4 min-w-fit">
+        <div className="flex-col relative h-8 my-4 min-w-fit z-50">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
           <Combobox value={query} onChange={submitCallback}>
             <Combobox.Input
@@ -226,8 +226,8 @@ export default function Search({ options }) {
             </Listbox>
 
             {searchSuggestions[1]?.length > 0 && (
-              <Combobox.Options className="mt-2 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/50 cursor-pointer">
-                <div className="px-2 py-1 bg-white/50 dark:bg-white/10 text-theme-900 dark:text-white">
+              <Combobox.Options className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg">
+                <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
                   <Combobox.Option key={query} value={query} />
 
                   {searchSuggestions[1].map((suggestion) => (
@@ -235,7 +235,7 @@ export default function Search({ options }) {
                       {({ active }) => (
                         <span
                           className={classNames(
-                            "px-1 rounded-md w-full",
+                            "px-2 py-1 rounded-md w-full",
                             active ? "bg-theme-300/20 dark:bg-white/10" : "",
                           )}
                         >
