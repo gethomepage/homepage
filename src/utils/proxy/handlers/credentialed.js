@@ -70,6 +70,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         withCredentials: true,
         credentials: "include",
         headers,
+        body: req.body,
       });
 
       let resultData = data;
