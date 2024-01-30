@@ -231,14 +231,17 @@ export default function Search({ options }) {
                   {searchSuggestions[1].map((suggestion) => (
                     <Combobox.Option key={suggestion} value={suggestion} className="flex w-full">
                       {({ active }) => (
-                        <span
+                        <div
                           className={classNames(
                             "px-2 py-1 rounded-md w-full",
                             active ? "bg-theme-300/20 dark:bg-white/10" : "",
                           )}
                         >
-                          {suggestion}
-                        </span>
+                          <span className="whitespace-pre">{suggestion.indexOf(query) === 0 ? query : ""}</span>
+                          <span className="mr-4 whitespace-pre opacity-50">
+                            {suggestion.indexOf(query) === 0 ? suggestion.substring(query.length) : suggestion}
+                          </span>
+                        </div>
                       )}
                     </Combobox.Option>
                   ))}
