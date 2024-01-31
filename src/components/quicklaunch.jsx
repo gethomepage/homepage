@@ -275,14 +275,14 @@ export default function QuickLaunch({
                         <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
                           {r.type !== "searchSuggestion" && <span className="mr-4">{r.name}</span>}
                           {r.type === "searchSuggestion" && (
-                            <>
+                            <div class="flex-nowrap">
                               <span className="whitespace-pre">
                                 {r.name.indexOf(searchString) === 0 ? searchString : ""}
                               </span>
                               <span className="mr-4 whitespace-pre opacity-50">
                                 {r.name.indexOf(searchString) === 0 ? r.name.substring(searchString.length) : r.name}
                               </span>
-                            </>
+                            </div>
                           )}
                           {r.description && (
                             <span className="text-xs text-theme-600 text-light">

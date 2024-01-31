@@ -233,7 +233,7 @@ export default function Search({ options }) {
                       {({ active }) => (
                         <div
                           className={classNames(
-                            "px-2 py-1 rounded-md w-full",
+                            "px-2 py-1 rounded-md w-full flex-nowrap",
                             active ? "bg-theme-300/20 dark:bg-white/10" : "",
                           )}
                         >
