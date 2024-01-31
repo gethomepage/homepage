@@ -279,7 +279,7 @@ export default function QuickLaunch({
                               <span className="whitespace-pre">
                                 {r.name.indexOf(searchString) === 0 ? searchString : ""}
                               </span>
-                              <span className="mr-4 whitespace-pre opacity-50">
+                              <span className="whitespace-pre opacity-50">
                                 {r.name.indexOf(searchString) === 0 ? r.name.substring(searchString.length) : r.name}
                               </span>
                             </div>
