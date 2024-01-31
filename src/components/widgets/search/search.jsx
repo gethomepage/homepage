@@ -146,7 +146,7 @@ export default function Search({ options }) {
   return (
     <ContainerForm options={options} additionalClassNames="grow information-widget-search">
       <Raw>
-        <div className="flex-col relative h-8 my-4 min-w-fit z-50">
+        <div className="flex-col relative h-8 my-4 min-w-fit z-20">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
           <Combobox value={query} onChange={submitCallback}>
             <Combobox.Input
