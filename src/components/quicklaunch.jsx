@@ -19,7 +19,7 @@ export default function QuickLaunch({
   const { settings } = useContext(SettingsContext);
   const { searchDescriptions = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
   const showSearchSuggestions = !!(
-    settings?.quicklaunch?.showSearchSuggestions ?? searchProvider.showSearchSuggestions
+    settings?.quicklaunch?.showSearchSuggestions ?? searchProvider?.showSearchSuggestions
   );
 
   const searchField = useRef();
