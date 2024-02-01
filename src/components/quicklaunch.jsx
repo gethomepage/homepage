@@ -15,16 +15,19 @@ export default function QuickLaunch({
   searchProvider,
 }) {
   const { t } = useTranslation();
+
   const { settings } = useContext(SettingsContext);
-  const { searchDescriptions, hideVisitURL } = settings?.quicklaunch
-    ? settings.quicklaunch
-    : { searchDescriptions: false, hideVisitURL: false };
+  const { searchDescriptions = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
+  const showSearchSuggestions = !!(
+    settings?.quicklaunch?.showSearchSuggestions ?? searchProvider.showSearchSuggestions
+  );
 
   const searchField = useRef();
 
   const [results, setResults] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
   const [url, setUrl] = useState(null);
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
@@ -36,8 +39,9 @@ export default function QuickLaunch({
     setTimeout(() => {
       setSearchString("");
       setCurrentItemIndex(null);
+      setSearchSuggestions([]);
     }, 200); // delay a little for animations
-  }, [close, setSearchString, setCurrentItemIndex]);
+  }, [close, setSearchString, setCurrentItemIndex, setSearchSuggestions]);
 
   function handleSearchChange(event) {
     const rawSearchString = event.target.value.toLowerCase();
@@ -90,6 +94,8 @@ export default function QuickLaunch({
   }
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     if (searchString.length === 0) setResults([]);
     else {
       let newResults = servicesAndBookmarks.filter((r) => {
@@ -109,9 +115,43 @@ export default function QuickLaunch({
       if (searchProvider) {
         newResults.push({
           href: searchProvider.url + encodeURIComponent(searchString),
-          name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")} `,
+          name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")}`,
           type: "search",
         });
+
+        if (showSearchSuggestions && searchProvider.suggestionUrl) {
+          if (searchString.trim() !== searchSuggestions[0]) {
+            fetch(
+              `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
+                searchProvider.name ?? "Custom"
+              }`,
+              { signal: abortController.signal },
+            )
+              .then(async (searchSuggestionResult) => {
+                const newSearchSuggestions = await searchSuggestionResult.json();
+
+                if (newSearchSuggestions) {
+                  if (newSearchSuggestions[1].length > 4) {
+                    newSearchSuggestions[1] = newSearchSuggestions[1].splice(0, 4);
+                  }
+                  setSearchSuggestions(newSearchSuggestions);
+                }
+              })
+              .catch(() => {
+                // If there is an error, just ignore it. There just will be no search suggestions.
+              });
+          }
+
+          if (searchSuggestions[1]) {
+            newResults = newResults.concat(
+              searchSuggestions[1].map((suggestion) => ({
+                href: searchProvider.url + encodeURIComponent(suggestion),
+                name: suggestion,
+                type: "searchSuggestion",
+              })),
+            );
+          }
+        }
       }
 
       if (!hideVisitURL && url) {
@@ -128,7 +168,21 @@ export default function QuickLaunch({
         setCurrentItemIndex(0);
       }
     }
-  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchProvider, url, t]);
+
+    return () => {
+      abortController.abort();
+    };
+  }, [
+    searchString,
+    servicesAndBookmarks,
+    searchDescriptions,
+    hideVisitURL,
+    showSearchSuggestions,
+    searchSuggestions,
+    searchProvider,
+    url,
+    t,
+  ]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
@@ -219,7 +273,17 @@ export default function QuickLaunch({
                           </div>
                         )}
                         <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
-                          <span className="mr-4">{r.name}</span>
+                          {r.type !== "searchSuggestion" && <span className="mr-4">{r.name}</span>}
+                          {r.type === "searchSuggestion" && (
+                            <div class="flex-nowrap">
+                              <span className="whitespace-pre">
+                                {r.name.indexOf(searchString) === 0 ? searchString : ""}
+                              </span>
+                              <span className="whitespace-pre opacity-50">
+                                {r.name.indexOf(searchString) === 0 ? r.name.substring(searchString.length) : r.name}
+                              </span>
+                            </div>
+                          )}
                           {r.description && (
                             <span className="text-xs text-theme-600 text-light">
                               {searchDescriptions && r.priority < 2 ? highlightText(r.description) : r.description}

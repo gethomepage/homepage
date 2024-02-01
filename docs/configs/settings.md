@@ -359,12 +359,14 @@ There are a few optional settings for the Quick Launch feature:
 
 - `searchDescriptions`: which lets you control whether item descriptions are included in searches. This is off by default. When enabled, results that match the item name will be placed above those that only match the description.
 - `hideInternetSearch`: disable automatically including the currently-selected web search (e.g. from the widget) as a Quick Launch option. This is false by default, enabling the feature.
+- `showSearchSuggestions`: shows search suggestions for the internet search. This value will be inherited from the search widget if it is not specified. If it is not specified there either, it will default to false.
 - `hideVisitURL`: disable detecting and offering an option to open URLs. This is false by default, enabling the feature.
 
 ```yaml
 quicklaunch:
   searchDescriptions: true
   hideInternetSearch: true
+  showSearchSuggestions: true
   hideVisitURL: true
 ```
 

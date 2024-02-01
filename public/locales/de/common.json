@@ -419,7 +419,8 @@
         "search": "Suchen",
         "custom": "Benutzerdefiniert",
         "visit": "Besuchen",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Vorschlag"
     },
     "wmo": {
         "0-day": "sonnig",
