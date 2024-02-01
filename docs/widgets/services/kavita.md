@@ -5,7 +5,7 @@ description: Kavita Widget Configuration
 
 Learn more about [Kavita](https://github.com/Kareadita/Kavita).
 
-Uses the same username and password used to login from the web.
+Uses the same admin role username and password used to login from the web.
 
 Allowed fields: `["seriesCount", "totalFiles"]`.
 
