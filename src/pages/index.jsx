@@ -224,7 +224,10 @@ function Home({ initialSettings }) {
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
         if (
-          (e.key.length === 1 && e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
+          (e.key.length === 1 &&
+            e.key.match(/(\w|\s|[à-ü]|[À-Ü])/g) &&
+            !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
+          e.key.match(/([à-ü]|[À-Ü])/g) || // accented characters may require modifier keys
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
           setSearching(true);
