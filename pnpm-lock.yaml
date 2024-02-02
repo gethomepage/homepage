@@ -145,8 +145,8 @@ devDependencies:
     specifier: ^3.2.4
     version: 3.2.4
   tailwind-scrollbar:
-    specifier: ^2.1.0
-    version: 2.1.0(tailwindcss@3.4.1)
+    specifier: ^3.0.5
+    version: 3.0.5(tailwindcss@3.4.1)
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
@@ -4146,8 +4146,8 @@ packages:
     hasBin: true
     dev: false
 
-  /tailwind-scrollbar@2.1.0(tailwindcss@3.4.1):
-    resolution: {integrity: sha512-zpvY5mDs0130YzYjZKBiDaw32rygxk5RyJ4KmeHjGnwkvbjm/PszON1m4Bbt2DkMRIXlXsfNevykAESgURN4KA==}
+  /tailwind-scrollbar@3.0.5(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-0ZwxTivevqq9BY9fRP9zDjHl7Tu+J5giBGbln+0O1R/7nHtBUKnjQcA1aTIhK7Oyjp6Uc/Dj6/dn8Dq58k5Uww==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
       tailwindcss: 3.x
