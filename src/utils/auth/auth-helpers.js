@@ -2,12 +2,12 @@ import ProxyAuthProvider from "./proxy";
 import NullAuthProvider from "./null";
 
 const AuthProviders = {
-  NullAuthProvider,
-  ProxyAuthProvider,
+  null: NullAuthProvider,
+  proxy: ProxyAuthProvider,
 };
 
 function getProviderByKey(key) {
-  return AuthProviders.find((provider) => provider.key === key) ?? NullAuthProvider;
+  return AuthProviders[key] || NullAuthProvider;
 }
 
 function authAllow({ user, groups }, item) {
