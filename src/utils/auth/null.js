@@ -1,5 +1,4 @@
 const NullPermissions = { user: null, groups: [] };
-const NullAuthKey = "none";
 
 function createNullAuth() {
   return {
@@ -15,7 +14,6 @@ async function fetchNullAuth([key]) {
 }
 
 const NullAuthProvider = {
-  key: NullAuthKey,
   create: createNullAuth,
   fetch: fetchNullAuth,
 };
