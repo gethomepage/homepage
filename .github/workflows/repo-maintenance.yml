@@ -41,11 +41,11 @@ jobs:
           issue-comment: >
             This issue has been automatically locked since there
             has not been any recent activity after it was closed.
-            Please open a new discussion or issue for related concerns.
+            Please open a new discussion for related concerns.
           pr-comment: >
             This pull request has been automatically locked since there
             has not been any recent activity after it was closed.
-            Please open a new discussion or issue for related concerns.
+            Please open a new discussion for related concerns.
           discussion-comment: >
             This discussion has been automatically locked since there
             has not been any recent activity after it was closed.
