@@ -4,7 +4,7 @@ function createNullAuth() {
   return {
     authorize: () => NullPermissions,
     getContext: () => ({
-      provider: NullAuthKey,
+      provider: "null",
     }),
   };
 }
