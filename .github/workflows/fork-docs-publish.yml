@@ -92,9 +92,9 @@ jobs:
           git checkout main
       - name: Docs Deploy for Main
         if: github.ref == 'refs/heads/main'
-        run: MKINSIDERS=true mike deploy --update --push ${{github.ref_name}}
+        run: mike deploy --update --push ${{github.ref_name}}
       - name: Docs Deploy for Tags
         if: github.ref != 'refs/heads/main'
-        run: MKINSIDERS=true mike deploy --update --push ${{github.ref_name}} latest
+        run: mike deploy --update --push ${{github.ref_name}} latest
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
