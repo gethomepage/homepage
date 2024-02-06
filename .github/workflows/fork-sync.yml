@@ -1,0 +1,49 @@
+name: Sync Fork
+on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'tag list'
+        type: string
+        required: false
+        default: ''
+  schedule:
+    - cron: '2 */12 * * *'
+permissions:
+  contents: write
+jobs:
+  synchronize-upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: git remote add upstream https://github.com/gethomepage/homepage.git && git fetch upstream --tags --force
+      - name: Fetch Upstream Tags
+        id: fetch-upstream-tags
+        if:  ${{ !inputs.tags }}
+        run: |
+          fmt='r=%(refname)
+          echo ${r#refs/tags/}'
+          echo 'NEW_TAGS<<EOF' >> $GITHUB_OUTPUT
+          EXPR=$(git for-each-ref --format="$fmt" --no-merge main refs/tags)
+          eval "$EXPR" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+      - name: Set Identity
+        run: |
+          git config user.name "Github Action"
+          git config user.email "bot@github-actions"
+      - name: Create Tags
+        if: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
+        run: |
+          for TAG in ${NEW_TAGS}; do
+            git checkout -b release/${TAG} ${TAG}
+            git rev-list --reverse main ^upstream/main | git cherry-pick --stdin
+            git tag -d ${TAG}
+            git tag ${TAG} release/${TAG}
+          done
+          for TAG in ${NEW_TAGS}; do git push -u origin release/${TAG}; done
+        env:
+          NEW_TAGS: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
+    env:
+      GH_TOKEN: ${{ github.token }}
