@@ -10,7 +10,7 @@ function getProxyPermissions(userHeader, groupHeader, request) {
 function createProxyAuth({ groupHeader, userHeader }) {
   return {
     getContext: (request) => ({
-      type: ProxyAuthKey,
+      provider: "proxy",
       ...(userHeader && { [userHeader]: request.headers.get(userHeader) }),
       ...(groupHeader && { [groupHeader]: request.headers.get(groupHeader) }),
     }),
