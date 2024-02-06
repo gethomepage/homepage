@@ -3,6 +3,8 @@ title: Caddy
 description: Caddy Widget Configuration
 ---
 
+Learn more about [Caddy](https://github.com/caddyserver/caddy).
+
 Allowed fields: `["upstreams", "requests", "requests_failed"]`.
 
 ```yaml

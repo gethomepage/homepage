@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -169,7 +170,7 @@
         "activeUser": "Aktive Geräte",
         "alerts": "Warnungen",
         "connectedGateway": "Verbundene Gateways",
-        "connectedSwitches": "Verbundene Switches"
+        "connectedSwitches": "Verbundene Switche"
     },
     "nzbget": {
         "rate": "Datenrate",
@@ -383,8 +384,8 @@
     },
     "authentik": {
         "users": "Benutzer",
-        "loginsLast24H": "Anmeldungen (24h)",
-        "failedLoginsLast24H": "fehlerhafte Anmeldungen (24h)"
+        "loginsLast24H": "Anmeldungen (24 h)",
+        "failedLoginsLast24H": "Fehlgeschlagene Anmeldungen (24 h)"
     },
     "proxmox": {
         "mem": "RAM",
@@ -418,7 +419,8 @@
         "search": "Suchen",
         "custom": "Benutzerdefiniert",
         "visit": "Besuchen",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Vorschlag"
     },
     "wmo": {
         "0-day": "sonnig",
@@ -491,9 +493,9 @@
     },
     "healthchecks": {
         "new": "Neu",
-        "up": "Online",
+        "up": "Senden",
         "grace": "In Karenzzeit",
-        "down": "Offline",
+        "down": "Empfangen",
         "paused": "Pausiert",
         "status": "Status",
         "last_ping": "Letzter Ping",
@@ -561,7 +563,7 @@
         "cpuLoad": "CPU-Auslastung",
         "memoryUsed": "RAM Verbrauch",
         "uptime": "Betriebszeit",
-        "numberOfLeases": "Leasen"
+        "numberOfLeases": "Leases"
     },
     "xteve": {
         "streams_all": "Keine Übertragungen",
@@ -608,7 +610,7 @@
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datenspeicher",
-        "failed_tasks_24h": "Fehlgeschlagene Prozesse 24h",
+        "failed_tasks_24h": "Fehlgeschlagene Prozesse (24 h)",
         "cpu_usage": "CPU",
         "memory_usage": "RAM"
     },
@@ -794,5 +796,13 @@
         "digitalRelease": "Digitale Version",
         "noEventsToday": "Heute keine Ereignisse!",
         "noEventsFound": "Keine Termine gefunden"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnungen",
+        "criticals": "Kritisch"
     }
 }

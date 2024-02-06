@@ -3,6 +3,8 @@ title: QNAP
 description: QNAP Widget Configuration
 ---
 
+Learn more about [QNAP](https://www.qnap.com).
+
 Allowed fields: `["cpuUsage", "memUsage", "systemTempC", "poolUsage", "volumeUsage"]`.
 
 ```yaml

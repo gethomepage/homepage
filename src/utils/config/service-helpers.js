@@ -102,7 +102,7 @@ export async function servicesFromDocker() {
             }
           });
 
-          if (!constructedService.name || !constructedService.group) {
+          if (constructedService && (!constructedService.name || !constructedService.group)) {
             logger.error(
               `Error constructing service using homepage labels for container '${containerName.replace(
                 /^\//,
@@ -398,6 +398,9 @@ export function cleanServiceGroups(groups) {
           // glances, customapi, iframe
           refreshInterval,
 
+          // hdhomerun
+          tuner,
+
           // healthchecks
           uuid,
 
@@ -425,6 +428,9 @@ export function cleanServiceGroups(groups) {
 
           // openmediavault
           method,
+
+          // openwrt
+          interfaceName,
 
           // opnsense, pfsense
           wan,
@@ -528,6 +534,9 @@ export function cleanServiceGroups(groups) {
         if (type === "openmediavault") {
           if (method) cleanedService.widget.method = method;
         }
+        if (type === "openwrt") {
+          if (interfaceName) cleanedService.widget.interfaceName = interfaceName;
+        }
         if (type === "customapi") {
           if (mappings) cleanedService.widget.mappings = mappings;
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
@@ -540,6 +549,9 @@ export function cleanServiceGroups(groups) {
           if (previousDays) cleanedService.widget.previousDays = previousDays;
           if (showTime) cleanedService.widget.showTime = showTime;
           if (timezone) cleanedService.widget.timezone = timezone;
+        }
+        if (type === "hdhomerun") {
+          if (tuner !== undefined) cleanedService.widget.tuner = tuner;
         }
         if (type === "healthchecks") {
           if (uuid !== undefined) cleanedService.widget.uuid = uuid;

@@ -3,6 +3,8 @@ title: pfSense
 description: pfSense Widget Configuration
 ---
 
+Learn more about [pfSense](https://github.com/pfsense/pfsense).
+
 This widget requires the installation of the [pfsense-api](https://github.com/jaredhendrickson13/pfsense-api) which is a 3rd party package for pfSense routers.
 
 Once pfSense API is installed, you can set the API to be read-only in System > API > Settings.

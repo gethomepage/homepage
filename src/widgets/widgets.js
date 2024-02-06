@@ -23,6 +23,7 @@ import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import fritzbox from "./fritzbox/widget";
 import gamedig from "./gamedig/widget";
+import gatus from "./gatus/widget";
 import ghostfolio from "./ghostfolio/widget";
 import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
@@ -62,6 +63,7 @@ import opendtu from "./opendtu/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import openmediavault from "./openmediavault/widget";
+import openwrt from "./openwrt/widget";
 import paperlessngx from "./paperlessngx/widget";
 import peanut from "./peanut/widget";
 import pfsense from "./pfsense/widget";
@@ -101,6 +103,7 @@ import watchtower from "./watchtower/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
 import urbackup from "./urbackup/widget";
+import romm from "./romm/widget";
 
 const widgets = {
   adguard,
@@ -127,6 +130,7 @@ const widgets = {
   freshrss,
   fritzbox,
   gamedig,
+  gatus,
   ghostfolio,
   glances,
   gluetun,
@@ -168,6 +172,7 @@ const widgets = {
   opnsense,
   overseerr,
   openmediavault,
+  openwrt,
   paperlessngx,
   peanut,
   pfsense,
@@ -186,6 +191,7 @@ const widgets = {
   qnap,
   radarr,
   readarr,
+  romm,
   rutorrent,
   sabnzbd,
   scrutiny,

@@ -3,6 +3,8 @@ title: Medusa
 description: Medusa Widget Configuration
 ---
 
+Learn more about [Medusa](https://github.com/medusajs/medusa).
+
 Allowed fields: `["wanted", "queued", "series"]`.
 
 ```yaml

@@ -12,7 +12,8 @@ export default async function cachedFetch(url, duration) {
     return cached;
   }
 
-  const data = await fetch(url).then((res) => res.json());
+  // wrapping text in JSON.parse to handle utf-8 issues
+  const data = JSON.parse(await fetch(url).then((res) => res.text()));
   cache.put(url, data, duration * 1000 * 60);
   return data;
 }

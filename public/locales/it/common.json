@@ -12,6 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nuovo",
-        "up": "Online",
+        "up": "Up",
         "grace": "Periodo di Tolleranza",
-        "down": "Non in linea",
+        "down": "Down",
         "paused": "In Pausa",
         "status": "Stato",
         "last_ping": "Ultimo Ping",
@@ -794,5 +795,13 @@
         "digitalRelease": "Versione digitale",
         "noEventsToday": "Nessun evento per oggi!",
         "noEventsFound": "Nessun evento trovato"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

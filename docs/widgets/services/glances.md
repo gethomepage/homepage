@@ -3,6 +3,8 @@ title: Glances
 description: Glances Widget Configuration
 ---
 
+Learn more about [Glances](https://github.com/nicolargo/glances).
+
 <img width="1614" alt="glances" src="https://github-production-user-asset-6210df.s3.amazonaws.com/82196/257382012-25648c97-2c1b-4db0-b5a5-f1509806079c.png">
 
 _(Find the Glances information widget [here](../info/glances.md))_

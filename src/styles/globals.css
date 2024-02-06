@@ -46,6 +46,10 @@ body {
   width: 0.75em;
 }
 
+dialog ::-webkit-scrollbar {
+  display: none;
+}
+
 ::-webkit-scrollbar-track {
   background-color: var(--scrollbar-track);
 }

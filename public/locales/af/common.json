@@ -12,8 +12,9 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "ma",
         "days": "d",
         "hours": "h",
         "minutes": "m",
@@ -491,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Nuut",
-        "up": "Aanlyn",
+        "up": "Op",
         "grace": "In Grasietydperk",
-        "down": "Vanlyn",
+        "down": "Af",
         "paused": "Onderbreek",
         "status": "Status",
         "last_ping": "Laaste Pieng",
@@ -794,5 +795,13 @@
         "digitalRelease": "Digitale Vrylating",
         "noEventsToday": "Geen gebeure vir vandag nie!",
         "noEventsFound": "Geen gebeure gevind nie"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

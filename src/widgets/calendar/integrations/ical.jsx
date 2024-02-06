@@ -7,6 +7,17 @@ import { RRule } from "rrule";
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import Error from "../../../components/services/widget/error";
 
+// https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
+function simpleHash(str) {
+  /* eslint-disable no-plusplus, no-bitwise */
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+  }
+  return (hash >>> 0).toString(36);
+  /* eslint-disable no-plusplus, no-bitwise */
+}
+
 export default function Integration({ config, params, setEvents, hideErrors, timezone }) {
   const { t } = useTranslation();
   const { data: icalData, error: icalError } = useWidgetAPI(config, config.name, {
@@ -47,7 +58,10 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
         const eventDate = timezone ? DateTime.fromJSDate(date, { zone: timezone }) : DateTime.fromJSDate(date);
 
         for (let j = 0; j < days; j += 1) {
-          eventsToAdd[`${event?.uid?.value}${i}${j}${type}`] = {
+          // See https://github.com/gethomepage/homepage/issues/2753 uid is not stable
+          // assumption is that the event is the same if the start, end and title are all the same
+          const hash = simpleHash(`${event?.dtstart?.value}${event?.dtend?.value}${title}${i}${j}${type}}`);
+          eventsToAdd[hash] = {
             title,
             date: eventDate.plus({ days: j }),
             color: config?.color ?? "zinc",
@@ -60,11 +74,16 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
 
       const recurrenceOptions = event?.recurrenceRule?.origOptions;
       if (recurrenceOptions && Object.keys(recurrenceOptions).length !== 0) {
-        const rule = new RRule(recurrenceOptions);
-        const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
+        try {
+          const rule = new RRule(recurrenceOptions);
+          const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
 
-        recurringEvents.forEach((date, i) => eventToAdd(date, i, "recurring"));
-        return;
+          recurringEvents.forEach((date, i) => eventToAdd(date, i, "recurring"));
+          return;
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error("Unable to parse recurring events from iCal: %s", e);
+        }
       }
 
       event.matchingDates.forEach((date, i) => eventToAdd(date, i, "single"));

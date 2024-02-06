@@ -218,12 +218,12 @@ function Home({ initialSettings, authContext }) {
       // if search provider is a list, try to retrieve from localstorage, fall back to the first
       searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
     } else if (searchWidget.options?.provider === "custom") {
-      searchProvider = {
-        url: searchWidget.options.url,
-      };
+      searchProvider = searchWidget.options;
     } else {
       searchProvider = searchProviders[searchWidget.options?.provider];
     }
+    // to pass to quicklaunch
+    searchProvider.showSearchSuggestions = searchWidget.options?.showSearchSuggestions;
   }
   const headerStyle = settings?.headerStyle || "underlined";
 
@@ -231,7 +231,10 @@ function Home({ initialSettings, authContext }) {
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
         if (
-          (e.key.length === 1 && e.key.match(/(\w|\s)/g) && !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
+          (e.key.length === 1 &&
+            e.key.match(/(\w|\s|[à-ü]|[À-Ü])/g) &&
+            !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
+          e.key.match(/([à-ü]|[À-Ü])/g) || // accented characters may require modifier keys
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
           setSearching(true);

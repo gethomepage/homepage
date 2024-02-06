@@ -3,6 +3,8 @@ title: Navidrome
 description: Navidrome Widget Configuration
 ---
 
+Learn more about [Navidrome](https://github.com/navidrome/navidrome).
+
 For detailed information about how to generate the token see http://www.subsonic.org/pages/api.jsp.
 
 Allowed fields: no configurable fields for this widget.
