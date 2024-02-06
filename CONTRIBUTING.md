@@ -16,9 +16,9 @@ We use github to host code, to track issues and feature requests, as well as acc
 
 In short, when you submit code changes, your submissions are understood to be under the same [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/gethomepage/homepage/issues)
+## Report bugs using Github [discussions](https://github.com/gethomepage/homepage/discussions)
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/gethomepage/homepage/issues/new); it's that easy!
+We use GitHub discussions to triage bugs. Report a bug by [opening a new discussion](https://github.com/gethomepage/homepage/discussions/new?category=support); it's that easy!
 
 ## Write bug reports with detail, background, and sample configurations
 
