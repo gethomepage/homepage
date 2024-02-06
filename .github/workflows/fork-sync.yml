@@ -42,7 +42,10 @@ jobs:
             git tag -d ${TAG}
             git tag ${TAG} release/${TAG}
           done
-          for TAG in ${NEW_TAGS}; do git push -u origin release/${TAG}; done
+          for TAG in ${NEW_TAGS}; do
+            git push -u origin release/${TAG}
+            git push origin ${TAG}
+          done
         env:
           NEW_TAGS: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
     env:
