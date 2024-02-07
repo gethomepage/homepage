@@ -34,16 +34,16 @@ function filterAllowedItems(perms, authGroups, groups, groupKey) {
 }
 
 export function readAuthSettings({ provider, groups } = {}) {
-  var group_array = [];
+  let groupArray = [];
   if (groups) {
     if (Array.isArray(groups)) {
-      group_array = groups.map((group) => ({
+      groupArray = groups.map((group) => ({
         name: Object.keys(group)[0],
         allowUsers: group.allowUsers,
         allowGroups: group.allowGroups,
       }));
     } else {
-      group_array = Object.keys(groups).map((group) => ({
+      groupArray = Object.keys(groups).map((group) => ({
         name: group,
         allowUsers: groups[group].allowUsers,
         allowGroups: groups[group].allowGroups,
@@ -53,7 +53,7 @@ export function readAuthSettings({ provider, groups } = {}) {
 
   return {
     provider: provider ? getProviderByKey(provider.type).create(provider) : NullAuthProvider.create(),
-    groups: group_array,
+    groups: groupArray,
   };
 }
 
