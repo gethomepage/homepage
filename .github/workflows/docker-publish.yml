@@ -46,7 +46,7 @@ jobs:
           python-version: 3.x
       -
         name: Check files
-        uses: pre-commit/action@v3.0.0
+        uses: pre-commit/action@v3.0.1
 
   build:
     name: Docker Build & Push
