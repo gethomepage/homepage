@@ -42,7 +42,7 @@ jobs:
           done
           for TAG in ${NEW_TAGS}; do
             git push -u origin release/${TAG}
-            gh release create ${TAG} --target release/${TAG} --generate-notes
+            gh release create ${TAG} --target release/${TAG} --generate-notes -R discretizer/homepage
           done
         env:
           NEW_TAGS: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
