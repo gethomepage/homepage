@@ -11,9 +11,10 @@ function getProviderByKey(key) {
 }
 
 function authAllow({ user, groups }, item) {
-  const groupAllow = "allowGroups" in item && groups.some((group) => item.allowGroups.includes(group));
-  const userAllow = "allowUsers" in item && item.allowUsers.includes(user);
-  const allowAll = !("allowGroups" in item) && !("allowUsers" in item);
+  const groupAllow =
+    "allowGroups" in item && item.allowGroups && groups.some((group) => item.allowGroups.includes(group));
+  const userAllow = "allowUsers" in item && item.allowUsers && item.allowUsers.includes(user);
+  const allowAll = !("allowGroups" in item && item.allowGroups) && !("allowUsers" in item && item.allowUsers);
 
   return userAllow || groupAllow || allowAll;
 }
