@@ -4,5 +4,5 @@ import { getSettings } from "utils/config/config";
 
 export default async function handler(req, res) {
   const { provider, groups } = readAuthSettings(getSettings().auth);
-  res.send(await servicesResponse(provider.permissions(req), groups));
+  res.send(await servicesResponse(provider.authorize(req), groups));
 }
