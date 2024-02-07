@@ -37,11 +37,17 @@ export function readAuthSettings({ provider, groups } = {}) {
   return {
     provider: provider ? getProviderByKey(provider.type).create(provider) : NullAuthProvider.create(),
     groups: groups
-      ? groups.map((group) => ({
-          name: Object.keys(group)[0],
-          allowUsers: group[Object.keys(group)[0]].allowUsers,
-          allowGroups: group[Object.keys(group)[0]].allowGroups,
-        }))
+      ? Array.isArray(groups)
+        ? groups.map((group) => ({
+            name: Object.keys(group)[0],
+            allowUsers: group.allowUsers,
+            allowGroups: group.allowGroups,
+          }))
+        : Object.keys(groups).map((group) => ({
+            name: group,
+            allowUsers: groups[group].allowUsers,
+            allowGroups: groups[group].allowGroups,
+          }))
       : [],
   };
 }
