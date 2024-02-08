@@ -41,6 +41,7 @@
         description: pi2 hole - main 
         siteMonitor: https://pi2.asbblog.com/admin
         icon: pi-hole
+- Storage Server:
     - NAS:
         href: http://unraid.asbblog.com/login/
         description: Unraid 
