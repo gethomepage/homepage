@@ -167,6 +167,7 @@ export default function Search({ options }) {
               autoComplete="off"
               // eslint-disable-next-line jsx-a11y/no-autofocus
               autoFocus={options.focus}
+              onBlur={(e) => e.preventDefault()}
             />
             <Listbox
               as="div"
