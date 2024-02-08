@@ -123,6 +123,10 @@ export default function Search({ options }) {
     if (event.key === "Tab") {
       event.preventDefault();
 
+      if (!(options.showSearchSuggestions && (selectedProvider.suggestionUrl || options.suggestionUrl))) {
+        return;
+      }
+
       const list = document.getElementById("comboboxOptions").getElementsByTagName("li");
       if (list.length === 0) {
         return;
