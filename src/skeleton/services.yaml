@@ -6,9 +6,11 @@
     - Radaar:
         href: http://radarr.asbblog.com/
         description: Radaar 
+        icon: radaar
     - QbTorrent: 
         href: http://qb.asbblog.com/
         description: Bit torrent 
+        icon: qbittorrent
     - Jelly: 
         href: http://jelly.asbblog.com/
         description: Jelly 
@@ -17,7 +19,7 @@
         href: http://radarr.asbblog.com/
         description: Sonnar
         siteMonitor: http://radarr.asbblog.com/
-        icon: si-sonnar
+        icon: sonnar
     - kodi: 
         href: http://kodi.asbblog.com/
         description: kodi
