@@ -16,6 +16,7 @@ widget:
   password: password # auth - optional
   method: GET # optional, e.g. POST
   headers: # optional, must be object, see below
+  vertical: # optional, default to false, see below
   mappings:
     - field: key # needs to be YAML string or object
       label: Field 1
@@ -111,6 +112,32 @@ You can manipulate data with the following tools `remap`, `scale` and `suffix`, 
   format: float
   scale: 0.001 # can be number or string e.g. 1/16
   suffix: kW
+```
+
+## Vertical View
+
+You can change the default block view to a list view (similar to the Coin Market Cap widget) by setting the `vertical` option to `true`. The list view extends vertically to the proper height.
+
+For those who set the `vertical` option to `true`, there are two optional parameters to add to the `mappings` section: `currency` and `trend`.
+
+- `currency`: Specifies a currency symbol to be added in front of the field value.
+- `trend`: Adds a colored trend indicator with a percentage sign. The value for the `trend` field needs to be a key similar to `field`.
+
+**Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`.
+
+```yaml
+- field: key
+  label: Field
+  format: text
+  trend: trend_key # optional
+  currency: USD # optional
+  remap:
+    - value: 0
+      to: None
+    - value: 1
+      to: Connected
+    - any: true # will map all other values
+      to: Unknown
 ```
 
 ## Custom Headers
