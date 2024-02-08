@@ -43,8 +43,7 @@ export default function QuickLaunch({
     }, 200); // delay a little for animations
   }, [close, setSearchString, setCurrentItemIndex, setSearchSuggestions]);
 
-  function handleSearchChange(event) {
-    const rawSearchString = event.target.value.toLowerCase();
+  function updateSearch(rawSearchString) {
     try {
       if (!/.+[.:].+/g.test(rawSearchString)) throw new Error(); // basic test for probably a url
       let urlString = rawSearchString;
@@ -54,6 +53,11 @@ export default function QuickLaunch({
       setUrl(null);
     }
     setSearchString(rawSearchString);
+  }
+
+  function handleSearchChange(event) {
+    const rawSearchString = event.target.value.toLowerCase();
+    updateSearch(rawSearchString);
   }
 
   function handleSearchKeyDown(event) {
@@ -70,6 +74,9 @@ export default function QuickLaunch({
       event.preventDefault();
     } else if (event.key === "ArrowUp" && currentItemIndex > 0) {
       setCurrentItemIndex(currentItemIndex - 1);
+      event.preventDefault();
+    } else if (event.key === "Tab" && results[currentItemIndex].type === "searchSuggestion") {
+      updateSearch(results[currentItemIndex].name);
       event.preventDefault();
     }
   }
