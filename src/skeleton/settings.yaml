@@ -10,6 +10,18 @@ layout:
   Other:
     style: row
     columns: 4
+  Media:
+    style: row
+    columns: 4
+  Monitoring:
+    style: row
+    columns: 4
+  Automation:
+    style: row
+    columns: 4
+  Storage Server:
+    style: row
+    columns: 4
 quicklaunch:
   searchDescriptions: true
   hideInternetSearch: true
