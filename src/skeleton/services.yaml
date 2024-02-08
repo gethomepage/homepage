@@ -45,14 +45,14 @@
 
 - Storage system:
     - NAS:
-        href: http://unraid.asbblog.com/
+        href: http://unraid.asbblog.com/login/
         description: Unraid 
-        siteMonitor: https://unraid.asbblog.com
+        siteMonitor: https://unraid.asbblog.com/login
         icon: unraid
     - NAS: 
         href: http://nas1.asbblog.com/
         description: synology 
-        siteMonitor: https://nas1.asbblog.com/
+        siteMonitor: https://nas1.asbblog.com/signin/
         icon: si-synology
 
 - Automation:
