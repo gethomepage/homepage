@@ -15,6 +15,7 @@
         href: http://jelly.asbblog.com/
         description: Jelly 
         icon: jellyfin
+- Media2: 
     - Sonarr: 
         href: http://sonarr.asbblog.com/
         description: Sonnar
@@ -41,6 +42,20 @@
         description: pi2 hole - main 
         siteMonitor: https://pi2.asbblog.com/admin
         icon: pi-hole
+
+- Storage system:
+    - NAS:
+        href: http://unraid.asbblog.com/
+        description: Unraid 
+        siteMonitor: https://unraid.asbblog.com
+        icon: unraid
+    - NAS: 
+        href: http://nas1.asbblog.com/
+        description: synology 
+        siteMonitor: https://nas1.asbblog.com/
+        icon: si-synology
+
+- Automation:
     - Home: 
         href: http://home.asbblog.com
         description: Home Assistance for home
@@ -57,19 +72,6 @@
         href: http://ubuntu2.asbblog.com/
         descripition: Casaos Ubuntu 
         icon: casaos
-
-- Storage system:
-    - NAS:
-        href: http://unraid.asbblog.com/
-        description: Unraid 
-        siteMonitor: https://unraid.asbblog.com
-        icon: unraid
-    - NAS: 
-        href: http://nas1.asbblog.com/
-        description: synology 
-        siteMonitor: https://nas1.asbblog.com/
-        icon: si-synology
-
 - Other: 
     - Calander: 
         widget:
