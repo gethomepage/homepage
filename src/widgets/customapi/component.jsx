@@ -104,7 +104,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { mappings = [], refreshInterval = 10000 } = widget;
+  const { mappings = [], refreshInterval = 10000, vertical = false } = widget;
   const { data: customData, error: customError } = useWidgetAPI(widget, null, {
     refreshInterval: Math.max(1000, refreshInterval),
   });
@@ -123,15 +123,55 @@ export default function Component({ service }) {
     );
   }
 
+  if (!vertical) {
+    return (
+      <Container service={service}>
+        {mappings.slice(0, 4).map((mapping) => (
+          <Block
+            label={mapping.label}
+            key={mapping.label}
+            value={formatValue(t, mapping, getValue(mapping.field, customData))}
+          />
+        ))}
+      </Container>
+    );
+  }
+  
   return (
     <Container service={service}>
-      {mappings.slice(0, 4).map((mapping) => (
-        <Block
-          label={mapping.label}
-          key={mapping.label}
-          value={formatValue(t, mapping, getValue(mapping.field, customData))}
-        />
-      ))}
+      <div className="flex flex-col w-full">
+        {mappings.map((mapping) => (
+          <div
+            key={mapping.label}
+            className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
+          >
+            <div className="font-thin pl-2">{mapping.label}</div>
+            <div className="flex flex-row text-right">
+              <div className="font-bold mr-2">
+                {mapping.currency ?
+                  t("common.number", {
+                    value: formatValue(t, mapping, getValue(mapping.field, customData)),
+                    style: "currency",
+                    currency: mapping.currency,
+                  }) :
+                  formatValue(t, mapping, getValue(mapping.field, customData))
+                }
+              </div>
+              {mapping.trend && (
+                <div
+                  className={`font-bold w-10 mr-2 ${getValue(mapping.trend, customData) > 0 ? "text-emerald-300" : "text-rose-300"
+                    }`}
+                >
+                  {!Number.isNaN(parseFloat(getValue(mapping.trend, customData))) ?
+                    Number(parseFloat(getValue(mapping.trend, customData)).toFixed(2)) :
+                    getValue(mapping.trend, customData)
+                  }%
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </Container>
   );
 }
