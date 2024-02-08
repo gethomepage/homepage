@@ -71,3 +71,12 @@
         href: http://ubuntu2.asbblog.com/
         descripition: Casaos Ubuntu 
         icon: casaos
+- Other: 
+    - Calander: 
+        widget:
+            type: calendar
+            firstDayInWeek: sunday # optional - defaults to monday
+            view: monthly # optional - possible values monthly, agenda
+            maxEvents: 10 # optional - defaults to 10
+            showTime: true # optional - show time for event happening today - defaults to false
+            timezone: America/Los_Angeles # optional and only when timezone is not detected properly (slightly slower performance) - force timezone for ical events (if it's the same - no change
