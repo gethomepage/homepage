@@ -6,7 +6,7 @@ function getProxyPermissions(userHeader, groupHeader, request) {
   const groupsString =
     groupHeader && request.headers[groupHeader.toLowerCase()] ? request.headers[groupHeader.toLowerCase()] : "";
 
-  return { user, groups: groupsString ? groupsString.split(",").map((v) => v.trimStart()) : [] };
+  return { user, groups: groupsString ? groupsString.split("|").map((v) => v.trim()) : [] };
 }
 
 function createProxyAuth({ groupHeader, userHeader }) {
