@@ -88,6 +88,7 @@ import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import strelaysrv from "./strelaysrv/widget";
+import synologyvpn from "./synologyvpn/widget";
 import tailscale from "./tailscale/widget";
 import tautulli from "./tautulli/widget";
 import tdarr from "./tdarr/widget";
@@ -198,6 +199,7 @@ const widgets = {
   sonarr,
   speedtest,
   strelaysrv,
+  synologyvpn,
   tailscale,
   tautulli,
   tdarr,
