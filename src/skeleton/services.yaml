@@ -2,17 +2,55 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
+- Media:
+    - Radaar:
+        href: http://radarr.asbblog.com/
+        description: Radaar 
+    - QbTorrent: 
+        href: http://qb.asbblog.com/
+        description: Bit torrent 
+    - Jelly: 
+        href: http://jelly.asbblog.com/
+        description: Jelly 
+    - Sonnar: 
+        href: http://radarr.asbblog.com/
+        description: Sonnar
+        siteMonitor: http://radarr.asbblog.com/
+    - kodi: 
+        href: http://kodi.asbblog.com/
+        description: kodi
+    - kodi2: 
+        href: http://kodi2.asbblog.com/
+        description: kodi2 
+       
 
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
+- Monitoring:
+    - Pi One:
+        href: http://pi.asbblog.com/
+        description: pi hole - main 
+        siteMonitor: https://pi.asbblog.com
+    - Pi two:
+        href: http://pi2.asbblog.com/
+        description: pi2 hole - main 
+        siteMonitor: https://pi2.asbblog.com
 
-- My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+- Storage system:
+    - NAS:
+        href: http://unraid.asbblog.com/
+        description: Unraid 
+        siteMonitor: https://unraid.asbblog.com
+    - NAS: 
+        href: http://nas1.asbblog.com/
+        description: synology 
+        siteMonitor: https://nas1.asbblog.com/
+
+- Automation:
+    - Home: 
+        href: http://home.asbblog.com
+        description: Home Assistance for home
+    - Casaos: 
+        href: http://casos.asbblog.com
+        description : Casaos Asbblog 
+    - Casaos Ubuntu: 
+        href: http://ubuntu2.asbblog.com/
+        descripition: Casaos Ubuntu 
