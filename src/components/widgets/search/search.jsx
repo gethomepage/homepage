@@ -124,6 +124,7 @@ export default function Search({ options }) {
       event.key === "Tab" &&
       document.getElementById("comboboxOptions")?.getAttribute("data-headlessui-state") === "open"
     ) {
+      document.getElementById("searchProviderButton").focus();
       event.preventDefault();
     }
   };
@@ -193,6 +194,7 @@ export default function Search({ options }) {
                   text-white font-medium text-sm
                   bg-theme-600/40 dark:bg-white/10
                   focus:ring-theme-500 dark:focus:ring-white/50"
+                  id="searchProviderButton"
                 >
                   <selectedProvider.icon className="text-white w-3 h-3" />
                   <span className="sr-only">{t("search.search")}</span>
