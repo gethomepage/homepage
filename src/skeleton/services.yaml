@@ -47,18 +47,23 @@
         href: http://unraid.asbblog.com/
         description: Unraid 
         siteMonitor: https://unraid.asbblog.com
+        icon: unraid
     - NAS: 
         href: http://nas1.asbblog.com/
         description: synology 
         siteMonitor: https://nas1.asbblog.com/
+        icon: si-synology
 
 - Automation:
     - Home: 
         href: http://home.asbblog.com
         description: Home Assistance for home
+        icon: homeassistant 
     - Casaos: 
         href: http://casos.asbblog.com
         description : Casaos Asbblog 
+        icon: casaos 
     - Casaos Ubuntu: 
         href: http://ubuntu2.asbblog.com/
         descripition: Casaos Ubuntu 
+        icon: casaos
