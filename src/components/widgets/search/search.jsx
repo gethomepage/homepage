@@ -121,8 +121,19 @@ export default function Search({ options }) {
 
   const handleSearchKeyDown = (event) => {
     if (event.key === "Tab") {
-      // TODO: add actual tab complete
       event.preventDefault();
+
+      const list = document.getElementById("comboboxOptions").getElementsByTagName("li");
+      if (list.length === 0) {
+        return;
+      }
+
+      for (let i = 0; i < list.length; i += 1) {
+        const item = list.item(i);
+        if (item.getAttribute("data-headlessui-state") === "active") {
+          setQuery(item.textContent);
+        }
+      }
     }
   };
 
@@ -233,7 +244,10 @@ export default function Search({ options }) {
             </Listbox>
 
             {searchSuggestions[1]?.length > 0 && (
-              <Combobox.Options className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg">
+              <Combobox.Options
+                className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg"
+                id="comboboxOptions"
+              >
                 <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
                   <Combobox.Option key={query} value={query} />
                   {searchSuggestions[1].map((suggestion) => (
