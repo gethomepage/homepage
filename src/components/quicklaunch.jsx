@@ -75,7 +75,7 @@ export default function QuickLaunch({
     } else if (event.key === "ArrowUp" && currentItemIndex > 0) {
       setCurrentItemIndex(currentItemIndex - 1);
       event.preventDefault();
-    } else if (event.key === "Tab" && results[currentItemIndex].type === "searchSuggestion") {
+    } else if (event.key === "Tab" && results[currentItemIndex]?.type === "searchSuggestion") {
       updateSearch(results[currentItemIndex].name);
       event.preventDefault();
     }
