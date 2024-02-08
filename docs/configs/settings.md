@@ -239,6 +239,14 @@ layout:
     initiallyCollapsed: true
 ```
 
+This can also be set globaly using the `groupsInitiallyCollapsed` option.
+
+```yaml
+groupsInitiallyCollapsed: true
+```
+
+The value set on a group will overwrite the global setting.
+
 By default the feature is disabled.
 
 ### Use Equal Height Cards
