@@ -7,12 +7,9 @@ background: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=fo
 theme: dark # or light
 color: slate
 layout:
-  Other:
-    style: row
-    columns: 4
   Media:
     style: row
-    columns: 4
+    columns: 6
   Monitoring:
     style: row
     columns: 4
