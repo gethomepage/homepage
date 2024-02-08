@@ -119,6 +119,13 @@ export default function Search({ options }) {
     };
   }, [selectedProvider, options, query, searchSuggestions]);
 
+  const handleSearchKeyDown = (event) => {
+    if (event.key === "Tab") {
+      // TODO: add actual tab complete
+      event.preventDefault();
+    }
+  };
+
   const submitCallback = useCallback(
     (value) => {
       const q = encodeURIComponent(value);
@@ -167,6 +174,7 @@ export default function Search({ options }) {
               autoComplete="off"
               // eslint-disable-next-line jsx-a11y/no-autofocus
               autoFocus={options.focus}
+              onKeyDown={handleSearchKeyDown}
             />
             <Listbox
               as="div"
