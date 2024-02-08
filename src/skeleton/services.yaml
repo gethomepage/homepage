@@ -14,12 +14,12 @@
     - Jelly: 
         href: http://jelly.asbblog.com/
         description: Jelly 
-        icon: si-jelly
-    - Sonnar: 
-        href: http://radarr.asbblog.com/
+        icon: jellyfin
+    - Sonarr: 
+        href: http://sonarr.asbblog.com/
         description: Sonnar
-        siteMonitor: http://radarr.asbblog.com/
-        icon: sonnar
+        siteMonitor: http://sonarr.asbblog.com/
+        icon: sonarr
     - kodi: 
         href: http://kodi.asbblog.com/
         description: kodi
@@ -58,7 +58,11 @@
     - Home: 
         href: http://home.asbblog.com
         description: Home Assistance for home
-        icon: homeassistant 
+        icon: home-assistant 
+        widget:
+            type: homeassistant
+            url: http://home.asbblog.com
+            key: access_token
     - Casaos: 
         href: http://casos.asbblog.com
         description : Casaos Asbblog 
