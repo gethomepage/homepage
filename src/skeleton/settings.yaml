@@ -7,7 +7,7 @@ background: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=fo
 theme: dark # or light
 color: slate
 layout:
-  Media:
+  Others:
     style: row
     columns: 4
 quicklaunch:
