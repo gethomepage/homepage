@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, Fragment } from "react";
+import { useState, useEffect, useCallback, Fragment, useRef } from "react";
 import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
 import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
@@ -71,6 +71,9 @@ export function getStoredProvider() {
 export default function Search({ options }) {
   const { t } = useTranslation();
 
+  const searchProviderButton = useRef();
+  const comboboxOptions = useRef();
+
   const availableProviderIds = getAvailableProviderIds(options);
 
   const [query, setQuery] = useState("");
@@ -120,11 +123,8 @@ export default function Search({ options }) {
   }, [selectedProvider, options, query, searchSuggestions]);
 
   const handleSearchKeyDown = (event) => {
-    if (
-      event.key === "Tab" &&
-      document.getElementById("comboboxOptions")?.getAttribute("data-headlessui-state") === "open"
-    ) {
-      document.getElementById("searchProviderButton").focus();
+    if (event.key === "Tab" && comboboxOptions.current?.getAttribute("data-headlessui-state") === "open") {
+      searchProviderButton.current.focus();
       event.preventDefault();
     }
   };
@@ -194,7 +194,7 @@ export default function Search({ options }) {
                   text-white font-medium text-sm
                   bg-theme-600/40 dark:bg-white/10
                   focus:ring-theme-500 dark:focus:ring-white/50"
-                  id="searchProviderButton"
+                  ref={searchProviderButton}
                 >
                   <selectedProvider.icon className="text-white w-3 h-3" />
                   <span className="sr-only">{t("search.search")}</span>
@@ -240,7 +240,7 @@ export default function Search({ options }) {
             {searchSuggestions[1]?.length > 0 && (
               <Combobox.Options
                 className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg"
-                id="comboboxOptions"
+                ref={comboboxOptions}
               >
                 <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
                   <Combobox.Option key={query} value={query} />
