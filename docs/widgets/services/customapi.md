@@ -123,7 +123,7 @@ For those who set the `vertical` option to `true`, there are two optional parame
 - `currency`: Specifies a currency symbol to be added in front of the field value.
 - `trend`: Adds a colored trend indicator with a percentage sign. The value for the `trend` field needs to be a key similar to `field`.
 
-**Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`.
+**Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`. However, if a currency is specified, the value after transformation must be a number in order to be properly processed.
 
 ```yaml
 - field: key
