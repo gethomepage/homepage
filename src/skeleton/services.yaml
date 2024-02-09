@@ -7,14 +7,17 @@
         href: http://radarr.asbblog.com/
         description: Radaar 
         icon: radaar
+        siteMonitor: http://radarr.asbblog.com/
     - QbTorrent: 
         href: http://qb.asbblog.com/
         description: Bit torrent 
         icon: qbittorrent
+        siteMonitor: http://qb.asbblog.com/
     - Jelly: 
         href: http://jelly.asbblog.com/
         description: Jelly 
         icon: jellyfin
+        siteMontior: http://jelly.asbblog.com
     - Sonarr: 
         href: http://sonarr.asbblog.com/
         description: Sonnar
@@ -28,8 +31,6 @@
         href: http://kodi2.asbblog.com/
         description: kodi2 
         icon: kodi
-       
-
 - Monitoring:
     - Pi One:
         href: http://pi.asbblog.com/admin
@@ -52,12 +53,12 @@
         description: synology 
         siteMonitor: https://nas1.asbblog.com/signin/
         icon: si-synology
-
 - Automation:
     - Home: 
         href: http://home.asbblog.com
         description: Home Assistance for home
         icon: home-assistant 
+        siteMonitor: http://home.asbblog.com
         widget:
             type: homeassistant
             url: http://home.asbblog.com
