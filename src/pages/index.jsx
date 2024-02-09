@@ -311,6 +311,7 @@ function Home({ initialSettings }) {
                   fiveColumns={settings.fiveColumns}
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
+                  groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 />
               ) : (
                 <BookmarksGroup
@@ -318,6 +319,7 @@ function Home({ initialSettings }) {
                   bookmarks={group}
                   layout={settings.layout?.[group.name]}
                   disableCollapse={settings.disableCollapse}
+                  groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 />
               ),
             )}
@@ -333,6 +335,7 @@ function Home({ initialSettings }) {
                 layout={settings.layout?.[group.name]}
                 fiveColumns={settings.fiveColumns}
                 disableCollapse={settings.disableCollapse}
+                groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
               />
             ))}
           </div>
@@ -345,6 +348,7 @@ function Home({ initialSettings }) {
                 bookmarks={group}
                 layout={settings.layout?.[group.name]}
                 disableCollapse={settings.disableCollapse}
+                groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
               />
             ))}
           </div>
@@ -361,6 +365,7 @@ function Home({ initialSettings }) {
     settings.disableCollapse,
     settings.useEqualHeights,
     settings.cardBlur,
+    settings.groupsInitiallyCollapsed,
     initialSettings.layout,
   ]);
 

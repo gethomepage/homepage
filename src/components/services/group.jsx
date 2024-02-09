@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -6,8 +6,20 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function ServicesGroup({ group, services, layout, fiveColumns, disableCollapse, useEqualHeights }) {
+export default function ServicesGroup({
+  group,
+  services,
+  layout,
+  fiveColumns,
+  disableCollapse,
+  useEqualHeights,
+  groupsInitiallyCollapsed,
+}) {
   const panel = useRef();
+
+  useEffect(() => {
+    if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
+  }, [layout, groupsInitiallyCollapsed]);
 
   return (
     <div
@@ -19,7 +31,7 @@ export default function ServicesGroup({ group, services, layout, fiveColumns, di
         layout?.header === false ? "flex-1 px-1 -my-1" : "flex-1 p-1",
       )}
     >
-      <Disclosure defaultOpen>
+      <Disclosure defaultOpen={!(layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) ?? true}>
         {({ open }) => (
           <>
             {layout?.header !== false && (
