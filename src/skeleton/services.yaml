@@ -61,7 +61,7 @@
         widget:
             type: homeassistant
             url: http://home.asbblog.com
-            key: access_token
+            key: 
     - Casaos: 
         href: http://casos.asbblog.com
         description : Casaos Asbblog 
