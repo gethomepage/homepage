@@ -63,26 +63,22 @@ export default function Component({ service }) {
     );
   }
 
-  const hasUuid = widget?.uuid;
+  const hasUuid = !!widget?.uuid;
 
   const { upCount, downCount } = countStatus(data);
 
-  return (
+  return hasUuid ? (
     <Container service={service}>
-      {hasUuid ? (
-        <>
-          <Block label="healthchecks.status" value={t(`healthchecks.${data.status}`)} />
-          <Block
-            label="healthchecks.last_ping"
-            value={data.last_ping ? formatDate(data.last_ping) : t("healthchecks.never")}
-          />
-        </>
-      ) : (
-        <>
-          <Block label="healthchecks.up" value={upCount} />
-          <Block label="healthchecks.down" value={downCount} />
-        </>
-      )}
+      <Block label="healthchecks.status" value={t(`healthchecks.${data.status}`)} />
+      <Block
+        label="healthchecks.last_ping"
+        value={data.last_ping ? formatDate(data.last_ping) : t("healthchecks.never")}
+      />
+    </Container>
+  ) : (
+    <Container service={service}>
+      <Block label="healthchecks.up" value={upCount} />
+      <Block label="healthchecks.down" value={downCount} />
     </Container>
   );
 }
