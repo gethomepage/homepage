@@ -9,6 +9,4 @@ RUN apt-get update \
         && apt-get clean -y \
         && rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install -r requirements.txt
-
 ENV PATH="${PATH}:./node_modules/.bin"
