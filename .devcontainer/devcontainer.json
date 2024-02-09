@@ -1,27 +1,26 @@
 {
-	"name": "homepage",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"VARIANT": "18-bullseye"
-		}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"dbaeumer.vscode-eslint",
-				"mhutchie.git-graph",
-				"streetsidesoftware.code-spell-checker",
-			],
-			"settings": {
-				"eslint.format.enable": true,
-				"eslint.lintTask.enable": true,
-				"eslint.packageManager": "pnpm"
-			}
-		}
-	},
-	"postCreateCommand": ".devcontainer/setup.sh",
-	"forwardPorts": [
-		3000
-	]
+  "name": "homepage",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "18-bullseye",
+    },
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "streetsidesoftware.code-spell-checker",
+        "esbenp.prettier-vscode",
+      ],
+      "settings": {
+        "eslint.format.enable": true,
+        "eslint.lintTask.enable": true,
+        "eslint.packageManager": "pnpm",
+      },
+    },
+  },
+  "postCreateCommand": ".devcontainer/setup.sh",
+  "forwardPorts": [3000],
 }
