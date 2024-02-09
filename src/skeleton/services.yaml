@@ -3,10 +3,10 @@
 # https://gethomepage.dev/latest/configs/services
 
 - Media:
-    - Radaar:
+    - Radarr:
         href: http://radarr.asbblog.com/
-        description: Radaar 
-        icon: radaar
+        description: Radarr 
+        icon: radarr
         siteMonitor: http://radarr.asbblog.com/
     - QbTorrent: 
         href: http://qb.asbblog.com/
