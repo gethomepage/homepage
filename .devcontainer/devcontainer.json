@@ -8,7 +8,12 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["dbaeumer.vscode-eslint", "mhutchie.git-graph", "streetsidesoftware.code-spell-checker"],
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "streetsidesoftware.code-spell-checker",
+        "esbenp.prettier-vscode",
+      ],
       "settings": {
         "eslint.format.enable": true,
         "eslint.lintTask.enable": true,
