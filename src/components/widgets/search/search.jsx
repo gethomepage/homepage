@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
 import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
@@ -119,20 +119,27 @@ export default function Search({ options }) {
     };
   }, [selectedProvider, options, query, searchSuggestions]);
 
-  const submitCallback = useCallback(
-    (value) => {
-      const q = encodeURIComponent(value);
-      const { url } = selectedProvider;
-      if (url) {
-        window.open(`${url}${q}`, options.target || "_blank");
-      } else {
-        window.open(`${options.url}${q}`, options.target || "_blank");
-      }
+  let currentSuggestion;
 
-      setQuery("");
-    },
-    [selectedProvider, options.url, options.target],
-  );
+  function doSearch(value) {
+    const q = encodeURIComponent(value);
+    const { url } = selectedProvider;
+    if (url) {
+      window.open(`${url}${q}`, options.target || "_blank");
+    } else {
+      window.open(`${options.url}${q}`, options.target || "_blank");
+    }
+
+    setQuery("");
+    currentSuggestion = null;
+  }
+
+  const handleSearchKeyDown = (event) => {
+    const useSuggestion = searchSuggestions.length && currentSuggestion;
+    if (event.key === "Enter") {
+      doSearch(useSuggestion ? currentSuggestion : event.target.value);
+    }
+  };
 
   if (!availableProviderIds) {
     return null;
@@ -148,7 +155,7 @@ export default function Search({ options }) {
       <Raw>
         <div className="flex-col relative h-8 my-4 min-w-fit z-20">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
-          <Combobox value={query} onChange={submitCallback}>
+          <Combobox value={query}>
             <Combobox.Input
               type="text"
               className="
@@ -160,13 +167,17 @@ export default function Search({ options }) {
               focus:border-theme-500 dark:focus:border-white/50
               border border-theme-300 dark:border-theme-200/50"
               placeholder={t("search.placeholder")}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                setQuery(event.target.value);
+              }}
               required
               autoCapitalize="off"
               autoCorrect="off"
               autoComplete="off"
               // eslint-disable-next-line jsx-a11y/no-autofocus
               autoFocus={options.focus}
+              onBlur={(e) => e.preventDefault()}
+              onKeyDown={handleSearchKeyDown}
             />
             <Listbox
               as="div"
@@ -229,20 +240,30 @@ export default function Search({ options }) {
                 <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
                   <Combobox.Option key={query} value={query} />
                   {searchSuggestions[1].map((suggestion) => (
-                    <Combobox.Option key={suggestion} value={suggestion} className="flex w-full">
-                      {({ active }) => (
-                        <div
-                          className={classNames(
-                            "px-2 py-1 rounded-md w-full flex-nowrap",
-                            active ? "bg-theme-300/20 dark:bg-white/10" : "",
-                          )}
-                        >
-                          <span className="whitespace-pre">{suggestion.indexOf(query) === 0 ? query : ""}</span>
-                          <span className="mr-4 whitespace-pre opacity-50">
-                            {suggestion.indexOf(query) === 0 ? suggestion.substring(query.length) : suggestion}
-                          </span>
-                        </div>
-                      )}
+                    <Combobox.Option
+                      key={suggestion}
+                      value={suggestion}
+                      onClick={() => {
+                        doSearch(suggestion);
+                      }}
+                      className="flex w-full"
+                    >
+                      {({ active }) => {
+                        if (active) currentSuggestion = suggestion;
+                        return (
+                          <div
+                            className={classNames(
+                              "px-2 py-1 rounded-md w-full flex-nowrap",
+                              active ? "bg-theme-300/20 dark:bg-white/10" : "",
+                            )}
+                          >
+                            <span className="whitespace-pre">{suggestion.indexOf(query) === 0 ? query : ""}</span>
+                            <span className="mr-4 whitespace-pre opacity-50">
+                              {suggestion.indexOf(query) === 0 ? suggestion.substring(query.length) : suggestion}
+                            </span>
+                          </div>
+                        );
+                      }}
                     </Combobox.Option>
                   ))}
                 </div>
