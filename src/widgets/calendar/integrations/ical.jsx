@@ -53,8 +53,8 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
 
       const eventToAdd = (date, i, type) => {
         // When the 'dtend' is not defined (one-day all-day event), 'dtend' should be the same as 'dtstart'.
-        const {dtstart} = event;
-        const dtend = ('dtend' in event) ? event.dtend : dtstart;
+        const { dtstart } = event;
+        const dtend = 'dtend' in event ? event.dtend : dtstart;
 
         const duration = dtend.value - dtstart.value;
         const days = duration === 0 ? 1 : duration / (1000 * 60 * 60 * 24);
