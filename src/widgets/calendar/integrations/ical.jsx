@@ -57,7 +57,7 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
         const dtend = ('dtend' in event) ? event.dtend : dtstart;
 
         const duration = dtend.value - dtstart.value;
-        const days = duration / (1000 * 60 * 60 * 24);
+        const days = duration === 0 ? 1 : duration / (1000 * 60 * 60 * 24);
 
         const eventDate = timezone ? DateTime.fromJSDate(date, { zone: timezone }) : DateTime.fromJSDate(date);
 
