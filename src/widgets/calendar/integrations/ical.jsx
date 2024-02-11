@@ -54,9 +54,7 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
       const eventToAdd = (date, i, type) => {
         // 'dtend' is null for all-day events
         const { dtstart, dtend = { value: 0 } } = event;
-
         const days = dtend.value === 0 ? 1 : (dtend.value - dtstart.value) / (1000 * 60 * 60 * 24);
-
         const eventDate = timezone ? DateTime.fromJSDate(date, { zone: timezone }) : DateTime.fromJSDate(date);
 
         for (let j = 0; j < days; j += 1) {
