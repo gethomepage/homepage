@@ -99,12 +99,84 @@ function formatValue(t, mapping, rawValue) {
   return value;
 }
 
+function getColor(mapping, customData) {
+  const value = getValue(mapping.additionalField, customData);
+  const style = mapping.additionalFieldColor;
+
+  const tailwindColors = [
+    "slate", "gray", "zinc", "neutral", "stone", "red", "orange", "amber",
+    "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue",
+    "indigo", "violet", "purple", "fuchsia", "pink", "rose"
+  ];
+  const tailwindShades = [
+    "100", "200", "300", "400", "500", "600", "700", "800", "900"
+  ];
+  const styleRegex = /^([a-zA-Z]+)-(\d+)$/;
+
+  const colorMap = {
+    'slate': 'theme-slate',
+    'gray': 'theme-gray',
+    'zinc': 'theme-zinc',
+    'neutral': 'theme-neutral',
+    'stone': 'theme-stone',
+    'red': 'theme-red',
+    'orange': 'theme-orange',
+    'amber': 'theme-amber',
+    'yellow': 'theme-yellow',
+    'lime': 'theme-lime',
+    'green': 'theme-green',
+    'emerald': 'theme-emerald',
+    'teal': 'theme-teal',
+    'cyan': 'theme-cyan',
+    'sky': 'theme-sky',
+    'blue': 'theme-blue',
+    'indigo': 'theme-indigo',
+    'violet': 'theme-violet',
+    'purple': 'theme-purple',
+    'fuchsia': 'theme-fuchsia',
+    'pink': 'theme-pink',
+    'rose': 'theme-rose',
+  }
+
+  const shadeMap = {
+    '100': 'text-theme-100',
+    '200': 'text-theme-200',
+    '300': 'text-theme-300',
+    '400': 'text-theme-400',
+    '500': 'text-theme-500',
+    '600': 'text-theme-600',
+    '700': 'text-theme-700',
+    '800': 'text-theme-800',
+    '900': 'text-theme-900',
+  }
+
+  if (style) {
+    if (style === "auto") {
+      const numberRegex = /-?\d*\.?\d+/g;
+      const matches = value.match(numberRegex);
+
+      if (matches && matches.length > 0) {
+        return matches[0] > 0 ? "text-emerald-300" : "text-rose-300";
+      }
+    } else if (style === "black" || style === "white") {
+      return `text-${style}`;
+    } else if (style.match(styleRegex)) {
+      const match = style.match(styleRegex);
+      if (tailwindColors.includes(match[1]) && tailwindShades.includes(match[2])) {
+        return `${colorMap[match[1]]} ${shadeMap[match[2]]}`;
+      }
+    }
+  }
+
+  return "";
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
 
-  const { mappings = [], refreshInterval = 10000, vertical = false } = widget;
+  const { mappings = [], refreshInterval = 10000, display = "block" } = widget;
   const { data: customData, error: customError } = useWidgetAPI(widget, null, {
     refreshInterval: Math.max(1000, refreshInterval),
   });
@@ -123,55 +195,44 @@ export default function Component({ service }) {
     );
   }
 
-  if (!vertical) {
-    return (
-      <Container service={service}>
-        {mappings.slice(0, 4).map((mapping) => (
-          <Block
-            label={mapping.label}
-            key={mapping.label}
-            value={formatValue(t, mapping, getValue(mapping.field, customData))}
-          />
-        ))}
-      </Container>
-    );
-  }
-  
-  return (
-    <Container service={service}>
-      <div className="flex flex-col w-full">
-        {mappings.map((mapping) => (
-          <div
-            key={mapping.label}
-            className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
-          >
-            <div className="font-thin pl-2">{mapping.label}</div>
-            <div className="flex flex-row text-right">
-              <div className="font-bold mr-2">
-                {mapping.currency ?
-                  t("common.number", {
-                    value: formatValue(t, mapping, getValue(mapping.field, customData)),
-                    style: "currency",
-                    currency: mapping.currency,
-                  }) :
-                  formatValue(t, mapping, getValue(mapping.field, customData))
-                }
-              </div>
-              {mapping.trend && (
-                <div
-                  className={`font-bold w-10 mr-2 ${getValue(mapping.trend, customData) > 0 ? "text-emerald-300" : "text-rose-300"
-                    }`}
-                >
-                  {!Number.isNaN(parseFloat(getValue(mapping.trend, customData))) ?
-                    Number(parseFloat(getValue(mapping.trend, customData)).toFixed(2)) :
-                    getValue(mapping.trend, customData)
-                  }%
+  switch (display) {
+    case "list":
+      return (
+        <Container service={service}>
+          <div className="flex flex-col w-full">
+            {mappings.map((mapping) => (
+              <div
+                key={mapping.label}
+                className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
+              >
+                <div className="font-thin pl-2">{mapping.label}</div>
+                <div className="flex flex-row text-right">
+                  <div className="font-bold mr-2">
+                    {formatValue(t, mapping, getValue(mapping.field, customData))}
+                  </div>
+                  {mapping.additionalField && (
+                    <div className={`font-bold w-10 mr-2 ${getColor(mapping, customData)}`} >
+                      {getValue(mapping.additionalField, customData)}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </Container>
-  );
+        </Container>
+      );
+
+    default:
+      return (
+        <Container service={service}>
+          {mappings.slice(0, 4).map((mapping) => (
+            <Block
+              label={mapping.label}
+              key={mapping.label}
+              value={formatValue(t, mapping, getValue(mapping.field, customData))}
+            />
+          ))}
+        </Container>
+      );
+  }
 }

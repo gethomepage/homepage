@@ -378,7 +378,7 @@ export function cleanServiceGroups(groups) {
 
           // customapi
           mappings,
-          vertical,
+          display,
 
           // diskstation
           volume,
@@ -540,7 +540,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "customapi") {
           if (mappings) cleanedService.widget.mappings = mappings;
-          if (vertical) cleanedService.widget.vertical = vertical;
+          if (display) cleanedService.widget.display = display;
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
         if (type === "calendar") {
