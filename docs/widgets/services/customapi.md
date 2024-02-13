@@ -16,7 +16,7 @@ widget:
   password: password # auth - optional
   method: GET # optional, e.g. POST
   headers: # optional, must be object, see below
-  vertical: # optional, default to false, see below
+  display: # optional, default to block, see below
   mappings:
     - field: key # needs to be YAML string or object
       label: Field 1
@@ -114,23 +114,26 @@ You can manipulate data with the following tools `remap`, `scale` and `suffix`, 
   suffix: kW
 ```
 
-## Vertical View
+## List View
 
-You can change the default block view to a list view (similar to the Coin Market Cap widget) by setting the `vertical` option to `true`. The list view extends vertically to the proper height.
+You can change the default block view to a list view (similar to the Coin Market Cap widget) by setting the `display` option to `list`. The list view extends vertically to the proper height.
 
-For those who set the `vertical` option to `true`, there are two optional parameters to add to the `mappings` section: `currency` and `trend`.
+The list view utilizes extra space to display an additional field (which is optional) and to apply color to this additional field (also optional).
 
-- `currency`: Specifies a currency symbol to be added in front of the field value.
-- `trend`: Adds a colored trend indicator with a percentage sign. The value for the `trend` field needs to be a key similar to `field`.
+`additionalField`: Similar to the `field` option, but only used for the list view. It displays additional information for the mapping object on the right side of the `field`.
 
-**Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`. However, if a currency is specified, the value after transformation must be a number in order to be properly processed.
+`additionalFieldColor`: Also list view only feature, it is used to color the additional field. The format is `color-shade` where examples could be found [here](https://tailwindcss.com/docs/customizing-colors#color-palette-reference). The shade can be selected ranging from 100 to 900 inclusive. 
+
+There are three special values for `additionalFieldColor`: `auto`, `black` and `white`. `black` and `white` have no shade, while `auto` will use the color based on the value of the `additionalField`. The first number found in `additionalField` will be used to determine the color (green for positive numbers, red for negative numbers).
+
+**Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`.
 
 ```yaml
 - field: key
   label: Field
   format: text
-  trend: trend_key # optional
-  currency: USD # optional
+  additionalField: another key # optional
+  additionalFieldColor: yellow-500 # optional
   remap:
     - value: 0
       to: None
