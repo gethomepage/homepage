@@ -3,6 +3,8 @@ title: TrueNas
 description: TrueNas Scale Widget Configuration
 ---
 
+Learn more about [TrueNas](https://www.truenas.com/).
+
 Allowed fields: `["load", "uptime", "alerts"]`.
 
 To create an API Key, follow [the official TrueNAS documentation](https://www.truenas.com/docs/scale/scaletutorials/toptoolbar/managingapikeys/).

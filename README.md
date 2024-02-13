@@ -164,8 +164,6 @@ mkdocs serve # or build, to build the static site
 
 If you have any questions, suggestions, or general issues, please start a discussion on the [Discussions](https://github.com/gethomepage/homepage/discussions) page.
 
-For bug reports, please open an issue on the [Issues](https://github.com/gethomepage/homepage/issues) page.
-
 ## Contributing & Contributors
 
 Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.

@@ -3,6 +3,8 @@ title: Proxmox
 description: Proxmox Widget Configuration
 ---
 
+Learn more about [Proxmox](https://www.proxmox.com/en/).
+
 This widget shows the running and total counts of both QEMU VMs and LX Containers in the Proxmox cluster. It also shows the CPU and memory usage of the first node in the cluster.
 
 You will need to generate an API Token for new or an existing user. Here is an example of how to do this for a new user.

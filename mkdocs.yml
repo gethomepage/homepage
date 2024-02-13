@@ -55,6 +55,7 @@ nav:
       - widgets/services/freshrss.md
       - widgets/services/fritzbox.md
       - widgets/services/gamedig.md
+      - widgets/services/gatus.md
       - widgets/services/ghostfolio.md
       - widgets/services/glances.md
       - widgets/services/gluetun.md
@@ -84,6 +85,7 @@ nav:
       - widgets/services/moonraker.md
       - widgets/services/mylar.md
       - widgets/services/navidrome.md
+      - widgets/services/netdata.md
       - widgets/services/nextcloud.md
       - widgets/services/nextdns.md
       - widgets/services/nginx-proxy-manager.md
@@ -114,6 +116,7 @@ nav:
       - widgets/services/qnap.md
       - widgets/services/radarr.md
       - widgets/services/readarr.md
+      - widgets/services/romm.md
       - widgets/services/rutorrent.md
       - widgets/services/sabnzbd.md
       - widgets/services/scrutiny.md

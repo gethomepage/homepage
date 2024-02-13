@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "缺失的组件类型: {{type}}",
@@ -40,11 +47,7 @@
         "load": "负载",
         "temp": "温度",
         "max": "最大",
-        "uptime": "运行时间",
-        "months": "月",
-        "days": "日",
-        "hours": "时",
-        "minutes": "分"
+        "uptime": "运行时间"
     },
     "unifi": {
         "users": "用户数",
@@ -401,8 +404,8 @@
         "total": "总计",
         "free": "空闲",
         "used": "已使用",
-        "days": "日",
-        "hours": "时",
+        "days": "d",
+        "hours": "h",
         "crit": "严重",
         "read": "已读",
         "write": "写入",
@@ -517,8 +520,7 @@
     "truenas": {
         "load": "系统负载",
         "uptime": "运行时间",
-        "alerts": "警告",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "警告"
     },
     "pyload": {
         "speed": "速度",
@@ -543,6 +545,14 @@
     "paperlessngx": {
         "inbox": "收件箱",
         "total": "总计"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "在线",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "请稍候",
@@ -614,7 +624,7 @@
         "down": "离线网站",
         "uptime": "运行时间",
         "incident": "事件",
-        "m": "分"
+        "m": "m"
     },
     "atsumeru": {
         "series": "剧集",
@@ -785,5 +795,13 @@
         "digitalRelease": "数字发行",
         "noEventsToday": "今天没有活动！",
         "noEventsFound": "未找到事件"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

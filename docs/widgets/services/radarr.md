@@ -3,6 +3,8 @@ title: Radarr
 description: Radarr Widget Configuration
 ---
 
+Learn more about [Radarr](https://github.com/Radarr/Radarr).
+
 Find your API key under `Settings > General`.
 
 Allowed fields: `["wanted", "missing", "queued", "movies"]`.

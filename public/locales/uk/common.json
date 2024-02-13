@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "Відсутній тип віджета: {{type}}",
@@ -40,11 +47,7 @@
         "load": "Завантаження",
         "temp": "Температура",
         "max": "Макс.",
-        "uptime": "Відправка",
-        "months": "міс",
-        "days": "д",
-        "hours": "г",
-        "minutes": "хв"
+        "uptime": "Відправка"
     },
     "unifi": {
         "users": "Користувачі",
@@ -401,8 +404,8 @@
         "total": "Усього",
         "free": "Вільно",
         "used": "Використано",
-        "days": "д",
-        "hours": "г",
+        "days": "d",
+        "hours": "h",
         "crit": "Crit",
         "read": "Прочитано",
         "write": "Написати",
@@ -489,9 +492,9 @@
     },
     "healthchecks": {
         "new": "Новий",
-        "up": "Онлайн",
+        "up": "Up",
         "grace": "У пільговий період",
-        "down": "Офлайн",
+        "down": "Down",
         "paused": "Призупинено",
         "status": "Стан",
         "last_ping": "Останній пінг",
@@ -517,8 +520,7 @@
     "truenas": {
         "load": "Завантаження системи",
         "uptime": "Час роботи",
-        "alerts": "Оповіщення",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "Оповіщення"
     },
     "pyload": {
         "speed": "Швидкість",
@@ -543,6 +545,14 @@
     "paperlessngx": {
         "inbox": "Вхідні",
         "total": "Усього"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "Онлайн",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "Будь ласка, зачекайте",
@@ -614,7 +624,7 @@
         "down": "Неактивні сайти",
         "uptime": "Час роботи",
         "incident": "Інцидент",
-        "m": "хв"
+        "m": "m"
     },
     "atsumeru": {
         "series": "Серії",
@@ -785,5 +795,13 @@
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

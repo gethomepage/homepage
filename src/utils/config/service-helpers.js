@@ -38,7 +38,7 @@ export async function servicesFromConfig() {
   // add default weight to services based on their position in the configuration
   servicesArray.forEach((group, groupIndex) => {
     group.services.forEach((service, serviceIndex) => {
-      if (!service.weight) {
+      if (service.weight === undefined) {
         servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
       }
     });
@@ -101,6 +101,16 @@ export async function servicesFromDocker() {
               shvl.set(constructedService, value, substituteEnvironmentVars(containerLabels[label]));
             }
           });
+
+          if (constructedService && (!constructedService.name || !constructedService.group)) {
+            logger.error(
+              `Error constructing service using homepage labels for container '${containerName.replace(
+                /^\//,
+                "",
+              )}'. Ensure required labels are present.`,
+            );
+            return null;
+          }
 
           return constructedService;
         });
@@ -169,6 +179,7 @@ export async function checkCRD(kc, name) {
 export async function servicesFromKubernetes() {
   const ANNOTATION_BASE = "gethomepage.dev";
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+  const { instanceName } = getSettings();
 
   checkAndCopyConfig("kubernetes.yaml");
 
@@ -238,7 +249,10 @@ export async function servicesFromKubernetes() {
     const services = ingressList.items
       .filter(
         (ingress) =>
-          ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true",
+          ingress.metadata.annotations &&
+          ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
+          (!ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
+            ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName),
       )
       .map((ingress) => {
         let constructedService = {
@@ -354,6 +368,7 @@ export function cleanServiceGroups(groups) {
           showTime,
           previousDays,
           view,
+          timezone,
 
           // coinmarketcap
           currency,
@@ -383,6 +398,12 @@ export function cleanServiceGroups(groups) {
           // glances, customapi, iframe
           refreshInterval,
 
+          // hdhomerun
+          tuner,
+
+          // healthchecks
+          uuid,
+
           // iframe
           allowFullscreen,
           allowPolicy,
@@ -407,6 +428,9 @@ export function cleanServiceGroups(groups) {
 
           // openmediavault
           method,
+
+          // openwrt
+          interfaceName,
 
           // opnsense, pfsense
           wan,
@@ -510,6 +534,9 @@ export function cleanServiceGroups(groups) {
         if (type === "openmediavault") {
           if (method) cleanedService.widget.method = method;
         }
+        if (type === "openwrt") {
+          if (interfaceName) cleanedService.widget.interfaceName = interfaceName;
+        }
         if (type === "customapi") {
           if (mappings) cleanedService.widget.mappings = mappings;
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
@@ -521,6 +548,13 @@ export function cleanServiceGroups(groups) {
           if (maxEvents) cleanedService.widget.maxEvents = maxEvents;
           if (previousDays) cleanedService.widget.previousDays = previousDays;
           if (showTime) cleanedService.widget.showTime = showTime;
+          if (timezone) cleanedService.widget.timezone = timezone;
+        }
+        if (type === "hdhomerun") {
+          if (tuner !== undefined) cleanedService.widget.tuner = tuner;
+        }
+        if (type === "healthchecks") {
+          if (uuid !== undefined) cleanedService.widget.uuid = uuid;
         }
       }
 

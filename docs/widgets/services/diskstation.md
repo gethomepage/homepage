@@ -3,6 +3,8 @@ title: Synology Disk Station
 description: Synology Disk Station Widget Configuration
 ---
 
+Learn more about [Synology Disk Station](https://www.synology.com/en-global/dsm).
+
 Note: the widget is not compatible with 2FA.
 
 An optional 'volume' parameter can be supplied to specify which volume's free space to display when more than one volume exists. The value of the parameter must be in form of `volume_N`, e.g. to display free space for volume2, `volume_2` should be set as 'volume' value. If omitted, first returned volume's free space will be shown (not guaranteed to be volume1).

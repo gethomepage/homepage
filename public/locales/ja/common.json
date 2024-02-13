@@ -11,7 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}"
+        "date": "{{value, date}}",
+        "relativeDate": "{{value, relativeDate}}",
+        "uptime": "{{value, uptime}}",
+        "months": "mo",
+        "days": "d",
+        "hours": "h",
+        "minutes": "m",
+        "seconds": "s"
     },
     "widget": {
         "missing_type": "見つからないウィジェットタイプ: {{type}}",
@@ -40,11 +47,7 @@
         "load": "ロード",
         "temp": "温度",
         "max": "最大",
-        "uptime": "上へ",
-        "months": "月",
-        "days": "日",
-        "hours": "時間",
-        "minutes": "分"
+        "uptime": "上へ"
     },
     "unifi": {
         "users": "ユーザ",
@@ -401,8 +404,8 @@
         "total": "合計",
         "free": "空き",
         "used": "使用",
-        "days": "日",
-        "hours": "時間",
+        "days": "d",
+        "hours": "h",
         "crit": "クリティカル",
         "read": "既読",
         "write": "書き込み",
@@ -489,9 +492,9 @@
     },
     "healthchecks": {
         "new": "新着",
-        "up": "オンライン",
+        "up": "上へ",
         "grace": "猶予期間中",
-        "down": "オフライン",
+        "down": "下へ",
         "paused": "一時停止中",
         "status": "状態",
         "last_ping": "最後のPing",
@@ -517,8 +520,7 @@
     "truenas": {
         "load": "システム負荷",
         "uptime": "稼働時間",
-        "alerts": "アラート",
-        "time": "{{value, number(style: unit; unitDisplay: long;)}}"
+        "alerts": "アラート"
     },
     "pyload": {
         "speed": "スピード",
@@ -543,6 +545,14 @@
     "paperlessngx": {
         "inbox": "受信トレイ",
         "total": "合計"
+    },
+    "peanut": {
+        "battery_charge": "Battery Charge",
+        "ups_load": "UPS Load",
+        "ups_status": "UPS Status",
+        "online": "オンライン",
+        "on_battery": "On Battery",
+        "low_battery": "Low Battery"
     },
     "nextdns": {
         "wait": "お待ちください",
@@ -614,7 +624,7 @@
         "down": "サイトDown",
         "uptime": "稼働時間",
         "incident": "インシデント",
-        "m": "分"
+        "m": "m"
     },
     "atsumeru": {
         "series": "シリーズ",
@@ -785,5 +795,13 @@
         "digitalRelease": "デジタル・リリース",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
+    },
+    "romm": {
+        "platforms": "Platforms",
+        "totalRoms": "Total ROMs"
+    },
+    "netdata": {
+        "warnings": "Warnings",
+        "criticals": "Criticals"
     }
 }

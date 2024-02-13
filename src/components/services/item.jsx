@@ -48,12 +48,13 @@ export default function Item({ service, group, useEqualHeights }) {
                 href={service.href}
                 target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
-                className="flex-shrink-0 flex items-center justify-center w-12 service-icon"
+                className="flex-shrink-0 flex items-center justify-center w-12 service-icon z-10"
+                aria-label={service.icon}
               >
                 <ResolvedIcon icon={service.icon} />
               </a>
             ) : (
-              <div className="flex-shrink-0 flex items-center justify-center w-12 service-icon">
+              <div className="flex-shrink-0 flex items-center justify-center w-12 service-icon z-10">
                 <ResolvedIcon icon={service.icon} />
               </div>
             ))}
