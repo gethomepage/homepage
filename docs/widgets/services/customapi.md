@@ -122,9 +122,11 @@ The list view utilizes extra space to display an additional field (which is opti
 
 `additionalField`: Similar to the `field` option, but only used for the list view. It displays additional information for the mapping object on the right side of the `field`.
 
-`additionalFieldColor`: Also list view only feature, it is used to color the additional field. The format is `color-shade` where examples could be found [here](https://tailwindcss.com/docs/customizing-colors#color-palette-reference). The shade can be selected ranging from 100 to 900 inclusive. 
+`additionalFieldColor`: Also list view only feature, it is used to color the additional field. 
 
-There are three special values for `additionalFieldColor`: `auto`, `black` and `white`. `black` and `white` have no shade, while `auto` will use the color based on the value of the `additionalField`. The first number found in `additionalField` will be used to determine the color (green for positive numbers, red for negative numbers).
+Allowed options: `["auto", "theme", "black", "white"]`.
+
+`auto` will use the color based on the value of the `additionalField`. The first number found in `additionalField` will be used to determine the color (green for positive numbers, red for negative numbers).
 
 **Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`.
 
@@ -133,7 +135,7 @@ There are three special values for `additionalFieldColor`: `auto`, `black` and `
   label: Field
   format: text
   additionalField: another key # optional
-  additionalFieldColor: yellow-500 # optional
+  additionalFieldColor: auto # optional
   remap:
     - value: 0
       to: None
