@@ -3,6 +3,8 @@ title: OctoPrint
 description: OctoPrintWidget Configuration
 ---
 
+Learn more about [OctoPrint](https://octoprint.org/).
+
 Allowed fields: `["printer_state", "temp_tool", "temp_bed", "job_completion"]`.
 
 ```yaml

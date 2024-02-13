@@ -27,6 +27,23 @@ function formatDate(dateString) {
   return new Intl.DateTimeFormat(i18n.language, dateOptions).format(date);
 }
 
+function countStatus(data) {
+  let upCount = 0;
+  let downCount = 0;
+
+  if (data.checks) {
+    data.checks.forEach((check) => {
+      if (check.status === "up") {
+        upCount += 1;
+      } else if (check.status === "down") {
+        downCount += 1;
+      }
+    });
+  }
+
+  return { upCount, downCount };
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
@@ -46,13 +63,22 @@ export default function Component({ service }) {
     );
   }
 
-  return (
+  const hasUuid = !!widget?.uuid;
+
+  const { upCount, downCount } = countStatus(data);
+
+  return hasUuid ? (
     <Container service={service}>
       <Block label="healthchecks.status" value={t(`healthchecks.${data.status}`)} />
       <Block
         label="healthchecks.last_ping"
         value={data.last_ping ? formatDate(data.last_ping) : t("healthchecks.never")}
       />
+    </Container>
+  ) : (
+    <Container service={service}>
+      <Block label="healthchecks.up" value={upCount} />
+      <Block label="healthchecks.down" value={downCount} />
     </Container>
   );
 }

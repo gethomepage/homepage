@@ -3,6 +3,8 @@ title: Pyload
 description: Pyload Widget Configuration
 ---
 
+Learn more about [Pyload](https://github.com/pyload/pyload).
+
 Allowed fields: `["speed", "active", "queue", "total"]`.
 
 ```yaml

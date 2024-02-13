@@ -3,6 +3,8 @@ title: Home Assistant
 description: Home Assistant Widget Configuration
 ---
 
+Learn more about [Home Assistant](https://www.home-assistant.io/).
+
 You will need to generate a long-lived access token for an existing Home Assistant user in its profile.
 
 Allowed fields: `["people_home", "lights_on", "switches_on"]`.

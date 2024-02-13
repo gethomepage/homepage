@@ -41,7 +41,8 @@ export default function Component({ service }) {
   const { i18n } = useTranslation();
   const [showDate, setShowDate] = useState(null);
   const [events, setEvents] = useState({});
-  const currentDate = DateTime.now().setLocale(i18n.language).startOf("day");
+  const nowDate = DateTime.now().setLocale(i18n.language);
+  const currentDate = widget?.timezone ? nowDate.setZone(widget?.timezone).startOf("day") : nowDate;
   const { settings } = useContext(SettingsContext);
 
   useEffect(() => {
@@ -93,6 +94,7 @@ export default function Component({ service }) {
                 params={params}
                 setEvents={setEvents}
                 hideErrors={settings.hideErrors}
+                timezone={widget?.timezone}
                 className="fixed bottom-0 left-0 bg-red-500 w-screen h-12"
               />
             );
@@ -106,6 +108,7 @@ export default function Component({ service }) {
             events={events}
             showDate={showDate}
             setShowDate={setShowDate}
+            currentDate={currentDate}
             className="flex"
           />
         )}

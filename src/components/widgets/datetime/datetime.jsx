@@ -23,6 +23,7 @@ export default function DateTime({ options }) {
 
   useEffect(() => {
     const dateFormat = new Intl.DateTimeFormat(dateLocale, { ...format });
+    setDate(dateFormat.format(new Date()));
     const interval = setInterval(() => {
       setDate(dateFormat.format(new Date()));
     }, 1000);

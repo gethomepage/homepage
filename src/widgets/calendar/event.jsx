@@ -39,3 +39,4 @@ export default function Event({ event, colorVariants, showDate = false, showTime
     </div>
   );
 }
+export const compareDateTimezone = (date, event) => date.startOf("day").ts === event.date.startOf("day").ts;
