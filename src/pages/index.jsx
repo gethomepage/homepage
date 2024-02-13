@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import useSWR, { SWRConfig } from "swr";
 import Head from "next/head";
+import Script from "next/script";
 import dynamic from "next/dynamic";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
@@ -401,8 +402,7 @@ function Home({ initialSettings }) {
           emptyValue="/* No custom CSS */"
         />
       </style>
-      <link rel="preload" href="/api/config/custom.js" as="fetch" crossOrigin="anonymous" />
-      <script data-name="custom.js" src="/api/config/custom.js" async />
+      <Script src="/api/config/custom.js" />
 
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <QuickLaunch
