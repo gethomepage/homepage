@@ -101,70 +101,22 @@ function formatValue(t, mapping, rawValue) {
 
 function getColor(mapping, customData) {
   const value = getValue(mapping.additionalField, customData);
-  const style = mapping.additionalFieldColor;
+  const color = mapping.additionalFieldColor;
 
-  const tailwindColors = [
-    "slate", "gray", "zinc", "neutral", "stone", "red", "orange", "amber",
-    "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue",
-    "indigo", "violet", "purple", "fuchsia", "pink", "rose"
-  ];
-  const tailwindShades = [
-    "100", "200", "300", "400", "500", "600", "700", "800", "900"
-  ];
-  const styleRegex = /^([a-zA-Z]+)-(\d+)$/;
-
-  const colorMap = {
-    'slate': 'theme-slate',
-    'gray': 'theme-gray',
-    'zinc': 'theme-zinc',
-    'neutral': 'theme-neutral',
-    'stone': 'theme-stone',
-    'red': 'theme-red',
-    'orange': 'theme-orange',
-    'amber': 'theme-amber',
-    'yellow': 'theme-yellow',
-    'lime': 'theme-lime',
-    'green': 'theme-green',
-    'emerald': 'theme-emerald',
-    'teal': 'theme-teal',
-    'cyan': 'theme-cyan',
-    'sky': 'theme-sky',
-    'blue': 'theme-blue',
-    'indigo': 'theme-indigo',
-    'violet': 'theme-violet',
-    'purple': 'theme-purple',
-    'fuchsia': 'theme-fuchsia',
-    'pink': 'theme-pink',
-    'rose': 'theme-rose',
-  }
-
-  const shadeMap = {
-    '100': 'text-theme-100',
-    '200': 'text-theme-200',
-    '300': 'text-theme-300',
-    '400': 'text-theme-400',
-    '500': 'text-theme-500',
-    '600': 'text-theme-600',
-    '700': 'text-theme-700',
-    '800': 'text-theme-800',
-    '900': 'text-theme-900',
-  }
-
-  if (style) {
-    if (style === "auto") {
+  if (color) {
+    if (color === "auto") {
       const numberRegex = /-?\d*\.?\d+/g;
       const matches = value.match(numberRegex);
 
       if (matches && matches.length > 0) {
         return matches[0] > 0 ? "text-emerald-300" : "text-rose-300";
       }
-    } else if (style === "black" || style === "white") {
-      return `text-${style}`;
-    } else if (style.match(styleRegex)) {
-      const match = style.match(styleRegex);
-      if (tailwindColors.includes(match[1]) && tailwindShades.includes(match[2])) {
-        return `${colorMap[match[1]]} ${shadeMap[match[2]]}`;
-      }
+    } else if (color === "black") {
+      return `text-black`;
+    } else if (color === "white") {
+      return `text-white`;
+    } else if (color === "theme") {
+      return `text-theme-500`;
     }
   }
 
