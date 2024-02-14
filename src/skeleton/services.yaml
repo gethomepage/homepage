@@ -70,7 +70,16 @@
         widget:
             type: homeassistant
             url: http://home.asbblog.com
-            key: 
+            key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzZGZkZDUzM2EwMWY0N2ZmYjViYmZmZTZmNGI0NDgwNSIsImlhdCI6MTcwNzkzODA2MywiZXhwIjoyMDIzMjk4MDYzfQ.SzfzMZnVBsexBFO2VIFZQekmN7CnrMd0Ld28sgFe-TI
+            custom:
+                 - state: sensor.total_power
+                 - state: sensor.total_energy_today
+                   label: energy today
+                 - template: "{{ states.switch|selectattr('state','equalto','on')|list|length }}"
+                   label: switches on
+                 - state: weather.forecast_home
+                   label: wind speed
+                   value: "{attributes.wind_speed} {attributes.wind_speed_unit}"
     - Casaos: 
         href: http://casos.asbblog.com
         description : Casaos Asbblog 
