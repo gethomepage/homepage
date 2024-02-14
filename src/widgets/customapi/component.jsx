@@ -111,14 +111,15 @@ function getColor(mapping, customData) {
       } catch (e) {
         return "";
       }
-    case ("black") :
+    case ("black"):
       return `text-black`;
-    case ("white") :
+    case ("white"):
       return `text-white`;
-    case ("theme") :
+    case ("theme"):
       return `text-theme-500`;
     default:
       return ""
+  }
 }
 
 export default function Component({ service }) {
