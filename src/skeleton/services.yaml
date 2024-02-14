@@ -23,16 +23,25 @@
             url: http://qb.asbblog.com/
             username: admin
             password: adminadmin
-    - Jelly: 
+    - jellyseerr: 
         href: http://jelly.asbblog.com/
-        description: Jelly 
-        icon: jellyfin
+        description: jellyseerr 
+        icon: jellyseerr
         siteMontior: http://jelly.asbblog.com
+        widget:
+            type: jellyseerr
+            url: http://jelly.asbblog.com
+            key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
     - Sonarr: 
         href: http://sonarr.asbblog.com/
         description: Sonnar
         siteMonitor: http://sonarr.asbblog.com/
         icon: sonarr
+        widget:
+            type: sonarr
+            url: http://sonarr.host.or.ip
+            key: d9d1f45e906d4564a0563f792ca4b37b
+            enableQueue: true # optional, defaults to false
     - kodi: 
         href: http://kodi.asbblog.com/
         description: kodi
