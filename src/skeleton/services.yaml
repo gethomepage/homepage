@@ -49,7 +49,7 @@
         widget:
             type: prowlarr
             url: http://prowlarr.asbblog.com
-            key: apikeyapikeyapikeyapikeyapikey
+            key: 4e036a829b1145cf89799e38586e40aa
     - kodi: 
         href: http://kodi.asbblog.com/
         description: kodi
