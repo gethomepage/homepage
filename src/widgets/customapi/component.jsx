@@ -90,6 +90,12 @@ function formatValue(t, transformation, rawValue) {
     // nothing
   }
 
+  // Apply fixed prefix.
+  const prefix = transformation?.prefix;
+  if (prefix) {
+    value = `${prefix} ${value}`;
+  }
+
   // Apply fixed suffix.
   const suffix = transformation?.suffix;
   if (suffix) {
