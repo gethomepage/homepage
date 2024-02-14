@@ -161,7 +161,7 @@ export default function Component({ service }) {
                     {formatValue(t, mapping, getValue(mapping.field, customData))}
                   </div>
                   {mapping.additionalField && (
-                    <div className={`font-bold w-10 mr-2 ${getColor(mapping, customData)}`} >
+                    <div className={`font-bold mr-2 ${getColor(mapping, customData)}`} >
                       {getValue(mapping.additionalField, customData)}
                     </div>
                   )}
