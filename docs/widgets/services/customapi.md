@@ -126,7 +126,7 @@ The list view utilizes extra space to display an additional field (which is opti
 
 Allowed options: `["auto", "theme", "black", "white"]`.
 
-`auto` will use the color based on the value of the `additionalField`. The first number found in `additionalField` will be used to determine the color (green for positive numbers, red for negative numbers).
+`auto` will use the color based on the value of the `additionalField`, green for positive numbers, red for negative numbers.
 
 **Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`.
 
