@@ -109,7 +109,7 @@
                  - state: lock.ix_xdrive50_lock
                    label: Car status
                    
-    - Casaos: 
+    - Casaos:           
         href: http://casos.asbblog.com
         description : Casaos Asbblog 
         icon: casaos 
