@@ -21,6 +21,6 @@
     disk: /
 
 - search:
-    provider: duckduckgo
+    provider: google
     target: _blank
 
