@@ -103,12 +103,12 @@
                    label: TV Light strip status 
                  - state: light.signe_gradient_floor_main_room
                    label: Lamp main room 
-                 - state: sensor.air_quality_monitor_carbo
+                 - state: sensor.air_quality_monitor_carbon_dioxide
                    label: carbon monoxide 
                    value: "{attributes.measurement}"
                  - state: lock.ix_xdrive50_lock
                    label: Car status
-                   
+                    
     - Casaos:           
         href: http://casos.asbblog.com
         description : Casaos Asbblog 
