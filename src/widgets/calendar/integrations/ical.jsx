@@ -52,15 +52,15 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
       }
 
       const eventToAdd = (date, i, type) => {
-        const duration = event.dtend.value - event.dtstart.value;
-        const days = duration / (1000 * 60 * 60 * 24);
-
+        // 'dtend' is null for all-day events
+        const { dtstart, dtend = { value: 0 } } = event;
+        const days = dtend.value === 0 ? 1 : (dtend.value - dtstart.value) / (1000 * 60 * 60 * 24);
         const eventDate = timezone ? DateTime.fromJSDate(date, { zone: timezone }) : DateTime.fromJSDate(date);
 
         for (let j = 0; j < days; j += 1) {
           // See https://github.com/gethomepage/homepage/issues/2753 uid is not stable
           // assumption is that the event is the same if the start, end and title are all the same
-          const hash = simpleHash(`${event?.dtstart?.value}${event?.dtend?.value}${title}${i}${j}${type}}`);
+          const hash = simpleHash(`${dtstart?.value}${dtend?.value}${title}${i}${j}${type}}`);
           eventsToAdd[hash] = {
             title,
             date: eventDate.plus({ days: j }),
