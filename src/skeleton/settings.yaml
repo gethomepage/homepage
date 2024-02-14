@@ -7,6 +7,9 @@ background: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=fo
 theme: dark # or light
 color: slate
 layout:
+  Business: 
+    style: row
+    columns: 4
   Media:
     style: row
     columns: 6
@@ -17,9 +20,6 @@ layout:
     style: row
     columns: 4
   Storage Server:
-    style: row
-    columns: 4
-  Business: 
     style: row
     columns: 4
 quicklaunch:
