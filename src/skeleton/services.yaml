@@ -8,11 +8,21 @@
         description: Radarr 
         icon: radarr
         siteMonitor: http://radarr.asbblog.com/
+        widget:
+            type: radarr
+            url: http://radarr.asbblog.com/
+            key: 89786ab3384c4a748562df01b485b49c
+            enableQueue: true
     - QbTorrent: 
         href: http://qb.asbblog.com/
         description: Bit torrent 
         icon: qbittorrent
         siteMonitor: http://qb.asbblog.com/
+        widget:
+            type: qbittorrent
+            url: http://qb.asbblog.com/
+            username: admin
+            password: adminadmin
     - Jelly: 
         href: http://jelly.asbblog.com/
         description: Jelly 
