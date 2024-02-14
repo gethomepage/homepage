@@ -104,7 +104,7 @@ function getColor(mapping, customData) {
   const { color } = mapping.additionalField;
 
   switch (color) {
-    case "auto":
+    case "adaptive":
       try {
         const number = parseFloat(value);
         return number > 0 ? "text-emerald-300" : "text-rose-300";
