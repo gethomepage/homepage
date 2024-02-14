@@ -2,6 +2,19 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/service-widgets
 
+- weatherapi:
+    label: Kyiv # optional
+    latitude: 37.29402454636174, 
+    longitude: -121.87890364473624
+    units: metric # or imperial
+    apiKey: 37a1a38835174500ae5200432241202
+    cache: 5 
+
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: short
+
 - resources:
     cpu: true
     memory: true
@@ -11,10 +24,3 @@
     provider: duckduckgo
     target: _blank
 
-- weather:
-    label: Kyiv # optional
-    latitude: 37.29402454636174, 
-    longitude: -121.87890364473624
-    units: metric # or imperial
-    apiKey: 37a1a38835174500ae5200432241202
-    cache: 5 
