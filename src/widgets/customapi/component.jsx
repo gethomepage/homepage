@@ -103,24 +103,22 @@ function getColor(mapping, customData) {
   const value = getValue(mapping.additionalField, customData);
   const color = mapping.additionalFieldColor;
 
-  if (color) {
-    if (color === "auto") {
-      const numberRegex = /-?\d*\.?\d+/g;
-      const matches = value.match(numberRegex);
-
-      if (matches && matches.length > 0) {
-        return matches[0] > 0 ? "text-emerald-300" : "text-rose-300";
+  switch (color) {
+    case "auto":
+      try {
+        const number = parseFloat(value);
+        return number > 0 ? "text-emerald-300" : "text-rose-300";
+      } catch (e) {
+        return "";
       }
-    } else if (color === "black") {
+    case ("black") :
       return `text-black`;
-    } else if (color === "white") {
+    case ("white") :
       return `text-white`;
-    } else if (color === "theme") {
+    case ("theme") :
       return `text-theme-500`;
-    }
-  }
-
-  return "";
+    default:
+      return ""
 }
 
 export default function Component({ service }) {
