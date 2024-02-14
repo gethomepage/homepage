@@ -4,7 +4,7 @@
 
 - weatherapi:
     label: Kyiv # optional
-    latitude: 37.29402454636174, 
+    latitude: 37.29402454636174 
     longitude: -121.87890364473624
     units: metric # or imperial
     apiKey: 37a1a38835174500ae5200432241202
