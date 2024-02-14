@@ -27,11 +27,11 @@ function getValue(field, data) {
   return value[lastField] ?? null;
 }
 
-function formatValue(t, mapping, rawValue) {
+function formatValue(t, transformation, rawValue) {
   let value = rawValue;
 
   // Remap the value.
-  const remaps = mapping?.remap ?? [];
+  const remaps = transformation?.remap ?? [];
   for (let i = 0; i < remaps.length; i += 1) {
     const remap = remaps[i];
     if (remap?.any || remap?.value === value) {
@@ -42,7 +42,7 @@ function formatValue(t, mapping, rawValue) {
 
   // Scale the value. Accepts either a number to multiply by or a string
   // like "12/345".
-  const scale = mapping?.scale;
+  const scale = transformation?.scale;
   if (typeof scale === "number") {
     value *= scale;
   } else if (typeof scale === "string") {
@@ -53,7 +53,7 @@ function formatValue(t, mapping, rawValue) {
   }
 
   // Format the value using a known type.
-  switch (mapping?.format) {
+  switch (transformation?.format) {
     case "number":
       value = t("common.number", { value: parseInt(value, 10) });
       break;
@@ -72,17 +72,17 @@ function formatValue(t, mapping, rawValue) {
     case "date":
       value = t("common.date", {
         value,
-        lng: mapping?.locale,
-        dateStyle: mapping?.dateStyle ?? "long",
-        timeStyle: mapping?.timeStyle,
+        lng: transformation?.locale,
+        dateStyle: transformation?.dateStyle ?? "long",
+        timeStyle: transformation?.timeStyle,
       });
       break;
     case "relativeDate":
       value = t("common.relativeDate", {
         value,
-        lng: mapping?.locale,
-        style: mapping?.style,
-        numeric: mapping?.numeric,
+        lng: transformation?.locale,
+        style: transformation?.style,
+        numeric: transformation?.numeric,
       });
       break;
     case "text":
@@ -91,7 +91,7 @@ function formatValue(t, mapping, rawValue) {
   }
 
   // Apply fixed suffix.
-  const suffix = mapping?.suffix;
+  const suffix = transformation?.suffix;
   if (suffix) {
     value = `${value} ${suffix}`;
   }
@@ -100,8 +100,8 @@ function formatValue(t, mapping, rawValue) {
 }
 
 function getColor(mapping, customData) {
-  const value = getValue(mapping.additionalField, customData);
-  const color = mapping.additionalFieldColor;
+  const value = getValue(mapping.additionalField.field, customData);
+  const { color } = mapping.additionalField;
 
   switch (color) {
     case "auto":
@@ -187,7 +187,7 @@ export default function Component({ service }) {
                   </div>
                   {mapping.additionalField && (
                     <div className={`font-bold mr-2 ${getColor(mapping, customData)}`} >
-                      {getValue(mapping.additionalField, customData)}
+                      {formatValue(t, mapping.additionalField, getValue(mapping.additionalField.field, customData))}
                     </div>
                   )}
                 </div>
