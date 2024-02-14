@@ -42,6 +42,14 @@
             url:  http://sonarr.asbblog.com
             key: d9d1f45e906d4564a0563f792ca4b37b
             enableQueue: true # optional, defaults to false
+    - prowlarr: 
+        href: http://prowlarr.asbblog.com
+        description: prowlarr
+        icon: prowlarr
+        widget:
+            type: prowlarr
+            url: http://prowlarr.asbblog.com
+            key: apikeyapikeyapikeyapikeyapikey
     - kodi: 
         href: http://kodi.asbblog.com/
         description: kodi
@@ -82,13 +90,13 @@
         icon: si-synology
 - Automation:
     - Home: 
-        href: http://home.asbblog.com
+        href: https://home.asbblog.com
         description: Home Assistance for home
         icon: home-assistant 
-        siteMonitor: http://home.asbblog.com
+        siteMonitor: https://home.asbblog.com
         widget:
             type: homeassistant
-            url: http://home.asbblog.com
+            url: https://home.asbblog.com
             key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzZGZkZDUzM2EwMWY0N2ZmYjViYmZmZTZmNGI0NDgwNSIsImlhdCI6MTcwNzkzODA2MywiZXhwIjoyMDIzMjk4MDYzfQ.SzfzMZnVBsexBFO2VIFZQekmN7CnrMd0Ld28sgFe-TI
             custom:
                  - state: light.hue_play_gradient_lightstrip_1
