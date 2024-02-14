@@ -137,13 +137,37 @@ export default function Component({ service }) {
   }
 
   if (!customData) {
-    return (
-      <Container service={service}>
-        {mappings.slice(0, 4).map((item) => (
-          <Block label={item.label} key={item.label} />
-        ))}
-      </Container>
-    );
+    switch (display) {
+      case "list":
+        return (
+          <Container service={service}>
+            <div className="flex flex-col w-full">
+              {mappings.map((mapping) => (
+                <div
+                  key={mapping.label}
+                  className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs animate-pulse"
+                >
+                  <div className="font-thin pl-2">{mapping.label}</div>
+                  <div className="flex flex-row text-right">
+                    <div className="font-bold mr-2">
+                      -
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        );
+
+      default:
+        return (
+          <Container service={service}>
+            {mappings.slice(0, 4).map((item) => (
+              <Block label={item.label} key={item.label} />
+            ))}
+          </Container>
+        );
+    }
   }
 
   switch (display) {
