@@ -37,11 +37,19 @@
         description: pi hole - main 
         icon: pi-hole
         siteMonitor: https://pi.asbblog.com/admin
+        widget:
+            type: pihole
+            url: https://pi.asbblog.com/admin
+            key: d5cee877ac04b8c52c6a182d64781fa30bf3a00d590af20a70bc82f0037bd55e
     - Pi two:
-        href: http://pi2.asbblog.com/
+        href: http://pi2.asbblog.com/admin
         description: pi2 hole - main 
         siteMonitor: https://pi2.asbblog.com/admin
         icon: pi-hole
+        widget:
+            type: pihole
+            url: https://pi2.asbblog.com/admin
+            key: 3cecde64f6a16ebb7833b98e00f7ebd5bb7a2db73844d6977448eaf697d45e02
 - Storage Server:
     - NAS:
         href: http://unraid.asbblog.com/login/
