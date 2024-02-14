@@ -4,23 +4,23 @@
 
 - Media:
     - Radarr:
-        href: http://radarr.asbblog.com/
+        href: https://radarr.asbblog.com/
         description: Radarr 
         icon: radarr
-        siteMonitor: http://radarr.asbblog.com/
+        siteMonitor: https://radarr.asbblog.com/
         widget:
             type: radarr
-            url: http://radarr.asbblog.com/
+            url: https://radarr.asbblog.com/
             key: 89786ab3384c4a748562df01b485b49c
             enableQueue: true
     - QbTorrent: 
-        href: http://qb.asbblog.com/
+        href: https://qb.asbblog.com/
         description: Bit torrent 
         icon: qbittorrent
         siteMonitor: http://qb.asbblog.com/
         widget:
             type: qbittorrent
-            url: http://qb.asbblog.com/
+            url: https://qb.asbblog.com/
             username: admin
             password: adminadmin
     - jellyseerr: 
@@ -39,7 +39,7 @@
         icon: sonarr
         widget:
             type: sonarr
-            url: http://sonarr.host.or.ip
+            url: https://sonarr.host.or.ip
             key: d9d1f45e906d4564a0563f792ca4b37b
             enableQueue: true # optional, defaults to false
     - kodi: 
