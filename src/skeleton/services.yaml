@@ -71,6 +71,20 @@
         href: http://ubuntu2.asbblog.com/
         descripition: Casaos Ubuntu 
         icon: casaos
+- Business:
+    - Vikunja:
+        href: http://vj.asbblog.com/
+        description: Project management tool 
+        icon: vikunja
+        siteMonitor: http://vj.asbblog.com/
+    - Books:
+        href: https://books.asbsolutionsgroup.com
+        description: Zoho Books for timesheet and invocing
+        icon: zoho-books
+        siteMonitor: https://books.asbsolutionsgroup.com/
+    - Ceipal:
+        href: https://talenthire.ceipal.com/signin/
+        description: CEIPAL for candidate and job management. 
 - Other: 
     - Calander: 
         widget:
