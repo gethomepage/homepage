@@ -116,9 +116,9 @@
             maxEvents: 10 # optional - defaults to 10
             showTime: true # optional - show time for event happening today - defaults to false
             timezone: America/Los_Angeles # optional and only when timezone is not detected 
-    - weatherapi:
+    - weather:
         widget: 
-            type: weatherapi
+            type: weather
             label: Kyiv # optional
             latitude: 37.29402454636174, 
             longitude: -121.87890364473624
