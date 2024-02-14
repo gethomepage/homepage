@@ -44,6 +44,15 @@ widget:
       locale: nl # optional
       style: short # optional - defaults to "long". Allowed values: `["long", "short", "narrow"]`.
       numeric: auto # optional - defaults to "always". Allowed values `["always", "auto"]`.
+    - field: key
+      label: Field 6
+      format: text
+      additionalField: # optional
+        field:
+          hourly:
+            time: other key
+        color: theme # optional - defaults to "". Allowed values: `["theme", "adaptive", "black", "white"]`.
+        format: date # optional
 ```
 
 Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate`, `date` and `relativeDate`.
@@ -120,22 +129,22 @@ You can change the default block view to a list view (similar to the Coin Market
 
 The list view utilizes extra space to display an additional field (which is optional) and to apply color to this additional field (also optional).
 
-`additionalField`: Similar to the `field` option, but only used for the list view. It displays additional information for the mapping object on the right side of the `field`.
+`additionalField`: Similar to `field`, but only used in the list view. It displays additional information for the mapping object on the right.
 
-`additionalFieldColor`: Also list view only feature, it is used to color the additional field. 
+`field`: Defined the key with the desired value for the additional information.
 
-Allowed options: `["auto", "theme", "black", "white"]`.
+`color`: Define a color scheme to the additional information for customization and/or distinction. 
 
-`auto` will use the color based on the value of the `additionalField`, green for positive numbers, red for negative numbers.
+Allowed options: `["theme", "adaptive", "black", "white"]`. Other values will be ignored.
 
-**Note:** Data transformation is still compatible with the list view, but the transformation only applies to the value of the `field`.
+`adaptive` will use the color based on the value of the `additionalField`, green for positive numbers, red for negative numbers.
+
+**Note:** Data transformation remains compatible with the list view. However, the transformation for `additionalField` is now nested under `additionalField`. See the example below for clarification.
 
 ```yaml
 - field: key
   label: Field
   format: text
-  additionalField: another key # optional
-  additionalFieldColor: auto # optional
   remap:
     - value: 0
       to: None
@@ -143,6 +152,12 @@ Allowed options: `["auto", "theme", "black", "white"]`.
       to: Connected
     - any: true # will map all other values
       to: Unknown
+  additionalField:
+    field:
+      hourly:
+        time: key
+    color: theme
+    format: date
 ```
 
 ## Custom Headers
