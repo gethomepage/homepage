@@ -38,6 +38,8 @@ jobs:
         run: |
           for TAG in ${NEW_TAGS}; do
             git checkout -b release/${TAG} ${TAG}
+            git rm .github/workflows/*
+            git commit -m "Remove existing workflows"
             git rev-list --no-merges --reverse main ^upstream/main | git cherry-pick --stdin
           done
           for TAG in ${NEW_TAGS}; do
