@@ -137,7 +137,7 @@ The list view utilizes extra space to display an additional field (which is opti
 
 `field`: Defined the key with the desired value for the additional information.
 
-`color`: Define a color scheme to the additional information for customization and/or distinction. 
+`color`: Define a color scheme to the additional information for customization and/or distinction.
 
 Allowed options: `["theme", "adaptive", "black", "white"]`. Other values will be ignored.
 

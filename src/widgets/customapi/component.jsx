@@ -117,14 +117,14 @@ function getColor(mapping, customData) {
       } catch (e) {
         return "";
       }
-    case ("black"):
+    case "black":
       return `text-black`;
-    case ("white"):
+    case "white":
       return `text-white`;
-    case ("theme"):
+    case "theme":
       return `text-theme-500`;
     default:
-      return ""
+      return "";
   }
 }
 
@@ -155,9 +155,7 @@ export default function Component({ service }) {
                 >
                   <div className="font-thin pl-2">{mapping.label}</div>
                   <div className="flex flex-row text-right">
-                    <div className="font-bold mr-2">
-                      -
-                    </div>
+                    <div className="font-bold mr-2">-</div>
                   </div>
                 </div>
               ))}
@@ -188,11 +186,9 @@ export default function Component({ service }) {
               >
                 <div className="font-thin pl-2">{mapping.label}</div>
                 <div className="flex flex-row text-right">
-                  <div className="font-bold mr-2">
-                    {formatValue(t, mapping, getValue(mapping.field, customData))}
-                  </div>
+                  <div className="font-bold mr-2">{formatValue(t, mapping, getValue(mapping.field, customData))}</div>
                   {mapping.additionalField && (
-                    <div className={`font-bold mr-2 ${getColor(mapping, customData)}`} >
+                    <div className={`font-bold mr-2 ${getColor(mapping, customData)}`}>
                       {formatValue(t, mapping.additionalField, getValue(mapping.additionalField.field, customData))}
                     </div>
                   )}
