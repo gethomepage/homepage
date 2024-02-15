@@ -27,11 +27,11 @@ function getValue(field, data) {
   return value[lastField] ?? null;
 }
 
-function formatValue(t, transformation, rawValue) {
+function formatValue(t, mapping, rawValue) {
   let value = rawValue;
 
   // Remap the value.
-  const remaps = transformation?.remap ?? [];
+  const remaps = mapping?.remap ?? [];
   for (let i = 0; i < remaps.length; i += 1) {
     const remap = remaps[i];
     if (remap?.any || remap?.value === value) {
@@ -42,7 +42,7 @@ function formatValue(t, transformation, rawValue) {
 
   // Scale the value. Accepts either a number to multiply by or a string
   // like "12/345".
-  const scale = transformation?.scale;
+  const scale = mapping?.scale;
   if (typeof scale === "number") {
     value *= scale;
   } else if (typeof scale === "string") {
@@ -53,7 +53,7 @@ function formatValue(t, transformation, rawValue) {
   }
 
   // Format the value using a known type.
-  switch (transformation?.format) {
+  switch (mapping?.format) {
     case "number":
       value = t("common.number", { value: parseInt(value, 10) });
       break;
@@ -72,17 +72,17 @@ function formatValue(t, transformation, rawValue) {
     case "date":
       value = t("common.date", {
         value,
-        lng: transformation?.locale,
-        dateStyle: transformation?.dateStyle ?? "long",
-        timeStyle: transformation?.timeStyle,
+        lng: mapping?.locale,
+        dateStyle: mapping?.dateStyle ?? "long",
+        timeStyle: mapping?.timeStyle,
       });
       break;
     case "relativeDate":
       value = t("common.relativeDate", {
         value,
-        lng: transformation?.locale,
-        style: transformation?.style,
-        numeric: transformation?.numeric,
+        lng: mapping?.locale,
+        style: mapping?.style,
+        numeric: mapping?.numeric,
       });
       break;
     case "text":
@@ -91,13 +91,13 @@ function formatValue(t, transformation, rawValue) {
   }
 
   // Apply fixed prefix.
-  const prefix = transformation?.prefix;
+  const prefix = mapping?.prefix;
   if (prefix) {
     value = `${prefix} ${value}`;
   }
 
   // Apply fixed suffix.
-  const suffix = transformation?.suffix;
+  const suffix = mapping?.suffix;
   if (suffix) {
     value = `${value} ${suffix}`;
   }
