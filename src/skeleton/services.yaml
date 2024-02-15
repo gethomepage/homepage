@@ -202,6 +202,7 @@
         href:  https://tools.asbblog.com/
         description: IT Tools for the developers
         icon: mdi-tools
+        siteMonitor: https://tools.asbblog.com/
 - Other: 
     - Calander: 
         widget:
