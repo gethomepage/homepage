@@ -12,9 +12,6 @@ layout:
   Business: 
     style: row
     columns: 4
-  Media:
-    style: row
-    columns: 4
   Monitoring:
     style: row
     columns: 3
@@ -24,6 +21,9 @@ layout:
   Storage Server:
     style: row
     columns: 2
+  Media:
+    style: row
+    columns: 4
   Media2:
     style: row
     columns: 4
