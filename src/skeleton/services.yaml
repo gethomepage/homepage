@@ -143,7 +143,7 @@
             type: portainer
             url: https://portainer.asbblog.com/
             env: 1
-            key: ptr_accesskeyaccesskeyaccesskeyaccesskey
+            key: ptr_T4o9B+spPrciNRWmFjdv5volVpHDrxehs9OfcOWzwAA=
 - Storage Server:
     - NAS:
         href: http://unraid.asbblog.com/login/
