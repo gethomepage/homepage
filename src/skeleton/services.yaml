@@ -58,6 +58,14 @@
         href: http://kodi2.asbblog.com/
         description: kodi2 
         icon: kodi
+    - plex:
+        href: https://plex.tv
+        description: Plex media player 
+        icon: plex
+        widget:
+            type: plex
+            url: http://192.168.68.79:32400
+            key: Cet9igiJQVNosbeUmj1s
 - Monitoring:
     - Pi One:
         href: http://pi.asbblog.com/admin
