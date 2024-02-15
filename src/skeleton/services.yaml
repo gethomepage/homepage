@@ -151,9 +151,9 @@
         siteMonitor: https://unraid.asbblog.com/login
         icon: unraid
     - NAS: 
-        href: http://nas1.asbblog.com/
+        href: https://192-168-68-80.abambah.direct.quickconnect.to:5001/#/signin/
         description: synology 
-        siteMonitor: https://nas1.asbblog.com/signin/
+        siteMonitor: https://192-168-68-80.abambah.direct.quickconnect.to:5001/#/signin/
         icon: si-synology
 - Automation:
     - Home: 
@@ -176,7 +176,7 @@
                    label: Car status
                     
     - Casaos:           
-        href: http://casos.asbblog.com
+        href: http://casaos.asbblog.com/
         description : Casaos Asbblog 
         icon: casaos 
     - Casaos Ubuntu: 
