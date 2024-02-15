@@ -40,7 +40,7 @@ jobs:
             git checkout -b release/${TAG} ${TAG}
             git rm .github/workflows/*
             git commit -m "Remove existing workflows"
-            git rev-list --no-merges --reverse main ^upstream/main | git cherry-pick --stdin
+            git rev-list --no-merges --reverse main ^upstream/main | git cherry-pick --stdin --allow-empty
           done
           for TAG in ${NEW_TAGS}; do
             git push -u origin release/${TAG}
