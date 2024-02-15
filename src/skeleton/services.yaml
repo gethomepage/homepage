@@ -141,8 +141,8 @@
         icon: portainer
         widget:
             type: portainer
-            url: https://portainer.asbblog.com/
-            env: 1
+            url: http://portainer.asbblog.com
+            env: 2
             key: ptr_T4o9B+spPrciNRWmFjdv5volVpHDrxehs9OfcOWzwAA=
 - Storage Server:
     - NAS:
