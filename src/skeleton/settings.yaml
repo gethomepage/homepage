@@ -14,16 +14,16 @@ layout:
     columns: 4
   Media:
     style: row
-    columns: 7
+    columns: 4
   Monitoring:
     style: row
-    columns: 4
+    columns: 2
   Automation:
     style: row
-    columns: 4
+    columns: 3
   Storage Server:
     style: row
-    columns: 4
+    columns: 2
 quicklaunch:
   searchDescriptions: true
   hideInternetSearch: true
