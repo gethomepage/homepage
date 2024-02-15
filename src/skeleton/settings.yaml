@@ -14,7 +14,7 @@ layout:
     columns: 4
   Media:
     style: row
-    columns: 6
+    columns: 7
   Monitoring:
     style: row
     columns: 4
