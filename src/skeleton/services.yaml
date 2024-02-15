@@ -134,6 +134,16 @@
             type: pihole
             url: https://pi2.asbblog.com
             key: 3cecde64f6a16ebb7833b98e00f7ebd5bb7a2db73844d6977448eaf697d45e02
+    - Portainer:
+        href: http://potainer.asbblog.com
+        description: portainer container
+        siteMonitor: http://portainer.asbblog.com/
+        icon: portainer
+        widget:
+            type: portainer
+            url: https://portainer.asbblog.com/
+            env: 1
+            key: ptr_accesskeyaccesskeyaccesskeyaccesskey
 - Storage Server:
     - NAS:
         href: http://unraid.asbblog.com/login/
