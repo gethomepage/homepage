@@ -105,7 +105,6 @@
                    label: Lamp main room 
                  - state: sensor.air_quality_monitor_carbon_dioxide
                    label: carbon monoxide 
-                   value: "{attributes.measurement}"
                  - state: lock.ix_xdrive50_lock
                    label: Car status
                     
@@ -143,4 +142,9 @@
             maxEvents: 10 # optional - defaults to 10
             showTime: true # optional - show time for event happening today - defaults to false
             timezone: America/Los_Angeles # optional and only when timezone is not detected 
-   
+             integrations: # optional
+                - type: sonarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
+                  service_group: Media # group name where widget exists
+                  service_name: Sonarr # service name for that widget
+                  color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
+      
