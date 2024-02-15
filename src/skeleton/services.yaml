@@ -125,14 +125,16 @@
     - Books:
         href: https://books.asbsolutionsgroup.com
         description: Zoho Books for timesheet and invocing
-        icon: zoho-books
+        icon: mdi-book-account
         siteMonitor: https://books.asbsolutionsgroup.com/
     - Ceipal:
         href: https://talenthire.ceipal.com/signin/
         description: CEIPAL for candidate and job management. 
+        icon: mdi-application
     - IT Tools:
         href:  https://tools.asbblog.com/
         description: IT Tools for the developers
+        icon: mdi- tools
 - Other: 
     - Calander: 
         widget:
