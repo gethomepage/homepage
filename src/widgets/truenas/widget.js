@@ -1,10 +1,9 @@
-import truenasProxyHandler from "./proxy";
-
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 import { asJson, jsonArrayFilter } from "utils/proxy/api-helpers";
 
 const widget = {
   api: "{url}/api/v2.0/{endpoint}",
-  proxyHandler: truenasProxyHandler,
+  proxyHandler: credentialedProxyHandler,
 
   mappings: {
     alerts: {
