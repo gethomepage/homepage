@@ -66,6 +66,55 @@
             type: plex
             url: http://192.168.68.79:32400
             key: Cet9igiJQVNosbeUmj1s
+- Media2:
+    - Radarr:
+        href: https://radarr2.asbblog.com/
+        description: Radarr 
+        icon: radarr
+        siteMonitor: https://radarr2.asbblog.com/
+        widget:
+            type: radarr
+            url: https://radarr2.asbblog.com
+            key: 04c84f1ec0e841299f3046ce04356f5f
+            enableQueue: true
+    - QbTorrent: 
+        href: https://qb2.asbblog.com/
+        description: Bit torrent 
+        icon: qbittorrent
+        siteMonitor: http://qb2.asbblog.com/
+        widget:
+            type: qbittorrent
+            url: http://qb2.asbblog.com
+            username: admin
+            password: adminadmin
+    - jellyseerr: 
+        href: http://jelly.asbblog.com/
+        description: jellyseerr 
+        icon: jellyseerr
+        siteMontior: http://jelly.asbblog.com
+        widget:
+            type: jellyseerr
+            url: http://jelly.asbblog.com
+            key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
+    - Sonarr: 
+        href: http://sonarr2.asbblog.com/
+        description: Sonnar
+        siteMonitor: http://sonarr2.asbblog.com/
+        icon: sonarr
+        widget:
+            type: sonarr
+            url:  http://sonarr2.asbblog.com
+            key: 4f3fd7fa3ca5407eb986ddadc149a9c5
+            enableQueue: true # optional, defaults to false
+    - prowlarr: 
+        href: http://prowlarr2.asbblog.com/
+        description: prowlarr
+        icon: prowlarr
+        siteMonitor: http://prowlarr2.asbblog.com/ 
+        widget:
+            type: prowlarr
+            url: http://prowlarr2.asbblog.com
+            key: 16bc79a702aa44d1987f7c62efd3d706
 - Monitoring:
     - Pi One:
         href: http://pi.asbblog.com/admin

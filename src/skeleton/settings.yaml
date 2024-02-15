@@ -24,6 +24,9 @@ layout:
   Storage Server:
     style: row
     columns: 2
+  Media2:
+    style: row
+    columns: 4
 quicklaunch:
   searchDescriptions: true
   hideInternetSearch: true
