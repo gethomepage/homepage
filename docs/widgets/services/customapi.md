@@ -124,26 +124,20 @@ You can manipulate data with the following tools `remap`, `scale`, `prefix` and 
 - field: key6
   label: Price
   format: float
-  suffix: "$"
+  prefix: "$"
 ```
 
 ## List View
 
-You can change the default block view to a list view (similar to the Coin Market Cap widget) by setting the `display` option to `list`. The list view extends vertically to the proper height.
+You can change the default block view to a list view by setting the `display` option to `list`.
 
-The list view utilizes extra space to display an additional field (which is optional) and to apply color to this additional field (also optional).
+The list view can optionally display an additional field next to the primary field.
 
-`additionalField`: Similar to `field`, but only used in the list view. It displays additional information for the mapping object on the right.
+`additionalField`: Similar to `field`, but only used in list view. Displays additional information for the mapping object on the right.
 
-`field`: Defined the key with the desired value for the additional information.
+`field`: Defined the same way as other custom api widget fields.
 
-`color`: Define a color scheme to the additional information for customization and/or distinction.
-
-Allowed options: `["theme", "adaptive", "black", "white"]`. Other values will be ignored.
-
-`adaptive` will use the color based on the value of the `additionalField`, green for positive numbers, red for negative numbers.
-
-**Note:** Data transformation remains compatible with the list view. However, the transformation for `additionalField` is now nested under `additionalField`. See the example below for clarification.
+`color`: Allowed options: `"theme", "adaptive", "black", "white"`. The option `adaptive` will apply a color using the value of the `additionalField`, green for positive numbers, red for negative numbers.
 
 ```yaml
 - field: key
