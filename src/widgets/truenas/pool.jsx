@@ -24,7 +24,7 @@ export default function Pool({ name, free, allocated, healthy }) {
         <span>
           {prettyBytes(allocated)} / {prettyBytes(total)}
         </span>
-        <span className="pl-2 w-12 text-center">({usedPercent}%)</span>
+        <span className="pl-2">({usedPercent}%)</span>
       </div>
     </div>
   );
