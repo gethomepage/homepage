@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import Pool from "components/widgets/truenas/pool";
+import Pool from "widgets/truenas/pool";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
