@@ -29,11 +29,15 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (
-        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "truenas", "pterodactyl"].includes(
-          widget.type,
-        )
+        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "pterodactyl"].includes(widget.type)
       ) {
         headers.Authorization = `Bearer ${widget.key}`;
+      } else if (widget.type === "truenas") {
+        if (widget.key) {
+          headers.Authorization = `Bearer ${widget.key}`;
+        } else {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        }
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {

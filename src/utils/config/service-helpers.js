@@ -442,6 +442,9 @@ export function cleanServiceGroups(groups) {
           // sonarr, radarr
           enableQueue,
 
+          // truenas
+          enablePools,
+
           // unifi
           site,
         } = cleanedService.widget;
@@ -510,6 +513,9 @@ export function cleanServiceGroups(groups) {
         }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);
+        }
+        if (type === "truenas") {
+          if (enablePools !== undefined) cleanedService.widget.enablePools = JSON.parse(enablePools);
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
