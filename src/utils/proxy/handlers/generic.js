@@ -35,6 +35,12 @@ export default async function genericProxyHandler(req, res, map) {
       };
       if (req.body) {
         params.body = req.body;
+      } else if (widget.requestBody) {
+        if (typeof widget.requestBody === "object") {
+          params.body = JSON.stringify(widget.requestBody);
+        } else {
+          params.body = widget.requestBody;
+        }
       }
 
       const [status, contentType, data] = await httpProxy(url, params);

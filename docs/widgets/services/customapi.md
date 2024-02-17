@@ -16,6 +16,7 @@ widget:
   password: password # auth - optional
   method: GET # optional, e.g. POST
   headers: # optional, must be object, see below
+  requestBody: # optional, can be string or object, see below
   display: # optional, default to block, see below
   mappings:
     - field: key # needs to be YAML string or object
@@ -166,3 +167,16 @@ Pass custom headers using the `headers` option, for example:
 headers:
   X-API-Token: token
 ```
+
+## Custom Request Body
+
+Pass custom request body using the `requestBody` option in either a string or object format. Objects will automatically be converted to a JSON string.
+
+```yaml
+requestBody:
+  foo: bar
+# or
+requestBody: "{\"foo\":\"bar\"}"
+```
+
+Both formats result in `{"foo":"bar"}` being sent as the request body. Don't forget to set your `Content-Type` headers!
