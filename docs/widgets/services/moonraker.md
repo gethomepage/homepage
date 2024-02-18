@@ -13,7 +13,6 @@ widget:
   url: http://moonraker.host.or.ip:port
 ```
 
-
 If your moonraker instance has an active authorization and your homepage ip isn't whitelisted you need to add your api key ([Authorization Documentation](https://moonraker.readthedocs.io/en/latest/web_api/#authorization)).
 
 ```yaml
