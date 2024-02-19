@@ -3,6 +3,8 @@ title: Plant-it
 description: Plant-it Widget Configuration
 ---
 
+Learn more about [Plantit](https://github.com/MDeLuise/plant-it).
+
 API key can be created from the REST API.
 
 ```yaml
