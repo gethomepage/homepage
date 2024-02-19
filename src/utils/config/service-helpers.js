@@ -436,6 +436,9 @@ export function cleanServiceGroups(groups) {
           // opnsense, pfsense
           wan,
 
+          // overseerr
+          pendingRequests,
+
           // proxmox
           node,
 
@@ -506,6 +509,9 @@ export function cleanServiceGroups(groups) {
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) cleanedService.widget.wan = wan;
+        }
+        if (type === "overseerr") {
+          if (pendingRequests !== undefined) cleanedService.widget.pendingRequests = pendingRequests;
         }
         if (["emby", "jellyfin"].includes(type)) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
