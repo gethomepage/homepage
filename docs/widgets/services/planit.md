@@ -10,6 +10,6 @@ API key can be created from the REST API.
 ```yaml
 widget:
   type: plantit
-  url: http://plant-it.host.or.ip:port
+  url: http://plant-it.host.or.ip:port # api port
   key: plantit-api-key
 ```
