@@ -103,6 +103,7 @@ nav:
       - widgets/services/photoprism.md
       - widgets/services/pialert.md
       - widgets/services/pihole.md
+      - widgets/services/plantit.md
       - widgets/services/plex-tautulli.md
       - widgets/services/plex.md
       - widgets/services/portainer.md

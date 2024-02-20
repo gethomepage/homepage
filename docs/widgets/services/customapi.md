@@ -16,6 +16,8 @@ widget:
   password: password # auth - optional
   method: GET # optional, e.g. POST
   headers: # optional, must be object, see below
+  requestBody: # optional, can be string or object, see below
+  display: # optional, default to block, see below
   mappings:
     - field: key # needs to be YAML string or object
       label: Field 1
@@ -43,6 +45,15 @@ widget:
       locale: nl # optional
       style: short # optional - defaults to "long". Allowed values: `["long", "short", "narrow"]`.
       numeric: auto # optional - defaults to "always". Allowed values `["always", "auto"]`.
+    - field: key
+      label: Field 6
+      format: text
+      additionalField: # optional
+        field:
+          hourly:
+            time: other key
+        color: theme # optional - defaults to "". Allowed values: `["theme", "adaptive", "black", "white"]`.
+        format: date # optional
 ```
 
 Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate`, `date` and `relativeDate`.
@@ -93,7 +104,7 @@ mappings:
 
 ## Data Transformation
 
-You can manipulate data with the following tools `remap`, `scale` and `suffix`, for example:
+You can manipulate data with the following tools `remap`, `scale`, `prefix` and `suffix`, for example:
 
 ```yaml
 - field: key4
@@ -110,7 +121,42 @@ You can manipulate data with the following tools `remap`, `scale` and `suffix`, 
   label: Power
   format: float
   scale: 0.001 # can be number or string e.g. 1/16
-  suffix: kW
+  suffix: "kW"
+- field: key6
+  label: Price
+  format: float
+  prefix: "$"
+```
+
+## List View
+
+You can change the default block view to a list view by setting the `display` option to `list`.
+
+The list view can optionally display an additional field next to the primary field.
+
+`additionalField`: Similar to `field`, but only used in list view. Displays additional information for the mapping object on the right.
+
+`field`: Defined the same way as other custom api widget fields.
+
+`color`: Allowed options: `"theme", "adaptive", "black", "white"`. The option `adaptive` will apply a color using the value of the `additionalField`, green for positive numbers, red for negative numbers.
+
+```yaml
+- field: key
+  label: Field
+  format: text
+  remap:
+    - value: 0
+      to: None
+    - value: 1
+      to: Connected
+    - any: true # will map all other values
+      to: Unknown
+  additionalField:
+    field:
+      hourly:
+        time: key
+    color: theme
+    format: date
 ```
 
 ## Custom Headers
@@ -121,3 +167,16 @@ Pass custom headers using the `headers` option, for example:
 headers:
   X-API-Token: token
 ```
+
+## Custom Request Body
+
+Pass custom request body using the `requestBody` option in either a string or object format. Objects will automatically be converted to a JSON string.
+
+```yaml
+requestBody:
+  foo: bar
+# or
+requestBody: "{\"foo\":\"bar\"}"
+```
+
+Both formats result in `{"foo":"bar"}` being sent as the request body. Don't forget to set your `Content-Type` headers!

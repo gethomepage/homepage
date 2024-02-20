@@ -11,7 +11,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
 import Tab, { slugify } from "components/tab";
-import FileContent from "components/filecontent";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
@@ -391,17 +390,10 @@ function Home({ initialSettings }) {
         )}
         <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
         <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
+        <link rel="preload" href="/api/config/custom.css" as="style" />
+        <link rel="stylesheet" href="/api/config/custom.css" /> {/* eslint-disable-line @next/next/no-css-tags */}
       </Head>
 
-      <link rel="preload" href="/api/config/custom.css" as="fetch" crossOrigin="anonymous" />
-      <style data-name="custom.css">
-        <FileContent
-          path="custom.css"
-          loadingValue="/* Loading custom CSS... */"
-          errorValue="/* Failed to load custom CSS... */"
-          emptyValue="/* No custom CSS */"
-        />
-      </style>
       <Script src="/api/config/custom.js" />
 
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
