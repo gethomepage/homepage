@@ -17,7 +17,7 @@ paginate==0.5.6
 pathspec==0.11.2
 platformdirs==3.10.0
 Pygments==2.16.1
-pymdown-extensions==10.3
+pymdown-extensions==10.7
 python-dateutil==2.8.2
 PyYAML==6.0.1
 pyyaml_env_tag==0.1
