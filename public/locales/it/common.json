@@ -803,5 +803,11 @@
     "netdata": {
         "warnings": "Warnings",
         "criticals": "Criticals"
+    },
+    "plantit": {
+        "events": "Eventi",
+        "plants": "Piante",
+        "species": "Specie",
+        "images": "Immagini"
     }
 }
