@@ -107,6 +107,12 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
+    "esphome": {
+        "offline": "Offline",
+        "online": "Online",
+        "total": "Total",
+        "unknown": "Unknown"
+    },
     "evcc": {
         "pv_power": "Production",
         "battery_soc": "Battery",
