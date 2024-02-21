@@ -13,6 +13,7 @@ export default function Component({ service }) {
   const { widget } = service;
   const { chart, refreshInterval = defaultInterval } = widget;
   const [, fsName] = widget.metric.split("fs:");
+  const diskUnits = widget.diskUnits === "bbytes" ? "common.bbytes" : "common.bytes";
 
   const { data, error } = useWidgetAPI(widget, "fs", {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
@@ -60,7 +61,7 @@ export default function Component({ service }) {
       <Block position="bottom-3 left-3">
         {fsData.used && chart && (
           <div className="text-xs opacity-50">
-            {t("common.bbytes", {
+            {t(diskUnits, {
               value: fsData.used,
               maximumFractionDigits: 0,
             })}{" "}
@@ -69,7 +70,7 @@ export default function Component({ service }) {
         )}
 
         <div className="text-xs opacity-75">
-          {t("common.bbytes", {
+          {t(diskUnits, {
             value: fsData.free,
             maximumFractionDigits: 1,
           })}{" "}
@@ -81,7 +82,7 @@ export default function Component({ service }) {
         <Block position="top-3 right-3">
           {fsData.used && (
             <div className="text-xs opacity-50">
-              {t("common.bbytes", {
+              {t(diskUnits, {
                 value: fsData.used,
                 maximumFractionDigits: 0,
               })}{" "}
@@ -93,7 +94,7 @@ export default function Component({ service }) {
 
       <Block position="bottom-3 right-3">
         <div className="text-xs opacity-75">
-          {t("common.bbytes", {
+          {t(diskUnits, {
             value: fsData.size,
             maximumFractionDigits: 1,
           })}{" "}
