@@ -31,6 +31,7 @@ const components = {
   gamedig: dynamic(() => import("./gamedig/component")),
   gatus: dynamic(() => import("./gatus/component")),
   ghostfolio: dynamic(() => import("./ghostfolio/component")),
+  gitea: dynamic(() => import("./gitea/component")),
   glances: dynamic(() => import("./glances/component")),
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),

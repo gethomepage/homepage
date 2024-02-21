@@ -831,5 +831,10 @@
         "plants": "Plants",
         "photos": "Photos",
         "species": "Species"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     }
 }

@@ -25,6 +25,7 @@ import fritzbox from "./fritzbox/widget";
 import gamedig from "./gamedig/widget";
 import gatus from "./gatus/widget";
 import ghostfolio from "./ghostfolio/widget";
+import gitea from "./gitea/widget";
 import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -133,6 +134,7 @@ const widgets = {
   gamedig,
   gatus,
   ghostfolio,
+  gitea,
   glances,
   gluetun,
   gotify,
