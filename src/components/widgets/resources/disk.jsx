@@ -36,9 +36,9 @@ export default function Disk({ options, expanded, refresh = 1500 }) {
   return (
     <Resource
       icon={FiHardDrive}
-      value={t("common.bytes", { value: data.drive.available })}
+      value={t("common.bytes", { value: data.drive.available, binary: true })}
       label={t("resources.free")}
-      expandedValue={t("common.bytes", { value: data.drive.size })}
+      expandedValue={t("common.bytes", { value: data.drive.size, binary: true })}
       expandedLabel={t("resources.total")}
       percentage={percent}
       expanded={expanded}

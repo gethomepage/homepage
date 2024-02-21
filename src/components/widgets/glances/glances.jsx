@@ -132,9 +132,9 @@ export default function Widget({ options }) {
         <Resource
           key={`disk_${disk.mnt_point ?? disk.device_name}`}
           icon={FiHardDrive}
-          value={t("common.bytes", { value: disk.free })}
+          value={t("common.bytes", { value: disk.free, binary: true })}
           label={t("glances.free")}
-          expandedValue={t("common.bytes", { value: disk.size })}
+          expandedValue={t("common.bytes", { value: disk.size, binary: true })}
           expandedLabel={t("glances.total")}
           percentage={disk.percent}
           expanded={options.expanded}
