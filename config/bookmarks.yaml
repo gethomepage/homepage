@@ -1,0 +1,20 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/bookmarks
+
+- Developer:
+    - Books:
+        - abbr: BK
+          href: https://books.asbsolutionsgroup.com/
+    - Github: 
+        - abbr: GT
+          href: https://https://github.com/avnit/
+- Social:
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com/
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/
