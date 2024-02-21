@@ -22,6 +22,7 @@ _Note: unfortunately, the package used for getting CPU temp ([systeminformation]
     uptime: true
     units: imperial # only used by cpu temp
     refresh: 3000 # optional, in ms
+    diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
 ```
 
 You can also pass a `label` option, which allows you to group resources under named sections,
