@@ -59,11 +59,11 @@ export function substituteEnvironmentVars(str) {
     const cachedVars = getCachedEnvironmentVars();
     cachedVars.forEach(([key, value]) => {
       if (key.startsWith(homepageVarPrefix)) {
-        result = result.replaceAll(`{{${key}}}`, value);
+        result = result.replaceAll(new RegExp(`{{\\s*${key}\\s*}}`, "g"), value);
       } else if (key.startsWith(homepageFilePrefix)) {
         const filename = value;
         const fileContents = readFileSync(filename, "utf8");
-        result = result.replaceAll(`{{${key}}}`, fileContents);
+        result = result.replaceAll(new RegExp(`{{\\s*${key}\\s*}}`, "g"), fileContents);
       }
     });
   }
