@@ -8,7 +8,7 @@ import CpuTemp from "./cputemp";
 import Uptime from "./uptime";
 
 export default function Resources({ options }) {
-  const { expanded, units } = options;
+  const { expanded, units, diskUnits } = options;
   let { refresh } = options;
   if (!refresh) refresh = 1500;
   refresh = Math.max(refresh, 1000);
@@ -19,8 +19,10 @@ export default function Resources({ options }) {
           {options.cpu && <Cpu expanded={expanded} refresh={refresh} />}
           {options.memory && <Memory expanded={expanded} refresh={refresh} />}
           {Array.isArray(options.disk)
-            ? options.disk.map((disk) => <Disk key={disk} options={{ disk }} expanded={expanded} refresh={refresh} />)
-            : options.disk && <Disk options={options} expanded={expanded} refresh={refresh} />}
+            ? options.disk.map((disk) => (
+                <Disk key={disk} options={{ disk }} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />
+              ))
+            : options.disk && <Disk options={options} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />}
           {options.cputemp && <CpuTemp expanded={expanded} units={units} refresh={refresh} />}
           {options.uptime && <Uptime refresh={refresh} />}
         </div>
