@@ -836,5 +836,21 @@
         "notifications": "Notifications",
         "issues": "Issues",
         "pulls": "Pull Requests"
+    },
+    "stash": {
+        "scenes": "Scenes",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "Total Plays",
+        "playDuration": "Time Watched",
+        "sceneSize": "Scenes Size",
+        "sceneDuration": "Scenes Duration",
+        "images": "Images",
+        "imageSize": "Images Size",
+        "galleries": "Galleries",
+        "performers": "Performers",
+        "studios": "Studios",
+        "movies": "Movies",
+        "tags": "Tags",
+        "oCount": "O Count"
     }
 }
