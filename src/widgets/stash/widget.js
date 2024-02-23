@@ -1,4 +1,4 @@
-import {asJson} from "utils/proxy/api-helpers";
+import { asJson } from "utils/proxy/api-helpers";
 import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
@@ -32,7 +32,7 @@ const widget = {
           }
         }`
       }),
-      map: (data) => asJson(data).data.stats
+      map: (data) => asJson(data).data.stats,
     },
   },
 };

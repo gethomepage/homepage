@@ -39,11 +39,17 @@ export default function Component({ service }) {
       <Block label="stash.scenesPlayed" value={t("common.number", { value: stats.scenes_played })} />
       <Block label="stash.playCount" value={t("common.number", { value: stats.total_play_count })} />
       <Block label="stash.playDuration" value={t("common.uptime", { value: stats.total_play_duration })} />
-      <Block label="stash.sceneSize" value={t("common.bbytes", { value: stats.scenes_size, maximumFractionDigits: 1 })} />
+      <Block
+        label="stash.sceneSize"
+        value={t("common.bbytes", { value: stats.scenes_size, maximumFractionDigits: 1 })}
+      />
       <Block label="stash.sceneDuration" value={t("common.uptime", { value: stats.scenes_duration })} />
 
       <Block label="stash.images" value={t("common.number", { value: stats.image_count })} />
-      <Block label="stash.imageSize" value={t("common.bbytes", { value: stats.images_size, maximumFractionDigits: 1 })} />
+      <Block
+        label="stash.imageSize"
+        value={t("common.bbytes", { value: stats.images_size, maximumFractionDigits: 1 })}
+      />
 
       <Block label="stash.galleries" value={t("common.number", { value: stats.gallery_count })} />
       <Block label="stash.performers" value={t("common.number", { value: stats.performer_count })} />
