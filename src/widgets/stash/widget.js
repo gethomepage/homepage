@@ -30,7 +30,7 @@ const widget = {
             total_play_count
             scenes_played
           }
-        }`
+        }`,
       }),
       map: (data) => asJson(data).data.stats,
     },
