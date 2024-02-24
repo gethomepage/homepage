@@ -84,8 +84,8 @@ dependencies:
     specifier: ^1.3.0
     version: 1.3.0(react@18.2.0)
   systeminformation:
-    specifier: ^5.21.24
-    version: 5.21.24
+    specifier: ^5.22.0
+    version: 5.22.0
   tough-cookie:
     specifier: ^4.1.3
     version: 4.1.3
@@ -4139,8 +4139,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /systeminformation@5.21.24:
-    resolution: {integrity: sha512-xQada8ByGGFoRXJaUptGgddn3i7IjtSdqNdCKzB8xkzsM7pHnfLYBWxkPdGzhZ0Z/l+W1yo+aZQZ74d2isj8kw==}
+  /systeminformation@5.22.0:
+    resolution: {integrity: sha512-oAP80ymt8ssrAzjX8k3frbL7ys6AotqC35oikG6/SG15wBw+tG9nCk4oPaXIhEaAOAZ8XngxUv3ORq2IuR3r4Q==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
