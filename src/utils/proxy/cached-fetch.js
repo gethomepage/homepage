@@ -2,7 +2,7 @@ import cache from "memory-cache";
 
 const defaultDuration = 5;
 
-export default async function cachedFetch(url, duration) {
+export default async function cachedFetch(url, duration, ua) {
   const cached = cache.get(url);
 
   // eslint-disable-next-line no-param-reassign
@@ -13,7 +13,13 @@ export default async function cachedFetch(url, duration) {
   }
 
   // wrapping text in JSON.parse to handle utf-8 issues
-  const data = JSON.parse(await fetch(url).then((res) => res.text()));
+  const options = {};
+  if (ua) {
+    options.headers = {
+      "User-Agent": ua,
+    };
+  }
+  const data = await fetch(url, options).then((res) => res.json());
   cache.put(url, data, duration * 1000 * 60);
   return data;
 }
