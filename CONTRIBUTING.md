@@ -18,7 +18,7 @@ In short, when you submit code changes, your submissions are understood to be un
 
 ## Report bugs using Github [discussions](https://github.com/gethomepage/homepage/discussions)
 
-We use GitHub discussions to triage bugs. Report a bug by [opening a new discussion](https://github.com/gethomepage/homepage/discussions/new?category=support); it's that easy!
+We use GitHub discussions to triage bugs. Report a bug by [opening a new discussion](https://github.com/gethomepage/homepage/discussions/new?category=support); it's that easy! Please do not open an issue unless instructed to do so by a project maintainer.
 
 ## Write bug reports with detail, background, and sample configurations
 
@@ -56,7 +56,6 @@ This document was adapted from the open-source contribution guidelines for [Face
 
 The homepage team appreciates all effort and interest from the community in filing bug reports, creating feature requests, sharing ideas and helping other community members. That said, in an effort to keep the repository organized and managebale the project uses automatic handling of certain areas:
 
-- Issues that cannot be reproduced will be marked 'stale' after 7 days of inactivity and closed after 14 further days of inactivity.
 - Issues, pull requests and discussions that are closed will be locked after 30 days of inactivity.
 - Discussions with a marked answer will be automatically closed.
 - Discussions in the 'General' or 'Support' categories will be closed after 180 days of inactivity.
