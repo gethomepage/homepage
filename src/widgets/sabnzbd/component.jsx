@@ -37,7 +37,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="sabnzbd.rate" value={t("common.bitrate", { value: fromUnits(queueData.queue.speed) * 8 })} />
+      <Block label="sabnzbd.rate" value={t("common.byterate", { value: fromUnits(queueData.queue.speed) })} />
       <Block label="sabnzbd.queue" value={t("common.number", { value: queueData.queue.noofslots })} />
       <Block label="sabnzbd.timeleft" value={queueData.queue.timeleft} />
     </Container>
