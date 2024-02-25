@@ -151,7 +151,7 @@
         siteMonitor: https://unraid.asbblog.com/login
         icon: unraid
     - NAS: 
-        href: http://nas1.asbblog.com/
+        href: https://abambah.synology.me:5001/#/signin/
         description: synology 
         siteMonitor: https://nas1.asbblog.com/signin/
         icon: si-synology
@@ -176,7 +176,7 @@
                    label: Car status
                     
     - Casaos:           
-        href: http://casos.asbblog.com
+        href: http://casaos.asbblog.com
         description : Casaos Asbblog 
         icon: casaos 
     - Casaos Ubuntu: 
