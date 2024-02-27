@@ -42,17 +42,17 @@ jobs:
             This issue has been automatically locked since there
             has not been any recent activity after it was closed.
             Please open a new discussion for related concerns.
-            See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-respoistory-maintenance) for more details.
+            See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-repository-maintenance) for more details.
           pr-comment: >
             This pull request has been automatically locked since there
             has not been any recent activity after it was closed.
             Please open a new discussion for related concerns.
-            See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-respoistory-maintenance) for more details.
+            See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-repository-maintenance) for more details.
           discussion-comment: >
             This discussion has been automatically locked since there
             has not been any recent activity after it was closed.
             Please open a new discussion for related concerns.
-            See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-respoistory-maintenance) for more details.
+            See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-repository-maintenance) for more details.
   close-answered-discussions:
     name: 'Close Answered Discussions'
     runs-on: ubuntu-latest
@@ -92,7 +92,7 @@ jobs:
               }`;
               const commentVariables = {
                 discussion: discussion.id,
-                body: 'This discussion has been automatically closed because it was marked as answered. See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-respoistory-maintenance) for more details.',
+                body: 'This discussion has been automatically closed because it was marked as answered. See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-repository-maintenance) for more details.',
               }
               await github.graphql(addCommentMutation, commentVariables)
 
@@ -182,7 +182,7 @@ jobs:
                 }`;
                 const commentVariables = {
                   discussion: discussion.id,
-                  body: 'This discussion has been automatically closed due to inactivity. See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-respoistory-maintenance) for more details.',
+                  body: 'This discussion has been automatically closed due to inactivity. See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-repository-maintenance) for more details.',
                 }
                 await github.graphql(addCommentMutation, commentVariables);
 
@@ -260,7 +260,7 @@ jobs:
                 }`;
                 const commentVariables = {
                   discussion: discussion.id,
-                  body: 'This discussion has been automatically closed due to lack of community support. See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-respoistory-maintenance) for more details.',
+                  body: 'This discussion has been automatically closed due to lack of community support. See our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#automatic-repository-maintenance) for more details.',
                 }
                 await github.graphql(addCommentMutation, commentVariables);
 
