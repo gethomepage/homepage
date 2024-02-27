@@ -26,7 +26,7 @@ In order for homepage to access the OpenWRT RPC endpoints you will need to [crea
 
 Create an ACL named `homepage.json` in `/usr/share/rpcd/acl.d/`, the following permissions will suffice:
 
-```
+```json
 {
         "homepage": {
                 "description": "Homepage widget",
@@ -34,21 +34,25 @@ Create an ACL named `homepage.json` in `/usr/share/rpcd/acl.d/`, the following p
                         "ubus": {
                                 "network.interface.wan": ["status"],
                                 "network.interface.lan": ["status"],
-                                "network.device": ["status"]
+                                "network.device": ["status"],
                                 "system": ["info"]
                         }
                 },
         }
 }
 ```
+Create a `crypt(5)` password hash using the following command in the OpenWRT shell: 
+```sh
+uhttpd -m "<somepassphrase>"
+```
 
-Then add a user that will use that ACL in `/etc/config/rpc`:
+Then add a user that will use that ACL in `/etc/config/rpcd`:
 
-```config login
+```
+config login
         option username 'homepage'
-        option password '<password>'
+        option password '<hashedpassword>'
         list read homepage
-        list write '*'
 ```
 
 This username and password will be used in Homepage's services.yaml to grant access.
