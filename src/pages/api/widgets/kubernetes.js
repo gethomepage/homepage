@@ -94,7 +94,7 @@ export default async function handler(req, res) {
       nodes: Object.entries(nodeMap).map(([name, node]) => ({ name, ...node })),
     });
   } catch (e) {
-    logger.error("exception %s", e);
+    if (e) logger.error(e);
     return res.status(500).send({
       error: "unknown error",
     });
