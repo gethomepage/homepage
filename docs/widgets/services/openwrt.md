@@ -37,7 +37,7 @@ Create an ACL named `homepage.json` in `/usr/share/rpcd/acl.d/`, the following p
                                 "network.device": ["status"],
                                 "system": ["info"]
                         }
-                },
+                }
         }
 }
 ```
@@ -45,14 +45,11 @@ Create a `crypt(5)` password hash using the following command in the OpenWRT she
 ```sh
 uhttpd -m "<somepassphrase>"
 ```
-
-Then add a user that will use that ACL in `/etc/config/rpcd`:
-
+Then add a user that will use the ACL and hashed password in `/etc/config/rpcd`:
 ```
 config login
         option username 'homepage'
         option password '<hashedpassword>'
         list read homepage
 ```
-
 This username and password will be used in Homepage's services.yaml to grant access.
