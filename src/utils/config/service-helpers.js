@@ -325,7 +325,7 @@ export async function servicesFromKubernetes() {
 
     return mappedServiceGroups;
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
     throw e;
   }
 }

@@ -65,7 +65,7 @@ export async function getStaticProps() {
       },
     };
   } catch (e) {
-    if (logger) {
+    if (logger && e) {
       logger.error(e);
     }
     return {
