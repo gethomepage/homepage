@@ -54,7 +54,9 @@ export default function Status({ service, style }) {
 
   return (
     <div
-      className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] docker-status`}
+      className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] docker-status docker-status-${statusLabel
+        .toLowerCase()
+        .replace(" ", "-")}`}
       title={statusTitle}
     >
       {style !== "dot" ? (
