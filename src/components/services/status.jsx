@@ -7,12 +7,11 @@ export default function Status({ service, style }) {
   const { data, error } = useSWR(`/api/docker/status/${service.container}/${service.server || ""}`);
 
   let statusLabel = t("docker.unknown");
-  let statusTitle = "";
   let backgroundClass = "px-1.5 py-0.5 bg-theme-500/10 dark:bg-theme-900/50";
   let colorClass = "text-black/20 dark:text-white/40 ";
 
   if (error) {
-    statusTitle = t("docker.error");
+    statusLabel = t("docker.error");
     colorClass = "text-rose-500/80";
   } else if (data) {
     if (data.status?.includes("running")) {
@@ -33,8 +32,6 @@ export default function Status({ service, style }) {
           colorClass = "text-orange-400/50 dark:text-orange-400/80";
         }
       }
-
-      statusTitle = statusLabel;
     }
 
     if (data.status === "not found" || data.status === "exited" || data.status?.startsWith("partial")) {
@@ -42,14 +39,12 @@ export default function Status({ service, style }) {
       else if (data.status === "exited") statusLabel = t("docker.exited");
       else statusLabel = data.status.replace("partial", t("docker.partial"));
       colorClass = "text-orange-400/50 dark:text-orange-400/80";
-      statusTitle = statusLabel;
     }
   }
 
   if (style === "dot") {
     colorClass = colorClass.replace(/text-/g, "bg-").replace(/\/\d\d/g, "");
     backgroundClass = "p-4 hover:bg-theme-500/10 dark:hover:bg-theme-900/20";
-    statusTitle = statusLabel;
   }
 
   return (
@@ -57,7 +52,7 @@ export default function Status({ service, style }) {
       className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] docker-status docker-status-${statusLabel
         .toLowerCase()
         .replace(" ", "-")}`}
-      title={statusTitle}
+      title={statusLabel}
     >
       {style !== "dot" ? (
         <div className={`text-[8px] font-bold ${colorClass} uppercase`}>{statusLabel}</div>
