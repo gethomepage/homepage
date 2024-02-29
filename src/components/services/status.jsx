@@ -16,24 +16,25 @@ export default function Status({ service, style }) {
     colorClass = "text-rose-500/80";
   } else if (data) {
     if (data.status?.includes("running")) {
-      if (data.health === "starting") {
-        statusTitle = t("docker.starting");
-        colorClass = "text-blue-500/80";
-      }
-
-      if (data.health === "unhealthy") {
-        statusTitle = t("docker.unhealthy");
-        colorClass = "text-orange-400/50 dark:text-orange-400/80";
-      }
+      colorClass = "text-emerald-500/80";
 
       if (!data.health) {
         statusLabel = data.status.replace("running", t("docker.running"));
       } else {
         statusLabel = data.health === "healthy" ? t("docker.healthy") : data.health;
+
+        if (data.health === "starting") {
+          statusLabel = t("docker.starting");
+          colorClass = "text-blue-500/80";
+        }
+
+        if (data.health === "unhealthy") {
+          statusLabel = t("docker.unhealthy");
+          colorClass = "text-orange-400/50 dark:text-orange-400/80";
+        }
       }
 
       statusTitle = statusLabel;
-      colorClass = "text-emerald-500/80";
     }
 
     if (data.status === "not found" || data.status === "exited" || data.status?.startsWith("partial")) {
@@ -41,6 +42,7 @@ export default function Status({ service, style }) {
       else if (data.status === "exited") statusLabel = t("docker.exited");
       else statusLabel = data.status.replace("partial", t("docker.partial"));
       colorClass = "text-orange-400/50 dark:text-orange-400/80";
+      statusTitle = statusLabel;
     }
   }
 
@@ -52,7 +54,9 @@ export default function Status({ service, style }) {
 
   return (
     <div
-      className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] docker-status`}
+      className={`w-auto text-center overflow-hidden ${backgroundClass} rounded-b-[3px] docker-status docker-status-${statusLabel
+        .toLowerCase()
+        .replace(" ", "-")}`}
       title={statusTitle}
     >
       {style !== "dot" ? (
