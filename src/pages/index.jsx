@@ -161,10 +161,10 @@ function Index({ initialSettings, fallback }) {
 
 const headerStyles = {
   boxed:
-    "m-6 mb-0 sm:m-9 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
-  underlined: "m-6 mb-0 sm:m-9 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
-  clean: "m-6 mb-0 sm:m-9 sm:mb-0",
-  boxedWidgets: "m-6 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
+    "m-5 mb-0 sm:m-9 sm:mb-0 rounded-md shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 dark:bg-white/5 p-3",
+  underlined: "m-5 mb-0 sm:m-9 sm:mb-1 border-b-2 pb-4 border-theme-800 dark:border-theme-200/50",
+  clean: "m-5 mb-0 sm:m-9 sm:mb-0",
+  boxedWidgets: "m-5 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
 };
 
 function Home({ initialSettings }) {
@@ -282,7 +282,7 @@ function Home({ initialSettings }) {
     return (
       <>
         {tabs.length > 0 && (
-          <div key="tabs" id="tabs" className="m-6 sm:m-9 sm:mt-4 sm:mb-0">
+          <div key="tabs" id="tabs" className="m-5 sm:m-9 sm:mt-4 sm:mb-0">
             <ul
               className={classNames(
                 "sm:flex rounded-md bg-theme-100/20 dark:bg-white/5",
@@ -415,11 +415,7 @@ function Home({ initialSettings }) {
               `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
           )}
         >
-          <div
-            id="widgets-wrap"
-            style={{ width: "calc(100% + 1rem)" }}
-            className={classNames("flex flex-row w-full flex-wrap justify-between -ml-2 -mr-2")}
-          >
+          <div id="widgets-wrap" className={classNames("flex flex-row w-full flex-wrap justify-between gap-x-2")}>
             {widgets && (
               <>
                 {widgets
@@ -436,7 +432,7 @@ function Home({ initialSettings }) {
                   id="information-widgets-right"
                   className={classNames(
                     "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
-                    headerStyle === "boxedWidgets" ? "sm:ml-4" : "sm:ml-2",
+                    "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end gap-x-2",
                   )}
                 >
                   {widgets
