@@ -80,7 +80,7 @@ export default async function handler(req, res) {
       error: "not found",
     });
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
     return res.status(500).send({
       error: { message: e?.message ?? "Unknown error" },
     });
