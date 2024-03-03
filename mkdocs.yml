@@ -49,6 +49,7 @@ nav:
       - widgets/services/diskstation.md
       - widgets/services/downloadstation.md
       - widgets/services/emby.md
+      - widgets/services/esphome.md
       - widgets/services/evcc.md
       - widgets/services/fileflows.md
       - widgets/services/flood.md
