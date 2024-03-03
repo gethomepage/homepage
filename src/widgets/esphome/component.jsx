@@ -26,9 +26,9 @@ export default function Component({ service }) {
   }
 
   const total = Object.keys(resultData).length;
-  const online = Object.entries(resultData).filter(([,v]) => v === true).length;
-  const offline = Object.entries(resultData).filter(([,v]) => v === false).length;
-  const unknown = Object.entries(resultData).filter(([,v]) => v === null).length;
+  const online = Object.entries(resultData).filter(([, v]) => v === true).length;
+  const offline = Object.entries(resultData).filter(([, v]) => v === false).length;
+  const unknown = Object.entries(resultData).filter(([, v]) => v === null).length;
 
   return (
     <Container service={service}>
