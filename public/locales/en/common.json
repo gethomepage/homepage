@@ -858,5 +858,10 @@
         "movies": "Movies",
         "tags": "Tags",
         "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "Users",
+        "recipes": "Recipes",
+        "keywords": "Keywords"
     }
 }

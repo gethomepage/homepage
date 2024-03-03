@@ -93,6 +93,7 @@ import speedtest from "./speedtest/widget";
 import stash from "./stash/widget";
 import strelaysrv from "./strelaysrv/widget";
 import tailscale from "./tailscale/widget";
+import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
 import tdarr from "./tdarr/widget";
 import traefik from "./traefik/widget";
@@ -207,6 +208,7 @@ const widgets = {
   stash,
   strelaysrv,
   tailscale,
+  tandoor,
   tautulli,
   tdarr,
   traefik,
