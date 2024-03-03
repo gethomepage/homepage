@@ -24,8 +24,8 @@ export default function Component({ service }) {
   }
   return (
     <Container service={service}>
-      <Block label="tandoor.users" value={spaceData[0].user_count} />
-      <Block label="tandoor.recipes" value={spaceData[0].recipe_count} />
+      <Block label="tandoor.users" value={spaceData[0]?.user_count} />
+      <Block label="tandoor.recipes" value={spaceData[0]?.recipe_count} />
       <Block label="tandoor.keywords" value={keywordData.count} />
     </Container>
   );
