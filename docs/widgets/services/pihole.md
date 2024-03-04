@@ -9,6 +9,8 @@ As of v2022.12 [PiHole requires the use of an API key](https://pi-hole.net/blog/
 
 Allowed fields: `["queries", "blocked", "blocked_percent", "gravity"]`.
 
+Note: by default the "blocked" and "blocked_percent" fields are merged e.g. "1,234 (15%)" but explicitly including the "blocked_percent" field will change them to display separately.
+
 ```yaml
 widget:
   type: pihole
@@ -16,4 +18,4 @@ widget:
   key: yourpiholeapikey # optional
 ```
 
-_Added in v0.1.0, updated in v0.6.18_
+_Added in v0.1.0, updated in v0.8.9_
