@@ -406,6 +406,8 @@ By default the homepage logfile is written to the a `logs` subdirectory of the `
 logpath: /logfile/path
 ```
 
+By default, logs are sent both to `stdout` and to a file at the path specified. This can be changed by setting the `LOG_TARGETS` environment variable to one of `both` (default), `stdout` or `file`.
+
 ## Show Docker Stats
 
 You can show all docker stats expanded in `settings.yaml`:
