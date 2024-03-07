@@ -62,7 +62,7 @@ export default function Component({ service }) {
             <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
               <div className="flex items-center">
                 <div className="w-3 h-3 mr-1.5 opacity-50">{statusMap[item.status]}</div>
-                <div className="opacity-75 grow">{item.name}</div>
+                <div className="opacity-75 grow truncate">{item.name}</div>
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
