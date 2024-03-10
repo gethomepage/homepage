@@ -97,6 +97,6 @@ export default async function homeboxProxyHandler(req, res) {
     totalWithWarranty: groupStats?.totalWithWarranty,
     totalValue: groupStats?.totalItemPrice,
     users: groupStats?.totalUsers,
-    currencyCode: groupData?.currency
+    currencyCode: groupData?.currency,
   });
 }
