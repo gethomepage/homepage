@@ -23,8 +23,9 @@ async function login(widget, service) {
   const [, , data] = await httpProxy(loginUrl, loginParams);
 
   try {
-    const { token } = JSON.parse(data.toString());
-    cache.put(`${sessionTokenCacheKey}.${service}`, token);
+    const { token, expiresAt } = JSON.parse(data.toString());
+    const expiresAtDate = new Date(expiresAt).getTime();
+    cache.put(`${sessionTokenCacheKey}.${service}`, token, expiresAtDate - Date.now());
     return { token };
   } catch (e) {
     logger.error("Unable to login to Homebox API: %s", e);
