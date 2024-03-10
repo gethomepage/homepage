@@ -33,6 +33,7 @@ import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import homeassistant from "./homeassistant/widget";
+import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
 import healthchecks from "./healthchecks/widget";
 import immich from "./immich/widget";
@@ -145,6 +146,7 @@ const widgets = {
   grafana,
   hdhomerun,
   homeassistant,
+  homebox,
   homebridge,
   healthchecks,
   ical: calendar,

@@ -66,6 +66,7 @@ nav:
       - widgets/services/hdhomerun.md
       - widgets/services/healthchecks.md
       - widgets/services/homeassistant.md
+      - widgets/services/homebox.md
       - widgets/services/homebridge.md
       - widgets/services/iframe.md
       - widgets/services/immich.md

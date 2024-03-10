@@ -40,6 +40,7 @@ const components = {
   hdhomerun: dynamic(() => import("./hdhomerun/component")),
   peanut: dynamic(() => import("./peanut/component")),
   homeassistant: dynamic(() => import("./homeassistant/component")),
+  homebox: dynamic(() => import("./homebox/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
   healthchecks: dynamic(() => import("./healthchecks/component")),
   immich: dynamic(() => import("./immich/component")),
