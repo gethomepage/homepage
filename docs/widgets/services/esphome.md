@@ -13,4 +13,5 @@ Allowed fields: `["total", "online", "offline", "unknown"]`.
 widget:
   type: esphome
   url: http://esphome.host.or.ip:port
+  refreshInterval: 30000 # optional - in milliseconds, defaults to 30s. Minimal allowed: 10000.
 ```

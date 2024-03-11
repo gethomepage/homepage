@@ -4,11 +4,17 @@ import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+const defaultInterval = 30000;
+const minRefreshInterval = 10000;
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const { data: resultData, error: resultError } = useWidgetAPI(widget);
+  const { refreshInterval = defaultInterval } = widget;
+  const { data: resultData, error: resultError } = useWidgetAPI(widget, "devices", {
+    refreshInterval: Math.max(minRefreshInterval, refreshInterval),
+  });
 
   if (resultError) {
     return <Container service={service} error={resultError} />;
