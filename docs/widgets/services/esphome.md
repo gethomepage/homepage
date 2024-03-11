@@ -7,7 +7,7 @@ Learn more about [ESPHome](https://esphome.io/).
 
 Show the number of ESPHome devices based on their state.
 
-Allowed fields: `["total", "online", "offline", "unknown"]`.
+Allowed fields: `["total", "online", "offline", "offline_alt", "unknown"]`.
 
 ```yaml
 widget:

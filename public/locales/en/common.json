@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Online",
         "total": "Total",
         "unknown": "Unknown"
