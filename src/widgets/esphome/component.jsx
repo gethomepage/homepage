@@ -19,6 +19,7 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="esphome.online" />
         <Block label="esphome.offline" />
+        <Block label="esphome.offline_alt" />
         <Block label="esphome.unknown" />
         <Block label="esphome.total" />
       </Container>
@@ -27,6 +28,7 @@ export default function Component({ service }) {
 
   const total = Object.keys(resultData).length;
   const online = Object.entries(resultData).filter(([, v]) => v === true).length;
+  const notOnline = Object.entries(resultData).filter(([, v]) => v !== true).length;
   const offline = Object.entries(resultData).filter(([, v]) => v === false).length;
   const unknown = Object.entries(resultData).filter(([, v]) => v === null).length;
 
@@ -34,6 +36,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="esphome.online" value={t("common.number", { value: online })} />
       <Block label="esphome.offline" value={t("common.number", { value: offline })} />
+      <Block label="esphome.offline_alt" value={t("common.number", { value: notOnline })} />
       <Block label="esphome.unknown" value={t("common.number", { value: unknown })} />
       <Block label="esphome.total" value={t("common.number", { value: total })} />
     </Container>
