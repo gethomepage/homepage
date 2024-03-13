@@ -13,8 +13,9 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
   const { settings } = useContext(SettingsContext);
   const { theme } = useContext(ThemeContext);
 
-  // direct or relative URLs
-  if (icon.startsWith("http") || icon.startsWith("/")) {
+  // direct or relative URLs or base64
+  const base64Reg = /data:image\/.*;base64,/;
+  if (icon.startsWith("http") || icon.startsWith("/") || base64Reg.test(icon)) {
     return (
       <Image
         src={`${icon}`}
