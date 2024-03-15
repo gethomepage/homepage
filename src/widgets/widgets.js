@@ -17,6 +17,7 @@ import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
+import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
@@ -32,6 +33,7 @@ import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import homeassistant from "./homeassistant/widget";
+import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
 import healthchecks from "./healthchecks/widget";
 import immich from "./immich/widget";
@@ -92,6 +94,7 @@ import speedtest from "./speedtest/widget";
 import stash from "./stash/widget";
 import strelaysrv from "./strelaysrv/widget";
 import tailscale from "./tailscale/widget";
+import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
 import tdarr from "./tdarr/widget";
 import traefik from "./traefik/widget";
@@ -127,6 +130,7 @@ const widgets = {
   diskstation,
   downloadstation,
   emby,
+  esphome,
   evcc,
   fileflows,
   flood,
@@ -142,6 +146,7 @@ const widgets = {
   grafana,
   hdhomerun,
   homeassistant,
+  homebox,
   homebridge,
   healthchecks,
   ical: calendar,
@@ -205,6 +210,7 @@ const widgets = {
   stash,
   strelaysrv,
   tailscale,
+  tandoor,
   tautulli,
   tdarr,
   traefik,

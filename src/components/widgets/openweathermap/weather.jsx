@@ -42,7 +42,7 @@ function Widget({ options }) {
     <Container options={options} additionalClassNames="information-widget-openweathermap">
       <PrimaryText>
         {options.label && `${options.label}, `}
-        {t("common.number", { value: data.main.temp, style: "unit", unit })}
+        {t("common.number", { value: data.main.temp, style: "unit", unit, ...options.format })}
       </PrimaryText>
       <SecondaryText>{data.weather[0].description}</SecondaryText>
       <WidgetIcon icon={mapIcon(condition, timeOfDay)} size="xl" />

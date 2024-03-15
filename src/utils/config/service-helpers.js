@@ -453,7 +453,7 @@ export function cleanServiceGroups(groups) {
         let fieldsList = fields;
         if (typeof fields === "string") {
           try {
-            JSON.parse(fields);
+            fieldsList = JSON.parse(fields);
           } catch (e) {
             logger.error("Invalid fields list detected in config for service '%s'", service.name);
             fieldsList = null;

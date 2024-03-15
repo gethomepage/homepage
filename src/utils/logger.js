@@ -3,68 +3,89 @@ import { format as utilFormat } from "node:util";
 
 import winston from "winston";
 
-import checkAndCopyConfig, { getSettings, CONF_DIR } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, getSettings } from "utils/config/config";
 
 let winstonLogger;
 
-function init() {
-  checkAndCopyConfig("settings.yaml");
+function combineMessageAndSplat() {
+  return {
+    // eslint-disable-next-line no-unused-vars
+    transform: (info, opts) => {
+      // combine message and args if any
+      // eslint-disable-next-line no-param-reassign
+      info.message = utilFormat(info.message, ...(info[Symbol.for("splat")] || []));
+      return info;
+    },
+  };
+}
+
+function messageFormatter(logInfo) {
+  if (logInfo.label) {
+    if (logInfo.stack) {
+      return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.stack}`;
+    }
+    return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.message}`;
+  }
+
+  if (logInfo.stack) {
+    return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.stack}`;
+  }
+  return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.message}`;
+}
+
+function getConsoleLogger() {
+  return new winston.transports.Console({
+    format: winston.format.combine(
+      winston.format.errors({ stack: true }),
+      combineMessageAndSplat(),
+      winston.format.timestamp(),
+      winston.format.colorize(),
+      winston.format.printf(messageFormatter),
+    ),
+    handleExceptions: true,
+    handleRejections: true,
+  });
+}
+
+function getFileLogger() {
   const settings = getSettings();
   const logpath = settings.logpath || CONF_DIR;
 
-  function combineMessageAndSplat() {
-    return {
-      // eslint-disable-next-line no-unused-vars
-      transform: (info, opts) => {
-        // combine message and args if any
-        // eslint-disable-next-line no-param-reassign
-        info.message = utilFormat(info.message, ...(info[Symbol.for("splat")] || []));
-        return info;
-      },
-    };
-  }
+  return new winston.transports.File({
+    format: winston.format.combine(
+      winston.format.errors({ stack: true }),
+      combineMessageAndSplat(),
+      winston.format.timestamp(),
+      winston.format.printf(messageFormatter),
+    ),
+    filename: `${logpath}/logs/homepage.log`,
+    handleExceptions: true,
+    handleRejections: true,
+  });
+}
 
-  function messageFormatter(logInfo) {
-    if (logInfo.label) {
-      if (logInfo.stack) {
-        return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.stack}`;
-      }
-      return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.message}`;
-    }
+function init() {
+  checkAndCopyConfig("settings.yaml");
+  const configuredTargets = process.env.LOG_TARGETS || "both";
+  const loggingTransports = [];
 
-    if (logInfo.stack) {
-      return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.stack}`;
-    }
-    return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.message}`;
+  switch (configuredTargets) {
+    case "both":
+      loggingTransports.push(getConsoleLogger(), getFileLogger());
+      break;
+    case "stdout":
+      loggingTransports.push(getConsoleLogger());
+      break;
+    case "file":
+      loggingTransports.push(getFileLogger());
+      break;
+    default:
+      loggingTransports.push(getConsoleLogger(), getFileLogger());
   }
 
   winstonLogger = winston.createLogger({
     level: process.env.LOG_LEVEL || "info",
-    transports: [
-      new winston.transports.Console({
-        format: winston.format.combine(
-          winston.format.errors({ stack: true }),
-          combineMessageAndSplat(),
-          winston.format.timestamp(),
-          winston.format.colorize(),
-          winston.format.printf(messageFormatter),
-        ),
-        handleExceptions: true,
-        handleRejections: true,
-      }),
-
-      new winston.transports.File({
-        format: winston.format.combine(
-          winston.format.errors({ stack: true }),
-          combineMessageAndSplat(),
-          winston.format.timestamp(),
-          winston.format.printf(messageFormatter),
-        ),
-        filename: `${logpath}/logs/homepage.log`,
-        handleExceptions: true,
-        handleRejections: true,
-      }),
-    ],
+    transports: loggingTransports,
   });
 
   // patch the console log mechanism to use our logger
