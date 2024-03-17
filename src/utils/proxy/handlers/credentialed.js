@@ -4,6 +4,7 @@ import validateWidgetData from "utils/proxy/validate-widget-data";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
+import { fetchJackettCookie } from "utils/proxy/jackett";
 
 const logger = createLogger("credentialedProxyHandler");
 
@@ -69,6 +70,15 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
       } else if (widget.type === "plantit") {
         headers.Key = `${widget.key}`;
+      } else if (widget.type === "jackett") {
+        if (widget.password) {
+          const jackettCookie = await fetchJackettCookie(widget, widgets[widget.type].loginURL);
+          if (jackettCookie) {
+            headers.Cookie = jackettCookie;
+          } else {
+            return res.status(500).json({ error: "Failed to authenticate with Jackett" });
+          }
+        }
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
