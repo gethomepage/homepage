@@ -211,13 +211,13 @@ layout:
 
 ### Five Columns
 
-You can add a fifth column (when `style: columns` which is default) by adding:
+You can add a fifth column to services (when `style: columns` which is default) by adding:
 
 ```yaml
 fiveColumns: true
 ```
 
-By default homepage will max out at 4 columns for column style
+By default homepage will max out at 4 columns for services with `columns` style
 
 ### Collapsible sections
 
