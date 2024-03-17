@@ -103,7 +103,7 @@ export async function httpProxy(url, params = {}) {
 
   try {
     const [status, contentType, data, responseHeaders] = await request;
-    return [status, contentType, data, responseHeaders];
+    return [status, contentType, data, responseHeaders, params];
   } catch (err) {
     logger.error(
       "Error calling %s//%s%s%s...",
