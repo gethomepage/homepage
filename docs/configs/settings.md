@@ -85,7 +85,7 @@ Or you may pass the path to a local image relative to the `/app/public` director
 
 ## Theme
 
-You can configure a fixed them (and disable the theme switcher) by passing the `theme` option, like so:
+You can configure a fixed theme (and disable the theme switcher) by passing the `theme` option, like so:
 
 ```yaml
 theme: dark # or light
