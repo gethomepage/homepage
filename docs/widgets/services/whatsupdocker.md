@@ -11,6 +11,6 @@ Allowed fields: `["monitoring", "updates"]`.
 widget:
   type: whatsupdocker
   url: http://whatsupdocker:port
-  username: username  # optional
-  password: password  # optional
+  username: username # optional
+  password: password # optional
 ```
