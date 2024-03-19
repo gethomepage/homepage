@@ -84,8 +84,6 @@ export default function OpenMeteo({ options }) {
     }
   };
 
-  // if (!requesting && !location) requestLocation();
-
   if (!location) {
     return (
       <ContainerButton
