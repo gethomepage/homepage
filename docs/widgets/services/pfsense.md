@@ -26,5 +26,5 @@ widget:
   headers: # optional, or username/password
     Authorization: client_id client_token
   wan: igb0
-  fields: ["load", "memory", "temp", "wanStatus"] # optional - default fields shown
+  fields: ["load", "memory", "temp", "wanStatus"] # optional
 ```
