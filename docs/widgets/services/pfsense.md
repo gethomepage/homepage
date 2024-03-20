@@ -23,7 +23,7 @@ widget:
   url: http://pfsense.host.or.ip:port
   username: user # optional, or API keys
   password: pass # optional, or API key
-  headers: # optional- for use with API keys instead of username/password
+  headers: # optional, or username/password
     Authorization: client_id client_token
   wan: igb0
   fields: ["load", "memory", "temp", "wanStatus"] # optional - default fields shown
