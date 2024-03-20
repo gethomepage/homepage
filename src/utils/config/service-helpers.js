@@ -117,6 +117,8 @@ export async function servicesFromDocker() {
 
         return { server: serverName, services: discovered.filter((filteredService) => filteredService) };
       } catch (e) {
+        logger.error("Error getting services from Docker server '%s': %s", serverName, e);
+
         // a server failed, but others may succeed
         return { server: serverName, services: [] };
       }
