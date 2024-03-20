@@ -9,9 +9,9 @@ This widget requires the installation of the [pfsense-api](https://github.com/ja
 
 Once pfSense API is installed, you can set the API to be read-only in System > API > Settings.
 
-There are two currently supported authentication modes: 'Local Database' and 'API Token'. For 'Local Database', use `username` and `password` with the credentials of an admin user. For 'API Token', utilize the `headers` parameter as shown below. When generating a new key, the client_token will be shown once in an alert box at the top of the page and the client_id will be at the bottom of the page. Do not use both `headers` and `username`/`password`.
+There are two currently supported authentication modes: 'Local Database' and 'API Token'. For 'Local Database', use `username` and `password` with the credentials of an admin user. For 'API Token', utilize the `headers` parameter with `client_token` and `client_id` obtained from pfSense as shown below. Do not use both headers and username / password.
 
-The interface to monitor is defined by updating the `wan` parameter. It should be referenced as it is shown under Interfaces > Assignments in the 'Network port' column next to the MAC address.
+The interface to monitor is defined by updating the `wan` parameter. It should be referenced as it is shown under Interfaces > Assignments in pfSense.
 
 Load is returned instead of cpu utilization. This is a limitation in the pfSense API due to the complexity of this calculation. This may become available in future versions.
 
@@ -21,8 +21,8 @@ Allowed fields: `["load", "memory", "temp", "wanStatus", "wanIP", "disk"]` (maxi
 widget:
   type: pfsense
   url: http://pfsense.host.or.ip:port
-  username: user # optional, or API key
-  password: pass # optional, or API key
+  username: user # optional, or API token
+  password: pass # optional, or API token
   headers: # optional, or username/password
     Authorization: client_id client_token
   wan: igb0
