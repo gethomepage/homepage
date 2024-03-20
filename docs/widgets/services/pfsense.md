@@ -9,7 +9,7 @@ This widget requires the installation of the [pfsense-api](https://github.com/ja
 
 Once pfSense API is installed, you can set the API to be read-only in System > API > Settings.
 
-There are two currently supported authentication modes: 'Local Database' and 'API Token'. To for 'Local Database', use the `username` and `password` fields with the credentials of a pfSense admin user. For 'API Token', utilize the `headers` parameter as shown below. When generating a new key, the client_token will be shown once at the top of the page in an alert box and the client_id will be shown at the bottom of the page. 
+There are two currently supported authentication modes: 'Local Database' and 'API Token'. To for 'Local Database', use the `username` and `password` fields with the credentials of a pfSense admin user. For 'API Token', utilize the `headers` parameter as shown below. When generating a new key, the client_token will be shown once at the top of the page in an alert box and the client_id will be at the bottom of the page. Do not use both `headers` and `username`/`password`.
 
 WAN interface to monitor can be defined by updating the `wan` param.
 
@@ -21,9 +21,9 @@ Allowed fields: `["load", "memory", "temp", "wanStatus", "wanIP", "disk"]` (maxi
 widget:
   type: pfsense
   url: http://pfsense.host.or.ip:port
-  username: user # only if not utilizing headers
-  password: pass # only if not utilizing headers
-  headers: # use this instead of username and password
+  username: user # optional- use if avoiding api keys (headers)
+  password: pass # optional- use if avoiding api keys (headers)
+  headers: # use this instead of username and password with API keys
     Authorization: client_id client_token
   wan: igb0
 ```
