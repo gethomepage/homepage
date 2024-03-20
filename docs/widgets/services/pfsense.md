@@ -9,7 +9,7 @@ This widget requires the installation of the [pfsense-api](https://github.com/ja
 
 Once pfSense API is installed, you can set the API to be read-only in System > API > Settings.
 
-There are two currently supported authentication modes: 'Local Database' and 'API Token'. To for 'Local Database', use the `username` and `password` fields with the credentials of a pfSense admin user. For 'API Token', utilize the `headers` parameter as shown below. When generating a new key, the client_token will be shown once at the top of the page in an alert box and the client_id will be at the bottom of the page. Do not use both `headers` and `username`/`password`.
+There are two currently supported authentication modes: 'Local Database' and 'API Token'. For 'Local Database', use `username` and `password` with the credentials of an admin user. For 'API Token', utilize the `headers` parameter as shown below. When generating a new key, the client_token will be shown once in an alert box at the top of the page and the client_id will be at the bottom of the page. Do not use both `headers` and `username`/`password`.
 
 The interface to monitor is defined by updating the `wan` parameter. It should be referenced as it is shown under Interfaces > Assignments in the 'Network port' column next to the MAC address.
 
@@ -21,10 +21,10 @@ Allowed fields: `["load", "memory", "temp", "wanStatus", "wanIP", "disk"]` (maxi
 widget:
   type: pfsense
   url: http://pfsense.host.or.ip:port
-  username: user # optional- for use instead of headers/Authorization (API keys)
-  password: pass # optional- for use instead of headers/Authorization (API keys)
-  headers: # optional- for use with API keys instead of username/password
+  username: user # optional, or API key
+  password: pass # optional, or API key
+  headers: # optional, or username/password
     Authorization: client_id client_token
   wan: igb0
-  fields: ["load", "memory", "temp", "wanStatus"] # optional - default fields shown
+  fields: ["load", "memory", "temp", "wanStatus"] # optional
 ```
