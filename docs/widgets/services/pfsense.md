@@ -21,9 +21,9 @@ Allowed fields: `["load", "memory", "temp", "wanStatus", "wanIP", "disk"]` (maxi
 widget:
   type: pfsense
   url: http://pfsense.host.or.ip:port
-  username: user # optional- use if avoiding api keys (headers)
-  password: pass # optional- use if avoiding api keys (headers)
-  headers: # for use with API keys instead of username/password
+  username: user # optional- for use instead of headers/Authorization (API keys)
+  password: pass # optional- for use instead of headers/Authorization (API keys)
+  headers: # optional- for use with API keys instead of username/password
     Authorization: client_id client_token
   wan: igb0
 ```
