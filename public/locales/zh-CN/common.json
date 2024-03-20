@@ -68,8 +68,8 @@
         "wanted": "想看",
         "queued": "排队",
         "series": "系列",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "队列数",
+        "unknown": "未知"
     },
     "radarr": {
         "wanted": "想看",
@@ -77,7 +77,7 @@
         "movies": "电影",
         "missing": "丢失",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "未知"
     },
     "readarr": {
         "wanted": "订阅",
@@ -97,7 +97,7 @@
     "pihole": {
         "queries": "查询",
         "blocked": "阻止",
-        "gravity": "重力",
+        "gravity": "gravity",
         "blocked_percent": "拦截 %"
     },
     "speedtest": {
@@ -533,7 +533,7 @@
         "memoryusage": "内存",
         "freespace": "剩余空间",
         "activeusers": "活跃用户",
-        "numfiles": "Files",
+        "numfiles": "文件数",
         "numshares": "共享项目"
     },
     "kopia": {
@@ -564,14 +564,14 @@
     },
     "prometheus": {
         "targets_up": "目标上线",
-        "targets_down": "目标在线",
+        "targets_down": "目标下线",
         "targets_total": "总目标"
     },
     "minecraft": {
         "players": "玩家",
         "version": "版本",
         "status": "状态",
-        "up": "在线的",
+        "up": "在线",
         "down": "离线"
     },
     "ghostfolio": {
