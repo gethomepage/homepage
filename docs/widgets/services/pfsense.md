@@ -11,7 +11,7 @@ Once pfSense API is installed, you can set the API to be read-only in System > A
 
 There are two currently supported authentication modes: 'Local Database' and 'API Token'. To for 'Local Database', use the `username` and `password` fields with the credentials of a pfSense admin user. For 'API Token', utilize the `headers` parameter as shown below. When generating a new key, the client_token will be shown once at the top of the page in an alert box and the client_id will be at the bottom of the page. Do not use both `headers` and `username`/`password`.
 
-The interface to monitor is defined by updating the `wan` param. It should be referenced as it is shown under Interfaces > Assignments in the 'Network port' column next to the MAC address.
+The interface to monitor is defined by updating the `wan` parameter. It should be referenced as it is shown under Interfaces > Assignments in the 'Network port' column next to the MAC address.
 
 Load is returned instead of cpu utilization. This is a limitation in the pfSense API due to the complexity of this calculation. This may become available in future versions.
 
