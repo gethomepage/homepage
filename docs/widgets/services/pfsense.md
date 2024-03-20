@@ -22,7 +22,7 @@ widget:
   type: pfsense
   url: http://pfsense.host.or.ip:port
   username: user # optional, or API keys
-  password: pass # optional- for use instead of headers/Authorization (API keys)
+  password: pass # optional, or API key
   headers: # optional- for use with API keys instead of username/password
     Authorization: client_id client_token
   wan: igb0
