@@ -20,9 +20,8 @@ export default async function credentialedProxyHandler(req, res, map) {
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
-      const headers = {
-        "Content-Type": "application/json",
-      };
+      const headers = req.extraHeaders ?? widget.headers ?? {};
+      headers["Content-Type"] = "application/json";
 
       if (widget.type === "coinmarketcap") {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
