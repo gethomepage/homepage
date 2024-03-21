@@ -52,3 +52,5 @@ site*/
 
 # venv
 .venv/
+
+mightymeld.secrets

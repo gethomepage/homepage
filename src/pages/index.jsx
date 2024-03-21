@@ -27,6 +27,7 @@ import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
 import { getStoredProvider, searchProviders } from "components/widgets/search/search";
+import '@mightymeld/runtime/mightymeld';
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
