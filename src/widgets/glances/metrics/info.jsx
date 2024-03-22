@@ -123,8 +123,8 @@ export default function Component({ service }) {
 
         {!chart && quicklookData?.swap === 0 && (
           <div className="text-[0.6rem] opacity-50">
-            {systemData.linux_distro && `${systemData.linux_distro} - `}
-            {systemData.os_version && systemData.os_version}
+            {systemData && systemData.linux_distro && `${systemData.linux_distro} - `}
+            {systemData && systemData.os_version && systemData.os_version}
           </div>
         )}
 
