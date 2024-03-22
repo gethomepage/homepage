@@ -12,6 +12,11 @@ const Chart = dynamic(() => import("../components/chart"), { ssr: false });
 
 const defaultPointsLimit = 15;
 const defaultInterval = 1000;
+const cpuSensorLabels = ["cpu_thermal", "Core", "Tctl"];
+
+function convertToFahrenheit(t) {
+  return (t * 9) / 5 + 32;
+}
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -24,7 +29,34 @@ export default function Component({ service }) {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
-  const { data: systemData, error: systemError } = useWidgetAPI(service.widget, "system");
+  const { data: sensorData, error: sensorError } = useWidgetAPI(service.widget, "sensors", {
+    refreshInterval: Math.max(defaultInterval, refreshInterval),
+  });
+
+  const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, "quicklook");
+
+  const unit = widget.tempUnits === "imperial" ? "fahrenheit" : "celsius";
+  let mainTemp = 0;
+  let maxTemp = 80;
+  const cpuSensors = sensorData?.filter(
+    (s) => cpuSensorLabels.some((label) => s.label.startsWith(label)) && s.type === "temperature_core",
+  );
+
+  if (cpuSensors) {
+    try {
+      mainTemp = cpuSensors.reduce((acc, s) => acc + s.value, 0) / cpuSensors.length;
+      maxTemp = Math.max(
+        cpuSensors.reduce((acc, s) => acc + (s.warning > 0 ? s.warning : 0), 0) / cpuSensors.length,
+        maxTemp,
+      );
+      if (unit === "fahrenheit") {
+        mainTemp = convertToFahrenheit(mainTemp);
+        maxTemp = convertToFahrenheit(maxTemp);
+      }
+    } catch (e) {
+      // cpu sensor retrieval failed
+    }
+  }
 
   useEffect(() => {
     if (data) {
@@ -71,22 +103,34 @@ export default function Component({ service }) {
         />
       )}
 
-      {!chart && systemData && !systemError && (
+      {!chart && quicklookData && !quicklookError && (
         <Block position="top-3 right-3">
-          <div className="text-xs opacity-50">
-            {systemData.linux_distro && `${systemData.linux_distro} - `}
-            {systemData.os_version && systemData.os_version}
+          <div className="text-[0.6rem] opacity-50">
+            {quicklookData.cpu_name && quicklookData.cpu_name}
           </div>
         </Block>
       )}
 
-      {systemData && !systemError && (
+      {quicklookData && !quicklookError && (
         <Block position="bottom-3 left-3">
-          {systemData.linux_distro && chart && <div className="text-xs opacity-50">{systemData.linux_distro}</div>}
+          {mainTemp > 0 && (
+            <div className="text-xs opacity-50">
+              {t("common.number", {
+                value: mainTemp,
+                maximumFractionDigits: 1,
+                style: "unit",
+                unit,
+              })} ({t("glances.warn")} @&nbsp;
+              {t("common.number", {
+                value: maxTemp,
+                maximumFractionDigits: 1,
+                style: "unit",
+                unit,
+              })})
+            </div>
+          )}
 
-          {systemData.os_version && chart && <div className="text-xs opacity-50">{systemData.os_version}</div>}
-
-          {systemData.hostname && <div className="text-xs opacity-50">{systemData.hostname}</div>}
+          {quicklookData.cpu_name && chart && <div className="text-xs opacity-50">{quicklookData.cpu_name}</div>}
         </Block>
       )}
 
