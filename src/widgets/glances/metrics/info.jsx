@@ -13,7 +13,7 @@ function Swap({ quicklookData, className = "" }) {
     quicklookData &&
     quicklookData.swap !== 0 && (
       <div className="text-xs flex place-content-between">
-        <div className={className}>{t("glances.swap")}</div>
+        <div className={className + ' mr-1'}>{t("glances.swap")}</div>
         <div className={className}>
           {t("common.number", {
             value: quicklookData.swap,
@@ -34,7 +34,7 @@ function CPU({ quicklookData, className = "" }) {
     quicklookData &&
     quicklookData.cpu && (
       <div className="text-xs flex place-content-between">
-        <div className={className}>{t("glances.cpu")}</div>
+        <div className={className + ' mr-1'}>{t("glances.cpu")}</div>
         <div className={className}>
           {t("common.number", {
             value: quicklookData.cpu,
@@ -55,7 +55,7 @@ function Mem({ quicklookData, className = "" }) {
     quicklookData &&
     quicklookData.mem && (
       <div className="text-xs flex place-content-between">
-        <div className={className}>{t("glances.mem")}</div>
+        <div className={className + ' mr-1'}>{t("glances.mem")}</div>
         <div className={className}>
           {t("common.number", {
             value: quicklookData.mem,
@@ -140,7 +140,7 @@ export default function Component({ service }) {
       )}
 
       {!chart && (
-        <Block position="bottom-3 left-3 w-[3rem]">
+        <Block position="bottom-3 left-3">
           <CPU quicklookData={quicklookData} className="opacity-75" />
         </Block>
       )}
