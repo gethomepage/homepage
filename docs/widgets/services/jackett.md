@@ -13,5 +13,5 @@ Allowed fields: `["configured", "errored"]`.
 widget:
   type: jackett
   url: http://jackett.host.or.ip
-  password: JackettAdminPassword
+  password: jackettadminpassword # optional
 ```
