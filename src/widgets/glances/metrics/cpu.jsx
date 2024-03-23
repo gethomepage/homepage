@@ -12,61 +12,6 @@ const Chart = dynamic(() => import("../components/chart"), { ssr: false });
 
 const defaultPointsLimit = 15;
 const defaultInterval = 1000;
-const cpuSensorLabels = ["cpu_thermal", "Core", "Tctl"];
-
-function convertToFahrenheit(t) {
-  return (t * 9) / 5 + 32;
-}
-
-function TEMP({ sensorData, tempUnits = "metric" }) {
-  const { t } = useTranslation();
-  const unit = tempUnits === "imperial" ? "fahrenheit" : "celsius";
-  let mainTemp = 0;
-  let maxTemp = 80;
-  const cpuSensors = sensorData?.filter(
-    (s) => cpuSensorLabels.some((label) => s.label.startsWith(label)) && s.type === "temperature_core",
-  );
-
-  if (cpuSensors) {
-    try {
-      mainTemp = cpuSensors.reduce((acc, s) => acc + s.value, 0) / cpuSensors.length;
-      maxTemp = Math.max(
-        cpuSensors.reduce((acc, s) => acc + (s.warning > 0 ? s.warning : 0), 0) / cpuSensors.length,
-        maxTemp,
-      );
-      if (unit === "fahrenheit") {
-        mainTemp = convertToFahrenheit(mainTemp);
-        maxTemp = convertToFahrenheit(maxTemp);
-      }
-    } catch (e) {
-      // cpu sensor retrieval failed
-    }
-  }
-
-  return (
-    mainTemp > 0 && (
-      <div className="text-xs flex">
-        <div className="opacity-75 mr-1">
-          {t("common.number", {
-            value: mainTemp,
-            maximumFractionDigits: 1,
-            style: "unit",
-            unit,
-          })}
-        </div>
-        <div className="opacity-50">
-          {"("}{t("glances.warn")}{" @ "}
-          {t("common.number", {
-            value: maxTemp,
-            maximumFractionDigits: 1,
-            style: "unit",
-            unit,
-          })}{")"}
-        </div>
-      </div>
-    )
-  );
-}
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -76,10 +21,6 @@ export default function Component({ service }) {
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(service.widget, "cpu", {
-    refreshInterval: Math.max(defaultInterval, refreshInterval),
-  });
-
-  const { data: sensorData, error: sensorError } = useWidgetAPI(service.widget, "sensors", {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
@@ -132,16 +73,12 @@ export default function Component({ service }) {
 
       {!chart && quicklookData && !quicklookError && (
         <Block position="top-3 right-3">
-          <div className="text-[0.6rem] opacity-50">
-            {quicklookData.cpu_name && quicklookData.cpu_name}
-          </div>
+          <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name && quicklookData.cpu_name}</div>
         </Block>
       )}
 
       {quicklookData && !quicklookError && (
         <Block position="bottom-3 left-3">
-          <TEMP sensorData={sensorData} tempUnits={widget.tempUnits} />
-
           {quicklookData.cpu_name && chart && <div className="text-xs opacity-50">{quicklookData.cpu_name}</div>}
         </Block>
       )}

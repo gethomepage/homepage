@@ -19,7 +19,6 @@ widget:
   password: pass # optional if auth enabled in Glances
   metric: cpu
   diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
-  tempUnits: imperial # optional, metric (default) or imperial. Only applies to cpu
   refreshInterval: 5000 # optional - in milliseconds, defaults to 1000 or more, depending on the metric
   pointsLimit: 15 # optional, defaults to 15
 ```

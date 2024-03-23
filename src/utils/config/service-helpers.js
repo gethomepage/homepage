@@ -398,7 +398,6 @@ export function cleanServiceGroups(groups) {
           metric,
           pointsLimit,
           diskUnits,
-          tempUnits,
 
           // glances, customapi, iframe
           refreshInterval,
@@ -538,7 +537,6 @@ export function cleanServiceGroups(groups) {
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
           if (pointsLimit) cleanedService.widget.pointsLimit = pointsLimit;
           if (diskUnits) cleanedService.widget.diskUnits = diskUnits;
-          if (tempUnits) cleanedService.widget.tempUnits = tempUnits;
         }
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;
