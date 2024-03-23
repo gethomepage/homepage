@@ -122,7 +122,10 @@ export default function Component({ service }) {
         )}
 
         {!chart && quicklookData?.swap === 0 && (
-          <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name}</div>
+          <div className="text-[0.6rem] opacity-50">
+            {systemData && systemData.linux_distro && `${systemData.linux_distro} - `}
+            {systemData && systemData.os_version}
+          </div>
         )}
 
         <div className="w-[4rem]">{!chart && <Swap quicklookData={quicklookData} className="opacity-25" />}</div>
