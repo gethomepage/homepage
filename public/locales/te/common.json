@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "ఆఫ్‌లైన్",
+        "offline_alt": "ఆఫ్‌లైన్",
         "online": "Online",
         "total": "మొత్తం",
         "unknown": "Unknown"
@@ -863,5 +864,13 @@
         "users": "వినియోగదారులు",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "వినియోగదారులు",
+        "totalValue": "Total Value"
     }
 }

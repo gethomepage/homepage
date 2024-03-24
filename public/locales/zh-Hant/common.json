@@ -50,7 +50,7 @@
         "uptime": "運作時間"
     },
     "unifi": {
-        "users": "使用者",
+        "users": "用戶",
         "uptime": "運行時間",
         "days": "天",
         "wan": "WAN",
@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "離線",
+        "offline_alt": "離線",
         "online": "在線",
         "total": "全部",
         "unknown": "未知"
@@ -368,7 +369,7 @@
         "transferRate": "速率"
     },
     "mastodon": {
-        "user_count": "使用者",
+        "user_count": "用戶",
         "status_count": "文章",
         "domain_count": "網域"
     },
@@ -389,7 +390,7 @@
         "unread": "未讀"
     },
     "authentik": {
-        "users": "使用者",
+        "users": "用戶",
         "loginsLast24H": "登入 (過去 24 小時)",
         "failedLoginsLast24H": "登入失敗 (過去 24 小時)"
     },
@@ -629,7 +630,7 @@
         "memory_usage": "記憶體"
     },
     "immich": {
-        "users": "使用者",
+        "users": "用戶",
         "photos": "照片",
         "videos": "影片",
         "storage": "儲存空間"
@@ -783,7 +784,7 @@
     },
     "mealie": {
         "recipes": "食譜",
-        "users": "使用者",
+        "users": "用戶",
         "categories": "類別",
         "tags": "標籤"
     },
@@ -860,8 +861,16 @@
         "oCount": "O Count"
     },
     "tandoor": {
-        "users": "使用者",
+        "users": "用戶",
         "recipes": "食譜",
-        "keywords": "Keywords"
+        "keywords": "關鍵字"
+    },
+    "homebox": {
+        "items": "項目",
+        "totalWithWarranty": "With Warranty",
+        "locations": "位置",
+        "labels": "標籤",
+        "users": "用戶",
+        "totalValue": "總共"
     }
 }

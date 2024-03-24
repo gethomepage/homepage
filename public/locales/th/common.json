@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "ออฟไลน์",
+        "offline_alt": "ออฟไลน์",
         "online": "Online",
         "total": "ทั้งหมด",
         "unknown": "ไม่ทราบ"
@@ -863,5 +864,13 @@
         "users": "ผู้ใช้",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "ผู้ใช้",
+        "totalValue": "Total Value"
     }
 }

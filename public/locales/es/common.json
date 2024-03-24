@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Desconectado",
+        "offline_alt": "Desconectado",
         "online": "En línea",
         "total": "Total",
         "unknown": "Desconocido"
@@ -544,7 +545,7 @@
         "channels": "Canales",
         "hd": "Alta definición",
         "tunerCount": "Tuners",
-        "channelNumber": "Channel",
+        "channelNumber": "Canal",
         "channelNetwork": "Network",
         "signalStrength": "Strength",
         "signalQuality": "Quality",
@@ -850,9 +851,9 @@
         "playDuration": "Time Watched",
         "sceneSize": "Scenes Size",
         "sceneDuration": "Scenes Duration",
-        "images": "Images",
+        "images": "Imágenes",
         "imageSize": "Images Size",
-        "galleries": "Galleries",
+        "galleries": "Galerías",
         "performers": "Performers",
         "studios": "Studios",
         "movies": "Películas",
@@ -863,5 +864,13 @@
         "users": "Usuarios",
         "recipes": "Recetas",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "Con Garantía",
+        "locations": "Ubicaciones",
+        "labels": "Labels",
+        "users": "Usuarios",
+        "totalValue": "Total Value"
     }
 }

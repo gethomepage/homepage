@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "중지",
+        "offline_alt": "중지",
         "online": "Online",
         "total": "총합",
         "unknown": "알 수 없음"
@@ -863,5 +864,13 @@
         "users": "사용자",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "사용자",
+        "totalValue": "Total Value"
     }
 }

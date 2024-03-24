@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Onbereikbaar",
+        "offline_alt": "Onbereikbaar",
         "online": "Bereikbaar",
         "total": "Totaal",
         "unknown": "Onbekend"
@@ -863,5 +864,13 @@
         "users": "Gebruikers",
         "recipes": "Recepten",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "Met garantie",
+        "locations": "Locaties",
+        "labels": "Labels",
+        "users": "Gebruikers",
+        "totalValue": "Totale waarde"
     }
 }

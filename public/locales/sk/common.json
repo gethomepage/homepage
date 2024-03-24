@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Nedostupný",
+        "offline_alt": "Nedostupný",
         "online": "Online",
         "total": "Celkovo",
         "unknown": "Neznáme"
@@ -833,28 +834,28 @@
         "criticals": "Kritické"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
+        "events": "Udalosti",
+        "plants": "Rastliny",
         "photos": "Fotografie",
-        "species": "Species"
+        "species": "Druhy"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "Oznámenia",
         "issues": "Problémy",
-        "pulls": "Pull Requests"
+        "pulls": "Pull requesty"
     },
     "stash": {
-        "scenes": "Scenes",
+        "scenes": "Scény",
         "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
+        "playCount": "Celkovo prehraní",
+        "playDuration": "Pozeraný čas",
+        "sceneSize": "Veľkosť obrazovky",
+        "sceneDuration": "Dĺžka scény",
+        "images": "Obrázky",
+        "imageSize": "Veľkosť obrázkov",
+        "galleries": "Galérie",
+        "performers": "Herci",
+        "studios": "Štúdiá",
         "movies": "Filmy",
         "tags": "Štítky",
         "oCount": "O Count"
@@ -862,6 +863,14 @@
     "tandoor": {
         "users": "Používatelia",
         "recipes": "Recepty",
-        "keywords": "Keywords"
+        "keywords": "Kľúčové slová"
+    },
+    "homebox": {
+        "items": "Položky",
+        "totalWithWarranty": "So zárukou",
+        "locations": "Umiestnenia",
+        "labels": "Labels",
+        "users": "Používatelia",
+        "totalValue": "Total Value"
     }
 }

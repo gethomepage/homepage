@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Изключен",
+        "offline_alt": "Изключен",
         "online": "Online",
         "total": "Общо",
         "unknown": "Неизв."
@@ -863,5 +864,13 @@
         "users": "Потребители",
         "recipes": "Рецепти",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Потребители",
+        "totalValue": "Total Value"
     }
 }
