@@ -37,10 +37,8 @@ jobs:
         if: ${{inputs.tags || steps.fetch-upstream-tags.outputs.NEW_TAGS}}
         run: |
           for TAG in ${NEW_TAGS}; do
-            git checkout -b release/${TAG} ${TAG}
-            git rm .github/workflows/*
-            git commit -m "Remove existing workflows"
-            git rev-list --no-merges --reverse main ^upstream/main | git cherry-pick --stdin --keep-redundant-commits
+            git checkout -b release/${TAG} main
+            git rebase -onto ${TAG} upstream/main
           done
           for TAG in ${NEW_TAGS}; do
             git push -u origin release/${TAG}
