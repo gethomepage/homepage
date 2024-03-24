@@ -10,7 +10,7 @@ import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
-import Tab, { slugify } from "components/tab";
+import Tab, { slugifyAndEncode } from "components/tab";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
@@ -258,13 +258,13 @@ function Home({ initialSettings }) {
 
   useEffect(() => {
     if (!activeTab) {
-      const initialTab = decodeURI(asPath.substring(asPath.indexOf("#") + 1));
-      setActiveTab(initialTab === "/" ? slugify(tabs["0"]) : initialTab);
+      const initialTab = asPath.substring(asPath.indexOf("#") + 1);
+      setActiveTab(initialTab === "/" ? slugifyAndEncode(tabs["0"]) : initialTab);
     }
   });
 
   const servicesAndBookmarksGroups = useMemo(() => {
-    const tabGroupFilter = (g) => g && [activeTab, ""].includes(slugify(settings.layout?.[g.name]?.tab));
+    const tabGroupFilter = (g) => g && [activeTab, ""].includes(slugifyAndEncode(settings.layout?.[g.name]?.tab));
     const undefinedGroupFilter = (g) => settings.layout?.[g.name] === undefined;
 
     const layoutGroups = Object.keys(settings.layout ?? {})
