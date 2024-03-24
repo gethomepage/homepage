@@ -11,14 +11,14 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{{value, date}}",
+        "date": "{value, date}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "माह",
         "days": "d",
-        "hours": "h",
+        "hours": "घं.",
         "minutes": "m",
-        "seconds": "s"
+        "seconds": "पल"
     },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Online",
         "total": "Total",
         "unknown": "Unknown"
@@ -411,7 +412,7 @@
         "free": "Free",
         "used": "Used",
         "days": "d",
-        "hours": "h",
+        "hours": "घं.",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
@@ -863,5 +864,13 @@
         "users": "Users",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Users",
+        "totalValue": "Total Value"
     }
 }

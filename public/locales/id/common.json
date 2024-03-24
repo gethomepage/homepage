@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Online",
         "total": "Total",
         "unknown": "Tidak Diketahui"
@@ -863,5 +864,13 @@
         "users": "Pengguna",
         "recipes": "Resep",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Pengguna",
+        "totalValue": "Total Value"
     }
 }

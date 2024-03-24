@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Nem elérhető",
+        "offline_alt": "Nem elérhető",
         "online": "Csatlakozva",
         "total": "Összes",
         "unknown": "Ismeretlen"
@@ -124,8 +125,8 @@
     "flood": {
         "download": "Letöltés",
         "upload": "Feltöltés",
-        "leech": "Letöltés",
-        "seed": "Feltöltés"
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "freshrss": {
         "subscriptions": "Előfizetések",
@@ -202,14 +203,14 @@
     "transmission": {
         "download": "Letöltés",
         "upload": "Feltöltés",
-        "leech": "Letöltés",
-        "seed": "Feltöltés"
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "qbittorrent": {
         "download": "Letöltés",
         "upload": "Feltöltés",
-        "leech": "Letöltés",
-        "seed": "Feltöltés"
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "qnap": {
         "cpuUsage": "Processzor Használat",
@@ -222,14 +223,14 @@
     "deluge": {
         "download": "Letöltés",
         "upload": "Feltöltés",
-        "leech": "Letöltés",
-        "seed": "Feltöltés"
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "downloadstation": {
         "download": "Letöltés",
         "upload": "Feltöltés",
-        "leech": "Letöltés",
-        "seed": "Feltöltés"
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Keresett",
@@ -396,7 +397,7 @@
     "proxmox": {
         "mem": "RAM",
         "cpu": "Processzor",
-        "lxc": "LXC",
+        "lxc": "LXC-k",
         "vms": "VM-ek"
     },
     "glances": {
@@ -525,7 +526,7 @@
         "playlists": "Lejátszási listák"
     },
     "truenas": {
-        "load": "Rendszerterheltség",
+        "load": "Rendszerterhelés",
         "uptime": "Üzemidő",
         "alerts": "Riasztások"
     },
@@ -543,14 +544,14 @@
     "hdhomerun": {
         "channels": "Csatornák",
         "hd": "HD",
-        "tunerCount": "Tuners",
-        "channelNumber": "Channel",
-        "channelNetwork": "Network",
-        "signalStrength": "Strength",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
+        "tunerCount": "Tuner-ek",
+        "channelNumber": "Csatorna",
+        "channelNetwork": "Hálózat",
+        "signalStrength": "Erősség",
+        "signalQuality": "Minőség",
+        "symbolQuality": "Minőség",
         "networkRate": "Bitráta",
-        "clientIP": "Client"
+        "clientIP": "Kliens"
     },
     "scrutiny": {
         "passed": "Megfelelt",
@@ -797,10 +798,10 @@
     },
     "openwrt": {
         "uptime": "Üzemidő",
-        "cpuLoad": "CPU Load Avg (5m)",
+        "cpuLoad": "Átlag CPU terhelés (5p)",
         "up": "Fel",
         "down": "Le",
-        "bytesTx": "Transmitted",
+        "bytesTx": "Továbbított",
         "bytesRx": "Fogadott"
     },
     "uptimerobot": {
@@ -833,35 +834,43 @@
         "criticals": "Kritikusok"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
+        "events": "Események",
+        "plants": "Növények",
         "photos": "Fényképek",
-        "species": "Species"
+        "species": "Fajok"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "Üzenetek",
         "issues": "Problémák",
-        "pulls": "Pull Requests"
+        "pulls": "Pull request-ek"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
+        "scenes": "Jelenetek",
+        "scenesPlayed": "Lejátszott jelenetek",
+        "playCount": "Összes leátszás",
+        "playDuration": "Nézett idő",
+        "sceneSize": "Jelenetek mérete",
+        "sceneDuration": "Jelenetek hossza",
+        "images": "Képek",
+        "imageSize": "Képek mérete",
+        "galleries": "Galériák",
+        "performers": "Előadók",
+        "studios": "Stúdiók",
         "movies": "Film",
         "tags": "Címkék",
-        "oCount": "O Count"
+        "oCount": "O szám"
     },
     "tandoor": {
         "users": "Felhasználók",
         "recipes": "Receptek",
-        "keywords": "Keywords"
+        "keywords": "Kulcsszavak"
+    },
+    "homebox": {
+        "items": "Tárgyak",
+        "totalWithWarranty": "Garanciával",
+        "locations": "Helyek",
+        "labels": "Címkék",
+        "users": "Felhasználók",
+        "totalValue": "Teljes érték"
     }
 }

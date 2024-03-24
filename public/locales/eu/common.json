@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Online",
         "total": "Guztira",
         "unknown": "Ezezaguna"
@@ -863,5 +864,13 @@
         "users": "Users",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Users",
+        "totalValue": "Total Value"
     }
 }

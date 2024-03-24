@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "כבוי",
+        "offline_alt": "כבוי",
         "online": "Online",
         "total": "סה\"כ",
         "unknown": "Unknown"
@@ -863,5 +864,13 @@
         "users": "Users",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Users",
+        "totalValue": "Total Value"
     }
 }

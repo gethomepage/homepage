@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Ngoại tuyến",
+        "offline_alt": "Ngoại tuyến",
         "online": "Online",
         "total": "Tổng",
         "unknown": "Unknown"
@@ -863,5 +864,13 @@
         "users": "Users",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Users",
+        "totalValue": "Total Value"
     }
 }

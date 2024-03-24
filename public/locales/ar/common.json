@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "غير متصل",
+        "offline_alt": "غير متصل",
         "online": "مُتّصل",
         "total": "المجموع",
         "unknown": "مجهول"
@@ -863,5 +864,13 @@
         "users": "المستخدمون",
         "recipes": "وصفات",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "المستخدمون",
+        "totalValue": "Total Value"
     }
 }

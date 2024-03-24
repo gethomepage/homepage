@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Vanlyn",
+        "offline_alt": "Vanlyn",
         "online": "Aanlyn",
         "total": "Totaal",
         "unknown": "Onbekend"
@@ -863,5 +864,13 @@
         "users": "Gebruikers",
         "recipes": "Resepte",
         "keywords": "Sleutelwoorde"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "Met Waarborg",
+        "locations": "Plekke",
+        "labels": "Etikette",
+        "users": "Gebruikers",
+        "totalValue": "Totale Waarde"
     }
 }

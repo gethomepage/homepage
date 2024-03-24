@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "離線",
+        "offline_alt": "離線",
         "online": "在線",
         "total": "全部",
         "unknown": "未知"
@@ -862,6 +863,14 @@
     "tandoor": {
         "users": "使用者",
         "recipes": "食譜",
-        "keywords": "Keywords"
+        "keywords": "關鍵字"
+    },
+    "homebox": {
+        "items": "項目",
+        "totalWithWarranty": "With Warranty",
+        "locations": "位置",
+        "labels": "標籤",
+        "users": "使用者",
+        "totalValue": "總共"
     }
 }
