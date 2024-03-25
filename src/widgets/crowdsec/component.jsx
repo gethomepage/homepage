@@ -9,31 +9,26 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: bansData, error: bansError } = useWidgetAPI(widget, "bans");
-  const { data: captchasData, error: captchasError } = useWidgetAPI(widget, "captchas");
-  const { data: rateLimitsData, error: rateLimitsError } = useWidgetAPI(widget, "rateLimits");
+  const { data: alerts, error: alertsError } = useWidgetAPI(widget, "alerts");
+  const { data: bans, error: bansError } = useWidgetAPI(widget, "bans");
 
-  if (bansError || captchasError || rateLimitsError) {
-    return <Container service={service} error={bansError ?? captchasError ?? rateLimitsError} />;
+  if (alertsError || bansError) {
+    return <Container service={service} error={alertsError ?? bansError} />;
   }
 
-  if (!bansData && !captchasData && !rateLimitsData) {
+  if (!alerts || !bans) {
     return (
       <Container service={service}>
+        <Block label="crowdsec.alerts" />
         <Block label="crowdsec.bans" />
-        <Block label="crowdsec.captchas" />
-        <Block label="crowdsec.rateLimits" />
       </Container>
     );
   }
 
-  console.log(bansData);
-
   return (
     <Container service={service}>
-      <Block label="crowdsec.bans" value={t("common.number", { value: bansData?.length ?? 0 })} />
-      <Block label="crowdsec.captchas" value={t("common.number", { value: captchasData?.length ?? 0 })} />
-      <Block label="crowdsec.rateLimits" value={t("common.number", { value: rateLimitsData?.length ?? 0 })} />
+      <Block label="crowdsec.alerts" value={t("common.number", { value: alerts.length })} />
+      <Block label="crowdsec.bans" value={t("common.number", { value: bans.length })} />
     </Container>
   );
 }

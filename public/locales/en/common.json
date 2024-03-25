@@ -874,8 +874,7 @@
         "totalValue": "Total Value"
     },
     "crowdsec": {
-        "bans": "Bans",
-        "captchas": "Captchas",
-        "rateLimits": "Rate Limits"
+        "alerts": "Alerts",
+        "bans": "Bans"
     }
 }
