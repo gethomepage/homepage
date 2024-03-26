@@ -44,9 +44,6 @@ dependencies:
   memory-cache:
     specifier: ^0.2.0
     version: 0.2.0
-  minecraft-ping-js:
-    specifier: ^1.0.2
-    version: 1.0.2
   minecraft-server-util-dist:
     specifier: ^5.4.5
     version: 5.4.5
