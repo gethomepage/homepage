@@ -24,6 +24,7 @@
     "luxon": "^3.4.4",
     "memory-cache": "^0.2.0",
     "minecraft-ping-js": "^1.0.2",
+    "minecraft-server-util-dist": "^5.4.5",
     "next": "^12.3.4",
     "next-i18next": "^12.1.0",
     "ping": "^0.4.4",

@@ -47,6 +47,9 @@ dependencies:
   minecraft-ping-js:
     specifier: ^1.0.2
     version: 1.0.2
+  minecraft-server-util-dist:
+    specifier: ^5.4.5
+    version: 5.4.5
   next:
     specifier: ^12.3.4
     version: 12.3.4(react-dom@18.2.0)(react@18.2.0)
@@ -2755,6 +2758,11 @@ packages:
     engines: {node: '>=6.0'}
     dev: false
 
+  /jsonrepair@3.6.0:
+    resolution: {integrity: sha512-ZvOmoq35LhlDaf1W3uT7e17Bh2dYbln1+pdJ1KUIMkRAoUC4mvXX+dbr9Ih6dDmYvB0mdijAucyPk4xX1cEjww==}
+    hasBin: true
+    dev: false
+
   /jsprim@1.4.2:
     resolution: {integrity: sha512-P2bSOMAc/ciLz6DzgjVlGJP9+BrJWu5UDGK70C2iweC5QBIeFf0ZXRvGjEj2uYgrY2MkAAhsSWHDWlFtEroZWw==}
     engines: {node: '>=0.6.0'}
@@ -2923,12 +2931,25 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: false
 
+  /minecraft-motd-util@1.1.12:
+    resolution: {integrity: sha512-5TuTRjrRupSTruea0nRC37r0FdhkS1O4wIJKAYfwJRCQd/X4Zyl/dVIs96h9UVW6N8jhIuz9pNkrDsqyN7VBdA==}
+    deprecated: no longer maintained
+    dev: false
+
   /minecraft-ping-js@1.0.2:
     resolution: {integrity: sha512-h9QYG2n+fBKgp520tXBwR354XRzR/w5wXe8CJCmxKm6jbLpAoLODM8Nj5+ssuIVQF8rtxkAnjwv7PH+7ehFzQQ==}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     dependencies:
       node-int64: 0.4.0
       varint: 6.0.0
+    dev: false
+
+  /minecraft-server-util-dist@5.4.5:
+    resolution: {integrity: sha512-s1X//SM/IrFcaZYQrnVd6feWC39pmerhbdDhO/7naKQ0tUjsyFsHcfqZiVpU7jlKtHwDcYbBrs3ad8kRnExapA==}
+    engines: {node: '>=10.0.0'}
+    dependencies:
+      jsonrepair: 3.6.0
+      minecraft-motd-util: 1.1.12
     dev: false
 
   /mini-svg-data-uri@1.4.4:

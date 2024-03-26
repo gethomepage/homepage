@@ -9,4 +9,5 @@ Allowed fields: `["players", "version", "status"]`.
 widget:
   type: minecraft
   url: udp://minecraftserveripordomain:port
+  edition: # Optional, should be 'java' or 'bedrock'. Defaults to 'java'
 ```
