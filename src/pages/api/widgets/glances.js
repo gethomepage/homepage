@@ -13,7 +13,7 @@ async function retrieveFromGlancesAPI(privateWidgetOptions, endpoint) {
     throw new Error(errorMessage);
   }
 
-  const apiUrl = `${url}/api/3/${endpoint}`;
+  const apiUrl = `${url}/api/4/${endpoint}`;
   const headers = {
     "Accept-Encoding": "application/json",
   };
