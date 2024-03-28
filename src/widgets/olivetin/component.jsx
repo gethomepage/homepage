@@ -4,15 +4,15 @@ import Button from "components/services/widget/button";
 export default function Component({ service }) {
   const { widget } = service;
   const { url, actions = [] } = widget;
+  const urlTrailess = url.replace(/\/$/, "");
 
   function startAction(actionId) {
     if (actionId) {
-      fetch(url.replace(/\/$/, "") + "/api/StartActionByGet/" + actionId).then((res) => {
+      fetch(`${urlTrailess}/api/StartActionByGet/${actionId}`).then((res) => {
         if (res.ok) {
           return res.json();
-        } else {
-          throw new Error(res.statusText);
         }
+        return res.statusText;
       });
     }
   }

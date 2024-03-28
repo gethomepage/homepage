@@ -60,7 +60,6 @@ import nextdns from "./nextdns/widget";
 import npm from "./npm/widget";
 import nzbget from "./nzbget/widget";
 import octoprint from "./octoprint/widget";
-import olivetin from "./olivetin/widget";
 import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import opendtu from "./opendtu/widget";
@@ -176,7 +175,6 @@ const widgets = {
   npm,
   nzbget,
   octoprint,
-  olivetin,
   omada,
   ombi,
   opendtu,
