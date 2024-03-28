@@ -16,6 +16,12 @@ You will need to generate an API token for an existing user. To do so follow the
 5. Click the Create button on the dialog
 6. Click the copy button on the far right of the newly created API Token
 
+The account you made the API-key for also need the following **Assigned global permissions** in Authentik:
+* authentik Core
+  * User
+* authentik Events
+  * Event 
+
 Allowed fields: `["users", "loginsLast24H", "failedLoginsLast24H"]`.
 
 ```yaml
