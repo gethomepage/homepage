@@ -17,6 +17,7 @@ widget:
   url: http://glances.host.or.ip:port
   username: user # optional if auth enabled in Glances
   password: pass # optional if auth enabled in Glances
+  version: 4 # required only if running glances v4 or higher, defaults to 3
   metric: cpu
   diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
   refreshInterval: 5000 # optional - in milliseconds, defaults to 1000 or more, depending on the metric
