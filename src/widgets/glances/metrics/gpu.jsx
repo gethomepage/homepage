@@ -16,13 +16,14 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit } = widget;
+  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
   const [, gpuName] = widget.metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(widget, "gpu", {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
+    version,
   });
 
   useEffect(() => {

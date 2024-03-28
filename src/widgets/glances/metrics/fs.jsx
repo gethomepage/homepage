@@ -11,12 +11,13 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval } = widget;
+  const { chart, refreshInterval = defaultInterval, version = 3 } = widget;
   const [, fsName] = widget.metric.split("fs:");
   const diskUnits = widget.diskUnits === "bbytes" ? "common.bbytes" : "common.bytes";
 
   const { data, error } = useWidgetAPI(widget, "fs", {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
+    version,
   });
 
   if (error) {
