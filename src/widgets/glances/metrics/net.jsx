@@ -19,6 +19,9 @@ export default function Component({ service }) {
   const { chart, metric } = widget;
   const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
 
+  const rxKey = version === 3 ? "rx" : "bytes_recv";
+  const txKey = version === 3 ? "tx" : "bytes_sent";
+
   const [, interfaceName] = metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
@@ -37,8 +40,8 @@ export default function Component({ service }) {
           const newDataPoints = [
             ...prevDataPoints,
             {
-              a: (interfaceData.rx * 8) / interfaceData.time_since_update,
-              b: (interfaceData.tx * 8) / interfaceData.time_since_update,
+              a: (interfaceData[rxKey] * 8) / interfaceData.time_since_update,
+              b: (interfaceData[txKey] * 8) / interfaceData.time_since_update,
             },
           ];
           if (newDataPoints.length > pointsLimit) {
@@ -98,7 +101,7 @@ export default function Component({ service }) {
 
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
-            value: (interfaceData.rx * 8) / interfaceData.time_since_update,
+            value: (interfaceData[rxKey] * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
           })}{" "}
           {t("docker.rx")}
@@ -116,7 +119,7 @@ export default function Component({ service }) {
       <Block position="bottom-3 right-3">
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
-            value: (interfaceData.tx * 8) / interfaceData.time_since_update,
+            value: (interfaceData[txKey] * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
           })}{" "}
           {t("docker.tx")}
