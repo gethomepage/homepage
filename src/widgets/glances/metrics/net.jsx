@@ -17,7 +17,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart, metric } = widget;
-  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit } = widget;
+  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
 
   const [, interfaceName] = metric.split(":");
 
@@ -25,6 +25,7 @@ export default function Component({ service }) {
 
   const { data, error } = useWidgetAPI(widget, "network", {
     refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
+    version,
   });
 
   useEffect(() => {

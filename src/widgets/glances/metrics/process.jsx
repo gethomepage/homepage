@@ -22,10 +22,11 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval } = widget;
+  const { chart, refreshInterval = defaultInterval, version = 3 } = widget;
 
   const { data, error } = useWidgetAPI(service.widget, "processlist", {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
+    version,
   });
 
   if (error) {
