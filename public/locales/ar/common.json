@@ -107,6 +107,13 @@
         "episodes": "حلقات",
         "songs": "أغاني"
     },
+    "esphome": {
+        "offline": "غير متصل",
+        "offline_alt": "غير متصل",
+        "online": "مُتّصل",
+        "total": "المجموع",
+        "unknown": "مجهول"
+    },
     "evcc": {
         "pv_power": "إنتاج",
         "battery_soc": "البطارية",
@@ -419,7 +426,8 @@
         "search": "البحث",
         "custom": "مُخصّص",
         "visit": "زيارة",
-        "url": "الرابط"
+        "url": "الرابط",
+        "searchsuggestion": "Suggestion"
     },
     "wmo": {
         "0-day": "مشمس",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "القنوات",
-        "hd": "جودة HD"
+        "hd": "جودة HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "القناة",
+        "channelNetwork": "الشبكة",
+        "signalStrength": "القوة",
+        "signalQuality": "الجودة",
+        "symbolQuality": "الجودة",
+        "networkRate": "معدل البت",
+        "clientIP": "العميل"
     },
     "scrutiny": {
         "passed": "إجتاز",
@@ -694,6 +710,11 @@
         "targets_down": "الأهداف لا تعمل",
         "targets_total": "الأهداف الإجمالية"
     },
+    "gatus": {
+        "up": "المواقع تعمل",
+        "down": "مواقع لا تعمل",
+        "uptime": "مدة التشغيل"
+    },
     "ghostfolio": {
         "gross_percent_today": "اليوم",
         "gross_percent_1y": "سنة",
@@ -775,6 +796,14 @@
         "passed": "إجتاز",
         "failed": "فشل"
     },
+    "openwrt": {
+        "uptime": "مدة التشغيل",
+        "cpuLoad": "متوسط حمولة المعالج (5دق)",
+        "up": "يعمل",
+        "down": "لا يعمل",
+        "bytesTx": "مرسلة",
+        "bytesRx": "تم الإستلام"
+    },
     "uptimerobot": {
         "status": "الحالة",
         "uptime": "مدة التشغيل",
@@ -797,11 +826,51 @@
         "noEventsFound": "لم يتم العثور على أحداث"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "المِنصات",
+        "totalRoms": "مجموع الروومات"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "تحذيرات",
+        "criticals": "حرج"
+    },
+    "plantit": {
+        "events": "أحداث",
+        "plants": "نباتات",
+        "photos": "الصور",
+        "species": "الأنواع"
+    },
+    "gitea": {
+        "notifications": "الإشعارات",
+        "issues": "المُشكِلات",
+        "pulls": "طلبات السحب"
+    },
+    "stash": {
+        "scenes": "المشاهد",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "إجمالي المشغلات",
+        "playDuration": "وقت المشاهدة",
+        "sceneSize": "حجم المشاهد",
+        "sceneDuration": "مدة المشهد",
+        "images": "صور",
+        "imageSize": "حجم الصور",
+        "galleries": "المعارض",
+        "performers": "Performers",
+        "studios": "استوديوهات",
+        "movies": "أفلام",
+        "tags": "التصنيفات",
+        "oCount": "عدد O"
+    },
+    "tandoor": {
+        "users": "المستخدمون",
+        "recipes": "وصفات",
+        "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "المستخدمون",
+        "totalValue": "Total Value"
     }
 }

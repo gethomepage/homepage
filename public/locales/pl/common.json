@@ -14,9 +14,9 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "mc",
         "days": "d",
-        "hours": "h",
+        "hours": "g",
         "minutes": "m",
         "seconds": "s"
     },
@@ -106,6 +106,13 @@
         "series": "Seriale",
         "episodes": "Odcinki",
         "songs": "Piosenki"
+    },
+    "esphome": {
+        "offline": "Nieosiągalny",
+        "offline_alt": "Nieosiągalny",
+        "online": "Dostępny",
+        "total": "Całkowite",
+        "unknown": "Nieznany"
     },
     "evcc": {
         "pv_power": "Produkcja",
@@ -405,7 +412,7 @@
         "free": "Wolne",
         "used": "Użyte",
         "days": "d",
-        "hours": "h",
+        "hours": "g",
         "crit": "Crit",
         "read": "Przeczytane",
         "write": "Zapis",
@@ -419,7 +426,8 @@
         "search": "Wyszukaj",
         "custom": "Niestandardowe",
         "visit": "Odwiedź",
-        "url": "Adres URL"
+        "url": "Adres URL",
+        "searchsuggestion": "Sugestia"
     },
     "wmo": {
         "0-day": "Słoneczny",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Kanały",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Kanał",
+        "channelNetwork": "Sieć",
+        "signalStrength": "Siła",
+        "signalQuality": "Jakość",
+        "symbolQuality": "Jakość",
+        "networkRate": "Bitrate",
+        "clientIP": "Klient"
     },
     "scrutiny": {
         "passed": "Powodzenie",
@@ -548,11 +564,11 @@
     },
     "peanut": {
         "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "ups_load": "Obciążenie UPS",
+        "ups_status": "Status UPS",
         "online": "Dostępny",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Na baterii",
+        "low_battery": "Niski poziom baterii"
     },
     "nextdns": {
         "wait": "Proszę czekać",
@@ -662,7 +678,7 @@
     "grafana": {
         "dashboards": "Panel główny",
         "datasources": "Źródła danych",
-        "totalalerts": "Total Alerts",
+        "totalalerts": "Wszystkie alerty",
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
@@ -693,6 +709,11 @@
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
+    },
+    "gatus": {
+        "up": "Działające",
+        "down": "Niedziałające",
+        "uptime": "Czas działania"
     },
     "ghostfolio": {
         "gross_percent_today": "Dzisiaj",
@@ -759,7 +780,7 @@
         "ok": "Ok",
         "errored": "Błędy",
         "noRecent": "Nieaktualne",
-        "totalUsed": "Used Storage"
+        "totalUsed": "Użyta pamięć"
     },
     "mealie": {
         "recipes": "Recipes",
@@ -774,6 +795,14 @@
         "stopped": "Zatrzymane",
         "passed": "Powodzenie",
         "failed": "Niepowodzenie"
+    },
+    "openwrt": {
+        "uptime": "Czas działania",
+        "cpuLoad": "CPU Load Avg (5m)",
+        "up": "Dostępny",
+        "down": "Niedostępny",
+        "bytesTx": "Transmitted",
+        "bytesRx": "Odebrane"
     },
     "uptimerobot": {
         "status": "Stan",
@@ -790,18 +819,58 @@
         "unknown": "Nieznany"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
+        "inCinemas": "W kinach",
+        "physicalRelease": "Wydanie fizyczne",
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
         "noEventsFound": "No events found"
     },
     "romm": {
-        "platforms": "Platforms",
+        "platforms": "Platformy",
         "totalRoms": "Total ROMs"
     },
     "netdata": {
-        "warnings": "Warnings",
+        "warnings": "Ostrzeżenia",
         "criticals": "Criticals"
+    },
+    "plantit": {
+        "events": "Events",
+        "plants": "Plants",
+        "photos": "Zdjęcia",
+        "species": "Species"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Zgłoszenia",
+        "pulls": "Pull Requests"
+    },
+    "stash": {
+        "scenes": "Scenes",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "Total Plays",
+        "playDuration": "Time Watched",
+        "sceneSize": "Scenes Size",
+        "sceneDuration": "Scenes Duration",
+        "images": "Images",
+        "imageSize": "Images Size",
+        "galleries": "Galleries",
+        "performers": "Performers",
+        "studios": "Studios",
+        "movies": "Filmy",
+        "tags": "Tagi",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "Użytkownicy",
+        "recipes": "Recipes",
+        "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Użytkownicy",
+        "totalValue": "Total Value"
     }
 }

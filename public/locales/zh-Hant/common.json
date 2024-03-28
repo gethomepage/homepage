@@ -32,8 +32,8 @@
     "weather": {
         "current": "目前位置",
         "allow": "點擊以允許",
-        "updating": "更新中",
-        "wait": "請稍後"
+        "updating": "正在更新",
+        "wait": "請稍候"
     },
     "search": {
         "placeholder": "搜尋…"
@@ -50,7 +50,7 @@
         "uptime": "運作時間"
     },
     "unifi": {
-        "users": "使用者",
+        "users": "用戶",
         "uptime": "運行時間",
         "days": "天",
         "wan": "WAN",
@@ -63,7 +63,7 @@
         "wlan_users": "無線使用者",
         "up": "運作時間",
         "down": "離線",
-        "wait": "請稍後",
+        "wait": "請稍候",
         "empty_data": "子系統狀態未知"
     },
     "docker": {
@@ -106,6 +106,13 @@
         "series": "影集",
         "episodes": "集",
         "songs": "曲目"
+    },
+    "esphome": {
+        "offline": "離線",
+        "offline_alt": "離線",
+        "online": "在線",
+        "total": "全部",
+        "unknown": "未知"
     },
     "evcc": {
         "pv_power": "正式環境",
@@ -362,7 +369,7 @@
         "transferRate": "速率"
     },
     "mastodon": {
-        "user_count": "使用者",
+        "user_count": "用戶",
         "status_count": "文章",
         "domain_count": "網域"
     },
@@ -383,7 +390,7 @@
         "unread": "未讀"
     },
     "authentik": {
-        "users": "使用者",
+        "users": "用戶",
         "loginsLast24H": "登入 (過去 24 小時)",
         "failedLoginsLast24H": "登入失敗 (過去 24 小時)"
     },
@@ -396,7 +403,7 @@
     "glances": {
         "cpu": "CPU",
         "load": "負載",
-        "wait": "請稍後",
+        "wait": "請稍候",
         "temp": "溫度",
         "_temp": "溫度",
         "warn": "警告",
@@ -419,7 +426,8 @@
         "search": "搜尋",
         "custom": "自訂",
         "visit": "造訪",
-        "url": "網址"
+        "url": "網址",
+        "searchsuggestion": "建議"
     },
     "wmo": {
         "0-day": "晴天",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "頻道",
-        "hd": "高畫質"
+        "hd": "高畫質",
+        "tunerCount": "調諧器",
+        "channelNumber": "頻道",
+        "channelNetwork": "網絡",
+        "signalStrength": "強度",
+        "signalQuality": "品質",
+        "symbolQuality": "品質",
+        "networkRate": "位元率",
+        "clientIP": "用戶端"
     },
     "scrutiny": {
         "passed": "通過",
@@ -548,8 +564,8 @@
     },
     "peanut": {
         "battery_charge": "充電",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "ups_load": "後備電負載",
+        "ups_status": "後備電狀況",
         "online": "在線",
         "on_battery": "電池供電",
         "low_battery": "低電量"
@@ -614,7 +630,7 @@
         "memory_usage": "記憶體"
     },
     "immich": {
-        "users": "使用者",
+        "users": "用戶",
         "photos": "照片",
         "videos": "影片",
         "storage": "儲存空間"
@@ -694,6 +710,11 @@
         "targets_down": "目標離線",
         "targets_total": "目標總數"
     },
+    "gatus": {
+        "up": "在線網站",
+        "down": "離線網站",
+        "uptime": "運行時間"
+    },
     "ghostfolio": {
         "gross_percent_today": "今日",
         "gross_percent_1y": "一年",
@@ -707,8 +728,8 @@
     },
     "homeassistant": {
         "people_home": "在家人數",
-        "lights_on": "燈亮著",
-        "switches_on": "開關開著"
+        "lights_on": "燈光開啟",
+        "switches_on": "開關開啟"
     },
     "whatsupdocker": {
         "monitoring": "監測中",
@@ -763,7 +784,7 @@
     },
     "mealie": {
         "recipes": "食譜",
-        "users": "使用者",
+        "users": "用戶",
         "categories": "類別",
         "tags": "標籤"
     },
@@ -774,6 +795,14 @@
         "stopped": "已停止",
         "passed": "通過",
         "failed": "失敗"
+    },
+    "openwrt": {
+        "uptime": "運行時間",
+        "cpuLoad": "處理器平均負載(5分鐘)",
+        "up": "在線",
+        "down": "離線",
+        "bytesTx": "已傳送",
+        "bytesRx": "已接收"
     },
     "uptimerobot": {
         "status": "狀態",
@@ -797,11 +826,51 @@
         "noEventsFound": "未找到事件"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "平台",
+        "totalRoms": "總唯讀記憶體"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "警告",
+        "criticals": "嚴重"
+    },
+    "plantit": {
+        "events": "事件",
+        "plants": "植物",
+        "photos": "照片",
+        "species": "物種"
+    },
+    "gitea": {
+        "notifications": "信息",
+        "issues": "出版",
+        "pulls": "提取請求"
+    },
+    "stash": {
+        "scenes": "場景",
+        "scenesPlayed": "已播放場景",
+        "playCount": "合共播放",
+        "playDuration": "觀看時數",
+        "sceneSize": "場景大小",
+        "sceneDuration": "場景為期",
+        "images": "圖片",
+        "imageSize": "圖像大小",
+        "galleries": "畫廊",
+        "performers": "表演者",
+        "studios": "工作室",
+        "movies": "電影",
+        "tags": "標籤",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "用戶",
+        "recipes": "食譜",
+        "keywords": "關鍵字"
+    },
+    "homebox": {
+        "items": "項目",
+        "totalWithWarranty": "With Warranty",
+        "locations": "位置",
+        "labels": "標籤",
+        "users": "用戶",
+        "totalValue": "總共"
     }
 }

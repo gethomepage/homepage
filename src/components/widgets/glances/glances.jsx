@@ -21,6 +21,7 @@ function convertToFahrenheit(t) {
 export default function Widget({ options }) {
   const { t, i18n } = useTranslation();
   const { settings } = useContext(SettingsContext);
+  const diskUnits = options.diskUnits === "bbytes" ? "common.bbytes" : "common.bytes";
 
   const { data, error } = useSWR(
     `/api/widgets/glances?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`,
@@ -132,9 +133,9 @@ export default function Widget({ options }) {
         <Resource
           key={`disk_${disk.mnt_point ?? disk.device_name}`}
           icon={FiHardDrive}
-          value={t("common.bytes", { value: disk.free })}
+          value={t(diskUnits, { value: disk.free })}
           label={t("glances.free")}
-          expandedValue={t("common.bytes", { value: disk.size })}
+          expandedValue={t(diskUnits, { value: disk.size })}
           expandedLabel={t("glances.total")}
           percentage={disk.percent}
           expanded={options.expanded}

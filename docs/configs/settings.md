@@ -85,7 +85,7 @@ Or you may pass the path to a local image relative to the `/app/public` director
 
 ## Theme
 
-You can configure a fixed them (and disable the theme switcher) by passing the `theme` option, like so:
+You can configure a fixed theme (and disable the theme switcher) by passing the `theme` option, like so:
 
 ```yaml
 theme: dark # or light
@@ -211,13 +211,13 @@ layout:
 
 ### Five Columns
 
-You can add a fifth column (when `style: columns` which is default) by adding:
+You can add a fifth column to services (when `style: columns` which is default) by adding:
 
 ```yaml
 fiveColumns: true
 ```
 
-By default homepage will max out at 4 columns for column style
+By default homepage will max out at 4 columns for services with `columns` style
 
 ### Collapsible sections
 
@@ -405,6 +405,8 @@ By default the homepage logfile is written to the a `logs` subdirectory of the `
 ```yaml
 logpath: /logfile/path
 ```
+
+By default, logs are sent both to `stdout` and to a file at the path specified. This can be changed by setting the `LOG_TARGETS` environment variable to one of `both` (default), `stdout` or `file`.
 
 ## Show Docker Stats
 

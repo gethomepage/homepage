@@ -107,6 +107,13 @@
         "episodes": "Episodios",
         "songs": "Canciones"
     },
+    "esphome": {
+        "offline": "Desconectado",
+        "offline_alt": "Desconectado",
+        "online": "En línea",
+        "total": "Total",
+        "unknown": "Desconocido"
+    },
     "evcc": {
         "pv_power": "Producción",
         "battery_soc": "Batería",
@@ -419,7 +426,8 @@
         "search": "Buscar",
         "custom": "Personalizado",
         "visit": "Visitar",
-        "url": "Enlace"
+        "url": "Enlace",
+        "searchsuggestion": "Suggestion"
     },
     "wmo": {
         "0-day": "Soleado",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Canales",
-        "hd": "Alta definición"
+        "hd": "Alta definición",
+        "tunerCount": "Tuners",
+        "channelNumber": "Canal",
+        "channelNetwork": "Network",
+        "signalStrength": "Strength",
+        "signalQuality": "Quality",
+        "symbolQuality": "Quality",
+        "networkRate": "Tasa de bits",
+        "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Aprobado",
@@ -694,6 +710,11 @@
         "targets_down": "Objetivos inactivos",
         "targets_total": "Objetivos totales"
     },
+    "gatus": {
+        "up": "Sitios activos",
+        "down": "Sitios inactivos",
+        "uptime": "Tiempo activo"
+    },
     "ghostfolio": {
         "gross_percent_today": "Hoy",
         "gross_percent_1y": "Un año",
@@ -775,6 +796,14 @@
         "passed": "Aprobado",
         "failed": "Fallido"
     },
+    "openwrt": {
+        "uptime": "Tiempo activo",
+        "cpuLoad": "CPU Load Avg (5m)",
+        "up": "Activo",
+        "down": "Inactivo",
+        "bytesTx": "Transmitted",
+        "bytesRx": "Recibido"
+    },
     "uptimerobot": {
         "status": "Estado",
         "uptime": "Tiempo activo",
@@ -803,5 +832,45 @@
     "netdata": {
         "warnings": "Warnings",
         "criticals": "Criticals"
+    },
+    "plantit": {
+        "events": "Events",
+        "plants": "Plants",
+        "photos": "Fotos",
+        "species": "Species"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Números",
+        "pulls": "Pull Requests"
+    },
+    "stash": {
+        "scenes": "Scenes",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "Total Plays",
+        "playDuration": "Time Watched",
+        "sceneSize": "Scenes Size",
+        "sceneDuration": "Scenes Duration",
+        "images": "Imágenes",
+        "imageSize": "Images Size",
+        "galleries": "Galerías",
+        "performers": "Performers",
+        "studios": "Studios",
+        "movies": "Películas",
+        "tags": "Etiquetas",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "Usuarios",
+        "recipes": "Recetas",
+        "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "Con Garantía",
+        "locations": "Ubicaciones",
+        "labels": "Labels",
+        "users": "Usuarios",
+        "totalValue": "Total Value"
     }
 }

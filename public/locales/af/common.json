@@ -107,6 +107,13 @@
         "episodes": "Episodes",
         "songs": "Liedjies"
     },
+    "esphome": {
+        "offline": "Vanlyn",
+        "offline_alt": "Vanlyn",
+        "online": "Aanlyn",
+        "total": "Totaal",
+        "unknown": "Onbekend"
+    },
     "evcc": {
         "pv_power": "Produksie",
         "battery_soc": "Battery",
@@ -419,7 +426,8 @@
         "search": "Soek",
         "custom": "Pasgemaak",
         "visit": "Besoek",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Voorstelling"
     },
     "wmo": {
         "0-day": "Sonnig",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Kanale",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Kanaal",
+        "channelNetwork": "Netwerk",
+        "signalStrength": "Sterkte",
+        "signalQuality": "Kwaliteit",
+        "symbolQuality": "Kwaliteit",
+        "networkRate": "Bistempo",
+        "clientIP": "Kliënt"
     },
     "scrutiny": {
         "passed": "Geslaag",
@@ -694,6 +710,11 @@
         "targets_down": "Teikens Af",
         "targets_total": "Totale Teikens"
     },
+    "gatus": {
+        "up": "Werwe Op",
+        "down": "Werwe Af",
+        "uptime": "Optyd"
+    },
     "ghostfolio": {
         "gross_percent_today": "Vandag",
         "gross_percent_1y": "Een jaar",
@@ -775,6 +796,14 @@
         "passed": "Geslaag",
         "failed": "Misluk"
     },
+    "openwrt": {
+        "uptime": "Optyd",
+        "cpuLoad": "SVE-lading gemiddelde (5m)",
+        "up": "Op",
+        "down": "Af",
+        "bytesTx": "Oorgedra",
+        "bytesRx": "Ontvang"
+    },
     "uptimerobot": {
         "status": "Status",
         "uptime": "Optyd",
@@ -797,11 +826,51 @@
         "noEventsFound": "Geen gebeure gevind nie"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Platform",
+        "totalRoms": "Totale ROMs"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Waarskuwings",
+        "criticals": "Kritici"
+    },
+    "plantit": {
+        "events": "Gebeure",
+        "plants": "Plante",
+        "photos": "Foto's",
+        "species": "Spesies"
+    },
+    "gitea": {
+        "notifications": "Kennisgewings",
+        "issues": "Kwessies",
+        "pulls": "Trek Versoeke"
+    },
+    "stash": {
+        "scenes": "Tonele",
+        "scenesPlayed": "Tonele Gekyk",
+        "playCount": "Totale Toneelstukke",
+        "playDuration": "Tyd Gekyk",
+        "sceneSize": "Toneel Grootte",
+        "sceneDuration": "Tonele Duur",
+        "images": "Beelde",
+        "imageSize": "Beeldgrootte",
+        "galleries": "Galerye",
+        "performers": "Kunstenaars",
+        "studios": "Ateljees",
+        "movies": "Flieks",
+        "tags": "Merkers",
+        "oCount": "O Tel"
+    },
+    "tandoor": {
+        "users": "Gebruikers",
+        "recipes": "Resepte",
+        "keywords": "Sleutelwoorde"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "Met Waarborg",
+        "locations": "Plekke",
+        "labels": "Etikette",
+        "users": "Gebruikers",
+        "totalValue": "Totale Waarde"
     }
 }

@@ -63,7 +63,7 @@ export default async function audiobookshelfProxyHandler(req, res) {
 
     return res.status(200).send(libraryStats);
   } catch (e) {
-    logger.error(e.message);
+    if (e) logger.error(e);
     return res.status(500).send({ error: { message: e.message } });
   }
 }

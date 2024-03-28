@@ -19,5 +19,5 @@ export default async function handler(req, res) {
     return res.json([query, []]); // Responde with the same array format but with no suggestions.
   }
 
-  return res.send(await cachedFetch(`${provider.suggestionUrl}${encodeURIComponent(query)}`, 5));
+  return res.send(await cachedFetch(`${provider.suggestionUrl}${encodeURIComponent(query)}`, 5, "Mozilla/5.0"));
 }

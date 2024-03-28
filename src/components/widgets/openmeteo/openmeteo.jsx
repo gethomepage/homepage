@@ -46,6 +46,7 @@ function Widget({ options }) {
           value: data.current_weather.temperature,
           style: "unit",
           unit,
+          ...options.format,
         })}
       </PrimaryText>
       <SecondaryText>{t(`wmo.${data.current_weather.weathercode}-${timeOfDay}`)}</SecondaryText>
@@ -82,8 +83,6 @@ export default function OpenMeteo({ options }) {
       );
     }
   };
-
-  // if (!requesting && !location) requestLocation();
 
   if (!location) {
     return (

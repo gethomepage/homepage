@@ -11,7 +11,7 @@
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
-        "date": "{value, date}",
+        "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mes",
@@ -107,6 +107,13 @@
         "episodes": "Epizódy",
         "songs": "Skladby"
     },
+    "esphome": {
+        "offline": "Nedostupný",
+        "offline_alt": "Nedostupný",
+        "online": "Online",
+        "total": "Celkovo",
+        "unknown": "Neznáme"
+    },
     "evcc": {
         "pv_power": "Produkcia",
         "battery_soc": "Batéria",
@@ -135,8 +142,8 @@
         "connectionStatusDisconnected": "Odpojené",
         "connectionStatusConnected": "Pripojené",
         "uptime": "Prevádzka",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "Max. sťahovanie",
+        "maxUp": "Max. nahrávanie",
         "down": "Sťahovanie",
         "up": "Nahrávanie",
         "received": "Prijaté",
@@ -419,7 +426,8 @@
         "search": "Hľadať",
         "custom": "Vlastné",
         "visit": "Navštíviť",
-        "url": "Odkaz"
+        "url": "Odkaz",
+        "searchsuggestion": "Návrh"
     },
     "wmo": {
         "0-day": "Slnečno",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Kanály",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tunery",
+        "channelNumber": "Kanál",
+        "channelNetwork": "Sieť",
+        "signalStrength": "Sila",
+        "signalQuality": "Kvalita",
+        "symbolQuality": "Kvalita",
+        "networkRate": "Prenosová rýchlosť",
+        "clientIP": "Klient"
     },
     "scrutiny": {
         "passed": "Úspešný",
@@ -694,6 +710,11 @@
         "targets_down": "Nedostupné ciele",
         "targets_total": "Cieľov spolu"
     },
+    "gatus": {
+        "up": "Weby dostupné",
+        "down": "Weby nedostupné",
+        "uptime": "Prevádzka"
+    },
     "ghostfolio": {
         "gross_percent_today": "Dnes",
         "gross_percent_1y": "Jeden rok",
@@ -775,6 +796,14 @@
         "passed": "Úspešný",
         "failed": "Zlyhané"
     },
+    "openwrt": {
+        "uptime": "Prevádzka",
+        "cpuLoad": "Záťaž CPU priem. (5m)",
+        "up": "Nahrávanie",
+        "down": "Sťahovanie",
+        "bytesTx": "Prenesených",
+        "bytesRx": "Prijaté"
+    },
     "uptimerobot": {
         "status": "Stav",
         "uptime": "Prevádzka",
@@ -797,11 +826,51 @@
         "noEventsFound": "Žiadne udalosti"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Platformy",
+        "totalRoms": "Celkovo ROM"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Upozornenia",
+        "criticals": "Kritické"
+    },
+    "plantit": {
+        "events": "Udalosti",
+        "plants": "Rastliny",
+        "photos": "Fotografie",
+        "species": "Druhy"
+    },
+    "gitea": {
+        "notifications": "Oznámenia",
+        "issues": "Problémy",
+        "pulls": "Pull requesty"
+    },
+    "stash": {
+        "scenes": "Scény",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "Celkovo prehraní",
+        "playDuration": "Pozeraný čas",
+        "sceneSize": "Veľkosť obrazovky",
+        "sceneDuration": "Dĺžka scény",
+        "images": "Obrázky",
+        "imageSize": "Veľkosť obrázkov",
+        "galleries": "Galérie",
+        "performers": "Herci",
+        "studios": "Štúdiá",
+        "movies": "Filmy",
+        "tags": "Štítky",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "Používatelia",
+        "recipes": "Recepty",
+        "keywords": "Kľúčové slová"
+    },
+    "homebox": {
+        "items": "Položky",
+        "totalWithWarranty": "So zárukou",
+        "locations": "Umiestnenia",
+        "labels": "Labels",
+        "users": "Používatelia",
+        "totalValue": "Total Value"
     }
 }
