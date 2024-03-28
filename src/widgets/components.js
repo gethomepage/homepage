@@ -68,6 +68,7 @@ const components = {
   npm: dynamic(() => import("./npm/component")),
   nzbget: dynamic(() => import("./nzbget/component")),
   octoprint: dynamic(() => import("./octoprint/component")),
+  olivetin: dynamic(() => import("./olivetin/component")),
   omada: dynamic(() => import("./omada/component")),
   ombi: dynamic(() => import("./ombi/component")),
   opendtu: dynamic(() => import("./opendtu/component")),

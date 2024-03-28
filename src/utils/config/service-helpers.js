@@ -430,6 +430,10 @@ export function cleanServiceGroups(groups) {
           fit,
           stream,
 
+          // olivetin
+          actions,
+          url,
+
           // openmediavault
           method,
 
@@ -567,6 +571,10 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "healthchecks") {
           if (uuid !== undefined) cleanedService.widget.uuid = uuid;
+        }
+        if (type === "olivetin") {
+          if (url) cleanedService.widget.url = url;
+          if (actions !== undefined) cleanedService.widget.actions = actions;
         }
       }
 
