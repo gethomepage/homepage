@@ -71,10 +71,6 @@ export default async function crowdsecProxyHandler(req, res) {
 
     logger.debug("Calling Crowdsec API endpoint: %s", endpoint);
 
-    if (endpoint.indexOf("decisions") === 0) {
-      delete params.headers.Authorization;
-    }
-
     const [status, , data] = await httpProxy(url, params);
 
     if (status !== 200) {
