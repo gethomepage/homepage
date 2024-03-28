@@ -5,7 +5,6 @@ import { formatApiCall } from "utils/proxy/api-helpers";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
-import { log } from "winston";
 
 const proxyName = "crowdsecProxyHandler";
 const logger = createLogger(proxyName);
@@ -73,7 +72,7 @@ export default async function crowdsecProxyHandler(req, res) {
     logger.debug("Calling Crowdsec API endpoint: %s", endpoint);
 
     if (endpoint.indexOf("decisions") === 0) {
-      delete params.headers["Authorization"];
+      delete params.headers.Authorization;
     }
 
     const [status, , data] = await httpProxy(url, params);
