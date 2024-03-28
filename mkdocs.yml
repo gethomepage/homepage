@@ -49,6 +49,7 @@ nav:
       - widgets/services/diskstation.md
       - widgets/services/downloadstation.md
       - widgets/services/emby.md
+      - widgets/services/esphome.md
       - widgets/services/evcc.md
       - widgets/services/fileflows.md
       - widgets/services/flood.md
@@ -57,6 +58,7 @@ nav:
       - widgets/services/gamedig.md
       - widgets/services/gatus.md
       - widgets/services/ghostfolio.md
+      - widgets/services/gitea.md
       - widgets/services/glances.md
       - widgets/services/gluetun.md
       - widgets/services/gotify.md
@@ -64,6 +66,7 @@ nav:
       - widgets/services/hdhomerun.md
       - widgets/services/healthchecks.md
       - widgets/services/homeassistant.md
+      - widgets/services/homebox.md
       - widgets/services/homebridge.md
       - widgets/services/iframe.md
       - widgets/services/immich.md
@@ -103,6 +106,7 @@ nav:
       - widgets/services/photoprism.md
       - widgets/services/pialert.md
       - widgets/services/pihole.md
+      - widgets/services/plantit.md
       - widgets/services/plex-tautulli.md
       - widgets/services/plex.md
       - widgets/services/portainer.md
@@ -122,6 +126,7 @@ nav:
       - widgets/services/scrutiny.md
       - widgets/services/sonarr.md
       - widgets/services/speedtest-tracker.md
+      - widgets/services/stash.md
       - widgets/services/syncthing-relay-server.md
       - widgets/services/tailscale.md
       - widgets/services/tdarr.md

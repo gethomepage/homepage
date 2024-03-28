@@ -14,11 +14,11 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
-        "seconds": "s"
+        "months": "月",
+        "days": "日",
+        "hours": "时",
+        "minutes": "分",
+        "seconds": "秒"
     },
     "widget": {
         "missing_type": "缺失的组件类型: {{type}}",
@@ -90,7 +90,7 @@
         "not_available": "不可用"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "HTTP 状态",
         "error": "错误",
         "response": "响应",
         "down": "离线",
@@ -106,6 +106,13 @@
         "series": "剧集",
         "episodes": "集",
         "songs": "曲目"
+    },
+    "esphome": {
+        "offline": "离线",
+        "offline_alt": "离线",
+        "online": "在线",
+        "total": "总计",
+        "unknown": "未知"
     },
     "evcc": {
         "pv_power": "发电量",
@@ -127,21 +134,21 @@
     },
     "fritzbox": {
         "connectionStatus": "状态",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusUnconfigured": "未配置",
+        "connectionStatusConnecting": "连接中",
+        "connectionStatusAuthenticating": "认证中",
+        "connectionStatusPendingDisconnect": "等待断开连接",
+        "connectionStatusDisconnecting": "正在断开连接",
+        "connectionStatusDisconnected": "未连接",
         "connectionStatusConnected": "已连接",
         "uptime": "运行时间",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "最大下载速度",
+        "maxUp": "",
         "down": "离线",
         "up": "在线",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "最大上传数",
+        "sent": "已发送",
+        "externalIPAddress": "外部IP"
     },
     "caddy": {
         "upstreams": "上行",
@@ -404,8 +411,8 @@
         "total": "总计",
         "free": "空闲",
         "used": "已使用",
-        "days": "d",
-        "hours": "h",
+        "days": "日",
+        "hours": "时",
         "crit": "严重",
         "read": "已读",
         "write": "写入",
@@ -419,7 +426,8 @@
         "search": "搜索",
         "custom": "自定义",
         "visit": "访问",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "建议"
     },
     "wmo": {
         "0-day": "晴天",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "频道",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "电台数",
+        "channelNumber": "频道数",
+        "channelNetwork": "网络",
+        "signalStrength": "强度",
+        "signalQuality": "质量",
+        "symbolQuality": "质量",
+        "networkRate": "码率",
+        "clientIP": "客户端"
     },
     "scrutiny": {
         "passed": "通过",
@@ -547,12 +563,12 @@
         "total": "总计"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "battery_charge": "充电中",
+        "ups_load": "UPS 负载",
+        "ups_status": "UPS 状态",
         "online": "在线",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "电池供电",
+        "low_battery": "电量低"
     },
     "nextdns": {
         "wait": "请稍候",
@@ -624,7 +640,7 @@
         "down": "离线网站",
         "uptime": "运行时间",
         "incident": "事件",
-        "m": "m"
+        "m": "分"
     },
     "atsumeru": {
         "series": "剧集",
@@ -693,6 +709,11 @@
         "targets_up": "上线目标",
         "targets_down": "离线目标",
         "targets_total": "目标总数"
+    },
+    "gatus": {
+        "up": "在线网站",
+        "down": "离线网站",
+        "uptime": "运行时间"
     },
     "ghostfolio": {
         "gross_percent_today": "今日",
@@ -775,6 +796,14 @@
         "passed": "通过",
         "failed": "失败"
     },
+    "openwrt": {
+        "uptime": "运行时间",
+        "cpuLoad": "CPU 负载平均值(5m)",
+        "up": "在线",
+        "down": "离线",
+        "bytesTx": "已传输",
+        "bytesRx": "最大上传数"
+    },
     "uptimerobot": {
         "status": "状态",
         "uptime": "运行时间",
@@ -797,11 +826,51 @@
         "noEventsFound": "未找到事件"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "平台",
+        "totalRoms": "总ROM"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "警告",
+        "criticals": "严重"
+    },
+    "plantit": {
+        "events": "事件",
+        "plants": "植物",
+        "photos": "照片",
+        "species": "物种"
+    },
+    "gitea": {
+        "notifications": "通知",
+        "issues": "出版",
+        "pulls": "PR"
+    },
+    "stash": {
+        "scenes": "场景",
+        "scenesPlayed": "已播放场景",
+        "playCount": "播放总数",
+        "playDuration": "播放时间",
+        "sceneSize": "场景大小",
+        "sceneDuration": "场景时长",
+        "images": "图片",
+        "imageSize": "图像大小",
+        "galleries": "图库",
+        "performers": "演员",
+        "studios": "工作室",
+        "movies": "电影",
+        "tags": "标签",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "用户数",
+        "recipes": "食谱",
+        "keywords": "关键词"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "用户数",
+        "totalValue": "Total Value"
     }
 }

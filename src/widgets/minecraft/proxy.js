@@ -18,7 +18,7 @@ export default async function minecraftProxyHandler(req, res) {
       players: pingResponse.players,
     });
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
     res.status(200).send({
       version: undefined,
       online: false,

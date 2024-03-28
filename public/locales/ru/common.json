@@ -14,11 +14,11 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
-        "seconds": "s"
+        "months": "мес",
+        "days": "дней",
+        "hours": "час",
+        "minutes": "мин",
+        "seconds": "сек"
     },
     "widget": {
         "missing_type": "Отсутствует тип виджета: {{type}}",
@@ -107,6 +107,13 @@
         "episodes": "Эпизоды",
         "songs": "Песни"
     },
+    "esphome": {
+        "offline": "Не в сети",
+        "offline_alt": "Не в сети",
+        "online": "В сети",
+        "total": "Всего",
+        "unknown": "Неизвестен"
+    },
     "evcc": {
         "pv_power": "Прод",
         "battery_soc": "Питание",
@@ -130,7 +137,7 @@
         "connectionStatusUnconfigured": "Не настроено",
         "connectionStatusConnecting": "Подключение",
         "connectionStatusAuthenticating": "Авторизация",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
+        "connectionStatusPendingDisconnect": "Ожидает отключения",
         "connectionStatusDisconnecting": "Отключение",
         "connectionStatusDisconnected": "Отключено",
         "connectionStatusConnected": "Подключено",
@@ -404,8 +411,8 @@
         "total": "Всего",
         "free": "Свободно",
         "used": "Использовано",
-        "days": "d",
-        "hours": "h",
+        "days": "дней",
+        "hours": "час",
         "crit": "Крит",
         "read": "Прочитано",
         "write": "Запись",
@@ -419,7 +426,8 @@
         "search": "Поиск",
         "custom": "Пользовательский",
         "visit": "Посетите",
-        "url": "Ссылка"
+        "url": "Ссылка",
+        "searchsuggestion": "Предложение"
     },
     "wmo": {
         "0-day": "Солнечно",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Каналы",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Тюнеры",
+        "channelNumber": "Канал",
+        "channelNetwork": "Сеть",
+        "signalStrength": "Сила",
+        "signalQuality": "Качество",
+        "symbolQuality": "Качество",
+        "networkRate": "Битрейт",
+        "clientIP": "Клиент"
     },
     "scrutiny": {
         "passed": "Успешно",
@@ -547,12 +563,12 @@
         "total": "Всего"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "battery_charge": "Заряд батареи",
+        "ups_load": "Нагрузка на UPS",
+        "ups_status": "Статус UPS",
         "online": "В сети",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "От батареи",
+        "low_battery": "Низкий заряд"
     },
     "nextdns": {
         "wait": "Пожалуйста, подождите",
@@ -624,7 +640,7 @@
         "down": "Неактивные сайты",
         "uptime": "Время работы",
         "incident": "Происшествия",
-        "m": "m"
+        "m": "мин"
     },
     "atsumeru": {
         "series": "Серии",
@@ -693,6 +709,11 @@
         "targets_up": "Активные цели",
         "targets_down": "Неактивные цели",
         "targets_total": "Всего целей"
+    },
+    "gatus": {
+        "up": "Активные сайты",
+        "down": "Неактивные сайты",
+        "uptime": "Время работы"
     },
     "ghostfolio": {
         "gross_percent_today": "Сегодня",
@@ -775,6 +796,14 @@
         "passed": "Успешно",
         "failed": "Провалено"
     },
+    "openwrt": {
+        "uptime": "Время работы",
+        "cpuLoad": "Средняя нагрузка ЦП (5м)",
+        "up": "Онлайн",
+        "down": "Офлайн",
+        "bytesTx": "Передано",
+        "bytesRx": "Получено"
+    },
     "uptimerobot": {
         "status": "Статус",
         "uptime": "Время работы",
@@ -797,11 +826,51 @@
         "noEventsFound": "Событий не найдено"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Платформы",
+        "totalRoms": "Всего ПЗУ"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Предупреждения",
+        "criticals": "Критические"
+    },
+    "plantit": {
+        "events": "События",
+        "plants": "Растения",
+        "photos": "Фото",
+        "species": "Виды"
+    },
+    "gitea": {
+        "notifications": "Уведомления",
+        "issues": "Вопросы",
+        "pulls": "Запросы на слияние (Pull Request)"
+    },
+    "stash": {
+        "scenes": "Сцены",
+        "scenesPlayed": "Проигранных сцен",
+        "playCount": "Всего проиграно",
+        "playDuration": "Просмотрено времени",
+        "sceneSize": "Размер сцены",
+        "sceneDuration": "Длительность сцен",
+        "images": "Изображения",
+        "imageSize": "Размер изображений",
+        "galleries": "Галереи",
+        "performers": "Исполнители",
+        "studios": "Студии",
+        "movies": "Фильмы",
+        "tags": "Теги",
+        "oCount": "0"
+    },
+    "tandoor": {
+        "users": "Пользователи",
+        "recipes": "Рецепты",
+        "keywords": "Ключевые слова"
+    },
+    "homebox": {
+        "items": "Элементы",
+        "totalWithWarranty": "С гарантией",
+        "locations": "Местоположения",
+        "labels": "Ярлыки",
+        "users": "Пользователи",
+        "totalValue": "Общая стоимость"
     }
 }

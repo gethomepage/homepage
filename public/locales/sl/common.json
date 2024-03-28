@@ -107,6 +107,13 @@
         "episodes": "Epizode",
         "songs": "Pesmi"
     },
+    "esphome": {
+        "offline": "Ni povezan",
+        "offline_alt": "Ni povezan",
+        "online": "Na spletu",
+        "total": "Skupaj",
+        "unknown": "Neznano"
+    },
     "evcc": {
         "pv_power": "Proizvodnja",
         "battery_soc": "Baterija",
@@ -419,7 +426,8 @@
         "search": "Iskanje",
         "custom": "Po meri",
         "visit": "Obišči",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Predlog"
     },
     "wmo": {
         "0-day": "Sončno",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Kanali",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Sprejemniki",
+        "channelNumber": "Kanal",
+        "channelNetwork": "Omrežje",
+        "signalStrength": "Moč",
+        "signalQuality": "Kakovost",
+        "symbolQuality": "Kakovost",
+        "networkRate": "Pasovna širina",
+        "clientIP": "Odjemalec"
     },
     "scrutiny": {
         "passed": "Opravljeno",
@@ -694,6 +710,11 @@
         "targets_down": "Tarče dol",
         "targets_total": "Skupaj tarč"
     },
+    "gatus": {
+        "up": "Deluje",
+        "down": "Ne deluje",
+        "uptime": "Čas delovanja"
+    },
     "ghostfolio": {
         "gross_percent_today": "Danes",
         "gross_percent_1y": "Eno leto",
@@ -775,6 +796,14 @@
         "passed": "Opravljeno",
         "failed": "Neuspešno"
     },
+    "openwrt": {
+        "uptime": "Čas delovanja",
+        "cpuLoad": "CPU obremenitev povp. (5m)",
+        "up": "Povezan",
+        "down": "Nepovezan",
+        "bytesTx": "Prenešeno",
+        "bytesRx": "Prejeto"
+    },
     "uptimerobot": {
         "status": "Stanje",
         "uptime": "Čas delovanja",
@@ -797,11 +826,51 @@
         "noEventsFound": "Ni dogodkov"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Platforme",
+        "totalRoms": "Skupaj ROM-ov"
     },
     "netdata": {
         "warnings": "Opozorila",
         "criticals": "Kritično"
+    },
+    "plantit": {
+        "events": "Dogodki",
+        "plants": "Rastline",
+        "photos": "Slike",
+        "species": "Vrste"
+    },
+    "gitea": {
+        "notifications": "Obvestila",
+        "issues": "Težave",
+        "pulls": "Zahteve za prenos"
+    },
+    "stash": {
+        "scenes": "Scene",
+        "scenesPlayed": "Predvajane scene",
+        "playCount": "Skupaj predvajano",
+        "playDuration": "Čas gledanja",
+        "sceneSize": "Velikost scene",
+        "sceneDuration": "Dolžina scene",
+        "images": "Slike",
+        "imageSize": "Velikosti slik",
+        "galleries": "Galerije",
+        "performers": "Izvajalci",
+        "studios": "Studiji",
+        "movies": "Filmi",
+        "tags": "Značke",
+        "oCount": "O štetje"
+    },
+    "tandoor": {
+        "users": "Uporabniki",
+        "recipes": "Recepti",
+        "keywords": "Ključne besede"
+    },
+    "homebox": {
+        "items": "Predmeti",
+        "totalWithWarranty": "Z garancijo",
+        "locations": "Lokacije",
+        "labels": "Oznake",
+        "users": "Uporabniki",
+        "totalValue": "Skupna vrednost"
     }
 }

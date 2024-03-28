@@ -28,7 +28,7 @@ export default async function gamedigProxyHandler(req, res) {
       ping: serverData.ping,
     });
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
 
     res.status(200).send({
       online: false,

@@ -24,7 +24,7 @@ export default function Component({ service }) {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
-  const { data: systemData, error: systemError } = useWidgetAPI(service.widget, "system");
+  const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, "quicklook");
 
   useEffect(() => {
     if (data) {
@@ -71,22 +71,15 @@ export default function Component({ service }) {
         />
       )}
 
-      {!chart && systemData && !systemError && (
+      {!chart && quicklookData && !quicklookError && (
         <Block position="top-3 right-3">
-          <div className="text-xs opacity-50">
-            {systemData.linux_distro && `${systemData.linux_distro} - `}
-            {systemData.os_version && systemData.os_version}
-          </div>
+          <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name && quicklookData.cpu_name}</div>
         </Block>
       )}
 
-      {systemData && !systemError && (
+      {quicklookData && !quicklookError && (
         <Block position="bottom-3 left-3">
-          {systemData.linux_distro && chart && <div className="text-xs opacity-50">{systemData.linux_distro}</div>}
-
-          {systemData.os_version && chart && <div className="text-xs opacity-50">{systemData.os_version}</div>}
-
-          {systemData.hostname && <div className="text-xs opacity-50">{systemData.hostname}</div>}
+          {quicklookData.cpu_name && chart && <div className="text-xs opacity-50">{quicklookData.cpu_name}</div>}
         </Block>
       )}
 

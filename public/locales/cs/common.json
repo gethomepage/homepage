@@ -14,7 +14,7 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "měs.",
         "days": "d",
         "hours": "h",
         "minutes": "m",
@@ -39,7 +39,7 @@
         "placeholder": "Hledat…"
     },
     "resources": {
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "mem": "RAM",
         "total": "Celkem",
         "free": "Volné",
@@ -70,7 +70,7 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "RAM",
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "running": "Běží",
         "offline": "Offline",
         "error": "Chyba",
@@ -87,15 +87,15 @@
         "ping": "Odezva",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Není k dispozici"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "Stav HTTP",
         "error": "Chyba",
-        "response": "Response",
+        "response": "Odpověď",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Není k dispozici"
     },
     "emby": {
         "playing": "Přehrává",
@@ -107,12 +107,19 @@
         "episodes": "Epizody",
         "songs": "Skladby"
     },
+    "esphome": {
+        "offline": "Offline",
+        "offline_alt": "Offline",
+        "online": "Online",
+        "total": "Celkem",
+        "unknown": "Neznámý"
+    },
     "evcc": {
         "pv_power": "Produkce",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "battery_soc": "Baterie",
+        "grid_power": "Mřížka",
+        "home_power": "Spotřeba",
+        "charge_power": "Nabíječka",
         "watt_hour": "Wh"
     },
     "flood": {
@@ -127,20 +134,20 @@
     },
     "fritzbox": {
         "connectionStatus": "Stav",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusUnconfigured": "Nenastaveno",
+        "connectionStatusConnecting": "Připojuji",
+        "connectionStatusAuthenticating": "Ověřování",
+        "connectionStatusPendingDisconnect": "Čeká na odpojení",
+        "connectionStatusDisconnecting": "Odpojování",
+        "connectionStatusDisconnected": "Odpojeno",
+        "connectionStatusConnected": "Připojeno",
         "uptime": "Doba spuštění",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
         "down": "Down",
         "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
+        "received": "Přijaté",
+        "sent": "Odeslané",
         "externalIPAddress": "Ext. IP"
     },
     "caddy": {
@@ -163,7 +170,7 @@
         "transcoding": "Překódovávání",
         "bitrate": "Přenosová rychlost",
         "no_active": "Žádný aktivní stream",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Zkontrolujte připojení Plexu"
     },
     "omada": {
         "connectedAp": "Připojené APs",
@@ -210,8 +217,8 @@
         "memUsage": "Využití paměti",
         "systemTempC": "Teplota systému",
         "poolUsage": "Využití fondu",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "volumeUsage": "Využití svazku",
+        "invalid": "Neplatné"
     },
     "deluge": {
         "download": "Stahování",
@@ -243,7 +250,7 @@
     "lidarr": {
         "wanted": "Hledané",
         "queued": "Ve frontě",
-        "artists": "Artists"
+        "artists": "Interpreti"
     },
     "readarr": {
         "wanted": "Hledané",
@@ -272,8 +279,8 @@
     },
     "pialert": {
         "total": "Celkem",
-        "connected": "Connected",
-        "new_devices": "New Devices",
+        "connected": "Připojeno",
+        "new_devices": "Nová zařízení",
         "down_alerts": "Down Alerts"
     },
     "pihole": {
@@ -389,17 +396,17 @@
     },
     "proxmox": {
         "mem": "RAM",
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "lxc": "LXC",
         "vms": "Virtuální Stroje"
     },
     "glances": {
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "load": "Zatížení",
         "wait": "Počkejte prosím",
         "temp": "TEPLOTA",
         "_temp": "Temp",
-        "warn": "Warn",
+        "warn": "Varováni",
         "uptime": "BĚŽÍ",
         "total": "Celkem",
         "free": "Volné",
@@ -419,7 +426,8 @@
         "search": "Hledat",
         "custom": "Vlastní",
         "visit": "Navštivte",
-        "url": "Odkaz"
+        "url": "Odkaz",
+        "searchsuggestion": "Suggestion"
     },
     "wmo": {
         "0-day": "Slunečno",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Kanály",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Channel",
+        "channelNetwork": "Network",
+        "signalStrength": "Strength",
+        "signalQuality": "Quality",
+        "symbolQuality": "Quality",
+        "networkRate": "Přenosová rychlost",
+        "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Úspěšné",
@@ -610,7 +626,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datové úložiště",
         "failed_tasks_24h": "Neúspěšné úlohy 24h",
-        "cpu_usage": "Procesor",
+        "cpu_usage": "CPU",
         "memory_usage": "Paměť"
     },
     "immich": {
@@ -694,6 +710,11 @@
         "targets_down": "Cíle vypnuté",
         "targets_total": "Cíle celkem"
     },
+    "gatus": {
+        "up": "Stránky Up",
+        "down": "Stránky Down",
+        "uptime": "Doba spuštění"
+    },
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Jeden rok",
@@ -775,6 +796,14 @@
         "passed": "Úspěšné",
         "failed": "Selhalo"
     },
+    "openwrt": {
+        "uptime": "Doba spuštění",
+        "cpuLoad": "CPU Load Avg (5m)",
+        "up": "Up",
+        "down": "Down",
+        "bytesTx": "Transmitted",
+        "bytesRx": "Přijaté"
+    },
     "uptimerobot": {
         "status": "Stav",
         "uptime": "Doba spuštění",
@@ -803,5 +832,45 @@
     "netdata": {
         "warnings": "Warnings",
         "criticals": "Criticals"
+    },
+    "plantit": {
+        "events": "Events",
+        "plants": "Plants",
+        "photos": "Fotografie",
+        "species": "Species"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Problémy",
+        "pulls": "Pull Requests"
+    },
+    "stash": {
+        "scenes": "Scenes",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "Total Plays",
+        "playDuration": "Time Watched",
+        "sceneSize": "Scenes Size",
+        "sceneDuration": "Scenes Duration",
+        "images": "Images",
+        "imageSize": "Images Size",
+        "galleries": "Galleries",
+        "performers": "Performers",
+        "studios": "Studios",
+        "movies": "Filmy",
+        "tags": "Tags",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "Uživatelé",
+        "recipes": "Recipes",
+        "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Uživatelé",
+        "totalValue": "Total Value"
     }
 }

@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       status,
     });
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
     res.status(500).send({
       error: "unknown error",
     });

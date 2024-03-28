@@ -45,6 +45,7 @@ function Widget({ options }) {
           value: options.units === "metric" ? data.current.temp_c : data.current.temp_f,
           style: "unit",
           unit,
+          ...options.format,
         })}
       </PrimaryText>
       <SecondaryText>{data.current.condition.text}</SecondaryText>

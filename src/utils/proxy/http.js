@@ -44,7 +44,7 @@ function handleRequest(requestor, url, params) {
 
         // zlib errors
         responseContent.on("error", (e) => {
-          logger.error(e);
+          if (e) logger.error(e);
           responseContent = response; // fallback
         });
         response.pipe(responseContent);
@@ -103,7 +103,7 @@ export async function httpProxy(url, params = {}) {
 
   try {
     const [status, contentType, data, responseHeaders] = await request;
-    return [status, contentType, data, responseHeaders];
+    return [status, contentType, data, responseHeaders, params];
   } catch (err) {
     logger.error(
       "Error calling %s//%s%s%s...",
@@ -112,7 +112,7 @@ export async function httpProxy(url, params = {}) {
       constructedUrl.port ? `:${constructedUrl.port}` : "",
       constructedUrl.pathname,
     );
-    logger.error(err);
+    if (err) logger.error(err);
     return [500, "application/json", { error: { message: err?.message ?? "Unknown error", url, rawError: err } }, null];
   }
 }

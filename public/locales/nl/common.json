@@ -107,6 +107,13 @@
         "episodes": "Afleveringen",
         "songs": "Nummers"
     },
+    "esphome": {
+        "offline": "Onbereikbaar",
+        "offline_alt": "Onbereikbaar",
+        "online": "Bereikbaar",
+        "total": "Totaal",
+        "unknown": "Onbekend"
+    },
     "evcc": {
         "pv_power": "Productie",
         "battery_soc": "Batterij",
@@ -419,7 +426,8 @@
         "search": "Zoek",
         "custom": "Aangepast",
         "visit": "Bezoek",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Suggestie"
     },
     "wmo": {
         "0-day": "Zonnig",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Kanalen",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Kanaal",
+        "channelNetwork": "Netwerk",
+        "signalStrength": "Sterkte",
+        "signalQuality": "Kwaliteit",
+        "symbolQuality": "Kwaliteit",
+        "networkRate": "Bitrate",
+        "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Geslaagd",
@@ -694,6 +710,11 @@
         "targets_down": "Doelen onbereikbaar",
         "targets_total": "Totaal aantal doelen"
     },
+    "gatus": {
+        "up": "Sites Bereikbaar",
+        "down": "Sites Onbereikbaar",
+        "uptime": "Online"
+    },
     "ghostfolio": {
         "gross_percent_today": "Vandaag",
         "gross_percent_1y": "Een jaar",
@@ -775,6 +796,14 @@
         "passed": "Geslaagd",
         "failed": "Gefaald"
     },
+    "openwrt": {
+        "uptime": "Online",
+        "cpuLoad": "CPU Load Gem. (5m)",
+        "up": "Online",
+        "down": "Offline",
+        "bytesTx": "Verzonden",
+        "bytesRx": "Ontvangen"
+    },
     "uptimerobot": {
         "status": "Status",
         "uptime": "Online",
@@ -803,5 +832,45 @@
     "netdata": {
         "warnings": "Waarschuwingen",
         "criticals": "Kritiek"
+    },
+    "plantit": {
+        "events": "Gebeurtenissen",
+        "plants": "Planten",
+        "photos": "Foto's",
+        "species": "Soorten"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Problemen",
+        "pulls": "Pull Requests"
+    },
+    "stash": {
+        "scenes": "Scènes",
+        "scenesPlayed": "Afgespeelde scènes",
+        "playCount": "Totaal aantal keer gespeeld",
+        "playDuration": "Tijd Bekeken",
+        "sceneSize": "Grootte Scènes",
+        "sceneDuration": "Duur scènes",
+        "images": "Afbeeldingen",
+        "imageSize": "Afbeeldingsgrootte",
+        "galleries": "Galerijen",
+        "performers": "Uitvoerenden",
+        "studios": "Studio's",
+        "movies": "Films",
+        "tags": "Label",
+        "oCount": "O Aantal"
+    },
+    "tandoor": {
+        "users": "Gebruikers",
+        "recipes": "Recepten",
+        "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "Met garantie",
+        "locations": "Locaties",
+        "labels": "Labels",
+        "users": "Gebruikers",
+        "totalValue": "Totale waarde"
     }
 }

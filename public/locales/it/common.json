@@ -107,6 +107,13 @@
         "episodes": "Episodi",
         "songs": "Canzoni"
     },
+    "esphome": {
+        "offline": "Non in linea",
+        "offline_alt": "Non in linea",
+        "online": "Online",
+        "total": "Totale",
+        "unknown": "Sconosciuto"
+    },
     "evcc": {
         "pv_power": "Produzione",
         "battery_soc": "Batteria",
@@ -127,21 +134,21 @@
     },
     "fritzbox": {
         "connectionStatus": "Stato",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusUnconfigured": "Non configurato",
+        "connectionStatusConnecting": "Connessione in corso",
+        "connectionStatusAuthenticating": "In fase di autenticazione",
+        "connectionStatusPendingDisconnect": "In attesa di disconnessione",
+        "connectionStatusDisconnecting": "Disconnessione in corso",
+        "connectionStatusDisconnected": "Disconnesso",
         "connectionStatusConnected": "Connesso",
         "uptime": "Tempo di attività",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
         "down": "Down",
         "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "Ricevuti",
+        "sent": "Inviati",
+        "externalIPAddress": "IP Esterno"
     },
     "caddy": {
         "upstreams": "Upstream",
@@ -419,7 +426,8 @@
         "search": "Cerca",
         "custom": "Personalizzato",
         "visit": "Visita",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Suggestion"
     },
     "wmo": {
         "0-day": "Soleggiato",
@@ -535,7 +543,15 @@
     },
     "hdhomerun": {
         "channels": "Canali",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Channel",
+        "channelNetwork": "Network",
+        "signalStrength": "Strength",
+        "signalQuality": "Quality",
+        "symbolQuality": "Quality",
+        "networkRate": "Bitrate",
+        "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Passati",
@@ -694,6 +710,11 @@
         "targets_down": "Target Non Attivi",
         "targets_total": "Targets Totali"
     },
+    "gatus": {
+        "up": "Siti On",
+        "down": "Siti Down",
+        "uptime": "Tempo di attività"
+    },
     "ghostfolio": {
         "gross_percent_today": "Oggi",
         "gross_percent_1y": "Un anno",
@@ -775,6 +796,14 @@
         "passed": "Passati",
         "failed": "Fallito"
     },
+    "openwrt": {
+        "uptime": "Tempo di attività",
+        "cpuLoad": "CPU Load Avg (5m)",
+        "up": "Up",
+        "down": "Down",
+        "bytesTx": "Transmitted",
+        "bytesRx": "Ricevuti"
+    },
     "uptimerobot": {
         "status": "Stato",
         "uptime": "Tempo di attività",
@@ -803,5 +832,45 @@
     "netdata": {
         "warnings": "Warnings",
         "criticals": "Criticals"
+    },
+    "plantit": {
+        "events": "Events",
+        "plants": "Plants",
+        "photos": "Foto",
+        "species": "Species"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Problemi",
+        "pulls": "Pull Requests"
+    },
+    "stash": {
+        "scenes": "Scenes",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "Total Plays",
+        "playDuration": "Time Watched",
+        "sceneSize": "Scenes Size",
+        "sceneDuration": "Scenes Duration",
+        "images": "Images",
+        "imageSize": "Images Size",
+        "galleries": "Galleries",
+        "performers": "Performers",
+        "studios": "Studios",
+        "movies": "Film",
+        "tags": "Tag",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "Utenti",
+        "recipes": "Ricette",
+        "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Utenti",
+        "totalValue": "Total Value"
     }
 }

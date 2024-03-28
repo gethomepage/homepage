@@ -3,12 +3,18 @@ import classNames from "classnames";
 
 import { TabContext } from "utils/contexts/tab";
 
-export function slugify(tabName) {
-  return tabName !== undefined ? encodeURIComponent(tabName.toString().replace(/\s+/g, "-").toLowerCase()) : "";
+function slugify(tabName) {
+  return tabName.toString().replace(/\s+/g, "-").toLowerCase();
+}
+
+export function slugifyAndEncode(tabName) {
+  return tabName !== undefined ? encodeURIComponent(slugify(tabName)) : "";
 }
 
 export default function Tab({ tab }) {
   const { activeTab, setActiveTab } = useContext(TabContext);
+
+  const matchesTab = decodeURI(activeTab) === slugify(tab);
 
   return (
     <li
@@ -21,16 +27,14 @@ export default function Tab({ tab }) {
         type="button"
         role="tab"
         aria-controls={`#${tab}`}
-        aria-selected={activeTab === slugify(tab) ? "true" : "false"}
+        aria-selected={matchesTab ? "true" : "false"}
         className={classNames(
           "w-full rounded-md m-1",
-          activeTab === slugify(tab)
-            ? "bg-theme-300/20 dark:bg-white/10"
-            : "hover:bg-theme-100/20 dark:hover:bg-white/5",
+          matchesTab ? "bg-theme-300/20 dark:bg-white/10" : "hover:bg-theme-100/20 dark:hover:bg-white/5",
         )}
         onClick={() => {
-          setActiveTab(slugify(tab));
-          window.location.hash = `#${slugify(tab)}`;
+          setActiveTab(slugifyAndEncode(tab));
+          window.location.hash = `#${slugifyAndEncode(tab)}`;
         }}
       >
         {tab}

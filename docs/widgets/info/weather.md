@@ -15,6 +15,8 @@ The free tier is all that's required, you will need to [register](https://www.we
     units: metric # or imperial
     apiKey: yourweatherapikey
     cache: 5 # Time in minutes to cache API responses, to stay within limits
+    format: # optional, Intl.NumberFormat options
+      maximumFractionDigits: 1
 ```
 
 You can optionally not pass a `latitude` and `longitude` and the widget will use your current location (requires a secure context, eg. HTTPS).

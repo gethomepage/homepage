@@ -29,11 +29,17 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (
-        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "truenas", "pterodactyl"].includes(
+        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "tandoor", "pterodactyl"].includes(
           widget.type,
         )
       ) {
         headers.Authorization = `Bearer ${widget.key}`;
+      } else if (widget.type === "truenas") {
+        if (widget.key) {
+          headers.Authorization = `Bearer ${widget.key}`;
+        } else {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        }
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
@@ -61,6 +67,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = `Basic ${Buffer.from(`$:${widget.key}`).toString("base64")}`;
       } else if (widget.type === "glances") {
         headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+      } else if (widget.type === "plantit") {
+        headers.Key = `${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
