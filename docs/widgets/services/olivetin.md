@@ -5,11 +5,11 @@ description: OliveTin Widget Configuration
 
 Learn more about [OliveTin](https://www.olivetin.app/).
 
-... picture here ...
+![image](https://github.com/sunnycloudy1337/homepage/assets/163424707/63ae4070-c614-4332-84cc-d275b62c47ee)
 
 OliveTin gives safe and simple access to predefined shell commands from a web interface.
 
-All actions must have a id specified that matches the one from the OliveTin configuration
+All actions must have an id specified that matches the one from the OliveTin configuration.
 
 !!! note
 
