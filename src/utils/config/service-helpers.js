@@ -394,6 +394,7 @@ export function cleanServiceGroups(groups) {
           enableNowPlaying,
 
           // glances
+          version,
           chart,
           metric,
           pointsLimit,
@@ -528,6 +529,7 @@ export function cleanServiceGroups(groups) {
           if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
         }
         if (type === "glances") {
+          if (version) cleanedService.widget.version = version;
           if (metric) cleanedService.widget.metric = metric;
           if (chart !== undefined) {
             cleanedService.widget.chart = chart;

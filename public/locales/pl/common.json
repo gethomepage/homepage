@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Nieosiągalny",
+        "offline_alt": "Nieosiągalny",
         "online": "Dostępny",
         "total": "Całkowite",
         "unknown": "Nieznany"
@@ -863,5 +864,13 @@
         "users": "Użytkownicy",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Użytkownicy",
+        "totalValue": "Total Value"
     }
 }

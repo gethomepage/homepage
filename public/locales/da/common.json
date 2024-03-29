@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Online",
         "total": "Total",
         "unknown": "Ukendt"
@@ -863,5 +864,13 @@
         "users": "Brugere",
         "recipes": "Opskrifter",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Brugere",
+        "totalValue": "Total Value"
     }
 }

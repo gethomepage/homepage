@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Не в сети",
+        "offline_alt": "Не в сети",
         "online": "В сети",
         "total": "Всего",
         "unknown": "Неизвестен"
@@ -830,38 +831,46 @@
     },
     "netdata": {
         "warnings": "Предупреждения",
-        "criticals": "Криты"
+        "criticals": "Критические"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
+        "events": "События",
+        "plants": "Растения",
         "photos": "Фото",
-        "species": "Species"
+        "species": "Виды"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "Уведомления",
         "issues": "Вопросы",
-        "pulls": "Pull Requests"
+        "pulls": "Запросы на слияние (Pull Request)"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
+        "scenes": "Сцены",
+        "scenesPlayed": "Проигранных сцен",
+        "playCount": "Всего проиграно",
+        "playDuration": "Просмотрено времени",
+        "sceneSize": "Размер сцены",
+        "sceneDuration": "Длительность сцен",
+        "images": "Изображения",
+        "imageSize": "Размер изображений",
+        "galleries": "Галереи",
+        "performers": "Исполнители",
+        "studios": "Студии",
         "movies": "Фильмы",
         "tags": "Теги",
-        "oCount": "O Count"
+        "oCount": "0"
     },
     "tandoor": {
         "users": "Пользователи",
         "recipes": "Рецепты",
-        "keywords": "Keywords"
+        "keywords": "Ключевые слова"
+    },
+    "homebox": {
+        "items": "Элементы",
+        "totalWithWarranty": "С гарантией",
+        "locations": "Местоположения",
+        "labels": "Ярлыки",
+        "users": "Пользователи",
+        "totalValue": "Общая стоимость"
     }
 }

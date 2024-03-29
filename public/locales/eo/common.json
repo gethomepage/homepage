@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Malkonekta",
+        "offline_alt": "Malkonekta",
         "online": "Online",
         "total": "Totalo",
         "unknown": "Nekonata"
@@ -863,5 +864,13 @@
         "users": "Uzantoj",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Uzantoj",
+        "totalValue": "Total Value"
     }
 }

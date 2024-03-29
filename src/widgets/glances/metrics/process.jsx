@@ -22,10 +22,13 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval } = widget;
+  const { chart, refreshInterval = defaultInterval, version = 3 } = widget;
+
+  const memoryInfoKey = version === 3 ? 0 : "data";
 
   const { data, error } = useWidgetAPI(service.widget, "processlist", {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
+    version,
   });
 
   if (error) {
@@ -66,7 +69,7 @@ export default function Component({ service }) {
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
-                    value: item.memory_info[0],
+                    value: item.memory_info[memoryInfoKey],
                     maximumFractionDigits: 0,
                   })}
                 </div>

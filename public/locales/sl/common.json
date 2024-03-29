@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Ni povezan",
+        "offline_alt": "Ni povezan",
         "online": "Na spletu",
         "total": "Skupaj",
         "unknown": "Neznano"
@@ -863,5 +864,13 @@
         "users": "Uporabniki",
         "recipes": "Recepti",
         "keywords": "Ključne besede"
+    },
+    "homebox": {
+        "items": "Predmeti",
+        "totalWithWarranty": "Z garancijo",
+        "locations": "Lokacije",
+        "labels": "Oznake",
+        "users": "Uporabniki",
+        "totalValue": "Skupna vrednost"
     }
 }

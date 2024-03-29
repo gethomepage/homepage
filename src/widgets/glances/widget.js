@@ -1,7 +1,7 @@
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
-  api: "{url}/api/3/{endpoint}",
+  api: "{url}/api/{version}/{endpoint}",
   proxyHandler: credentialedProxyHandler,
 };
 

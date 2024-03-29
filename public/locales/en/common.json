@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Users",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Alerts",
+        "bans": "Bans"
     }
 }

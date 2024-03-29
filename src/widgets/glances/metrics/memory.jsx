@@ -17,12 +17,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart } = widget;
-  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit } = widget;
+  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
   const { data, error } = useWidgetAPI(service.widget, "mem", {
     refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
+    version,
   });
 
   useEffect(() => {

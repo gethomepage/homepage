@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Εκτός σύνδεσης",
+        "offline_alt": "Εκτός σύνδεσης",
         "online": "Συνδεδεμένοι",
         "total": "Σύνολο",
         "unknown": "Άγνωστο"
@@ -863,5 +864,13 @@
         "users": "Χρήστες",
         "recipes": "Recipes",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Χρήστες",
+        "totalValue": "Total Value"
     }
 }

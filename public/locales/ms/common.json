@@ -109,6 +109,7 @@
     },
     "esphome": {
         "offline": "Luar talian",
+        "offline_alt": "Luar talian",
         "online": "Dalam Talian",
         "total": "Jumlah",
         "unknown": "Tidak Diketahui"
@@ -863,5 +864,13 @@
         "users": "Pengguna",
         "recipes": "Resipi",
         "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Pengguna",
+        "totalValue": "Total Value"
     }
 }
