@@ -24,9 +24,8 @@ export default function Component({ service }) {
   );
   const [ratePoints, setRatePoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "diskio", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/diskio`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
-    version,
   });
 
   const calculateRates = (d) =>

@@ -15,9 +15,8 @@ export default function Component({ service }) {
   const [, fsName] = widget.metric.split("fs:");
   const diskUnits = widget.diskUnits === "bbytes" ? "common.bbytes" : "common.bytes";
 
-  const { data, error } = useWidgetAPI(widget, "fs", {
+  const { data, error } = useWidgetAPI(widget, `${version}/fs`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
-    version,
   });
 
   if (error) {
