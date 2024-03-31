@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: piholeData, error: piholeError } = useWidgetAPI(widget, "summaryRaw");
+  const { data: piholeData, error: piholeError } = useWidgetAPI(widget);
 
   if (piholeError) {
     return <Container service={service} error={piholeError} />;

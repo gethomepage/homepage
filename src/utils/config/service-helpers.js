@@ -393,8 +393,10 @@ export function cleanServiceGroups(groups) {
           enableBlocks,
           enableNowPlaying,
 
-          // glances
+          // glances, pihole
           version,
+
+          // glances
           chart,
           metric,
           pointsLimit,
@@ -528,8 +530,10 @@ export function cleanServiceGroups(groups) {
           if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
           if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
         }
-        if (type === "glances") {
+        if (["glances", "pihole"].includes(type)) {
           if (version) cleanedService.widget.version = version;
+        }
+        if (type === "glances") {
           if (metric) cleanedService.widget.metric = metric;
           if (chart !== undefined) {
             cleanedService.widget.chart = chart;
