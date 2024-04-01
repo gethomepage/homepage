@@ -3,7 +3,8 @@ import { useTranslation } from "next-i18next";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import Pool from "widgets/truenas/pool";
+import ScalePool from "widgets/truenas/scale-pool";
+import CorePool from "widgets/truenas/core-pool";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -30,6 +31,8 @@ export default function Component({ service }) {
   }
 
   const enablePools = widget?.enablePools && Array.isArray(poolsData) && poolsData.length > 0;
+  const scaleDeployment = widget?.nasType === "scale";
+  const coreDeployment = widget?.nasType === "core";
 
   return (
     <>
@@ -39,9 +42,19 @@ export default function Component({ service }) {
         <Block label="truenas.alerts" value={t("common.number", { value: alertData.pending })} />
       </Container>
       {enablePools &&
+        scaleDeployment &&
         poolsData.map((pool) => (
-          <Pool key={pool.id} name={pool.name} healthy={pool.healthy} allocated={pool.allocated} free={pool.free} />
+          <ScalePool
+            key={pool.id}
+            name={pool.name}
+            healthy={pool.healthy}
+            allocated={pool.allocated}
+            free={pool.free}
+          />
         ))}
+      {enablePools &&
+        coreDeployment &&
+        poolsData.map((pool) => <CorePool key={pool.id} name={pool.name} healthy={pool.healthy} data={pool.data} />)}
     </>
   );
 }

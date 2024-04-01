@@ -1,8 +1,14 @@
 import classNames from "classnames";
 import prettyBytes from "pretty-bytes";
 
-export default function Pool({ name, free, allocated, healthy }) {
-  const total = free + allocated;
+export default function CorePool({ name, data, healthy }) {
+  let total = 0;
+  let allocated = 0;
+  for (let i = 0; i < data.length; i += 1) {
+    total += data[i].stats.size;
+    allocated += data[i].stats.allocated;
+  }
+  // const total = free + allocated;
   const usedPercent = Math.round((allocated / total) * 100);
   const statusColor = healthy ? "bg-green-500" : "bg-yellow-500";
 
