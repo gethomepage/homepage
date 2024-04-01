@@ -450,6 +450,7 @@ export function cleanServiceGroups(groups) {
 
           // truenas
           enablePools,
+          nasType,
 
           // unifi
           site,
@@ -522,6 +523,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "truenas") {
           if (enablePools !== undefined) cleanedService.widget.enablePools = JSON.parse(enablePools);
+          if (nasType !== undefined) cleanedService.widget.nasType = nasType;
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
