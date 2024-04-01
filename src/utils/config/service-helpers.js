@@ -521,7 +521,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "truenas") {
           if (enablePools !== undefined) cleanedService.widget.enablePools = JSON.parse(enablePools);
-          cleanedService.widget.nasType = nasType ?? "scale";
+          if (nasType !== undefined) cleanedService.widget.nasType = nasType;
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;

@@ -44,10 +44,10 @@ export default function Component({ service }) {
             key={pool.id}
             name={pool.name}
             healthy={pool.healthy}
-            scaleAllocated={pool.allocated}
-            scaleFree={pool.free}
+            allocated={pool.allocated}
+            free={pool.free}
             data={pool.data}
-            nasType={widget?.nasType}
+            nasType={widget?.nasType ?? "scale"}
           />
         ))}
     </>

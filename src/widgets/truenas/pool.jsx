@@ -1,16 +1,15 @@
 import classNames from "classnames";
 import prettyBytes from "pretty-bytes";
 
-export default function Pool({ name, scaleFree, scaleAllocated, healthy, data, nasType }) {
+export default function Pool({ name, free, allocated, healthy, data, nasType }) {
   let total = 0;
-  let allocated = 0;
   if (nasType === "scale") {
-    total = scaleFree + scaleAllocated;
-    allocated = scaleAllocated;
+    total = free + allocated;
   } else {
+    allocated = 0;  // eslint-disable-line no-param-reassign
     for (let i = 0; i < data.length; i += 1) {
       total += data[i].stats.size;
-      allocated += data[i].stats.allocated;
+      allocated += data[i].stats.allocated;  // eslint-disable-line no-param-reassign
     }
   }
 
