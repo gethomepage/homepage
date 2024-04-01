@@ -31,8 +31,6 @@ export default function Component({ service }) {
   }
 
   const enablePools = widget?.enablePools && Array.isArray(poolsData) && poolsData.length > 0;
-  const scaleDeployment = widget?.nasType === "scale";
-  const coreDeployment = widget?.nasType === "core";
 
   return (
     <>
@@ -42,7 +40,7 @@ export default function Component({ service }) {
         <Block label="truenas.alerts" value={t("common.number", { value: alertData.pending })} />
       </Container>
       {enablePools &&
-        scaleDeployment &&
+        widget?.nasType === "scale" &&
         poolsData.map((pool) => (
           <ScalePool
             key={pool.id}
@@ -53,7 +51,7 @@ export default function Component({ service }) {
           />
         ))}
       {enablePools &&
-        coreDeployment &&
+        widget?.nasType === "core" &&
         poolsData.map((pool) => <CorePool key={pool.id} name={pool.name} healthy={pool.healthy} data={pool.data} />)}
     </>
   );

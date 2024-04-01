@@ -11,7 +11,7 @@ To create an API Key, follow [the official TrueNAS documentation](https://www.tr
 
 A detailed pool listing is disabled by default, but can be enabled with the `enablePools` option.
 
-The Scale and Core API's provide information on the pools in different manners. The `nasType` option choses which API response parsing should be used.
+TrueNAS Scale and Core APIs differ, the optional `nasType` parameter is needed if using the `enablePools` option.
 
 ```yaml
 widget:
