@@ -3,8 +3,7 @@ import { useTranslation } from "next-i18next";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import ScalePool from "widgets/truenas/scale-pool";
-import CorePool from "widgets/truenas/core-pool";
+import Pool from "widgets/truenas/pool";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -40,19 +39,17 @@ export default function Component({ service }) {
         <Block label="truenas.alerts" value={t("common.number", { value: alertData.pending })} />
       </Container>
       {enablePools &&
-        widget?.nasType === "scale" &&
         poolsData.map((pool) => (
-          <ScalePool
+          <Pool
             key={pool.id}
             name={pool.name}
             healthy={pool.healthy}
-            allocated={pool.allocated}
-            free={pool.free}
+            scaleAllocated={pool.allocated}
+            scaleFree={pool.free}
+            data={pool.data}
+            nasType={widget?.nasType}
           />
         ))}
-      {enablePools &&
-        widget?.nasType === "core" &&
-        poolsData.map((pool) => <CorePool key={pool.id} name={pool.name} healthy={pool.healthy} data={pool.data} />)}
     </>
   );
 }
