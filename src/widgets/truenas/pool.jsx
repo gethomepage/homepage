@@ -6,10 +6,10 @@ export default function Pool({ name, free, allocated, healthy, data, nasType }) 
   if (nasType === "scale") {
     total = free + allocated;
   } else {
-    allocated = 0;  // eslint-disable-line no-param-reassign
+    allocated = 0; // eslint-disable-line no-param-reassign
     for (let i = 0; i < data.length; i += 1) {
       total += data[i].stats.size;
-      allocated += data[i].stats.allocated;  // eslint-disable-line no-param-reassign
+      allocated += data[i].stats.allocated; // eslint-disable-line no-param-reassign
     }
   }
 
