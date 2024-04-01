@@ -14,7 +14,7 @@ async function login(widget, service) {
   const endpoint = "auth/login";
   const api = widgets?.[widget.type]?.api;
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
-  const loginBody = { username: widget.username, password: widget.password };
+  const loginBody = { username: widget.username.toString(), password: widget.password.toString() };
   const headers = { "Content-Type": "application/json" };
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
