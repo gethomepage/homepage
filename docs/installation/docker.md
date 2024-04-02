@@ -3,7 +3,13 @@ title: Docker Installation
 description: Install and run homepage from Docker
 ---
 
-Using docker compose:
+Using the oneline installer (docker-compose):
+
+```bash
+wget https://raw.githubusercontent.com/gethomepage/homepage/main/homepagehelper.sh && chmod +x homepagehelper.sh && sudo ./homepagehelper.sh install
+```
+
+or docker compose:
 
 ```yaml
 version: "3.3"
