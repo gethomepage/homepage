@@ -27,10 +27,11 @@ To access these system metrics you need to connect to the DiskStation (`DSM`) wi
 Now configure the widget with the correct login information and test it.
 
 If you encounter issues during testing:
+
 1. Make sure to uncheck the option for automatic blocking due to invalid logins under `Control Panel > Security > Protection`.
    - If desired, this setting can be reactivated once the login is established working.
 2. Login to your Synology DSM with the newly created account and accept terms and conditions.
-3. Reattempt 
+3. Reattempt
 
 ```yaml
 widget:
