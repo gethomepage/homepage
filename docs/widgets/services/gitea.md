@@ -7,7 +7,7 @@ Learn more about [Gitea](https://gitea.com).
 
 API token requires `notifications`, `repository` and `issue` permissions. See the [gitea documentation](https://docs.gitea.com/development/api-usage#generating-and-listing-api-tokens) for details on generating tokens.
 
-Allowed fields: ["notifications", "issues", "pulls"]
+Allowed fields: `["notifications", "issues", "pulls"]`.
 
 ```yaml
 widget:

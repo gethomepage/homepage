@@ -26,9 +26,8 @@ export default function Component({ service }) {
 
   const memoryInfoKey = version === 3 ? 0 : "data";
 
-  const { data, error } = useWidgetAPI(service.widget, "processlist", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/processlist`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
-    version,
   });
 
   if (error) {

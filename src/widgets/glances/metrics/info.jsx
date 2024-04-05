@@ -76,14 +76,12 @@ export default function Component({ service }) {
   const { widget } = service;
   const { chart, refreshInterval = defaultInterval, version = 3 } = widget;
 
-  const { data: quicklookData, errorL: quicklookError } = useWidgetAPI(service.widget, "quicklook", {
+  const { data: quicklookData, errorL: quicklookError } = useWidgetAPI(service.widget, `${version}/quicklook`, {
     refreshInterval,
-    version,
   });
 
-  const { data: systemData, errorL: systemError } = useWidgetAPI(service.widget, "system", {
+  const { data: systemData, errorL: systemError } = useWidgetAPI(service.widget, `${version}/system`, {
     refreshInterval: defaultSystemInterval,
-    version,
   });
 
   if (quicklookError) {

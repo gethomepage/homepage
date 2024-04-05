@@ -26,9 +26,8 @@ export default function Component({ service }) {
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(widget, "network", {
+  const { data, error } = useWidgetAPI(widget, `${version}/network`, {
     refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
-    version,
   });
 
   useEffect(() => {
@@ -51,7 +50,7 @@ export default function Component({ service }) {
         });
       }
     }
-  }, [data, interfaceName, pointsLimit]);
+  }, [data, interfaceName, pointsLimit, rxKey, txKey]);
 
   if (error) {
     return (

@@ -25,6 +25,7 @@ const widget = {
           healthy: entry.healthy,
           allocated: entry.allocated,
           free: entry.free,
+          data: entry.topology.data,
         })),
     },
   },

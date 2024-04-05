@@ -20,12 +20,11 @@ export default function Component({ service }) {
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "cpu", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/cpu`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
-    version,
   });
 
-  const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, "quicklook", { version });
+  const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, `${version}/quicklook`);
 
   useEffect(() => {
     if (data) {

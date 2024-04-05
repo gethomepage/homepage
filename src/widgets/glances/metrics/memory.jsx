@@ -21,9 +21,8 @@ export default function Component({ service }) {
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "mem", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/mem`, {
     refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
-    version,
   });
 
   useEffect(() => {

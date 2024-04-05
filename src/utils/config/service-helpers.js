@@ -393,8 +393,10 @@ export function cleanServiceGroups(groups) {
           enableBlocks,
           enableNowPlaying,
 
-          // glances
+          // glances, pihole
           version,
+
+          // glances
           chart,
           metric,
           pointsLimit,
@@ -448,6 +450,7 @@ export function cleanServiceGroups(groups) {
 
           // truenas
           enablePools,
+          nasType,
 
           // unifi
           site,
@@ -520,6 +523,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "truenas") {
           if (enablePools !== undefined) cleanedService.widget.enablePools = JSON.parse(enablePools);
+          if (nasType !== undefined) cleanedService.widget.nasType = nasType;
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
@@ -528,8 +532,10 @@ export function cleanServiceGroups(groups) {
           if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
           if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
         }
-        if (type === "glances") {
+        if (["glances", "pihole"].includes(type)) {
           if (version) cleanedService.widget.version = version;
+        }
+        if (type === "glances") {
           if (metric) cleanedService.widget.metric = metric;
           if (chart !== undefined) {
             cleanedService.widget.chart = chart;

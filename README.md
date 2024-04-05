@@ -41,7 +41,7 @@ With features like quick search, bookmarks, weather support, a wide range of int
 
 ## Docker Integration
 
-Homepage has built-in support for Docker, and can automatically discover and add services to the homepage based on labels. See the [Docker](https://gethomepage.dev/latest/installation/docker/) page for more information.
+Homepage has built-in support for Docker, and can automatically discover and add services to the homepage based on labels. See the [Docker Service Discovery](https://gethomepage.dev/latest/configs/docker/#automatic-service-discovery) page for more information.
 
 ## Service Widgets
 
