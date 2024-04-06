@@ -3,24 +3,16 @@ import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
 
 import ResolvedIcon from "./resolvedicon";
+import { searchProviders } from "./widgets/search/search";
 
 import { SettingsContext } from "utils/contexts/settings";
 
-export default function QuickLaunch({
-  servicesAndBookmarks,
-  searchString,
-  setSearchString,
-  isOpen,
-  close,
-  searchProvider,
-}) {
+export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, close }) {
   const { t } = useTranslation();
 
   const { settings } = useContext(SettingsContext);
   const { searchDescriptions = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
-  const showSearchSuggestions = !!(
-    settings?.quicklaunch?.showSearchSuggestions ?? searchProvider?.showSearchSuggestions
-  );
+  const showSearchSuggestions = !!(settings?.quicklaunch?.showSearchSuggestions ?? true);
 
   const searchField = useRef();
 
@@ -29,9 +21,27 @@ export default function QuickLaunch({
   const [url, setUrl] = useState(null);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
+  function getSearchProvider() {
+    let searchProvider = null;
+
+    if (settings?.quicklaunch?.provider === "custom") {
+      searchProvider = settings.quicklaunch;
+    } else if (settings?.quicklaunch?.provider) {
+      searchProvider = searchProviders[settings.quicklaunch.provider];
+    }
+
+    return searchProvider;
+  }
+
+  const searchProvider = getSearchProvider();
+
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
-    window.open(result.href, newWindow ? "_blank" : result.target ?? settings.target ?? "_blank", "noreferrer");
+    window.open(
+      result.href,
+      newWindow ? "_blank" : result.target ?? searchProvider?.target ?? settings.target ?? "_blank",
+      "noreferrer",
+    );
   }
 
   const closeAndReset = useCallback(() => {

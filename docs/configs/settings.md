@@ -378,16 +378,26 @@ You can use the 'Quick Launch' feature to search services, perform a web search 
 There are a few optional settings for the Quick Launch feature:
 
 - `searchDescriptions`: which lets you control whether item descriptions are included in searches. This is off by default. When enabled, results that match the item name will be placed above those that only match the description.
-- `hideInternetSearch`: disable automatically including the currently-selected web search (e.g. from the widget) as a Quick Launch option. This is false by default, enabling the feature.
-- `showSearchSuggestions`: shows search suggestions for the internet search. This value will be inherited from the search widget if it is not specified. If it is not specified there either, it will default to false.
+- `showSearchSuggestions`: shows search suggestions for the internet search. This is true by default. For custom providers the `suggestionUrl` needs to be set in order for this to work.
 - `hideVisitURL`: disable detecting and offering an option to open URLs. This is false by default, enabling the feature.
+- `provider`: search engine provider. If none is specified then internet search will be disabled.
 
 ```yaml
 quicklaunch:
   searchDescriptions: true
-  hideInternetSearch: true
-  showSearchSuggestions: true
+  showSearchSuggestions: true # Optional
   hideVisitURL: true
+  provider: google # google, duckduckgo, bing, baidu, brave or custom
+```
+
+or for a custom search:
+
+```yaml
+quicklaunch:
+  provider: custom
+  url: https://www.ecosia.org/search?q=
+  target: _blank
+  suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q= # Optional
 ```
 
 ## Homepage Version
