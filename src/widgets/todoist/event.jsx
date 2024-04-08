@@ -27,8 +27,8 @@ export default function Event({ task, colorVariants }) {
   return (
     <div
       className="flex flex-row text-theme-700 dark:text-theme-200 items-center text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
-      onMouseEnter={() => setHover(true)} // Change to setHover(true) and setHover(false)
-      onMouseLeave={() => setHover(false)} // Change to setHover(false)
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       key={`task-${task.id}`}
     >
       <span className="ml-2 w-10">

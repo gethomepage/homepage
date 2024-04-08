@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import dynamic from "next/dynamic";
 
 import Container from "components/services/widget/container";
-import Block from "components/services/widget/block"; // Assuming this component renders the category name as a block-level element
+import Block from "components/services/widget/block";
 
 export default function Component({ service }) {
   const { widget } = service;
@@ -15,7 +15,7 @@ export default function Component({ service }) {
         .map((category) => ({
           service: dynamic(() => import(`./categories/${category.sort}`)),
           widget: { ...widget, ...category },
-          categoryName: category.category_name, // Add categoryName property
+          categoryName: category.category_name,
         })) ?? [],
     [widget]
   );

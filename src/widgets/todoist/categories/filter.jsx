@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { DateTime } from "luxon"; // Import Luxon for timezone conversion
+import { DateTime } from "luxon";
 
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import Error from "../../../components/services/widget/error";
@@ -21,7 +21,7 @@ export default function Filter({ widget }) {
       const tasksToAdd = tasksData.slice(0, widget.maxTasks || tasksData.length).map((task) => ({
         title: task.content || t("Untitled Task by Label"),
         date: task.due ? DateTime.fromISO(task.due.date, { zone: widget.timeZone }).toJSDate() : null,
-        color: widget.color || task.color || "blue", // Adjust color based on your preference
+        color: widget.color || task.color || "blue",
         description: task.tags ? task.tags.join(", ") : "",
         url: task.url,
         id: task.id,
