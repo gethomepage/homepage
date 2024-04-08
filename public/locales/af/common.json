@@ -277,7 +277,7 @@
         "approved": "Goedgekeur",
         "available": "Beskikbaar"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Totaal",
         "connected": "Gekoppel",
         "new_devices": "Nuwe Toestelle",
@@ -872,5 +872,9 @@
         "labels": "Etikette",
         "users": "Gebruikers",
         "totalValue": "Totale Waarde"
+    },
+    "crowdsec": {
+        "alerts": "Waarskuwings",
+        "bans": "Verbanne"
     }
 }

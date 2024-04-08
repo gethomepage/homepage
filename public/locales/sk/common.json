@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Čakám na odpojenie",
         "connectionStatusDisconnecting": "Odpájanie",
         "connectionStatusDisconnected": "Odpojené",
-        "connectionStatusConnected": "Pripojené",
+        "connectionStatusConnected": "Connected",
         "uptime": "Prevádzka",
         "maxDown": "Max. sťahovanie",
         "maxUp": "Max. nahrávanie",
@@ -277,11 +277,11 @@
         "approved": "Schválené",
         "available": "Dostupné"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Celkovo",
-        "connected": "Pripojené",
-        "new_devices": "Nové zariadenia",
-        "down_alerts": "Upozornenia o výpadkoch"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Dopyty",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Používatelia",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Upozornenia",
+        "bans": "Bans"
     }
 }

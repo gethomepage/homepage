@@ -277,7 +277,7 @@
         "approved": "Lulus",
         "available": "Sudah Ada"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Jumlah",
         "connected": "Connected",
         "new_devices": "New Devices",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Pengguna",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Alerts",
+        "bans": "Bans"
     }
 }

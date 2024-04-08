@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "In attesa di disconnessione",
         "connectionStatusDisconnecting": "Disconnessione in corso",
         "connectionStatusDisconnected": "Disconnesso",
-        "connectionStatusConnected": "Connesso",
+        "connectionStatusConnected": "Connected",
         "uptime": "Tempo di attività",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
@@ -277,11 +277,11 @@
         "approved": "Approvati",
         "available": "Disponibili"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Totale",
-        "connected": "Connesso",
-        "new_devices": "Nuovi Dispositivi",
-        "down_alerts": "Avvisi di Disservizio"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Richieste",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Utenti",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Allarmi",
+        "bans": "Bans"
     }
 }
