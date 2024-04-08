@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Menunggu Terputus",
         "connectionStatusDisconnecting": "Sedan Memutus",
         "connectionStatusDisconnected": "Terputus",
-        "connectionStatusConnected": "Tersambung",
+        "connectionStatusConnected": "Connected",
         "uptime": "Waktu Aktif",
         "maxDown": "Maks Unduh",
         "maxUp": "Maks Unggah",
@@ -277,11 +277,11 @@
         "approved": "Tersetujui",
         "available": "Tersedia"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Total",
-        "connected": "Tersambung",
-        "new_devices": "Perangkat Baru",
-        "down_alerts": "Alert Mati"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Kueri",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Pengguna",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Peringatan",
+        "bans": "Bans"
     }
 }

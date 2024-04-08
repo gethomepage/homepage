@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Ожидает отключения",
         "connectionStatusDisconnecting": "Отключение",
         "connectionStatusDisconnected": "Отключено",
-        "connectionStatusConnected": "Подключено",
+        "connectionStatusConnected": "Connected",
         "uptime": "Время работы",
         "maxDown": "Макс. Загрузка",
         "maxUp": "Макс. Отдача",
@@ -277,11 +277,11 @@
         "approved": "Одобрено",
         "available": "Доступно"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Всего",
-        "connected": "Подключено",
-        "new_devices": "Новые устройства",
-        "down_alerts": "Оповещение о недоступности"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Запросы",
@@ -872,5 +872,9 @@
         "labels": "Ярлыки",
         "users": "Пользователи",
         "totalValue": "Общая стоимость"
+    },
+    "crowdsec": {
+        "alerts": "Предупреждения",
+        "bans": "Bans"
     }
 }

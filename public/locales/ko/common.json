@@ -277,7 +277,7 @@
         "approved": "승인됨",
         "available": "이용 가능"
     },
-    "pialert": {
+    "netalertx": {
         "total": "총합",
         "connected": "Connected",
         "new_devices": "New Devices",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "사용자",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "경고",
+        "bans": "Bans"
     }
 }
