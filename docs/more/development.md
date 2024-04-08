@@ -39,6 +39,11 @@ Once installed, hooks will run when you commit. If the formatting isn't quite ri
 
 See the [pre-commit documentation](https://pre-commit.com/#install) to get started.
 
+## Preferring self-hosted open-source software
+
+In general, homepage is meant to be a dashboard for 'self-hosted' services and we believe it is a small way we can help showcase this kind of software. While exceptions are made, mostly when there is no viable
+self-hosted / open-source alternative, we ask that any widgets, etc. are developed primarily for a self-hosted tool.
+
 ## New Feature Guidelines
 
 - New features should be linked to an existing feature request with at least 10 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
