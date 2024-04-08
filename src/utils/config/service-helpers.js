@@ -452,6 +452,9 @@ export function cleanServiceGroups(groups) {
           enablePools,
           nasType,
 
+          // todoist
+          categories,
+
           // unifi
           site,
         } = cleanedService.widget;
@@ -524,6 +527,9 @@ export function cleanServiceGroups(groups) {
         if (type === "truenas") {
           if (enablePools !== undefined) cleanedService.widget.enablePools = JSON.parse(enablePools);
           if (nasType !== undefined) cleanedService.widget.nasType = nasType;
+        }
+        if (type === "todoist") {
+          if (categories !== undefined) cleanedService.widget.categories = categories;
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;

@@ -98,6 +98,7 @@ import tailscale from "./tailscale/widget";
 import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
 import tdarr from "./tdarr/widget";
+import todoist from "./todoist/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
 import tubearchivist from "./tubearchivist/widget";
@@ -216,6 +217,7 @@ const widgets = {
   tandoor,
   tautulli,
   tdarr,
+  todoist,
   traefik,
   transmission,
   tubearchivist,
