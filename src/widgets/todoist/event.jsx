@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { useTranslation } from "next-i18next";
 import { DateTime } from "luxon";
 import classNames from "classnames";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 export default function Event({ task, colorVariants }) {
   const [hover, setHover] = useState(false);
-  const { i18n } = useTranslation(); // Ensure you're getting 't' from useTranslation()
 
   const renderEventTitle = () => {
     if (task.url) {

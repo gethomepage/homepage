@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
+import { DateTime } from "luxon";
 
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import Error from "../../../components/services/widget/error";
 import Agenda from "../agenda";
-import { DateTime } from "luxon";
+
 
 export default function Project({ widget }) {
   const { t } = useTranslation();
@@ -32,7 +33,7 @@ export default function Project({ widget }) {
     }
 
     // Find the project with the given name
-    const project = projectsData.find((project) => project.name === widget.project_name);
+    const project = projectsData.find((index) => index.name === widget.project_name);
 
     // Check if project exists
     if (!project) {
@@ -83,7 +84,7 @@ export default function Project({ widget }) {
   }
 
   // Find the project with the given name
-  const project = projectsData.find((project) => project.name === widget.project_name);
+  const project = projectsData.find((index) => index.name === widget.project_name);
 
   // If project does not exist, display error component
   if (!project) {

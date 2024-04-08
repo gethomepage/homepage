@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
+import { DateTime } from "luxon";
 
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import Error from "../../../components/services/widget/error";
 import Agenda from "../agenda";
-import { DateTime } from "luxon";
 
 export default function Label({ widget }) {
   const { t } = useTranslation();
