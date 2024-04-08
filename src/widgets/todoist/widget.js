@@ -9,10 +9,24 @@ const widget = {
       method: "GET",
       endpoint: "tasks",
     },
+    getAllProjects: {
+      method: "GET",
+      endpoint: "projects",
+    },
+    getTasksWithCustomFilter: {
+      method: "GET",
+      endpoint: "tasks",
+      params: ["filter"]
+    },
     getTasksWithLabel: {
       method: "GET",
       endpoint: "tasks",
       params: ["label"]
+    },
+    getTasksWithProject: {
+      method: "GET",
+      endpoint: "tasks",
+      params: ["project_id"]
     },
   },
 };

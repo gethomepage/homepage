@@ -24,6 +24,8 @@ export default function Event({ task, colorVariants }) {
     );
   };
 
+  const formatDate = (date) => DateTime.fromJSDate(date).toFormat("LLL dd") // Format to month and date (e.g., Jan 01);
+
   return (
     <div
       className="flex flex-row text-theme-700 dark:text-theme-200 items-center text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1"
@@ -33,11 +35,7 @@ export default function Event({ task, colorVariants }) {
     >
       <span className="ml-2 w-10">
         {task.date && (
-          <span>
-            {DateTime.fromJSDate(task.date)
-              .setLocale(i18n.language)
-              .toLocaleString(DateTime.TIME_24_SIMPLE)}
-          </span>
+          <span>{formatDate(task.date)}</span>
         )}
       </span>
       <span className="ml-2 h-2 w-2">
