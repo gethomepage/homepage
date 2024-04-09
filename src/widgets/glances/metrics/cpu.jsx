@@ -16,15 +16,15 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit } = widget;
+  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "cpu", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/cpu`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
-  const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, "quicklook");
+  const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, `${version}/quicklook`);
 
   useEffect(() => {
     if (data) {

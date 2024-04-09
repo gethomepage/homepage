@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Szétkapcsolás függőben",
         "connectionStatusDisconnecting": "Kapcsolat bontása",
         "connectionStatusDisconnected": "Kapcsolat bontva",
-        "connectionStatusConnected": "Csatlakoztatott",
+        "connectionStatusConnected": "Connected",
         "uptime": "Üzemidő",
         "maxDown": "Max let.",
         "maxUp": "Max felt.",
@@ -277,11 +277,11 @@
         "approved": "Engedélyezett",
         "available": "Elérhető"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Összes",
-        "connected": "Csatlakoztatott",
-        "new_devices": "Új Eszközök",
-        "down_alerts": "Leállási Figyelmeztetések"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Lekérdezések",
@@ -872,5 +872,9 @@
         "labels": "Címkék",
         "users": "Felhasználók",
         "totalValue": "Teljes érték"
+    },
+    "crowdsec": {
+        "alerts": "Riasztások",
+        "bans": "Bans"
     }
 }

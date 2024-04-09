@@ -12,6 +12,7 @@ import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
+import crowdsec from "./crowdsec/widget";
 import customapi from "./customapi/widget";
 import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
@@ -54,6 +55,7 @@ import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
+import netalertx from "./netalertx/widget";
 import netdata from "./netdata/widget";
 import nextcloud from "./nextcloud/widget";
 import nextdns from "./nextdns/widget";
@@ -72,7 +74,6 @@ import peanut from "./peanut/widget";
 import pfsense from "./pfsense/widget";
 import photoprism from "./photoprism/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
-import pialert from "./pialert/widget";
 import pihole from "./pihole/widget";
 import plantit from "./plantit/widget";
 import plex from "./plex/widget";
@@ -126,6 +127,7 @@ const widgets = {
   channelsdvrserver,
   cloudflared,
   coinmarketcap,
+  crowdsec,
   customapi,
   deluge,
   diskstation,
@@ -170,6 +172,7 @@ const widgets = {
   moonraker,
   mylar,
   navidrome,
+  netalertx,
   netdata,
   nextcloud,
   nextdns,
@@ -188,7 +191,7 @@ const widgets = {
   pfsense,
   photoprism,
   proxmoxbackupserver,
-  pialert,
+  pialert: netalertx,
   pihole,
   plantit,
   plex,

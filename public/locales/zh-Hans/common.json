@@ -54,13 +54,13 @@
         "uptime": "运行时间",
         "days": "天",
         "wan": "WAN",
-        "lan": "LAN",
-        "wlan": "WLAN",
+        "lan": "局域网",
+        "wlan": "无线局域网",
         "devices": "设备",
-        "lan_devices": "LAN设备",
+        "lan_devices": "有线设备",
         "wlan_devices": "WLAN 设备",
-        "lan_users": "LAN 用户",
-        "wlan_users": "WLAN 用户",
+        "lan_users": "有线用户",
+        "wlan_users": "无线用户",
         "up": "运行时间",
         "down": "离线",
         "wait": "请稍候",
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "等待断开连接",
         "connectionStatusDisconnecting": "正在断开连接",
         "connectionStatusDisconnected": "未连接",
-        "connectionStatusConnected": "已连接",
+        "connectionStatusConnected": "Connected",
         "uptime": "运行时间",
         "maxDown": "最大下载速度",
         "maxUp": "",
@@ -277,11 +277,11 @@
         "approved": "已批准",
         "available": "可用"
     },
-    "pialert": {
+    "netalertx": {
         "total": "总计",
-        "connected": "已连接",
-        "new_devices": "新设备",
-        "down_alerts": "离线警报"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "查询",
@@ -858,7 +858,7 @@
         "studios": "工作室",
         "movies": "电影",
         "tags": "标签",
-        "oCount": "O Count"
+        "oCount": "O 个"
     },
     "tandoor": {
         "users": "用户数",
@@ -866,11 +866,15 @@
         "keywords": "关键词"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "items": "条目",
+        "totalWithWarranty": "有保证",
+        "locations": "位置",
+        "labels": "标签",
         "users": "用户数",
-        "totalValue": "Total Value"
+        "totalValue": "总计"
+    },
+    "crowdsec": {
+        "alerts": "警告",
+        "bans": "禁用"
     }
 }

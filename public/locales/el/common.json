@@ -277,7 +277,7 @@
         "approved": "Εγκρίθηκε",
         "available": "Διαθέσιμο"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Σύνολο",
         "connected": "Connected",
         "new_devices": "New Devices",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Χρήστες",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Ειδοποιήσεις",
+        "bans": "Bans"
     }
 }

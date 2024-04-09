@@ -15,6 +15,7 @@ Note: by default the "blocked" and "blocked_percent" fields are merged e.g. "1,2
 widget:
   type: pihole
   url: http://pi.hole.or.ip
+  version: 6 # required if running v6 or higher, defaults to 5
   key: yourpiholeapikey # optional
 ```
 
