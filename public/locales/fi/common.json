@@ -277,7 +277,7 @@
         "approved": "Hyväksytty",
         "available": "Saatavilla"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Yhteensä",
         "connected": "Connected",
         "new_devices": "New Devices",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Users",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Alerts",
+        "bans": "Bans"
     }
 }

@@ -16,12 +16,12 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit } = widget;
+  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
   const [, sensorName] = widget.metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "sensors", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/sensors`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 

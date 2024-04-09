@@ -44,6 +44,7 @@ nav:
       - widgets/services/channelsdvrserver.md
       - widgets/services/cloudflared.md
       - widgets/services/coin-market-cap.md
+      - widgets/services/crowdsec.md
       - widgets/services/customapi.md
       - widgets/services/deluge.md
       - widgets/services/diskstation.md

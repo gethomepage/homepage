@@ -40,7 +40,15 @@ export default function Component({ service }) {
       </Container>
       {enablePools &&
         poolsData.map((pool) => (
-          <Pool key={pool.id} name={pool.name} healthy={pool.healthy} allocated={pool.allocated} free={pool.free} />
+          <Pool
+            key={pool.id}
+            name={pool.name}
+            healthy={pool.healthy}
+            allocated={pool.allocated}
+            free={pool.free}
+            data={pool.data}
+            nasType={widget?.nasType ?? "scale"}
+          />
         ))}
     </>
   );

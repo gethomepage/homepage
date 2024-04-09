@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Čakanje na prekinitev",
         "connectionStatusDisconnecting": "Prekinitev",
         "connectionStatusDisconnected": "Prekinjeno",
-        "connectionStatusConnected": "Povezanih",
+        "connectionStatusConnected": "Connected",
         "uptime": "Čas delovanja",
         "maxDown": "Maks. dol",
         "maxUp": "Maks. gor",
@@ -277,11 +277,11 @@
         "approved": "Odobreno",
         "available": "Na voljo"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Skupaj",
-        "connected": "Povezanih",
-        "new_devices": "Nove naprave",
-        "down_alerts": "Izključeno"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Poizvedbe",
@@ -872,5 +872,9 @@
         "labels": "Oznake",
         "users": "Uporabniki",
         "totalValue": "Skupna vrednost"
+    },
+    "crowdsec": {
+        "alerts": "Opozorila",
+        "bans": "Prepovedi"
     }
 }

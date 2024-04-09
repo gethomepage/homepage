@@ -1,12 +1,12 @@
 ## Proposed change
 
 <!--
-Please include a summary of the change. Screenshots and / or videos can also be helpful if appropriate.
+Please include a summary of the change. Screenshots and/or videos can also be helpful if appropriate.
 
 *** Please see the development guidelines for new widgets: https://gethomepage.dev/latest/more/development/#service-widget-guidelines
 *** If you do not follow these guidelines your PR will likely be closed without review.
 
-New service widgets should include example(s) of relevant relevant API output as well updates to the docs for the new widget.
+New service widgets should include example(s) of relevant API output as well as updates to the docs for the new widget.
 -->
 
 Closes # (issue)

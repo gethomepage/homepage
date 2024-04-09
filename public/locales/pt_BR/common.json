@@ -14,7 +14,7 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "M",
         "days": "d",
         "hours": "h",
         "minutes": "m",
@@ -85,17 +85,17 @@
     "ping": {
         "error": "Erro",
         "ping": "Tempo de resposta",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Inativo",
+        "up": "Ativo",
+        "not_available": "Não Disponível"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "Estado HTTP",
         "error": "Erro",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "response": "Resposta",
+        "down": "Inativo",
+        "up": "Ativo",
+        "not_available": "Não Disponível"
     },
     "emby": {
         "playing": "A reproduzir",
@@ -134,21 +134,21 @@
     },
     "fritzbox": {
         "connectionStatus": "Estado",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusUnconfigured": "Não configurado",
+        "connectionStatusConnecting": "Conectando",
+        "connectionStatusAuthenticating": "Autenticando",
+        "connectionStatusPendingDisconnect": "Desconexão Pendente",
+        "connectionStatusDisconnecting": "Desconectando",
+        "connectionStatusDisconnected": "Desconectado",
         "connectionStatusConnected": "Connected",
         "uptime": "Ligado",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "down": "Inativo",
+        "up": "Ativo",
+        "received": "Recebido",
+        "sent": "Enviado",
+        "externalIPAddress": "IP Externo"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -160,9 +160,9 @@
         "diffsDetected": "Diferenças Detetadas"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
+        "shows": "Programas",
         "recordings": "Gravações",
-        "scheduled": "Scheduled",
+        "scheduled": "Agendado",
         "passes": "Passes"
     },
     "tautulli": {
@@ -170,7 +170,7 @@
         "transcoding": "Transcodificação",
         "bitrate": "Taxa de bits",
         "no_active": "Sem streams ativas",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Verifique a conexão do Plex"
     },
     "omada": {
         "connectedAp": "APs Ligados",
@@ -186,7 +186,7 @@
     },
     "plex": {
         "streams": "Streams Ativas",
-        "albums": "Albums",
+        "albums": "Álbuns",
         "movies": "Filmes",
         "tv": "Series de TV"
     },
@@ -213,9 +213,9 @@
         "seed": "Semente"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
+        "cpuUsage": "Uso de CPU",
+        "memUsage": "Uso de Memória",
+        "systemTempC": "Temp. do Sistema",
         "poolUsage": "Pool Usage",
         "volumeUsage": "Volume Usage",
         "invalid": "Invalid"
@@ -277,7 +277,7 @@
         "approved": "Aprovada",
         "available": "Disponível"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Total",
         "connected": "Connected",
         "new_devices": "New Devices",
@@ -494,15 +494,15 @@
         "up_to_date": "Atualizado",
         "child_bridges": "Pontes Filhas",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Ativo",
         "pending": "Pendente",
-        "down": "Down"
+        "down": "Inativo"
     },
     "healthchecks": {
         "new": "Novo",
-        "up": "Up",
+        "up": "Ativo",
         "grace": "Em Período Gratuito",
-        "down": "Down",
+        "down": "Inativo",
         "paused": "Pausado",
         "status": "Estado",
         "last_ping": "Ultimo Ping",
@@ -617,8 +617,8 @@
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Ativo",
+        "down": "Inativo",
         "temp": "Temp",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
@@ -664,7 +664,7 @@
         "wanted": "Desejada"
     },
     "photoprism": {
-        "albums": "Albums",
+        "albums": "Álbuns",
         "photos": "Fotos",
         "videos": "Vídeos",
         "people": "Pessoa"
@@ -799,10 +799,10 @@
     "openwrt": {
         "uptime": "Ligado",
         "cpuLoad": "CPU Load Avg (5m)",
-        "up": "Up",
-        "down": "Down",
+        "up": "Ativo",
+        "down": "Inativo",
         "bytesTx": "Transmitted",
-        "bytesRx": "Received"
+        "bytesRx": "Recebido"
     },
     "uptimerobot": {
         "status": "Estado",
@@ -813,9 +813,9 @@
         "sitesDown": "Sites Fora do Ar",
         "paused": "Pausado",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Ativo",
         "seemsdown": "Seems Down",
-        "down": "Down",
+        "down": "Inativo",
         "unknown": "Desconhecido"
     },
     "calendar": {
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Utilizadores",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Alertas",
+        "bans": "Bans"
     }
 }
