@@ -53,6 +53,7 @@ import miniflux from "./miniflux/widget";
 import mikrotik from "./mikrotik/widget";
 import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
+import moviebot from "./moviebot/widget";
 import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
 import netalertx from "./netalertx/widget";
@@ -169,6 +170,7 @@ const widgets = {
   mikrotik,
   mjpeg,
   moonraker,
+  moviebot,
   mylar,
   navidrome,
   netalertx,

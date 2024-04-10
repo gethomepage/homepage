@@ -461,6 +461,12 @@
         "print_progress": "打印进程",
         "layers": "层"
     },
+    "moviebot": {
+        "subscribe": "订阅中",
+        "sites": "站点",
+        "todayUp": "今日上传",
+        "todayDl": "今日下载"
+    },
     "medusa": {
         "wanted": "关注中",
         "queued": "已加入队列",
