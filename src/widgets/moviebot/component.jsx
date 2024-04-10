@@ -1,12 +1,8 @@
-import { useTranslation } from "next-i18next";
-
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-  const { t } = useTranslation();
-
   const { widget } = service;
 
   const { data: listTVResult } = useWidgetAPI(widget, "SubscribeList", {
@@ -18,27 +14,30 @@ export default function Component({ service }) {
     media_type: "Movie",
   });
 
-  let subingTVList = [];
-  let subingMovieList = [];
-  if (listTVResult && listMovieResult) {
-    subingTVList = listTVResult.data.filter((item) => item.status === 0);
-    subingMovieList = listMovieResult.data.filter((item) => item.status === 0);
-  }
-
   const result = useWidgetAPI(widget, "GetSites", {
     refreshInterval: 60000,
   });
   const sites = result.data?.data || [];
 
+  const SitesOverview = useWidgetAPI(widget, "SitesOverview", {
+    refreshInterval: 60000,
+  });
+
+  const subingTVList = listTVResult?.data.filter((item) => item.status === 0) || 0;
+  const subingMovieList = listMovieResult?.data.filter((item) => item.status === 0) || 0;
+
+  const todayUp = SitesOverview.data?.data?.today_up || 0;
+  const todayDl = SitesOverview.data?.data?.today_dl || 0;
+  const normalSites = sites.filter((s) => s.status === 1).length || 0;
+  const errorSites = sites.filter((s) => s.status === 0).length || 0;
+
   return (
     <Container service={service}>
-      <Block label="moviebot.tv" value={t("common.number", { value: subingTVList.length })} />
-      <Block label="moviebot.movie" value={t("common.number", { value: subingMovieList.length })} />
-      <Block label="moviebot.sites" value={t("common.number", { value: sites.filter((s) => s.status === 1).length })} />
-      <Block
-        label="moviebot.errorSites"
-        value={t("common.number", { value: sites.filter((s) => s.status === 0).length })}
-      />
+      <Block label="moviebot.subscribe" value={subingTVList.length + subingMovieList.length} />
+      <Block label="moviebot.sites" value={errorSites ? `异常 ${errorSites} 个` : `可用 ${normalSites} 个`} />
+
+      <Block label="moviebot.todayUp" value={`${Math.floor(todayUp)} MB`} />
+      <Block label="moviebot.todayDl" value={`${Math.floor(todayDl)} MB`} />
     </Container>
   );
 }

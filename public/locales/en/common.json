@@ -604,10 +604,10 @@
         "layers": "Layers"
     },
     "moviebot": {
-      "tv": "TV",
-      "movie": "MOVIE",
-      "sites": "normal site",
-      "errorSites": "error site"
+      "subscribe": "SUB",
+      "sites": "SITE",
+      "todayUp": "UPLOADED",
+      "todayDl": "DOWNLOAD"
   },
     "octoprint": {
         "printer_state": "Status",
