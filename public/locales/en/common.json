@@ -603,6 +603,12 @@
         "print_progress": "Progress",
         "layers": "Layers"
     },
+    "moviebot": {
+      "tv": "TV",
+      "movie": "MOVIE",
+      "sites": "normal site",
+      "errorSites": "error site"
+  },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

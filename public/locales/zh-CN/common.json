@@ -461,6 +461,12 @@
         "print_progress": "打印进程",
         "layers": "层"
     },
+    "moviebot": {
+        "tv": "剧集",
+        "movie": "电影",
+        "sites": "正常站点",
+        "errorSites": "错误站点"
+    },
     "medusa": {
         "wanted": "关注中",
         "queued": "已加入队列",
