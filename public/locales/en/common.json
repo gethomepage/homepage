@@ -876,5 +876,16 @@
     "crowdsec": {
         "alerts": "Alerts",
         "bans": "Bans"
+    },
+    "ceph": {
+        "status": "Status",
+        "alerts": "Alerts",
+        "freespace": "Free Space",
+        "usedspace": "Used Space",
+        "free": "Free",
+        "used": "Used",
+        "read": "Read",
+        "write": "Write",
+        "recovering": "Recovering"
     }
 }

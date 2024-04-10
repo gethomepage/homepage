@@ -11,6 +11,7 @@ const components = {
   caddy: dynamic(() => import("./caddy/component")),
   calendar: dynamic(() => import("./calendar/component")),
   calibreweb: dynamic(() => import("./calibreweb/component")),
+  ceph: dynamic(() => import("./ceph/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   channelsdvrserver: dynamic(() => import("./channelsdvrserver/component")),
   cloudflared: dynamic(() => import("./cloudflared/component")),

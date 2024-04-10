@@ -8,6 +8,7 @@ import bazarr from "./bazarr/widget";
 import caddy from "./caddy/widget";
 import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
+import ceph from "./ceph/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
@@ -122,6 +123,7 @@ const widgets = {
   bazarr,
   caddy,
   calibreweb,
+  ceph,
   changedetectionio,
   channelsdvrserver,
   cloudflared,
