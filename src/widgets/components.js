@@ -61,6 +61,7 @@ const components = {
   mikrotik: dynamic(() => import("./mikrotik/component")),
   mjpeg: dynamic(() => import("./mjpeg/component")),
   moonraker: dynamic(() => import("./moonraker/component")),
+  moviebot: dynamic(() => import("./moviebot/component")),
   mylar: dynamic(() => import("./mylar/component")),
   navidrome: dynamic(() => import("./navidrome/component")),
   netalertx: dynamic(() => import("./netalertx/component")),
