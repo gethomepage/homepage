@@ -10,7 +10,7 @@ on:
     - cron: '20 0 * * *'
   push:
     branches:
-      - self
+      - dev
       - feature/**
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
