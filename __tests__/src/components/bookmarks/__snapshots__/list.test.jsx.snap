@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YourComponent renders the component successfully 1`] = `
+<div>
+  <ul
+    class="flex flex-col mt-3 bookmark-list"
+  />
+</div>
+`;

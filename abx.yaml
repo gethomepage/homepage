@@ -1,0 +1,85 @@
+#%RAML 1.0
+
+title: Tenant API
+baseUri: http://localhost:8081/{version}
+version: v2
+
+traits:
+  validate: !include ../traits/validation.raml
+  internal: !include ../traits/internal-error.raml
+types:
+  tenantAttributes: !include ../schemas/tenantAttributes.schema
+  tenantJob: !include ../schemas/tenantJob.schema
+  errors: !include ../schemas/errors.schema
+
+/_/tenant:
+  post:
+    description: Create tenant job (create, upgrade, delete)
+      An implementation may choose to return 204 if the job is
+      completed by the initial operation; or it may return 201
+      and start the operation in the background.
+    is: [validate, internal]
+    body:
+      application/json:
+        type: tenantAttributes
+        example:
+          value: !include ../examples/tenantAttributes.sample
+    responses:
+      204:
+        description: "Job completed"
+      201:
+        description: "Tenant job created"
+        body:
+          application/json:
+            type: tenantJob
+            example:
+              value: !include ../examples/tenantJob.sample
+        headers:
+          Location:
+            description: URI of the job
+      400:
+        description: "Bad user request"
+        body:
+          text/plain:
+  /{operation_id}:
+    get:
+      description: Get tenant job
+      queryParameters:
+        wait:
+          description: wait until job change, but no longer than the wait
+            time - in milliseconds. 0 means "no wait" and is behavior if
+            omitted.
+          type: integer
+          required: false
+          default: 0
+      is: [internal]
+      responses:
+        200:
+          description: Tenant job returned OK
+          body:
+            application/json:
+              type: tenantJob
+              example:
+                value: !include ../examples/tenantJob.sample
+        400:
+          description: User error
+          body:
+            text/plain:
+        404:
+          description: Not found
+          body:
+            text/plain:
+    delete:
+      description: Delete job
+      is: [internal]
+      responses:
+        204:
+          description: Job deleted ok
+        400:
+          description: User error
+          body:
+            text/plain:
+        404:
+          description: Not found
+          body:
+            text/plain:
