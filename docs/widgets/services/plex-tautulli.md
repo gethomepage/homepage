@@ -14,4 +14,5 @@ widget:
   type: tautulli
   url: http://tautulli.host.or.ip
   key: apikeyapikeyapikeyapikeyapikey
+  enableUser: true # optional, defaults to false
 ```
