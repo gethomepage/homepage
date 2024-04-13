@@ -219,7 +219,7 @@ export default function Component({ service }) {
 
   const enableBlocks = service.widget?.enableBlocks;
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
-  const enableUser = service.widget?.enableUser ?? true;
+  const enableUser = !!service.widget?.enableUser;
 
   if (!sessionsData || !countData) {
     return (
