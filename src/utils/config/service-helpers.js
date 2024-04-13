@@ -393,6 +393,9 @@ export function cleanServiceGroups(groups) {
           enableBlocks,
           enableNowPlaying,
 
+          // emby, jellyfin, tautulli
+          enableUser,
+
           // glances, pihole
           version,
 
@@ -517,6 +520,14 @@ export function cleanServiceGroups(groups) {
         if (["emby", "jellyfin"].includes(type)) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
+          if (enableUser !== undefined) {
+            cleanedService.widget.enableUser = !!JSON.parse(enableUser);
+          }
+        }
+        if (["tautulli"].includes(type)) {
+          if (enableUser !== undefined) {
+            cleanedService.widget.enableUser = !!JSON.parse(enableUser);
+          }
         }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);

@@ -25,14 +25,18 @@ function millisecondsToString(milliseconds) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function SingleSessionEntry({ session }) {
-  const { full_title, duration, view_offset, progress_percent, state, video_decision, audio_decision } = session;
+function SingleSessionEntry({ session, enableUser }) {
+  const { full_title, duration, view_offset, progress_percent, state, video_decision, audio_decision, username } =
+    session;
 
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
         <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
+          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
+            {full_title}
+            {enableUser && ` (${username})`}
+          </div>
         </div>
         <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
           {video_decision === "direct play" && audio_decision === "direct play" && (
@@ -74,8 +78,8 @@ function SingleSessionEntry({ session }) {
   );
 }
 
-function SessionEntry({ session }) {
-  const { full_title, view_offset, progress_percent, state, video_decision, audio_decision } = session;
+function SessionEntry({ session, enableUser }) {
+  const { full_title, view_offset, progress_percent, state, video_decision, audio_decision, username } = session;
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -94,7 +98,10 @@ function SessionEntry({ session }) {
         )}
       </div>
       <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">{full_title}</div>
+        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
+          {full_title}
+          {enableUser && ` (${username})`}
+        </div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10">
         {video_decision === "direct play" && audio_decision === "direct play" && (
@@ -162,11 +169,13 @@ export default function Component({ service }) {
     );
   }
 
+  const enableUser = !!service.widget?.enableUser;
+
   if (playing.length === 1) {
     const session = playing[0];
     return (
       <div className="flex flex-col pb-1 mx-1">
-        <SingleSessionEntry session={session} />
+        <SingleSessionEntry session={session} enableUser={enableUser} />
       </div>
     );
   }
@@ -174,7 +183,7 @@ export default function Component({ service }) {
   return (
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
-        <SessionEntry key={session.Id} session={session} />
+        <SessionEntry key={session.Id} session={session} enableUser={enableUser} />
       ))}
     </div>
   );

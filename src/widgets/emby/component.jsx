@@ -27,10 +27,11 @@ function ticksToString(ticks) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function SingleSessionEntry({ playCommand, session }) {
+function SingleSessionEntry({ playCommand, session, enableUser }) {
   const {
     NowPlayingItem: { Name, SeriesName },
     PlayState: { PositionTicks, IsPaused, IsMuted },
+    UserName,
   } = session;
 
   const RunTimeTicks =
@@ -49,6 +50,7 @@ function SingleSessionEntry({ playCommand, session }) {
           <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
             {Name}
             {SeriesName && ` - ${SeriesName}`}
+            {enableUser && ` (${UserName})`}
           </div>
         </div>
         <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
@@ -97,10 +99,11 @@ function SingleSessionEntry({ playCommand, session }) {
   );
 }
 
-function SessionEntry({ playCommand, session }) {
+function SessionEntry({ playCommand, session, enableUser }) {
   const {
     NowPlayingItem: { Name, SeriesName },
     PlayState: { PositionTicks, IsPaused, IsMuted },
+    UserName,
   } = session;
 
   const RunTimeTicks =
@@ -142,6 +145,7 @@ function SessionEntry({ playCommand, session }) {
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
           {Name}
           {SeriesName && ` - ${SeriesName}`}
+          {enableUser && ` (${UserName})`}
         </div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1 z-10">{IsMuted && <BsVolumeMuteFill />}</div>
@@ -215,6 +219,7 @@ export default function Component({ service }) {
 
   const enableBlocks = service.widget?.enableBlocks;
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
+  const enableUser = !!service.widget?.enableUser;
 
   if (!sessionsData || !countData) {
     return (
@@ -272,6 +277,7 @@ export default function Component({ service }) {
             <SingleSessionEntry
               playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
               session={session}
+              enableUser={enableUser}
             />
           </div>
         </>
@@ -288,6 +294,7 @@ export default function Component({ service }) {
                 key={session.Id}
                 playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
                 session={session}
+                enableUser={enableUser}
               />
             ))}
           </div>
