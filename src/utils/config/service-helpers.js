@@ -526,10 +526,7 @@ export function cleanServiceGroups(groups) {
         }
         if (["tautulli"].includes(type)) {
           if (enableUser !== undefined) { 
-            cleanedService.widget.enableUser = JSON.parse(enableUser);
-          } 
-          else { 
-            cleanedService.widget.enableUser = false;
+            cleanedService.widget.enableUser = !!JSON.parse(enableUser);
           }
         }
         if (["sonarr", "radarr"].includes(type)) {
