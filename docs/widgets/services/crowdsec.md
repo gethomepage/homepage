@@ -15,5 +15,5 @@ widget:
   type: crowdsec
   url: http://crowdsechostorip:port
   username: localhost # machine_id in crowdsec
-  passowrd: password
+  password: password
 ```

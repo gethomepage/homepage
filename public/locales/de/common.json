@@ -277,7 +277,7 @@
         "approved": "Genehmigt",
         "available": "Verfügbar"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Gesamt",
         "connected": "Verbunden",
         "new_devices": "Neue Geräte",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Benutzer",
         "totalValue": "Gesamtwert"
+    },
+    "crowdsec": {
+        "alerts": "Warnungen",
+        "bans": "Bans"
     }
 }

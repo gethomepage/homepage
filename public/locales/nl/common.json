@@ -277,7 +277,7 @@
         "approved": "Goedgekeurd",
         "available": "Beschikbaar"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Totaal",
         "connected": "Verbonden",
         "new_devices": "Nieuwe Apparaten",
@@ -826,8 +826,8 @@
         "noEventsFound": "Geen gebeurtenissen gevonden"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Platformen",
+        "totalRoms": "Totale ROM's"
     },
     "netdata": {
         "warnings": "Waarschuwingen",
@@ -840,7 +840,7 @@
         "species": "Soorten"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "Notificaties",
         "issues": "Problemen",
         "pulls": "Pull Requests"
     },
@@ -863,7 +863,7 @@
     "tandoor": {
         "users": "Gebruikers",
         "recipes": "Recepten",
-        "keywords": "Keywords"
+        "keywords": "Trefwoorden"
     },
     "homebox": {
         "items": "Items",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Gebruikers",
         "totalValue": "Totale waarde"
+    },
+    "crowdsec": {
+        "alerts": "Meldingen",
+        "bans": "Bans"
     }
 }

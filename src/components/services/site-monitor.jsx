@@ -12,7 +12,7 @@ export default function SiteMonitor({ group, service, style }) {
   let statusTitle = t("siteMonitor.http_status");
   let statusText = "";
 
-  if (error) {
+  if (error || (data && data.error)) {
     colorClass = "text-rose-500";
     statusText = t("siteMonitor.error");
     statusTitle += ` ${t("siteMonitor.error")}`;

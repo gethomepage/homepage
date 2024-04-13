@@ -277,7 +277,7 @@
         "approved": "ఆమోదించబడింది",
         "available": "అందుబాటులో వున్నవి"
     },
-    "pialert": {
+    "netalertx": {
         "total": "మొత్తం",
         "connected": "Connected",
         "new_devices": "New Devices",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "వినియోగదారులు",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Alerts",
+        "bans": "Bans"
     }
 }

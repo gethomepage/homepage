@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Odspajanje u tijeku",
         "connectionStatusDisconnecting": "Odspajanje",
         "connectionStatusDisconnected": "Odspojeno",
-        "connectionStatusConnected": "Povezano",
+        "connectionStatusConnected": "Connected",
         "uptime": "Vrijeme rada",
         "maxDown": "Maksimum preuzimanja",
         "maxUp": "Maksimum prijenosa",
@@ -277,11 +277,11 @@
         "approved": "Odobreno",
         "available": "Dostupno"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Ukupno",
-        "connected": "Povezano",
-        "new_devices": "Novi uređaji",
-        "down_alerts": "Obavijesti o nedostupnosti"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Upiti",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Korisnici",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Upozorenja",
+        "bans": "Bans"
     }
 }

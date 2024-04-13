@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Bağlantının Kesilmesi Bekleniyor",
         "connectionStatusDisconnecting": "Bağlantı kesiliyor...",
         "connectionStatusDisconnected": "Bağlantı kesildi",
-        "connectionStatusConnected": "Bağlandı",
+        "connectionStatusConnected": "Connected",
         "uptime": "Çalışma Süresi",
         "maxDown": "Max. Indirme",
         "maxUp": "Max. Gönderme",
@@ -277,11 +277,11 @@
         "approved": "Onaylı",
         "available": "Kullanılabilir"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Toplam",
-        "connected": "Bağlandı",
-        "new_devices": "Yeni Cihazlar",
-        "down_alerts": "Düşme Uyarıları"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "Sorgular",
@@ -872,5 +872,9 @@
         "labels": "Etiketler",
         "users": "Kullanıcılar",
         "totalValue": "Toplam Değer"
+    },
+    "crowdsec": {
+        "alerts": "Alarmlar",
+        "bans": "Bans"
     }
 }
