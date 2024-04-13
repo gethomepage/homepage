@@ -521,10 +521,7 @@ export function cleanServiceGroups(groups) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
           if (enableUser !== undefined) { 
-            cleanedService.widget.enableUser = JSON.parse(enableUser);
-          } 
-          else { 
-            cleanedService.widget.enableUser = false;
+            cleanedService.widget.enableUser = !!JSON.parse(enableUser);
           }
         }
         if (["tautulli"].includes(type)) {
