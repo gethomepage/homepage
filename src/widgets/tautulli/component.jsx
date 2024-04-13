@@ -168,7 +168,7 @@ export default function Component({ service }) {
     );
   }
 
-  const enableUser = service.widget?.enableUser ?? true;
+  const enableUser = !!service.widget?.enableUser;
 
   if (playing.length === 1) {
     const session = playing[0];
