@@ -26,7 +26,8 @@ function millisecondsToString(milliseconds) {
 }
 
 function SingleSessionEntry({ session, enableUser }) {
-  const { full_title, duration, view_offset, progress_percent, state, video_decision, audio_decision, username } = session;
+  const { full_title, duration, view_offset, progress_percent, state, video_decision, audio_decision, username } =
+    session;
 
   return (
     <>
@@ -174,7 +175,7 @@ export default function Component({ service }) {
     const session = playing[0];
     return (
       <div className="flex flex-col pb-1 mx-1">
-        <SingleSessionEntry session={session} enableUser={enableUser}/>
+        <SingleSessionEntry session={session} enableUser={enableUser} />
       </div>
     );
   }
@@ -182,7 +183,7 @@ export default function Component({ service }) {
   return (
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
-        <SessionEntry key={session.Id} session={session} enableUser={enableUser}/>
+        <SessionEntry key={session.Id} session={session} enableUser={enableUser} />
       ))}
     </div>
   );
