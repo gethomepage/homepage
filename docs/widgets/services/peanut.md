@@ -19,5 +19,5 @@ Allowed fields: `["battery_charge", "ups_load", "ups_status"]`.
 widget:
   type: peanut
   url: http://peanut.host.or.ip:port
-  key: nameofyourups
+  key: ups
 ```
