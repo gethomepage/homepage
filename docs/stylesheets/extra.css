@@ -23,6 +23,10 @@
     font-family: var(--md-text-font) !important;
 }
 
+#carbonads {
+    margin-top: 10px;
+}
+
 #carbon-responsive {
     --carbon-padding: 1em;
     --carbon-max-char: 20ch;
