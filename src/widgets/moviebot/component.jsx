@@ -36,8 +36,14 @@ export default function Component({ service }) {
       <Block label="moviebot.subscribe" value={subingTVList.length + subingMovieList.length} />
       <Block label="moviebot.sites" value={errorSites ? `异常 ${errorSites} 个` : `可用 ${normalSites} 个`} />
 
-      <Block label="moviebot.todayUp" value={`${Math.floor(todayUp)} MB`} />
-      <Block label="moviebot.todayDl" value={`${Math.floor(todayDl)} MB`} />
+      <Block
+        label="moviebot.todayUp"
+        value={`${todayUp > 1000 ? `${(todayUp / 1000).toFixed(2)} GB` : `${Math.floor(todayUp)} MB`}`}
+      />
+      <Block
+        label="moviebot.todayDl"
+        value={`${todayDl > 1000 ? `${(todayDl / 1000).toFixed(2)} GB` : `${Math.floor(todayDl)} MB`}`}
+      />
     </Container>
   );
 }
