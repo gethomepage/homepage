@@ -104,7 +104,7 @@
         "no_active": "Inga aktiva strömmar",
         "movies": "Movies",
         "series": "Series",
-        "episodes": "Episodes",
+        "episodes": "Avsnitt",
         "songs": "Songs"
     },
     "esphome": {
@@ -423,7 +423,7 @@
     "quicklaunch": {
         "bookmark": "Bookmark",
         "service": "Service",
-        "search": "Search",
+        "search": "Sök",
         "custom": "Custom",
         "visit": "Visit",
         "url": "URL",

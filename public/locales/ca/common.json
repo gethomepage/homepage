@@ -14,7 +14,7 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "mes",
         "days": "d",
         "hours": "h",
         "minutes": "m",
@@ -46,8 +46,8 @@
         "used": "Utilitzat",
         "load": "Càrrega",
         "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP"
+        "max": "Màx.",
+        "uptime": "ACTIU"
     },
     "unifi": {
         "users": "Usuaris",
@@ -61,65 +61,65 @@
         "wlan_devices": "Dispositius WLAN",
         "lan_users": "Usuaris LAN",
         "wlan_users": "Usuaris WLAN",
-        "up": "UP",
+        "up": "ACTIU",
         "down": "INACTIU",
         "wait": "Si us plau, espereu",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Estat del subsistema desconegut"
     },
     "docker": {
         "rx": "Rebut",
         "tx": "Transmès",
         "mem": "MEM",
         "cpu": "CPU",
-        "running": "Running",
+        "running": "En execució",
         "offline": "Fora de línia",
         "error": "Error",
         "unknown": "Desconegut",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
+        "healthy": "Saludable",
+        "starting": "Iniciant",
+        "unhealthy": "No saludable",
+        "not_found": "No trobat",
+        "exited": "Tancat",
+        "partial": "Parcial"
     },
     "ping": {
         "error": "Error",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "ping": "Latència",
+        "down": "Inactiu",
+        "up": "Actiu",
+        "not_available": "No Disponible"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "Estat HTTP",
         "error": "Error",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "response": "Resposta",
+        "down": "Inactiu",
+        "up": "Actiu",
+        "not_available": "No Disponible"
     },
     "emby": {
         "playing": "Reproduint",
         "transcoding": "Transcodificant",
         "bitrate": "Taxa de bits",
         "no_active": "Sense reproduccions actives",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Pel·lícules",
+        "series": "Sèries",
+        "episodes": "Episodis",
+        "songs": "Cançons"
     },
     "esphome": {
         "offline": "Fora de línia",
         "offline_alt": "Fora de línia",
-        "online": "Online",
+        "online": "En línia",
         "total": "Total",
         "unknown": "Desconegut"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "pv_power": "Producció",
+        "battery_soc": "Bateria",
+        "grid_power": "Xarxa",
+        "home_power": "Consum",
+        "charge_power": "Carregador",
         "watt_hour": "Wh"
     },
     "flood": {
@@ -129,55 +129,55 @@
         "seed": "Llavor"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Subcripcions",
+        "unread": "Sense llegir"
     },
     "fritzbox": {
         "connectionStatus": "Estat",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusUnconfigured": "Sense configurar",
+        "connectionStatusConnecting": "Connectant",
+        "connectionStatusAuthenticating": "Autenticant",
+        "connectionStatusPendingDisconnect": "Desconnexió pendent",
+        "connectionStatusDisconnecting": "Desconnectant",
+        "connectionStatusDisconnected": "Desconnectat",
+        "connectionStatusConnected": "Connectat",
         "uptime": "Temps actiu",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "maxDown": "Màx. Descàrrega",
+        "maxUp": "Màx. Càrrega",
+        "down": "Inactiu",
+        "up": "Actiu",
+        "received": "Rebuts",
+        "sent": "Enviats",
+        "externalIPAddress": "IP ext."
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Peticions actuals",
+        "requests_failed": "Peticions fallides"
     },
     "changedetectionio": {
         "totalObserved": "Total d'observats",
         "diffsDetected": "Diferències detectades"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "Sèries",
+        "recordings": "Gravacions",
+        "scheduled": "Programat",
+        "passes": "Aprovat"
     },
     "tautulli": {
         "playing": "Reproduint",
         "transcoding": "Transcodificant",
         "bitrate": "Taxa de bits",
         "no_active": "Sense reproduccions actives",
-        "plex_connection_error": "Check Plex Connection"
+        "plex_connection_error": "Comprova la connexió de Plex"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "AP connectats",
+        "activeUser": "Dispositius actius",
+        "alerts": "Alertes",
+        "connectedGateway": "Pasarel·les connectades",
+        "connectedSwitches": "Conmutadors connectats"
     },
     "nzbget": {
         "rate": "Taxa",
@@ -187,7 +187,7 @@
     "plex": {
         "streams": "Transmissions actives",
         "albums": "Àlbums",
-        "movies": "Movies",
+        "movies": "Pel·lícules",
         "tv": "Sèries"
     },
     "sabnzbd": {
@@ -213,12 +213,12 @@
         "seed": "Llavor"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "Ús de CPU",
+        "memUsage": "Ús de Memòria",
+        "systemTempC": "Temp. Sistema",
+        "poolUsage": "Ús de les Reserves",
+        "volumeUsage": "Ús dels Volums",
+        "invalid": "No vàlid"
     },
     "deluge": {
         "download": "Descarregar",
@@ -235,7 +235,7 @@
     "sonarr": {
         "wanted": "Volgut",
         "queued": "En cua",
-        "series": "Series",
+        "series": "Sèries",
         "queue": "Cua",
         "unknown": "Desconegut"
     },
@@ -243,14 +243,14 @@
         "wanted": "Volgut",
         "missing": "Faltant",
         "queued": "En cua",
-        "movies": "Movies",
+        "movies": "Pel·lícules",
         "queue": "Cua",
         "unknown": "Desconegut"
     },
     "lidarr": {
         "wanted": "Volgut",
         "queued": "En cua",
-        "artists": "Artists"
+        "artists": "Artistes"
     },
     "readarr": {
         "wanted": "Volgut",
@@ -279,15 +279,15 @@
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Connectat",
+        "new_devices": "Nous dispositius",
+        "down_alerts": "Alertes de caigudes"
     },
     "pihole": {
         "queries": "Consultes",
         "blocked": "Bloquejat",
-        "blocked_percent": "Blocked %",
-        "gravity": "Gravity"
+        "blocked_percent": "Bloquejat %",
+        "gravity": "Gravetat"
     },
     "adguard": {
         "queries": "Consultes",
@@ -298,37 +298,37 @@
     "speedtest": {
         "upload": "Pujada",
         "download": "Descarregar",
-        "ping": "Ping"
+        "ping": "Latència"
     },
     "portainer": {
-        "running": "Running",
+        "running": "En execució",
         "stopped": "Aturat",
         "total": "Total"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
+        "address": "Adreça",
+        "expires": "Caduca",
+        "never": "Mai",
+        "last_seen": "Vist per darrer cop",
+        "now": "Ara",
+        "years": "{{number}}a",
+        "weeks": "{{number}}set",
         "days": "{{number}}d",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "Fa {{value}}"
     },
     "tdarr": {
         "queue": "Cua",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "processed": "Processat",
+        "errored": "Error",
+        "saved": "Desat"
     },
     "traefik": {
         "routers": "Encaminadors",
         "services": "Serveis",
-        "middleware": "Middleware"
+        "middleware": "Intermediari"
     },
     "navidrome": {
         "nothing_streaming": "Sense reproduccions actives",
@@ -360,7 +360,7 @@
     },
     "jackett": {
         "configured": "Configurat",
-        "errored": "Errored"
+        "errored": "Error"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
@@ -376,18 +376,18 @@
     "medusa": {
         "wanted": "Volgut",
         "queued": "En cua",
-        "series": "Series"
+        "series": "Sèries"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
+        "players": "Jugadors",
+        "version": "Versió",
         "status": "Estat",
-        "up": "Online",
+        "up": "En línia",
         "down": "Fora de línia"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Llegir",
+        "unread": "Sense llegir"
     },
     "authentik": {
         "users": "Usuaris",
@@ -406,28 +406,28 @@
         "wait": "Si us plau, espereu",
         "temp": "TEMP",
         "_temp": "Temp",
-        "warn": "Warn",
-        "uptime": "UP",
+        "warn": "Avís",
+        "uptime": "ACTIU",
         "total": "Total",
         "free": "Lliure",
         "used": "Utilitzat",
         "days": "d",
         "hours": "h",
-        "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "crit": "Crític",
+        "read": "Llegir",
+        "write": "Escriure",
         "gpu": "GPU",
         "mem": "Mem",
-        "swap": "Swap"
+        "swap": "Intercanvi"
     },
     "quicklaunch": {
         "bookmark": "Marcador",
         "service": "Servei",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "search": "Cercar",
+        "custom": "Personalitzat",
+        "visit": "Visitar",
         "url": "URL",
-        "searchsuggestion": "Suggestion"
+        "searchsuggestion": "Suggeriment"
     },
     "wmo": {
         "0-day": "Assolellat",
@@ -492,21 +492,21 @@
         "updates": "Actualitzacions",
         "update_available": "Actualització disponible",
         "up_to_date": "Actualitzat",
-        "child_bridges": "Child Bridges",
+        "child_bridges": "Ponts fills",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Actiu",
         "pending": "Pendent",
-        "down": "Down"
+        "down": "Inactiu"
     },
     "healthchecks": {
-        "new": "New",
-        "up": "Up",
-        "grace": "In Grace Period",
-        "down": "Down",
-        "paused": "Paused",
+        "new": "Nou",
+        "up": "Actiu",
+        "grace": "En Període de gràcia",
+        "down": "Inactiu",
+        "paused": "En pausa",
         "status": "Estat",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "last_ping": "Últim ping",
+        "never": "Sense pings"
     },
     "watchtower": {
         "containers_scanned": "Escanejat",
@@ -528,7 +528,7 @@
     "truenas": {
         "load": "Càrrega del sistema",
         "uptime": "Temps actiu",
-        "alerts": "Alerts"
+        "alerts": "Alertes"
     },
     "pyload": {
         "speed": "Velocitat",
@@ -544,12 +544,12 @@
     "hdhomerun": {
         "channels": "Canals",
         "hd": "HD",
-        "tunerCount": "Tuners",
-        "channelNumber": "Channel",
-        "channelNetwork": "Network",
-        "signalStrength": "Strength",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
+        "tunerCount": "Sintonitzadors",
+        "channelNumber": "Canal",
+        "channelNetwork": "Xarxa",
+        "signalStrength": "Intensitat",
+        "signalQuality": "Qualitat",
+        "symbolQuality": "Qualitat",
         "networkRate": "Taxa de bits",
         "clientIP": "Client"
     },
@@ -563,94 +563,94 @@
         "total": "Total"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
-        "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "battery_charge": "Càrrega de la bateria",
+        "ups_load": "Càrrega del SAI",
+        "ups_status": "Estat del SAI",
+        "online": "En línia",
+        "on_battery": "En Bateria",
+        "low_battery": "Bateria Baixa"
     },
     "nextdns": {
         "wait": "Espereu si us plau",
-        "no_devices": "No Device Data Received"
+        "no_devices": "No s'han rebut dades del Dispositiu"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
+        "cpuLoad": "Càrrega de CPU",
+        "memoryUsed": "Memoria en ús",
         "uptime": "Temps actiu",
-        "numberOfLeases": "Leases"
+        "numberOfLeases": "IPs assignades"
     },
     "xteve": {
-        "streams_all": "All Streams",
+        "streams_all": "Tots els fluxos",
         "streams_active": "Transmissions actives",
-        "streams_xepg": "XEPG Channels"
+        "streams_xepg": "Canals XEPG"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "yieldDay": "Avui",
+        "absolutePower": "Potència",
+        "relativePower": "Potència %",
+        "limit": "Límit"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Càrrega de CPU",
+        "memory": "Memòria activa",
+        "wanUpload": "Pujada WAN",
+        "wanDownload": "Baixada WAN"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
+        "printer_state": "Estat de l'impressora",
+        "print_status": "Estat de l'impressió",
         "print_progress": "Progress",
-        "layers": "Layers"
+        "layers": "Capes"
     },
     "octoprint": {
         "printer_state": "Estat",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "temp_tool": "Temperatura capçal",
+        "temp_bed": "Temperatura llit",
+        "job_completion": "Finalització"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
+        "origin_ip": "IP Origen",
         "status": "Estat"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "load": "Promig Càrrega",
+        "memory": "Ús Memòria",
+        "wanStatus": "Estat WAN",
+        "up": "Actiu",
+        "down": "Inactiu",
         "temp": "Temp",
-        "disk": "Disk Usage",
+        "disk": "Ús Disc",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "failed_tasks_24h": "Tasques fallides (24h)",
         "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "memory_usage": "Memòria"
     },
     "immich": {
         "users": "Usuaris",
-        "photos": "Photos",
+        "photos": "Fotos",
         "videos": "Vídeos",
-        "storage": "Storage"
+        "storage": "Emmagatzematge"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Actius",
+        "down": "Caiguts",
         "uptime": "Temps actiu",
-        "incident": "Incident",
+        "incident": "Incidència",
         "m": "m"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
+        "series": "Sèries",
+        "archives": "Arxius",
+        "chapters": "Capítols",
         "categories": "Categories"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
+        "libraries": "Biblioteques",
+        "series": "Sèries",
         "books": "Llibres"
     },
     "diskstation": {
@@ -659,77 +659,77 @@
         "volumeAvailable": "Disponible"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
+        "series": "Sèries",
+        "issues": "Problemes",
         "wanted": "Volgut"
     },
     "photoprism": {
         "albums": "Àlbums",
-        "photos": "Photos",
+        "photos": "Fotos",
         "videos": "Vídeos",
-        "people": "People"
+        "people": "Gent"
     },
     "fileflows": {
         "queue": "Cua",
         "processing": "Processant",
-        "processed": "Processed",
-        "time": "Time"
+        "processed": "Processat",
+        "time": "Temps"
     },
     "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "dashboards": "Taulells",
+        "datasources": "Origen de dades",
+        "totalalerts": "Alertes Totals",
+        "alertstriggered": "Alertes disparades"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "cpuload": "Càrrega de CPU",
+        "memoryusage": "Ús Memòria",
+        "freespace": "Espai lliure",
+        "activeusers": "Usuaris actius",
+        "numfiles": "Fitxers",
+        "numshares": "Elements compartits"
     },
     "kopia": {
         "status": "Estat",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
+        "size": "Mida",
+        "lastrun": "Darrera execució",
+        "nextrun": "Següent execució",
         "failed": "Error"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Treballadors actius",
+        "total_workers": "Treballadors Totals",
+        "records_total": "Llargada de la Cua"
     },
     "pterodactyl": {
-        "servers": "Servers",
+        "servers": "Servidors",
         "nodes": "Nodes"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Objectius actius",
+        "targets_down": "Objectius caiguts",
+        "targets_total": "Objectius Totals"
     },
     "gatus": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Actius",
+        "down": "Caiguts",
         "uptime": "Temps actiu"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "Avui",
+        "gross_percent_1y": "Un any",
+        "gross_percent_max": "Tot"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
         "books": "Llibres",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcastsDuration": "Durada",
+        "booksDuration": "Durada"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Gent a casa",
+        "lights_on": "Llums enceses",
+        "switches_on": "Endolls activats"
     },
     "whatsupdocker": {
         "monitoring": "Supervisió",
@@ -737,144 +737,144 @@
     },
     "calibreweb": {
         "books": "Llibres",
-        "authors": "Authors",
+        "authors": "Autors",
         "categories": "Categories",
-        "series": "Series"
+        "series": "Sèries"
     },
     "jdownloader": {
         "downloadCount": "Cua",
         "downloadBytesRemaining": "Restant",
-        "downloadTotalBytes": "Size",
+        "downloadTotalBytes": "Mida",
         "downloadSpeed": "Velocitat"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Sèries",
+        "totalFiles": "Fitxers"
     },
     "azuredevops": {
-        "result": "Result",
+        "result": "Resultat",
         "status": "Estat",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
+        "buildId": "Id de compilació",
+        "succeeded": "Amb èxit",
+        "notStarted": "No Iniciat",
         "failed": "Error",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
+        "canceled": "Cancel·lat",
+        "inProgress": "En curs",
+        "totalPrs": "RP Totals",
+        "myPrs": "Els meus RP",
         "approved": "Aprovat"
     },
     "gamedig": {
         "status": "Estat",
-        "online": "Online",
+        "online": "En línia",
         "offline": "Fora de línia",
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
+        "name": "Nom",
+        "map": "Mapa",
+        "currentPlayers": "Jugadors actuals",
+        "players": "Jugadors",
+        "maxPlayers": "Màxim de jugadors",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Latència"
     },
     "urbackup": {
         "ok": "Ok",
         "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "noRecent": "Obsolet",
+        "totalUsed": "Emmagatzematge utilitzat"
     },
     "mealie": {
-        "recipes": "Recipes",
+        "recipes": "Receptes",
         "users": "Usuaris",
         "categories": "Categories",
-        "tags": "Tags"
+        "tags": "Etiquetes"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Descarregant",
         "total": "Total",
-        "running": "Running",
+        "running": "En execució",
         "stopped": "Aturat",
         "passed": "Aprobat",
         "failed": "Error"
     },
     "openwrt": {
         "uptime": "Temps actiu",
-        "cpuLoad": "CPU Load Avg (5m)",
-        "up": "Up",
-        "down": "Down",
-        "bytesTx": "Transmitted",
-        "bytesRx": "Received"
+        "cpuLoad": "Càrrega promig de CPU (5m)",
+        "up": "Actiu",
+        "down": "Inactiu",
+        "bytesTx": "Enviat",
+        "bytesRx": "Rebuts"
     },
     "uptimerobot": {
         "status": "Estat",
         "uptime": "Temps actiu",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
+        "lastDown": "Darrera Inactivitat",
+        "downDuration": "Duració d'Inactivitat",
+        "sitesUp": "Actius",
+        "sitesDown": "Caiguts",
+        "paused": "En pausa",
+        "notyetchecked": "Sense verificar",
+        "up": "Actiu",
+        "seemsdown": "Sembla caigut",
+        "down": "Inactiu",
         "unknown": "Desconegut"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "inCinemas": "En cines",
+        "physicalRelease": "Estrena física",
+        "digitalRelease": "Estrena digital",
+        "noEventsToday": "Cap esdeveniment per avui!",
+        "noEventsFound": "No s'han trobat esdeveniments"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Plataformes",
+        "totalRoms": "ROMs totals"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Avisos",
+        "criticals": "Crítics"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
-        "photos": "Photos",
-        "species": "Species"
+        "events": "Esdeveniments",
+        "plants": "Plantes",
+        "photos": "Fotos",
+        "species": "Espècies"
     },
     "gitea": {
-        "notifications": "Notifications",
-        "issues": "Issues",
-        "pulls": "Pull Requests"
+        "notifications": "Notificacions",
+        "issues": "Problemes",
+        "pulls": "Sol·licitud de Canvis"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
-        "movies": "Movies",
-        "tags": "Tags",
+        "scenes": "Escenes",
+        "scenesPlayed": "Escenes reproduïdes",
+        "playCount": "Total reproduccions",
+        "playDuration": "Temps visionat",
+        "sceneSize": "Tamany Escena",
+        "sceneDuration": "Duració Escenes",
+        "images": "Imatges",
+        "imageSize": "Mida Imatges",
+        "galleries": "Biblioteques",
+        "performers": "Intèrprets",
+        "studios": "Estudis",
+        "movies": "Pel·lícules",
+        "tags": "Etiquetes",
         "oCount": "O Count"
     },
     "tandoor": {
         "users": "Usuaris",
-        "recipes": "Recipes",
-        "keywords": "Keywords"
+        "recipes": "Receptes",
+        "keywords": "Paraules claus"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "items": "Elements",
+        "totalWithWarranty": "Amb Garantia",
+        "locations": "Ubicacions",
+        "labels": "Etiquetes",
         "users": "Usuaris",
-        "totalValue": "Total Value"
+        "totalValue": "Valor total"
     },
     "crowdsec": {
-        "alerts": "Alerts",
-        "bans": "Bans"
+        "alerts": "Alertes",
+        "bans": "Prohibicions"
     }
 }

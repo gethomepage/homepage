@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Čakanje na prekinitev",
         "connectionStatusDisconnecting": "Prekinitev",
         "connectionStatusDisconnected": "Prekinjeno",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Povezan",
         "uptime": "Čas delovanja",
         "maxDown": "Maks. dol",
         "maxUp": "Maks. gor",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "Skupaj",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Povezan",
+        "new_devices": "Nova naprave",
+        "down_alerts": "Alarmi nedelovanja"
     },
     "pihole": {
         "queries": "Poizvedbe",
