@@ -42,7 +42,7 @@ export default function CpuTemp({ expanded, units, refresh = 1500, tempmin = 0, 
 
   const minTemp = tempmin < mainTemp ? tempmin : mainTemp;
   let maxTemp = tempmax;
-  if(maxTemp < minTemp) {
+  if (maxTemp < minTemp) {
     maxTemp = unit === "celsius" ? data.cputemp.max : convertToFahrenheit(data.cputemp.max);
   }
 

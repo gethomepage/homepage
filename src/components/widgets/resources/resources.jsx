@@ -23,7 +23,9 @@ export default function Resources({ options }) {
                 <Disk key={disk} options={{ disk }} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />
               ))
             : options.disk && <Disk options={options} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />}
-          {options.cputemp && <CpuTemp expanded={expanded} units={units} refresh={refresh} tempmin={tempmin} tempmax={tempmax} />}
+          {options.cputemp && (
+            <CpuTemp expanded={expanded} units={units} refresh={refresh} tempmin={tempmin} tempmax={tempmax} />
+          )}
           {options.uptime && <Uptime refresh={refresh} />}
         </div>
         {options.label && (
