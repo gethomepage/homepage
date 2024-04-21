@@ -33,7 +33,7 @@ function generateStreamTitle(session, showEpisodeNumber) {
   } = session;
 
   if (Type === "Episode" && showEpisodeNumber) {
-    return `${SeriesName} - S${ParentIndexNumber.toString().padStart(2, "0")} · E${IndexNumber.toString().padStart(2, "0")} - ${Name}`;
+    return `${SeriesName}: S${ParentIndexNumber.toString().padStart(2, "0")} · E${IndexNumber.toString().padStart(2, "0")} - ${Name}`;
   }
 
   return `${Name}${SeriesName ? ` - ${SeriesName}` : ""}`;
