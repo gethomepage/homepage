@@ -25,16 +25,34 @@ function millisecondsToString(milliseconds) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function SingleSessionEntry({ session, enableUser }) {
-  const { full_title, duration, view_offset, progress_percent, state, video_decision, audio_decision, username } =
-    session;
+function generateStreamTitle(session, showEpisodeNumber) {
+  const { media_type, parent_media_index, media_index, title, grandparent_title, full_title } = session;
+  if (media_type === "episode" && showEpisodeNumber) {
+    return `${grandparent_title}: S${parent_media_index.toString().padStart(2, "0")} · E${media_index.toString().padStart(2, "0")} - ${title}`;
+  }
+
+  return full_title;
+}
+
+function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
+  const {
+    duration,
+    view_offset,
+    progress_percent,
+    state,
+    video_decision,
+    audio_decision,
+    username
+  } = session;
+
+  const stream_title = generateStreamTitle(session, showEpisodeNumber)
 
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
         <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
           <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-            {full_title}
+            {stream_title}
             {enableUser && ` (${username})`}
           </div>
         </div>
@@ -78,8 +96,17 @@ function SingleSessionEntry({ session, enableUser }) {
   );
 }
 
-function SessionEntry({ session, enableUser }) {
-  const { full_title, view_offset, progress_percent, state, video_decision, audio_decision, username } = session;
+function SessionEntry({ session, enableUser, showEpisodeNumber }) {
+  const {
+    view_offset,
+    progress_percent,
+    state,
+    video_decision,
+    audio_decision,
+    username
+  } = session;
+
+  const stream_title = generateStreamTitle(session, showEpisodeNumber)
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -99,7 +126,7 @@ function SessionEntry({ session, enableUser }) {
       </div>
       <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-          {full_title}
+          {stream_title}
           {enableUser && ` (${username})`}
         </div>
       </div>
@@ -156,26 +183,31 @@ export default function Component({ service }) {
     return 0;
   });
 
+  const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
+
   if (playing.length === 0) {
     return (
       <div className="flex flex-col pb-1 mx-1">
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">{t("tautulli.no_active")}</span>
         </div>
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
-        </div>
+        {expandOneStreamToTwoRows && (
+          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+            <span className="absolute left-2 text-xs mt-[2px]">-</span>
+          </div>
+        )}
       </div>
     );
   }
 
-  const enableUser = !!service.widget?.enableUser;
+  const enableUser = !!service.widget?.enableUser; // default is false
+  const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
 
-  if (playing.length === 1) {
+  if (expandOneStreamToTwoRows && playing.length === 1) {
     const session = playing[0];
     return (
       <div className="flex flex-col pb-1 mx-1">
-        <SingleSessionEntry session={session} enableUser={enableUser} />
+        <SingleSessionEntry session={session} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
       </div>
     );
   }
@@ -183,7 +215,7 @@ export default function Component({ service }) {
   return (
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
-        <SessionEntry key={session.Id} session={session} enableUser={enableUser} />
+        <SessionEntry key={session.Id} session={session} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
       ))}
     </div>
   );

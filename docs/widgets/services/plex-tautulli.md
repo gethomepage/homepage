@@ -15,4 +15,6 @@ widget:
   url: http://tautulli.host.or.ip
   key: apikeyapikeyapikeyapikeyapikey
   enableUser: true # optional, defaults to false
+  showEpisodeNumber: true # optional, defaults to false
+  expandOneStreamToTwoRows: false # optional, defaults to true
 ```
