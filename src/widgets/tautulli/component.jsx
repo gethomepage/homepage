@@ -183,7 +183,9 @@ export default function Component({ service }) {
     return 0;
   });
 
+  const enableUser = !!service.widget?.enableUser; // default is false
   const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
+  const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
 
   if (playing.length === 0) {
     return (
@@ -199,9 +201,6 @@ export default function Component({ service }) {
       </div>
     );
   }
-
-  const enableUser = !!service.widget?.enableUser; // default is false
-  const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
 
   if (expandOneStreamToTwoRows && playing.length === 1) {
     const session = playing[0];

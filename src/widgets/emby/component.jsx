@@ -230,7 +230,7 @@ export default function Component({ service }) {
 
   const enableBlocks = service.widget?.enableBlocks;
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
-  const enableUser = !!service.widget?.enableUser; // default is true
+  const enableUser = !!service.widget?.enableUser; // default is false
   const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
   const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
 
