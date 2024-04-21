@@ -526,9 +526,7 @@ export function cleanServiceGroups(groups) {
         if (["emby", "jellyfin", "tautulli"].includes(type)) {
           if (expandOneStreamToTwoRows !== undefined) cleanedService.widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
           if (showEpisodeNumber !== undefined) cleanedService.widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
-          if (enableUser !== undefined) {
-            cleanedService.widget.enableUser = !!JSON.parse(enableUser);
-          }
+          if (enableUser !== undefined) cleanedService.widget.enableUser = !!JSON.parse(enableUser);
         }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);
