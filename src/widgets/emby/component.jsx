@@ -27,9 +27,20 @@ function ticksToString(ticks) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function SingleSessionEntry({ playCommand, session, enableUser }) {
+function generateSeriesTitle(session, showEpisodeNumber) {
   const {
-    NowPlayingItem: { Name, SeriesName },
+    NowPlayingItem: { Name, SeriesName, Type, ParentIndexNumber, IndexNumber },
+  } = session;
+
+  if (Type === "Episode" && showEpisodeNumber) {
+    return `${SeriesName} - S${ParentIndexNumber.toString().padStart(2, "0")}E${IndexNumber.toString().padStart(2, "0")} - ${Name}`;
+  }
+
+  return `${Name}${SeriesName ? ` - ${SeriesName}` : ""}`;
+}
+
+function SingleSessionEntry({ playCommand, session, enableUser, showEpisodeNumber }) {
+  const {
     PlayState: { PositionTicks, IsPaused, IsMuted },
     UserName,
   } = session;
@@ -43,13 +54,13 @@ function SingleSessionEntry({ playCommand, session, enableUser }) {
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
+  const seriesTitle = generateSeriesTitle(session, enableUser, showEpisodeNumber);
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
         <div className="grow text-xs z-10 self-center ml-2 relative w-full h-4 mr-2">
           <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-            {Name}
-            {SeriesName && ` - ${SeriesName}`}
+            {seriesTitle}
             {enableUser && ` (${UserName})`}
           </div>
         </div>
@@ -99,9 +110,8 @@ function SingleSessionEntry({ playCommand, session, enableUser }) {
   );
 }
 
-function SessionEntry({ playCommand, session, enableUser }) {
+function SessionEntry({ playCommand, session, enableUser, showEpisodeNumber }) {
   const {
-    NowPlayingItem: { Name, SeriesName },
     PlayState: { PositionTicks, IsPaused, IsMuted },
     UserName,
   } = session;
@@ -112,6 +122,8 @@ function SessionEntry({ playCommand, session, enableUser }) {
   const { IsVideoDirect, VideoDecoderIsHardware, VideoEncoderIsHardware } = session?.TranscodingInfo || {
     IsVideoDirect: true,
   }; // if no transcodinginfo its videodirect
+
+  const seriesTitle = generateSeriesTitle(session, enableUser, showEpisodeNumber);
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
@@ -143,8 +155,7 @@ function SessionEntry({ playCommand, session, enableUser }) {
       </div>
       <div className="grow text-xs z-10 self-center relative w-full h-4">
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-          {Name}
-          {SeriesName && ` - ${SeriesName}`}
+          {seriesTitle}
           {enableUser && ` (${UserName})`}
         </div>
       </div>
@@ -219,7 +230,9 @@ export default function Component({ service }) {
 
   const enableBlocks = service.widget?.enableBlocks;
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
-  const enableUser = !!service.widget?.enableUser;
+  const enableUser = !!service.widget?.enableUser; // default is true
+  const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
+  const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
 
   if (!sessionsData || !countData) {
     return (
@@ -260,15 +273,17 @@ export default function Component({ service }) {
             <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
               <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
             </div>
-            <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+            {expandOneStreamToTwoRows && (
+              <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
               <span className="absolute left-2 text-xs mt-[2px]">-</span>
-            </div>
+              </div>
+            )}
           </div>
         </>
       );
     }
 
-    if (playing.length === 1) {
+    if (expandOneStreamToTwoRows && playing.length === 1) {
       const session = playing[0];
       return (
         <>
@@ -278,28 +293,29 @@ export default function Component({ service }) {
               playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
               session={session}
               enableUser={enableUser}
+              showEpisodeNumber={showEpisodeNumber}
             />
           </div>
         </>
       );
     }
 
-    if (playing.length > 0)
-      return (
-        <>
-          {enableBlocks && <CountBlocks service={service} countData={countData} />}
-          <div className="flex flex-col pb-1 mx-1">
-            {playing.map((session) => (
-              <SessionEntry
-                key={session.Id}
-                playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
-                session={session}
-                enableUser={enableUser}
-              />
-            ))}
-          </div>
-        </>
-      );
+    return (
+      <>
+        {enableBlocks && <CountBlocks service={service} countData={countData} />}
+        <div className="flex flex-col pb-1 mx-1">
+          {playing.map((session) => (
+            <SessionEntry
+              key={session.Id}
+              playCommand={(currentSession, command) => handlePlayCommand(currentSession, command)}
+              session={session}
+              enableUser={enableUser}
+              showEpisodeNumber={showEpisodeNumber}
+            />
+          ))}
+        </div>
+      </>
+    );
   }
 
   if (enableBlocks) {
