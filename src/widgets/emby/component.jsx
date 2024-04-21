@@ -27,7 +27,7 @@ function ticksToString(ticks) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function generateSeriesTitle(session, showEpisodeNumber) {
+function generateStreamTitle(session, showEpisodeNumber) {
   const {
     NowPlayingItem: { Name, SeriesName, Type, ParentIndexNumber, IndexNumber },
   } = session;
@@ -54,13 +54,13 @@ function SingleSessionEntry({ playCommand, session, enableUser, showEpisodeNumbe
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
-  const seriesTitle = generateSeriesTitle(session, enableUser, showEpisodeNumber);
+  const streamTitle = generateStreamTitle(session, enableUser, showEpisodeNumber);
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
         <div className="grow text-xs z-10 self-center ml-2 relative w-full h-4 mr-2">
           <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-            {seriesTitle}
+            {streamTitle}
             {enableUser && ` (${UserName})`}
           </div>
         </div>
@@ -123,7 +123,7 @@ function SessionEntry({ playCommand, session, enableUser, showEpisodeNumber }) {
     IsVideoDirect: true,
   }; // if no transcodinginfo its videodirect
 
-  const seriesTitle = generateSeriesTitle(session, enableUser, showEpisodeNumber);
+  const streamTitle = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
   const percent = Math.min(1, PositionTicks / RunTimeTicks) * 100;
 
@@ -155,7 +155,7 @@ function SessionEntry({ playCommand, session, enableUser, showEpisodeNumber }) {
       </div>
       <div className="grow text-xs z-10 self-center relative w-full h-4">
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-          {seriesTitle}
+          {streamTitle}
           {enableUser && ` (${UserName})`}
         </div>
       </div>
