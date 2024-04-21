@@ -396,6 +396,9 @@ export function cleanServiceGroups(groups) {
           // emby, jellyfin, tautulli
           enableUser,
 
+          // tautullihistory
+          maxItems,
+
           // glances, pihole
           version,
 
@@ -528,6 +531,9 @@ export function cleanServiceGroups(groups) {
           if (enableUser !== undefined) {
             cleanedService.widget.enableUser = !!JSON.parse(enableUser);
           }
+        }
+        if (["tautullihistory"].includes(type)) {
+          if (maxItems) cleanedService.widget.maxItems = maxItems;
         }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);

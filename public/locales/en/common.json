@@ -172,6 +172,9 @@
         "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
     },
+    "tautullihistory": {
+        "no_history": "No History"
+    },
     "omada": {
         "connectedAp": "Connected APs",
         "activeUser": "Active devices",

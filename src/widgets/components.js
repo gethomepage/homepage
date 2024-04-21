@@ -106,6 +106,7 @@ const components = {
   tailscale: dynamic(() => import("./tailscale/component")),
   tandoor: dynamic(() => import("./tandoor/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
+  tautullihistory: dynamic(() => import("./tautullihistory/component")),
   tdarr: dynamic(() => import("./tdarr/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
