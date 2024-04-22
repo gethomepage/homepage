@@ -25,13 +25,16 @@ function millisecondsToString(milliseconds) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function generateStreamTitle(session, showEpisodeNumber) {
-  const { media_type, parent_media_index, media_index, title, grandparent_title, full_title } = session;
+function generateStreamTitle(session, enableUser, showEpisodeNumber) {
+  let stream_title = "";
+  const { media_type, parent_media_index, media_index, title, grandparent_title, full_title, username } = session;
   if (media_type === "episode" && showEpisodeNumber) {
-    return `${grandparent_title}: S${parent_media_index.toString().padStart(2, "0")} · E${media_index.toString().padStart(2, "0")} - ${title}`;
+    stream_title = `${grandparent_title}: S${parent_media_index.toString().padStart(2, "0")} · E${media_index.toString().padStart(2, "0")} - ${title}`;
+  } else {
+    stream_title = full_title;
   }
 
-  return full_title;
+  return enableUser ? `${stream_title} (${username})` : stream_title;
 }
 
 function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
@@ -42,18 +45,16 @@ function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
     state,
     video_decision,
     audio_decision,
-    username
   } = session;
 
-  const stream_title = generateStreamTitle(session, showEpisodeNumber)
+  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
         <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
+          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={stream_title}>
             {stream_title}
-            {enableUser && ` (${username})`}
           </div>
         </div>
         <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
@@ -103,10 +104,9 @@ function SessionEntry({ session, enableUser, showEpisodeNumber }) {
     state,
     video_decision,
     audio_decision,
-    username
   } = session;
 
-  const stream_title = generateStreamTitle(session, showEpisodeNumber)
+  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber)
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -125,9 +125,8 @@ function SessionEntry({ session, enableUser, showEpisodeNumber }) {
         )}
       </div>
       <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
+        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={stream_title}>
           {stream_title}
-          {enableUser && ` (${username})`}
         </div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10">
