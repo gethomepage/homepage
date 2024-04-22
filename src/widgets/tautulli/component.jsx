@@ -155,6 +155,10 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
+  const enableUser = !!service.widget?.enableUser; // default is false
+  const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
+  const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
+
   if (activityError || (activityData && Object.keys(activityData.response.data).length === 0)) {
     return <Container service={service} error={activityError ?? { message: t("tautulli.plex_connection_error") }} />;
   }
@@ -165,9 +169,11 @@ export default function Component({ service }) {
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">-</span>
         </div>
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
-        </div>
+        {expandOneStreamToTwoRows && (
+          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+            <span className="absolute left-2 text-xs mt-[2px]">-</span>
+          </div>
+        )}
       </div>
     );
   }
@@ -181,10 +187,6 @@ export default function Component({ service }) {
     }
     return 0;
   });
-
-  const enableUser = !!service.widget?.enableUser; // default is false
-  const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
-  const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
 
   if (playing.length === 0) {
     return (

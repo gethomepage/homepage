@@ -243,9 +243,11 @@ export default function Component({ service }) {
             <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
               <span className="absolute left-2 text-xs mt-[2px]">-</span>
             </div>
-            <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-              <span className="absolute left-2 text-xs mt-[2px]">-</span>
-            </div>
+            {expandOneStreamToTwoRows && (
+              <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+                <span className="absolute left-2 text-xs mt-[2px]">-</span>
+              </div>
+            )}
           </div>
         )}
       </>
