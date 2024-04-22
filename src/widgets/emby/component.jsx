@@ -35,7 +35,9 @@ function generateStreamTitle(session, enableUser, showEpisodeNumber) {
   let streamTitle = "";
 
   if (Type === "Episode" && showEpisodeNumber) {
-    streamTitle = `${SeriesName}: S${ParentIndexNumber.toString().padStart(2, "0")} · E${IndexNumber.toString().padStart(2, "0")} - ${Name}`;
+    const seasonStr = `S${ParentIndexNumber.toString().padStart(2, "0")}`;
+    const episodeStr = `E${IndexNumber.toString().padStart(2, "0")}`;
+    streamTitle = `${SeriesName}: ${seasonStr} · ${episodeStr} - ${Name}`;
   } else {
     streamTitle = `${Name}${SeriesName ? ` - ${SeriesName}` : ""}`;
   }
@@ -277,7 +279,7 @@ export default function Component({ service }) {
             </div>
             {expandOneStreamToTwoRows && (
               <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-              <span className="absolute left-2 text-xs mt-[2px]">-</span>
+                <span className="absolute left-2 text-xs mt-[2px]">-</span>
               </div>
             )}
           </div>

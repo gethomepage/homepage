@@ -29,7 +29,9 @@ function generateStreamTitle(session, enableUser, showEpisodeNumber) {
   let stream_title = "";
   const { media_type, parent_media_index, media_index, title, grandparent_title, full_title, friendly_name } = session;
   if (media_type === "episode" && showEpisodeNumber) {
-    stream_title = `${grandparent_title}: S${parent_media_index.toString().padStart(2, "0")} · E${media_index.toString().padStart(2, "0")} - ${title}`;
+    const season_str = `S${parent_media_index.toString().padStart(2, "0")}`;
+    const episode_str = `E${media_index.toString().padStart(2, "0")}`;
+    stream_title = `${grandparent_title}: ${season_str} · ${episode_str} - ${title}`;
   } else {
     stream_title = full_title;
   }
@@ -38,14 +40,7 @@ function generateStreamTitle(session, enableUser, showEpisodeNumber) {
 }
 
 function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
-  const {
-    duration,
-    view_offset,
-    progress_percent,
-    state,
-    video_decision,
-    audio_decision,
-  } = session;
+  const { duration, view_offset, progress_percent, state, video_decision, audio_decision } = session;
 
   const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
@@ -98,15 +93,9 @@ function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
 }
 
 function SessionEntry({ session, enableUser, showEpisodeNumber }) {
-  const {
-    view_offset,
-    progress_percent,
-    state,
-    video_decision,
-    audio_decision,
-  } = session;
+  const { view_offset, progress_percent, state, video_decision, audio_decision } = session;
 
-  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber)
+  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -215,7 +204,12 @@ export default function Component({ service }) {
   return (
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
-        <SessionEntry key={session.Id} session={session} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
+        <SessionEntry
+          key={session.Id}
+          session={session}
+          enableUser={enableUser}
+          showEpisodeNumber={showEpisodeNumber}
+        />
       ))}
     </div>
   );

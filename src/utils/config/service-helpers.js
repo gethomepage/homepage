@@ -524,8 +524,10 @@ export function cleanServiceGroups(groups) {
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
         }
         if (["emby", "jellyfin", "tautulli"].includes(type)) {
-          if (expandOneStreamToTwoRows !== undefined) cleanedService.widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
-          if (showEpisodeNumber !== undefined) cleanedService.widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
+          if (expandOneStreamToTwoRows !== undefined)
+            cleanedService.widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
+          if (showEpisodeNumber !== undefined)
+            cleanedService.widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
           if (enableUser !== undefined) cleanedService.widget.enableUser = !!JSON.parse(enableUser);
         }
         if (["sonarr", "radarr"].includes(type)) {
