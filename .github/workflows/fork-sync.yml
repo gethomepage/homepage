@@ -38,7 +38,7 @@ jobs:
         run: |
           for TAG in ${NEW_TAGS}; do
             git checkout -b release/${TAG} main
-            git rebase -onto ${TAG} upstream/main
+            git rebase --onto ${TAG} upstream/main
           done
           for TAG in ${NEW_TAGS}; do
             git push -u origin release/${TAG}
