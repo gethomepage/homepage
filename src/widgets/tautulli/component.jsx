@@ -27,14 +27,14 @@ function millisecondsToString(milliseconds) {
 
 function generateStreamTitle(session, enableUser, showEpisodeNumber) {
   let stream_title = "";
-  const { media_type, parent_media_index, media_index, title, grandparent_title, full_title, username } = session;
+  const { media_type, parent_media_index, media_index, title, grandparent_title, full_title, friendly_name } = session;
   if (media_type === "episode" && showEpisodeNumber) {
     stream_title = `${grandparent_title}: S${parent_media_index.toString().padStart(2, "0")} · E${media_index.toString().padStart(2, "0")} - ${title}`;
   } else {
     stream_title = full_title;
   }
 
-  return enableUser ? `${stream_title} (${username})` : stream_title;
+  return enableUser ? `${stream_title} (${friendly_name})` : stream_title;
 }
 
 function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
