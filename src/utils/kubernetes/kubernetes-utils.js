@@ -1,3 +1,16 @@
+import { CoreV1Api, NetworkingV1Api } from "@kubernetes/client-node";
+
+export async function parseIngressSelector(ingressName, namespace, kc) {
+  const coreApi = kc.makeApiClient(CoreV1Api);
+  const networkApi = kc.makeApiClient(NetworkingV1Api);
+
+  const ingress = await networkApi.readNamespacedIngress(ingressName, namespace);
+  const serviceName = ingress.body.spec.rules[0].http.paths[0].backend.service.name;
+
+  const svc = await coreApi.readNamespacedService(serviceName, namespace);
+  return svc.body.spec.selector;
+}
+
 export function parseCpu(cpuStr) {
   const unitLength = 1;
   const base = Number.parseInt(cpuStr, 10);

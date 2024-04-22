@@ -3,10 +3,11 @@ import { CoreV1Api } from "@kubernetes/client-node";
 import getKubeConfig from "../../../../utils/config/kubernetes";
 import createLogger from "../../../../utils/logger";
 
+import { parseIngressSelector } from "utils/kubernetes/kubernetes-utils";
+
 const logger = createLogger("kubernetesStatusService");
 
 export default async function handler(req, res) {
-  const APP_LABEL = "app.kubernetes.io/name";
   const { service, podSelector } = req.query;
 
   const [namespace, appName] = service;
@@ -16,7 +17,6 @@ export default async function handler(req, res) {
     });
     return;
   }
-  const labelSelector = podSelector !== undefined ? podSelector : `${APP_LABEL}=${appName}`;
   try {
     const kc = getKubeConfig();
     if (!kc) {
@@ -25,6 +25,7 @@ export default async function handler(req, res) {
       });
       return;
     }
+    const labelSelector = podSelector !== undefined ? podSelector : await parseIngressSelector(appName, namespace, kc);
     const coreApi = kc.makeApiClient(CoreV1Api);
     const podsResponse = await coreApi
       .listNamespacedPod(namespace, null, null, null, null, labelSelector)

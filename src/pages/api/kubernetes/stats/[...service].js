@@ -4,10 +4,11 @@ import getKubeConfig from "../../../../utils/config/kubernetes";
 import { parseCpu, parseMemory } from "../../../../utils/kubernetes/kubernetes-utils";
 import createLogger from "../../../../utils/logger";
 
+import { parseIngressSelector } from "utils/kubernetes/kubernetes-utils";
+
 const logger = createLogger("kubernetesStatsService");
 
 export default async function handler(req, res) {
-  const APP_LABEL = "app.kubernetes.io/name";
   const { service, podSelector } = req.query;
 
   const [namespace, appName] = service;
@@ -17,7 +18,6 @@ export default async function handler(req, res) {
     });
     return;
   }
-  const labelSelector = podSelector !== undefined ? podSelector : `${APP_LABEL}=${appName}`;
 
   try {
     const kc = getKubeConfig();
@@ -28,6 +28,7 @@ export default async function handler(req, res) {
       return;
     }
     const coreApi = kc.makeApiClient(CoreV1Api);
+    const labelSelector = podSelector !== undefined ? podSelector : await parseIngressSelector(appName, namespace, kc);
     const metricsApi = new Metrics(kc);
     const podsResponse = await coreApi
       .listNamespacedPod(namespace, null, null, null, null, labelSelector)
