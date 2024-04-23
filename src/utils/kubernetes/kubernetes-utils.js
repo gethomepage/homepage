@@ -1,14 +1,35 @@
 import { CoreV1Api, NetworkingV1Api } from "@kubernetes/client-node";
 
-export async function parseIngressSelector(ingressName, namespace, kc) {
+export async function parseIngressSelector(ingressName, namespace, kc, logger) {
   const coreApi = kc.makeApiClient(CoreV1Api);
   const networkApi = kc.makeApiClient(NetworkingV1Api);
 
-  const ingress = await networkApi.readNamespacedIngress(ingressName, namespace);
-  const serviceName = ingress.body.spec.rules[0].http.paths[0].backend.service.name;
+  const ingress = await networkApi
+    .readNamespacedIngress(ingressName, namespace)
+    .then((response) => response.body)
+    .catch((err) => {
+      logger.error("Error getting ingress: %d %s %s", err.statusCode, err.body, err.response);
+      return null;
+    });
 
-  const svc = await coreApi.readNamespacedService(serviceName, namespace);
-  return svc.body.spec.selector;
+  if (!ingress) {
+    return {"app.kubernetes.io/name": ingressName};
+  }
+
+  const serviceName = ingress.spec.rules[0].http.paths[0].backend.service.name;
+  const svc = await coreApi
+    .readNamespacedService(serviceName, namespace)
+    .then((response) => response.body)
+    .catch((err) => {
+      logger.error("Error getting service: %d %s %s", err.statusCode, err.body, err.response);
+      return null;
+    });
+
+  if (!svc) {
+    return {"app.kubernetes.io/name": ingressName};
+  }
+
+  return svc.spec.selector;
 }
 
 export function parseCpu(cpuStr) {

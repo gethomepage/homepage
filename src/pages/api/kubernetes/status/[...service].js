@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       });
       return;
     }
-    const labelSelector = podSelector !== undefined ? podSelector : await parseIngressSelector(appName, namespace, kc);
+    const labelSelector = podSelector !== undefined ? podSelector : await parseIngressSelector(appName, namespace, kc, logger);
     const coreApi = kc.makeApiClient(CoreV1Api);
     const podsResponse = await coreApi
       .listNamespacedPod(namespace, null, null, null, null, labelSelector)

@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       return;
     }
     const coreApi = kc.makeApiClient(CoreV1Api);
-    const labelSelector = podSelector !== undefined ? podSelector : await parseIngressSelector(appName, namespace, kc);
+    const labelSelector = podSelector !== undefined ? podSelector : await parseIngressSelector(appName, namespace, kc, logger);
     const metricsApi = new Metrics(kc);
     const podsResponse = await coreApi
       .listNamespacedPod(namespace, null, null, null, null, labelSelector)
