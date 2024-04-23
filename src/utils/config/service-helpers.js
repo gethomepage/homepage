@@ -459,6 +459,9 @@ export function cleanServiceGroups(groups) {
 
           // unifi
           site,
+
+          // speedtest-tracker
+          bitrateNumOfDecimalPlaces,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -587,6 +590,16 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "healthchecks") {
           if (uuid !== undefined) cleanedService.widget.uuid = uuid;
+        }
+        if (type === "speedtest") {
+          if (bitrateNumOfDecimalPlaces !== undefined) {
+            // if the result can't be parsed, set to -1
+            cleanedService.widget.bitrateNumOfDecimalPlaces = Number.parseInt(bitrateNumOfDecimalPlaces, 10);
+            if (Number.isNaN(cleanedService.widget.bitrateNumOfDecimalPlaces)) {
+              // negative values fallback to the default
+              cleanedService.widget.bitrateNumOfDecimalPlaces = -1;
+            }
+          }
         }
       }
 
