@@ -4,8 +4,6 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-const DEFAULT_BITRATE_NUM_OF_DECIMAL_PLACES = 2;
-
 export default function Component({ service }) {
   const { t } = useTranslation();
 
@@ -13,12 +11,10 @@ export default function Component({ service }) {
 
   const { data: speedtestData, error: speedtestError } = useWidgetAPI(widget, "speedtest/latest");
 
-  let bitrateNumOfDecimalPlaces = widget?.bitrateNumOfDecimalPlaces ?? DEFAULT_BITRATE_NUM_OF_DECIMAL_PLACES; // Default is 2
-
-  // if not a number or negative, set to default
-  if (bitrateNumOfDecimalPlaces < 0) {
-    bitrateNumOfDecimalPlaces = DEFAULT_BITRATE_NUM_OF_DECIMAL_PLACES;
-  }
+  const bitratePrecision =
+    !widget?.bitratePrecision || Number.isNaN(widget?.bitratePrecision) || widget?.bitratePrecision < 0
+      ? 0
+      : widget.bitratePrecision;
 
   if (speedtestError) {
     return <Container service={service} error={speedtestError} />;
@@ -40,14 +36,14 @@ export default function Component({ service }) {
         label="speedtest.download"
         value={t("common.bitrate", {
           value: speedtestData.data.download * 1000 * 1000,
-          decimals: bitrateNumOfDecimalPlaces,
+          decimals: bitratePrecision,
         })}
       />
       <Block
         label="speedtest.upload"
         value={t("common.bitrate", {
           value: speedtestData.data.upload * 1000 * 1000,
-          decimals: bitrateNumOfDecimalPlaces,
+          decimals: bitratePrecision,
         })}
       />
       <Block
