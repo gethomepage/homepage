@@ -4,6 +4,7 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { widget } = service;
+  const { t } = useTranslation();
 
   const { data: response, error: responseError } = useWidgetAPI(widget, "statistics");
 
@@ -24,8 +25,8 @@ export default function Component({ service }) {
     const totalRoms = response.reduce((total, stat) => total + stat.rom_count, 0);
     return (
       <Container service={service}>
-        <Block label="romm.platforms" value={platforms} />
-        <Block label="romm.totalRoms" value={totalRoms} />
+        <Block label="romm.platforms" value={t("common.number", { value: platforms })} />
+        <Block label="romm.totalRoms" value={t("common.number", { value: totalRoms })} />
       </Container>
     );
   }
