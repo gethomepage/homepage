@@ -395,6 +395,8 @@ export function cleanServiceGroups(groups) {
 
           // emby, jellyfin, tautulli
           enableUser,
+          expandOneStreamToTwoRows,
+          showEpisodeNumber,
 
           // glances, pihole
           version,
@@ -520,14 +522,13 @@ export function cleanServiceGroups(groups) {
         if (["emby", "jellyfin"].includes(type)) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
-          if (enableUser !== undefined) {
-            cleanedService.widget.enableUser = !!JSON.parse(enableUser);
-          }
         }
-        if (["tautulli"].includes(type)) {
-          if (enableUser !== undefined) {
-            cleanedService.widget.enableUser = !!JSON.parse(enableUser);
-          }
+        if (["emby", "jellyfin", "tautulli"].includes(type)) {
+          if (expandOneStreamToTwoRows !== undefined)
+            cleanedService.widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
+          if (showEpisodeNumber !== undefined)
+            cleanedService.widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
+          if (enableUser !== undefined) cleanedService.widget.enableUser = !!JSON.parse(enableUser);
         }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);

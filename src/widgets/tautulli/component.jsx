@@ -25,17 +25,31 @@ function millisecondsToString(milliseconds) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function SingleSessionEntry({ session, enableUser }) {
-  const { full_title, duration, view_offset, progress_percent, state, video_decision, audio_decision, username } =
-    session;
+function generateStreamTitle(session, enableUser, showEpisodeNumber) {
+  let stream_title = "";
+  const { media_type, parent_media_index, media_index, title, grandparent_title, full_title, friendly_name } = session;
+  if (media_type === "episode" && showEpisodeNumber) {
+    const season_str = `S${parent_media_index.toString().padStart(2, "0")}`;
+    const episode_str = `E${media_index.toString().padStart(2, "0")}`;
+    stream_title = `${grandparent_title}: ${season_str} · ${episode_str} - ${title}`;
+  } else {
+    stream_title = full_title;
+  }
+
+  return enableUser ? `${stream_title} (${friendly_name})` : stream_title;
+}
+
+function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
+  const { duration, view_offset, progress_percent, state, video_decision, audio_decision } = session;
+
+  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
         <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-            {full_title}
-            {enableUser && ` (${username})`}
+          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={stream_title}>
+            {stream_title}
           </div>
         </div>
         <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
@@ -78,8 +92,10 @@ function SingleSessionEntry({ session, enableUser }) {
   );
 }
 
-function SessionEntry({ session, enableUser }) {
-  const { full_title, view_offset, progress_percent, state, video_decision, audio_decision, username } = session;
+function SessionEntry({ session, enableUser, showEpisodeNumber }) {
+  const { view_offset, progress_percent, state, video_decision, audio_decision } = session;
+
+  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
@@ -98,9 +114,8 @@ function SessionEntry({ session, enableUser }) {
         )}
       </div>
       <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden">
-          {full_title}
-          {enableUser && ` (${username})`}
+        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={stream_title}>
+          {stream_title}
         </div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10">
@@ -129,6 +144,10 @@ export default function Component({ service }) {
     refreshInterval: 5000,
   });
 
+  const enableUser = !!service.widget?.enableUser; // default is false
+  const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
+  const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
+
   if (activityError || (activityData && Object.keys(activityData.response.data).length === 0)) {
     return <Container service={service} error={activityError ?? { message: t("tautulli.plex_connection_error") }} />;
   }
@@ -139,9 +158,11 @@ export default function Component({ service }) {
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">-</span>
         </div>
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
-        </div>
+        {expandOneStreamToTwoRows && (
+          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+            <span className="absolute left-2 text-xs mt-[2px]">-</span>
+          </div>
+        )}
       </div>
     );
   }
@@ -162,20 +183,20 @@ export default function Component({ service }) {
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
           <span className="absolute left-2 text-xs mt-[2px]">{t("tautulli.no_active")}</span>
         </div>
-        <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-          <span className="absolute left-2 text-xs mt-[2px]">-</span>
-        </div>
+        {expandOneStreamToTwoRows && (
+          <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+            <span className="absolute left-2 text-xs mt-[2px]">-</span>
+          </div>
+        )}
       </div>
     );
   }
 
-  const enableUser = !!service.widget?.enableUser;
-
-  if (playing.length === 1) {
+  if (expandOneStreamToTwoRows && playing.length === 1) {
     const session = playing[0];
     return (
       <div className="flex flex-col pb-1 mx-1">
-        <SingleSessionEntry session={session} enableUser={enableUser} />
+        <SingleSessionEntry session={session} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
       </div>
     );
   }
@@ -183,7 +204,12 @@ export default function Component({ service }) {
   return (
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
-        <SessionEntry key={session.Id} session={session} enableUser={enableUser} />
+        <SessionEntry
+          key={session.Id}
+          session={session}
+          enableUser={enableUser}
+          showEpisodeNumber={showEpisodeNumber}
+        />
       ))}
     </div>
   );
