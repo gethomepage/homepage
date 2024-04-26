@@ -235,4 +235,4 @@ You can show the docker stats by clicking the status indicator but this can also
   showStats: true
 ```
 
-Also see the settings for [show docker stats](docker.md#show-docker-stats).
+Also see the settings for [show docker stats](settings.md#show-docker-stats).

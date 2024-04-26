@@ -16,4 +16,7 @@ widget:
   key: apikeyapikeyapikeyapikeyapikey
   enableBlocks: true # optional, defaults to false
   enableNowPlaying: true # optional, defaults to true
+  enableUser: true # optional, defaults to false
+  showEpisodeNumber: true # optional, defaults to false
+  expandOneStreamToTwoRows: false # optional, defaults to true
 ```

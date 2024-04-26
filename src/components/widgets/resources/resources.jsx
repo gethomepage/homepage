@@ -8,7 +8,7 @@ import CpuTemp from "./cputemp";
 import Uptime from "./uptime";
 
 export default function Resources({ options }) {
-  const { expanded, units, diskUnits } = options;
+  const { expanded, units, diskUnits, tempmin, tempmax } = options;
   let { refresh } = options;
   if (!refresh) refresh = 1500;
   refresh = Math.max(refresh, 1000);
@@ -23,7 +23,9 @@ export default function Resources({ options }) {
                 <Disk key={disk} options={{ disk }} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />
               ))
             : options.disk && <Disk options={options} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />}
-          {options.cputemp && <CpuTemp expanded={expanded} units={units} refresh={refresh} />}
+          {options.cputemp && (
+            <CpuTemp expanded={expanded} units={units} refresh={refresh} tempmin={tempmin} tempmax={tempmax} />
+          )}
           {options.uptime && <Uptime refresh={refresh} />}
         </div>
         {options.label && (

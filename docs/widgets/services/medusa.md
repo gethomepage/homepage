@@ -3,7 +3,7 @@ title: Medusa
 description: Medusa Widget Configuration
 ---
 
-Learn more about [Medusa](https://github.com/medusajs/medusa).
+Learn more about [Medusa](https://github.com/pymedusa/Medusa).
 
 Allowed fields: `["wanted", "queued", "series"]`.
 
