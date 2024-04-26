@@ -24,7 +24,7 @@ jobs:
         if:  ${{ !inputs.tags }}
         run: |
           fmt='r=%(refname)
-          echo ${r#refs/tags/}'
+          git ls-remote --exit-code https://github.com/discretizer/homepage.git %(refname) >/dev/null|| echo ${r#refs/tags/}'
           echo 'NEW_TAGS<<EOF' >> $GITHUB_OUTPUT
           EXPR=$(git for-each-ref --format="$fmt" --no-merge main refs/tags)
           eval "$EXPR" >> $GITHUB_OUTPUT
