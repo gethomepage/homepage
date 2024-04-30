@@ -5,6 +5,7 @@ import { createUnzip, constants as zlibConstants } from "node:zlib";
 import { http, https } from "follow-redirects";
 
 import { addCookieToJar, setCookieHeader } from "./cookie-jar";
+import { sanitizeErrorURL } from "./api-helpers";
 
 import createLogger from "utils/logger";
 
@@ -113,6 +114,11 @@ export async function httpProxy(url, params = {}) {
       constructedUrl.pathname,
     );
     if (err) logger.error(err);
-    return [500, "application/json", { error: { message: err?.message ?? "Unknown error", url, rawError: err } }, null];
+    return [
+      500,
+      "application/json",
+      { error: { message: err?.message ?? "Unknown error", url: sanitizeErrorURL(url), rawError: err } },
+      null,
+    ];
   }
 }
