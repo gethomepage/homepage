@@ -875,6 +875,6 @@
     },
     "crowdsec": {
         "alerts": "Warnungen",
-        "bans": "Bans"
+        "bans": "Banns"
     }
 }
