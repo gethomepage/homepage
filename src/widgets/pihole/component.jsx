@@ -32,7 +32,7 @@ export default function Component({ service }) {
 
   let blockedValue = `${t("common.number", { value: parseInt(piholeData.ads_blocked_today, 10) })}`;
   if (!widget.fields.includes("blocked_percent")) {
-    blockedValue += ` (${t("common.percent", { value: parseFloat(piholeData.ads_percentage_today.toPrecision(3)) })})`;
+    blockedValue += ` (${t("common.percent", { value: parseFloat(piholeData.ads_percentage_today).toPrecision(3) })})`;
   }
 
   return (
@@ -41,7 +41,7 @@ export default function Component({ service }) {
       <Block label="pihole.blocked" value={blockedValue} />
       <Block
         label="pihole.blocked_percent"
-        value={t("common.percent", { value: parseFloat(piholeData.ads_percentage_today.toPrecision(3)) })}
+        value={t("common.percent", { value: parseFloat(piholeData.ads_percentage_today).toPrecision(3) })}
       />
       <Block
         label="pihole.gravity"
