@@ -118,6 +118,7 @@ const components = {
   urbackup: dynamic(() => import("./urbackup/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
+  whisparr: dynamic(() => import("./whisparr/component")),
   xteve: dynamic(() => import("./xteve/component")),
 };
 

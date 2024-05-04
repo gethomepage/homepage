@@ -144,6 +144,7 @@ nav:
       - widgets/services/urbackup.md
       - widgets/services/watchtower.md
       - widgets/services/whatsupdocker.md
+      - widgets/services/whisparr.md
       - widgets/services/xteve.md
     - "Information Widgets":
       - widgets/info/index.md

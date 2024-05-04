@@ -108,6 +108,7 @@ import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
 import watchtower from "./watchtower/widget";
 import whatsupdocker from "./whatsupdocker/widget";
+import whisparr from "./whisparr/widget";
 import xteve from "./xteve/widget";
 import urbackup from "./urbackup/widget";
 import romm from "./romm/widget";
@@ -228,6 +229,7 @@ const widgets = {
   urbackup,
   watchtower,
   whatsupdocker,
+  whisparr,
   xteve,
 };
 
