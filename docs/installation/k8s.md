@@ -175,6 +175,7 @@ data:
         expanded: true
         cpu: true
         memory: true
+        network: default
     - search:
         provider: duckduckgo
         target: _blank

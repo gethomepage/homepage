@@ -6,6 +6,7 @@
     cpu: true
     memory: true
     disk: /
+    network: default # options: 'default' or active network interface name
 
 - search:
     provider: duckduckgo
