@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "等待断开连接",
         "connectionStatusDisconnecting": "正在断开连接",
         "connectionStatusDisconnected": "未连接",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "已连接",
         "uptime": "运行时间",
         "maxDown": "最大下载速度",
         "maxUp": "",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "总计",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "已连接",
+        "new_devices": "新设备",
+        "down_alerts": "离线警报"
     },
     "pihole": {
         "queries": "查询",
