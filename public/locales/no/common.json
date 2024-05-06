@@ -80,22 +80,22 @@
         "unhealthy": "Usunn",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Partial"
+        "partial": "Delvis"
     },
     "ping": {
         "error": "Feil",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "ping": "Responstid",
+        "down": "Nede",
+        "up": "Oppe",
+        "not_available": "Ikke tilgjengelig"
     },
     "siteMonitor": {
         "http_status": "HTTP status",
         "error": "Feil",
         "response": "Svar",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Nede",
+        "up": "Oppe",
+        "not_available": "Ikke tilgjengelig"
     },
     "emby": {
         "playing": "Spiller",
@@ -110,7 +110,7 @@
     "esphome": {
         "offline": "Frakoblet",
         "offline_alt": "Frakoblet",
-        "online": "Online",
+        "online": "På nett",
         "total": "Totalt",
         "unknown": "Ukjent"
     },
@@ -140,12 +140,12 @@
         "connectionStatusPendingDisconnect": "Venter på frakobling",
         "connectionStatusDisconnecting": "Kobler fra",
         "connectionStatusDisconnected": "Frakoblet",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Tilkoblet",
         "uptime": "Oppetid",
         "maxDown": "Maks. Ned",
         "maxUp": "Max. Opp",
-        "down": "Down",
-        "up": "Up",
+        "down": "Nede",
+        "up": "Oppe",
         "received": "Mottatt",
         "sent": "Sendt",
         "externalIPAddress": "Ekstern IP"
@@ -279,8 +279,8 @@
     },
     "netalertx": {
         "total": "Totalt",
-        "connected": "Connected",
-        "new_devices": "New Devices",
+        "connected": "Tilkoblet",
+        "new_devices": "Nye enheter",
         "down_alerts": "Down Alerts"
     },
     "pihole": {
@@ -298,7 +298,7 @@
     "speedtest": {
         "upload": "Opplastning",
         "download": "Last ned",
-        "ping": "Ping"
+        "ping": "Responstid"
     },
     "portainer": {
         "running": "Kjører",
@@ -321,57 +321,57 @@
     },
     "tdarr": {
         "queue": "Kø",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "processed": "Behandlet",
+        "errored": "Feilet",
+        "saved": "Lagret"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Rutere",
+        "services": "Tjenester",
+        "middleware": "Mellomvare"
     },
     "navidrome": {
         "nothing_streaming": "Ingen aktive strømminger",
-        "please_wait": "Please Wait"
+        "please_wait": "Vennligst vent"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "Aktivert",
+        "disabled": "Deaktivert",
         "total": "Totalt"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Konfigurer én eller flere krypteringsvalutaer som skal spores",
+        "1hour": "Én time",
+        "1day": "Én dag",
+        "7days": "7 dager",
+        "30days": "30 dager"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Applikasjoner",
+        "clients": "Klienter",
+        "messages": "Meldinger"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
+        "enableIndexers": "Indeksere",
+        "numberOfGrabs": "Tatt",
         "numberOfQueries": "Spørringer",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "numberOfFailGrabs": "Feil ved henting",
+        "numberOfFailQueries": "Spørring mislyktes"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Konfigurert",
+        "errored": "Feilet"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
+        "numActiveSessions": "Sesjoner",
+        "numConnections": "Tilkoblinger",
+        "dataRelayed": "Videresendt",
         "transferRate": "Ranger"
     },
     "mastodon": {
         "user_count": "Brukere",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "status_count": "Innlegg",
+        "domain_count": "Domener"
     },
     "medusa": {
         "wanted": "Ønsket",
@@ -379,10 +379,10 @@
         "series": "Serie"
     },
     "minecraft": {
-        "players": "Players",
+        "players": "Spillere",
         "version": "Versjon",
         "status": "Status",
-        "up": "Online",
+        "up": "På nett",
         "down": "Frakoblet"
     },
     "miniflux": {
@@ -494,15 +494,15 @@
         "up_to_date": "Oppdatert",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Oppe",
         "pending": "Ventende",
-        "down": "Down"
+        "down": "Nede"
     },
     "healthchecks": {
         "new": "Ny",
-        "up": "Up",
+        "up": "Oppe",
         "grace": "I rammeperiode",
-        "down": "Down",
+        "down": "Nede",
         "paused": "Pauset",
         "status": "Status",
         "last_ping": "Siste Ping",
@@ -517,7 +517,7 @@
         "approvedPushes": "Godkjent",
         "rejectedPushes": "Avvist",
         "filters": "Filtre",
-        "indexers": "Indexers"
+        "indexers": "Indeksere"
     },
     "tubearchivist": {
         "downloads": "Kø",
@@ -566,12 +566,12 @@
         "battery_charge": "Batteriladning",
         "ups_load": "UPS last",
         "ups_status": "UPS status",
-        "online": "Online",
+        "online": "På nett",
         "on_battery": "På batteri",
         "low_battery": "Lavt batterinivå"
     },
     "nextdns": {
-        "wait": "Please Wait",
+        "wait": "Vennligst vent",
         "no_devices": "Ingen enhetsdata mottatt"
     },
     "mikrotik": {
@@ -617,8 +617,8 @@
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Oppe",
+        "down": "Nede",
         "temp": "Temp",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
@@ -672,7 +672,7 @@
     "fileflows": {
         "queue": "Kø",
         "processing": "Behandler",
-        "processed": "Processed",
+        "processed": "Behandlet",
         "time": "Time"
     },
     "grafana": {
@@ -698,17 +698,17 @@
     },
     "unmanic": {
         "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "total_workers": "Totalt antall Arbeidere",
+        "records_total": "Kø lengde"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Servere",
+        "nodes": "Noder"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Mål oppe",
+        "targets_down": "Mål nede",
+        "targets_total": "Totalt antall mål"
     },
     "gatus": {
         "up": "Nettsteder opp",
@@ -717,27 +717,27 @@
     },
     "ghostfolio": {
         "gross_percent_today": "Idag",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_1y": "Ett år",
+        "gross_percent_max": "Gjennom tidene"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
+        "podcasts": "Podkaster",
         "books": "Bøker",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcastsDuration": "Varighet",
+        "booksDuration": "Varighet"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Personer hjemme",
+        "lights_on": "Lys på",
+        "switches_on": "Slår På"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
+        "monitoring": "Overvåker",
         "updates": "Oppdateringer"
     },
     "calibreweb": {
         "books": "Bøker",
-        "authors": "Authors",
+        "authors": "Forfattere",
         "categories": "Categories",
         "series": "Serie"
     },
@@ -766,15 +766,15 @@
     },
     "gamedig": {
         "status": "Status",
-        "online": "Online",
+        "online": "På nett",
         "offline": "Frakoblet",
         "name": "Navn",
         "map": "Kart",
         "currentPlayers": "Aktuelle spillere",
-        "players": "Players",
+        "players": "Spillere",
         "maxPlayers": "Maks spillere",
         "bots": "Bots",
-        "ping": "Ping"
+        "ping": "Responstid"
     },
     "urbackup": {
         "ok": "Ok",
@@ -799,8 +799,8 @@
     "openwrt": {
         "uptime": "Oppetid",
         "cpuLoad": "CPU-belastning snitt (5m)",
-        "up": "Up",
-        "down": "Down",
+        "up": "Oppe",
+        "down": "Nede",
         "bytesTx": "Sendt",
         "bytesRx": "Mottatt"
     },
@@ -813,9 +813,9 @@
         "sitesDown": "Sites Down",
         "paused": "Pauset",
         "notyetchecked": "Ikke sjekket enda",
-        "up": "Up",
+        "up": "Oppe",
         "seemsdown": "Virker nede",
-        "down": "Down",
+        "down": "Nede",
         "unknown": "Ukjent"
     },
     "calendar": {
@@ -842,7 +842,7 @@
     "gitea": {
         "notifications": "Varslinger",
         "issues": "Issues",
-        "pulls": "Pull Requests"
+        "pulls": "Forespørsel"
     },
     "stash": {
         "scenes": "Scener",

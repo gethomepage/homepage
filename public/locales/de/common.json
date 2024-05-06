@@ -142,8 +142,8 @@
         "connectionStatusDisconnected": "Getrennt",
         "connectionStatusConnected": "Verbunden",
         "uptime": "Betriebszeit",
-        "maxDown": "Max. Empfang",
-        "maxUp": "Max. Senden",
+        "maxDown": "Max. Down",
+        "maxUp": "Max. Up",
         "down": "Empfangen",
         "up": "Senden",
         "received": "Empfangen",
@@ -392,7 +392,7 @@
     "authentik": {
         "users": "Benutzer",
         "loginsLast24H": "Anmeldungen (24 h)",
-        "failedLoginsLast24H": "Fehlgeschlagene Anmeldungen (24 h)"
+        "failedLoginsLast24H": "Fehlversuche (24 h)"
     },
     "proxmox": {
         "mem": "RAM",
