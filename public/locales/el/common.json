@@ -146,9 +146,9 @@
         "maxUp": "Max. Up",
         "down": "Down",
         "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "Ληφθέντα",
+        "sent": "Απεσταλμένα",
+        "externalIPAddress": "Εξωτερική IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -327,7 +327,7 @@
     },
     "traefik": {
         "routers": "Routers",
-        "services": "Services",
+        "services": "Υπηρεσίες",
         "middleware": "Middleware"
     },
     "navidrome": {
@@ -522,7 +522,7 @@
     "tubearchivist": {
         "downloads": "Ουρά",
         "videos": "Videos",
-        "channels": "Channels",
+        "channels": "Κανάλια",
         "playlists": "Playlists"
     },
     "truenas": {
@@ -542,14 +542,14 @@
         "country": "Χώρα"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Κανάλια",
         "hd": "HD",
         "tunerCount": "Tuners",
-        "channelNumber": "Channel",
-        "channelNetwork": "Network",
+        "channelNumber": "Κανάλι",
+        "channelNetwork": "Δίκτυο",
         "signalStrength": "Strength",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
+        "signalQuality": "Ποιότητα",
+        "symbolQuality": "Ποιότητα",
         "networkRate": "Ρυθμός bit",
         "clientIP": "Client"
     },
@@ -559,7 +559,7 @@
         "unknown": "Άγνωστο"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
+        "inbox": "Εισερχόμενα",
         "total": "Σύνολο"
     },
     "peanut": {
@@ -567,8 +567,8 @@
         "ups_load": "UPS Load",
         "ups_status": "UPS Status",
         "online": "Συνδεδεμένοι",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Σε μπαταρία",
+        "low_battery": "Χαμηλή μπαταρία"
     },
     "nextdns": {
         "wait": "Παρακαλώ περιμένετε",
@@ -620,7 +620,7 @@
         "up": "Up",
         "down": "Down",
         "temp": "Temp",
-        "disk": "Disk Usage",
+        "disk": "Χρήση δίσκου",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
@@ -631,7 +631,7 @@
     },
     "immich": {
         "users": "Χρήστες",
-        "photos": "Photos",
+        "photos": "Φωτογραφίες",
         "videos": "Videos",
         "storage": "Storage"
     },
@@ -646,7 +646,7 @@
         "series": "Σειρές",
         "archives": "Archives",
         "chapters": "Chapters",
-        "categories": "Categories"
+        "categories": "Κατηγορίες"
     },
     "komga": {
         "libraries": "Libraries",
@@ -665,7 +665,7 @@
     },
     "photoprism": {
         "albums": "Άλμπουμ",
-        "photos": "Photos",
+        "photos": "Φωτογραφίες",
         "videos": "Videos",
         "people": "People"
     },
@@ -738,7 +738,7 @@
     "calibreweb": {
         "books": "Βιβλία",
         "authors": "Authors",
-        "categories": "Categories",
+        "categories": "Κατηγορίες",
         "series": "Σειρές"
     },
     "jdownloader": {
@@ -785,7 +785,7 @@
     "mealie": {
         "recipes": "Recipes",
         "users": "Χρήστες",
-        "categories": "Categories",
+        "categories": "Κατηγορίες",
         "tags": "Tags"
     },
     "openmediavault": {
@@ -802,7 +802,7 @@
         "up": "Up",
         "down": "Down",
         "bytesTx": "Transmitted",
-        "bytesRx": "Received"
+        "bytesRx": "Ληφθέντα"
     },
     "uptimerobot": {
         "status": "Κατάσταση",
@@ -836,7 +836,7 @@
     "plantit": {
         "events": "Events",
         "plants": "Plants",
-        "photos": "Photos",
+        "photos": "Φωτογραφίες",
         "species": "Species"
     },
     "gitea": {

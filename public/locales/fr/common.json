@@ -15,13 +15,13 @@
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
-        "days": "d",
+        "days": "j",
         "hours": "h",
         "minutes": "m",
         "seconds": "s"
     },
     "widget": {
-        "missing_type": "Widget manquant: {{type}}",
+        "missing_type": "Type de widget manquant: {{type}}",
         "api_error": "Erreur API",
         "information": "Informations",
         "status": "Statut",
@@ -40,7 +40,7 @@
     },
     "resources": {
         "cpu": "CPU",
-        "mem": "Mém",
+        "mem": "MÉM",
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
@@ -69,7 +69,7 @@
     "docker": {
         "rx": "Rx",
         "tx": "Tx",
-        "mem": "Mém",
+        "mem": "MÉM",
         "cpu": "CPU",
         "running": "Démarré",
         "offline": "Hors ligne",
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Déconnexion en attente",
         "connectionStatusDisconnecting": "Déconnexion en cours",
         "connectionStatusDisconnected": "Déconnecté",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Connecté",
         "uptime": "Démarré depuis",
         "maxDown": "Max. Bas",
         "maxUp": "Max. Haut",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Connecté",
+        "new_devices": "Nouveaux appareils",
+        "down_alerts": "Alertes d'arrêt"
     },
     "pihole": {
         "queries": "Requêtes",
@@ -395,7 +395,7 @@
         "failedLoginsLast24H": "Cnx. échouées (24h)"
     },
     "proxmox": {
-        "mem": "Mém",
+        "mem": "MÉM",
         "cpu": "CPU",
         "lxc": "LxC",
         "vms": "VMs"
@@ -411,7 +411,7 @@
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
-        "days": "d",
+        "days": "j",
         "hours": "h",
         "crit": "Crit.",
         "read": "Lu",
@@ -847,18 +847,18 @@
     "stash": {
         "scenes": "Scènes",
         "scenesPlayed": "Scènes jouées",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
+        "playCount": "Lectures Totales",
+        "playDuration": "Temps regardé",
+        "sceneSize": "Taille des scènes",
+        "sceneDuration": "Durée des scènes",
         "images": "Images",
         "imageSize": "Taille des images",
         "galleries": "Galeries",
-        "performers": "Performers",
+        "performers": "Acteurs",
         "studios": "Studios",
         "movies": "Films",
         "tags": "Étiquettes",
-        "oCount": "O Count"
+        "oCount": "0 Compte"
     },
     "tandoor": {
         "users": "Utilisateurs",
@@ -871,10 +871,10 @@
         "locations": "Emplacements",
         "labels": "Étiquettes",
         "users": "Utilisateurs",
-        "totalValue": "Total Value"
+        "totalValue": "Valeur Totale"
     },
     "crowdsec": {
         "alerts": "Alertes",
-        "bans": "Bans"
+        "bans": "Exclusions"
     }
 }
