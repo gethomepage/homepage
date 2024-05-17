@@ -227,7 +227,8 @@ function Home({ initialSettings }) {
           (e.key.length === 1 &&
             e.key.match(/(\w|\s|[à-ü]|[À-Ü]|[\w\u0430-\u044f])/gi) &&
             !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
-          e.key.match(/([à-ü]|[À-Ü])/g) || // accented characters may require modifier keys
+          // accented characters and the bang may require modifier keys
+          e.key.match(/([à-ü]|[À-Ü]|!)/g) ||
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
           setSearching(true);
