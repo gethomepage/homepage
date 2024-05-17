@@ -56,7 +56,6 @@ export default async function wgeasyProxyHandler(req, res) {
       const [, , data, ] = await httpProxy(
         formatApiCall(widgets[widget.type].api, { ...widget, endpoint: "wireguard/client" }),
         {
-          method: "GET",
           headers: {
             "Content-Type": "application/json",
             Cookie: `connect.sid=${sid}`,
