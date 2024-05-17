@@ -20,19 +20,18 @@ async function login(widget, service) {
     },
   });
 
-  let connectSidCookie;
-
   try {
-    connectSidCookie = responseHeaders["set-cookie"]
+    const connectSidCookie = responseHeaders["set-cookie"]
       .find((cookie) => cookie.startsWith("connect.sid="))
       .split(";")[0]
       .replace("connect.sid=", "");
     cache.put(`${sessionSIDCacheKey}.${service}`);
+    return connectSidCookie;
   } catch (e) {
     logger.error(`Error logging into wg-easy`);
     cache.del(`${sessionSIDCacheKey}.${service}`);
+    return null;
   }
-  return [status, connectSidCookie ?? null];
 }
 
 export default async function wgeasyProxyHandler(req, res) {
