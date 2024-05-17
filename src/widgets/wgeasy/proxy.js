@@ -12,8 +12,7 @@ const sessionSIDCacheKey = `${proxyName}__sessionSID`;
 
 async function login(widget, service) {
   const url = formatApiCall(widgets[widget.type].api, { ...widget, endpoint: "session" });
-  // eslint-disable-next-line no-unused-vars
-  const [status, contenType, data, responseHeaders] = await httpProxy(url, {
+  const [status, , , responseHeaders] = await httpProxy(url, {
     method: "POST",
     body: JSON.stringify({ password: widget.password }),
     headers: {
