@@ -64,11 +64,7 @@ export default async function wgeasyProxyHandler(req, res) {
       );
 
       const dataParsed = JSON.parse(data);
-      if (widget.threshold) {
-        dataParsed.push({ threshold: widget.threshold });
-      } else {
-        dataParsed.push({ threshold: 2 });
-      }
+      dataParsed.push({ threshold: widget.threshold ?? 2 });
 
       return res.send(dataParsed);
     }
