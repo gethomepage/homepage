@@ -21,7 +21,6 @@ async function login(widget, service) {
   });
 
   try {
-    console.log(responseHeaders);
     const connectSidCookie = responseHeaders["set-cookie"]
       .find((cookie) => cookie.startsWith("connect.sid="))
       .split(";")[0]
@@ -63,10 +62,7 @@ export default async function wgeasyProxyHandler(req, res) {
         },
       );
 
-      const dataParsed = JSON.parse(data);
-      dataParsed.push({ threshold: widget.threshold ?? 2 });
-
-      return res.send(dataParsed);
+      return res.json(JSON.parse(data));
     }
   }
 

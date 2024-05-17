@@ -26,10 +26,9 @@ export default function Component({ service }) {
     );
   }
 
-  const total = infoData.length - 1;
   const enabled = infoData.filter((item) => item.enabled).length;
-  const disabled = total - enabled;
-  const connectionThreshold = infoData[infoData.length - 1].threshold * 60 * 1000;
+  const disabled = infoData.length - enabled;
+  const connectionThreshold = widget.threshold ?? 2 * 60 * 1000;
   const currentTime = new Date();
   const connected = infoData.filter(
     (item) => currentTime - new Date(item.latestHandshakeAt) < connectionThreshold,
@@ -40,7 +39,7 @@ export default function Component({ service }) {
       <Block label="wgeasy.connected" value={connected} />
       <Block label="wgeasy.enabled" value={enabled} />
       <Block label="wgeasy.diabled" value={disabled} />
-      <Block label="wgeasy.total" value={total} />
+      <Block label="wgeasy.total" value={infoData.length} />
     </Container>
   );
 }
