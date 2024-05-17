@@ -53,8 +53,7 @@ export default async function wgeasyProxyHandler(req, res) {
           return res.status(500).json({ error: "Failed to authenticate with Wg-Easy" });
         }
       }
-      // eslint-disable-next-line no-unused-vars
-      const [status, contentType, data, responseHeaders] = await httpProxy(
+      const [, , data, ] = await httpProxy(
         formatApiCall(widgets[widget.type].api, { ...widget, endpoint: "wireguard/client" }),
         {
           method: "GET",
