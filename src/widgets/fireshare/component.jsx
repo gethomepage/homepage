@@ -21,6 +21,8 @@ export default function Component({ service }) {
         <Block label="fireshare.total" />
         <Block label="fireshare.categories" />
         <Block label="fireshare.views" />
+        <Block label="fireshare.private" />
+        <Block label="fireshare.public" />
       </Container>
     );
   }
@@ -33,12 +35,16 @@ export default function Component({ service }) {
   });
   const categoriesCount = categoriesSet.size;
   const totalViews = infoData.videos.reduce((acc, video) => acc + video.view_count, 0);
+  const privateCount = infoData.videos.filter(video => video.info.private).length;
+  const publicCount = total - privateCount;
 
   return (
     <Container service={service}>
       <Block label="fireshare.total" value={total} />
       <Block label="fireshare.categories" value={categoriesCount} />
       <Block label="fireshare.views" value={totalViews} />
+      <Block label="fireshare.private" value={privateCount} />
+      <Block label="fireshare.public" value={publicCount} />
     </Container>
   );
 }

@@ -886,6 +886,8 @@
     "fireshare": {
       "total": "Total",
       "categories": "Categories",
-      "views": "Views"
+      "views": "Views",
+      "private": "Private",
+      "public": "Public"
     }
 }

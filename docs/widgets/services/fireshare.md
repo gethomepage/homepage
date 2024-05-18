@@ -5,7 +5,7 @@ description: Fireshare Widget Configuration
 
 Learn more about [Fireshare](https://github.com/ShaneIsrael/fireshare).
 
-Allowed fields: `["total", "categories", "views"]`.
+Allowed fields: `["total", "categories", "views", "private", "public"]`.
 
 ```yaml
 widget:
