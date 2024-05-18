@@ -21,6 +21,7 @@ import emby from "./emby/widget";
 import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
+import fireshare from "./fireshare/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import fritzbox from "./fritzbox/widget";
@@ -136,6 +137,7 @@ const widgets = {
   esphome,
   evcc,
   fileflows,
+  fireshare,
   flood,
   freshrss,
   fritzbox,

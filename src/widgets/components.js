@@ -27,6 +27,7 @@ const components = {
   esphome: dynamic(() => import("./esphome/component")),
   evcc: dynamic(() => import("./evcc/component")),
   fileflows: dynamic(() => import("./fileflows/component")),
+  fireshare: dynamic(() => import("./fireshare/component")),
   flood: dynamic(() => import("./flood/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
   fritzbox: dynamic(() => import("./fritzbox/component")),

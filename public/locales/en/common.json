@@ -882,5 +882,10 @@
         "enabled": "Enabled",
         "disabled": "Disabled",
         "total": "Total"
+    },
+    "fireshare": {
+      "total": "Total",
+      "categories": "Categories",
+      "views": "Views"
     }
 }
