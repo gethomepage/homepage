@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     // if monitor is set to "true", use the href as the monitor target
     if (!href) {
       logger.error(
-        `Monitoring requestd for service '${service}' but no url specified.\n\tEither set monitor to a url or set href`,
+        `Monitoring requested for service '${service}' but no url specified.\n\tEither set monitor to a url or set href`,
       );
       return res.status(400).send({
         error: "No url specified for monitor, see logs.",
