@@ -16,13 +16,25 @@ export default async function handler(req, res) {
     });
   }
 
-  const { siteMonitor: monitorURL } = serviceItem;
+  const { href, siteMonitor } = serviceItem;
 
-  if (!monitorURL) {
+  if (!siteMonitor) {
     logger.debug("No http monitor URL specified");
     return res.status(400).send({
       error: "No http monitor URL given",
     });
+  }
+  let monitorURL = siteMonitor;
+  
+  if (siteMonitor === true) {
+    // if monitor is set to "true", use the href as the monitor target
+    if (!href) {
+      logger.error(`Monitoring requestd for service '${service}' but no url specified.\n\tEither set monitor to a url or set href`);
+      return res.status(400).send({
+        error: "No url specified for monitor, see logs.",
+      });
+    }
+    monitorURL = href;
   }
 
   try {
