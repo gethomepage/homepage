@@ -125,6 +125,8 @@ You can also apply different styles to the ping indicator by using the `statusSt
 
 Services may have an optional `siteMonitor` property (formerly `ping`) that allows you to monitor the availability of a URL you chose and have the response time displayed. You do not need to set your monitor URL equal to your href or ping URL.
 
+If you set the `siteMonitor` property to `true`, the monitored URL be the same as `href`.
+
 !!! note
 
     The site monitor feature works by making an http `HEAD` request to the URL, and falls back to `GET` in case that fails. It will not, for example, login if the URL requires auth or is behind e.g. Authelia. In the case of a reverse proxy and/or auth this usually requires the use of an 'internal' URL to make the site monitor feature correctly display status.
@@ -141,6 +143,12 @@ Services may have an optional `siteMonitor` property (formerly `ping`) that allo
         icon: radarr.png
         href: http://radarr.host/
         siteMonitor: http://some.other.host/
+
+- Group C:
+    - Lidarr:
+        icon: lidarr.png
+        href: http://lidarr.host/
+        siteMonitor: true
 ```
 
 You can also apply different styles to the site monitor indicator by using the `statusStyle` property, see [settings](settings.md#status-style).
