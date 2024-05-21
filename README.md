@@ -29,7 +29,7 @@
   <a href="https://www.digitalocean.com/?refcode=df14bcb7c016&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a>
 </p>
 <p align="center">
-<em>Homepage releases are kindly built using DigitalOcean Open Source Credits.</em>
+<em>Homepage builds are kindly provided by DigitalOcean.</em>
 </p>
 
 # Features
