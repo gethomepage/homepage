@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import { FaThermometerHalf } from "react-icons/fa";
+import { FiHardDrive } from "react-icons/fi";
 
 import Resource from "../widget/resource";
 import WidgetLabel from "../widget/widget_label";
@@ -10,7 +10,7 @@ export default function Node({ data, expanded, labels }) {
   return (
     <Resource
       additionalClassNames="information-widget-longhorn-node"
-      icon={FaThermometerHalf}
+      icon={FiHardDrive}
       value={t("common.bytes", { value: data.node.available })}
       label={t("resources.free")}
       expandedValue={t("common.bytes", { value: data.node.maximum })}
