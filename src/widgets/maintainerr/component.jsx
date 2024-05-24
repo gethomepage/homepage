@@ -7,17 +7,16 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { categoryId } = widget;
 
-  console.log({categoryId});
+  const { collectionId } = widget;
 
-  const { data: collections, error: statsError } = useWidgetAPI(widget, "collections");
+  const { data: collectionData, error: statsError } = useWidgetAPI(widget, "collection");
 
   if (statsError) {
     return <Container service={service} error={statsError} />;
   }
 
-  if (!collections) {
+  if (!collectionData) {
     return (
       <Container service={service}>
         <Block label="overseerr.pending" />
@@ -27,10 +26,21 @@ export default function Component({ service }) {
       </Container>
     );
   }
+  
+  const totalSizes = collectionData.items.map((item) => {
+    const mediaSize = item.plexData.Media.map((media) => {
+      const totalPartSizes = media.Part.reduce((a, b) => a + b.size, 0)
+      return totalPartSizes
+    }).reduce((a, b) => a + b, 0)
+    return mediaSize
+  }).reduce((a, b) => a + b, 0);
+
+  const items = collectionData.items.length;
 
   return (
     <Container service={service}>
-      <Block label="overseerr.pending" value={t("common.number", { value: collections.length })} />
+      <Block label="maintainerr.usage" value={t("common.bytes", { value: totalSizes })} />
+      <Block label="maintainerr.items" value={t("common.number", { value: items })} />
     </Container>
   );
 }

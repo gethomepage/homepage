@@ -882,5 +882,9 @@
         "enabled": "Enabled",
         "disabled": "Disabled",
         "total": "Total"
+    },
+    "maintainerr": {
+        "usage": "Usage",
+        "items": "Items"
     }
 }
