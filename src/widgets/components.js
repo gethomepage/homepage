@@ -103,6 +103,7 @@ const components = {
   speedtest: dynamic(() => import("./speedtest/component")),
   stash: dynamic(() => import("./stash/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
+  swagdashboard: dynamic(() => import("./swagdashboard/component")),
   tailscale: dynamic(() => import("./tailscale/component")),
   tandoor: dynamic(() => import("./tandoor/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
