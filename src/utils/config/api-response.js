@@ -111,6 +111,7 @@ export async function servicesResponse() {
 
   try {
     configuredServices = cleanServiceGroups(await servicesFromConfig());
+    console.log({configuredServices: configuredServices[2]})
   } catch (e) {
     console.error("Failed to load services.yaml, please check for errors");
     if (e) console.error(e.toString());

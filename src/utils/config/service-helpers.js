@@ -434,6 +434,9 @@ export function cleanServiceGroups(groups) {
           namespace,
           podSelector,
 
+          // maintainerr
+          collectionId,
+
           // mjpeg
           fit,
           stream,
@@ -563,6 +566,10 @@ export function cleanServiceGroups(groups) {
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
           if (pointsLimit) cleanedService.widget.pointsLimit = pointsLimit;
           if (diskUnits) cleanedService.widget.diskUnits = diskUnits;
+        }
+        if (type === "maintainerr") {
+          if (collectionId) cleanedService.widget.collectionId = collectionId;
+          console.log({ collectionId, cleanedService });
         }
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;

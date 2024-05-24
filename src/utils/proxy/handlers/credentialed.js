@@ -99,7 +99,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           return res
             .status(500)
             .json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: resultData } });
-        }
+        } 
         if (map) resultData = map(resultData);
       }
 

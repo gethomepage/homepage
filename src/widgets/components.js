@@ -53,6 +53,7 @@ const components = {
   komga: dynamic(() => import("./komga/component")),
   kopia: dynamic(() => import("./kopia/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
+  maintainerr: dynamic(() => import("./maintainerr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   mealie: dynamic(() => import("./mealie/component")),
   medusa: dynamic(() => import("./medusa/component")),

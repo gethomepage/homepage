@@ -14,7 +14,6 @@ export default function validateWidgetData(widget, endpoint, data) {
       valid = false;
     }
   }
-
   if (dataParsed && Object.entries(dataParsed).length) {
     const mappings = widgets[widget.type]?.mappings;
     if (mappings) {
