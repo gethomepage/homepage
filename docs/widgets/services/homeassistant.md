@@ -18,7 +18,7 @@ The `custom` property will have no effect as long as the `fields` property is de
   - state labels and values can be user defined and may reference entity attributes in curly brackets
   - if no state label is defined it will default to `"{attributes.friendly_name}"`
   - if no state value is defined it will default to `"{state} {attributes.unit_of_measurement}"`
-- `template` will query the specified template, see (Home Assistant Templating)[https://www.home-assistant.io/docs/configuration/templating]
+- `template` will query the specified template, see [Home Assistant Templating](https://www.home-assistant.io/docs/configuration/templating)
   - if no template label is defined it will be empty
 
 ```yaml

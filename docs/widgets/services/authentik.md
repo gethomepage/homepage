@@ -7,14 +7,13 @@ Learn more about [Authentik](https://github.com/goauthentik/authentik).
 
 This widget reads the number of active users in the system, as well as logins for the last 24 hours.
 
-You will need to generate an API token for an existing user. To do so follow these steps:
+You will need to generate an API token for an existing user under `Admin Portal` > `Directory` > `Tokens & App passwords`.
+Make sure to set Intent to "API Token".
 
-1. Navigate to the Authentik Admin Portal
-2. Expand Directory, the click Tokens & App passwords
-3. Click the Create button
-4. Fill out the dialog making sure to set Intent to API Token
-5. Click the Create button on the dialog
-6. Click the copy button on the far right of the newly created API Token
+The account you made the API token for also needs the following **Assigned global permissions** in Authentik:
+
+- authentik Core -> Can view User (Model: User)
+- authentik Events -> Can view Event (Model: Event)
 
 Allowed fields: `["users", "loginsLast24H", "failedLoginsLast24H"]`.
 

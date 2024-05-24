@@ -1,8 +1,18 @@
 import classNames from "classnames";
 import prettyBytes from "pretty-bytes";
 
-export default function Pool({ name, free, allocated, healthy }) {
-  const total = free + allocated;
+export default function Pool({ name, free, allocated, healthy, data, nasType }) {
+  let total = 0;
+  if (nasType === "scale") {
+    total = free + allocated;
+  } else {
+    allocated = 0; // eslint-disable-line no-param-reassign
+    for (let i = 0; i < data.length; i += 1) {
+      total += data[i].stats.size;
+      allocated += data[i].stats.allocated; // eslint-disable-line no-param-reassign
+    }
+  }
+
   const usedPercent = Math.round((allocated / total) * 100);
   const statusColor = healthy ? "bg-green-500" : "bg-yellow-500";
 

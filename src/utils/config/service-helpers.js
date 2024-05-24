@@ -117,6 +117,8 @@ export async function servicesFromDocker() {
 
         return { server: serverName, services: discovered.filter((filteredService) => filteredService) };
       } catch (e) {
+        logger.error("Error getting services from Docker server '%s': %s", serverName, e);
+
         // a server failed, but others may succeed
         return { server: serverName, services: [] };
       }
@@ -325,7 +327,7 @@ export async function servicesFromKubernetes() {
 
     return mappedServiceGroups;
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
     throw e;
   }
 }
@@ -391,6 +393,14 @@ export function cleanServiceGroups(groups) {
           enableBlocks,
           enableNowPlaying,
 
+          // emby, jellyfin, tautulli
+          enableUser,
+          expandOneStreamToTwoRows,
+          showEpisodeNumber,
+
+          // glances, pihole
+          version,
+
           // glances
           chart,
           metric,
@@ -440,20 +450,27 @@ export function cleanServiceGroups(groups) {
           // proxmox
           node,
 
+          // speedtest
+          bitratePrecision,
+
           // sonarr, radarr
           enableQueue,
 
           // truenas
           enablePools,
+          nasType,
 
           // unifi
           site,
+
+          // wgeasy
+          threshold,
         } = cleanedService.widget;
 
         let fieldsList = fields;
         if (typeof fields === "string") {
           try {
-            JSON.parse(fields);
+            fieldsList = JSON.parse(fields);
           } catch (e) {
             logger.error("Invalid fields list detected in config for service '%s'", service.name);
             fieldsList = null;
@@ -512,11 +529,19 @@ export function cleanServiceGroups(groups) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
         }
+        if (["emby", "jellyfin", "tautulli"].includes(type)) {
+          if (expandOneStreamToTwoRows !== undefined)
+            cleanedService.widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
+          if (showEpisodeNumber !== undefined)
+            cleanedService.widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
+          if (enableUser !== undefined) cleanedService.widget.enableUser = !!JSON.parse(enableUser);
+        }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);
         }
         if (type === "truenas") {
           if (enablePools !== undefined) cleanedService.widget.enablePools = JSON.parse(enablePools);
+          if (nasType !== undefined) cleanedService.widget.nasType = nasType;
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
@@ -524,6 +549,9 @@ export function cleanServiceGroups(groups) {
         if (type === "kopia") {
           if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
           if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
+        }
+        if (["glances", "pihole"].includes(type)) {
+          if (version) cleanedService.widget.version = version;
         }
         if (type === "glances") {
           if (metric) cleanedService.widget.metric = metric;
@@ -565,6 +593,14 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "healthchecks") {
           if (uuid !== undefined) cleanedService.widget.uuid = uuid;
+        }
+        if (type === "speedtest") {
+          if (bitratePrecision !== undefined) {
+            cleanedService.widget.bitratePrecision = parseInt(bitratePrecision, 10);
+          }
+        }
+        if (type === "wgeasy") {
+          if (threshold !== undefined) cleanedService.widget.threshold = parseInt(threshold, 10);
         }
       }
 

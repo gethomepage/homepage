@@ -1,0 +1,33 @@
+name: 🐛 Bug report
+description: Please only raise an issue if you've been advised to do so in a GitHub discussion. Thanks! 🙏
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ Please note
+        The starting point for a bug report should always be a [GitHub discussion](https://github.com/gethomepage/homepage/discussions/new?category=support)
+        Thank you for contributing to homepage! ✊
+  - type: checkboxes
+    id: pre-flight
+    attributes:
+      label: Before submitting, please confirm the following
+      options:
+        - label: I confirm this was discussed, and the maintainers suggest I open an issue (note that AI bots are not maintainers).
+          required: true
+        - label: I am aware that if I create this issue without a discussion, it will be removed without a response.
+          required: true
+  - type: input
+    id: discussion
+    attributes:
+      label: Discussion Link
+      description: |
+        Please link to the GitHub discussion that led to this issue.
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Optional
+      render: Text

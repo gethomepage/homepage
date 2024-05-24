@@ -9,10 +9,14 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: piholeData, error: piholeError } = useWidgetAPI(widget, "summaryRaw");
+  const { data: piholeData, error: piholeError } = useWidgetAPI(widget);
 
   if (piholeError) {
     return <Container service={service} error={piholeError} />;
+  }
+
+  if (!widget.fields) {
+    widget.fields = ["queries", "blocked", "gravity"];
   }
 
   if (!piholeData) {
@@ -26,13 +30,18 @@ export default function Component({ service }) {
     );
   }
 
+  let blockedValue = `${t("common.number", { value: parseInt(piholeData.ads_blocked_today, 10) })}`;
+  if (!widget.fields.includes("blocked_percent")) {
+    blockedValue += ` (${t("common.percent", { value: parseFloat(piholeData.ads_percentage_today).toPrecision(3) })})`;
+  }
+
   return (
     <Container service={service}>
       <Block label="pihole.queries" value={t("common.number", { value: parseInt(piholeData.dns_queries_today, 10) })} />
-      <Block label="pihole.blocked" value={t("common.number", { value: parseInt(piholeData.ads_blocked_today, 10) })} />
+      <Block label="pihole.blocked" value={blockedValue} />
       <Block
         label="pihole.blocked_percent"
-        value={t("common.percent", { value: parseFloat(piholeData.ads_percentage_today.toPrecision(3)) })}
+        value={t("common.percent", { value: parseFloat(piholeData.ads_percentage_today).toPrecision(3) })}
       />
       <Block
         label="pihole.gravity"

@@ -44,11 +44,13 @@ nav:
       - widgets/services/channelsdvrserver.md
       - widgets/services/cloudflared.md
       - widgets/services/coin-market-cap.md
+      - widgets/services/crowdsec.md
       - widgets/services/customapi.md
       - widgets/services/deluge.md
       - widgets/services/diskstation.md
       - widgets/services/downloadstation.md
       - widgets/services/emby.md
+      - widgets/services/esphome.md
       - widgets/services/evcc.md
       - widgets/services/fileflows.md
       - widgets/services/flood.md
@@ -65,6 +67,7 @@ nav:
       - widgets/services/hdhomerun.md
       - widgets/services/healthchecks.md
       - widgets/services/homeassistant.md
+      - widgets/services/homebox.md
       - widgets/services/homebridge.md
       - widgets/services/iframe.md
       - widgets/services/immich.md
@@ -87,6 +90,7 @@ nav:
       - widgets/services/mylar.md
       - widgets/services/navidrome.md
       - widgets/services/netdata.md
+      - widgets/services/netalertx.md
       - widgets/services/nextcloud.md
       - widgets/services/nextdns.md
       - widgets/services/nginx-proxy-manager.md
@@ -97,12 +101,12 @@ nav:
       - widgets/services/opendtu.md
       - widgets/services/openmediavault.md
       - widgets/services/opnsense.md
+      - widgets/services/openwrt.md
       - widgets/services/overseerr.md
       - widgets/services/paperlessngx.md
       - widgets/services/peanut.md
       - widgets/services/pfsense.md
       - widgets/services/photoprism.md
-      - widgets/services/pialert.md
       - widgets/services/pihole.md
       - widgets/services/plantit.md
       - widgets/services/plex-tautulli.md
@@ -124,8 +128,10 @@ nav:
       - widgets/services/scrutiny.md
       - widgets/services/sonarr.md
       - widgets/services/speedtest-tracker.md
+      - widgets/services/stash.md
       - widgets/services/syncthing-relay-server.md
       - widgets/services/tailscale.md
+      - widgets/services/tandoor.md
       - widgets/services/tdarr.md
       - widgets/services/traefik.md
       - widgets/services/transmission.md
@@ -162,6 +168,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: docs/overrides
   language: en
   palette:
       - media: "(prefers-color-scheme)"

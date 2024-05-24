@@ -74,13 +74,13 @@ const defaultSystemInterval = 30000; // This data (OS, hostname, distribution) i
 
 export default function Component({ service }) {
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval } = widget;
+  const { chart, refreshInterval = defaultInterval, version = 3 } = widget;
 
-  const { data: quicklookData, errorL: quicklookError } = useWidgetAPI(service.widget, "quicklook", {
+  const { data: quicklookData, errorL: quicklookError } = useWidgetAPI(service.widget, `${version}/quicklook`, {
     refreshInterval,
   });
 
-  const { data: systemData, errorL: systemError } = useWidgetAPI(service.widget, "system", {
+  const { data: systemData, errorL: systemError } = useWidgetAPI(service.widget, `${version}/system`, {
     refreshInterval: defaultSystemInterval,
   });
 
@@ -122,7 +122,10 @@ export default function Component({ service }) {
         )}
 
         {!chart && quicklookData?.swap === 0 && (
-          <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name}</div>
+          <div className="text-[0.6rem] opacity-50">
+            {systemData && systemData.linux_distro && `${systemData.linux_distro} - `}
+            {systemData && systemData.os_version}
+          </div>
         )}
 
         <div className="w-[4rem]">{!chart && <Swap quicklookData={quicklookData} className="opacity-25" />}</div>
@@ -137,7 +140,7 @@ export default function Component({ service }) {
       )}
 
       {!chart && (
-        <Block position="bottom-3 left-3 w-[3rem]">
+        <Block position="bottom-3 left-3 w-[4rem]">
           <CPU quicklookData={quicklookData} className="opacity-75" />
         </Block>
       )}

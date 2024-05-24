@@ -15,17 +15,17 @@
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
-        "days": "d",
+        "days": "j",
         "hours": "h",
         "minutes": "m",
         "seconds": "s"
     },
     "widget": {
-        "missing_type": "Widget manquant: {{type}}",
+        "missing_type": "Type de widget manquant: {{type}}",
         "api_error": "Erreur API",
         "information": "Informations",
         "status": "Statut",
-        "url": "Url",
+        "url": "URL",
         "raw_error": "Erreur brute",
         "response_data": "Données de réponse"
     },
@@ -39,8 +39,8 @@
         "placeholder": "Recherche…"
     },
     "resources": {
-        "cpu": "Cpu",
-        "mem": "Mém",
+        "cpu": "CPU",
+        "mem": "MÉM",
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
@@ -69,8 +69,8 @@
     "docker": {
         "rx": "Rx",
         "tx": "Tx",
-        "mem": "Mém",
-        "cpu": "Cpu",
+        "mem": "MÉM",
+        "cpu": "CPU",
         "running": "Démarré",
         "offline": "Hors ligne",
         "error": "Erreur",
@@ -106,6 +106,13 @@
         "series": "Séries TV",
         "episodes": "Épisodes",
         "songs": "Musique"
+    },
+    "esphome": {
+        "offline": "Hors ligne",
+        "offline_alt": "Hors ligne",
+        "online": "En ligne",
+        "total": "Total",
+        "unknown": "Inconnu"
     },
     "evcc": {
         "pv_power": "Production",
@@ -150,7 +157,7 @@
     },
     "changedetectionio": {
         "totalObserved": "Total Observé",
-        "diffsDetected": "Diffs Detectées"
+        "diffsDetected": "Diffs détectées"
     },
     "channelsdvrserver": {
         "shows": "Affichages",
@@ -166,7 +173,7 @@
         "plex_connection_error": "Vérifier la connexion à Plex"
     },
     "omada": {
-        "connectedAp": "APs connectées",
+        "connectedAp": "AP connectés",
         "activeUser": "Équipts actifs",
         "alerts": "Alertes",
         "connectedGateway": "Passerelles connectées",
@@ -270,11 +277,11 @@
         "approved": "Validé",
         "available": "Disponible"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Total",
         "connected": "Connecté",
-        "new_devices": "Nouvel Appareil",
-        "down_alerts": "Alertes"
+        "new_devices": "Nouveaux appareils",
+        "down_alerts": "Alertes d'arrêt"
     },
     "pihole": {
         "queries": "Requêtes",
@@ -388,13 +395,13 @@
         "failedLoginsLast24H": "Cnx. échouées (24h)"
     },
     "proxmox": {
-        "mem": "Mém",
-        "cpu": "Cpu",
+        "mem": "MÉM",
+        "cpu": "CPU",
         "lxc": "LxC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "Cpu",
+        "cpu": "CPU",
         "load": "Charge",
         "wait": "Veuillez patienter",
         "temp": "Temp",
@@ -404,7 +411,7 @@
         "total": "Total",
         "free": "Libre",
         "used": "Utilisé",
-        "days": "d",
+        "days": "j",
         "hours": "h",
         "crit": "Crit.",
         "read": "Lu",
@@ -419,7 +426,8 @@
         "search": "Recherche",
         "custom": "Personnalisé",
         "visit": "Aller vers",
-        "url": "Url"
+        "url": "URL",
+        "searchsuggestion": "Suggestions"
     },
     "wmo": {
         "0-day": "Ensoleillé",
@@ -529,13 +537,21 @@
         "total": "Total"
     },
     "gluetun": {
-        "public_ip": "IP Publique",
+        "public_ip": "IP publique",
         "region": "Région",
         "country": "Pays"
     },
     "hdhomerun": {
         "channels": "Chaînes",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Canal",
+        "channelNetwork": "Réseau",
+        "signalStrength": "Force",
+        "signalQuality": "Qualité",
+        "symbolQuality": "Qualité",
+        "networkRate": "Débit",
+        "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Réussi",
@@ -547,11 +563,11 @@
         "total": "Total"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
+        "battery_charge": "Charge Batterie",
         "ups_load": "Charge de l'UPS",
         "ups_status": "État de l'UPS",
         "online": "En ligne",
-        "on_battery": "On Battery",
+        "on_battery": "Sur Batterie",
         "low_battery": "Batterie Faible"
     },
     "nextdns": {
@@ -577,7 +593,7 @@
     },
     "opnsense": {
         "cpu": "Charge CPU",
-        "memory": "Mém. Utilisée",
+        "memory": "Mém. utilisée",
         "wanUpload": "WAN Envoi",
         "wanDownload": "WAN Récep."
     },
@@ -610,7 +626,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Tâches échouées 24h",
-        "cpu_usage": "Cpu",
+        "cpu_usage": "CPU",
         "memory_usage": "Mémoire"
     },
     "immich": {
@@ -633,7 +649,7 @@
         "categories": "Catégories"
     },
     "komga": {
-        "libraries": "Librairies",
+        "libraries": "Bibliothèques",
         "series": "Séries TV",
         "books": "Livres"
     },
@@ -666,7 +682,7 @@
         "alertstriggered": "Alertes déclenchées"
     },
     "nextcloud": {
-        "cpuload": "Charge Cpu",
+        "cpuload": "Charge CPU",
         "memoryusage": "Utilisation Mémoire",
         "freespace": "Libre",
         "activeusers": "Utilisateurs Actifs",
@@ -693,6 +709,11 @@
         "targets_up": "Up",
         "targets_down": "Down",
         "targets_total": "Total"
+    },
+    "gatus": {
+        "up": "En ligne",
+        "down": "Hors ligne",
+        "uptime": "Démarré depuis"
     },
     "ghostfolio": {
         "gross_percent_today": "Aujourd'hui",
@@ -775,6 +796,14 @@
         "passed": "Réussi",
         "failed": "Échoué"
     },
+    "openwrt": {
+        "uptime": "Démarré depuis",
+        "cpuLoad": "Charge moyenne CPU (5 min)",
+        "up": "Up",
+        "down": "Down",
+        "bytesTx": "Transmis",
+        "bytesRx": "Reçu"
+    },
     "uptimerobot": {
         "status": "Statut",
         "uptime": "Démarré depuis",
@@ -797,11 +826,55 @@
         "noEventsFound": "Aucun événement trouvé"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Plateformes",
+        "totalRoms": "Total des ROMs"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Avertissements",
+        "criticals": "Urgent"
+    },
+    "plantit": {
+        "events": "Événements",
+        "plants": "Plantes",
+        "photos": "Photos",
+        "species": "Espèces"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Anomalies",
+        "pulls": "Demandes de tirage"
+    },
+    "stash": {
+        "scenes": "Scènes",
+        "scenesPlayed": "Scènes jouées",
+        "playCount": "Lectures Totales",
+        "playDuration": "Temps regardé",
+        "sceneSize": "Taille des scènes",
+        "sceneDuration": "Durée des scènes",
+        "images": "Images",
+        "imageSize": "Taille des images",
+        "galleries": "Galeries",
+        "performers": "Acteurs",
+        "studios": "Studios",
+        "movies": "Films",
+        "tags": "Étiquettes",
+        "oCount": "0 Compte"
+    },
+    "tandoor": {
+        "users": "Utilisateurs",
+        "recipes": "Recettes",
+        "keywords": "Mots-clés"
+    },
+    "homebox": {
+        "items": "Objets",
+        "totalWithWarranty": "Avec garantie",
+        "locations": "Emplacements",
+        "labels": "Étiquettes",
+        "users": "Utilisateurs",
+        "totalValue": "Valeur Totale"
+    },
+    "crowdsec": {
+        "alerts": "Alertes",
+        "bans": "Exclusions"
     }
 }

@@ -13,7 +13,7 @@ async function retrieveFromGlancesAPI(privateWidgetOptions, endpoint) {
     throw new Error(errorMessage);
   }
 
-  const apiUrl = `${url}/api/3/${endpoint}`;
+  const apiUrl = `${url}/api/${privateWidgetOptions.version}/${endpoint}`;
   const headers = {
     "Accept-Encoding": "application/json",
   };
@@ -42,9 +42,10 @@ async function retrieveFromGlancesAPI(privateWidgetOptions, endpoint) {
 }
 
 export default async function handler(req, res) {
-  const { index, cputemp: includeCpuTemp, uptime: includeUptime, disk: includeDisks } = req.query;
+  const { index, cputemp: includeCpuTemp, uptime: includeUptime, disk: includeDisks, version } = req.query;
 
   const privateWidgetOptions = await getPrivateWidgetOptions("glances", index);
+  privateWidgetOptions.version = version ?? 3;
 
   try {
     const cpuData = await retrieveFromGlancesAPI(privateWidgetOptions, "cpu");

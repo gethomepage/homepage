@@ -107,6 +107,13 @@
         "episodes": "Επεισόδια",
         "songs": "Τραγούδια"
     },
+    "esphome": {
+        "offline": "Εκτός σύνδεσης",
+        "offline_alt": "Εκτός σύνδεσης",
+        "online": "Συνδεδεμένοι",
+        "total": "Σύνολο",
+        "unknown": "Άγνωστο"
+    },
     "evcc": {
         "pv_power": "Παραγωγή",
         "battery_soc": "Μπαταρία",
@@ -139,9 +146,9 @@
         "maxUp": "Max. Up",
         "down": "Down",
         "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "Ληφθέντα",
+        "sent": "Απεσταλμένα",
+        "externalIPAddress": "Εξωτερική IP"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -270,7 +277,7 @@
         "approved": "Εγκρίθηκε",
         "available": "Διαθέσιμο"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Σύνολο",
         "connected": "Connected",
         "new_devices": "New Devices",
@@ -320,7 +327,7 @@
     },
     "traefik": {
         "routers": "Routers",
-        "services": "Services",
+        "services": "Υπηρεσίες",
         "middleware": "Middleware"
     },
     "navidrome": {
@@ -419,7 +426,8 @@
         "search": "Search",
         "custom": "Custom",
         "visit": "Visit",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Suggestion"
     },
     "wmo": {
         "0-day": "Λιακάδα",
@@ -514,7 +522,7 @@
     "tubearchivist": {
         "downloads": "Ουρά",
         "videos": "Videos",
-        "channels": "Channels",
+        "channels": "Κανάλια",
         "playlists": "Playlists"
     },
     "truenas": {
@@ -534,8 +542,16 @@
         "country": "Χώρα"
     },
     "hdhomerun": {
-        "channels": "Channels",
-        "hd": "HD"
+        "channels": "Κανάλια",
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Κανάλι",
+        "channelNetwork": "Δίκτυο",
+        "signalStrength": "Strength",
+        "signalQuality": "Ποιότητα",
+        "symbolQuality": "Ποιότητα",
+        "networkRate": "Ρυθμός bit",
+        "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Passed",
@@ -543,7 +559,7 @@
         "unknown": "Άγνωστο"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
+        "inbox": "Εισερχόμενα",
         "total": "Σύνολο"
     },
     "peanut": {
@@ -551,8 +567,8 @@
         "ups_load": "UPS Load",
         "ups_status": "UPS Status",
         "online": "Συνδεδεμένοι",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Σε μπαταρία",
+        "low_battery": "Χαμηλή μπαταρία"
     },
     "nextdns": {
         "wait": "Παρακαλώ περιμένετε",
@@ -604,7 +620,7 @@
         "up": "Up",
         "down": "Down",
         "temp": "Temp",
-        "disk": "Disk Usage",
+        "disk": "Χρήση δίσκου",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
@@ -615,7 +631,7 @@
     },
     "immich": {
         "users": "Χρήστες",
-        "photos": "Photos",
+        "photos": "Φωτογραφίες",
         "videos": "Videos",
         "storage": "Storage"
     },
@@ -630,7 +646,7 @@
         "series": "Σειρές",
         "archives": "Archives",
         "chapters": "Chapters",
-        "categories": "Categories"
+        "categories": "Κατηγορίες"
     },
     "komga": {
         "libraries": "Libraries",
@@ -649,7 +665,7 @@
     },
     "photoprism": {
         "albums": "Άλμπουμ",
-        "photos": "Photos",
+        "photos": "Φωτογραφίες",
         "videos": "Videos",
         "people": "People"
     },
@@ -694,6 +710,11 @@
         "targets_down": "Targets Down",
         "targets_total": "Total Targets"
     },
+    "gatus": {
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Χρόνος Λειτουργίας"
+    },
     "ghostfolio": {
         "gross_percent_today": "Σήμερα",
         "gross_percent_1y": "One year",
@@ -717,7 +738,7 @@
     "calibreweb": {
         "books": "Βιβλία",
         "authors": "Authors",
-        "categories": "Categories",
+        "categories": "Κατηγορίες",
         "series": "Σειρές"
     },
     "jdownloader": {
@@ -764,7 +785,7 @@
     "mealie": {
         "recipes": "Recipes",
         "users": "Χρήστες",
-        "categories": "Categories",
+        "categories": "Κατηγορίες",
         "tags": "Tags"
     },
     "openmediavault": {
@@ -774,6 +795,14 @@
         "stopped": "Σταματημένο",
         "passed": "Passed",
         "failed": "Failed"
+    },
+    "openwrt": {
+        "uptime": "Χρόνος Λειτουργίας",
+        "cpuLoad": "CPU Load Avg (5m)",
+        "up": "Up",
+        "down": "Down",
+        "bytesTx": "Transmitted",
+        "bytesRx": "Ληφθέντα"
     },
     "uptimerobot": {
         "status": "Κατάσταση",
@@ -803,5 +832,49 @@
     "netdata": {
         "warnings": "Warnings",
         "criticals": "Criticals"
+    },
+    "plantit": {
+        "events": "Events",
+        "plants": "Plants",
+        "photos": "Φωτογραφίες",
+        "species": "Species"
+    },
+    "gitea": {
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
+    },
+    "stash": {
+        "scenes": "Scenes",
+        "scenesPlayed": "Scenes Played",
+        "playCount": "Total Plays",
+        "playDuration": "Time Watched",
+        "sceneSize": "Scenes Size",
+        "sceneDuration": "Scenes Duration",
+        "images": "Images",
+        "imageSize": "Images Size",
+        "galleries": "Galleries",
+        "performers": "Performers",
+        "studios": "Studios",
+        "movies": "Ταινίες",
+        "tags": "Tags",
+        "oCount": "O Count"
+    },
+    "tandoor": {
+        "users": "Χρήστες",
+        "recipes": "Recipes",
+        "keywords": "Keywords"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "With Warranty",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "Χρήστες",
+        "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Ειδοποιήσεις",
+        "bans": "Bans"
     }
 }

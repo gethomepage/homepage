@@ -43,8 +43,9 @@ export default async function handler(req, res) {
 
     if (pods.length === 0) {
       res.status(404).send({
-        error: `no pods found with namespace=${namespace} and labelSelector=${labelSelector}`,
+        status: "not found",
       });
+      logger.error(`no pods found with namespace=${namespace} and labelSelector=${labelSelector}`);
       return;
     }
     const someReady = pods.find((pod) => pod.status.phase === "Running");
@@ -59,7 +60,7 @@ export default async function handler(req, res) {
       status,
     });
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
     res.status(500).send({
       error: "unknown error",
     });

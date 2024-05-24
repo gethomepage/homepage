@@ -16,15 +16,15 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit } = widget;
+  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "cpu", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/cpu`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
-  const { data: systemData, error: systemError } = useWidgetAPI(service.widget, "system");
+  const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, `${version}/quicklook`);
 
   useEffect(() => {
     if (data) {
@@ -71,22 +71,15 @@ export default function Component({ service }) {
         />
       )}
 
-      {!chart && systemData && !systemError && (
+      {!chart && quicklookData && !quicklookError && (
         <Block position="top-3 right-3">
-          <div className="text-xs opacity-50">
-            {systemData.linux_distro && `${systemData.linux_distro} - `}
-            {systemData.os_version && systemData.os_version}
-          </div>
+          <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name && quicklookData.cpu_name}</div>
         </Block>
       )}
 
-      {systemData && !systemError && (
+      {quicklookData && !quicklookError && (
         <Block position="bottom-3 left-3">
-          {systemData.linux_distro && chart && <div className="text-xs opacity-50">{systemData.linux_distro}</div>}
-
-          {systemData.os_version && chart && <div className="text-xs opacity-50">{systemData.os_version}</div>}
-
-          {systemData.hostname && <div className="text-xs opacity-50">{systemData.hostname}</div>}
+          {quicklookData.cpu_name && chart && <div className="text-xs opacity-50">{quicklookData.cpu_name}</div>}
         </Block>
       )}
 

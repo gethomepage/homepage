@@ -12,11 +12,13 @@ import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
+import crowdsec from "./crowdsec/widget";
 import customapi from "./customapi/widget";
 import deluge from "./deluge/widget";
 import diskstation from "./diskstation/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
+import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
@@ -32,6 +34,7 @@ import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import homeassistant from "./homeassistant/widget";
+import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
 import healthchecks from "./healthchecks/widget";
 import immich from "./immich/widget";
@@ -52,6 +55,7 @@ import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
 import navidrome from "./navidrome/widget";
+import netalertx from "./netalertx/widget";
 import netdata from "./netdata/widget";
 import nextcloud from "./nextcloud/widget";
 import nextdns from "./nextdns/widget";
@@ -70,7 +74,6 @@ import peanut from "./peanut/widget";
 import pfsense from "./pfsense/widget";
 import photoprism from "./photoprism/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
-import pialert from "./pialert/widget";
 import pihole from "./pihole/widget";
 import plantit from "./plantit/widget";
 import plex from "./plex/widget";
@@ -89,8 +92,10 @@ import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
+import stash from "./stash/widget";
 import strelaysrv from "./strelaysrv/widget";
 import tailscale from "./tailscale/widget";
+import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
 import tdarr from "./tdarr/widget";
 import traefik from "./traefik/widget";
@@ -102,6 +107,7 @@ import unmanic from "./unmanic/widget";
 import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
 import watchtower from "./watchtower/widget";
+import wgeasy from "./wgeasy/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
 import urbackup from "./urbackup/widget";
@@ -121,11 +127,13 @@ const widgets = {
   channelsdvrserver,
   cloudflared,
   coinmarketcap,
+  crowdsec,
   customapi,
   deluge,
   diskstation,
   downloadstation,
   emby,
+  esphome,
   evcc,
   fileflows,
   flood,
@@ -141,6 +149,7 @@ const widgets = {
   grafana,
   hdhomerun,
   homeassistant,
+  homebox,
   homebridge,
   healthchecks,
   ical: calendar,
@@ -163,6 +172,7 @@ const widgets = {
   moonraker,
   mylar,
   navidrome,
+  netalertx,
   netdata,
   nextcloud,
   nextdns,
@@ -181,7 +191,7 @@ const widgets = {
   pfsense,
   photoprism,
   proxmoxbackupserver,
-  pialert,
+  pialert: netalertx,
   pihole,
   plantit,
   plex,
@@ -201,8 +211,10 @@ const widgets = {
   scrutiny,
   sonarr,
   speedtest,
+  stash,
   strelaysrv,
   tailscale,
+  tandoor,
   tautulli,
   tdarr,
   traefik,
@@ -216,6 +228,7 @@ const widgets = {
   uptimerobot,
   urbackup,
   watchtower,
+  wgeasy,
   whatsupdocker,
   xteve,
 };
