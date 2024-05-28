@@ -129,6 +129,7 @@ nav:
       - widgets/services/sonarr.md
       - widgets/services/speedtest-tracker.md
       - widgets/services/stash.md
+      - widgets/services/swagdashboard.md
       - widgets/services/syncthing-relay-server.md
       - widgets/services/tailscale.md
       - widgets/services/tandoor.md

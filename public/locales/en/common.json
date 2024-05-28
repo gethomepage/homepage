@@ -882,5 +882,11 @@
         "enabled": "Enabled",
         "disabled": "Disabled",
         "total": "Total"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }
