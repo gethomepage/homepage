@@ -385,7 +385,7 @@ There are a few optional settings for the Quick Launch feature:
 ```yaml
 quicklaunch:
   searchDescriptions: true
-  showSearchSuggestions: true # Optional
+  showSearchSuggestions: true
   hideVisitURL: true
   provider: google # google, duckduckgo, bing, baidu, brave or custom
 ```
@@ -397,7 +397,7 @@ quicklaunch:
   provider: custom
   url: https://www.ecosia.org/search?q=
   target: _blank
-  suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q= # Optional
+  suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
 ```
 
 ## Homepage Version
