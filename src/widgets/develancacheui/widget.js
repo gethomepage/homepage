@@ -7,7 +7,7 @@ const widget = {
   mappings: {
     "DownloadStats/GetTotalDownloadStats": {
       endpoint: "DownloadStats/GetTotalDownloadStats",
-    }
+    },
   },
 };
 
