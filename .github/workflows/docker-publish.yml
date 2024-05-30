@@ -6,29 +6,31 @@ name: Docker
 # documentation.
 
 on:
-  schedule:
-    - cron: '20 0 * * *'
-  push:
-    branches:
-      - main
-      - feature/**
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-    paths-ignore:
-      - 'docs/**'
-      - 'mkdocs.yml'
-  pull_request:
-    branches: [ "main" ]
-    paths-ignore:
-      - 'docs/**'
-      - 'mkdocs.yml'
-  merge_group:
+  workflow_dispatch:
+    
+  # schedule:
+  #   - cron: '20 0 * * *'
+  # push:
+  #   branches:
+  #     - main
+  #     - feature/**
+  #   # Publish semver tags as releases.
+  #   tags: [ 'v*.*.*' ]
+  #   paths-ignore:
+  #     - 'docs/**'
+  #     - 'mkdocs.yml'
+  # pull_request:
+  #   branches: [ "main" ]
+  #   paths-ignore:
+  #     - 'docs/**'
+  #     - 'mkdocs.yml'
+  # merge_group:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
+  REGISTRY: docker.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: devedse/homepage
 
 
 jobs:
@@ -94,13 +96,18 @@ jobs:
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
-      - name: Log into registry ${{ env.REGISTRY }}
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3
+      # - name: Log into registry ${{ env.REGISTRY }}
+      #   if: github.event_name != 'pull_request'
+      #   uses: docker/login-action@v3
+      #   with:
+      #     registry: ${{ env.REGISTRY }}
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
         with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: devedse
+          password: ${{ secrets.DOCKERHUBTOKEN }}
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
