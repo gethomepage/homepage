@@ -28,11 +28,11 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block
         label="develancacheui.cachehitbytes"
-        value={t("common.number", { value: downloadStatsData.totalCacheHitBytes })}
+        value={t("common.bytes", { value: downloadStatsData.totalCacheHitBytes })}
       />
       <Block
         label="develancacheui.cachemissbytes"
-        value={t("common.number", { value: downloadStatsData.totalCacheMissBytes })}
+        value={t("common.bytes", { value: downloadStatsData.totalCacheMissBytes })}
       />
     </Container>
   );
