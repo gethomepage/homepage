@@ -15,8 +15,8 @@
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "mo",
-        "days": "d",
-        "hours": "h",
+        "days": "g",
+        "hours": "o",
         "minutes": "m",
         "seconds": "s"
     },
@@ -277,7 +277,7 @@
         "approved": "Approvati",
         "available": "Disponibili"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Totale",
         "connected": "Connesso",
         "new_devices": "Nuovi Dispositivi",
@@ -411,8 +411,8 @@
         "total": "Totale",
         "free": "Libero",
         "used": "In utilizzo",
-        "days": "d",
-        "hours": "h",
+        "days": "g",
+        "hours": "o",
         "crit": "Critico",
         "read": "Letti",
         "write": "Scrittura",
@@ -427,7 +427,7 @@
         "custom": "Personalizzato",
         "visit": "Visita",
         "url": "URL",
-        "searchsuggestion": "Suggestion"
+        "searchsuggestion": "Suggerimenti"
     },
     "wmo": {
         "0-day": "Soleggiato",
@@ -546,8 +546,8 @@
         "hd": "HD",
         "tunerCount": "Tuners",
         "channelNumber": "Channel",
-        "channelNetwork": "Network",
-        "signalStrength": "Strength",
+        "channelNetwork": "Rete",
+        "signalStrength": "Intensità",
         "signalQuality": "Quality",
         "symbolQuality": "Quality",
         "networkRate": "Bitrate",
@@ -830,32 +830,32 @@
         "totalRoms": "Total ROMs"
     },
     "netdata": {
-        "warnings": "Warnings",
+        "warnings": "Avvisi",
         "criticals": "Criticals"
     },
     "plantit": {
         "events": "Events",
         "plants": "Plants",
         "photos": "Foto",
-        "species": "Species"
+        "species": "Specie"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "Notifiche",
         "issues": "Problemi",
-        "pulls": "Pull Requests"
+        "pulls": "Richieste di Pull"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
+        "scenes": "Scene",
+        "scenesPlayed": "Scene Riprodotte",
+        "playCount": "Totale Riproduzioni",
+        "playDuration": "Tempo Guardato",
+        "sceneSize": "Dimensione Delle Scene",
+        "sceneDuration": "Durata Delle Scene",
+        "images": "Immagini",
         "imageSize": "Images Size",
         "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
+        "performers": "Esecutori",
+        "studios": "Studi",
         "movies": "Film",
         "tags": "Tag",
         "oCount": "O Count"
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "Utenti",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "Allarmi",
+        "bans": "Bans"
     }
 }

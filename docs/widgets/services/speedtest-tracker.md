@@ -16,4 +16,5 @@ Allowed fields: `["download", "upload", "ping"]`.
 widget:
   type: speedtest
   url: http://speedtest.host.or.ip
+  bitratePrecision: 3 # optional, default is 0
 ```

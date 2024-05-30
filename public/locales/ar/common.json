@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "في انتظار قطع الاتصال",
         "connectionStatusDisconnecting": "جار قطع الاتصال",
         "connectionStatusDisconnected": "غير متصل",
-        "connectionStatusConnected": "متصل",
+        "connectionStatusConnected": "Connected",
         "uptime": "مدة التشغيل",
         "maxDown": "أقصى حد للتنزيل",
         "maxUp": "أقصى حد للتحميل",
@@ -277,11 +277,11 @@
         "approved": "مصدق",
         "available": "متاح"
     },
-    "pialert": {
+    "netalertx": {
         "total": "المجموع",
-        "connected": "متصل",
-        "new_devices": "أجهزة جديدة",
-        "down_alerts": "تنبيهات تعطل الخوادم"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "الاستعلامات",
@@ -872,5 +872,9 @@
         "labels": "Labels",
         "users": "المستخدمون",
         "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "تنبيهات",
+        "bans": "Bans"
     }
 }

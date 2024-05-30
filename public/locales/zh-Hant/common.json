@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "待辦的斷開",
         "connectionStatusDisconnecting": "正在中斷連線",
         "connectionStatusDisconnected": "連接已中斷",
-        "connectionStatusConnected": "已連線",
+        "connectionStatusConnected": "Connected",
         "uptime": "運行時間",
         "maxDown": "最大下載速率",
         "maxUp": "最大上傳速率",
@@ -277,11 +277,11 @@
         "approved": "已核准",
         "available": "可觀看"
     },
-    "pialert": {
+    "netalertx": {
         "total": "全部",
-        "connected": "已連線",
-        "new_devices": "新裝置",
-        "down_alerts": "離線警告"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "查詢",
@@ -858,7 +858,7 @@
         "studios": "工作室",
         "movies": "電影",
         "tags": "標籤",
-        "oCount": "O Count"
+        "oCount": "0 個"
     },
     "tandoor": {
         "users": "用戶",
@@ -867,10 +867,14 @@
     },
     "homebox": {
         "items": "項目",
-        "totalWithWarranty": "With Warranty",
+        "totalWithWarranty": "有保証",
         "locations": "位置",
         "labels": "標籤",
         "users": "用戶",
         "totalValue": "總共"
+    },
+    "crowdsec": {
+        "alerts": "警示",
+        "bans": "禁止"
     }
 }

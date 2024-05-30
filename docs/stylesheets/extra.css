@@ -22,3 +22,15 @@
 #glimeRoot * {
     font-family: var(--md-text-font) !important;
 }
+
+#carbonads {
+    margin-top: 10px;
+}
+
+#carbon-responsive {
+    --carbon-padding: 1em;
+    --carbon-max-char: 20ch;
+    --carbon-bg-primary: var(--md-default-bg-color) !important;
+    --carbon-bg-secondary: var(--md-default-fg-color--lightest) !important;
+    --carbon-text-color: var(--md-typeset-color) !important;
+}

@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "接続を切断する",
         "connectionStatusDisconnecting": "接続を切断中",
         "connectionStatusDisconnected": "切断されました",
-        "connectionStatusConnected": "接続済み",
+        "connectionStatusConnected": "Connected",
         "uptime": "稼働時間",
         "maxDown": "最大ダウン",
         "maxUp": "最大アップ",
@@ -277,11 +277,11 @@
         "approved": "承認済",
         "available": "利用可"
     },
-    "pialert": {
+    "netalertx": {
         "total": "合計",
-        "connected": "接続済み",
-        "new_devices": "新しいデバイス",
-        "down_alerts": "ダウンアラート"
+        "connected": "Connected",
+        "new_devices": "New Devices",
+        "down_alerts": "Down Alerts"
     },
     "pihole": {
         "queries": "クエリ",
@@ -872,5 +872,9 @@
         "labels": "ラベル",
         "users": "ユーザ",
         "totalValue": "合計値"
+    },
+    "crowdsec": {
+        "alerts": "アラート",
+        "bans": "Bans"
     }
 }

@@ -363,7 +363,7 @@ providers:
 You can then pass `provider` instead of `apiKey` in your widget configuration.
 
 ```yaml
-- weather:
+- weatherapi:
     latitude: 50.449684
     longitude: 30.525026
     provider: weatherapi
