@@ -23,9 +23,18 @@ export default async function handler(req, res) {
     }
 
     const fsSize = await si.fsSize();
+    let driveData;
+
+    if (target === "/") {
+      const rootTarget = fsSize.find((fs) => fs.mount === "/");
+      driveData = rootTarget ?? [rootTarget];
+    } else {
+      const foundTarget = fsSize.find((fs) => fs.mount === target);
+      driveData = foundTarget ? [foundTarget] : fsSize;
+    }
 
     return res.status(200).json({
-      drive: fsSize.find((fs) => fs.mount === target) ?? fsSize.find((fs) => fs.mount === "/"),
+      drive: driveData,
     });
   }
 

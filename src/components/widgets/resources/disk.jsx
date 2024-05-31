@@ -31,15 +31,19 @@ export default function Disk({ options, expanded, diskUnits, refresh = 1500 }) {
     );
   }
 
-  // data.drive.used not accurate?
-  const percent = Math.round(((data.drive.size - data.drive.available) / data.drive.size) * 100);
+  // Calculate the total size and available space from the data.drive array
+  const totalSize = data.drive.reduce((acc, drive) => acc + drive.size, 0);
+  const totalAvailable = data.drive.reduce((acc, drive) => acc + drive.available, 0);
+
+  // Calculate the percentage of used space
+  const percent = Math.round(((totalSize - totalAvailable) / totalSize) * 100);
 
   return (
     <Resource
       icon={FiHardDrive}
-      value={t(diskUnitsName, { value: data.drive.available })}
+      value={t(diskUnitsName, { value: totalAvailable })}
       label={t("resources.free")}
-      expandedValue={t(diskUnitsName, { value: data.drive.size })}
+      expandedValue={t(diskUnitsName, { value: totalSize })}
       expandedLabel={t("resources.total")}
       percentage={percent}
       expanded={expanded}
