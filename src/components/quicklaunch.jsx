@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
+import useSWR from "swr";
 
 import ResolvedIcon from "./resolvedicon";
-import { searchProviders } from "./widgets/search/search";
+import { getStoredProvider, searchProviders } from "./widgets/search/search";
 
 import { SettingsContext } from "utils/contexts/settings";
 
@@ -12,7 +13,6 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
 
   const { settings } = useContext(SettingsContext);
   const { searchDescriptions = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
-  const showSearchSuggestions = !!(settings?.quicklaunch?.showSearchSuggestions ?? true);
 
   const searchField = useRef();
 
@@ -21,14 +21,39 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   const [url, setUrl] = useState(null);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
+  const { data: widgets } = useSWR("/api/widgets");
+
   function getSearchProvider() {
+    if (settings?.quicklaunch?.hideInternetSearch) return null;
+
+    const searchWidget = Object.values(widgets).find((w) => w.type === "search");
     let searchProvider = null;
 
     if (settings?.quicklaunch?.provider === "custom") {
       searchProvider = settings.quicklaunch;
     } else if (settings?.quicklaunch?.provider) {
       searchProvider = searchProviders[settings.quicklaunch.provider];
+    } else if (searchWidget) {
+      // If there is no search provider in quick launch settings, try to get it from the search widget
+
+      if (Array.isArray(searchWidget.options?.provider)) {
+        // If search provider is a list, try to retrieve from localstorage, fall back to the first
+        searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
+      } else if (searchWidget.options?.provider === "custom") {
+        searchProvider = searchWidget.options;
+      } else {
+        searchProvider = searchProviders[searchWidget.options?.provider];
+      }
     }
+
+    // If there is no search provider in quick launch settings try to get the value from search widget,
+    // if it's not specified there either then set the value to false
+    if (searchProvider)
+      searchProvider.showSearchSuggestions = !!(
+        settings?.quicklaunch?.showSearchSuggestions ??
+        searchWidget?.options?.showSearchSuggestions ??
+        false
+      );
 
     return searchProvider;
   }
@@ -129,7 +154,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
           type: "search",
         });
 
-        if (showSearchSuggestions && searchProvider.suggestionUrl) {
+        if (searchProvider.showSearchSuggestions && searchProvider.suggestionUrl) {
           if (searchString.trim() !== searchSuggestions[0]?.trim()) {
             fetch(
               `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
@@ -182,17 +207,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     return () => {
       abortController.abort();
     };
-  }, [
-    searchString,
-    servicesAndBookmarks,
-    searchDescriptions,
-    hideVisitURL,
-    showSearchSuggestions,
-    searchSuggestions,
-    searchProvider,
-    url,
-    t,
-  ]);
+  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url, t]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
