@@ -35,7 +35,6 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
       searchProvider = searchProviders[settings.quicklaunch.provider];
     } else if (searchWidget) {
       // If there is no search provider in quick launch settings, try to get it from the search widget
-
       if (Array.isArray(searchWidget.options?.provider)) {
         // If search provider is a list, try to retrieve from localstorage, fall back to the first
         searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
