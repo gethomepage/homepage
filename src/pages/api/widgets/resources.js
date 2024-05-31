@@ -23,14 +23,14 @@ export default async function handler(req, res) {
     }
 
     const fsSize = await si.fsSize();
+    const rootTarget = fsSize.find((fs) => fs.mount === "/") || [];
     let driveData;
 
     if (target === "/") {
-      const rootTarget = fsSize.find((fs) => fs.mount === "/");
-      driveData = rootTarget ?? [rootTarget];
+      driveData = [rootTarget];
     } else {
-      const foundTarget = fsSize.find((fs) => fs.mount === target);
-      driveData = foundTarget ? [foundTarget] : fsSize;
+      const filteredData = fsSize.filter((fs) => fs.mount.startsWith(target));
+      driveData = filteredData.length > 0 ? filteredData : [rootTarget];
     }
 
     return res.status(200).json({
