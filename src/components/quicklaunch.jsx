@@ -42,14 +42,13 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     }
   }
 
-  // If there is no search provider in quick launch settings try to get the value from search widget,
-  // if it's not specified there either then set the value to false
-  if (searchProvider)
+  if (searchProvider) {
     searchProvider.showSearchSuggestions = !!(
       settings?.quicklaunch?.showSearchSuggestions ??
       searchWidget?.options?.showSearchSuggestions ??
       false
     );
+  }
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
