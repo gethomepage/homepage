@@ -22,40 +22,34 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
   const { data: widgets } = useSWR("/api/widgets");
+  const searchWidget = Object.values(widgets).find((w) => w.type === "search");
 
-  function getSearchProvider() {
-    const searchWidget = Object.values(widgets).find((w) => w.type === "search");
-    let searchProvider;
+  let searchProvider;
 
-    if (settings?.quicklaunch?.provider === "custom" && settings?.quicklaunch?.url?.length > 0) {
-      searchProvider = settings.quicklaunch;
-    } else if (settings?.quicklaunch?.provider !== "custom") {
-      searchProvider = searchProviders[settings.quicklaunch.provider];
-    } else if (searchWidget) {
-      // If there is no search provider in quick launch settings, try to get it from the search widget
-      if (Array.isArray(searchWidget.options?.provider)) {
-        // If search provider is a list, try to retrieve from localstorage, fall back to the first
-        searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
-      } else if (searchWidget.options?.provider === "custom") {
-        searchProvider = searchWidget.options;
-      } else {
-        searchProvider = searchProviders[searchWidget.options?.provider];
-      }
+  if (settings?.quicklaunch?.provider === "custom" && settings?.quicklaunch?.url?.length > 0) {
+    searchProvider = settings.quicklaunch;
+  } else if (settings?.quicklaunch?.provider !== "custom") {
+    searchProvider = searchProviders[settings.quicklaunch.provider];
+  } else if (searchWidget) {
+    // If there is no search provider in quick launch settings, try to get it from the search widget
+    if (Array.isArray(searchWidget.options?.provider)) {
+      // If search provider is a list, try to retrieve from localstorage, fall back to the first
+      searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
+    } else if (searchWidget.options?.provider === "custom") {
+      searchProvider = searchWidget.options;
+    } else {
+      searchProvider = searchProviders[searchWidget.options?.provider];
     }
-
-    // If there is no search provider in quick launch settings try to get the value from search widget,
-    // if it's not specified there either then set the value to false
-    if (searchProvider)
-      searchProvider.showSearchSuggestions = !!(
-        settings?.quicklaunch?.showSearchSuggestions ??
-        searchWidget?.options?.showSearchSuggestions ??
-        false
-      );
-
-    return searchProvider;
   }
 
-  const searchProvider = settings?.quicklaunch?.hideInternetSearch === false ? null : getSearchProvider();
+  // If there is no search provider in quick launch settings try to get the value from search widget,
+  // if it's not specified there either then set the value to false
+  if (searchProvider)
+    searchProvider.showSearchSuggestions = !!(
+      settings?.quicklaunch?.showSearchSuggestions ??
+      searchWidget?.options?.showSearchSuggestions ??
+      false
+    );
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
