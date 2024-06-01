@@ -28,7 +28,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
 
   if (settings?.quicklaunch?.provider === "custom" && settings?.quicklaunch?.url?.length > 0) {
     searchProvider = settings.quicklaunch;
-  } else if (settings?.quicklaunch?.provider !== "custom") {
+  } else if (settings?.quicklaunch?.provider && settings?.quicklaunch?.provider !== "custom") {
     searchProvider = searchProviders[settings.quicklaunch.provider];
   } else if (searchWidget) {
     // If there is no search provider in quick launch settings, try to get it from the search widget
