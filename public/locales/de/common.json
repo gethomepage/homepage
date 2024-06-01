@@ -252,6 +252,12 @@
         "queued": "In Warteschlange",
         "artists": "Künstler"
     },
+    "mailcow": {
+      "domains": "Domänen",
+      "mailboxes": "E-Mail-Postfächer",
+      "mails": "E-Mails",
+      "storage": "Speicher"
+    },
     "readarr": {
         "wanted": "Gesucht",
         "queued": "In Warteschlange",

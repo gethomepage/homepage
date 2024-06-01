@@ -252,6 +252,12 @@
         "queued": "Queued",
         "artists": "Artists"
     },
+    "mailcow": {
+        "domains": "Domains",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Storage"
+    },
     "readarr": {
         "wanted": "Wanted",
         "queued": "Queued",
