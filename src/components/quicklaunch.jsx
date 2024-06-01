@@ -24,14 +24,12 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   const { data: widgets } = useSWR("/api/widgets");
 
   function getSearchProvider() {
-    if (settings?.quicklaunch?.hideInternetSearch) return null;
-
     const searchWidget = Object.values(widgets).find((w) => w.type === "search");
-    let searchProvider = null;
+    let searchProvider;
 
-    if (settings?.quicklaunch?.provider === "custom") {
+    if (settings?.quicklaunch?.provider === "custom" && settings?.quicklaunch?.url?.length > 0) {
       searchProvider = settings.quicklaunch;
-    } else if (settings?.quicklaunch?.provider) {
+    } else if (settings?.quicklaunch?.provider !== "custom") {
       searchProvider = searchProviders[settings.quicklaunch.provider];
     } else if (searchWidget) {
       // If there is no search provider in quick launch settings, try to get it from the search widget
@@ -57,7 +55,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     return searchProvider;
   }
 
-  const searchProvider = getSearchProvider();
+  const searchProvider = settings?.quicklaunch?.hideInternetSearch === false ? null : getSearchProvider();
 
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
