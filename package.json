@@ -10,7 +10,7 @@
     "telemetry": "next telemetry disable"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.18",
+    "@headlessui/react": "^2.0.4",
     "@kubernetes/client-node": "^0.17.1",
     "cal-parser": "^1.0.2",
     "classnames": "^2.5.1",
