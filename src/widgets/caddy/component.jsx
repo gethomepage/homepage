@@ -17,7 +17,6 @@ export default function Component({ service }) {
   if (!resultData) {
     return (
       <Container service={service}>
-        ,
         <Block label="caddy.upstreams" />
         <Block label="caddy.requests" />
         <Block label="caddy.requests_failed" />
