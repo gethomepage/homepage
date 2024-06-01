@@ -27,8 +27,8 @@ dependencies:
     specifier: ^1.15.6
     version: 1.15.6
   gamedig:
-    specifier: ^4.3.1
-    version: 4.3.1
+    specifier: ^5.0.0
+    version: 5.0.0
   i18next:
     specifier: ^21.10.0
     version: 21.10.0
@@ -2342,14 +2342,14 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
     dev: true
 
-  /gamedig@4.3.1:
-    resolution: {integrity: sha512-et9Aq4wlD0cExXEO3r3LWiEEjOzsnG5l/0YSqza7FZLoJqunNT6DedkAXAdeOqAqStkRQahQiPFjx2WCg4SOtg==}
-    engines: {node: '>=14.0.0'}
+  /gamedig@5.0.0:
+    resolution: {integrity: sha512-dDv3cy4E0glJ3N+nKWOZYVQO+WLxr+HehbZAR+J5qXenu31jHWoxyQS8TUpjFHuhS5SCKaTsoxmLD4v3xDV+iQ==}
+    engines: {node: '>=16.20.0'}
     hasBin: true
     dependencies:
       cheerio: 1.0.0-rc.12
       gbxremote: 0.2.1
-      got: 12.6.1
+      got: 13.0.0
       iconv-lite: 0.6.3
       long: 5.2.3
       minimist: 1.2.8
@@ -2491,9 +2491,9 @@ packages:
       get-intrinsic: 1.2.4
     dev: true
 
-  /got@12.6.1:
-    resolution: {integrity: sha512-mThBblvlAF1d4O5oqyvN+ZxLAYwIJK7bpMxgYqPD9okW0C3qm5FFn7k811QrcuEBwaogR3ngOFoCfs6mRv7teQ==}
-    engines: {node: '>=14.16'}
+  /got@13.0.0:
+    resolution: {integrity: sha512-XfBk1CxOOScDcMr9O1yKkNaQyy865NbYs+F7dr4H0LZMVgCj2Le59k6PqbNHoL5ToeaEQUYh6c6yMfVcc6SJxA==}
+    engines: {node: '>=16'}
     dependencies:
       '@sindresorhus/is': 5.6.0
       '@szmarczak/http-timer': 5.0.1
