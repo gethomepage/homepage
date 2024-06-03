@@ -41,6 +41,11 @@ export default async function handler(req, res) {
         const endpoint = mapping?.endpoint;
         const endpointProxy = mapping?.proxyHandler || serviceProxyHandler;
 
+        if (mapping.method && mapping.method !== req.method) {
+          logger.debug("Unsupported method: %s", req.method);
+          return res.status(403).json({ error: "Unsupported method" });
+        }
+
         if (!endpoint) {
           logger.debug("Unsupported service endpoint: %s", type);
           return res.status(403).json({ error: "Unsupported service endpoint" });

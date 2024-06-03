@@ -1,16 +1,30 @@
+import { useEffect, useState } from "react";
+
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
   const { widget } = service;
 
   const { data: workersData, error: workersError } = useWidgetAPI(widget, "workers");
-  const { data: pendingData, error: pendingError } = useWidgetAPI(widget, "pending");
 
-  if (workersError || pendingError) {
-    const finalError = workersError ?? pendingError;
-    return <Container service={service} error={finalError} />;
+  const [pendingData, setPendingData] = useState(null);
+
+  useEffect(() => {
+    async function fetchPending() {
+      const url = formatProxyUrl(widget, "pending");
+      const res = await fetch(url, { method: "POST" });
+      setPendingData(await res.json());
+    }
+    if (!pendingData) {
+      fetchPending();
+    }
+  }, [widget, pendingData]);
+
+  if (workersError) {
+    return <Container service={service} error={workersError} />;
   }
 
   if (!workersData || !pendingData) {
