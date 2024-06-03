@@ -21,14 +21,21 @@ async function login(widget, service) {
   });
 
   try {
-    const connectSidCookie = responseHeaders["set-cookie"]
+    const connectSidCookie = responseHeaders["set-cookie"];
+    if (!connectSidCookie) {
+      const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
+      if (sid) {
+        return sid;
+      }
+    }
+    connectSidCookie = connectSidCookie
       .find((cookie) => cookie.startsWith("connect.sid="))
       .split(";")[0]
       .replace("connect.sid=", "");
     cache.put(`${sessionSIDCacheKey}.${service}`, connectSidCookie);
     return connectSidCookie;
   } catch (e) {
-    logger.error(`Error logging into wg-easy`);
+    logger.error(`Error logging into wg-easy, error: ${e}`);
     cache.del(`${sessionSIDCacheKey}.${service}`);
     return null;
   }
