@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "警示",
         "bans": "禁止"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "啟用",
+        "disabled": "停用咗",
+        "total": "全部"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }

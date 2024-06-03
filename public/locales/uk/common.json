@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "Оповіщення",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "Увімкнено",
+        "disabled": "Вимкнено",
+        "total": "Усього"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }
