@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "Alerts",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "ప్రారంభించబడింది",
+        "disabled": "డిసేబ్లెడ్",
+        "total": "మొత్తం"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }
