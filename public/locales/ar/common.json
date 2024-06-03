@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "تنبيهات",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "مفعل",
+        "disabled": "معطل",
+        "total": "المجموع"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }

@@ -54,10 +54,10 @@
         "uptime": "运行时间",
         "days": "天",
         "wan": "WAN",
-        "lan": "局域网",
-        "wlan": "无线局域网",
+        "lan": "LAN",
+        "wlan": "WLAN",
         "devices": "设备",
-        "lan_devices": "有线设备",
+        "lan_devices": "LAN 设备",
         "wlan_devices": "WLAN 设备",
         "lan_users": "有线用户",
         "wlan_users": "无线用户",
@@ -146,7 +146,7 @@
         "maxUp": "",
         "down": "离线",
         "up": "在线",
-        "received": "最大上传数",
+        "received": "已接收",
         "sent": "已发送",
         "externalIPAddress": "外部IP"
     },
@@ -802,7 +802,7 @@
         "up": "在线",
         "down": "离线",
         "bytesTx": "已传输",
-        "bytesRx": "最大上传数"
+        "bytesRx": "已接收"
     },
     "uptimerobot": {
         "status": "状态",
@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "警告",
         "bans": "禁用"
+    },
+    "wgeasy": {
+        "connected": "已连接",
+        "enabled": "启用",
+        "disabled": "禁用",
+        "total": "总计"
+    },
+    "swagdashboard": {
+        "proxied": "已代理",
+        "auth": "使用认证",
+        "outdated": "已过期",
+        "banned": "已禁止"
     }
 }

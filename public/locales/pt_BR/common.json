@@ -143,7 +143,7 @@
         "connectionStatusConnected": "Conectado",
         "uptime": "Ligado",
         "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxUp": "Máx. Acima",
         "down": "Inativo",
         "up": "Ativo",
         "received": "Recebido",
@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "Alertas",
         "bans": "Banimentos"
+    },
+    "wgeasy": {
+        "connected": "Conectado",
+        "enabled": "Ativo",
+        "disabled": "Desabilitado",
+        "total": "Total"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }
