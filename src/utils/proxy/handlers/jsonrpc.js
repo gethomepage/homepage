@@ -31,6 +31,10 @@ export async function sendJsonRpcRequest(url, method, params, username, password
     if (status === 200) {
       const json = JSON.parse(data.toString());
 
+      if (json.id === null) {
+        json.id = 1;
+      }
+
       // in order to get access to the underlying error object in the JSON response
       // you must set `result` equal to undefined
       if (json.error && json.result === null) {
