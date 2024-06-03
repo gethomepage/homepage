@@ -12,8 +12,11 @@ export default async function handler(req, res) {
     const { service, group } = req.query;
     const serviceWidget = await getServiceWidget(group, service);
     let type = serviceWidget?.type;
-    // calendar is an alias for ical
+
+    // exceptions
     if (type === "calendar") type = "ical";
+    else if (service === "unifi_console" && group === "unifi_console") type = "unifi_console";
+
     const widget = widgets[type];
 
     if (!widget) {
@@ -49,15 +52,17 @@ export default async function handler(req, res) {
 
         if (req.query.segments) {
           const segments = JSON.parse(req.query.segments);
-          for (const key in segments) {
+          let validSegments = true;
+          Object.keys(segments).forEach((key) => {
             if (!mapping.segments.includes(key)) {
               logger.debug("Unsupported segment: %s", key);
-              return res.status(403).json({ error: "Unsupported segment" });
+              validSegments = false;
             } else if (segments[key].includes("/") || segments[key].includes("\\") || segments[key].includes("..")) {
               logger.debug("Unsupported segment value: %s", segments[key]);
-              return res.status(403).json({ error: "Unsupported segment value" });
+              validSegments = false;
             }
-          }
+          });
+          if (!validSegments) return res.status(403).json({ error: "Unsupported segment" });
           req.query.endpoint = formatApiCall(endpoint, segments);
         }
 
