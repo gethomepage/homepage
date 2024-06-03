@@ -47,7 +47,7 @@ export default async function handler(req, res) {
             if (!mapping.segments.includes(key)) {
               logger.debug("Unsupported segment: %s", key);
               return res.status(403).json({ error: "Unsupported segment" });
-            } else if (segments[key].includes("/")) {
+            } else if (segments[key].includes("/") || segments[key].includes("\\") || segments[key].includes("..")) {
               logger.debug("Unsupported segment value: %s", segments[key]);
               return res.status(403).json({ error: "Unsupported segment value" });
             }
