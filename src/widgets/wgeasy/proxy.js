@@ -21,6 +21,10 @@ async function login(widget, service) {
   });
 
   try {
+    const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
+    if (sid) {
+      return sid;
+    }
     const connectSidCookie = responseHeaders["set-cookie"]
       .find((cookie) => cookie.startsWith("connect.sid="))
       .split(";")[0]
@@ -28,7 +32,7 @@ async function login(widget, service) {
     cache.put(`${sessionSIDCacheKey}.${service}`, connectSidCookie);
     return connectSidCookie;
   } catch (e) {
-    logger.error(`Error logging into wg-easy`);
+    logger.error(`Error logging into wg-easy, error: ${e}`);
     cache.del(`${sessionSIDCacheKey}.${service}`);
     return null;
   }
