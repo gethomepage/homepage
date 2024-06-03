@@ -104,6 +104,7 @@ const components = {
   speedtest: dynamic(() => import("./speedtest/component")),
   stash: dynamic(() => import("./stash/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
+  swagdashboard: dynamic(() => import("./swagdashboard/component")),
   tailscale: dynamic(() => import("./tailscale/component")),
   tandoor: dynamic(() => import("./tandoor/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
@@ -118,6 +119,7 @@ const components = {
   uptimerobot: dynamic(() => import("./uptimerobot/component")),
   urbackup: dynamic(() => import("./urbackup/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
+  wgeasy: dynamic(() => import("./wgeasy/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
 };

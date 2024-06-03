@@ -26,7 +26,6 @@ import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/conf
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
-import { getStoredProvider, searchProviders } from "components/widgets/search/search";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -204,20 +203,6 @@ function Home({ initialSettings }) {
 
   const [searching, setSearching] = useState(false);
   const [searchString, setSearchString] = useState("");
-  let searchProvider = null;
-  const searchWidget = Object.values(widgets).find((w) => w.type === "search");
-  if (searchWidget) {
-    if (Array.isArray(searchWidget.options?.provider)) {
-      // if search provider is a list, try to retrieve from localstorage, fall back to the first
-      searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
-    } else if (searchWidget.options?.provider === "custom") {
-      searchProvider = searchWidget.options;
-    } else {
-      searchProvider = searchProviders[searchWidget.options?.provider];
-    }
-    // to pass to quicklaunch
-    searchProvider.showSearchSuggestions = searchWidget.options?.showSearchSuggestions;
-  }
   const headerStyle = settings?.headerStyle || "underlined";
 
   useEffect(() => {
@@ -227,7 +212,8 @@ function Home({ initialSettings }) {
           (e.key.length === 1 &&
             e.key.match(/(\w|\s|[à-ü]|[À-Ü]|[\w\u0430-\u044f])/gi) &&
             !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
-          e.key.match(/([à-ü]|[À-Ü])/g) || // accented characters may require modifier keys
+          // accented characters and the bang may require modifier keys
+          e.key.match(/([à-ü]|[À-Ü]|!)/g) ||
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
           setSearching(true);
@@ -403,7 +389,6 @@ function Home({ initialSettings }) {
           setSearchString={setSearchString}
           isOpen={searching}
           close={setSearching}
-          searchProvider={settings.quicklaunch?.hideInternetSearch ? null : searchProvider}
         />
         <div
           id="information-widgets"

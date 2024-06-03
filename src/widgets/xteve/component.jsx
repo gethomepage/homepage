@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: xteveData, error: xteveError } = useWidgetAPI(widget, "api");
+  const { data: xteveData, error: xteveError } = useWidgetAPI(widget);
 
   if (xteveError) {
     return <Container service={service} error={xteveError} />;

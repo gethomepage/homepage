@@ -17,7 +17,6 @@ export default function Component({ service }) {
   if (!stateData) {
     return (
       <Container service={service}>
-        ,
         <Block label="evcc.pv_power" />
         <Block label="evcc.grid_power" />
         <Block label="evcc.home_power" />

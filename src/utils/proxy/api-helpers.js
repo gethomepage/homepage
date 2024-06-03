@@ -8,22 +8,16 @@ export function formatApiCall(url, args) {
   return url.replace(/\/+$/, "").replace(find, replace).replace(find, replace);
 }
 
-function getURLSearchParams(widget, endpoint) {
+export function getURLSearchParams(widget, endpoint) {
   const params = new URLSearchParams({
     type: widget.type,
     group: widget.service_group,
     service: widget.service_name,
-    endpoint,
   });
-  return params;
-}
-
-export function formatProxyUrlWithSegments(widget, endpoint, segments) {
-  const params = getURLSearchParams(widget, endpoint);
-  if (segments) {
-    params.append("segments", JSON.stringify(segments));
+  if (endpoint) {
+    params.append("endpoint", endpoint);
   }
-  return `/api/services/proxy?${params.toString()}`;
+  return params;
 }
 
 export function formatProxyUrl(widget, endpoint, queryParams) {
