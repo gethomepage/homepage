@@ -234,7 +234,7 @@
     },
     "sonarr": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "series": "剧集",
         "queue": "队列",
         "unknown": "未知"
@@ -242,19 +242,19 @@
     "radarr": {
         "wanted": "关注中",
         "missing": "缺失",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "movies": "电影",
         "queue": "队列",
         "unknown": "未知"
     },
     "lidarr": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "artists": "艺术家"
     },
     "readarr": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "books": "书籍"
     },
     "bazarr": {
@@ -375,7 +375,7 @@
     },
     "medusa": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "series": "剧集"
     },
     "minecraft": {
