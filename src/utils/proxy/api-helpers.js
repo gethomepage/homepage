@@ -10,7 +10,6 @@ export function formatApiCall(url, args) {
 
 export function getURLSearchParams(widget, endpoint) {
   const params = new URLSearchParams({
-    type: widget.type,
     group: widget.service_group,
     service: widget.service_name,
   });

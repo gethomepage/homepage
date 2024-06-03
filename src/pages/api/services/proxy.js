@@ -3,12 +3,17 @@ import createLogger from "utils/logger";
 import genericProxyHandler from "utils/proxy/handlers/generic";
 import widgets from "widgets/widgets";
 import calendarProxyHandler from "widgets/calendar/proxy";
+import getServiceWidget from "utils/config/service-helpers";
 
 const logger = createLogger("servicesProxy");
 
 export default async function handler(req, res) {
   try {
-    const { type } = req.query;
+    const { service, group } = req.query;
+    const serviceWidget = await getServiceWidget(group, service);
+    let type = serviceWidget?.type;
+    // calendar is an alias for ical
+    if (type === "calendar") type = "ical";
     const widget = widgets[type];
 
     if (!widget) {
