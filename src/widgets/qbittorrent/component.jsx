@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents/info");
+  const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents");
 
   if (torrentError) {
     return <Container service={service} error={torrentError} />;

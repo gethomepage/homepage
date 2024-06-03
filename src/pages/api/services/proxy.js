@@ -18,6 +18,11 @@ export default async function handler(req, res) {
     const serviceProxyHandler = widget.proxyHandler || genericProxyHandler;
 
     if (serviceProxyHandler instanceof Function) {
+      // quick return for no endpoint services
+      if (!req.query.endpoint) {
+        return serviceProxyHandler(req, res);
+      }
+
       // map opaque endpoints to their actual endpoint
       if (widget?.mappings) {
         const mapping = widget?.mappings?.[req.query.endpoint];
@@ -38,6 +43,15 @@ export default async function handler(req, res) {
 
         if (req.query.segments) {
           const segments = JSON.parse(req.query.segments);
+          for (const key in segments) {
+            if (!mapping.segments.includes(key)) {
+              logger.debug("Unsupported segment: %s", key);
+              return res.status(403).json({ error: "Unsupported segment" });
+            } else if (segments[key].includes("/")) {
+              logger.debug("Unsupported segment value: %s", segments[key]);
+              return res.status(403).json({ error: "Unsupported segment value" });
+            }
+          }
           req.query.endpoint = formatApiCall(endpoint, segments);
         }
 
@@ -66,7 +80,14 @@ export default async function handler(req, res) {
         return serviceProxyHandler(req, res, map);
       }
 
-      return serviceProxyHandler(req, res);
+      if (widget.allowedEndpoints instanceof RegExp) {
+        if (widget.allowedEndpoints.test(req.query.endpoint)) {
+          return serviceProxyHandler(req, res);
+        }
+      }
+
+      logger.debug("Unmapped proxy request.");
+      return res.status(403).json({ error: "Unmapped proxy request." });
     }
 
     logger.debug("Unknown proxy service type: %s", type);
