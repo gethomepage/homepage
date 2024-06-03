@@ -21,11 +21,14 @@ async function login(widget, service) {
   });
 
   try {
-    const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
-    if (sid) {
-      return sid;
+    const connectSidCookie = responseHeaders["set-cookie"];
+    if (!connectSidCookie) {
+      const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
+      if (sid) {
+        return sid;
+      }
     }
-    const connectSidCookie = responseHeaders["set-cookie"]
+    connectSidCookie = connectSidCookie
       .find((cookie) => cookie.startsWith("connect.sid="))
       .split(";")[0]
       .replace("connect.sid=", "");
