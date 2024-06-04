@@ -21,7 +21,7 @@ async function login(widget, service) {
   });
 
   try {
-    const connectSidCookie = responseHeaders["set-cookie"];
+    let connectSidCookie = responseHeaders["set-cookie"];
     if (!connectSidCookie) {
       const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
       if (sid) {
