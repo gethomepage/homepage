@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: omadaData, error: omadaAPIError } = useWidgetAPI(widget, {
+  const { data: omadaData, error: omadaAPIError } = useWidgetAPI(widget, "info", {
     refreshInterval: 5000,
   });
 
