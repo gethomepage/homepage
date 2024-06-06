@@ -884,9 +884,9 @@
         "total": "Total"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Par proxy",
+        "auth": "Avec authentification",
+        "outdated": "Obsolète",
+        "banned": "Banni"
     }
 }
