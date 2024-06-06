@@ -130,6 +130,7 @@ nav:
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
           - widgets/services/stash.md
+          - widgets/services/stocks.md
           - widgets/services/swagdashboard.md
           - widgets/services/syncthing-relay-server.md
           - widgets/services/tailscale.md
@@ -160,6 +161,7 @@ nav:
           - widgets/info/openweathermap.md
           - widgets/info/resources.md
           - widgets/info/search.md
+          - widgets/info/stocks.md
           - widgets/info/unifi_controller.md
           - widgets/info/weather.md
   - "Learn":

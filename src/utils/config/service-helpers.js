@@ -457,6 +457,10 @@ export function cleanServiceGroups(groups) {
           // sonarr, radarr
           enableQueue,
 
+          // stocks
+          watchlist,
+          showUSMarketStatus,
+
           // truenas
           enablePools,
           nasType,
@@ -599,6 +603,10 @@ export function cleanServiceGroups(groups) {
           if (bitratePrecision !== undefined) {
             cleanedService.widget.bitratePrecision = parseInt(bitratePrecision, 10);
           }
+        }
+        if (type === "stocks") {
+          if (watchlist) cleanedService.widget.watchlist = watchlist;
+          if (showUSMarketStatus) cleanedService.widget.showUSMarketStatus = showUSMarketStatus;
         }
         if (type === "wgeasy") {
           if (threshold !== undefined) cleanedService.widget.threshold = parseInt(threshold, 10);
