@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { compareVersions, validate } from "compare-versions";
 import { MdNewReleases } from "react-icons/md";
 
-export default function Version() {
+export default function Version({ disableUpdateCheck = false }) {
   const { t, i18n } = useTranslation();
 
   const buildTime = process.env.NEXT_PUBLIC_BUILDTIME?.length
@@ -12,7 +12,7 @@ export default function Version() {
   const revision = process.env.NEXT_PUBLIC_REVISION?.length ? process.env.NEXT_PUBLIC_REVISION : "dev";
   const version = process.env.NEXT_PUBLIC_VERSION?.length ? process.env.NEXT_PUBLIC_VERSION : "dev";
 
-  const { data: releaseData } = useSWR("/api/releases");
+  const { data: releaseData } = useSWR(disableUpdateCheck ? null : "/api/releases");
 
   // use Intl.DateTimeFormat to format the date
   const formatDate = (date) => {
