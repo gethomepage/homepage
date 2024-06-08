@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "widget": {
-        "missing_type": "Chýba typ widgetu: {{tyFope}}",
+        "missing_type": "Chýba typ widgetu: {{type}}",
         "api_error": "Chyba API",
         "information": "Informácia",
         "status": "Stav",
