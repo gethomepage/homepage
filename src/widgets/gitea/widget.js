@@ -17,8 +17,8 @@ const widget = {
       }),
     },
     repos: {
-      endpoint: "repos/search"
-    }
+      endpoint: "repos/search",
+    },
   },
 };
 

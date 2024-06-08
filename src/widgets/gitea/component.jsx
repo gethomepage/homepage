@@ -4,16 +4,16 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { widget } = service;
-  
+
   const { data: giteaNotifications, error: giteaNotificationsError } = useWidgetAPI(widget, "notifications");
   const { data: giteaIssues, error: giteaIssuesError } = useWidgetAPI(widget, "issues");
   const { data: giteaRepos, error: giteaReposError } = useWidgetAPI(widget, "repos");
-  
-  if (giteaNotificationsError || giteaIssuesError || giteaReposError)  {
+
+  if (giteaNotificationsError || giteaIssuesError || giteaReposError) {
     return <Container service={service} error={giteaNotificationsError ?? giteaIssuesError ?? giteaReposError} />;
   }
 
-  if (!giteaNotifications || !giteaIssues || !giteaRepos ) {
+  if (!giteaNotifications || !giteaIssues || !giteaRepos) {
     return (
       <Container service={service}>
         <Block label="gitea.notifications" />
