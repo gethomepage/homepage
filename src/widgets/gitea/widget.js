@@ -16,6 +16,9 @@ const widget = {
         issues: asJson(data).filter((issue) => !issue.pull_request),
       }),
     },
+    repos: {
+      endpoint: "repos/search"
+    }
   },
 };
 

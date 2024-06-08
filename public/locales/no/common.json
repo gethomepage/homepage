@@ -840,9 +840,10 @@
         "species": "Arter"
     },
     "gitea": {
-        "notifications": "Varslinger",
+        "repos": "Repositories",
+        "notifications": "Notifications",
         "issues": "Issues",
-        "pulls": "Forespørsel"
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "Scener",

@@ -4,26 +4,29 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { widget } = service;
-
+  
   const { data: giteaNotifications, error: giteaNotificationsError } = useWidgetAPI(widget, "notifications");
   const { data: giteaIssues, error: giteaIssuesError } = useWidgetAPI(widget, "issues");
-
-  if (giteaNotificationsError || giteaIssuesError) {
-    return <Container service={service} error={giteaNotificationsError ?? giteaIssuesError} />;
+  const { data: giteaRepos, error: giteaReposError } = useWidgetAPI(widget, "repos");
+  
+  if (giteaNotificationsError || giteaIssuesError || giteaReposError)  {
+    return <Container service={service} error={giteaNotificationsError ?? giteaIssuesError ?? giteaReposError} />;
   }
 
-  if (!giteaNotifications || !giteaIssues) {
+  if (!giteaNotifications || !giteaIssues || !giteaRepos ) {
     return (
       <Container service={service}>
         <Block label="gitea.notifications" />
         <Block label="gitea.issues" />
         <Block label="gitea.pulls" />
+        <Block label="gitea.repos" />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
+      <Block label="gitea.repos" value={giteaRepos.data.length} />
       <Block label="gitea.notifications" value={giteaNotifications.length} />
       <Block label="gitea.issues" value={giteaIssues.issues.length} />
       <Block label="gitea.pulls" value={giteaIssues.pulls.length} />

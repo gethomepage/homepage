@@ -840,9 +840,10 @@
         "species": "Виды"
     },
     "gitea": {
-        "notifications": "Уведомления",
-        "issues": "Вопросы",
-        "pulls": "Запросы на слияние (Pull Request)"
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "Сцены",

@@ -840,9 +840,10 @@
         "species": "物种"
     },
     "gitea": {
-        "notifications": "通知",
-        "issues": "出版",
-        "pulls": "PR"
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "场景",

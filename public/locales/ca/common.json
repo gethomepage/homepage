@@ -840,9 +840,10 @@
         "species": "Espècies"
     },
     "gitea": {
-        "notifications": "Notificacions",
-        "issues": "Problemes",
-        "pulls": "Sol·licitud de Canvis"
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "Escenes",

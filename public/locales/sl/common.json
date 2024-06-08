@@ -840,9 +840,10 @@
         "species": "Vrste"
     },
     "gitea": {
-        "notifications": "Obvestila",
-        "issues": "Težave",
-        "pulls": "Zahteve za prenos"
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "Scene",

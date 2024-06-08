@@ -840,9 +840,10 @@
         "species": "Fajok"
     },
     "gitea": {
-        "notifications": "Üzenetek",
-        "issues": "Problémák",
-        "pulls": "Pull request-ek"
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "Jelenetek",

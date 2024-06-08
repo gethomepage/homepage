@@ -840,9 +840,10 @@
         "species": "Spesies"
     },
     "gitea": {
-        "notifications": "Kennisgewings",
-        "issues": "Kwessies",
-        "pulls": "Trek Versoeke"
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "Tonele",

@@ -840,9 +840,10 @@
         "species": "Druhy"
     },
     "gitea": {
-        "notifications": "Oznámenia",
-        "issues": "Problémy",
-        "pulls": "Pull requesty"
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
+        "pulls": "Pull Requests"
     },
     "stash": {
         "scenes": "Scény",

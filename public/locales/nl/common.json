@@ -840,8 +840,9 @@
         "species": "Soorten"
     },
     "gitea": {
-        "notifications": "Notificaties",
-        "issues": "Problemen",
+        "repos": "Repositories",
+        "notifications": "Notifications",
+        "issues": "Issues",
         "pulls": "Pull Requests"
     },
     "stash": {
