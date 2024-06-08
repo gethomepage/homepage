@@ -840,6 +840,7 @@
         "species": "種"
     },
     "gitea": {
+        "repos": "リポジトリ",
         "notifications": "通知",
         "issues": "課題",
         "pulls": "プルリクエスト"

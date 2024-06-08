@@ -840,6 +840,7 @@
         "species": "Виды"
     },
     "gitea": {
+        "repos": "Репозитории",
         "notifications": "Уведомления",
         "issues": "Вопросы",
         "pulls": "Запросы на слияние (Pull Request)"

@@ -840,6 +840,7 @@
         "species": "Arter"
     },
     "gitea": {
+        "repos": "Repositories",
         "notifications": "Varslinger",
         "issues": "Issues",
         "pulls": "Forespørsel"

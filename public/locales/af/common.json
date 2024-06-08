@@ -840,6 +840,7 @@
         "species": "Spesies"
     },
     "gitea": {
+        "repos": "Bewaarplekke",
         "notifications": "Kennisgewings",
         "issues": "Kwessies",
         "pulls": "Trek Versoeke"

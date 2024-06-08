@@ -840,6 +840,7 @@
         "species": "Gatunki"
     },
     "gitea": {
+        "repos": "Repozytoria",
         "notifications": "Powiadomienia",
         "issues": "Zgłoszenia",
         "pulls": "Żądania Pull"

@@ -840,6 +840,7 @@
         "species": "Especies"
     },
     "gitea": {
+        "repos": "Repositorios",
         "notifications": "Notificaciones",
         "issues": "Números",
         "pulls": "Solicitudes de cambios"

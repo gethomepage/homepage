@@ -840,6 +840,7 @@
         "species": "Vrste"
     },
     "gitea": {
+        "repos": "Spremišta",
         "notifications": "Obavijesti",
         "issues": "Problemi",
         "pulls": "Zahtjevi za povlačenje"

@@ -840,6 +840,7 @@
         "species": "Espèces"
     },
     "gitea": {
+        "repos": "Dépôts",
         "notifications": "Notifications",
         "issues": "Anomalies",
         "pulls": "Demandes de tirage"

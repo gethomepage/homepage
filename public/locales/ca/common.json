@@ -840,6 +840,7 @@
         "species": "Espècies"
     },
     "gitea": {
+        "repos": "Repositorios",
         "notifications": "Notificacions",
         "issues": "Problemes",
         "pulls": "Sol·licitud de Canvis"

@@ -840,6 +840,7 @@
         "species": "Fajok"
     },
     "gitea": {
+        "repos": "Lerakatok",
         "notifications": "Üzenetek",
         "issues": "Problémák",
         "pulls": "Pull request-ek"

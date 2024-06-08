@@ -840,6 +840,7 @@
         "species": "物種"
     },
     "gitea": {
+        "repos": "儲存庫",
         "notifications": "信息",
         "issues": "出版",
         "pulls": "提取請求"

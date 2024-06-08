@@ -840,6 +840,7 @@
         "species": "Species"
     },
     "gitea": {
+        "repos": "Kho lưu trữ",
         "notifications": "Notifications",
         "issues": "Issues",
         "pulls": "Pull Requests"

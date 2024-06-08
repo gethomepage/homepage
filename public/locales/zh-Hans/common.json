@@ -840,6 +840,7 @@
         "species": "物种"
     },
     "gitea": {
+        "gitea": "存储库",
         "notifications": "通知",
         "issues": "出版",
         "pulls": "PR"

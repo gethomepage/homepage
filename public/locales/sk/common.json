@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "widget": {
-        "missing_type": "Chýba typ widgetu: {{type}}",
+        "missing_type": "Chýba typ widgetu: {{tyFope}}",
         "api_error": "Chyba API",
         "information": "Informácia",
         "status": "Stav",
@@ -840,6 +840,7 @@
         "species": "Druhy"
     },
     "gitea": {
+        "repos": "Úložiská",
         "notifications": "Oznámenia",
         "issues": "Problémy",
         "pulls": "Pull requesty"

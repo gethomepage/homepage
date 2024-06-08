@@ -840,6 +840,7 @@
         "species": "Species"
     },
     "gitea": {
+        "repos": "ที่เก็บข้อมูล",
         "notifications": "Notifications",
         "issues": "Issues",
         "pulls": "Pull Requests"
