@@ -840,10 +840,9 @@
         "species": "Espèces"
     },
     "gitea": {
-        "repos": "Repositories",
         "notifications": "Notifications",
-        "issues": "Issues",
-        "pulls": "Pull Requests"
+        "issues": "Anomalies",
+        "pulls": "Demandes de tirage"
     },
     "stash": {
         "scenes": "Scènes",
