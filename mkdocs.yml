@@ -258,7 +258,12 @@ plugins:
       plugins:
         - optimize
         - typeset
-        - social
+        - social:
+            cards_layout: default/variant
+            cards_layout_options:
+              background_image: docs/assets/BlossomValley.jpg
+              background_color: "rgba(13, 29, 41, 128)"
+              color: "#ffffff"
   - tags
   - search:
       pipeline:
