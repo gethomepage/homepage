@@ -66,6 +66,10 @@ Homepage is highly customizable, with support for custom themes, custom CSS & JS
 
 For configuration options, examples and more, [please check out the homepage documentation](http://gethomepage.dev).
 
+## Security Notice 🔒
+
+Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. Thus, we recommend homepage be deployed behind a reverse proxy including authentication, SSL etc, and / or behind a VPN.
+
 ## With Docker
 
 Using docker compose:

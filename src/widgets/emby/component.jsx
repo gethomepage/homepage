@@ -225,7 +225,9 @@ export default function Component({ service }) {
       }),
     );
     const url = `/api/services/proxy?${params.toString()}`;
-    await fetch(url).then(() => {
+    await fetch(url, {
+      method: "POST",
+    }).then(() => {
       sessionMutate();
     });
   }

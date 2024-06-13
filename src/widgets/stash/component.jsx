@@ -1,18 +1,26 @@
 import { useTranslation } from "next-i18next";
+import { useEffect, useState } from "react";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import useWidgetAPI from "utils/proxy/use-widget-api";
+import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const { data: stats, error: stashError } = useWidgetAPI(widget, "stats");
+  const [stats, setStats] = useState(null);
 
-  if (stashError) {
-    return <Container service={service} error={stashError} />;
-  }
+  useEffect(() => {
+    async function fetchStats() {
+      const url = formatProxyUrl(widget, "stats");
+      const res = await fetch(url, { method: "POST" });
+      setStats(await res.json());
+    }
+    if (!stats) {
+      fetchStats();
+    }
+  }, [widget, stats]);
 
   if (!stats) {
     return (
