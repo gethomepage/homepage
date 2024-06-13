@@ -61,5 +61,42 @@ This hook is used to fetch data from the API. We cover this hook in more detail 
 
 #### Components
 
-- `<Container>`: This component is a wrapper for the widget. It provides a consistent layout for all widgets.
-- `<Block>`: This component is used to display a key-value pair. It takes a label and value as props.
+Homepage provides a set of components to help you build your widget UI. These components are designed to provide a consistent layout, and all widgets are expected to use these components.
+
+![Component Sections](/assets/sections.png)
+
+**`<Container>`**
+
+This component is a wrapper for the widget. It provides a consistent layout for all widgets.
+
+```js
+<Container service={service}></Container>
+```
+
+`service` is a prop that is passed to the widget component. It contains information about the service that the widget is displaying.
+
+If there is an error fetching data from the API, the `error` prop can be passed to the `Container` component.
+
+```js
+<Container service={service} error={error}></Container>
+```
+
+**`<Block>`**
+
+This component is used to display a key-value pair. It takes a label and value as props.
+
+```js
+<Block label="yourwidget.key1" value={t("common.number", { value: data.key1 })} />
+```
+
+The `label` prop is used to look up the translation key in the translation files. The `value` prop is used to display the value of the block. To learn more about translations, please refer to the [Translations Guide](translations.md).
+
+If there is no data available, the `Block` component can be used to display a placeholder layout.
+
+```js
+<Container service={service}>
+  <Block label="yourwidget.key1" />
+  <Block label="yourwidget.key2" />
+  <Block label="yourwidget.key3" />
+</Container>
+```
