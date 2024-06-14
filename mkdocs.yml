@@ -260,7 +260,6 @@ plugins:
   - group:
       enabled: !ENV MKINSIDERS
       plugins:
-        - optimize
         - typeset
         - social:
             cards_layout_dir: docs/layouts
