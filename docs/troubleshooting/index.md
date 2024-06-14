@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 description: Basic Troubleshooting
-
+icon: material/message-question
 hide:
   - navigation
 ---

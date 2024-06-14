@@ -1,6 +1,6 @@
 ---
 title: Metadata Guide
-description: How to create and configure Homepage widget metadata.
+description: Explore all the metadata properties that can be used to configure a widget in Homepage.
 ---
 
 Here, we will go over how to create and configure Homepage widget metadata. Metadata is a JS object that contains information about the widget, such as the API endpoint, proxy handler, and mappings. This metadata is used by Homepage to fetch data from the API and pass it to the widget.

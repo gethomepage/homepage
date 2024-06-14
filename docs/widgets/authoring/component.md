@@ -1,6 +1,6 @@
 ---
 title: Component Guide
-description: How to create and configure Homepage widget components.
+description: Learn more about the widget component in Homepage, and how to build your widget UI.
 ---
 
 Homepage widgets are built using React components. These components are responsible for fetching data from the API and rendering the widget UI. Homepage provides a set of hooks and utilities to help you build your widget component.

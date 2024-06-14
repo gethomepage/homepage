@@ -1,6 +1,6 @@
 ---
 title: API Guide
-description: How to fetch data from an API in Homepage widgets.
+description: Get comfortable with making API calls from inside your widget.
 ---
 
 Homepage provides the `useWidgetAPI` hook to help you fetch data from an API. This hook insures that the data is fetched using a proxy, and is critical for security.
@@ -29,7 +29,7 @@ The `widget` argument is the metadata object for the widget. It contains informa
 
 ### `endpoint`
 
-The `endpoint` argument is the name of the endpoint to fetch data from. This is [defined in the widget metadata object](widget.md#endpoint). The `useWidgetAPI` hook uses this argument to determine which endpoint to fetch data from.
+The `endpoint` argument is the name of the endpoint to fetch data from. This is [defined in the widget metadata object](metadata.md#endpoint). The `useWidgetAPI` hook uses this argument to determine which endpoint to fetch data from.
 
 If no endpoint is provided, the `useWidgetAPI` hook will call the API endpoint defined in the widget metadata object directly.
 
@@ -47,4 +47,4 @@ export default function Component({ service }) {
 }
 ```
 
-The `params` must be [whitelisted in the widget metadata object](widget.md#params). This is done to prevent arbitrary query parameters from being passed to the API.
+The `params` must be [whitelisted in the widget metadata object](metadata.md#params). This is done to prevent arbitrary query parameters from being passed to the API.

@@ -1,6 +1,6 @@
 ---
 title: Proxies Guide
-description: How to use and create Homepage widget proxies.
+description: Learn about proxy handlers in Homepage, and how to securely fetch data from an API.
 ---
 
 Homepage includes a set of built-in proxy handlers that can be used to fetch data from an API. We will go over how to use these proxy handlers and briefly cover how to create your own.

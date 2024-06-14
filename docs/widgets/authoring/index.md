@@ -1,13 +1,14 @@
 ---
-title: Homepage Widget Guides
-description: How to create and configure Homepage widgets.
+title: Guides & Tutorials
+description: Learn how to create and customize widgets in Homepage. Explore translations, widget components, widget metadata, proxy handlers, and making API calls.
+icon: fontawesome/solid/graduation-cap
 ---
 
 Widgets are a core component of Homepage. They are used to display information about your system, services, and environment.
 
 ## Overview
 
-If you are new to Homepage widgets, and are looking to create a new widget, please follow along with the guide here: [Widget Guide](guide.md).
+If you are new to Homepage widgets, and are looking to create a new widget, please follow along with the guide here: [Widget Tutorial](tutorial.md).
 
 ### Translations
 
@@ -27,7 +28,7 @@ If you are looking to learn more about widget components, please refer to the gu
 
 Widget metadata defines the configuration of the widget. It defines the API endpoint to fetch data from, the proxy handler to use, and any data mappings.
 
-If you are looking to learn more about widget metadata, endpoint and data mapping, please refer to the guide here: [Metadata Guide](widget.md).
+If you are looking to learn more about widget metadata, endpoint and data mapping, please refer to the guide here: [Metadata Guide](metadata.md).
 
 If you are looking to learn more about proxy handlers, please refer to the guide here: [Proxies Guide](proxies.md).
 

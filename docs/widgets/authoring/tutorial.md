@@ -1,6 +1,6 @@
 ---
-title: Widget Guide
-description: How to create a custom widget for Homepage.
+title: Widget Tutorial
+description: Follow along with this guide to learn how to create a custom widget for Homepage. We'll cover the basic structure of a widget, how to use translations, and how to fetch data from an API.
 ---
 
 In this guide, we'll walk through the process of creating a custom widget for Homepage. We'll cover the basic structure of a widget, how to use translations, and how to fetch data from an API. By the end of this guide, you'll have a solid understanding of how to build your own custom widget.

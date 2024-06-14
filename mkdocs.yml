@@ -1,4 +1,4 @@
-site_name: homepage
+site_name: Homepage
 
 # Project information
 site_url: https://gethomepage.dev/
@@ -144,6 +144,7 @@ nav:
           - widgets/services/uptimerobot.md
           - widgets/services/urbackup.md
           - widgets/services/watchtower.md
+          - widgets/services/wgeasy.md
           - widgets/services/whatsupdocker.md
           - widgets/services/xteve.md
       - "Information Widgets":
@@ -160,15 +161,18 @@ nav:
           - widgets/info/search.md
           - widgets/info/unifi_controller.md
           - widgets/info/weather.md
-  - "Guides":
+  - "Learn":
       - widgets/authoring/index.md
-      - widgets/authoring/guide.md
-      - widgets/authoring/component.md
-      - widgets/authoring/widget.md
-      - widgets/authoring/proxies.md
-      - widgets/authoring/api.md
-      - widgets/authoring/translations.md
-  - more/troubleshooting.md
+      - "Tutorials":
+          - widgets/authoring/tutorial.md
+      - "Guides":
+          - widgets/authoring/component.md
+          - widgets/authoring/metadata.md
+          - widgets/authoring/proxies.md
+          - widgets/authoring/api.md
+          - widgets/authoring/translations.md
+  - "Troubleshooting":
+      - troubleshooting/index.md
   - "More":
       - more/index.md
       - more/development.md
@@ -259,7 +263,8 @@ plugins:
         - optimize
         - typeset
         - social:
-            cards_layout: default/variant
+            cards_layout_dir: docs/layouts
+            cards_layout: custom
             cards_layout_options:
               background_image: docs/assets/BlossomValley.jpg
               background_color: "rgba(13, 29, 41, 128)"
@@ -270,3 +275,6 @@ plugins:
         - stemmer
         - stopWordFilter
         - trimmer
+  - redirects:
+      redirect_maps:
+        "more/troubleshooting.md": "troubleshooting/index.md"

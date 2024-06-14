@@ -1,6 +1,7 @@
 ---
 title: Installation
 description: Docs intro
+icon: simple/docker
 ---
 
 <p>
