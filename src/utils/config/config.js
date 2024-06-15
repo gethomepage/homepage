@@ -59,7 +59,10 @@ export function substituteEnvironmentVars(str) {
     const cachedVars = getCachedEnvironmentVars();
     cachedVars.forEach(([key, value]) => {
       if (key.startsWith(homepageVarPrefix)) {
-        result = result.replaceAll(`{{${key}}}`, value);
+        // Remove whitespace and quotes on edges of the string
+        // Leave quotes in the middle of the string in
+        const sanitizedValue = value.replace(/^[\s"']+|[\s"']+$/g, '');
+        result = result.replaceAll(`{{${key}}}`, sanitizedValue);
       } else if (key.startsWith(homepageFilePrefix)) {
         const filename = value;
         const fileContents = readFileSync(filename, "utf8");
