@@ -77,7 +77,7 @@ async function fetchSystem(url) {
   const systemResponse = JSON.parse(data.toString())[1];
   const response = {
     uptime: systemResponse.uptime,
-    cpuLoad: systemResponse.load[1],
+    cpuLoad: (systemResponse.load[1] / 65536.0).toFixed(2),
   };
   return [200, contentType, response];
 }

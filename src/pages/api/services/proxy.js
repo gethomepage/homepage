@@ -2,12 +2,21 @@ import { formatApiCall } from "utils/proxy/api-helpers";
 import createLogger from "utils/logger";
 import genericProxyHandler from "utils/proxy/handlers/generic";
 import widgets from "widgets/widgets";
+import calendarProxyHandler from "widgets/calendar/proxy";
+import getServiceWidget from "utils/config/service-helpers";
 
 const logger = createLogger("servicesProxy");
 
 export default async function handler(req, res) {
   try {
-    const { type } = req.query;
+    const { service, group } = req.query;
+    const serviceWidget = await getServiceWidget(group, service);
+    let type = serviceWidget?.type;
+
+    // exceptions
+    if (type === "calendar") type = "ical";
+    else if (service === "unifi_console" && group === "unifi_console") type = "unifi_console";
+
     const widget = widgets[type];
 
     if (!widget) {
@@ -18,8 +27,8 @@ export default async function handler(req, res) {
     const serviceProxyHandler = widget.proxyHandler || genericProxyHandler;
 
     if (serviceProxyHandler instanceof Function) {
-      // quick return for no endpoint services
-      if (!req.query.endpoint) {
+      // quick return for no endpoint services, calendar is an exception
+      if (!req.query.endpoint || serviceProxyHandler === calendarProxyHandler) {
         return serviceProxyHandler(req, res);
       }
 
@@ -32,6 +41,11 @@ export default async function handler(req, res) {
         const endpoint = mapping?.endpoint;
         const endpointProxy = mapping?.proxyHandler || serviceProxyHandler;
 
+        if (mapping.method && mapping.method !== req.method) {
+          logger.debug("Unsupported method: %s", req.method);
+          return res.status(403).json({ error: "Unsupported method" });
+        }
+
         if (!endpoint) {
           logger.debug("Unsupported service endpoint: %s", type);
           return res.status(403).json({ error: "Unsupported service endpoint" });
@@ -43,15 +57,17 @@ export default async function handler(req, res) {
 
         if (req.query.segments) {
           const segments = JSON.parse(req.query.segments);
-          for (const key in segments) {
+          let validSegments = true;
+          Object.keys(segments).forEach((key) => {
             if (!mapping.segments.includes(key)) {
               logger.debug("Unsupported segment: %s", key);
-              return res.status(403).json({ error: "Unsupported segment" });
-            } else if (segments[key].includes("/")) {
+              validSegments = false;
+            } else if (segments[key].includes("/") || segments[key].includes("\\") || segments[key].includes("..")) {
               logger.debug("Unsupported segment value: %s", segments[key]);
-              return res.status(403).json({ error: "Unsupported segment value" });
+              validSegments = false;
             }
-          }
+          });
+          if (!validSegments) return res.status(403).json({ error: "Unsupported segment" });
           req.query.endpoint = formatApiCall(endpoint, segments);
         }
 

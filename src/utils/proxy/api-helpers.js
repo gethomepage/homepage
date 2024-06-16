@@ -10,7 +10,6 @@ export function formatApiCall(url, args) {
 
 export function getURLSearchParams(widget, endpoint) {
   const params = new URLSearchParams({
-    type: widget.type,
     group: widget.service_group,
     service: widget.service_name,
   });
@@ -53,6 +52,7 @@ export function sanitizeErrorURL(errorURL) {
   const url = new URL(errorURL);
   ["apikey", "api_key", "token", "t", "access_token", "auth"].forEach((key) => {
     if (url.searchParams.has(key)) url.searchParams.set(key, "***");
+    if (url.hash.includes(key)) url.hash = url.hash.replace(new RegExp(`${key}=[^&]+`), `${key}=***`);
   });
   return url.toString();
 }

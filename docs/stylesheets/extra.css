@@ -1,36 +1,44 @@
 [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
-    position: absolute;
-    top: .3rem;
-    right: .3rem;
-    display: block;
-    padding: .1rem .4rem;
-    color: var(--md-default-fg-color--lighter);
-    font-weight: bold;
-    font-size: .8rem;
-    border: .05rem solid var(--md-default-fg-color--lighter);
-    border-radius: .1rem;
-    content: "/";
-  }
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  display: block;
+  padding: 0.1rem 0.4rem;
+  color: var(--md-default-fg-color--lighter);
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 0.05rem solid var(--md-default-fg-color--lighter);
+  border-radius: 0.1rem;
+  content: "/";
+}
 
 [data-md-color-scheme="default"][data-md-color-primary="black"] {
-    [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
-        color: var(--md-default-bg-color--lighter);
-        border-color: var(--md-default-bg-color--lighter);
-    }
+  [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
+    color: var(--md-default-bg-color--lighter);
+    border-color: var(--md-default-bg-color--lighter);
+  }
 }
 
 #glimeRoot * {
-    font-family: var(--md-text-font) !important;
+  font-family: var(--md-text-font) !important;
 }
 
 #carbonads {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 #carbon-responsive {
-    --carbon-padding: 1em;
-    --carbon-max-char: 20ch;
-    --carbon-bg-primary: var(--md-default-bg-color) !important;
-    --carbon-bg-secondary: var(--md-default-fg-color--lightest) !important;
-    --carbon-text-color: var(--md-typeset-color) !important;
+  --carbon-padding: 1em;
+  --carbon-max-char: 20ch;
+  --carbon-bg-primary: var(--md-default-bg-color) !important;
+  --carbon-bg-secondary: var(--md-default-fg-color--lightest) !important;
+  --carbon-text-color: var(--md-typeset-color) !important;
+}
+
+.md-typeset__table {
+  width: 100%;
+}
+
+.md-typeset table:not([class]) {
+  display: table;
 }

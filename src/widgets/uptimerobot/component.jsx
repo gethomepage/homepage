@@ -1,18 +1,26 @@
 import { useTranslation } from "next-i18next";
+import { useEffect, useState } from "react";
 
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
-import useWidgetAPI from "utils/proxy/use-widget-api";
+import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
   const { widget } = service;
   const { t } = useTranslation();
 
-  const { data: uptimerobotData, error: uptimerobotError } = useWidgetAPI(widget, "getmonitors");
+  const [uptimerobotData, setUptimerobotData] = useState(null);
 
-  if (uptimerobotError) {
-    return <Container service={service} error={uptimerobotError} />;
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const url = formatProxyUrl(widget, "getmonitors");
+      const res = await fetch(url, { method: "POST" });
+      setUptimerobotData(await res.json());
+    }
+    if (!uptimerobotData) {
+      fetchData();
+    }
+  }, [widget, uptimerobotData]);
 
   if (!uptimerobotData) {
     return (

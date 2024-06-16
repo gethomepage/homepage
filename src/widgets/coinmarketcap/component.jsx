@@ -65,7 +65,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <div className={classNames(service.description ? "-top-10" : "-top-8", "absolute right-1")}>
+      <div className={classNames(service.description ? "-top-10" : "-top-8", "absolute right-1 z-20")}>
         <Dropdown options={dateRangeOptions} value={dateRange} setValue={setDateRange} />
       </div>
 
