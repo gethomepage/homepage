@@ -55,3 +55,11 @@ These companies help the Homepage project by providing services, tools, and reso
     </p>
   </div>
 </div>
+
+<style>
+.md-typeset img,
+.md-typeset svg,
+.md-typeset video {
+  box-shadow: none;
+}
+</style>
