@@ -1,3 +1,17 @@
+[data-md-color-scheme="slate"] {
+  --md-hue: 220;
+  --md-default-bg-color: hsla(0, 0%, 14%, 0.6);
+  --md-code-bg-color: hsla(0, 0%, 0%, 0.2);
+}
+
+[data-md-color-scheme="default"] {
+  --md-hue: 220;
+  --md-default-fg-color--light: white;
+  --md-default-fg-color--lighter: hsla(0, 0%, 100%, 0.6);
+  --md-default-bg-color: hsla(0, 0%, 100%, 0.8);
+  --md-code-bg-color: hsla(0, 0%, 100%, 0.8);
+}
+
 [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
   position: absolute;
   top: 0.3rem;
@@ -41,4 +55,154 @@
 
 .md-typeset table:not([class]) {
   display: table;
+}
+
+/* less than 1440px wide */
+@media (max-width: 1440px) {
+  .md-footer-meta__inner {
+    justify-content: center;
+  }
+}
+
+/* less than 740px wide */
+@media (max-width: 740px) {
+  .md-footer-meta__inner {
+    justify-content: left;
+    flex-direction: column;
+  }
+  .md-social {
+    padding-top: 0;
+  }
+}
+
+.md-header__button.md-logo {
+  padding: 0;
+  margin: 0;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+}
+
+.md-header__topic {
+  display: none;
+}
+
+body {
+  background-image: url("/assets/blossom_valley.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: transparent;
+  color: #fff;
+}
+
+.blur-overlay {
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0);
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(64px);
+}
+
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link,
+.md-nav--secondary .md-nav__title {
+  background: none;
+  box-shadow: none;
+}
+
+[data-md-color-scheme="slate"] .md-main,
+[data-md-color-scheme="slate"] .md-tabs,
+[data-md-color-scheme="slate"] .md-footer {
+  background-color: hsla(0, 0%, 0%, 0.3);
+}
+
+[data-md-color-scheme="default"] .md-main,
+[data-md-color-scheme="default"] .md-tabs,
+[data-md-color-scheme="default"] .md-footer {
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: hsla(0, 0%, 0%, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+[data-md-color-scheme="default"] .md-header {
+  background-color: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.md-footer-meta {
+  background-color: transparent;
+}
+
+[data-md-color-scheme="slate"][data-md-color-primary="black"],
+[data-md-color-scheme="default"][data-md-color-primary="black"] {
+  --md-typeset-a-color: #ffffff;
+}
+
+.md-content__inner a {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+[data-md-color-scheme="default"] .highlight .p,
+[data-md-color-scheme="default"] .highlight .o,
+[data-md-color-scheme="default"] .highlight .ow,
+[data-md-color-scheme="default"] .highlight .c,
+[data-md-color-scheme="default"] .highlight .c1,
+[data-md-color-scheme="default"] .highlight .ch,
+[data-md-color-scheme="default"] .highlight .cm,
+[data-md-color-scheme="default"] .highlight .cs,
+[data-md-color-scheme="default"] .highlight .sd {
+  color: #36464eaa;
+}
+
+[data-md-color-scheme="default"] .md-annotation__index:after {
+  background-color: #36464ecc;
+}
+
+/* I know this is a farce, but I want it to look nice. */
+.css-9if7bc {
+  background-color: hsla(0, 0%, 0%, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary,
+  .md-nav--primary .md-nav {
+    background-color: hsla(0, 0%, 0%, 0.8);
+  }
+}
+
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title ~ .md-nav__list {
+    background-color: hsla(0, 0%, 0%, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title {
+    background-color: hsla(0, 0%, 0%, 0.8);
+    backdrop-filter: blur(16px);
+  }
+}
+
+.md-search__scrollwrap {
+  background-color: hsla(0, 0%, 0%, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.md-search-result .md-typeset h1 {
+  color: #fff;
 }

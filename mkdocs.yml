@@ -177,6 +177,7 @@ nav:
       - more/index.md
       - more/development.md
       - more/translations.md
+      - more/coverage.md
       - more/homepage-move.md
 
 theme:
@@ -202,7 +203,8 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-  logo: assets/light_squircle@2x.png
+  logo: assets/banner_light@2x.png
+
   favicon: assets/favicon.ico
   features:
     - navigation.instant
@@ -228,10 +230,12 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/k4ruYNrudu
-    - icon: fontawesome/regular/message
-      link: https://github.com/gethomepage/homepage/discussions
     - icon: fontawesome/brands/github
       link: https://github.com/gethomepage/homepage
+    - icon: simple/opencollective
+      link: https://opencollective.com/homepage
+    - icon: simple/patreon
+      link: https://www.patreon.com/gethomepage
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -262,12 +266,12 @@ plugins:
       plugins:
         - typeset
         - social:
-            cards_layout_dir: docs/layouts
-            cards_layout: custom
+            cards_layout: default
             cards_layout_options:
-              background_image: docs/assets/BlossomValley.jpg
+              background_image: docs/assets/blossom_valley_blur.jpg
               background_color: "rgba(13, 29, 41, 128)"
               color: "#ffffff"
+              logo: docs/assets/light_squircle@2x.png
   - tags
   - search:
       pipeline:

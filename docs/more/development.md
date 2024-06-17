@@ -3,8 +3,6 @@ title: Development
 description: Homepage Development
 ---
 
-## Development Overview
-
 First, clone the homepage repository.
 
 For installing NPM packages, this project uses [pnpm](https://pnpm.io/) (and so should you!):
