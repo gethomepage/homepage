@@ -606,9 +606,11 @@
     "moviebot": {
       "subscribe": "SUB",
       "sites": "SITE",
+      "errorSites": "{{errorSites}} ERROR",
+      "normalSites": "{{normalSites}} AVAILABLE",
       "todayUp": "UPLOADED",
       "todayDl": "DOWNLOAD"
-  },
+    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

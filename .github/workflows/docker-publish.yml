@@ -10,7 +10,7 @@ on:
     - cron: '20 0 * * *'
   push:
     branches:
-      - dev
+      - main
       - feature/**
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
@@ -50,8 +50,8 @@ jobs:
 
   build:
     name: Docker Build & Push
-    # if:  github.repository == 'gethomepage/homepage'
-    runs-on: ubuntu-22.04
+    if:  github.repository == 'gethomepage/homepage'
+    runs-on: self-hosted
     needs:
       - pre-commit
     permissions:
@@ -128,7 +128,7 @@ jobs:
             REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
           # https://github.com/docker/setup-qemu-action#about
           # platforms: linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 

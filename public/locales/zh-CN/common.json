@@ -464,6 +464,8 @@
     "moviebot": {
         "subscribe": "订阅中",
         "sites": "站点",
+        "errorSites": "异常 {{errorSites}} 个",
+        "normalSites": "可用 {{normalSites}} 个",
         "todayUp": "今日上传",
         "todayDl": "今日下载"
     },

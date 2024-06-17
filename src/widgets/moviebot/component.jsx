@@ -1,8 +1,11 @@
+import { useTranslation } from "next-i18next";
+
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
+  const { t } = useTranslation();
   const { widget } = service;
 
   const { data: listTVResult } = useWidgetAPI(widget, "SubscribeList", {
@@ -34,7 +37,10 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="moviebot.subscribe" value={subingTVList.length + subingMovieList.length} />
-      <Block label="moviebot.sites" value={errorSites ? `异常 ${errorSites} 个` : `可用 ${normalSites} 个`} />
+      <Block
+        label="moviebot.sites"
+        value={errorSites ? t("moviebot.errorSites", { errorSites }) : t("moviebot.normalSites", { normalSites })}
+      />
 
       <Block
         label="moviebot.todayUp"
