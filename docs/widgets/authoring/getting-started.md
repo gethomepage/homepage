@@ -1,7 +1,11 @@
 ---
-title: Development
-description: Homepage Development
+title: Getting Started
+description: Get started developing for Homepage.
 ---
+
+We'll cover getting homepage up and running on your local machine for development, as well as some guidelines for developing new features and widgets.
+
+## Development
 
 First, clone the homepage repository.
 

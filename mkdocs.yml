@@ -163,6 +163,7 @@ nav:
           - widgets/info/weather.md
   - "Learn":
       - widgets/authoring/index.md
+      - "Getting Started": widgets/authoring/getting-started.md
       - "Tutorials":
           - widgets/authoring/tutorial.md
       - "Guides":
@@ -175,9 +176,9 @@ nav:
       - troubleshooting/index.md
   - "More":
       - more/index.md
-      - more/development.md
       - more/translations.md
       - more/coverage.md
+      - more/sponsors.md
       - more/homepage-move.md
 
 theme:
@@ -203,7 +204,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-  logo: assets/banner_light@2x.png
+  logo: assets/banner_light@2x.webp
 
   favicon: assets/favicon.ico
   features:
@@ -271,7 +272,7 @@ plugins:
               background_image: docs/assets/blossom_valley_blur.jpg
               background_color: "rgba(13, 29, 41, 128)"
               color: "#ffffff"
-              logo: docs/assets/light_squircle@2x.png
+              logo: docs/assets/light_squircle@2x.webp
   - tags
   - search:
       pipeline:
@@ -281,3 +282,4 @@ plugins:
   - redirects:
       redirect_maps:
         "more/troubleshooting.md": "troubleshooting/index.md"
+        "more/development.md": "widgets/authoring/getting-started.md"

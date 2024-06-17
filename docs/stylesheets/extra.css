@@ -9,7 +9,9 @@
   --md-default-fg-color--light: white;
   --md-default-fg-color--lighter: hsla(0, 0%, 100%, 0.6);
   --md-default-bg-color: hsla(0, 0%, 100%, 0.8);
-  --md-code-bg-color: hsla(0, 0%, 100%, 0.8);
+  --md-code-bg-color: hsla(0, 0%, 100%, 0.6);
+  --md-code-bg-color--lighter: hsla(0, 0%, 100%, 0.6);
+  --md-default-fg-color: white;
 }
 
 [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
@@ -90,12 +92,12 @@
 }
 
 body {
-  background-image: url("https://github.com/gethomepage/homepage/blob/main/docs/assets/blossom_valley.jpg?raw=true");
+  background-image: url("/assets/blossom_valley.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-color: transparent;
-  color: #fff;
+  color: #ffffffee;
 }
 
 .blur-overlay {
@@ -104,8 +106,8 @@ body {
   width: 100%;
   height: 100%;
   background: hsla(0, 0%, 0%, 0);
-  backdrop-filter: blur(64px);
-  -webkit-backdrop-filter: blur(64px);
+  backdrop-filter: blur(128px);
+  -webkit-backdrop-filter: blur(128px);
 }
 
 .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link,
@@ -205,4 +207,49 @@ body {
 
 .md-search-result .md-typeset h1 {
   color: #fff;
+}
+
+[data-md-color-scheme="default"] .highlight span.filename,
+[data-md-color-scheme="default"] .linenodiv a {
+  color: #36464e;
+  font-weight: light;
+}
+
+.linenodiv a {
+  text-decoration: none;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  background-color: transparent;
+}
+
+.md-typeset img,
+.md-typeset svg,
+.md-typeset video {
+  box-shadow: 0 0 1rem 0.25rem hsla(0, 0%, 0%, 0.1);
+}
+
+.highlight {
+  box-shadow: 0 0 1rem 0.25rem hsla(0, 0%, 0%, 0.1);
+}
+
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  box-shadow: 0 0 1rem 0.25rem hsl(171.83deg 100% 37.45% / 20%);
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  box-shadow: 0 0 1rem 0.25rem hsl(214.29deg 100% 37.45% / 20%);
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  box-shadow: 0 0 1rem 0.25rem hsl(40.91deg 100% 37.45% / 20%);
+}
+
+.md-typeset .admonition.danger,
+.md-typeset details.danger {
+  box-shadow: 0 0 1rem 0.25rem hsl(0deg 100% 37.45% / 20%);
 }

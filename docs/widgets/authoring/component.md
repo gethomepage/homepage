@@ -63,7 +63,7 @@ This hook is used to fetch data from the API. We cover this hook in more detail 
 
 Homepage provides a set of components to help you build your widget UI. These components are designed to provide a consistent layout, and all widgets are expected to use these components.
 
-![Component Sections](../../assets/sections.png)
+![Component Sections](../../assets/sections.webp)
 
 **`<Container>`**
 
