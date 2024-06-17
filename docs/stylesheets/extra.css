@@ -85,7 +85,7 @@
   height: 2rem;
 }
 
-.md-header__topic {
+.md-header__topic .md-ellipsis {
   display: none;
 }
 
