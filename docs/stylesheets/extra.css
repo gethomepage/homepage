@@ -90,7 +90,7 @@
 }
 
 body {
-  background-image: url("/assets/blossom_valley.jpg");
+  background-image: url("https://github.com/gethomepage/homepage/blob/main/docs/assets/blossom_valley.jpg?raw=true");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
