@@ -28,3 +28,4 @@ urllib3==2.0.5
 watchdog==3.0.0
 pre-commit==3.5.0
 mkdocs-material[imaging]==9.5.26
+mkdocs-redirects==1.2.1
