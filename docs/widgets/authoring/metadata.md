@@ -56,7 +56,7 @@ Here are some examples of how to configure a widget's metadata object.
     };
     ```
 
-A widgets metadata is quite powerful and can be configured in many different ways.
+A widget's metadata is quite powerful and can be configured in many different ways.
 
 ## Configuration Properties
 

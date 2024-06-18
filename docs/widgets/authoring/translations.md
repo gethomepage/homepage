@@ -5,8 +5,6 @@ description: Tips and tricks for translating and localizing Homepage widgets.
 
 All text and numerical content in widgets should be translated and localized. English is the default language, and other languages can be added via [Crowdin](https://crowdin.com/project/gethomepage).
 
-The Homepage community prides itself on being multilingual, and we strongly encourage you to add translations for your widgets.
-
 ## Translations
 
 Homepage uses the [next-i18next](https://github.com/i18next/next-i18next) library to handle translations. This library provides a set of hooks and utilities to help you localize your widgets, and Homepage has extended this library to support additional features.
@@ -32,15 +30,25 @@ Homepage uses the [next-i18next](https://github.com/i18next/next-i18next) librar
     }
     ```
 
-=== "en.json"
+## Set up translation strings
 
-    ```json
-    "yourwidget": {
-      "key1": "Value 1",
-      "key2": "Value 2",
-      "key3": "Value 3"
-    }
-    ```
+Homepage uses translated and localized strings for **all text and numerical content** in widgets. English is the default language, and other languages can be added via [Crowdin](https://crowdin.com/project/gethomepage). To add the English translations for your widget, follow these steps:
+
+Open the `public/locales/en/common.js` file.
+
+Add a new object for your widget to the bottom of the list, like this:
+
+```json
+"yourwidget": {
+  "key1": "Value 1",
+  "key2": "Value 2",
+  "key3": "Value 3"
+}
+```
+
+!!! note
+
+    Even if you natively speak another language, you should only add English translations. You can then add translations in your native language via [Crowdin](https://crowdin.com/project/gethomepage), once your widget is merged.
 
 ## Common Translations
 
