@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "경고",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "활성",
+        "disabled": "비활성",
+        "total": "총합"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }

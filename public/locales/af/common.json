@@ -876,5 +876,17 @@
     "crowdsec": {
         "alerts": "Waarskuwings",
         "bans": "Verbanne"
+    },
+    "wgeasy": {
+        "connected": "Gekoppel",
+        "enabled": "Geaktiveer",
+        "disabled": "Onaktief",
+        "total": "Totaal"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
     }
 }

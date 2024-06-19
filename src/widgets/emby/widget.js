@@ -10,12 +10,16 @@ const widget = {
     },
     Count: {
       endpoint: "Items/Counts",
-      segments: ["MovieCount", "SeriesCount", "EpisodeCount", "SongCount"],
     },
-    PlayControl: {
+    Unpause: {
       method: "POST",
-      endpoint: "Sessions/{sessionId}/Playing/{command}",
-      segments: ["sessionId", "command"],
+      endpoint: "Sessions/{sessionId}/Playing/Unpause",
+      segments: ["sessionId"],
+    },
+    Pause: {
+      method: "POST",
+      endpoint: "Sessions/{sessionId}/Playing/Pause",
+      segments: ["sessionId"],
     },
   },
 };

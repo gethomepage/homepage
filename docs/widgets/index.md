@@ -1,6 +1,7 @@
 ---
 title: Widgets
-description: Homepage info and status widgets.
+description: Find information on how to configure specific widgets in Homepage.
+icon: material/widgets
 ---
 
 Homepage has two types of widgets: info and service. Below we'll cover each type and how to configure them.

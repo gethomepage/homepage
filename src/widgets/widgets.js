@@ -94,6 +94,7 @@ import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import stash from "./stash/widget";
 import strelaysrv from "./strelaysrv/widget";
+import swagdashboard from "./swagdashboard/widget";
 import tailscale from "./tailscale/widget";
 import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
@@ -213,6 +214,7 @@ const widgets = {
   speedtest,
   stash,
   strelaysrv,
+  swagdashboard,
   tailscale,
   tandoor,
   tautulli,
