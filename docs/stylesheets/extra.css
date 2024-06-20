@@ -97,7 +97,15 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-color: transparent;
-  color: #ffffffee;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.md-typeset h1 {
+  color: #fff;
+}
+
+body[data-md-color-scheme="default"] {
+  color: rgba(255, 255, 255, 1);
 }
 
 .blur-overlay {
@@ -105,9 +113,9 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: hsla(0, 0%, 0%, 0);
-  backdrop-filter: blur(128px);
-  -webkit-backdrop-filter: blur(128px);
+  background: hsl(0deg 0% 0% / 20%);
+  backdrop-filter: blur(192px);
+  -webkit-backdrop-filter: blur(192px);
 }
 
 .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link,
@@ -252,4 +260,8 @@ body {
 .md-typeset .admonition.danger,
 .md-typeset details.danger {
   box-shadow: 0 0 1rem 0.25rem hsl(0deg 100% 37.45% / 20%);
+}
+
+.md-tabs__link {
+  transform: translateZ(0);
 }
