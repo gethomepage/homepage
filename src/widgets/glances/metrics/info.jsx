@@ -1,6 +1,5 @@
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -86,36 +85,45 @@ export default function Component({ service }) {
 
   if (quicklookError) {
     return (
-      <Container chart={chart}>
-        <Error error={quicklookError} />
+      <Container service={service} chart={chart} error={quicklookError}>
       </Container>
     );
   }
 
   if (systemError) {
     return (
-      <Container chart={chart}>
-        <Error error={systemError} />
+      <Container service={service} chart={chart} error={systemError}>
       </Container>
     );
   }
 
   const dataCharts = [];
 
+
   if (quicklookData) {
-    quicklookData.percpu.forEach((cpu, index) => {
-      dataCharts.push({
-        name: `CPU ${index}`,
-        cpu: cpu.total,
-        mem: quicklookData.mem,
-        swap: quicklookData.swap,
-        proc: quicklookData.cpu,
+    if (quicklookData.hasOwnProperty("error")) {
+      const quicklookError = true;
+      return (
+        <Container service={service} chart={chart} error={quicklookError} >
+        </Container>
+      );
+    }
+    else {
+      quicklookData.percpu.forEach((cpu, index) => {
+        dataCharts.push({
+          name: `CPU ${index}`,
+          cpu: cpu.total,
+          mem: quicklookData.mem,
+          swap: quicklookData.swap,
+          proc: quicklookData.cpu,
+        });
       });
-    });
+    }
+    
   }
 
   return (
-    <Container chart={chart} className="bg-gradient-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10">
+    <Container service={service} chart={chart} className="bg-gradient-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10">
       <Block position="top-3 right-3">
         {quicklookData && quicklookData.cpu_name && chart && (
           <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name}</div>

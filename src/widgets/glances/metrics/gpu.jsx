@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -27,32 +26,42 @@ export default function Component({ service }) {
 
   useEffect(() => {
     if (data) {
-      // eslint-disable-next-line eqeqeq
-      const gpuData = data.find((item) => item[item.key] == gpuName);
 
-      if (gpuData) {
-        setDataPoints((prevDataPoints) => {
-          const newDataPoints = [...prevDataPoints, { a: gpuData.mem, b: gpuData.proc }];
-          if (newDataPoints.length > pointsLimit) {
-            newDataPoints.shift();
-          }
-          return newDataPoints;
-        });
+      if (data.hasOwnProperty("error")) {
+        return (
+          <Container service={service} chart={chart} error={true}>
+          </Container>
+        )
       }
+
+      else {
+        // eslint-disable-next-line eqeqeq
+        const gpuData = data.find((item) => item[item.key] == gpuName);
+
+        if (gpuData) {
+          setDataPoints((prevDataPoints) => {
+            const newDataPoints = [...prevDataPoints, { a: gpuData.mem, b: gpuData.proc }];
+            if (newDataPoints.length > pointsLimit) {
+              newDataPoints.shift();
+            }
+            return newDataPoints;
+          });
+        }
+      }
+
     }
   }, [data, gpuName, pointsLimit]);
 
   if (error) {
     return (
-      <Container chart={chart}>
-        <Error error={error} />
+      <Container service={service} chart={chart} error={error}>
       </Container>
     );
   }
 
   if (!data) {
     return (
-      <Container chart={chart}>
+      <Container service={service} chart={chart}>
         <Block position="bottom-3 left-3">-</Block>
       </Container>
     );
@@ -63,14 +72,14 @@ export default function Component({ service }) {
 
   if (!gpuData) {
     return (
-      <Container chart={chart}>
+      <Container service={service} chart={chart}>
         <Block position="bottom-3 left-3">-</Block>
       </Container>
     );
   }
 
   return (
-    <Container chart={chart}>
+    <Container service={service} chart={chart}>
       {chart && (
         <ChartDual
           dataPoints={dataPoints}
