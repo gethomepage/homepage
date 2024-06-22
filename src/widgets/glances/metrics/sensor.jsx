@@ -27,13 +27,17 @@ export default function Component({ service }) {
   useEffect(() => {
     if (data && !data.error) {
       const sensorData = data.find((item) => item.label === sensorName);
-      setDataPoints((prevDataPoints) => {
-        const newDataPoints = [...prevDataPoints, { value: sensorData.value }];
-        if (newDataPoints.length > pointsLimit) {
-          newDataPoints.shift();
-        }
-        return newDataPoints;
-      });
+      if (sensorData) {
+        setDataPoints((prevDataPoints) => {
+          const newDataPoints = [...prevDataPoints, { value: sensorData.value }];
+          if (newDataPoints.length > pointsLimit) {
+            newDataPoints.shift();
+          }
+          return newDataPoints;
+        });
+      } else {
+        data.error = true;
+      }
     }
   }, [data, sensorName, pointsLimit]);
 
