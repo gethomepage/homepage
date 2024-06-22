@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
+import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -38,21 +39,22 @@ export default function Component({ service }) {
 
   if (error) {
     return (
-      <Container service={service} chart={chart} error={error}>
+      <Container chart={chart}>
+        <Error error={error} service={service} />
       </Container>
     );
   }
 
   if (!data) {
     return (
-      <Container service={service} chart={chart}>
+      <Container chart={chart}>
         <Block position="bottom-3 left-3">-</Block>
       </Container>
     );
   }
 
   return (
-    <Container service={service} chart={chart}>
+    <Container chart={chart}>
       {chart && (
         <ChartDual
           dataPoints={dataPoints}

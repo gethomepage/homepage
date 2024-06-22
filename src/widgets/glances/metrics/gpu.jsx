@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
+import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -25,43 +26,34 @@ export default function Component({ service }) {
   });
 
   useEffect(() => {
-    if (data) {
+    if (data && !data.error) {
+      // eslint-disable-next-line eqeqeq
+      const gpuData = data.find((item) => item[item.key] == gpuName);
 
-      if (data.hasOwnProperty("error")) {
-        return (
-          <Container service={service} chart={chart} error={true}>
-          </Container>
-        )
+      if (gpuData) {
+        setDataPoints((prevDataPoints) => {
+          const newDataPoints = [...prevDataPoints, { a: gpuData.mem, b: gpuData.proc }];
+          if (newDataPoints.length > pointsLimit) {
+            newDataPoints.shift();
+          }
+          return newDataPoints;
+        });
       }
-
-      else {
-        // eslint-disable-next-line eqeqeq
-        const gpuData = data.find((item) => item[item.key] == gpuName);
-
-        if (gpuData) {
-          setDataPoints((prevDataPoints) => {
-            const newDataPoints = [...prevDataPoints, { a: gpuData.mem, b: gpuData.proc }];
-            if (newDataPoints.length > pointsLimit) {
-              newDataPoints.shift();
-            }
-            return newDataPoints;
-          });
-        }
-      }
-
     }
   }, [data, gpuName, pointsLimit]);
 
-  if (error) {
+  if (error || (data && data.error)) {
+    const finalError = error || data.error;
     return (
-      <Container service={service} chart={chart} error={error}>
+      <Container chart={chart}>
+        <Error error={finalError} service={service} />
       </Container>
     );
   }
 
   if (!data) {
     return (
-      <Container service={service} chart={chart}>
+      <Container chart={chart}>
         <Block position="bottom-3 left-3">-</Block>
       </Container>
     );
@@ -72,14 +64,14 @@ export default function Component({ service }) {
 
   if (!gpuData) {
     return (
-      <Container service={service} chart={chart}>
+      <Container chart={chart}>
         <Block position="bottom-3 left-3">-</Block>
       </Container>
     );
   }
 
   return (
-    <Container service={service} chart={chart}>
+    <Container chart={chart}>
       {chart && (
         <ChartDual
           dataPoints={dataPoints}

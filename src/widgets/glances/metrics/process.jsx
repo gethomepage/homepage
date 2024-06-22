@@ -1,5 +1,6 @@
 import { useTranslation } from "next-i18next";
 
+import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -31,14 +32,15 @@ export default function Component({ service }) {
 
   if (error) {
     return (
-      <Container service={service} chart={chart} error={true}>
+      <Container chart={chart}>
+        <Error error={error} />
       </Container>
     );
   }
 
   if (!data) {
     return (
-      <Container service={service} chart={chart}>
+      <Container chart={chart}>
         <Block position="bottom-3 left-3">-</Block>
       </Container>
     );
@@ -47,7 +49,7 @@ export default function Component({ service }) {
   data.splice(chart ? 5 : 1);
 
   return (
-    <Container service={service} chart={chart}>
+    <Container chart={chart}>
       <Block position="top-4 right-3 left-3">
         <div className="flex items-center text-xs">
           <div className="grow" />

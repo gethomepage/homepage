@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 
 import Container from "../components/container";
 import Block from "../components/block";
+import Error from "../components/error";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -39,22 +40,22 @@ export default function Component({ service }) {
 
   if (error) {
     return (
-      <Container service={service} chart={chart} error={error}>
-        <Error error={error} />
+      <Container chart={chart}>
+        <Error error={error} service={service} />
       </Container>
     );
   }
 
   if (!data) {
     return (
-      <Container service={service} chart={chart}>
+      <Container chart={chart}>
         <Block position="bottom-3 left-3">-</Block>
       </Container>
     );
   }
 
   return (
-    <Container service={service} chart={chart}>
+    <Container chart={chart}>
       {chart && (
         <Chart
           dataPoints={dataPoints}
