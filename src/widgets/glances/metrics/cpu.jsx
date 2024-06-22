@@ -4,7 +4,6 @@ import { useTranslation } from "next-i18next";
 
 import Container from "../components/container";
 import Block from "../components/block";
-import Error from "../components/error";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -39,11 +38,7 @@ export default function Component({ service }) {
   }, [data, pointsLimit]);
 
   if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} service={service} />
-      </Container>
-    );
+    return <Container error={error} widget={widget} />;
   }
 
   if (!data) {
