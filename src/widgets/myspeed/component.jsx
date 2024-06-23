@@ -31,18 +31,6 @@ export default function Component({ service }) {
     );
   }
 
-  if (data.message) {
-    return <Container service={service} error={data} />;
-  }
-
-  if (Array.isArray(data) && data.length > 0 && data[0].error) {
-    try {
-      return <Container service={service} error={JSON.parse(data[0].error)} />;
-    } catch (e) {
-      return <Container service={service} error={data[0].error} />;
-    }
-  }
-
   return (
     <Container service={service}>
       <Block
