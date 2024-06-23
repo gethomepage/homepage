@@ -6,9 +6,9 @@ const widget = {
 
   mappings: {
     info: {
-      endpoint: "speedtests?limit=1"
-    }
-  }
+      endpoint: "speedtests?limit=1",
+    },
+  },
 };
 
 export default widget;
