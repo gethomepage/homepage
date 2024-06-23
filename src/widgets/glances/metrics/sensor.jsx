@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -26,24 +25,25 @@ export default function Component({ service }) {
   });
 
   useEffect(() => {
-    if (data) {
+    if (data && !data.error) {
       const sensorData = data.find((item) => item.label === sensorName);
-      setDataPoints((prevDataPoints) => {
-        const newDataPoints = [...prevDataPoints, { value: sensorData.value }];
-        if (newDataPoints.length > pointsLimit) {
-          newDataPoints.shift();
-        }
-        return newDataPoints;
-      });
+      if (sensorData) {
+        setDataPoints((prevDataPoints) => {
+          const newDataPoints = [...prevDataPoints, { value: sensorData.value }];
+          if (newDataPoints.length > pointsLimit) {
+            newDataPoints.shift();
+          }
+          return newDataPoints;
+        });
+      } else {
+        data.error = true;
+      }
     }
   }, [data, sensorName, pointsLimit]);
 
-  if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} />
-      </Container>
-    );
+  if (error || (data && data.error)) {
+    const finalError = error || data.error;
+    return <Container error={finalError} widget={widget} />;
   }
 
   if (!data) {
