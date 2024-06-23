@@ -21,7 +21,7 @@ export default function Component({ service }) {
     return <Container service={service} error={finalError} />;
   }
 
-  if (!data) {
+  if (!data || (data && data.length === 0)) {
     return (
       <Container service={service}>
         <Block label="myspeed.ping" />
