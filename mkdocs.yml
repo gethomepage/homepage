@@ -88,6 +88,7 @@ nav:
           - widgets/services/mjpeg.md
           - widgets/services/moonraker.md
           - widgets/services/mylar.md
+          - widgets/services/myspeed.md
           - widgets/services/navidrome.md
           - widgets/services/netdata.md
           - widgets/services/netalertx.md
