@@ -9,8 +9,16 @@ export default function Component({ service }) {
   const { widget } = service;
   const { data, error } = useWidgetAPI(widget, "info");
 
-  if (error) {
-    return <Container service={service} error={error} />;
+  if (error || (data && data.message) || (data && data[0] && data[0].error)) {
+    let finalError = error ?? data;
+    if (data && data[0] && data[0].error) {
+      try {
+        finalError = JSON.parse(data[0].error);
+      } catch (e) {
+        finalError = data[0].error;
+      }
+    }
+    return <Container service={service} error={finalError} />;
   }
 
   if (!data) {
