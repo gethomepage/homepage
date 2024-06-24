@@ -37,7 +37,7 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
   try {
     returnData = JSON.parse(Buffer.from(data).toString());
   } catch (e) {
-    logger.error(`Error logging into pyload API: ${JSON.stringify(data)}`);
+    logger.error(`Error communicating with pyload API at ${url}, returned: ${JSON.stringify(data)}`);
     returnData = data;
   }
   return [status, returnData, responseHeaders];
