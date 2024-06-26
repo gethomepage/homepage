@@ -39,7 +39,9 @@ export default function Component({ service }) {
         <Block label="truenas.alerts" value={t("common.number", { value: alertData.pending })} />
       </Container>
       {enablePools &&
-        poolsData.map((pool) => (
+        poolsData
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((pool) => (
           <Pool
             key={pool.id}
             name={pool.name}
