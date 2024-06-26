@@ -42,16 +42,16 @@ export default function Component({ service }) {
         poolsData
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((pool) => (
-          <Pool
-            key={pool.id}
-            name={pool.name}
-            healthy={pool.healthy}
-            allocated={pool.allocated}
-            free={pool.free}
-            data={pool.data}
-            nasType={widget?.nasType ?? "scale"}
-          />
-        ))}
+            <Pool
+              key={pool.id}
+              name={pool.name}
+              healthy={pool.healthy}
+              allocated={pool.allocated}
+              free={pool.free}
+              data={pool.data}
+              nasType={widget?.nasType ?? "scale"}
+            />
+          ))}
     </>
   );
 }
