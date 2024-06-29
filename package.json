@@ -14,8 +14,8 @@
     "@kubernetes/client-node": "^0.17.1",
     "cal-parser": "^1.0.2",
     "classnames": "^2.5.1",
-    "compare-versions": "^5.0.3",
-    "dockerode": "^3.3.5",
+    "compare-versions": "^6.1.0",
+    "dockerode": "^4.0.2",
     "follow-redirects": "^1.15.6",
     "gamedig": "^4.3.1",
     "i18next": "^21.10.0",
@@ -55,9 +55,9 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "postcss": "^8.4.38",
     "prettier": "^3.3.2",
-    "tailwind-scrollbar": "^2.1.0",
+    "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.4.4",
-    "typescript": "^4.9.5"
+    "typescript": "^5.4.5"
   },
   "optionalDependencies": {
     "osx-temperature-sensor": "^1.0.8"
