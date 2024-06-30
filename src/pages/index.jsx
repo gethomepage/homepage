@@ -393,7 +393,7 @@ function Home({ initialSettings }) {
         <div
           id="information-widgets"
           className={classNames(
-            "flex flex-row flex-wrap justify-between",
+            "flex flex-row flex-wrap justify-between z-20",
             headerStyles[headerStyle],
             settings.cardBlur !== undefined &&
               headerStyle === "boxed" &&
