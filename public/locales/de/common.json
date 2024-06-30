@@ -888,5 +888,10 @@
         "auth": "Mit Auth",
         "outdated": "Veraltet",
         "banned": "Gebannt"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
     }
 }
