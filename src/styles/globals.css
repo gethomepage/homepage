@@ -62,3 +62,7 @@ dialog ::-webkit-scrollbar {
 ::-webkit-details-marker {
   display: none;
 }
+
+li.service {
+  z-index: 10;
+}
