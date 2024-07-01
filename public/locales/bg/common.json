@@ -16,7 +16,7 @@
         "uptime": "{{value, uptime}}",
         "months": "mo",
         "days": "d",
-        "hours": "h",
+        "hours": "ч",
         "minutes": "m",
         "seconds": "s"
     },
@@ -412,7 +412,7 @@
         "free": "Свободни",
         "used": "Заети",
         "days": "d",
-        "hours": "h",
+        "hours": "ч",
         "crit": "Crit",
         "read": "Read",
         "write": "Write",
@@ -888,5 +888,10 @@
         "auth": "With Auth",
         "outdated": "Outdated",
         "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
     }
 }

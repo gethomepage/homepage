@@ -1,6 +1,5 @@
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -84,20 +83,13 @@ export default function Component({ service }) {
     refreshInterval: defaultSystemInterval,
   });
 
-  if (quicklookError) {
-    return (
-      <Container chart={chart}>
-        <Error error={quicklookError} />
-      </Container>
-    );
+  if (quicklookError || (quicklookData && quicklookData.error)) {
+    const qlError = quicklookError || quicklookData.error;
+    return <Container error={qlError} widget={widget} />;
   }
 
   if (systemError) {
-    return (
-      <Container chart={chart}>
-        <Error error={systemError} />
-      </Container>
-    );
+    return <Container error={systemError} service={service} />;
   }
 
   const dataCharts = [];

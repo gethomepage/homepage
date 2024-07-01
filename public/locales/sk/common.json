@@ -888,5 +888,10 @@
         "auth": "With Auth",
         "outdated": "Zastarané",
         "banned": "Zabanovaný"
+    },
+    "myspeed": {
+        "ping": "Odozva",
+        "download": "Sťahovanie",
+        "upload": "Nahrávanie"
     }
 }

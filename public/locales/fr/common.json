@@ -888,5 +888,10 @@
         "auth": "Avec authentification",
         "outdated": "Obsolète",
         "banned": "Banni"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Récep.",
+        "upload": "Envoi"
     }
 }

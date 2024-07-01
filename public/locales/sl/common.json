@@ -888,5 +888,10 @@
         "auth": "Z Auth",
         "outdated": "Zastarelo",
         "banned": "Prepovedan"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Prenos",
+        "upload": "Nalaganje"
     }
 }
