@@ -47,7 +47,7 @@ export default function Widget({ options }) {
               {data.stocks.map((stock) => (
                 <div
                   key={stock.ticker}
-                  className="bg-theme-200/50 dark:bg-theme-900/20 rounded h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
+                  className="rounded h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
                 >
                   <span className="text-theme-800 dark:text-theme-200 text-xs">{stock.ticker}</span>
                   {!viewingPercentChange ? (
