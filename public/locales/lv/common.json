@@ -888,5 +888,10 @@
         "auth": "With Auth",
         "outdated": "Outdated",
         "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Lejupielāde",
+        "upload": "Augšupielāde"
     }
 }

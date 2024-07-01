@@ -888,5 +888,10 @@
         "auth": "With Auth",
         "outdated": "Outdated",
         "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "延遲",
+        "download": "下載速率",
+        "upload": "上傳速率"
     }
 }

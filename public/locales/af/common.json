@@ -884,9 +884,14 @@
         "total": "Totaal"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Gevolmagtig",
+        "auth": "Met Aut",
+        "outdated": "Verouderd",
+        "banned": "Verban"
+    },
+    "myspeed": {
+        "ping": "Pieng",
+        "download": "Aflaai",
+        "upload": "Laai Op"
     }
 }

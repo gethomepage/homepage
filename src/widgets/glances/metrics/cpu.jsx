@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -39,11 +38,7 @@ export default function Component({ service }) {
   }, [data, pointsLimit]);
 
   if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} />
-      </Container>
-    );
+    return <Container error={error} widget={widget} />;
   }
 
   if (!data) {
