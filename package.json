@@ -37,7 +37,7 @@
     "rrule": "^2.8.1",
     "swr": "^1.3.0",
     "systeminformation": "^5.22.7",
-    "tough-cookie": "^4.1.3",
+    "tough-cookie": "^4.1.4",
     "urbackup-server-api": "^0.8.9",
     "winston": "^3.11.0",
     "xml-js": "^1.6.11"
