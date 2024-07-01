@@ -35,7 +35,7 @@ export default function Widget({ options }) {
 
   if (data) {
     return (
-      <Container>
+      <Container options={options} additionalClassNames="information-widget-stocks">
         <Raw>
           <button
             type="button"
