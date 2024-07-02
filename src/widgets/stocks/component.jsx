@@ -86,17 +86,7 @@ export default function Component({ service }) {
   const { widget } = service;
   const { watchlist, showUSMarketStatus } = widget;
 
-  if (!watchlist || !watchlist.length || watchlist.length > 28) {
-    return (
-      <Container service={service}>
-        <Block value={t("stocks.invalidConfiguration")} />
-      </Container>
-    );
-  }
-
-  const hasDuplicates = new Set(watchlist).size !== watchlist.length;
-
-  if (hasDuplicates) {
+  if (!watchlist || !watchlist.length || watchlist.length > 28 || new Set(watchlist).size !== watchlist.length) {
     return (
       <Container service={service}>
         <Block value={t("stocks.invalidConfiguration")} />
