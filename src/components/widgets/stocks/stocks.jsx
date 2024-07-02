@@ -44,41 +44,44 @@ export default function Widget({ options }) {
           >
             <FaChartLine className="flex-none w-5 h-5 text-theme-800 dark:text-theme-200 mr-2" />
             <div className="flex flex-wrap items-center gap-0.5">
-              {data.stocks.map((stock) => (
-                <div
-                  key={stock.ticker}
-                  className="rounded h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
-                >
-                  <span className="text-theme-800 dark:text-theme-200 text-xs">{stock.ticker}</span>
-                  {!viewingPercentChange ? (
-                    <span
-                      className={
-                        color !== false
-                          ? `text-xs ${stock?.percentChange < 0 ? "text-rose-300/70" : "text-emerald-300/70"}`
-                          : "text-theme-800/70 dark:text-theme-200/50 text-xs"
-                      }
+              {data.stocks.map(
+                (stock) =>
+                  stock && (
+                    <div
+                      key={stock.ticker}
+                      className="rounded h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
                     >
-                      {stock?.currentPrice !== "error"
-                        ? t("common.number", {
-                            value: stock.currentPrice,
-                            style: "currency",
-                            currency: "USD",
-                          })
-                        : t("widget.api_error")}
-                    </span>
-                  ) : (
-                    <span
-                      className={
-                        color !== false
-                          ? `text-xs ${stock?.percentChange < 0 ? "text-rose-300/70" : "text-emerald-300/70"}`
-                          : "text-theme-800/70 dark:text-theme-200/70 text-xs"
-                      }
-                    >
-                      {stock?.percentChange !== "error" ? `${stock.percentChange}%` : t("widget.api_error")}
-                    </span>
-                  )}
-                </div>
-              ))}
+                      <span className="text-theme-800 dark:text-theme-200 text-xs">{stock.ticker}</span>
+                      {!viewingPercentChange ? (
+                        <span
+                          className={
+                            color !== false
+                              ? `text-xs ${stock.percentChange < 0 ? "text-rose-300/70" : "text-emerald-300/70"}`
+                              : "text-theme-800/70 dark:text-theme-200/50 text-xs"
+                          }
+                        >
+                          {stock.currentPrice !== null
+                            ? t("common.number", {
+                                value: stock.currentPrice,
+                                style: "currency",
+                                currency: "USD",
+                              })
+                            : t("widget.api_error")}
+                        </span>
+                      ) : (
+                        <span
+                          className={
+                            color !== false
+                              ? `text-xs ${stock.percentChange < 0 ? "text-rose-300/70" : "text-emerald-300/70"}`
+                              : "text-theme-800/70 dark:text-theme-200/70 text-xs"
+                          }
+                        >
+                          {stock.percentChange !== null ? `${stock.percentChange}%` : t("widget.api_error")}
+                        </span>
+                      )}
+                    </div>
+                  ),
+              )}
             </div>
           </button>
         </Raw>

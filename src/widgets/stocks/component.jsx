@@ -64,8 +64,8 @@ function StockItem({ service, ticker }) {
     <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded flex flex-1 items-center justify-between m-1 p-1 text-xs">
       <span className="font-thin ml-2 flex-none">{ticker}</span>
       <div className="flex items-center flex-row-reverse mr-2 text-right">
-        <span className={`font-bold ml-2 w-10 ${data?.dp > 0 ? "text-emerald-300" : "text-rose-300"}`}>
-          {data?.dp?.toFixed(2) ? `${data?.dp?.toFixed(2)}%` : t("widget.api_error")}
+        <span className={`font-bold ml-2 w-10 ${data.dp > 0 ? "text-emerald-300" : "text-rose-300"}`}>
+          {data.dp?.toFixed(2) ? `${data.dp?.toFixed(2)}%` : t("widget.api_error")}
         </span>
         <span className="font-bold">
           {data.c

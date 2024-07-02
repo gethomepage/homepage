@@ -56,7 +56,7 @@ export default async function handler(req, res) {
 
         // API sometimes returns 200, but values returned are `null`
         if (c === null || dp === null) {
-          return { ticker: ticker || "error", currentPrice: "error", percentChange: "error" };
+          return { ticker: ticker, currentPrice: null, percentChange: null };
         }
 
         // Rounding percentage, but we want it back to a number for comparison
