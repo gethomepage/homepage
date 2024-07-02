@@ -893,5 +893,12 @@
         "ping": "Gecikme",
         "download": "İndirme",
         "upload": "Yükleme"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
     }
 }

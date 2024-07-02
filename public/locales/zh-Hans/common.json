@@ -893,5 +893,12 @@
         "ping": "Ping",
         "download": "下载速率",
         "upload": "上传速率"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
     }
 }
