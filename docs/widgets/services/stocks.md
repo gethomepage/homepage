@@ -3,6 +3,8 @@ title: Stocks
 description: Stocks Service Widget Configuration
 ---
 
+_(Find the Stocks information widget [here](../info/stocks.md))_
+
 The widget includes:
 
 - US stock market status
@@ -17,7 +19,7 @@ signing up.
 
 Allowed fields: no configurable fields for this widget.
 
-You must set `finnhub` as a provider in your `settings.yaml` like below:
+You must set `finnhub` as a provider in your `settings.yaml`:
 
 ```yaml
 providers:
@@ -33,7 +35,7 @@ limited if using the information and service widgets together.
 widget:
   type: stocks
   provider: finnhub
-  showUSMarketStatus: true # Optional | default = true
+  showUSMarketStatus: true # optional, defaults to true
   watchlist:
     - GME
     - AMC

@@ -3,6 +3,8 @@ title: Stocks
 description: Stocks Information Widget Configuration
 ---
 
+_(Find the Stocks service widget [here](../services/stocks.md))_
+
 The Stocks Information Widget allows you to include basic stock market data in
 your Homepage header. The widget includes the current price of a stock, and the
 change in price for the day.
@@ -28,8 +30,8 @@ The information widget allows for up to 8 items in the watchlist.
 ```yaml
 - stocks:
     provider: finnhub
-    color: true # Optional | default = true
-    cache: 1 # Optional | Stocks widget default is to cache results for 1 minute
+    color: true # optional, defaults to true
+    cache: 1 # optional, default caches results for 1 minute
     watchlist:
       - GME
       - AMC
