@@ -48,6 +48,9 @@ export default async function handler(req, res) {
     // https://finnhub.io/docs/api/rate-limit
     const results = await Promise.all(
       watchlistArr.map(async (ticker) => {
+        if (!ticker) {
+          return { ticker: null, currentPrice: null, percentChange: null };
+        }
         // https://finnhub.io/docs/api/quote
         const apiUrl = `https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${apiKey}`;
         // Finnhub free accounts allow up to 60 calls/minute
@@ -56,7 +59,7 @@ export default async function handler(req, res) {
 
         // API sometimes returns 200, but values returned are `null`
         if (c === null || dp === null) {
-          return { ticker: ticker, currentPrice: null, percentChange: null };
+          return { ticker, currentPrice: null, percentChange: null };
         }
 
         // Rounding percentage, but we want it back to a number for comparison
