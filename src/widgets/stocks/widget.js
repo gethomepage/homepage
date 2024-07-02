@@ -5,12 +5,12 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    "stocks/quote": {
+    quote: {
       // https://finnhub.io/docs/api/quote
       endpoint: "v1/quote",
       params: ["symbol"],
     },
-    "stocks/market-status/us": {
+    status: {
       // https://finnhub.io/docs/api/market-status
       endpoint: "v1/stock/market-status",
       params: ["exchange"],

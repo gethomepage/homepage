@@ -9,7 +9,7 @@ function MarketStatus({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data, error } = useWidgetAPI(widget, "stocks/market-status/us", {
+  const { data, error } = useWidgetAPI(widget, "status", {
     exchange: "US",
   });
 
@@ -46,7 +46,7 @@ function StockItem({ service, ticker }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data, error } = useWidgetAPI(widget, "stocks/quote", { symbol: ticker });
+  const { data, error } = useWidgetAPI(widget, "quote", { symbol: ticker });
 
   if (error || data?.error) {
     return <Container service={service} error={error} />;
