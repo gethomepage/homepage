@@ -893,5 +893,12 @@
         "ping": "Ping",
         "download": "Prenos",
         "upload": "Nalaganje"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
     }
 }

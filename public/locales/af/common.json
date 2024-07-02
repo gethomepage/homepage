@@ -893,5 +893,12 @@
         "ping": "Pieng",
         "download": "Aflaai",
         "upload": "Laai Op"
+    },
+    "stocks": {
+        "stocks": "Aandele",
+        "loading": "Laai",
+        "open": "Oop - VS Mark",
+        "closed": "Toe - VS Mark",
+        "invalidConfiguration": "Ongeldige opstelling"
     }
 }

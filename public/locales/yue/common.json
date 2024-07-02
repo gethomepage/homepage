@@ -893,5 +893,12 @@
         "ping": "延遲",
         "download": "下載速率",
         "upload": "上傳速率"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
     }
 }
