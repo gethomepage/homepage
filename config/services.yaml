@@ -206,7 +206,13 @@
                   service_group: Media2 # group name where widget exists
                   service_name: Sonarr # service name for that widget
                   color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
+    - Grafana:
+       widget:
+            type: grafana
+            url: http://192.168.68.84:3010/
+            username: admin
+            password: golD123@
     - ESPHome:
         widget:
           type: esphome
-          url: http://homeassistant.local:8123/hassio/ingress/5c53de3b_esphome
+          url: http://192.168.68.84:6052/
