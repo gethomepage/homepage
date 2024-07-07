@@ -893,5 +893,12 @@
         "ping": "Ping",
         "download": "ダウンロード",
         "upload": "アップロード"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
     }
 }

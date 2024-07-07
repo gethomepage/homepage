@@ -893,5 +893,12 @@
         "ping": "Ping",
         "download": "Prenos",
         "upload": "Nalaganje"
+    },
+    "stocks": {
+        "stocks": "Delnice",
+        "loading": "Nalaganje",
+        "open": "Odprto - US trg",
+        "closed": "Zaprto - US trg",
+        "invalidConfiguration": "Neveljavna konfiguracija"
     }
 }

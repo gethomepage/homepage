@@ -317,7 +317,7 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Atrás"
     },
     "tdarr": {
         "queue": "Fila",
@@ -328,7 +328,7 @@
     "traefik": {
         "routers": "Roteadores",
         "services": "Serviços",
-        "middleware": "Middleware"
+        "middleware": ""
     },
     "navidrome": {
         "nothing_streaming": "Sem Streams Ativos",
@@ -884,14 +884,21 @@
         "total": "Total"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Com proxy",
+        "auth": "Com Autenticação",
+        "outdated": "Desatualizado",
+        "banned": "Banido"
     },
     "myspeed": {
         "ping": "Tempo de resposta",
         "download": "Descarregar",
         "upload": "Carregar"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Abrir - Mercado Americano",
+        "closed": "Fechado - Mercado americano",
+        "invalidConfiguration": "Configuração Inválida"
     }
 }
