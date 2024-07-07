@@ -55,6 +55,7 @@ nav:
           - widgets/services/fileflows.md
           - widgets/services/flood.md
           - widgets/services/freshrss.md
+          - widgets/services/frigate.md
           - widgets/services/fritzbox.md
           - widgets/services/gamedig.md
           - widgets/services/gatus.md

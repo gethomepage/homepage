@@ -29,6 +29,7 @@ const components = {
   fileflows: dynamic(() => import("./fileflows/component")),
   flood: dynamic(() => import("./flood/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
+  frigate: dynamic(() => import("./frigate/component")),
   fritzbox: dynamic(() => import("./fritzbox/component")),
   gamedig: dynamic(() => import("./gamedig/component")),
   gatus: dynamic(() => import("./gatus/component")),
