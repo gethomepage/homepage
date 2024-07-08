@@ -9,8 +9,12 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: systemData, error: systemError } = useWidgetAPI(widget, "system");
-  const { data: interfaceData, error: interfaceError } = useWidgetAPI(widget, "interface");
+  const version = widget.version ?? 1;
+  const { data: systemData, error: systemError } = useWidgetAPI(widget, version === 1 ? "system" : "systemv2");
+  const { data: interfaceData, error: interfaceError } = useWidgetAPI(
+    widget,
+    version === 1 ? "interface" : "interfacev2",
+  );
 
   const showWanIP = widget.fields?.filter((f) => f !== "wanIP").length <= 4 && widget.fields?.includes("wanIP");
   const showDiskUsage = widget.fields?.filter((f) => f !== "disk").length <= 4 && widget.fields?.includes("disk");
@@ -37,7 +41,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="pfsense.load" value={systemData.data.load_avg[0]} />
+      <Block
+        label="pfsense.load"
+        value={version === 1 ? systemData.data.load_avg[0] : systemData.data.cpu_load_avg[0]}
+      />
       <Block
         label="pfsense.memory"
         value={t("common.percent", { value: (systemData.data.mem_usage * 100).toFixed(2) })}
