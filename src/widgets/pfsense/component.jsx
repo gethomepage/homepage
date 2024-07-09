@@ -38,6 +38,12 @@ export default function Component({ service }) {
   }
 
   const wan = interfaceData.data.filter((l) => l.hwif === widget.wan)[0];
+  let memUsage = systemData?.data.mem_usage;
+  let diskUsage = systemData.data.disk_usage;
+  if (version === 1) {
+    memUsage *= 100;
+    diskUsage *= 100;
+  }
 
   return (
     <Container service={service}>
@@ -45,10 +51,7 @@ export default function Component({ service }) {
         label="pfsense.load"
         value={version === 1 ? systemData.data.load_avg[0] : systemData.data.cpu_load_avg[0]}
       />
-      <Block
-        label="pfsense.memory"
-        value={t("common.percent", { value: (systemData.data.mem_usage * 100).toFixed(2) })}
-      />
+      <Block label="pfsense.memory" value={t("common.percent", { value: memUsage.toFixed(2) })} />
       <Block
         label="pfsense.temp"
         value={t("common.number", { value: systemData.data.temp_c, style: "unit", unit: "celsius" })}
@@ -64,12 +67,7 @@ export default function Component({ service }) {
         }
       />
       {showWanIP && <Block label="pfsense.wanIP" value={wan.ipaddr} />}
-      {showDiskUsage && (
-        <Block
-          label="pfsense.disk"
-          value={t("common.percent", { value: (systemData.data.disk_usage * 100).toFixed(2) })}
-        />
-      )}
+      {showDiskUsage && <Block label="pfsense.disk" value={t("common.percent", { value: diskUsage.toFixed(2) })} />}
     </Container>
   );
 }
