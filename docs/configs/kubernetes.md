@@ -36,7 +36,7 @@ Inside of the service you'd like to connect to a pod:
 
 The `app` field is used to create a label selector, in this example case it would match pods with the label: `app.kubernetes.io/name=emby`.
 
-Sometimes this is insufficient for complex or atypical application deployments. In these cases, the `pod-selector` field can be used. Any field selector can be used with it, so it allows for some very powerful selection capabilities.
+Sometimes this is insufficient for complex or atypical application deployments. In these cases, the `podSelector` field can be used. Any field selector can be used with it, so it allows for some very powerful selection capabilities.
 
 For instance, it can be utilized to roll multiple underlying deployments under one application to see a high-level aggregate:
 
@@ -47,7 +47,7 @@ For instance, it can be utilized to roll multiple underlying deployments under o
     description: Matrix Synapse Powered Chat
     app: matrix-element
     namespace: comms
-    pod-selector: >-
+    podSelector: >-
       app.kubernetes.io/instance in (
           matrix-element,
           matrix-media-repo,
@@ -58,7 +58,7 @@ For instance, it can be utilized to roll multiple underlying deployments under o
 
 !!! note
 
-    A blank string as a pod-selector does not deactivate it, but will actually select all pods in the namespace. This is a useful way to capture the resource usage of a complex application siloed to a single namespace, like Longhorn.
+    A blank string as a podSelector does not deactivate it, but will actually select all pods in the namespace. This is a useful way to capture the resource usage of a complex application siloed to a single namespace, like Longhorn.
 
 ## Automatic Service Discovery
 

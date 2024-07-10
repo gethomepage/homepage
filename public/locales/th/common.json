@@ -893,5 +893,12 @@
         "ping": "ปิง",
         "download": "ดาวน์โหลด",
         "upload": "อัพโหลด"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
     }
 }

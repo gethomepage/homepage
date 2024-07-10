@@ -884,14 +884,21 @@
         "total": "Toplam"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Proxy Üzerinden",
+        "auth": "Kimlik Doğrulamalı",
+        "outdated": "Eskimiş",
+        "banned": "Yasaklı"
     },
     "myspeed": {
         "ping": "Gecikme",
         "download": "İndirme",
         "upload": "Yükleme"
+    },
+    "stocks": {
+        "stocks": "Hisse Senetleri",
+        "loading": "Yükleniyor",
+        "open": "Açık - ABD Pazarı",
+        "closed": "Kapalı - ABD Pazarı",
+        "invalidConfiguration": "Geçersiz Yapılandırma"
     }
 }

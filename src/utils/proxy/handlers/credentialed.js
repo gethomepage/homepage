@@ -3,6 +3,7 @@ import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
 import validateWidgetData from "utils/proxy/validate-widget-data";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { getSettings } from "utils/config/config";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("credentialedProxyHandler");
@@ -24,7 +25,12 @@ export default async function credentialedProxyHandler(req, res, map) {
         "Content-Type": "application/json",
       };
 
-      if (widget.type === "coinmarketcap") {
+      if (widget.type === "stocks") {
+        const { providers } = getSettings();
+        if (widget.provider === "finnhub" && providers?.finnhub) {
+          headers["X-Finnhub-Token"] = `${providers?.finnhub}`;
+        }
+      } else if (widget.type === "coinmarketcap") {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;

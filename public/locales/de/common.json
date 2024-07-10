@@ -893,5 +893,12 @@
         "ping": "Ping",
         "download": "Download",
         "upload": "Upload"
+    },
+    "stocks": {
+        "stocks": "Aktien",
+        "loading": "Wird geladen",
+        "open": "Offen - US-Markt",
+        "closed": "Geschlossen - US-Markt",
+        "invalidConfiguration": "Ungültige Konfiguration"
     }
 }
