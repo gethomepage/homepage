@@ -893,5 +893,12 @@
         "ping": "Latència",
         "download": "Descarregar",
         "upload": "Pujada"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
     }
 }
