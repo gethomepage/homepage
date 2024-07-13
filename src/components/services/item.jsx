@@ -46,6 +46,7 @@ export default function Item({ service, group, useEqualHeights }) {
               <a
                 href={service.href}
                 target={service.target ?? settings.target ?? "_blank"}
+                tabIndex={0}
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 service-icon z-10"
                 aria-label={service.icon}
@@ -62,6 +63,7 @@ export default function Item({ service, group, useEqualHeights }) {
             <a
               href={service.href}
               target={service.target ?? settings.target ?? "_blank"}
+              tabIndex={0}
               rel="noreferrer"
               className="flex-1 flex items-center justify-between rounded-r-md service-title-text"
             >
