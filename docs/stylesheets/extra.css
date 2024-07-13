@@ -92,11 +92,11 @@
 }
 
 body {
+  background-color: transparent !important;
   background-image: url("https://raw.githubusercontent.com/gethomepage/homepage/main/docs/assets/blossom_valley.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  background-color: transparent;
   color: rgba(255, 255, 255, 0.8);
 }
 
