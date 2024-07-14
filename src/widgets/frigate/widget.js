@@ -18,6 +18,21 @@ const widget = {
         }
       },
     },
+    "events": {
+      endpoint: "events",
+      map: (data) => asJson(data)
+          .slice(0, 5)
+          .map(event => ({
+            "id": event.id,
+            "camera": event.camera,
+            "label": event.label,
+            "start_time": new Date(event.start_time*1000),
+            "thumbnail": event.thumbnail,
+            "score": event.data.score,
+            "type": event.data.type
+          })
+        )
+    }
   },
 };
 
