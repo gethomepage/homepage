@@ -4,7 +4,7 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-function Event({ camera, label, startTime, score, type, thumbnail }) {
+function Event({ camera, label, startTime, score, thumbnail }) {
   const { i18n } = useTranslation();
 
   const dateFormatter = new Intl.DateTimeFormat(i18n.language, { timeStyle: "short", dateStyle: "medium" });
@@ -21,8 +21,10 @@ function Event({ camera, label, startTime, score, type, thumbnail }) {
         {dateFormatter.format(new Date(startTime))}
       </div>
       {thumbnail && (
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={`data:image/png;base64, ${thumbnail}`}
+          alt={`Event ${dateFormatter.format(new Date(startTime))} thumbnail`}
           className="absolute top-0 right-0 w-1/2 z-50 invisible group-hover:visible"
         />
       )}
