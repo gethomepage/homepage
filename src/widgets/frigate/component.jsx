@@ -6,7 +6,7 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function Event({ camera, label, startTime, score, type, thumbnail }) {
   const { i18n } = useTranslation();
-  
+
   const dateFormatter = new Intl.DateTimeFormat(i18n.language, { timeStyle: "short", dateStyle: "medium" });
   const percentFormatter = new Intl.NumberFormat(i18n.language, { style: "percent" });
 
@@ -20,19 +20,20 @@ function Event({ camera, label, startTime, score, type, thumbnail }) {
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
         {dateFormatter.format(new Date(startTime))}
       </div>
-      {thumbnail &&
+      {thumbnail && (
         <img
           src={`data:image/png;base64, ${thumbnail}`}
           className="absolute top-0 right-0 w-1/2 z-50 invisible group-hover:visible"
-        />}
+        />
+      )}
     </div>
   );
-};
+}
 
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  
+
   const { data, error } = useWidgetAPI(widget, "stats");
   const { data: eventsData, error: eventsError } = useWidgetAPI(widget, "events");
 
@@ -52,7 +53,7 @@ export default function Component({ service }) {
         <Block label="frigate.version" />
       </Container>
     );
-  };
+  }
 
   return (
     <>
@@ -69,25 +70,20 @@ export default function Component({ service }) {
             value: data.uptime,
           })}
         />
-        <Block
-          label="frigate.version"
-          value={data.version}
-        />
+        <Block label="frigate.version" value={data.version} />
       </Container>
       {widget.enableRecentEvents &&
-        (eventsData?.map(event => (
-            <Event
-              camera={event.camera}
-              label={event.label}
-              startTime={event.start_time}
-              score={event.score}
-              type={event.type}
-              thumbnail={event.thumbnail}
-              key={event.id}
-            />
-          ))
-        )
-      }
+        eventsData?.map((event) => (
+          <Event
+            camera={event.camera}
+            label={event.label}
+            startTime={event.start_time}
+            score={event.score}
+            type={event.type}
+            thumbnail={event.thumbnail}
+            key={event.id}
+          />
+        ))}
     </>
   );
 }
