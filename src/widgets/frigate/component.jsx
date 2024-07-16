@@ -4,14 +4,14 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-function Event({ camera, label, startTime, score, thumbnail }) {
+function Event({ camera, label, startTime, score }) {
   const { i18n } = useTranslation();
 
   const dateFormatter = new Intl.DateTimeFormat(i18n.language, { timeStyle: "short", dateStyle: "medium" });
   const percentFormatter = new Intl.NumberFormat(i18n.language, { style: "percent" });
 
   return (
-    <div className="group text-theme-700 dark:text-theme-200 _relative h-5 rounded-md bg-theme-200/50 dark:bg-theme-900/20 m-1 px-1 flex">
+    <div className="text-theme-700 dark:text-theme-200 _relative h-5 rounded-md bg-theme-200/50 dark:bg-theme-900/20 m-1 px-1 flex">
       <div className="text-xs z-10 self-center ml-2 relative h-4 grow mr-2">
         <div className="absolute w-full h-4 whitespace-nowrap text-ellipsis overflow-hidden text-left">
           {camera} ({label} {percentFormatter.format(score)})
@@ -20,14 +20,6 @@ function Event({ camera, label, startTime, score, thumbnail }) {
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
         {dateFormatter.format(new Date(startTime))}
       </div>
-      {thumbnail && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`data:image/png;base64, ${thumbnail}`}
-          alt={`Event ${dateFormatter.format(new Date(startTime))} thumbnail`}
-          className="absolute top-0 right-0 w-1/2 z-50 invisible group-hover:visible"
-        />
-      )}
     </div>
   );
 }
