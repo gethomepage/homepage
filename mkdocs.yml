@@ -225,8 +225,6 @@ theme:
 
 extra_css:
   - "stylesheets/extra.css"
-extra_javascript:
-  - "scripts/extra.js"
 
 extra:
   version:

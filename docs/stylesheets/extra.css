@@ -45,10 +45,6 @@
   }
 }
 
-#glimeRoot * {
-  font-family: var(--md-text-font) !important;
-}
-
 #carbonads {
   margin-top: 10px;
 }

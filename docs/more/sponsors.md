@@ -35,13 +35,6 @@ These companies help the Homepage project by providing services, tools, and reso
   </div>
 
   <div style="margin-bottom: 16px;">
-    <a href="https://glimelab.ai/"><img src="https://framerusercontent.com/images/28KxmT1G06GrFM8TKeNAC03QIms.svg" alt="Crowdin" style="max-width: 100%; height: 64px; display: block;" /></a>
-    <p>
-      GlimeLab provides the project with the awesome AI chatbot here and on GitHub and Discord.
-    </p>
-  </div>
-
-  <div style="margin-bottom: 16px;">
     <a href="https://www.jetbrains.com/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png" alt="JetBrains" style="max-width: 100%; height: 64px; display: block;" /></a>
     <p>
       JetBrains provides the project with free licenses for their awesome tools.
