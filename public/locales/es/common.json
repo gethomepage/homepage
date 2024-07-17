@@ -77,7 +77,7 @@
         "unknown": "Desconocido",
         "healthy": "Saludable",
         "starting": "Comenzando",
-        "unhealthy": "Insalubre",
+        "unhealthy": "No saludable",
         "not_found": "No encontrado",
         "exited": "Terminado",
         "partial": "Parcial"
@@ -895,10 +895,10 @@
         "upload": "Subida"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Acciones",
+        "loading": "Cargando",
+        "open": "Abierto - Mercado EEUU",
+        "closed": "Cerrado - Mercado EEUU",
+        "invalidConfiguration": "Configuración no válida"
     }
 }
