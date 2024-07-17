@@ -11,9 +11,11 @@ You can display general connectivity status from your Unifi (Network) Controller
 
 An optional 'site' parameter can be supplied, if it is not the widget will use the default site for the controller.
 
-Allowed fields: `["uptime", "wan", "lan", "lan_users", "lan_devices", "wlan", "wlan_users", "wlan_devices"]` (maximum of four).
+Allowed fields: `["uptime", "wan", "lan", "lan_users", "lan_devices", "wlan", "wlan_users", "wlan_devices"]` (maximum of four). Fields unsupported by the unifi device will not be shown.
 
-Note that fields unsupported by the unifi device will not be shown.
+!!! hint
+
+    If you enter e.g. incorrect credentials and receive an "API Error", you may need to recreate the container to clear the cache.
 
 ```yaml
 widget:
