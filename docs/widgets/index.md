@@ -6,6 +6,8 @@ icon: material/widgets
 
 Homepage has two types of widgets: info and service. Below we'll cover each type and how to configure them.
 
+The left navigation of this site contains links to all available widgets.
+
 ## Service Widgets
 
 Service widgets are used to display the status of a service, often a web service or API. Services (and their widgets) are defined in your `services.yaml` file. Here's an example:
