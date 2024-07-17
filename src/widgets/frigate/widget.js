@@ -1,7 +1,6 @@
 import { asJson } from "utils/proxy/api-helpers";
 import genericProxyHandler from "utils/proxy/handlers/generic";
 
-// export default widget;
 const widget = {
   api: "{url}/api/{endpoint}",
   proxyHandler: genericProxyHandler,

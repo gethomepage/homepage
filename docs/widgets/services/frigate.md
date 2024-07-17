@@ -13,5 +13,5 @@ A recent event listing is disabled by default, but can be enabled with the `enab
 widget:
   type: frigate
   url: http://frigate.host.or.ip:port
-  enableRecentEvents: true
+  enableRecentEvents: true # Optional, defaults to false
 ```

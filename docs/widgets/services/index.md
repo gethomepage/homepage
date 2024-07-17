@@ -30,6 +30,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Fileflows](fileflows.md)
 - [Flood](flood.md)
 - [FreshRSS](freshrss.md)
+- [Frigate](frigate.md)
 - [Fritz!Box](fritzbox.md)
 - [GameDig](gamedig.md)
 - [Gatus](gatus.md)
