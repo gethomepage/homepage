@@ -900,5 +900,10 @@
         "open": "Offen - US-Markt",
         "closed": "Geschlossen - US-Markt",
         "invalidConfiguration": "Ungültige Konfiguration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Betriebszeit",
+        "version": "Version"
     }
 }
