@@ -900,5 +900,10 @@
         "open": "Obert - Mercat EEUU",
         "closed": "Tancat - Mercat EEUU",
         "invalidConfiguration": "Configuració no vàlida"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Temps actiu",
+        "version": "Versió"
     }
 }

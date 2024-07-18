@@ -900,5 +900,10 @@
         "open": "Oop - VS Mark",
         "closed": "Toe - VS Mark",
         "invalidConfiguration": "Ongeldige opstelling"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Optyd",
+        "version": "Weergawe"
     }
 }
