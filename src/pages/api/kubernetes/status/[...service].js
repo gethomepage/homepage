@@ -48,8 +48,8 @@ export default async function handler(req, res) {
       logger.error(`no pods found with namespace=${namespace} and labelSelector=${labelSelector}`);
       return;
     }
-    const someReady = pods.find((pod) => ["Completed", "Running"].includes(pod.status.phase));
-    const allReady = pods.every((pod) => ["Completed", "Running"].includes(pod.status.phase));
+    const someReady = pods.find((pod) => ["Succeeded", "Running"].includes(pod.status.phase));
+    const allReady = pods.every((pod) => ["Succeeded", "Running"].includes(pod.status.phase));
     let status = "down";
     if (allReady) {
       status = "running";
