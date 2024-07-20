@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Ligado",
         "version": "Versão"
+    },
+    "foundry": {
+        "version": "Versão",
+        "world": "Mundo",
+        "users": "Utilizadores",
+        "uptime": "Ligado"
     }
 }

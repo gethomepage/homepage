@@ -28,6 +28,7 @@ const components = {
   evcc: dynamic(() => import("./evcc/component")),
   fileflows: dynamic(() => import("./fileflows/component")),
   flood: dynamic(() => import("./flood/component")),
+  foundry: dynamic(() => import("./foundry/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
   frigate: dynamic(() => import("./frigate/component")),
   fritzbox: dynamic(() => import("./fritzbox/component")),

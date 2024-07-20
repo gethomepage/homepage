@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Online",
         "version": "Versie"
+    },
+    "foundry": {
+        "version": "Versie",
+        "world": "Wereld",
+        "users": "Gebruikers",
+        "uptime": "Online"
     }
 }

@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Uptime",
         "version": "버전"
+    },
+    "foundry": {
+        "version": "버전",
+        "world": "세계",
+        "users": "사용자",
+        "uptime": "Uptime"
     }
 }

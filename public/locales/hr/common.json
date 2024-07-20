@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Vrijeme rada",
         "version": "Verzija"
+    },
+    "foundry": {
+        "version": "Verzija",
+        "world": "Svijet",
+        "users": "Korisnici",
+        "uptime": "Vrijeme rada"
     }
 }

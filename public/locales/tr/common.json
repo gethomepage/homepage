@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Çalışma Süresi",
         "version": "Versiyon"
+    },
+    "foundry": {
+        "version": "Versiyon",
+        "world": "Dünya",
+        "users": "Kullanıcılar",
+        "uptime": "Çalışma Süresi"
     }
 }

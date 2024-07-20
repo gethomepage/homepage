@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Čas delovanja",
         "version": "Verzija"
+    },
+    "foundry": {
+        "version": "Verzija",
+        "world": "Svet",
+        "users": "Uporabniki",
+        "uptime": "Čas delovanja"
     }
 }

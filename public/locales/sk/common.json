@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Prevádzka",
         "version": "Verzia"
+    },
+    "foundry": {
+        "version": "Verzia",
+        "world": "Svet",
+        "users": "Používatelia",
+        "uptime": "Prevádzka"
     }
 }

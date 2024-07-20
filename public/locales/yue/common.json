@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "運行時間",
         "version": "版本"
+    },
+    "foundry": {
+        "version": "版本",
+        "world": "世界",
+        "users": "使用者",
+        "uptime": "運行時間"
     }
 }

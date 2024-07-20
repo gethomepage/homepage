@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Oppetid",
         "version": "Version"
+    },
+    "foundry": {
+        "version": "Version",
+        "world": "Verden",
+        "users": "Brugere",
+        "uptime": "Oppetid"
     }
 }

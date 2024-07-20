@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Temps actiu",
         "version": "Versió"
+    },
+    "foundry": {
+        "version": "Versió",
+        "world": "Món",
+        "users": "Usuaris",
+        "uptime": "Temps actiu"
     }
 }

@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Χρόνος Λειτουργίας",
         "version": "Έκδοση"
+    },
+    "foundry": {
+        "version": "Έκδοση",
+        "world": "Κόσμος",
+        "users": "Χρήστες",
+        "uptime": "Χρόνος Λειτουργίας"
     }
 }

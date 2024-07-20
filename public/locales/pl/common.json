@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Czas działania",
         "version": "Wersja"
+    },
+    "foundry": {
+        "version": "Wersja",
+        "world": "Świat",
+        "users": "Użytkownicy",
+        "uptime": "Czas działania"
     }
 }

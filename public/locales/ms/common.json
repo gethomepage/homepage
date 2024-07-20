@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Masa Hidup",
         "version": "Versi"
+    },
+    "foundry": {
+        "version": "Versi",
+        "world": "Dunia",
+        "users": "Pengguna",
+        "uptime": "Masa Hidup"
     }
 }

@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Üzemidő",
         "version": "Verzió"
+    },
+    "foundry": {
+        "version": "Verzió",
+        "world": "Világ",
+        "users": "Felhasználók",
+        "uptime": "Üzemidő"
     }
 }

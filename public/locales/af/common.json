@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Optyd",
         "version": "Weergawe"
+    },
+    "foundry": {
+        "version": "Weergawe",
+        "world": "Wêreld",
+        "users": "Gebruikers",
+        "uptime": "Optyd"
     }
 }

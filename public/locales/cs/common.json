@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Doba spuštění",
         "version": "Verze"
+    },
+    "foundry": {
+        "version": "Verze",
+        "world": "Svět",
+        "users": "Uživatelé",
+        "uptime": "Doba spuštění"
     }
 }

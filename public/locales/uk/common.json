@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Час роботи",
         "version": "Версія"
+    },
+    "foundry": {
+        "version": "Версія",
+        "world": "Світ",
+        "users": "Користувачі",
+        "uptime": "Час роботи"
     }
 }

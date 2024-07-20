@@ -905,5 +905,11 @@
         "cameras": "Cameras",
         "uptime": "Waktu Aktif",
         "version": "Versi"
+    },
+    "foundry": {
+        "version": "Versi",
+        "world": "Dunia",
+        "users": "Pengguna",
+        "uptime": "Waktu Aktif"
     }
 }
