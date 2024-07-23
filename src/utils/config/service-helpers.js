@@ -399,6 +399,9 @@ export function cleanServiceGroups(groups) {
           expandOneStreamToTwoRows,
           showEpisodeNumber,
 
+          // frigate
+          enableRecentEvents,
+
           // glances, pihole, pfsense
           version,
 
@@ -613,6 +616,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "wgeasy") {
           if (threshold !== undefined) cleanedService.widget.threshold = parseInt(threshold, 10);
+        }
+        if (type === "frigate") {
+          if (enableRecentEvents !== undefined) cleanedService.widget.enableRecentEvents = enableRecentEvents;
         }
       }
 

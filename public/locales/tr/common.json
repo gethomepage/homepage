@@ -900,5 +900,10 @@
         "open": "Açık - ABD Pazarı",
         "closed": "Kapalı - ABD Pazarı",
         "invalidConfiguration": "Geçersiz Yapılandırma"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Çalışma Süresi",
+        "version": "Versiyon"
     }
 }
