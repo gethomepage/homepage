@@ -31,7 +31,7 @@
     },
     "weather": {
         "current": "Ubicación actual",
-        "allow": "Clic para permitir",
+        "allow": "Pulsa para permitir",
         "updating": "Actualizando",
         "wait": "Espera, por favor"
     },
@@ -77,9 +77,9 @@
         "unknown": "Desconocido",
         "healthy": "Saludable",
         "starting": "Comenzando",
-        "unhealthy": "Insalubre",
+        "unhealthy": "No saludable",
         "not_found": "No encontrado",
-        "exited": "Salida",
+        "exited": "Terminado",
         "partial": "Parcial"
     },
     "ping": {
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Desconexión pendiente",
         "connectionStatusDisconnecting": "Desconectando",
         "connectionStatusDisconnected": "Desconectado",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Conectado",
         "uptime": "Tiempo activo",
         "maxDown": "Descarga máxima",
         "maxUp": "Subida máxima",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Conectado",
+        "new_devices": "Nuevos dispositivos",
+        "down_alerts": "Alertas de caída"
     },
     "pihole": {
         "queries": "Consultas",
@@ -544,7 +544,7 @@
     "hdhomerun": {
         "channels": "Canales",
         "hd": "Alta definición",
-        "tunerCount": "Tuners",
+        "tunerCount": "Sintonizadores",
         "channelNumber": "Canal",
         "channelNetwork": "Red",
         "signalStrength": "Intensidad",
@@ -827,7 +827,7 @@
     },
     "romm": {
         "platforms": "Plataformas",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "ROMs totales"
     },
     "netdata": {
         "warnings": "Advertencias",
@@ -835,38 +835,38 @@
     },
     "plantit": {
         "events": "Eventos",
-        "plants": "Plants",
+        "plants": "Plantas",
         "photos": "Fotos",
-        "species": "Species"
+        "species": "Especies"
     },
     "gitea": {
         "notifications": "Notificaciones",
         "issues": "Números",
-        "pulls": "Pull Requests"
+        "pulls": "Solicitudes de cambios"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
+        "scenes": "Escenas",
+        "scenesPlayed": "Escenas reproducidas",
+        "playCount": "Reproducciones totales",
+        "playDuration": "Tiempo visto",
+        "sceneSize": "Tamaño de las escenas",
+        "sceneDuration": "Duración de las escenas",
         "images": "Imágenes",
         "imageSize": "Tamaño de imagen",
         "galleries": "Galerías",
-        "performers": "Performers",
-        "studios": "Studios",
+        "performers": "Intérpretes",
+        "studios": "Estudios",
         "movies": "Películas",
         "tags": "Etiquetas",
-        "oCount": "O Count"
+        "oCount": "O cuenta"
     },
     "tandoor": {
         "users": "Usuarios",
         "recipes": "Recetas",
-        "keywords": "Keywords"
+        "keywords": "Palabras clave"
     },
     "homebox": {
-        "items": "Items",
+        "items": "Objetos",
         "totalWithWarranty": "Con Garantía",
         "locations": "Ubicaciones",
         "labels": "Etiquetas",
@@ -875,6 +875,35 @@
     },
     "crowdsec": {
         "alerts": "Alertas",
-        "bans": "Bans"
+        "bans": "Baneos"
+    },
+    "wgeasy": {
+        "connected": "Conectado",
+        "enabled": "Activado",
+        "disabled": "Desactivado",
+        "total": "Total"
+    },
+    "swagdashboard": {
+        "proxied": "Proxy activado",
+        "auth": "Con Autenticación",
+        "outdated": "Desactualizado",
+        "banned": "Baneado"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Descarga",
+        "upload": "Subida"
+    },
+    "stocks": {
+        "stocks": "Acciones",
+        "loading": "Cargando",
+        "open": "Abierto - Mercado EEUU",
+        "closed": "Cerrado - Mercado EEUU",
+        "invalidConfiguration": "Configuración no válida"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Tiempo activo",
+        "version": "Versión"
     }
 }

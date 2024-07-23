@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "警示",
         "bans": "禁止"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "啟用",
+        "disabled": "停用咗",
+        "total": "全部"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "延遲",
+        "download": "下載速率",
+        "upload": "上傳速率"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "運行時間",
+        "version": "版本"
     }
 }

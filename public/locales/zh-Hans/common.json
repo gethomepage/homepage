@@ -54,10 +54,10 @@
         "uptime": "运行时间",
         "days": "天",
         "wan": "WAN",
-        "lan": "局域网",
-        "wlan": "无线局域网",
+        "lan": "LAN",
+        "wlan": "WLAN",
         "devices": "设备",
-        "lan_devices": "有线设备",
+        "lan_devices": "LAN 设备",
         "wlan_devices": "WLAN 设备",
         "lan_users": "有线用户",
         "wlan_users": "无线用户",
@@ -146,7 +146,7 @@
         "maxUp": "",
         "down": "离线",
         "up": "在线",
-        "received": "最大上传数",
+        "received": "已接收",
         "sent": "已发送",
         "externalIPAddress": "外部IP"
     },
@@ -234,7 +234,7 @@
     },
     "sonarr": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "series": "剧集",
         "queue": "队列",
         "unknown": "未知"
@@ -242,19 +242,19 @@
     "radarr": {
         "wanted": "关注中",
         "missing": "缺失",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "movies": "电影",
         "queue": "队列",
         "unknown": "未知"
     },
     "lidarr": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "artists": "艺术家"
     },
     "readarr": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "books": "书籍"
     },
     "bazarr": {
@@ -375,7 +375,7 @@
     },
     "medusa": {
         "wanted": "关注中",
-        "queued": "已加入队列",
+        "queued": "队列中",
         "series": "剧集"
     },
     "minecraft": {
@@ -802,7 +802,7 @@
         "up": "在线",
         "down": "离线",
         "bytesTx": "已传输",
-        "bytesRx": "最大上传数"
+        "bytesRx": "已接收"
     },
     "uptimerobot": {
         "status": "状态",
@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "警告",
         "bans": "禁用"
+    },
+    "wgeasy": {
+        "connected": "已连接",
+        "enabled": "启用",
+        "disabled": "禁用",
+        "total": "总计"
+    },
+    "swagdashboard": {
+        "proxied": "已代理",
+        "auth": "使用认证",
+        "outdated": "已过期",
+        "banned": "已禁止"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "下载速率",
+        "upload": "上传速率"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "运行时间",
+        "version": "版本"
     }
 }

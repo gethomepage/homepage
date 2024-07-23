@@ -1,11 +1,16 @@
 ---
 title: Installation
 description: Docs intro
+icon: simple/docker
 ---
 
 <p>
 You have a few options for deploying homepage, depending on your needs. We offer docker images for a majority of platforms. You can also install and run homepage from source if Docker is not your thing. It can even be installed on Kubernetes with Helm.
 </p>
+
+!!! danger
+
+    Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. Thus, we recommend homepage be deployed behind a reverse proxy including authentication, SSL etc, and / or behind a VPN.
 
 <br>
 

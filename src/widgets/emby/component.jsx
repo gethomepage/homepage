@@ -4,7 +4,7 @@ import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { formatProxyUrlWithSegments } from "utils/proxy/api-helpers";
+import { getURLSearchParams } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function ticksToTime(ticks) {
@@ -217,11 +217,17 @@ export default function Component({ service }) {
   });
 
   async function handlePlayCommand(session, command) {
-    const url = formatProxyUrlWithSegments(widget, "PlayControl", {
-      sessionId: session.Id,
-      command,
-    });
-    await fetch(url).then(() => {
+    const params = getURLSearchParams(widget, command);
+    params.append(
+      "segments",
+      JSON.stringify({
+        sessionId: session.Id,
+      }),
+    );
+    const url = `/api/services/proxy?${params.toString()}`;
+    await fetch(url, {
+      method: "POST",
+    }).then(() => {
       sessionMutate();
     });
   }

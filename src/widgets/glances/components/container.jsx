@@ -1,4 +1,21 @@
-export default function Container({ children, chart = true, className = "" }) {
+import { useContext } from "react";
+
+import Error from "./error";
+
+import { SettingsContext } from "utils/contexts/settings";
+
+export default function Container({ children, widget, error = null, chart = true, className = "" }) {
+  const { settings } = useContext(SettingsContext);
+  const hideErrors = settings.hideErrors || widget?.hideErrors;
+
+  if (error) {
+    if (hideErrors) {
+      return null;
+    }
+
+    return <Error />;
+  }
+
   return (
     <div>
       {children}

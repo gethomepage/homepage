@@ -32,7 +32,7 @@ export async function cleanWidgetGroups(widgets) {
     const optionKeys = Object.keys(sanitizedOptions);
 
     // delete private options from the sanitized options
-    ["username", "password", "key"].forEach((pO) => {
+    ["username", "password", "key", "apiKey"].forEach((pO) => {
       if (optionKeys.includes(pO)) {
         delete sanitizedOptions[pO];
       }
@@ -57,7 +57,7 @@ export async function getPrivateWidgetOptions(type, widgetIndex) {
   const widgets = await widgetsFromConfig();
 
   const privateOptions = widgets.map((widget) => {
-    const { index, url, username, password, key } = widget.options;
+    const { index, url, username, password, key, apiKey } = widget.options;
 
     return {
       type: widget.type,
@@ -67,6 +67,7 @@ export async function getPrivateWidgetOptions(type, widgetIndex) {
         username,
         password,
         key,
+        apiKey,
       },
     };
   });

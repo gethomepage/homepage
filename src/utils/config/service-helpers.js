@@ -254,7 +254,8 @@ export async function servicesFromKubernetes() {
           ingress.metadata.annotations &&
           ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
           (!ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
-            ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName),
+            ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
+            `${ANNOTATION_BASE}/instance.${instanceName}` in ingress.metadata.annotations),
       )
       .map((ingress) => {
         let constructedService = {
@@ -398,7 +399,10 @@ export function cleanServiceGroups(groups) {
           expandOneStreamToTwoRows,
           showEpisodeNumber,
 
-          // glances, pihole
+          // frigate
+          enableRecentEvents,
+
+          // glances, pihole, pfsense
           version,
 
           // glances
@@ -456,12 +460,19 @@ export function cleanServiceGroups(groups) {
           // sonarr, radarr
           enableQueue,
 
+          // stocks
+          watchlist,
+          showUSMarketStatus,
+
           // truenas
           enablePools,
           nasType,
 
           // unifi
           site,
+
+          // wgeasy
+          threshold,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -500,6 +511,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "unifi") {
           if (site) cleanedService.widget.site = site;
+        }
+        if (type === "pfsense") {
+          if (version) cleanedService.widget.version = version;
         }
         if (type === "proxmox") {
           if (node) cleanedService.widget.node = node;
@@ -595,6 +609,16 @@ export function cleanServiceGroups(groups) {
           if (bitratePrecision !== undefined) {
             cleanedService.widget.bitratePrecision = parseInt(bitratePrecision, 10);
           }
+        }
+        if (type === "stocks") {
+          if (watchlist) cleanedService.widget.watchlist = watchlist;
+          if (showUSMarketStatus) cleanedService.widget.showUSMarketStatus = showUSMarketStatus;
+        }
+        if (type === "wgeasy") {
+          if (threshold !== undefined) cleanedService.widget.threshold = parseInt(threshold, 10);
+        }
+        if (type === "frigate") {
+          if (enableRecentEvents !== undefined) cleanedService.widget.enableRecentEvents = enableRecentEvents;
         }
       }
 

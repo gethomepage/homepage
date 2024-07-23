@@ -153,7 +153,7 @@
     "caddy": {
         "upstreams": "Pretok gor",
         "requests": "Trenutnih zahtev",
-        "requests_failed": "Neuspešnih zahtev"
+        "requests_failed": "Neuspeš. zahtev"
     },
     "changedetectionio": {
         "totalObserved": "Skupaj opazovano",
@@ -355,8 +355,8 @@
         "enableIndexers": "Indekserji",
         "numberOfGrabs": "Zajemi",
         "numberOfQueries": "Poizvedbe",
-        "numberOfFailGrabs": "Neuspešni zajemi",
-        "numberOfFailQueries": "Neuspešne poizvedbe"
+        "numberOfFailGrabs": "Neuspeš. zajem",
+        "numberOfFailQueries": "Neuspeš. poizvedb"
     },
     "jackett": {
         "configured": "Nastavljeno",
@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Opozorila",
         "bans": "Prepovedi"
+    },
+    "wgeasy": {
+        "connected": "Povezan",
+        "enabled": "Omogočen",
+        "disabled": "Onemogočen",
+        "total": "Skupaj"
+    },
+    "swagdashboard": {
+        "proxied": "Čez proxi",
+        "auth": "Z Auth",
+        "outdated": "Zastarelo",
+        "banned": "Prepovedan"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Prenos",
+        "upload": "Nalaganje"
+    },
+    "stocks": {
+        "stocks": "Delnice",
+        "loading": "Nalaganje",
+        "open": "Odprto - US trg",
+        "closed": "Zaprto - US trg",
+        "invalidConfiguration": "Neveljavna konfiguracija"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Čas delovanja",
+        "version": "Verzija"
     }
 }

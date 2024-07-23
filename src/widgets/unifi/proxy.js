@@ -14,13 +14,13 @@ const prefixCacheKey = `${proxyName}__prefix`;
 const logger = createLogger(proxyName);
 
 async function getWidget(req) {
-  const { group, service, type } = req.query;
+  const { group, service } = req.query;
 
   let widget = null;
-  if (type === "unifi_console") {
+  if (group === "unifi_console" && service === "unifi_console") {
     // info widget
     const index = req.query?.query ? JSON.parse(req.query.query).index : undefined;
-    widget = await getPrivateWidgetOptions(type, index);
+    widget = await getPrivateWidgetOptions("unifi_console", index);
     if (!widget) {
       logger.debug("Error retrieving settings for this Unifi widget");
       return null;

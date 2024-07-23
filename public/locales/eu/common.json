@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Alerts",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Guztira"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Uptime",
+        "version": "Version"
     }
 }

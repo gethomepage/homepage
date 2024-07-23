@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Varsler",
         "bans": "Utestengelse"
+    },
+    "wgeasy": {
+        "connected": "Tilkoblet",
+        "enabled": "Aktivert",
+        "disabled": "Deaktivert",
+        "total": "Totalt"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Responstid",
+        "download": "Last ned",
+        "upload": "Opplastning"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Oppetid",
+        "version": "Versjon"
     }
 }
