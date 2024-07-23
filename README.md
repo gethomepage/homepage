@@ -25,6 +25,13 @@
   <a href="https://paypal.me/phelpsben" title="Donate"><img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/benphelps"></a>
 </p>
 
+<p align="center">
+  <a href="https://www.digitalocean.com/?refcode=df14bcb7c016&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" /></a>
+</p>
+<p align="center">
+<em>Homepage builds are kindly powered by DigitalOcean.</em>
+</p>
+
 # Features
 
 With features like quick search, bookmarks, weather support, a wide range of integrations and widgets, an elegant and modern design, and a focus on performance, Homepage is your ideal start to the day and a handy companion throughout it.
@@ -58,6 +65,10 @@ Homepage is highly customizable, with support for custom themes, custom CSS & JS
 # Getting Started
 
 For configuration options, examples and more, [please check out the homepage documentation](http://gethomepage.dev).
+
+## Security Notice 🔒
+
+Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. Thus, we recommend homepage be deployed behind a reverse proxy including authentication, SSL etc, and / or behind a VPN.
 
 ## With Docker
 

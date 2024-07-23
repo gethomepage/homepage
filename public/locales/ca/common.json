@@ -36,7 +36,7 @@
         "wait": "Si us plau, espereu"
     },
     "search": {
-        "placeholder": "Cercar…"
+        "placeholder": "Cerca…"
     },
     "resources": {
         "cpu": "CPU",
@@ -125,8 +125,8 @@
     "flood": {
         "download": "Descarregar",
         "upload": "Pujada",
-        "leech": "Company",
-        "seed": "Llavor"
+        "leech": "Sangonera",
+        "seed": "Llavors"
     },
     "freshrss": {
         "subscriptions": "Subcripcions",
@@ -203,14 +203,14 @@
     "transmission": {
         "download": "Descarregar",
         "upload": "Pujada",
-        "leech": "Company",
-        "seed": "Llavor"
+        "leech": "Sangonera",
+        "seed": "Llavors"
     },
     "qbittorrent": {
         "download": "Descarregar",
         "upload": "Pujada",
-        "leech": "Company",
-        "seed": "Llavor"
+        "leech": "Sangonera",
+        "seed": "Llavors"
     },
     "qnap": {
         "cpuUsage": "Ús de CPU",
@@ -223,14 +223,14 @@
     "deluge": {
         "download": "Descarregar",
         "upload": "Pujada",
-        "leech": "Company",
-        "seed": "Llavor"
+        "leech": "Sangonera",
+        "seed": "Llavors"
     },
     "downloadstation": {
         "download": "Descarregar",
         "upload": "Pujada",
-        "leech": "Company",
-        "seed": "Llavor"
+        "leech": "Sangonera",
+        "seed": "Llavors"
     },
     "sonarr": {
         "wanted": "Volgut",
@@ -241,7 +241,7 @@
     },
     "radarr": {
         "wanted": "Volgut",
-        "missing": "Faltant",
+        "missing": "Falten",
         "queued": "En cua",
         "movies": "Pel·lícules",
         "queue": "Cua",
@@ -386,7 +386,7 @@
         "down": "Fora de línia"
     },
     "miniflux": {
-        "read": "Llegir",
+        "read": "Llegit",
         "unread": "Sense llegir"
     },
     "authentik": {
@@ -414,8 +414,8 @@
         "days": "d",
         "hours": "h",
         "crit": "Crític",
-        "read": "Llegir",
-        "write": "Escriure",
+        "read": "Llegit",
+        "write": "Escriptura",
         "gpu": "GPU",
         "mem": "Mem",
         "swap": "Intercanvi"
@@ -423,9 +423,9 @@
     "quicklaunch": {
         "bookmark": "Marcador",
         "service": "Servei",
-        "search": "Cercar",
+        "search": "Cerca",
         "custom": "Personalitzat",
-        "visit": "Visitar",
+        "visit": "Visita",
         "url": "URL",
         "searchsuggestion": "Suggeriment"
     },
@@ -581,7 +581,7 @@
         "numberOfLeases": "IPs assignades"
     },
     "xteve": {
-        "streams_all": "Tots els fluxos",
+        "streams_all": "Tots els streams",
         "streams_active": "Transmissions actives",
         "streams_xepg": "Canals XEPG"
     },
@@ -600,7 +600,7 @@
     "moonraker": {
         "printer_state": "Estat de l'impressora",
         "print_status": "Estat de l'impressió",
-        "print_progress": "Progress",
+        "print_progress": "Progrés",
         "layers": "Capes"
     },
     "octoprint": {
@@ -614,14 +614,14 @@
         "status": "Estat"
     },
     "pfsense": {
-        "load": "Promig Càrrega",
+        "load": "Càrrega mitjana",
         "memory": "Ús Memòria",
         "wanStatus": "Estat WAN",
         "up": "Actiu",
         "down": "Inactiu",
         "temp": "Temp",
         "disk": "Ús Disc",
-        "wanIP": "WAN IP"
+        "wanIP": "IP WAN"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
@@ -677,7 +677,7 @@
     },
     "grafana": {
         "dashboards": "Taulells",
-        "datasources": "Origen de dades",
+        "datasources": "Orígens de dades",
         "totalalerts": "Alertes Totals",
         "alertstriggered": "Alertes disparades"
     },
@@ -718,10 +718,10 @@
     "ghostfolio": {
         "gross_percent_today": "Avui",
         "gross_percent_1y": "Un any",
-        "gross_percent_max": "Tot"
+        "gross_percent_max": "Sempre"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
+        "podcasts": "Pòdcasts",
         "books": "Llibres",
         "podcastsDuration": "Durada",
         "booksDuration": "Durada"
@@ -760,8 +760,8 @@
         "failed": "Error",
         "canceled": "Cancel·lat",
         "inProgress": "En curs",
-        "totalPrs": "RP Totals",
-        "myPrs": "Els meus RP",
+        "totalPrs": "PRs Totals",
+        "myPrs": "Les meves PRs",
         "approved": "Aprovat"
     },
     "gamedig": {
@@ -798,7 +798,7 @@
     },
     "openwrt": {
         "uptime": "Temps actiu",
-        "cpuLoad": "Càrrega promig de CPU (5m)",
+        "cpuLoad": "Càrrega mitjana de CPU (5min)",
         "up": "Actiu",
         "down": "Inactiu",
         "bytesTx": "Enviat",
@@ -849,10 +849,10 @@
         "scenesPlayed": "Escenes reproduïdes",
         "playCount": "Total reproduccions",
         "playDuration": "Temps visionat",
-        "sceneSize": "Tamany Escena",
+        "sceneSize": "Tamany d'escenes",
         "sceneDuration": "Duració Escenes",
         "images": "Imatges",
-        "imageSize": "Mida Imatges",
+        "imageSize": "Tamany d'imatges",
         "galleries": "Biblioteques",
         "performers": "Intèrprets",
         "studios": "Estudis",
@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Alertes",
         "bans": "Prohibicions"
+    },
+    "wgeasy": {
+        "connected": "Connectat",
+        "enabled": "Activat",
+        "disabled": "Desactivat",
+        "total": "Total"
+    },
+    "swagdashboard": {
+        "proxied": "Intermediat",
+        "auth": "Amb autentificació",
+        "outdated": "Obsolet",
+        "banned": "Bloquejat"
+    },
+    "myspeed": {
+        "ping": "Latència",
+        "download": "Descarregar",
+        "upload": "Pujada"
+    },
+    "stocks": {
+        "stocks": "Accions",
+        "loading": "Carregant",
+        "open": "Obert - Mercat EEUU",
+        "closed": "Tancat - Mercat EEUU",
+        "invalidConfiguration": "Configuració no vàlida"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Temps actiu",
+        "version": "Versió"
     }
 }

@@ -1,26 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
+import useSWR from "swr";
 
 import ResolvedIcon from "./resolvedicon";
+import { getStoredProvider, searchProviders } from "./widgets/search/search";
 
 import { SettingsContext } from "utils/contexts/settings";
 
-export default function QuickLaunch({
-  servicesAndBookmarks,
-  searchString,
-  setSearchString,
-  isOpen,
-  close,
-  searchProvider,
-}) {
+export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, close }) {
   const { t } = useTranslation();
 
   const { settings } = useContext(SettingsContext);
   const { searchDescriptions = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
-  const showSearchSuggestions = !!(
-    settings?.quicklaunch?.showSearchSuggestions ?? searchProvider?.showSearchSuggestions
-  );
 
   const searchField = useRef();
 
@@ -29,9 +21,42 @@ export default function QuickLaunch({
   const [url, setUrl] = useState(null);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
+  const { data: widgets } = useSWR("/api/widgets");
+  const searchWidget = Object.values(widgets).find((w) => w.type === "search");
+
+  let searchProvider;
+
+  if (settings?.quicklaunch?.provider === "custom" && settings?.quicklaunch?.url?.length > 0) {
+    searchProvider = settings.quicklaunch;
+  } else if (settings?.quicklaunch?.provider && settings?.quicklaunch?.provider !== "custom") {
+    searchProvider = searchProviders[settings.quicklaunch.provider];
+  } else if (searchWidget) {
+    // If there is no search provider in quick launch settings, try to get it from the search widget
+    if (Array.isArray(searchWidget.options?.provider)) {
+      // If search provider is a list, try to retrieve from localstorage, fall back to the first
+      searchProvider = getStoredProvider() ?? searchProviders[searchWidget.options.provider[0]];
+    } else if (searchWidget.options?.provider === "custom") {
+      searchProvider = searchWidget.options;
+    } else {
+      searchProvider = searchProviders[searchWidget.options?.provider];
+    }
+  }
+
+  if (searchProvider) {
+    searchProvider.showSearchSuggestions = !!(
+      settings?.quicklaunch?.showSearchSuggestions ??
+      searchWidget?.options?.showSearchSuggestions ??
+      false
+    );
+  }
+
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
-    window.open(result.href, newWindow ? "_blank" : result.target ?? settings.target ?? "_blank", "noreferrer");
+    window.open(
+      result.href,
+      newWindow ? "_blank" : result.target ?? searchProvider?.target ?? settings.target ?? "_blank",
+      "noreferrer",
+    );
   }
 
   const closeAndReset = useCallback(() => {
@@ -44,16 +69,18 @@ export default function QuickLaunch({
   }, [close, setSearchString, setCurrentItemIndex, setSearchSuggestions]);
 
   function handleSearchChange(event) {
-    const rawSearchString = event.target.value.toLowerCase();
+    const rawSearchString = event.target.value;
     try {
       if (!/.+[.:].+/g.test(rawSearchString)) throw new Error(); // basic test for probably a url
       let urlString = rawSearchString;
-      if (urlString.indexOf("http") !== 0) urlString = `https://${rawSearchString}`;
+      if (urlString.toLowerCase().indexOf("http") !== 0) urlString = `https://${rawSearchString}`;
       setUrl(new URL(urlString)); // basic validation
+      setSearchString(rawSearchString);
+      return;
     } catch (e) {
       setUrl(null);
     }
-    setSearchString(rawSearchString);
+    setSearchString(rawSearchString.toLowerCase());
   }
 
   function handleSearchKeyDown(event) {
@@ -119,7 +146,7 @@ export default function QuickLaunch({
           type: "search",
         });
 
-        if (showSearchSuggestions && searchProvider.suggestionUrl) {
+        if (searchProvider.showSearchSuggestions && searchProvider.suggestionUrl) {
           if (searchString.trim() !== searchSuggestions[0]?.trim()) {
             fetch(
               `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
@@ -172,17 +199,7 @@ export default function QuickLaunch({
     return () => {
       abortController.abort();
     };
-  }, [
-    searchString,
-    servicesAndBookmarks,
-    searchDescriptions,
-    hideVisitURL,
-    showSearchSuggestions,
-    searchSuggestions,
-    searchProvider,
-    url,
-    t,
-  ]);
+  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url, t]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {

@@ -545,11 +545,11 @@
         "channels": "Canali",
         "hd": "HD",
         "tunerCount": "Tuners",
-        "channelNumber": "Channel",
+        "channelNumber": "Canale",
         "channelNetwork": "Rete",
         "signalStrength": "Intensità",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
+        "signalQuality": "Qualità",
+        "symbolQuality": "Qualità",
         "networkRate": "Bitrate",
         "clientIP": "Client"
     },
@@ -564,11 +564,11 @@
     },
     "peanut": {
         "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "ups_load": "Carico UPS",
+        "ups_status": "Stato UPS",
         "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Alimentazione a batteria",
+        "low_battery": "Batteria Quasi Scarica"
     },
     "nextdns": {
         "wait": "Attendere prego",
@@ -798,10 +798,10 @@
     },
     "openwrt": {
         "uptime": "Tempo di attività",
-        "cpuLoad": "CPU Load Avg (5m)",
+        "cpuLoad": "Media Carico Cpu (5m)",
         "up": "Up",
         "down": "Down",
-        "bytesTx": "Transmitted",
+        "bytesTx": "Trasmessi",
         "bytesRx": "Ricevuti"
     },
     "uptimerobot": {
@@ -826,7 +826,7 @@
         "noEventsFound": "Nessun evento trovato"
     },
     "romm": {
-        "platforms": "Platforms",
+        "platforms": "Piattaforme",
         "totalRoms": "Total ROMs"
     },
     "netdata": {
@@ -834,7 +834,7 @@
         "criticals": "Criticals"
     },
     "plantit": {
-        "events": "Events",
+        "events": "Eventi",
         "plants": "Plants",
         "photos": "Foto",
         "species": "Specie"
@@ -852,7 +852,7 @@
         "sceneSize": "Dimensione Delle Scene",
         "sceneDuration": "Durata Delle Scene",
         "images": "Immagini",
-        "imageSize": "Images Size",
+        "imageSize": "Dimensioni immagine",
         "galleries": "Galleries",
         "performers": "Esecutori",
         "studios": "Studi",
@@ -863,18 +863,47 @@
     "tandoor": {
         "users": "Utenti",
         "recipes": "Ricette",
-        "keywords": "Keywords"
+        "keywords": "Parole chiave"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "items": "Elementi",
+        "totalWithWarranty": "Con Garanzia",
+        "locations": "Luoghi",
+        "labels": "Etichette",
         "users": "Utenti",
-        "totalValue": "Total Value"
+        "totalValue": "Valore totale"
     },
     "crowdsec": {
         "alerts": "Allarmi",
-        "bans": "Bans"
+        "bans": "Bannati"
+    },
+    "wgeasy": {
+        "connected": "Connesso",
+        "enabled": "Abilitato",
+        "disabled": "Disabilitati",
+        "total": "Totale"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Obsoleto",
+        "banned": "Bannato"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Tempo di attività",
+        "version": "Versione"
     }
 }

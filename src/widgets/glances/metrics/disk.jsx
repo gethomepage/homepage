@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -35,7 +34,7 @@ export default function Component({ service }) {
     }));
 
   useEffect(() => {
-    if (data) {
+    if (data && !data.error) {
       const diskData = data.find((item) => item.disk_name === diskName);
 
       setDataPoints((prevDataPoints) => {
@@ -52,12 +51,9 @@ export default function Component({ service }) {
     setRatePoints(calculateRates(dataPoints));
   }, [dataPoints]);
 
-  if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} />
-      </Container>
-    );
+  if (error || (data && data.error)) {
+    const finalError = error || data.error;
+    return <Container error={finalError} widget={widget} />;
   }
 
   if (!data) {

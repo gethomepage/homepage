@@ -45,7 +45,7 @@
         "free": "Szabad",
         "used": "Használt",
         "load": "Terhelés",
-        "temp": "HŐ",
+        "temp": "HŐM",
         "max": "Max",
         "uptime": "FUT"
     },
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Szétkapcsolás függőben",
         "connectionStatusDisconnecting": "Kapcsolat bontása",
         "connectionStatusDisconnected": "Kapcsolat bontva",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Csatlakozva",
         "uptime": "Üzemidő",
         "maxDown": "Max let.",
         "maxUp": "Max felt.",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "Összes",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Csatlakozva",
+        "new_devices": "Új eszközök",
+        "down_alerts": "Leállási riasztások"
     },
     "pihole": {
         "queries": "Lekérdezések",
@@ -404,7 +404,7 @@
         "cpu": "Processzor",
         "load": "Terhelés",
         "wait": "Kérjük várjon",
-        "temp": "HŐ",
+        "temp": "HŐM",
         "_temp": "Hőmérséklet",
         "warn": "Figyelmeztet",
         "uptime": "FUT",
@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Riasztások",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Csatlakozva",
+        "enabled": "Bekapcsolva",
+        "disabled": "Kikapcsolva",
+        "total": "Összes"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Letöltés",
+        "upload": "Feltöltés"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Üzemidő",
+        "version": "Verzió"
     }
 }

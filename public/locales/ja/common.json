@@ -47,7 +47,7 @@
         "load": "ロード",
         "temp": "温度",
         "max": "最大",
-        "uptime": "上へ"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "ユーザ",
@@ -61,7 +61,7 @@
         "wlan_devices": "WLAN デバイス",
         "lan_users": "LAN ユーザ",
         "wlan_users": "WLAN ユーザ",
-        "up": "上へ",
+        "up": "UP",
         "down": "下へ",
         "wait": "お待ちください",
         "empty_data": "サブシステムの状態は不明"
@@ -86,7 +86,7 @@
         "error": "エラー",
         "ping": "Ping",
         "down": "下へ",
-        "up": "上へ",
+        "up": "稼働",
         "not_available": "利用できません。"
     },
     "siteMonitor": {
@@ -94,7 +94,7 @@
         "error": "エラー",
         "response": "応答",
         "down": "下へ",
-        "up": "上へ",
+        "up": "稼働",
         "not_available": "利用できません。"
     },
     "emby": {
@@ -140,12 +140,12 @@
         "connectionStatusPendingDisconnect": "接続を切断する",
         "connectionStatusDisconnecting": "接続を切断中",
         "connectionStatusDisconnected": "切断されました",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "接続済",
         "uptime": "稼働時間",
         "maxDown": "最大ダウン",
         "maxUp": "最大アップ",
         "down": "下へ",
-        "up": "上へ",
+        "up": "稼働",
         "received": "受信済み",
         "sent": "送信済み",
         "externalIPAddress": "退出ID"
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "合計",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "接続済",
+        "new_devices": "新規デバイス",
+        "down_alerts": "ダウンアラート"
     },
     "pihole": {
         "queries": "クエリ",
@@ -407,7 +407,7 @@
         "temp": "温度",
         "_temp": "温度",
         "warn": "警告",
-        "uptime": "上へ",
+        "uptime": "UP",
         "total": "合計",
         "free": "空き",
         "used": "使用",
@@ -494,13 +494,13 @@
         "up_to_date": "最新",
         "child_bridges": "子ブリッジ",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "上へ",
+        "up": "稼働",
         "pending": "保留中",
         "down": "下へ"
     },
     "healthchecks": {
         "new": "新着",
-        "up": "上へ",
+        "up": "稼働",
         "grace": "猶予期間中",
         "down": "下へ",
         "paused": "一時停止中",
@@ -617,7 +617,7 @@
         "load": "読み込み平均",
         "memory": "メモリ使用量",
         "wanStatus": "WANステータス",
-        "up": "上へ",
+        "up": "稼働",
         "down": "下へ",
         "temp": "温度",
         "disk": "ディスク使用量",
@@ -799,7 +799,7 @@
     "openwrt": {
         "uptime": "稼働時間",
         "cpuLoad": "CPU 平均負荷（5 分）",
-        "up": "上へ",
+        "up": "稼働",
         "down": "下へ",
         "bytesTx": "送信済み",
         "bytesRx": "受信済み"
@@ -813,7 +813,7 @@
         "sitesDown": "サイトDown",
         "paused": "一時停止中",
         "notyetchecked": "チェックされていません",
-        "up": "上へ",
+        "up": "稼働",
         "seemsdown": "ダウンしているようです",
         "down": "下へ",
         "unknown": "不明"
@@ -875,6 +875,35 @@
     },
     "crowdsec": {
         "alerts": "アラート",
-        "bans": "Bans"
+        "bans": "禁止"
+    },
+    "wgeasy": {
+        "connected": "接続済",
+        "enabled": "有効",
+        "disabled": "無効",
+        "total": "合計"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "ダウンロード",
+        "upload": "アップロード"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "稼働時間",
+        "version": "バージョン"
     }
 }

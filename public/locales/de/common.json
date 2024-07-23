@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Warnungen",
         "bans": "Banns"
+    },
+    "wgeasy": {
+        "connected": "Verbunden",
+        "enabled": "Aktiviert",
+        "disabled": "Deaktiviert",
+        "total": "Gesamt"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "Mit Auth",
+        "outdated": "Veraltet",
+        "banned": "Gebannt"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
+    },
+    "stocks": {
+        "stocks": "Aktien",
+        "loading": "Wird geladen",
+        "open": "Offen - US-Markt",
+        "closed": "Geschlossen - US-Markt",
+        "invalidConfiguration": "Ungültige Konfiguration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Betriebszeit",
+        "version": "Version"
     }
 }

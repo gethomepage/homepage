@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Alarmlar",
         "bans": "Yasaklar"
+    },
+    "wgeasy": {
+        "connected": "Bağlandı",
+        "enabled": "Etkin",
+        "disabled": "Devre Dışı",
+        "total": "Toplam"
+    },
+    "swagdashboard": {
+        "proxied": "Proxy Üzerinden",
+        "auth": "Kimlik Doğrulamalı",
+        "outdated": "Eskimiş",
+        "banned": "Yasaklı"
+    },
+    "myspeed": {
+        "ping": "Gecikme",
+        "download": "İndirme",
+        "upload": "Yükleme"
+    },
+    "stocks": {
+        "stocks": "Hisse Senetleri",
+        "loading": "Yükleniyor",
+        "open": "Açık - ABD Pazarı",
+        "closed": "Kapalı - ABD Pazarı",
+        "invalidConfiguration": "Geçersiz Yapılandırma"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Çalışma Süresi",
+        "version": "Versiyon"
     }
 }

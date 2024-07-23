@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Waarskuwings",
         "bans": "Verbanne"
+    },
+    "wgeasy": {
+        "connected": "Gekoppel",
+        "enabled": "Geaktiveer",
+        "disabled": "Onaktief",
+        "total": "Totaal"
+    },
+    "swagdashboard": {
+        "proxied": "Gevolmagtig",
+        "auth": "Met Aut",
+        "outdated": "Verouderd",
+        "banned": "Verban"
+    },
+    "myspeed": {
+        "ping": "Pieng",
+        "download": "Aflaai",
+        "upload": "Laai Op"
+    },
+    "stocks": {
+        "stocks": "Aandele",
+        "loading": "Laai",
+        "open": "Oop - VS Mark",
+        "closed": "Toe - VS Mark",
+        "invalidConfiguration": "Ongeldige opstelling"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Optyd",
+        "version": "Weergawe"
     }
 }

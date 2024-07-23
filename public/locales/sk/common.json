@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Čakám na odpojenie",
         "connectionStatusDisconnecting": "Odpájanie",
         "connectionStatusDisconnected": "Odpojené",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Pripojené",
         "uptime": "Prevádzka",
         "maxDown": "Max. sťahovanie",
         "maxUp": "Max. nahrávanie",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "Celkovo",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Pripojené",
+        "new_devices": "Nové zariadenia",
+        "down_alerts": "Upozornenia o výpadkoch"
     },
     "pihole": {
         "queries": "Dopyty",
@@ -846,7 +846,7 @@
     },
     "stash": {
         "scenes": "Scény",
-        "scenesPlayed": "Scenes Played",
+        "scenesPlayed": "Prehrané scény",
         "playCount": "Celkovo prehraní",
         "playDuration": "Pozeraný čas",
         "sceneSize": "Veľkosť obrazovky",
@@ -869,12 +869,41 @@
         "items": "Položky",
         "totalWithWarranty": "So zárukou",
         "locations": "Umiestnenia",
-        "labels": "Labels",
+        "labels": "Štítky",
         "users": "Používatelia",
-        "totalValue": "Total Value"
+        "totalValue": "Celková hodnota"
     },
     "crowdsec": {
         "alerts": "Upozornenia",
-        "bans": "Bans"
+        "bans": "Bany"
+    },
+    "wgeasy": {
+        "connected": "Pripojené",
+        "enabled": "Povolené",
+        "disabled": "Zakázané",
+        "total": "Celkovo"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Zastarané",
+        "banned": "Zabanovaný"
+    },
+    "myspeed": {
+        "ping": "Odozva",
+        "download": "Sťahovanie",
+        "upload": "Nahrávanie"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Prevádzka",
+        "version": "Verzia"
     }
 }

@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Оповіщення",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "Увімкнено",
+        "disabled": "Вимкнено",
+        "total": "Усього"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Пінг",
+        "download": "Завантаження",
+        "upload": "Відправлення"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Час роботи",
+        "version": "Версія"
     }
 }

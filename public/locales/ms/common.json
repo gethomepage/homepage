@@ -174,8 +174,8 @@
     },
     "omada": {
         "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
+        "activeUser": "Peranti aktif",
+        "alerts": "Perhatian",
         "connectedGateway": "Connected gateways",
         "connectedSwitches": "Connected switches"
     },
@@ -186,7 +186,7 @@
     },
     "plex": {
         "streams": "Strim Aktif",
-        "albums": "Albums",
+        "albums": "Album",
         "movies": "Filem",
         "tv": "Rancangan TV"
     },
@@ -250,7 +250,7 @@
     "lidarr": {
         "wanted": "Mahu",
         "queued": "Dibaris Gilir",
-        "artists": "Artists"
+        "artists": "Artis"
     },
     "readarr": {
         "wanted": "Mahu",
@@ -310,7 +310,7 @@
         "expires": "Expires",
         "never": "Never",
         "last_seen": "Last Seen",
-        "now": "Now",
+        "now": "Sekarang",
         "years": "{{number}}y",
         "weeks": "{{number}}w",
         "days": "{{number}}d",
@@ -528,7 +528,7 @@
     "truenas": {
         "load": "Beban Sistem",
         "uptime": "Masa Hidup",
-        "alerts": "Alerts"
+        "alerts": "Perhatian"
     },
     "pyload": {
         "speed": "Kelajuan",
@@ -600,7 +600,7 @@
     "moonraker": {
         "printer_state": "Printer State",
         "print_status": "Print Status",
-        "print_progress": "Progress",
+        "print_progress": "Kemajuan",
         "layers": "Layers"
     },
     "octoprint": {
@@ -631,7 +631,7 @@
     },
     "immich": {
         "users": "Pengguna",
-        "photos": "Photos",
+        "photos": "Gambar",
         "videos": "Video",
         "storage": "Storage"
     },
@@ -646,7 +646,7 @@
         "series": "Siri",
         "archives": "Archives",
         "chapters": "Chapters",
-        "categories": "Categories"
+        "categories": "Memori"
     },
     "komga": {
         "libraries": "Libraries",
@@ -664,8 +664,8 @@
         "wanted": "Mahu"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
+        "albums": "Album",
+        "photos": "Gambar",
         "videos": "Video",
         "people": "People"
     },
@@ -738,7 +738,7 @@
     "calibreweb": {
         "books": "Buku",
         "authors": "Pengarang/Penulis",
-        "categories": "Categories",
+        "categories": "Memori",
         "series": "Siri"
     },
     "jdownloader": {
@@ -785,7 +785,7 @@
     "mealie": {
         "recipes": "Resipi",
         "users": "Pengguna",
-        "categories": "Categories",
+        "categories": "Memori",
         "tags": "Tanda nama"
     },
     "openmediavault": {
@@ -836,7 +836,7 @@
     "plantit": {
         "events": "Events",
         "plants": "Plants",
-        "photos": "Photos",
+        "photos": "Gambar",
         "species": "Species"
     },
     "gitea": {
@@ -845,7 +845,7 @@
         "pulls": "Pull Requests"
     },
     "stash": {
-        "scenes": "Scenes",
+        "scenes": "Adegan",
         "scenesPlayed": "Scenes Played",
         "playCount": "Total Plays",
         "playDuration": "Time Watched",
@@ -868,13 +868,42 @@
     "homebox": {
         "items": "Items",
         "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
+        "locations": "Lokasi",
         "labels": "Labels",
         "users": "Pengguna",
-        "totalValue": "Total Value"
+        "totalValue": "Jumlah nilai"
     },
     "crowdsec": {
-        "alerts": "Alerts",
+        "alerts": "Perhatian",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "Didayakan",
+        "disabled": "Dinyahdayakan",
+        "total": "Jumlah"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Muat turun",
+        "upload": "Muat naik"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Masa Hidup",
+        "version": "Versi"
     }
 }

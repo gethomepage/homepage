@@ -10,8 +10,13 @@ export default function validateWidgetData(widget, endpoint, data) {
     try {
       dataParsed = JSON.parse(data);
     } catch (e) {
-      error = e;
-      valid = false;
+      try {
+        // try once more stripping whitespace
+        dataParsed = JSON.parse(data.toString().replace(/\s/g, ""));
+      } catch (e2) {
+        error = e || e2;
+        valid = false;
+      }
     }
   }
 

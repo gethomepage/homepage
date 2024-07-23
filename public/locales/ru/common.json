@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Ожидает отключения",
         "connectionStatusDisconnecting": "Отключение",
         "connectionStatusDisconnected": "Отключено",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Подключено",
         "uptime": "Время работы",
         "maxDown": "Макс. Загрузка",
         "maxUp": "Макс. Отдача",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "Всего",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Подключено",
+        "new_devices": "Новое устройство",
+        "down_alerts": "Оповещение о недоступности"
     },
     "pihole": {
         "queries": "Запросы",
@@ -875,6 +875,35 @@
     },
     "crowdsec": {
         "alerts": "Предупреждения",
-        "bans": "Bans"
+        "bans": "Запреты"
+    },
+    "wgeasy": {
+        "connected": "Подключено",
+        "enabled": "Включено",
+        "disabled": "Выключено",
+        "total": "Всего"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Пинг",
+        "download": "Скачивание",
+        "upload": "Загрузка"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Время работы",
+        "version": "Версия"
     }
 }

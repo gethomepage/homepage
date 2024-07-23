@@ -143,7 +143,7 @@
         "connectionStatusConnected": "Conectado",
         "uptime": "Ligado",
         "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxUp": "Máx. Acima",
         "down": "Inativo",
         "up": "Ativo",
         "received": "Recebido",
@@ -317,7 +317,7 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Atrás"
     },
     "tdarr": {
         "queue": "Fila",
@@ -328,7 +328,7 @@
     "traefik": {
         "routers": "Roteadores",
         "services": "Serviços",
-        "middleware": "Middleware"
+        "middleware": ""
     },
     "navidrome": {
         "nothing_streaming": "Sem Streams Ativos",
@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Alertas",
         "bans": "Banimentos"
+    },
+    "wgeasy": {
+        "connected": "Conectado",
+        "enabled": "Ativo",
+        "disabled": "Desabilitado",
+        "total": "Total"
+    },
+    "swagdashboard": {
+        "proxied": "Com proxy",
+        "auth": "Com Autenticação",
+        "outdated": "Desatualizado",
+        "banned": "Banido"
+    },
+    "myspeed": {
+        "ping": "Tempo de resposta",
+        "download": "Descarregar",
+        "upload": "Carregar"
+    },
+    "stocks": {
+        "stocks": "Ações",
+        "loading": "Carregando",
+        "open": "Abrir - Mercado Americano",
+        "closed": "Fechado - Mercado americano",
+        "invalidConfiguration": "Configuração Inválida"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Ligado",
+        "version": "Versão"
     }
 }
