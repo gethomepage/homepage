@@ -7,10 +7,10 @@ const widget = {
 
   mappings: {
     alerts: {
-      endpoint: "alerts",
+      endpoint: "alerts?limit=0",
     },
     bans: {
-      endpoint: "alerts?decision_type=ban&origin=crowdsec&has_active_decision=1",
+      endpoint: "alerts?decision_type=ban&origin=crowdsec&has_active_decision=1&limit=0",
     },
   },
 };
