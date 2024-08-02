@@ -1,8 +1,8 @@
-const NullPermissions = { user: null, groups: [] };
+const NullIdentity = { user: null, groups: [] };
 
 function createNullIdentity() {
   return {
-    authorize: () => NullPermissions,
+    getIdentity: () => NullIdentity,
     getContext: () => ({
       provider: "null",
     }),
