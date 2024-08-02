@@ -492,9 +492,9 @@ or per service widget (`services.yaml`) with:
 
 If either value is set to true, the error message will be hidden.
 
-## User ID based visibiltiy
+## Identity Based Visibiltiy
 
-Basic user identity integration is implemeted via an `identity` section. An identity provider can be configured using the `provider` section with the given type. Currently the only provider supported is `proxy`, where the users identification and group membership are passed via HTTP Request headers (in plaintext). The expectation is that the application will be accessed only via an authenticating proxy (i.e treafik ).
+Basic user identity integration is implemeted via an `identity` section. An identity provider can be configured using the `provider` section with the given type. Currently the only provider supported is `proxy`, where the users identification and group membership are passed via HTTP Request headers (in plaintext). The expectation is that the application will be accessed only via an authenticating proxy (i.e traefik or nginx).
 
 The group and user headers are both configurable like so:
 
@@ -506,7 +506,7 @@ identity:
     userHeader: "X-user-header"
 ```
 
-Identity based visibility can be configured on the service, bookmark, and widget level using the `allowUsers` and `allowGroups` list.
+Identity based visibility can be configured on the service, bookmark, and widget level using the `allowUsers` and `allowGroups` list. The default is to allow all users and groups. 
 
 ```yaml
 - Example Servie:
@@ -520,8 +520,7 @@ Identity based visibility can be configured on the service, bookmark, and widget
     - User3
 ```
 
-Identity visibility for groups can be set in the `groups` under `identity`. In general the `groups` tag follows the format of the `layout`
-section. For example:
+Identity visibility for groups can be set in the `groups` under `identity`. In general the `groups` tag follows the format of the `layout` section. For example:
 
 ```yaml
 identity:
