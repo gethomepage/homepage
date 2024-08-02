@@ -66,4 +66,5 @@ export const filterAllowedServices = (perms, idGroups, services) =>
   filterAllowedItems(perms, idGroups, services, "services");
 export const filterAllowedBookmarks = (perms, idGroups, bookmarks) =>
   filterAllowedItems(perms, idGroups, bookmarks, "bookmarks");
-export const filterAllowedWidgets = (perms, widgets) => widgets.filter((widget) => identityAllow(perms, widget.options));
+export const filterAllowedWidgets = (perms, widgets) =>
+  widgets.filter((widget) => identityAllow(perms, widget.options));

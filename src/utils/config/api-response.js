@@ -25,7 +25,7 @@ function compareServices(service1, service2) {
   return service1.name.localeCompare(service2.name);
 }
 
-export async function bookmarksResponse(perms,  idGroups) {
+export async function bookmarksResponse(perms, idGroups) {
   checkAndCopyConfig("bookmarks.yaml");
 
   const bookmarksYaml = path.join(CONF_DIR, "bookmarks.yaml");
