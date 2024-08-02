@@ -492,21 +492,21 @@ or per service widget (`services.yaml`) with:
 
 If either value is set to true, the error message will be hidden.
 
-## Authentication
+## User ID based visibiltiy
 
-Basic auth integration is implemeted via an `auth` section. An auth provider can be configured using the `provider` section with the given type. Currently the only provider supported is `proxy`, where the users identification and group membership are passed via HTTP Request headers (in plaintext). The expectation is that the application will be accessed only via an authenticating proxy (i.e treafik ).
+Basic user identity integration is implemeted via an `identity` section. An identity provider can be configured using the `provider` section with the given type. Currently the only provider supported is `proxy`, where the users identification and group membership are passed via HTTP Request headers (in plaintext). The expectation is that the application will be accessed only via an authenticating proxy (i.e treafik ).
 
 The group and user headers are both configurable like so:
 
 ```yaml
-auth:
+identity:
   provider:
     type: proxy
     groupHeader: "X-group-header"
     userHeader: "X-user-header"
 ```
 
-Auth can be configured on the service, bookmark, and widget level using the `allowUsers` and `allowGroups` list.
+Identity based visibility can be configured on the service, bookmark, and widget level using the `allowUsers` and `allowGroups` list.
 
 ```yaml
 - Example Servie:
@@ -520,11 +520,11 @@ Auth can be configured on the service, bookmark, and widget level using the `all
     - User3
 ```
 
-Auth for groups can be set in the `groups` under `auth`. In general the `groups` tag follows the format of the `layout`
+Identity visibility for groups can be set in the `groups` under `identity`. In general the `groups` tag follows the format of the `layout`
 section. For example:
 
 ```yaml
-auth:
+identity:
   groups:
     - My Service Group:
       allowGroups: ["Group1", "Group2"]

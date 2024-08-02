@@ -10,7 +10,7 @@ import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
-import NullAuthProvider from "utils/auth/null";
+import NullIdentityProvider from "utils/identity/null";
 import Tab, { slugifyAndEncode } from "components/tab";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
@@ -28,7 +28,7 @@ import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
 import { getStoredProvider, searchProviders } from "components/widgets/search/search";
-import { fetchWithAuth, readAuthSettings } from "utils/auth/auth-helpers";
+import { fetchWithIdentity, readIdentitySettings } from "utils/identity/identity-helpers";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -48,24 +48,24 @@ export async function getServerSideProps({ req }) {
   let logger;
   try {
     logger = createLogger("index");
-    const { providers, auth, ...settings } = getSettings();
-    const { provider, groups } = readAuthSettings(auth);
+    const { providers, identity, ...settings } = getSettings();
+    const { provider, groups } = readIdentitySettings(identity);
 
-    const services = await servicesResponse(provider.authorize(req), groups);
-    const bookmarks = await bookmarksResponse(provider.authorize(req), groups);
-    const widgets = await widgetsResponse(provider.authorize(req));
-    const authContext = provider.getContext(req);
+    const services = await servicesResponse(provider.getIdentity(req), groups);
+    const bookmarks = await bookmarksResponse(provider.getIdentity(req), groups);
+    const widgets = await widgetsResponse(provider.getIdentity(req));
+    const identityContext = provider.getContext(req);
 
     return {
       props: {
         initialSettings: settings,
         fallback: {
-          [unstableSerialize(["/api/services", authContext])]: services,
-          [unstableSerialize(["/api/bookmarks", authContext])]: bookmarks,
-          [unstableSerialize(["/api/widgets", authContext])]: widgets,
+          [unstableSerialize(["/api/services", identityContext])]: services,
+          [unstableSerialize(["/api/bookmarks", identityContext])]: bookmarks,
+          [unstableSerialize(["/api/widgets", identityContext])]: widgets,
           "/api/hash": false,
         },
-        authContext,
+        identityContext,
         ...(await serverSideTranslations(settings.language ?? "en")),
       },
     };
@@ -73,24 +73,24 @@ export async function getServerSideProps({ req }) {
     if (logger && e) {
       logger.error(e);
     }
-    const authContext = NullAuthProvider.create().getContext(req);
+    const identityContext = NullIdentityProvider.create().getContext(req);
     return {
       props: {
         initialSettings: {},
         fallback: {
-          [unstableSerialize(["/api/services", authContext])]: [],
-          [unstableSerialize(["/api/bookmarks", authContext])]: [],
-          [unstableSerialize(["/api/widgets", authContext])]: [],
+          [unstableSerialize(["/api/services", identityContext])]: [],
+          [unstableSerialize(["/api/bookmarks", identityContext])]: [],
+          [unstableSerialize(["/api/widgets", identityContext])]: [],
           "/api/hash": false,
         },
-        authContext,
+        identityContext,
         ...(await serverSideTranslations("en")),
       },
     };
   }
 }
 
-function Index({ initialSettings, fallback, authContext }) {
+function Index({ initialSettings, fallback, identityContext }) {
   const windowFocused = useWindowFocus();
   const [stale, setStale] = useState(false);
   const { data: errorsData } = useSWR("/api/validate");
@@ -160,7 +160,7 @@ function Index({ initialSettings, fallback, authContext }) {
   return (
     <SWRConfig value={{ fallback, fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()) }}>
       <ErrorBoundary>
-        <Home initialSettings={initialSettings} authContext={authContext} />
+        <Home initialSettings={initialSettings} identityContext={identityContext} />
       </ErrorBoundary>
     </SWRConfig>
   );
@@ -174,7 +174,7 @@ const headerStyles = {
   boxedWidgets: "m-5 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
 };
 
-function Home({ initialSettings, authContext }) {
+function Home({ initialSettings, identityContext }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);
@@ -186,9 +186,9 @@ function Home({ initialSettings, authContext }) {
     setSettings(initialSettings);
   }, [initialSettings, setSettings]);
 
-  const { data: services } = useSWR(["/api/services", authContext], fetchWithAuth);
-  const { data: bookmarks } = useSWR(["/api/bookmarks", authContext], fetchWithAuth);
-  const { data: widgets } = useSWR(["/api/widgets", authContext], fetchWithAuth);
+  const { data: services } = useSWR(["/api/services", identityContext], fetchWithIdentity);
+  const { data: bookmarks } = useSWR(["/api/bookmarks", identityContext], fetchWithIdentity);
+  const { data: widgets } = useSWR(["/api/widgets", identityContext], fetchWithIdentity);
 
   const servicesAndBookmarks = [
     ...services.map((sg) => sg.services).flat(),
@@ -461,7 +461,7 @@ function Home({ initialSettings, authContext }) {
   );
 }
 
-export default function Wrapper({ initialSettings, fallback, authContext }) {
+export default function Wrapper({ initialSettings, fallback, identityContext }) {
   const wrappedStyle = {};
   let backgroundBlur = false;
   let backgroundSaturate = false;
@@ -512,7 +512,7 @@ export default function Wrapper({ initialSettings, fallback, authContext }) {
             backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
           )}
         >
-          <Index initialSettings={initialSettings} fallback={fallback} authContext={authContext} />
+          <Index initialSettings={initialSettings} fallback={fallback} identityContext={identityContext} />
         </div>
       </div>
     </div>

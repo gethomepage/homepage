@@ -1,8 +1,8 @@
-import { readAuthSettings } from "utils/auth/auth-helpers";
+import { readAuthSettings } from "utils/identitiy/identitiy-helpers";
 import { widgetsResponse } from "utils/config/api-response";
 import { getSettings } from "utils/config/config";
 
 export default async function handler(req, res) {
-  const { provider } = readAuthSettings(getSettings().auth);
-  res.send(await widgetsResponse(provider.authorize(req)));
+  const { provider } = readAuthSettings(getSettings().identity);
+  res.send(await widgetsResponse(provider.getIdentity(req)));
 }

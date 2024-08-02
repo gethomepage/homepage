@@ -1,6 +1,6 @@
 const NullPermissions = { user: null, groups: [] };
 
-function createNullAuth() {
+function createNullIdentity() {
   return {
     authorize: () => NullPermissions,
     getContext: () => ({
@@ -9,13 +9,13 @@ function createNullAuth() {
   };
 }
 
-async function fetchNullAuth([key]) {
+async function fetchNullIdentity([key]) {
   return fetch(key).then((res) => res.json());
 }
 
-const NullAuthProvider = {
-  create: createNullAuth,
-  fetch: fetchNullAuth,
+const NullIdentityProvider = {
+  create: createNullIdentity,
+  fetch: fetchNullIdentity,
 };
 
-export default NullAuthProvider;
+export default NullIdentityProvider;
