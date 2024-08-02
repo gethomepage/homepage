@@ -12,6 +12,6 @@ export default async function handler(req, res) {
       res.status(401).json({ message: "Group unathorized" });
     }
   } catch (err) {
-    res.status(500).send("Error getting user identitiy");
+    res.status(500).send("Error getting user identity");
   }
 }

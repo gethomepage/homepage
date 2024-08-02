@@ -4,9 +4,9 @@ site_name: Homepage
 site_url: https://gethomepage.dev/
 
 # Repository
-repo_name: gethomepage/homepage
-repo_url: https://github.com/gethomepage/homepage
-edit_uri: https://github.com/gethomepage/homepage/tree/main/docs/
+repo_name: discretizer/homepage
+repo_url: https://github.com/discretizer/homepage
+edit_uri: https://github.com/discretizer/homepage/tree/main/docs/
 
 nav:
   - "Home":
