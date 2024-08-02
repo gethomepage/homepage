@@ -1,4 +1,4 @@
-import { readAuthSettings } from "utils/identity/identity-helpers";
+import { readIdentitySettings } from "utils/identity/identity-helpers";
 import { servicesResponse } from "utils/config/api-response";
 import { getSettings } from "utils/config/config";
 
