@@ -571,7 +571,7 @@ identity:
     userHeader: "X-user-header"
 ```
 
-Identity based visibility can be configured on the service, bookmark, and widget level using the `allowUsers` and `allowGroups` list. The default is to allow all users and groups. 
+Identity based visibility can be configured on the service, bookmark, and widget level using the `allowUsers` and `allowGroups` list. The default is to allow all users and groups.
 
 ```yaml
 - Example Servie:
