@@ -1,5 +1,5 @@
-// 'proxy' auth provider is meant to be used by a reverse proxy that injects permission headers into the origin
-// request. In this case we are relying on our proxy to authenitcate our users and validate.
+// 'proxy' identity provider is meant to be used by a reverse proxy that injects permission headers into the origin
+// request. In this case we are relying on our proxy to authenitcate our users and validate their identity.
 function getProxyPermissions(userHeader, groupHeader, request) {
   const user =
     userHeader && request.headers[userHeader.toLowerCase()] ? request.headers[userHeader.toLowerCase()] : null;
@@ -9,7 +9,7 @@ function getProxyPermissions(userHeader, groupHeader, request) {
   return { user, groups: groupsString ? groupsString.split("|").map((v) => v.trim()) : [] };
 }
 
-function createProxyAuth({ groupHeader, userHeader }) {
+function createProxyIdentity({ groupHeader, userHeader }) {
   return {
     getContext: (request) => ({
       provider: "proxy",
@@ -18,17 +18,17 @@ function createProxyAuth({ groupHeader, userHeader }) {
       ...(groupHeader &&
         request.headers[groupHeader] && { [groupHeader.toLowerCase()]: request.headers[groupHeader.toLowerCase()] }),
     }),
-    authorize: (request) => getProxyPermissions(userHeader, groupHeader, request),
+    getIdentity: (request) => getProxyPermissions(userHeader, groupHeader, request),
   };
 }
 
-async function fetchProxyAuth([key, context]) {
+async function fetchProxyIdentity([key, context]) {
   return fetch(key, { headers: context.headers }).then((res) => res.json());
 }
 
-const ProxyAuthProvider = {
-  create: createProxyAuth,
-  fetch: fetchProxyAuth,
+const ProxyIdentityProvider = {
+  create: createProxyIdentity,
+  fetch: fetchProxyIdentity,
 };
 
-export default ProxyAuthProvider;
+export default ProxyIdentityProvider;
