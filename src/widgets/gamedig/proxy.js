@@ -9,6 +9,7 @@ export default async function gamedigProxyHandler(req, res) {
   const { group, service } = req.query;
   const serviceWidget = await getServiceWidget(group, service);
   const url = new URL(serviceWidget.url);
+  const gamedigArgs = serviceWidget.gamedigArgs;
 
   try {
     const serverData = await gamedig.query({
@@ -16,6 +17,7 @@ export default async function gamedigProxyHandler(req, res) {
       host: url.hostname,
       port: url.port,
       givenPortOnly: true,
+      ...gamedigArgs
     });
 
     res.status(200).send({
