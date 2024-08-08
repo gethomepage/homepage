@@ -115,7 +115,10 @@ export async function servicesFromDocker() {
           return constructedService;
         });
 
-        return { server: serverName, services: discovered.filter((filteredService) => filteredService) };
+        return {
+          server: serverName,
+          services: discovered.filter((filteredService) => filteredService),
+        };
       } catch (e) {
         logger.error("Error getting services from Docker server '%s': %s", serverName, e);
 
@@ -438,6 +441,11 @@ export function cleanServiceGroups(groups) {
           namespace,
           podSelector,
 
+          // linkwarden
+          mode,
+          params,
+          url,
+
           // mjpeg
           fit,
           stream,
@@ -574,6 +582,11 @@ export function cleanServiceGroups(groups) {
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
           if (pointsLimit) cleanedService.widget.pointsLimit = pointsLimit;
           if (diskUnits) cleanedService.widget.diskUnits = diskUnits;
+        }
+        if (type === "linkwarden") {
+          if (mode) cleanedService.widget.mode = mode;
+          if (params) cleanedService.widget.params = params;
+          if (url) cleanedService.widget.url = url;
         }
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;
