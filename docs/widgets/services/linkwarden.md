@@ -14,17 +14,14 @@ widget:
   key: myApiKeyHere # On your Linkwarden install, go to Settings > Access Tokens. Generate a token.
 ```
 
-Use `mode` to show the stats found in the fields and/or the recent bookmarks.
-
-Examples:
-`mode: ["stats", "recent"]` or `mode: ["stats"]` or `mode: ["recent"]`
+Use `mode` to show a list of recent bookmarks.
 
 ```yaml
 widget:
   type: linkwarden
   url: http://linkwarden.host.or.ip
   key: myApiKeyHere
-  mode: ["stats", "recent"]
+  mode: ["recent"]
 ```
 
 Use `params` to set which collections and/or tags to display links from.

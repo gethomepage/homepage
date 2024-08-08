@@ -10,7 +10,7 @@ export default function Component({ service }) {
   // Assign icons. Assign recent/collections/tags to query by id(s)
   const bookmarkTypes = useMemo(
     () => ({
-      recent: { ids: widget.mode.includes("recent") ? ["0"] : [] }, // "0" Is a made-up number used to allow looping in processBookmarks()
+      recent: { ids: widget.mode?.includes("recent") ? ["0"] : [] }, // "0" Is a made-up number used to allow looping in processBookmarks()
       collection: {
         ids: widget.params?.collectionIds ? widget.params.collectionIds : [],
       },
@@ -195,64 +195,66 @@ export default function Component({ service }) {
   // Render when data is available
   return (
     <>
-      {widget.mode.includes("stats") && (
-        <Container service={service}>
-          <Block label="linkwarden.links" value={stats.totalLinks} />
-          <Block label="linkwarden.collections" value={stats.collections.total} />
-          <Block label="linkwarden.tags" value={stats.tags.total} />
-        </Container>
-      )}
+      <Container service={service}>
+        <Block label="linkwarden.links" value={stats.totalLinks} />
+        <Block label="linkwarden.collections" value={stats.collections.total} />
+        <Block label="linkwarden.tags" value={stats.tags.total} />
+      </Container>
 
-      {Object.keys(bookmarks).map((type) => (
-        <div
-          key={type}
-          className="service-container grid gap-2 p-1"
-          style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          }}
-        >
-          {Object.values(bookmarks[type].data).map((bookmarkList) => (
-            <div key={bookmarkList.id} className="relative w-full text-left">
-              <div className="flex text-sm mb-2">
-                <a href={bookmarkList.url} target="_blank" rel="noopener noreferrer" className="grow font-bold">
-                  {`${bookmarks[type].icon} ${bookmarkList.title}`}
-                </a>
-                <span>{`(${bookmarkList.total})`}</span>
+      {Object.keys(bookmarks).map((type) => {
+        const dataAvailable = Object.keys(bookmarks[type].data).length > 0;
+
+        return dataAvailable ? (
+          <div
+            key={type}
+            className="service-container grid gap-2 p-1"
+            style={{
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            }}
+          >
+            {Object.values(bookmarks[type].data).map((bookmarkList) => (
+              <div key={bookmarkList.id} className="relative w-full text-left">
+                <div className="flex text-sm mb-2">
+                  <a href={bookmarkList.url} target="_blank" rel="noopener noreferrer" className="grow font-bold">
+                    {`${bookmarks[type].icon} ${bookmarkList.title}`}
+                  </a>
+                  <span>{`(${bookmarkList.total})`}</span>
+                </div>
+                <ul
+                  className="max-h-[17em] overflow-scroll flex flex-col gap-2"
+                  onScroll={(e) => handleScroll(e, bookmarkList.id, type, bookmarkList.cursor)}
+                >
+                  {Object.values(bookmarkList.bookmarks).map(({ id, url, name, description }) => (
+                    <li id={id} key={`${bookmarkList.title}-${type}-${id}`}>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-theme-200/50 dark:bg-theme-900/20 hover:bg-theme-200/75 hover:dark:bg-theme-900/50 flex-1 flex gap-2 rounded p-2 service-block"
+                      >
+                        <span className="w-8 min-w-8 flex items-center justify-center">🔗</span>
+                        <div className="flex flex-col grow">
+                          <div className="font-bold text-xs uppercase break-all overflow-hidden line-clamp-1 overflow-ellipsis">
+                            {name || description}
+                          </div>
+                          <div className="font-thin text-xs break-all overflow-hidden line-clamp-1 overflow-ellipsis">
+                            {url}
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+                  {fetchingMore[type][bookmarkList.id] && (
+                    <li className="text-center">
+                      <span className="text-sm">Loading more...</span>
+                    </li>
+                  )}
+                </ul>
               </div>
-              <ul
-                className="max-h-[17em] overflow-scroll flex flex-col gap-2"
-                onScroll={(e) => handleScroll(e, bookmarkList.id, type, bookmarkList.cursor)}
-              >
-                {Object.values(bookmarkList.bookmarks).map(({ id, url, name, description }) => (
-                  <li id={id} key={`${bookmarkList.title}-${type}-${id}`}>
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-theme-200/50 dark:bg-theme-900/20 hover:bg-theme-200/75 hover:dark:bg-theme-900/50 flex-1 flex gap-2 rounded p-2 service-block"
-                    >
-                      <span className="w-8 min-w-8 flex items-center justify-center">🔗</span>
-                      <div className="flex flex-col grow">
-                        <div className="font-bold text-xs uppercase break-all overflow-hidden line-clamp-1 overflow-ellipsis">
-                          {name || description}
-                        </div>
-                        <div className="font-thin text-xs break-all overflow-hidden line-clamp-1 overflow-ellipsis">
-                          {url}
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                ))}
-                {fetchingMore[type][bookmarkList.id] && (
-                  <li className="text-center">
-                    <span className="text-sm">Loading more...</span>
-                  </li>
-                )}
-              </ul>
-            </div>
-          ))}
-        </div>
-      ))}
+            ))}
+          </div>
+        ) : null; // Render nothing if there's no data
+      })}
     </>
   );
 }
