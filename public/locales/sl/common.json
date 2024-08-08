@@ -902,7 +902,7 @@
         "invalidConfiguration": "Neveljavna konfiguracija"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kamere",
         "uptime": "Čas delovanja",
         "version": "Verzija"
     }
