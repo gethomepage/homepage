@@ -11,9 +11,6 @@ const widget = {
     tags: {
       endpoint: "tags",
     },
-    links: {
-      endpoint: "links",
-    },
   },
 };
 
