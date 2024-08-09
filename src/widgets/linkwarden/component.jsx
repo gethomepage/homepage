@@ -35,6 +35,16 @@ export default function Component({ service }) {
     return <Container service={service} error={collectionsStatsError || tagsStatsError} />;
   }
 
+  if (!tagsStatsData || !collectionsStatsData) {
+    return (
+      <Container service={service}>
+        <Block label="linkwarden.links" />
+        <Block label="linkwarden.collections" />
+        <Block label="linkwarden.tags" />
+      </Container>
+    );
+  }
+
   return (
     <Container service={service}>
       <Block label="linkwarden.links" value={stats.totalLinks} />
