@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Čeká na odpojení",
         "connectionStatusDisconnecting": "Odpojování",
         "connectionStatusDisconnected": "Odpojeno",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "",
         "uptime": "Doba spuštění",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
@@ -279,8 +279,8 @@
     },
     "netalertx": {
         "total": "Celkem",
-        "connected": "Connected",
-        "new_devices": "New Devices",
+        "connected": "",
+        "new_devices": "",
         "down_alerts": "Down Alerts"
     },
     "pihole": {
@@ -878,7 +878,7 @@
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "",
         "enabled": "Povoleno",
         "disabled": "Zakázáno",
         "total": "Celkem"
