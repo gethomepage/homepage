@@ -7,7 +7,6 @@ const widget = {
   mappings: {
     downloads: {
       endpoint: "stats/download",
-      validate: ["pending"],
     },
     videos: {
       endpoint: "stats/video",
@@ -20,9 +19,6 @@ const widget = {
     playlists: {
       endpoint: "stats/playlist",
       validate: ["doc_count"],
-    },
-    stats: {
-      endpoint: "stats",
     },
   },
 };
