@@ -1,6 +1,7 @@
+import { GameDig } from "gamedig";
+
 import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
-import {GameDig as gamedig} from "gamedig";
 
 const proxyName = "gamedigProxyHandler";
 const logger = createLogger(proxyName);
@@ -11,7 +12,7 @@ export default async function gamedigProxyHandler(req, res) {
   const url = new URL(serviceWidget.url);
 
   try {
-    const serverData = await gamedig.query({
+    const serverData = await GameDig.query({
       type: serviceWidget.serverType,
       host: url.hostname,
       port: url.port,
