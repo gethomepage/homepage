@@ -16,6 +16,7 @@ export default async function gamedigProxyHandler(req, res) {
       host: url.hostname,
       port: url.port,
       givenPortOnly: true,
+      checkOldIDs: true,
     });
 
     res.status(200).send({
