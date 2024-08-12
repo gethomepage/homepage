@@ -8,7 +8,6 @@ import widgets from "widgets/widgets";
 const logger = createLogger("espHomeProxyHandler");
 
 export default async function espHomeProxyHandler(req, res, map) {
-
   const { group, service, endpoint } = req.query;
 
   if (group && service) {
@@ -18,10 +17,10 @@ export default async function espHomeProxyHandler(req, res, map) {
       const url = new URL(
         formatApiCall(widgets[widget.type].api, { endpoint, ...widget }).replace(/(?<=\?.*)\?/g, "&"),
       );
-      
+
       const params = {
         method: widget.method ?? req.method,
-        headers: widget.headers.cookie ? { "Cookie": widget.headers.cookie } : {}
+        headers: widget.cookie ? { Cookie: widget.cookie } : {},
       };
 
       const [status, contentType, data] = await httpProxy(url, params);
