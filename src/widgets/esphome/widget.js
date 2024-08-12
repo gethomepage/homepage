@@ -1,8 +1,8 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import espHomeProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}/ping",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: espHomeProxyHandler,
 };
 
 export default widget;
