@@ -30,8 +30,8 @@ importers:
         specifier: ^1.15.6
         version: 1.15.6
       gamedig:
-        specifier: ^4.3.1
-        version: 4.3.1
+        specifier: ^5.1.1
+        version: 5.1.1
       i18next:
         specifier: ^21.10.0
         version: 21.10.0
@@ -1274,9 +1274,9 @@ packages:
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  gamedig@4.3.1:
-    resolution: {integrity: sha512-et9Aq4wlD0cExXEO3r3LWiEEjOzsnG5l/0YSqza7FZLoJqunNT6DedkAXAdeOqAqStkRQahQiPFjx2WCg4SOtg==}
-    engines: {node: '>=14.0.0'}
+  gamedig@5.1.1:
+    resolution: {integrity: sha512-r0+GofQFtsuMEVKmF502ULl0bpo/QhPfkY7srLW/EicgMiNE682NqpjKt9fhM0U8DFymlUJ28lmaTHa5Q9TJIQ==}
+    engines: {node: '>=16.20.0'}
     hasBin: true
 
   gbxremote@0.2.1:
@@ -1336,9 +1336,9 @@ packages:
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
-  got@12.6.1:
-    resolution: {integrity: sha512-mThBblvlAF1d4O5oqyvN+ZxLAYwIJK7bpMxgYqPD9okW0C3qm5FFn7k811QrcuEBwaogR3ngOFoCfs6mRv7teQ==}
-    engines: {node: '>=14.16'}
+  got@13.0.0:
+    resolution: {integrity: sha512-XfBk1CxOOScDcMr9O1yKkNaQyy865NbYs+F7dr4H0LZMVgCj2Le59k6PqbNHoL5ToeaEQUYh6c6yMfVcc6SJxA==}
+    engines: {node: '>=16'}
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -1872,8 +1872,8 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
 
-  normalize-url@8.0.0:
-    resolution: {integrity: sha512-uVFpKhj5MheNBJRTiMZ9pE/7hD1QTeEvugSJW/OmLzAp78PB5O6adfMNTvmfKhXBkvCzC+rqifWcVYpGFwTjnw==}
+  normalize-url@8.0.1:
+    resolution: {integrity: sha512-IO9QvjUMWxPQQhs60oOu10CRkWCiZzSUkzbXGGV9pviYl1fXYcvkzQ5jV9z8Y6un8ARoVRl4EtC6v6jNqbaJ/w==}
     engines: {node: '>=14.16'}
 
   npm-run-path@4.0.1:
@@ -3256,7 +3256,7 @@ snapshots:
       http-cache-semantics: 4.1.1
       keyv: 4.5.4
       mimic-response: 4.0.0
-      normalize-url: 8.0.0
+      normalize-url: 8.0.1
       responselike: 3.0.0
 
   cal-parser@1.0.2:
@@ -4086,11 +4086,11 @@ snapshots:
 
   functions-have-names@1.2.3: {}
 
-  gamedig@4.3.1:
+  gamedig@5.1.1:
     dependencies:
       cheerio: 1.0.0-rc.12
       gbxremote: 0.2.1
-      got: 12.6.1
+      got: 13.0.0
       iconv-lite: 0.6.3
       long: 5.2.3
       minimist: 1.2.8
@@ -4183,7 +4183,7 @@ snapshots:
     dependencies:
       get-intrinsic: 1.2.4
 
-  got@12.6.1:
+  got@13.0.0:
     dependencies:
       '@sindresorhus/is': 5.6.0
       '@szmarczak/http-timer': 5.0.1
@@ -4684,7 +4684,7 @@ snapshots:
 
   normalize-range@0.1.2: {}
 
-  normalize-url@8.0.0: {}
+  normalize-url@8.0.1: {}
 
   npm-run-path@4.0.1:
     dependencies:
