@@ -1,4 +1,11 @@
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ### ⚠️ Before opening a discussion:
+
+        - [Check the troubleshooting guide](https://gethomepage.dev/latest/troubleshooting/).
+        - [Search existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) [and discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions).
   - type: textarea
     id: description
     attributes:

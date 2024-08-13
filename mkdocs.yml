@@ -80,6 +80,7 @@ nav:
           - widgets/services/komga.md
           - widgets/services/kopia.md
           - widgets/services/lidarr.md
+          - widgets/services/linkwarden.md
           - widgets/services/mastodon.md
           - widgets/services/mealie.md
           - widgets/services/medusa.md

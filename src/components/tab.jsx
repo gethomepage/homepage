@@ -14,7 +14,7 @@ export function slugifyAndEncode(tabName) {
 export default function Tab({ tab }) {
   const { activeTab, setActiveTab } = useContext(TabContext);
 
-  const matchesTab = decodeURI(activeTab) === slugify(tab);
+  const matchesTab = decodeURIComponent(activeTab) === slugify(tab);
 
   return (
     <li

@@ -35,9 +35,16 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (
-        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "tandoor", "pterodactyl"].includes(
-          widget.type,
-        )
+        [
+          "authentik",
+          "cloudflared",
+          "ghostfolio",
+          "linkwarden",
+          "mealie",
+          "tailscale",
+          "tandoor",
+          "pterodactyl",
+        ].includes(widget.type)
       ) {
         headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "truenas") {
