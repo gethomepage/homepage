@@ -69,7 +69,15 @@ export default async function wgeasyProxyHandler(req, res) {
         },
       );
 
-      return res.json(JSON.parse(data));
+      const parsedData = JSON.parse(data);
+
+      if (parsedData.statusCode > 400) {
+        return res
+          .status(parsedData.statusCode)
+          .json({ error: { message: "Error communicating with Wg-Easy", data: parsedData } });
+      }
+
+      return res.json(parsedData);
     }
   }
 
