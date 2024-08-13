@@ -15,7 +15,7 @@ export default function Component({ service }) {
     return <Container service={service} error={infoError} />;
   }
 
-  if (!infoData || infoData.errorCode) {
+  if (!infoData) {
     return (
       <Container service={service}>
         <Block label="wgeasy.connected" />
