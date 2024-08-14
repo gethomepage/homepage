@@ -21,14 +21,21 @@ async function login(widget, service) {
   });
 
   try {
-    const connectSidCookie = responseHeaders["set-cookie"]
+    let connectSidCookie = responseHeaders["set-cookie"];
+    if (!connectSidCookie) {
+      const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
+      if (sid) {
+        return sid;
+      }
+    }
+    connectSidCookie = connectSidCookie
       .find((cookie) => cookie.startsWith("connect.sid="))
       .split(";")[0]
       .replace("connect.sid=", "");
     cache.put(`${sessionSIDCacheKey}.${service}`, connectSidCookie);
     return connectSidCookie;
   } catch (e) {
-    logger.error(`Error logging into wg-easy`);
+    logger.error(`Error logging into wg-easy, error: ${e}`);
     cache.del(`${sessionSIDCacheKey}.${service}`);
     return null;
   }
@@ -62,7 +69,15 @@ export default async function wgeasyProxyHandler(req, res) {
         },
       );
 
-      return res.json(JSON.parse(data));
+      const parsedData = JSON.parse(data);
+
+      if (parsedData.statusCode > 400) {
+        return res
+          .status(parsedData.statusCode)
+          .json({ error: { message: "Error communicating with Wg-Easy", data: parsedData } });
+      }
+
+      return res.json(parsedData);
     }
   }
 

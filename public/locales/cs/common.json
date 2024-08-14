@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Upozornění",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "Povoleno",
+        "disabled": "Zakázáno",
+        "total": "Celkem"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Odezva",
+        "download": "Stahování",
+        "upload": "Nahrávání"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Doba spuštění",
+        "version": "Verze"
     }
 }

@@ -23,6 +23,7 @@ import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
+import frigate from "./frigate/widget";
 import fritzbox from "./fritzbox/widget";
 import gamedig from "./gamedig/widget";
 import gatus from "./gatus/widget";
@@ -45,6 +46,7 @@ import kavita from "./kavita/widget";
 import komga from "./komga/widget";
 import kopia from "./kopia/widget";
 import lidarr from "./lidarr/widget";
+import linkwarden from "./linkwarden/widget";
 import mastodon from "./mastodon/widget";
 import mealie from "./mealie/widget";
 import medusa from "./medusa/widget";
@@ -54,6 +56,7 @@ import mikrotik from "./mikrotik/widget";
 import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
+import myspeed from "./myspeed/widget";
 import navidrome from "./navidrome/widget";
 import netalertx from "./netalertx/widget";
 import netdata from "./netdata/widget";
@@ -93,6 +96,7 @@ import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import stash from "./stash/widget";
+import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
 import swagdashboard from "./swagdashboard/widget";
 import tailscale from "./tailscale/widget";
@@ -139,6 +143,7 @@ const widgets = {
   fileflows,
   flood,
   freshrss,
+  frigate,
   fritzbox,
   gamedig,
   gatus,
@@ -163,6 +168,7 @@ const widgets = {
   komga,
   kopia,
   lidarr,
+  linkwarden,
   mastodon,
   mealie,
   medusa,
@@ -172,6 +178,7 @@ const widgets = {
   mjpeg,
   moonraker,
   mylar,
+  myspeed,
   navidrome,
   netalertx,
   netdata,
@@ -213,6 +220,7 @@ const widgets = {
   sonarr,
   speedtest,
   stash,
+  stocks,
   strelaysrv,
   swagdashboard,
   tailscale,

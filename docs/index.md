@@ -1,5 +1,7 @@
 ---
 title: Home
+description: A modern, fully static, fast, secure, fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages.
+icon: material/home
 hide:
   - navigation
   - toc
@@ -10,17 +12,21 @@ hide:
 
 <div style="margin-top: -100px;"></div>
 
-<p align="center" style="max-width: 75%; margin: 0 auto; display: block;" markdown>
-![Alt text](assets/banner_dark@2x.png#only-light)
-![Alt text](assets/banner_light@2x.png#only-dark)
+<div style="max-width: 70%; margin: 0 auto; display: block;">
 
-A modern, <em>fully static, fast</em>, secure <em>fully proxied</em>, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.
+<img src="assets/banner_light@2x.webp" alt="homepage" style="max-width: 100%; max-height: 175px; margin: 0 auto; display: block;" />
 
-![Alt text](assets/homepage_demo.png)
+<img src="assets/homepage_demo_clip.webp" alt="homepage" style="max-width: 100%; margin: 0 auto; display: block;" />
 
-<p align="center">
-  <a href="https://www.digitalocean.com/?refcode=df14bcb7c016&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%203.svg" alt="DigitalOcean Referral Badge" /></a>
-</p>
-<p align="center">
-<em>Homepage builds are kindly powered by DigitalOcean.</em>
-</p>
+<p style="margin: 0 0 30px;">A modern, <em>fully static, fast</em>, secure <em>fully proxied</em>, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.</p>
+
+</div>
+
+<style>
+  .md-header__source {
+    display: none;
+  }
+  .md-typeset img, .md-typeset svg, .md-typeset video {
+    box-shadow: none;
+  }
+</style>

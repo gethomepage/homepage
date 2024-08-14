@@ -2,15 +2,15 @@ name: Docs
 
 on:
   push:
-    tags: [ 'v*.*.*' ]
-    branches: ['main']
+    tags: ["v*.*.*"]
+    branches: ["main"]
     paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
+      - "docs/**"
+      - "mkdocs.yml"
   pull_request:
     paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
+      - "docs/**"
+      - "mkdocs.yml"
   merge_group:
   workflow_dispatch:
 
@@ -22,16 +22,13 @@ jobs:
     name: Linting Checks
     runs-on: ubuntu-22.04
     steps:
-      -
-        name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      -
-        name: Install python
+      - name: Install python
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      -
-        name: Check files
+      - name: Check files
         uses: pre-commit/action@v3.0.1
 
   test:
@@ -54,7 +51,7 @@ jobs:
             mkdocs-material-
       - run: sudo apt-get install pngquant
       - run: pip install mike
-      - run: pip install mkdocs-material
+      - run: pip install mkdocs-material mkdocs-redirects "mkdocs-material[imaging]"
       - name: Test Docs Build
         run: MKINSIDERS=false mkdocs build
   deploy:
@@ -80,6 +77,7 @@ jobs:
       - run: sudo apt-get install pngquant
       - run: pip install mike==2.0.0
       - run: pip install git+https://${GH_TOKEN}@github.com/benphelps/mkdocs-material-insiders.git
+      - run: pip install mkdocs-redirects "mkdocs-material[imaging]"
       - name: Set Git config
         run: |
           git config --global user.name "GitHub Action"

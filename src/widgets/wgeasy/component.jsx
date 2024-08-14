@@ -28,7 +28,7 @@ export default function Component({ service }) {
 
   const enabled = infoData.filter((item) => item.enabled).length;
   const disabled = infoData.length - enabled;
-  const connectionThreshold = widget.threshold ?? 2 * 60 * 1000;
+  const connectionThreshold = (widget.threshold ?? 2) * 60 * 1000;
   const currentTime = new Date();
   const connected = infoData.filter(
     (item) => currentTime - new Date(item.latestHandshakeAt) < connectionThreshold,

@@ -40,14 +40,14 @@
     },
     "resources": {
         "cpu": "Επεξεργαστής",
-        "mem": "MEM",
+        "mem": "Μνήμη",
         "total": "Σύνολο",
         "free": "Δωρεάν",
         "used": "χρησιμοποιημένο",
         "load": "Φόρτωση",
-        "temp": "ΘΕΡΜΟΚΡΑΣΪΑ",
+        "temp": "Θερμοκρασία",
         "max": "Μέγιστο",
-        "uptime": "ΠΑΝΩ"
+        "uptime": "Χρόνος Λειτουργίας"
     },
     "unifi": {
         "users": "Χρήστες",
@@ -61,7 +61,7 @@
         "wlan_devices": "WLAN Συσκευές",
         "lan_users": "LAN Χρήστες",
         "wlan_users": "WLAN Χρήστες",
-        "up": "ΠΑΝΩ",
+        "up": "Χρόνος Λειτουργίας",
         "down": "ΚΑΤΩ",
         "wait": "Παρακαλώ περιμένετε",
         "empty_data": "Άγνωστη κατάσταση υποσυστήματος"
@@ -69,7 +69,7 @@
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "Μνήμη",
         "cpu": "Επεξεργαστής",
         "running": "Τρέχων",
         "offline": "Εκτός σύνδεσης",
@@ -85,16 +85,16 @@
     "ping": {
         "error": "Σφάλμα",
         "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
+        "down": "Ping down",
+        "up": "Ping up",
         "not_available": "Μη διαθέσιμο"
     },
     "siteMonitor": {
         "http_status": "Κατάσταση HTTP",
         "error": "Σφάλμα",
         "response": "Απόκριση",
-        "down": "Down",
-        "up": "Up",
+        "down": "Ping down",
+        "up": "Ping up",
         "not_available": "Μη διαθέσιμο"
     },
     "emby": {
@@ -136,16 +136,16 @@
         "connectionStatus": "Κατάσταση",
         "connectionStatusUnconfigured": "Μη Ρυθμισμένο",
         "connectionStatusConnecting": "Κατάσταση Σύνδεσης",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusAuthenticating": "Ταυτοποίηση",
+        "connectionStatusPendingDisconnect": "Εκκρεμεί Αποσύνδεση",
+        "connectionStatusDisconnecting": "Αποσύνδεση",
+        "connectionStatusDisconnected": "Αποσυνδέθηκε",
+        "connectionStatusConnected": "Συνδέθηκε",
         "uptime": "Χρόνος Λειτουργίας",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
+        "maxDown": "Μέγιστο Download",
+        "maxUp": "Μέγιστο Upload",
+        "down": "Ping down",
+        "up": "Ping up",
         "received": "Ληφθέντα",
         "sent": "Απεσταλμένα",
         "externalIPAddress": "Εξωτερική IP"
@@ -217,7 +217,7 @@
         "memUsage": "Χρήση μνήμης",
         "systemTempC": "Θερμοκρασία συστήματος",
         "poolUsage": "Χρήση πισίνας",
-        "volumeUsage": "Volume Usage",
+        "volumeUsage": "Χρήση Όγκου",
         "invalid": "Μη έγκυρο"
     },
     "deluge": {
@@ -273,15 +273,15 @@
     },
     "overseerr": {
         "pending": "Σε εκκρεμότητα",
-        "processing": "Processing",
+        "processing": "Σε επεξεργασία",
         "approved": "Εγκρίθηκε",
         "available": "Διαθέσιμο"
     },
     "netalertx": {
         "total": "Σύνολο",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Συνδέθηκε",
+        "new_devices": "Νέες συσκευές",
+        "down_alerts": "Ειδοποιήσεις offline"
     },
     "pihole": {
         "queries": "Queries",
@@ -309,26 +309,26 @@
         "address": "Διεύθυνση",
         "expires": "Λήγει",
         "never": "Ποτέ",
-        "last_seen": "Last Seen",
+        "last_seen": "Τελευταία Σύνδεση",
         "now": "Τώρα",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
+        "years": "{{number}}χρόνια",
+        "weeks": "{{number}}εβδομάδες",
+        "days": "{{number}}μέρες",
+        "hours": "{{number}}ώρες",
+        "minutes": "{{number}}λεπτά",
+        "seconds": "{{number}}δευτερόλεπτα",
         "ago": "{{value}} πρίν"
     },
     "tdarr": {
         "queue": "Ουρά",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "processed": "Σε επεξεργασία",
+        "errored": "Σφάλματα",
+        "saved": "Αποθηκεύτηκε"
     },
     "traefik": {
-        "routers": "Routers",
+        "routers": "Δρομολογητές",
         "services": "Υπηρεσίες",
-        "middleware": "Middleware"
+        "middleware": "Ενδιάμεσο λογισμικό"
     },
     "navidrome": {
         "nothing_streaming": "Δεν υπάρχουν ενεργές ροές",
@@ -360,7 +360,7 @@
     },
     "jackett": {
         "configured": "Ρυθμισμένο",
-        "errored": "Errored"
+        "errored": "Σφάλματα"
     },
     "strelaysrv": {
         "numActiveSessions": "Συνεδρίες",
@@ -371,7 +371,7 @@
     "mastodon": {
         "user_count": "Χρήστες",
         "status_count": "Δημοσιεύσεις",
-        "domain_count": "Domains"
+        "domain_count": "Τομείς"
     },
     "medusa": {
         "wanted": "Επιθυμούντε",
@@ -386,7 +386,7 @@
         "down": "Εκτός σύνδεσης"
     },
     "miniflux": {
-        "read": "Read",
+        "read": "Διαβάστηκε",
         "unread": "Μη Διαβασμένο"
     },
     "authentik": {
@@ -395,7 +395,7 @@
         "failedLoginsLast24H": "Αποτυχημένες Συνδέσεις (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "Μνήμη",
         "cpu": "Επεξεργαστής",
         "lxc": "LXC",
         "vms": "VMs"
@@ -404,17 +404,17 @@
         "cpu": "Επεξεργαστής",
         "load": "Φόρτωση",
         "wait": "Παρακαλώ περιμένετε",
-        "temp": "ΘΕΡΜΟΚΡΑΣΪΑ",
+        "temp": "Θερμοκρασία",
         "_temp": "Temp",
         "warn": "Warn",
-        "uptime": "ΠΑΝΩ",
+        "uptime": "Χρόνος Λειτουργίας",
         "total": "Σύνολο",
         "free": "Δωρεάν",
         "used": "χρησιμοποιημένο",
         "days": "d",
         "hours": "h",
         "crit": "Crit",
-        "read": "Read",
+        "read": "Διαβάστηκε",
         "write": "Write",
         "gpu": "GPU",
         "mem": "Μνήμη",
@@ -450,80 +450,80 @@
         "55-night": "Heavy Drizzle",
         "56-day": "Light Freezing Drizzle",
         "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "57-day": "Παγωμένο ψιχάλισμα",
+        "57-night": "Παγωμένο ψιχάλισμα",
+        "61-day": "Ψιλόβροχο",
+        "61-night": "Ψιλόβροχο",
+        "63-day": "Βροχή",
+        "63-night": "Βροχή",
+        "65-day": "Δυνατή βροχή",
+        "65-night": "Δυνατή βροχή",
+        "66-day": "Παγωμένη βροχή",
+        "66-night": "Παγωμένη βροχή",
+        "67-day": "Παγωμένη βροχή",
+        "67-night": "Παγωμένη βροχή",
+        "71-day": "Ελαφριά Χιονόπτωση",
+        "71-night": "Ελαφριά Χιονόπτωση",
+        "73-day": "Χιόνι",
+        "73-night": "Χιόνι",
+        "75-day": "Ισχυρή χιονόπτωση",
+        "75-night": "Ισχυρή χιονόπτωση",
+        "77-day": "Κόκκοι Χιονιού",
+        "77-night": "Κόκκοι Χιονιού",
+        "80-day": "Ασθενείς βροχές",
+        "80-night": "Ασθενείς βροχές",
+        "81-day": "Βροχοπτώσεις",
+        "81-night": "Βροχοπτώσεις",
+        "82-day": "Ισχυρές βροχοπτώσεις",
+        "82-night": "Ισχυρές βροχοπτώσεις",
+        "85-day": "Χιονοπτώσεις",
+        "85-night": "Χιονοπτώσεις",
+        "86-day": "Χιονοπτώσεις",
+        "86-night": "Χιονοπτώσεις",
+        "95-day": "Καταιγίδα",
+        "95-night": "Καταιγίδα",
+        "96-day": "Καταιγίδα Με Χαλάζι",
+        "96-night": "Καταιγίδα Με Χαλάζι",
+        "99-day": "Καταιγίδα Με Χαλάζι",
+        "99-night": "Καταιγίδα Με Χαλάζι"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Σύστημα",
+        "updates": "Ενημερώσεις",
+        "update_available": "Διαθέσιμη ενημέρωση",
+        "up_to_date": "Ενημερωμένο",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Ping up",
         "pending": "Σε εκκρεμότητα",
-        "down": "Down"
+        "down": "Ping down"
     },
     "healthchecks": {
         "new": "New",
-        "up": "Up",
+        "up": "Ping up",
         "grace": "In Grace Period",
-        "down": "Down",
+        "down": "Ping down",
         "paused": "Paused",
         "status": "Κατάσταση",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "last_ping": "Τελευταίο Ping",
+        "never": "Δεν υπάρχουν ping ακόμα"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Σκαναρισμένο",
+        "containers_updated": "Ενημερώθηκε",
+        "containers_failed": "Απέτυχε"
     },
     "autobrr": {
         "approvedPushes": "Εγκρίθηκε",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
+        "rejectedPushes": "Απορρίφθηκε",
+        "filters": "Φίλτρα",
         "indexers": "Ευρετήρια"
     },
     "tubearchivist": {
         "downloads": "Ουρά",
-        "videos": "Videos",
+        "videos": "Βίντεο",
         "channels": "Κανάλια",
-        "playlists": "Playlists"
+        "playlists": "Λίστες αναπαραγωγής"
     },
     "truenas": {
         "load": "Φόρτος Συστήματος",
@@ -544,18 +544,18 @@
     "hdhomerun": {
         "channels": "Κανάλια",
         "hd": "HD",
-        "tunerCount": "Tuners",
+        "tunerCount": "Δέκτες",
         "channelNumber": "Κανάλι",
         "channelNetwork": "Δίκτυο",
-        "signalStrength": "Strength",
+        "signalStrength": "Ισχύς σήματος",
         "signalQuality": "Ποιότητα",
         "symbolQuality": "Ποιότητα",
         "networkRate": "Ρυθμός bit",
-        "clientIP": "Client"
+        "clientIP": "Πελάτης"
     },
     "scrutiny": {
         "passed": "Passed",
-        "failed": "Failed",
+        "failed": "Απέτυχε",
         "unknown": "Άγνωστο"
     },
     "paperlessngx": {
@@ -617,8 +617,8 @@
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Ping up",
+        "down": "Ping down",
         "temp": "Temp",
         "disk": "Χρήση δίσκου",
         "wanIP": "WAN IP"
@@ -632,14 +632,14 @@
     "immich": {
         "users": "Χρήστες",
         "photos": "Φωτογραφίες",
-        "videos": "Videos",
-        "storage": "Storage"
+        "videos": "Βίντεο",
+        "storage": "Αποθηκευτικός χώρος"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Online τοποθεσίες",
+        "down": "Offline τοποθεσίες",
         "uptime": "Χρόνος Λειτουργίας",
-        "incident": "Incident",
+        "incident": "Περιστατικό",
         "m": "m"
     },
     "atsumeru": {
@@ -666,100 +666,100 @@
     "photoprism": {
         "albums": "Άλμπουμ",
         "photos": "Φωτογραφίες",
-        "videos": "Videos",
-        "people": "People"
+        "videos": "Βίντεο",
+        "people": "Άνθρωποι"
     },
     "fileflows": {
         "queue": "Ουρά",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "processing": "Σε επεξεργασία",
+        "processed": "Σε επεξεργασία",
+        "time": "Ώρα"
     },
     "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "dashboards": "Πίνακας Ελέγχου",
+        "datasources": "Πηγές Δεδομένων",
+        "totalalerts": "Σύνολο Ειδοποιήσεων",
+        "alertstriggered": "Ενεργοποιημένες Ειδοποιήσεις"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "cpuload": "Φόρτος CPU",
+        "memoryusage": "Χρήση Mνήμης",
+        "freespace": "Ελεύθερος χώρος",
+        "activeusers": "Ενεργοί χρήστες",
+        "numfiles": "Αρχεία",
+        "numshares": "Κοινόχρηστα στοιχεία"
     },
     "kopia": {
         "status": "Κατάσταση",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "size": "Μέγεθος",
+        "lastrun": "Τελευταία εκτέλεση",
+        "nextrun": "Επόμενη εκτέλεση",
+        "failed": "Απέτυχε"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
+        "active_workers": "Ενεργοί χρήστες",
         "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "records_total": "Μήκος Ουράς"
     },
     "pterodactyl": {
         "servers": "Διακομιστές",
-        "nodes": "Nodes"
+        "nodes": "Κόμβοι [Nodes]"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Στόχοι Πάνω",
+        "targets_down": "Στόχοι Κάτω",
+        "targets_total": "Συνολικοί Στόχοι"
     },
     "gatus": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Online τοποθεσίες",
+        "down": "Offline τοποθεσίες",
         "uptime": "Χρόνος Λειτουργίας"
     },
     "ghostfolio": {
         "gross_percent_today": "Σήμερα",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_1y": "Ένας χρόνος",
+        "gross_percent_max": "Διαχρονικά"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
         "books": "Βιβλία",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcastsDuration": "Διάρκεια",
+        "booksDuration": "Διάρκεια"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Σύνολο ανθρώπων στο σπίτι",
+        "lights_on": "Αναμμένα φώτα",
+        "switches_on": "Ανοιχτοί διακόπτες"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Παρακολούθηση",
+        "updates": "Ενημερώσεις"
     },
     "calibreweb": {
         "books": "Βιβλία",
-        "authors": "Authors",
+        "authors": "Συντάκτες",
         "categories": "Κατηγορίες",
         "series": "Σειρές"
     },
     "jdownloader": {
         "downloadCount": "Ουρά",
         "downloadBytesRemaining": "Υπόλοιπο",
-        "downloadTotalBytes": "Size",
+        "downloadTotalBytes": "Μέγεθος",
         "downloadSpeed": "Ταχύτητα"
     },
     "kavita": {
         "seriesCount": "Σειρές",
-        "totalFiles": "Files"
+        "totalFiles": "Αρχεία"
     },
     "azuredevops": {
-        "result": "Result",
+        "result": "Αποτέλεσμα",
         "status": "Κατάσταση",
         "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
+        "succeeded": "Πέτυχε",
+        "notStarted": "Δεν ξεκίνησε",
+        "failed": "Απέτυχε",
+        "canceled": "Ακυρώθηκε",
+        "inProgress": "Σε εξέλιξη",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
         "approved": "Εγκρίθηκε"
@@ -768,8 +768,8 @@
         "status": "Κατάσταση",
         "online": "Συνδεδεμένοι",
         "offline": "Εκτός σύνδεσης",
-        "name": "Name",
-        "map": "Map",
+        "name": "Όνομα",
+        "map": "Χάρτης",
         "currentPlayers": "Current players",
         "players": "Παίκτες",
         "maxPlayers": "Max players",
@@ -777,30 +777,30 @@
         "ping": "Ping"
     },
     "urbackup": {
-        "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "ok": "Οκ",
+        "errored": "Σφάλματα",
+        "noRecent": "Απαρχαιωμένη έκδοση",
+        "totalUsed": "Χώρος αποθήκευσης σε χρήση"
     },
     "mealie": {
-        "recipes": "Recipes",
+        "recipes": "Συνταγές",
         "users": "Χρήστες",
         "categories": "Κατηγορίες",
-        "tags": "Tags"
+        "tags": "Ετικέτες"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Γίνεται λήψη",
         "total": "Σύνολο",
         "running": "Τρέχων",
         "stopped": "Σταματημένο",
         "passed": "Passed",
-        "failed": "Failed"
+        "failed": "Απέτυχε"
     },
     "openwrt": {
         "uptime": "Χρόνος Λειτουργίας",
         "cpuLoad": "CPU Load Avg (5m)",
-        "up": "Up",
-        "down": "Down",
+        "up": "Ping up",
+        "down": "Ping down",
         "bytesTx": "Transmitted",
         "bytesRx": "Ληφθέντα"
     },
@@ -809,13 +809,13 @@
         "uptime": "Χρόνος Λειτουργίας",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
+        "sitesUp": "Online τοποθεσίες",
+        "sitesDown": "Offline τοποθεσίες",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Ping up",
         "seemsdown": "Seems Down",
-        "down": "Down",
+        "down": "Ping down",
         "unknown": "Άγνωστο"
     },
     "calendar": {
@@ -857,12 +857,12 @@
         "performers": "Performers",
         "studios": "Studios",
         "movies": "Ταινίες",
-        "tags": "Tags",
+        "tags": "Ετικέτες",
         "oCount": "O Count"
     },
     "tandoor": {
         "users": "Χρήστες",
-        "recipes": "Recipes",
+        "recipes": "Συνταγές",
         "keywords": "Keywords"
     },
     "homebox": {
@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "Ειδοποιήσεις",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Συνδέθηκε",
+        "enabled": "Ενεργοποιημένο",
+        "disabled": "Απενεργοποιημένο",
+        "total": "Σύνολο"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Λήξη",
+        "upload": "Μεταφόρτωση"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Χρόνος Λειτουργίας",
+        "version": "Έκδοση"
     }
 }

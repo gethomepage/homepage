@@ -1,4 +1,4 @@
-site_name: homepage
+site_name: Homepage
 
 # Project information
 site_url: https://gethomepage.dev/
@@ -10,204 +10,223 @@ edit_uri: https://github.com/gethomepage/homepage/tree/main/docs/
 
 nav:
   - "Home":
-    - index.md
+      - index.md
   - "Installation":
-    - installation/index.md
-    - installation/docker.md
-    - installation/k8s.md
-    - installation/unraid.md
-    - installation/source.md
+      - installation/index.md
+      - installation/docker.md
+      - installation/k8s.md
+      - installation/unraid.md
+      - installation/source.md
   - "Configuration":
-    - configs/index.md
-    - configs/settings.md
-    - configs/bookmarks.md
-    - configs/services.md
-    - configs/service-widgets.md
-    - configs/kubernetes.md
-    - configs/docker.md
-    - configs/custom-css-js.md
+      - configs/index.md
+      - configs/settings.md
+      - configs/bookmarks.md
+      - configs/services.md
+      - configs/service-widgets.md
+      - configs/kubernetes.md
+      - configs/docker.md
+      - configs/custom-css-js.md
   - "Widgets":
-    - widgets/index.md
-    - "Service Widgets":
-      - widgets/services/index.md
-      - widgets/services/adguard-home.md
-      - widgets/services/atsumeru.md
-      - widgets/services/audiobookshelf.md
-      - widgets/services/authentik.md
-      - widgets/services/autobrr.md
-      - widgets/services/azuredevops.md
-      - widgets/services/bazarr.md
-      - widgets/services/caddy.md
-      - widgets/services/calendar.md
-      - widgets/services/calibre-web.md
-      - widgets/services/changedetectionio.md
-      - widgets/services/channelsdvrserver.md
-      - widgets/services/cloudflared.md
-      - widgets/services/coin-market-cap.md
-      - widgets/services/crowdsec.md
-      - widgets/services/customapi.md
-      - widgets/services/deluge.md
-      - widgets/services/diskstation.md
-      - widgets/services/downloadstation.md
-      - widgets/services/emby.md
-      - widgets/services/esphome.md
-      - widgets/services/evcc.md
-      - widgets/services/fileflows.md
-      - widgets/services/flood.md
-      - widgets/services/freshrss.md
-      - widgets/services/fritzbox.md
-      - widgets/services/gamedig.md
-      - widgets/services/gatus.md
-      - widgets/services/ghostfolio.md
-      - widgets/services/gitea.md
-      - widgets/services/glances.md
-      - widgets/services/gluetun.md
-      - widgets/services/gotify.md
-      - widgets/services/grafana.md
-      - widgets/services/hdhomerun.md
-      - widgets/services/healthchecks.md
-      - widgets/services/homeassistant.md
-      - widgets/services/homebox.md
-      - widgets/services/homebridge.md
-      - widgets/services/iframe.md
-      - widgets/services/immich.md
-      - widgets/services/jackett.md
-      - widgets/services/jdownloader.md
-      - widgets/services/jellyfin.md
-      - widgets/services/jellyseerr.md
-      - widgets/services/kavita.md
-      - widgets/services/komga.md
-      - widgets/services/kopia.md
-      - widgets/services/lidarr.md
-      - widgets/services/mastodon.md
-      - widgets/services/mealie.md
-      - widgets/services/medusa.md
-      - widgets/services/mikrotik.md
-      - widgets/services/minecraft.md
-      - widgets/services/miniflux.md
-      - widgets/services/mjpeg.md
-      - widgets/services/moonraker.md
-      - widgets/services/mylar.md
-      - widgets/services/navidrome.md
-      - widgets/services/netdata.md
-      - widgets/services/netalertx.md
-      - widgets/services/nextcloud.md
-      - widgets/services/nextdns.md
-      - widgets/services/nginx-proxy-manager.md
-      - widgets/services/nzbget.md
-      - widgets/services/octoprint.md
-      - widgets/services/omada.md
-      - widgets/services/ombi.md
-      - widgets/services/opendtu.md
-      - widgets/services/openmediavault.md
-      - widgets/services/opnsense.md
-      - widgets/services/openwrt.md
-      - widgets/services/overseerr.md
-      - widgets/services/paperlessngx.md
-      - widgets/services/peanut.md
-      - widgets/services/pfsense.md
-      - widgets/services/photoprism.md
-      - widgets/services/pihole.md
-      - widgets/services/plantit.md
-      - widgets/services/plex-tautulli.md
-      - widgets/services/plex.md
-      - widgets/services/portainer.md
-      - widgets/services/prometheus.md
-      - widgets/services/prowlarr.md
-      - widgets/services/proxmox.md
-      - widgets/services/proxmoxbackupserver.md
-      - widgets/services/pterodactyl.md
-      - widgets/services/pyload.md
-      - widgets/services/qbittorrent.md
-      - widgets/services/qnap.md
-      - widgets/services/radarr.md
-      - widgets/services/readarr.md
-      - widgets/services/romm.md
-      - widgets/services/rutorrent.md
-      - widgets/services/sabnzbd.md
-      - widgets/services/scrutiny.md
-      - widgets/services/sonarr.md
-      - widgets/services/speedtest-tracker.md
-      - widgets/services/stash.md
-      - widgets/services/swagdashboard.md
-      - widgets/services/syncthing-relay-server.md
-      - widgets/services/tailscale.md
-      - widgets/services/tandoor.md
-      - widgets/services/tdarr.md
-      - widgets/services/traefik.md
-      - widgets/services/transmission.md
-      - widgets/services/truenas.md
-      - widgets/services/tubearchivist.md
-      - widgets/services/unifi-controller.md
-      - widgets/services/unmanic.md
-      - widgets/services/uptime-kuma.md
-      - widgets/services/uptimerobot.md
-      - widgets/services/urbackup.md
-      - widgets/services/watchtower.md
-      - widgets/services/whatsupdocker.md
-      - widgets/services/xteve.md
-    - "Information Widgets":
-      - widgets/info/index.md
-      - widgets/info/datetime.md
-      - widgets/info/glances.md
-      - widgets/info/greeting.md
-      - widgets/info/kubernetes.md
-      - widgets/info/logo.md
-      - widgets/info/longhorn.md
-      - widgets/info/openmeteo.md
-      - widgets/info/openweathermap.md
-      - widgets/info/resources.md
-      - widgets/info/search.md
-      - widgets/info/unifi_controller.md
-      - widgets/info/weather.md
-  - more/troubleshooting.md
+      - widgets/index.md
+      - "Service Widgets":
+          - widgets/services/index.md
+          - widgets/services/adguard-home.md
+          - widgets/services/atsumeru.md
+          - widgets/services/audiobookshelf.md
+          - widgets/services/authentik.md
+          - widgets/services/autobrr.md
+          - widgets/services/azuredevops.md
+          - widgets/services/bazarr.md
+          - widgets/services/caddy.md
+          - widgets/services/calendar.md
+          - widgets/services/calibre-web.md
+          - widgets/services/changedetectionio.md
+          - widgets/services/channelsdvrserver.md
+          - widgets/services/cloudflared.md
+          - widgets/services/coin-market-cap.md
+          - widgets/services/crowdsec.md
+          - widgets/services/customapi.md
+          - widgets/services/deluge.md
+          - widgets/services/diskstation.md
+          - widgets/services/downloadstation.md
+          - widgets/services/emby.md
+          - widgets/services/esphome.md
+          - widgets/services/evcc.md
+          - widgets/services/fileflows.md
+          - widgets/services/flood.md
+          - widgets/services/freshrss.md
+          - widgets/services/frigate.md
+          - widgets/services/fritzbox.md
+          - widgets/services/gamedig.md
+          - widgets/services/gatus.md
+          - widgets/services/ghostfolio.md
+          - widgets/services/gitea.md
+          - widgets/services/glances.md
+          - widgets/services/gluetun.md
+          - widgets/services/gotify.md
+          - widgets/services/grafana.md
+          - widgets/services/hdhomerun.md
+          - widgets/services/healthchecks.md
+          - widgets/services/homeassistant.md
+          - widgets/services/homebox.md
+          - widgets/services/homebridge.md
+          - widgets/services/iframe.md
+          - widgets/services/immich.md
+          - widgets/services/jackett.md
+          - widgets/services/jdownloader.md
+          - widgets/services/jellyfin.md
+          - widgets/services/jellyseerr.md
+          - widgets/services/kavita.md
+          - widgets/services/komga.md
+          - widgets/services/kopia.md
+          - widgets/services/lidarr.md
+          - widgets/services/linkwarden.md
+          - widgets/services/mastodon.md
+          - widgets/services/mealie.md
+          - widgets/services/medusa.md
+          - widgets/services/mikrotik.md
+          - widgets/services/minecraft.md
+          - widgets/services/miniflux.md
+          - widgets/services/mjpeg.md
+          - widgets/services/moonraker.md
+          - widgets/services/mylar.md
+          - widgets/services/myspeed.md
+          - widgets/services/navidrome.md
+          - widgets/services/netdata.md
+          - widgets/services/netalertx.md
+          - widgets/services/nextcloud.md
+          - widgets/services/nextdns.md
+          - widgets/services/nginx-proxy-manager.md
+          - widgets/services/nzbget.md
+          - widgets/services/octoprint.md
+          - widgets/services/omada.md
+          - widgets/services/ombi.md
+          - widgets/services/opendtu.md
+          - widgets/services/openmediavault.md
+          - widgets/services/opnsense.md
+          - widgets/services/openwrt.md
+          - widgets/services/overseerr.md
+          - widgets/services/paperlessngx.md
+          - widgets/services/peanut.md
+          - widgets/services/pfsense.md
+          - widgets/services/photoprism.md
+          - widgets/services/pihole.md
+          - widgets/services/plantit.md
+          - widgets/services/plex-tautulli.md
+          - widgets/services/plex.md
+          - widgets/services/portainer.md
+          - widgets/services/prometheus.md
+          - widgets/services/prowlarr.md
+          - widgets/services/proxmox.md
+          - widgets/services/proxmoxbackupserver.md
+          - widgets/services/pterodactyl.md
+          - widgets/services/pyload.md
+          - widgets/services/qbittorrent.md
+          - widgets/services/qnap.md
+          - widgets/services/radarr.md
+          - widgets/services/readarr.md
+          - widgets/services/romm.md
+          - widgets/services/rutorrent.md
+          - widgets/services/sabnzbd.md
+          - widgets/services/scrutiny.md
+          - widgets/services/sonarr.md
+          - widgets/services/speedtest-tracker.md
+          - widgets/services/stash.md
+          - widgets/services/stocks.md
+          - widgets/services/swagdashboard.md
+          - widgets/services/syncthing-relay-server.md
+          - widgets/services/tailscale.md
+          - widgets/services/tandoor.md
+          - widgets/services/tdarr.md
+          - widgets/services/traefik.md
+          - widgets/services/transmission.md
+          - widgets/services/truenas.md
+          - widgets/services/tubearchivist.md
+          - widgets/services/unifi-controller.md
+          - widgets/services/unmanic.md
+          - widgets/services/uptime-kuma.md
+          - widgets/services/uptimerobot.md
+          - widgets/services/urbackup.md
+          - widgets/services/watchtower.md
+          - widgets/services/wgeasy.md
+          - widgets/services/whatsupdocker.md
+          - widgets/services/xteve.md
+      - "Information Widgets":
+          - widgets/info/index.md
+          - widgets/info/datetime.md
+          - widgets/info/glances.md
+          - widgets/info/greeting.md
+          - widgets/info/kubernetes.md
+          - widgets/info/logo.md
+          - widgets/info/longhorn.md
+          - widgets/info/openmeteo.md
+          - widgets/info/openweathermap.md
+          - widgets/info/resources.md
+          - widgets/info/search.md
+          - widgets/info/stocks.md
+          - widgets/info/unifi_controller.md
+          - widgets/info/weather.md
+  - "Learn":
+      - widgets/authoring/index.md
+      - "Getting Started": widgets/authoring/getting-started.md
+      - "Tutorials":
+          - widgets/authoring/tutorial.md
+      - "Guides":
+          - widgets/authoring/component.md
+          - widgets/authoring/metadata.md
+          - widgets/authoring/proxies.md
+          - widgets/authoring/api.md
+          - widgets/authoring/translations.md
+  - "Troubleshooting":
+      - troubleshooting/index.md
   - "More":
-    - more/index.md
-    - more/development.md
-    - more/translations.md
-    - more/homepage-move.md
+      - more/index.md
+      - more/translations.md
+      - more/coverage.md
+      - more/sponsors.md
+      - more/homepage-move.md
 
 theme:
   name: material
   custom_dir: docs/overrides
   language: en
   palette:
-      - media: "(prefers-color-scheme)"
-        toggle:
-            icon: material/brightness-auto
-            name: Switch to light mode
-      - media: "(prefers-color-scheme: light)"
-        scheme: default
-        primary: black
-        accent: black
-        toggle:
-            icon: material/brightness-7
-            name: Switch to dark mode
-      - media: "(prefers-color-scheme: dark)"
-        scheme: slate
-        primary: black
-        accent: blue
-        toggle:
-            icon: material/brightness-4
-            name: Switch to system preference
-  logo: assets/light_squircle@2x.png
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  logo: assets/banner_light@2x.webp
+
   favicon: assets/favicon.ico
   features:
-      - navigation.instant
-      - content.action.edit
-      - search.suggest
-      - search.share
-      - content.code.copy
-      - content.code.select
-      - navigation.tracking
-      - navigation.tabs
-      - navigation.sections
-      - navigation.indexes
+    - navigation.instant
+    - content.action.edit
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.code.select
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - content.code.annotate
 
 extra_css:
   - "stylesheets/extra.css"
-extra_javascript:
-  - "scripts/extra.js"
 
 extra:
   version:
@@ -215,10 +234,12 @@ extra:
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/k4ruYNrudu
-    - icon: fontawesome/regular/message
-      link: https://github.com/gethomepage/homepage/discussions
     - icon: fontawesome/brands/github
       link: https://github.com/gethomepage/homepage
+    - icon: simple/opencollective
+      link: https://opencollective.com/homepage
+    - icon: simple/patreon
+      link: https://www.patreon.com/gethomepage
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -231,6 +252,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
@@ -245,12 +268,21 @@ plugins:
   - group:
       enabled: !ENV MKINSIDERS
       plugins:
-        - optimize
         - typeset
-        - social
+        - social:
+            cards_layout: default
+            cards_layout_options:
+              background_image: docs/assets/blossom_valley_blur.jpg
+              background_color: "rgba(13, 29, 41, 128)"
+              color: "#ffffff"
+              logo: docs/assets/light_squircle@2x.webp
   - tags
   - search:
       pipeline:
         - stemmer
         - stopWordFilter
         - trimmer
+  - redirects:
+      redirect_maps:
+        "more/troubleshooting.md": "troubleshooting/index.md"
+        "more/development.md": "widgets/authoring/getting-started.md"

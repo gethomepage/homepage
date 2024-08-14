@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
+        "missing_type": "없는 위젯 유형: {{type}}",
         "api_error": "API 오류",
         "information": "정보",
         "status": "상태",
@@ -87,15 +87,15 @@
         "ping": "Ping",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "사용할 수 없음"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "HTTP 상태",
         "error": "오류",
-        "response": "Response",
+        "response": "응답",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "사용할 수 없음"
     },
     "emby": {
         "playing": "재생 중",
@@ -116,7 +116,7 @@
     },
     "evcc": {
         "pv_power": "Production",
-        "battery_soc": "Battery",
+        "battery_soc": "배터리",
         "grid_power": "Grid",
         "home_power": "Consumption",
         "charge_power": "Charger",
@@ -130,24 +130,24 @@
     },
     "freshrss": {
         "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "unread": "읽지 않음"
     },
     "fritzbox": {
         "connectionStatus": "상태",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
+        "connectionStatusUnconfigured": "구성되지 않음",
+        "connectionStatusConnecting": "연결중",
+        "connectionStatusAuthenticating": "인증",
         "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
+        "connectionStatusDisconnecting": "연결을 끊는 중...",
+        "connectionStatusDisconnected": "연결 끊김",
         "connectionStatusConnected": "Connected",
         "uptime": "Uptime",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
         "down": "Down",
         "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
+        "received": "수신됨",
+        "sent": "전송됨",
         "externalIPAddress": "Ext. IP"
     },
     "caddy": {
@@ -160,9 +160,9 @@
         "diffsDetected": "변경 감지됨"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
+        "shows": "보기",
         "recordings": "Recordings",
-        "scheduled": "Scheduled",
+        "scheduled": "예정됨",
         "passes": "Passes"
     },
     "tautulli": {
@@ -306,18 +306,18 @@
         "total": "총합"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
+        "address": "주소",
+        "expires": "만료",
         "never": "Never",
         "last_seen": "Last Seen",
         "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "years": "{{number}}년",
+        "weeks": "{{number}}월",
+        "days": "{{number}}일",
+        "hours": "{{number}}시",
+        "minutes": "{{number}}분",
+        "seconds": "{{number}}초",
+        "ago": "{{value}} 전"
     },
     "tdarr": {
         "queue": "대기열",
@@ -380,14 +380,14 @@
     },
     "minecraft": {
         "players": "Players",
-        "version": "Version",
+        "version": "버전",
         "status": "상태",
         "up": "Online",
         "down": "중지"
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Unread"
+        "unread": "읽지 않음"
     },
     "authentik": {
         "users": "사용자",
@@ -802,7 +802,7 @@
         "up": "Up",
         "down": "Down",
         "bytesTx": "Transmitted",
-        "bytesRx": "Received"
+        "bytesRx": "수신됨"
     },
     "uptimerobot": {
         "status": "상태",
@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "경고",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "활성",
+        "disabled": "비활성",
+        "total": "총합"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "다운로드",
+        "upload": "업로드"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Uptime",
+        "version": "버전"
     }
 }

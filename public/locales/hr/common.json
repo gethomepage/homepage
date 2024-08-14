@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Odspajanje u tijeku",
         "connectionStatusDisconnecting": "Odspajanje",
         "connectionStatusDisconnected": "Odspojeno",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Povezano",
         "uptime": "Vrijeme rada",
         "maxDown": "Maksimum preuzimanja",
         "maxUp": "Maksimum prijenosa",
@@ -279,9 +279,9 @@
     },
     "netalertx": {
         "total": "Ukupno",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Povezano",
+        "new_devices": "Novi uređaji",
+        "down_alerts": "Obavijesti o nedostupnosti"
     },
     "pihole": {
         "queries": "Upiti",
@@ -834,47 +834,76 @@
         "criticals": "Kritično"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
+        "events": "Događaji",
+        "plants": "Biljke",
         "photos": "Fotografije",
-        "species": "Species"
+        "species": "Vrste"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "Obavijesti",
         "issues": "Problemi",
-        "pulls": "Pull Requests"
+        "pulls": "Zahtjevi za povlačenje"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
+        "scenes": "Scene",
+        "scenesPlayed": "Reproducirane scene",
+        "playCount": "Ukupni broj reprodukcija",
+        "playDuration": "Vrijeme gledanja",
+        "sceneSize": "Veličina scene",
+        "sceneDuration": "Trajanje scene",
+        "images": "Slike",
+        "imageSize": "Veličina slike",
+        "galleries": "Galerije",
+        "performers": "Glumci",
+        "studios": "Studiji",
         "movies": "Filmovi",
         "tags": "Oznake",
-        "oCount": "O Count"
+        "oCount": "O zbroj"
     },
     "tandoor": {
         "users": "Korisnici",
         "recipes": "Recepti",
-        "keywords": "Keywords"
+        "keywords": "Ključne riječi"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "items": "Stavke",
+        "totalWithWarranty": "S garancijom",
+        "locations": "Lokacije",
+        "labels": "Oznake",
         "users": "Korisnici",
-        "totalValue": "Total Value"
+        "totalValue": "Svukupno"
     },
     "crowdsec": {
         "alerts": "Upozorenja",
-        "bans": "Bans"
+        "bans": "Zabrane"
+    },
+    "wgeasy": {
+        "connected": "Povezano",
+        "enabled": "Aktivirano",
+        "disabled": "Deaktivirano",
+        "total": "Ukupno"
+    },
+    "swagdashboard": {
+        "proxied": "Posredovano",
+        "auth": "S autentifikacijom",
+        "outdated": "Zastarjelo",
+        "banned": "Zabranjen pristup"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Preuzimanje",
+        "upload": "Prijenos"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Vrijeme rada",
+        "version": "Verzija"
     }
 }

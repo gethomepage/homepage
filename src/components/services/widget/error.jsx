@@ -12,6 +12,10 @@ function displayData(data) {
 export default function Error({ error }) {
   const { t } = useTranslation();
 
+  if (typeof error === "string") {
+    error = { message: error }; // eslint-disable-line no-param-reassign
+  }
+
   if (error?.data?.error) {
     error = error.data.error; // eslint-disable-line no-param-reassign
   }

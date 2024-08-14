@@ -14,8 +14,8 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Widget({ options }) {
   const { t } = useTranslation();
 
-  // eslint-disable-next-line no-param-reassign
-  options.type = "unifi_console";
+  // eslint-disable-next-line no-param-reassign, no-multi-assign
+  options.service_group = options.service_name = "unifi_console";
   const { data: statsData, error: statsError } = useWidgetAPI(options, "stat/sites", { index: options.index });
 
   if (statsError) {

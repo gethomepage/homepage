@@ -876,5 +876,34 @@
     "crowdsec": {
         "alerts": "تنبيهات",
         "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "Connected",
+        "enabled": "مفعل",
+        "disabled": "معطل",
+        "total": "المجموع"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "بينغ",
+        "download": "التنزيل",
+        "upload": "التحميل"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "مدة التشغيل",
+        "version": "الإصدار"
     }
 }
