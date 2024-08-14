@@ -6,31 +6,29 @@ name: Docker
 # documentation.
 
 on:
-  workflow_dispatch:
-
-  # schedule:
-  #   - cron: '20 0 * * *'
-  # push:
-  #   branches:
-  #     - main
-  #     - feature/**
-  #   # Publish semver tags as releases.
-  #   tags: [ 'v*.*.*' ]
-  #   paths-ignore:
-  #     - 'docs/**'
-  #     - 'mkdocs.yml'
-  # pull_request:
-  #   branches: [ "main" ]
-  #   paths-ignore:
-  #     - 'docs/**'
-  #     - 'mkdocs.yml'
-  # merge_group:
+  schedule:
+    - cron: '20 0 * * *'
+  push:
+    branches:
+      - main
+      - feature/**
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+    paths-ignore:
+      - 'docs/**'
+      - 'mkdocs.yml'
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore:
+      - 'docs/**'
+      - 'mkdocs.yml'
+  merge_group:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: docker.io
+  REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: devedse/homepage
+  IMAGE_NAME: ${{ github.repository }}
 
 
 jobs:
@@ -52,8 +50,8 @@ jobs:
 
   build:
     name: Docker Build & Push
-    if:  github.repository == 'devedse/homepage'
-    runs-on: ubuntu-latest
+    if:  github.repository == 'gethomepage/homepage'
+    runs-on: self-hosted
     needs:
       - pre-commit
     permissions:
@@ -96,18 +94,13 @@ jobs:
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
-      # - name: Log into registry ${{ env.REGISTRY }}
-      #   if: github.event_name != 'pull_request'
-      #   uses: docker/login-action@v3
-      #   with:
-      #     registry: ${{ env.REGISTRY }}
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
         with:
-          username: devedse
-          password: ${{ secrets.DOCKERHUBTOKEN }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
