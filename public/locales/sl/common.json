@@ -226,6 +226,10 @@
         "leech": "Pijavka",
         "seed": "Sejanje"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Prenos",
         "upload": "Nalaganje",

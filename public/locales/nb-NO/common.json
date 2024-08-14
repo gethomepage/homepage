@@ -401,6 +401,10 @@
         "upload": "Upload",
         "seed": "Seed"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "flood": {
         "download": "Download",
         "upload": "Upload",

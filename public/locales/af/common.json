@@ -226,6 +226,10 @@
         "leech": "Seier",
         "seed": "Vul"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Aflaai",
         "upload": "Laai Op",

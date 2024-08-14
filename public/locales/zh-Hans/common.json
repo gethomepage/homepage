@@ -226,6 +226,10 @@
         "leech": "下载中",
         "seed": "做种中"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "下载速率",
         "upload": "上传速率",
