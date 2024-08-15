@@ -5,7 +5,7 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "DownloadStats/GetTotalDownloadStats": {
+    "stats": {
       endpoint: "DownloadStats/GetTotalDownloadStats",
     },
   },

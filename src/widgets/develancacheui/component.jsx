@@ -11,7 +11,7 @@ export default function Component({ service }) {
 
   const { data: downloadStatsData, error: downloadStatsError } = useWidgetAPI(
     widget,
-    "DownloadStats/GetTotalDownloadStats",
+    "stats",
   );
 
   if (downloadStatsError) {
