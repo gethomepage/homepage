@@ -226,10 +226,6 @@
         "leech": "القرناء",
         "seed": "البذور"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "التنزيل",
         "upload": "التحميل",

@@ -226,10 +226,6 @@
         "leech": "Ņēmēji",
         "seed": "Devēji"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "Lejupielāde",
         "upload": "Augšupielāde",

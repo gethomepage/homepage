@@ -226,10 +226,6 @@
         "leech": "리치",
         "seed": "시드"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "다운로드",
         "upload": "업로드",

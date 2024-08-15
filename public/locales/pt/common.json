@@ -226,10 +226,6 @@
         "leech": "Leech",
         "seed": "Semente"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "Descarregar",
         "upload": "Carregar",

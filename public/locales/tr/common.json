@@ -226,10 +226,6 @@
         "leech": "Tüketici",
         "seed": "Sağlayıcı"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "İndirme",
         "upload": "Yükleme",

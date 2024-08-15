@@ -226,10 +226,6 @@
         "leech": "Ліч",
         "seed": "Сід"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "Завантаження",
         "upload": "Відправлення",

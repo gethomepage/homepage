@@ -226,10 +226,6 @@
         "leech": "未完成下載",
         "seed": "已完成下載"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "下載速率",
         "upload": "上傳速率",

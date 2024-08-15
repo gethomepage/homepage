@@ -226,10 +226,6 @@
         "leech": "Descargas",
         "seed": "Semillas"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "Descarga",
         "upload": "Subida",

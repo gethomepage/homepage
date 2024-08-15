@@ -401,10 +401,6 @@
         "leech": "下载中",
         "seed": "做种"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "flood": {
         "leech": "下载中",
         "download": "下载",

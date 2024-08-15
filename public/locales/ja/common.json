@@ -226,10 +226,6 @@
         "leech": "リーチ",
         "seed": "シード"
     },
-    "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
-    },
     "downloadstation": {
         "download": "ダウンロード",
         "upload": "アップロード",
