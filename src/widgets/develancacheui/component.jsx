@@ -9,10 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: downloadStatsData, error: downloadStatsError } = useWidgetAPI(
-    widget,
-    "stats",
-  );
+  const { data: downloadStatsData, error: downloadStatsError } = useWidgetAPI(widget, "stats");
 
   if (downloadStatsError) {
     return <Container service={service} error={downloadStatsError} />;
