@@ -30,8 +30,8 @@ importers:
         specifier: ^1.15.6
         version: 1.15.6
       gamedig:
-        specifier: ^5.1.1
-        version: 5.1.1
+        specifier: ^5.1.2
+        version: 5.1.2
       i18next:
         specifier: ^21.10.0
         version: 21.10.0
@@ -1274,8 +1274,8 @@ packages:
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  gamedig@5.1.1:
-    resolution: {integrity: sha512-r0+GofQFtsuMEVKmF502ULl0bpo/QhPfkY7srLW/EicgMiNE682NqpjKt9fhM0U8DFymlUJ28lmaTHa5Q9TJIQ==}
+  gamedig@5.1.2:
+    resolution: {integrity: sha512-YvuTM2kE3uNQwSP15lIL6ycjK9TVNMiRTKs1cxaSjIOfwOo+/fCRigftar/z6ABi4JqDJkh9NlMGIWZoP7gVYQ==}
     engines: {node: '>=16.20.0'}
     hasBin: true
 
@@ -4086,7 +4086,7 @@ snapshots:
 
   functions-have-names@1.2.3: {}
 
-  gamedig@5.1.1:
+  gamedig@5.1.2:
     dependencies:
       cheerio: 1.0.0-rc.12
       gbxremote: 0.2.1
