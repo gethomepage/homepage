@@ -81,8 +81,8 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
-      PUID: 1000 -- optional, your user id
-      PGID: 1000 -- optional, your group id
+      PUID: 1000 # optional, your user id
+      PGID: 1000 # optional, your group id
     ports:
       - 3000:3000
     volumes:
