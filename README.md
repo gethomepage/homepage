@@ -75,7 +75,6 @@ Please note that when using features such as widgets, Homepage can access person
 Using docker compose:
 
 ```yaml
-version: "3.3"
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
