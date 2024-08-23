@@ -19,7 +19,6 @@ export default function Component({ service }) {
   }
 
   if (!response) {
-
     return (
       <Container service={service}>
         <Block label="romm.platforms" />
