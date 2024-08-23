@@ -23,7 +23,7 @@ export default function Component({ service }) {
   }
 
   if (response) {
-    const totalFilesizeGB = (response.FILESIZE / (1024 ** 3)).toFixed(2);
+    const totalFilesizeGB = (response.FILESIZE / 1024 ** 3).toFixed(2);
 
     return (
       <Container service={service}>
