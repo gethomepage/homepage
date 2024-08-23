@@ -23,22 +23,17 @@ export default function Component({ service }) {
   }
 
   if (response) {
-  const platforms = response.PLATFORMS;
-  const totalRoms = response.ROMS;
-  const totalSaves = response.SAVES;
-  const totalStates = response.STATES;
-  const totalScreenshots = response.SCREENSHOTS;
-  const totalFilesizeGB = (response.FILESIZE / (1024 ** 3)).toFixed(2);
+    const totalFilesizeGB = (response.FILESIZE / (1024 ** 3)).toFixed(2);
 
-  return (
-    <Container service={service}>
-      <Block label="romm.platforms" value={t("common.number", { value: platforms })} />
-      <Block label="romm.totalRoms" value={t("common.number", { value: totalRoms })} />
-      <Block label="romm.totalSaves" value={t("common.number", { value: totalSaves })} />
-      <Block label="romm.totalStates" value={t("common.number", { value: totalStates })} />
-      <Block label="romm.totalScreenshots" value={t("common.number", { value: totalScreenshots })} />
-      <Block label="romm.totalFilesize" value={t("common.filesize", { value: totalFilesizeGB })} />
-    </Container>
-  );
- }
+    return (
+      <Container service={service}>
+        <Block label="romm.platforms" value={t("common.number", { value: response.PLATFORMS })} />
+        <Block label="romm.totalRoms" value={t("common.number", { value: response.ROMS })} />
+        <Block label="romm.totalSaves" value={t("common.number", { value: response.SAVES })} />
+        <Block label="romm.totalStates" value={t("common.number", { value: response.STATES })} />
+        <Block label="romm.totalScreenshots" value={t("common.number", { value: response.SCREENSHOTS })} />
+        <Block label="romm.totalFilesize" value={t("common.filesize", { value: totalFilesizeGB })} />
+      </Container>
+    );
+  }
 }
