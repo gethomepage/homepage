@@ -6,7 +6,8 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: versionData, error: versionError } = useWidgetAPI(widget, "version");
-  const endpoint = versionData?.version?.startsWith("v2") || versionData?.version === "nightly" ? "households" : "groups";
+  const endpoint =
+    versionData?.version?.startsWith("v2") || versionData?.version === "nightly" ? "households" : "groups";
 
   const { data: mealieData, error: mealieError } = useWidgetAPI(widget, endpoint);
 

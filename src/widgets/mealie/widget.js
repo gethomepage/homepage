@@ -14,7 +14,7 @@ const widget = {
     households: {
       endpoint: "households/statistics",
     },
-  }
+  },
 };
 
 export default widget;
