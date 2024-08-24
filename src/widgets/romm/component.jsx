@@ -4,7 +4,7 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-export const rommDefaultFields = ["platforms", "roms", "saves", "states"];
+export const rommDefaultFields = ["platforms", "totalRoms", "saves", "states"];
 
 export default function Component({ service }) {
   const { widget } = service;
@@ -28,7 +28,7 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="romm.platforms" />
-        <Block label="romm.roms" />
+        <Block label="romm.totalRoms" />
         <Block label="romm.saves" />
         <Block label="romm.states" />
         <Block label="romm.screenshots" />
@@ -41,7 +41,7 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="romm.platforms" value={t("common.number", { value: response.PLATFORMS })} />
-        <Block label="romm.roms" value={t("common.number", { value: response.ROMS })} />
+        <Block label="romm.totalRoms" value={t("common.number", { value: response.ROMS })} />
         <Block label="romm.saves" value={t("common.number", { value: response.SAVES })} />
         <Block label="romm.states" value={t("common.number", { value: response.STATES })} />
         <Block label="romm.screenshots" value={t("common.number", { value: response.SCREENSHOTS })} />

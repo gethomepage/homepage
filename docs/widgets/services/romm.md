@@ -3,7 +3,7 @@ title: Romm
 description: Romm Widget Configuration
 ---
 
-Allowed fields: `["platforms", "roms", "saves", "states", "screenshots", "totalfilesize"]`.
+Allowed fields: `["platforms", "totalRoms", "saves", "states", "screenshots", "totalfilesize"]`.
 If more than (4) fields are provided, only the first (4) will be used.
 
 ```yaml
@@ -12,5 +12,5 @@ widget:
   url: http://romm.host.or.ip
   username: username # optional
   password: password # optional
-  fields: ["platforms", "roms", "saves", "states"] # optional - default fields shown
+  fields: ["platforms", "totalRoms", "saves", "states"] # optional - default fields shown
 ```

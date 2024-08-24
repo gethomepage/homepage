@@ -831,7 +831,7 @@
     },
     "romm": {
         "platforms": "Platforms",
-        "roms": "Games",
+        "totalRoms": "Games",
         "saves": "Saves",
         "states": "States",
         "screenshots": "Screenshots",
