@@ -4,20 +4,26 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+export const rommDefaultFields = ["platforms", "roms", "saves", "states"];
+
 export default function Component({ service }) {
   const { widget } = service;
   const { t } = useTranslation();
-
   const { data: response, error: responseError } = useWidgetAPI(widget, "statistics");
 
   if (responseError) {
-    return (
-      <Container service={service}>
-        <Block label="Error" value={responseError.message} />
-      </Container>
-    );
+    return <Container service={service} error={responseError} />;
   }
 
+  // Default fields
+  if (!widget.fields?.length > 0) {
+    widget.fields = rommDefaultFields;
+  }
+  const MAX_ALLOWED_FIELDS = 4;
+  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
+  
   if (!response) {
     return (
       <Container service={service}>
@@ -32,8 +38,6 @@ export default function Component({ service }) {
   }
 
   if (response) {
-    const totalFilesizeGB = (response.FILESIZE / 1024 ** 3).toFixed(2);
-
     return (
       <Container service={service}>
         <Block label="romm.platforms" value={t("common.number", { value: response.PLATFORMS })} />
@@ -41,7 +45,7 @@ export default function Component({ service }) {
         <Block label="romm.saves" value={t("common.number", { value: response.SAVES })} />
         <Block label="romm.states" value={t("common.number", { value: response.STATES })} />
         <Block label="romm.screenshots" value={t("common.number", { value: response.SCREENSHOTS })} />
-        <Block label="romm.totalfilesize" value={t("common.filesize", { value: totalFilesizeGB })} />
+        <Block label="romm.totalfilesize" value={t("common.bytes", { value: response.FILESIZE })} />
       </Container>
     );
   }
