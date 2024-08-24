@@ -831,7 +831,11 @@
     },
     "romm": {
         "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
     },
     "netdata": {
       "warnings": "Warnings",
