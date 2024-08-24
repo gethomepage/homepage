@@ -6,7 +6,7 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: versionData, error: versionError } = useWidgetAPI(widget, "version");
-  const endpoint = parseInt(versionData?.version) >= 2 || versionData?.version === "nightly" ? "households" : "groups";
+  const endpoint = parseInt(versionData?.version, 10) >= 2 || versionData?.version === "nightly" ? "households" : "groups";
 
   const { data: mealieData, error: mealieError } = useWidgetAPI(widget, endpoint);
 
