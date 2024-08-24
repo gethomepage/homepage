@@ -23,7 +23,7 @@ export default function Component({ service }) {
   if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
-  
+
   if (!response) {
     return (
       <Container service={service}>
