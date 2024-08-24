@@ -5,10 +5,13 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
-  const { data: mealieData, error: mealieError } = useWidgetAPI(widget);
+  const { data: versionData, error: versionError } = useWidgetAPI(widget, "version");
+  const endpoint = versionData?.version.major >= 2 || versionData?.version === "nightly" ? "households" : "groups";
 
-  if (mealieError || mealieData?.statusCode === 401) {
-    return <Container service={service} error={mealieError ?? mealieData} />;
+  const { data: mealieData, error: mealieError } = useWidgetAPI(widget, endpoint);
+
+  if (versionError || mealieError || mealieData?.statusCode === 401) {
+    return <Container service={service} error={versionError ?? mealieError ?? mealieData} />;
   }
 
   if (!mealieData) {
