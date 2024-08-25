@@ -5,13 +5,10 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    version: {
-      endpoint: "app/about",
-    },
-    groups: {
+    statisticsv1: {
       endpoint: "groups/statistics",
     },
-    households: {
+    statisticsv2: {
       endpoint: "households/statistics",
     },
   },
