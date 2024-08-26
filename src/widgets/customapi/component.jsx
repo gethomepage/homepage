@@ -5,7 +5,7 @@ import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getLength(data) {
-  if ("length" in data) {
+  if (Array.isArray(data) || typeof data === "string") {
     return data.length;
   } else if (typeof data === "object" && data !== null) {
     return Object.keys(data).length;
