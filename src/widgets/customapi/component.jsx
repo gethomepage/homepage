@@ -20,7 +20,7 @@ function getValue(field, data) {
   let key = "";
 
   // Support APIs that return arrays or scalars directly.
-  if (field === ".") {
+  if (typeof field === "undefined") {
     return value;
   }
 

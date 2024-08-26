@@ -57,8 +57,8 @@ widget:
     - field: key
       label: Number of things in array
       format: size
-    - field: . # This will take the root of the API response, e.g. when APIs return an array
-      label: Number of items
+    # This (no field) will take the root of the API response, e.g. when APIs return an array:
+    - label: Number of items
       format: size
 ```
 
