@@ -4,6 +4,16 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+function getLength(data) {
+  if ('length' in data) {
+    return data.length;
+  } else if (typeof data === 'object' && data !== null) {
+    return Object.keys(data).length;
+  } else {
+    return NaN;
+  }
+}
+
 function getValue(field, data) {
   let value = data;
   let lastField = field;
@@ -84,6 +94,10 @@ function formatValue(t, mapping, rawValue) {
         style: mapping?.style,
         numeric: mapping?.numeric,
       });
+      break;
+    case "size":
+      value = getLength(value);
+      value = t("common.number", { value });
       break;
     case "text":
     default:

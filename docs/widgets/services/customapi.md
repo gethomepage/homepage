@@ -54,11 +54,16 @@ widget:
             time: other key
         color: theme # optional - defaults to "". Allowed values: `["theme", "adaptive", "black", "white"]`.
         format: date # optional
+    - field: key
+      label: Number of things in array
+      format: size
 ```
 
-Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate`, `date` and `relativeDate`.
+Supported formats for the values are `text`, `number`, `float`, `percent`, `bytes`, `bitrate`, `size`, `date` and `relativeDate`.
 
 The `dateStyle` and `timeStyle` options of the `date` format are passed directly to [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat) and the `style` and `numeric` options of `relativeDate` are passed to [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat).
+
+The `size` format will return the length of the array or string, or the number of keys in an object. This is then formatted as `number`.
 
 ## Example
 
@@ -100,6 +105,9 @@ mappings:
       locations:
         1: name # Citadel of Ricks
     label: Location
+  - field: locations
+    label: Location count
+    format: size # 2
 ```
 
 ## Data Transformation
