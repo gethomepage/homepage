@@ -13,6 +13,12 @@
       {
         "newlines-between": "always"
       }
+    ],
+    "no-else-return": [
+      "error",
+      {
+        "allowElseIf": true
+      }
     ]
   },
   "settings": {
