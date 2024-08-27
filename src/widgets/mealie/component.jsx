@@ -1,17 +1,20 @@
+import { useTranslation } from "next-i18next";
+
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
+  const { t } = useTranslation();
   const { widget } = service;
+  const version = widget.version ?? 1;
+  const { data, error } = useWidgetAPI(widget, version === 1 ? "statisticsv1" : "statisticsv2");
 
-  const { data: mealieData, error: mealieError } = useWidgetAPI(widget);
-
-  if (mealieError || mealieData?.statusCode === 401) {
-    return <Container service={service} error={mealieError ?? mealieData} />;
+  if (error) {
+    return <Container service={service} error={error} />;
   }
 
-  if (!mealieData) {
+  if (!data) {
     return (
       <Container service={service}>
         <Block label="mealie.recipes" />
@@ -21,13 +24,12 @@ export default function Component({ service }) {
       </Container>
     );
   }
-
   return (
     <Container service={service}>
-      <Block label="mealie.recipes" value={mealieData.totalRecipes} />
-      <Block label="mealie.users" value={mealieData.totalUsers} />
-      <Block label="mealie.categories" value={mealieData.totalCategories} />
-      <Block label="mealie.tags" value={mealieData.totalTags} />
+      <Block label="mealie.recipes" value={t("common.number", { value: data.totalRecipes })} />
+      <Block label="mealie.users" value={t("common.number", { value: data.totalUsers })} />
+      <Block label="mealie.categories" value={t("common.number", { value: data.totalCategories })} />
+      <Block label="mealie.tags" value={t("common.number", { value: data.totalTags })} />
     </Container>
   );
 }
