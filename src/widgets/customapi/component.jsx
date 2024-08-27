@@ -101,8 +101,7 @@ function formatValue(t, mapping, rawValue) {
       });
       break;
     case "size":
-      value = getLength(value);
-      value = t("common.number", { value });
+      value = t("common.number", { value: getLength(value) });
       break;
     case "text":
     default:

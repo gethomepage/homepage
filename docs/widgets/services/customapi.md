@@ -108,9 +108,6 @@ mappings:
       locations:
         1: name # Citadel of Ricks
     label: Location
-  - field: locations
-    label: Location count
-    format: size # 2
 ```
 
 ## Data Transformation
