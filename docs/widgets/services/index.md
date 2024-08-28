@@ -22,6 +22,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [CrowdSec](crowdsec.md)
 - [Custom API](customapi.md)
 - [Deluge](deluge.md)
+- [DeveLanCacheUI](develancacheui.md)
 - [DiskStation](diskstation.md)
 - [DownloadStation](downloadstation.md)
 - [Emby](emby.md)

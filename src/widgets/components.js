@@ -19,6 +19,7 @@ const components = {
   iframe: dynamic(() => import("./iframe/component")),
   customapi: dynamic(() => import("./customapi/component")),
   deluge: dynamic(() => import("./deluge/component")),
+  develancacheui: dynamic(() => import("./develancacheui/component")),
   diskstation: dynamic(() => import("./diskstation/component")),
   downloadstation: dynamic(() => import("./downloadstation/component")),
   docker: dynamic(() => import("./docker/component")),

@@ -14,4 +14,5 @@ widget:
   type: mealie
   url: http://mealie-frontend.host.or.ip
   key: mealieapitoken
+  version: 2 # only required if version > 1, defaults to 1
 ```
