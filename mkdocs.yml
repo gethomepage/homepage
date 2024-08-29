@@ -152,6 +152,7 @@ nav:
           - widgets/services/wgeasy.md
           - widgets/services/whatsupdocker.md
           - widgets/services/xteve.md
+          - widgets/services/zabbix.md
       - "Information Widgets":
           - widgets/info/index.md
           - widgets/info/datetime.md

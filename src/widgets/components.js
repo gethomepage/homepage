@@ -127,6 +127,7 @@ const components = {
   wgeasy: dynamic(() => import("./wgeasy/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
+  zabbix: dynamic(() => import("./zabbix/component")),
 };
 
 export default components;
