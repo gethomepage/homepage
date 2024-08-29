@@ -10,8 +10,8 @@ const logger = createLogger("jsonrpcProxyHandler");
 
 export async function sendJsonRpcRequest(url, method, params, widget) {
   const headers = {
-    Accept: "application/json-rpc",
-    "Content-Type": "application/json-rpc",
+    "content-type": "application/json",
+    accept: "application/json",
   };
 
   if (widget.username && widget.password) {
