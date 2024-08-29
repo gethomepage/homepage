@@ -24,5 +24,3 @@ This can be generated via the Technitium DNS Dashboard, and should be generated 
 #### Range
 
 `range` value determines how far back of statistics to pull data for. The value comes directly from Technitium API documentation found [here](https://github.com/TechnitiumSoftware/DnsServer/blob/master/APIDOCS.md#dashboard-api-calls), defined as `"type"`. The value can be one of: `LastHour`, `LastDay`, `LastWeek`, `LastMonth`, `LastYear`.
-
-**NOTE:** The value of `Custom` as specified in the API documentation is _NOT_ supported.

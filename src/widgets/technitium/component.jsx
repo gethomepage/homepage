@@ -51,76 +51,69 @@ export default function Component({ service }) {
     );
   }
 
-  const getPercentage = (count, total) => {
-    return ((count / total) * 100).toPrecision(3);
-  };
-
-  const noErrorPercent = getPercentage(statsData.totalNoError, statsData.totalQueries);
-  const failurePercent = getPercentage(statsData.totalServerFailure, statsData.totalQueries);
-  const nxDomainPercent = getPercentage(statsData.totalNxDomain, statsData.totalQueries);
-  const refusedPercent = getPercentage(statsData.totalRefused, statsData.totalQueries);
-  const authoritativePercent = getPercentage(statsData.totalAuthoritative, statsData.totalQueries);
-  const recursivePercent = getPercentage(statsData.totalRecursive, statsData.totalQueries);
-  const cachedPercent = getPercentage(statsData.totalCached, statsData.totalQueries);
-  const blockedPercent = getPercentage(statsData.totalBlocked, statsData.totalQueries);
-  const droppedPercent = getPercentage(statsData.totalDropped, statsData.totalQueries);
+  function toPercent(value, total) {
+    return t("common.percent", {
+      value: !Number.isNaN(value / total) ? value / total : 0,
+      maximumFractionDigits: 2,
+    });
+  }
 
   return (
     <Container service={service}>
       <Block label="technitium.totalQueries" value={`${t("common.number", { value: statsData.totalQueries })}`} />
       <Block
         label="technitium.totalNoError"
-        value={`${t("common.number", { value: statsData.totalNoError })} (${t("common.percent", {
-          value: noErrorPercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalNoError })} (${toPercent(
+          statsData.totalNoError / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalServerFailure"
-        value={`${t("common.number", { value: statsData.totalServerFailure })} (${t("common.percent", {
-          value: failurePercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalServerFailure })} (${toPercent(
+          statsData.totalServerFailure / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalNxDomain"
-        value={`${t("common.number", { value: statsData.totalNxDomain })} (${t("common.percent", {
-          value: nxDomainPercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalNxDomain })} (${toPercent(
+          statsData.totalNxDomain / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalRefused"
-        value={`${t("common.number", { value: statsData.totalRefused })} (${t("common.percent", {
-          value: refusedPercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalRefused })} (${toPercent(
+          statsData.totalRefused / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalAuthoritative"
-        value={`${t("common.number", { value: statsData.totalAuthoritative })} (${t("common.percent", {
-          value: authoritativePercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalAuthoritative })} (${toPercent(
+          statsData.totalAuthoritative / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalRecursive"
-        value={`${t("common.number", { value: statsData.totalRecursive })} (${t("common.percent", {
-          value: recursivePercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalRecursive })} (${toPercent(
+          statsData.totalRecursive / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalCached"
-        value={`${t("common.number", { value: statsData.totalCached })} (${t("common.percent", {
-          value: cachedPercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalCached })} (${toPercent(
+          statsData.totalCached / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalBlocked"
-        value={`${t("common.number", { value: statsData.totalBlocked })} (${t("common.percent", {
-          value: blockedPercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalBlocked })} (${toPercent(
+          statsData.totalBlocked / statsData.totalQueries,
+        )})`}
       />
       <Block
         label="technitium.totalDropped"
-        value={`${t("common.number", { value: statsData.totalDropped })} (${t("common.percent", {
-          value: droppedPercent,
-        })})`}
+        value={`${t("common.number", { value: statsData.totalDropped })} (${toPercent(
+          statsData.totalDropped / statsData.totalQueries,
+        )})`}
       />
       <Block label="technitium.totalClients" value={`${t("common.number", { value: statsData.totalClients })}`} />
     </Container>
