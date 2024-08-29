@@ -118,6 +118,7 @@ import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
 import urbackup from "./urbackup/widget";
 import romm from "./romm/widget";
+import zabbix from "./zabbix/widget";
 
 const widgets = {
   adguard,
@@ -243,6 +244,7 @@ const widgets = {
   wgeasy,
   whatsupdocker,
   xteve,
+  zabbix,
 };
 
 export default widgets;

@@ -918,5 +918,11 @@
         "links": "Links",
         "collections": "Collections",
         "tags": "Tags"
+    },
+    "zabbix": {
+      "warning": "Warning",
+      "average": "Average",
+      "high": "High",
+      "disaster": "Disaster"
     }
 }

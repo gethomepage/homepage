@@ -8,14 +8,18 @@ import widgets from "widgets/widgets";
 
 const logger = createLogger("jsonrpcProxyHandler");
 
-export async function sendJsonRpcRequest(url, method, params, username, password) {
+export async function sendJsonRpcRequest(url, method, params, widget) {
   const headers = {
-    "content-type": "application/json",
-    accept: "application/json",
+    Accept: "application/json-rpc",
+    "Content-Type": "application/json-rpc",
   };
 
-  if (username && password) {
-    headers.authorization = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
+  if (widget.username && widget.password) {
+    headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+  }
+
+  if (widget.key) {
+    headers.Authorization = `Bearer ${widget.key}`;
   }
 
   const client = new JSONRPCClient(async (rpcRequest) => {
@@ -61,7 +65,8 @@ export async function sendJsonRpcRequest(url, method, params, username, password
 }
 
 export default async function jsonrpcProxyHandler(req, res) {
-  const { group, service, endpoint: method } = req.query;
+  const { group, service, endpoint: method, query } = req.query;
+  const params = query ? JSON.parse(query) : null;
 
   if (group && service) {
     const widget = await getServiceWidget(group, service);
@@ -75,7 +80,7 @@ export default async function jsonrpcProxyHandler(req, res) {
       const url = formatApiCall(api, { ...widget });
 
       // eslint-disable-next-line no-unused-vars
-      const [status, contentType, data] = await sendJsonRpcRequest(url, method, null, widget.username, widget.password);
+      const [status, contentType, data] = await sendJsonRpcRequest(url, method, params, widget);
       return res.status(status).end(data);
     }
   }
