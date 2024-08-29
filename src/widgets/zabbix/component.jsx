@@ -9,21 +9,11 @@ const PriorityAverage = "3";
 const PriorityHigh = "4";
 const PriorityDisaster = "5";
 
-const triggerParams = {
-  output: ["triggerid", "description", "priority"],
-  filter: {
-    value: 1,
-  },
-  sortfield: "priority",
-  sortorder: "DESC",
-  monitored: "true",
-};
-
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data: zabbixData, error: zabbixError } = useWidgetAPI(widget, "trigger", triggerParams);
+  const { data: zabbixData, error: zabbixError } = useWidgetAPI(widget, "trigger");
 
   if (zabbixError) {
     return <Container service={service} error={zabbixError} />;

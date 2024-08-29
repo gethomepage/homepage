@@ -5,7 +5,18 @@ const widget = {
   proxyHandler: jsonrpcProxyHandler,
 
   mappings: {
-    trigger: { endpoint: "trigger.get" },
+    trigger: {
+      endpoint: "trigger.get",
+      params: {
+        output: ["triggerid", "description", "priority"],
+        filter: {
+          value: 1,
+        },
+        sortfield: "priority",
+        sortorder: "DESC",
+        monitored: "true",
+      },
+    },
   },
 };
 

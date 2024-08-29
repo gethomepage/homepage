@@ -65,12 +65,14 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
 }
 
 export default async function jsonrpcProxyHandler(req, res) {
-  const { group, service, endpoint: method, query } = req.query;
-  const params = query ? JSON.parse(query) : null;
+  const { group, service, endpoint: method } = req.query;
 
   if (group && service) {
     const widget = await getServiceWidget(group, service);
     const api = widgets?.[widget.type]?.api;
+
+    const [, mapping] = Object.entries(widgets?.[widget.type]?.mappings).find(([, value]) => value.endpoint === method);
+    const params = mapping?.params ?? null;
 
     if (!api) {
       return res.status(403).json({ error: "Service does not support API calls" });
@@ -79,8 +81,7 @@ export default async function jsonrpcProxyHandler(req, res) {
     if (widget) {
       const url = formatApiCall(api, { ...widget });
 
-      // eslint-disable-next-line no-unused-vars
-      const [status, contentType, data] = await sendJsonRpcRequest(url, method, params, widget);
+      const [status, , data] = await sendJsonRpcRequest(url, method, params, widget);
       return res.status(status).end(data);
     }
   }
