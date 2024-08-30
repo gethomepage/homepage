@@ -97,6 +97,15 @@
         "up": "Up",
         "not_available": "Not Available"
     },
+    "tcpHandshake": {
+        "tcp_status": "TCP-Handshake status",
+        "error": "Error",
+        "response": "Response",
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
+    },
+        
     "emby": {
         "playing": "Playing",
         "transcoding": "Transcoding",

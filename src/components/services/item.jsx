@@ -5,6 +5,7 @@ import Status from "./status";
 import Widget from "./widget";
 import Ping from "./ping";
 import SiteMonitor from "./site-monitor";
+import TcpHandshake from "./tcp-handshake";
 import KubernetesStatus from "./kubernetes-status";
 
 import Docker from "widgets/docker/component";
@@ -101,6 +102,14 @@ export default function Item({ service, group, useEqualHeights }) {
                 <span className="sr-only">Site monitor status</span>
               </div>
             )}
+            
+            {service.tcpHandshake && (
+              <div className="flex-shrink-0 flex items-center justify-center service-tag service-tpc-handshake">
+                <TcpHandshake group={group} service={service.name} style={statusStyle} />
+                <span className="sr-only">TCP-Handshake status</span>
+              </div>
+            )}
+
 
             {service.container && (
               <button
