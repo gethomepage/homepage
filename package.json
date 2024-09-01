@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@kubernetes/client-node": "^0.17.1",
+    "adhan": "^4.4.3",
     "cal-parser": "^1.0.2",
     "classnames": "^2.5.1",
     "compare-versions": "^6.1.0",

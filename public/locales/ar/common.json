@@ -905,5 +905,12 @@
         "cameras": "Cameras",
         "uptime": "مدة التشغيل",
         "version": "الإصدار"
-    }
+    },
+    "prayerTimes": {
+    "fajr": "الفجر",
+    "dhuhr": "الظهر",
+    "asr": "العصر",
+    "maghrib": "المغرب",
+    "isha": "العشاء"
+  }
 }

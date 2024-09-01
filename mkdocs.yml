@@ -155,6 +155,7 @@ nav:
           - widgets/services/zabbix.md
       - "Information Widgets":
           - widgets/info/index.md
+          - widgets/info/adhan.md
           - widgets/info/datetime.md
           - widgets/info/glances.md
           - widgets/info/greeting.md
