@@ -33,8 +33,8 @@ importers:
         specifier: ^5.1.2
         version: 5.1.2
       i18next:
-        specifier: ^21.10.0
-        version: 21.10.0
+        specifier: ^23.14.0
+        version: 23.14.0
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -73,7 +73,7 @@ importers:
         version: 18.2.0(react@18.3.1)
       react-i18next:
         specifier: ^11.18.6
-        version: 11.18.6(i18next@21.10.0)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
+        version: 11.18.6(i18next@23.14.0)(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
       react-icons:
         specifier: ^4.12.0
         version: 4.12.0(react@18.3.1)
@@ -1425,6 +1425,9 @@ packages:
 
   i18next@21.10.0:
     resolution: {integrity: sha512-YeuIBmFsGjUfO3qBmMOc0rQaun4mIpGKET5WDwvu8lU7gvwpcariZLNtL0Fzj+zazcHUrlXHiptcFhBMFaxzfg==}
+
+  i18next@23.14.0:
+    resolution: {integrity: sha512-Y5GL4OdA8IU2geRrt2+Uc1iIhsjICdHZzT9tNwQ3TVqdNzgxHToGCKf/TPRP80vTCAP6svg2WbbJL+Gx5MFQVA==}
 
   ical-date-parser@4.0.0:
     resolution: {integrity: sha512-XRCK/FU1akC2ZaJOdKIeZI6BLLgzWUuE0pegSrrkEva89GOan5mNkLVqCU4EMhCJ9nkG5TLWdMXrVX1fNAkFzw==}
@@ -4282,6 +4285,10 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.23.9
 
+  i18next@23.14.0:
+    dependencies:
+      '@babel/runtime': 7.23.9
+
   ical-date-parser@4.0.0: {}
 
   iconv-lite@0.6.3:
@@ -4947,6 +4954,15 @@ snapshots:
       '@babel/runtime': 7.23.9
       html-parse-stringify: 3.0.1
       i18next: 21.10.0
+      react: 18.3.1
+    optionalDependencies:
+      react-dom: 18.2.0(react@18.3.1)
+
+  react-i18next@11.18.6(i18next@23.14.0)(react-dom@18.2.0(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.23.9
+      html-parse-stringify: 3.0.1
+      i18next: 23.14.0
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.2.0(react@18.3.1)
