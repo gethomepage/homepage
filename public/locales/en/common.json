@@ -933,6 +933,8 @@
         "tags": "Tags"
     },
     "zabbix": {
+      "unclassified": "Not classified",
+      "information": "Information",
       "warning": "Warning",
       "average": "Average",
       "high": "High",
