@@ -42,8 +42,8 @@ importers:
         specifier: ^1.7.0
         version: 1.7.0
       luxon:
-        specifier: ^3.4.4
-        version: 3.4.4
+        specifier: ^3.5.0
+        version: 3.5.0
       memory-cache:
         specifier: ^0.2.0
         version: 0.2.0
@@ -1724,8 +1724,8 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  luxon@3.4.4:
-    resolution: {integrity: sha512-zobTr7akeGHnv7eBOXcRgMeCP6+uyYsczwmeRCauvpvaAltgNyTbLH/+VaEAPUeWBT+1GuNmz4wC/6jtQzbbVA==}
+  luxon@3.5.0:
+    resolution: {integrity: sha512-rh+Zjr6DNfUYR3bPwJEnuwDdqMbxZW7LOQfUN4B54+Cl+0o5zaU9RJ6bcidfDtC1cWCZXQ+nvX8bf6bAji37QQ==}
     engines: {node: '>=12'}
 
   memory-cache@0.2.0:
@@ -4553,7 +4553,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  luxon@3.4.4: {}
+  luxon@3.5.0: {}
 
   memory-cache@0.2.0: {}
 
