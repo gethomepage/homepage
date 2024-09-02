@@ -21,7 +21,7 @@
     "i18next": "^21.10.0",
     "js-yaml": "^4.1.0",
     "json-rpc-2.0": "^1.7.0",
-    "luxon": "^3.4.4",
+    "luxon": "^3.5.0",
     "memory-cache": "^0.2.0",
     "minecraft-ping-js": "^1.0.2",
     "next": "^12.3.4",
