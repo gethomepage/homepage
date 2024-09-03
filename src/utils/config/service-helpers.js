@@ -198,6 +198,7 @@ export async function servicesFromKubernetes() {
       .then((response) => response.body)
       .catch((error) => {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        logger.debug(error);
         return null;
       });
 
@@ -215,6 +216,7 @@ export async function servicesFromKubernetes() {
             error.body,
             error.response,
           );
+          logger.debug(error);
         }
 
         return [];
@@ -231,6 +233,7 @@ export async function servicesFromKubernetes() {
             error.body,
             error.response,
           );
+          logger.debug(error);
         }
 
         return [];
@@ -300,6 +303,7 @@ export async function servicesFromKubernetes() {
           constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
         } catch (e) {
           logger.error("Error attempting k8s environment variable substitution.");
+          logger.debug(e);
         }
 
         return constructedService;
