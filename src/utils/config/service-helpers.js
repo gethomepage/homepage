@@ -183,7 +183,6 @@ export async function servicesFromKubernetes() {
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
   const { instanceName } = getSettings();
 
-
   try {
     const config = getKubernetesConfig();
     const kc = makeKubeConfig(config);
@@ -204,7 +203,7 @@ export async function servicesFromKubernetes() {
 
     const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
     const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
-    const homepageServiceExists = await checkCRD(kc, "homepageservices.gethomepage.dev")
+    const homepageServiceExists = await checkCRD(kc, "homepageservices.gethomepage.dev");
 
     const traefikIngressListContaino = await crd
       .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
@@ -251,7 +250,7 @@ export async function servicesFromKubernetes() {
       return [];
     }
 
-    let homepageServices = []
+    let homepageServices = [];
     if (homepageServiceExists) {
       homepageServices = await crd
         .listClusterCustomObject("gethomepage.dev", "v1", "homepageservices")
@@ -265,63 +264,75 @@ export async function servicesFromKubernetes() {
           );
           return [];
         });
-      await Promise.all(homepageServices.items.map(async (service) => {
-        const { spec, metadata } = service;
-        // Enter default values from metadata or annotations
-        spec.app = spec.app || metadata.annotations["app.kubernetes.io/name"] || metadata.name
-        spec.namespace = spec.namespace || metadata.namespace
-        spec.name = spec.name || metadata.name
-        spec.weight = spec.weight || "0"
-        spec.icon = spec.icon || ""
-        spec.description = spec.description || ""
-        // Parse values from secrets and configmaps in widget
-        if (spec.widget) {
-          const parsedWidget = {}
-          await Promise.all(Object.keys(spec.widget).map(async key => {
-            // To keep up with kubernetes standard valueFrom
-            if (key.endsWith("From")) {
-              if (spec.widget[key].secretKeyRef) {
-                const { secretKeyRef } = spec.widget[key]
-                const secret = await core.readNamespacedSecret(secretKeyRef.name, secretKeyRef.namespace || config.defaultSecretNamespace || metadata.namespace)
-                const base64secret = secret.body.data[secretKeyRef.key]
-                if (!base64secret) {
-                  logger.error(
-                    "Error getting secret value: Secret %s in namespace %s doesn't contain key %s",
-                    spec.widget[key].secretKeyRef.name,
-                    metadata.namespace,
-                    spec.widget[key].secretKeyRef.key,
-                  );
-                  return
+      await Promise.all(
+        homepageServices.items.map(async (service) => {
+          const { spec, metadata } = service;
+          // Enter default values from metadata or annotations
+          spec.app = spec.app || metadata.annotations["app.kubernetes.io/name"] || metadata.name;
+          spec.namespace = spec.namespace || metadata.namespace;
+          spec.name = spec.name || metadata.name;
+          spec.weight = spec.weight || "0";
+          spec.icon = spec.icon || "";
+          spec.description = spec.description || "";
+          // Parse values from secrets and configmaps in widget
+          if (spec.widget) {
+            const parsedWidget = {};
+            await Promise.all(
+              Object.keys(spec.widget).map(async (key) => {
+                // To keep up with kubernetes standard valueFrom
+                if (key.endsWith("From")) {
+                  if (spec.widget[key].secretKeyRef) {
+                    const { secretKeyRef } = spec.widget[key];
+                    const secret = await core.readNamespacedSecret(
+                      secretKeyRef.name,
+                      secretKeyRef.namespace || config.defaultSecretNamespace || metadata.namespace,
+                    );
+                    const base64secret = secret.body.data[secretKeyRef.key];
+                    if (!base64secret) {
+                      logger.error(
+                        "Error getting secret value: Secret %s in namespace %s doesn't contain key %s",
+                        spec.widget[key].secretKeyRef.name,
+                        metadata.namespace,
+                        spec.widget[key].secretKeyRef.key,
+                      );
+                      return;
+                    }
+                    parsedWidget[key.substring(0, key.length - 4)] = Buffer.from(base64secret, "base64").toString(
+                      "utf8",
+                    );
+                  } else if (spec.widget[key].configMapKeyRef) {
+                    const { configMapKeyRef } = spec.widget[key];
+                    const configMap = await core.readNamespacedConfigMap(
+                      configMapKeyRef.name,
+                      configMapKeyRef.namespace || config.defaultConfigMapNamespace || metadata.namespace,
+                    );
+                    const configMapValue = configMap.body.data[configMapKeyRef.key];
+                    if (!configMapValue) {
+                      logger.error(
+                        "Error getting configMap value: ConfigMap %s in namespace %s doesn't contain key %s",
+                        spec.widget[key].configMapKey.name,
+                        metadata.namespace,
+                        spec.widget[key].configMapKey.key,
+                      );
+                      return;
+                    }
+                    parsedWidget[key.substring(0, key.length - 4)] = configMapValue;
+                  }
+                } else {
+                  parsedWidget[key] = spec.widget[key];
                 }
-                parsedWidget[key.substring(0, key.length - 4)] = Buffer.from(base64secret, "base64").toString("utf8")
-              } else if (spec.widget[key].configMapKeyRef) {
-                const { configMapKeyRef } = spec.widget[key]
-                const configMap = await core.readNamespacedConfigMap(configMapKeyRef.name, configMapKeyRef.namespace || config.defaultConfigMapNamespace || metadata.namespace)
-                const configMapValue = configMap.body.data[configMapKeyRef.key]
-                if (!configMapValue) {
-                  logger.error(
-                    "Error getting configMap value: ConfigMap %s in namespace %s doesn't contain key %s",
-                    spec.widget[key].configMapKey.name,
-                    metadata.namespace,
-                    spec.widget[key].configMapKey.key,
-                  );
-                  return
-                }
-                parsedWidget[key.substring(0, key.length - 4)] = configMapValue
-              }
-            } else {
-              parsedWidget[key] = spec.widget[key]
-            }
-          }))
-          spec.widget = parsedWidget
-        }
-      }))
+              }),
+            );
+            spec.widget = parsedWidget;
+          }
+        }),
+      );
     }
 
     const services = [
       ...homepageServices.items
-        .filter(service => !service.spec.instances || service.spec.instances.includes(instanceName))
-        .map(service => service.spec),
+        .filter((service) => !service.spec.instances || service.spec.instances.includes(instanceName))
+        .map((service) => service.spec),
       ...ingressList.items
         .filter(
           (ingress) =>
@@ -377,7 +388,7 @@ export async function servicesFromKubernetes() {
           }
 
           return constructedService;
-        })
+        }),
     ];
 
     const mappedServiceGroups = [];
@@ -403,7 +414,7 @@ export async function servicesFromKubernetes() {
 
     return mappedServiceGroups;
   } catch (e) {
-    console.log(e)
+    console.log(e);
     if (e) logger.error(e);
     throw e;
   }
