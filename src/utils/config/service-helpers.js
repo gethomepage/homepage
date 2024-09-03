@@ -3,12 +3,12 @@ import path from "path";
 
 import yaml from "js-yaml";
 import Docker from "dockerode";
-import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
+import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api, CoreV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
-import getKubeConfig from "utils/config/kubernetes";
+import getKubernetesConfig, { makeKubeConfig } from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
@@ -183,15 +183,16 @@ export async function servicesFromKubernetes() {
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
   const { instanceName } = getSettings();
 
-  checkAndCopyConfig("kubernetes.yaml");
 
   try {
-    const kc = getKubeConfig();
+    const config = getKubernetesConfig();
+    const kc = makeKubeConfig(config);
     if (!kc) {
       return [];
     }
     const networking = kc.makeApiClient(NetworkingV1Api);
     const crd = kc.makeApiClient(CustomObjectsApi);
+    const core = kc.makeApiClient(CoreV1Api);
 
     const ingressList = await networking
       .listIngressForAllNamespaces(null, null, null, null)
@@ -203,6 +204,7 @@ export async function servicesFromKubernetes() {
 
     const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
     const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
+    const homepageServiceExists = await checkCRD(kc, "homepageservices.gethomepage.dev")
 
     const traefikIngressListContaino = await crd
       .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
@@ -245,65 +247,138 @@ export async function servicesFromKubernetes() {
       ingressList.items.push(...traefikServices);
     }
 
-    if (!ingressList) {
+    if (!ingressList && !homepageServiceExists) {
       return [];
     }
-    const services = ingressList.items
-      .filter(
-        (ingress) =>
-          ingress.metadata.annotations &&
-          ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
-          (!ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
-            ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
-            `${ANNOTATION_BASE}/instance.${instanceName}` in ingress.metadata.annotations),
-      )
-      .map((ingress) => {
-        let constructedService = {
-          app: ingress.metadata.annotations[`${ANNOTATION_BASE}/app`] || ingress.metadata.name,
-          namespace: ingress.metadata.namespace,
-          href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
-          name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
-          group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
-          weight: ingress.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
-          icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
-          description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
-          external: false,
-          type: "service",
-        };
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
-          constructedService.external =
-            String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
-          constructedService.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
-          constructedService.ping = ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`];
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
-          constructedService.siteMonitor = ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
-          constructedService.statusStyle = ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
-        }
-        Object.keys(ingress.metadata.annotations).forEach((annotation) => {
-          if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
-            shvl.set(
-              constructedService,
-              annotation.replace(`${ANNOTATION_BASE}/`, ""),
-              ingress.metadata.annotations[annotation],
-            );
-          }
+
+    let homepageServices = []
+    if (homepageServiceExists) {
+      homepageServices = await crd
+        .listClusterCustomObject("gethomepage.dev", "v1", "homepageservices")
+        .then((response) => response.body)
+        .catch(async (error) => {
+          logger.error(
+            "Error getting services from gethomepage.dev crd: %d %s %s",
+            error.statusCode,
+            error.body,
+            error.response,
+          );
+          return [];
         });
-
-        try {
-          constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
-        } catch (e) {
-          logger.error("Error attempting k8s environment variable substitution.");
+      await Promise.all(homepageServices.items.map(async (service) => {
+        const { spec, metadata } = service;
+        // Enter default values from metadata or annotations
+        spec.app = spec.app || metadata.annotations["app.kubernetes.io/name"] || metadata.name
+        spec.namespace = spec.namespace || metadata.namespace
+        spec.name = spec.name || metadata.name
+        spec.weight = spec.weight || "0"
+        spec.icon = spec.icon || ""
+        spec.description = spec.description || ""
+        // Parse values from secrets and configmaps in widget
+        if (spec.widget) {
+          const parsedWidget = {}
+          await Promise.all(Object.keys(spec.widget).map(async key => {
+            // To keep up with kubernetes standard valueFrom
+            if (key.endsWith("From")) {
+              if (spec.widget[key].secretKeyRef) {
+                const { secretKeyRef } = spec.widget[key]
+                const secret = await core.readNamespacedSecret(secretKeyRef.name, secretKeyRef.namespace || config.defaultSecretNamespace || metadata.namespace)
+                const base64secret = secret.body.data[secretKeyRef.key]
+                if (!base64secret) {
+                  logger.error(
+                    "Error getting secret value: Secret %s in namespace %s doesn't contain key %s",
+                    spec.widget[key].secretKeyRef.name,
+                    metadata.namespace,
+                    spec.widget[key].secretKeyRef.key,
+                  );
+                  return
+                }
+                parsedWidget[key.substring(0, key.length - 4)] = Buffer.from(base64secret, "base64").toString("utf8")
+              } else if (spec.widget[key].configMapKeyRef) {
+                const { configMapKeyRef } = spec.widget[key]
+                const configMap = await core.readNamespacedConfigMap(configMapKeyRef.name, configMapKeyRef.namespace || config.defaultConfigMapNamespace || metadata.namespace)
+                const configMapValue = configMap.body.data[configMapKeyRef.key]
+                if (!configMapValue) {
+                  logger.error(
+                    "Error getting configMap value: ConfigMap %s in namespace %s doesn't contain key %s",
+                    spec.widget[key].configMapKey.name,
+                    metadata.namespace,
+                    spec.widget[key].configMapKey.key,
+                  );
+                  return
+                }
+                parsedWidget[key.substring(0, key.length - 4)] = configMapValue
+              }
+            } else {
+              parsedWidget[key] = spec.widget[key]
+            }
+          }))
+          spec.widget = parsedWidget
         }
+      }))
+    }
 
-        return constructedService;
-      });
+    const services = [
+      ...homepageServices.items
+        .filter(service => !service.spec.instances || service.spec.instances.includes(instanceName))
+        .map(service => service.spec),
+      ...ingressList.items
+        .filter(
+          (ingress) =>
+            ingress.metadata.annotations &&
+            ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
+            (!ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
+              ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
+              `${ANNOTATION_BASE}/instance.${instanceName}` in ingress.metadata.annotations),
+        )
+        .map((ingress) => {
+          let constructedService = {
+            app: ingress.metadata.annotations[`${ANNOTATION_BASE}/app`] || ingress.metadata.name,
+            namespace: ingress.metadata.namespace,
+            href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
+            name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
+            group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
+            weight: ingress.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
+            icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
+            description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
+            external: false,
+            type: "service",
+          };
+          if (ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
+            constructedService.external =
+              String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
+          }
+          if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
+            constructedService.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
+          }
+          if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
+            constructedService.ping = ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`];
+          }
+          if (ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
+            constructedService.siteMonitor = ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
+          }
+          if (ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
+            constructedService.statusStyle = ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
+          }
+          Object.keys(ingress.metadata.annotations).forEach((annotation) => {
+            if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+              shvl.set(
+                constructedService,
+                annotation.replace(`${ANNOTATION_BASE}/`, ""),
+                ingress.metadata.annotations[annotation],
+              );
+            }
+          });
+
+          try {
+            constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
+          } catch (e) {
+            logger.error("Error attempting k8s environment variable substitution.");
+          }
+
+          return constructedService;
+        })
+    ];
 
     const mappedServiceGroups = [];
 
@@ -328,6 +403,7 @@ export async function servicesFromKubernetes() {
 
     return mappedServiceGroups;
   } catch (e) {
+    console.log(e)
     if (e) logger.error(e);
     throw e;
   }

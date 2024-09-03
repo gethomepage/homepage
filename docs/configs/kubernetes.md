@@ -143,3 +143,41 @@ If the `href` attribute is not present, Homepage will ignore the specific Ingres
 ## Caveats
 
 Similarly to Docker service discovery, there currently is no rigid ordering to discovered services and discovered services will be displayed above those specified in the `services.yaml`.
+
+## CRDs
+
+Homepage also comes with Kubernetes CRDs for services. These CRDs have same structure and properties as regular service YAML definition, with added properties of `group`, `weight`, `podSelector` and `instances`, used as described above. 
+
+Compared to annotations, CRD approach can use Kubernetes secrets and configMaps to populate attributes of the `widget` object. To do this, instead of using the name, ex. `key`, use `keyFrom`, to match kubernetes standards. Then use either `secretKeyRef` or `configMapKeyRef` object, see example:
+
+```yaml
+apiVersion: gethomepage.dev/v1
+kind: HomepageService
+metadata:
+  labels:
+    app.kubernetes.io/instance: sonarr
+  name: sonarr
+  namespace: media
+spec:
+  description: TV Show Management Application
+  group: Media
+  href: 'https://sonarr.example.org/'
+  icon: sonarr.svg
+  widget:
+    type: sonarr
+    url: 'http://sonarr.media.svc.cluster.local:8989'
+    keyFrom:
+      secretKeyRef:
+        key: SONARR_API_KEY
+        name: arr-secrets
+```
+
+Some attributes have values inferred from the definition itself, `app` is read from *app.kubernetes.io/name* annotation or metadata.name, namespace is also read from metadata.
+
+For secrets and configMaps, if `namespace` is not specified in ref object, it assumes it's in the same namespace as CRD. If you want to specify a default namespace (for example for security reason when assigning secrets:read permission for only one namespace), you can specify `defaultSecretNamespace` and `defaultConfigMapNamespace` in `kubernetes.yaml` file.
+
+```yaml
+---
+mode: cluster
+defaultSecretNamespace: homepage
+```
