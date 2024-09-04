@@ -21,8 +21,9 @@ export default async function tdarrProxyHandler(req, res) {
     logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
-  const headers = {}
-  headers["content-type"] = "application/json"
+  const headers = {
+    "content-type": "application/json",
+  };
   if (widget.key) {
     headers["x-api-key"] = `${widget.key}`;
   }
@@ -36,7 +37,7 @@ export default async function tdarrProxyHandler(req, res) {
         docID: "statistics",
       },
     }),
-    headers: headers
+    headers,
   });
 
   if (status !== 200) {
