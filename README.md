@@ -80,8 +80,8 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
-      PUID: 1000 -- optional, your user id
-      PGID: 1000 -- optional, your group id
+      PUID: 1000 # optional, your user id
+      PGID: 1000 # optional, your group id
     ports:
       - 3000:3000
     volumes:
@@ -103,7 +103,7 @@ docker run --name homepage \
   ghcr.io/gethomepage/homepage:latest
 ```
 
-## With Node
+## From Source
 
 First, clone the repository:
 
@@ -126,15 +126,9 @@ Finally, run the server in production mode:
 pnpm start
 ```
 
-or development mode:
-
-```bash
-pnpm dev
-```
-
 # Configuration
 
-Please refer to the [homepage documentation](https://gethomepage.dev/) website for more information. Everything you need to know about configuring Homepage is there. Please read everything carefully before asking for help, as most questions are answered there or are simple YAML configuration issues.
+Please refer to the [homepage documentation website](https://gethomepage.dev/) for more information. Everything you need to know about configuring Homepage is there. Please read everything carefully before asking for help, as most questions are answered there or are simple YAML configuration issues.
 
 # Development
 
@@ -173,6 +167,10 @@ mkdocs serve # or build, to build the static site
 # Support & Suggestions
 
 If you have any questions, suggestions, or general issues, please start a discussion on the [Discussions](https://github.com/gethomepage/homepage/discussions) page.
+
+## Troubleshooting
+
+In addition to the docs, the [troubleshooting guide](https://gethomepage.dev/latest/troubleshooting/) can help reveal many basic config or network issues. If you're having a problem, it's a good place to start.
 
 ## Contributing & Contributors
 
