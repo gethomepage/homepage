@@ -11,5 +11,5 @@ Allowed fields: `["queue", "processed", "errored", "saved"]`.
 widget:
   type: tdarr
   url: http://tdarr.host.or.ip
-  key: tdarrapikey # optional, false if unused
+  key: tdarrapikey # optional
 ```
