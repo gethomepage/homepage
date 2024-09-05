@@ -1,6 +1,6 @@
 {
-  "name": "startpage",
-  "version": "0.1.0",
+  "name": "homepage",
+  "version": "0.9.6",
   "private": true,
   "scripts": {
     "dev": "next dev",
