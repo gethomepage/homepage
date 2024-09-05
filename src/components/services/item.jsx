@@ -67,7 +67,7 @@ export default function Item({ service, group, useEqualHeights }) {
             >
               <div className="flex-1 px-2 py-2 text-sm text-left z-10 service-name">
                 {service.name}
-                <p className="text-theme-500 dark:text-theme-300 text-xs font-light service-description">
+                <p className="text-theme-500 dark:text-theme-300 text-xs font-light whitespace-pre-wrap service-description">
                   {service.description}
                 </p>
               </div>
@@ -76,7 +76,7 @@ export default function Item({ service, group, useEqualHeights }) {
             <div className="flex-1 flex items-center justify-between rounded-r-md service-title-text">
               <div className="flex-1 px-2 py-2 text-sm text-left z-10 service-name">
                 {service.name}
-                <p className="text-theme-500 dark:text-theme-300 text-xs font-light service-description">
+                <p className="text-theme-500 dark:text-theme-300 text-xs font-light whitespace-pre-wrap service-description">
                   {service.description}
                 </p>
               </div>
