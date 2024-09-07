@@ -80,6 +80,7 @@ export default async function wgeasyProxyHandler(req, res) {
       const parsedData = JSON.parse(data);
 
       if (parsedData.statusCode > 400) {
+        cache.del(`${sessionSIDCacheKey}.${service}`);
         return res
           .status(parsedData.statusCode)
           .json({ error: { message: "Error communicating with Wg-Easy", data: parsedData } });
