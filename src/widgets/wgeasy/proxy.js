@@ -12,7 +12,7 @@ const sessionSIDCacheKey = `${proxyName}__sessionSID`;
 
 async function login(widget, service) {
   const url = formatApiCall(widgets[widget.type].api, { ...widget, endpoint: "session" });
-  const [, , , responseHeaders] = await httpProxy(url, {
+  const [statusCode, , , responseHeaders] = await httpProxy(url, {
     method: "POST",
     body: JSON.stringify({ password: widget.password }),
     headers: {
@@ -20,7 +20,15 @@ async function login(widget, service) {
     },
   });
 
+  if (statusCode > 400) {
+    logger.error(
+      `Failed to login to wg-easy, statusCode: ${statusCode}, responseHeaders: ${JSON.stringify(responseHeaders)}`,
+    );
+    return null;
+  }
+
   try {
+    logger.debug(`Logging into wg-easy, responseHeaders: ${JSON.stringify(responseHeaders)}`);
     let connectSidCookie = responseHeaders["set-cookie"];
     if (!connectSidCookie) {
       const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
@@ -35,7 +43,7 @@ async function login(widget, service) {
     cache.put(`${sessionSIDCacheKey}.${service}`, connectSidCookie);
     return connectSidCookie;
   } catch (e) {
-    logger.error(`Error logging into wg-easy, error: ${e}`);
+    logger.error(`Error logging into wg-easy: ${JSON.stringify(e)}`);
     cache.del(`${sessionSIDCacheKey}.${service}`);
     return null;
   }
@@ -56,7 +64,7 @@ export default async function wgeasyProxyHandler(req, res) {
       if (!sid) {
         sid = await login(widget, service);
         if (!sid) {
-          return res.status(500).json({ error: "Failed to authenticate with Wg-Easy" });
+          return res.status(500).json({ error: "Failed to authenticate with Wg-Easy. See logs for more details." });
         }
       }
       const [, , data] = await httpProxy(
