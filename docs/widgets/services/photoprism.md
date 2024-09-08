@@ -14,3 +14,12 @@ widget:
   username: admin
   password: password
 ```
+
+If using app passwords, you can create one and specify that for authorization.
+
+```yaml
+widget:
+  type: photoprism
+  url: http://photoprism.host.or.ip:port
+  authToken: <app password from Photoprism>
+```
