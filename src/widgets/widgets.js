@@ -96,6 +96,7 @@ import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
+import spoolman from "./spoolman/widget";
 import stash from "./stash/widget";
 import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
@@ -223,6 +224,7 @@ const widgets = {
   scrutiny,
   sonarr,
   speedtest,
+  spoolman,
   stash,
   stocks,
   strelaysrv,
