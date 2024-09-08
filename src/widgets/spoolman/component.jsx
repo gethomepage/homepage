@@ -33,7 +33,7 @@ export default function Component({ service }) {
         <Block
           key={spool.id}
           label={`${spool.filament.name}`}
-          value={`${t("common.percent", { value: (100-(spool.used_weight / spool.initial_weight)*100)})}`} 
+          value={`${t("common.percent", { value: ((spool.remaining_weight / spool.initial_weight)*100)})}`} 
         />
       ))}
     </Container>
