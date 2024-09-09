@@ -1,5 +1,3 @@
-import cache from "memory-cache";
-
 import getServiceWidget from "utils/config/service-helpers";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
@@ -8,38 +6,6 @@ import createLogger from "utils/logger";
 
 const proxyName = "wgeasyProxyHandler";
 const logger = createLogger(proxyName);
-const sessionSIDCacheKey = `${proxyName}__sessionSID`;
-
-async function login(widget, service) {
-  const url = formatApiCall(widgets[widget.type].api, { ...widget, endpoint: "session" });
-  const [, , , responseHeaders] = await httpProxy(url, {
-    method: "POST",
-    body: JSON.stringify({ password: widget.password }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  try {
-    let connectSidCookie = responseHeaders["set-cookie"];
-    if (!connectSidCookie) {
-      const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
-      if (sid) {
-        return sid;
-      }
-    }
-    connectSidCookie = connectSidCookie
-      .find((cookie) => cookie.startsWith("connect.sid="))
-      .split(";")[0]
-      .replace("connect.sid=", "");
-    cache.put(`${sessionSIDCacheKey}.${service}`, connectSidCookie);
-    return connectSidCookie;
-  } catch (e) {
-    logger.error(`Error logging into wg-easy, error: ${e}`);
-    cache.del(`${sessionSIDCacheKey}.${service}`);
-    return null;
-  }
-}
 
 export default async function wgeasyProxyHandler(req, res) {
   const { group, service } = req.query;
@@ -52,28 +18,31 @@ export default async function wgeasyProxyHandler(req, res) {
     }
 
     if (widget) {
-      let sid = cache.get(`${sessionSIDCacheKey}.${service}`);
-      if (!sid) {
-        sid = await login(widget, service);
-        if (!sid) {
-          return res.status(500).json({ error: "Failed to authenticate with Wg-Easy" });
-        }
-      }
-      const [, , data] = await httpProxy(
+      const [statusCode, , data] = await httpProxy(
         formatApiCall(widgets[widget.type].api, { ...widget, endpoint: "wireguard/client" }),
         {
           headers: {
             "Content-Type": "application/json",
-            Cookie: `connect.sid=${sid}`,
+            authorization: widget.password,
           },
         },
       );
 
-      const parsedData = JSON.parse(data);
+      let parsedData;
+      try {
+        parsedData = JSON.parse(data);
+      } catch (e) {
+        // Do nothing
+      }
 
-      if (parsedData.statusCode > 400) {
+      if (parsedData?.statusCode > 400 || statusCode > 400) {
+        logger.error(
+          `Error communicating with Wg-Easy. StatusCode: ${
+            parsedData?.statusCode ?? statusCode
+          }. Data: ${JSON.stringify(parsedData)}`,
+        );
         return res
-          .status(parsedData.statusCode)
+          .status(parsedData?.statusCode ?? statusCode)
           .json({ error: { message: "Error communicating with Wg-Easy", data: parsedData } });
       }
 
