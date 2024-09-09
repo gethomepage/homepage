@@ -88,6 +88,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         if (widget.key) {
           headers.Cookie = `authenticated=${widget.key}`;
         }
+      } else if (widget.type === "wgeasy") {
+        headers.Authorization = widget.password;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
