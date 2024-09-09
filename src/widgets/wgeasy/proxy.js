@@ -22,7 +22,7 @@ async function login(widget, service) {
 
   if (statusCode > 400) {
     logger.error(
-      `Failed to login to wg-easy, statusCode: ${statusCode}, responseHeaders: ${JSON.stringify(responseHeaders)}`,
+      `Failed to login to wg-easy, statusCode: ${statusCode}, responseHeaders: ${JSON.stringify(responseHeaders)}`
     );
     return null;
   }
@@ -30,18 +30,25 @@ async function login(widget, service) {
   try {
     logger.debug(`Logging into wg-easy, responseHeaders: ${JSON.stringify(responseHeaders)}`);
     let connectSidCookie = responseHeaders["set-cookie"];
+    
     if (!connectSidCookie) {
       const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
       if (sid) {
         return sid;
       }
     }
-    connectSidCookie = connectSidCookie
-      .find((cookie) => cookie.startsWith("connect.sid="))
-      .split(";")[0]
-      .replace("connect.sid=", "");
-    cache.put(`${sessionSIDCacheKey}.${service}`, connectSidCookie);
-    return connectSidCookie;
+
+    if (Array.isArray(connectSidCookie)) {
+      connectSidCookie = connectSidCookie
+        .find((cookie) => cookie.startsWith("connect.sid="))
+        .split(";")[0]
+        .replace("connect.sid=", "");
+      cache.put(`${sessionSIDCacheKey}.${service}`, connectSidCookie);
+      return connectSidCookie;
+    } else {
+      logger.error("set-cookie is not an array:", connectSidCookie);
+      return null;
+    }
   } catch (e) {
     logger.error(`Error logging into wg-easy: ${JSON.stringify(e)}`);
     cache.del(`${sessionSIDCacheKey}.${service}`);
