@@ -14,11 +14,11 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
     accept: "application/json",
   };
 
-  if (widget.username && widget.password) {
+  if (widget?.username && widget?.password) {
     headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
   }
 
-  if (widget.key) {
+  if (widget?.key) {
     headers.Authorization = `Bearer ${widget.key}`;
   }
 
