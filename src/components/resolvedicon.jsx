@@ -37,7 +37,16 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
 
   if (prefix === "sh") {
     const iconName = icon.replace("sh-", "").replace(".svg", "").replace(".png", "").replace(".webp", "");
-    const extension = icon.endsWith(".svg") ? "svg" : icon.endsWith(".webp") ? "webp" : "png";
+
+    let extension;
+    if (icon.endsWith(".svg")) {
+      extension = "svg";
+    } else if (icon.endsWith(".webp")) {
+      extension = "webp";
+    } else {
+      extension = "png";
+    }
+
     return (
       <Image
         src={`https://cdn.jsdelivr.net/gh/selfhst/icons@main/${extension}/${iconName}.${extension}`}
