@@ -65,9 +65,13 @@ Services may have descriptions,
 
 Services may have an icon attached to them, you can use icons from [Dashboard Icons](https://github.com/walkxcode/dashboard-icons) automatically, by passing the name of the icon, with, or without `.png` or with `.svg` to use the svg version.
 
-You can also specify prefixed icons from [Material Design Icons](https://materialdesignicons.com) with `mdi-XX` or [Simple Icons](https://simpleicons.org/) with `si-XX`.
+You can also specify prefixed icons from:
 
-You can specify a custom color by adding a hex color code as suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
+- [Material Design Icons](https://materialdesignicons.com) with `mdi-XX`
+- [Simple Icons](https://simpleicons.org/) with `si-XX`
+- [selfh.st/icons](https://selfh.st/icons/) with `sh-XX` to use the png version or `sh-XX.svg/png/web` for a specific version
+
+You can specify a custom color for `mdi` and `si` icons by adding a hex color code as a suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
 
 To use a remote icon, use the absolute URL (e.g. `https://...`).
 
