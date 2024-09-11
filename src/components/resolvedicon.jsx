@@ -7,7 +7,6 @@ import { ThemeContext } from "utils/contexts/theme";
 const iconSetURLs = {
   mdi: "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/",
   si: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/",
-  sh: "https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/", // or via GH's CDN https://icons.selfh.st/svg/
 };
 
 export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "logo" }) {
@@ -35,6 +34,26 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
 
   // check mdi- or si- prefixed icons
   const prefix = icon.split("-")[0];
+
+  if (prefix === "sh") {
+    const iconName = icon.replace("sh-", "").replace(".svg", "").replace(".png", "").replace(".webp", "");
+    const extension = icon.endsWith(".svg") ? "svg" : icon.endsWith(".webp") ? "webp" : "png";
+    return (
+      <Image
+        src={`https://cdn.jsdelivr.net/gh/selfhst/icons@main/${extension}/${iconName}.${extension}`}
+        width={width}
+        height={height}
+        style={{
+          width,
+          height,
+          objectFit: "contain",
+          maxHeight: "100%",
+          maxWidth: "100%",
+        }}
+        alt={alt}
+      />
+    );
+  }
 
   if (prefix in iconSetURLs) {
     // default to theme setting
