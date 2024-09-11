@@ -69,7 +69,7 @@ You can also specify prefixed icons from:
 
 - [Material Design Icons](https://materialdesignicons.com) with `mdi-XX`
 - [Simple Icons](https://simpleicons.org/) with `si-XX`
-- [selfh.st/icons](https://selfh.st/icons/) with `sh-XX` to use the png version or `sh-XX.svg/png/web` for a specific version
+- [selfh.st/icons](https://selfh.st/icons/) with `sh-XX` to use the png version or `sh-XX.svg/png/webp` for a specific version
 
 You can specify a custom color for `mdi` and `si` icons by adding a hex color code as a suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
 
