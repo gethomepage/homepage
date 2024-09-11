@@ -7,6 +7,7 @@ import { ThemeContext } from "utils/contexts/theme";
 const iconSetURLs = {
   mdi: "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/",
   si: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/",
+  sh: "https://cdn.jsdelivr.net/gh/selfhst/icons@main/svg/", // or via GH's CDN https://icons.selfh.st/svg/
 };
 
 export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "logo" }) {
