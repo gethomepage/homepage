@@ -52,9 +52,8 @@ export default function Component({ service }) {
   }
 
   function toPercent(value, total) {
-    const percentage = (value / total) * 100;
     return t("common.percent", {
-      value: !Number.isNaN(percentage) ? percentage : 0,
+      value: !Number.isNaN(value / total) ? 100 * (value / total) : 0,
       maximumFractionDigits: 2,
     });
   }
