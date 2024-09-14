@@ -10,8 +10,8 @@ export default function Component({ service }) {
   const { widget } = service;
   const { data: resultData, error: resultError } = useWidgetAPI(widget, "domains");
 
-  if (resultError) {
-    return <Container service={service} error={resultError} />;
+  if (resultError || (resultData && Object.keys(resultData).length === 0)) {
+    return <Container service={service} error={resultError ?? { message: "No domains found" }} />;
   }
 
   if (!resultData) {
