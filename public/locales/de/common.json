@@ -850,6 +850,12 @@
         "screenshots": "Bildschirmfotos",
         "totalfilesize": "Gesamtgröße"
     },
+    "mailcow": {
+      "domains": "Domänen",
+      "mailboxes": "E-Mail-Postfächer",
+      "mails": "E-Mails",
+      "storage": "Speicher"
+    },
     "netdata": {
         "warnings": "Warnungen",
         "criticals": "Kritisch"
