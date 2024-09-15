@@ -57,24 +57,30 @@ export default async function piholeProxyHandler(req, res) {
   }
 
   // pihole v6
-  if (!cache.get(`${sessionSIDCacheKey}.${service}`)) {
+  if (!cache.get(`${sessionSIDCacheKey}.${service}`) && widget.key) {
     await login(widget, service);
   }
 
   const sid = cache.get(`${sessionSIDCacheKey}.${service}`);
-  if (!sid) {
+  if (widget.key && !sid) {
     return res.status(500).json({ error: "Failed to authenticate with Pi-hole" });
   }
 
   try {
     logger.debug("Calling Pi-hole API endpoint: %s", endpoint);
-
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    if (sid) {
+      headers["X-FTL-SID"] = sid;
+    } else {
+      logger.debug("Pi-hole request is unauthenticated");
+    }
     [status, , data] = await httpProxy(formatApiCall(widgets[widget.type].api, { ...widget, endpoint }), {
-      headers: {
-        "Content-Type": "application/json",
-        "X-FTL-SID": sid,
-      },
+      headers,
     });
+
+    logger.debug("Pi-hole API response: %d", status, Buffer.from(data).toString("utf8"));
 
     if (status !== 200) {
       logger.error("Error calling Pi-Hole API: %d. Data: %s", status, data);
