@@ -80,8 +80,6 @@ export default async function piholeProxyHandler(req, res) {
       headers,
     });
 
-    logger.debug("Pi-hole API response: %d", status, Buffer.from(data).toString("utf8"));
-
     if (status !== 200) {
       logger.error("Error calling Pi-Hole API: %d. Data: %s", status, data);
       return res.status(status).json({ error: "Pi-Hole API Error", data });
