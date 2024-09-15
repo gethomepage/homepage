@@ -51,6 +51,7 @@ const components = {
   jdownloader: dynamic(() => import("./jdownloader/component")),
   jellyfin: dynamic(() => import("./emby/component")),
   jellyseerr: dynamic(() => import("./jellyseerr/component")),
+  kapowarr: dynamic(() => import("./kapowarr/component")),
   kavita: dynamic(() => import("./kavita/component")),
   komga: dynamic(() => import("./komga/component")),
   kopia: dynamic(() => import("./kopia/component")),
