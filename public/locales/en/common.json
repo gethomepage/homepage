@@ -945,5 +945,12 @@
       "average": "Average",
       "high": "High",
       "disaster": "Disaster"
+    },
+    "kapowarr": {
+        "volumes": "Volumes",
+        "issues": "Issues",
+        "monitored": "Monitored",
+        "downloaded_issues": "Downloaded",
+        "total_file_size": "Files Size"
     }
 }
