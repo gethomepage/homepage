@@ -88,7 +88,7 @@ Or you may pass the path to a local image relative to the `/app/public` director
 If you'd like to use a custom icon when using "Add to Home Screen" on iOS instead of the favicon, you may provide a full URL to an image of your choice.
 
 ```yaml
-favicon: https://www.google.com/favicon.ico
+appleTouchIcon: https://www.google.com/favicon.ico
 ```
 
 Or you may pass the path to a local image relative to the `/app/public` directory. See [Background Image](#background-image) for more detailed information on how to provide your own files.
