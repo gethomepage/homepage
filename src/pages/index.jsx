@@ -363,7 +363,7 @@ function Home({ initialSettings }) {
         {settings.favicon ? (
           <>
             <link rel="icon" href={settings.favicon} />
-            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={settings.appleTouchIcon ?? settings.favicon} />
           </>
         ) : (
           <>
