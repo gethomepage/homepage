@@ -67,7 +67,7 @@ Services may have an icon attached to them, you can use icons from [Dashboard Ic
 
 You can also specify prefixed icons from:
 
-- [Material Design Icons](https://materialdesignicons.com) with `mdi-XX`
+- [Material Design Icons](https://pictogrammers.com/library/mdi/) with `mdi-XX`
 - [Simple Icons](https://simpleicons.org/) with `si-XX`
 - [selfh.st/icons](https://selfh.st/icons/) with `sh-XX` to use the png version or `sh-XX.svg/png/webp` for a specific version
 
