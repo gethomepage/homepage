@@ -32,6 +32,11 @@ export default async function photoprismProxyHandler(req, res) {
       username: widget.username,
       password: widget.password,
     });
+  } else if (widget.key) {
+    params.headers.Authorization = `Bearer ${widget.key}`;
+    params.body = JSON.stringify({
+      authToken: widget.key,
+    });
   }
 
   const [status, contentType, data] = await httpProxy(url, params);
