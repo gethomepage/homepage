@@ -442,6 +442,9 @@ export function cleanServiceGroups(groups) {
           namespace,
           podSelector,
 
+          // lubelogger
+          vehicleID,
+
           // mjpeg
           fit,
           stream,
@@ -626,6 +629,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "technitium") {
           if (range !== undefined) cleanedService.widget.range = range;
+        }
+        if (type === "lubelogger") {
+          if (vehicleID !== undefined) cleanedService.widget.vehicleID = vehicleID;
         }
       }
 

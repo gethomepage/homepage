@@ -947,8 +947,11 @@
       "disaster": "Disaster"
     },
     "lubelogger": {
+      "vehicle": "Vehicle",
       "vehicles": "Vehicles",
       "serviceRecords": "Service Records",
-      "reminders": "Reminders"
+      "reminders": "Reminders",
+      "nextReminder": "Next Reminder",
+      "none": "None"
     }
 }
