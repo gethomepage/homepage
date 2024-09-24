@@ -61,6 +61,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Linkwarden](linkwarden.md)
 - [Lubelogger](lubelogger.md)
 - [Mastodon](mastodon.md)
+- [Mailcow](mailcow.md)
 - [Mealie](mealie.md)
 - [Medusa](medusa.md)
 - [Mikrotik](mikrotik.md)

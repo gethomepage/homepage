@@ -175,7 +175,7 @@ Services may be connected to a Docker container, either running on the local mac
 
 !!! note
 
-      This can also be controlled with `showStats`. See [show docker stats](docker.md#show-docker-stats) for more information
+      This can also be controlled with `showStats`. See [show docker stats](docker.md#show-stats) for more information
 
 <img width="1038" alt="Docker Stats Expanded" src="https://github.com/gethomepage/homepage/assets/88257202/f95fd595-449e-48ae-af67-fd89618904ec">
 
