@@ -544,7 +544,8 @@ export function cleanServiceGroups(groups) {
         if (["emby", "jellyfin"].includes(type)) {
           if (enableBlocks !== undefined) cleanedService.widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) cleanedService.widget.enableNowPlaying = JSON.parse(enableNowPlaying);
-          if (maxShowNowPlayingCount !== undefined) cleanedService.widget.maxShowNowPlayingCount = JSON.parse(maxShowNowPlayingCount);
+          if (maxShowNowPlayingCount !== undefined)
+            cleanedService.widget.maxShowNowPlayingCount = JSON.parse(maxShowNowPlayingCount);
         }
         if (["emby", "jellyfin", "tautulli"].includes(type)) {
           if (expandOneStreamToTwoRows !== undefined)
