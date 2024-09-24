@@ -17,7 +17,7 @@ hide:
 
 All service widgets work essentially the same, that is, homepage makes a proxied call to an API made available by that service. The majority of the time widgets don't work it is a configuration issue. Of course, sometimes things do break. Some basic steps to try:
 
-1.  Ensure that you follow the rule mentioned on https://gethomepage.dev/latest/configs/service-widgets/. **Unless otherwise noted, URLs should not end with a / or other API path. Each widget will handle the path on its own.**. This is very important as including a trailing slash can result in an error.
+1.  Ensure that you follow the rule mentioned on https://gethomepage.dev/configs/service-widgets/. **Unless otherwise noted, URLs should not end with a / or other API path. Each widget will handle the path on its own.**. This is very important as including a trailing slash can result in an error.
 
 2.  Verify the homepage installation can connect to the IP address or host you are using for the widget `url`. This is most simply achieved by pinging the server from the homepage machine, in Docker this means _from inside the container_ itself, e.g.:
 

@@ -1,6 +1,6 @@
 ---
 # For configuration options and examples, please see:
-# https://gethomepage.dev/latest/configs/services
+# https://gethomepage.dev/configs/services
 
 - My First Group:
     - My First Service:

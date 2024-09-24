@@ -4,7 +4,7 @@ body:
       value: |
         ### ⚠️ Before opening a discussion:
 
-        - [Check the troubleshooting guide](https://gethomepage.dev/latest/troubleshooting/).
+        - [Check the troubleshooting guide](https://gethomepage.dev/troubleshooting/).
         - [Search existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) [and discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions).
   - type: textarea
     id: description
@@ -51,6 +51,6 @@ body:
     id: troubleshooting
     attributes:
       label: Troubleshooting
-      description: Please include output from your [troubleshooting tests](https://gethomepage.dev/latest/more/troubleshooting/#service-widget-errors), if relevant.
+      description: Please include output from your [troubleshooting tests](https://gethomepage.dev/more/troubleshooting/#service-widget-errors), if relevant.
     validations:
       required: true
