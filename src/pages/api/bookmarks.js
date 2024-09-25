@@ -4,5 +4,5 @@ import { getSettings } from "utils/config/config";
 
 export default async function handler(req, res) {
   const { provider, groups } = readIdentitySettings(getSettings().identity);
-  res.send(await bookmarksResponse(provider.authorize(req), groups));
+  res.send(await bookmarksResponse(provider.getIdentity(req), groups));
 }
