@@ -115,6 +115,12 @@ export async function constructedServiceFromResource(resource) {
   if (resource.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
     constructedService.statusStyle = resource.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
   }
+  if (ingress.metadata.annotations[`${ANNOTATION_BASE}/allowUsers`]) {
+    constructedService.allowUsers = ingress.metadata.annotations[`${ANNOTATION_BASE}/allowUsers`].split(",");
+  }
+  if (ingress.metadata.annotations[`${ANNOTATION_BASE}/allowGroups`]) {
+    constructedService.allowGroups = ingress.metadata.annotations[`${ANNOTATION_BASE}/allowGroups`].split(",");
+  }
 
   Object.keys(resource.metadata.annotations).forEach((annotation) => {
     if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
