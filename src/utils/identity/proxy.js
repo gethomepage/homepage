@@ -1,15 +1,15 @@
 // 'proxy' identity provider is meant to be used by a reverse proxy that injects permission headers into the origin
 // request. In this case we are relying on our proxy to authenitcate our users and validate their identity.
-function getProxyPermissions(userHeader, groupHeader, request) {
+function getProxyPermissions(userHeader, groupHeader, groupSeparator, request) {
   const user =
     userHeader && request.headers[userHeader.toLowerCase()] ? request.headers[userHeader.toLowerCase()] : null;
   const groupsString =
     groupHeader && request.headers[groupHeader.toLowerCase()] ? request.headers[groupHeader.toLowerCase()] : "";
 
-  return { user, groups: groupsString ? groupsString.split("|").map((v) => v.trim()) : [] };
+  return { user, groups: groupsString ? groupsString.split(groupSeparator ?? "|").map((v) => v.trim()) : [] };
 }
 
-function createProxyIdentity({ groupHeader, userHeader }) {
+function createProxyIdentity({ groupHeader, groupSeparator, userHeader }) {
   return {
     getContext: (request) => ({
       provider: "proxy",
@@ -18,7 +18,7 @@ function createProxyIdentity({ groupHeader, userHeader }) {
       ...(groupHeader &&
         request.headers[groupHeader] && { [groupHeader.toLowerCase()]: request.headers[groupHeader.toLowerCase()] }),
     }),
-    getIdentity: (request) => getProxyPermissions(userHeader, groupHeader, request),
+    getIdentity: (request) => getProxyPermissions(userHeader, groupHeader, groupSeparator, request),
   };
 }
 
