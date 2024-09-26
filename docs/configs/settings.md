@@ -559,7 +559,7 @@ If either value is set to true, the error message will be hidden.
 
 ## Identity Based Visibiltiy
 
-Basic user identity integration is implemeted via an `identity` section. An identity provider can be configured using the `provider` section with the given type. Currently the only provider supported is `proxy`, where the users identification and group membership are passed via HTTP Request headers (in plaintext). The expectation is that the application will be accessed only via an authenticating proxy (i.e traefik or nginx).
+Basic user identity integration is implemeted via an `identity` section. An identity provider can be configured using the `provider` section with the given type. Currently the only provider supported is `proxy`, where the users identification and group membership are passed via HTTP Request headers (in plaintext). The expectation is that the application will be accessed only via an authenticating proxy (i.e traefik or nginx). By default the list of groups will be split on `|`, but this can be changed.
 
 The group and user headers are both configurable like so:
 
@@ -568,6 +568,7 @@ identity:
   provider:
     type: proxy
     groupHeader: "X-group-header"
+    groupSeparator: "|"
     userHeader: "X-user-header"
 ```
 
