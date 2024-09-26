@@ -850,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+        "domains": "Domene",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Spremište"
+    },
     "netdata": {
         "warnings": "Upozorenja",
         "criticals": "Kritično"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

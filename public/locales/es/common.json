@@ -325,15 +325,15 @@
     },
     "technitium": {
         "totalQueries": "Consultas",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Éxitos",
+        "totalServerFailure": "Fallas",
+        "totalNxDomain": "Dominios NX",
+        "totalRefused": "Rechazados",
+        "totalAuthoritative": "Autoritarios",
+        "totalRecursive": "Recursivos",
+        "totalCached": "En caché",
         "totalBlocked": "Bloqueado",
-        "totalDropped": "Dropped",
+        "totalDropped": "Descartados",
         "totalClients": "Clientes"
     },
     "tdarr": {
@@ -844,11 +844,17 @@
     },
     "romm": {
         "platforms": "Plataformas",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "totalRoms": "Juegos",
+        "saves": "Guardados",
+        "states": "Estados",
+        "screenshots": "Capturas de pantalla",
+        "totalfilesize": "Tamaño total"
+    },
+    "mailcow": {
+        "domains": "Dominios",
+        "mailboxes": "Buzones de correo",
+        "mails": "Correos",
+        "storage": "Almacenamiento"
     },
     "netdata": {
         "warnings": "Advertencias",
@@ -933,11 +939,19 @@
         "tags": "Etiquetas"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "No clasificado",
         "information": "Información",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Advertencia",
+        "average": "Promedio",
+        "high": "Alto",
+        "disaster": "Desastre"
+    },
+    "lubelogger": {
+        "vehicle": "Vehículo",
+        "vehicles": "Vehículos",
+        "serviceRecords": "Registros de servicio",
+        "reminders": "Recordatorios",
+        "nextReminder": "Siguiente recordatorio",
+        "none": "Nada"
     }
 }

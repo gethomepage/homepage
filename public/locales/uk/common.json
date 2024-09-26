@@ -850,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+        "domains": "Домени",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Сховище"
+    },
     "netdata": {
         "warnings": "Попередження",
         "criticals": "Criticals"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

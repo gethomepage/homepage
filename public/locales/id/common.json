@@ -850,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+        "domains": "Jumlah Domain",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Penyimpanan"
+    },
     "netdata": {
         "warnings": "Peringatan",
         "criticals": "Kritis"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

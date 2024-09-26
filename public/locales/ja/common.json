@@ -850,6 +850,12 @@
         "screenshots": "スクリーンショット",
         "totalfilesize": "合計サイズ"
     },
+    "mailcow": {
+        "domains": "ドメイン",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "ストレージ"
+    },
     "netdata": {
         "warnings": "警告",
         "criticals": "重大"
@@ -939,5 +945,13 @@
         "average": "平均",
         "high": "高い",
         "disaster": "災害"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

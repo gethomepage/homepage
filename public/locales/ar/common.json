@@ -850,6 +850,12 @@
         "screenshots": "لقطات شاشة",
         "totalfilesize": "الحجم الكلي"
     },
+    "mailcow": {
+        "domains": "مجالات",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "التخزين"
+    },
     "netdata": {
         "warnings": "تحذيرات",
         "criticals": "حرج"
@@ -939,5 +945,13 @@
         "average": "متوسط",
         "high": "عالي",
         "disaster": "كارثة"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

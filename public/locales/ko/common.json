@@ -130,7 +130,7 @@
     },
     "freshrss": {
         "subscriptions": "구독",
-        "unread": "읽지 않음"
+        "unread": "미열람"
     },
     "fritzbox": {
         "connectionStatus": "상태",
@@ -376,7 +376,7 @@
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
-        "configured": "Configured",
+        "configured": "구성됨",
         "errored": "오류"
     },
     "strelaysrv": {
@@ -404,12 +404,12 @@
     },
     "miniflux": {
         "read": "읽음",
-        "unread": "읽지 않음"
+        "unread": "미열람"
     },
     "authentik": {
         "users": "사용자",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "loginsLast24H": "로그인 (24h)",
+        "failedLoginsLast24H": "실패한 로그인 (24h)"
     },
     "proxmox": {
         "mem": "MEM",
@@ -538,9 +538,9 @@
     },
     "tubearchivist": {
         "downloads": "대기열",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "videos": "동영상",
+        "channels": "채널",
+        "playlists": "재생 목록"
     },
     "truenas": {
         "load": "System Load",
@@ -559,7 +559,7 @@
         "country": "Country"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "채널",
         "hd": "HD",
         "tunerCount": "Tuners",
         "channelNumber": "채널",
@@ -648,9 +648,9 @@
     },
     "immich": {
         "users": "사용자",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "photos": "사진",
+        "videos": "동영상",
+        "storage": "저장됨"
     },
     "uptimekuma": {
         "up": "Sites Up",
@@ -663,10 +663,10 @@
         "series": "시리즈",
         "archives": "Archives",
         "chapters": "Chapters",
-        "categories": "Categories"
+        "categories": "분류"
     },
     "komga": {
-        "libraries": "Libraries",
+        "libraries": "서재",
         "series": "시리즈",
         "books": "책"
     },
@@ -682,8 +682,8 @@
     },
     "photoprism": {
         "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
+        "photos": "사진",
+        "videos": "동영상",
         "people": "People"
     },
     "fileflows": {
@@ -699,12 +699,12 @@
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "cpuload": "CPU 부하량",
+        "memoryusage": "메모리 사용량",
+        "freespace": "여유 공간",
+        "activeusers": "활성 유저",
+        "numfiles": "파일",
+        "numshares": "공유된 항목"
     },
     "kopia": {
         "status": "상태",
@@ -754,8 +754,8 @@
     },
     "calibreweb": {
         "books": "책",
-        "authors": "Authors",
-        "categories": "Categories",
+        "authors": "저자",
+        "categories": "분류",
         "series": "시리즈"
     },
     "jdownloader": {
@@ -766,7 +766,7 @@
     },
     "kavita": {
         "seriesCount": "시리즈",
-        "totalFiles": "Files"
+        "totalFiles": "파일"
     },
     "azuredevops": {
         "result": "Result",
@@ -802,7 +802,7 @@
     "mealie": {
         "recipes": "Recipes",
         "users": "사용자",
-        "categories": "Categories",
+        "categories": "분류",
         "tags": "태그"
     },
     "openmediavault": {
@@ -843,12 +843,18 @@
         "noEventsFound": "No events found"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "platforms": "기종",
+        "totalRoms": "게임",
+        "saves": "세이브",
+        "states": "스테이트",
+        "screenshots": "스크린샷",
+        "totalfilesize": "전체 용량"
+    },
+    "mailcow": {
+        "domains": "Domains",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "저장됨"
     },
     "netdata": {
         "warnings": "Warnings",
@@ -857,7 +863,7 @@
     "plantit": {
         "events": "Events",
         "plants": "Plants",
-        "photos": "Photos",
+        "photos": "사진",
         "species": "Species"
     },
     "gitea": {
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }
