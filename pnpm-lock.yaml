@@ -75,8 +75,8 @@ importers:
         specifier: ^11.18.6
         version: 11.18.6(i18next@21.10.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-icons:
-        specifier: ^4.12.0
-        version: 4.12.0(react@18.3.1)
+        specifier: ^5.3.0
+        version: 5.3.0(react@18.3.1)
       recharts:
         specifier: ^2.12.6
         version: 2.12.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1242,6 +1242,7 @@ packages:
   follow-redirects@1.15.8:
     resolution: {integrity: sha512-xgrmBhBToVKay1q2Tao5LI26B83UhrB/vM1avwVSDzt8rx3rO6AizBAaF46EgksTVr+rFTQaqZZ9MVBfUe4nig==}
     engines: {node: '>=4.0'}
+    deprecated: Browser detection issues fixed in v1.15.9
     peerDependencies:
       debug: '*'
     peerDependenciesMeta:
@@ -2168,8 +2169,8 @@ packages:
       react-native:
         optional: true
 
-  react-icons@4.12.0:
-    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
+  react-icons@5.3.0:
+    resolution: {integrity: sha512-DnUk8aFbTyQPSkCfF8dbX6kQjXA9DktMeJqfjrg6cK9vwQVMxmcA3BfP4QoiztVmEHtwlTgLFsPuH2NskKT6eg==}
     peerDependencies:
       react: '*'
 
@@ -4954,7 +4955,7 @@ snapshots:
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  react-icons@4.12.0(react@18.3.1):
+  react-icons@5.3.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
