@@ -97,6 +97,8 @@ metadata:
     gethomepage.dev/pod-selector: ""
     gethomepage.dev/weight: 10 # optional
     gethomepage.dev/instance: "public" # optional
+    gethomepage.dev/allowUsers: user1,user2 # optional
+    gethomepage.dev/allowGroups: group1,group2 # optional
 spec:
   rules:
     - host: emby.example.com
