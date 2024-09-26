@@ -850,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+        "domains": "網域",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "儲存空間"
+    },
     "netdata": {
         "warnings": "警告",
         "criticals": "嚴重"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

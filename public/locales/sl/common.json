@@ -850,6 +850,12 @@
         "screenshots": "Posnetki zaslona",
         "totalfilesize": "Skupna velikost"
     },
+    "mailcow": {
+        "domains": "Domene",
+        "mailboxes": "Nabiralniki",
+        "mails": "Pošta",
+        "storage": "Shramba"
+    },
     "netdata": {
         "warnings": "Opozorila",
         "criticals": "Kritično"
@@ -939,5 +945,13 @@
         "average": "Povprečno",
         "high": "Visoko",
         "disaster": "Katastrofa"
+    },
+    "lubelogger": {
+        "vehicle": "Vozilo",
+        "vehicles": "Vozila",
+        "serviceRecords": "Zapisi servisov",
+        "reminders": "Opomniki",
+        "nextReminder": "Naslednji opomnik",
+        "none": "Brez"
     }
 }

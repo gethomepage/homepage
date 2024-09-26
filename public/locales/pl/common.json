@@ -463,8 +463,8 @@
         "51-night": "Lekka mżawka",
         "53-day": "Mżawka",
         "53-night": "Mżawka",
-        "55-day": "Ciężka mżawka",
-        "55-night": "Ciężka mżawka",
+        "55-day": "Gęsta mżawka",
+        "55-night": "Gęsta mżawka",
         "56-day": "Lekko chłodna mżawka",
         "56-night": "Lekko chłodna mżawka",
         "57-day": "Chłodna mżawka",
@@ -850,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+        "domains": "Domeny",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Pamięć"
+    },
     "netdata": {
         "warnings": "Ostrzeżenia",
         "criticals": "Krytyczny"
@@ -905,7 +911,7 @@
         "total": "Całkowite"
     },
     "swagdashboard": {
-        "proxied": "Poprzez proxy",
+        "proxied": "Proxy",
         "auth": "Z uwietrzytelnieniem",
         "outdated": "Nieaktualne",
         "banned": "Zbanowano"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

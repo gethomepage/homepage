@@ -850,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+        "domains": "Domainek",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Tárhely"
+    },
     "netdata": {
         "warnings": "Figyelmeztetések",
         "criticals": "Kritikusok"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Jármű",
+        "vehicles": "Járművek",
+        "serviceRecords": "Szolgáltatások nyílvántartása",
+        "reminders": "Emlékeztetők",
+        "nextReminder": "Következő emlékeztető",
+        "none": "None"
     }
 }

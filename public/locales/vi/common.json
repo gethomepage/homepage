@@ -87,7 +87,7 @@
         "ping": "Ping",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Không khả dụng"
     },
     "siteMonitor": {
         "http_status": "HTTP status",
@@ -95,7 +95,7 @@
         "response": "Response",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Không khả dụng"
     },
     "emby": {
         "playing": "Đang chơi",
@@ -850,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+        "domains": "Domains",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Storage"
+    },
     "netdata": {
         "warnings": "Warnings",
         "criticals": "Criticals"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

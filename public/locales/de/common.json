@@ -850,6 +850,12 @@
         "screenshots": "Bildschirmfotos",
         "totalfilesize": "Gesamtgröße"
     },
+    "mailcow": {
+        "domains": "Domänen",
+        "mailboxes": "Postfächer",
+        "mails": "E-Mails",
+        "storage": "Speicher"
+    },
     "netdata": {
         "warnings": "Warnungen",
         "criticals": "Kritisch"
@@ -939,5 +945,13 @@
         "average": "Durchschnitt",
         "high": "Hoch",
         "disaster": "Katastrophe"
+    },
+    "lubelogger": {
+        "vehicle": "Fahrzeug",
+        "vehicles": "Fahrzeuge",
+        "serviceRecords": "Wartungseinträge",
+        "reminders": "Erinnerungen",
+        "nextReminder": "Nächste Erinnerung",
+        "none": "Keine"
     }
 }

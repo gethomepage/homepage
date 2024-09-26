@@ -850,6 +850,12 @@
         "screenshots": "Screenshots ",
         "totalfilesize": "Totale grootte"
     },
+    "mailcow": {
+        "domains": "Domeinen",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Opslag"
+    },
     "netdata": {
         "warnings": "Waarschuwingen",
         "criticals": "Kritiek"
@@ -939,5 +945,13 @@
         "average": "Average",
         "high": "High",
         "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

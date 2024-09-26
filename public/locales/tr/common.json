@@ -850,6 +850,12 @@
         "screenshots": "Ekran görüntüleri",
         "totalfilesize": "Toplam Kapasite"
     },
+    "mailcow": {
+        "domains": "Etki Alanları",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Depo"
+    },
     "netdata": {
         "warnings": "Uyarılar",
         "criticals": "Kritik"
@@ -939,5 +945,13 @@
         "average": "Ortalama",
         "high": "Yüksek",
         "disaster": "Felaket"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

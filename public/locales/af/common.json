@@ -325,15 +325,15 @@
     },
     "technitium": {
         "totalQueries": "Navraë",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Sukses",
+        "totalServerFailure": "Mislukkings",
+        "totalNxDomain": "NX-domeine",
+        "totalRefused": "Geweier",
+        "totalAuthoritative": "Gesaghebbend",
+        "totalRecursive": "Rekursief",
+        "totalCached": "Gekas",
         "totalBlocked": "Geblok",
-        "totalDropped": "Dropped",
+        "totalDropped": "Geval",
         "totalClients": "Kliënte"
     },
     "tdarr": {
@@ -850,6 +850,12 @@
         "screenshots": "Skermskote",
         "totalfilesize": "Totale Grootte"
     },
+    "mailcow": {
+        "domains": "Domeine",
+        "mailboxes": "Posbusse",
+        "mails": "E-posse",
+        "storage": "Bergplek"
+    },
     "netdata": {
         "warnings": "Waarskuwings",
         "criticals": "Kritici"
@@ -933,11 +939,19 @@
         "tags": "Merkers"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Nie geklassifiseer nie",
         "information": "Informasie",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Waarskuwing",
+        "average": "Gemiddeld",
+        "high": "Hoog",
+        "disaster": "Ramp"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }
