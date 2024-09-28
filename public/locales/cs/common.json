@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Čeká na odpojení",
         "connectionStatusDisconnecting": "Odpojování",
         "connectionStatusDisconnected": "Odpojeno",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "",
         "uptime": "Doba spuštění",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
@@ -226,6 +226,10 @@
         "leech": "Leechované",
         "seed": "Seedované"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Stahování",
         "upload": "Nahrávání",
@@ -279,8 +283,8 @@
     },
     "netalertx": {
         "total": "Celkem",
-        "connected": "Connected",
-        "new_devices": "New Devices",
+        "connected": "",
+        "new_devices": "",
         "down_alerts": "Down Alerts"
     },
     "pihole": {
@@ -318,6 +322,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "Před {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "Dotazy",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Blokováno",
+        "totalDropped": "Dropped",
+        "totalClients": "Klienti"
     },
     "tdarr": {
         "queue": "Fronta",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domény",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Úložiště"
     },
     "netdata": {
         "warnings": "Warnings",
@@ -878,7 +905,7 @@
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "",
         "enabled": "Povoleno",
         "disabled": "Zakázáno",
         "total": "Celkem"
@@ -905,5 +932,26 @@
         "cameras": "Cameras",
         "uptime": "Doba spuštění",
         "version": "Verze"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Tags"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informace",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

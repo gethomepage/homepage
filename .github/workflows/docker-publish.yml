@@ -12,13 +12,14 @@ on:
     branches:
       - main
       - feature/**
+      - dev
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
     paths-ignore:
       - 'docs/**'
       - 'mkdocs.yml'
   pull_request:
-    branches: [ "main" ]
+    branches: [ "dev" ]
     paths-ignore:
       - 'docs/**'
       - 'mkdocs.yml'

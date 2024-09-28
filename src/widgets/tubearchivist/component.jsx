@@ -32,16 +32,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block
-        label="tubearchivist.downloads"
-        value={t("common.number", { value: downloadsData?.paginate?.total_hits })}
-      />
-      <Block label="tubearchivist.videos" value={t("common.number", { value: videosData?.paginate?.total_hits })} />
-      <Block label="tubearchivist.channels" value={t("common.number", { value: channelsData?.paginate?.total_hits })} />
-      <Block
-        label="tubearchivist.playlists"
-        value={t("common.number", { value: playlistsData?.paginate?.total_hits })}
-      />
+      <Block label="tubearchivist.downloads" value={t("common.number", { value: downloadsData.pending ?? 0 })} />
+      <Block label="tubearchivist.videos" value={t("common.number", { value: videosData.doc_count ?? 0 })} />
+      <Block label="tubearchivist.channels" value={t("common.number", { value: channelsData.doc_count ?? 0 })} />
+      <Block label="tubearchivist.playlists" value={t("common.number", { value: playlistsData.doc_count ?? 0 })} />
     </Container>
   );
 }

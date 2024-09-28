@@ -71,8 +71,8 @@
         "tx": "TX",
         "mem": "GEH",
         "cpu": "CPU",
-        "running": "Wordt uitgevoerd",
-        "offline": "Onbereikbaar",
+        "running": "Actief",
+        "offline": "Offline",
         "error": "Fout",
         "unknown": "Onbekend",
         "healthy": "Gezond",
@@ -108,8 +108,8 @@
         "songs": "Nummers"
     },
     "esphome": {
-        "offline": "Onbereikbaar",
-        "offline_alt": "Onbereikbaar",
+        "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Bereikbaar",
         "total": "Totaal",
         "unknown": "Onbekend"
@@ -226,6 +226,10 @@
         "leech": "Leech",
         "seed": "Delen"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
@@ -301,7 +305,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Wordt uitgevoerd",
+        "running": "Actief",
         "stopped": "Gestopt",
         "total": "Totaal"
     },
@@ -318,6 +322,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Geleden"
+    },
+    "technitium": {
+        "totalQueries": "Verzoeken",
+        "totalNoError": "Geslaagd",
+        "totalServerFailure": "Gefaald",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Geweigerd",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Gecached",
+        "totalBlocked": "Geblokkeerd",
+        "totalDropped": "Dropped",
+        "totalClients": "Cliënten"
     },
     "tdarr": {
         "queue": "Wachtrij",
@@ -383,7 +400,7 @@
         "version": "Versie",
         "status": "Status",
         "up": "Bereikbaar",
-        "down": "Onbereikbaar"
+        "down": "Offline"
     },
     "miniflux": {
         "read": "Gelezen",
@@ -767,7 +784,7 @@
     "gamedig": {
         "status": "Status",
         "online": "Bereikbaar",
-        "offline": "Onbereikbaar",
+        "offline": "Offline",
         "name": "Naam",
         "map": "Kaart",
         "currentPlayers": "Huidige spelers",
@@ -791,7 +808,7 @@
     "openmediavault": {
         "downloading": "Downloaden",
         "total": "Totaal",
-        "running": "Wordt uitgevoerd",
+        "running": "Actief",
         "stopped": "Gestopt",
         "passed": "Geslaagd",
         "failed": "Gefaald"
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platformen",
-        "totalRoms": "Totale ROM's"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots ",
+        "totalfilesize": "Totale grootte"
+    },
+    "mailcow": {
+        "domains": "Domeinen",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Opslag"
     },
     "netdata": {
         "warnings": "Waarschuwingen",
@@ -886,8 +913,8 @@
     "swagdashboard": {
         "proxied": "Proxied",
         "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "outdated": "Verouderd",
+        "banned": "Verbannen"
     },
     "myspeed": {
         "ping": "Ping",
@@ -895,15 +922,36 @@
         "upload": "Upload"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
+        "stocks": "Aandelen",
+        "loading": "Laden",
         "open": "Open - US Market",
         "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "invalidConfiguration": "Ongeldige configuratie"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Camera's",
         "uptime": "Online",
         "version": "Versie"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Label"
+    },
+    "zabbix": {
+        "unclassified": "Niet geclassificeerd",
+        "information": "Informatie",
+        "warning": "Waarschuwingen",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

@@ -1,6 +1,8 @@
 ---
 title: Service Widgets
 description: Homepage service widgets.
+search:
+  exclude: true
 ---
 
 You can also find a list of all available service widgets in the sidebar navigation.
@@ -22,6 +24,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [CrowdSec](crowdsec.md)
 - [Custom API](customapi.md)
 - [Deluge](deluge.md)
+- [DeveLanCacheUI](develancacheui.md)
 - [DiskStation](diskstation.md)
 - [DownloadStation](downloadstation.md)
 - [Emby](emby.md)
@@ -55,7 +58,10 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Komga](komga.md)
 - [Kopia](kopia.md)
 - [Lidarr](lidarr.md)
+- [Linkwarden](linkwarden.md)
+- [Lubelogger](lubelogger.md)
 - [Mastodon](mastodon.md)
+- [Mailcow](mailcow.md)
 - [Mealie](mealie.md)
 - [Medusa](medusa.md)
 - [Mikrotik](mikrotik.md)
@@ -111,6 +117,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Syncthing Relay Server](syncthing-relay-server.md)
 - [Tailscale](tailscale.md)
 - [Tandoor](tandoor.md)
+- [Technitium DNS](technitium.md)
 - [TDarr](tdarr.md)
 - [Traefik](traefik.md)
 - [Transmission](transmission.md)
@@ -125,3 +132,4 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [WGEasy](wgeasy.md)
 - [WhatsUpDocker](whatsupdocker.md)
 - [xTeVe](xteve.md)
+- [Zabbix](zabbix.md)

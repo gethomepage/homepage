@@ -226,6 +226,10 @@
         "leech": "リーチ",
         "seed": "シード"
     },
+    "develancacheui": {
+        "cachehitbytes": "キャッシュ・ヒットバイト",
+        "cachemissbytes": "キャッシュミスバイト"
+    },
     "downloadstation": {
         "download": "ダウンロード",
         "upload": "アップロード",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}分",
         "seconds": "{{number}}秒",
         "ago": "{{value}} 前"
+    },
+    "technitium": {
+        "totalQueries": "クエリ",
+        "totalNoError": "成功",
+        "totalServerFailure": "失敗",
+        "totalNxDomain": "NXドメイン",
+        "totalRefused": "拒否",
+        "totalAuthoritative": "正式",
+        "totalRecursive": "再帰的",
+        "totalCached": "キャッシュ済み",
+        "totalBlocked": "ブロック中",
+        "totalDropped": "ドロップ済み",
+        "totalClients": "クライアント"
     },
     "tdarr": {
         "queue": "キュー",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "プラットフォーム",
-        "totalRoms": "ROMの合計"
+        "totalRoms": "ゲーム",
+        "saves": "保存",
+        "states": "状態",
+        "screenshots": "スクリーンショット",
+        "totalfilesize": "合計サイズ"
+    },
+    "mailcow": {
+        "domains": "ドメイン",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "ストレージ"
     },
     "netdata": {
         "warnings": "警告",
@@ -884,10 +911,10 @@
         "total": "合計"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "プロキシ済",
+        "auth": "認証あり",
+        "outdated": "最新の状態ではありません",
+        "banned": "禁止"
     },
     "myspeed": {
         "ping": "Ping",
@@ -895,15 +922,36 @@
         "upload": "アップロード"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "在庫",
+        "loading": "読み込み中",
+        "open": "オープン - 米国市場",
+        "closed": "クローズ - 米国市場",
+        "invalidConfiguration": "無効な設定"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "カメラ",
         "uptime": "稼働時間",
         "version": "バージョン"
+    },
+    "linkwarden": {
+        "links": "リンク",
+        "collections": "コレクション",
+        "tags": "タグ"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "情報",
+        "warning": "警告",
+        "average": "平均",
+        "high": "高い",
+        "disaster": "災害"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

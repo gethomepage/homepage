@@ -110,14 +110,14 @@
     "esphome": {
         "offline": "중지",
         "offline_alt": "중지",
-        "online": "Online",
+        "online": "온라인",
         "total": "총합",
         "unknown": "알 수 없음"
     },
     "evcc": {
         "pv_power": "Production",
         "battery_soc": "배터리",
-        "grid_power": "Grid",
+        "grid_power": "눈금",
         "home_power": "Consumption",
         "charge_power": "Charger",
         "watt_hour": "Wh"
@@ -129,8 +129,8 @@
         "seed": "시드"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "읽지 않음"
+        "subscriptions": "구독",
+        "unread": "미열람"
     },
     "fritzbox": {
         "connectionStatus": "상태",
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Pending Disconnect",
         "connectionStatusDisconnecting": "연결을 끊는 중...",
         "connectionStatusDisconnected": "연결 끊김",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "연결됨",
         "uptime": "Uptime",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
@@ -161,7 +161,7 @@
     },
     "channelsdvrserver": {
         "shows": "보기",
-        "recordings": "Recordings",
+        "recordings": "녹화",
         "scheduled": "예정됨",
         "passes": "Passes"
     },
@@ -213,18 +213,22 @@
         "seed": "시드"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
+        "cpuUsage": "CPU 사용",
+        "memUsage": "메모리 사용",
+        "systemTempC": "시스템 온도",
         "poolUsage": "Pool Usage",
         "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "invalid": "잘못됨"
     },
     "deluge": {
         "download": "다운로드",
         "upload": "업로드",
         "leech": "리치",
         "seed": "시드"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
         "download": "다운로드",
@@ -279,7 +283,7 @@
     },
     "netalertx": {
         "total": "총합",
-        "connected": "Connected",
+        "connected": "연결됨",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
     },
@@ -309,8 +313,8 @@
         "address": "주소",
         "expires": "만료",
         "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
+        "last_seen": "마지막 접속",
+        "now": "지금",
         "years": "{{number}}년",
         "weeks": "{{number}}월",
         "days": "{{number}}일",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}분",
         "seconds": "{{number}}초",
         "ago": "{{value}} 전"
+    },
+    "technitium": {
+        "totalQueries": "쿼리",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "차단됨",
+        "totalDropped": "Dropped",
+        "totalClients": "클라이언트"
     },
     "tdarr": {
         "queue": "대기열",
@@ -359,7 +376,7 @@
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
-        "configured": "Configured",
+        "configured": "구성됨",
         "errored": "오류"
     },
     "strelaysrv": {
@@ -370,7 +387,7 @@
     },
     "mastodon": {
         "user_count": "사용자",
-        "status_count": "Posts",
+        "status_count": "게시글",
         "domain_count": "Domains"
     },
     "medusa": {
@@ -382,31 +399,31 @@
         "players": "Players",
         "version": "버전",
         "status": "상태",
-        "up": "Online",
+        "up": "온라인",
         "down": "중지"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "읽지 않음"
+        "read": "읽음",
+        "unread": "미열람"
     },
     "authentik": {
         "users": "사용자",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "loginsLast24H": "로그인 (24h)",
+        "failedLoginsLast24H": "실패한 로그인 (24h)"
     },
     "proxmox": {
         "mem": "MEM",
         "cpu": "CPU",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "가상머신"
     },
     "glances": {
         "cpu": "CPU",
         "load": "부하",
         "wait": "잠시만 기다리세요",
         "temp": "온도",
-        "_temp": "Temp",
-        "warn": "Warn",
+        "_temp": "온도",
+        "warn": "경고",
         "uptime": "가동",
         "total": "총합",
         "free": "남음",
@@ -414,30 +431,30 @@
         "days": "d",
         "hours": "h",
         "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "read": "읽음",
+        "write": "쓰기",
         "gpu": "GPU",
-        "mem": "Mem",
+        "mem": "Men",
         "swap": "Swap"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service",
-        "search": "Search",
-        "custom": "Custom",
+        "bookmark": "즐겨찾기",
+        "service": "서비스",
+        "search": "검색",
+        "custom": "사용자 정의",
         "visit": "Visit",
         "url": "URL",
         "searchsuggestion": "Suggestion"
     },
     "wmo": {
-        "0-day": "Sunny",
+        "0-day": "화창함",
         "0-night": "Clear",
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
         "2-day": "Partly Cloudy",
         "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
+        "3-day": "구름 낀",
+        "3-night": "구름 낀",
         "45-day": "Foggy",
         "45-night": "Foggy",
         "48-day": "Foggy",
@@ -462,14 +479,14 @@
         "66-night": "Freezing Rain",
         "67-day": "Freezing Rain",
         "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
+        "71-day": "약한 눈",
+        "71-night": "약한 눈",
         "73-day": "Snow",
         "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
+        "75-day": "폭설",
+        "75-night": "폭설",
+        "77-day": "싸락눈",
+        "77-night": "싸락눈",
         "80-day": "Light Showers",
         "80-night": "Light Showers",
         "81-day": "Showers",
@@ -489,9 +506,9 @@
     },
     "homebridge": {
         "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "updates": "업데이트",
+        "update_available": "새 업데이트 사용 가능",
+        "up_to_date": "최신 상태",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
@@ -499,7 +516,7 @@
         "down": "Down"
     },
     "healthchecks": {
-        "new": "New",
+        "new": "신규",
         "up": "Up",
         "grace": "In Grace Period",
         "down": "Down",
@@ -521,9 +538,9 @@
     },
     "tubearchivist": {
         "downloads": "대기열",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "videos": "동영상",
+        "channels": "채널",
+        "playlists": "재생 목록"
     },
     "truenas": {
         "load": "System Load",
@@ -542,16 +559,16 @@
         "country": "Country"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "채널",
         "hd": "HD",
         "tunerCount": "Tuners",
-        "channelNumber": "Channel",
-        "channelNetwork": "Network",
+        "channelNumber": "채널",
+        "channelNetwork": "네트워크",
         "signalStrength": "Strength",
         "signalQuality": "Quality",
         "symbolQuality": "Quality",
         "networkRate": "비트레이트",
-        "clientIP": "Client"
+        "clientIP": "클라이언트"
     },
     "scrutiny": {
         "passed": "Passed",
@@ -559,16 +576,16 @@
         "unknown": "알 수 없음"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
+        "inbox": "받은메일함",
         "total": "총합"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
+        "battery_charge": "배터리 충전 중",
         "ups_load": "UPS Load",
         "ups_status": "UPS Status",
-        "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "online": "온라인",
+        "on_battery": "배터리 사용",
+        "low_battery": "배터리 부족"
     },
     "nextdns": {
         "wait": "잠시만 기다리세요",
@@ -576,20 +593,20 @@
     },
     "mikrotik": {
         "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
+        "memoryUsed": "메모리 사용량",
         "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "All Streams",
+        "streams_all": "모든 스트림",
         "streams_active": "활성 스트림",
         "streams_xepg": "XEPG Channels"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "yieldDay": "오늘",
+        "absolutePower": "전원",
+        "relativePower": "전원 %",
+        "limit": "제한"
     },
     "opnsense": {
         "cpu": "CPU Load",
@@ -600,7 +617,7 @@
     "moonraker": {
         "printer_state": "Printer State",
         "print_status": "Print Status",
-        "print_progress": "Progress",
+        "print_progress": "진행",
         "layers": "Layers"
     },
     "octoprint": {
@@ -619,7 +636,7 @@
         "wanStatus": "WAN Status",
         "up": "Up",
         "down": "Down",
-        "temp": "Temp",
+        "temp": "온도",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
     },
@@ -631,9 +648,9 @@
     },
     "immich": {
         "users": "사용자",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "photos": "사진",
+        "videos": "동영상",
+        "storage": "저장됨"
     },
     "uptimekuma": {
         "up": "Sites Up",
@@ -646,10 +663,10 @@
         "series": "시리즈",
         "archives": "Archives",
         "chapters": "Chapters",
-        "categories": "Categories"
+        "categories": "분류"
     },
     "komga": {
-        "libraries": "Libraries",
+        "libraries": "서재",
         "series": "시리즈",
         "books": "책"
     },
@@ -665,8 +682,8 @@
     },
     "photoprism": {
         "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
+        "photos": "사진",
+        "videos": "동영상",
         "people": "People"
     },
     "fileflows": {
@@ -676,18 +693,18 @@
         "time": "Time"
     },
     "grafana": {
-        "dashboards": "Dashboards",
+        "dashboards": "대시보드",
         "datasources": "Data Sources",
         "totalalerts": "Total Alerts",
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "cpuload": "CPU 부하량",
+        "memoryusage": "메모리 사용량",
+        "freespace": "여유 공간",
+        "activeusers": "활성 유저",
+        "numfiles": "파일",
+        "numshares": "공유된 항목"
     },
     "kopia": {
         "status": "상태",
@@ -703,7 +720,7 @@
     },
     "pterodactyl": {
         "servers": "Servers",
-        "nodes": "Nodes"
+        "nodes": "노드"
     },
     "prometheus": {
         "targets_up": "Targets Up",
@@ -716,15 +733,15 @@
         "uptime": "Uptime"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "오늘",
         "gross_percent_1y": "One year",
         "gross_percent_max": "All time"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
         "books": "책",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcastsDuration": "지속시간",
+        "booksDuration": "지속시간"
     },
     "homeassistant": {
         "people_home": "People Home",
@@ -733,12 +750,12 @@
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
-        "updates": "Updates"
+        "updates": "업데이트"
     },
     "calibreweb": {
         "books": "책",
-        "authors": "Authors",
-        "categories": "Categories",
+        "authors": "저자",
+        "categories": "분류",
         "series": "시리즈"
     },
     "jdownloader": {
@@ -749,7 +766,7 @@
     },
     "kavita": {
         "seriesCount": "시리즈",
-        "totalFiles": "Files"
+        "totalFiles": "파일"
     },
     "azuredevops": {
         "result": "Result",
@@ -766,30 +783,30 @@
     },
     "gamedig": {
         "status": "상태",
-        "online": "Online",
+        "online": "온라인",
         "offline": "중지",
-        "name": "Name",
-        "map": "Map",
+        "name": "이름",
+        "map": "지도",
         "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
-        "bots": "Bots",
+        "bots": "봇",
         "ping": "Ping"
     },
     "urbackup": {
-        "ok": "Ok",
-        "errored": "Errors",
+        "ok": "확인",
+        "errored": "오류 :",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
     "mealie": {
         "recipes": "Recipes",
         "users": "사용자",
-        "categories": "Categories",
-        "tags": "Tags"
+        "categories": "분류",
+        "tags": "태그"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "다운로드 중",
         "total": "총합",
         "running": "가동 중",
         "stopped": "중지",
@@ -826,8 +843,18 @@
         "noEventsFound": "No events found"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "기종",
+        "totalRoms": "게임",
+        "saves": "세이브",
+        "states": "스테이트",
+        "screenshots": "스크린샷",
+        "totalfilesize": "전체 용량"
+    },
+    "mailcow": {
+        "domains": "Domains",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "저장됨"
     },
     "netdata": {
         "warnings": "Warnings",
@@ -836,16 +863,16 @@
     "plantit": {
         "events": "Events",
         "plants": "Plants",
-        "photos": "Photos",
+        "photos": "사진",
         "species": "Species"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "알림",
         "issues": "Issues",
         "pulls": "Pull Requests"
     },
     "stash": {
-        "scenes": "Scenes",
+        "scenes": "장면",
         "scenesPlayed": "Scenes Played",
         "playCount": "Total Plays",
         "playDuration": "Time Watched",
@@ -855,18 +882,18 @@
         "imageSize": "Images Size",
         "galleries": "Galleries",
         "performers": "Performers",
-        "studios": "Studios",
+        "studios": "스튜디오",
         "movies": "영화",
-        "tags": "Tags",
+        "tags": "태그",
         "oCount": "O Count"
     },
     "tandoor": {
         "users": "사용자",
         "recipes": "Recipes",
-        "keywords": "Keywords"
+        "keywords": "키워드"
     },
     "homebox": {
-        "items": "Items",
+        "items": "아이템",
         "totalWithWarranty": "With Warranty",
         "locations": "Locations",
         "labels": "Labels",
@@ -878,7 +905,7 @@
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "연결됨",
         "enabled": "활성",
         "disabled": "비활성",
         "total": "총합"
@@ -896,14 +923,35 @@
     },
     "stocks": {
         "stocks": "Stocks",
-        "loading": "Loading",
+        "loading": "로드 중",
         "open": "Open - US Market",
         "closed": "Closed - US Market",
         "invalidConfiguration": "Invalid Configuration"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "카메라",
         "uptime": "Uptime",
         "version": "버전"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "태그"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "정보",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

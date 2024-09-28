@@ -226,6 +226,10 @@
         "leech": "In download",
         "seed": "Seed"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
@@ -287,7 +291,7 @@
         "queries": "Richieste",
         "blocked": "Bloccati",
         "blocked_percent": "Bloccato %",
-        "gravity": "Severità"
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Richieste",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Fa"
+    },
+    "technitium": {
+        "totalQueries": "Richieste",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Bloccati",
+        "totalDropped": "Dropped",
+        "totalClients": "Client"
     },
     "tdarr": {
         "queue": "Coda",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Piattaforme",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domini",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Archiviazione"
     },
     "netdata": {
         "warnings": "Avvisi",
@@ -905,5 +932,26 @@
         "cameras": "Cameras",
         "uptime": "Tempo di attività",
         "version": "Versione"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Tag"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informazioni",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

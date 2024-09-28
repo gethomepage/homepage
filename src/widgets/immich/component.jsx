@@ -10,7 +10,8 @@ export default function Component({ service }) {
 
   const { data: versionData, error: versionError } = useWidgetAPI(widget, "version");
   // see https://github.com/gethomepage/homepage/issues/2282
-  const endpoint = versionData?.major >= 1 && versionData?.minor > 84 ? "statistics" : "stats";
+  const endpoint =
+    versionData?.major > 1 || (versionData?.major === 1 && versionData?.minor > 84) ? "statistics" : "stats";
   const { data: immichData, error: immichError } = useWidgetAPI(widget, endpoint);
 
   if (immichError || versionError || immichData?.statusCode === 401) {

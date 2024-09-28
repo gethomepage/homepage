@@ -57,6 +57,11 @@
   --carbon-text-color: var(--md-typeset-color) !important;
 }
 
+[data-md-color-scheme="default"] .carbon-text {
+  color: var(--md-code-fg-color) !important;
+  --carbon-text-color: #313131 !important;
+}
+
 .md-typeset__table {
   width: 100%;
 }

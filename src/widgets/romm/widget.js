@@ -6,7 +6,7 @@ const widget = {
 
   mappings: {
     statistics: {
-      endpoint: "platforms",
+      endpoint: "stats",
     },
   },
 };

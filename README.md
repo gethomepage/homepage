@@ -20,7 +20,7 @@
   &nbsp;
   <a href="https://discord.gg/k4ruYNrudu"><img alt="Discord" src="https://img.shields.io/discord/1019316731635834932"></a>
   &nbsp;
-  <a href="http://gethomepage.dev/latest/" title="Docs"><img title="Docs" src="https://github.com/gethomepage/homepage/actions/workflows/docs-publish.yml/badge.svg"/></a>
+  <a href="https://gethomepage.dev/" title="Docs"><img title="Docs" src="https://github.com/gethomepage/homepage/actions/workflows/docs-publish.yml/badge.svg"/></a>
   &nbsp;
   <a href="https://paypal.me/phelpsben" title="Donate"><img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/benphelps"></a>
 </p>
@@ -48,19 +48,19 @@ With features like quick search, bookmarks, weather support, a wide range of int
 
 ## Docker Integration
 
-Homepage has built-in support for Docker, and can automatically discover and add services to the homepage based on labels. See the [Docker Service Discovery](https://gethomepage.dev/latest/configs/docker/#automatic-service-discovery) page for more information.
+Homepage has built-in support for Docker, and can automatically discover and add services to the homepage based on labels. See the [Docker Service Discovery](https://gethomepage.dev/configs/docker/#automatic-service-discovery) page for more information.
 
 ## Service Widgets
 
-Homepage also has support for over 100 3rd party services, including all popular starr apps, and most popular self-hosted apps. Some examples include: Radarr, Sonarr, Lidarr, Bazarr, Ombi, Tautulli, Plex, Jellyfin, Emby, Transmission, qBittorrent, Deluge, Jackett, NZBGet, SABnzbd, etc. As well as service integrations, Homepage also has a number of information providers, sourcing information from a variety of external 3rd party APIs. See the [Service](https://gethomepage.dev/latest/widgets/) page for more information.
+Homepage also has support for over 100 3rd party services, including all popular starr apps, and most popular self-hosted apps. Some examples include: Radarr, Sonarr, Lidarr, Bazarr, Ombi, Tautulli, Plex, Jellyfin, Emby, Transmission, qBittorrent, Deluge, Jackett, NZBGet, SABnzbd, etc. As well as service integrations, Homepage also has a number of information providers, sourcing information from a variety of external 3rd party APIs. See the [Service](https://gethomepage.dev/widgets/) page for more information.
 
 ## Information Widgets
 
-Homepage has built-in support for a number of information providers, including weather, time, date, search, glances and more. System and status information presented at the top of the page. See the [Information Providers](https://gethomepage.dev/latest/widgets/) page for more information.
+Homepage has built-in support for a number of information providers, including weather, time, date, search, glances and more. System and status information presented at the top of the page. See the [Information Providers](https://gethomepage.dev/widgets/) page for more information.
 
 ## Customization
 
-Homepage is highly customizable, with support for custom themes, custom CSS & JS, custom layouts, formatting, localization and more. See the [Settings](https://gethomepage.dev/latest/configs/settings/) page for more information.
+Homepage is highly customizable, with support for custom themes, custom CSS & JS, custom layouts, formatting, localization and more. See the [Settings](https://gethomepage.dev/configs/settings/) page for more information.
 
 # Getting Started
 
@@ -75,14 +75,13 @@ Please note that when using features such as widgets, Homepage can access person
 Using docker compose:
 
 ```yaml
-version: "3.3"
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
-      PUID: 1000 -- optional, your user id
-      PGID: 1000 -- optional, your group id
+      PUID: 1000 # optional, your user id
+      PGID: 1000 # optional, your group id
     ports:
       - 3000:3000
     volumes:
@@ -104,7 +103,7 @@ docker run --name homepage \
   ghcr.io/gethomepage/homepage:latest
 ```
 
-## With Node
+## From Source
 
 First, clone the repository:
 
@@ -127,15 +126,9 @@ Finally, run the server in production mode:
 pnpm start
 ```
 
-or development mode:
-
-```bash
-pnpm dev
-```
-
 # Configuration
 
-Please refer to the [homepage documentation](https://gethomepage.dev/) website for more information. Everything you need to know about configuring Homepage is there. Please read everything carefully before asking for help, as most questions are answered there or are simple YAML configuration issues.
+Please refer to the [homepage documentation website](https://gethomepage.dev/) for more information. Everything you need to know about configuring Homepage is there. Please read everything carefully before asking for help, as most questions are answered there or are simple YAML configuration issues.
 
 # Development
 
@@ -174,6 +167,10 @@ mkdocs serve # or build, to build the static site
 # Support & Suggestions
 
 If you have any questions, suggestions, or general issues, please start a discussion on the [Discussions](https://github.com/gethomepage/homepage/discussions) page.
+
+## Troubleshooting
+
+In addition to the docs, the [troubleshooting guide](https://gethomepage.dev/troubleshooting/) can help reveal many basic config or network issues. If you're having a problem, it's a good place to start.
 
 ## Contributing & Contributors
 

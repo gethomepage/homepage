@@ -226,6 +226,10 @@
         "leech": "Seier",
         "seed": "Vul"
     },
+    "develancacheui": {
+        "cachehitbytes": "Kas Tref Grepe",
+        "cachemissbytes": "Kas Mis Grepe"
+    },
     "downloadstation": {
         "download": "Aflaai",
         "upload": "Laai Op",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Terug"
+    },
+    "technitium": {
+        "totalQueries": "Navraë",
+        "totalNoError": "Sukses",
+        "totalServerFailure": "Mislukkings",
+        "totalNxDomain": "NX-domeine",
+        "totalRefused": "Geweier",
+        "totalAuthoritative": "Gesaghebbend",
+        "totalRecursive": "Rekursief",
+        "totalCached": "Gekas",
+        "totalBlocked": "Geblok",
+        "totalDropped": "Geval",
+        "totalClients": "Kliënte"
     },
     "tdarr": {
         "queue": "Tou",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platform",
-        "totalRoms": "Totale ROMs"
+        "totalRoms": "Spelle",
+        "saves": "Beware",
+        "states": "Toestande",
+        "screenshots": "Skermskote",
+        "totalfilesize": "Totale Grootte"
+    },
+    "mailcow": {
+        "domains": "Domeine",
+        "mailboxes": "Posbusse",
+        "mails": "E-posse",
+        "storage": "Bergplek"
     },
     "netdata": {
         "warnings": "Waarskuwings",
@@ -902,8 +929,29 @@
         "invalidConfiguration": "Ongeldige opstelling"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kameras",
         "uptime": "Optyd",
         "version": "Weergawe"
+    },
+    "linkwarden": {
+        "links": "Skakels",
+        "collections": "Versamelings",
+        "tags": "Merkers"
+    },
+    "zabbix": {
+        "unclassified": "Nie geklassifiseer nie",
+        "information": "Informasie",
+        "warning": "Waarskuwing",
+        "average": "Gemiddeld",
+        "high": "Hoog",
+        "disaster": "Ramp"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

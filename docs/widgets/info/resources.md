@@ -9,6 +9,8 @@ The disk path is the path reported by `df` (Mounted On), or the mount point of t
 
 The cpu and memory resource information are the container's usage while [glances](glances.md) displays statistics for the host machine on which it is installed.
 
+The resources widget primarily relies on a popular tool called [systeminformation](https://systeminformation.io). Thus, any limitiations of that software apply, for example, BRTFS RAID is not supported for the disk usage. In this case users may want to use the [glances widget](glances.md) instead.
+
 _Note: unfortunately, the package used for getting CPU temp ([systeminformation](https://systeminformation.io)) is not compatible with some setups and will not report any value(s) for CPU temp._
 
 **Any disk you wish to access must be mounted to your container as a volume.**

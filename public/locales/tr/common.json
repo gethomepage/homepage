@@ -226,6 +226,10 @@
         "leech": "Tüketici",
         "seed": "Sağlayıcı"
     },
+    "develancacheui": {
+        "cachehitbytes": "Önbellek İsabetli Byte",
+        "cachemissbytes": "Önbellek Kaçırılan Byte"
+    },
     "downloadstation": {
         "download": "İndirme",
         "upload": "Yükleme",
@@ -318,6 +322,19 @@
         "minutes": "{{number}} Dakika",
         "seconds": "{{number}} Saniye",
         "ago": "{{value}} Önce"
+    },
+    "technitium": {
+        "totalQueries": "Sorgular",
+        "totalNoError": "Başarılı",
+        "totalServerFailure": "Başarısızlıklar",
+        "totalNxDomain": "NX Alan Adları",
+        "totalRefused": "Reddedildi",
+        "totalAuthoritative": "Yetkili",
+        "totalRecursive": "Tekrarlamalı",
+        "totalCached": "Önbelleğe alındı",
+        "totalBlocked": "Engellenen",
+        "totalDropped": "Bırakıldı",
+        "totalClients": "Alıcılar"
     },
     "tdarr": {
         "queue": "Kuyruk",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platformlar",
-        "totalRoms": "Toplam ROM'lar"
+        "totalRoms": "Oyunlar",
+        "saves": "Kayıtlar",
+        "states": "Durumlar",
+        "screenshots": "Ekran görüntüleri",
+        "totalfilesize": "Toplam Kapasite"
+    },
+    "mailcow": {
+        "domains": "Etki Alanları",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Depo"
     },
     "netdata": {
         "warnings": "Uyarılar",
@@ -902,8 +929,29 @@
         "invalidConfiguration": "Geçersiz Yapılandırma"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kameralar",
         "uptime": "Çalışma Süresi",
         "version": "Versiyon"
+    },
+    "linkwarden": {
+        "links": "Bağlantılar",
+        "collections": "Koleksiyonlar",
+        "tags": "Etiketler"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Bilgi",
+        "warning": "Uyarı",
+        "average": "Ortalama",
+        "high": "Yüksek",
+        "disaster": "Felaket"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

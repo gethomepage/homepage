@@ -19,6 +19,7 @@ const components = {
   iframe: dynamic(() => import("./iframe/component")),
   customapi: dynamic(() => import("./customapi/component")),
   deluge: dynamic(() => import("./deluge/component")),
+  develancacheui: dynamic(() => import("./develancacheui/component")),
   diskstation: dynamic(() => import("./diskstation/component")),
   downloadstation: dynamic(() => import("./downloadstation/component")),
   docker: dynamic(() => import("./docker/component")),
@@ -54,6 +55,9 @@ const components = {
   komga: dynamic(() => import("./komga/component")),
   kopia: dynamic(() => import("./kopia/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
+  linkwarden: dynamic(() => import("./linkwarden/component")),
+  lubelogger: dynamic(() => import("./lubelogger/component")),
+  mailcow: dynamic(() => import("./mailcow/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   mealie: dynamic(() => import("./mealie/component")),
   medusa: dynamic(() => import("./medusa/component")),
@@ -110,6 +114,7 @@ const components = {
   tailscale: dynamic(() => import("./tailscale/component")),
   tandoor: dynamic(() => import("./tandoor/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
+  technitium: dynamic(() => import("./technitium/component")),
   tdarr: dynamic(() => import("./tdarr/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
@@ -125,6 +130,7 @@ const components = {
   wgeasy: dynamic(() => import("./wgeasy/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
+  zabbix: dynamic(() => import("./zabbix/component")),
 };
 
 export default components;
