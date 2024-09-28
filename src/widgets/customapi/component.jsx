@@ -9,6 +9,11 @@ function getValue(field, data) {
   let lastField = field;
   let key = "";
 
+  // Support APIs that return arrays or scalars directly.
+  if (typeof field === "undefined") {
+    return value;
+  }
+
   while (typeof lastField === "object") {
     key = Object.keys(lastField)[0] ?? null;
 
@@ -25,6 +30,16 @@ function getValue(field, data) {
   }
 
   return value[lastField] ?? null;
+}
+
+function getSize(data) {
+  if (Array.isArray(data) || typeof data === "string") {
+    return data.length;
+  } else if (typeof data === "object" && data !== null) {
+    return Object.keys(data).length;
+  }
+
+  return NaN;
 }
 
 function formatValue(t, mapping, rawValue) {
@@ -84,6 +99,9 @@ function formatValue(t, mapping, rawValue) {
         style: mapping?.style,
         numeric: mapping?.numeric,
       });
+      break;
+    case "size":
+      value = t("common.number", { value: getSize(value) });
       break;
     case "text":
     default:

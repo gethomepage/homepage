@@ -65,9 +65,13 @@ Services may have descriptions,
 
 Services may have an icon attached to them, you can use icons from [Dashboard Icons](https://github.com/walkxcode/dashboard-icons) automatically, by passing the name of the icon, with, or without `.png` or with `.svg` to use the svg version.
 
-You can also specify prefixed icons from [Material Design Icons](https://materialdesignicons.com) with `mdi-XX` or [Simple Icons](https://simpleicons.org/) with `si-XX`.
+You can also specify prefixed icons from:
 
-You can specify a custom color by adding a hex color code as suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
+- [Material Design Icons](https://pictogrammers.com/library/mdi/) with `mdi-XX`
+- [Simple Icons](https://simpleicons.org/) with `si-XX`
+- [selfh.st/icons](https://selfh.st/icons/) with `sh-XX` to use the png version or `sh-XX.svg/png/webp` for a specific version
+
+You can specify a custom color for `mdi` and `si` icons by adding a hex color code as a suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
 
 To use a remote icon, use the absolute URL (e.g. `https://...`).
 
@@ -171,7 +175,7 @@ Services may be connected to a Docker container, either running on the local mac
 
 !!! note
 
-      This can also be controlled with `showStats`. See [show docker stats](docker.md#show-docker-stats) for more information
+      This can also be controlled with `showStats`. See [show docker stats](docker.md#show-stats) for more information
 
 <img width="1038" alt="Docker Stats Expanded" src="https://github.com/gethomepage/homepage/assets/88257202/f95fd595-449e-48ae-af67-fd89618904ec">
 

@@ -35,9 +35,16 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (
-        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "tandoor", "pterodactyl"].includes(
-          widget.type,
-        )
+        [
+          "authentik",
+          "cloudflared",
+          "ghostfolio",
+          "linkwarden",
+          "mealie",
+          "tailscale",
+          "tandoor",
+          "pterodactyl",
+        ].includes(widget.type)
       ) {
         headers.Authorization = `Bearer ${widget.key}`;
       } else if (widget.type === "truenas") {
@@ -77,6 +84,12 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Key = `${widget.key}`;
       } else if (widget.type === "myspeed") {
         headers.Password = `${widget.password}`;
+      } else if (widget.type === "esphome") {
+        if (widget.key) {
+          headers.Cookie = `authenticated=${widget.key}`;
+        }
+      } else if (widget.type === "wgeasy") {
+        headers.Authorization = widget.password;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

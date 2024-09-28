@@ -79,7 +79,21 @@ By default the key is passed as an `X-API-Key` header. If you need to pass the k
 
 ### `jsonrpcProxyHandler`
 
-A proxy handler that makes authenticated JSON-RPC requests to the specified API endpoint. Where the endpoint is the method to call.
+A proxy handler that makes authenticated JSON-RPC requests to the specified API endpoint, either using username + password or an API token.
+The endpoint is the method to call and queryParams are used as the parameters.
+
+=== "component.js"
+
+    ```js
+    import Container from "components/services/widget/container";
+    import useWidgetAPI from "utils/proxy/use-widget-api";
+
+    export default function Component({ service }) {
+      const { widget } = service;
+
+      const { data, error } = useWidgetAPI(widget, 'trigger', { "triggerids": "14062", "output": "extend", "selectFunctions": "extend" });
+    }
+    ```
 
 === "widget.js"
 
@@ -93,6 +107,7 @@ A proxy handler that makes authenticated JSON-RPC requests to the specified API 
       mappings: {
         total: { endpoint: "total" },
         average: { endpoint: "average" },
+        trigger: { endpoint: "trigger.get" },
       },
     };
     ```
@@ -108,6 +123,16 @@ A proxy handler that makes authenticated JSON-RPC requests to the specified API 
           url: http://127.0.0.1:1337
           username: your-username
           password: your-password
+    ```
+
+    ```yaml
+    - Your Widget:
+        icon: yourwidget.svg
+        href: https://example.com/
+        widget:
+          type: yourwidget
+          url: http://127.0.0.1:1337
+          key: your-api-token
     ```
 
 ### `synologyProxyHandler`

@@ -6,7 +6,6 @@ description: Install and run homepage from Docker
 Using docker compose:
 
 ```yaml
-version: "3.3"
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -27,7 +26,6 @@ _Using the docker socket directly is not the recommended method of integration a
 In the docker compose example below, the environment variables `$PUID` and `$PGID` are set in a `.env` file.
 
 ```yaml
-version: "3.3"
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest

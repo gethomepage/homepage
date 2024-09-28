@@ -57,6 +57,7 @@ self-hosted / open-source alternative, we ask that any widgets, etc. are develop
 To ensure cohesiveness of various widgets, the following should be used as a guide for developing new widgets:
 
 - Please only submit widgets that have been requested and have at least 10 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of service widgets that might only benefit a small number of users.
+- Note that we reserve the right to decline widgets for projects that are very young (eg < ~1y) or those with a small reach (eg low GitHub stars). Again, this is in an effort to keep overall widget maintenance under control.
 - Widgets should be only one row of blocks
 - Widgets should be no more than 4 blocks wide and generally conform to the styling / design choices of other widgets
 - Minimize the number of API calls

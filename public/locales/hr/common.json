@@ -226,6 +226,10 @@
         "leech": "Korištenje tuđeg sadržaja",
         "seed": "Prenošenje preuzetog sadržaja"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Preuzimanje",
         "upload": "Prijenos",
@@ -318,6 +322,19 @@
         "minutes": "{{number}} min",
         "seconds": "{{number}} s",
         "ago": "Prije {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "Upiti",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Blokirano",
+        "totalDropped": "Dropped",
+        "totalClients": "Klijenti"
     },
     "tdarr": {
         "queue": "Red čekanja",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platforme",
-        "totalRoms": "Ukupne ROM memorije"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domene",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Spremište"
     },
     "netdata": {
         "warnings": "Upozorenja",
@@ -905,5 +932,26 @@
         "cameras": "Cameras",
         "uptime": "Vrijeme rada",
         "version": "Verzija"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Oznake"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informacije",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

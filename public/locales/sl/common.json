@@ -226,6 +226,10 @@
         "leech": "Pijavka",
         "seed": "Sejanje"
     },
+    "develancacheui": {
+        "cachehitbytes": "Predpomn. zadetki",
+        "cachemissbytes": "Predpomn. zgrešeno"
+    },
     "downloadstation": {
         "download": "Prenos",
         "upload": "Nalaganje",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} nazaj"
+    },
+    "technitium": {
+        "totalQueries": "Poizvedbe",
+        "totalNoError": "Uspeh",
+        "totalServerFailure": "Neuspehi",
+        "totalNxDomain": "NX domene",
+        "totalRefused": "Zavrnjeno",
+        "totalAuthoritative": "Avtoratitavno",
+        "totalRecursive": "Rekurzivno",
+        "totalCached": "Predpomnjeno",
+        "totalBlocked": "Blokirano",
+        "totalDropped": "Izpuščeno",
+        "totalClients": "Klienti"
     },
     "tdarr": {
         "queue": "Vrsta",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platforme",
-        "totalRoms": "Skupaj ROM-ov"
+        "totalRoms": "Igre",
+        "saves": "Shranitve",
+        "states": "Stanja",
+        "screenshots": "Posnetki zaslona",
+        "totalfilesize": "Skupna velikost"
+    },
+    "mailcow": {
+        "domains": "Domene",
+        "mailboxes": "Nabiralniki",
+        "mails": "Pošta",
+        "storage": "Shramba"
     },
     "netdata": {
         "warnings": "Opozorila",
@@ -902,8 +929,29 @@
         "invalidConfiguration": "Neveljavna konfiguracija"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kamere",
         "uptime": "Čas delovanja",
         "version": "Verzija"
+    },
+    "linkwarden": {
+        "links": "Povezave",
+        "collections": "Zbirke",
+        "tags": "Značke"
+    },
+    "zabbix": {
+        "unclassified": "Nerazvrščeno",
+        "information": "Informacija",
+        "warning": "Opozorilo",
+        "average": "Povprečno",
+        "high": "Visoko",
+        "disaster": "Katastrofa"
+    },
+    "lubelogger": {
+        "vehicle": "Vozilo",
+        "vehicles": "Vozila",
+        "serviceRecords": "Zapisi servisov",
+        "reminders": "Opomniki",
+        "nextReminder": "Naslednji opomnik",
+        "none": "Brez"
     }
 }

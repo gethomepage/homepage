@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Oczekujące rozłączenie",
         "connectionStatusDisconnecting": "Rozłączanie",
         "connectionStatusDisconnected": "Rozłączono",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Połączono",
         "uptime": "Czas działania",
         "maxDown": "Maks. Pobieranie",
         "maxUp": "Maks. Wysyłanie",
@@ -226,6 +226,10 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "develancacheui": {
+        "cachehitbytes": "Trafienia w cache'u",
+        "cachemissbytes": "Straty cache'u"
+    },
     "downloadstation": {
         "download": "Pobieranie",
         "upload": "Wysyłanie",
@@ -279,9 +283,9 @@
     },
     "netalertx": {
         "total": "Całkowite",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Połączono",
+        "new_devices": "Nowe urządzenia",
+        "down_alerts": "Alerty niedostępności"
     },
     "pihole": {
         "queries": "Zapytania",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}miesięcy",
         "seconds": "{{number}}sekund",
         "ago": "{{value}} temu"
+    },
+    "technitium": {
+        "totalQueries": "Zapytania",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Zablokowane",
+        "totalDropped": "Dropped",
+        "totalClients": "Klienci"
     },
     "tdarr": {
         "queue": "Kolejka",
@@ -446,8 +463,8 @@
         "51-night": "Lekka mżawka",
         "53-day": "Mżawka",
         "53-night": "Mżawka",
-        "55-day": "Ciężka mżawka",
-        "55-night": "Ciężka mżawka",
+        "55-day": "Gęsta mżawka",
+        "55-night": "Gęsta mżawka",
         "56-day": "Lekko chłodna mżawka",
         "56-night": "Lekko chłodna mżawka",
         "57-day": "Chłodna mżawka",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platformy",
-        "totalRoms": "Łącznie ROM"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domeny",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Pamięć"
     },
     "netdata": {
         "warnings": "Ostrzeżenia",
@@ -878,16 +905,16 @@
         "bans": "Bany"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "Połączono",
         "enabled": "Włączone",
         "disabled": "Wyłączone",
         "total": "Całkowite"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Proxy",
+        "auth": "Z uwietrzytelnieniem",
+        "outdated": "Nieaktualne",
+        "banned": "Zbanowano"
     },
     "myspeed": {
         "ping": "Ping",
@@ -895,15 +922,36 @@
         "upload": "Wysyłanie"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Giełda",
+        "loading": "Wczytywanie",
+        "open": "Otwarte - rynek US",
+        "closed": "Zamknięte - rynek US",
+        "invalidConfiguration": "Nieprawidłowa konfiguracja"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kamery",
         "uptime": "Czas działania",
         "version": "Wersja"
+    },
+    "linkwarden": {
+        "links": "Łącza",
+        "collections": "Kolekcje",
+        "tags": "Tagi"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informacje",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

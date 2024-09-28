@@ -58,7 +58,7 @@ export default function Component({ service }) {
           <div className="text-xs opacity-50">
             {t(diskUnits, {
               value: fsData.used,
-              maximumFractionDigits: 0,
+              maximumFractionDigits: 1,
             })}{" "}
             {t("resources.used")}
           </div>
@@ -79,7 +79,7 @@ export default function Component({ service }) {
             <div className="text-xs opacity-50">
               {t(diskUnits, {
                 value: fsData.used,
-                maximumFractionDigits: 0,
+                maximumFractionDigits: 1,
               })}{" "}
               {t("resources.used")}
             </div>

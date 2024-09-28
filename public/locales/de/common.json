@@ -14,7 +14,7 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "months": "Mo.",
         "days": "d",
         "hours": "h",
         "minutes": "min",
@@ -226,6 +226,10 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache-Trefferbytes",
+        "cachemissbytes": "Cache-Fehlbytes"
+    },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}min",
         "seconds": "{{number}}s",
         "ago": "Vor {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "Anfragen",
+        "totalNoError": "Erfolgreich",
+        "totalServerFailure": "Fehler",
+        "totalNxDomain": "NX-Domänen",
+        "totalRefused": "Verweigert",
+        "totalAuthoritative": "Autoritativ",
+        "totalRecursive": "Rekursiv",
+        "totalCached": "Im Cache",
+        "totalBlocked": "Blockiert",
+        "totalDropped": "Verworfen",
+        "totalClients": "Benutzer"
     },
     "tdarr": {
         "queue": "Warteschlange",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Plattformen",
-        "totalRoms": "ROMs gesamt"
+        "totalRoms": "Spiele",
+        "saves": "Spielstände",
+        "states": "Speicherstände",
+        "screenshots": "Bildschirmfotos",
+        "totalfilesize": "Gesamtgröße"
+    },
+    "mailcow": {
+        "domains": "Domänen",
+        "mailboxes": "Postfächer",
+        "mails": "E-Mails",
+        "storage": "Speicher"
     },
     "netdata": {
         "warnings": "Warnungen",
@@ -902,8 +929,29 @@
         "invalidConfiguration": "Ungültige Konfiguration"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kameras",
         "uptime": "Betriebszeit",
         "version": "Version"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Sammlungen",
+        "tags": "Schlagwörter"
+    },
+    "zabbix": {
+        "unclassified": "Nicht klassifiziert",
+        "information": "Informationen",
+        "warning": "Warnung",
+        "average": "Durchschnitt",
+        "high": "Hoch",
+        "disaster": "Katastrophe"
+    },
+    "lubelogger": {
+        "vehicle": "Fahrzeug",
+        "vehicles": "Fahrzeuge",
+        "serviceRecords": "Wartungseinträge",
+        "reminders": "Erinnerungen",
+        "nextReminder": "Nächste Erinnerung",
+        "none": "Keine"
     }
 }

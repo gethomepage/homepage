@@ -50,7 +50,6 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: sudo apt-get install pngquant
-      - run: pip install mike
       - run: pip install mkdocs-material mkdocs-redirects "mkdocs-material[imaging]"
       - name: Test Docs Build
         run: MKINSIDERS=false mkdocs build
@@ -62,8 +61,10 @@ jobs:
       - pre-commit
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: main
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
@@ -75,24 +76,9 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: sudo apt-get install pngquant
-      - run: pip install mike==2.0.0
       - run: pip install git+https://${GH_TOKEN}@github.com/benphelps/mkdocs-material-insiders.git
       - run: pip install mkdocs-redirects "mkdocs-material[imaging]"
-      - name: Set Git config
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-      - name: Sync gh-pages
-        run: |
-          git fetch origin gh-pages
-          git checkout gh-pages
-          git pull origin gh-pages
-          git checkout main
-      - name: Docs Deploy for Main
-        if: github.ref == 'refs/heads/main'
-        run: MKINSIDERS=true mike deploy --update --push ${{github.ref_name}}
-      - name: Docs Deploy for Tags
-        if: github.ref != 'refs/heads/main'
-        run: MKINSIDERS=true mike deploy --update --push ${{github.ref_name}} latest
+      - name: Docs Deploy
+        run: MKINSIDERS=true mkdocs gh-deploy --force
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -24,16 +24,16 @@
         "missing_type": "Tipo de Widget ausente: {{type}}",
         "api_error": "Erros de API",
         "information": "Informação",
-        "status": "Estado",
+        "status": "Status",
         "url": "Endereço URL",
-        "raw_error": "Erro Raw",
-        "response_data": "Dados da Resposta"
+        "raw_error": "Erro Bruto",
+        "response_data": "Dados de Resposta"
     },
     "weather": {
         "current": "Localização atual",
-        "allow": "Clicar para permitir",
+        "allow": "Clique para permitir",
         "updating": "Atualizando",
-        "wait": "Por favor aguarde"
+        "wait": "Por favor, aguarde"
     },
     "search": {
         "placeholder": "Pesquisar…"
@@ -50,7 +50,7 @@
         "uptime": "CIMA"
     },
     "unifi": {
-        "users": "Utilizadores",
+        "users": "Usuários",
         "uptime": "Ligado",
         "days": "Dias",
         "wan": "WAN",
@@ -59,20 +59,20 @@
         "devices": "Dispositivos",
         "lan_devices": "Dispositivos LAN",
         "wlan_devices": "Dispositivos WLAN",
-        "lan_users": "Utilizadores LAN",
-        "wlan_users": "Utilizadores WLAN",
+        "lan_users": "Usuários de LAN",
+        "wlan_users": "Usuários de WLAN",
         "up": "CIMA",
         "down": "Desligado",
-        "wait": "Por favor aguarde",
-        "empty_data": "Status de Subsistema Desconhecido"
+        "wait": "Por favor, aguarde",
+        "empty_data": "Status do Subsistema desconhecido"
     },
     "docker": {
         "rx": "Rx",
         "tx": "Tx",
         "mem": "MEM",
         "cpu": "CPU",
-        "running": "A correr",
-        "offline": "Desligado",
+        "running": "Executando",
+        "offline": "Offline",
         "error": "Erro",
         "unknown": "Desconhecido",
         "healthy": "Saudável",
@@ -108,8 +108,8 @@
         "songs": "Canções"
     },
     "esphome": {
-        "offline": "Desligado",
-        "offline_alt": "Desligado",
+        "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Disponível",
         "total": "Total",
         "unknown": "Desconhecido"
@@ -133,7 +133,7 @@
         "unread": "Não lida"
     },
     "fritzbox": {
-        "connectionStatus": "Estado",
+        "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Não configurado",
         "connectionStatusConnecting": "Conectando",
         "connectionStatusAuthenticating": "Autenticando",
@@ -142,7 +142,7 @@
         "connectionStatusDisconnected": "Desconectado",
         "connectionStatusConnected": "Conectado",
         "uptime": "Ligado",
-        "maxDown": "Max. Down",
+        "maxDown": "Tempo de inatividade máximo",
         "maxUp": "Máx. Acima",
         "down": "Inativo",
         "up": "Ativo",
@@ -216,7 +216,7 @@
         "cpuUsage": "Uso de CPU",
         "memUsage": "Uso de Memória",
         "systemTempC": "Temp. do Sistema",
-        "poolUsage": "Pool Usage",
+        "poolUsage": "Uso do Pool",
         "volumeUsage": "Uso do volume",
         "invalid": "Inválido"
     },
@@ -225,6 +225,10 @@
         "upload": "Carregar",
         "leech": "Leech",
         "seed": "Semente"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
         "download": "Descarregar",
@@ -301,7 +305,7 @@
         "ping": "Tempo de resposta"
     },
     "portainer": {
-        "running": "A correr",
+        "running": "Executando",
         "stopped": "Parado",
         "total": "Total"
     },
@@ -311,13 +315,26 @@
         "never": "Nunca",
         "last_seen": "Visto por último",
         "now": "Agora",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
+        "years": "{{number}}a",
+        "weeks": "{{number}}s",
         "days": "{{number}}d",
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Atrás"
+    },
+    "technitium": {
+        "totalQueries": "Consultas",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Bloqueado",
+        "totalDropped": "Dropped",
+        "totalClients": "Clientes"
     },
     "tdarr": {
         "queue": "Fila",
@@ -369,7 +386,7 @@
         "transferRate": "Taxa"
     },
     "mastodon": {
-        "user_count": "Utilizadores",
+        "user_count": "Usuários",
         "status_count": "Postagens",
         "domain_count": "Domínios"
     },
@@ -381,16 +398,16 @@
     "minecraft": {
         "players": "Reprodutores",
         "version": "Versão",
-        "status": "Estado",
+        "status": "Status",
         "up": "Disponível",
-        "down": "Desligado"
+        "down": "Offline"
     },
     "miniflux": {
         "read": "Lido",
         "unread": "Não lida"
     },
     "authentik": {
-        "users": "Utilizadores",
+        "users": "Usuários",
         "loginsLast24H": "Inícios de sessão (24h)",
         "failedLoginsLast24H": "Inícios de sessão falhados (24h)"
     },
@@ -403,7 +420,7 @@
     "glances": {
         "cpu": "CPU",
         "load": "Carga",
-        "wait": "Por favor aguarde",
+        "wait": "Por favor, aguarde",
         "temp": "TEMP",
         "_temp": "Temperatura",
         "warn": "Aviso",
@@ -504,7 +521,7 @@
         "grace": "Em Período Gratuito",
         "down": "Inativo",
         "paused": "Pausado",
-        "status": "Estado",
+        "status": "Status",
         "last_ping": "Ultimo Ping",
         "never": "Nenhum ping ainda"
     },
@@ -604,14 +621,14 @@
         "layers": "Camadas"
     },
     "octoprint": {
-        "printer_state": "Estado",
+        "printer_state": "Status",
         "temp_tool": "Temp. Ferramenta",
         "temp_bed": "Temp. Cama",
         "job_completion": "Conclusão"
     },
     "cloudflared": {
         "origin_ip": "IP Origem",
-        "status": "Estado"
+        "status": "Status"
     },
     "pfsense": {
         "load": "Carga Média",
@@ -630,7 +647,7 @@
         "memory_usage": "Memória"
     },
     "immich": {
-        "users": "Utilizadores",
+        "users": "Usuários",
         "photos": "Fotos",
         "videos": "Vídeos",
         "storage": "Armazenamento"
@@ -690,7 +707,7 @@
         "numshares": "Itens compartilhados"
     },
     "kopia": {
-        "status": "Estado",
+        "status": "Status",
         "size": "Tamanho",
         "lastrun": "Ultima Execução",
         "nextrun": "Próxima Execução",
@@ -753,7 +770,7 @@
     },
     "azuredevops": {
         "result": "Resultado",
-        "status": "Estado",
+        "status": "Status",
         "buildId": "ID Compilação",
         "succeeded": "Bem-sucedido",
         "notStarted": "Não iniciado",
@@ -765,9 +782,9 @@
         "approved": "Aprovada"
     },
     "gamedig": {
-        "status": "Estado",
+        "status": "Status",
         "online": "Disponível",
-        "offline": "Desligado",
+        "offline": "Offline",
         "name": "Nome",
         "map": "Mapa",
         "currentPlayers": "Jogadores atuais",
@@ -784,14 +801,14 @@
     },
     "mealie": {
         "recipes": "Receitas",
-        "users": "Utilizadores",
+        "users": "Usuários",
         "categories": "Categorias",
         "tags": "Marcadores"
     },
     "openmediavault": {
         "downloading": "Baixando",
         "total": "Total",
-        "running": "A correr",
+        "running": "Executando",
         "stopped": "Parado",
         "passed": "Aprovado",
         "failed": "Falhou"
@@ -805,7 +822,7 @@
         "bytesRx": "Recebido"
     },
     "uptimerobot": {
-        "status": "Estado",
+        "status": "Status",
         "uptime": "Ligado",
         "lastDown": "Última inatividade",
         "downDuration": "Duração de inatividade",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Plataformas",
-        "totalRoms": "Total de ROMs"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domínios",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Armazenamento"
     },
     "netdata": {
         "warnings": "Alertas",
@@ -861,7 +888,7 @@
         "oCount": "Contagem 0"
     },
     "tandoor": {
-        "users": "Utilizadores",
+        "users": "Usuários",
         "recipes": "Receitas",
         "keywords": "Palavras-chave"
     },
@@ -870,7 +897,7 @@
         "totalWithWarranty": "Com Garantia",
         "locations": "Localização",
         "labels": "Rótulos",
-        "users": "Utilizadores",
+        "users": "Usuários",
         "totalValue": "Valor Total"
     },
     "crowdsec": {
@@ -902,8 +929,29 @@
         "invalidConfiguration": "Configuração Inválida"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Câmeras",
         "uptime": "Ligado",
         "version": "Versão"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Marcadores"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informação",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }
