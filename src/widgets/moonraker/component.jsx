@@ -37,6 +37,16 @@ export default function Component({ service }) {
   const printStatsInfo = printStats.result.status.print_stats.info ?? {};
   const { current_layer: currentLayer = "-", total_layer: totalLayer = "-" } = printStatsInfo;
 
+  if (printStats.result.status.print_stats.state === "standby") {
+    return (
+      <Container service={service}>
+        <Block label="moonraker.layers" value="-" />
+        <Block label="moonraker.print_progress" value="-" />
+        <Block label="moonraker.print_status" value={printStats.result.status.print_stats.state} />
+      </Container>
+    );
+  }
+  
   return (
     <Container service={service}>
       <Block label="moonraker.layers" value={`${currentLayer} / ${totalLayer}`} />
@@ -47,4 +57,5 @@ export default function Component({ service }) {
       <Block label="moonraker.print_status" value={printStats.result.status.print_stats.state} />
     </Container>
   );
+  
 }
