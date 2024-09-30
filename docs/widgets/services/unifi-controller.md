@@ -9,6 +9,8 @@ _(Find the Unifi Controller information widget [here](../info/unifi_controller.m
 
 You can display general connectivity status from your Unifi (Network) Controller. When authenticating you will want to use an account that has at least read privileges.
 
+If connecting to Ubiquiti hardware, create a local-only user in the console settings with read privileges for the Network app.
+
 An optional 'site' parameter can be supplied, if it is not the widget will use the default site for the controller.
 
 Allowed fields: `["uptime", "wan", "lan", "lan_users", "lan_devices", "wlan", "wlan_users", "wlan_devices"]` (maximum of four). Fields unsupported by the unifi device will not be shown.
