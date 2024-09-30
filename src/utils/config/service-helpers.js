@@ -631,7 +631,7 @@ export function cleanServiceGroups(groups) {
           if (range !== undefined) cleanedService.widget.range = range;
         }
         if (type === "lubelogger") {
-          if (vehicleID !== undefined) cleanedService.widget.vehicleID = vehicleID;
+          if (vehicleID !== undefined) cleanedService.widget.vehicleID = parseInt(vehicleID, 10);
         }
       }
 
