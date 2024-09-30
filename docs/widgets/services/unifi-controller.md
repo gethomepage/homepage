@@ -7,9 +7,7 @@ Learn more about [Unifi Controller](https://ui.com/).
 
 _(Find the Unifi Controller information widget [here](../info/unifi_controller.md))_
 
-You can display general connectivity status from your Unifi (Network) Controller. When authenticating you will want to use an account that has at least read privileges.
-
-If connecting to Ubiquiti hardware, create a local-only user in the console settings with read privileges for the Network app.
+You can display general connectivity status from your Unifi (Network) Controller. When authenticating you will want to use a local account that has at least read privileges.
 
 An optional 'site' parameter can be supplied, if it is not the widget will use the default site for the controller.
 
