@@ -58,7 +58,7 @@
     "prettier": "^3.2.5",
     "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.4.5"
+    "typescript": "^5.6.2"
   },
   "optionalDependencies": {
     "osx-temperature-sensor": "^1.0.8"
