@@ -16,7 +16,7 @@
     "classnames": "^2.5.1",
     "compare-versions": "^6.1.0",
     "dockerode": "^4.0.2",
-    "follow-redirects": "^1.15.6",
+    "follow-redirects": "^1.15.9",
     "gamedig": "^5.1.2",
     "i18next": "^21.10.0",
     "js-yaml": "^4.1.0",
@@ -45,20 +45,20 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.8",
     "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^14.2.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.36.1",
+    "eslint-plugin-react": "^7.37.1",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.47",
     "prettier": "^3.2.5",
     "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.4.5"
+    "typescript": "^5.6.2"
   },
   "optionalDependencies": {
     "osx-temperature-sensor": "^1.0.8"
