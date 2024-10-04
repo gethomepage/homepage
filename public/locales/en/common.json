@@ -953,5 +953,9 @@
       "reminders": "Reminders",
       "nextReminder": "Next Reminder",
       "none": "None"
+    },
+    "vikunja": {
+      "projects": "Total Active Projects",
+      "tasks": "Tasks Due This Week"
     }
 }
