@@ -128,6 +128,7 @@ const components = {
   watchtower: dynamic(() => import("./watchtower/component")),
   wgeasy: dynamic(() => import("./wgeasy/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
+  xkcd: dynamic(() => import("./xkcd/component")),
   xteve: dynamic(() => import("./xteve/component")),
   zabbix: dynamic(() => import("./zabbix/component")),
 };
