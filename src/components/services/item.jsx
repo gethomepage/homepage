@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import Status from "./status";
 import Widget from "./widget";
@@ -13,12 +13,44 @@ import { SettingsContext } from "utils/contexts/settings";
 import ResolvedIcon from "components/resolvedicon";
 
 export default function Item({ service, group, useEqualHeights }) {
-  const hasLink = service.href && service.href !== "#";
+  const hasLink = (service.href && service.href !== "#") || (service.href_local && service.href_local !== "#");
   const { settings } = useContext(SettingsContext);
   const showStats = service.showStats === false ? false : settings.showStats;
   const statusStyle = service.statusStyle !== undefined ? service.statusStyle : settings.statusStyle;
   const [statsOpen, setStatsOpen] = useState(service.showStats);
   const [statsClosing, setStatsClosing] = useState(false);
+  const [isLocalConnection, setIsLocalConnection] = useState(false)
+
+  useEffect(() => {
+    try {
+      if (!service.href_local) {
+        return;
+      }
+
+      if (!service.href) {
+        setIsLocalConnection(true);
+        return;
+      }
+
+      const windowHref = window.location.href;
+      const localRanges = [
+        /^10\./,
+        /^192\.168\./,
+        /^172\.(1[6-9]|2[0-9]|3[0-1])\./,
+        /^127\.0\.0\.1$/,
+        /^::1$/,
+        /^localhost$/i
+      ];
+      const tldRegex = /^(https?:\/\/)?((([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,}))(\/.*)?)(:[0-9]{1,5})?\/?.*$/;;
+
+      const inLocalRange = localRanges.some((range) => range.test(windowHref));
+      const isValidTLD = tldRegex.test(windowHref);
+      setIsLocalConnection(inLocalRange || !isValidTLD);
+    }
+    catch (err) {
+      console.error("error while deciding weather connection is local or external");
+    }
+  })
 
   // set stats to closed after 300ms
   const closeStats = () => {
@@ -44,7 +76,7 @@ export default function Item({ service, group, useEqualHeights }) {
           {service.icon &&
             (hasLink ? (
               <a
-                href={service.href}
+                href={isLocalConnection ? (service.href_local ?? service.href) : service.href}
                 target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
                 className="flex-shrink-0 flex items-center justify-center w-12 service-icon z-10"
@@ -60,7 +92,7 @@ export default function Item({ service, group, useEqualHeights }) {
 
           {hasLink ? (
             <a
-              href={service.href}
+              href={isLocalConnection ? (service.href_local ?? service.href) : service.href}
               target={service.target ?? settings.target ?? "_blank"}
               rel="noreferrer"
               className="flex-1 flex items-center justify-between rounded-r-md service-title-text"
@@ -68,7 +100,7 @@ export default function Item({ service, group, useEqualHeights }) {
               <div className="flex-1 px-2 py-2 text-sm text-left z-10 service-name">
                 {service.name}
                 <p className="text-theme-500 dark:text-theme-300 text-xs font-light service-description">
-                  {service.description}
+                  { service.description }
                 </p>
               </div>
             </a>
