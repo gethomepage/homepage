@@ -12,50 +12,56 @@ Groups are defined as top-level array entries.
 ```yaml
 - Group A:
     - Service A:
-        href: http://localhost/
+        href: http://my.service.url/
+        href_local: http://10.1.1.11:3000
 
 - Group B:
     - Service B:
-        href: http://localhost/
+        href: http://my.service.url/
 ```
 
 <img width="1038" alt="Service Groups" src="https://user-images.githubusercontent.com/82196/187040754-28065242-4534-4409-881c-93d1921c6141.png">
 
 ## Services
 
-Services are defined as array entries on groups,
+Services are defined as array entries on groups.
+A service can have either a external and a local URL or both.
+Homepage will check automaticly whether the local or the external URL is used, based on the URL that is used to access the page.
+If only one type of URL is given, it will be used nomatter the connection type.
 
 ```yaml
 - Group A:
     - Service A:
-        href: http://localhost/
+        href: http://my.service.url/
+        href_local: http://10.1.1.11:3000
 
     - Service B:
-        href: http://localhost/
+        href: http://my.service.url/
 
     - Service C:
-        href: http://localhost/
+        href_local: http://localhost:3000
 
 - Group B:
     - Service D:
-        href: http://localhost/
+        href: http://my.service.url/
 ```
 
 <img width="1038" alt="Service Services" src="https://user-images.githubusercontent.com/82196/187040763-038023a2-8bee-4d87-b5cc-13447e7365a4.png">
 
 ## Descriptions
 
-Services may have descriptions,
+Services may have descriptions.
 
 ```yaml
 - Group A:
     - Service A:
-        href: http://localhost/
+        href: http://my.service.url/
+        href_local: http://10.1.1.11:3000
         description: This is my service
 
 - Group B:
     - Service B:
-        href: http://localhost/
+        href: http://my.service.url/
         description: This is another service
 ```
 
@@ -156,14 +162,14 @@ Services may be connected to a Docker container, either running on the local mac
 ```yaml
 - Group A:
     - Service A:
-        href: http://localhost/
+        href: http://my.service.url/
         description: This is my service
         server: my-server
         container: my-container
 
 - Group B:
     - Service B:
-        href: http://localhost/
+        href: http://my.service.url/
         description: This is another service
         server: other-server
         container: other-container
