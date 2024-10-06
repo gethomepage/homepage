@@ -14,7 +14,7 @@ export default function Component({ service }) {
     filter: "done=false&&due_date<=now+7d",
   });
   const { data: overdueData, error: overdueError } = useWidgetAPI(widget, "tasks", {
-    filter: "done=false&&due_date<=now",
+    filter: "done=false&&due_date<=now/d+1d",
   });
   const { data: inProgressData, error: inProgressError } = useWidgetAPI(widget, "tasks", {
     filter: "done=false&&percent_done>0&&percent_done<100",
