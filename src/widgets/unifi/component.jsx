@@ -17,7 +17,7 @@ export default function Component({ service }) {
 
   const defaultSite = widget.site
     ? statsData?.data.find((s) => s.desc === widget.site)
-    : (statsData?.data?.find((s) => s.name === "default") ?? statsData?.data.at(0));
+    : (statsData?.data?.find((s) => s.name === "default") ?? statsData?.data?.at(0));
 
   if (!defaultSite) {
     if (widget.site) {
