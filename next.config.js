@@ -9,6 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   i18n,
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
 };
 
 module.exports = nextConfig;

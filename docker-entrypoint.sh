@@ -12,6 +12,9 @@ export PGID=${PGID:-0}
 
 export HOMEPAGE_BUILDTIME=$(date +%s)
 
+# Set the base path for the Next.js application
+export NEXT_PUBLIC_BASE_PATH=${NEXT_PUBLIC_BASE_PATH:-""}
+
 # Set privileges for /app but only if pid 1 user is root and we are dropping privileges.
 # If container is run as an unprivileged user, it means owner already handled ownership setup on their own.
 # Running chown in that case (as non-root) will cause error
