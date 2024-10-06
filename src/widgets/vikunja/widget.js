@@ -14,7 +14,7 @@ const widget = {
     },
     tasks: {
       endpoint: "tasks/all",
-      // to filter by done=false and dueDate <= now+7d or whatever
+      // TODO: use filter (and other params?) to allow customizing fields/blocks
       params: ["filter"],
       map: (data) => ({
        tasks: jsonArrayFilter(data, (item) => !item.done).length,

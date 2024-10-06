@@ -956,6 +956,8 @@
     },
     "vikunja": {
       "projects": "Total Active Projects",
-      "tasks": "Tasks Due This Week"
+      "tasks": "Tasks Due This Week",
+      "overdue": "Overdue Tasks",
+      "inprogress": "Tasks In Progress"
     }
 }
