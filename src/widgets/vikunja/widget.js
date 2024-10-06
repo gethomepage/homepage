@@ -9,7 +9,7 @@ const widget = {
     projects: {
       endpoint: "projects",
       map: (data) => ({
-       projects: jsonArrayFilter(data, (item) => !item.isArchived).length,
+        projects: jsonArrayFilter(data, (item) => !item.isArchived).length,
       }),
     },
     tasks: {
@@ -17,7 +17,7 @@ const widget = {
       // TODO: use filter (and other params?) to allow customizing fields/blocks
       params: ["filter"],
       map: (data) => ({
-       tasks: jsonArrayFilter(data, (item) => !item.done).length,
+        tasks: jsonArrayFilter(data, (item) => !item.done).length,
       }),
     },
   },
