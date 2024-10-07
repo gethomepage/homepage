@@ -19,8 +19,7 @@ const widget = {
             new Date(item.due_date).valueOf() > 978307168000 &&
             new Date(item.due_date).valueOf() <= new Date(Date.now() + 640800000).valueOf(),
         ).length,
-        inProgress: jsonArrayFilter(data, (item) => !item.done && item.percent_done > 0 && item.percent_done < 1)
-          .length,
+        inProgress: jsonArrayFilter(data, (item) => item.percent_done > 0 && item.percent_done < 1).length,
         overdue: jsonArrayFilter(
           data,
           (item) =>
