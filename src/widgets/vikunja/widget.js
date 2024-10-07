@@ -8,16 +8,25 @@ const widget = {
   mappings: {
     projects: {
       endpoint: "projects",
-      map: (data) => ({
-        projects: jsonArrayFilter(data, (item) => !item.isArchived).length,
-      }),
     },
     tasks: {
       endpoint: "tasks/all",
-      // TODO: use filter (and other params?) to allow customizing fields/blocks
-      params: ["filter"],
+      params: ["filter", "sort_by"],
       map: (data) => ({
-        tasks: jsonArrayFilter(data, (item) => !item.done).length,
+        tasks7d: jsonArrayFilter(
+          data,
+          (item) =>
+            new Date(item.due_date).valueOf() > 978307168000 &&
+            new Date(item.due_date).valueOf() <= new Date(Date.now() + 640800000).valueOf(),
+        ).length,
+        inProgress: jsonArrayFilter(data, (item) => !item.done && item.percent_done > 0 && item.percent_done < 1)
+          .length,
+        overdue: jsonArrayFilter(
+          data,
+          (item) =>
+            new Date(item.due_date).valueOf() > 978307168000 &&
+            new Date(item.due_date).valueOf() <= new Date(Date.now()),
+        ).length,
       }),
     },
   },

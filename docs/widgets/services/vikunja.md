@@ -5,15 +5,15 @@ description: Vikunja Widget Configuration
 
 Learn more about [Vikunja](https://vikunja.io).
 
-Allowed fields: `["projects", "tasks", "overdue", "inprogress"]`.
+Allowed fields: `["projects", "tasks7d", "tasksOverdue", "tasksInProgress"]`.
 
 "Projects" lists the number of non-archived Projects the user has access to.
 
-"Tasks" lists the number of tasks due within the next 7 days.
+"Tasks 7d" lists the number of tasks due within the next 7 days.
 
-"Overdue" lists the number of all tasks overdue.
+"Tasks Overdue" lists the number of all tasks overdue.
 
-"In Progress" lists the number of tasks with a progress percentage above 0% and below 100%.
+"Tasks In Progress" lists the number of tasks with a progress percentage above 0% and below 100%.
 
 ```yaml
 widget:
