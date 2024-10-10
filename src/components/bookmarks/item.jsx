@@ -13,6 +13,7 @@ export default function Item({ bookmark }) {
       <a
         href={bookmark.href}
         title={bookmark.name}
+        rel="noreferrer"
         target={bookmark.target ?? settings.target ?? "_blank"}
         className={classNames(
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
