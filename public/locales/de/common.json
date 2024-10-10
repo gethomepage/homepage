@@ -305,7 +305,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Werden ausgeführt",
+        "running": "Wird ausgeführt",
         "stopped": "Gestoppt",
         "total": "Gesamt"
     },
