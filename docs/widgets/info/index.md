@@ -1,6 +1,8 @@
 ---
 title: Info Widgets
 description: Homepage info widgets.
+search:
+  exclude: true
 ---
 
 You can also find a list of all available info widgets in the sidebar navigation.

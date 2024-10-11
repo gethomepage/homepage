@@ -12,7 +12,7 @@
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
-        "relativeDate": "{{valor, relativaFecha}}",
+        "relativeDate": "{{value, relativeDate}}",
         "uptime": "{{value, uptime}}",
         "months": "me",
         "days": "d",
@@ -226,6 +226,10 @@
         "leech": "Descargas",
         "seed": "Semillas"
     },
+    "develancacheui": {
+        "cachehitbytes": "Bytes encontrados en caché",
+        "cachemissbytes": "Bytes faltantes en caché"
+    },
     "downloadstation": {
         "download": "Descarga",
         "upload": "Subida",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "Hace {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "Consultas",
+        "totalNoError": "Éxitos",
+        "totalServerFailure": "Fallas",
+        "totalNxDomain": "Dominios NX",
+        "totalRefused": "Rechazados",
+        "totalAuthoritative": "Autoritarios",
+        "totalRecursive": "Recursivos",
+        "totalCached": "En caché",
+        "totalBlocked": "Bloqueado",
+        "totalDropped": "Descartados",
+        "totalClients": "Clientes"
     },
     "tdarr": {
         "queue": "En cola",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Plataformas",
-        "totalRoms": "ROMs totales"
+        "totalRoms": "Juegos",
+        "saves": "Guardados",
+        "states": "Estados",
+        "screenshots": "Capturas de pantalla",
+        "totalfilesize": "Tamaño total"
+    },
+    "mailcow": {
+        "domains": "Dominios",
+        "mailboxes": "Buzones de correo",
+        "mails": "Correos",
+        "storage": "Almacenamiento"
     },
     "netdata": {
         "warnings": "Advertencias",
@@ -852,13 +879,13 @@
         "sceneSize": "Tamaño de las escenas",
         "sceneDuration": "Duración de las escenas",
         "images": "Imágenes",
-        "imageSize": "Tamaño de imagen",
+        "imageSize": "Tamaño de las imágenes",
         "galleries": "Galerías",
         "performers": "Intérpretes",
         "studios": "Estudios",
         "movies": "Películas",
         "tags": "Etiquetas",
-        "oCount": "O cuenta"
+        "oCount": "Cantidad de O"
     },
     "tandoor": {
         "users": "Usuarios",
@@ -867,7 +894,7 @@
     },
     "homebox": {
         "items": "Objetos",
-        "totalWithWarranty": "Con Garantía",
+        "totalWithWarranty": "Con garantía",
         "locations": "Ubicaciones",
         "labels": "Etiquetas",
         "users": "Usuarios",
@@ -885,7 +912,7 @@
     },
     "swagdashboard": {
         "proxied": "Proxy activado",
-        "auth": "Con Autenticación",
+        "auth": "Con autenticación",
         "outdated": "Desactualizado",
         "banned": "Baneado"
     },
@@ -897,13 +924,34 @@
     "stocks": {
         "stocks": "Acciones",
         "loading": "Cargando",
-        "open": "Abierto - Mercado EEUU",
-        "closed": "Cerrado - Mercado EEUU",
-        "invalidConfiguration": "Configuración no válida"
+        "open": "Abierto - Mercado EE. UU.",
+        "closed": "Cerrado - Mercado EE. UU.",
+        "invalidConfiguration": "Configuración inválida"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Cámaras",
         "uptime": "Tiempo activo",
         "version": "Versión"
+    },
+    "linkwarden": {
+        "links": "Enlaces",
+        "collections": "Colecciones",
+        "tags": "Etiquetas"
+    },
+    "zabbix": {
+        "unclassified": "No clasificado",
+        "information": "Información",
+        "warning": "Advertencia",
+        "average": "Promedio",
+        "high": "Alto",
+        "disaster": "Desastre"
+    },
+    "lubelogger": {
+        "vehicle": "Vehículo",
+        "vehicles": "Vehículos",
+        "serviceRecords": "Registros de servicio",
+        "reminders": "Recordatorios",
+        "nextReminder": "Siguiente recordatorio",
+        "none": "Nada"
     }
 }

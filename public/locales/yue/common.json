@@ -226,6 +226,10 @@
         "leech": "未完成下載",
         "seed": "已完成下載"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "下載速率",
         "upload": "上傳速率",
@@ -318,6 +322,19 @@
         "minutes": "{{number}} 分鐘",
         "seconds": "{{number}} 秒",
         "ago": "{{value}} 前"
+    },
+    "technitium": {
+        "totalQueries": "查詢",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "封鎖",
+        "totalDropped": "Dropped",
+        "totalClients": "客戶端"
     },
     "tdarr": {
         "queue": "隊列",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "平台",
-        "totalRoms": "總唯讀記憶體"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "域",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "儲存空間"
     },
     "netdata": {
         "warnings": "警告",
@@ -905,5 +932,26 @@
         "cameras": "Cameras",
         "uptime": "運行時間",
         "version": "版本"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "標籤"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "資訊",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

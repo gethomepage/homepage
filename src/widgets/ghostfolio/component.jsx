@@ -6,7 +6,9 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getPerformancePercent(t, performanceRange) {
   // ghostfolio v2.79.0 changed to grossPerformancePercentage
+  // ghostfolio v2.106.0 changed to netPerformancePercentageWithCurrencyEffect
   const percent =
+    performanceRange.performance.netPerformancePercentageWithCurrencyEffect ??
     performanceRange.performance.grossPerformancePercentage ??
     performanceRange.performance.currentGrossPerformancePercent;
   return `${percent > 0 ? "+" : ""}${t("common.percent", {

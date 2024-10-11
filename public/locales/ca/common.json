@@ -226,6 +226,10 @@
         "leech": "Sangonera",
         "seed": "Llavors"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Descarregar",
         "upload": "Pujada",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "Fa {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "Consultes",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Bloquejat",
+        "totalDropped": "Dropped",
+        "totalClients": "Clients"
     },
     "tdarr": {
         "queue": "Cua",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Plataformes",
-        "totalRoms": "ROMs totals"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Dominis",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Emmagatzematge"
     },
     "netdata": {
         "warnings": "Avisos",
@@ -902,8 +929,29 @@
         "invalidConfiguration": "Configuració no vàlida"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Càmeres",
         "uptime": "Temps actiu",
         "version": "Versió"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Etiquetes"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informació",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

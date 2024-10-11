@@ -47,6 +47,7 @@ nav:
           - widgets/services/crowdsec.md
           - widgets/services/customapi.md
           - widgets/services/deluge.md
+          - widgets/services/develancacheui.md
           - widgets/services/diskstation.md
           - widgets/services/downloadstation.md
           - widgets/services/emby.md
@@ -81,7 +82,9 @@ nav:
           - widgets/services/kopia.md
           - widgets/services/lidarr.md
           - widgets/services/linkwarden.md
+          - widgets/services/lubelogger.md
           - widgets/services/mastodon.md
+          - widgets/services/mailcow.md
           - widgets/services/mealie.md
           - widgets/services/medusa.md
           - widgets/services/mikrotik.md
@@ -137,6 +140,7 @@ nav:
           - widgets/services/syncthing-relay-server.md
           - widgets/services/tailscale.md
           - widgets/services/tandoor.md
+          - widgets/services/technitium.md
           - widgets/services/tdarr.md
           - widgets/services/traefik.md
           - widgets/services/transmission.md
@@ -151,6 +155,7 @@ nav:
           - widgets/services/wgeasy.md
           - widgets/services/whatsupdocker.md
           - widgets/services/xteve.md
+          - widgets/services/zabbix.md
       - "Information Widgets":
           - widgets/info/index.md
           - widgets/info/datetime.md
@@ -229,8 +234,6 @@ extra_css:
   - "stylesheets/extra.css"
 
 extra:
-  version:
-    provider: mike
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/k4ruYNrudu

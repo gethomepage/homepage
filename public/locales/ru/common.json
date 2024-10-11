@@ -39,7 +39,7 @@
         "placeholder": "Поиск…"
     },
     "resources": {
-        "cpu": "ЦПУ",
+        "cpu": "ЦП",
         "mem": "ОЗУ",
         "total": "Всего",
         "free": "Свободно",
@@ -70,7 +70,7 @@
         "rx": "RX",
         "tx": "TX",
         "mem": "ОЗУ",
-        "cpu": "ЦПУ",
+        "cpu": "ЦП",
         "running": "Запущено",
         "offline": "Не в сети",
         "error": "Ошибка",
@@ -226,6 +226,10 @@
         "leech": "Лич",
         "seed": "Сид"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Скачивание",
         "upload": "Загрузка",
@@ -319,6 +323,19 @@
         "seconds": "{{number}}с",
         "ago": "{{value}} назад"
     },
+    "technitium": {
+        "totalQueries": "Запросы",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Заблокировано",
+        "totalDropped": "Dropped",
+        "totalClients": "Клиенты"
+    },
     "tdarr": {
         "queue": "Очередь",
         "processed": "Обработано",
@@ -396,12 +413,12 @@
     },
     "proxmox": {
         "mem": "ОЗУ",
-        "cpu": "ЦПУ",
+        "cpu": "ЦП",
         "lxc": "LXC",
         "vms": "Виртуальные машины"
     },
     "glances": {
-        "cpu": "ЦПУ",
+        "cpu": "ЦП",
         "load": "Загрузка",
         "wait": "Пожалуйста, подождите",
         "temp": "Температура",
@@ -626,7 +643,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Хранилище данных",
         "failed_tasks_24h": "Неудачные задачи 24 часа",
-        "cpu_usage": "ЦПУ",
+        "cpu_usage": "ЦП",
         "memory_usage": "ОЗУ"
     },
     "immich": {
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Платформы",
-        "totalRoms": "Всего ПЗУ"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Домены",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Хранилище"
     },
     "netdata": {
         "warnings": "Предупреждения",
@@ -905,5 +932,26 @@
         "cameras": "Cameras",
         "uptime": "Время работы",
         "version": "Версия"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Теги"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Информация",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }

@@ -323,6 +323,19 @@
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago"
     },
+    "technitium": {
+        "totalQueries": "Queries",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Blocked",
+        "totalDropped": "Dropped",
+        "totalClients": "Clients"
+    },
     "tdarr": {
         "queue": "Queue",
         "processed": "Processed",
@@ -837,6 +850,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+      "domains": "Domains",
+      "mailboxes": "Mailboxes",
+      "mails": "Mails",
+      "storage": "Storage"
+    },
     "netdata": {
       "warnings": "Warnings",
       "criticals": "Criticals"
@@ -918,5 +937,21 @@
         "links": "Links",
         "collections": "Collections",
         "tags": "Tags"
+    },
+    "zabbix": {
+      "unclassified": "Not classified",
+      "information": "Information",
+      "warning": "Warning",
+      "average": "Average",
+      "high": "High",
+      "disaster": "Disaster"
+    },
+    "lubelogger": {
+      "vehicle": "Vehicle",
+      "vehicles": "Vehicles",
+      "serviceRecords": "Service Records",
+      "reminders": "Reminders",
+      "nextReminder": "Next Reminder",
+      "none": "None"
     }
 }

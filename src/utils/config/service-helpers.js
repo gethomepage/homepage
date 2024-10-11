@@ -198,6 +198,7 @@ export async function servicesFromKubernetes() {
       .then((response) => response.body)
       .catch((error) => {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        logger.debug(error);
         return null;
       });
 
@@ -215,6 +216,7 @@ export async function servicesFromKubernetes() {
             error.body,
             error.response,
           );
+          logger.debug(error);
         }
 
         return [];
@@ -231,6 +233,7 @@ export async function servicesFromKubernetes() {
             error.body,
             error.response,
           );
+          logger.debug(error);
         }
 
         return [];
@@ -300,6 +303,7 @@ export async function servicesFromKubernetes() {
           constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
         } catch (e) {
           logger.error("Error attempting k8s environment variable substitution.");
+          logger.debug(e);
         }
 
         return constructedService;
@@ -438,6 +442,9 @@ export function cleanServiceGroups(groups) {
           namespace,
           podSelector,
 
+          // lubelogger
+          vehicleID,
+
           // mjpeg
           fit,
           stream,
@@ -473,6 +480,9 @@ export function cleanServiceGroups(groups) {
 
           // wgeasy
           threshold,
+
+          // technitium
+          range,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -616,6 +626,12 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "frigate") {
           if (enableRecentEvents !== undefined) cleanedService.widget.enableRecentEvents = enableRecentEvents;
+        }
+        if (type === "technitium") {
+          if (range !== undefined) cleanedService.widget.range = range;
+        }
+        if (type === "lubelogger") {
+          if (vehicleID !== undefined) cleanedService.widget.vehicleID = parseInt(vehicleID, 10);
         }
       }
 

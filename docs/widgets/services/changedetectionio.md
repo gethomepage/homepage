@@ -7,6 +7,8 @@ Learn more about [Changedetection.io](https://github.com/dgtlmoon/changedetectio
 
 Find your API key under `Settings > API`.
 
+Allowed fields: `["diffsDetected", "totalObserved"]`.
+
 ```yaml
 widget:
   type: changedetectionio

@@ -5,14 +5,14 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
-  const { data: infoData, error: infoError } = useWidgetAPI(widget);
+  const { data: infoData, error: infoError } = useWidgetAPI(widget, "client");
 
   if (!widget.fields) {
     widget.fields = ["connected", "enabled", "total"];
   }
 
-  if (infoError) {
-    return <Container service={service} error={infoError} />;
+  if (infoError || infoData?.statusCode > 400) {
+    return <Container service={service} error={infoError ?? { message: infoData.statusMessage, data: infoData }} />;
   }
 
   if (!infoData) {
@@ -38,7 +38,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="wgeasy.connected" value={connected} />
       <Block label="wgeasy.enabled" value={enabled} />
-      <Block label="wgeasy.diabled" value={disabled} />
+      <Block label="wgeasy.disabled" value={disabled} />
       <Block label="wgeasy.total" value={infoData.length} />
     </Container>
   );

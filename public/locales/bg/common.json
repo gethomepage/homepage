@@ -226,6 +226,10 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
@@ -318,6 +322,19 @@
         "minutes": "{{number}}м",
         "seconds": "{{number}}сек",
         "ago": "преди {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "Заявки",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Блокирани",
+        "totalDropped": "Dropped",
+        "totalClients": "Clients"
     },
     "tdarr": {
         "queue": "Опашка",
@@ -827,7 +844,17 @@
     },
     "romm": {
         "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domains",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Storage"
     },
     "netdata": {
         "warnings": "Warnings",
@@ -905,5 +932,26 @@
         "cameras": "Cameras",
         "uptime": "Uptime",
         "version": "Version"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Тагове"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Информация",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
     }
 }
