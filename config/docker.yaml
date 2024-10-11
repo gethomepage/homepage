@@ -1,0 +1,10 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/docker/
+
+my-remote-docker:
+  host: 192.168.68.84
+  port: 2375
+
+my-docker:
+  socket: /var/run/docker.sock

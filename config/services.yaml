@@ -1,6 +1,6 @@
 ---
 # For configuration options and examples, please see:
-# https://gethomepage.dev/configs/services
+# https://gethomepage.dev/latest/configs/services
 
 - Media:
     - Radarr:
@@ -17,47 +17,39 @@
         href: https://qb.asbblog.com/
         description: Bit torrent 
         icon: qbittorrent
-        siteMonitor: http://qb.asbblog.com/
+        siteMonitor: https://qb.asbblog.com/
         widget:
             type: qbittorrent
-            url: http://qb.asbblog.com
+            url: https://qb.asbblog.com
             username: admin
             password: adminadmin
     - jellyseerr: 
-        href: http://jelly.asbblog.com/
+        href: https://jelly.asbblog.com/
         description: jellyseerr 
         icon: jellyseerr
-        siteMontior: http://jelly.asbblog.com
+        siteMontior: https://jelly.asbblog.com
         widget:
             type: jellyseerr
-            url: http://jelly.asbblog.com
+            url: https://jelly.asbblog.com
             key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
     - Sonarr: 
-        href: http://sonarr.asbblog.com/
+        href: https://sonarr.asbblog.com/
         description: Sonnar
-        siteMonitor: http://sonarr.asbblog.com/
+        siteMonitor: https://sonarr.asbblog.com/
         icon: sonarr
         widget:
             type: sonarr
-            url:  http://sonarr.asbblog.com
+            url:  https://sonarr.asbblog.com
             key: d9d1f45e906d4564a0563f792ca4b37b
             enableQueue: true # optional, defaults to false
     - prowlarr: 
-        href: http://prowlarr.asbblog.com
+        href: https//prowlarr.asbblog.com
         description: prowlarr
         icon: prowlarr
         widget:
             type: prowlarr
             url: http://prowlarr.asbblog.com
             key: 4e036a829b1145cf89799e38586e40aa
-    - kodi: 
-        href: http://kodi.asbblog.com/
-        description: kodi
-        icon: kodi
-    - kodi2: 
-        href: http://kodi2.asbblog.com/
-        description: kodi2 
-        icon: kodi
     - plex:
         href: https://plex.tv
         description: Plex media player 
@@ -66,6 +58,10 @@
             type: plex
             url: http://192.168.68.79:32400
             key: Cet9igiJQVNosbeUmj1s
+    - MusicAssistant:
+        href: https://music.asbblog.com
+        description: Music Assistant 
+        icon: music-assistant
 - Media2:
     - Radarr:
         href: https://radarr2.asbblog.com/
@@ -97,34 +93,34 @@
             url: http://jelly.asbblog.com
             key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
     - Sonarr: 
-        href: http://sonarr2.asbblog.com/
+        href: https://sonarr2.asbblog.com/
         description: Sonnar
-        siteMonitor: http://sonarr2.asbblog.com/
+        siteMonitor: https://sonarr2.asbblog.com/
         icon: sonarr
         widget:
             type: sonarr
-            url:  http://sonarr2.asbblog.com
+            url:  https://sonarr2.asbblog.com
             key: 4f3fd7fa3ca5407eb986ddadc149a9c5
             enableQueue: true # optional, defaults to false
     - prowlarr: 
-        href: http://prowlarr2.asbblog.com/
+        href: https://prowlarr2.asbblog.com/
         description: prowlarr
         icon: prowlarr
-        siteMonitor: http://prowlarr2.asbblog.com/ 
+        siteMonitor: https://prowlarr2.asbblog.com/ 
         widget:
             type: prowlarr
-            url: http://prowlarr2.asbblog.com
+            url: https://prowlarr2.asbblog.com
             key: 16bc79a702aa44d1987f7c62efd3d706
 - Monitoring:
     - Pi One:
-        href: http://pi.asbblog.com/admin
+        href: https://pi.asbblog.com/admin
         description: pi hole - main 
         icon: pi-hole
         siteMonitor: https://pi.asbblog.com/admin
         widget:
             type: pihole
             url: https://pi.asbblog.com
-            key: d5cee877ac04b8c52c6a182d64781fa30bf3a00d590af20a70bc82f0037bd55e
+            key: 5536c470d038c11793b535e8c1176817c001d6f20a4704fa7908939be82e2922
     - Pi two:
         href: http://pi2.asbblog.com/admin
         description: pi2 hole - main 
@@ -133,7 +129,7 @@
         widget:
             type: pihole
             url: https://pi2.asbblog.com
-            key: 3cecde64f6a16ebb7833b98e00f7ebd5bb7a2db73844d6977448eaf697d45e02
+            key: 5536c470d038c11793b535e8c1176817c001d6f20a4704fa7908939be82e2922
     - Portainer:
         href: http://potainer.asbblog.com
         description: portainer container
@@ -151,9 +147,9 @@
         siteMonitor: https://unraid.asbblog.com/login
         icon: unraid
     - NAS: 
-        href: https://192-168-68-80.abambah.direct.quickconnect.to:5001/#/signin/
+        href: https://abambah.synology.me:5001/#/signin/
         description: synology 
-        siteMonitor: https://192-168-68-80.abambah.direct.quickconnect.to:5001/#/signin/
+        siteMonitor: https://nas1.asbblog.com/signin/
         icon: si-synology
 - Automation:
     - Home: 
@@ -176,7 +172,7 @@
                    label: Car status
                     
     - Casaos:           
-        href: http://casaos.asbblog.com/
+        href: http://casaos.asbblog.com
         description : Casaos Asbblog 
         icon: casaos 
     - Casaos Ubuntu: 
@@ -189,20 +185,13 @@
         description: Project management tool 
         icon: vikunja
         siteMonitor: http://vj.asbblog.com/
-    - Books:
-        href: https://books.asbsolutionsgroup.com
-        description: Zoho Books for timesheet and invoicing
-        icon: mdi-book-account
-        siteMonitor: https://books.asbsolutionsgroup.com/
     - Ceipal:
         href: https://talenthire.ceipal.com/signin/
         description: CEIPAL for candidate and job management. 
         icon: mdi-application
-    - IT Tools:
-        href:  https://tools.asbblog.com/
-        description: IT Tools for the developers
-        icon: mdi-tools
-        siteMonitor: https://tools.asbblog.com/
+    - Timesheet: 
+        href: https://www.appsheet.com/start/757b606f-8201-467a-a20a-42d247bf53b9?platform=desktop#vss=H4sIAAAAAAAAA6XOsQ7CIBQF0H-5M1_AahyM0UXjIg7P8poQKTSFVhvCvwumxlkdueTcdxMmw_dDpOYGeU6f15ZnSCSF49yzglRYeRcHbxWEwp66JSTLTtOgkJEv4u0jB8j0HZf_XRcwml00reGhdlVZOhZXvquqwWKQBbox0tXya3AxOZes9c0YWJ_KlB8mhI1bP3pyeud1qWzJBs5PZkXeSmUBAAA=&view=Calendar&appName=TimesheetTracker-330590035
+        description: Timesheet for ASB Employees
 - Other: 
     - Calander: 
         widget:
@@ -214,7 +203,16 @@
             timezone: America/Los_Angeles # optional and only when timezone is not detected 
             integrations: # optional
                 - type: sonarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
-                  service_group: Media # group name where widget exists
+                  service_group: Media2 # group name where widget exists
                   service_name: Sonarr # service name for that widget
                   color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
-      
+    - Grafana:
+       widget:
+            type: grafana
+            url: http://192.168.68.84:3010/
+            username: admin
+            password: golD123@
+    - ESPHome:
+        widget:
+          type: esphome
+          url: http://192.168.68.84:6052/

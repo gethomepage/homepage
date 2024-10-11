@@ -1,12 +1,12 @@
 ---
 # For configuration options and examples, please see:
-# https://gethomepage.dev/configs/bookmarks
+# https://gethomepage.dev/latest/configs/bookmarks
 
 - Developer:
-    - IT Tools:
-        - abbr: IT
-          href: https://tools.asbblog.com/
-    - Github - avnit: 
+    - Books:
+        - abbr: BK
+          href: https://books.asbsolutionsgroup.com/
+    - Github: 
         - abbr: GT
           href: https://https://github.com/avnit/
 - Social:

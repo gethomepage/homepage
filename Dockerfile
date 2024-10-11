@@ -40,6 +40,13 @@ LABEL org.opencontainers.image.url="https://github.com/gethomepage/homepage"
 LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/homepage/wiki'
 LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
 LABEL org.opencontainers.image.licenses='Apache-2.0'
+LABEL homepage.group="Automation"
+LABEL homepage.name="Home Page"
+LABEL homepage.icon="home"
+LABEL homepage.descrtiption="ASB Homepage"
+LABEL homepage.href=https://homepage.asbblog.com
+
+
 
 ENV NODE_ENV production
 
