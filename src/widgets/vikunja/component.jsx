@@ -4,6 +4,32 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+// return Projects that are not Saved Filters
+function getRealProjects(project) {
+  return project.id > 0;
+}
+
+// return Tasks that have a real due date in 7 days or less
+function get7dTasks(task) {
+  return (
+    new Date(task.dueDate).getTime() > new Date("0001-01-01T00:00:00Z").getTime() &&
+    new Date(task.dueDate).getTime() <= new Date(Date.now() + 604800000)
+  );
+}
+
+// return Tasks that have a real due date in the past
+function getOverdue(task) {
+  return (
+    new Date(task.dueDate).getTime() > new Date("0001-01-01T00:00:00Z").getTime() &&
+    new Date(task.dueDate).getTime() <= new Date(Date.now())
+  );
+}
+
+// return Tasks that are not 100% complete
+function getInProgress(task) {
+  return task.inProgress === true;
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
@@ -30,14 +56,18 @@ export default function Component({ service }) {
     );
   }
 
-  const projects = projectsData.length;
+  const projects = projectsData.filter(getRealProjects);
+  const tasks7d = tasksData.filter(get7dTasks);
+  const overdue = tasksData.filter(getOverdue);
+  const inProgress = tasksData.filter(getInProgress);
 
   return (
+    //    <>
     <Container service={service}>
-      <Block label="vikunja.projects" value={t("common.number", { value: projects })} />
-      <Block label="vikunja.tasks7d" value={t("common.number", { value: tasksData.tasks7d })} />
-      <Block label="vikunja.tasksOverdue" value={t("common.number", { value: tasksData.overdue })} />
-      <Block label="vikunja.tasksInProgress" value={t("common.number", { value: tasksData.inProgress })} />
+      <Block label="vikunja.projects" value={t("common.number", { value: projects.length })} />
+      <Block label="vikunja.tasks7d" value={t("common.number", { value: tasks7d.length })} />
+      <Block label="vikunja.tasksOverdue" value={t("common.number", { value: overdue.length })} />
+      <Block label="vikunja.tasksInProgress" value={t("common.number", { value: inProgress.length })} />
     </Container>
   );
 }
