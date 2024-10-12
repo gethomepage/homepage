@@ -123,6 +123,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Transmission](transmission.md)
 - [TrueNAS](truenas.md)
 - [TubeArchivist](tubearchivist.md)
+- [Twingate](twingate.md)
 - [UniFi Controller](unifi-controller.md)
 - [Unmanic](unmanic.md)
 - [Uptime Kuma](uptime-kuma.md)

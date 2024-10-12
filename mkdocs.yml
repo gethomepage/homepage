@@ -145,6 +145,7 @@ nav:
           - widgets/services/traefik.md
           - widgets/services/transmission.md
           - widgets/services/truenas.md
+          - widgets/services/twingate.md
           - widgets/services/tubearchivist.md
           - widgets/services/unifi-controller.md
           - widgets/services/unmanic.md
