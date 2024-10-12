@@ -17,6 +17,7 @@ const widget = {
           title: task.title,
           priority: task.priority,
           dueDate: task.due_date,
+          dueDateIsDefault: task.due_date === "0001-01-01T00:00:00Z",
           inProgress: task.percent_done > 0 && task.percent_done < 1,
         })),
     },
