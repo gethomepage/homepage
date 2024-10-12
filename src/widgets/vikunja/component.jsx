@@ -26,10 +26,10 @@ export default function Component({ service }) {
     );
   }
 
-  const projects = projectsData.filter((project) => project.id > 0);
+  const projects = projectsData.filter((project) => project.id);
 
-  const vikunjaDefaultDueDate = new Date("0001-01-01T00:00:00Z").getTime();
-  const oneWeekFromNow = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).getTime();
+  const vikunjaDefaultDueDate = new Date("0001-01-01T00:00:00Z");
+  const oneWeekFromNow = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
   const tasksWithDueDate = tasksData.filter((task) => task.dueDate > vikunjaDefaultDueDate);
   const tasks7d = tasksWithDueDate.filter((task) => task.dueDate <= oneWeekFromNow);
   const tasksOverdue = tasksWithDueDate.filter((task) => task.dueDate <= new Date(Date.now()));
