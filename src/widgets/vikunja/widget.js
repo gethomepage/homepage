@@ -16,7 +16,7 @@ const widget = {
           id: task.id,
           title: task.title,
           priority: task.priority,
-          dueDate: new Date(task.due_date),
+          dueDate: new Date(task.due_date).getTime(),
           inProgress: task.percent_done > 0 && task.percent_done < 1,
         })),
     },
