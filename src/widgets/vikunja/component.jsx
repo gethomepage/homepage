@@ -26,7 +26,7 @@ export default function Component({ service }) {
     );
   }
 
-  const projects = projectsData.filter((project) => project.id);
+  const projects = projectsData.filter((project) => project.id > 0); // saved filters have id < 0
 
   const vikunjaDefaultDueDate = new Date("0001-01-01T00:00:00Z");
   const oneWeekFromNow = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
