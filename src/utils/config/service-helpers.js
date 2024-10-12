@@ -637,7 +637,7 @@ export function cleanServiceGroups(groups) {
           if (vehicleID !== undefined) cleanedService.widget.vehicleID = parseInt(vehicleID, 10);
         }
         if (type === "vikunja") {
-          if (enableTaskList !== undefined) cleanedService.widget.enableTaskList = enableTaskList;
+          if (enableTaskList !== undefined) cleanedService.widget.enableTaskList = !!enableTaskList;
         }
       }
 
