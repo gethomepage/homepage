@@ -9,14 +9,10 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: projectsData, error: projectsError } = useWidgetAPI(widget, "projects");
-  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "tasks", {
-    filter: "done=false&&percent_done<1",
-    sort_by: "due_date",
-  });
+  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "tasks");
 
   if (projectsError || tasksError) {
-    const vikunjaError = projectsError ?? tasksError;
-    return <Container service={service} error={vikunjaError} />;
+    return <Container service={service} error={projectsError ?? tasksError} />;
   }
 
   if (!projectsData || !tasksData) {
@@ -30,52 +26,42 @@ export default function Component({ service }) {
     );
   }
 
-  const projects = projectsData.filter((project) => project.id > 0);
+  const projects = projectsData.filter((project) => project.id);
 
-  const tasks7d = tasksData.filter(
-    (task) =>
-      new Date(task.dueDate).getTime() > new Date("0001-01-01T00:00:00Z").getTime() &&
-      new Date(task.dueDate).getTime() <= new Date(Date.now() + 604800000),
-  );
-
-  const overdue = tasksData.filter(
-    (task) =>
-      new Date(task.dueDate).getTime() > new Date("0001-01-01T00:00:00Z").getTime() &&
-      new Date(task.dueDate).getTime() <= new Date(Date.now()),
-  );
-
-  const inProgress = tasksData.filter((task) => task.inProgress === true);
+  const vikunjaDefaultDueDate = new Date("0001-01-01T00:00:00Z");
+  const oneWeekFromNow = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  const tasksWithDueDate = tasksData.filter((task) => task.dueDate > vikunjaDefaultDueDate);
+  const tasks7d = tasksWithDueDate.filter((task) => task.dueDate <= oneWeekFromNow);
+  const tasksOverdue = tasksWithDueDate.filter((task) => task.dueDate <= new Date(Date.now()));
+  const tasksInProgress = tasksData.filter((task) => task.inProgress);
 
   return (
     <>
       <Container service={service}>
         <Block label="vikunja.projects" value={t("common.number", { value: projects.length })} />
         <Block label="vikunja.tasks7d" value={t("common.number", { value: tasks7d.length })} />
-        <Block label="vikunja.tasksOverdue" value={t("common.number", { value: overdue.length })} />
-        <Block label="vikunja.tasksInProgress" value={t("common.number", { value: inProgress.length })} />
+        <Block label="vikunja.tasksOverdue" value={t("common.number", { value: tasksOverdue.length })} />
+        <Block label="vikunja.tasksInProgress" value={t("common.number", { value: tasksInProgress.length })} />
       </Container>
       {widget.enableTaskList &&
-        tasksData
-          ?.filter((task) => new Date(task.dueDate).getTime() > new Date("0001-01-01T00:00:00Z").getTime())
-          .slice(0, 5)
-          .map((task) => (
-            <div
-              key={task.id}
-              className="text-theme-700 dark:text-theme-200 relative h-5 rounded-md bg-theme-200/50 dark:bg-theme-900/20 m-1 px-1 flex"
-            >
-              <div className="text-xs z-10 self-center ml-2 relative h-4 grow mr-2">
-                <div className="absolute w-full h-4 whitespace-nowrap text-ellipsis overflow-hidden text-left">
-                  {task.title}
-                </div>
-              </div>
-              <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
-                {t("common.relativeDate", {
-                  value: task.dueDate,
-                  formatParams: { value: { style: "narrow", numeric: "auto" } },
-                })}
+        tasksWithDueDate.slice(0, 5).map((task) => (
+          <div
+            key={task.id}
+            className="text-theme-700 dark:text-theme-200 relative h-5 rounded-md bg-theme-200/50 dark:bg-theme-900/20 m-1 px-1 flex"
+          >
+            <div className="text-xs z-10 self-center ml-2 relative h-4 grow mr-2">
+              <div className="absolute w-full h-4 whitespace-nowrap text-ellipsis overflow-hidden text-left">
+                {task.title}
               </div>
             </div>
-          ))}
+            <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
+              {t("common.relativeDate", {
+                value: task.dueDate,
+                formatParams: { value: { style: "narrow", numeric: "auto" } },
+              })}
+            </div>
+          </div>
+        ))}
     </>
   );
 }

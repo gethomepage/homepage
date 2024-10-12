@@ -10,14 +10,13 @@ const widget = {
       endpoint: "projects",
     },
     tasks: {
-      endpoint: "tasks/all",
-      params: ["filter", "sort_by"],
+      endpoint: "tasks/all?filter=done%3Dfalse&sort_by=due_date",
       map: (data) =>
         asJson(data).map((task) => ({
           id: task.id,
           title: task.title,
           priority: task.priority,
-          dueDate: task.due_date,
+          dueDate: new Date(task.due_date),
           inProgress: task.percent_done > 0 && task.percent_done < 1,
         })),
     },
