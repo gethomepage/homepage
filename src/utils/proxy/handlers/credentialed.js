@@ -90,6 +90,9 @@ export default async function credentialedProxyHandler(req, res, map) {
         }
       } else if (widget.type === "wgeasy") {
         headers.Authorization = widget.password;
+      } else if (widget.type == "twingate") {
+        headers["Content-Type"] = "application/x-www-form-urlencoded";
+        headers["X-API-Key"] = `${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

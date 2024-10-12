@@ -953,5 +953,13 @@
       "reminders": "Reminders",
       "nextReminder": "Next Reminder",
       "none": "None"
+    },
+    "twingate": {
+      "networks": "Networks",
+      "connectors": "Connectors",
+      "resources": "Resources",
+      "devices": "Devices",
+      "users": "Users",
+      "groups": "Groups"
     }
 }
