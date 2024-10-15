@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     if (!widget) {
       logger.debug("Unknown proxy service type: %s", type);
-      return res.status(403).json({ error: "Unkown proxy service type" });
+      return res.status(403).json({ error: "Unknown proxy service type" });
     }
 
     const serviceProxyHandler = widget.proxyHandler || genericProxyHandler;
@@ -107,7 +107,7 @@ export default async function handler(req, res) {
     }
 
     logger.debug("Unknown proxy service type: %s", type);
-    return res.status(403).json({ error: "Unkown proxy service type" });
+    return res.status(403).json({ error: "Unknown proxy service type" });
   } catch (e) {
     if (e) logger.error(e);
     return res.status(500).send({ error: "Unexpected error" });

@@ -406,7 +406,7 @@ export function cleanServiceGroups(groups) {
           // frigate
           enableRecentEvents,
 
-          // glances, mealie, pihole, pfsense
+          // glances, immich, mealie, pihole, pfsense
           version,
 
           // glances
@@ -477,6 +477,9 @@ export function cleanServiceGroups(groups) {
 
           // unifi
           site,
+
+          // vikunja
+          enableTaskList,
 
           // wgeasy
           threshold,
@@ -568,8 +571,8 @@ export function cleanServiceGroups(groups) {
           if (snapshotHost) cleanedService.widget.snapshotHost = snapshotHost;
           if (snapshotPath) cleanedService.widget.snapshotPath = snapshotPath;
         }
-        if (["glances", "mealie", "pfsense", "pihole"].includes(type)) {
-          if (version) cleanedService.widget.version = version;
+        if (["glances", "immich", "mealie", "pfsense", "pihole"].includes(type)) {
+          if (version) cleanedService.widget.version = parseInt(version, 10);
         }
         if (type === "glances") {
           if (metric) cleanedService.widget.metric = metric;
@@ -631,7 +634,10 @@ export function cleanServiceGroups(groups) {
           if (range !== undefined) cleanedService.widget.range = range;
         }
         if (type === "lubelogger") {
-          if (vehicleID !== undefined) cleanedService.widget.vehicleID = vehicleID;
+          if (vehicleID !== undefined) cleanedService.widget.vehicleID = parseInt(vehicleID, 10);
+        }
+        if (type === "vikunja") {
+          if (enableTaskList !== undefined) cleanedService.widget.enableTaskList = !!enableTaskList;
         }
       }
 

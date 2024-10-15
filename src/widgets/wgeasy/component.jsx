@@ -38,7 +38,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="wgeasy.connected" value={connected} />
       <Block label="wgeasy.enabled" value={enabled} />
-      <Block label="wgeasy.diabled" value={disabled} />
+      <Block label="wgeasy.disabled" value={disabled} />
       <Block label="wgeasy.total" value={infoData.length} />
     </Container>
   );
