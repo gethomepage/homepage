@@ -6,13 +6,13 @@ const widget = {
 
   mappings: {
     version: {
-      endpoint: "server-info/version",
+      endpoint: "server/version",
     },
     statistics: {
-      endpoint: "server-info/statistics",
+      endpoint: "server/statistics",
     },
     stats: {
-      endpoint: "server-info/stats",
+      endpoint: "server/stats",
     },
     version_v2: {
       endpoint: "server/version",
