@@ -21,8 +21,8 @@ export default function Component({ service }) {
     );
   }
 
-  const enabled = infoData.filter((c) => c.enabled === 1).length;
-  const disabled = infoData.filter((c) => c.enabled === 0).length;
+  const enabled = infoData.filter((c) => !!c.enabled).length;
+  const disabled = infoData.filter((c) => !c.enabled).length;
   const total = infoData.length;
 
   return (
