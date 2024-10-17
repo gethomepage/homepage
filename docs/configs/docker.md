@@ -7,7 +7,7 @@ Docker instances are configured inside the `docker.yaml` file. Both IP:PORT and 
 
 !!! note
 
-    Don't use names with localhost in them as you will get an API Error for example "localhost-docker" as your name in the `docker.yaml`.
+    Don't use names starting with "localhost" as you will get an API Error. For example "localhost-docker" as your name in the `docker.yaml`.
 
 For IP:PORT, simply make sure your Docker instance [has been configured](https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f) to accept API traffic over the HTTP API.
 
