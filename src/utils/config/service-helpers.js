@@ -8,7 +8,7 @@ import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernet
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
-import getKubeConfig from "utils/config/kubernetes";
+import getKubeArguments from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
@@ -186,7 +186,7 @@ export async function servicesFromKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
 
   try {
-    const kc = getKubeConfig();
+    const kc = getKubeArguments().config;
     if (!kc) {
       return [];
     }

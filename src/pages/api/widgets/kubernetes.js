@@ -1,6 +1,6 @@
 import { CoreV1Api, Metrics } from "@kubernetes/client-node";
 
-import getKubeConfig from "../../../utils/config/kubernetes";
+import getKubeArguments from "../../../utils/config/kubernetes";
 import { parseCpu, parseMemory } from "../../../utils/kubernetes/kubernetes-utils";
 import createLogger from "../../../utils/logger";
 
@@ -8,7 +8,7 @@ const logger = createLogger("kubernetes-widget");
 
 export default async function handler(req, res) {
   try {
-    const kc = getKubeConfig();
+    const kc = getKubeArguments().config;
     if (!kc) {
       return res.status(500).send({
         error: "No kubernetes configuration",
