@@ -116,6 +116,7 @@ import unmanic from "./unmanic/widget";
 import upptime from "./upptime/widget";
 import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
+import vikunja from "./vikunja/widget";
 import watchtower from "./watchtower/widget";
 import wgeasy from "./wgeasy/widget";
 import whatsupdocker from "./whatsupdocker/widget";
@@ -248,6 +249,7 @@ const widgets = {
   uptimekuma,
   uptimerobot,
   urbackup,
+  vikunja,
   watchtower,
   wgeasy,
   whatsupdocker,
