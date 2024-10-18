@@ -128,6 +128,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Uptime Kuma](uptime-kuma.md)
 - [UptimeRobot](uptimerobot.md)
 - [UrBackup](urbackup.md)
+- [Vikunja](vikunja.md)
 - [Watchtower](watchtower.md)
 - [WGEasy](wgeasy.md)
 - [WhatsUpDocker](whatsupdocker.md)
