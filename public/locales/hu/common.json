@@ -953,5 +953,11 @@
         "reminders": "Emlékeztetők",
         "nextReminder": "Következő emlékeztető",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
     }
 }
