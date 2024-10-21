@@ -61,7 +61,7 @@
         "wlan_devices": "无线局域网设备",
         "lan_users": "局域网用户",
         "wlan_users": "无线局域网用户",
-        "up": "在线",
+        "up": "运行时间",
         "down": "离线",
         "wait": "请稍候",
         "empty_data": "子系统状态未知"
@@ -724,7 +724,7 @@
     },
     "prometheus": {
         "targets_up": "目标上线",
-        "targets_down": "离线目标",
+        "targets_down": "目标离线",
         "targets_total": "总目标"
     },
     "gatus": {
@@ -953,5 +953,11 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
     }
 }

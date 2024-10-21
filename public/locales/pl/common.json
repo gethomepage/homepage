@@ -325,15 +325,15 @@
     },
     "technitium": {
         "totalQueries": "Zapytania",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Sukces",
+        "totalServerFailure": "Porażki",
+        "totalNxDomain": "Domeny NX",
+        "totalRefused": "Odrzucone",
+        "totalAuthoritative": "Autorytatywne",
+        "totalRecursive": "Rekursywne",
+        "totalCached": "Zbuforowane",
         "totalBlocked": "Zablokowane",
-        "totalDropped": "Dropped",
+        "totalDropped": "Upuszczone",
         "totalClients": "Klienci"
     },
     "tdarr": {
@@ -844,16 +844,16 @@
     },
     "romm": {
         "platforms": "Platformy",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "totalRoms": "Gry",
+        "saves": "Zapisy",
+        "states": "Stany",
+        "screenshots": "Screeny",
+        "totalfilesize": "Rozmiar całkowity"
     },
     "mailcow": {
         "domains": "Domeny",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Skrzynki",
+        "mails": "Poczta",
         "storage": "Pamięć"
     },
     "netdata": {
@@ -939,12 +939,12 @@
         "tags": "Tagi"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Niezaklasyfikowane",
         "information": "Informacje",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Ostrzeżenie",
+        "average": "Średnia",
+        "high": "Wysokie",
+        "disaster": "Katastrofa"
     },
     "lubelogger": {
         "vehicle": "Vehicle",
@@ -953,5 +953,11 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
     }
 }
