@@ -111,6 +111,7 @@ const components = {
   scrutiny: dynamic(() => import("./scrutiny/component")),
   sonarr: dynamic(() => import("./sonarr/component")),
   speedtest: dynamic(() => import("./speedtest/component")),
+  spoolman: dynamic(() => import("./spoolman/component")),
   stash: dynamic(() => import("./stash/component")),
   stocks: dynamic(() => import("./stocks/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
