@@ -3,7 +3,7 @@ title: Zabbix
 description: Zabbix Widget Configuration
 ---
 
-Learn more about [Zabbix](https://github.com/zabbix/zabbix). The widget supports (at least) Zibbax server version 7.0.
+Learn more about [Zabbix](https://github.com/zabbix/zabbix). The widget supports (at least) Zabbix server version 7.0.
 
 ---
 
