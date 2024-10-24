@@ -325,7 +325,7 @@
     },
     "technitium": {
         "totalQueries": "Requêtes",
-        "totalNoError": "Success",
+        "totalNoError": "Effectué avec succès",
         "totalServerFailure": "Failures",
         "totalNxDomain": "NX Domains",
         "totalRefused": "Refused",
@@ -756,7 +756,7 @@
         "books": "Livres",
         "authors": "Auteurs",
         "categories": "Catégories",
-        "series": "Séries"
+        "series": "Séries TV"
     },
     "jdownloader": {
         "downloadCount": "En attente",
@@ -844,16 +844,16 @@
     },
     "romm": {
         "platforms": "Plateformes",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "totalRoms": "Jeux",
+        "saves": "Sauvegardes",
+        "states": "États",
+        "screenshots": "Captures d'écran",
+        "totalfilesize": "Taille totale"
     },
     "mailcow": {
         "domains": "Domaines",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Boites mail",
+        "mails": "Courriels",
         "storage": "Stockage"
     },
     "netdata": {
@@ -922,24 +922,24 @@
         "upload": "Envoi"
     },
     "stocks": {
-        "stocks": "Stocks",
+        "stocks": "Actions",
         "loading": "Loading",
         "open": "Open - US Market",
         "closed": "Closed - US Market",
         "invalidConfiguration": "Invalid Configuration"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Caméras",
         "uptime": "Démarré depuis",
         "version": "Version"
     },
     "linkwarden": {
-        "links": "Links",
+        "links": "Liens",
         "collections": "Collections",
         "tags": "Étiquettes"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Non classé",
         "information": "Informations",
         "warning": "Warning",
         "average": "Average",
@@ -950,8 +950,14 @@
         "vehicle": "Vehicle",
         "vehicles": "Vehicles",
         "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "reminders": "Rappels",
+        "nextReminder": "Prochain rappel",
+        "none": "Aucun"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
     }
 }
