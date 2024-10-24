@@ -953,5 +953,11 @@
         "reminders": "Opomniki",
         "nextReminder": "Naslednji opomnik",
         "none": "Brez"
+    },
+    "vikunja": {
+        "projects": "Aktivni projekti",
+        "tasks7d": "Potekla opravila tega tedna",
+        "tasksOverdue": "Potekla opravila",
+        "tasksInProgress": "Tekoča opravila"
     }
 }
