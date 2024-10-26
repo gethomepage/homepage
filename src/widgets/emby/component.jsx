@@ -175,26 +175,31 @@ function SessionEntry({ playCommand, session, enableUser, showEpisodeNumber }) {
 function CountBlocks({ service, countData }) {
   const { t } = useTranslation();
   // allows filtering
-  // eslint-disable-next-line no-param-reassign
-  if (service.widget?.type === "jellyfin") service.widget.type = "emby";
+  const isJellyfin = service.widget?.type === "jellyfin";
+  // Create a new service object instead of modifying the original
+  const modifiedService = isJellyfin
+  ? { ...service, widget: { ...service.widget, type: "emby" }}
+  : service;
 
   if (!countData) {
     return (
-      <Container service={service}>
+      <Container service={modifiedService}>
         <Block label="emby.movies" />
         <Block label="emby.series" />
         <Block label="emby.episodes" />
         <Block label="emby.songs" />
+        {isJellyfin && <Block label="emby.books" />}
       </Container>
     );
   }
 
   return (
-    <Container service={service}>
+    <Container service={modifiedService}>
       <Block label="emby.movies" value={t("common.number", { value: countData.MovieCount })} />
       <Block label="emby.series" value={t("common.number", { value: countData.SeriesCount })} />
       <Block label="emby.episodes" value={t("common.number", { value: countData.EpisodeCount })} />
       <Block label="emby.songs" value={t("common.number", { value: countData.SongCount })} />
+      {isJellyfin && <Block label="emby.books" value={t("common.number", { value: countData.BookCount })} />}
     </Container>
   );
 }

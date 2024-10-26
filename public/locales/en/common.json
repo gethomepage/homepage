@@ -105,7 +105,8 @@
         "movies": "Movies",
         "series": "Series",
         "episodes": "Episodes",
-        "songs": "Songs"
+        "songs": "Songs",
+        "books": "Books"
     },
     "esphome": {
         "offline": "Offline",
