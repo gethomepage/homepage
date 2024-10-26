@@ -389,7 +389,7 @@ quicklaunch:
   hideInternetSearch: true
   showSearchSuggestions: true
   hideVisitURL: true
-  provider: google # google, duckduckgo, bing, baidu, brave or custom
+  provider: google # google, duckduckgo, bing, baidu, brave, kagi or custom
 ```
 
 or for a custom search:

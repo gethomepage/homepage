@@ -3,7 +3,7 @@ title: Search
 description: Search Information Widget Configuration
 ---
 
-You can add a search bar to your top widget area that can search using Google, Duckduckgo, Bing, Baidu, Brave or any other custom provider that supports the basic `?q=` search query param.
+You can add a search bar to your top widget area that can search using Google, Duckduckgo, Bing, Baidu, Brave, Kagi or any other custom provider that supports the basic `?q=` search query param.
 
 ```yaml
 - search:

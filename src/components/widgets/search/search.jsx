@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
-import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
+import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave, SiKagi } from "react-icons/si";
 import { Listbox, Transition, Combobox } from "@headlessui/react";
 import classNames from "classnames";
 
@@ -38,6 +38,12 @@ export const searchProviders = {
     url: "https://search.brave.com/search?q=",
     suggestionUrl: "https://search.brave.com/api/suggest?&rich=false&q=",
     icon: SiBrave,
+  },
+  kagi: {
+    name: "Kagi",
+    url: "https://kagi.com/search?q=",
+    suggestionUrl: "https://kagi.com/api/autosuggest?q=",
+    icon: SiKagi,
   },
   custom: {
     name: "Custom",
