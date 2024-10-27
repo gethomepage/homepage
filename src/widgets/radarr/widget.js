@@ -14,7 +14,7 @@ const widget = {
         missing: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile).length,
         all: asJson(data).map((entry) => ({
           title: entry.title,
-          id: entry.id
+          id: entry.id,
         })),
       }),
     },
