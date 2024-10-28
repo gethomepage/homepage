@@ -947,11 +947,11 @@
         "disaster": "Disaster"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Pojazd",
+        "vehicles": "Pojazdy",
+        "serviceRecords": "Serwisy",
+        "reminders": "Przypomnienia",
+        "nextReminder": "Następne przypomnienie",
+        "none": "Brak"
     }
 }
