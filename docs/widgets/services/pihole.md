@@ -9,6 +9,8 @@ Allowed fields: `["queries", "blocked", "blocked_percent", "gravity"]`.
 
 Note: by default the "blocked" and "blocked_percent" fields are merged e.g. "1,234 (15%)" but explicitly including the "blocked_percent" field will change them to display separately.
 
+Pi-Hole v6 Note: Turn on 2FA and generate an App Password. This will be the `key` value. Port is required: 443 for HTTPS or 80 for HTTP.
+
 ```yaml
 widget:
   type: pihole
