@@ -478,6 +478,9 @@ export function cleanServiceGroups(groups) {
           // unifi
           site,
 
+          // vikunja
+          enableTaskList,
+
           // wgeasy
           threshold,
 
@@ -632,6 +635,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "lubelogger") {
           if (vehicleID !== undefined) cleanedService.widget.vehicleID = parseInt(vehicleID, 10);
+        }
+        if (type === "vikunja") {
+          if (enableTaskList !== undefined) cleanedService.widget.enableTaskList = !!enableTaskList;
         }
       }
 
