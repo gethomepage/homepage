@@ -1,4 +1,3 @@
-
 ---
 title: Headscale
 description: Headscale Widget Configuration
@@ -18,4 +17,3 @@ widget:
   nodeId: nodeid
   key: headscaleapiaccesstoken
 ```
-
