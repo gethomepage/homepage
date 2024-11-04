@@ -959,5 +959,13 @@
       "tasks7d": "Tasks Due This Week",
       "tasksOverdue": "Overdue Tasks",
       "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+      "name": "Name",
+      "address": "Address",
+      "last_seen": "Last Seen",
+      "status": "Status",
+      "online": "Online",
+      "offline": "Offline"
     }
 }

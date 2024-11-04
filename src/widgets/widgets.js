@@ -35,6 +35,7 @@ import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
+import headscale from "./headscale/widget";
 import homeassistant from "./homeassistant/widget";
 import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
@@ -161,6 +162,7 @@ const widgets = {
   gotify,
   grafana,
   hdhomerun,
+  headscale,
   homeassistant,
   homebox,
   homebridge,
