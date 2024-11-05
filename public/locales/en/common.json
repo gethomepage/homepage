@@ -967,5 +967,16 @@
       "status": "Status",
       "online": "Online",
       "offline": "Offline"
+    },
+    "beszel": {
+      "name": "Name",
+      "systems": "Systems",
+      "up": "Up",
+      "status": "Status",
+      "updated": "Updated",
+      "cpu": "CPU",
+      "memory": "MEM",
+      "disk": "Disk",
+      "network": "NET"
     }
 }
