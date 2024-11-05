@@ -959,5 +959,10 @@
       "tasks7d": "Tasks Due This Week",
       "tasksOverdue": "Overdue Tasks",
       "tasksInProgress": "Tasks In Progress"
+    },
+    "teslamate": {
+        "car_name": "Car name",
+        "odometer": "Odometer",
+        "battery_level": "Battery level"
     }
 }

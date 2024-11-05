@@ -115,6 +115,7 @@ const components = {
   tandoor: dynamic(() => import("./tandoor/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
   technitium: dynamic(() => import("./technitium/component")),
+  teslamate: dynamic(() => import("./teslamate/component")),
   tdarr: dynamic(() => import("./tdarr/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
