@@ -15,3 +15,4 @@ Service:
     icon: icon.png
     ...
 ```
+[Custom Css Docs](https://github.com/10mfox/gethomepage-Custom.CSS)
