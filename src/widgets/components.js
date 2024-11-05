@@ -41,6 +41,7 @@ const components = {
   gotify: dynamic(() => import("./gotify/component")),
   grafana: dynamic(() => import("./grafana/component")),
   hdhomerun: dynamic(() => import("./hdhomerun/component")),
+  headscale: dynamic(() => import("./headscale/component")),
   peanut: dynamic(() => import("./peanut/component")),
   homeassistant: dynamic(() => import("./homeassistant/component")),
   homebox: dynamic(() => import("./homebox/component")),

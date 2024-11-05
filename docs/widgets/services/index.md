@@ -44,6 +44,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Gotify](gotify.md)
 - [Grafana](grafana.md)
 - [HDHomeRun](hdhomerun.md)
+- [Headscale](headscale.md)
 - [Healthchecks](healthchecks.md)
 - [Home Assistant](homeassistant.md)
 - [HomeBox](homebox.md)
