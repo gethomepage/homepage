@@ -13,6 +13,7 @@ A list of the next 5 tasks ordered by due date is disabled by default, but can b
 ```yaml
 widget:
   type: teslamate
+  ICON: teslamate.png
   url: http[s]://teslamateapi.host.or.ip[:port]
   car_id: id_of_your_car_in_teslamate
 ```
