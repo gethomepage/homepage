@@ -14,5 +14,5 @@ widget:
   type: pihole
   url: http://pi.hole.or.ip
   version: 6 # required if running v6 or higher, defaults to 5
-  key: yourpiholeapikey # optional
+  key: yourpiholeapikey # optional, in v6 can be your password or app password
 ```

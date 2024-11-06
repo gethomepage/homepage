@@ -37,6 +37,7 @@ nav:
           - widgets/services/autobrr.md
           - widgets/services/azuredevops.md
           - widgets/services/bazarr.md
+          - widgets/services/beszel.md
           - widgets/services/caddy.md
           - widgets/services/calendar.md
           - widgets/services/calibre-web.md
@@ -67,6 +68,7 @@ nav:
           - widgets/services/gotify.md
           - widgets/services/grafana.md
           - widgets/services/hdhomerun.md
+          - widgets/services/headscale.md
           - widgets/services/healthchecks.md
           - widgets/services/homeassistant.md
           - widgets/services/homebox.md

@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "d",
         "hours": "h",
@@ -959,5 +959,24 @@
       "tasks7d": "Tasks Due This Week",
       "tasksOverdue": "Overdue Tasks",
       "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+      "name": "Name",
+      "address": "Address",
+      "last_seen": "Last Seen",
+      "status": "Status",
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "beszel": {
+      "name": "Name",
+      "systems": "Systems",
+      "up": "Up",
+      "status": "Status",
+      "updated": "Updated",
+      "cpu": "CPU",
+      "memory": "MEM",
+      "disk": "Disk",
+      "network": "NET"
     }
 }

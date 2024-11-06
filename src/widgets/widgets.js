@@ -5,6 +5,7 @@ import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
 import azuredevops from "./azuredevops/widget";
 import bazarr from "./bazarr/widget";
+import beszel from "./beszel/widget";
 import caddy from "./caddy/widget";
 import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
@@ -35,6 +36,7 @@ import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
+import headscale from "./headscale/widget";
 import homeassistant from "./homeassistant/widget";
 import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
@@ -132,6 +134,7 @@ const widgets = {
   autobrr,
   azuredevops,
   bazarr,
+  beszel,
   caddy,
   calibreweb,
   changedetectionio,
@@ -161,6 +164,7 @@ const widgets = {
   gotify,
   grafana,
   hdhomerun,
+  headscale,
   homeassistant,
   homebox,
   homebridge,
