@@ -11,13 +11,31 @@ const extractKubeData = (config) => {
   //kubeconfig
   const kc = new KubeConfig();
   kc.loadFromCluster()
+
   //route
   let route="ingress";
   if (config?.route=="gateway"){
     route="gateway";
   }
+
+  //traefik
+  let traefik=true;
+  if (config?.traefik=="disable"){
+    traefik=false;
+  }
+
+  //traefik
+  let metrics=true;
+  if (config?.metrics=="disable"){
+    metrics=false;
+  }
+
+  //return
   return {"config":kc,
-          "route":route};
+          "route":route,
+          "traefik":traefik,
+          "metrics":metrics
+        };
 }
 
 export default function getKubeArguments() {
