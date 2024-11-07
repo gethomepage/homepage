@@ -151,13 +151,6 @@ export async function servicesFromDocker() {
   return mappedServiceGroups;
 }
 
-// function getUrlFromroute(route) {
-//   const urlHost = route.spec.rules[0].host;
-//   const urlPath = route.spec.rules[0].http.paths[0].path;
-//   const urlSchema = route.spec.tls ? "https" : "http";
-//   return `${urlSchema}://${urlHost}${urlPath}`;
-// }
-
 export async function checkCRD(kc, name) {
   const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
   const exist = await apiExtensions
@@ -186,71 +179,6 @@ export async function servicesFromKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
 
   try {
-    // const kc = getKubeArguments().config;
-    // if (!kc) {
-    //   return [];
-    // }
-    // const networking = kc.makeApiClient(NetworkingV1Api);
-    // const crd = kc.makeApiClient(CustomObjectsApi);
-
-    // const routeList = await networking
-    //   .listrouteForAllNamespaces(null, null, null, null)
-    //   .then((response) => response.body)
-    //   .catch((error) => {
-    //     logger.error("Error getting routees: %d %s %s", error.statusCode, error.body, error.response);
-    //     logger.debug(error);
-    //     return null;
-    //   });
-
-    // const traefikContainoExists = await checkCRD(kc, "routeroutes.traefik.containo.us");
-    // const traefikExists = await checkCRD(kc, "routeroutes.traefik.io");
-
-    // const traefikrouteListContaino = await crd
-    //   .listClusterCustomObject("traefik.containo.us", "v1alpha1", "routeroutes")
-    //   .then((response) => response.body)
-    //   .catch(async (error) => {
-    //     if (traefikContainoExists) {
-    //       logger.error(
-    //         "Error getting traefik routees from traefik.containo.us: %d %s %s",
-    //         error.statusCode,
-    //         error.body,
-    //         error.response,
-    //       );
-    //       logger.debug(error);
-    //     }
-
-    //     return [];
-    //   });
-
-    // const traefikrouteListIo = await crd
-    //   .listClusterCustomObject("traefik.io", "v1alpha1", "routeroutes")
-    //   .then((response) => response.body)
-    //   .catch(async (error) => {
-    //     if (traefikExists) {
-    //       logger.error(
-    //         "Error getting traefik routees from traefik.io: %d %s %s",
-    //         error.statusCode,
-    //         error.body,
-    //         error.response,
-    //       );
-    //       logger.debug(error);
-    //     }
-
-    //     return [];
-    //   });
-
-    // const traefikrouteList = [...(traefikrouteListContaino?.items ?? []), ...(traefikrouteListIo?.items ?? [])];
-
-    // if (traefikrouteList.length > 0) {
-    //   const traefikServices = traefikrouteList.filter(
-    //     (route) => route.metadata.annotations && route.metadata.annotations[`${ANNOTATION_BASE}/href`],
-    //   );
-    //   routeList.items.push(...traefikServices);
-    // }
-
-    // if (!routeList) {
-    //   return [];
-    // }
     const routeList = await getRouteList();
     
     if (!routeList) {
