@@ -151,26 +151,6 @@ export async function servicesFromDocker() {
   return mappedServiceGroups;
 }
 
-export async function checkCRD(kc, name) {
-  const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
-  const exist = await apiExtensions
-    .readCustomResourceDefinitionStatus(name)
-    .then(() => true)
-    .catch(async (error) => {
-      if (error.statusCode === 403) {
-        logger.error(
-          "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
-          name,
-          error.statusCode,
-          error.body.message,
-        );
-      }
-      return false;
-    });
-
-  return exist;
-}
-
 export async function servicesFromKubernetes() {
   const ANNOTATION_BASE = "gethomepage.dev";
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;

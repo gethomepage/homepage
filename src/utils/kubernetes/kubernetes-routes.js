@@ -1,7 +1,10 @@
 
 
-import { CustomObjectsApi, NetworkingV1Api, CoreV1Api } from "@kubernetes/client-node";
+import { CustomObjectsApi, NetworkingV1Api, CoreV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
 import getKubeArguments from "utils/config/kubernetes";
+import createLogger from "utils/logger";
+
+const logger = createLogger("service-helpers");
 
 const kubeArguments = getKubeArguments();
 const kc = kubeArguments.config;
@@ -14,6 +17,27 @@ let core;
 let networking;
 let routingType;
 let traefik;
+
+
+export async function checkCRD(kc, name) {
+  const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
+  const exist = await apiExtensions
+    .readCustomResourceDefinitionStatus(name)
+    .then(() => true)
+    .catch(async (error) => {
+      if (error.statusCode === 403) {
+        logger.error(
+          "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
+          name,
+          error.statusCode,
+          error.body.message,
+        );
+      }
+      return false;
+    });
+
+  return exist;
+}
 
 const getSchemaFromGateway = async (gatewayRef) => {
     try {
@@ -57,9 +81,9 @@ async function getHttpRouteList(){
         for (const namespace of namespaces) {
             try {
             // Fetch the httproute from one namespaces
-            const customObject = await crd.listNamespacedCustomObject(apiGroup,version,namespace,'httproutes');
-            if (customObject.body.items.length !== 0){
-                httpRouteList.push(customObject.body.items[0]);
+            const httpRoute = await crd.listNamespacedCustomObject(apiGroup,version,namespace,'httproutes');
+            if (httpRoute.body.items.length !== 0){
+                httpRouteList.push(httpRoute.body.items[0]);
             }
             
             } catch (err) {
@@ -175,6 +199,5 @@ export async function getUrlSchema(route) {
       default:
         urlSchema = getUrlFromIngress(route);
     }
-
     return urlSchema;
   }
