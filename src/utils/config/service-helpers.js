@@ -185,7 +185,7 @@ export async function servicesFromKubernetes() {
       return [];
     }
 
-    const services = routeList
+    const services = await Promise.all(routeList
       .filter(
         (route) =>
           route.metadata.annotations &&
@@ -194,11 +194,11 @@ export async function servicesFromKubernetes() {
             route.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
             `${ANNOTATION_BASE}/instance.${instanceName}` in route.metadata.annotations),
       )
-      .map((route) => {
+      .map( async (route) => {
         let constructedService = {
           app: route.metadata.annotations[`${ANNOTATION_BASE}/app`] || route.metadata.name,
           namespace: route.metadata.namespace,
-          href: route.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlSchema(route),
+          href: route.metadata.annotations[`${ANNOTATION_BASE}/href`] || await getUrlSchema(route),
           name: route.metadata.annotations[`${ANNOTATION_BASE}/name`] || route.metadata.name,
           group: route.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
           weight: route.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
@@ -207,7 +207,6 @@ export async function servicesFromKubernetes() {
           external: false,
           type: "service",
         };
-        console.log("href is ",constructedService.href);
         if (route.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
           constructedService.external =
             String(route.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
@@ -240,9 +239,9 @@ export async function servicesFromKubernetes() {
           logger.error("Error attempting k8s environment variable substitution.");
           logger.debug(e);
         }
-        console.log(constructedService)
         return constructedService;
-      });
+      })
+    );
 
     const mappedServiceGroups = [];
 

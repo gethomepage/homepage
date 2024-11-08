@@ -25,11 +25,11 @@ const getSchemaFromGateway = async (gatewayRef) => {
     }
 };
 
-function getUrlFromHttpRoute(ingress) {
+async function getUrlFromHttpRoute(ingress) {
     const urlHost = ingress.spec.hostnames[0];
     const urlPath = ingress.spec.rules[0].matches[0].path.value;
-    //const urlSchema = await getSchemaFromGateway(ingress.spec.parentRefs[0]) ? "https" : "http";
-    const urlSchema = "https"
+    const urlSchema = await getSchemaFromGateway(ingress.spec.parentRefs[0]) ? "https" : "http";
+    // const urlSchema = "https"
     return `${urlSchema}://${urlHost}${urlPath}`;
 }
   
@@ -162,7 +162,7 @@ export async function getRouteList(){
   return routeList;
 }
 
-export function getUrlSchema(route) {
+export async function getUrlSchema(route) {
     let urlSchema;
     
     switch (routingType) {
@@ -170,7 +170,7 @@ export function getUrlSchema(route) {
         urlSchema = getUrlFromIngress(route);
         break;
       case "gateway":
-        urlSchema = getUrlFromHttpRoute(route);
+        urlSchema = await getUrlFromHttpRoute(route);
         break;
       default:
         urlSchema = getUrlFromIngress(route);
