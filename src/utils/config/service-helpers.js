@@ -8,7 +8,7 @@ import { ApiextensionsV1Api } from "@kubernetes/client-node";
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
-import {getUrlSchema,getRouteList} from "utils/kubernetes/kubernetes-routes";
+import { getUrlSchema, getRouteList } from "utils/kubernetes/kubernetes-routes";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
@@ -160,67 +160,68 @@ export async function servicesFromKubernetes() {
 
   try {
     const routeList = await getRouteList();
-    
+
     if (!routeList) {
       return [];
     }
 
-    const services = await Promise.all(routeList
-      .filter(
-        (route) =>
-          route.metadata.annotations &&
-          route.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
-          (!route.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
-            route.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
-            `${ANNOTATION_BASE}/instance.${instanceName}` in route.metadata.annotations),
-      )
-      .map( async (route) => {
-        let constructedService = {
-          app: route.metadata.annotations[`${ANNOTATION_BASE}/app`] || route.metadata.name,
-          namespace: route.metadata.namespace,
-          href: route.metadata.annotations[`${ANNOTATION_BASE}/href`] || await getUrlSchema(route),
-          name: route.metadata.annotations[`${ANNOTATION_BASE}/name`] || route.metadata.name,
-          group: route.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
-          weight: route.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
-          icon: route.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
-          description: route.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
-          external: false,
-          type: "service",
-        };
-        if (route.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
-          constructedService.external =
-            String(route.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
-        }
-        if (route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
-          constructedService.podSelector = route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
-        }
-        if (route.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
-          constructedService.ping = route.metadata.annotations[`${ANNOTATION_BASE}/ping`];
-        }
-        if (route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
-          constructedService.siteMonitor = route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
-        }
-        if (route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
-          constructedService.statusStyle = route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
-        }
-        Object.keys(route.metadata.annotations).forEach((annotation) => {
-          if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
-            shvl.set(
-              constructedService,
-              annotation.replace(`${ANNOTATION_BASE}/`, ""),
-              route.metadata.annotations[annotation],
-            );
+    const services = await Promise.all(
+      routeList
+        .filter(
+          (route) =>
+            route.metadata.annotations &&
+            route.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
+            (!route.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
+              route.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
+              `${ANNOTATION_BASE}/instance.${instanceName}` in route.metadata.annotations),
+        )
+        .map(async (route) => {
+          let constructedService = {
+            app: route.metadata.annotations[`${ANNOTATION_BASE}/app`] || route.metadata.name,
+            namespace: route.metadata.namespace,
+            href: route.metadata.annotations[`${ANNOTATION_BASE}/href`] || (await getUrlSchema(route)),
+            name: route.metadata.annotations[`${ANNOTATION_BASE}/name`] || route.metadata.name,
+            group: route.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
+            weight: route.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
+            icon: route.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
+            description: route.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
+            external: false,
+            type: "service",
+          };
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
+            constructedService.external =
+              String(route.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
           }
-        });
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
+            constructedService.podSelector = route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
+          }
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
+            constructedService.ping = route.metadata.annotations[`${ANNOTATION_BASE}/ping`];
+          }
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
+            constructedService.siteMonitor = route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
+          }
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
+            constructedService.statusStyle = route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
+          }
+          Object.keys(route.metadata.annotations).forEach((annotation) => {
+            if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+              shvl.set(
+                constructedService,
+                annotation.replace(`${ANNOTATION_BASE}/`, ""),
+                route.metadata.annotations[annotation],
+              );
+            }
+          });
 
-        try {
-          constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
-        } catch (e) {
-          logger.error("Error attempting k8s environment variable substitution.");
-          logger.debug(e);
-        }
-        return constructedService;
-      })
+          try {
+            constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
+          } catch (e) {
+            logger.error("Error attempting k8s environment variable substitution.");
+            logger.debug(e);
+          }
+          return constructedService;
+        }),
     );
 
     const mappedServiceGroups = [];
