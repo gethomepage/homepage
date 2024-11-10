@@ -1,4 +1,5 @@
 import { CustomObjectsApi, NetworkingV1Api, CoreV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
+
 import getKubeArguments from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
@@ -16,7 +17,7 @@ let networking;
 let routingType;
 let traefik;
 
-export async function checkCRD(kc, name) {
+export async function checkCRD(name) {
   const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
   const exist = await apiExtensions
     .readCustomResourceDefinitionStatus(name)
@@ -37,19 +38,24 @@ export async function checkCRD(kc, name) {
 }
 
 const getSchemaFromGateway = async (gatewayRef) => {
-  try {
-    const gateway = await crd.getNamespacedCustomObject(
-      apiGroup,
-      version,
-      gatewayRef.namespace,
-      "gateways",
-      gatewayRef.name,
-    );
-    const listener = gateway.body.spec.listeners.filter((listener) => listener.name == gatewayRef.sectionName)[0];
-    return listener.protocol.toLowerCase();
-  } catch (err) {
-    console.error(err);
-  }
+  
+  const schema = await crd.getNamespacedCustomObject(
+    apiGroup,
+    version,
+    gatewayRef.namespace,
+    "gateways",
+    gatewayRef.name,
+  )
+  .then((response) => {
+    const listner = response.body.spec.listeners.filter((listener) => listener.name === gatewayRef.sectionName)[0]
+    return listner.protocol.toLowerCase();
+  })
+  .catch((error) => {
+    logger.error("Error getting gateways: %d %s %s", error.statusCode, error.body, error.response);
+    logger.debug(error);
+    return "";
+  });
+  return schema;
 };
 
 async function getUrlFromHttpRoute(ingress) {
@@ -67,7 +73,7 @@ function getUrlFromIngress(ingress) {
 }
 
 async function getHttpRouteList() {
-  const httpRouteList = new Array();
+  const httpRouteList = [];
 
   const namespaces = await core
     .listNamespace()
@@ -95,7 +101,7 @@ async function getHttpRouteList() {
   return httpRouteList;
 }
 
-async function getIngressList() {
+async function getIngressList(ANNOTATION_BASE) {
   const ingressList = await networking
     .listIngressForAllNamespaces(null, null, null, null)
     .then((response) => response.body)
@@ -106,8 +112,8 @@ async function getIngressList() {
     });
 
   if (traefik) {
-    const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
-    const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
+    const traefikContainoExists = await checkCRD("ingressroutes.traefik.containo.us");
+    const traefikExists = await checkCRD("ingressroutes.traefik.io");
 
     const traefikIngressListContaino = await crd
       .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
@@ -156,8 +162,8 @@ async function getIngressList() {
   return ingressList.items;
 }
 
-export async function getRouteList() {
-  let routeList = new Array();
+export async function getRouteList(ANNOTATION_BASE) {
+  let routeList = [];
 
   if (!kc) {
     return [];
@@ -172,13 +178,13 @@ export async function getRouteList() {
 
   switch (routingType) {
     case "ingress":
-      routeList = await getIngressList();
+      routeList = await getIngressList(ANNOTATION_BASE);
       break;
     case "gateway":
       routeList = await getHttpRouteList();
       break;
     default:
-      routeList = await getIngressList();
+      routeList = await getIngressList(ANNOTATION_BASE);
   }
 
   return routeList;

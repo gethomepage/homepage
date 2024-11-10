@@ -3,7 +3,6 @@ import path from "path";
 
 import yaml from "js-yaml";
 import Docker from "dockerode";
-import { ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
@@ -159,7 +158,7 @@ export async function servicesFromKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
 
   try {
-    const routeList = await getRouteList();
+    const routeList = await getRouteList(ANNOTATION_BASE);
 
     if (!routeList) {
       return [];

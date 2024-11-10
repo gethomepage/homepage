@@ -7,30 +7,27 @@ import { KubeConfig } from "@kubernetes/client-node";
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
 const extractKubeData = (config) => {
-  //kubeconfig
+  // kubeconfig
   const kc = new KubeConfig();
   kc.loadFromCluster();
 
-  //route
+  // route
   let route = "ingress";
-  if (config?.route == "gateway") {
+  if (config?.route === "gateway") {
     route = "gateway";
   }
 
-  //traefik
+  // traefik
   let traefik = true;
-  if (config?.traefik == "disable") {
+  if (config?.traefik === "disable") {
     traefik = false;
   }
 
-  //traefik
-  let metrics = true;
-  if (config?.metrics == "disable") {
-    metrics = false;
-  }
-
-  //return
-  return { config: kc, route: route, traefik: traefik, metrics: metrics };
+  return { 
+    "config": kc, 
+    "route": route, 
+    "traefik": traefik
+  };
 };
 
 export default function getKubeArguments() {
