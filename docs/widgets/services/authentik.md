@@ -20,6 +20,7 @@ Allowed fields: `["users", "loginsLast24H", "failedLoginsLast24H"]`.
 ```yaml
 widget:
   type: authentik
-  url: http://authentik.host.or.ip:22070
+  url: http://authentik.host.or.ip:port
   key: api_token
 ```
+The port should be the one you specified in the environment variables `COMPOSE_PORT_HTTP` or `COMPOSE_PORT_HTTPS` when installing Authentik. If you are using a reverse proxy alternatively you can just enter the domain.
