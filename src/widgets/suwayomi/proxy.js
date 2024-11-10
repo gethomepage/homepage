@@ -166,10 +166,9 @@ function makeBody(fieldsSet, category = "all") {
     query: `
     query category($id: Int!) {
       category(id: $id) {
-        name
+        # name
         mangas {
           nodes {
-            title
             chapters {
               nodes {
                 isRead
