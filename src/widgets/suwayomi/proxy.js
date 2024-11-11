@@ -8,6 +8,39 @@ const proxyName = "suwayomiProxyHandler";
 const logger = createLogger(proxyName);
 
 /**
+ * @typedef {object} countsToExtractItem
+ * @property {(c: chapter) => boolean} condition
+ * @property {string} gqlCondition
+ */
+
+/** @type {Record<string, countsToExtractItem>} */
+const countsToExtract = {
+  download: {
+    condition: (c) => c.isDownloaded,
+    gqlCondition: "isDownloaded: true",
+  },
+  nondownload: {
+    condition: (c) => !c.isDownloaded,
+    gqlCondition: "isDownloaded: false",
+  },
+  read: { condition: (c) => c.isRead, gqlCondition: "isRead: true" },
+  unread: { condition: (c) => !c.isRead, gqlCondition: "isRead: false" },
+  downloadedread: { condition: (c) => c.isDownloaded && c.isRead, gqlCondition: "isDownloaded: true, isRead: true" },
+  downloadedunread: {
+    condition: (c) => c.isDownloaded && !c.isRead,
+    gqlCondition: "isDownloaded: true, isRead: false",
+  },
+  nondownloadedread: {
+    condition: (c) => !c.isDownloaded && c.isRead,
+    gqlCondition: "isDownloaded: false, isRead: true",
+  },
+  nondownloadedunread: {
+    condition: (c) => !c.isDownloaded && !c.isRead,
+    gqlCondition: "isDownloaded: false, isRead: false",
+  },
+};
+
+/**
  * @typedef totalCount
  * @type {object}
  * @property {string} totalCount - count
@@ -55,20 +88,13 @@ const logger = createLogger(proxyName);
  */
 
 /**
- * @typedef {object} countsToExtractItem
- * @property {(c: chapter) => boolean} condition
- * @property {string} gqlCondition
- */
-
-/**
  * Makes a GraphQL query body based on the provided fieldsSet and category.
  *
  * @param {string[]} fields - Array of field names.
  * @param {string|number|undefined} [category="all"] - Category ID or "all" for general counts.
- * @param {Record<string, countsToExtractItem>} countsToExtract - Object containing counts to extract.
  * @returns {string} - The JSON stringified query body.
  */
-function makeBody(fields, countsToExtract, category = "all") {
+function makeBody(fields, category = "all") {
   if (Number.isNaN(Number(category))) {
     let query = "";
     fields.forEach((f) => {
@@ -114,14 +140,13 @@ function makeBody(fields, countsToExtract, category = "all") {
 }
 
 /**
- * Extracts the counts from the response JSON object based on the provided fields and countsToExtract object.
+ * Extracts the counts from the response JSON object based on the provided fields.
  *
  * @param {ResponseJSON|ResponseJSONcategory} responseJSON - The response JSON object.
  * @param {string[]} fields - Array of field names.
- * @param {Record<string, countsToExtractItem>} countsToExtract - Object containing counts to extract.
  * @returns
  */
-function extractCounts(responseJSON, fields, countsToExtract) {
+function extractCounts(responseJSON, fields) {
   if (!("category" in responseJSON.data)) {
     return fields.map((field) => ({
       count: responseJSON.data[field].totalCount,
@@ -147,59 +172,18 @@ function extractCounts(responseJSON, fields, countsToExtract) {
   }));
 }
 
-export default async function suwayomiProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
-
-  if (!group || !service) {
-    logger.debug("Invalid or missing service '%s' or group '%s'", service, group);
-    return res.status(400).json({ error: "Invalid proxy service type" });
+function makeFields(Fields) {
+  let fields = Fields;
+  if (fields.length === 0) {
+    fields = ["download", "nondownload", "read", "unread"];
   }
-  /** @type {{ fields: string[],category: string|number|undefined, type: keyof typeof widgets }} */
-  const widget = await getServiceWidget(group, service);
+  fields.length = 4;
+  fields = fields.map((f) => f.toLowerCase());
 
-  if (widget.fields.length === 0) {
-    widget.fields = ["download", "nondownload", "read", "unread"];
-  }
+  return fields;
+}
 
-  widget.fields.length = 4;
-  widget.fields = widget.fields.map((f) => f.toLowerCase());
-
-  /** @type {Record<string, countsToExtractItem>} */
-  const countsToExtract = {
-    download: {
-      condition: (c) => c.isDownloaded,
-      gqlCondition: "isDownloaded: true",
-    },
-    nondownload: {
-      condition: (c) => !c.isDownloaded,
-      gqlCondition: "isDownloaded: false",
-    },
-    read: { condition: (c) => c.isRead, gqlCondition: "isRead: true" },
-    unread: { condition: (c) => !c.isRead, gqlCondition: "isRead: false" },
-    downloadedread: { condition: (c) => c.isDownloaded && c.isRead, gqlCondition: "isDownloaded: true, isRead: true" },
-    downloadedunread: {
-      condition: (c) => c.isDownloaded && !c.isRead,
-      gqlCondition: "isDownloaded: true, isRead: false",
-    },
-    nondownloadedread: {
-      condition: (c) => !c.isDownloaded && c.isRead,
-      gqlCondition: "isDownloaded: false, isRead: true",
-    },
-    nondownloadedunread: {
-      condition: (c) => !c.isDownloaded && !c.isRead,
-      gqlCondition: "isDownloaded: false, isRead: false",
-    },
-  };
-
-  if (!widget) {
-    logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
-    return res.status(400).json({ error: "Invalid proxy service type" });
-  }
-
-  const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
-
-  const body = makeBody(widget.fields, countsToExtract, widget.category);
-
+function makeHeaders(widget) {
   const headers = {
     "Content-Type": "application/json",
   };
@@ -207,6 +191,32 @@ export default async function suwayomiProxyHandler(req, res) {
   if (widget.username && widget.password) {
     headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
   }
+  return headers;
+}
+
+export default async function suwayomiProxyHandler(req, res) {
+  const { group, service, endpoint } = req.query;
+
+  if (!group || !service) {
+    logger.debug("Invalid or missing service '%s' or group '%s'", service, group);
+    return res.status(400).json({ error: "Invalid proxy service type" });
+  }
+
+  /** @type {{ fields: string[],category: string|number|undefined, type: keyof typeof widgets }} */
+  const widget = await getServiceWidget(group, service);
+
+  if (!widget) {
+    logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
+    return res.status(400).json({ error: "Invalid proxy service type" });
+  }
+
+  widget.fields = makeFields(widget.fields);
+
+  const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
+
+  const body = makeBody(widget.fields, widget.category);
+
+  const headers = makeHeaders(widget);
 
   const [status, contentType, data] = await httpProxy(url, {
     method: "POST",
@@ -216,7 +226,7 @@ export default async function suwayomiProxyHandler(req, res) {
 
   if (status === 401) {
     logger.error("Invalid or missing username or password for service '%s' in group '%s'", service, group);
-    return res.status(401).send({ error: { message: "401: unauthorized, username or password is incorrect." } });
+    return res.status(status).send({ error: { message: "401: unauthorized, username or password is incorrect." } });
   }
 
   if (status !== 200) {
@@ -233,7 +243,7 @@ export default async function suwayomiProxyHandler(req, res) {
   /** @type {ResponseJSON|ResponseJSONcategory} */
   const responseJSON = JSON.parse(data);
 
-  const returnData = extractCounts(responseJSON, widget.fields, countsToExtract);
+  const returnData = extractCounts(responseJSON, widget.fields);
 
   if (contentType) res.setHeader("Content-Type", contentType);
   return res.status(status).send(returnData);
