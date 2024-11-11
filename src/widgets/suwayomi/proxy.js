@@ -30,6 +30,14 @@ const logger = createLogger(proxyName);
  */
 
 /**
+ * @typedef chapter
+ * @type {{
+ *   isRead: boolean,
+ *   isDownloaded: boolean
+ * }}
+ */
+
+/**
  * @typedef ResponseJSONcategory
  * @type {{
  *   data: {
@@ -37,12 +45,9 @@ const logger = createLogger(proxyName);
  *       mangas: {
  *         nodes: {
  *           chapters: {
- *             nodes: {
- *               isRead: boolean,
- *               isDownloaded: boolean
- *             }
+ *             nodes: chapter[]
  *           }
- *         }
+ *         }[]
  *       }
  *     }
  *   }
@@ -50,113 +55,36 @@ const logger = createLogger(proxyName);
  */
 
 /**
+ * @typedef {object} countsToExtractItem
+ * @property {(c: chapter) => boolean} condition
+ * @property {string} gqlCondition
+ */
+
+/**
  * Makes a GraphQL query body based on the provided fieldsSet and category.
  *
  * @param {Set} fieldsSet - Set of fields to include in the query.
  * @param {string|number|undefined} [category="all"] - Category ID or "all" for general counts.
+ * @param {Record<string, countsToExtractItem>} countsToExtract - Object containing counts to extract.
  * @returns {string} - The JSON stringified query body.
  */
-function makeBody(fieldsSet, category = "all") {
+function makeBody(fieldsSet, countsToExtract, category = "all") {
   if (Number.isNaN(Number(category))) {
+    let query = "";
+    fieldsSet.forEach((f) => {
+      query += `
+      ${f}: chapters(
+        condition: {${countsToExtract[f].gqlCondition}}
+        filter: {inLibrary: {equalTo: true}}
+      ) {
+        totalCount
+      }`;
+    });
     return JSON.stringify({
       operationName: "Counts",
       query: `
       query Counts {
-        ${
-          fieldsSet.has("download")
-            ? `
-        download: chapters(
-          condition: {isDownloaded: true}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }`
-            : ""
-        }
-        ${
-          fieldsSet.has("nondownload")
-            ? `
-        nondownload: chapters(
-          condition: {isDownloaded: true}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }
-        `
-            : ""
-        }
-        ${
-          fieldsSet.has("read")
-            ? `
-        read: chapters(
-          condition: {isRead: true}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }
-        `
-            : ""
-        }
-        ${
-          fieldsSet.has("unread")
-            ? `
-        unread: chapters(
-          condition: {isRead: false}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }
-        `
-            : ""
-        }
-        ${
-          fieldsSet.has("downloadedread")
-            ? `
-        downloadedread: chapters(
-          condition: {isDownloaded: true, isRead: true}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }
-        `
-            : ""
-        }
-        ${
-          fieldsSet.has("downloadedunread")
-            ? `
-        downloadedunread: chapters(
-          condition: {isDownloaded: true, isRead: false}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }
-        `
-            : ""
-        }
-        ${
-          fieldsSet.has("nondownloadedread")
-            ? `
-        nondownloadedread: chapters(
-          condition: {isDownloaded: false, isRead: true}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }
-        `
-            : ""
-        }
-        ${
-          fieldsSet.has("nondownloadedunread")
-            ? `
-        nondownloadedunread: chapters(
-          condition: {isDownloaded: false, isRead: false}
-          filter: {inLibrary: {equalTo: true}}
-        ) {
-          totalCount
-        }
-        `
-            : ""
-        }
+        ${query}
       }`,
     });
   }
@@ -186,49 +114,36 @@ function makeBody(fieldsSet, category = "all") {
 }
 
 /**
- * Makes a Basic Authentication token encoded in base64.
  *
- * @param {string|undefined} username - The username for authentication.
- * @param {string|undefined} password - The password for authentication.
- * @returns {string|null} A Basic Authentication token, or null if username or password is missing.
+ * @param {ResponseJSON|ResponseJSONcategory} responseJSON
+ * @param {string[]} fields
+ * @param {Record<string, countsToExtractItem>} countsToExtract
+ * @returns
  */
-function makeAuth(username, password) {
-  if (username && password) {
-    // Combine username and password, and encode them in base64
-    return `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
+function extractCounts(responseJSON, fields, countsToExtract) {
+  if (!("category" in responseJSON.data)) {
+    return fields.map((field) => ({
+      count: responseJSON.data[field].totalCount,
+      label: `suwayomi.${field}`,
+    }));
   }
-  // Return null if either username or password is not provided
-  return null;
-}
-
-/**
- * Extracts count data from the response JSON and appends it to the returnData array.
- *
- * @param {ResponseJSON|ResponseJSONcategory} responseJSON - The JSON response containing the data.
- * @param {keyof ResponseJSON["data"]} fieldName - The name of the field to extract.
- * @param {Function} condition - A function to compare and determine the count condition.
- * @returns {{ count: number, label: string }} - An object containing the count and label.
- */
-function extractCounts(responseJSON, fieldName, condition) {
-  if (fieldName in responseJSON.data) {
-    return {
-      count: responseJSON.data[fieldName].totalCount,
-      label: `suwayomi.${fieldName}`,
-    };
-  }
-  return {
-    count: responseJSON.data.category.mangas.nodes.reduce(
-      (aa, cc) =>
-        cc.chapters.nodes.reduce((a, c) => {
-          if (condition(c)) {
-            return a + 1;
+  const tmp = responseJSON.data.category.mangas.nodes.reduce(
+    (accumulator, manga) => {
+      manga.chapters.nodes.forEach((chapter) => {
+        fields.forEach((field, i) => {
+          if (countsToExtract[field].condition(chapter)) {
+            accumulator[i] += 1;
           }
-          return a;
-        }, 0) + aa,
-      0,
-    ),
-    label: `suwayomi.${fieldName}`,
-  };
+        });
+      });
+      return accumulator;
+    },
+    [0, 0, 0, 0],
+  );
+  return fields.map((field, i) => ({
+    count: tmp[i],
+    label: `suwayomi.${field}`,
+  }));
 }
 
 export default async function suwayomiProxyHandler(req, res) {
@@ -250,6 +165,33 @@ export default async function suwayomiProxyHandler(req, res) {
   /** @type {Set<string>} */
   const fieldsSet = new Set(widget.fields);
 
+  /** @type {Record<string, countsToExtractItem>} */
+  const countsToExtract = {
+    download: {
+      condition: (c) => c.isDownloaded,
+      gqlCondition: "isDownloaded: true",
+    },
+    nondownload: {
+      condition: (c) => !c.isDownloaded,
+      gqlCondition: "isDownloaded: false",
+    },
+    read: { condition: (c) => c.isRead, gqlCondition: "isRead: true" },
+    unread: { condition: (c) => !c.isRead, gqlCondition: "isRead: false" },
+    downloadedread: { condition: (c) => c.isDownloaded && c.isRead, gqlCondition: "isDownloaded: true, isRead: true" },
+    downloadedunread: {
+      condition: (c) => c.isDownloaded && !c.isRead,
+      gqlCondition: "isDownloaded: true, isRead: false",
+    },
+    nondownloadedread: {
+      condition: (c) => !c.isDownloaded && c.isRead,
+      gqlCondition: "isDownloaded: false, isRead: true",
+    },
+    nondownloadedunread: {
+      condition: (c) => !c.isDownloaded && !c.isRead,
+      gqlCondition: "isDownloaded: false, isRead: false",
+    },
+  };
+
   if (!widget) {
     logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
     return res.status(400).json({ error: "Invalid proxy service type" });
@@ -257,15 +199,20 @@ export default async function suwayomiProxyHandler(req, res) {
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
-  const body = makeBody(fieldsSet, widget.category);
+  const body = makeBody(fieldsSet, countsToExtract, widget.category);
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
+  if (widget.username && widget.password) {
+    headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+  }
 
   const [status, contentType, data] = await httpProxy(url, {
     method: "POST",
     body,
-    headers: {
-      "content-type": "application/json",
-      Authorization: makeAuth(widget.username, widget.password),
-    },
+    headers,
   });
 
   if (status === 401) {
@@ -283,18 +230,7 @@ export default async function suwayomiProxyHandler(req, res) {
   /** @type {ResponseJSON|ResponseJSONcategory} */
   const responseJSON = JSON.parse(data);
 
-  const countsToExtract = {
-    download: (c) => c.isDownloaded,
-    nondownload: (c) => !c.isDownloaded,
-    read: (c) => c.isRead,
-    unread: (c) => !c.isRead,
-    downloadedread: (c) => c.isDownloaded && c.isRead,
-    downloadedunread: (c) => c.isDownloaded && !c.isRead,
-    nondownloadedread: (c) => !c.isDownloaded && c.isRead,
-    nondownloadedunread: (c) => !c.isDownloaded && !c.isRead,
-  };
-
-  const returnData = widget.fields.map((name) => extractCounts(responseJSON, name, countsToExtract[name]));
+  const returnData = extractCounts(responseJSON, widget.fields, countsToExtract);
 
   if (contentType) res.setHeader("Content-Type", contentType);
   return res.status(status).send(returnData);
