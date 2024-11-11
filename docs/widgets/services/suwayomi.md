@@ -7,6 +7,7 @@ Learn more about [Suwayomi](https://github.com/Suwayomi/Suwayomi-Server).
 
 all supported fields shown in example yaml, though a max of 4 will show at one time.
 The default fields are download, nondownload, read and unread.
+category defaults to "all" if left unset or set to not a number.
 username and password are available if you have basic auth setup for Suwayomi.
 
 ```yaml
@@ -15,9 +16,9 @@ widget:
   widget:
     type: suwayomi
     url: http://suwayomi.host.or.ip
-    username: username # if u have basic auth setup
-    password: password # if u have basic auth setup
-    category: 0 # to use a given categoryID defaults to all categories
+    username: username
+    password: password
+    category: 0
     fields:
       - download
       - nondownload
