@@ -1,4 +1,3 @@
-// import genericProxyHandler from "utils/proxy/handlers/generic";
 import suwayomiProxyHandler from "./proxy";
 
 const widget = {

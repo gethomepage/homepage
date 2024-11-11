@@ -295,10 +295,6 @@ export default async function suwayomiProxyHandler(req, res) {
   };
 
   const returnData = widget.fields.map((name) => extractCounts(responseJSON, name, countsToExtract[name]));
-  // this would be used for setting the service.description if it was possible
-  // if ("category" in responseJSON.data){
-  //   returnData.name = responseJSON.data.category.name
-  // }
 
   if (contentType) res.setHeader("Content-Type", contentType);
   return res.status(status).send(returnData);

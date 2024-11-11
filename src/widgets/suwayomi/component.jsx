@@ -28,9 +28,6 @@ export default function Component({ service }) {
     );
   }
 
-  // i would like to be able to do something like this but i guess not
-  // service.description += suwayomiData.name;
-
   return (
     <Container service={service}>
       {suwayomiData.map((data) => (
