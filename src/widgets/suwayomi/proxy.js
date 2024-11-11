@@ -97,10 +97,10 @@ const countsToExtract = {
 function makeBody(fields, category = "all") {
   if (Number.isNaN(Number(category))) {
     let query = "";
-    fields.forEach((f) => {
+    fields.forEach((field) => {
       query += `
-      ${f}: chapters(
-        condition: {${countsToExtract[f].gqlCondition}}
+      ${field}: chapters(
+        condition: {${countsToExtract[field].gqlCondition}}
         filter: {inLibrary: {equalTo: true}}
       ) {
         totalCount
@@ -179,7 +179,7 @@ function extractCounts(responseJSON, fields) {
 function makeFields(Fields = []) {
   let fields = Fields ?? [];
   if (fields.length === 0) {
-    fields = ["download", "nondownload", "read", "unread"];
+    fields = ["download", "nonDownload", "read", "unRead"];
   }
   if (fields.length > 4) {
     fields.length = 4;

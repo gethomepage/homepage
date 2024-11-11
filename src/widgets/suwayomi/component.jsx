@@ -11,12 +11,12 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 function makeFields(Fields = []) {
   let fields = Fields ?? [];
   if (fields.length === 0) {
-    fields = ["download", "nondownload", "read", "unread"];
+    fields = ["download", "nonDownload", "read", "unRead"];
   }
   if (fields.length > 4) {
     fields.length = 4;
   }
-  fields = fields.map((f) => f.toLowerCase());
+  fields = fields.map((field) => field.toLowerCase());
 
   return fields;
 }
