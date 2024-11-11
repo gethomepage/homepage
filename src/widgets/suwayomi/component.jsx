@@ -27,7 +27,7 @@ export default function Component({ service }) {
   /** @type {{widget: { fields: string[]|null }}} */
   const { widget } = service;
 
-  /** @type { { data: { label: string, count: number }[], error: unk }} */
+  /** @type { { data: { label: string, count: number }[], error: unknown }} */
   const { data: suwayomiData, error: suwayomiError } = useWidgetAPI(widget);
 
   if (suwayomiError) {
