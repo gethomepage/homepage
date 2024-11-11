@@ -6,6 +6,7 @@ description: Suwayomi Widget Configuration
 Learn more about [Suwayomi](https://github.com/Suwayomi/Suwayomi-Server).
 
 all supported fields shown in example yaml, though a max of 4 will show at one time.
+The default fields are download, nondownload, read and unread.
 username and password are available if you have basic auth setup for Suwayomi.
 
 ```yaml
