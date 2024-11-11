@@ -13,33 +13,6 @@ const logger = createLogger(proxyName);
  * @property {string} gqlCondition
  */
 
-/** @type {Record<string, countsToExtractItem>} */
-const countsToExtract = {
-  download: {
-    condition: (c) => c.isDownloaded,
-    gqlCondition: "isDownloaded: true",
-  },
-  nondownload: {
-    condition: (c) => !c.isDownloaded,
-    gqlCondition: "isDownloaded: false",
-  },
-  read: { condition: (c) => c.isRead, gqlCondition: "isRead: true" },
-  unread: { condition: (c) => !c.isRead, gqlCondition: "isRead: false" },
-  downloadedread: { condition: (c) => c.isDownloaded && c.isRead, gqlCondition: "isDownloaded: true, isRead: true" },
-  downloadedunread: {
-    condition: (c) => c.isDownloaded && !c.isRead,
-    gqlCondition: "isDownloaded: true, isRead: false",
-  },
-  nondownloadedread: {
-    condition: (c) => !c.isDownloaded && c.isRead,
-    gqlCondition: "isDownloaded: false, isRead: true",
-  },
-  nondownloadedunread: {
-    condition: (c) => !c.isDownloaded && !c.isRead,
-    gqlCondition: "isDownloaded: false, isRead: false",
-  },
-};
-
 /**
  * @typedef totalCount
  * @type {object}
@@ -86,6 +59,42 @@ const countsToExtract = {
  *   }
  * }}
  */
+
+/**
+ * @typedef {object} widget
+ * @property {string} username
+ * @property {string} password
+ * @property {string[]|null} fields
+ * @property {string|number|undefined} category
+ * @property {keyof typeof widgets} type
+ */
+
+/** @type {Record<string, countsToExtractItem>} */
+const countsToExtract = {
+  download: {
+    condition: (c) => c.isDownloaded,
+    gqlCondition: "isDownloaded: true",
+  },
+  nondownload: {
+    condition: (c) => !c.isDownloaded,
+    gqlCondition: "isDownloaded: false",
+  },
+  read: { condition: (c) => c.isRead, gqlCondition: "isRead: true" },
+  unread: { condition: (c) => !c.isRead, gqlCondition: "isRead: false" },
+  downloadedread: { condition: (c) => c.isDownloaded && c.isRead, gqlCondition: "isDownloaded: true, isRead: true" },
+  downloadedunread: {
+    condition: (c) => c.isDownloaded && !c.isRead,
+    gqlCondition: "isDownloaded: true, isRead: false",
+  },
+  nondownloadedread: {
+    condition: (c) => !c.isDownloaded && c.isRead,
+    gqlCondition: "isDownloaded: false, isRead: true",
+  },
+  nondownloadedunread: {
+    condition: (c) => !c.isDownloaded && !c.isRead,
+    gqlCondition: "isDownloaded: false, isRead: false",
+  },
+};
 
 /**
  * Makes a GraphQL query body based on the provided fieldsSet and category.
@@ -188,15 +197,6 @@ function makeFields(Fields = []) {
 
   return fields;
 }
-
-/**
- * @typedef {object} widget
- * @property {string} username
- * @property {string} password
- * @property {string[]|null} fields
- * @property {string|number|undefined} category
- * @property {keyof typeof widgets} type
- */
 
 /**
  * @param {widget} widget
