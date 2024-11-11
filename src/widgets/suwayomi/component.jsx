@@ -38,10 +38,9 @@ export default function Component({ service }) {
     const fields = makeFields(widget.fields);
     return (
       <Container service={service}>
-        {fields.map((Field) => {
-          const field = Field.toLowerCase();
-          return <Block key={field} label={`suwayomi.${field}`} />;
-        })}
+        {fields.map((field) => (
+          <Block key={field} label={`suwayomi.${field}`} />
+        ))}
       </Container>
     );
   }
