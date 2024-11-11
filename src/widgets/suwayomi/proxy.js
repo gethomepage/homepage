@@ -221,7 +221,13 @@ export default async function suwayomiProxyHandler(req, res) {
   }
 
   if (status !== 200) {
-    logger.error("Error getting data from Suwayomi: %d.  Data: %s", status, data);
+    logger.error(
+      "Error getting data from Suwayomi for service '%s' in group '%s': %d.  Data: %s",
+      service,
+      group,
+      status,
+      data,
+    );
     return res.status(status).send({ error: { message: "Error getting data. body: %s, data: %s", body, data } });
   }
 
