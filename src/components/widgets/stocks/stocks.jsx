@@ -62,10 +62,10 @@ export default function Widget({ options }) {
                         >
                           {stock.currentPrice !== null
                             ? t("common.number", {
-                                value: stock.currentPrice,
-                                style: "currency",
-                                currency: "USD",
-                              })
+                              value: stock.currentPrice,
+                              style: "currency",
+                              currency: stock.currency || "USD",
+                            })
                             : t("widget.api_error")}
                         </span>
                       ) : (

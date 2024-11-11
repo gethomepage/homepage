@@ -473,6 +473,7 @@ export function cleanServiceGroups(groups) {
           // stocks
           watchlist,
           showUSMarketStatus,
+          provider,
 
           // truenas
           enablePools,
@@ -630,6 +631,7 @@ export function cleanServiceGroups(groups) {
         if (type === "stocks") {
           if (watchlist) cleanedService.widget.watchlist = watchlist;
           if (showUSMarketStatus) cleanedService.widget.showUSMarketStatus = showUSMarketStatus;
+          if (provider) cleanedService.widget.provider = provider;
         }
         if (type === "wgeasy") {
           if (threshold !== undefined) cleanedService.widget.threshold = parseInt(threshold, 10);

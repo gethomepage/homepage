@@ -34,14 +34,21 @@ export default async function handler(req, res) {
 
       // map opaque endpoints to their actual endpoint
       if (widget?.mappings) {
-        const mapping = widget?.mappings?.[req.query.endpoint];
+        let mapping = widget?.mappings?.[req.query.endpoint];
+        // The none mapping is used to bypass the mapping - the endpoint is mapped to itself
+        if (!mapping && widget?.mappings?.none) {
+          mapping = {
+            endpoint: req.query.endpoint,
+          };
+        }
+
         const mappingParams = mapping?.params;
         const optionalParams = mapping?.optionalParams;
         const map = mapping?.map;
         const endpoint = mapping?.endpoint;
         const endpointProxy = mapping?.proxyHandler || serviceProxyHandler;
 
-        if (mapping.method && mapping.method !== req.method) {
+        if (mapping?.method && mapping.method !== req.method) {
           logger.debug("Unsupported method: %s", req.method);
           return res.status(403).json({ error: "Unsupported method" });
         }

@@ -46,7 +46,15 @@ function StockItem({ service, ticker }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data, error } = useWidgetAPI(widget, "quote", { symbol: ticker });
+  let endpoint;
+  let queryParams;
+  if (widget.provider === "finnhub") {
+    endpoint = "quote";
+    queryParams = { symbol: ticker };
+  } else if (widget.provider === "yahoofinance") {
+    endpoint = ticker;
+  }
+  const { data, error } = useWidgetAPI(widget, endpoint, queryParams);
 
   if (error || data?.error) {
     return <Container service={service} error={error} />;
@@ -60,19 +68,33 @@ function StockItem({ service, ticker }) {
     );
   }
 
+  let price;
+  let change;
+  let currency;
+  if (widget.provider === "finnhub") {
+    price = data.c;
+    change = data.dp;
+    currency = "USD"; // Finnhub free API only supports US based stocks
+  } else if (widget.provider === "yahoofinance") {
+    price = data.chart?.result[0]?.meta?.regularMarketPrice;
+    const previousClose = data.chart?.result[0]?.meta?.chartPreviousClose;
+    change = previousClose ? ((price - previousClose) / previousClose) * 100 : 0.0;
+    currency = data.chart?.result[0]?.meta?.currency;
+  }
+
   return (
     <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded flex flex-1 items-center justify-between m-1 p-1 text-xs">
       <span className="font-thin ml-2 flex-none">{ticker}</span>
       <div className="flex items-center flex-row-reverse mr-2 text-right">
-        <span className={`font-bold ml-2 w-10 ${data.dp > 0 ? "text-emerald-300" : "text-rose-300"}`}>
-          {data.dp?.toFixed(2) ? `${data.dp?.toFixed(2)}%` : t("widget.api_error")}
+        <span className={`font-bold ml-2 w-10 ${change > 0 ? "text-emerald-300" : "text-rose-300"}`}>
+          {change != null ? `${change.toFixed(2)}%` : t("widget.api_error")}
         </span>
         <span className="font-bold">
-          {data.c
+          {price != null
             ? t("common.number", {
-                value: data?.c,
+                value: price,
                 style: "currency",
-                currency: "USD",
+                currency,
               })
             : t("widget.api_error")}
         </span>
@@ -97,7 +119,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <div className={classNames(service.description ? "-top-10" : "-top-8", "absolute right-1 z-20")}>
-        {showUSMarketStatus === true && <MarketStatus service={service} />}
+        {showUSMarketStatus === true && widget.provider === "finnhub" && <MarketStatus service={service} />}
       </div>
 
       <div className="flex flex-col w-full">
