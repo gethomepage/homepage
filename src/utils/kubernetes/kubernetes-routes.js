@@ -38,23 +38,17 @@ export async function checkCRD(name) {
 }
 
 const getSchemaFromGateway = async (gatewayRef) => {
-  
-  const schema = await crd.getNamespacedCustomObject(
-    apiGroup,
-    version,
-    gatewayRef.namespace,
-    "gateways",
-    gatewayRef.name,
-  )
-  .then((response) => {
-    const listner = response.body.spec.listeners.filter((listener) => listener.name === gatewayRef.sectionName)[0]
-    return listner.protocol.toLowerCase();
-  })
-  .catch((error) => {
-    logger.error("Error getting gateways: %d %s %s", error.statusCode, error.body, error.response);
-    logger.debug(error);
-    return "";
-  });
+  const schema = await crd
+    .getNamespacedCustomObject(apiGroup, version, gatewayRef.namespace, "gateways", gatewayRef.name)
+    .then((response) => {
+      const listner = response.body.spec.listeners.filter((listener) => listener.name === gatewayRef.sectionName)[0];
+      return listner.protocol.toLowerCase();
+    })
+    .catch((error) => {
+      logger.error("Error getting gateways: %d %s %s", error.statusCode, error.body, error.response);
+      logger.debug(error);
+      return "";
+    });
   return schema;
 };
 
@@ -73,26 +67,19 @@ function getUrlFromIngress(ingress) {
 }
 
 async function getHttpRouteList() {
-    
   // httproutes
-  const getHttpRoute = (async (namespace) => 
+  const getHttpRoute = async (namespace) =>
     crd
-    .listNamespacedCustomObject(
-      apiGroup, 
-      version, 
-      namespace, 
-      "httproutes"
-      )
-    .then((response) => {
-      const [httpRoute] = response.body.items;
-      return httpRoute;
-    })
-    .catch((error) => {
-      logger.error("Error getting httproutes: %d %s %s", error.statusCode, error.body, error.response);
-      logger.debug(error);
-      return null;
-    })
-  )
+      .listNamespacedCustomObject(apiGroup, version, namespace, "httproutes")
+      .then((response) => {
+        const [httpRoute] = response.body.items;
+        return httpRoute;
+      })
+      .catch((error) => {
+        logger.error("Error getting httproutes: %d %s %s", error.statusCode, error.body, error.response);
+        logger.debug(error);
+        return null;
+      });
 
   // namespaces
   const namespaces = await core
@@ -106,18 +93,14 @@ async function getHttpRouteList() {
 
   let httpRouteList = [];
   if (namespaces) {
-
-    const httpRouteListUnfiltered =  await Promise.all(
-      namespaces
-      .map( async(namespace) => {
+    const httpRouteListUnfiltered = await Promise.all(
+      namespaces.map(async (namespace) => {
         const httpRoute = await getHttpRoute(namespace);
         return httpRoute;
-      })
-    )
+      }),
+    );
 
-    httpRouteList = httpRouteListUnfiltered
-    .filter((httpRoute) => httpRoute !== undefined)
-
+    httpRouteList = httpRouteListUnfiltered.filter((httpRoute) => httpRoute !== undefined);
   }
   return httpRouteList;
 }
