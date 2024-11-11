@@ -173,11 +173,11 @@ function extractCounts(responseJSON, fields) {
 }
 
 /**
- * @param {string[]} Fields
+ * @param {string[]|null} Fields
  * @returns {string[]}
  */
-function makeFields(Fields) {
-  let fields = Fields;
+function makeFields(Fields = []) {
+  let fields = Fields ?? [];
   if (fields.length === 0) {
     fields = ["download", "nondownload", "read", "unread"];
   }
@@ -193,7 +193,7 @@ function makeFields(Fields) {
  * @typedef {object} widget
  * @property {string} username
  * @property {string} password
- * @property {string[]} fields
+ * @property {string[]|null} fields
  * @property {string|number|undefined} category
  * @property {keyof typeof widgets} type
  */

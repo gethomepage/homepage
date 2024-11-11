@@ -4,10 +4,27 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+/**
+ * @param {string[]|null} Fields
+ * @returns {string[]}
+ */
+function makeFields(Fields = []) {
+  let fields = Fields ?? [];
+  if (fields.length === 0) {
+    fields = ["download", "nondownload", "read", "unread"];
+  }
+  if (fields.length > 4) {
+    fields.length = 4;
+  }
+  fields = fields.map((f) => f.toLowerCase());
+
+  return fields;
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  /** @type {{widget: { fields: string[] }}} */
+  /** @type {{widget: { fields: string[]|null }}} */
   const { widget } = service;
 
   /** @type { { data: { label: string, count: number }[], error: unk }} */
@@ -18,9 +35,7 @@ export default function Component({ service }) {
   }
 
   if (!suwayomiData) {
-    if (widget.fields.length > 4) {
-      widget.fields.length = 4;
-    }
+    widget.fields = makeFields(widget.fields);
     return (
       <Container service={service}>
         {widget.fields.map((Field) => {
