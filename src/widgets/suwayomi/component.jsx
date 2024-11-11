@@ -24,10 +24,23 @@ function makeFields(Fields = []) {
 export default function Component({ service }) {
   const { t } = useTranslation();
 
-  /** @type {{widget: { fields: string[]|null }}} */
+  /**
+   * @type {{
+   *   widget: {
+   *     fields: string[]|null
+   *   }
+   * }}
+   */
   const { widget } = service;
 
-  /** @type { { data: { label: string, count: number }[], error: unknown }} */
+  /**
+   * @type {{
+   *   error: unknown
+   *   data: ({
+   *     label: string, count: number
+   *   }[]),
+   * }}
+   */
   const { data: suwayomiData, error: suwayomiError } = useWidgetAPI(widget);
 
   if (suwayomiError) {
