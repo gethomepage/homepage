@@ -172,6 +172,10 @@ function extractCounts(responseJSON, fields) {
   }));
 }
 
+/**
+ * @param {string[]} Fields
+ * @returns {string[]}
+ */
 function makeFields(Fields) {
   let fields = Fields;
   if (fields.length === 0) {
@@ -183,6 +187,19 @@ function makeFields(Fields) {
   return fields;
 }
 
+/**
+ * @typedef {object} widget
+ * @property {string} username
+ * @property {string} password
+ * @property {string[]} fields
+ * @property {string|number|undefined} category
+ * @property {keyof typeof widgets} type
+ */
+
+/**
+ * @param {widget} widget
+ * @returns {{ "Content-Type": string, Authorization?: string }}
+ */
 function makeHeaders(widget) {
   const headers = {
     "Content-Type": "application/json",
@@ -202,7 +219,7 @@ export default async function suwayomiProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  /** @type {{ fields: string[],category: string|number|undefined, type: keyof typeof widgets }} */
+  /** @type {widget} */
   const widget = await getServiceWidget(group, service);
 
   if (!widget) {
