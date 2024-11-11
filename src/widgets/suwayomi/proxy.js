@@ -216,15 +216,13 @@ export default async function suwayomiProxyHandler(req, res) {
   });
 
   if (status === 401) {
-    logger.error("unauthorized username or password for Suwayomi is incorrect.");
-    return res
-      .status(401)
-      .send({ error: { message: "401: unauthorized username or password for Suwayomi is incorrect." } });
+    logger.error("Invalid or missing username or password for service '%s' in group '%s'", service, group);
+    return res.status(401).send({ error: { message: "401: unauthorized, username or password is incorrect." } });
   }
 
   if (status !== 200) {
     logger.error("Error getting data from Suwayomi: %d.  Data: %s", status, data);
-    return res.status(status).send({ error: { message: "Error getting data from Suwayomi", body, data } });
+    return res.status(status).send({ error: { message: "Error getting data. body: %s, data: %s", body, data } });
   }
 
   /** @type {ResponseJSON|ResponseJSONcategory} */
