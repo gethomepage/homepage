@@ -63,15 +63,15 @@ const logger = createLogger(proxyName);
 /**
  * Makes a GraphQL query body based on the provided fieldsSet and category.
  *
- * @param {Set} fieldsSet - Set of fields to include in the query.
+ * @param {string[]} fields - Array of field names.
  * @param {string|number|undefined} [category="all"] - Category ID or "all" for general counts.
  * @param {Record<string, countsToExtractItem>} countsToExtract - Object containing counts to extract.
  * @returns {string} - The JSON stringified query body.
  */
-function makeBody(fieldsSet, countsToExtract, category = "all") {
+function makeBody(fields, countsToExtract, category = "all") {
   if (Number.isNaN(Number(category))) {
     let query = "";
-    fieldsSet.forEach((f) => {
+    fields.forEach((f) => {
       query += `
       ${f}: chapters(
         condition: {${countsToExtract[f].gqlCondition}}
@@ -114,10 +114,11 @@ function makeBody(fieldsSet, countsToExtract, category = "all") {
 }
 
 /**
+ * Extracts the counts from the response JSON object based on the provided fields and countsToExtract object.
  *
- * @param {ResponseJSON|ResponseJSONcategory} responseJSON
- * @param {string[]} fields
- * @param {Record<string, countsToExtractItem>} countsToExtract
+ * @param {ResponseJSON|ResponseJSONcategory} responseJSON - The response JSON object.
+ * @param {string[]} fields - Array of field names.
+ * @param {Record<string, countsToExtractItem>} countsToExtract - Object containing counts to extract.
  * @returns
  */
 function extractCounts(responseJSON, fields, countsToExtract) {
@@ -162,8 +163,6 @@ export default async function suwayomiProxyHandler(req, res) {
 
   widget.fields.length = 4;
   widget.fields = widget.fields.map((f) => f.toLowerCase());
-  /** @type {Set<string>} */
-  const fieldsSet = new Set(widget.fields);
 
   /** @type {Record<string, countsToExtractItem>} */
   const countsToExtract = {
@@ -199,7 +198,7 @@ export default async function suwayomiProxyHandler(req, res) {
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
-  const body = makeBody(fieldsSet, countsToExtract, widget.category);
+  const body = makeBody(widget.fields, countsToExtract, widget.category);
 
   const headers = {
     "Content-Type": "application/json",
