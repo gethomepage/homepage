@@ -9,7 +9,7 @@ const logger = createLogger(proxyName);
 
 /**
  * @typedef {object} countsToExtractItem
- * @property {(c: chapter) => boolean} condition
+ * @property {(chapter: chapter) => boolean} condition
  * @property {string} gqlCondition
  */
 
