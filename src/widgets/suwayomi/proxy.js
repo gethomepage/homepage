@@ -240,6 +240,11 @@ export default async function suwayomiProxyHandler(req, res) {
   }
   /** @type {{ fields: string[],category: string|number|undefined, type: keyof typeof widgets }} */
   const widget = await getServiceWidget(group, service);
+
+  if (widget.fields.length === 0) {
+    widget.fields = ["download", "nondownload", "read", "unread"];
+  }
+
   widget.fields.length = 4;
   widget.fields = widget.fields.map((f) => f.toLowerCase());
   /** @type {Set<string>} */
