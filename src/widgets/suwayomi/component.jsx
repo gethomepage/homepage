@@ -35,10 +35,10 @@ export default function Component({ service }) {
   }
 
   if (!suwayomiData) {
-    widget.fields = makeFields(widget.fields);
+    const fields = makeFields(widget.fields);
     return (
       <Container service={service}>
-        {widget.fields.map((Field) => {
+        {fields.map((Field) => {
           const field = Field.toLowerCase();
           return <Block key={field} label={`suwayomi.${field}`} />;
         })}

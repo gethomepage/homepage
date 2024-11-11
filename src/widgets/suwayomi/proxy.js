@@ -229,11 +229,11 @@ export default async function suwayomiProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  widget.fields = makeFields(widget.fields);
+  const fields = makeFields(widget.fields);
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
-  const body = makeBody(widget.fields, widget.category);
+  const body = makeBody(fields, widget.category);
 
   const headers = makeHeaders(widget);
 
@@ -262,7 +262,7 @@ export default async function suwayomiProxyHandler(req, res) {
   /** @type {ResponseJSON|ResponseJSONcategory} */
   const responseJSON = JSON.parse(data);
 
-  const returnData = extractCounts(responseJSON, widget.fields);
+  const returnData = extractCounts(responseJSON, fields);
 
   if (contentType) res.setHeader("Content-Type", contentType);
   return res.status(status).send(returnData);
