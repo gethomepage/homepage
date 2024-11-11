@@ -10,7 +10,7 @@ export default function Component({ service }) {
   /** @type {{widget: { fields: string[] }}} */
   const { widget } = service;
 
-  /** @type { { data: { label: string, count: number }[], error: unknown }} */
+  /** @type { { data: { label: string, count: number }[], error: unk }} */
   const { data: suwayomiData, error: suwayomiError } = useWidgetAPI(widget);
 
   if (suwayomiError) {
@@ -18,7 +18,9 @@ export default function Component({ service }) {
   }
 
   if (!suwayomiData) {
-    widget.fields.length = 4;
+    if (widget.fields.length > 4) {
+      widget.fields.length = 4;
+    }
     return (
       <Container service={service}>
         {widget.fields.map((Field) => {

@@ -181,7 +181,9 @@ function makeFields(Fields) {
   if (fields.length === 0) {
     fields = ["download", "nondownload", "read", "unread"];
   }
-  fields.length = 4;
+  if (fields.length > 4) {
+    fields.length = 4;
+  }
   fields = fields.map((f) => f.toLowerCase());
 
   return fields;
