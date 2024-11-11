@@ -10,6 +10,7 @@ export default function Component({ service }) {
   /** @type {{widget: { fields: string[] }}} */
   const { widget } = service;
 
+  /** @type { { data: { label: string, count: number }[], error: unknown }} */
   const { data: suwayomiData, error: suwayomiError } = useWidgetAPI(widget);
 
   if (suwayomiError) {
