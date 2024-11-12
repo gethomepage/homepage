@@ -53,7 +53,7 @@ export default function Component({ service }) {
 
   const { metrics = [], refreshInterval = 10000 } = widget;
 
-  const prometheusmetricErrors = [];
+  let prometheusmetricError;
 
   const prometheusmetricData = new Map(
     metrics.slice(0, 4).map((metric) => {
@@ -65,15 +65,14 @@ export default function Component({ service }) {
         refreshInterval: Math.max(1000, metric.refreshInterval ?? refreshInterval),
       });
       if (resultError) {
-        prometheusmetricErrors.push(resultError);
+        prometheusmetricError = resultError;
       }
       return [metric.key ?? metric.label, resultData];
     }),
   );
 
-  if (prometheusmetricErrors.length) {
-    // Only shows first metric query error in the container
-    return <Container service={service} error={prometheusmetricErrors[0]} />;
+  if (prometheusmetricError) {
+    return <Container service={service} error={prometheusmetricError} />;
   }
 
   if (!prometheusmetricData) {
