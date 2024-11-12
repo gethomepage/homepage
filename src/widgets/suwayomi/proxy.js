@@ -132,7 +132,6 @@ export default async function suwayomiProxyHandler(req, res) {
     widget.fields = ["download", "nondownload", "read", "unread"];
   } else if (widget.fields.length > 4) {
     widget.fields = widget.fields.slice(0, 4);
-    widget.fields = widget.fields.map((field) => field.toLowerCase());
   }
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
@@ -169,9 +168,7 @@ export default async function suwayomiProxyHandler(req, res) {
     return res.status(status).send({ error: { message: "Error getting data. body: %s, data: %s", body, data } });
   }
 
-  const responseJSON = JSON.parse(data);
-
-  const returnData = extractCounts(responseJSON, widget.fields);
+  const returnData = extractCounts(JSON.parse(data), widget.fields);
 
   if (contentType) res.setHeader("Content-Type", contentType);
   return res.status(status).send(returnData);

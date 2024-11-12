@@ -20,7 +20,6 @@ export default function Component({ service }) {
       widget.fields = ["download", "nondownload", "read", "unread"];
     } else if (widget.fields.length > 4) {
       widget.fields = widget.fields.slice(0, 4);
-      widget.fields = widget.fields.map((field) => field.toLowerCase());
     }
     return (
       <Container service={service}>
