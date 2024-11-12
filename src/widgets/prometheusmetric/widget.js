@@ -1,15 +1,14 @@
 import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
-  api: "{url}/api/{endpoint}/{slug}",
+  api: "{url}/api/v1/{endpoint}",
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    status_page: {
-      endpoint: "status-page",
-    },
-    heartbeat: {
-      endpoint: "status-page/heartbeat",
+    query: {
+      method: "GET",
+      endpoint: "query",
+      params: ["query"],
     },
   },
 };

@@ -20,7 +20,7 @@ export default function BookmarksGroup({ bookmarks, layout, disableCollapse, gro
       className={classNames(
         "bookmark-group",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/4 lg:basis-1/5 xl:basis-1/6",
-        layout?.header === false ? "flex-1 px-1 -my-1" : "flex-1 p-1",
+        layout?.header === false ? "flex-1 px-1 -my-1 overflow-hidden" : "flex-1 p-1 overflow-hidden",
       )}
     >
       <Disclosure defaultOpen={!(layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) ?? true}>

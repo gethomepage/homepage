@@ -40,7 +40,7 @@ export default function Component({ service }) {
         />
         <Block
           label="frigate.uptime"
-          value={t("common.uptime", {
+          value={t("common.duration", {
             value: data.uptime,
           })}
         />

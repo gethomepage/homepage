@@ -15,7 +15,7 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
   const options = {
     body: params
       ? Object.keys(params)
-          .map((prop) => `${prop}=${params[prop]}`)
+          .map((prop) => `${prop}=${encodeURIComponent(params[prop])}`)
           .join("&")
       : `session=${sessionId}`,
     method: "POST",

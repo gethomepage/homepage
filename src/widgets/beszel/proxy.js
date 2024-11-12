@@ -6,14 +6,14 @@ import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 import createLogger from "utils/logger";
 
-const proxyName = "npmProxyHandler";
+const proxyName = "beszelProxyHandler";
 const tokenCacheKey = `${proxyName}__token`;
 const logger = createLogger(proxyName);
 
 async function login(loginUrl, username, password, service) {
   const authResponse = await httpProxy(loginUrl, {
     method: "POST",
-    body: JSON.stringify({ identity: username, secret: password }),
+    body: JSON.stringify({ identity: username, password }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -21,21 +21,19 @@ async function login(loginUrl, username, password, service) {
 
   const status = authResponse[0];
   let data = authResponse[2];
-
   try {
     data = JSON.parse(Buffer.from(authResponse[2]).toString());
 
     if (status === 200) {
-      const expiration = new Date(data.expires) - Date.now();
-      cache.put(`${tokenCacheKey}.${service}`, data.token, expiration - 5 * 60 * 1000); // expiration -5 minutes
+      cache.put(`${tokenCacheKey}.${service}`, data.token);
     }
   } catch (e) {
-    logger.error(`Error ${status} logging into npm`, JSON.stringify(authResponse[2]));
+    logger.error(`Error ${status} logging into beszel`, JSON.stringify(authResponse[2]));
   }
   return [status, data.token ?? data];
 }
 
-export default async function npmProxyHandler(req, res) {
+export default async function beszelProxyHandler(req, res) {
   const { group, service, endpoint } = req.query;
 
   if (group && service) {
@@ -47,7 +45,7 @@ export default async function npmProxyHandler(req, res) {
 
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
-      const loginUrl = `${widget.url}/api/tokens`;
+      const loginUrl = formatApiCall(widgets[widget.type].api, { endpoint: "admins/auth-with-password", ...widget });
 
       let status;
       let data;

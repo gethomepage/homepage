@@ -8,7 +8,7 @@ Learn more about [LubeLogger](https://github.com/hargata/lubelog) (v1.3.7 or hig
 The widget comes in two 'flavors', one shows data for all vehicles or for just a specific vehicle with the `vehicleID` parameter.
 
 Allowed fields: `["vehicles", "serviceRecords", "reminders"]`.
-For the single-vehicle version: `["vehicle", "serviceRecords", "reminders", "nextReminder"]
+For the single-vehicle version: `["vehicle", "serviceRecords", "reminders", "nextReminder"]`.
 
 ```yaml
 widget:

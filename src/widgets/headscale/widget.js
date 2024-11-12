@@ -1,12 +1,12 @@
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
-  api: "{url}/php/server/devices.php?action=getDevicesTotals",
+  api: "{url}/api/v1/{endpoint}/{nodeId}",
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    data: {
-      endpoint: "data",
+    node: {
+      endpoint: "node",
     },
   },
 };
