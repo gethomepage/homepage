@@ -418,7 +418,7 @@ export function cleanServiceGroups(groups) {
           pointsLimit,
           diskUnits,
 
-          // glances, customapi, iframe
+          // glances, customapi, iframe, prometheusmetric
           refreshInterval,
 
           // hdhomerun
@@ -460,6 +460,9 @@ export function cleanServiceGroups(groups) {
 
           // opnsense, pfsense
           wan,
+
+          // prometheusmetric
+          metrics,
 
           // proxmox
           node,
@@ -645,6 +648,10 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "vikunja") {
           if (enableTaskList !== undefined) cleanedService.widget.enableTaskList = !!enableTaskList;
+        }
+        if (type === "prometheusmetric") {
+          if (metrics) cleanedService.widget.metrics = metrics;
+          if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
       }
 

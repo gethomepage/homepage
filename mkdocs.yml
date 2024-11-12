@@ -121,6 +121,7 @@ nav:
           - widgets/services/plex.md
           - widgets/services/portainer.md
           - widgets/services/prometheus.md
+          - widgets/services/prometheusmetric.md
           - widgets/services/prowlarr.md
           - widgets/services/proxmox.md
           - widgets/services/proxmoxbackupserver.md

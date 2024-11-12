@@ -87,6 +87,7 @@ import plantit from "./plantit/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
 import prometheus from "./prometheus/widget";
+import prometheusmetric from "./prometheusmetric/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
 import pterodactyl from "./pterodactyl/widget";
@@ -218,6 +219,7 @@ const widgets = {
   plex,
   portainer,
   prometheus,
+  prometheusmetric,
   prowlarr,
   proxmox,
   pterodactyl,

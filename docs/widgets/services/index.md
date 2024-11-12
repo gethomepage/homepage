@@ -98,6 +98,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Plex](plex.md)
 - [Portainer](portainer.md)
 - [Prometheus](prometheus.md)
+- [Prometheus Metric](prometheusmetric.md)
 - [Prowlarr](prowlarr.md)
 - [Proxmox](proxmox.md)
 - [Proxmox Backup Server](proxmoxbackupserver.md)
