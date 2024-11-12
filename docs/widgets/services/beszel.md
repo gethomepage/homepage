@@ -18,13 +18,3 @@ widget:
   password: password
   systemId: systemId # optional
 ```
-
-To show specific fields for a single system (up to a maximum of 4), add a `fields` to the widget config above. For example:
-
-```yaml
-fields:
-  - cpu
-  - memory
-  - disk
-  - network
-```
