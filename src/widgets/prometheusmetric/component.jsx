@@ -14,60 +14,21 @@ function formatValue(t, metric, rawValue) {
   const scale = metric?.format?.scale;
   if (typeof scale === "number") {
     value *= scale;
-  } else if (typeof scale === "string") {
+  } else if (typeof scale === "string" && scale.includes("/")) {
     const parts = scale.split("/");
     const numerator = parts[0] ? parseFloat(parts[0]) : 1;
     const denominator = parts[1] ? parseFloat(parts[1]) : 1;
     value = (value * numerator) / denominator;
+  } else {
+    value = parseFloat(value);
   }
 
   // Format the value using a known type and optional options.
   switch (metric?.format?.type) {
-    case "bytes":
-      value = t("common.bytes", { value, ...metric.format?.options });
-      break;
-    case "bits":
-      value = t("common.bits", { value, ...metric.format?.options });
-      break;
-    case "bbytes":
-      value = t("common.bbytes", { value, ...metric.format?.options });
-      break;
-    case "bbits":
-      value = t("common.bbits", { value, ...metric.format?.options });
-      break;
-    case "byterate":
-      value = t("common.byterate", { value, ...metric.format?.options });
-      break;
-    case "bibyterate":
-      value = t("common.bibyterate", { value, ...metric.format?.options });
-      break;
-    case "bitrate":
-      value = t("common.bitrate", { value, ...metric.format?.options });
-      break;
-    case "bibitrate":
-      value = t("common.bibitrate", { value, ...metric.format?.options });
-      break;
-    case "percent":
-      value = t("common.percent", { value, ...metric.format?.options });
-      break;
-    case "number":
-      value = t("common.number", { value, ...metric.format?.options });
-      break;
-    case "ms":
-      value = t("common.ms", { value, ...metric.format?.options });
-      break;
-    case "date":
-      value = t("common.date", { value, ...metric.format?.options });
-      break;
-    case "duration":
-      value = t("common.duration", { value, ...metric.format?.options });
-      break;
-    case "relativeDate":
-      value = t("common.relativeDate", { value, ...metric.format?.options });
-      break;
     case "text":
+      break;
     default:
-    // nothing
+      value = t(`common.${metric.format.type}`, { value, ...metric.format?.options });
   }
 
   // Apply fixed prefix.
@@ -137,7 +98,7 @@ export default function Component({ service }) {
       case "scalar":
         return result?.[1];
       default:
-        return ""
+        return "";
     }
   }
 
