@@ -87,6 +87,7 @@ import plantit from "./plantit/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
 import prometheus from "./prometheus/widget";
+import prometheusmetric from "./prometheusmetric/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
 import pterodactyl from "./pterodactyl/widget";
@@ -104,6 +105,7 @@ import stash from "./stash/widget";
 import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
 import swagdashboard from "./swagdashboard/widget";
+import suwayomi from "./suwayomi/widget";
 import tailscale from "./tailscale/widget";
 import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
@@ -218,6 +220,7 @@ const widgets = {
   plex,
   portainer,
   prometheus,
+  prometheusmetric,
   prowlarr,
   proxmox,
   pterodactyl,
@@ -236,6 +239,7 @@ const widgets = {
   stocks,
   strelaysrv,
   swagdashboard,
+  suwayomi,
   tailscale,
   tandoor,
   tautulli,
