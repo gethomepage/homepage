@@ -56,7 +56,7 @@ export default async function npmProxyHandler(req, res) {
       if (!token) {
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
         if (status !== 200) {
-          logger.debug(`HTTTP ${status} logging into npm api: ${token}`);
+          logger.debug(`HTTP ${status} logging into npm api: ${token}`);
           return res.status(status).send(token);
         }
       }
@@ -70,12 +70,12 @@ export default async function npmProxyHandler(req, res) {
       });
 
       if (status === 403) {
-        logger.debug(`HTTTP ${status} retrieving data from npm api, logging in and trying again.`);
+        logger.debug(`HTTP ${status} retrieving data from npm api, logging in and trying again.`);
         cache.del(`${tokenCacheKey}.${service}`);
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
 
         if (status !== 200) {
-          logger.debug(`HTTTP ${status} logging into npm api: ${data}`);
+          logger.debug(`HTTP ${status} logging into npm api: ${data}`);
           return res.status(status).send(data);
         }
 
