@@ -48,7 +48,7 @@ export default function getKubeArguments() {
       break;
     case "disabled":
     default:
-      kubeData = {config: null};
+      kubeData = { config: null };
   }
 
   return kubeData;
