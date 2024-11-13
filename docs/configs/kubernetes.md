@@ -8,6 +8,7 @@ The Kubernetes connectivity has the following requirements:
 - Kubernetes 1.19+
 - Metrics Service
 - An Ingress controller
+  - Optionally: Gateway-API
 
 The Kubernetes connection is configured in the `kubernetes.yaml` file. There are 3 modes to choose from:
 
@@ -17,6 +18,12 @@ The Kubernetes connection is configured in the `kubernetes.yaml` file. There are
 
 ```yaml
 mode: default
+```
+
+To enable Kubernetes gateway-api compatibility, add the following setting:
+
+```yaml
+route: gateway
 ```
 
 ## Services
@@ -139,6 +146,10 @@ spec:
 ```
 
 If the `href` attribute is not present, Homepage will ignore the specific IngressRoute.
+
+### Gateway API HttpRoute support
+
+Homepage also features automatic service discovery for gateway-api. Service definitions are read by annotating the HttpRoute custom resource definition and are indentical to the Ingress example as defined in [Automatic Service Discovery](#automatic-service-discovery).
 
 ## Caveats
 

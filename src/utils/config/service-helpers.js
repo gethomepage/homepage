@@ -3,12 +3,11 @@ import path from "path";
 
 import yaml from "js-yaml";
 import Docker from "dockerode";
-import { CustomObjectsApi, NetworkingV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
-import getKubeConfig from "utils/config/kubernetes";
+import { getUrlSchema, getRouteList } from "utils/kubernetes/kubernetes-routes";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
@@ -151,33 +150,6 @@ export async function servicesFromDocker() {
   return mappedServiceGroups;
 }
 
-function getUrlFromIngress(ingress) {
-  const urlHost = ingress.spec.rules[0].host;
-  const urlPath = ingress.spec.rules[0].http.paths[0].path;
-  const urlSchema = ingress.spec.tls ? "https" : "http";
-  return `${urlSchema}://${urlHost}${urlPath}`;
-}
-
-export async function checkCRD(kc, name) {
-  const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
-  const exist = await apiExtensions
-    .readCustomResourceDefinitionStatus(name)
-    .then(() => true)
-    .catch(async (error) => {
-      if (error.statusCode === 403) {
-        logger.error(
-          "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
-          name,
-          error.statusCode,
-          error.body.message,
-        );
-      }
-      return false;
-    });
-
-  return exist;
-}
-
 export async function servicesFromKubernetes() {
   const ANNOTATION_BASE = "gethomepage.dev";
   const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
@@ -186,128 +158,70 @@ export async function servicesFromKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
 
   try {
-    const kc = getKubeConfig();
-    if (!kc) {
+    const routeList = await getRouteList(ANNOTATION_BASE);
+
+    if (!routeList) {
       return [];
     }
-    const networking = kc.makeApiClient(NetworkingV1Api);
-    const crd = kc.makeApiClient(CustomObjectsApi);
 
-    const ingressList = await networking
-      .listIngressForAllNamespaces(null, null, null, null)
-      .then((response) => response.body)
-      .catch((error) => {
-        logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
-        logger.debug(error);
-        return null;
-      });
-
-    const traefikContainoExists = await checkCRD(kc, "ingressroutes.traefik.containo.us");
-    const traefikExists = await checkCRD(kc, "ingressroutes.traefik.io");
-
-    const traefikIngressListContaino = await crd
-      .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
-      .then((response) => response.body)
-      .catch(async (error) => {
-        if (traefikContainoExists) {
-          logger.error(
-            "Error getting traefik ingresses from traefik.containo.us: %d %s %s",
-            error.statusCode,
-            error.body,
-            error.response,
-          );
-          logger.debug(error);
-        }
-
-        return [];
-      });
-
-    const traefikIngressListIo = await crd
-      .listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
-      .then((response) => response.body)
-      .catch(async (error) => {
-        if (traefikExists) {
-          logger.error(
-            "Error getting traefik ingresses from traefik.io: %d %s %s",
-            error.statusCode,
-            error.body,
-            error.response,
-          );
-          logger.debug(error);
-        }
-
-        return [];
-      });
-
-    const traefikIngressList = [...(traefikIngressListContaino?.items ?? []), ...(traefikIngressListIo?.items ?? [])];
-
-    if (traefikIngressList.length > 0) {
-      const traefikServices = traefikIngressList.filter(
-        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`],
-      );
-      ingressList.items.push(...traefikServices);
-    }
-
-    if (!ingressList) {
-      return [];
-    }
-    const services = ingressList.items
-      .filter(
-        (ingress) =>
-          ingress.metadata.annotations &&
-          ingress.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
-          (!ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
-            ingress.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
-            `${ANNOTATION_BASE}/instance.${instanceName}` in ingress.metadata.annotations),
-      )
-      .map((ingress) => {
-        let constructedService = {
-          app: ingress.metadata.annotations[`${ANNOTATION_BASE}/app`] || ingress.metadata.name,
-          namespace: ingress.metadata.namespace,
-          href: ingress.metadata.annotations[`${ANNOTATION_BASE}/href`] || getUrlFromIngress(ingress),
-          name: ingress.metadata.annotations[`${ANNOTATION_BASE}/name`] || ingress.metadata.name,
-          group: ingress.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
-          weight: ingress.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
-          icon: ingress.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
-          description: ingress.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
-          external: false,
-          type: "service",
-        };
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
-          constructedService.external =
-            String(ingress.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
-          constructedService.podSelector = ingress.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
-          constructedService.ping = ingress.metadata.annotations[`${ANNOTATION_BASE}/ping`];
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
-          constructedService.siteMonitor = ingress.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
-        }
-        if (ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
-          constructedService.statusStyle = ingress.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
-        }
-        Object.keys(ingress.metadata.annotations).forEach((annotation) => {
-          if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
-            shvl.set(
-              constructedService,
-              annotation.replace(`${ANNOTATION_BASE}/`, ""),
-              ingress.metadata.annotations[annotation],
-            );
+    const services = await Promise.all(
+      routeList
+        .filter(
+          (route) =>
+            route.metadata.annotations &&
+            route.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
+            (!route.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
+              route.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
+              `${ANNOTATION_BASE}/instance.${instanceName}` in route.metadata.annotations),
+        )
+        .map(async (route) => {
+          let constructedService = {
+            app: route.metadata.annotations[`${ANNOTATION_BASE}/app`] || route.metadata.name,
+            namespace: route.metadata.namespace,
+            href: route.metadata.annotations[`${ANNOTATION_BASE}/href`] || (await getUrlSchema(route)),
+            name: route.metadata.annotations[`${ANNOTATION_BASE}/name`] || route.metadata.name,
+            group: route.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
+            weight: route.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
+            icon: route.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
+            description: route.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
+            external: false,
+            type: "service",
+          };
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
+            constructedService.external =
+              String(route.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
           }
-        });
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
+            constructedService.podSelector = route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
+          }
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
+            constructedService.ping = route.metadata.annotations[`${ANNOTATION_BASE}/ping`];
+          }
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
+            constructedService.siteMonitor = route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
+          }
+          if (route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
+            constructedService.statusStyle = route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
+          }
+          Object.keys(route.metadata.annotations).forEach((annotation) => {
+            if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
+              shvl.set(
+                constructedService,
+                annotation.replace(`${ANNOTATION_BASE}/`, ""),
+                route.metadata.annotations[annotation],
+              );
+            }
+          });
 
-        try {
-          constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
-        } catch (e) {
-          logger.error("Error attempting k8s environment variable substitution.");
-          logger.debug(e);
-        }
-
-        return constructedService;
-      });
+          try {
+            constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
+          } catch (e) {
+            logger.error("Error attempting k8s environment variable substitution.");
+            logger.debug(e);
+          }
+          return constructedService;
+        }),
+    );
 
     const mappedServiceGroups = [];
 

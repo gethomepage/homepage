@@ -215,6 +215,15 @@ rules:
     verbs:
       - get
       - list
+  # if using gateway api add the following:
+  # - apiGroups:
+  #     - gateway.networking.k8s.io
+  #   resources:
+  #     - httproutes
+  #     - gateways
+  #   verbs:
+  #     - get
+  #     - list
   - apiGroups:
       - metrics.k8s.io
     resources:
