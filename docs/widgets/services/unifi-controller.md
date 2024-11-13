@@ -7,7 +7,7 @@ Learn more about [Unifi Controller](https://ui.com/).
 
 _(Find the Unifi Controller information widget [here](../info/unifi_controller.md))_
 
-You can display general connectivity status from your Unifi (Network) Controller. 
+You can display general connectivity status from your Unifi (Network) Controller.
 
 !!!
 
