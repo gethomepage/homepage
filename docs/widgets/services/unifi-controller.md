@@ -17,6 +17,18 @@ Allowed fields: `["uptime", "wan", "lan", "lan_users", "lan_devices", "wlan", "w
 
     If you enter e.g. incorrect credentials and receive an "API Error", you may need to recreate the container to clear the cache.
 
+A UI account with 2FA will not work, to get around this:
+
+1. Create a new user.
+2. Check `Restrict to local access only`.
+3. Set the username. eg. `remote_stats`.
+4. Set a strong password.
+5. Set permissions:
+    1. Uncheck `Use a pre-defined role`.
+    2. Set `Network` to `View Only`
+    3. Set all other options to `None`
+6. Click `Add`
+
 ```yaml
 widget:
   type: unifi
