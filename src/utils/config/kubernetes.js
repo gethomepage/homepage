@@ -23,10 +23,10 @@ const extractKubeData = (config) => {
     traefik = false;
   }
 
-  return { 
-    "config": kc, 
-    "route": route, 
-    "traefik": traefik
+  return {
+    config: kc,
+    route: route,
+    traefik: traefik,
   };
 };
 
