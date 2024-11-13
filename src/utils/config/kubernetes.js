@@ -25,8 +25,8 @@ const extractKubeData = (config) => {
 
   return {
     config: kc,
-    route: route,
-    traefik: traefik,
+    route,
+    traefik,
   };
 };
 
