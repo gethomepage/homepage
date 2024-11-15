@@ -1,0 +1,47 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/favicons
+- Developer:
+  - Github:
+    - abbr: GH
+      name: Github
+      icon: github.png
+      href: https://github.com
+  - Gitlab:
+    - abbr: GL
+      name: Gitlab
+      icon: gitlab.png
+      href: https://gitlab.com
+
+- Media:
+  - Jellyfin:
+    - abbr: JE
+      name: jellyfin
+      icon: jellyfin.png
+      href: https://jellyfin.org
+  - Emby:
+    - abbr: EM
+      name: emby
+      icon: emby.png
+      href: https://emby.media
+  - Youtube:
+    - abbr: YT
+      name: youtube
+      icon: youtube.png
+      href: https://youtube.com
+  - Spotify:
+    - abbr: SP
+      name: spotify
+      icon: spotify.png
+      href: https://spotify.com
+- Social:
+  - Facebook:
+    - abbr: FB
+      name: facebook
+      icon: facebook.png
+      href: https://facebook.com
+  - Reddit:
+    - abbr: RE
+      name: reddit
+      icon: reddit.png
+      href: https://reddit.com
