@@ -25,6 +25,12 @@ body {
   padding: 0;
 }
 
+.favicon {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+
 .light {
   --bg-color: var(--color-50);
   --scrollbar-thumb: rgb(var(--color-300));

@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import Tab, { slugifyAndEncode } from "components/tab";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
+import FaviconsGroup from "components/favicons/group";
 import Widget from "components/widgets/widget";
 import Revalidate from "components/toggles/revalidate";
 import createLogger from "utils/logger";
@@ -22,7 +23,7 @@ import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
-import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
+import { bookmarksResponse, faviconsResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
 import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
@@ -49,12 +50,14 @@ export async function getStaticProps() {
 
     const services = await servicesResponse();
     const bookmarks = await bookmarksResponse();
+    const favicons = await faviconsResponse();
     const widgets = await widgetsResponse();
 
     return {
       props: {
         initialSettings: settings,
         fallback: {
+          "/api/favicons": favicons,
           "/api/services": services,
           "/api/bookmarks": bookmarks,
           "/api/widgets": widgets,
@@ -71,6 +74,7 @@ export async function getStaticProps() {
       props: {
         initialSettings: {},
         fallback: {
+          "/api/favicons": [],
           "/api/services": [],
           "/api/bookmarks": [],
           "/api/widgets": [],
@@ -180,11 +184,13 @@ function Home({ initialSettings }) {
 
   const { data: services } = useSWR("/api/services");
   const { data: bookmarks } = useSWR("/api/bookmarks");
+  const { data: favicons } = useSWR("/api/favicons");
   const { data: widgets } = useSWR("/api/widgets");
 
   const servicesAndBookmarks = [
     ...services.map((sg) => sg.services).flat(),
     ...bookmarks.map((bg) => bg.bookmarks).flat(),
+    ...favicons.map((fg) => fg.favicons).flat(),
   ].filter((i) => i?.href);
 
   useEffect(() => {
@@ -254,7 +260,7 @@ function Home({ initialSettings }) {
     const undefinedGroupFilter = (g) => settings.layout?.[g.name] === undefined;
 
     const layoutGroups = Object.keys(settings.layout ?? {})
-      .map((groupName) => services?.find((g) => g.name === groupName) ?? bookmarks?.find((b) => b.name === groupName))
+      .map((groupName) => services?.find((g) => g.name === groupName) ?? favicons?.find((f) => f.name === groupName) ?? bookmarks?.find((b) => b.name === groupName) )
       .filter(tabGroupFilter);
 
     if (!settings.layout && JSON.stringify(settings.layout) !== JSON.stringify(initialSettings.layout)) {
@@ -264,7 +270,10 @@ function Home({ initialSettings }) {
 
     const serviceGroups = services?.filter(tabGroupFilter).filter(undefinedGroupFilter);
     const bookmarkGroups = bookmarks.filter(tabGroupFilter).filter(undefinedGroupFilter);
-
+    const faviconGroups = favicons.filter(tabGroupFilter).filter(undefinedGroupFilter);
+    console.log(bookmarkGroups)
+    console.log('------')
+    console.log(faviconGroups)
     return (
       <>
         {tabs.length > 0 && (
@@ -300,6 +309,7 @@ function Home({ initialSettings }) {
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 />
               ) : (
+                <>
                 <BookmarksGroup
                   key={group.name}
                   bookmarks={group}
@@ -307,6 +317,14 @@ function Home({ initialSettings }) {
                   disableCollapse={settings.disableCollapse}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 />
+                <FaviconsGroup
+                  key={group.name}
+                  bookmarks={group}
+                  layout={settings.layout?.[group.name]}
+                  disableCollapse={settings.disableCollapse}
+                  groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
+                />
+                </>
               ),
             )}
           </div>
@@ -339,6 +357,19 @@ function Home({ initialSettings }) {
             ))}
           </div>
         )}
+        {faviconGroups?.length > 0 && (
+          <div key="favicons" id="favicons" className="flex flex-wrap m-4 sm:m-8 sm:mt-4 items-start mb-2">
+            {faviconGroups.map((group) => (
+              <FaviconsGroup
+                key={group.name}
+                favicons={group}
+                layout={settings.layout?.[group.name]}
+                disableCollapse={settings.disableCollapse}
+                groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
+              />
+            ))}
+          </div>
+        )}
       </>
     );
   }, [
@@ -346,6 +377,7 @@ function Home({ initialSettings }) {
     activeTab,
     services,
     bookmarks,
+    favicons,
     settings.layout,
     settings.fiveColumns,
     settings.disableCollapse,

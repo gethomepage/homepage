@@ -9,6 +9,7 @@ const configs = [
   "settings.yaml",
   "services.yaml",
   "bookmarks.yaml",
+  "favicons.yaml",
   "widgets.yaml",
   "custom.css",
   "custom.js",

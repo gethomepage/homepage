@@ -24,6 +24,54 @@ function compareServices(service1, service2) {
   return service1.name.localeCompare(service2.name);
 }
 
+
+export async function faviconsResponse() {
+  checkAndCopyConfig("favicons.yaml");
+
+  const faviconsYaml = path.join(CONF_DIR, "favicons.yaml");
+  const rawFileContents = await fs.readFile(faviconsYaml, "utf8");
+  const fileContents = substituteEnvironmentVars(rawFileContents);
+  const favicons = yaml.load(fileContents);
+
+  if (!favicons) return [];
+
+  let initialSettings;
+
+  try {
+    initialSettings = await getSettings();
+  } catch (e) {
+    console.error("Failed to load favicons.yaml, please check for errors");
+    if (e) console.error(e.toString());
+    initialSettings = {};
+  }
+
+  // map easy to write YAML objects into easy to consume JS arrays
+  const faviconsArray = favicons.map((group) => ({
+    name: Object.keys(group)[0],
+    bookmarks: group[Object.keys(group)[0]].map((entries) => ({
+      name: Object.keys(entries)[0],
+      ...entries[Object.keys(entries)[0]][0],
+    })),
+  }));
+
+  const sortedGroups = [];
+  const unsortedGroups = [];
+  const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
+
+  faviconsArray.forEach((group) => {
+    if (definedLayouts) {
+      const layoutIndex = definedLayouts.findIndex((layout) => layout === group.name);
+      if (layoutIndex > -1) sortedGroups[layoutIndex] = group;
+      else unsortedGroups.push(group);
+    } else {
+      unsortedGroups.push(group);
+    }
+  });
+
+  return [...sortedGroups.filter((g) => g), ...unsortedGroups];
+}
+
+
 export async function bookmarksResponse() {
   checkAndCopyConfig("bookmarks.yaml");
 
