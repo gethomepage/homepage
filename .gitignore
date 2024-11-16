@@ -41,7 +41,7 @@ yarn-error.log*
 next-env.d.ts
 .env
 # homepage
-#/config
+/config
 
 # IDEs
 /.idea/
