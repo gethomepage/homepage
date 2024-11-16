@@ -8,13 +8,50 @@
           href: https://books.asbsolutionsgroup.com/
     - Github: 
         - abbr: GT
+          icon: si-github-#FFFFFF
           href: https://https://github.com/avnit/
 - Social:
     - Reddit:
         - abbr: RE
           href: https://reddit.com/
-
+    - tools: 
+        - abbr: IT
+          href: http://tools.asbblog.com
 - Entertainment:
     - YouTube:
         - abbr: YT
           href: https://youtube.com/
+            
+- Cloud Services:
+  - Sophos Cloud:
+    - icon: /icons/cld.png
+      href: https://cloud.sophos.com
+  - Cloudflare:
+    - icon: cloudflare.png
+      href: https://dash.cloudflare.com
+  - Teleport:
+    - icon: teleport.png
+      href: https://clcreative.teleport.sh
+  - Twingate:
+    - icon: twingate.png
+      href: https://clcreative.twingate.com
+  - Netbird:
+    - icon: https://netbird.io/_next/static/media/netbird-icon.00225e97.svg
+      href: https://app.netbird.io
+
+- Cloud Platforms:
+  - Microsoft Azure:
+    - icon: azure.png
+      href: https://portal.azure.com
+  - Digital Ocean:
+    - icon: si-digitalocean-#0080FF
+      href: https://cloud.digitalocean.com
+  - CIVO:
+    - icon: si-civo-#239DFF
+      href: https://www.civo.com
+  - Google Cloud:
+    - icon: si-googlecloud
+      href: https://console.cloud.google.com
+  - Replit:
+    - icon: si-replit
+      href: https://replit.com/login

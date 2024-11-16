@@ -131,15 +131,19 @@
             url: https://pi2.asbblog.com
             key: 5536c470d038c11793b535e8c1176817c001d6f20a4704fa7908939be82e2922
     - Portainer:
-        href: http://potainer.asbblog.com
+        href: http://192.168.68.78:9000
         description: portainer container
-        siteMonitor: http://portainer.asbblog.com/
+        siteMonitor: http://192.168.68.78:9000
         icon: portainer
         widget:
             type: portainer
-            url: http://portainer.asbblog.com
+            url: http://192.168.68.78:9000
             env: 2
             key: ptr_T4o9B+spPrciNRWmFjdv5volVpHDrxehs9OfcOWzwAA=
+    - InfluxDB:
+        href: https://192.168.68.100:8086
+        icon: influxdb.png
+        description: influx on home assistance 
 - Storage Server:
     - NAS:
         href: http://unraid.asbblog.com/login/
@@ -161,16 +165,16 @@
             type: homeassistant
             url: https://home.asbblog.com
             key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzZGZkZDUzM2EwMWY0N2ZmYjViYmZmZTZmNGI0NDgwNSIsImlhdCI6MTcwNzkzODA2MywiZXhwIjoyMDIzMjk4MDYzfQ.SzfzMZnVBsexBFO2VIFZQekmN7CnrMd0Ld28sgFe-TI
-            custom:
-                 - state: light.hue_play_gradient_lightstrip_1
-                   label: TV Light strip status 
-                 - state: light.signe_gradient_floor_main_room
-                   label: Lamp main room 
-                 - state: sensor.air_quality_monitor_carbon_dioxide
-                   label: carbon monoxide 
-                 - state: lock.ix_xdrive50_lock
-                   label: Car status
-                    
+            fields: ["people_home", "lights_on","swtiches_on"]
+              #custom:
+              #   - state: light.living_room_gradient_hue
+              #     label: TV Light strip status 
+              #   - state: light.living_room_main_lights
+              #     label: Lamp main room 
+              #   - state: sensor.air_quality_monitor_carbon_dioxide
+              #     label: carbon monoxide 
+              #   - state: lock.ix_xdrive50_lock
+              #     label: Car status                    
     - Casaos:           
         href: http://casaos.asbblog.com
         description : Casaos Asbblog 
@@ -207,12 +211,22 @@
                   service_name: Sonarr # service name for that widget
                   color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
     - Grafana:
-       widget:
+        href: http://grafana.asbblog.com
+        icon: grafana.png
+        widget:
             type: grafana
-            url: http://192.168.68.84:3010/
+            url: http://192.168.68.84:3010
             username: admin
             password: golD123@
     - ESPHome:
         widget:
           type: esphome
-          url: http://192.168.68.84:6052/
+          url: http://192.168.68.84:6052
+    - Calibre-web:
+        href: http://calibre.asbblog.com
+        icon: calibre.png
+        widget: 
+          type: calibreweb
+          url: http://calibre.asbblog.com
+          username: admin
+          password: golD123@

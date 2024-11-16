@@ -24,7 +24,9 @@ services:
     devices: []
     cap_add: []
     command: []
-    environment: []
+    environment: 
+      - HOMEPAGE_VAR_GRAFANA_USERNAME=$HOMEPAGE_VAR_GRAFANA_USERNAME
+      - HOMEPAGE_VAR_GRAFANA_PASSWORD=$HOMEPAGE_VAR_GRAFANA_PASSWORD
     networks:
       - default
     privileged: false
