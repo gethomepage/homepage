@@ -988,5 +988,14 @@
       "memory": "MEM",
       "disk": "Disk",
       "network": "NET"
+    },
+    "gitlab": {
+        "events": "Events",
+        "issues": "Issues",
+        "issuesOpen": "Open Issues",
+        "issuesClosed": "Closed Issues",
+        "merges": "Merge Requests",
+        "mergesOpen": "Open Merge Requests",
+        "mergesClosed": "Closed Merge Requests"
     }
 }
