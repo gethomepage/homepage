@@ -44,7 +44,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="fritzbox.connectionStatus" value={t(`fritzbox.connectionStatus${fritzboxData.connectionStatus}`)} />
-      <Block label="fritzbox.uptime" value={t("common.uptime", { value: fritzboxData.uptime })} />
+      <Block label="fritzbox.uptime" value={t("common.duration", { value: fritzboxData.uptime })} />
       <Block label="fritzbox.maxDown" value={t("common.byterate", { value: fritzboxData.maxDown / 8, decimals: 1 })} />
       <Block label="fritzbox.maxUp" value={t("common.byterate", { value: fritzboxData.maxUp / 8, decimals: 1 })} />
       <Block label="fritzbox.down" value={t("common.byterate", { value: fritzboxData.down, decimals: 1 })} />

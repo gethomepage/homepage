@@ -98,6 +98,12 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     } else if (event.key === "ArrowUp" && currentItemIndex > 0) {
       setCurrentItemIndex(currentItemIndex - 1);
       event.preventDefault();
+    } else if (
+      event.key === "ArrowRight" &&
+      results[currentItemIndex] &&
+      results[currentItemIndex].type === "searchSuggestion"
+    ) {
+      setSearchString(results[currentItemIndex].name);
     }
   }
 
