@@ -8,7 +8,7 @@ search:
 You can also find a list of all available service widgets in the sidebar navigation.
 
 - [Adguard Home](adguard-home.md)
-- [ArgoCD](atsumeru.md)
+- [ArgoCD](argocd.md)
 - [Atsumeru](atsumeru.md)
 - [Audiobookshelf](audiobookshelf.md)
 - [Authentik](authentik.md)

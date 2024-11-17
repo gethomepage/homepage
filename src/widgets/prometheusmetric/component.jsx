@@ -5,6 +5,7 @@ import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function formatValue(t, metric, rawValue) {
+  if (!metric?.format) return rawValue;
   if (!rawValue) return "-";
 
   let value = rawValue;
