@@ -5,7 +5,7 @@ description: ArgoCD Widget Configuration
 
 Learn more about [ArgoCD](https://argo-cd.readthedocs.io/en/stable/).
 
-Allowed fields: `["apps", "synced", "outOfSync", "healthy", "progressing", "degraded", "suspended", "missing"]`
+Allowed fields (limited to a max of 4): `["apps", "synced", "outOfSync", "healthy", "progressing", "degraded", "suspended", "missing"]`
 
 ```yaml
 widget:
