@@ -5,11 +5,10 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
-  // Limits fields to available statuses
-  const validFields = ["apps", "synced", "outOfSync", "healthy", "progressing", "degraded", "suspended", "missing"];
-  widget.fields = widget.fields?.filter((field) => validFields.includes(field));
+  if (!widget.fields) {
+    widget.fields = ["apps", "synced", "outOfSync", "healthy"];
+  }
 
-  // Limits max number of displayed fields
   const MAX_ALLOWED_FIELDS = 4;
   if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
