@@ -992,7 +992,7 @@
     "argocd": {
         "apps": "Apps",
         "synced": "Synced",
-        "outOfSync": "OutOfSync",
+        "outOfSync": "Out Of Sync",
         "healthy": "Healthy",
         "degraded": "Degraded",
         "progressing": "Progressing",

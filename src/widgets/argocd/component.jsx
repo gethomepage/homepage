@@ -20,9 +20,8 @@ export default function Component({ service }) {
     if (status === "apps") {
       return { status, count: appsData?.items?.length };
     }
-    const apiStatus = status.charAt(0).toUpperCase() + status.slice(1);
     const count = appsData?.items?.filter(
-      (item) => item.status?.sync?.status === apiStatus || item.status?.health?.status === apiStatus,
+      (item) => item.status?.sync?.status.toLowerCase() === status.toLowerCase() || item.status?.health?.status.toLowerCase() === status.toLowerCase(),
     ).length;
     return { status, count };
   });
