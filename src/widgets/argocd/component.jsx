@@ -7,17 +7,17 @@ export default function Component({ service }) {
 
   // Limits fields to available statuses
   const validFields = ["apps", "synced", "outOfSync", "healthy", "progressing", "degraded", "suspended", "missing"];
-  widget.fields = widget.fields.filter((field) => validFields.includes(field));
+  widget.fields = widget.fields?.filter((field) => validFields.includes(field));
 
   // Limits max number of displayed fields
   const MAX_ALLOWED_FIELDS = 4;
-  if (widget.fields != null && widget.fields.length > MAX_ALLOWED_FIELDS) {
+  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   const { data: appsData, error: appsError } = useWidgetAPI(widget, "applications");
 
-  const appCounts = widget.fields.map((status) => {
+  const appCounts = widget.fields?.map((status) => {
     if (status === "apps") {
       return { status, count: appsData?.items?.length };
     }
@@ -35,7 +35,7 @@ export default function Component({ service }) {
   if (!appsData) {
     return (
       <Container service={service}>
-        {appCounts.map((a) => (
+        {appCounts?.map((a) => (
           <Block label={`argocd.${a.status}`} key={a.status} />
         ))}
       </Container>
@@ -44,7 +44,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      {appCounts.map((a) => (
+      {appCounts?.map((a) => (
         <Block label={`argocd.${a.status}`} key={a.status} value={a.count} />
       ))}
     </Container>
