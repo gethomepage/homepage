@@ -998,5 +998,18 @@
         "progressing": "Progressing",
         "missing": "Missing",
         "suspended": "Suspended"
+    },
+    "garage": {
+        "status": "Status",
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "unavailable": "Unavailable",
+        "knownNodes": "Known nodes",
+        "connectedNodes": "Connected nodes",
+        "storageNodes": "Storage nodes",
+        "storageNodesOk": "Storage OK",
+        "partitions": "Total partitions",
+        "partitionsQuorum": "Quorum reached",
+        "partitionsAllOk": "Partitions OK"
     }
 }

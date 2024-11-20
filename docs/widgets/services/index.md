@@ -38,6 +38,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Frigate](frigate.md)
 - [Fritz!Box](fritzbox.md)
 - [GameDig](gamedig.md)
+- [Garage](garage.md)
 - [Gatus](gatus.md)
 - [Ghostfolio](ghostfolio.md)
 - [Gitea](gitea.md)

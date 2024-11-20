@@ -35,6 +35,7 @@ const components = {
   frigate: dynamic(() => import("./frigate/component")),
   fritzbox: dynamic(() => import("./fritzbox/component")),
   gamedig: dynamic(() => import("./gamedig/component")),
+  garage: dynamic(() => import("./garage/component")),
   gatus: dynamic(() => import("./gatus/component")),
   ghostfolio: dynamic(() => import("./ghostfolio/component")),
   gitea: dynamic(() => import("./gitea/component")),

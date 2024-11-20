@@ -61,6 +61,7 @@ nav:
           - widgets/services/frigate.md
           - widgets/services/fritzbox.md
           - widgets/services/gamedig.md
+          - widgets/services/garage.md
           - widgets/services/gatus.md
           - widgets/services/ghostfolio.md
           - widgets/services/gitea.md

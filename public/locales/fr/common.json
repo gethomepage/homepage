@@ -953,5 +953,18 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "garage": {
+        "status": "Statut",
+        "healthy": "En bonne santé",
+        "degraded": "Dégradé",
+        "unavailable": "Indisponible",
+        "knownNodes": "Nœuds connus",
+        "connectedNodes": "Nœuds connectés",
+        "storageNodes": "Nœuds de stockage",
+        "storageNodesOk": "Stockage OK",
+        "partitions": "Partitions totales",
+        "partitionsQuorum": "Quorum atteint",
+        "partitionsAllOk": "Partitions OK"
     }
 }

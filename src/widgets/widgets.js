@@ -29,6 +29,7 @@ import freshrss from "./freshrss/widget";
 import frigate from "./frigate/widget";
 import fritzbox from "./fritzbox/widget";
 import gamedig from "./gamedig/widget";
+import garage from "./garage/widget";
 import gatus from "./gatus/widget";
 import ghostfolio from "./ghostfolio/widget";
 import gitea from "./gitea/widget";
@@ -160,6 +161,7 @@ const widgets = {
   frigate,
   fritzbox,
   gamedig,
+  garage,
   gatus,
   ghostfolio,
   gitea,
