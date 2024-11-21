@@ -138,6 +138,7 @@ nav:
           - widgets/services/scrutiny.md
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
+          - widgets/services/spoolman.md
           - widgets/services/stash.md
           - widgets/services/stocks.md
           - widgets/services/swagdashboard.md
