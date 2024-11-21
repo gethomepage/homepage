@@ -166,15 +166,6 @@
             url: https://home.asbblog.com
             key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzZGZkZDUzM2EwMWY0N2ZmYjViYmZmZTZmNGI0NDgwNSIsImlhdCI6MTcwNzkzODA2MywiZXhwIjoyMDIzMjk4MDYzfQ.SzfzMZnVBsexBFO2VIFZQekmN7CnrMd0Ld28sgFe-TI
             fields: ["people_home", "lights_on","swtiches_on"]
-              #custom:
-              #   - state: light.living_room_gradient_hue
-              #     label: TV Light strip status 
-              #   - state: light.living_room_main_lights
-              #     label: Lamp main room 
-              #   - state: sensor.air_quality_monitor_carbon_dioxide
-              #     label: carbon monoxide 
-              #   - state: lock.ix_xdrive50_lock
-              #     label: Car status                    
     - Casaos:           
         href: http://casaos.asbblog.com
         description : Casaos Asbblog 
@@ -183,6 +174,20 @@
         href: http://ubuntu2.asbblog.com/
         descripition: Casaos Ubuntu 
         icon: casaos
+    - Docker web: 
+        href: https://docker.asbblog.com/
+        description: Docker on Unraid
+        icon: docker.png
+        siteMonitor: https://docker.asbblog.com
+    - Jacket: 
+        href: http://jacket.asbblog.com/
+        description: Jacket on Orange Pi 
+        icon: jackett.png
+        widget: 
+            type: jackett
+            url: http://jacket.asbblog.com
+            fields: ["configured", "errored"]
+            password: x4w1b60du1bvovzmhclpwgbdfmtjai2q 
 - Business:
     - Vikunja:
         href: http://vj.asbblog.com/
