@@ -492,6 +492,9 @@ export function cleanServiceGroups(groups) {
 
           // technitium
           range,
+
+          // spoolman
+          spoolIds,
         } = cleanedService.widget;
 
         let fieldsList = fields;
@@ -652,6 +655,9 @@ export function cleanServiceGroups(groups) {
         if (type === "prometheusmetric") {
           if (metrics) cleanedService.widget.metrics = metrics;
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
+        }
+        if (type === "spoolman") {
+          if (spoolIds !== undefined) cleanedService.widget.spoolIds = spoolIds;
         }
       }
 

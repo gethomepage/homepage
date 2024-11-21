@@ -36,6 +36,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (
         [
+          "argocd",
           "authentik",
           "cloudflared",
           "ghostfolio",

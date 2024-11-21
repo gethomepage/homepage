@@ -31,6 +31,7 @@ nav:
       - "Service Widgets":
           - widgets/services/index.md
           - widgets/services/adguard-home.md
+          - widgets/services/argocd.md
           - widgets/services/atsumeru.md
           - widgets/services/audiobookshelf.md
           - widgets/services/authentik.md
@@ -138,6 +139,7 @@ nav:
           - widgets/services/scrutiny.md
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
+          - widgets/services/spoolman.md
           - widgets/services/stash.md
           - widgets/services/stocks.md
           - widgets/services/swagdashboard.md

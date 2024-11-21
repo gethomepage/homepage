@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 const components = {
   adguard: dynamic(() => import("./adguard/component")),
+  argocd: dynamic(() => import("./argocd/component")),
   atsumeru: dynamic(() => import("./atsumeru/component")),
   audiobookshelf: dynamic(() => import("./audiobookshelf/component")),
   authentik: dynamic(() => import("./authentik/component")),
@@ -111,6 +112,7 @@ const components = {
   scrutiny: dynamic(() => import("./scrutiny/component")),
   sonarr: dynamic(() => import("./sonarr/component")),
   speedtest: dynamic(() => import("./speedtest/component")),
+  spoolman: dynamic(() => import("./spoolman/component")),
   stash: dynamic(() => import("./stash/component")),
   stocks: dynamic(() => import("./stocks/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),

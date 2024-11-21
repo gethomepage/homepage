@@ -1,4 +1,5 @@
 import adguard from "./adguard/widget";
+import argocd from "./argocd/widget";
 import atsumeru from "./atsumeru/widget";
 import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
@@ -102,6 +103,7 @@ import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
+import spoolman from "./spoolman/widget";
 import stash from "./stash/widget";
 import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
@@ -131,6 +133,7 @@ import zabbix from "./zabbix/widget";
 
 const widgets = {
   adguard,
+  argocd,
   atsumeru,
   audiobookshelf,
   authentik,
@@ -237,6 +240,7 @@ const widgets = {
   scrutiny,
   sonarr,
   speedtest,
+  spoolman,
   stash,
   stocks,
   strelaysrv,
