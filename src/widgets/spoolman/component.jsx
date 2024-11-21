@@ -8,24 +8,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data: spoolData, error: spoolError } = useWidgetAPI(widget, "spools");
+  // eslint-disable-next-line prefer-const
+  let { data: spoolData, error: spoolError } = useWidgetAPI(widget, "spools");
 
-  // Helper to handle filtering based on spoolIds
-  const filterSpools = (data, spoolIds) => {
-    if (!spoolIds || spoolIds.length === 0) return data; // No filtering if no spoolIds
-    const limitedspoolIds = spoolIds.slice(0, 4); // Limit to 4 names
-    return data.filter(spool => spoolIds.includes(spool.id));
-  };
-
-  // Helper to limit spoolData length
-  const limitSpoolData = (data, limit = 4) => (data.length > limit ? data.slice(0, limit) : data);
-
-  // Error handling
   if (spoolError) {
     return <Container service={service} error={spoolError} />;
   }
 
-  // Loading state
   if (!spoolData) {
     return (
       <Container service={service}>
@@ -35,12 +24,10 @@ export default function Component({ service }) {
     );
   }
 
-  // API error or unexpected response
   if (spoolData.error || spoolData.message) {
     return <Container service={service} error={spoolData?.error ?? spoolData} />;
   }
 
-  // No spools available
   if (spoolData.length === 0) {
     return (
       <Container service={service}>
@@ -49,14 +36,17 @@ export default function Component({ service }) {
     );
   }
 
-  // Filter and limit spools
-  let filteredSpoolData = filterSpools(spoolData, widget.spoolIds);
-  filteredSpoolData = limitSpoolData(filteredSpoolData);
+  if (widget.spoolIds?.length) {
+    spoolData = spoolData.filter((spool) => widget.spoolIds.includes(spool.id));
+  }
 
-  // Render filtered and limited spools
+  if (spoolData.length > 4) {
+    spoolData = spoolData.slice(0, 4);
+  }
+
   return (
     <Container service={service}>
-      {filteredSpoolData.map((spool) => (
+      {spoolData.map((spool) => (
         <Block
           key={spool.id}
           label={spool.filament.name}
