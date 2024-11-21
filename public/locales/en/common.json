@@ -998,5 +998,8 @@
         "progressing": "Progressing",
         "missing": "Missing",
         "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
     }
 }

@@ -16,10 +16,13 @@ export default function Component({ service }) {
   }
 
   if (!spoolData) {
+    const nBlocksGuess = widget.spoolIds?.length ?? 4;
     return (
       <Container service={service}>
-        <Block label="spoolman.spool1" />
-        <Block label="spoolman.spool2" />
+        {[...Array(nBlocksGuess)].map((_, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Block key={i} label="spoolman.loading" />
+        ))}
       </Container>
     );
   }
