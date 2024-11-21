@@ -494,7 +494,7 @@ export function cleanServiceGroups(groups) {
           range,
 
           // spoolman
-          spoolIds
+          spoolIds,
         } = cleanedService.widget;
 
         let fieldsList = fields;

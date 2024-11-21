@@ -5,9 +5,9 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    spools : {
+    spools: {
       endpoint: "spool",
-    }
+    },
   },
 };
 
