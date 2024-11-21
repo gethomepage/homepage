@@ -10,30 +10,30 @@ const widget = {
       map: (data) => ({
         merges: asJson(data).filter((event) => event.target_type?.toLowerCase() === "merge_request"),
         issues: asJson(data).filter((event) => event.target_type?.toLowerCase() === "issue"),
-        events: asJson(data).length
-      })
+        events: asJson(data).length,
+      }),
     },
     issues: {
       endpoint: "issues",
-      params: ["state"]
+      params: ["state"],
     },
     openIssues: {
-      endpoint: "issues?state=opened"
+      endpoint: "issues?state=opened",
     },
     closedIssues: {
-      endpoint: "issues?state=closed"
+      endpoint: "issues?state=closed",
     },
     mergeRequests: {
       endpoint: "merge_requests",
-      params: ["state"]
+      params: ["state"],
     },
     openMergeRequests: {
-      endpoint: "merge_requests?state=opened"
+      endpoint: "merge_requests?state=opened",
     },
     closedMergeRequests: {
-      endpoint: "merge_requests?state=closed"
-    }
-  }
+      endpoint: "merge_requests?state=closed",
+    },
+  },
 };
 
 export default widget;
