@@ -8,9 +8,19 @@ const widget = {
     events: {
       endpoint: "events",
       map: (data) => ({
-        merges: asJson(data).filter((event) => event.target_type?.toLowerCase() === "merge_request"),
-        issues: asJson(data).filter((event) => event.target_type?.toLowerCase() === "issue"),
-        events: asJson(data).length,
+        count: asJson(data).length,
+      }),
+    },
+    issues: {
+      endpoint: "issues?state=opened",
+      map: (data) => ({
+        count: asJson(data).length,
+      }),
+    },
+    merges: {
+      endpoint: "merge_requests?state=opened",
+      map: (data) => ({
+        count: asJson(data).length,
       }),
     },
   },

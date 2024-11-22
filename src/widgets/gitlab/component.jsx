@@ -9,12 +9,14 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: gitlabEvents, error: gitlabEventsError } = useWidgetAPI(widget, "events");
+  const { data: gitlabIssues, error: gitlabIssuesError } = useWidgetAPI(widget, "issues");
+  const { data: gitlabMerges, error: gitlabMergesError } = useWidgetAPI(widget, "merges");
 
-  if (gitlabEventsError) {
-    return <Container service={service} error={gitlabEvents} />;
+  if (gitlabEventsError || gitlabIssuesError || gitlabMergesError) {
+    return <Container service={service} error={gitlabEventsError ?? gitlabIssuesError ?? gitlabMergesError} />;
   }
 
-  if (!gitlabEvents) {
+  if (!gitlabEvents || !gitlabIssues || !gitlabMerges) {
     return (
       <Container service={service}>
         <Block label="gitlab.events" />
@@ -24,14 +26,11 @@ export default function Component({ service }) {
     );
   }
 
-  const openIssues = gitlabEvents.issues.filter((event) => event.action_name.toLowerCase() === "opened").length;
-  const openMerges = gitlabEvents.merges.filter((event) => event.action_name.toLowerCase() === "opened").length;
-
   return (
     <Container service={service}>
-      <Block label="gitlab.events" value={t("common.number", { value: gitlabEvents.events })} />
-      <Block label="gitlab.issues" value={t("common.number", { value: openIssues })} />
-      <Block label="gitlab.merges" value={t("common.number", { value: openMerges })} />
+      <Block label="gitlab.events" value={t("common.number", { value: gitlabEvents.count })} />
+      <Block label="gitlab.issues" value={t("common.number", { value: gitlabIssues.count })} />
+      <Block label="gitlab.merges" value={t("common.number", { value: gitlabMerges.count })} />
     </Container>
   );
 }
