@@ -12,7 +12,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   const { t } = useTranslation();
 
   const { settings } = useContext(SettingsContext);
-  const { searchDescriptions = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
+  const { searchDescriptions = false, searchUrls = false, hideVisitURL = false } = settings?.quicklaunch ?? {};
 
   const searchField = useRef();
 
@@ -138,10 +138,15 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
           descriptionMatch = r.description?.toLowerCase().includes(searchString);
           r.priority = nameMatch ? 2 * +nameMatch : +descriptionMatch; // eslint-disable-line no-param-reassign
         }
-        return nameMatch || descriptionMatch;
+        let urlMatch;
+        if (searchUrls) {
+          urlMatch = r.href?.toLowerCase().includes(searchString);
+          r.priority = nameMatch ? 3 * +nameMatch : descriptionMatch ? 2 * +descriptionMatch : +urlMatch;
+        }
+        return nameMatch || descriptionMatch || urlMatch;
       });
 
-      if (searchDescriptions) {
+      if (searchDescriptions || searchUrls) {
         newResults = newResults.sort((a, b) => b.priority - a.priority);
       }
 
@@ -205,7 +210,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     return () => {
       abortController.abort();
     };
-  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url, t]);
+  }, [searchString, servicesAndBookmarks, searchDescriptions, searchUrls, hideVisitURL, searchSuggestions, searchProvider, url, t]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {

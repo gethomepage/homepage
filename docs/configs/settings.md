@@ -378,6 +378,7 @@ You can use the 'Quick Launch' feature to search services, perform a web search 
 There are a few optional settings for the Quick Launch feature:
 
 - `searchDescriptions`: which lets you control whether item descriptions are included in searches. This is false by default. When enabled, results that match the item name will be placed above those that only match the description.
+- `searchUrls`: which lets you control whether item URLs are included in searches. This is false by default. When enabled, results that match the item name will be placed above those that only match URLs. When used with `searchDescriptions`, items which match descriptions will show higher than those that match only URLs.
 - `hideInternetSearch`: disable automatically including the currently-selected web search (e.g. from the widget) as a Quick Launch option. This is false by default, enabling the feature.
 - `showSearchSuggestions`: show search suggestions for the internet search. If this is not specified then the setting will be inherited from the search widget. If it is not specified there either, it will default to false. For custom providers the `suggestionUrl` needs to be set in order for this to work.
 - `provider`: search engine provider. If none is specified it will try to use the provider set for the Search Widget, if neither are present then internet search will be disabled.
@@ -386,6 +387,7 @@ There are a few optional settings for the Quick Launch feature:
 ```yaml
 quicklaunch:
   searchDescriptions: true
+  searchUrls: true
   hideInternetSearch: true
   showSearchSuggestions: true
   hideVisitURL: true
