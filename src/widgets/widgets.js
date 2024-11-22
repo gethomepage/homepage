@@ -32,6 +32,7 @@ import gamedig from "./gamedig/widget";
 import gatus from "./gatus/widget";
 import ghostfolio from "./ghostfolio/widget";
 import gitea from "./gitea/widget";
+import gitlab from "./gitlab/widget";
 import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -164,6 +165,7 @@ const widgets = {
   gatus,
   ghostfolio,
   gitea,
+  gitlab,
   glances,
   gluetun,
   gotify,

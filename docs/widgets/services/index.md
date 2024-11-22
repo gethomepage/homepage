@@ -41,6 +41,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Gatus](gatus.md)
 - [Ghostfolio](ghostfolio.md)
 - [Gitea](gitea.md)
+- [Gitlab](gitlab.md)
 - [Glances](glances.md)
 - [Gluetun](gluetun.md)
 - [Gotify](gotify.md)

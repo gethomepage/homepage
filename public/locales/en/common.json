@@ -1001,5 +1001,11 @@
     },
     "spoolman": {
         "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Issues",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
