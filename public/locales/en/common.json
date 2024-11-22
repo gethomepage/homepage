@@ -1003,8 +1003,9 @@
         "loading": "Loading"
     },
     "gitlab": {
-        "events": "Events",
+        "groups": "Groups",
         "issues": "Issues",
-        "merges": "Merge Requests"
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
