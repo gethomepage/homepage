@@ -13,26 +13,6 @@ const widget = {
         events: asJson(data).length,
       }),
     },
-    issues: {
-      endpoint: "issues",
-      params: ["state"],
-    },
-    openIssues: {
-      endpoint: "issues?state=opened",
-    },
-    closedIssues: {
-      endpoint: "issues?state=closed",
-    },
-    mergeRequests: {
-      endpoint: "merge_requests",
-      params: ["state"],
-    },
-    openMergeRequests: {
-      endpoint: "merge_requests?state=opened",
-    },
-    closedMergeRequests: {
-      endpoint: "merge_requests?state=closed",
-    },
   },
 };
 
