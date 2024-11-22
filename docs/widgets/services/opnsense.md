@@ -20,4 +20,5 @@ widget:
   url: http://opnsense.host.or.ip
   username: key
   password: secret
+  wan: opt1 # optional, defaults to wan
 ```
