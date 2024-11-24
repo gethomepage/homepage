@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "ش",
         "days": "ي",
         "hours": "س",
@@ -308,6 +308,16 @@
         "running": "قيد التشغيل",
         "stopped": "متوقف",
         "total": "المجموع"
+    },
+    "suwayomi": {
+        "download": "مُنزل",
+        "nondownload": "Non-Downloaded",
+        "read": "قراءة",
+        "unread": "غير مقروءة",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "عنوان",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "الاسم",
+        "address": "عنوان",
+        "last_seen": "آخر ظهور",
+        "status": "الحالة",
+        "online": "مُتّصل",
+        "offline": "غير متصل"
+    },
+    "beszel": {
+        "name": "الاسم",
+        "systems": "Systems",
+        "up": "يعمل",
+        "status": "الحالة",
+        "updated": "محدث",
+        "cpu": "المعالج",
+        "memory": "الذاكرة",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "سليم",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "مفقود",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "تحميل"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "المُشكِلات",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

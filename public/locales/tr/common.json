@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "ay",
         "days": "g",
         "hours": "sa",
@@ -308,6 +308,16 @@
         "running": "Çalışıyor",
         "stopped": "Durduruldu",
         "total": "Toplam"
+    },
+    "suwayomi": {
+        "download": "İndirilen",
+        "nondownload": "Non-Downloaded",
+        "read": "Okunan",
+        "unread": "Okunmamış",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Adres",
@@ -853,7 +863,7 @@
     "mailcow": {
         "domains": "Etki Alanları",
         "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mails": "Postalar",
         "storage": "Depo"
     },
     "netdata": {
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Bitişi Bu Hafta Olan Görevler",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "İsim",
+        "address": "Adres",
+        "last_seen": "Son Görülme",
+        "status": "Durum",
+        "online": "Çevrimiçi",
+        "offline": "Çevrimdışı"
+    },
+    "beszel": {
+        "name": "İsim",
+        "systems": "Systems",
+        "up": "Yükleme",
+        "status": "Durum",
+        "updated": "Güncellendi",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sağlıklı",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Eksik",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Yükleniyor"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Sorunlar",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
