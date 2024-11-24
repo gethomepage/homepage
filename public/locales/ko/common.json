@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "d",
         "hours": "h",
@@ -308,6 +308,16 @@
         "running": "가동 중",
         "stopped": "중지",
         "total": "총합"
+    },
+    "suwayomi": {
+        "download": "다운로드됨",
+        "nondownload": "Non-Downloaded",
+        "read": "읽음",
+        "unread": "미열람",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "주소",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "이름",
+        "address": "주소",
+        "last_seen": "마지막 접속",
+        "status": "상태",
+        "online": "온라인",
+        "offline": "중지"
+    },
+    "beszel": {
+        "name": "이름",
+        "systems": "Systems",
+        "up": "Up",
+        "status": "상태",
+        "updated": "Updated",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "좋음",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "빠짐",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "로드 중"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Issues",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

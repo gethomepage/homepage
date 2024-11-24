@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "月",
         "days": "日",
         "hours": "時間",
@@ -308,6 +308,16 @@
         "running": "起動中",
         "stopped": "停止中",
         "total": "合計"
+    },
+    "suwayomi": {
+        "download": "ダウンロード",
+        "nondownload": "Non-Downloaded",
+        "read": "既読",
+        "unread": "未読",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "アドレス",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "名前",
+        "address": "アドレス",
+        "last_seen": "最終日時",
+        "status": "状態",
+        "online": "オンライン",
+        "offline": "オフライン"
+    },
+    "beszel": {
+        "name": "名前",
+        "systems": "Systems",
+        "up": "稼働",
+        "status": "状態",
+        "updated": "更新済",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "正常",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "不明",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "読み込み中"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "課題",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

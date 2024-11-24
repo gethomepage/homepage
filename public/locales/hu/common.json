@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "hó",
         "days": "n",
         "hours": "ó",
@@ -308,6 +308,16 @@
         "running": "Futó",
         "stopped": "Megállított",
         "total": "Összes"
+    },
+    "suwayomi": {
+        "download": "Letöltött",
+        "nondownload": "Non-Downloaded",
+        "read": "Olvasott",
+        "unread": "Olvasatlan",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Cím",
@@ -953,5 +963,49 @@
         "reminders": "Emlékeztetők",
         "nextReminder": "Következő emlékeztető",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Név",
+        "address": "Cím",
+        "last_seen": "Utoljára látott",
+        "status": "Státusz",
+        "online": "Csatlakozva",
+        "offline": "Nem elérhető"
+    },
+    "beszel": {
+        "name": "Név",
+        "systems": "Systems",
+        "up": "Fel",
+        "status": "Státusz",
+        "updated": "Frissített",
+        "cpu": "Processzor",
+        "memory": "RAM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Egészséges",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Hiányzik",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problémák",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
