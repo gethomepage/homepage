@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mes",
         "days": "d",
         "hours": "h",
@@ -227,8 +227,8 @@
         "seed": "Llavors"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "Bytes trobats a la memòria cau",
+        "cachemissbytes": "Bytes no trobats a la memòria cau"
     },
     "downloadstation": {
         "download": "Descarregar",
@@ -309,6 +309,16 @@
         "stopped": "Aturat",
         "total": "Total"
     },
+    "suwayomi": {
+        "download": "Descarregat",
+        "nondownload": "No descarregat",
+        "read": "Llegit",
+        "unread": "Sense llegir",
+        "downloadedread": "Descarregat i llegit",
+        "downloadedunread": "Descarregat i per llegir",
+        "nondownloadedread": "No descarregat i llegit",
+        "nondownloadedunread": "No descarregat i per llegir"
+    },
     "tailscale": {
         "address": "Adreça",
         "expires": "Caduca",
@@ -325,15 +335,15 @@
     },
     "technitium": {
         "totalQueries": "Consultes",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Èxits",
+        "totalServerFailure": "Fallades",
+        "totalNxDomain": "Dominis NX",
+        "totalRefused": "Rebutjat",
+        "totalAuthoritative": "Autoritatiu",
+        "totalRecursive": "Recursiu",
+        "totalCached": "A la memòria cau",
         "totalBlocked": "Bloquejat",
-        "totalDropped": "Dropped",
+        "totalDropped": "Abandonat",
         "totalClients": "Clients"
     },
     "tdarr": {
@@ -844,16 +854,16 @@
     },
     "romm": {
         "platforms": "Plataformes",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "totalRoms": "Jocs",
+        "saves": "Partides desades",
+        "states": "Estats",
+        "screenshots": "Captures de pantalla",
+        "totalfilesize": "Tamany total"
     },
     "mailcow": {
         "domains": "Dominis",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Bústies",
+        "mails": "Correus",
         "storage": "Emmagatzematge"
     },
     "netdata": {
@@ -934,24 +944,68 @@
         "version": "Versió"
     },
     "linkwarden": {
-        "links": "Links",
-        "collections": "Collections",
+        "links": "Enllaços",
+        "collections": "Col·leccions",
         "tags": "Etiquetes"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "No classificat",
         "information": "Informació",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Avís",
+        "average": "Mitjana",
+        "high": "Alt",
+        "disaster": "Desastre"
     },
     "lubelogger": {
         "vehicle": "Vehicle",
         "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "serviceRecords": "Constàncies de manteniment",
+        "reminders": "Recordatoris",
+        "nextReminder": "Proper recordatori",
+        "none": "Cap"
+    },
+    "vikunja": {
+        "projects": "Projectes actius",
+        "tasks7d": "Tasques a completar aquesta setmana",
+        "tasksOverdue": "Tasques vençudes",
+        "tasksInProgress": "Tasques en marxa"
+    },
+    "headscale": {
+        "name": "Nom",
+        "address": "Adreça",
+        "last_seen": "Vist per darrer cop",
+        "status": "Estat",
+        "online": "En línia",
+        "offline": "Fora de línia"
+    },
+    "beszel": {
+        "name": "Nom",
+        "systems": "Sistemes",
+        "up": "Actiu",
+        "status": "Estat",
+        "updated": "Actualitzat",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disc",
+        "network": "XARXA"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Saludable",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Falten",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Carregant"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemes",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
