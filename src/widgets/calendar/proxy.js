@@ -21,7 +21,7 @@ export default async function calendarProxyHandler(req, res) {
       if (contentType) res.setHeader("Content-Type", contentType);
 
       if (status !== 200) {
-        logger.debug(`HTTTP ${status} retrieving data from integration URL ${integration.url} : ${data}`);
+        logger.debug(`HTTP ${status} retrieving data from integration URL ${integration.url} : ${data}`);
         return res.status(status).send(data);
       }
 

@@ -9,7 +9,7 @@ This widget requires the installation of the [pfsense-api](https://github.com/ja
 
 Once pfSense API is installed, you can set the API to be read-only in System > API > Settings.
 
-There are two currently supported authentication modes: 'Local Database' and 'API Token'. For 'Local Database', use `username` and `password` with the credentials of an admin user. For 'API Token', utilize the `headers` parameter with `client_token` and `client_id` obtained from pfSense as shown below. Do not use both headers and username / password.
+There are two currently supported authentication modes: 'Local Database' and 'API Key' (v2) / 'API Token' (v1). For 'Local Database', use `username` and `password` with the credentials of an admin user. The specifics of using the API key / token depend on the version of the pfSense API, see the config examples below. Do not use both headers and username / password.
 
 The interface to monitor is defined by updating the `wan` parameter. It should be referenced as it is shown under Interfaces > Assignments in pfSense.
 
@@ -17,14 +17,25 @@ Load is returned instead of cpu utilization. This is a limitation in the pfSense
 
 Allowed fields: `["load", "memory", "temp", "wanStatus", "wanIP", "disk"]` (maximum of 4)
 
+For version 2:
+
 ```yaml
 widget:
   type: pfsense
   url: http://pfsense.host.or.ip:port
-  username: user # optional, or API token
-  password: pass # optional, or API token
+  username: user # optional, or API key
+  password: pass # optional, or API key
   headers: # optional, or username/password
-    Authorization: client_id client_token
+    X-API-Key: key
   wan: igb0
+  version: 2 # optional, defaults to 1 for api v1
   fields: ["load", "memory", "temp", "wanStatus"] # optional
+```
+
+For version 1:
+
+```yaml
+headers: # optional, or username/password
+  Authorization: client_id client_token # obtained from pfSense API
+version: 1
 ```

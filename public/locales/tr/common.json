@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "ay",
         "days": "g",
         "hours": "sa",
@@ -226,6 +226,10 @@
         "leech": "Tüketici",
         "seed": "Sağlayıcı"
     },
+    "develancacheui": {
+        "cachehitbytes": "Önbellek İsabetli Byte",
+        "cachemissbytes": "Önbellek Kaçırılan Byte"
+    },
     "downloadstation": {
         "download": "İndirme",
         "upload": "Yükleme",
@@ -305,6 +309,16 @@
         "stopped": "Durduruldu",
         "total": "Toplam"
     },
+    "suwayomi": {
+        "download": "İndirilen",
+        "nondownload": "Non-Downloaded",
+        "read": "Okunan",
+        "unread": "Okunmamış",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "Adres",
         "expires": "Geciken",
@@ -318,6 +332,19 @@
         "minutes": "{{number}} Dakika",
         "seconds": "{{number}} Saniye",
         "ago": "{{value}} Önce"
+    },
+    "technitium": {
+        "totalQueries": "Sorgular",
+        "totalNoError": "Başarılı",
+        "totalServerFailure": "Başarısızlıklar",
+        "totalNxDomain": "NX Alan Adları",
+        "totalRefused": "Reddedildi",
+        "totalAuthoritative": "Yetkili",
+        "totalRecursive": "Tekrarlamalı",
+        "totalCached": "Önbelleğe alındı",
+        "totalBlocked": "Engellenen",
+        "totalDropped": "Bırakıldı",
+        "totalClients": "Alıcılar"
     },
     "tdarr": {
         "queue": "Kuyruk",
@@ -827,7 +854,17 @@
     },
     "romm": {
         "platforms": "Platformlar",
-        "totalRoms": "Toplam ROM'lar"
+        "totalRoms": "Oyunlar",
+        "saves": "Kayıtlar",
+        "states": "Durumlar",
+        "screenshots": "Ekran görüntüleri",
+        "totalfilesize": "Toplam Kapasite"
+    },
+    "mailcow": {
+        "domains": "Etki Alanları",
+        "mailboxes": "Mailboxes",
+        "mails": "Postalar",
+        "storage": "Depo"
     },
     "netdata": {
         "warnings": "Uyarılar",
@@ -884,9 +921,91 @@
         "total": "Toplam"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Proxy Üzerinden",
+        "auth": "Kimlik Doğrulamalı",
+        "outdated": "Eskimiş",
+        "banned": "Yasaklı"
+    },
+    "myspeed": {
+        "ping": "Gecikme",
+        "download": "İndirme",
+        "upload": "Yükleme"
+    },
+    "stocks": {
+        "stocks": "Hisse Senetleri",
+        "loading": "Yükleniyor",
+        "open": "Açık - ABD Pazarı",
+        "closed": "Kapalı - ABD Pazarı",
+        "invalidConfiguration": "Geçersiz Yapılandırma"
+    },
+    "frigate": {
+        "cameras": "Kameralar",
+        "uptime": "Çalışma Süresi",
+        "version": "Versiyon"
+    },
+    "linkwarden": {
+        "links": "Bağlantılar",
+        "collections": "Koleksiyonlar",
+        "tags": "Etiketler"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Bilgi",
+        "warning": "Uyarı",
+        "average": "Ortalama",
+        "high": "Yüksek",
+        "disaster": "Felaket"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Bitişi Bu Hafta Olan Görevler",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "İsim",
+        "address": "Adres",
+        "last_seen": "Son Görülme",
+        "status": "Durum",
+        "online": "Çevrimiçi",
+        "offline": "Çevrimdışı"
+    },
+    "beszel": {
+        "name": "İsim",
+        "systems": "Systems",
+        "up": "Yükleme",
+        "status": "Durum",
+        "updated": "Güncellendi",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sağlıklı",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Eksik",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Yükleniyor"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Sorunlar",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

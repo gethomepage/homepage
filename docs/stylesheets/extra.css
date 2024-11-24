@@ -14,6 +14,16 @@
   --md-default-fg-color: white;
 }
 
+[data-md-color-scheme="default"] .md-search__inner {
+  --md-default-fg-color--light: gray;
+  --md-default-fg-color--lighter: black;
+  --md-default-bg-color: hsla(0, 0%, 100%, 0.9);
+}
+
+[data-md-color-scheme="default"] .md-search__inner .md-search__input {
+  color: var(--md-default-fg-color--light);
+}
+
 [data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after {
   position: absolute;
   top: 0.3rem;
@@ -35,10 +45,6 @@
   }
 }
 
-#glimeRoot * {
-  font-family: var(--md-text-font) !important;
-}
-
 #carbonads {
   margin-top: 10px;
 }
@@ -49,6 +55,11 @@
   --carbon-bg-primary: var(--md-default-bg-color) !important;
   --carbon-bg-secondary: var(--md-default-fg-color--lightest) !important;
   --carbon-text-color: var(--md-typeset-color) !important;
+}
+
+[data-md-color-scheme="default"] .carbon-text {
+  color: var(--md-code-fg-color) !important;
+  --carbon-text-color: #313131 !important;
 }
 
 .md-typeset__table {
@@ -92,11 +103,11 @@
 }
 
 body {
+  background-color: transparent !important;
   background-image: url("https://raw.githubusercontent.com/gethomepage/homepage/main/docs/assets/blossom_valley.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  background-color: transparent;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -150,6 +161,12 @@ body[data-md-color-scheme="default"] {
   background-color: hsla(0, 0%, 100%, 0.1);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+.md-header:has(.md-search-result__item),
+.md-header:has(.md-search__input.focus-visible) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .md-footer-meta {
@@ -212,7 +229,7 @@ body[data-md-color-scheme="default"] {
 }
 
 .md-search__scrollwrap {
-  background-color: hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(0, 0%, 0%, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }

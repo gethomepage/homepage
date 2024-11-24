@@ -6,10 +6,6 @@ hide:
   - navigation
 ---
 
-## Introducing the Homepage AI Bot
-
-Thanks to the generous folks at [Glime](https://glimelab.ai), Homepage is now equipped with a pretty clever AI-powered bot. The bot has full knowledge of our docs, GitHub issues and discussions and is great at answering specific questions about setting up your Homepage. To use the bot, just hit the 'Ask AI' button on any page in our docs, [open a GitHub discussion](https://github.com/gethomepage/homepage/discussions) or check out the [#ai-support channel on Discord](https://discord.com/channels/1019316731635834932/1177885603552038993)!
-
 ## General Troubleshooting Tips
 
 - For API errors, clicking the "API Error Information" button in the widget will usually show some helpful information as to whether the issue is reaching the service host, an authentication issue, etc.
@@ -21,7 +17,7 @@ Thanks to the generous folks at [Glime](https://glimelab.ai), Homepage is now eq
 
 All service widgets work essentially the same, that is, homepage makes a proxied call to an API made available by that service. The majority of the time widgets don't work it is a configuration issue. Of course, sometimes things do break. Some basic steps to try:
 
-1.  Ensure that you follow the rule mentioned on https://gethomepage.dev/latest/configs/service-widgets/. **Unless otherwise noted, URLs should not end with a / or other API path. Each widget will handle the path on its own.**. This is very important as including a trailing slash can result in an error.
+1.  Ensure that you follow the rule mentioned on https://gethomepage.dev/configs/service-widgets/. **Unless otherwise noted, URLs should not end with a / or other API path. Each widget will handle the path on its own.**. This is very important as including a trailing slash can result in an error.
 
 2.  Verify the homepage installation can connect to the IP address or host you are using for the widget `url`. This is most simply achieved by pinging the server from the homepage machine, in Docker this means _from inside the container_ itself, e.g.:
 

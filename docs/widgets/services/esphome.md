@@ -16,4 +16,5 @@ To group both `offline` and `unknown` devices together, users should use the `of
 widget:
   type: esphome
   url: http://esphome.host.or.ip:port
+  key: myesphomecookie # only if auth enabled, get the value from a request from the frontend e.g. `authenticated=myesphomecookie`
 ```

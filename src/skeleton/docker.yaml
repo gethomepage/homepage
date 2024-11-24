@@ -1,6 +1,6 @@
 ---
 # For configuration options and examples, please see:
-# https://gethomepage.dev/latest/configs/docker/
+# https://gethomepage.dev/configs/docker/
 
 # my-docker:
 #   host: 127.0.0.1

@@ -13,7 +13,7 @@ body:
     attributes:
       label: Before submitting, please confirm the following
       options:
-        - label: I confirm this was discussed, and the maintainers suggest I open an issue (note that AI bots are not maintainers).
+        - label: I confirm this was discussed, and the maintainers asked that I open an issue.
           required: true
         - label: I am aware that if I create this issue without a discussion, it will be removed without a response.
           required: true

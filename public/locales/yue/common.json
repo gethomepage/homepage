@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "月",
         "days": "天",
         "hours": "小時",
@@ -226,6 +226,10 @@
         "leech": "未完成下載",
         "seed": "已完成下載"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "下載速率",
         "upload": "上傳速率",
@@ -305,6 +309,16 @@
         "stopped": "暫停",
         "total": "全部"
     },
+    "suwayomi": {
+        "download": "下載咗",
+        "nondownload": "Non-Downloaded",
+        "read": "已讀",
+        "unread": "未讀",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "位址",
         "expires": "已失效",
@@ -318,6 +332,19 @@
         "minutes": "{{number}} 分鐘",
         "seconds": "{{number}} 秒",
         "ago": "{{value}} 前"
+    },
+    "technitium": {
+        "totalQueries": "查詢",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "封鎖",
+        "totalDropped": "Dropped",
+        "totalClients": "客戶端"
     },
     "tdarr": {
         "queue": "隊列",
@@ -827,7 +854,17 @@
     },
     "romm": {
         "platforms": "平台",
-        "totalRoms": "總唯讀記憶體"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "域",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "儲存空間"
     },
     "netdata": {
         "warnings": "警告",
@@ -888,5 +925,87 @@
         "auth": "With Auth",
         "outdated": "Outdated",
         "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "延遲",
+        "download": "下載速率",
+        "upload": "上傳速率"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "運行時間",
+        "version": "版本"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "標籤"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "資訊",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "名稱",
+        "address": "位址",
+        "last_seen": "上次連線",
+        "status": "狀況",
+        "online": "在線",
+        "offline": "離線"
+    },
+    "beszel": {
+        "name": "名稱",
+        "systems": "Systems",
+        "up": "在線",
+        "status": "狀況",
+        "updated": "已更新",
+        "cpu": "CPU",
+        "memory": "記憶體",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "健康",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "缺少",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "出版",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "g",
         "hours": "o",
@@ -226,6 +226,10 @@
         "leech": "In download",
         "seed": "Seed"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
@@ -287,7 +291,7 @@
         "queries": "Richieste",
         "blocked": "Bloccati",
         "blocked_percent": "Bloccato %",
-        "gravity": "Severità"
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Richieste",
@@ -305,6 +309,16 @@
         "stopped": "Fermati",
         "total": "Totale"
     },
+    "suwayomi": {
+        "download": "Scaricato",
+        "nondownload": "Non-Downloaded",
+        "read": "Letti",
+        "unread": "Non letto",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "Indirizzo",
         "expires": "Scade",
@@ -318,6 +332,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Fa"
+    },
+    "technitium": {
+        "totalQueries": "Richieste",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Bloccati",
+        "totalDropped": "Dropped",
+        "totalClients": "Client"
     },
     "tdarr": {
         "queue": "Coda",
@@ -545,11 +572,11 @@
         "channels": "Canali",
         "hd": "HD",
         "tunerCount": "Tuners",
-        "channelNumber": "Channel",
+        "channelNumber": "Canale",
         "channelNetwork": "Rete",
         "signalStrength": "Intensità",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
+        "signalQuality": "Qualità",
+        "symbolQuality": "Qualità",
         "networkRate": "Bitrate",
         "clientIP": "Client"
     },
@@ -564,11 +591,11 @@
     },
     "peanut": {
         "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "ups_load": "Carico UPS",
+        "ups_status": "Stato UPS",
         "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Alimentazione a batteria",
+        "low_battery": "Batteria Quasi Scarica"
     },
     "nextdns": {
         "wait": "Attendere prego",
@@ -798,10 +825,10 @@
     },
     "openwrt": {
         "uptime": "Tempo di attività",
-        "cpuLoad": "CPU Load Avg (5m)",
+        "cpuLoad": "Media Carico Cpu (5m)",
         "up": "Up",
         "down": "Down",
-        "bytesTx": "Transmitted",
+        "bytesTx": "Trasmessi",
         "bytesRx": "Ricevuti"
     },
     "uptimerobot": {
@@ -826,15 +853,25 @@
         "noEventsFound": "Nessun evento trovato"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Piattaforme",
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domini",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Archiviazione"
     },
     "netdata": {
         "warnings": "Avvisi",
         "criticals": "Criticals"
     },
     "plantit": {
-        "events": "Events",
+        "events": "Eventi",
         "plants": "Plants",
         "photos": "Foto",
         "species": "Specie"
@@ -852,7 +889,7 @@
         "sceneSize": "Dimensione Delle Scene",
         "sceneDuration": "Durata Delle Scene",
         "images": "Immagini",
-        "imageSize": "Images Size",
+        "imageSize": "Dimensioni immagine",
         "galleries": "Galleries",
         "performers": "Esecutori",
         "studios": "Studi",
@@ -863,19 +900,19 @@
     "tandoor": {
         "users": "Utenti",
         "recipes": "Ricette",
-        "keywords": "Keywords"
+        "keywords": "Parole chiave"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "items": "Elementi",
+        "totalWithWarranty": "Con Garanzia",
+        "locations": "Luoghi",
+        "labels": "Etichette",
         "users": "Utenti",
-        "totalValue": "Total Value"
+        "totalValue": "Valore totale"
     },
     "crowdsec": {
         "alerts": "Allarmi",
-        "bans": "Bans"
+        "bans": "Bannati"
     },
     "wgeasy": {
         "connected": "Connesso",
@@ -886,7 +923,89 @@
     "swagdashboard": {
         "proxied": "Proxied",
         "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "outdated": "Obsoleto",
+        "banned": "Bannato"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "Loading",
+        "open": "Open - US Market",
+        "closed": "Closed - US Market",
+        "invalidConfiguration": "Invalid Configuration"
+    },
+    "frigate": {
+        "cameras": "Cameras",
+        "uptime": "Tempo di attività",
+        "version": "Versione"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Tag"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informazioni",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Nome",
+        "address": "Indirizzo",
+        "last_seen": "Ultima visualizzazione",
+        "status": "Stato",
+        "online": "Online",
+        "offline": "Non in linea"
+    },
+    "beszel": {
+        "name": "Nome",
+        "systems": "Systems",
+        "up": "Up",
+        "status": "Stato",
+        "updated": "Aggiornato",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sano",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Mancanti",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemi",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
