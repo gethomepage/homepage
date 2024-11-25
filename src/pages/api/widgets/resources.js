@@ -62,7 +62,7 @@ export default async function handler(req, res) {
     let interfaceDefault;
     logger.debug("networkData:", JSON.stringify(networkData));
     if (interfaceName && interfaceName !== "default") {
-      networkData = networkData.filter((network) => network.iface === interfaceName)["0"];
+      networkData = networkData.filter((network) => network.iface === interfaceName)[0];
       if (!networkData) {
         return res.status(404).json({
           error: "Interface not found",
@@ -70,10 +70,10 @@ export default async function handler(req, res) {
       }
     } else {
       interfaceDefault = await si.networkInterfaceDefault();
-      networkData = networkData.filter((network) => network.iface === interfaceDefault)["0"];
+      networkData = networkData.filter((network) => network.iface === interfaceDefault)[0];
       if (!networkData) {
         return res.status(404).json({
-          error: "Interface not found! Please specify a valid interface name.",
+          error: "Default interface not found",
         });
       }
     }
