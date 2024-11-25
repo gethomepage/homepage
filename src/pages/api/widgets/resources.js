@@ -8,6 +8,7 @@ const si = require("systeminformation");
 
 export default async function handler(req, res) {
   const { type, target } = req.query;
+  let { interfaceName } = req.query;
 
   if (type === "cpu") {
     const load = await si.currentLoad();
@@ -54,6 +55,31 @@ export default async function handler(req, res) {
     logger.debug("timeData:", JSON.stringify(timeData));
     return res.status(200).json({
       uptime: timeData.uptime,
+    });
+  }
+
+  if (type === "network"){
+    let networkData = await si.networkStats();
+    if(interfaceName !== "default" && interfaceName !== undefined && interfaceName !== "false"){
+      networkData = networkData.filter((network) => network.iface === interfaceName)['0'];
+      if(!networkData){
+        return res.status(404).json({
+          error: "Interface not found",
+        });
+      }
+    }else{
+      const interfaceDefault = await si.networkInterfaceDefault();
+      interfaceName = interfaceDefault
+      networkData = networkData.filter((network) => network.iface === interfaceDefault)['0'];
+      if(!networkData){
+        return res.status(404).json({
+          error: "Interface not found! Please specify a valid interface name.",
+        });
+      }
+    }
+    return res.status(200).json({
+      network: networkData,
+      interface: interfaceName
     });
   }
 

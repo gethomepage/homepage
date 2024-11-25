@@ -175,6 +175,7 @@ data:
         expanded: true
         cpu: true
         memory: true
+        network: default
     - search:
         provider: duckduckgo
         target: _blank
@@ -370,7 +371,7 @@ prevent unnecessary re-renders on page loads and window / tab focusing. The
 procedure for enabling sticky sessions depends on your Ingress controller. Below
 is an example using Traefik as the Ingress controller.
 
-```
+```yaml
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
