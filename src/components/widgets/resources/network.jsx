@@ -41,13 +41,8 @@ export default function Network({ options, refresh = 1500 }) {
         expandedLabel={<FaAngleDown />}
         percentage="0"
         expanded="true"
-        iconChildren={
-          <span class="bg-theme-100 text-theme-800 text-xs font-medium px-1 py-1 mt-1 rounded dark:bg-theme-700 dark:text-theme-300 text-center">
-            {data.interface}
-          </span>
-        }
       >
-        <div className="pt-1 text-theme-800 dark:text-theme-200 text-xs text-center">{t("pyload.speed")}</div>
+        <div className="pt-1 text-theme-800 dark:text-theme-200 text-xs text-center">{data.interface}</div>
       </Resource>
 
       <Resource
@@ -58,13 +53,8 @@ export default function Network({ options, refresh = 1500 }) {
         expandedLabel={<FaAngleDown />}
         percentage="0"
         expanded="true"
-        iconChildren={
-          <span class="bg-theme-100 text-theme-800 text-xs font-medium px-1 py-1 mt-1 rounded dark:bg-theme-700 dark:text-theme-300 text-center">
-            {data.interface}
-          </span>
-        }
       >
-        <div className="pt-1 text-theme-800 dark:text-theme-200 text-xs text-center">{t("pyload.total")}</div>
+        <div className="pt-1 text-theme-800 dark:text-theme-200 text-xs text-center">{data.interface}</div>
       </Resource>
     </>
   );
