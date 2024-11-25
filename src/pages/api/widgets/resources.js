@@ -7,8 +7,7 @@ const logger = createLogger("resources");
 const si = require("systeminformation");
 
 export default async function handler(req, res) {
-  const { type, target } = req.query;
-  let { interfaceName } = req.query;
+  const { type, target, interfaceName = "default" } = req.query;
 
   if (type === "cpu") {
     const load = await si.currentLoad();
@@ -60,7 +59,9 @@ export default async function handler(req, res) {
 
   if (type === "network") {
     let networkData = await si.networkStats();
-    if (interfaceName !== "default" && interfaceName !== undefined && interfaceName !== "false") {
+    let interfaceDefault;
+    logger.debug("networkData:", JSON.stringify(networkData));
+    if (interfaceName && interfaceName !== "default") {
       networkData = networkData.filter((network) => network.iface === interfaceName)["0"];
       if (!networkData) {
         return res.status(404).json({
@@ -68,8 +69,7 @@ export default async function handler(req, res) {
         });
       }
     } else {
-      const interfaceDefault = await si.networkInterfaceDefault();
-      interfaceName = interfaceDefault;
+      interfaceDefault = await si.networkInterfaceDefault();
       networkData = networkData.filter((network) => network.iface === interfaceDefault)["0"];
       if (!networkData) {
         return res.status(404).json({
@@ -79,7 +79,7 @@ export default async function handler(req, res) {
     }
     return res.status(200).json({
       network: networkData,
-      interface: interfaceName,
+      interface: interfaceName !== "default" ? interfaceName : interfaceDefault,
     });
   }
 
