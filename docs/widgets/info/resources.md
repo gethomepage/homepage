@@ -27,7 +27,7 @@ _Note: unfortunately, the package used for getting CPU temp ([systeminformation]
     units: imperial # only used by cpu temp, options: 'imperial' or 'metric'
     refresh: 3000 # optional, in ms
     diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
-    network: true # uses 'default' or specify a network interface name
+    network: true # optional, uses 'default' if true or specify a network interface name
 ```
 
 You can also pass a `label` option, which allows you to group resources under named sections,
