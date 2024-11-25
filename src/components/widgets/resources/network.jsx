@@ -26,36 +26,24 @@ export default function Network({ options, refresh = 1500 }) {
         expandedValue="-"
         expandedLabel={<FaAngleDown />}
         percentage="0"
-        expanded="true"
       />
     );
   }
 
   return (
-    <>
-      <Resource
-        icon={FaNetworkWired}
-        value={t("common.bits", { value: data?.network?.tx_sec })}
-        label={<FaAngleUp />}
-        expandedValue={t("common.bits", { value: data?.network?.rx_sec })}
-        expandedLabel={<FaAngleDown />}
-        percentage="0"
-        expanded="true"
-      >
-        <div className="pt-1 text-theme-800 dark:text-theme-200 text-xs text-center">{data.interface}</div>
-      </Resource>
-
-      <Resource
-        icon={FaNetworkWired}
-        value={t("common.bbytes", { value: data?.network?.tx_bytes })}
-        label={<FaAngleUp />}
-        expandedValue={t("common.bbytes", { value: data?.network?.rx_bytes })}
-        expandedLabel={<FaAngleDown />}
-        percentage="0"
-        expanded="true"
-      >
-        <div className="pt-1 text-theme-800 dark:text-theme-200 text-xs text-center">{data.interface}</div>
-      </Resource>
-    </>
+    <Resource
+      icon={FaNetworkWired}
+      value={`${t("common.bits", { value: data?.network?.tx_sec })} / ${t("common.bits", {
+        value: data?.network?.rx_sec,
+      })}`}
+      label={data.interface}
+      expandedValue={`${t("common.bbytes", { value: data?.network?.tx_bytes })} / ${t("common.bbytes", {
+        value: data?.network?.rx_bytes,
+      })}`}
+      expandedLabel={data.interface}
+      expanded={options.expanded}
+      wide={true}
+      percentage="0"
+    />
   );
 }
