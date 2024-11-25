@@ -18,7 +18,7 @@ export default function Network({ options, refresh = 1500 }) {
     return <Error />;
   }
 
-  if (!data || !data.network) {
+  if (!data || !data.network || !data.network.rx_sec || !data.network.tx_sec) {
     return (
       <Resource
         icon={FaNetworkWired}
