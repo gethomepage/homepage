@@ -18,7 +18,7 @@ export default function Network({ options, refresh = 1500 }) {
     return <Error />;
   }
 
-  if (!data) {
+  if (!data || !data.network) {
     return (
       <Resource
         icon={FaNetworkWired}
@@ -35,10 +35,10 @@ export default function Network({ options, refresh = 1500 }) {
   return (
     <Resource
       icon={FaNetworkWired}
-      value={`${t("common.byterate", { value: data?.network?.tx_sec })} ↑`}
-      label={`${t("common.byterate", { value: data?.network?.rx_sec })} ↓`}
-      expandedValue={`${t("common.bbytes", { value: data?.network?.tx_bytes })} ↑`}
-      expandedLabel={`${t("common.bbytes", { value: data?.network?.rx_bytes })} ↓`}
+      value={`${t("common.byterate", { value: data.network.tx_sec })} ↑`}
+      label={`${t("common.byterate", { value: data.network.rx_sec })} ↓`}
+      expandedValue={`${t("common.bbytes", { value: data.network.tx_bytes })} ↑`}
+      expandedLabel={`${t("common.bbytes", { value: data.network.rx_bytes })} ↓`}
       expanded={options.expanded}
       wide
       percentage="0"
