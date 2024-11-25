@@ -33,7 +33,7 @@ export default function Network({ options, refresh = 1500 }) {
   return (
     <Resource
       icon={FaNetworkWired}
-      value={`${t("common.bits", { value: data?.network?.tx_sec })} / ${t("common.bits", {
+      value={`${t("common.byterate", { value: data?.network?.tx_sec })} / ${t("common.byterate", {
         value: data?.network?.rx_sec,
       })}`}
       label={data.interface}
