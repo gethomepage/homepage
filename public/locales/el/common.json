@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "d",
         "hours": "h",
@@ -308,6 +308,16 @@
         "running": "Τρέχων",
         "stopped": "Σταματημένο",
         "total": "Σύνολο"
+    },
+    "suwayomi": {
+        "download": "Κατεβασμένο",
+        "nondownload": "Non-Downloaded",
+        "read": "Διαβάστηκε",
+        "unread": "Μη Διαβασμένο",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Διεύθυνση",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Όνομα",
+        "address": "Διεύθυνση",
+        "last_seen": "Τελευταία Σύνδεση",
+        "status": "Κατάσταση",
+        "online": "Συνδεδεμένοι",
+        "offline": "Εκτός σύνδεσης"
+    },
+    "beszel": {
+        "name": "Όνομα",
+        "systems": "Systems",
+        "up": "Ping up",
+        "status": "Κατάσταση",
+        "updated": "Ενημερώθηκε",
+        "cpu": "Επεξεργαστής",
+        "memory": "Μνήμη",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Υγειές",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Απουσιάζει",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Issues",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

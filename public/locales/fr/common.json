@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "j",
         "hours": "h",
@@ -227,8 +227,8 @@
         "seed": "Seed"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "Octets de la mémoire cache",
+        "cachemissbytes": "Octets manquants du cache"
     },
     "downloadstation": {
         "download": "Récep.",
@@ -309,6 +309,16 @@
         "stopped": "Arrêté",
         "total": "Total"
     },
+    "suwayomi": {
+        "download": "Téléchargé",
+        "nondownload": "Non téléchargé",
+        "read": "Lu",
+        "unread": "Non lu",
+        "downloadedread": "Téléchargé et lu",
+        "downloadedunread": "Téléchargé et non lu",
+        "nondownloadedread": "Non téléchargé et lu",
+        "nondownloadedunread": "Non téléchargé et non lu"
+    },
     "tailscale": {
         "address": "Adresse",
         "expires": "Expire",
@@ -325,15 +335,15 @@
     },
     "technitium": {
         "totalQueries": "Requêtes",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Effectué avec succès",
+        "totalServerFailure": "Échecs",
+        "totalNxDomain": "Domaines NX",
+        "totalRefused": "Refusés",
+        "totalAuthoritative": "Autoritaire",
+        "totalRecursive": "Récursif",
+        "totalCached": "Mis en cache",
         "totalBlocked": "Bloqué",
-        "totalDropped": "Dropped",
+        "totalDropped": "Abandonné",
         "totalClients": "Clients"
     },
     "tdarr": {
@@ -756,7 +766,7 @@
         "books": "Livres",
         "authors": "Auteurs",
         "categories": "Catégories",
-        "series": "Séries"
+        "series": "Séries TV"
     },
     "jdownloader": {
         "downloadCount": "En attente",
@@ -844,16 +854,16 @@
     },
     "romm": {
         "platforms": "Plateformes",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "totalRoms": "Jeux",
+        "saves": "Sauvegardes",
+        "states": "États",
+        "screenshots": "Captures d'écran",
+        "totalfilesize": "Taille totale"
     },
     "mailcow": {
         "domains": "Domaines",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Boites mail",
+        "mails": "Courriels",
         "storage": "Stockage"
     },
     "netdata": {
@@ -922,36 +932,80 @@
         "upload": "Envoi"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Actions",
+        "loading": "Chargement",
+        "open": "Ouvert - Marché américain",
+        "closed": "Fermé - marché américain",
+        "invalidConfiguration": "Configuration invalide"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Caméras",
         "uptime": "Démarré depuis",
         "version": "Version"
     },
     "linkwarden": {
-        "links": "Links",
+        "links": "Liens",
         "collections": "Collections",
         "tags": "Étiquettes"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Non classé",
         "information": "Informations",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Attention",
+        "average": "Moyenne",
+        "high": "Élevé",
+        "disaster": ""
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Véhicule",
+        "vehicles": "Véhicules",
+        "serviceRecords": "Service d'enregistrements",
+        "reminders": "Rappels",
+        "nextReminder": "Prochain rappel",
+        "none": "Aucun"
+    },
+    "vikunja": {
+        "projects": "Projets actifs",
+        "tasks7d": "Tâches à faire cette semaine",
+        "tasksOverdue": "Tâches en retard",
+        "tasksInProgress": "Tâche en cours"
+    },
+    "headscale": {
+        "name": "Nom",
+        "address": "Adresse",
+        "last_seen": "Vu pour la dernière fois",
+        "status": "Statut",
+        "online": "En ligne",
+        "offline": "Hors ligne"
+    },
+    "beszel": {
+        "name": "Nom",
+        "systems": "Systèmes",
+        "up": "Up",
+        "status": "Statut",
+        "updated": "Mis à jour",
+        "cpu": "CPU",
+        "memory": "MÉM",
+        "disk": "Disque",
+        "network": "Réseau"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Fonctionnel",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Manquant",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Chargement"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Anomalies",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

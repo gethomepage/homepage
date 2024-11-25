@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mnd",
         "days": "d",
         "hours": "u",
@@ -308,6 +308,16 @@
         "running": "Actief",
         "stopped": "Gestopt",
         "total": "Totaal"
+    },
+    "suwayomi": {
+        "download": "Gedownload",
+        "nondownload": "Non-Downloaded",
+        "read": "Gelezen",
+        "unread": "Ongelezen",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Adres",
@@ -852,7 +862,7 @@
     },
     "mailcow": {
         "domains": "Domeinen",
-        "mailboxes": "Mailboxes",
+        "mailboxes": "Mailboxen",
         "mails": "Mails",
         "storage": "Opslag"
     },
@@ -947,11 +957,55 @@
         "disaster": "Disaster"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Voertuig",
+        "vehicles": "Voertuigen",
+        "serviceRecords": "Service Historie",
+        "reminders": "Herinneringen",
+        "nextReminder": "Volgende Herinnering",
+        "none": "Geen"
+    },
+    "vikunja": {
+        "projects": "Actieve Projecten",
+        "tasks7d": "Taken Die Deze Week Af Moeten Zijn",
+        "tasksOverdue": "Achterstallige Taken",
+        "tasksInProgress": "Taken In Uitvoering"
+    },
+    "headscale": {
+        "name": "Naam",
+        "address": "Adres",
+        "last_seen": "Laatst Gezien",
+        "status": "Status",
+        "online": "Bereikbaar",
+        "offline": "Offline"
+    },
+    "beszel": {
+        "name": "Naam",
+        "systems": "Systems",
+        "up": "Online",
+        "status": "Status",
+        "updated": "Bijgewerkt",
+        "cpu": "CPU",
+        "memory": "GEH",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Gezond",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Ontbreekt",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Laden"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemen",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
