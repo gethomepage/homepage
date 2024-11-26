@@ -24,6 +24,9 @@ widget:
       color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
       params: # optional - additional params for the service
         unmonitored: true # optional - defaults to false, used with *arr stack
+      showCinemaRelease: true # optional - defaults to true
+      showPhysicalRelease: true # optional - defaults to true
+      showDigitalRelease: true # optional - defaults to true
     - type: ical # Show calendar events from another service
       url: https://domain.url/with/link/to.ics # URL with calendar events
       name: My Events # required - name for these calendar events

@@ -17,13 +17,14 @@ export default function Integration({ config, params, setEvents, hideErrors = fa
     }
 
     const eventsToAdd = {};
+    const showCinemaRelease = config?.showCinemaRelease ?? true;
+    const showPhysicalRelease = config?.showPhysicalRelease ?? true;
+    const showDigitalRelease = config?.showDigitalRelease ?? true;
 
     radarrData?.forEach((event) => {
-      const cinemaTitle = `${event.title} - ${t("calendar.inCinemas")}`;
-      const physicalTitle = `${event.title} - ${t("calendar.physicalRelease")}`;
-      const digitalTitle = `${event.title} - ${t("calendar.digitalRelease")}`;
 
-      if (event.inCinemas) {
+      if (event.inCinemas && showCinemaRelease) {
+        const cinemaTitle = `${event.title} - ${t("calendar.inCinemas")}`;
         eventsToAdd[cinemaTitle] = {
           title: cinemaTitle,
           date: DateTime.fromISO(event.inCinemas),
@@ -33,7 +34,8 @@ export default function Integration({ config, params, setEvents, hideErrors = fa
         };
       }
 
-      if (event.physicalRelease) {
+      if (event.physicalRelease && showPhysicalRelease) {
+        const physicalTitle = `${event.title} - ${t("calendar.physicalRelease")}`;
         eventsToAdd[physicalTitle] = {
           title: physicalTitle,
           date: DateTime.fromISO(event.physicalRelease),
@@ -43,7 +45,8 @@ export default function Integration({ config, params, setEvents, hideErrors = fa
         };
       }
 
-      if (event.digitalRelease) {
+      if (event.digitalRelease && showDigitalRelease) {
+        const digitalTitle = `${event.title} - ${t("calendar.digitalRelease")}`;
         eventsToAdd[digitalTitle] = {
           title: digitalTitle,
           date: DateTime.fromISO(event.digitalRelease),
