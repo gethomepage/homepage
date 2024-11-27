@@ -36,10 +36,10 @@ async function login(loginUrl, username, password, service) {
 }
 
 export default async function npmProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
 
     if (!widgets?.[widget.type]?.api) {
       return res.status(403).json({ error: "Service does not support API calls" });
