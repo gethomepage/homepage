@@ -22,7 +22,6 @@ export default function ServicesGroup({
   useEffect(() => {
     if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
   }, [layout, groupsInitiallyCollapsed]);
-
   return (
     <div
       key={services.name}
@@ -30,8 +29,12 @@ export default function ServicesGroup({
         "services-group",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
         layout?.style !== "row" && fiveColumns ? "3xl:basis-1/5" : "",
-        layout?.header === false ? "flex-1 px-1 -my-1" : "flex-1 p-1",
-        isSubgroup === false ? "" : "bg-theme-500/20 dark:bg-white/5 rounded-md px-2 py-2",
+        isSubgroup === false && layout?.header === false ? "flex-1 px-1 -my-1" : "",
+        isSubgroup === false && layout?.header !== false ? "flex-1 p-1" : "",
+        isSubgroup === true && layout?.header !== false
+          ? "bg-theme-500/20 dark:bg-white/5 rounded-md px-2 py-2 mb-2"
+          : "",
+        isSubgroup === true && layout?.header === false ? "-px-2" : "",
       )}
     >
       <Disclosure defaultOpen={!(layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) ?? true}>

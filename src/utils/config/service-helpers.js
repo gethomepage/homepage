@@ -37,11 +37,16 @@ export async function servicesFromConfig() {
       })),
     subgroups: servicesArr
       .filter((entry) => entry[Object.keys(entry)[0]].type == "group")
-      .map((entries) => mappingFunc(entries, entries[Object.keys(entries)[0]].services)),
+      .map((entries) => ({
+        style: entries[Object.keys(entries)[0]].style,
+        icon: entries[Object.keys(entries)[0]].icon,
+        columns: entries[Object.keys(entries)[0]].columns,
+        header: entries[Object.keys(entries)[0]].header,
+        ...mappingFunc(entries, entries[Object.keys(entries)[0]].services),
+      })),
   });
   // map easy to write YAML objects into easy to consume JS arrays
   const servicesArray = services.map((servicesGroup) => mappingFunc(servicesGroup));
-
   return servicesArray;
 }
 
@@ -664,6 +669,10 @@ export function cleanServiceGroups(groups) {
       return cleanedService;
     }),
     subgroups: serviceGroup.subgroups.map((serviceGroup) => cleanerFunc(serviceGroup)),
+    style: serviceGroup.style ? serviceGroup.style : null,
+    icon: serviceGroup.icon ? serviceGroup.icon : null,
+    columns: serviceGroup.columns ? serviceGroup.columns : null,
+    header: typeof serviceGroup.header != "undefined" ? serviceGroup.header : null,
   });
   return groups.map((serviceGroup) => cleanerFunc(serviceGroup));
 }

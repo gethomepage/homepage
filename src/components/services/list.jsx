@@ -11,7 +11,8 @@ export default function List({ group, subgroups = [], services, layout, useEqual
       <ul
         className={classNames(
           layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col",
-          "mt-3 services-list",
+          layout?.header !== false ? "mt-3" : "",
+          "services-list",
         )}
       >
         {services.map((service) => (
@@ -29,7 +30,8 @@ export default function List({ group, subgroups = [], services, layout, useEqual
           <Group
             group={subgroup}
             services={subgroup}
-            layout={layout}
+            subgroups={subgroup.subgroups}
+            layout={subgroup}
             useEqualHeights={useEqualHeights}
             isSubgroup={true}
           />

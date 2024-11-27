@@ -264,7 +264,6 @@ function Home({ initialSettings }) {
 
     const serviceGroups = services?.filter(tabGroupFilter).filter(undefinedGroupFilter);
     const bookmarkGroups = bookmarks.filter(tabGroupFilter).filter(undefinedGroupFilter);
-
     return (
       <>
         {tabs.length > 0 && (
