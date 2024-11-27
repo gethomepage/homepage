@@ -7,8 +7,8 @@ const proxyName = "gamedigProxyHandler";
 const logger = createLogger(proxyName);
 
 export default async function gamedigProxyHandler(req, res) {
-  const { group, service, name } = req.query;
-  const serviceWidget = await getServiceWidget(group, service, name ? name : null);
+  const { group, service, index } = req.query;
+  const serviceWidget = await getServiceWidget(group, service, index);
   const url = new URL(serviceWidget.url);
 
   try {

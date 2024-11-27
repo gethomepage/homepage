@@ -354,317 +354,317 @@ export function cleanServiceGroups(groups) {
       if (typeof cleanedService.weight !== "number") {
         cleanedService.weight = 0;
       }
-      cleanedService.widgets = cleanedService.widgets ? cleanedService.widgets : [];
-      if (cleanedService.widget != undefined) cleanedService.widgets.push(cleanedService.widget);
-      if (cleanedService.widgets != []) {
-        cleanedService.widgets = cleanedService.widgets.map((widget) => {
-          // whitelisted set of keys to pass to the frontend
-          // alphabetical, grouped by widget(s)
-          const {
-            // all widgets
-            fields,
-            hideErrors,
-            type,
-
-            // azuredevops
-            repositoryId,
-            userEmail,
-
-            // beszel
-            systemId,
-
-            // calendar
-            firstDayInWeek,
-            integrations,
-            maxEvents,
-            showTime,
-            previousDays,
-            view,
-            timezone,
-
-            // coinmarketcap
-            currency,
-            defaultinterval,
-            slugs,
-            symbols,
-
-            // customapi
-            mappings,
-            display,
-
-            // diskstation
-            volume,
-
-            // docker
-            container,
-            server,
-
-            // emby, jellyfin
-            enableBlocks,
-            enableNowPlaying,
-
-            // emby, jellyfin, tautulli
-            enableUser,
-            expandOneStreamToTwoRows,
-            showEpisodeNumber,
-
-            // frigate
-            enableRecentEvents,
-
-            // glances, immich, mealie, pihole, pfsense
-            version,
-
-            // glances
-            chart,
-            metric,
-            pointsLimit,
-            diskUnits,
-
-            // glances, customapi, iframe, prometheusmetric
-            refreshInterval,
-
-            // hdhomerun
-            tuner,
-
-            // healthchecks
-            uuid,
-
-            // iframe
-            allowFullscreen,
-            allowPolicy,
-            allowScrolling,
-            classes,
-            loadingStrategy,
-            referrerPolicy,
-            src,
-
-            // kopia
-            snapshotHost,
-            snapshotPath,
-
-            // kubernetes
-            app,
-            namespace,
-            podSelector,
-
-            // lubelogger
-            vehicleID,
-
-            // mjpeg
-            fit,
-            stream,
-
-            // openmediavault
-            method,
-
-            // openwrt
-            interfaceName,
-
-            // opnsense, pfsense
-            wan,
-
-            // prometheusmetric
-            metrics,
-
-            // proxmox
-            node,
-
-            // speedtest
-            bitratePrecision,
-
-            // sonarr, radarr
-            enableQueue,
-
-            // stocks
-            watchlist,
-            showUSMarketStatus,
-
-            // truenas
-            enablePools,
-            nasType,
-
-            // unifi
-            site,
-
-            // vikunja
-            enableTaskList,
-
-            // wgeasy
-            threshold,
-
-            // technitium
-            range,
-
-            // spoolman
-            spoolIds,
-          } = Object.keys(widget)[0] != "type" ? widget[Object.keys(widget)[0]] : widget;
-
-          let fieldsList = fields;
-          if (typeof fields === "string") {
-            try {
-              fieldsList = JSON.parse(fields);
-            } catch (e) {
-              logger.error("Invalid fields list detected in config for service '%s'", service.name);
-              fieldsList = null;
-            }
-          }
-
-          widget = {
-            type,
-            fields: fieldsList || null,
-            hide_errors: hideErrors || false,
-            service_name: service.name,
-            service_group: serviceGroup.name,
-            widget_name: Object.keys(widget)[0] != "type" ? Object.keys(widget)[0] : "",
-          };
-
-          if (type === "azuredevops") {
-            if (userEmail) widget.userEmail = userEmail;
-            if (repositoryId) widget.repositoryId = repositoryId;
-          }
-
-          if (type === "beszel") {
-            if (systemId) widget.systemId = systemId;
-          }
-
-          if (type === "coinmarketcap") {
-            if (currency) widget.currency = currency;
-            if (symbols) widget.symbols = symbols;
-            if (slugs) widget.slugs = slugs;
-            if (defaultinterval) widget.defaultinterval = defaultinterval;
-          }
-
-          if (type === "docker") {
-            if (server) widget.server = server;
-            if (container) widget.container = container;
-          }
-          if (type === "unifi") {
-            if (site) widget.site = site;
-          }
-          if (type === "proxmox") {
-            if (node) widget.node = node;
-          }
-          if (type === "kubernetes") {
-            if (namespace) widget.namespace = namespace;
-            if (app) widget.app = app;
-            if (podSelector) widget.podSelector = podSelector;
-          }
-          if (type === "iframe") {
-            if (src) widget.src = src;
-            if (classes) widget.classes = classes;
-            if (referrerPolicy) widget.referrerPolicy = referrerPolicy;
-            if (allowPolicy) widget.allowPolicy = allowPolicy;
-            if (allowFullscreen) widget.allowFullscreen = allowFullscreen;
-            if (loadingStrategy) widget.loadingStrategy = loadingStrategy;
-            if (allowScrolling) widget.allowScrolling = allowScrolling;
-            if (refreshInterval) widget.refreshInterval = refreshInterval;
-          }
-          if (["opnsense", "pfsense"].includes(type)) {
-            if (wan) widget.wan = wan;
-          }
-          if (["emby", "jellyfin"].includes(type)) {
-            if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
-            if (enableNowPlaying !== undefined) widget.enableNowPlaying = JSON.parse(enableNowPlaying);
-          }
-          if (["emby", "jellyfin", "tautulli"].includes(type)) {
-            if (expandOneStreamToTwoRows !== undefined)
-              widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
-            if (showEpisodeNumber !== undefined) widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
-            if (enableUser !== undefined) widget.enableUser = !!JSON.parse(enableUser);
-          }
-          if (["sonarr", "radarr"].includes(type)) {
-            if (enableQueue !== undefined) widget.enableQueue = JSON.parse(enableQueue);
-          }
-          if (type === "truenas") {
-            if (enablePools !== undefined) widget.enablePools = JSON.parse(enablePools);
-            if (nasType !== undefined) widget.nasType = nasType;
-          }
-          if (["diskstation", "qnap"].includes(type)) {
-            if (volume) widget.volume = volume;
-          }
-          if (type === "kopia") {
-            if (snapshotHost) widget.snapshotHost = snapshotHost;
-            if (snapshotPath) widget.snapshotPath = snapshotPath;
-          }
-          if (["glances", "immich", "mealie", "pfsense", "pihole"].includes(type)) {
-            if (version) widget.version = parseInt(version, 10);
-          }
-          if (type === "glances") {
-            if (metric) widget.metric = metric;
-            if (chart !== undefined) {
-              widget.chart = chart;
-            } else {
-              widget.chart = true;
-            }
-            if (refreshInterval) widget.refreshInterval = refreshInterval;
-            if (pointsLimit) widget.pointsLimit = pointsLimit;
-            if (diskUnits) widget.diskUnits = diskUnits;
-          }
-          if (type === "mjpeg") {
-            if (stream) widget.stream = stream;
-            if (fit) widget.fit = fit;
-          }
-          if (type === "openmediavault") {
-            if (method) widget.method = method;
-          }
-          if (type === "openwrt") {
-            if (interfaceName) widget.interfaceName = interfaceName;
-          }
-          if (type === "customapi") {
-            if (mappings) widget.mappings = mappings;
-            if (display) widget.display = display;
-            if (refreshInterval) widget.refreshInterval = refreshInterval;
-          }
-          if (type === "calendar") {
-            if (integrations) widget.integrations = integrations;
-            if (firstDayInWeek) widget.firstDayInWeek = firstDayInWeek;
-            if (view) widget.view = view;
-            if (maxEvents) widget.maxEvents = maxEvents;
-            if (previousDays) widget.previousDays = previousDays;
-            if (showTime) widget.showTime = showTime;
-            if (timezone) widget.timezone = timezone;
-          }
-          if (type === "hdhomerun") {
-            if (tuner !== undefined) widget.tuner = tuner;
-          }
-          if (type === "healthchecks") {
-            if (uuid !== undefined) widget.uuid = uuid;
-          }
-          if (type === "speedtest") {
-            if (bitratePrecision !== undefined) {
-              widget.bitratePrecision = parseInt(bitratePrecision, 10);
-            }
-          }
-          if (type === "stocks") {
-            if (watchlist) widget.watchlist = watchlist;
-            if (showUSMarketStatus) widget.showUSMarketStatus = showUSMarketStatus;
-          }
-          if (type === "wgeasy") {
-            if (threshold !== undefined) widget.threshold = parseInt(threshold, 10);
-          }
-          if (type === "frigate") {
-            if (enableRecentEvents !== undefined) widget.enableRecentEvents = enableRecentEvents;
-          }
-          if (type === "technitium") {
-            if (range !== undefined) widget.range = range;
-          }
-          if (type === "lubelogger") {
-            if (vehicleID !== undefined) widget.vehicleID = parseInt(vehicleID, 10);
-          }
-          if (type === "vikunja") {
-            if (enableTaskList !== undefined) widget.enableTaskList = !!enableTaskList;
-          }
-          if (type === "prometheusmetric") {
-            if (metrics) widget.metrics = metrics;
-            if (refreshInterval) widget.refreshInterval = refreshInterval;
-          }
-          if (type === "spoolman") {
-            if (spoolIds !== undefined) widget.spoolIds = spoolIds;
-          }
-          return widget;
-        });
+      if (!cleanedService.widgets) cleanedService.widgets = [];
+      if (cleanedService.widget) {
+        cleanedService.widgets.push(cleanedService.widget);
+        delete cleanedService.widget;
       }
-      cleanedService.widget = null;
+      cleanedService.widgets = cleanedService.widgets.map((widgetData, index) => {
+        // whitelisted set of keys to pass to the frontend
+        // alphabetical, grouped by widget(s)
+        const {
+          // all widgets
+          fields,
+          hideErrors,
+          type,
+
+          // azuredevops
+          repositoryId,
+          userEmail,
+
+          // beszel
+          systemId,
+
+          // calendar
+          firstDayInWeek,
+          integrations,
+          maxEvents,
+          showTime,
+          previousDays,
+          view,
+          timezone,
+
+          // coinmarketcap
+          currency,
+          defaultinterval,
+          slugs,
+          symbols,
+
+          // customapi
+          mappings,
+          display,
+
+          // diskstation
+          volume,
+
+          // docker
+          container,
+          server,
+
+          // emby, jellyfin
+          enableBlocks,
+          enableNowPlaying,
+
+          // emby, jellyfin, tautulli
+          enableUser,
+          expandOneStreamToTwoRows,
+          showEpisodeNumber,
+
+          // frigate
+          enableRecentEvents,
+
+          // glances, immich, mealie, pihole, pfsense
+          version,
+
+          // glances
+          chart,
+          metric,
+          pointsLimit,
+          diskUnits,
+
+          // glances, customapi, iframe, prometheusmetric
+          refreshInterval,
+
+          // hdhomerun
+          tuner,
+
+          // healthchecks
+          uuid,
+
+          // iframe
+          allowFullscreen,
+          allowPolicy,
+          allowScrolling,
+          classes,
+          loadingStrategy,
+          referrerPolicy,
+          src,
+
+          // kopia
+          snapshotHost,
+          snapshotPath,
+
+          // kubernetes
+          app,
+          namespace,
+          podSelector,
+
+          // lubelogger
+          vehicleID,
+
+          // mjpeg
+          fit,
+          stream,
+
+          // openmediavault
+          method,
+
+          // openwrt
+          interfaceName,
+
+          // opnsense, pfsense
+          wan,
+
+          // prometheusmetric
+          metrics,
+
+          // proxmox
+          node,
+
+          // speedtest
+          bitratePrecision,
+
+          // sonarr, radarr
+          enableQueue,
+
+          // stocks
+          watchlist,
+          showUSMarketStatus,
+
+          // truenas
+          enablePools,
+          nasType,
+
+          // unifi
+          site,
+
+          // vikunja
+          enableTaskList,
+
+          // wgeasy
+          threshold,
+
+          // technitium
+          range,
+
+          // spoolman
+          spoolIds,
+        } = widgetData;
+
+        let fieldsList = fields;
+        if (typeof fields === "string") {
+          try {
+            fieldsList = JSON.parse(fields);
+          } catch (e) {
+            logger.error("Invalid fields list detected in config for service '%s'", service.name);
+            fieldsList = null;
+          }
+        }
+
+        const widget = {
+          type,
+          fields: fieldsList || null,
+          hide_errors: hideErrors || false,
+          service_name: service.name,
+          service_group: serviceGroup.name,
+          index,
+        };
+
+        if (type === "azuredevops") {
+          if (userEmail) widget.userEmail = userEmail;
+          if (repositoryId) widget.repositoryId = repositoryId;
+        }
+
+        if (type === "beszel") {
+          if (systemId) widget.systemId = systemId;
+        }
+
+        if (type === "coinmarketcap") {
+          if (currency) widget.currency = currency;
+          if (symbols) widget.symbols = symbols;
+          if (slugs) widget.slugs = slugs;
+          if (defaultinterval) widget.defaultinterval = defaultinterval;
+        }
+
+        if (type === "docker") {
+          if (server) widget.server = server;
+          if (container) widget.container = container;
+        }
+        if (type === "unifi") {
+          if (site) widget.site = site;
+        }
+        if (type === "proxmox") {
+          if (node) widget.node = node;
+        }
+        if (type === "kubernetes") {
+          if (namespace) widget.namespace = namespace;
+          if (app) widget.app = app;
+          if (podSelector) widget.podSelector = podSelector;
+        }
+        if (type === "iframe") {
+          if (src) widget.src = src;
+          if (classes) widget.classes = classes;
+          if (referrerPolicy) widget.referrerPolicy = referrerPolicy;
+          if (allowPolicy) widget.allowPolicy = allowPolicy;
+          if (allowFullscreen) widget.allowFullscreen = allowFullscreen;
+          if (loadingStrategy) widget.loadingStrategy = loadingStrategy;
+          if (allowScrolling) widget.allowScrolling = allowScrolling;
+          if (refreshInterval) widget.refreshInterval = refreshInterval;
+        }
+        if (["opnsense", "pfsense"].includes(type)) {
+          if (wan) widget.wan = wan;
+        }
+        if (["emby", "jellyfin"].includes(type)) {
+          if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
+          if (enableNowPlaying !== undefined) widget.enableNowPlaying = JSON.parse(enableNowPlaying);
+        }
+        if (["emby", "jellyfin", "tautulli"].includes(type)) {
+          if (expandOneStreamToTwoRows !== undefined)
+            widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
+          if (showEpisodeNumber !== undefined) widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
+          if (enableUser !== undefined) widget.enableUser = !!JSON.parse(enableUser);
+        }
+        if (["sonarr", "radarr"].includes(type)) {
+          if (enableQueue !== undefined) widget.enableQueue = JSON.parse(enableQueue);
+        }
+        if (type === "truenas") {
+          if (enablePools !== undefined) widget.enablePools = JSON.parse(enablePools);
+          if (nasType !== undefined) widget.nasType = nasType;
+        }
+        if (["diskstation", "qnap"].includes(type)) {
+          if (volume) widget.volume = volume;
+        }
+        if (type === "kopia") {
+          if (snapshotHost) widget.snapshotHost = snapshotHost;
+          if (snapshotPath) widget.snapshotPath = snapshotPath;
+        }
+        if (["glances", "immich", "mealie", "pfsense", "pihole"].includes(type)) {
+          if (version) widget.version = parseInt(version, 10);
+        }
+        if (type === "glances") {
+          if (metric) widget.metric = metric;
+          if (chart !== undefined) {
+            widget.chart = chart;
+          } else {
+            widget.chart = true;
+          }
+          if (refreshInterval) widget.refreshInterval = refreshInterval;
+          if (pointsLimit) widget.pointsLimit = pointsLimit;
+          if (diskUnits) widget.diskUnits = diskUnits;
+        }
+        if (type === "mjpeg") {
+          if (stream) widget.stream = stream;
+          if (fit) widget.fit = fit;
+        }
+        if (type === "openmediavault") {
+          if (method) widget.method = method;
+        }
+        if (type === "openwrt") {
+          if (interfaceName) widget.interfaceName = interfaceName;
+        }
+        if (type === "customapi") {
+          if (mappings) widget.mappings = mappings;
+          if (display) widget.display = display;
+          if (refreshInterval) widget.refreshInterval = refreshInterval;
+        }
+        if (type === "calendar") {
+          if (integrations) widget.integrations = integrations;
+          if (firstDayInWeek) widget.firstDayInWeek = firstDayInWeek;
+          if (view) widget.view = view;
+          if (maxEvents) widget.maxEvents = maxEvents;
+          if (previousDays) widget.previousDays = previousDays;
+          if (showTime) widget.showTime = showTime;
+          if (timezone) widget.timezone = timezone;
+        }
+        if (type === "hdhomerun") {
+          if (tuner !== undefined) widget.tuner = tuner;
+        }
+        if (type === "healthchecks") {
+          if (uuid !== undefined) widget.uuid = uuid;
+        }
+        if (type === "speedtest") {
+          if (bitratePrecision !== undefined) {
+            widget.bitratePrecision = parseInt(bitratePrecision, 10);
+          }
+        }
+        if (type === "stocks") {
+          if (watchlist) widget.watchlist = watchlist;
+          if (showUSMarketStatus) widget.showUSMarketStatus = showUSMarketStatus;
+        }
+        if (type === "wgeasy") {
+          if (threshold !== undefined) widget.threshold = parseInt(threshold, 10);
+        }
+        if (type === "frigate") {
+          if (enableRecentEvents !== undefined) widget.enableRecentEvents = enableRecentEvents;
+        }
+        if (type === "technitium") {
+          if (range !== undefined) widget.range = range;
+        }
+        if (type === "lubelogger") {
+          if (vehicleID !== undefined) widget.vehicleID = parseInt(vehicleID, 10);
+        }
+        if (type === "vikunja") {
+          if (enableTaskList !== undefined) widget.enableTaskList = !!enableTaskList;
+        }
+        if (type === "prometheusmetric") {
+          if (metrics) widget.metrics = metrics;
+          if (refreshInterval) widget.refreshInterval = refreshInterval;
+        }
+        if (type === "spoolman") {
+          if (spoolIds !== undefined) widget.spoolIds = spoolIds;
+        }
+        return widget;
+      });
       return cleanedService;
     }),
   }));
@@ -697,15 +697,11 @@ export async function getServiceItem(group, service) {
   return false;
 }
 
-export default async function getServiceWidget(group, service, name = null) {
+export default async function getServiceWidget(group, service, index) {
   const serviceItem = await getServiceItem(group, service);
-  if (serviceItem && (name == null || name === "undefined")) {
-    const { widget } = serviceItem;
-    return widget;
-  }
-  if (serviceItem && name != null && name !== "undefined") {
-    const { widgets } = serviceItem;
-    return widgets.filter((widget) => Object.keys(widget)[0] == name)[0][name];
+  if (serviceItem) {
+    const { widget, widgets } = serviceItem;
+    return index > -1 && widgets ? widgets[index] : widget;
   }
   return false;
 }

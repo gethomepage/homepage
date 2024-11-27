@@ -3,8 +3,8 @@ import { UrbackupServer } from "urbackup-server-api";
 import getServiceWidget from "utils/config/service-helpers";
 
 export default async function urbackupProxyHandler(req, res) {
-  const { group, service, name } = req.query;
-  const serviceWidget = await getServiceWidget(group, service, name ? name : null);
+  const { group, service, index } = req.query;
+  const serviceWidget = await getServiceWidget(group, service, index);
 
   const server = new UrbackupServer({
     url: serviceWidget.url,

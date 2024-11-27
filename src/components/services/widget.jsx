@@ -8,7 +8,7 @@ export default function Widget({ widget, service }) {
 
   const ServiceWidget = components[widget.type];
 
-  const fullService = service;
+  const fullService = Object.apply({}, service);
   fullService.widget = widget;
   if (ServiceWidget) {
     return (
