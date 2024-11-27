@@ -19,10 +19,13 @@ Service widgets are used to display the status of a service, often a web service
     description: Watch movies and TV shows.
     server: localhost
     container: plex
-    widget:
-      type: tautulli
-      url: http://172.16.1.1:8181
-      key: aabbccddeeffgghhiijjkkllmmnnoo
+    widgets:
+      - type: tautulli
+        url: http://172.16.1.1:8181
+        key: aabbccddeeffgghhiijjkkllmmnnoo
+      - type: uptimekuma
+        url: http://172.16.1.2:8080
+        slug: aaaaaaabbbbb
 ```
 
 ## Info Widgets

@@ -5,7 +5,7 @@ description: Service Widget Configuration
 
 Unless otherwise noted, URLs should not end with a `/` or other API path. Each widget will handle the path on its own.
 
-Each service can have one widget attached to it (often matching the service type, but that's not forced).
+Each service can have widgets attached to it (often matching the service type, but that's not forced).
 
 In addition to the href of the service, you can also specify the target location in which to open that link. See [Link Target](settings.md#link-target) for more details.
 
@@ -20,6 +20,24 @@ Using Emby as an example, this is how you would attach the Emby service widget.
       type: emby
       url: http://emby.host.or.ip
       key: apikeyapikeyapikeyapikeyapikey
+```
+
+## Multiple Widgets
+
+Each service can have multiple widgets attached to it, for example:
+
+```yaml
+- Emby:
+    icon: emby.png
+    href: http://emby.host.or.ip/
+    description: Movies & TV Shows
+    widgets:
+      - type: emby
+        url: http://emby.host.or.ip
+        key: apikeyapikeyapikeyapikeyapikey
+      - type: uptimekuma
+        url: http://uptimekuma.host.or.ip:port
+        slug: statuspageslug
 ```
 
 ## Field Visibility

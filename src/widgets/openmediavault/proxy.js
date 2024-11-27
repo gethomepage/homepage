@@ -12,14 +12,14 @@ const BG_POLL_PERIOD = 500;
 const logger = createLogger(PROXY_NAME);
 
 async function getWidget(req) {
-  const { group, service } = req.query;
+  const { group, service, index } = req.query;
 
   if (!group || !service) {
     logger.debug("Invalid or missing service '%s' or group '%s'", service, group);
     return null;
   }
 
-  const widget = await getServiceWidget(group, service);
+  const widget = await getServiceWidget(group, service, index);
 
   if (!widget) {
     logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
