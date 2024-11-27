@@ -664,7 +664,7 @@ export function cleanServiceGroups(groups) {
           return widget;
         });
       }
-
+      cleanedService.widget = null;
       return cleanedService;
     }),
   }));
