@@ -21,6 +21,25 @@ Groups are defined as top-level array entries.
 
 <img width="1038" alt="Service Groups" src="https://user-images.githubusercontent.com/82196/187040754-28065242-4534-4409-881c-93d1921c6141.png">
 
+## Subgroups
+
+Subgroups are defined as array entries with `type: group` and an array `services: ...`,
+
+```
+- Group A:
+  - Subgroup A:
+      type: group
+      services:
+        - Service A:
+            href: http://localhost/
+  - Service B:
+      href: http://localhost/
+
+- Group B:
+    - Service C:
+        href: http://localhost/
+```
+
 ## Services
 
 Services are defined as array entries on groups,

@@ -25,24 +25,22 @@ export async function servicesFromConfig() {
     return [];
   }
 
-  // map easy to write YAML objects into easy to consume JS arrays
-  const servicesArray = services.map((servicesGroup) => ({
+  const mappingFunc = (servicesGroup, servicesArr = servicesGroup[Object.keys(servicesGroup)[0]]) => ({
     name: Object.keys(servicesGroup)[0],
-    services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) => ({
-      name: Object.keys(entries)[0],
-      ...entries[Object.keys(entries)[0]],
-      type: "service",
-    })),
-  }));
-
-  // add default weight to services based on their position in the configuration
-  servicesArray.forEach((group, groupIndex) => {
-    group.services.forEach((service, serviceIndex) => {
-      if (service.weight === undefined) {
-        servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
-      }
-    });
+    services: servicesArr
+      .filter((entry) => entry[Object.keys(entry)[0]].type != "group")
+      .map((entries, entryIndex) => ({
+        name: Object.keys(entries)[0],
+        weight: (entryIndex + 1) * 100,
+        type: entries[Object.keys(entries)[0]].type ? entries[Object.keys(entries)[0]].type : "service",
+        ...entries[Object.keys(entries)[0]],
+      })),
+    subgroups: servicesArr
+      .filter((entry) => entry[Object.keys(entry)[0]].type == "group")
+      .map((entries) => mappingFunc(entries, entries[Object.keys(entries)[0]].services)),
   });
+  // map easy to write YAML objects into easy to consume JS arrays
+  const servicesArray = services.map((servicesGroup) => mappingFunc(servicesGroup));
 
   return servicesArray;
 }
@@ -134,6 +132,7 @@ export async function servicesFromDocker() {
         mappedServiceGroups.push({
           name: serverService.group,
           services: [],
+          subgroups: [],
         });
         serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
       }
@@ -317,6 +316,7 @@ export async function servicesFromKubernetes() {
         mappedServiceGroups.push({
           name: serverService.group,
           services: [],
+          subgroups: [],
         });
         serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
       }
@@ -338,7 +338,7 @@ export async function servicesFromKubernetes() {
 }
 
 export function cleanServiceGroups(groups) {
-  return groups.map((serviceGroup) => ({
+  const cleanerFunc = (serviceGroup) => ({
     name: serviceGroup.name,
     services: serviceGroup.services.map((service) => {
       const cleanedService = { ...service };
@@ -663,7 +663,9 @@ export function cleanServiceGroups(groups) {
 
       return cleanedService;
     }),
-  }));
+    subgroups: serviceGroup.subgroups.map((serviceGroup) => cleanerFunc(serviceGroup)),
+  });
+  return groups.map((serviceGroup) => cleanerFunc(serviceGroup));
 }
 
 export async function getServiceItem(group, service) {

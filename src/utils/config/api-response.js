@@ -142,9 +142,11 @@ export async function servicesResponse() {
   mergedGroupsNames.forEach((groupName) => {
     const discoveredDockerGroup = discoveredDockerServices.find((group) => group.name === groupName) || {
       services: [],
+      subgroups: [],
     };
     const discoveredKubernetesGroup = discoveredKubernetesServices.find((group) => group.name === groupName) || {
       services: [],
+      subgroups: [],
     };
     const configuredGroup = configuredServices.find((group) => group.name === groupName) || { services: [] };
 
@@ -153,6 +155,11 @@ export async function servicesResponse() {
       services: [...discoveredDockerGroup.services, ...discoveredKubernetesGroup.services, ...configuredGroup.services]
         .filter((service) => service)
         .sort(compareServices),
+      subgroups: [
+        ...discoveredDockerGroup.subgroups,
+        ...discoveredKubernetesGroup.subgroups,
+        ...configuredGroup.subgroups,
+      ].filter((subgroup) => subgroup),
     };
 
     if (definedLayouts) {

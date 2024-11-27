@@ -292,6 +292,7 @@ function Home({ initialSettings }) {
                 <ServicesGroup
                   key={group.name}
                   group={group.name}
+                  subgroups={group.subgroups}
                   services={group}
                   layout={settings.layout?.[group.name]}
                   fiveColumns={settings.fiveColumns}
@@ -317,6 +318,7 @@ function Home({ initialSettings }) {
               <ServicesGroup
                 key={group.name}
                 group={group.name}
+                subgroups={group.subgroups}
                 services={group}
                 layout={settings.layout?.[group.name]}
                 fiveColumns={settings.fiveColumns}
