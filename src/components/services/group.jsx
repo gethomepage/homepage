@@ -9,6 +9,7 @@ import ResolvedIcon from "components/resolvedicon";
 export default function ServicesGroup({
   group,
   services,
+  groups,
   layout,
   fiveColumns,
   disableCollapse,
@@ -74,7 +75,24 @@ export default function ServicesGroup({
               }}
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
-                <List group={group} services={services.services} layout={layout} useEqualHeights={useEqualHeights} />
+                {groups?.length ? (
+                  <div className="grid grid-cols-1 gap-2">
+                    {groups.map((subgroup) => (
+                      <ServicesGroup
+                        key={subgroup.name}
+                        group={subgroup.name}
+                        services={subgroup}
+                        layout={layout}
+                        fiveColumns={fiveColumns}
+                        disableCollapse={disableCollapse}
+                        useEqualHeights={useEqualHeights}
+                        groupsInitiallyCollapsed={groupsInitiallyCollapsed}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <List group={group} services={services.services} layout={layout} useEqualHeights={useEqualHeights} />
+                )}
               </Disclosure.Panel>
             </Transition>
           </>

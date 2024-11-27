@@ -293,6 +293,7 @@ function Home({ initialSettings }) {
                   key={group.name}
                   group={group.name}
                   services={group}
+                  groups={group.groups}
                   layout={settings.layout?.[group.name]}
                   fiveColumns={settings.fiveColumns}
                   disableCollapse={settings.disableCollapse}
@@ -318,6 +319,7 @@ function Home({ initialSettings }) {
                 key={group.name}
                 group={group.name}
                 services={group}
+                groups={group.groups}
                 layout={settings.layout?.[group.name]}
                 fiveColumns={settings.fiveColumns}
                 disableCollapse={settings.disableCollapse}

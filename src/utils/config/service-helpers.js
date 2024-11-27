@@ -26,7 +26,7 @@ function parseServicesToGroups(services) {
     serviceGroup[name].forEach((entries) => {
       const entryName = Object.keys(entries)[0];
       if (Array.isArray(entries[entryName])) {
-        groups.push(parseServicesToGroups([{ [entryName]: entries[entryName] }]));
+        groups = groups.concat(parseServicesToGroups([{ [entryName]: entries[entryName] }]));
       } else {
         services.push({
           name: entryName,
@@ -675,13 +675,29 @@ export function cleanServiceGroups(groups) {
       });
       return cleanedService;
     }),
+    type: serviceGroup.type,
+    groups: cleanServiceGroups(serviceGroup.groups),
   }));
+}
+
+function findGroupByName(groups, name) {
+  for (const group of groups) {
+    if (group.name === name) {
+      return group;
+    } else if (group.groups) {
+      const foundGroup = findGroupByName(group.groups, name);
+      if (foundGroup) {
+        return foundGroup;
+      }
+    }
+  }
+  return null;
 }
 
 export async function getServiceItem(group, service) {
   const configuredServices = await servicesFromConfig();
 
-  const serviceGroup = configuredServices.find((g) => g.name === group);
+  const serviceGroup = findGroupByName(configuredServices, group);
   if (serviceGroup) {
     const serviceEntry = serviceGroup.services.find((s) => s.name === service);
     if (serviceEntry) return serviceEntry;
@@ -689,14 +705,14 @@ export async function getServiceItem(group, service) {
 
   const discoveredServices = await servicesFromDocker();
 
-  const dockerServiceGroup = discoveredServices.find((g) => g.name === group);
+  const dockerServiceGroup = findGroupByName(discoveredServices, group);
   if (dockerServiceGroup) {
     const dockerServiceEntry = dockerServiceGroup.services.find((s) => s.name === service);
     if (dockerServiceEntry) return dockerServiceEntry;
   }
 
   const kubernetesServices = await servicesFromKubernetes();
-  const kubernetesServiceGroup = kubernetesServices.find((g) => g.name === group);
+  const kubernetesServiceGroup = findGroupByName(kubernetesServices, group);
   if (kubernetesServiceGroup) {
     const kubernetesServiceEntry = kubernetesServiceGroup.services.find((s) => s.name === service);
     if (kubernetesServiceEntry) return kubernetesServiceEntry;

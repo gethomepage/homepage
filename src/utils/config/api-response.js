@@ -153,6 +153,7 @@ export async function servicesResponse() {
       services: [...discoveredDockerGroup.services, ...discoveredKubernetesGroup.services, ...configuredGroup.services]
         .filter((service) => service)
         .sort(compareServices),
+      groups: [...configuredGroup.groups], // TODO: do this properly
     };
 
     if (definedLayouts) {
