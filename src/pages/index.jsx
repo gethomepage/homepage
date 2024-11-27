@@ -291,9 +291,7 @@ function Home({ initialSettings }) {
               group.services ? (
                 <ServicesGroup
                   key={group.name}
-                  group={group.name}
-                  services={group}
-                  groups={group.groups}
+                  group={group}
                   layout={settings.layout?.[group.name]}
                   fiveColumns={settings.fiveColumns}
                   disableCollapse={settings.disableCollapse}
@@ -317,9 +315,7 @@ function Home({ initialSettings }) {
             {serviceGroups.map((group) => (
               <ServicesGroup
                 key={group.name}
-                group={group.name}
-                services={group}
-                groups={group.groups}
+                group={group}
                 layout={settings.layout?.[group.name]}
                 fiveColumns={settings.fiveColumns}
                 disableCollapse={settings.disableCollapse}

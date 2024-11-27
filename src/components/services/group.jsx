@@ -9,8 +9,6 @@ import ResolvedIcon from "components/resolvedicon";
 
 export default function ServicesGroup({
   group,
-  services,
-  groups,
   layout,
   fiveColumns,
   disableCollapse,
@@ -25,7 +23,7 @@ export default function ServicesGroup({
 
   return (
     <div
-      key={services.name}
+      key={group.name}
       className={classNames(
         "services-group",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
@@ -44,7 +42,7 @@ export default function ServicesGroup({
                   </div>
                 )}
                 <h2 className="flex text-theme-800 dark:text-theme-300 text-xl font-medium service-group-name">
-                  {services.name}
+                  {group.name}
                 </h2>
                 <MdKeyboardArrowDown
                   className={classNames(
@@ -76,17 +74,17 @@ export default function ServicesGroup({
               }}
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
-                {groups?.length ? (
+                <List group={group} services={group.services} layout={layout} useEqualHeights={useEqualHeights} />
+                {group.groups?.length > 0 && (
                   <div
                     className={`grid ${
                       layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col"
                     } gap-2`}
                   >
-                    {groups.map((subgroup) => (
+                    {group.groups.map((subgroup) => (
                       <ServicesGroup
                         key={subgroup.name}
-                        group={subgroup.name}
-                        services={subgroup}
+                        group={subgroup}
                         layout={layout?.[subgroup.name]}
                         fiveColumns={fiveColumns}
                         disableCollapse={disableCollapse}
@@ -95,8 +93,6 @@ export default function ServicesGroup({
                       />
                     ))}
                   </div>
-                ) : (
-                  <List group={group} services={services.services} layout={layout} useEqualHeights={useEqualHeights} />
                 )}
               </Disclosure.Panel>
             </Transition>
