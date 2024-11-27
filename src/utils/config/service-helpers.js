@@ -13,6 +13,38 @@ import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
 
+function parseServicesToGroups(services) {
+  if (!services) {
+    return [];
+  }
+
+  // map easy to write YAML objects into easy to consume JS arrays
+  return services.map((serviceGroup) => {
+    const name = Object.keys(serviceGroup)[0];
+    let groups = [];
+    let services = [];
+    serviceGroup[name].forEach((entries) => {
+      const entryName = Object.keys(entries)[0];
+      if (Array.isArray(entries[entryName])) {
+        groups.push(parseServicesToGroups([{ [entryName]: entries[entryName] }]));
+      } else {
+        services.push({
+          name: entryName,
+          ...entries[entryName],
+          weight: entries[entryName].weight || services.length * 100, // default weight
+          type: "service",
+        });
+      }
+    });
+    return {
+      name,
+      type: "group",
+      services,
+      groups,
+    };
+  });
+}
+
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");
 
@@ -20,31 +52,7 @@ export async function servicesFromConfig() {
   const rawFileContents = await fs.readFile(servicesYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
   const services = yaml.load(fileContents);
-
-  if (!services) {
-    return [];
-  }
-
-  // map easy to write YAML objects into easy to consume JS arrays
-  const servicesArray = services.map((servicesGroup) => ({
-    name: Object.keys(servicesGroup)[0],
-    services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) => ({
-      name: Object.keys(entries)[0],
-      ...entries[Object.keys(entries)[0]],
-      type: "service",
-    })),
-  }));
-
-  // add default weight to services based on their position in the configuration
-  servicesArray.forEach((group, groupIndex) => {
-    group.services.forEach((service, serviceIndex) => {
-      if (service.weight === undefined) {
-        servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
-      }
-    });
-  });
-
-  return servicesArray;
+  return parseServicesToGroups(services);
 }
 
 export async function servicesFromDocker() {
