@@ -12,6 +12,7 @@ export function getURLSearchParams(widget, endpoint) {
   const params = new URLSearchParams({
     group: widget.service_group,
     service: widget.service_name,
+    ...(widget.widget_name != "" && { name: widget.widget_name }),
   });
   if (endpoint) {
     params.append("endpoint", endpoint);

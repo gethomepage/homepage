@@ -9,8 +9,8 @@ const logger = createLogger("servicesProxy");
 
 export default async function handler(req, res) {
   try {
-    const { service, group } = req.query;
-    const serviceWidget = await getServiceWidget(group, service);
+    const { service, group, name } = req.query;
+    const serviceWidget = await getServiceWidget(group, service, name);
     let type = serviceWidget?.type;
 
     // exceptions
