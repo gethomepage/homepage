@@ -154,7 +154,9 @@ export default function Item({ service, group, useEqualHeights }) {
           </div>
         )}
 
-        {service.widget && <Widget service={service} />}
+        {service.widgets.map((widget) => (
+          <Widget widget={widget} service={service} key={widget.index} />
+        ))}
       </div>
     </li>
   );

@@ -14,13 +14,13 @@ const prefixCacheKey = `${proxyName}__prefix`;
 const logger = createLogger(proxyName);
 
 async function getWidget(req) {
-  const { group, service } = req.query;
+  const { group, service, index } = req.query;
 
   let widget = null;
   if (group === "unifi_console" && service === "unifi_console") {
     // info widget
-    const index = req.query?.query ? JSON.parse(req.query.query).index : undefined;
-    widget = await getPrivateWidgetOptions("unifi_console", index);
+    const infowidgetIndex = req.query?.query ? JSON.parse(req.query.query).index : undefined;
+    widget = await getPrivateWidgetOptions("unifi_console", infowidgetIndex);
     if (!widget) {
       logger.debug("Error retrieving settings for this Unifi widget");
       return null;
@@ -32,7 +32,7 @@ async function getWidget(req) {
       return null;
     }
 
-    widget = await getServiceWidget(group, service);
+    widget = await getServiceWidget(group, service, index);
 
     if (!widget) {
       logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
