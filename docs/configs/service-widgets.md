@@ -24,9 +24,7 @@ Using Emby as an example, this is how you would attach the Emby service widget.
 
 ## Multiple Widgets
 
-Each service can have multiple widgets attached to it. Each widget needs a unique name.
-
-Using Emby as an example, here is how you would attack the Emby service widget alongside an uptime widget.
+Each service can have multiple widgets attached to it, for example:
 
 ```yaml
 - Emby:
@@ -34,14 +32,12 @@ Using Emby as an example, here is how you would attack the Emby service widget a
     href: http://emby.host.or.ip/
     description: Movies & TV Shows
     widgets:
-      - Emby:
-          type: emby
-          url: http://emby.host.or.ip
-          key: apikeyapikeyapikeyapikeyapikey
-      - Uptime:
-          type: uptimekuma
-          url: http://uptimekuma.host.or.ip:port
-          slug: statuspageslug
+      - type: emby
+        url: http://emby.host.or.ip
+        key: apikeyapikeyapikeyapikeyapikey
+      - type: uptimekuma
+        url: http://uptimekuma.host.or.ip:port
+        slug: statuspageslug
 ```
 
 ## Field Visibility
