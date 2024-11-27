@@ -14,7 +14,7 @@ const prefixCacheKey = `${proxyName}__prefix`;
 const logger = createLogger(proxyName);
 
 async function getWidget(req) {
-  const { group, service } = req.query;
+  const { group, service, name } = req.query;
 
   let widget = null;
   if (group === "unifi_console" && service === "unifi_console") {
@@ -32,7 +32,7 @@ async function getWidget(req) {
       return null;
     }
 
-    widget = await getServiceWidget(group, service);
+    widget = await getServiceWidget(group, service, name ? name : null);
 
     if (!widget) {
       logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);

@@ -45,10 +45,10 @@ const getTorrentInfo = (data) => ({
 });
 
 export default async function rutorrentProxyHandler(req, res) {
-  const { group, service } = req.query;
+  const { group, service, name } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, name ? name : null);
 
     if (widget) {
       const api = widgets?.[widget.type]?.api;

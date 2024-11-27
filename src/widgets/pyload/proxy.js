@@ -67,11 +67,11 @@ async function login(loginUrl, service, username, password = "") {
 }
 
 export default async function pyloadProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, name } = req.query;
 
   try {
     if (group && service) {
-      const widget = await getServiceWidget(group, service);
+      const widget = await getServiceWidget(group, service, name ? name : null);
 
       if (widget) {
         const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
