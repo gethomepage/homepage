@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import classNames from "classnames";
+import { columnMap } from "../../utils/layout/columns";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
@@ -76,13 +77,17 @@ export default function ServicesGroup({
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
                 {groups?.length ? (
-                  <div className="grid grid-cols-1 gap-2">
+                  <div
+                    className={`grid ${
+                      layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col"
+                    } gap-2`}
+                  >
                     {groups.map((subgroup) => (
                       <ServicesGroup
                         key={subgroup.name}
                         group={subgroup.name}
                         services={subgroup}
-                        layout={layout}
+                        layout={layout?.[subgroup.name]}
                         fiveColumns={fiveColumns}
                         disableCollapse={disableCollapse}
                         useEqualHeights={useEqualHeights}
