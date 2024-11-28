@@ -681,6 +681,7 @@ export function cleanServiceGroups(groups) {
 }
 
 export function findGroupByName(groups, name) {
+  // Deep search for a group by name. Using for loop allows for early return
   for (let i = 0; i < groups.length; i += 1) {
     const group = groups[i];
     if (group.name === name) {
