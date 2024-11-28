@@ -26,12 +26,14 @@ body {
 }
 
 .light {
+  color-scheme: light;
   --bg-color: var(--color-50);
   --scrollbar-thumb: rgb(var(--color-300));
   --scrollbar-track: rgb(var(--color-200));
 }
 
 .dark {
+  color-scheme: dark;
   --bg-color: var(--color-800);
   --scrollbar-thumb: rgb(var(--color-600));
   --scrollbar-track: rgb(var(--color-700));
