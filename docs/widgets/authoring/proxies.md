@@ -50,7 +50,7 @@ You can also pass API keys from the widget configuration to the proxy handler, f
 
 ### `credentialedProxyHandler`
 
-A proxy handler that makes authenticated by setting request headers. Credentials are pulled from the widgets configuration.
+A proxy handler that makes authenticated requests by setting request headers. Credentials are pulled from the widgets configuration.
 
 By default the key is passed as an `X-API-Key` header. If you need to pass the key as something else, either add a case to the credentialedProxyHandler or create a new proxy handler.
 
