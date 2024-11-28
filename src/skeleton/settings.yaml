@@ -1,6 +1,6 @@
 ---
 # For configuration options and examples, please see:
-# https://gethomepage.dev/configs/settings
+# https://gethomepage.dev/configs/settings/
 
 providers:
   openweathermap: openweathermapapikey

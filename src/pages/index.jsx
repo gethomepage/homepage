@@ -291,8 +291,7 @@ function Home({ initialSettings }) {
               group.services ? (
                 <ServicesGroup
                   key={group.name}
-                  group={group.name}
-                  services={group}
+                  group={group}
                   layout={settings.layout?.[group.name]}
                   fiveColumns={settings.fiveColumns}
                   disableCollapse={settings.disableCollapse}
@@ -316,8 +315,7 @@ function Home({ initialSettings }) {
             {serviceGroups.map((group) => (
               <ServicesGroup
                 key={group.name}
-                group={group.name}
-                services={group}
+                group={group}
                 layout={settings.layout?.[group.name]}
                 fiveColumns={settings.fiveColumns}
                 disableCollapse={settings.disableCollapse}
@@ -454,6 +452,7 @@ function Home({ initialSettings }) {
 }
 
 export default function Wrapper({ initialSettings, fallback }) {
+  const { theme } = useContext(ThemeContext);
   const wrappedStyle = {};
   let backgroundBlur = false;
   let backgroundSaturate = false;
@@ -484,8 +483,9 @@ export default function Wrapper({ initialSettings, fallback }) {
       id="page_wrapper"
       className={classNames(
         "relative",
-        initialSettings.theme && initialSettings.theme,
+        theme && theme,
         initialSettings.color && `theme-${initialSettings.color}`,
+        theme === "dark" ? "scheme-dark" : "scheme-light",
       )}
     >
       <div

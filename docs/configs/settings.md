@@ -137,6 +137,27 @@ layout:
       columns: 3
 ```
 
+### Nested Groups
+
+If your services config has nested groups, you can apply settings to these groups by nesting them in the layout block
+and using the same settings. For example
+
+```yaml
+layout:
+  Group A:
+    style: row
+    columns: 4
+  Group C:
+    style: row
+    columns: 2
+    Nested Group A:
+      style: row
+      columns: 2
+    Nested Group B:
+      style: row
+      columns: 2
+```
+
 ### Headers
 
 You can hide headers for each section in the layout as well by passing `header` as false, like so:
@@ -348,12 +369,12 @@ This can also be set for individual services. Note setting this at the service l
 
 ## Providers
 
-The `providers` section allows you to define shared API provider options and secrets. Currently this allows you to define your weather API keys in secret and is also the location of the Longhorn URL and credentials.
+The `providers` section allows you to define shared API provider options and secrets.
 
 ```yaml
 providers:
   openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+  finnhub: yourfinnhubapikeyhere
   longhorn:
     url: https://longhorn.example.com
     username: admin
@@ -363,10 +384,10 @@ providers:
 You can then pass `provider` instead of `apiKey` in your widget configuration.
 
 ```yaml
-- weatherapi:
+- openweathermap:
     latitude: 50.449684
     longitude: 30.525026
-    provider: weatherapi
+    provider: openweathermap
 ```
 
 ## Quick Launch
