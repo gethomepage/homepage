@@ -13,6 +13,38 @@ import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
 
+function parseServicesToGroups(services) {
+  if (!services) {
+    return [];
+  }
+
+  // map easy to write YAML objects into easy to consume JS arrays
+  return services.map((serviceGroup) => {
+    const name = Object.keys(serviceGroup)[0];
+    let groups = [];
+    const serviceGroupServices = [];
+    serviceGroup[name].forEach((entries) => {
+      const entryName = Object.keys(entries)[0];
+      if (Array.isArray(entries[entryName])) {
+        groups = groups.concat(parseServicesToGroups([{ [entryName]: entries[entryName] }]));
+      } else {
+        serviceGroupServices.push({
+          name: entryName,
+          ...entries[entryName],
+          weight: entries[entryName].weight || serviceGroupServices.length * 100, // default weight
+          type: "service",
+        });
+      }
+    });
+    return {
+      name,
+      type: "group",
+      services: serviceGroupServices,
+      groups,
+    };
+  });
+}
+
 export async function servicesFromConfig() {
   checkAndCopyConfig("services.yaml");
 
@@ -20,31 +52,7 @@ export async function servicesFromConfig() {
   const rawFileContents = await fs.readFile(servicesYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
   const services = yaml.load(fileContents);
-
-  if (!services) {
-    return [];
-  }
-
-  // map easy to write YAML objects into easy to consume JS arrays
-  const servicesArray = services.map((servicesGroup) => ({
-    name: Object.keys(servicesGroup)[0],
-    services: servicesGroup[Object.keys(servicesGroup)[0]].map((entries) => ({
-      name: Object.keys(entries)[0],
-      ...entries[Object.keys(entries)[0]],
-      type: "service",
-    })),
-  }));
-
-  // add default weight to services based on their position in the configuration
-  servicesArray.forEach((group, groupIndex) => {
-    group.services.forEach((service, serviceIndex) => {
-      if (service.weight === undefined) {
-        servicesArray[groupIndex].services[serviceIndex].weight = (serviceIndex + 1) * 100;
-      }
-    });
-  });
-
-  return servicesArray;
+  return parseServicesToGroups(services);
 }
 
 export async function servicesFromDocker() {
@@ -667,13 +675,30 @@ export function cleanServiceGroups(groups) {
       });
       return cleanedService;
     }),
+    type: serviceGroup.type || "group",
+    groups: serviceGroup.groups ? cleanServiceGroups(serviceGroup.groups) : [],
   }));
+}
+
+export function findGroupByName(groups, name) {
+  for (let i = 0; i < groups.length; i += 1) {
+    const group = groups[i];
+    if (group.name === name) {
+      return group;
+    } else if (group.groups) {
+      const foundGroup = findGroupByName(group.groups, name);
+      if (foundGroup) {
+        return foundGroup;
+      }
+    }
+  }
+  return null;
 }
 
 export async function getServiceItem(group, service) {
   const configuredServices = await servicesFromConfig();
 
-  const serviceGroup = configuredServices.find((g) => g.name === group);
+  const serviceGroup = findGroupByName(configuredServices, group);
   if (serviceGroup) {
     const serviceEntry = serviceGroup.services.find((s) => s.name === service);
     if (serviceEntry) return serviceEntry;
@@ -681,14 +706,14 @@ export async function getServiceItem(group, service) {
 
   const discoveredServices = await servicesFromDocker();
 
-  const dockerServiceGroup = discoveredServices.find((g) => g.name === group);
+  const dockerServiceGroup = findGroupByName(discoveredServices, group);
   if (dockerServiceGroup) {
     const dockerServiceEntry = dockerServiceGroup.services.find((s) => s.name === service);
     if (dockerServiceEntry) return dockerServiceEntry;
   }
 
   const kubernetesServices = await servicesFromKubernetes();
-  const kubernetesServiceGroup = kubernetesServices.find((g) => g.name === group);
+  const kubernetesServiceGroup = findGroupByName(kubernetesServices, group);
   if (kubernetesServiceGroup) {
     const kubernetesServiceEntry = kubernetesServiceGroup.services.find((s) => s.name === service);
     if (kubernetesServiceEntry) return kubernetesServiceEntry;

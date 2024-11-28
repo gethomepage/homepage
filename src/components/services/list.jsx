@@ -4,7 +4,7 @@ import { columnMap } from "../../utils/layout/columns";
 
 import Item from "components/services/item";
 
-export default function List({ group, services, layout, useEqualHeights }) {
+export default function List({ groupName, services, layout, useEqualHeights }) {
   return (
     <ul
       className={classNames(
@@ -16,7 +16,7 @@ export default function List({ group, services, layout, useEqualHeights }) {
         <Item
           key={[service.container, service.app, service.name].filter((s) => s).join("-")}
           service={service}
-          group={group}
+          groupName={groupName}
           useEqualHeights={layout?.useEqualHeights ?? useEqualHeights}
         />
       ))}
