@@ -675,12 +675,12 @@ export function cleanServiceGroups(groups) {
       });
       return cleanedService;
     }),
-    type: serviceGroup.type,
-    groups: cleanServiceGroups(serviceGroup.groups),
+    type: serviceGroup.type || "group",
+    groups: serviceGroup.groups ? cleanServiceGroups(serviceGroup.groups) : [],
   }));
 }
 
-function findGroupByName(groups, name) {
+export function findGroupByName(groups, name) {
   for (const group of groups) {
     if (group.name === name) {
       return group;
