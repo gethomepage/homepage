@@ -33,7 +33,10 @@ export default function DateTime({ options }) {
   return (
     <Container options={options} additionalClassNames="information-widget-datetime">
       <Raw>
-        <div className="flex flex-row items-center grow justify-end">
+        <div
+          onClick={() => (options.href ? window.location.assign(options.href) : [])}
+          className="flex flex-row items-center grow justify-end"
+        >
           <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${textSizes[textSize || "lg"]}`}>
             {date}
           </span>
