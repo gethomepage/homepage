@@ -57,7 +57,10 @@ export function getBottomBlock(children) {
 
 export default function Container({ children = [], options, additionalClassNames = "" }) {
   return (
-    <div className={getAllClasses(options, `${additionalClassNames} widget-container`)}>
+    <div
+      onClick={() => (options.href ? window.location.assign(options.href) : [])}
+      className={getAllClasses(options, `${additionalClassNames} widget-container`)}
+    >
       {getInnerBlock(children)}
       {getBottomBlock(children)}
     </div>
