@@ -1,8 +1,9 @@
 import { useRef, useEffect } from "react";
 import classNames from "classnames";
-import { columnMap } from "../../utils/layout/columns";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
+
+import { columnMap } from "../../utils/layout/columns";
 
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";

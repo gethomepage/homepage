@@ -22,16 +22,16 @@ function parseServicesToGroups(services) {
   return services.map((serviceGroup) => {
     const name = Object.keys(serviceGroup)[0];
     let groups = [];
-    let services = [];
+    const serviceGroupServices = [];
     serviceGroup[name].forEach((entries) => {
       const entryName = Object.keys(entries)[0];
       if (Array.isArray(entries[entryName])) {
         groups = groups.concat(parseServicesToGroups([{ [entryName]: entries[entryName] }]));
       } else {
-        services.push({
+        serviceGroupServices.push({
           name: entryName,
           ...entries[entryName],
-          weight: entries[entryName].weight || services.length * 100, // default weight
+          weight: entries[entryName].weight || serviceGroupServices.length * 100, // default weight
           type: "service",
         });
       }
@@ -39,7 +39,7 @@ function parseServicesToGroups(services) {
     return {
       name,
       type: "group",
-      services,
+      services: serviceGroupServices,
       groups,
     };
   });
@@ -681,7 +681,8 @@ export function cleanServiceGroups(groups) {
 }
 
 export function findGroupByName(groups, name) {
-  for (const group of groups) {
+  for (let i = 0; i < groups.length; i += 1) {
+    const group = groups[i];
     if (group.name === name) {
       return group;
     } else if (group.groups) {
