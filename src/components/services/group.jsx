@@ -74,7 +74,12 @@ export default function ServicesGroup({
               }}
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
-                <List group={group} services={group.services} layout={layout} useEqualHeights={useEqualHeights} />
+                <List
+                  groupName={group.name}
+                  services={group.services}
+                  layout={layout}
+                  useEqualHeights={useEqualHeights}
+                />
                 {group.groups?.length > 0 && (
                   <div
                     className={`grid ${
