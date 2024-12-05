@@ -716,6 +716,14 @@
         "numfiles": "Files",
         "numshares": "Shared Items"
     },
+    "racknerd": {
+        "ipAddress": "IP Address",
+        "memoryusage": "Memory Usage",
+        "hddtotal": "Total Space",
+        "bandwidthtotal": "Bandwidth Total",
+        "bandwidthused": "Bandwidth Used",
+        "bandwidthfree": "Bandwidth Free"
+    },
     "kopia": {
         "status": "Status",
         "size": "Size",

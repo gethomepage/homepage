@@ -96,6 +96,7 @@ import pterodactyl from "./pterodactyl/widget";
 import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
 import qnap from "./qnap/widget";
+import racknerd from "./racknerd/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
 import rutorrent from "./rutorrent/widget";
@@ -232,6 +233,7 @@ const widgets = {
   pyload,
   qbittorrent,
   qnap,
+  racknerd,
   radarr,
   readarr,
   romm,
