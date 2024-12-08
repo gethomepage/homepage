@@ -990,22 +990,22 @@
         "network": "Сеть"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Приложения",
+        "synced": "Синхронизированные",
+        "outOfSync": "Не синхронизированные",
         "healthy": "Здоровый",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Деградированные",
+        "progressing": "Выполняются",
         "missing": "Отсутствует",
-        "suspended": "Suspended"
+        "suspended": "Приостановленные"
     },
     "spoolman": {
         "loading": "Загрузка"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Группы",
         "issues": "Вопросы",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Мердж-реквесты",
+        "projects": "Проекты"
     }
 }
