@@ -3,10 +3,12 @@
 # https://gethomepage.dev/configs/bookmarks
 
 - Developer:
-    - Github:
-        - abbr: GH
-          href: https://github.com/
-
+    - IT Tools:
+        - abbr: IT
+          href: https://tools.asbblog.com/
+    - Github - avnit: 
+        - abbr: GT
+          href: https://https://github.com/avnit/
 - Social:
     - Reddit:
         - abbr: RE

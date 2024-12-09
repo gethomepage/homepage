@@ -1,7 +1,37 @@
----
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/settings/
-
+# https://gethomepage.dev/configs/settings
+title: ASB Solutions Home Page
+startUrl: https://asbblog.com
+#background: https://wallpapercave.com/wp/wp2765466.jpg
+#background: https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+# background: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=format&fit=crop&w=2560&q=80
+theme: dark # or light
+color: cyan
+layout:
+  Business: 
+    style: row
+    columns: 4
+  Monitoring:
+    style: row
+    columns: 4
+  Automation:
+    style: row
+    columns: 4
+  Storage Server:
+    style: row
+    columns: 2
+  Media:
+    style: row
+    columns: 4
+  Media2:
+    style: row
+    columns: 4
+quicklaunch:
+  searchDescriptions: true
+  hideInternetSearch: true
+  hideVisitURL: true
+hideVersion: true
+logpath: /logfile/path
+showStats: true
 providers:
   openweathermap: openweathermapapikey
   weatherapi: weatherapiapikey

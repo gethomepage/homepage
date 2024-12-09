@@ -39,10 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
+.env
 # homepage
 /config
-
+/config/*
 # IDEs
 /.idea/
 
