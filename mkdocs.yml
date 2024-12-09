@@ -21,8 +21,8 @@ nav:
       - configs/index.md
       - configs/settings.md
       - configs/bookmarks.md
+      - configs/info-widgets.md
       - configs/services.md
-      - configs/service-widgets.md
       - configs/kubernetes.md
       - configs/docker.md
       - configs/custom-css-js.md
@@ -64,6 +64,7 @@ nav:
           - widgets/services/gatus.md
           - widgets/services/ghostfolio.md
           - widgets/services/gitea.md
+          - widgets/services/gitlab.md
           - widgets/services/glances.md
           - widgets/services/gluetun.md
           - widgets/services/gotify.md
@@ -138,8 +139,10 @@ nav:
           - widgets/services/scrutiny.md
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
+          - widgets/services/spoolman.md
           - widgets/services/stash.md
           - widgets/services/stocks.md
+          - widgets/services/suwayomi.md
           - widgets/services/swagdashboard.md
           - widgets/services/syncthing-relay-server.md
           - widgets/services/tailscale.md
@@ -175,7 +178,6 @@ nav:
           - widgets/info/search.md
           - widgets/info/stocks.md
           - widgets/info/unifi_controller.md
-          - widgets/info/weather.md
   - "Learn":
       - widgets/authoring/index.md
       - "Getting Started": widgets/authoring/getting-started.md

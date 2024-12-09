@@ -1,5 +1,3 @@
----
-# For configuration options and examples, please see:
 # https://gethomepage.dev/configs/settings
 title: ASB Solutions Home Page
 startUrl: https://asbblog.com
@@ -34,7 +32,6 @@ quicklaunch:
 hideVersion: true
 logpath: /logfile/path
 showStats: true
-
 providers:
   openweathermap: openweathermapapikey
   weatherapi: weatherapiapikey

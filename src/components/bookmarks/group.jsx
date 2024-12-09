@@ -7,7 +7,13 @@ import ErrorBoundary from "components/errorboundry";
 import List from "components/bookmarks/list";
 import ResolvedIcon from "components/resolvedicon";
 
-export default function BookmarksGroup({ bookmarks, layout, disableCollapse, groupsInitiallyCollapsed }) {
+export default function BookmarksGroup({
+  bookmarks,
+  layout,
+  disableCollapse,
+  groupsInitiallyCollapsed,
+  bookmarksStyle,
+}) {
   const panel = useRef();
 
   useEffect(() => {
@@ -64,7 +70,7 @@ export default function BookmarksGroup({ bookmarks, layout, disableCollapse, gro
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
                 <ErrorBoundary>
-                  <List bookmarks={bookmarks.bookmarks} layout={layout} />
+                  <List bookmarks={bookmarks.bookmarks} layout={layout} bookmarksStyle={bookmarksStyle} />
                 </ErrorBoundary>
               </Disclosure.Panel>
             </Transition>

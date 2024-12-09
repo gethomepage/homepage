@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "měs.",
         "days": "d",
         "hours": "h",
@@ -308,6 +308,16 @@
         "running": "Běží",
         "stopped": "Zastaveno",
         "total": "Celkem"
+    },
+    "suwayomi": {
+        "download": "Staženo",
+        "nondownload": "Non-Downloaded",
+        "read": "Přečteno",
+        "unread": "Nepřečteno",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Adresa",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Name",
+        "address": "Adresa",
+        "last_seen": "Naposledy viděno",
+        "status": "Stav",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "beszel": {
+        "name": "Name",
+        "systems": "Systems",
+        "up": "Up",
+        "status": "Stav",
+        "updated": "Aktualizováno",
+        "cpu": "CPU",
+        "memory": "RAM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Zdravý",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Chybějící",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problémy",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

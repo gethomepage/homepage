@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mes",
         "days": "d",
         "hours": "u",
@@ -308,6 +308,16 @@
         "running": "Deluje",
         "stopped": "Ustavljen",
         "total": "Skupaj"
+    },
+    "suwayomi": {
+        "download": "Preneseno",
+        "nondownload": "Nepreneseno",
+        "read": "Prebrano",
+        "unread": "Neprebrano",
+        "downloadedread": "Preneseno in prebrano",
+        "downloadedunread": "Preneseno in neprebrano",
+        "nondownloadedread": "Nepreneseno in prebrano",
+        "nondownloadedunread": "Nepreneseno in neprebrano"
     },
     "tailscale": {
         "address": "Naslov",
@@ -953,5 +963,49 @@
         "reminders": "Opomniki",
         "nextReminder": "Naslednji opomnik",
         "none": "Brez"
+    },
+    "vikunja": {
+        "projects": "Aktivni projekti",
+        "tasks7d": "Potekla opravila tega tedna",
+        "tasksOverdue": "Potekla opravila",
+        "tasksInProgress": "Tekoča opravila"
+    },
+    "headscale": {
+        "name": "Naziv",
+        "address": "Naslov",
+        "last_seen": "Viden",
+        "status": "Stanje",
+        "online": "Na spletu",
+        "offline": "Ni povezan"
+    },
+    "beszel": {
+        "name": "Naziv",
+        "systems": "Sistemi",
+        "up": "Povezan",
+        "status": "Stanje",
+        "updated": "Posodobljen",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "Mreža"
+    },
+    "argocd": {
+        "apps": "Aplikacije",
+        "synced": "Sinhro",
+        "outOfSync": "Ni sinhro",
+        "healthy": "Zdrav",
+        "degraded": "Degragirano",
+        "progressing": "V teku",
+        "missing": "Manjka",
+        "suspended": "Prekinjeno"
+    },
+    "spoolman": {
+        "loading": "Nalaganje"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Težave",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

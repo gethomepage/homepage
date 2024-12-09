@@ -33,10 +33,10 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
 }
 
 export default async function omadaProxyHandler(req, res) {
-  const { group, service } = req.query;
+  const { group, service, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
 
     if (widget) {
       const { url } = widget;
