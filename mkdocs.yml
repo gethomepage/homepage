@@ -31,12 +31,14 @@ nav:
       - "Service Widgets":
           - widgets/services/index.md
           - widgets/services/adguard-home.md
+          - widgets/services/argocd.md
           - widgets/services/atsumeru.md
           - widgets/services/audiobookshelf.md
           - widgets/services/authentik.md
           - widgets/services/autobrr.md
           - widgets/services/azuredevops.md
           - widgets/services/bazarr.md
+          - widgets/services/beszel.md
           - widgets/services/caddy.md
           - widgets/services/calendar.md
           - widgets/services/calibre-web.md
@@ -62,11 +64,13 @@ nav:
           - widgets/services/gatus.md
           - widgets/services/ghostfolio.md
           - widgets/services/gitea.md
+          - widgets/services/gitlab.md
           - widgets/services/glances.md
           - widgets/services/gluetun.md
           - widgets/services/gotify.md
           - widgets/services/grafana.md
           - widgets/services/hdhomerun.md
+          - widgets/services/headscale.md
           - widgets/services/healthchecks.md
           - widgets/services/homeassistant.md
           - widgets/services/homebox.md
@@ -119,6 +123,7 @@ nav:
           - widgets/services/plex.md
           - widgets/services/portainer.md
           - widgets/services/prometheus.md
+          - widgets/services/prometheusmetric.md
           - widgets/services/prowlarr.md
           - widgets/services/proxmox.md
           - widgets/services/proxmoxbackupserver.md
@@ -134,6 +139,7 @@ nav:
           - widgets/services/scrutiny.md
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
+          - widgets/services/spoolman.md
           - widgets/services/stash.md
           - widgets/services/stocks.md
           - widgets/services/swagdashboard.md

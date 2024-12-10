@@ -29,9 +29,9 @@ export default function Item({ bookmark }) {
             )}
             {!bookmark.icon && bookmark.abbr}
           </div>
-          <div className="flex-1 flex items-center justify-between rounded-r-md bookmark-text">
-            <div className="flex-1 grow pl-3 py-2 text-xs bookmark-name">{bookmark.name}</div>
-            <div className="px-2 py-2 truncate text-theme-500 dark:text-theme-300 text-xs bookmark-description">
+          <div className="flex-1 overflow-hidden flex items-center justify-between rounded-r-md bookmark-text">
+            <div className="pl-3 py-2 text-xs bookmark-name">{bookmark.name}</div>
+            <div className="shrink truncate px-2 py-2 text-theme-500 dark:text-theme-300 text-xs bookmark-description">
               {description}
             </div>
           </div>

@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mnd",
         "days": "d",
         "hours": "t",
@@ -308,6 +308,16 @@
         "running": "Kjører",
         "stopped": "Stoppet",
         "total": "Totalt"
+    },
+    "suwayomi": {
+        "download": "Nedlastede",
+        "nondownload": "Non-Downloaded",
+        "read": "Read",
+        "unread": "Ulest",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Adresse",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Navn",
+        "address": "Adresse",
+        "last_seen": "Sist sett",
+        "status": "Status",
+        "online": "På nett",
+        "offline": "Frakoblet"
+    },
+    "beszel": {
+        "name": "Navn",
+        "systems": "Systems",
+        "up": "Oppe",
+        "status": "Status",
+        "updated": "Oppdatert",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Friskt",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Mangler",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Issues",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

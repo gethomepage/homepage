@@ -71,7 +71,7 @@ Homepage provides a set of common translations that you can use in your widgets.
 | `common.ms`           | `1,000 ms`      | Format a number in milliseconds. |
 | `common.date`         | `2024-01-01`    | Format a date.                   |
 | `common.relativeDate` | `1 day ago`     | Format a relative date.          |
-| `common.uptime`       | `1 day, 1 hour` | Format an uptime.                |
+| `common.duration`     | `1 day, 1 hour` | Format an duration.              |
 
 ### Text
 

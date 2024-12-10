@@ -205,7 +205,7 @@ export default function Component({ service }) {
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
         <SessionEntry
-          key={session.Id}
+          key={session.session_key}
           session={session}
           enableUser={enableUser}
           showEpisodeNumber={showEpisodeNumber}
