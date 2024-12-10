@@ -1003,9 +1003,9 @@
         "loading": "Nalaganje"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Skupine",
         "issues": "Težave",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Združi zahtevke",
+        "projects": "Projekti"
     }
 }
