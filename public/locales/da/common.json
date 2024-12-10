@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mnd",
         "days": "d",
         "hours": "t",
@@ -308,6 +308,16 @@
         "running": "Kører",
         "stopped": "Stoppede",
         "total": "Total"
+    },
+    "suwayomi": {
+        "download": "Hentet",
+        "nondownload": "Non-Downloaded",
+        "read": "Læst",
+        "unread": "Ulæst",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Adresse",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Navn",
+        "address": "Adresse",
+        "last_seen": "Sidst Set",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "beszel": {
+        "name": "Navn",
+        "systems": "Systems",
+        "up": "Op",
+        "status": "Status",
+        "updated": "Opdateret",
+        "cpu": "CPU",
+        "memory": "RAM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sund",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Mangler",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemer",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "мес",
         "days": "дней",
         "hours": "час",
@@ -227,8 +227,8 @@
         "seed": "Сид"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "Хит байты кэша",
+        "cachemissbytes": "Мисс байты кэша"
     },
     "downloadstation": {
         "download": "Скачивание",
@@ -284,7 +284,7 @@
     "netalertx": {
         "total": "Всего",
         "connected": "Подключено",
-        "new_devices": "Новое устройство",
+        "new_devices": "Новые устройства",
         "down_alerts": "Оповещение о недоступности"
     },
     "pihole": {
@@ -309,6 +309,16 @@
         "stopped": "Остановлено",
         "total": "Всего"
     },
+    "suwayomi": {
+        "download": "Загружено",
+        "nondownload": "Незагруженные",
+        "read": "Прочитано",
+        "unread": "Не прочитано",
+        "downloadedread": "Загруженные и прочитанные",
+        "downloadedunread": "Загруженные и непрочитанные",
+        "nondownloadedread": "Незагруженные и прочитанные",
+        "nondownloadedunread": "Незагруженные и непрочитанные"
+    },
     "tailscale": {
         "address": "Адрес",
         "expires": "Истекает",
@@ -325,15 +335,15 @@
     },
     "technitium": {
         "totalQueries": "Запросы",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Успешные",
+        "totalServerFailure": "Ошибки",
+        "totalNxDomain": "NX домены",
+        "totalRefused": "Отказано",
+        "totalAuthoritative": "Авторитетные",
+        "totalRecursive": "Рекурсивные",
+        "totalCached": "Кэш",
         "totalBlocked": "Заблокировано",
-        "totalDropped": "Dropped",
+        "totalDropped": "Отброшенные",
         "totalClients": "Клиенты"
     },
     "tdarr": {
@@ -844,16 +854,16 @@
     },
     "romm": {
         "platforms": "Платформы",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "totalRoms": "Игры",
+        "saves": "Сейвы",
+        "states": "Состояния",
+        "screenshots": "Скриншоты",
+        "totalfilesize": "Общий объем"
     },
     "mailcow": {
         "domains": "Домены",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Почтовые ящики",
+        "mails": "Письма",
         "storage": "Хранилище"
     },
     "netdata": {
@@ -902,7 +912,7 @@
     },
     "crowdsec": {
         "alerts": "Предупреждения",
-        "bans": "Запреты"
+        "bans": "Блокировки"
     },
     "wgeasy": {
         "connected": "Подключено",
@@ -911,10 +921,10 @@
         "total": "Всего"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Прокси",
+        "auth": "С Авторизацией",
+        "outdated": "Устаревшие",
+        "banned": "Заблокированные"
     },
     "myspeed": {
         "ping": "Пинг",
@@ -922,36 +932,80 @@
         "upload": "Загрузка"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Акции",
+        "loading": "Загрузка",
+        "open": "Открыто - Рынок США",
+        "closed": "Закрыто - рынок США",
+        "invalidConfiguration": "Неверная конфигурация"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Камеры",
         "uptime": "Время работы",
         "version": "Версия"
     },
     "linkwarden": {
-        "links": "Links",
-        "collections": "Collections",
+        "links": "Ссылки",
+        "collections": "Коллекции",
         "tags": "Теги"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Не классифицировано",
         "information": "Информация",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Предупреждение",
+        "average": "Средняя",
+        "high": "Высокая",
+        "disaster": "Чрезвычайная"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Автомобиль",
+        "vehicles": "Автомобили",
+        "serviceRecords": "Сервисные работы",
+        "reminders": "Напоминания",
+        "nextReminder": "Следующее напоминание",
+        "none": "Нет"
+    },
+    "vikunja": {
+        "projects": "Активные Проекты",
+        "tasks7d": "Задачи на этой неделе",
+        "tasksOverdue": "Просроченные задачи",
+        "tasksInProgress": "Задачи в процессе"
+    },
+    "headscale": {
+        "name": "Имя",
+        "address": "Адрес",
+        "last_seen": "Последнее посещение",
+        "status": "Статус",
+        "online": "В сети",
+        "offline": "Не в сети"
+    },
+    "beszel": {
+        "name": "Имя",
+        "systems": "Системы",
+        "up": "Онлайн",
+        "status": "Статус",
+        "updated": "Обновленно",
+        "cpu": "ЦП",
+        "memory": "ОЗУ",
+        "disk": "Диск",
+        "network": "Сеть"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Здоровый",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Отсутствует",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Загрузка"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Вопросы",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

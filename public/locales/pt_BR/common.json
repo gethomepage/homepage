@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "M",
         "days": "d",
         "hours": "h",
@@ -308,6 +308,16 @@
         "running": "Executando",
         "stopped": "Parado",
         "total": "Total"
+    },
+    "suwayomi": {
+        "download": "Baixado",
+        "nondownload": "Non-Downloaded",
+        "read": "Lido",
+        "unread": "Não lida",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Endereço",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Nome",
+        "address": "Endereço",
+        "last_seen": "Visto por último",
+        "status": "Status",
+        "online": "Disponível",
+        "offline": "Offline"
+    },
+    "beszel": {
+        "name": "Nome",
+        "systems": "Systems",
+        "up": "Ativo",
+        "status": "Status",
+        "updated": "Atualizado",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Saudável",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Faltando",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Carregando"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemas",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

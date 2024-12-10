@@ -35,7 +35,7 @@ export default function Component({ service }) {
     <>
       <Container service={service}>
         <Block label="truenas.load" value={t("common.number", { value: statusData.loadavg[0] })} />
-        <Block label="truenas.uptime" value={t("common.uptime", { value: statusData.uptime_seconds })} />
+        <Block label="truenas.uptime" value={t("common.duration", { value: statusData.uptime_seconds })} />
         <Block label="truenas.alerts" value={t("common.number", { value: alertData.pending })} />
       </Container>
       {enablePools &&

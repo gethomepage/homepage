@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "g",
         "hours": "o",
@@ -308,6 +308,16 @@
         "running": "In esecuzione",
         "stopped": "Fermati",
         "total": "Totale"
+    },
+    "suwayomi": {
+        "download": "Scaricato",
+        "nondownload": "Non-Downloaded",
+        "read": "Letti",
+        "unread": "Non letto",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Indirizzo",
@@ -953,5 +963,49 @@
         "reminders": "Reminders",
         "nextReminder": "Next Reminder",
         "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Nome",
+        "address": "Indirizzo",
+        "last_seen": "Ultima visualizzazione",
+        "status": "Stato",
+        "online": "Online",
+        "offline": "Non in linea"
+    },
+    "beszel": {
+        "name": "Nome",
+        "systems": "Systems",
+        "up": "Up",
+        "status": "Stato",
+        "updated": "Aggiornato",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sano",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Mancanti",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemi",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }
