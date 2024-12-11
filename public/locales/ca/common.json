@@ -120,7 +120,7 @@
         "grid_power": "Xarxa",
         "home_power": "Consum",
         "charge_power": "Carregador",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Descarregar",
@@ -350,7 +350,7 @@
         "queue": "Cua",
         "processed": "Processat",
         "errored": "Error",
-        "saved": "Desat"
+        "saved": "Estalviat"
     },
     "traefik": {
         "routers": "Encaminadors",
@@ -991,21 +991,21 @@
     },
     "argocd": {
         "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "synced": "Sincronitzats",
+        "outOfSync": "Dessincronitzats",
         "healthy": "Saludable",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Degradats",
+        "progressing": "Progressant",
         "missing": "Falten",
-        "suspended": "Suspended"
+        "suspended": "Suspesos"
     },
     "spoolman": {
         "loading": "Carregant"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Grups",
         "issues": "Problemes",
         "merges": "Merge Requests",
-        "projects": "Projects"
+        "projects": "Projectes"
     }
 }

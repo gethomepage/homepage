@@ -120,7 +120,7 @@
         "grid_power": "Netstroom",
         "home_power": "Consumptie",
         "charge_power": "Oplader",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",

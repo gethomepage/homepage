@@ -120,7 +120,7 @@
         "grid_power": "Omrežje",
         "home_power": "Poraba",
         "charge_power": "Polnilec",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Prenos",
@@ -1003,9 +1003,9 @@
         "loading": "Nalaganje"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Skupine",
         "issues": "Težave",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Združi zahtevke",
+        "projects": "Projekti"
     }
 }

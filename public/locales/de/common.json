@@ -120,7 +120,7 @@
         "grid_power": "Netz",
         "home_power": "verbauch",
         "charge_power": "Ladegerät",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",
@@ -1003,9 +1003,9 @@
         "loading": "Wird geladen"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Gruppen",
         "issues": "Probleme",
         "merges": "Merge Requests",
-        "projects": "Projects"
+        "projects": "Projekte"
     }
 }
