@@ -118,6 +118,22 @@ As an example, this would produce the following layout:
 
 <img width="1260" alt="Screenshot 2022-09-15 at 8 03 57 PM" src="https://user-images.githubusercontent.com/82196/190466646-8ca94505-0fcf-4964-9687-3a6c7cd3144f.png">
 
+### Icons-Only Layout
+
+You can also specify the an icon-only layout for bookmarks, either like so:
+
+```yaml
+layout:
+  Media:
+    iconsOnly: true
+```
+
+or globally:
+
+```yaml
+bookmarksStyle: icons
+```
+
 ### Sorting
 
 Service groups and bookmark groups can be mixed in order, **but should use different group names**. If you do not specify any bookmark groups they will all show at the bottom of the page.

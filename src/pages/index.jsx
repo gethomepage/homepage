@@ -297,6 +297,7 @@ function Home({ initialSettings }) {
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
+                  bookmarksStyle={settings.bookmarksStyle}
                 />
               ) : (
                 <BookmarksGroup
@@ -333,6 +334,7 @@ function Home({ initialSettings }) {
                 layout={settings.layout?.[group.name]}
                 disableCollapse={settings.disableCollapse}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
+                bookmarksStyle={settings.bookmarksStyle}
               />
             ))}
           </div>
@@ -350,6 +352,7 @@ function Home({ initialSettings }) {
     settings.useEqualHeights,
     settings.cardBlur,
     settings.groupsInitiallyCollapsed,
+    settings.bookmarksStyle,
     initialSettings.layout,
   ]);
 

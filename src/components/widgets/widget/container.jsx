@@ -60,7 +60,7 @@ export function getBottomBlock(children) {
 
 export default function Container({ children = [], options, additionalClassNames = "" }) {
   const { settings } = useContext(SettingsContext);
-  return options.href ? (
+  return options?.href ? (
     <a
       href={options.href}
       target={options.target ?? settings.target ?? "_blank"}
