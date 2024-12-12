@@ -21,11 +21,11 @@ function formatTimeLeft(inputSeconds) {
   const remainingSeconds = seconds % 60;
 
   let result = '';
-  if (years > 0) result += `${years}y `;
-  if (days > 0) result += `${days}d `;
-  if (hours > 0) result += `${hours}h `;
-  if (minutes > 0) result += `${minutes}m `;
-  result += `${remainingSeconds}s`;
+  if (years > 0) result = `over ${years}y`;
+  else if (days > 0) result = `over ${days}d`;
+  else if (hours > 0) result = `${hours}h ${minutes}m`;
+  else if (minutes > 0) result = `${minutes}m ${remainingSeconds}s`;
+  else result = `${remainingSeconds}s`;
 
   return result.trim();
 }
