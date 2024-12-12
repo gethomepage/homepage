@@ -6,30 +6,6 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-function formatTimeLeft(inputSeconds) {
-  let seconds = inputSeconds;
-  const years = Math.floor(seconds / (365 * 24 * 60 * 60));
-  seconds %= 365 * 24 * 60 * 60; // Remaining seconds after subtracting years
-
-  const days = Math.floor(seconds / (24 * 60 * 60));
-  seconds %= 24 * 60 * 60; // Remaining seconds after subtracting days
-
-  const hours = Math.floor(seconds / 3600);
-  seconds %= 3600; // Remaining seconds after subtracting hours
-
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-
-  let result = "";
-  if (years > 0) result = `over ${years}y`;
-  else if (days > 0) result = `over ${days}d`;
-  else if (hours > 0) result = `${hours}h ${minutes}m`;
-  else if (minutes > 0) result = `${minutes}m ${remainingSeconds}s`;
-  else result = `${remainingSeconds}s`;
-
-  return result.trim();
-}
-
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
@@ -83,7 +59,7 @@ export default function Component({ service }) {
         leechTorrents.map((queueEntry) => (
           <QueueEntry
             progress={queueEntry.progress * 100}
-            timeLeft={formatTimeLeft(queueEntry.eta)}
+            timeLeft={t("common.duration", { value: queueEntry.eta })}
             title={queueEntry.name}
             activity={queueEntry.state}
             key={`${queueEntry.name}-${queueEntry.amount_left}`}
