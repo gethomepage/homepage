@@ -11,6 +11,8 @@ An optional 'volume' parameter can be supplied to specify which volume's free sp
 
 Allowed fields: `["uptime", "volumeAvailable", "resources.cpu", "resources.mem"]`.
 
+Username & password will be part of the url. You should use URL encoded value!
+
 To access these system metrics you need to connect to the DiskStation (`DSM`) with an account that is a member of the default `Administrators` group. That is because these metrics are requested from the API's `SYNO.Core.System` part that is only available to admin users. In order to keep the security impact as small as possible we can set the account in DSM up to limit the user's permissions inside the Synology system. In DSM 7.x, for instance, follow these steps:
 
 1. Create a new user, i.e. `remote_stats`.

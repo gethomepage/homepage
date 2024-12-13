@@ -9,6 +9,8 @@ Note: the widget is not compatible with 2FA.
 
 Allowed fields: `["leech", "download", "seed", "upload"]`.
 
+Username & password will be part of the url. You should use URL encoded value!
+
 ```yaml
 widget:
   type: downloadstation
