@@ -210,7 +210,7 @@ rules:
       - get
       - list
   - apiGroups:
-      - traefik.containo.us
+      - traefik.io
     resources:
       - ingressroutes
     verbs:
