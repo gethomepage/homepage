@@ -4,6 +4,8 @@ import { useTranslation } from "next-i18next";
 
 import Error from "../widget/error";
 import Resource from "../widget/resource";
+import Raw from "../widget/raw";
+import Container from "../widget/container";
 
 export default function Widget({ options }) {
   const { t } = useTranslation();
@@ -24,37 +26,52 @@ export default function Widget({ options }) {
 
   if (!data) {
     return (
-      <Resource
-        icon={FaCarBattery}
-        value="-"
-        label="Load"
-        expandedValue="-"
-        expandedLabel="Battery"
-        expanded={expanded}
-        percentage="0"
-      />
+      <Container options={options}>
+        <Raw>
+          <div>
+            <Resource
+              icon={FaCarBattery}
+              value="-"
+              label={t("peanut.load")}
+              expandedValue="-"
+              expandedLabel={t("peanut.battery")}
+              expanded={expanded}
+              percentage="0"
+            />
+          </div>
+        </Raw>
+      </Container>
     );
   }
 
   return (
-    <Resource
-      icon={FaCarBattery}
-      value={t("common.number", {
-        value: data['ups.load'],
-        style: "unit",
-        unit: "percent",
-        maximumFractionDigits: 0,
-      })}
-      label="Load"
-      expandedValue={t("common.number", {
-        value: data['battery.charge'],
-        style: "unit",
-        unit: "percent",
-        maximumFractionDigits: 0,
-      })}
-      expandedLabel="Battery"
-      percentage={data['ups.load']}
-      expanded={expanded}
-    />
+    <Container options={options}>
+      <Raw>
+        <div>
+          <Resource
+            icon={FaCarBattery}
+            value={t("common.number", {
+              value: data['ups.load'],
+              style: "unit",
+              unit: "percent",
+              maximumFractionDigits: 0,
+            })}
+            label={t("peanut.load")}
+            expandedValue={t("common.number", {
+              value: data['battery.charge'],
+              style: "unit",
+              unit: "percent",
+              maximumFractionDigits: 0,
+            })}
+            expandedLabel={t("peanut.battery")}
+            percentage={data['ups.load']}
+            expanded={expanded}
+          />
+        </div>
+        {options.label && (
+          <div className="ml-6 pt-1 text-center text-theme-800 dark:text-theme-200 text-xs">{options.label}</div>
+        )}
+      </Raw>
+    </Container>
   );
 }

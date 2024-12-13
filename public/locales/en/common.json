@@ -552,7 +552,9 @@
         "ups_status": "UPS Status",
         "online": "Online",
         "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "low_battery": "Low Battery",
+        "load": "Load",
+        "battery": "Battery"
     },
     "nextdns": {
         "wait": "Please Wait",
