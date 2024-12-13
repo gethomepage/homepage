@@ -13,12 +13,9 @@ export default function Widget({ options }) {
   let { refresh } = options;
   if (!refresh) refresh = 1500;
 
-  const { data, error } = useSWR(
-    `/api/widgets/peanut?${new URLSearchParams({ ...options }).toString()}`,
-    {
-      refreshInterval: refresh,
-    },
-  );
+  const { data, error } = useSWR(`/api/widgets/peanut?${new URLSearchParams({ ...options }).toString()}`, {
+    refreshInterval: refresh,
+  });
 
   if (error || data?.error) {
     return <Error options={options} />;
@@ -51,20 +48,20 @@ export default function Widget({ options }) {
           <Resource
             icon={FaCarBattery}
             value={t("common.number", {
-              value: data['ups.load'],
+              value: data["ups.load"],
               style: "unit",
               unit: "percent",
               maximumFractionDigits: 0,
             })}
             label={t("peanut.load")}
             expandedValue={t("common.number", {
-              value: data['battery.charge'],
+              value: data["battery.charge"],
               style: "unit",
               unit: "percent",
               maximumFractionDigits: 0,
             })}
             expandedLabel={t("peanut.battery")}
-            percentage={data['ups.load']}
+            percentage={data["ups.load"]}
             expanded={expanded}
           />
         </div>

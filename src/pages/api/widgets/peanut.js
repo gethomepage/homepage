@@ -45,7 +45,7 @@ export default async function handler(req, res) {
   try {
     const upsData = await retrieveFromPeanutAPI(privateWidgetOptions, key);
     const data = {
-      ...upsData
+      ...upsData,
     };
 
     return res.status(200).send(data);
