@@ -6,20 +6,19 @@ const widget = {
 
   mappings: {
     downloads: {
-      endpoint: "download",
-      validate: ["paginate"],
+      endpoint: "stats/download",
     },
     videos: {
-      endpoint: "video",
-      validate: ["paginate"],
+      endpoint: "stats/video",
+      validate: ["doc_count"],
     },
     channels: {
-      endpoint: "channel",
-      validate: ["paginate"],
+      endpoint: "stats/channel",
+      validate: ["doc_count"],
     },
     playlists: {
-      endpoint: "playlist",
-      validate: ["paginate"],
+      endpoint: "stats/playlist",
+      validate: ["doc_count"],
     },
   },
 };

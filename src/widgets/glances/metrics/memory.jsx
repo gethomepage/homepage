@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -17,11 +16,11 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart } = widget;
-  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit } = widget;
+  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "mem", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/mem`, {
     refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
   });
 
@@ -38,11 +37,7 @@ export default function Component({ service }) {
   }, [data, pointsLimit]);
 
   if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} />
-      </Container>
-    );
+    return <Container error={error} widget={widget} />;
   }
 
   if (!data) {

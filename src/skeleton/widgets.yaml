@@ -1,6 +1,6 @@
 ---
 # For configuration options and examples, please see:
-# https://gethomepage.dev/latest/configs/service-widgets
+# https://gethomepage.dev/configs/service-widgets
 
 - resources:
     cpu: true

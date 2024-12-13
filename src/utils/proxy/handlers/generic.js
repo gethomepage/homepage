@@ -23,7 +23,7 @@ export default async function genericProxyHandler(req, res, map) {
         formatApiCall(widgets[widget.type].api, { endpoint, ...widget }).replace(/(?<=\?.*)\?/g, "&"),
       );
 
-      const headers = req.extraHeaders ?? widget.headers ?? {};
+      const headers = req.extraHeaders ?? widget.headers ?? widgets[widget.type].headers ?? {};
 
       if (widget.username && widget.password) {
         headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
@@ -35,6 +35,12 @@ export default async function genericProxyHandler(req, res, map) {
       };
       if (req.body) {
         params.body = req.body;
+      } else if (widget.requestBody) {
+        if (typeof widget.requestBody === "object") {
+          params.body = JSON.stringify(widget.requestBody);
+        } else {
+          params.body = widget.requestBody;
+        }
       }
 
       const [status, contentType, data] = await httpProxy(url, params);
@@ -69,7 +75,13 @@ export default async function genericProxyHandler(req, res, map) {
           url.port ? `:${url.port}` : "",
           url.pathname,
         );
-        return res.status(status).json({ error: { message: "HTTP Error", url: sanitizeErrorURL(url), resultData } });
+        return res.status(status).json({
+          error: {
+            message: "HTTP Error",
+            url: sanitizeErrorURL(url),
+            resultData: Buffer.isBuffer(resultData) ? Buffer.from(resultData).toString() : resultData,
+          },
+        });
       }
 
       return res.status(status).send(resultData);

@@ -13,12 +13,12 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
-        "seconds": "s"
+        "duration": "{{value, duration}}",
+        "months": "月",
+        "days": "日",
+        "hours": "時間",
+        "minutes": "分",
+        "seconds": "秒"
     },
     "widget": {
         "missing_type": "見つからないウィジェットタイプ: {{type}}",
@@ -47,7 +47,7 @@
         "load": "ロード",
         "temp": "温度",
         "max": "最大",
-        "uptime": "上へ"
+        "uptime": "UP"
     },
     "unifi": {
         "users": "ユーザ",
@@ -61,40 +61,40 @@
         "wlan_devices": "WLAN デバイス",
         "lan_users": "LAN ユーザ",
         "wlan_users": "WLAN ユーザ",
-        "up": "上へ",
+        "up": "UP",
         "down": "下へ",
         "wait": "お待ちください",
-        "empty_data": "サブシステム状態・不明"
+        "empty_data": "サブシステムの状態は不明"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
+        "rx": "受信済み",
+        "tx": "送信済み",
         "mem": "MEM",
         "cpu": "CPU",
         "running": "起動中",
         "offline": "オフライン",
         "error": "エラー",
         "unknown": "不明",
-        "healthy": "健全",
+        "healthy": "正常",
         "starting": "起動中",
         "unhealthy": "非健全",
         "not_found": "不明",
-        "exited": "終了",
+        "exited": "停止しました",
         "partial": "部分的"
     },
     "ping": {
         "error": "エラー",
         "ping": "Ping",
         "down": "下へ",
-        "up": "上へ",
+        "up": "稼働",
         "not_available": "利用できません。"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "HTTP ステータス",
         "error": "エラー",
-        "response": "Response",
+        "response": "応答",
         "down": "下へ",
-        "up": "上へ",
+        "up": "稼働",
         "not_available": "利用できません。"
     },
     "emby": {
@@ -106,6 +106,13 @@
         "series": "シリーズ",
         "episodes": "エピソード",
         "songs": "曲"
+    },
+    "esphome": {
+        "offline": "オフライン",
+        "offline_alt": "オフライン",
+        "online": "オンライン",
+        "total": "合計",
+        "unknown": "不明"
     },
     "evcc": {
         "pv_power": "発電量",
@@ -127,21 +134,21 @@
     },
     "fritzbox": {
         "connectionStatus": "状態",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "接続済み",
+        "connectionStatusUnconfigured": "未設定",
+        "connectionStatusConnecting": "接続中",
+        "connectionStatusAuthenticating": "認証中",
+        "connectionStatusPendingDisconnect": "接続を切断する",
+        "connectionStatusDisconnecting": "接続を切断中",
+        "connectionStatusDisconnected": "切断されました",
+        "connectionStatusConnected": "接続済",
         "uptime": "稼働時間",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "maxDown": "最大ダウン",
+        "maxUp": "最大アップ",
         "down": "下へ",
-        "up": "上へ",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "up": "稼働",
+        "received": "受信済み",
+        "sent": "送信済み",
+        "externalIPAddress": "退出ID"
     },
     "caddy": {
         "upstreams": "アップストリーム",
@@ -219,6 +226,10 @@
         "leech": "リーチ",
         "seed": "シード"
     },
+    "develancacheui": {
+        "cachehitbytes": "キャッシュ・ヒットバイト",
+        "cachemissbytes": "キャッシュミスバイト"
+    },
     "downloadstation": {
         "download": "ダウンロード",
         "upload": "アップロード",
@@ -270,10 +281,10 @@
         "approved": "承認済",
         "available": "利用可"
     },
-    "pialert": {
+    "netalertx": {
         "total": "合計",
-        "connected": "接続済み",
-        "new_devices": "新しいデバイス",
+        "connected": "接続済",
+        "new_devices": "新規デバイス",
         "down_alerts": "ダウンアラート"
     },
     "pihole": {
@@ -298,6 +309,16 @@
         "stopped": "停止中",
         "total": "合計"
     },
+    "suwayomi": {
+        "download": "ダウンロード",
+        "nondownload": "Non-Downloaded",
+        "read": "既読",
+        "unread": "未読",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "アドレス",
         "expires": "失効",
@@ -311,6 +332,19 @@
         "minutes": "{{number}}分",
         "seconds": "{{number}}秒",
         "ago": "{{value}} 前"
+    },
+    "technitium": {
+        "totalQueries": "クエリ",
+        "totalNoError": "成功",
+        "totalServerFailure": "失敗",
+        "totalNxDomain": "NXドメイン",
+        "totalRefused": "拒否",
+        "totalAuthoritative": "正式",
+        "totalRecursive": "再帰的",
+        "totalCached": "キャッシュ済み",
+        "totalBlocked": "ブロック中",
+        "totalDropped": "ドロップ済み",
+        "totalClients": "クライアント"
     },
     "tdarr": {
         "queue": "キュー",
@@ -400,12 +434,12 @@
         "temp": "温度",
         "_temp": "温度",
         "warn": "警告",
-        "uptime": "上へ",
+        "uptime": "UP",
         "total": "合計",
         "free": "空き",
         "used": "使用",
-        "days": "d",
-        "hours": "h",
+        "days": "日",
+        "hours": "時間",
         "crit": "クリティカル",
         "read": "既読",
         "write": "書き込み",
@@ -419,7 +453,8 @@
         "search": "検索",
         "custom": "カスタム",
         "visit": "訪問",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "提案"
     },
     "wmo": {
         "0-day": "晴れ",
@@ -486,13 +521,13 @@
         "up_to_date": "最新",
         "child_bridges": "子ブリッジ",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "上へ",
+        "up": "稼働",
         "pending": "保留中",
         "down": "下へ"
     },
     "healthchecks": {
         "new": "新着",
-        "up": "上へ",
+        "up": "稼働",
         "grace": "猶予期間中",
         "down": "下へ",
         "paused": "一時停止中",
@@ -523,7 +558,7 @@
         "alerts": "アラート"
     },
     "pyload": {
-        "speed": "スピード",
+        "speed": "速度",
         "active": "アクティブ",
         "queue": "キュー",
         "total": "合計"
@@ -535,7 +570,15 @@
     },
     "hdhomerun": {
         "channels": "チャンネル",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "チューナー",
+        "channelNumber": "チャンネル",
+        "channelNetwork": "ネットワーク",
+        "signalStrength": "強さ",
+        "signalQuality": "クオリティ",
+        "symbolQuality": "クオリティ",
+        "networkRate": "ビットレート",
+        "clientIP": "クライアント IP"
     },
     "scrutiny": {
         "passed": "合格",
@@ -547,12 +590,12 @@
         "total": "合計"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "battery_charge": "バッテリー充電",
+        "ups_load": "UPS 負荷",
+        "ups_status": "UPS 状態",
         "online": "オンライン",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "バッテリー稼働中",
+        "low_battery": "バッテリー残量低下"
     },
     "nextdns": {
         "wait": "お待ちください",
@@ -560,7 +603,7 @@
     },
     "mikrotik": {
         "cpuLoad": "CPU負荷",
-        "memoryUsed": "使用済みメモリ",
+        "memoryUsed": "メモリ使用量",
         "uptime": "稼働時間",
         "numberOfLeases": "リース"
     },
@@ -601,7 +644,7 @@
         "load": "読み込み平均",
         "memory": "メモリ使用量",
         "wanStatus": "WANステータス",
-        "up": "上へ",
+        "up": "稼働",
         "down": "下へ",
         "temp": "温度",
         "disk": "ディスク使用量",
@@ -623,8 +666,8 @@
         "up": "サイトUp",
         "down": "サイトDown",
         "uptime": "稼働時間",
-        "incident": "インシデント",
-        "m": "m"
+        "incident": "事件",
+        "m": "分"
     },
     "atsumeru": {
         "series": "シリーズ",
@@ -694,6 +737,11 @@
         "targets_down": "ターゲット Down",
         "targets_total": "ターゲット合計"
     },
+    "gatus": {
+        "up": "サイトUp",
+        "down": "サイトDown",
+        "uptime": "稼働時間"
+    },
     "ghostfolio": {
         "gross_percent_today": "今日",
         "gross_percent_1y": "1年",
@@ -724,7 +772,7 @@
         "downloadCount": "キュー",
         "downloadBytesRemaining": "残り",
         "downloadTotalBytes": "サイズ",
-        "downloadSpeed": "スピード"
+        "downloadSpeed": "速度"
     },
     "kavita": {
         "seriesCount": "シリーズ",
@@ -775,16 +823,24 @@
         "passed": "合格",
         "failed": "失敗"
     },
+    "openwrt": {
+        "uptime": "稼働時間",
+        "cpuLoad": "CPU 平均負荷（5 分）",
+        "up": "稼働",
+        "down": "下へ",
+        "bytesTx": "送信済み",
+        "bytesRx": "受信済み"
+    },
     "uptimerobot": {
         "status": "状態",
         "uptime": "稼働時間",
         "lastDown": "最後のダウンタイム",
-        "downDuration": "ダウンタイム感覚",
+        "downDuration": "ダウンタイム時間",
         "sitesUp": "サイトUp",
         "sitesDown": "サイトDown",
         "paused": "一時停止中",
         "notyetchecked": "チェックされていません",
-        "up": "上へ",
+        "up": "稼働",
         "seemsdown": "ダウンしているようです",
         "down": "下へ",
         "unknown": "不明"
@@ -793,15 +849,163 @@
         "inCinemas": "映画館内",
         "physicalRelease": "物理的なリリース",
         "digitalRelease": "デジタル・リリース",
-        "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "noEventsToday": "本日の予定なし",
+        "noEventsFound": "予定が見つかりません"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "プラットフォーム",
+        "totalRoms": "ゲーム",
+        "saves": "保存",
+        "states": "状態",
+        "screenshots": "スクリーンショット",
+        "totalfilesize": "合計サイズ"
+    },
+    "mailcow": {
+        "domains": "ドメイン",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "ストレージ"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "警告",
+        "criticals": "重大"
+    },
+    "plantit": {
+        "events": "イベント",
+        "plants": "植物",
+        "photos": "写真",
+        "species": "種"
+    },
+    "gitea": {
+        "notifications": "通知",
+        "issues": "課題",
+        "pulls": "プルリクエスト"
+    },
+    "stash": {
+        "scenes": "シーン",
+        "scenesPlayed": "再生されたシーン",
+        "playCount": "合計再生数",
+        "playDuration": "視聴時間",
+        "sceneSize": "シーンサイズ",
+        "sceneDuration": "シーンの長さ",
+        "images": "画像",
+        "imageSize": "画像サイズ",
+        "galleries": "ギャラリー",
+        "performers": "出演者",
+        "studios": "スタジオ",
+        "movies": "映画",
+        "tags": "タグ",
+        "oCount": "O カウント"
+    },
+    "tandoor": {
+        "users": "ユーザ",
+        "recipes": "レシピ",
+        "keywords": "キーワード"
+    },
+    "homebox": {
+        "items": "アイテム",
+        "totalWithWarranty": "保証付き",
+        "locations": "場所",
+        "labels": "ラベル",
+        "users": "ユーザ",
+        "totalValue": "合計値"
+    },
+    "crowdsec": {
+        "alerts": "アラート",
+        "bans": "禁止"
+    },
+    "wgeasy": {
+        "connected": "接続済",
+        "enabled": "有効",
+        "disabled": "無効",
+        "total": "合計"
+    },
+    "swagdashboard": {
+        "proxied": "プロキシ済",
+        "auth": "認証あり",
+        "outdated": "最新の状態ではありません",
+        "banned": "禁止"
+    },
+    "myspeed": {
+        "ping": "Ping",
+        "download": "ダウンロード",
+        "upload": "アップロード"
+    },
+    "stocks": {
+        "stocks": "在庫",
+        "loading": "読み込み中",
+        "open": "オープン - 米国市場",
+        "closed": "クローズ - 米国市場",
+        "invalidConfiguration": "無効な設定"
+    },
+    "frigate": {
+        "cameras": "カメラ",
+        "uptime": "稼働時間",
+        "version": "バージョン"
+    },
+    "linkwarden": {
+        "links": "リンク",
+        "collections": "コレクション",
+        "tags": "タグ"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "情報",
+        "warning": "警告",
+        "average": "平均",
+        "high": "高い",
+        "disaster": "災害"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "名前",
+        "address": "アドレス",
+        "last_seen": "最終日時",
+        "status": "状態",
+        "online": "オンライン",
+        "offline": "オフライン"
+    },
+    "beszel": {
+        "name": "名前",
+        "systems": "Systems",
+        "up": "稼働",
+        "status": "状態",
+        "updated": "更新済",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "正常",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "不明",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "読み込み中"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "課題",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

@@ -22,11 +22,12 @@ export default async function handler(req, res) {
       .then((response) => response.body)
       .catch((error) => {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+        logger.debug(error);
         return null;
       });
     if (!nodes) {
       return res.status(500).send({
-        error: "unknown error",
+        error: "An error occurred while fetching nodes, check logs for more details.",
       });
     }
     let cpuTotal = 0;
@@ -94,7 +95,7 @@ export default async function handler(req, res) {
       nodes: Object.entries(nodeMap).map(([name, node]) => ({ name, ...node })),
     });
   } catch (e) {
-    logger.error("exception %s", e);
+    if (e) logger.error(e);
     return res.status(500).send({
       error: "unknown error",
     });

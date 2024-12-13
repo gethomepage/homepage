@@ -3,6 +3,8 @@ title: Transmission
 description: Transmission Widget Configuration
 ---
 
+Learn more about [Transmission](https://github.com/transmission/transmission).
+
 Uses the same username and password used to login from the web.
 
 Allowed fields: `["leech", "download", "seed", "upload"]`.

@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -16,7 +15,7 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit } = widget;
+  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
   const [, diskName] = widget.metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(
@@ -24,7 +23,7 @@ export default function Component({ service }) {
   );
   const [ratePoints, setRatePoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, "diskio", {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/diskio`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
@@ -35,7 +34,7 @@ export default function Component({ service }) {
     }));
 
   useEffect(() => {
-    if (data) {
+    if (data && !data.error) {
       const diskData = data.find((item) => item.disk_name === diskName);
 
       setDataPoints((prevDataPoints) => {
@@ -52,12 +51,9 @@ export default function Component({ service }) {
     setRatePoints(calculateRates(dataPoints));
   }, [dataPoints]);
 
-  if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} />
-      </Container>
-    );
+  if (error || (data && data.error)) {
+    const finalError = error || data.error;
+    return <Container error={finalError} widget={widget} />;
   }
 
   if (!data) {

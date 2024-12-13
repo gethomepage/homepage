@@ -29,7 +29,7 @@ export default function Component({ service }) {
     );
   }
 
-  const datastoreUsage = (datastoreData.data[0].used / datastoreData.data[0].total) * 100;
+  const datastoreUsage = datastoreData.data ? (datastoreData.data[0].used / datastoreData.data[0].total) * 100 : 0;
   const cpuUsage = hostData.data.cpu * 100;
   const memoryUsage = (hostData.data.memory.used / hostData.data.memory.total) * 100;
   const failedTasks = tasksData.total >= 100 ? "99+" : tasksData.total;

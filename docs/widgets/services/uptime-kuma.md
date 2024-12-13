@@ -3,7 +3,9 @@ title: Uptime Kuma
 description: Uptime Kuma Widget Configuration
 ---
 
-As Uptime Kuma does not yet have a full API the widget uses data from a single "status page". As such you will need a status page setup with a group of monitored sites, which is where you get the slug (without the `/status/` portion).
+Learn more about [Uptime Kuma](https://github.com/louislam/uptime-kuma).
+
+As Uptime Kuma does not yet have a full API the widget uses data from a single "status page". As such you will need a status page setup with a group of monitored sites, which is where you get the slug (the url without the `/status/` portion). E.g. if your status page is URL http://uptimekuma.host/status/statuspageslug, insert `slug: statuspageslug`.
 
 Allowed fields: `["up", "down", "uptime", "incident"]`.
 

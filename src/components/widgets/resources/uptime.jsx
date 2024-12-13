@@ -25,7 +25,7 @@ export default function Uptime({ refresh = 1500 }) {
   return (
     <Resource
       icon={FaRegClock}
-      value={t("common.uptime", { value: data.uptime })}
+      value={t("common.duration", { value: data.uptime })}
       label={t("resources.uptime")}
       percentage={percent}
     />

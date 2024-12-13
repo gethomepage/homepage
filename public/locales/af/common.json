@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "ma",
         "days": "d",
         "hours": "h",
@@ -106,6 +106,13 @@
         "series": "Reekse",
         "episodes": "Episodes",
         "songs": "Liedjies"
+    },
+    "esphome": {
+        "offline": "Vanlyn",
+        "offline_alt": "Vanlyn",
+        "online": "Aanlyn",
+        "total": "Totaal",
+        "unknown": "Onbekend"
     },
     "evcc": {
         "pv_power": "Produksie",
@@ -219,6 +226,10 @@
         "leech": "Seier",
         "seed": "Vul"
     },
+    "develancacheui": {
+        "cachehitbytes": "Kas Tref Grepe",
+        "cachemissbytes": "Kas Mis Grepe"
+    },
     "downloadstation": {
         "download": "Aflaai",
         "upload": "Laai Op",
@@ -270,7 +281,7 @@
         "approved": "Goedgekeur",
         "available": "Beskikbaar"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Totaal",
         "connected": "Gekoppel",
         "new_devices": "Nuwe Toestelle",
@@ -298,6 +309,16 @@
         "stopped": "Gestop",
         "total": "Totaal"
     },
+    "suwayomi": {
+        "download": "Afgelaai",
+        "nondownload": "Nie-Afgelaai",
+        "read": "Gelees",
+        "unread": "Ongelees",
+        "downloadedread": "Afgelaai & Gelees",
+        "downloadedunread": "Afgelaai en Ongelees",
+        "nondownloadedread": "Nie-Afgelaai & Gelees",
+        "nondownloadedunread": "Nie-Afgelaai & Ongelees"
+    },
     "tailscale": {
         "address": "Adres",
         "expires": "Verval",
@@ -311,6 +332,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Terug"
+    },
+    "technitium": {
+        "totalQueries": "Navraë",
+        "totalNoError": "Sukses",
+        "totalServerFailure": "Mislukkings",
+        "totalNxDomain": "NX-domeine",
+        "totalRefused": "Geweier",
+        "totalAuthoritative": "Gesaghebbend",
+        "totalRecursive": "Rekursief",
+        "totalCached": "Gekas",
+        "totalBlocked": "Geblok",
+        "totalDropped": "Geval",
+        "totalClients": "Kliënte"
     },
     "tdarr": {
         "queue": "Tou",
@@ -419,7 +453,8 @@
         "search": "Soek",
         "custom": "Pasgemaak",
         "visit": "Besoek",
-        "url": "URL"
+        "url": "URL",
+        "searchsuggestion": "Voorstelling"
     },
     "wmo": {
         "0-day": "Sonnig",
@@ -535,7 +570,15 @@
     },
     "hdhomerun": {
         "channels": "Kanale",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Tuners",
+        "channelNumber": "Kanaal",
+        "channelNetwork": "Netwerk",
+        "signalStrength": "Sterkte",
+        "signalQuality": "Kwaliteit",
+        "symbolQuality": "Kwaliteit",
+        "networkRate": "Bistempo",
+        "clientIP": "Kliënt"
     },
     "scrutiny": {
         "passed": "Geslaag",
@@ -694,6 +737,11 @@
         "targets_down": "Teikens Af",
         "targets_total": "Totale Teikens"
     },
+    "gatus": {
+        "up": "Werwe Op",
+        "down": "Werwe Af",
+        "uptime": "Optyd"
+    },
     "ghostfolio": {
         "gross_percent_today": "Vandag",
         "gross_percent_1y": "Een jaar",
@@ -775,6 +823,14 @@
         "passed": "Geslaag",
         "failed": "Misluk"
     },
+    "openwrt": {
+        "uptime": "Optyd",
+        "cpuLoad": "SVE-lading gemiddelde (5m)",
+        "up": "Op",
+        "down": "Af",
+        "bytesTx": "Oorgedra",
+        "bytesRx": "Ontvang"
+    },
     "uptimerobot": {
         "status": "Status",
         "uptime": "Optyd",
@@ -797,11 +853,159 @@
         "noEventsFound": "Geen gebeure gevind nie"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Platform",
+        "totalRoms": "Spelle",
+        "saves": "Beware",
+        "states": "Toestande",
+        "screenshots": "Skermskote",
+        "totalfilesize": "Totale Grootte"
+    },
+    "mailcow": {
+        "domains": "Domeine",
+        "mailboxes": "Posbusse",
+        "mails": "E-posse",
+        "storage": "Bergplek"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Waarskuwings",
+        "criticals": "Kritici"
+    },
+    "plantit": {
+        "events": "Gebeure",
+        "plants": "Plante",
+        "photos": "Foto's",
+        "species": "Spesies"
+    },
+    "gitea": {
+        "notifications": "Kennisgewings",
+        "issues": "Kwessies",
+        "pulls": "Trek Versoeke"
+    },
+    "stash": {
+        "scenes": "Tonele",
+        "scenesPlayed": "Tonele Gekyk",
+        "playCount": "Totale Toneelstukke",
+        "playDuration": "Tyd Gekyk",
+        "sceneSize": "Toneel Grootte",
+        "sceneDuration": "Tonele Duur",
+        "images": "Beelde",
+        "imageSize": "Beeldgrootte",
+        "galleries": "Galerye",
+        "performers": "Kunstenaars",
+        "studios": "Ateljees",
+        "movies": "Flieks",
+        "tags": "Merkers",
+        "oCount": "O Tel"
+    },
+    "tandoor": {
+        "users": "Gebruikers",
+        "recipes": "Resepte",
+        "keywords": "Sleutelwoorde"
+    },
+    "homebox": {
+        "items": "Items",
+        "totalWithWarranty": "Met Waarborg",
+        "locations": "Plekke",
+        "labels": "Etikette",
+        "users": "Gebruikers",
+        "totalValue": "Totale Waarde"
+    },
+    "crowdsec": {
+        "alerts": "Waarskuwings",
+        "bans": "Verbanne"
+    },
+    "wgeasy": {
+        "connected": "Gekoppel",
+        "enabled": "Geaktiveer",
+        "disabled": "Onaktief",
+        "total": "Totaal"
+    },
+    "swagdashboard": {
+        "proxied": "Gevolmagtig",
+        "auth": "Met Aut",
+        "outdated": "Verouderd",
+        "banned": "Verban"
+    },
+    "myspeed": {
+        "ping": "Pieng",
+        "download": "Aflaai",
+        "upload": "Laai Op"
+    },
+    "stocks": {
+        "stocks": "Aandele",
+        "loading": "Laai",
+        "open": "Oop - VS Mark",
+        "closed": "Toe - VS Mark",
+        "invalidConfiguration": "Ongeldige opstelling"
+    },
+    "frigate": {
+        "cameras": "Kameras",
+        "uptime": "Optyd",
+        "version": "Weergawe"
+    },
+    "linkwarden": {
+        "links": "Skakels",
+        "collections": "Versamelings",
+        "tags": "Merkers"
+    },
+    "zabbix": {
+        "unclassified": "Nie geklassifiseer nie",
+        "information": "Informasie",
+        "warning": "Waarskuwing",
+        "average": "Gemiddeld",
+        "high": "Hoog",
+        "disaster": "Ramp"
+    },
+    "lubelogger": {
+        "vehicle": "Voertuig",
+        "vehicles": "Voertuie",
+        "serviceRecords": "Diensrekords",
+        "reminders": "Herinneringe",
+        "nextReminder": "Volgende Herinnering",
+        "none": "Geen"
+    },
+    "vikunja": {
+        "projects": "Aktiewe Projekte",
+        "tasks7d": "Take Hierdie week",
+        "tasksOverdue": "Agterstallige Take",
+        "tasksInProgress": "Take Aan Die Gang"
+    },
+    "headscale": {
+        "name": "Naam",
+        "address": "Adres",
+        "last_seen": "Laaste Gesien",
+        "status": "Status",
+        "online": "Aanlyn",
+        "offline": "Vanlyn"
+    },
+    "beszel": {
+        "name": "Naam",
+        "systems": "Stelsels",
+        "up": "Op",
+        "status": "Status",
+        "updated": "Opgedateer",
+        "cpu": "SVE",
+        "memory": "GEH",
+        "disk": "Skyf",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Gesond",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Vermis",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Laai"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Kwessies",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

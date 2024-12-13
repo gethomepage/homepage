@@ -1,6 +1,5 @@
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -22,18 +21,16 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval } = widget;
+  const { chart, refreshInterval = defaultInterval, version = 3 } = widget;
 
-  const { data, error } = useWidgetAPI(service.widget, "processlist", {
+  const memoryInfoKey = version === 3 ? 0 : "data";
+
+  const { data, error } = useWidgetAPI(service.widget, `${version}/processlist`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
   if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} />
-      </Container>
-    );
+    return <Container service={service} widget={widget} />;
   }
 
   if (!data) {
@@ -62,11 +59,11 @@ export default function Component({ service }) {
             <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
               <div className="flex items-center">
                 <div className="w-3 h-3 mr-1.5 opacity-50">{statusMap[item.status]}</div>
-                <div className="opacity-75 grow">{item.name}</div>
+                <div className="opacity-75 grow truncate">{item.name}</div>
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
-                    value: item.memory_info[0],
+                    value: item.memory_info[memoryInfoKey],
                     maximumFractionDigits: 0,
                   })}
                 </div>

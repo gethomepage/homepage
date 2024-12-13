@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     res.setHeader("Content-Type", mimeType);
     return res.status(200).send(fileContent);
   } catch (error) {
-    logger.error(error);
+    if (error) logger.error(error);
     return res.status(500).end("Internal Server Error");
   }
 }

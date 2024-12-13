@@ -8,22 +8,15 @@ export function formatApiCall(url, args) {
   return url.replace(/\/+$/, "").replace(find, replace).replace(find, replace);
 }
 
-function getURLSearchParams(widget, endpoint) {
+export function getURLSearchParams(widget, endpoint) {
   const params = new URLSearchParams({
-    type: widget.type,
     group: widget.service_group,
     service: widget.service_name,
-    endpoint,
   });
-  return params;
-}
-
-export function formatProxyUrlWithSegments(widget, endpoint, segments) {
-  const params = getURLSearchParams(widget, endpoint);
-  if (segments) {
-    params.append("segments", JSON.stringify(segments));
+  if (endpoint) {
+    params.append("endpoint", endpoint);
   }
-  return `/api/services/proxy?${params.toString()}`;
+  return params;
 }
 
 export function formatProxyUrl(widget, endpoint, queryParams) {
@@ -57,8 +50,9 @@ export function jsonArrayFilter(data, filter) {
 export function sanitizeErrorURL(errorURL) {
   // Dont display sensitive params on frontend
   const url = new URL(errorURL);
-  ["apikey", "api_key", "token", "t"].forEach((key) => {
+  ["apikey", "api_key", "token", "t", "access_token", "auth"].forEach((key) => {
     if (url.searchParams.has(key)) url.searchParams.set(key, "***");
+    if (url.hash.includes(key)) url.hash = url.hash.replace(new RegExp(`${key}=[^&]+`), `${key}=***`);
   });
   return url.toString();
 }

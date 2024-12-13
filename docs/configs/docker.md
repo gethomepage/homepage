@@ -203,7 +203,7 @@ In order to detect every service within the Docker swarm it is necessary that se
 
 ## Multiple Homepage Instances
 
-The optional field `instanceName` can be configured in [settings.md](settings.md#instance-name) to differentiate between multiple homepage instances.
+The optional field `instanceName` can be configured in [settings.yaml](settings.md#instance-name) to differentiate between multiple homepage instances.
 
 To limit a label to an instance, insert `.instance.{{instanceName}}` after the `homepage` prefix.
 
@@ -235,4 +235,4 @@ You can show the docker stats by clicking the status indicator but this can also
   showStats: true
 ```
 
-Also see the settings for [show docker stats](docker.md#show-docker-stats).
+Also see the settings for [show docker stats](settings.md#show-docker-stats).

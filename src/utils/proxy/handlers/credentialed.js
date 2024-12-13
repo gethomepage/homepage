@@ -3,6 +3,7 @@ import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
 import validateWidgetData from "utils/proxy/validate-widget-data";
 import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { getSettings } from "utils/config/config";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("credentialedProxyHandler");
@@ -24,16 +25,38 @@ export default async function credentialedProxyHandler(req, res, map) {
         "Content-Type": "application/json",
       };
 
-      if (widget.type === "coinmarketcap") {
+      if (widget.type === "stocks") {
+        const { providers } = getSettings();
+        if (widget.provider === "finnhub" && providers?.finnhub) {
+          headers["X-Finnhub-Token"] = `${providers?.finnhub}`;
+        }
+      } else if (widget.type === "coinmarketcap") {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (
-        ["authentik", "cloudflared", "ghostfolio", "mealie", "tailscale", "truenas", "pterodactyl"].includes(
-          widget.type,
-        )
+        [
+          "argocd",
+          "authentik",
+          "cloudflared",
+          "ghostfolio",
+          "headscale",
+          "linkwarden",
+          "mealie",
+          "netalertx",
+          "tailscale",
+          "tandoor",
+          "pterodactyl",
+          "vikunja",
+        ].includes(widget.type)
       ) {
         headers.Authorization = `Bearer ${widget.key}`;
+      } else if (widget.type === "truenas") {
+        if (widget.key) {
+          headers.Authorization = `Bearer ${widget.key}`;
+        } else {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        }
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
@@ -61,6 +84,18 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = `Basic ${Buffer.from(`$:${widget.key}`).toString("base64")}`;
       } else if (widget.type === "glances") {
         headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+      } else if (widget.type === "plantit") {
+        headers.Key = `${widget.key}`;
+      } else if (widget.type === "myspeed") {
+        headers.Password = `${widget.password}`;
+      } else if (widget.type === "esphome") {
+        if (widget.key) {
+          headers.Cookie = `authenticated=${widget.key}`;
+        }
+      } else if (widget.type === "wgeasy") {
+        headers.Authorization = widget.password;
+      } else if (widget.type === "gitlab") {
+        headers["PRIVATE-TOKEN"] = widget.key;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

@@ -10,7 +10,7 @@ const widget = {
       validate: ["cpu-load", "free-memory", "total-memory", "uptime"],
     },
     leases: {
-      endpoint: "ip/dhcp-server/lease",
+      endpoint: "ip/dhcp-server/lease?.proplist=address",
     },
   },
 };

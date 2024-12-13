@@ -3,6 +3,8 @@ title: Sonarr
 description: Sonarr Widget Configuration
 ---
 
+Learn more about [Sonarr](https://github.com/Sonarr/Sonarr).
+
 Find your API key under `Settings > General`.
 
 Allowed fields: `["wanted", "queued", "series"]`.

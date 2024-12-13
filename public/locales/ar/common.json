@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "ش",
         "days": "ي",
         "hours": "س",
@@ -106,6 +106,13 @@
         "series": "مسلسلات",
         "episodes": "حلقات",
         "songs": "أغاني"
+    },
+    "esphome": {
+        "offline": "غير متصل",
+        "offline_alt": "غير متصل",
+        "online": "مُتّصل",
+        "total": "المجموع",
+        "unknown": "مجهول"
     },
     "evcc": {
         "pv_power": "إنتاج",
@@ -219,6 +226,10 @@
         "leech": "القرناء",
         "seed": "البذور"
     },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
+    },
     "downloadstation": {
         "download": "التنزيل",
         "upload": "التحميل",
@@ -270,11 +281,11 @@
         "approved": "مصدق",
         "available": "متاح"
     },
-    "pialert": {
+    "netalertx": {
         "total": "المجموع",
         "connected": "متصل",
         "new_devices": "أجهزة جديدة",
-        "down_alerts": "تنبيهات تعطل الخوادم"
+        "down_alerts": "تنبيهات تعطل"
     },
     "pihole": {
         "queries": "الاستعلامات",
@@ -298,6 +309,16 @@
         "stopped": "متوقف",
         "total": "المجموع"
     },
+    "suwayomi": {
+        "download": "مُنزل",
+        "nondownload": "Non-Downloaded",
+        "read": "قراءة",
+        "unread": "غير مقروءة",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "عنوان",
         "expires": "تنتهي",
@@ -311,6 +332,19 @@
         "minutes": "{{number}}د",
         "seconds": "{{number}}ث",
         "ago": "منذ {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "الاستعلامات",
+        "totalNoError": "تم بنجاح",
+        "totalServerFailure": "فشل",
+        "totalNxDomain": "مجالات NX",
+        "totalRefused": "مرفوض",
+        "totalAuthoritative": "موثوقة",
+        "totalRecursive": "عودي",
+        "totalCached": "مخبأ",
+        "totalBlocked": "محظور",
+        "totalDropped": "أسقطت",
+        "totalClients": "العملاء"
     },
     "tdarr": {
         "queue": "إنتظار",
@@ -419,7 +453,8 @@
         "search": "البحث",
         "custom": "مُخصّص",
         "visit": "زيارة",
-        "url": "الرابط"
+        "url": "الرابط",
+        "searchsuggestion": "الإقتراحات"
     },
     "wmo": {
         "0-day": "مشمس",
@@ -535,7 +570,15 @@
     },
     "hdhomerun": {
         "channels": "القنوات",
-        "hd": "جودة HD"
+        "hd": "جودة HD",
+        "tunerCount": "التونز",
+        "channelNumber": "القناة",
+        "channelNetwork": "الشبكة",
+        "signalStrength": "القوة",
+        "signalQuality": "الجودة",
+        "symbolQuality": "الجودة",
+        "networkRate": "معدل البت",
+        "clientIP": "العميل"
     },
     "scrutiny": {
         "passed": "إجتاز",
@@ -694,6 +737,11 @@
         "targets_down": "الأهداف لا تعمل",
         "targets_total": "الأهداف الإجمالية"
     },
+    "gatus": {
+        "up": "المواقع تعمل",
+        "down": "مواقع لا تعمل",
+        "uptime": "مدة التشغيل"
+    },
     "ghostfolio": {
         "gross_percent_today": "اليوم",
         "gross_percent_1y": "سنة",
@@ -775,6 +823,14 @@
         "passed": "إجتاز",
         "failed": "فشل"
     },
+    "openwrt": {
+        "uptime": "مدة التشغيل",
+        "cpuLoad": "متوسط حمولة المعالج (5دق)",
+        "up": "يعمل",
+        "down": "لا يعمل",
+        "bytesTx": "مرسلة",
+        "bytesRx": "تم الإستلام"
+    },
     "uptimerobot": {
         "status": "الحالة",
         "uptime": "مدة التشغيل",
@@ -797,11 +853,159 @@
         "noEventsFound": "لم يتم العثور على أحداث"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "المِنصات",
+        "totalRoms": "ألعاب",
+        "saves": "نُقَط حفظ",
+        "states": "حالات",
+        "screenshots": "لقطات شاشة",
+        "totalfilesize": "الحجم الكلي"
+    },
+    "mailcow": {
+        "domains": "مجالات",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "التخزين"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "تحذيرات",
+        "criticals": "حرج"
+    },
+    "plantit": {
+        "events": "أحداث",
+        "plants": "نباتات",
+        "photos": "الصور",
+        "species": "الأنواع"
+    },
+    "gitea": {
+        "notifications": "الإشعارات",
+        "issues": "المُشكِلات",
+        "pulls": "طلبات السحب"
+    },
+    "stash": {
+        "scenes": "المشاهد",
+        "scenesPlayed": "مشاهد شغلت",
+        "playCount": "إجمالي المشغلات",
+        "playDuration": "وقت المشاهدة",
+        "sceneSize": "حجم المشاهد",
+        "sceneDuration": "مدة المشهد",
+        "images": "صور",
+        "imageSize": "حجم الصور",
+        "galleries": "المعارض",
+        "performers": "ممثلين",
+        "studios": "استوديوهات",
+        "movies": "أفلام",
+        "tags": "التصنيفات",
+        "oCount": "عدد O"
+    },
+    "tandoor": {
+        "users": "المستخدمون",
+        "recipes": "وصفات",
+        "keywords": "كلمات مفتاح"
+    },
+    "homebox": {
+        "items": "عناصر",
+        "totalWithWarranty": "بالضمان",
+        "locations": "Locations",
+        "labels": "Labels",
+        "users": "المستخدمون",
+        "totalValue": "Total Value"
+    },
+    "crowdsec": {
+        "alerts": "تنبيهات",
+        "bans": "Bans"
+    },
+    "wgeasy": {
+        "connected": "متصل",
+        "enabled": "مفعل",
+        "disabled": "معطل",
+        "total": "المجموع"
+    },
+    "swagdashboard": {
+        "proxied": "Proxied",
+        "auth": "With Auth",
+        "outdated": "Outdated",
+        "banned": "Banned"
+    },
+    "myspeed": {
+        "ping": "بينغ",
+        "download": "التنزيل",
+        "upload": "التحميل"
+    },
+    "stocks": {
+        "stocks": "Stocks",
+        "loading": "تحميل",
+        "open": "مفتوحة - السوق الأمريكية",
+        "closed": "مغلقة - السوق الأمريكية",
+        "invalidConfiguration": "إعدادات غير صحيحة"
+    },
+    "frigate": {
+        "cameras": "كاميرات",
+        "uptime": "مدة التشغيل",
+        "version": "الإصدار"
+    },
+    "linkwarden": {
+        "links": "روابط",
+        "collections": "مجموعات",
+        "tags": "التصنيفات"
+    },
+    "zabbix": {
+        "unclassified": "غير مصنفة",
+        "information": "معلومات",
+        "warning": "تحذيرات",
+        "average": "متوسط",
+        "high": "عالي",
+        "disaster": "كارثة"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "الاسم",
+        "address": "عنوان",
+        "last_seen": "آخر ظهور",
+        "status": "الحالة",
+        "online": "مُتّصل",
+        "offline": "غير متصل"
+    },
+    "beszel": {
+        "name": "الاسم",
+        "systems": "Systems",
+        "up": "يعمل",
+        "status": "الحالة",
+        "updated": "محدث",
+        "cpu": "المعالج",
+        "memory": "الذاكرة",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "سليم",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "مفقود",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "تحميل"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "المُشكِلات",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

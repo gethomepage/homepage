@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
-import Error from "../components/error";
 import Container from "../components/container";
 import Block from "../components/block";
 
@@ -17,18 +16,21 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart, metric } = widget;
-  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit } = widget;
+  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
+
+  const rxKey = version === 3 ? "rx" : "bytes_recv";
+  const txKey = version === 3 ? "tx" : "bytes_sent";
 
   const [, interfaceName] = metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(widget, "network", {
+  const { data, error } = useWidgetAPI(widget, `${version}/network`, {
     refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
   });
 
   useEffect(() => {
-    if (data) {
+    if (data && !data.error) {
       const interfaceData = data.find((item) => item[item.key] === interfaceName);
 
       if (interfaceData) {
@@ -36,8 +38,8 @@ export default function Component({ service }) {
           const newDataPoints = [
             ...prevDataPoints,
             {
-              a: (interfaceData.rx * 8) / interfaceData.time_since_update,
-              b: (interfaceData.tx * 8) / interfaceData.time_since_update,
+              a: (interfaceData[rxKey] * 8) / interfaceData.time_since_update,
+              b: (interfaceData[txKey] * 8) / interfaceData.time_since_update,
             },
           ];
           if (newDataPoints.length > pointsLimit) {
@@ -47,14 +49,11 @@ export default function Component({ service }) {
         });
       }
     }
-  }, [data, interfaceName, pointsLimit]);
+  }, [data, interfaceName, pointsLimit, rxKey, txKey]);
 
-  if (error) {
-    return (
-      <Container chart={chart}>
-        <Error error={error} />
-      </Container>
-    );
+  if (error || (data && data.error)) {
+    const finalError = error || data.error;
+    return <Container error={finalError} widget={widget} />;
   }
 
   if (!data) {
@@ -97,7 +96,7 @@ export default function Component({ service }) {
 
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
-            value: (interfaceData.rx * 8) / interfaceData.time_since_update,
+            value: (interfaceData[rxKey] * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
           })}{" "}
           {t("docker.rx")}
@@ -115,7 +114,7 @@ export default function Component({ service }) {
       <Block position="bottom-3 right-3">
         <div className="text-xs opacity-75">
           {t("common.bitrate", {
-            value: (interfaceData.tx * 8) / interfaceData.time_since_update,
+            value: (interfaceData[txKey] * 8) / interfaceData.time_since_update,
             maximumFractionDigits: 0,
           })}{" "}
           {t("docker.tx")}

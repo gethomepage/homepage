@@ -36,7 +36,6 @@ export default function Item({ service, group, useEqualHeights }) {
       <div
         className={classNames(
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
-          hasLink && "cursor-pointer",
           useEqualHeights && "h-[calc(100%-0.5rem)]",
           "transition-all mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip service-card",
         )}
@@ -48,13 +47,13 @@ export default function Item({ service, group, useEqualHeights }) {
                 href={service.href}
                 target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
-                className="flex-shrink-0 flex items-center justify-center w-12 service-icon"
+                className="flex-shrink-0 flex items-center justify-center w-12 service-icon z-10"
                 aria-label={service.icon}
               >
                 <ResolvedIcon icon={service.icon} />
               </a>
             ) : (
-              <div className="flex-shrink-0 flex items-center justify-center w-12 service-icon">
+              <div className="flex-shrink-0 flex items-center justify-center w-12 service-icon z-10">
                 <ResolvedIcon icon={service.icon} />
               </div>
             ))}

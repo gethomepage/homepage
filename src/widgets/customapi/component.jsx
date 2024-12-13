@@ -9,6 +9,11 @@ function getValue(field, data) {
   let lastField = field;
   let key = "";
 
+  // Support APIs that return arrays or scalars directly.
+  if (typeof field === "undefined") {
+    return value;
+  }
+
   while (typeof lastField === "object") {
     key = Object.keys(lastField)[0] ?? null;
 
@@ -25,6 +30,16 @@ function getValue(field, data) {
   }
 
   return value[lastField] ?? null;
+}
+
+function getSize(data) {
+  if (Array.isArray(data) || typeof data === "string") {
+    return data.length;
+  } else if (typeof data === "object" && data !== null) {
+    return Object.keys(data).length;
+  }
+
+  return NaN;
 }
 
 function formatValue(t, mapping, rawValue) {
@@ -85,9 +100,18 @@ function formatValue(t, mapping, rawValue) {
         numeric: mapping?.numeric,
       });
       break;
+    case "size":
+      value = t("common.number", { value: getSize(value) });
+      break;
     case "text":
     default:
     // nothing
+  }
+
+  // Apply fixed prefix.
+  const prefix = mapping?.prefix;
+  if (prefix) {
+    value = `${prefix} ${value}`;
   }
 
   // Apply fixed suffix.
@@ -99,12 +123,35 @@ function formatValue(t, mapping, rawValue) {
   return value;
 }
 
+function getColor(mapping, customData) {
+  const value = getValue(mapping.additionalField.field, customData);
+  const { color } = mapping.additionalField;
+
+  switch (color) {
+    case "adaptive":
+      try {
+        const number = parseFloat(value);
+        return number > 0 ? "text-emerald-300" : "text-rose-300";
+      } catch (e) {
+        return "";
+      }
+    case "black":
+      return `text-black`;
+    case "white":
+      return `text-white`;
+    case "theme":
+      return `text-theme-500`;
+    default:
+      return "";
+  }
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
 
-  const { mappings = [], refreshInterval = 10000 } = widget;
+  const { mappings = [], refreshInterval = 10000, display = "block" } = widget;
   const { data: customData, error: customError } = useWidgetAPI(widget, null, {
     refreshInterval: Math.max(1000, refreshInterval),
   });
@@ -114,24 +161,73 @@ export default function Component({ service }) {
   }
 
   if (!customData) {
-    return (
-      <Container service={service}>
-        {mappings.slice(0, 4).map((item) => (
-          <Block label={item.label} key={item.label} />
-        ))}
-      </Container>
-    );
+    switch (display) {
+      case "list":
+        return (
+          <Container service={service}>
+            <div className="flex flex-col w-full">
+              {mappings.map((mapping) => (
+                <div
+                  key={mapping.label}
+                  className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs animate-pulse"
+                >
+                  <div className="font-thin pl-2">{mapping.label}</div>
+                  <div className="flex flex-row text-right">
+                    <div className="font-bold mr-2">-</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        );
+
+      default:
+        return (
+          <Container service={service}>
+            {mappings.slice(0, 4).map((item) => (
+              <Block label={item.label} key={item.label} />
+            ))}
+          </Container>
+        );
+    }
   }
 
-  return (
-    <Container service={service}>
-      {mappings.slice(0, 4).map((mapping) => (
-        <Block
-          label={mapping.label}
-          key={mapping.label}
-          value={formatValue(t, mapping, getValue(mapping.field, customData))}
-        />
-      ))}
-    </Container>
-  );
+  switch (display) {
+    case "list":
+      return (
+        <Container service={service}>
+          <div className="flex flex-col w-full">
+            {mappings.map((mapping) => (
+              <div
+                key={mapping.label}
+                className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
+              >
+                <div className="font-thin pl-2">{mapping.label}</div>
+                <div className="flex flex-row text-right">
+                  <div className="font-bold mr-2">{formatValue(t, mapping, getValue(mapping.field, customData))}</div>
+                  {mapping.additionalField && (
+                    <div className={`font-bold mr-2 ${getColor(mapping, customData)}`}>
+                      {formatValue(t, mapping.additionalField, getValue(mapping.additionalField.field, customData))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      );
+
+    default:
+      return (
+        <Container service={service}>
+          {mappings.slice(0, 4).map((mapping) => (
+            <Block
+              label={mapping.label}
+              key={mapping.label}
+              value={formatValue(t, mapping, getValue(mapping.field, customData))}
+            />
+          ))}
+        </Container>
+      );
+  }
 }

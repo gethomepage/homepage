@@ -8,7 +8,7 @@ on:
     paths: [
       '/public/locales/en/**',
     ]
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
   synchronize-with-crowdin:
@@ -19,12 +19,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: crowdin action
-      uses: crowdin/github-action@v1
+      uses: crowdin/github-action@v2
       with:
         upload_translations: false
         download_translations: true
-        crowdin_branch_name: main
-        localization_branch_name: l10n_main
+        crowdin_branch_name: dev
+        localization_branch_name: l10n_dev
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}

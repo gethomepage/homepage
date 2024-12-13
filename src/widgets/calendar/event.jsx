@@ -16,7 +16,7 @@ export default function Event({ event, colorVariants, showDate = false, showTime
       key={`event-${event.title}-${event.date}-${event.additional}`}
     >
       {showDateColumn && (
-        <span className="ml-2 w-10">
+        <span className="ml-2 w-12">
           <span>
             {(showDate || showTime) &&
               event.date

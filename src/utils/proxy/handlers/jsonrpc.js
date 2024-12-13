@@ -8,14 +8,18 @@ import widgets from "widgets/widgets";
 
 const logger = createLogger("jsonrpcProxyHandler");
 
-export async function sendJsonRpcRequest(url, method, params, username, password) {
+export async function sendJsonRpcRequest(url, method, params, widget) {
   const headers = {
     "content-type": "application/json",
     accept: "application/json",
   };
 
-  if (username && password) {
-    headers.authorization = `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`;
+  if (widget?.username && widget?.password) {
+    headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+  }
+
+  if (widget?.key) {
+    headers.Authorization = `Bearer ${widget.key}`;
   }
 
   const client = new JSONRPCClient(async (rpcRequest) => {
@@ -30,6 +34,10 @@ export async function sendJsonRpcRequest(url, method, params, username, password
     const [status, contentType, data] = await httpProxy(url, httpRequestParams);
     if (status === 200) {
       const json = JSON.parse(data.toString());
+
+      if (json.id === null) {
+        json.id = 1;
+      }
 
       // in order to get access to the underlying error object in the JSON response
       // you must set `result` equal to undefined
@@ -63,6 +71,9 @@ export default async function jsonrpcProxyHandler(req, res) {
     const widget = await getServiceWidget(group, service);
     const api = widgets?.[widget.type]?.api;
 
+    const [, mapping] = Object.entries(widgets?.[widget.type]?.mappings).find(([, value]) => value.endpoint === method);
+    const params = mapping?.params ?? null;
+
     if (!api) {
       return res.status(403).json({ error: "Service does not support API calls" });
     }
@@ -70,8 +81,7 @@ export default async function jsonrpcProxyHandler(req, res) {
     if (widget) {
       const url = formatApiCall(api, { ...widget });
 
-      // eslint-disable-next-line no-unused-vars
-      const [status, contentType, data] = await sendJsonRpcRequest(url, method, null, widget.username, widget.password);
+      const [status, , data] = await sendJsonRpcRequest(url, method, params, widget);
       return res.status(status).end(data);
     }
   }

@@ -3,7 +3,9 @@ title: Pterodactyl
 description: Pterodactyl Widget Configuration
 ---
 
-Allowed fields: `["nodes", "servers"]`
+Learn more about [Pterodactyl](https://github.com/pterodactyl).
+
+Allowed fields: `["nodes", "servers"]`.
 
 ```yaml
 widget:

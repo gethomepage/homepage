@@ -1,5 +1,8 @@
 /* eslint-disable no-console */
 import widgets from "widgets/widgets";
+import createLogger from "utils/logger";
+
+const logger = createLogger("validateWidgetData");
 
 export default function validateWidgetData(widget, endpoint, data) {
   let valid = true;
@@ -10,8 +13,13 @@ export default function validateWidgetData(widget, endpoint, data) {
     try {
       dataParsed = JSON.parse(data);
     } catch (e) {
-      error = e;
-      valid = false;
+      try {
+        // try once more stripping whitespace
+        dataParsed = JSON.parse(data.toString().replace(/\s/g, ""));
+      } catch (e2) {
+        error = e || e2;
+        valid = false;
+      }
     }
   }
 
@@ -28,7 +36,7 @@ export default function validateWidgetData(widget, endpoint, data) {
   }
 
   if (!valid) {
-    console.warn(
+    logger.error(
       `Invalid data for widget '${widget.type}' endpoint '${endpoint}':\nExpected:${mapping?.validate}\nParse error: ${
         error ?? "none"
       }\nData: ${JSON.stringify(data)}`,

@@ -13,12 +13,12 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
-        "seconds": "s"
+        "duration": "{{value, duration}}",
+        "months": "міс",
+        "days": "днів",
+        "hours": "год",
+        "minutes": "хв",
+        "seconds": "с"
     },
     "widget": {
         "missing_type": "Відсутній тип віджета: {{type}}",
@@ -47,7 +47,7 @@
         "load": "Завантаження",
         "temp": "Температура",
         "max": "Макс.",
-        "uptime": "Відправка"
+        "uptime": "Онлайн"
     },
     "unifi": {
         "users": "Користувачі",
@@ -61,7 +61,7 @@
         "wlan_devices": "WLAN пристрої",
         "lan_users": "LAN користувачі",
         "wlan_users": "WLAN користувачі",
-        "up": "Відправка",
+        "up": "Онлайн",
         "down": "Завантаження",
         "wait": "Будь ласка, зачекайте",
         "empty_data": "Статус підсистеми невідомий"
@@ -75,7 +75,7 @@
         "offline": "Офлайн",
         "error": "Помилка",
         "unknown": "Невідомий",
-        "healthy": "Здоров'я",
+        "healthy": "Здоровий",
         "starting": "Запуск",
         "unhealthy": "Нездоровий",
         "not_found": "Не знайдено",
@@ -85,27 +85,34 @@
     "ping": {
         "error": "Помилка",
         "ping": "Пінг",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Офлайн",
+        "up": "Онлайн",
+        "not_available": "Не доступний"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "HTTP статус",
         "error": "Помилка",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "response": "Відповідь",
+        "down": "Офлайн",
+        "up": "Онлайн",
+        "not_available": "Не доступний"
     },
     "emby": {
         "playing": "Відтворення",
-        "transcoding": "Перекодування",
+        "transcoding": "Транскодування",
         "bitrate": "Бітрейт",
         "no_active": "Немає активних потоків",
         "movies": "Фільми",
         "series": "Серії",
         "episodes": "Епізоди",
         "songs": "Пісні"
+    },
+    "esphome": {
+        "offline": "Офлайн",
+        "offline_alt": "Офлайн",
+        "online": "Онлайн",
+        "total": "Усього",
+        "unknown": "Невідомий"
     },
     "evcc": {
         "pv_power": "Виробництво",
@@ -116,8 +123,8 @@
         "watt_hour": "Вт/год"
     },
     "flood": {
-        "download": "Завантаження",
-        "upload": "Відправлення",
+        "download": "Завантажено",
+        "upload": "Відправлено",
         "leech": "Ліч",
         "seed": "Сід"
     },
@@ -127,21 +134,21 @@
     },
     "fritzbox": {
         "connectionStatus": "Стан",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Підключено",
+        "connectionStatusUnconfigured": "Не налаштовано",
+        "connectionStatusConnecting": "Підключення",
+        "connectionStatusAuthenticating": "Автентифікація",
+        "connectionStatusPendingDisconnect": "Очікує відключення",
+        "connectionStatusDisconnecting": "Відключення",
+        "connectionStatusDisconnected": "Відключено",
+        "connectionStatusConnected": "З'єднано",
         "uptime": "Час роботи",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "maxDown": "Макс. завантаження",
+        "maxUp": "Макс. віддача",
+        "down": "Офлайн",
+        "up": "Онлайн",
+        "received": "Отримано",
+        "sent": "Надіслано",
+        "externalIPAddress": "Зовнішній IP"
     },
     "caddy": {
         "upstreams": "Потоки",
@@ -156,11 +163,11 @@
         "shows": "Вистави",
         "recordings": "Записи",
         "scheduled": "Заплановано",
-        "passes": "Перепустки"
+        "passes": "Пропуски"
     },
     "tautulli": {
         "playing": "Відтворення",
-        "transcoding": "Перекодування",
+        "transcoding": "Транскодування",
         "bitrate": "Бітрейт",
         "no_active": "Немає активних потоків",
         "plex_connection_error": "Перевірте з'єднання Plex"
@@ -190,18 +197,18 @@
     },
     "rutorrent": {
         "active": "Активний",
-        "upload": "Відправлення",
-        "download": "Завантаження"
+        "upload": "Відправлено",
+        "download": "Завантажено"
     },
     "transmission": {
-        "download": "Завантаження",
-        "upload": "Відправлення",
+        "download": "Завантажено",
+        "upload": "Відправлено",
         "leech": "Ліч",
         "seed": "Сід"
     },
     "qbittorrent": {
-        "download": "Завантаження",
-        "upload": "Відправлення",
+        "download": "Завантажено",
+        "upload": "Відправлено",
         "leech": "Ліч",
         "seed": "Сід"
     },
@@ -214,14 +221,18 @@
         "invalid": "Недійсний"
     },
     "deluge": {
-        "download": "Завантаження",
-        "upload": "Відправлення",
+        "download": "Завантажено",
+        "upload": "Відправлено",
         "leech": "Ліч",
         "seed": "Сід"
     },
+    "develancacheui": {
+        "cachehitbytes": "Кеш-хіт байт",
+        "cachemissbytes": "Кеш-міс байт"
+    },
     "downloadstation": {
-        "download": "Завантаження",
-        "upload": "Відправлення",
+        "download": "Завантажено",
+        "upload": "Відправлено",
         "leech": "Ліч",
         "seed": "Сід"
     },
@@ -270,11 +281,11 @@
         "approved": "Затверджено",
         "available": "Доступно"
     },
-    "pialert": {
+    "netalertx": {
         "total": "Усього",
-        "connected": "Підключено",
+        "connected": "З'єднано",
         "new_devices": "Нові пристрої",
-        "down_alerts": "Сповіщення про збій"
+        "down_alerts": "Спов. про падіння"
     },
     "pihole": {
         "queries": "Запити",
@@ -289,14 +300,24 @@
         "latency": "Затримка"
     },
     "speedtest": {
-        "upload": "Відправлення",
-        "download": "Завантаження",
+        "upload": "Відправлено",
+        "download": "Завантажено",
         "ping": "Пінг"
     },
     "portainer": {
         "running": "Запущено",
         "stopped": "Зупинено",
         "total": "Усього"
+    },
+    "suwayomi": {
+        "download": "Завантажено",
+        "nondownload": "Non-Downloaded",
+        "read": "Прочитано",
+        "unread": "Не прочитано",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Адреса",
@@ -311,6 +332,19 @@
         "minutes": "{{number}}хв",
         "seconds": "{{number}}с",
         "ago": "{{value}} тому"
+    },
+    "technitium": {
+        "totalQueries": "Запити",
+        "totalNoError": "Успішно",
+        "totalServerFailure": "Помилки",
+        "totalNxDomain": "NX Домени",
+        "totalRefused": "Відмовлено",
+        "totalAuthoritative": "Авторитетні",
+        "totalRecursive": "Рекурсивні",
+        "totalCached": "Кешовані",
+        "totalBlocked": "Заблоковано",
+        "totalDropped": "Видалені",
+        "totalClients": "Клієнти"
     },
     "tdarr": {
         "queue": "Черга",
@@ -398,15 +432,15 @@
         "load": "Завантаження",
         "wait": "Будь ласка, зачекайте",
         "temp": "Температура",
-        "_temp": "Temp",
+        "_temp": "Темп.",
         "warn": "Увага",
-        "uptime": "Відправка",
+        "uptime": "Онлайн",
         "total": "Усього",
         "free": "Вільно",
         "used": "Використано",
-        "days": "d",
-        "hours": "h",
-        "crit": "Crit",
+        "days": "днів",
+        "hours": "год",
+        "crit": "Крит",
         "read": "Прочитано",
         "write": "Написати",
         "gpu": "GPU",
@@ -419,7 +453,8 @@
         "search": "Пошук",
         "custom": "Користувацький",
         "visit": "Відвідайте",
-        "url": "URL-адреса"
+        "url": "URL-адреса",
+        "searchsuggestion": "Пропозиція"
     },
     "wmo": {
         "0-day": "Сонячно",
@@ -486,15 +521,15 @@
         "up_to_date": "Актуально",
         "child_bridges": "Дитячі мости",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Онлайн",
         "pending": "В очікуванні",
-        "down": "Down"
+        "down": "Офлайн"
     },
     "healthchecks": {
         "new": "Новий",
-        "up": "Up",
+        "up": "Онлайн",
         "grace": "У пільговий період",
-        "down": "Down",
+        "down": "Офлайн",
         "paused": "Призупинено",
         "status": "Стан",
         "last_ping": "Останній пінг",
@@ -535,7 +570,15 @@
     },
     "hdhomerun": {
         "channels": "Канали",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerCount": "Тюнери",
+        "channelNumber": "Канал",
+        "channelNetwork": "Мережа",
+        "signalStrength": "Сила",
+        "signalQuality": "Якість",
+        "symbolQuality": "Якість",
+        "networkRate": "Бітрейт",
+        "clientIP": "Клієнт"
     },
     "scrutiny": {
         "passed": "Пройшов",
@@ -547,12 +590,12 @@
         "total": "Усього"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "battery_charge": "Заряд батареї",
+        "ups_load": "UPS завантаження",
+        "ups_status": "Статус UPS",
         "online": "Онлайн",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Від батареї",
+        "low_battery": "Низький заряд"
     },
     "nextdns": {
         "wait": "Будь ласка, зачекайте",
@@ -570,10 +613,10 @@
         "streams_xepg": "Канали XEPG"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "yieldDay": "Сьогодні",
+        "absolutePower": "Абс. потуж.",
+        "relativePower": "Заряд %",
+        "limit": "Ліміт"
     },
     "opnsense": {
         "cpu": "Завантаження CPU",
@@ -601,9 +644,9 @@
         "load": "Середнє завантаження",
         "memory": "Використання пам'яті",
         "wanStatus": "Статус WAN",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
+        "up": "Онлайн",
+        "down": "Офлайн",
+        "temp": "Темп.",
         "disk": "Використання диска",
         "wanIP": "WAN IP"
     },
@@ -624,7 +667,7 @@
         "down": "Неактивні сайти",
         "uptime": "Час роботи",
         "incident": "Інцидент",
-        "m": "m"
+        "m": "хв"
     },
     "atsumeru": {
         "series": "Серії",
@@ -694,8 +737,13 @@
         "targets_down": "Цілі вниз",
         "targets_total": "Всього цілей"
     },
+    "gatus": {
+        "up": "Активні сайти",
+        "down": "Неактивні сайти",
+        "uptime": "Час роботи"
+    },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "Сьогодні",
         "gross_percent_1y": "Один рік",
         "gross_percent_max": "Весь час"
     },
@@ -762,46 +810,202 @@
         "totalUsed": "Використовувана пам'ять"
     },
     "mealie": {
-        "recipes": "Recipes",
+        "recipes": "Отримувачі",
         "users": "Користувачі",
         "categories": "Категорії",
-        "tags": "Tags"
+        "tags": "Теги"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Завантаження",
         "total": "Усього",
         "running": "Запущено",
         "stopped": "Зупинено",
         "passed": "Пройшов",
         "failed": "Невдача"
     },
+    "openwrt": {
+        "uptime": "Час роботи",
+        "cpuLoad": "Сер. навантаження ЦП (5 хв)",
+        "up": "Онлайн",
+        "down": "Офлайн",
+        "bytesTx": "Передано",
+        "bytesRx": "Отримано"
+    },
     "uptimerobot": {
         "status": "Стан",
         "uptime": "Час роботи",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
+        "lastDown": "Останній час простою",
+        "downDuration": "Тривалість простою",
         "sitesUp": "Активні сайти",
         "sitesDown": "Неактивні сайти",
         "paused": "Призупинено",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
+        "notyetchecked": "Ще не перевірено",
+        "up": "Онлайн",
+        "seemsdown": "Вірогідно в простої",
+        "down": "Офлайн",
         "unknown": "Невідомий"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "inCinemas": "У кінотеатрах",
+        "physicalRelease": "Фізичний реліз",
+        "digitalRelease": "Цифровий реліз",
+        "noEventsToday": "Події на сьогодні відсутні",
+        "noEventsFound": "Події не знайдено"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "platforms": "Платформи",
+        "totalRoms": "Ігри",
+        "saves": "Збереження",
+        "states": "Штати",
+        "screenshots": "Знімки екрану",
+        "totalfilesize": "Загальний обсяг"
+    },
+    "mailcow": {
+        "domains": "Домени",
+        "mailboxes": "Пошта",
+        "mails": "Листи",
+        "storage": "Сховище"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Попередження",
+        "criticals": "Критичні"
+    },
+    "plantit": {
+        "events": "Події",
+        "plants": "Рослини",
+        "photos": "Фотографії",
+        "species": "Види"
+    },
+    "gitea": {
+        "notifications": "Сповіщення",
+        "issues": "Питання",
+        "pulls": "Pull-запити"
+    },
+    "stash": {
+        "scenes": "Сцени",
+        "scenesPlayed": "Зіграні сцени",
+        "playCount": "Всього п'єс",
+        "playDuration": "Переглянуто",
+        "sceneSize": "Розміри сцен",
+        "sceneDuration": "Тривалість сцен",
+        "images": "Зображення",
+        "imageSize": "Розміри зображень",
+        "galleries": "Галереї",
+        "performers": "Виконавці",
+        "studios": "Студії",
+        "movies": "Фільми",
+        "tags": "Теги",
+        "oCount": "Кількість O"
+    },
+    "tandoor": {
+        "users": "Користувачі",
+        "recipes": "Отримувачі",
+        "keywords": "Ключові слова"
+    },
+    "homebox": {
+        "items": "Речі",
+        "totalWithWarranty": "З гарантією",
+        "locations": "Місцезнаходження",
+        "labels": "Мітки",
+        "users": "Користувачі",
+        "totalValue": "Загальне значення"
+    },
+    "crowdsec": {
+        "alerts": "Оповіщення",
+        "bans": "Блокування"
+    },
+    "wgeasy": {
+        "connected": "З'єднано",
+        "enabled": "Увімкнено",
+        "disabled": "Вимкнено",
+        "total": "Усього"
+    },
+    "swagdashboard": {
+        "proxied": "Пропущено через проксі",
+        "auth": "З аутентифікацією",
+        "outdated": "Застаріле",
+        "banned": "Заблоковано"
+    },
+    "myspeed": {
+        "ping": "Пінг",
+        "download": "Завантажено",
+        "upload": "Відправлено"
+    },
+    "stocks": {
+        "stocks": "Акції",
+        "loading": "Завантажую",
+        "open": "Відкрито - ринок США",
+        "closed": "Закрито - ринок США",
+        "invalidConfiguration": "Неприпустима конфігурація"
+    },
+    "frigate": {
+        "cameras": "Камери",
+        "uptime": "Час роботи",
+        "version": "Версія"
+    },
+    "linkwarden": {
+        "links": "Посилання",
+        "collections": "Колекції",
+        "tags": "Теги"
+    },
+    "zabbix": {
+        "unclassified": "Не визначено",
+        "information": "Інформація",
+        "warning": "Попередження",
+        "average": "Середнє",
+        "high": "Високе",
+        "disaster": "Катастрофа"
+    },
+    "lubelogger": {
+        "vehicle": "Транспортний засіб",
+        "vehicles": "Транспортні засоби",
+        "serviceRecords": "Записи служб",
+        "reminders": "Нагадування",
+        "nextReminder": "Наступне нагадування",
+        "none": "Жодного"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Назва",
+        "address": "Адреса",
+        "last_seen": "Востаннє у мережі",
+        "status": "Стан",
+        "online": "Онлайн",
+        "offline": "Офлайн"
+    },
+    "beszel": {
+        "name": "Назва",
+        "systems": "Systems",
+        "up": "Онлайн",
+        "status": "Стан",
+        "updated": "Оновлено",
+        "cpu": "ЦП",
+        "memory": "ОЗП",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Здоровий",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Відсутній",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Завантажую"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Питання",
+        "merges": "Merge Requests",
+        "projects": "Projects"
     }
 }

@@ -3,6 +3,8 @@ title: Unmanic
 description: Unmanic Widget Configuration
 ---
 
+Learn more about [Unmanic](https://github.com/Unmanic/unmanic).
+
 Allowed fields: `["active_workers", "total_workers", "records_total"]`.
 
 ```yaml
