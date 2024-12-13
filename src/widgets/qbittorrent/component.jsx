@@ -45,7 +45,6 @@ export default function Component({ service }) {
   }
 
   const leech = torrentData.length - completed;
-  const enableLeechProgress = widget?.enableLeechProgress && Array.isArray(leechTorrents) && leechTorrents.length > 0;
 
   return (
     <>
@@ -55,7 +54,7 @@ export default function Component({ service }) {
         <Block label="qbittorrent.seed" value={t("common.number", { value: completed })} />
         <Block label="qbittorrent.upload" value={t("common.bibyterate", { value: rateUl, decimals: 1 })} />
       </Container>
-      {enableLeechProgress &&
+      {widget?.enableLeechProgress &&
         leechTorrents.map((queueEntry) => (
           <QueueEntry
             progress={queueEntry.progress * 100}
