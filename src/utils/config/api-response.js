@@ -158,7 +158,7 @@ export async function servicesResponse() {
     const discoveredKubernetesGroup = findGroupByName(discoveredKubernetesServices, groupName) || {
       services: [],
     };
-    const configuredGroup = findGroupByName(configuredServices, groupName) || { services: [] };
+    const configuredGroup = findGroupByName(configuredServices, groupName) || { services: [], groups: [] };
 
     const mergedGroup = {
       name: groupName,
