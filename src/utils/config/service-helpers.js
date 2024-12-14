@@ -479,6 +479,9 @@ export function cleanServiceGroups(groups) {
           // proxmox
           node,
 
+          // qbittorrent
+          enableLeechProgress,
+
           // speedtest
           bitratePrecision,
 
@@ -670,6 +673,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "spoolman") {
           if (spoolIds !== undefined) widget.spoolIds = spoolIds;
+        }
+        if (type === "qbittorrent") {
+          if (enableLeechProgress !== undefined) widget.enableLeechProgress = JSON.parse(enableLeechProgress);
         }
         return widget;
       });
