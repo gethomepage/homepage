@@ -1007,5 +1007,11 @@
         "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "aria2c": {
+        "active": "Active",
+        "waiting": "Waiting",
+        "download": "↓",
+        "upload": "↑"
     }
 }

@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 const components = {
   adguard: dynamic(() => import("./adguard/component")),
   argocd: dynamic(() => import("./argocd/component")),
+  aria2c: dynamic(() => import("./aria2c/component")),
   atsumeru: dynamic(() => import("./atsumeru/component")),
   audiobookshelf: dynamic(() => import("./audiobookshelf/component")),
   authentik: dynamic(() => import("./authentik/component")),
