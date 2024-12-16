@@ -56,7 +56,7 @@ export default async function ariaProxyHandler(req, res) {
 
         return res.status(200).send(rawData.result); 
       } catch (e) {
-        return res.status(500).json({ error: { message: e?.toString() ?? "Error parsing aria2c rpc data", url, data } });
+        return res.status(500).json({ error: { message: e?.toString() ?? "Error parsing aria2 rpc data", url, data } });
       }
     }
   }

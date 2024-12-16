@@ -1,6 +1,6 @@
 import adguard from "./adguard/widget";
 import argocd from "./argocd/widget";
-import aria2c from "./aria2c/widget";
+import aria2 from "./aria2/widget";
 import atsumeru from "./atsumeru/widget";
 import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
@@ -135,7 +135,7 @@ import zabbix from "./zabbix/widget";
 const widgets = {
   adguard,
   argocd,
-  aria2c,
+  aria2,
   atsumeru,
   audiobookshelf,
   authentik,

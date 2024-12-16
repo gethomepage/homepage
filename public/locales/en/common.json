@@ -1008,10 +1008,10 @@
         "merges": "Merge Requests",
         "projects": "Projects"
     },
-    "aria2c": {
+    "aria2": {
         "active": "Active",
         "waiting": "Waiting",
-        "download": "↓",
-        "upload": "↑"
+        "download": "Download",
+        "upload": "Upload"
     }
 }
