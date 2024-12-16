@@ -6,9 +6,9 @@ import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
-const INFO_ENDPOINT = "{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&{widgetParams}";
+const INFO_ENDPOINT = "{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&{authParams}";
 const AUTH_ENDPOINT =
-  "{url}/webapi/{path}?api=SYNO.API.Auth&version={maxVersion}&session=DownloadStation&format=cookie&method=login&{widgetParams}";
+  "{url}/webapi/{path}?api=SYNO.API.Auth&version={maxVersion}&session=DownloadStation&format=cookie&method=login&{authParams}";
 const AUTH_API_NAME = "SYNO.API.Auth";
 
 const proxyName = "synologyProxyHandler";
@@ -47,8 +47,8 @@ async function getApiInfo(serviceWidget, apiName, serviceName) {
     return [cgiPath, maxVersion];
   }
 
-  const widgetParams = new URLSearchParams(serviceWidget);
-  const infoUrl = formatApiCall(INFO_ENDPOINT, { widgetParams: widgetParams.toString() });
+  const authParams = new URLSearchParams({ username: serviceWidget.username, password: serviceWidget.password });
+  const infoUrl = formatApiCall(INFO_ENDPOINT, { url: serviceWidget.url, authParams: authParams.toString() });
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(infoUrl);
 
@@ -78,8 +78,13 @@ async function handleUnsuccessfulResponse(serviceWidget, url, serviceName) {
   // eslint-disable-next-line no-unused-vars
   const [apiPath, maxVersion] = await getApiInfo(serviceWidget, AUTH_API_NAME, serviceName);
 
-  const widgetParams = new URLSearchParams(serviceWidget);
-  const authArgs = { path: apiPath ?? "entry.cgi", maxVersion: maxVersion ?? 7, widgetParams: widgetParams.toString() };
+  const authParams = new URLSearchParams({ username: serviceWidget.username, password: serviceWidget.password });
+  const authArgs = {
+    path: apiPath ?? "entry.cgi",
+    maxVersion: maxVersion ?? 7,
+    url: serviceWidget.url,
+    authParams: authParams.toString(),
+  };
   const loginUrl = formatApiCall(AUTH_ENDPOINT, authArgs);
 
   const [status, contentType, data] = await login(loginUrl);
@@ -151,13 +156,14 @@ export default async function synologyProxyHandler(req, res) {
     return res.status(400).json({ error: `Unrecognized API name: ${mapping.apiName}` });
   }
 
-  const widgetParams = new URLSearchParams(serviceWidget);
+  const authParams = new URLSearchParams({ username: serviceWidget.username, password: serviceWidget.password });
   const url = formatApiCall(widget.api, {
     apiName: mapping.apiName,
     apiMethod: mapping.apiMethod,
     cgiPath,
     maxVersion,
-    widgetParams: widgetParams.toString(),
+    url: serviceWidget.url,
+    authParams: authParams.toString(),
   });
   let [status, contentType, data] = await httpProxy(url);
   if (status !== 200) {
