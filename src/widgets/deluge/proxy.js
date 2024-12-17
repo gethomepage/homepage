@@ -17,6 +17,7 @@ const dataParams = [
     "download_payload_rate",
     "upload_payload_rate",
     "total_remaining",
+    "eta",
   ],
   {},
 ];
