@@ -6,7 +6,7 @@ import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
-const INFO_ENDPOINT = "{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&{authParams}";
+const INFO_ENDPOINT = "{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query";
 const AUTH_ENDPOINT =
   "{url}/webapi/{path}?api=SYNO.API.Auth&version={maxVersion}&session=DownloadStation&format=cookie&method=login&{authParams}";
 const AUTH_API_NAME = "SYNO.API.Auth";
@@ -15,6 +15,7 @@ const proxyName = "synologyProxyHandler";
 const logger = createLogger(proxyName);
 
 async function login(loginUrl) {
+  logger.debug("Attempting login via %s", loginUrl);
   const [status, contentType, data] = await httpProxy(loginUrl);
   if (status !== 200) {
     return [status, contentType, data];
@@ -32,8 +33,8 @@ async function login(loginUrl) {
       404  Failed to authenticate 2-step verification code
     */
     let message = "Authentication failed.";
-    if (json?.error?.code >= 403) message += " 2FA enabled.";
-    logger.warn("Unable to login.  Code: %d", json?.error?.code);
+    if (json?.error?.code && parseInt(json?.error?.code, 10) >= 403) message += " 2FA enabled.";
+    logger.error("Unable to login.  Code: %d", json?.error?.code);
     return [401, "application/json", JSON.stringify({ code: json?.error?.code, message })];
   }
 
@@ -47,10 +48,10 @@ async function getApiInfo(serviceWidget, apiName, serviceName) {
     return [cgiPath, maxVersion];
   }
 
-  const authParams = new URLSearchParams({ username: serviceWidget.username, password: serviceWidget.password });
-  const infoUrl = formatApiCall(INFO_ENDPOINT, { url: serviceWidget.url, authParams: authParams.toString() });
+  const infoUrl = formatApiCall(INFO_ENDPOINT, serviceWidget);
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(infoUrl);
+  logger.debug("Received %d from Info endpoint %s", status, infoUrl);
 
   if (status === 200) {
     try {
@@ -73,12 +74,10 @@ async function getApiInfo(serviceWidget, apiName, serviceName) {
 }
 
 async function handleUnsuccessfulResponse(serviceWidget, url, serviceName) {
-  logger.debug(`Attempting login to ${serviceWidget.type}`);
-
   // eslint-disable-next-line no-unused-vars
   const [apiPath, maxVersion] = await getApiInfo(serviceWidget, AUTH_API_NAME, serviceName);
 
-  const authParams = new URLSearchParams({ username: serviceWidget.username, password: serviceWidget.password });
+  const authParams = new URLSearchParams({ account: serviceWidget.username, passwd: serviceWidget.password });
   const authArgs = {
     path: apiPath ?? "entry.cgi",
     maxVersion: maxVersion ?? 7,
@@ -133,7 +132,7 @@ function toError(url, synologyError) {
       error.error = synologyError.message ?? "Unknown error.";
       break;
   }
-  logger.warn(`Unable to call ${url}.  code: ${code}, error: ${error.error}.`);
+  logger.error(`Unable to call ${url}.  code: ${code}, error: ${error.error}.`);
   return error;
 }
 
@@ -156,14 +155,12 @@ export default async function synologyProxyHandler(req, res) {
     return res.status(400).json({ error: `Unrecognized API name: ${mapping.apiName}` });
   }
 
-  const authParams = new URLSearchParams({ username: serviceWidget.username, password: serviceWidget.password });
   const url = formatApiCall(widget.api, {
     apiName: mapping.apiName,
     apiMethod: mapping.apiMethod,
     cgiPath,
     maxVersion,
     url: serviceWidget.url,
-    authParams: authParams.toString(),
   });
   let [status, contentType, data] = await httpProxy(url);
   if (status !== 200) {
@@ -173,7 +170,7 @@ export default async function synologyProxyHandler(req, res) {
 
   let json = asJson(data);
   if (json?.success !== true) {
-    logger.debug(`Attempting login to ${serviceWidget.type}`);
+    logger.debug(`Request failed. Attempting login to ${serviceWidget.type}`);
     [status, contentType, data] = await handleUnsuccessfulResponse(serviceWidget, url, service);
     json = asJson(data);
   }
