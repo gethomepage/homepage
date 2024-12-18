@@ -630,8 +630,8 @@
         "load": "平均负载",
         "memory": "内存",
         "wanStatus": "WAN 状态",
-        "up": "上传",
-        "down": "下载",
+        "up": "连接",
+        "down": "断开",
         "temp": "温度",
         "disk": "磁盘",
         "wanIP": "WAN IP"
