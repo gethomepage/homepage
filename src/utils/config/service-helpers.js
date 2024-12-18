@@ -106,7 +106,11 @@ export async function servicesFromDocker() {
                   type: "service",
                 };
               }
-              shvl.set(constructedService, value, substituteEnvironmentVars(containerLabels[label]));
+              let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
+              if (value === "widget.version") {
+                substitutedVal = parseInt(substitutedVal, 10);
+              }
+              shvl.set(constructedService, value, substitutedVal);
             }
           });
 
