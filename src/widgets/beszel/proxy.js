@@ -45,7 +45,12 @@ export default async function beszelProxyHandler(req, res) {
 
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
-      const loginUrl = formatApiCall(widgets[widget.type].api, { endpoint: "admins/auth-with-password", ...widget });
+      let authEndpointVersion = "authv1";
+      if (widget.version === 2) authEndpointVersion = "authv2";
+      const loginUrl = formatApiCall(widgets[widget.type].api, {
+        endpoint: widgets[widget.type].mappings[authEndpointVersion].endpoint,
+        ...widget,
+      });
 
       let status;
       let data;
