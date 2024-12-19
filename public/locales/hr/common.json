@@ -120,7 +120,7 @@
         "grid_power": "Raspored",
         "home_power": "Potrošnja",
         "charge_power": "Punjač",
-        "watt_hour": "Kilovat-sat"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Preuzimanje",

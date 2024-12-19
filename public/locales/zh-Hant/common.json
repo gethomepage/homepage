@@ -120,7 +120,7 @@
         "grid_power": "電網",
         "home_power": "電源使用率",
         "charge_power": "充電",
-        "watt_hour": "瓦時 (Wh)"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "下載速率",

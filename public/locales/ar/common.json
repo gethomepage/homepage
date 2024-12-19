@@ -120,7 +120,7 @@
         "grid_power": "شبكة",
         "home_power": "الاستهلاك",
         "charge_power": "شاحن",
-        "watt_hour": "واط ساعة"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "التنزيل",

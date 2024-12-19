@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "duration": "{{value, duration}}",
+        "duration": "{value, duration}",
         "months": "mc",
         "days": "d",
         "hours": "g",
@@ -120,7 +120,7 @@
         "grid_power": "Siatka",
         "home_power": "Zużycie",
         "charge_power": "Ładowarka",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Pobieranie",
@@ -311,13 +311,13 @@
     },
     "suwayomi": {
         "download": "Pobrano",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "Niepobrane",
         "read": "Przeczytane",
         "unread": "Nieprzeczytane",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Pobrane i przeczytane",
+        "downloadedunread": "Pobrane i nieprzeczytane",
+        "nondownloadedread": "Niepobrane i przeczytane",
+        "nondownloadedunread": "Niepobrane i nieprzeczytane"
     },
     "tailscale": {
         "address": "Adres",
@@ -957,18 +957,18 @@
         "disaster": "Katastrofa"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Pojazd",
+        "vehicles": "Pojazdy",
+        "serviceRecords": "Wpisy serwisowe",
+        "reminders": "Przypomnienia",
+        "nextReminder": "Następne przypomnienie",
+        "none": "Brak"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "Aktywne Projekty",
+        "tasks7d": "Zadania w tym tygodniu",
+        "tasksOverdue": "Zaległe zadania",
+        "tasksInProgress": "Zadania w toku"
     },
     "headscale": {
         "name": "Nazwa",
@@ -980,32 +980,32 @@
     },
     "beszel": {
         "name": "Nazwa",
-        "systems": "Systems",
+        "systems": "Systemy",
         "up": "Dostępny",
         "status": "Stan",
         "updated": "Zaktualizowane",
         "cpu": "Procesor",
         "memory": "RAM",
-        "disk": "Disk",
+        "disk": "Dysk",
         "network": "NET"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Aplikacje",
+        "synced": "Synchronizowane",
+        "outOfSync": "Bez synchronizacji",
         "healthy": "Zdrowy",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Zdegradowane",
+        "progressing": "Postępujące",
         "missing": "Brakujące",
-        "suspended": "Suspended"
+        "suspended": "Zawieszone"
     },
     "spoolman": {
         "loading": "Wczytywanie"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Grupy",
         "issues": "Zgłoszenia",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Żądania scaleń",
+        "projects": "Projekty"
     }
 }
