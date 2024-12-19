@@ -120,7 +120,7 @@
         "grid_power": "눈금",
         "home_power": "Consumption",
         "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "다운로드",

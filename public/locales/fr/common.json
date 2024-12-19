@@ -120,7 +120,7 @@
         "grid_power": "Grille",
         "home_power": "Consommation",
         "charge_power": "Chargeur",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Récep.",

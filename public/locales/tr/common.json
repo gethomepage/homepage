@@ -120,7 +120,7 @@
         "grid_power": "Güç",
         "home_power": "Tüketim",
         "charge_power": "Şarj",
-        "watt_hour": "Watt/Saat"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "İndirme",
