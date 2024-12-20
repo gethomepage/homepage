@@ -120,7 +120,7 @@
         "grid_power": "Red",
         "home_power": "Consumo",
         "charge_power": "Cargador",
-        "watt_hour": "vatio-hora (Wh)"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Descarga",

@@ -9,8 +9,8 @@ const logger = createLogger("servicesProxy");
 
 export default async function handler(req, res) {
   try {
-    const { service, group } = req.query;
-    const serviceWidget = await getServiceWidget(group, service);
+    const { service, group, index } = req.query;
+    const serviceWidget = await getServiceWidget(group, service, index);
     let type = serviceWidget?.type;
 
     // exceptions
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         const endpoint = mapping?.endpoint;
         const endpointProxy = mapping?.proxyHandler || serviceProxyHandler;
 
-        if (mapping.method && mapping.method !== req.method) {
+        if (mapping?.method && mapping.method !== req.method) {
           logger.debug("Unsupported method: %s", req.method);
           return res.status(403).json({ error: "Unsupported method" });
         }

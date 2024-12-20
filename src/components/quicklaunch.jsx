@@ -129,7 +129,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   useEffect(() => {
     const abortController = new AbortController();
 
-    if (searchString.length === 0) setResults([]);
+    if (searchString.trim().length === 0) setResults([]);
     else {
       let newResults = servicesAndBookmarks.filter((r) => {
         const nameMatch = r.name.toLowerCase().includes(searchString);

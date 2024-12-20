@@ -120,7 +120,7 @@
         "grid_power": "Grade",
         "home_power": "Consumo",
         "charge_power": "Carregador",
-        "watt_hour": "Kw"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Descarregar",
