@@ -120,7 +120,7 @@
         "grid_power": "Grelha",
         "home_power": "Consumo",
         "charge_power": "Carregador",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Descarregar",
