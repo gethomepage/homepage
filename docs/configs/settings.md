@@ -118,6 +118,22 @@ As an example, this would produce the following layout:
 
 <img width="1260" alt="Screenshot 2022-09-15 at 8 03 57 PM" src="https://user-images.githubusercontent.com/82196/190466646-8ca94505-0fcf-4964-9687-3a6c7cd3144f.png">
 
+### Icons-Only Layout
+
+You can also specify the an icon-only layout for bookmarks, either like so:
+
+```yaml
+layout:
+  Media:
+    iconsOnly: true
+```
+
+or globally:
+
+```yaml
+bookmarksStyle: icons
+```
+
 ### Sorting
 
 Service groups and bookmark groups can be mixed in order, **but should use different group names**. If you do not specify any bookmark groups they will all show at the bottom of the page.
@@ -135,6 +151,27 @@ layout:
   - Configured3:
       style: row
       columns: 3
+```
+
+### Nested Groups
+
+If your services config has nested groups, you can apply settings to these groups by nesting them in the layout block
+and using the same settings. For example
+
+```yaml
+layout:
+  Group A:
+    style: row
+    columns: 4
+  Group C:
+    style: row
+    columns: 2
+    Nested Group A:
+      style: row
+      columns: 2
+    Nested Group B:
+      style: row
+      columns: 2
 ```
 
 ### Headers
@@ -348,12 +385,12 @@ This can also be set for individual services. Note setting this at the service l
 
 ## Providers
 
-The `providers` section allows you to define shared API provider options and secrets. Currently this allows you to define your weather API keys in secret and is also the location of the Longhorn URL and credentials.
+The `providers` section allows you to define shared API provider options and secrets.
 
 ```yaml
 providers:
   openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+  finnhub: yourfinnhubapikeyhere
   longhorn:
     url: https://longhorn.example.com
     username: admin
@@ -363,10 +400,10 @@ providers:
 You can then pass `provider` instead of `apiKey` in your widget configuration.
 
 ```yaml
-- weatherapi:
+- openweathermap:
     latitude: 50.449684
     longitude: 30.525026
-    provider: weatherapi
+    provider: openweathermap
 ```
 
 ## Quick Launch

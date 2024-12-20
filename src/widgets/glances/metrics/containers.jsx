@@ -7,13 +7,8 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import ResolvedIcon from "components/resolvedicon";
 
 const statusMap = {
-  R: <ResolvedIcon icon="mdi-circle" width={32} height={32} />, // running
-  S: <ResolvedIcon icon="mdi-circle-outline" width={32} height={32} />, // sleeping
-  D: <ResolvedIcon icon="mdi-circle-double" width={32} height={32} />, // disk sleep
-  Z: <ResolvedIcon icon="mdi-circle-opacity" width={32} height={32} />, // zombie
-  T: <ResolvedIcon icon="mdi-decagram-outline" width={32} height={32} />, // traced
-  t: <ResolvedIcon icon="mdi-hexagon-outline" width={32} height={32} />, // traced
-  X: <ResolvedIcon icon="mdi-rhombus-outline" width={32} height={32} />, // dead
+  running: <ResolvedIcon icon="mdi-circle" width={32} height={32} />,
+  paused: <ResolvedIcon icon="mdi-circle-outline" width={32} height={32} />,
 };
 
 const defaultInterval = 1000;
@@ -23,9 +18,10 @@ export default function Component({ service }) {
   const { widget } = service;
   const { chart, refreshInterval = defaultInterval, version = 3 } = widget;
 
-  const memoryInfoKey = version === 3 ? 0 : "data";
+  const idKey = version === 3 ? "Id" : "id";
+  const statusKey = version === 3 ? "Status" : "status";
 
-  const { data, error } = useWidgetAPI(service.widget, `${version}/processlist`, {
+  const { data, error } = useWidgetAPI(service.widget, `${version}/containers`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 
@@ -56,14 +52,14 @@ export default function Component({ service }) {
       <Block position="bottom-4 right-3 left-3">
         <div className="pointer-events-none text-theme-900 dark:text-theme-200">
           {data.map((item) => (
-            <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
+            <div key={item[idKey]} className="text-[0.75rem] h-[0.8rem]">
               <div className="flex items-center">
-                <div className="w-3 h-3 mr-1.5 opacity-50">{statusMap[item.status]}</div>
+                <div className="w-3 h-3 mr-1.5 opacity-50">{statusMap[item[statusKey]]}</div>
                 <div className="opacity-75 grow truncate">{item.name}</div>
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
-                    value: item.memory_info[memoryInfoKey] ?? item.memory_info.wset,
+                    value: item.memory.usage,
                     maximumFractionDigits: 0,
                   })}
                 </div>

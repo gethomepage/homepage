@@ -4,6 +4,10 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+function toKilowatts(t, value) {
+  return value > 0 ? t("common.number", { value: value / 1000, maximumFractionDigits: 1 }) : 0;
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
@@ -27,21 +31,12 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block
-        label="evcc.pv_power"
-        value={`${t("common.number", { value: stateData.result.pvPower })} ${t("evcc.watt_hour")}`}
-      />
-      <Block
-        label="evcc.grid_power"
-        value={`${t("common.number", { value: stateData.result.gridPower })} ${t("evcc.watt_hour")}`}
-      />
-      <Block
-        label="evcc.home_power"
-        value={`${t("common.number", { value: stateData.result.homePower })} ${t("evcc.watt_hour")}`}
-      />
+      <Block label="evcc.pv_power" value={`${toKilowatts(t, stateData.result.pvPower)} ${t("evcc.kilowatt")}`} />
+      <Block label="evcc.grid_power" value={`${toKilowatts(t, stateData.result.gridPower)} ${t("evcc.kilowatt")}`} />
+      <Block label="evcc.home_power" value={`${toKilowatts(t, stateData.result.homePower)} ${t("evcc.kilowatt")}`} />
       <Block
         label="evcc.charge_power"
-        value={`${t("common.number", { value: stateData.result.loadpoints[0].chargePower })} ${t("evcc.watt_hour")}`}
+        value={`${toKilowatts(t, stateData.result.loadpoints[0].chargePower)} ${t("evcc.kilowatt")}`}
       />
     </Container>
   );

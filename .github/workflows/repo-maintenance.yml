@@ -212,9 +212,9 @@ jobs:
             }
 
             const CUTOFF_1_DAYS = 180;
-            const CUTOFF_1_COUNT = 5;
+            const CUTOFF_1_COUNT = 10;
             const CUTOFF_2_DAYS = 365;
-            const CUTOFF_2_COUNT = 10;
+            const CUTOFF_2_COUNT = 20;
 
             const cutoff1Date = new Date();
             cutoff1Date.setDate(cutoff1Date.getDate() - CUTOFF_1_DAYS);

@@ -51,6 +51,8 @@ The metric field in the configuration determines the type of system monitoring d
 
 `process`: Top 5 processes based on CPU usage. Gives an overview of which processes are consuming the most resources.
 
+`containers`: Docker or Kubernetes containers list. Shows up to 5 containers running on the system and their resource usage.
+
 `network:<interface_name>`: Network data usage for the specified interface. Replace `<interface_name>` with the name of your network interface, e.g., `network:enp0s25`, as specified in glances.
 
 `sensor:<sensor_id>`: Temperature of the specified sensor, typically used to monitor CPU temperature. Replace `<sensor_id>` with the name of your sensor, e.g., `sensor:Package id 0` as specified in glances.

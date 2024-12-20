@@ -9,7 +9,7 @@ _(Find the Unifi Controller information widget [here](../info/unifi_controller.m
 
 You can display general connectivity status from your Unifi (Network) Controller.
 
-!!!
+!!! warning
 
     When authenticating you will want to use a local account that has at least read privileges.
 
