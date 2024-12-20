@@ -120,7 +120,7 @@
         "grid_power": "Nett",
         "home_power": "Forbruk",
         "charge_power": "Lader",
-        "watt_hour": "W/t"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Last ned",
