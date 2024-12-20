@@ -120,7 +120,7 @@
         "grid_power": "Rooster",
         "home_power": "Verbruik",
         "charge_power": "Laaier",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Aflaai",
@@ -990,22 +990,22 @@
         "network": "NET"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Programme",
+        "synced": "Gesinkroniseer",
+        "outOfSync": "Nie Gesinchroniseer Nie",
         "healthy": "Gesond",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Gedegradeer",
+        "progressing": "Vorderend",
         "missing": "Vermis",
-        "suspended": "Suspended"
+        "suspended": "Geskors"
     },
     "spoolman": {
         "loading": "Laai"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Groepe",
         "issues": "Kwessies",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Saamvleg Versoeke",
+        "projects": "Projekte"
     }
 }
