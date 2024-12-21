@@ -63,3 +63,7 @@ dialog ::-webkit-scrollbar {
 ::-webkit-details-marker {
   display: none;
 }
+
+.chart + .chart {
+  margin-top: 36px;
+}
