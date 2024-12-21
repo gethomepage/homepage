@@ -699,6 +699,7 @@ export function findGroupByName(groups, name) {
     } else if (group.groups) {
       const foundGroup = findGroupByName(group.groups, name);
       if (foundGroup) {
+        foundGroup.parent = group;
         return foundGroup;
       }
     }
