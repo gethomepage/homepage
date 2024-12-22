@@ -24,6 +24,10 @@ function parseServicesToGroups(services) {
     const serviceGroupServices = [];
     serviceGroup[name].forEach((entries) => {
       const entryName = Object.keys(entries)[0];
+      if (!entries[entryName]) {
+        logger.warn(`Error parsing service "${entryName}" from config. Ensure required fields are present.`);
+        return;
+      }
       if (Array.isArray(entries[entryName])) {
         groups = groups.concat(parseServicesToGroups([{ [entryName]: entries[entryName] }]));
       } else {
@@ -105,7 +109,11 @@ export async function servicesFromDocker() {
                   type: "service",
                 };
               }
-              shvl.set(constructedService, value, substituteEnvironmentVars(containerLabels[label]));
+              let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
+              if (value === "widget.version") {
+                substitutedVal = parseInt(substitutedVal, 10);
+              }
+              shvl.set(constructedService, value, substitutedVal);
             }
           });
 
@@ -316,6 +324,9 @@ export function cleanServiceGroups(groups) {
           mappings,
           display,
 
+          // deluge, qbittorrent
+          enableLeechProgress,
+
           // diskstation
           volume,
 
@@ -335,7 +346,7 @@ export function cleanServiceGroups(groups) {
           // frigate
           enableRecentEvents,
 
-          // glances, immich, mealie, pihole, pfsense
+          // beszel, glances, immich, mealie, pihole, pfsense
           version,
 
           // glances
@@ -483,6 +494,9 @@ export function cleanServiceGroups(groups) {
           if (allowScrolling) widget.allowScrolling = allowScrolling;
           if (refreshInterval) widget.refreshInterval = refreshInterval;
         }
+        if (["deluge", "qbittorrent"].includes(type)) {
+          if (enableLeechProgress !== undefined) widget.enableLeechProgress = JSON.parse(enableLeechProgress);
+        }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) widget.wan = wan;
         }
@@ -510,7 +524,7 @@ export function cleanServiceGroups(groups) {
           if (snapshotHost) widget.snapshotHost = snapshotHost;
           if (snapshotPath) widget.snapshotPath = snapshotPath;
         }
-        if (["glances", "immich", "mealie", "pfsense", "pihole"].includes(type)) {
+        if (["beszel", "glances", "immich", "mealie", "pfsense", "pihole"].includes(type)) {
           if (version) widget.version = parseInt(version, 10);
         }
         if (type === "glances") {
@@ -603,6 +617,7 @@ export function findGroupByName(groups, name) {
     } else if (group.groups) {
       const foundGroup = findGroupByName(group.groups, name);
       if (foundGroup) {
+        foundGroup.parent = group;
         return foundGroup;
       }
     }

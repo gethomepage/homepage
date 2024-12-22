@@ -45,7 +45,12 @@ export default async function beszelProxyHandler(req, res) {
 
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
-      const loginUrl = formatApiCall(widgets[widget.type].api, { endpoint: "admins/auth-with-password", ...widget });
+      let authEndpointVersion = "authv1";
+      if (widget.version === 2) authEndpointVersion = "authv2";
+      const loginUrl = formatApiCall(widgets[widget.type].api, {
+        endpoint: widgets[widget.type].mappings[authEndpointVersion].endpoint,
+        ...widget,
+      });
 
       let status;
       let data;
@@ -54,7 +59,7 @@ export default async function beszelProxyHandler(req, res) {
       if (!token) {
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
         if (status !== 200) {
-          logger.debug(`HTTP ${status} logging into npm api: ${token}`);
+          logger.debug(`HTTP ${status} logging into Beszel: ${token}`);
           return res.status(status).send(token);
         }
       }
@@ -68,12 +73,12 @@ export default async function beszelProxyHandler(req, res) {
       });
 
       if (status === 403) {
-        logger.debug(`HTTP ${status} retrieving data from npm api, logging in and trying again.`);
+        logger.debug(`HTTP ${status} retrieving data from Beszel, logging in and trying again.`);
         cache.del(`${tokenCacheKey}.${service}`);
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
 
         if (status !== 200) {
-          logger.debug(`HTTP ${status} logging into npm api: ${data}`);
+          logger.debug(`HTTP ${status} logging into Beszel: ${data}`);
           return res.status(status).send(data);
         }
 

@@ -120,7 +120,7 @@
         "grid_power": "Mřížka",
         "home_power": "Spotřeba",
         "charge_power": "Nabíječka",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Stahování",

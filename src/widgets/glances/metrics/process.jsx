@@ -63,7 +63,7 @@ export default function Component({ service }) {
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
-                    value: item.memory_info[memoryInfoKey],
+                    value: item.memory_info[memoryInfoKey] ?? item.memory_info.wset,
                     maximumFractionDigits: 0,
                   })}
                 </div>

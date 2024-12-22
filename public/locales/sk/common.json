@@ -120,7 +120,7 @@
         "grid_power": "Mriežka",
         "home_power": "Spotreba",
         "charge_power": "Nabíjačka",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Sťahovanie",

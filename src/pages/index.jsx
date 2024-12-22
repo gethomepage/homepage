@@ -359,7 +359,7 @@ function Home({ initialSettings }) {
   return (
     <>
       <Head>
-        <title>{settings.title || "Homepage"}</title>
+        <title>{initialSettings.title || "Homepage"}</title>
         {settings.base && <base href={settings.base} />}
         {settings.favicon ? (
           <>

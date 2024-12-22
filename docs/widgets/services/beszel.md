@@ -12,6 +12,11 @@ The `systemID` in the `id` field on the collections page of Beszel.
 Allowed fields for 'overview' mode: `["systems", "up"]`
 Allowed fields for a single system: `["name", "status", "updated", "cpu", "memory", "disk", "network"]`
 
+| Beszel Version | Homepage Widget Version |
+| -------------- | ----------------------- |
+| < 0.9.0        | 1 (default)             |
+| >= 0.9.0       | 2                       |
+
 ```yaml
 widget:
   type: beszel
@@ -19,4 +24,5 @@ widget:
   username: username # email
   password: password
   systemId: systemId # optional
+  version: 2 # optional, default is 1
 ```

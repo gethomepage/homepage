@@ -120,7 +120,7 @@
         "grid_power": "Сітка",
         "home_power": "Споживання",
         "charge_power": "Зарядний пристрій",
-        "watt_hour": "Вт/год"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Завантажено",
@@ -311,13 +311,13 @@
     },
     "suwayomi": {
         "download": "Завантажено",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "Не завантажено",
         "read": "Прочитано",
         "unread": "Не прочитано",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Завантажено та Прочитано",
+        "downloadedunread": "Завантажено та Непрочитано",
+        "nondownloadedread": "Не завантажено та Прочитано",
+        "nondownloadedunread": "Не завантажено та Не прочитано"
     },
     "tailscale": {
         "address": "Адреса",
@@ -965,10 +965,10 @@
         "none": "Жодного"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "Активні проекти",
+        "tasks7d": "Завдання цього тижня",
+        "tasksOverdue": "Прострочені завдання",
+        "tasksInProgress": "Завдання в процесі"
     },
     "headscale": {
         "name": "Назва",
@@ -980,32 +980,32 @@
     },
     "beszel": {
         "name": "Назва",
-        "systems": "Systems",
+        "systems": "Системи",
         "up": "Онлайн",
         "status": "Стан",
         "updated": "Оновлено",
         "cpu": "ЦП",
         "memory": "ОЗП",
-        "disk": "Disk",
-        "network": "NET"
+        "disk": "Диск",
+        "network": "МЕРЕЖА"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Додатки",
+        "synced": "Синхронізовано",
+        "outOfSync": "Не синхронізовано",
         "healthy": "Здоровий",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Деградує",
+        "progressing": "Прогрес",
         "missing": "Відсутній",
-        "suspended": "Suspended"
+        "suspended": "Призупинено"
     },
     "spoolman": {
         "loading": "Завантажую"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Групи",
         "issues": "Питання",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Запити на злиття",
+        "projects": "Проєкти"
     }
 }
