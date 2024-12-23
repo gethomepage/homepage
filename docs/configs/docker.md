@@ -136,6 +136,29 @@ When your Docker instance has been properly configured, this service will be aut
 
 **When using docker swarm use _deploy/labels_**
 
+
+### Replacement strings in labels
+
+Homepage will substitue `${name}` and `${image}` with the container name and image respectively.
+
+```yaml
+services:
+  emby:
+    image: lscr.io/linuxserver/emby:latest
+    container_name: emby
+    ports:
+      - 8096:8096
+    restart: unless-stopped
+    labels:
+      - homepage.group=Media
+      - homepage.name=$${name} # Will be replaced with 'emby'
+      - homepage.icon=emby.png
+      - homepage.href=http://emby.home/
+      - homepage.description=$${image} # Will be replaced with 'lscr.io/linuxserver/emby:latest'
+```
+Note the double `$$` used in YAML. How to enter a `$` character might differ depending on you service configuration language.
+
+
 ## Widgets
 
 You may also configure widgets, along with the standard service entry, again, using dot notation.

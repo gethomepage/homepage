@@ -93,6 +93,12 @@ export async function servicesFromDocker() {
           let constructedService = null;
           const containerLabels = isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels;
           const containerName = isSwarm ? shvl.get(container, "Spec.Name") : container.Names[0];
+          const containerImage = isSwarm ? shvl.get(container, "Spec.Image") : container.Image;
+
+          const replacements = {
+            name: containerName.replace(/^\//, ""),
+            image: containerImage
+          }
 
           Object.keys(containerLabels).forEach((label) => {
             if (label.startsWith("homepage.")) {
@@ -114,6 +120,9 @@ export async function servicesFromDocker() {
               if (value === "widget.version") {
                 substitutedVal = parseInt(substitutedVal, 10);
               }
+              Object.keys(replacements).forEach((replacement) => {
+                substitutedVal = substitutedVal.replace(`\${${replacement}}`, replacements[replacement]);
+              });
               shvl.set(constructedService, value, substitutedVal);
             }
           });
