@@ -15,6 +15,7 @@ export default function ServicesGroup({
   disableCollapse,
   useEqualHeights,
   groupsInitiallyCollapsed,
+  isSubgroup,
 }) {
   const panel = useRef();
 
@@ -22,14 +23,22 @@ export default function ServicesGroup({
     if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
   }, [layout, groupsInitiallyCollapsed]);
 
+  let groupMargin = layout?.header === false ? "-my-1" : "";
+  if (isSubgroup && layout?.header === false) groupMargin = "-my-3";
+
+  let groupPadding = layout?.header === false ? "px-1" : "p-1";
+  if (isSubgroup) groupPadding = "";
+
   return (
     <div
       key={group.name}
       className={classNames(
-        "services-group",
+        "services-group flex-1",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
         layout?.style !== "row" && fiveColumns ? "3xl:basis-1/5" : "",
-        layout?.header === false ? "flex-1 px-1 -my-1" : "flex-1 p-1",
+        groupMargin,
+        groupPadding,
+        isSubgroup ? "subgroup" : "",
       )}
     >
       <Disclosure defaultOpen={!(layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) ?? true}>
@@ -96,6 +105,7 @@ export default function ServicesGroup({
                         disableCollapse={disableCollapse}
                         useEqualHeights={useEqualHeights}
                         groupsInitiallyCollapsed={groupsInitiallyCollapsed}
+                        isSubgroup
                       />
                     ))}
                   </div>
