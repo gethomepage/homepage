@@ -107,7 +107,11 @@ export default function Component({ service }) {
   }
 
   return (
-    <Container chart={chart} className="bg-gradient-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10">
+    <Container chart={chart}>
+      {chart && (
+        <div className="bg-gradient-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10 absolute -top-2 -left-2 -right-2 -bottom-2 h-[calc(100%+1em)] w-[calc(100%+1em)]" />
+      )}
+
       <Block position="top-3 right-3">
         {quicklookData && quicklookData.cpu_name && chart && (
           <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name}</div>
