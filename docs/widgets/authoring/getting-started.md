@@ -48,7 +48,7 @@ self-hosted / open-source alternative, we ask that any widgets, etc. are develop
 
 ## New Feature Guidelines
 
-- New features should usually be linked to an existing feature request. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
+- New features should be linked to an existing feature request. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
 - If you have ideas for a larger feature you may want to open a discussion first.
 
 ## Service Widget Guidelines
