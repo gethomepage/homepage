@@ -297,7 +297,6 @@ function Home({ initialSettings }) {
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
-                  bookmarksStyle={settings.bookmarksStyle}
                 />
               ) : (
                 <BookmarksGroup
