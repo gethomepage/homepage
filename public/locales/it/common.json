@@ -335,7 +335,7 @@
     },
     "technitium": {
         "totalQueries": "Richieste",
-        "totalNoError": "Success",
+        "totalNoError": "Successo",
         "totalServerFailure": "Failures",
         "totalNxDomain": "NX Domains",
         "totalRefused": "Refused",
@@ -590,7 +590,7 @@
         "total": "Totale"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
+        "battery_charge": "Carica Batteria",
         "ups_load": "Carico UPS",
         "ups_status": "Stato UPS",
         "online": "Online",
@@ -854,7 +854,7 @@
     },
     "romm": {
         "platforms": "Piattaforme",
-        "totalRoms": "Games",
+        "totalRoms": "Giochi",
         "saves": "Saves",
         "states": "States",
         "screenshots": "Screenshots",
@@ -890,7 +890,7 @@
         "sceneDuration": "Durata Delle Scene",
         "images": "Immagini",
         "imageSize": "Dimensioni immagine",
-        "galleries": "Galleries",
+        "galleries": "Gallerie",
         "performers": "Esecutori",
         "studios": "Studi",
         "movies": "Film",
@@ -933,7 +933,7 @@
     },
     "stocks": {
         "stocks": "Stocks",
-        "loading": "Loading",
+        "loading": "Caricamento",
         "open": "Open - US Market",
         "closed": "Closed - US Market",
         "invalidConfiguration": "Invalid Configuration"
@@ -944,8 +944,8 @@
         "version": "Versione"
     },
     "linkwarden": {
-        "links": "Links",
-        "collections": "Collections",
+        "links": "Collegamenti",
+        "collections": "Raccolte",
         "tags": "Tag"
     },
     "zabbix": {
@@ -957,12 +957,12 @@
         "disaster": "Disaster"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
+        "vehicle": "Veicolo",
+        "vehicles": "Veicoli",
         "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "reminders": "Promemoria",
+        "nextReminder": "Promemoria Seguente",
+        "none": "Nessuno"
     },
     "vikunja": {
         "projects": "Active Projects",
@@ -1000,7 +1000,7 @@
         "suspended": "Suspended"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "Caricamento"
     },
     "gitlab": {
         "groups": "Groups",
