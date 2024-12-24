@@ -31,13 +31,17 @@ export default function Component({ service }) {
     lastSeen,
     online,
   } = nodeData.node;
-
+  const statusIndicator = online ? (
+    <span className="text-green-500">{t("headscale.online")}</span>
+  ) : (
+    <span className="text-red-500">{t("headscale.offline")}</span>
+  );
   return (
     <Container service={service}>
       <Block label="headscale.name" value={givenName} />
       <Block label="headscale.address" value={address} />
       <Block label="headscale.last_seen" value={t("common.relativeDate", { value: lastSeen })} />
-      <Block label="headscale.status" value={t(online ? "headscale.online" : "headscale.offline")} />
+      <Block label="headscale.status" value={statusIndicator} />
     </Container>
   );
 }
