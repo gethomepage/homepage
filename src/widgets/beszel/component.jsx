@@ -20,8 +20,20 @@ export default function Component({ service }) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
-  if (systemsError) {
-    return <Container service={service} error={systemsError} />;
+  let system = null;
+  let finalError = systemsError;
+
+  if (systems && !systems.items) {
+    finalError = { message: "No items returned from beszel API" };
+  } else if (systems && systems.items && systemId) {
+    system = systems.items.find((item) => item.id === systemId);
+    if (!system) {
+      finalError = { message: `System with id ${systemId} not found` };
+    }
+  }
+
+  if (finalError) {
+    return <Container service={service} error={finalError} />;
   }
 
   if (!systems) {
@@ -33,9 +45,7 @@ export default function Component({ service }) {
     );
   }
 
-  if (systemId) {
-    const system = systems.items.find((item) => item.id === systemId);
-
+  if (system) {
     return (
       <Container service={service}>
         <Block label="beszel.name" value={system.name} />
