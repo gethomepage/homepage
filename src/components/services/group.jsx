@@ -23,10 +23,7 @@ export default function ServicesGroup({
     if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
   }, [layout, groupsInitiallyCollapsed]);
 
-  let groupMargin = layout?.header === false ? "-my-1" : "";
-  if (isSubgroup && layout?.header === false) groupMargin = "-my-3";
-
-  let groupPadding = layout?.header === false ? "px-1" : "p-1";
+  let groupPadding = layout?.header === false ? "px-1" : "p-1 pb-0";
   if (isSubgroup) groupPadding = "";
 
   return (
@@ -36,7 +33,6 @@ export default function ServicesGroup({
         "services-group flex-1",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
         layout?.style !== "row" && fiveColumns ? "3xl:basis-1/5" : "",
-        groupMargin,
         groupPadding,
         isSubgroup ? "subgroup" : "",
       )}
@@ -89,6 +85,7 @@ export default function ServicesGroup({
                   services={group.services}
                   layout={layout}
                   useEqualHeights={useEqualHeights}
+                  header={layout?.header !== false}
                 />
                 {group.groups?.length > 0 && (
                   <div
