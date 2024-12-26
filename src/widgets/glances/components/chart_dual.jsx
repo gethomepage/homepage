@@ -8,7 +8,7 @@ class ChartDual extends PureComponent {
     const { dataPoints, formatter, stack, label, stackOffset } = this.props;
 
     return (
-      <div className="absolute -top-1 -left-1 h-[120px] w-[calc(100%+0.5em)] z-0">
+      <div className="absolute -top-10 -left-2 h-[calc(100%+3em)] w-[calc(100%+1em)] z-0">
         <div className="overflow-clip z-10 w-full h-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={dataPoints} stackOffset={stackOffset ?? "none"}>

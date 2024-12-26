@@ -86,7 +86,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
           <div
             className={`absolute top-0 right-0 flex flex-row justify-end ${
               statusStyle === "dot" ? "gap-0" : "gap-2 mr-2"
-            } z-30 service-tags`}
+            } z-10 service-tags`}
           >
             {service.ping && (
               <div className="flex-shrink-0 flex items-center justify-center service-tag service-ping">

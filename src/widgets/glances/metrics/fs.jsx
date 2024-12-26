@@ -43,7 +43,7 @@ export default function Component({ service }) {
   return (
     <Container chart={chart}>
       {chart && (
-        <div className="absolute top-0 left-0 right-0 bottom-0">
+        <div className="absolute -top-2 -left-2 -right-2 -bottom-2">
           <div
             style={{
               height: `${Math.max(20, fsData.size / fsData.free)}%`,

@@ -59,7 +59,7 @@ export default async function beszelProxyHandler(req, res) {
       if (!token) {
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
         if (status !== 200) {
-          logger.debug(`HTTP ${status} logging into Beszel: ${token}`);
+          logger.debug(`HTTP ${status} logging into Beszel: ${JSON.stringify(token)}`);
           return res.status(status).send(token);
         }
       }
@@ -72,13 +72,13 @@ export default async function beszelProxyHandler(req, res) {
         },
       });
 
-      if (status === 403) {
+      if ([400, 403].includes(status)) {
         logger.debug(`HTTP ${status} retrieving data from Beszel, logging in and trying again.`);
         cache.del(`${tokenCacheKey}.${service}`);
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
 
         if (status !== 200) {
-          logger.debug(`HTTP ${status} logging into Beszel: ${data}`);
+          logger.debug(`HTTP ${status} logging into Beszel: ${JSON.stringify(data)}`);
           return res.status(status).send(data);
         }
 
