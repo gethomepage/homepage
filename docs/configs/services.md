@@ -21,6 +21,23 @@ Groups are defined as top-level array entries.
 
 <img width="1038" alt="Service Groups" src="https://user-images.githubusercontent.com/82196/187040754-28065242-4534-4409-881c-93d1921c6141.png">
 
+### Nested Groups
+
+Groups can be nested by using the same format as the top-level groups.
+
+```yaml
+- Group A:
+    - Service A:
+        href: http://localhost/
+
+    - Group B:
+        - Service B:
+            href: http://localhost/
+
+        - Service C:
+            href: http://localhost/
+```
+
 ## Services
 
 Services are defined as array entries on groups,
@@ -42,6 +59,60 @@ Services are defined as array entries on groups,
 ```
 
 <img width="1038" alt="Service Services" src="https://user-images.githubusercontent.com/82196/187040763-038023a2-8bee-4d87-b5cc-13447e7365a4.png">
+
+### Service Widgets
+
+Each service can have widgets attached to it (often matching the service type, but that's not forced).
+
+In addition to the href of the service, you can also specify the target location in which to open that link. See [Link Target](settings.md#link-target) for more details.
+
+Using Emby as an example, this is how you would attach the Emby service widget.
+
+```yaml
+- Emby:
+    icon: emby.png
+    href: http://emby.host.or.ip/
+    description: Movies & TV Shows
+    widget:
+      type: emby
+      url: http://emby.host.or.ip
+      key: apikeyapikeyapikeyapikeyapikey
+```
+
+#### Multiple Widgets
+
+Each service can have multiple widgets attached to it, for example:
+
+```yaml
+- Emby:
+    icon: emby.png
+    href: http://emby.host.or.ip/
+    description: Movies & TV Shows
+    widgets:
+      - type: emby
+        url: http://emby.host.or.ip
+        key: apikeyapikeyapikeyapikeyapikey
+      - type: uptimekuma
+        url: http://uptimekuma.host.or.ip:port
+        slug: statuspageslug
+```
+
+#### Field Visibility
+
+Each widget can optionally provide a list of which fields should be visible via the `fields` widget property. If no fields are specified, then all fields will be displayed. The `fields` property must be a valid YAML array of strings. As an example, here is the entry for Sonarr showing only a couple of fields.
+
+**In all cases a widget will work and display all fields without specifying the `fields` property.**
+
+```yaml
+- Sonarr:
+    icon: sonarr.png
+    href: http://sonarr.host.or.ip
+    widget:
+      type: sonarr
+      fields: ["wanted", "queued"]
+      url: http://sonarr.host.or.ip
+      key: apikeyapikeyapikeyapikeyapikey
+```
 
 ## Descriptions
 

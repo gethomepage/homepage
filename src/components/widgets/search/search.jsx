@@ -94,6 +94,7 @@ export default function Search({ options }) {
     if (
       options.showSearchSuggestions &&
       (selectedProvider.suggestionUrl || options.suggestionUrl) && // custom providers pass url via options
+      query.trim().length > 0 &&
       query.trim() !== searchSuggestions[0]
     ) {
       fetch(`/api/search/searchSuggestion?query=${encodeURIComponent(query)}&providerName=${selectedProvider.name}`, {

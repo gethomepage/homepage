@@ -291,8 +291,7 @@ function Home({ initialSettings }) {
               group.services ? (
                 <ServicesGroup
                   key={group.name}
-                  group={group.name}
-                  services={group}
+                  group={group}
                   layout={settings.layout?.[group.name]}
                   fiveColumns={settings.fiveColumns}
                   disableCollapse={settings.disableCollapse}
@@ -316,8 +315,7 @@ function Home({ initialSettings }) {
             {serviceGroups.map((group) => (
               <ServicesGroup
                 key={group.name}
-                group={group.name}
-                services={group}
+                group={group}
                 layout={settings.layout?.[group.name]}
                 fiveColumns={settings.fiveColumns}
                 disableCollapse={settings.disableCollapse}
@@ -335,6 +333,7 @@ function Home({ initialSettings }) {
                 layout={settings.layout?.[group.name]}
                 disableCollapse={settings.disableCollapse}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
+                bookmarksStyle={settings.bookmarksStyle}
               />
             ))}
           </div>
@@ -352,13 +351,14 @@ function Home({ initialSettings }) {
     settings.useEqualHeights,
     settings.cardBlur,
     settings.groupsInitiallyCollapsed,
+    settings.bookmarksStyle,
     initialSettings.layout,
   ]);
 
   return (
     <>
       <Head>
-        <title>{settings.title || "Homepage"}</title>
+        <title>{initialSettings.title || "Homepage"}</title>
         {settings.base && <base href={settings.base} />}
         {settings.favicon ? (
           <>
@@ -376,8 +376,6 @@ function Home({ initialSettings }) {
         )}
         <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
         <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
-        <link rel="preload" href="/api/config/custom.css" as="style" />
-        <link rel="stylesheet" href="/api/config/custom.css" /> {/* eslint-disable-line @next/next/no-css-tags */}
       </Head>
 
       <Script src="/api/config/custom.js" />
@@ -454,6 +452,7 @@ function Home({ initialSettings }) {
 }
 
 export default function Wrapper({ initialSettings, fallback }) {
+  const { theme } = useContext(ThemeContext);
   const wrappedStyle = {};
   let backgroundBlur = false;
   let backgroundSaturate = false;
@@ -484,8 +483,9 @@ export default function Wrapper({ initialSettings, fallback }) {
       id="page_wrapper"
       className={classNames(
         "relative",
-        initialSettings.theme && initialSettings.theme,
+        theme && theme,
         initialSettings.color && `theme-${initialSettings.color}`,
+        theme === "dark" ? "scheme-dark" : "scheme-light",
       )}
     >
       <div

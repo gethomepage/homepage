@@ -131,13 +131,13 @@ function toError(url, synologyError) {
 }
 
 export default async function synologyProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   if (!group || !service) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const serviceWidget = await getServiceWidget(group, service);
+  const serviceWidget = await getServiceWidget(group, service, index);
   const widget = widgets?.[serviceWidget.type];
   const mapping = widget?.mappings?.[endpoint];
   if (!widget.api || !mapping) {

@@ -107,8 +107,12 @@ export default function Component({ service }) {
   }
 
   return (
-    <Container chart={chart} className="bg-gradient-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10">
-      <Block position="top-3 right-3">
+    <Container chart={chart}>
+      {chart && (
+        <div className="bg-gradient-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10 absolute -top-10 -left-2 -right-2 -bottom-2 h-[calc(100%+3em)] w-[calc(100%+1em)]" />
+      )}
+
+      <Block position="-top-6 right-2">
         {quicklookData && quicklookData.cpu_name && chart && (
           <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name}</div>
         )}
@@ -124,7 +128,7 @@ export default function Component({ service }) {
       </Block>
 
       {chart && (
-        <Block position="bottom-3 left-3">
+        <Block position="bottom-3 left-2">
           {systemData && systemData.linux_distro && <div className="text-xs opacity-50">{systemData.linux_distro}</div>}
           {systemData && systemData.os_version && <div className="text-xs opacity-50">{systemData.os_version}</div>}
           {systemData && systemData.hostname && <div className="text-xs opacity-75">{systemData.hostname}</div>}
@@ -137,7 +141,7 @@ export default function Component({ service }) {
         </Block>
       )}
 
-      <Block position="bottom-3 right-3 w-[4rem]">
+      <Block position="bottom-3 right-2 w-[4rem]">
         {chart && <CPU quicklookData={quicklookData} className="opacity-50" />}
 
         {chart && <Mem quicklookData={quicklookData} className="opacity-50" />}
