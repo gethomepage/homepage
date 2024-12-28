@@ -24,9 +24,9 @@ export default function BookmarksGroup({
     <div
       key={bookmarks.name}
       className={classNames(
-        "bookmark-group",
+        "bookmark-group flex-1 overflow-hidden",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/4 lg:basis-1/5 xl:basis-1/6",
-        layout?.header === false ? "flex-1 px-1 -my-1 overflow-hidden" : "flex-1 p-1 overflow-hidden",
+        layout?.header === false ? "px-1" : "p-1 pb-0",
       )}
     >
       <Disclosure defaultOpen={!(layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) ?? true}>
