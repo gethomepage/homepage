@@ -13,6 +13,14 @@ You can customize the title of the page if you'd like.
 title: My Awesome Homepage
 ```
 
+## Description
+
+You can customize the description of the page if you'd like.
+
+```yaml
+description: A description of my awesome homepage
+```
+
 ## Start URL
 
 You can customize the start_url as required for installable apps. The default is "/".
