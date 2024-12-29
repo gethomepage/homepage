@@ -26,7 +26,7 @@ export default function Component({ service }) {
   if (systems && !systems.items) {
     finalError = { message: "No items returned from beszel API" };
   } else if (systems && systems.items && systemId) {
-    system = systems.items.find((item) => item.id === systemId);
+    system = systems.items.find((item) => item.id === systemId || item.name === systemId);
     if (!system) {
       finalError = { message: `System with id ${systemId} not found` };
     }
