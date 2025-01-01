@@ -58,7 +58,7 @@
         "wlan": "WLAN",
         "devices": "Équipt.",
         "lan_devices": "Équipt. LAN",
-        "wlan_devices": "Équipt. WLAN",
+        "wlan_devices": "Périphériques WLAN",
         "lan_users": "Utilisateurs LAN",
         "wlan_users": "Utilisateurs WLAN",
         "up": "Up",
@@ -982,6 +982,9 @@
         "name": "Nom",
         "systems": "Systèmes",
         "up": "Up",
+        "down": "Down",
+        "paused": "En Pause",
+        "pending": "En attente",
         "status": "Statut",
         "updated": "Mis à jour",
         "cpu": "CPU",
@@ -990,22 +993,22 @@
         "network": "Réseau"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Applications",
+        "synced": "Synchronisé",
+        "outOfSync": "Désynchronisé",
         "healthy": "Fonctionnel",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Dégradé",
+        "progressing": "En cours",
         "missing": "Manquant",
-        "suspended": "Suspended"
+        "suspended": "Suspendu"
     },
     "spoolman": {
         "loading": "Chargement"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Groupes",
         "issues": "Anomalies",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Demandes de fusion de branches",
+        "projects": "Projets"
     }
 }
