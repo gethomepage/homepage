@@ -311,13 +311,13 @@
     },
     "suwayomi": {
         "download": "Descargado",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "No descargado",
         "read": "Leer",
         "unread": "Sin leer",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Descargado y leído",
+        "downloadedunread": "Descargado y no leído",
+        "nondownloadedread": "No descargado y leído",
+        "nondownloadedunread": "No descargado y no leído"
     },
     "tailscale": {
         "address": "Dirección",
@@ -980,32 +980,35 @@
     },
     "beszel": {
         "name": "Nombre",
-        "systems": "Systems",
+        "systems": "Sistemas",
         "up": "Activo",
+        "down": "Inactivo",
+        "paused": "Pausado",
+        "pending": "Pendiente",
         "status": "Estado",
         "updated": "Actualizado",
         "cpu": "CPU",
         "memory": "MEM",
-        "disk": "Disk",
-        "network": "NET"
+        "disk": "Disco",
+        "network": "RED"
     },
     "argocd": {
         "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "synced": "Sincronizado",
+        "outOfSync": "Desincronizado",
         "healthy": "Saludable",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Degradado",
+        "progressing": "Progresando",
         "missing": "Faltantes",
-        "suspended": "Suspended"
+        "suspended": "Suspendido"
     },
     "spoolman": {
         "loading": "Cargando"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Grupos",
         "issues": "Números",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Solicitudes de fusión",
+        "projects": "Proyectos"
     }
 }
