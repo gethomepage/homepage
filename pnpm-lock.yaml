@@ -87,8 +87,8 @@ importers:
         specifier: ^1.3.0
         version: 1.3.0(react@18.3.1)
       systeminformation:
-        specifier: ^5.23.8
-        version: 5.23.8
+        specifier: ^5.24.3
+        version: 5.24.3
       tough-cookie:
         specifier: ^4.1.3
         version: 4.1.4
@@ -2723,8 +2723,8 @@ packages:
     resolution: {integrity: sha512-7gr8p9TQP6RAHusBOSLs46F4564ZrjV8xFmw5zCmgmhGUcw2hxsShhJ6CEiHQMgPDwAQ1fWHPM0ypc4RMAig4A==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  systeminformation@5.23.8:
-    resolution: {integrity: sha512-Osd24mNKe6jr/YoXLLK3k8TMdzaxDffhpCxgkfgBHcapykIkd50HXThM3TCEuHO2pPuCsSx2ms/SunqhU5MmsQ==}
+  systeminformation@5.24.3:
+    resolution: {integrity: sha512-f7uvLgsQIj9/gNcbNZWgw27sNJO5tQvi2tCo4/eVlynxS5slaa7EAN2vSD5jh0YljyjE8qQZ3qtAr7EkDCRyMw==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -5988,7 +5988,7 @@ snapshots:
       '@pkgr/core': 0.1.1
       tslib: 2.7.0
 
-  systeminformation@5.23.8: {}
+  systeminformation@5.24.3: {}
 
   tailwind-scrollbar@3.1.0(tailwindcss@3.4.17):
     dependencies:
