@@ -10,6 +10,7 @@ import {
   servicesFromDocker,
   cleanServiceGroups,
   servicesFromKubernetes,
+  findGroupByName,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 
@@ -84,6 +85,17 @@ export async function widgetsResponse() {
   return configuredWidgets;
 }
 
+function mergeSubgroups(configuredGroups, mergedGroup) {
+  configuredGroups.forEach((group) => {
+    if (group.name === mergedGroup.name) {
+      // eslint-disable-next-line no-param-reassign
+      group.services = mergedGroup.services;
+    } else if (group.groups) {
+      mergeSubgroups(group.groups, mergedGroup);
+    }
+  });
+}
+
 export async function servicesResponse() {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
@@ -140,25 +152,29 @@ export async function servicesResponse() {
   const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
 
   mergedGroupsNames.forEach((groupName) => {
-    const discoveredDockerGroup = discoveredDockerServices.find((group) => group.name === groupName) || {
+    const discoveredDockerGroup = findGroupByName(discoveredDockerServices, groupName) || {
       services: [],
     };
-    const discoveredKubernetesGroup = discoveredKubernetesServices.find((group) => group.name === groupName) || {
+    const discoveredKubernetesGroup = findGroupByName(discoveredKubernetesServices, groupName) || {
       services: [],
     };
-    const configuredGroup = configuredServices.find((group) => group.name === groupName) || { services: [] };
+    const configuredGroup = findGroupByName(configuredServices, groupName) || { services: [], groups: [] };
 
     const mergedGroup = {
       name: groupName,
       services: [...discoveredDockerGroup.services, ...discoveredKubernetesGroup.services, ...configuredGroup.services]
         .filter((service) => service)
         .sort(compareServices),
+      groups: [...configuredGroup.groups],
     };
 
     if (definedLayouts) {
       const layoutIndex = definedLayouts.findIndex((layout) => layout === mergedGroup.name);
       if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
-      else unsortedGroups.push(mergedGroup);
+      else if (configuredGroup.parent) {
+        // this is a nested group, so find the parent group and merge the services
+        mergeSubgroups(configuredServices, mergedGroup);
+      } else unsortedGroups.push(mergedGroup);
     } else {
       unsortedGroups.push(mergedGroup);
     }

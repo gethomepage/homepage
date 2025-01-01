@@ -120,7 +120,7 @@
         "grid_power": "شبكة",
         "home_power": "الاستهلاك",
         "charge_power": "شاحن",
-        "watt_hour": "واط ساعة"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "التنزيل",
@@ -982,6 +982,9 @@
         "name": "الاسم",
         "systems": "Systems",
         "up": "يعمل",
+        "down": "لا يعمل",
+        "paused": "متوقف",
+        "pending": "معلق",
         "status": "الحالة",
         "updated": "محدث",
         "cpu": "المعالج",

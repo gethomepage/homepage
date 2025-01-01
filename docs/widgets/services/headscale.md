@@ -14,6 +14,7 @@ Allowed fields: `["name", "address", "last_seen", "status"]`.
 ```yaml
 widget:
   type: headscale
+  url: http://headscale.host.or.ip:port
   nodeId: nodeid
   key: headscaleapiaccesstoken
 ```

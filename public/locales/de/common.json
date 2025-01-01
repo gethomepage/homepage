@@ -120,7 +120,7 @@
         "grid_power": "Netz",
         "home_power": "verbauch",
         "charge_power": "Ladegerät",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",
@@ -982,6 +982,9 @@
         "name": "Name",
         "systems": "Systeme",
         "up": "Senden",
+        "down": "Empfangen",
+        "paused": "Pausiert",
+        "pending": "Ausstehend",
         "status": "Status",
         "updated": "Aktualisiert",
         "cpu": "CPU",
@@ -1003,9 +1006,9 @@
         "loading": "Wird geladen"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Gruppen",
         "issues": "Probleme",
         "merges": "Merge Requests",
-        "projects": "Projects"
+        "projects": "Projekte"
     }
 }

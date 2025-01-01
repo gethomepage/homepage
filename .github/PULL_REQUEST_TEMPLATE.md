@@ -1,3 +1,14 @@
+<!--
+==== STOP ====================
+======== STOP ================
+============ STOP ============
+================ STOP ========
+==================== STOP ====
+
+⚠️ Before opening this pull request please review the guidelines in the checklist below.
+If this PR does not meet those guidelines it will not be accepted, and everyone will be sad.
+-->
+
 ## Proposed change
 
 <!--

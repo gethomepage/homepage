@@ -3,7 +3,7 @@ title: Open-Meteo
 description: Open-Meteo Information Widget Configuration
 ---
 
-No registration is required at all! See [https://open-meteo.com/en/docs](https://open-meteo.com/en/docs)
+Homepage's recommended weather widget. No registration is required at all! See [https://open-meteo.com/en/docs](https://open-meteo.com/en/docs)
 
 ```yaml
 - openmeteo:
