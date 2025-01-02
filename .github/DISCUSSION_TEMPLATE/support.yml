@@ -54,3 +54,11 @@ body:
       description: Please include output from your [troubleshooting tests](https://gethomepage.dev/more/troubleshooting/#service-widget-errors), if relevant.
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ STOP ⚠️
+
+        Before you submit this support request, please ensure you have entered your configuration files and actually followed the steps from the troubleshooting guide linked above, if relevant. The troubleshooting steps often help to solve the problem.
+
+        *Please remember that this project is maintained by regular people **just like you**, so if you don't take the time to fill out the requested information, don't expect a reply back.*

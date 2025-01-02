@@ -171,7 +171,7 @@ export async function servicesResponse() {
     if (definedLayouts) {
       const layoutIndex = definedLayouts.findIndex((layout) => layout === mergedGroup.name);
       if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
-      else if (configuredGroup.name) {
+      else if (configuredGroup.parent) {
         // this is a nested group, so find the parent group and merge the services
         mergeSubgroups(configuredServices, mergedGroup);
       } else unsortedGroups.push(mergedGroup);

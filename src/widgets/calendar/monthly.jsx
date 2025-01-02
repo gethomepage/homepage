@@ -9,7 +9,7 @@ const cellStyle = "relative w-10 flex items-center justify-center flex-col";
 const monthButton = "pl-6 pr-6 ml-2 mr-2 hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
 
 export function Day({ weekNumber, weekday, events, colorVariants, showDate, setShowDate, currentDate }) {
-  const cellDate = showDate.set({ weekday, weekNumber }).startOf("day");
+  const cellDate = showDate.set({ weekday, weekNumber, weekYear: showDate.year }).startOf("day");
   const filteredEvents = events?.filter((event) => compareDateTimezone(cellDate, event));
 
   const dayStyles = (displayDate) => {
@@ -35,7 +35,7 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
       // today style
       style += "text-black-500 bg-theme-100/20 dark:bg-black/20 rounded-md ";
     } else {
-      style += "hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer ";
+      style += "hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
     }
 
     return style;

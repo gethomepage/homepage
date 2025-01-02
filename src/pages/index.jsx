@@ -297,7 +297,6 @@ function Home({ initialSettings }) {
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
-                  bookmarksStyle={settings.bookmarksStyle}
                 />
               ) : (
                 <BookmarksGroup
@@ -359,7 +358,14 @@ function Home({ initialSettings }) {
   return (
     <>
       <Head>
-        <title>{settings.title || "Homepage"}</title>
+        <title>{initialSettings.title || "Homepage"}</title>
+        <meta
+          name="description"
+          content={
+            initialSettings.description ||
+            "A highly customizable homepage (or startpage / application dashboard) with Docker and service API integrations."
+          }
+        />
         {settings.base && <base href={settings.base} />}
         {settings.favicon ? (
           <>
