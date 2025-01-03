@@ -11,7 +11,7 @@ Learn more about [Gluetun](https://github.com/qdm12/gluetun).
 
 Allowed fields: `["public_ip", "region", "country"]`.
 
-To setup authentication, follow [the official Gluetun documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/control-server.md#authentication).
+To setup authentication, follow [the official Gluetun documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/control-server.md#authentication). Note that to use the api key method, you must add the route `GET /v1/publicip/ip` to the `routes` array in your Gluetun config.toml.
 
 ```yaml
 widget:
@@ -19,5 +19,3 @@ widget:
   url: http://gluetun.host.or.ip:port
   key: gluetunkey # Not required if /v1/publicip/ip endpoint is configured with `auth = none`
 ```
-
-If using the `auth = apikey` method, add the route `GET /v1/publicip/ip`  to the `routes` array in order for Homepage to be able to fetch stats.
