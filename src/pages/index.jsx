@@ -459,7 +459,7 @@ function Home({ initialSettings }) {
 }
 
 export default function Wrapper({ initialSettings, fallback }) {
-  const { theme } = useContext(ThemeContext);
+  const { themeContext } = useContext(ThemeContext);
   const wrappedStyle = {};
   let backgroundBlur = false;
   let backgroundSaturate = false;
@@ -490,9 +490,9 @@ export default function Wrapper({ initialSettings, fallback }) {
       id="page_wrapper"
       className={classNames(
         "relative",
-        theme && theme,
+        initialSettings.theme && initialSettings.theme,
         initialSettings.color && `theme-${initialSettings.color}`,
-        theme === "dark" ? "scheme-dark" : "scheme-light",
+        themeContext === "dark" ? "scheme-dark" : "scheme-light",
       )}
     >
       <div
