@@ -19,3 +19,5 @@ widget:
   url: http://gluetun.host.or.ip:port
   key: gluetunkey # Not required if /v1/publicip/ip endpoint is configured with `auth = none`
 ```
+
+If using the `auth = apikey` method, add the route `GET /v1/publicip/ip`  to the `routes` array in order for Homepage to be able to fetch stats.
