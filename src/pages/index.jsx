@@ -166,6 +166,18 @@ const headerStyles = {
   boxedWidgets: "m-5 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
 };
 
+function getAllServices(services) {
+  function get(sg) {
+    let nestedServices = [...sg.services];
+    if (sg.groups.length > 0) {
+      nestedServices = [...nestedServices, ...sg.groups.map(get).flat()];
+    }
+    return nestedServices;
+  }
+
+  return [...services.map(get).flat()];
+}
+
 function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
@@ -182,10 +194,9 @@ function Home({ initialSettings }) {
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
-  const servicesAndBookmarks = [
-    ...services.map((sg) => sg.services).flat(),
-    ...bookmarks.map((bg) => bg.bookmarks).flat(),
-  ].filter((i) => i?.href);
+  const servicesAndBookmarks = [...bookmarks.map((bg) => bg.bookmarks).flat(), ...getAllServices(services)].filter(
+    (i) => i?.href,
+  );
 
   useEffect(() => {
     if (settings.language) {
