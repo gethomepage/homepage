@@ -116,27 +116,29 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
     );
   }
 
+  if (icon.endsWith(".webp")) {
+    const iconName = icon.replace(".webp", "");
+    return (
+      <Image
+        src={`https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/${iconName}.webp`}
+        width={width}
+        height={height}
+        style={{
+          width,
+          height,
+          objectFit: "contain",
+          maxHeight: "100%",
+          maxWidth: "100%",
+        }}
+        alt={alt}
+      />
+    );
+  }
+
   const iconName = icon.replace(".png", "");
   return (
     <Image
       src={`https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/${iconName}.png`}
-      width={width}
-      height={height}
-      style={{
-        width,
-        height,
-        objectFit: "contain",
-        maxHeight: "100%",
-        maxWidth: "100%",
-      }}
-      alt={alt}
-    />
-  );
-
-  const iconName = icon.replace(".webp", "");
-  return (
-    <Image
-      src={`https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/${iconName}.webp`}
       width={width}
       height={height}
       style={{
