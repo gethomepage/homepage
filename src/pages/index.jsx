@@ -168,11 +168,10 @@ const headerStyles = {
 
 function getAllServices(services) {
   function get(sg) {
-    let nestedServices = [];
+    let nestedServices = [...sg.services];
     if (sg.groups.length > 0) {
       nestedServices = [...nestedServices, ...sg.groups.map(get).flat()];
     }
-    nestedServices = [...nestedServices, ...sg.services.flat()];
     return nestedServices;
   }
 
