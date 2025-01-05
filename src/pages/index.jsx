@@ -167,15 +167,15 @@ const headerStyles = {
 };
 
 function getAllServices(services) {
-  function get(sg) {
-    let nestedServices = [...sg.services];
-    if (sg.groups.length > 0) {
-      nestedServices = [...nestedServices, ...sg.groups.map(get).flat()];
+  function getServices(group) {
+    let nestedServices = [...group.services];
+    if (group.groups.length > 0) {
+      nestedServices = [...nestedServices, ...group.groups.map(getServices).flat()];
     }
     return nestedServices;
   }
 
-  return [...services.map(get).flat()];
+  return [...services.map(getServices).flat()];
 }
 
 function Home({ initialSettings }) {
