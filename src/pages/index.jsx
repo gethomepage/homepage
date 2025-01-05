@@ -167,19 +167,16 @@ const headerStyles = {
 };
 
 function getAllServices(services) {
-  function get(sg){
+  function get(sg) {
     let nestedServices = [];
     if (sg.groups.length > 0) {
-      nestedServices = [...nestedServices, ...sg.groups.map(get).flat()]
+      nestedServices = [...nestedServices, ...sg.groups.map(get).flat()];
     }
-    nestedServices = [...nestedServices, ...sg.services.flat()]
+    nestedServices = [...nestedServices, ...sg.services.flat()];
     return nestedServices;
   }
 
-  return [
-    ...services.map(get).flat()
-  ];
-
+  return [...services.map(get).flat()];
 }
 
 function Home({ initialSettings }) {
@@ -198,10 +195,9 @@ function Home({ initialSettings }) {
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
-  const servicesAndBookmarks = [
-    ...bookmarks.map((bg) => bg.bookmarks).flat(),
-    ...getAllServices(services)
-  ].filter((i) => i?.href);
+  const servicesAndBookmarks = [...bookmarks.map((bg) => bg.bookmarks).flat(), ...getAllServices(services)].filter(
+    (i) => i?.href,
+  );
 
   useEffect(() => {
     if (settings.language) {
