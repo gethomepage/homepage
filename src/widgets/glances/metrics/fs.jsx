@@ -46,7 +46,7 @@ export default function Component({ service }) {
         <div className="absolute -top-2 -left-2 -right-2 -bottom-2">
           <div
             style={{
-              height: `${Math.max(20, fsData.size / fsData.free)}%`,
+              height: `${Math.max(20, (140 * (fsData.size - fsData.free)) / fsData.size)}px`,
             }}
             className="absolute bottom-0 border-t border-t-theme-500 bg-gradient-to-b from-theme-500/40 to-theme-500/10 w-full"
           />
