@@ -134,7 +134,7 @@ Services may have descriptions,
 
 ## Icons
 
-Services may have an icon attached to them, you can use icons from [Dashboard Icons](https://github.com/walkxcode/dashboard-icons) automatically, by passing the name of the icon, with, or without `.png` or with `.svg` to use the svg version.
+Services may have an icon attached to them, you can use icons from [Dashboard Icons](https://github.com/homarr-labs/dashboard-icons) automatically, by passing the name of the icon, with, or without `.png`, `.webp` or `.svg` to specify the desired version.
 
 You can also specify prefixed icons from:
 

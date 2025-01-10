@@ -46,9 +46,9 @@ See the [pre-commit documentation](https://pre-commit.com/#install) to get start
 In general, homepage is meant to be a dashboard for 'self-hosted' services and we believe it is a small way we can help showcase this kind of software. While exceptions are made, mostly when there is no viable
 self-hosted / open-source alternative, we ask that any widgets, etc. are developed primarily for a self-hosted tool.
 
-## New Feature Guidelines
+## New Feature or Enhancement Guidelines {#new-feature-guidelines}
 
-- New features should be linked to an existing feature request. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
+- New features or enhancements, **no matter how small**, must be linked to an existing feature request. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
 - If you have ideas for a larger feature you may want to open a discussion first.
 
 ## Service Widget Guidelines
