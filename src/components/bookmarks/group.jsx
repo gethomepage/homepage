@@ -19,6 +19,7 @@ export default function BookmarksGroup({
   useEffect(() => {
     if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
   }, [layout, groupsInitiallyCollapsed]);
+  const groupDisableCollapse = !!(layout?.disableCollapse ?? disableCollapse)
 
   return (
     <div
@@ -33,7 +34,7 @@ export default function BookmarksGroup({
         {({ open }) => (
           <>
             {layout?.header !== false && (
-              <Disclosure.Button disabled={disableCollapse} className="flex w-full select-none items-center group">
+              <Disclosure.Button disabled={groupDisableCollapse} className="flex w-full select-none items-center group">
                 {layout?.icon && (
                   <div className="flex-shrink-0 mr-2 w-7 h-7 bookmark-group-icon">
                     <ResolvedIcon icon={layout.icon} />
@@ -44,7 +45,7 @@ export default function BookmarksGroup({
                 </h2>
                 <MdKeyboardArrowDown
                   className={classNames(
-                    disableCollapse ? "hidden" : "",
+                    groupDisableCollapse ? "hidden" : "",
                     "transition-all opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl",
                     open ? "" : "rotate-180",
                   )}

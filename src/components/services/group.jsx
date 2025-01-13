@@ -25,6 +25,7 @@ export default function ServicesGroup({
 
   let groupPadding = layout?.header === false ? "px-1" : "p-1 pb-0";
   if (isSubgroup) groupPadding = "";
+  const groupDisableCollapse = !!(layout?.disableCollapse ?? disableCollapse)
 
   return (
     <div
@@ -41,7 +42,7 @@ export default function ServicesGroup({
         {({ open }) => (
           <>
             {layout?.header !== false && (
-              <Disclosure.Button disabled={disableCollapse} className="flex w-full select-none items-center group">
+              <Disclosure.Button disabled={groupDisableCollapse} className="flex w-full select-none items-center group">
                 {layout?.icon && (
                   <div className="flex-shrink-0 mr-2 w-7 h-7 service-group-icon">
                     <ResolvedIcon icon={layout.icon} />
@@ -52,7 +53,7 @@ export default function ServicesGroup({
                 </h2>
                 <MdKeyboardArrowDown
                   className={classNames(
-                    disableCollapse ? "hidden" : "",
+                    groupDisableCollapse ? "hidden" : "",
                     "transition-all opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl",
                     open ? "" : "rotate-180",
                   )}

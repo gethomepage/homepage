@@ -266,11 +266,21 @@ By default homepage will max out at 4 columns for services with `columns` style
 
 ### Collapsible sections
 
-You can disable the collapsible feature of services & bookmarks by adding:
+You can disable the collapsible feature of services & bookmarks by adding `disableCollapse` option to the layout group.
+
+```yaml
+layout:
+  Section A:
+    disableCollapse: true
+```
+
+This can also be set globaly using the `disableCollapse` option.
 
 ```yaml
 disableCollapse: true
 ```
+
+The value set on a group will overwrite the global setting.
 
 By default the feature is enabled.
 
