@@ -35,16 +35,25 @@ export default function Component({ service }) {
   }
 
   const printStatsInfo = printStats.result.status.print_stats.info ?? {};
+  const totalDurationSeconds = printStats.result.status.print_stats.total_duration ?? 0;
+  const fileName = printStats.result.status.print_stats.filename;
   const { current_layer: currentLayer = "-", total_layer: totalLayer = "-" } = printStatsInfo;
 
   return (
-    <Container service={service}>
-      <Block label="moonraker.layers" value={`${currentLayer} / ${totalLayer}`} />
-      <Block
-        label="moonraker.print_progress"
-        value={t("common.percent", { value: displayStatus.result.status.display_status.progress * 100 })}
-      />
-      <Block label="moonraker.print_status" value={printStats.result.status.print_stats.state} />
-    </Container>
+    <>
+      <Container service={service}>
+        {/* current_layer and total_layer variables are not available if not exposed by the slicer */}
+        {currentLayer && totalLayer ? <Block label="moonraker.layers" value={`${currentLayer} / ${totalLayer}`} /> : null}
+        <Block label="moonraker.print_progress" value={t("common.percent", { value: displayStatus.result.status.display_status.progress * 100 })} />
+        {totalDurationSeconds > 0 ? <Block label="moonraker.time" value={t("common.duration", {value: totalDurationSeconds})} /> : null }
+        <Block label="moonraker.print_status" value={printStats.result.status.print_stats.state} />
+      </Container>
+      {fileName ? <div className="flex flex-col pb-1 mx-1">
+        <div
+          className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
+          <span className="absolute left-2 text-xs mt-[2px] w-full truncate pr-3">{fileName}</span>
+        </div>
+      </div> : null }
+    </>
   );
 }
