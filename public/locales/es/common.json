@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "me",
         "days": "d",
         "hours": "h",
@@ -120,7 +120,7 @@
         "grid_power": "Red",
         "home_power": "Consumo",
         "charge_power": "Cargador",
-        "watt_hour": "vatio-hora (Wh)"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Descarga",
@@ -308,6 +308,16 @@
         "running": "Ejecutando",
         "stopped": "Detenido",
         "total": "Total"
+    },
+    "suwayomi": {
+        "download": "Descargado",
+        "nondownload": "No descargado",
+        "read": "Leer",
+        "unread": "Sin leer",
+        "downloadedread": "Descargado y leído",
+        "downloadedunread": "Descargado y no leído",
+        "nondownloadedread": "No descargado y leído",
+        "nondownloadedunread": "No descargado y no leído"
     },
     "tailscale": {
         "address": "Dirección",
@@ -953,5 +963,52 @@
         "reminders": "Recordatorios",
         "nextReminder": "Siguiente recordatorio",
         "none": "Nada"
+    },
+    "vikunja": {
+        "projects": "Proyectos activos",
+        "tasks7d": "Tareas que vencen esta semana",
+        "tasksOverdue": "Tareas vencidas",
+        "tasksInProgress": "Tareas en progreso"
+    },
+    "headscale": {
+        "name": "Nombre",
+        "address": "Dirección",
+        "last_seen": "Visto por última vez",
+        "status": "Estado",
+        "online": "En línea",
+        "offline": "Desconectado"
+    },
+    "beszel": {
+        "name": "Nombre",
+        "systems": "Sistemas",
+        "up": "Activo",
+        "down": "Inactivo",
+        "paused": "Pausado",
+        "pending": "Pendiente",
+        "status": "Estado",
+        "updated": "Actualizado",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disco",
+        "network": "RED"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Sincronizado",
+        "outOfSync": "Desincronizado",
+        "healthy": "Saludable",
+        "degraded": "Degradado",
+        "progressing": "Progresando",
+        "missing": "Faltantes",
+        "suspended": "Suspendido"
+    },
+    "spoolman": {
+        "loading": "Cargando"
+    },
+    "gitlab": {
+        "groups": "Grupos",
+        "issues": "Números",
+        "merges": "Solicitudes de fusión",
+        "projects": "Proyectos"
     }
 }

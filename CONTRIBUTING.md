@@ -63,7 +63,7 @@ The homepage team appreciates all effort and interest from the community in fili
 - Issues, pull requests and discussions that are closed will be locked after 30 days of inactivity.
 - Discussions with a marked answer will be automatically closed.
 - Discussions in the 'General' or 'Support' categories will be closed after 180 days of inactivity.
-- Feature requests that do not meet the following thresholds will be closed: 5 "up-votes" after 180 days of inactivity or 10 "up-votes" after 365 days.
+- Feature requests that do not meet the following thresholds will be closed: 10 "up-votes" after 180 days of inactivity or 20 "up-votes" after 365 days.
 
 In all cases, threads can be re-opened by project maintainers and, of course, users can always create a new discussion for related concerns.
 Finally, remember that all information remains searchable and 'closed' feature requests can still serve as inspiration for new features.

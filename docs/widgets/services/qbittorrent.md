@@ -15,4 +15,5 @@ widget:
   url: http://qbittorrent.host.or.ip
   username: username
   password: password
+  enableLeechProgress: true # optional, defaults to false
 ```

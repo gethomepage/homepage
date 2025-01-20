@@ -5,10 +5,10 @@ import createLogger from "utils/logger";
 const logger = createLogger("calendarProxyHandler");
 
 export default async function calendarProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
     const integration = widget.integrations?.find((i) => i.name === endpoint);
 
     if (integration) {
@@ -21,7 +21,7 @@ export default async function calendarProxyHandler(req, res) {
       if (contentType) res.setHeader("Content-Type", contentType);
 
       if (status !== 200) {
-        logger.debug(`HTTTP ${status} retrieving data from integration URL ${integration.url} : ${data}`);
+        logger.debug(`HTTP ${status} retrieving data from integration URL ${integration.url} : ${data}`);
         return res.status(status).send(data);
       }
 

@@ -39,21 +39,15 @@ export default function Component({ service }) {
       <Block label="audiobookshelf.podcasts" value={t("common.number", { value: totalPodcasts })} />
       <Block
         label="audiobookshelf.podcastsDuration"
-        value={t("common.number", {
-          value: totalPodcastsDuration / 60,
-          maximumFractionDigits: 0,
-          style: "unit",
-          unit: "minute",
+        value={t("common.duration", {
+          value: totalPodcastsDuration,
         })}
       />
       <Block label="audiobookshelf.books" value={t("common.number", { value: totalBooks })} />
       <Block
         label="audiobookshelf.booksDuration"
-        value={t("common.number", {
-          value: totalBooksDuration / 60,
-          maximumFractionDigits: 0,
-          style: "unit",
-          unit: "minute",
+        value={t("common.duration", {
+          value: totalBooksDuration,
         })}
       />
     </Container>

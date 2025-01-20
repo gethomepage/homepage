@@ -26,8 +26,6 @@ on:
   merge_group:
 
 env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
@@ -66,14 +64,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Install the cosign tool except on PR
-      # https://github.com/sigstore/cosign-installer
-      - name: Install cosign
-        if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@main
-        with:
-          cosign-release: 'v1.13.1' # optional
-
       # Setup QEMU
       # https://github.com/marketplace/actions/docker-setup-buildx#with-qemu
       - name: Setup QEMU
@@ -99,9 +89,15 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to Docker Hub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
@@ -109,7 +105,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: |
+            ${{ env.IMAGE_NAME }}
+            ghcr.io/${{ env.IMAGE_NAME }}
           flavor: |
             latest=auto
 
@@ -120,7 +118,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' && !(github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature')) }}
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
@@ -132,19 +130,6 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-
-      # Sign the resulting Docker image digest except on PRs.
-      # This will only write to the public Rekor transparency log when the Docker
-      # repository is public to avoid leaking data.  If you would like to publish
-      # transparency data even for private images, pass --force to cosign below.
-      # https://github.com/sigstore/cosign
-#       - name: Sign the published Docker image
-#         if: ${{ github.event_name != 'pull_request' }}
-#         env:
-#           COSIGN_EXPERIMENTAL: "true"
-#         # This step uses the identity token to provision an ephemeral certificate
-#         # against the sigstore community Fulcio instance.
-#         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252

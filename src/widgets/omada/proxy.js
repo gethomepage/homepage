@@ -33,10 +33,10 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
 }
 
 export default async function omadaProxyHandler(req, res) {
-  const { group, service } = req.query;
+  const { group, service, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
 
     if (widget) {
       const { url } = widget;
@@ -138,7 +138,7 @@ export default async function omadaProxyHandler(req, res) {
       const sitesResponseData = JSON.parse(data);
 
       if (status !== 200 || sitesResponseData.errorCode > 0) {
-        logger.debug(`HTTTP ${status} getting sites list: ${sitesResponseData.msg}`);
+        logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData.msg}`);
         return res
           .status(status)
           .json({ error: { message: "Error getting sites list", url, data: sitesResponseData } });
