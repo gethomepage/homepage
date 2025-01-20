@@ -178,6 +178,10 @@ To use a local icon, first create a Docker mount to `/app/public/icons` and then
 
 Services may have an optional `ping` property that allows you to monitor the availability of an external host. As of v0.8.0, the ping feature attempts to use a true (ICMP) ping command on the underlying host. Currently, only IPv4 is supported.
 
+!!! note
+
+      Because ping uses the ping command on the underlying host, in some cases you may need to install e.g. the `iputils-ping` package on the host system.
+
 ```yaml
 - Group A:
     - Sonarr:
