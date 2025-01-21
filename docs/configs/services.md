@@ -97,6 +97,10 @@ Each service can have multiple widgets attached to it, for example:
         slug: statuspageslug
 ```
 
+!!! note
+
+      Multiple widgets per service are not yet supported with Kubernetes ingress annotations.
+
 #### Field Visibility
 
 Each widget can optionally provide a list of which fields should be visible via the `fields` widget property. If no fields are specified, then all fields will be displayed. The `fields` property must be a valid YAML array of strings. As an example, here is the entry for Sonarr showing only a couple of fields.
