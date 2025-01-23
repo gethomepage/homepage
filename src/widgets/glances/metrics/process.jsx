@@ -42,10 +42,16 @@ export default function Component({ service }) {
   }
 
   data.splice(chart ? 5 : 1);
+  let headerYPosition = "top-4";
+  let listYPosition = "bottom-4";
+  if (chart) {
+    headerYPosition = "-top-6";
+    listYPosition = "-top-3";
+  }
 
   return (
     <Container chart={chart}>
-      <Block position="top-4 right-3 left-3">
+      <Block position={`${headerYPosition} right-3 left-3`}>
         <div className="flex items-center text-xs">
           <div className="grow" />
           <div className="w-14 text-right italic">{t("resources.cpu")}</div>
@@ -53,7 +59,7 @@ export default function Component({ service }) {
         </div>
       </Block>
 
-      <Block position="bottom-4 right-3 left-3">
+      <Block position={`${listYPosition} right-3 left-3`}>
         <div className="pointer-events-none text-theme-900 dark:text-theme-200">
           {data.map((item) => (
             <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
@@ -63,7 +69,7 @@ export default function Component({ service }) {
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
-                    value: item.memory_info[memoryInfoKey],
+                    value: item.memory_info[memoryInfoKey] ?? item.memory_info.wset,
                     maximumFractionDigits: 0,
                   })}
                 </div>

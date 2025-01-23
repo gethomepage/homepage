@@ -175,6 +175,7 @@ data:
         expanded: true
         cpu: true
         memory: true
+        network: default
     - search:
         provider: duckduckgo
         target: _blank
@@ -209,7 +210,7 @@ rules:
       - get
       - list
   - apiGroups:
-      - traefik.containo.us
+      - traefik.io
     resources:
       - ingressroutes
     verbs:

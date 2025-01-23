@@ -16,6 +16,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.1px;
 }
 
 #page_wrapper {
@@ -61,4 +62,8 @@ dialog ::-webkit-scrollbar {
 
 ::-webkit-details-marker {
   display: none;
+}
+
+.chart + .chart {
+  margin-top: 2em;
 }

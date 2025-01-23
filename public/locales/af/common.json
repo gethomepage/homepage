@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "ma",
         "days": "d",
         "hours": "h",
@@ -120,7 +120,7 @@
         "grid_power": "Rooster",
         "home_power": "Verbruik",
         "charge_power": "Laaier",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Aflaai",
@@ -308,6 +308,16 @@
         "running": "Lopend",
         "stopped": "Gestop",
         "total": "Totaal"
+    },
+    "suwayomi": {
+        "download": "Afgelaai",
+        "nondownload": "Nie-Afgelaai",
+        "read": "Gelees",
+        "unread": "Ongelees",
+        "downloadedread": "Afgelaai & Gelees",
+        "downloadedunread": "Afgelaai en Ongelees",
+        "nondownloadedread": "Nie-Afgelaai & Gelees",
+        "nondownloadedunread": "Nie-Afgelaai & Ongelees"
     },
     "tailscale": {
         "address": "Adres",
@@ -947,11 +957,58 @@
         "disaster": "Ramp"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Voertuig",
+        "vehicles": "Voertuie",
+        "serviceRecords": "Diensrekords",
+        "reminders": "Herinneringe",
+        "nextReminder": "Volgende Herinnering",
+        "none": "Geen"
+    },
+    "vikunja": {
+        "projects": "Aktiewe Projekte",
+        "tasks7d": "Take Hierdie week",
+        "tasksOverdue": "Agterstallige Take",
+        "tasksInProgress": "Take Aan Die Gang"
+    },
+    "headscale": {
+        "name": "Naam",
+        "address": "Adres",
+        "last_seen": "Laaste Gesien",
+        "status": "Status",
+        "online": "Aanlyn",
+        "offline": "Vanlyn"
+    },
+    "beszel": {
+        "name": "Naam",
+        "systems": "Stelsels",
+        "up": "Op",
+        "down": "Af",
+        "paused": "Onderbreek",
+        "pending": "Afwagtend",
+        "status": "Status",
+        "updated": "Opgedateer",
+        "cpu": "SVE",
+        "memory": "GEH",
+        "disk": "Skyf",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Programme",
+        "synced": "Gesinkroniseer",
+        "outOfSync": "Nie Gesinchroniseer Nie",
+        "healthy": "Gesond",
+        "degraded": "Gedegradeer",
+        "progressing": "Vorderend",
+        "missing": "Vermis",
+        "suspended": "Geskors"
+    },
+    "spoolman": {
+        "loading": "Laai"
+    },
+    "gitlab": {
+        "groups": "Groepe",
+        "issues": "Kwessies",
+        "merges": "Saamvleg Versoeke",
+        "projects": "Projekte"
     }
 }
