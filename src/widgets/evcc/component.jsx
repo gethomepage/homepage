@@ -29,10 +29,13 @@ export default function Component({ service }) {
     );
   }
 
+  // broken by evcc v0.133.0 https://github.com/evcc-io/evcc/commit/9dcb1fa0a7c08dd926b79309aa1f676a5fc6c8aa
+  const gridPower = stateData.result.gridPower ?? stateData.result.grid?.power ?? 0;
+
   return (
     <Container service={service}>
       <Block label="evcc.pv_power" value={`${toKilowatts(t, stateData.result.pvPower)} ${t("evcc.kilowatt")}`} />
-      <Block label="evcc.grid_power" value={`${toKilowatts(t, stateData.result.gridPower)} ${t("evcc.kilowatt")}`} />
+      <Block label="evcc.grid_power" value={`${toKilowatts(t, gridPower)} ${t("evcc.kilowatt")}`} />
       <Block label="evcc.home_power" value={`${toKilowatts(t, stateData.result.homePower)} ${t("evcc.kilowatt")}`} />
       <Block
         label="evcc.charge_power"
