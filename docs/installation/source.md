@@ -23,3 +23,5 @@ Finally, run the server:
 ```bash
 pnpm start
 ```
+
+When updating homepage versions you will need to re-build the static files i.e. repeat the process above.
