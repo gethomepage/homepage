@@ -8,6 +8,7 @@ The Kubernetes connectivity has the following requirements:
 - Kubernetes 1.19+
 - Metrics Service
 - An Ingress controller
+  - Optionally: Gateway-API
 
 The Kubernetes connection is configured in the `kubernetes.yaml` file. There are 3 modes to choose from:
 
@@ -17,6 +18,12 @@ The Kubernetes connection is configured in the `kubernetes.yaml` file. There are
 
 ```yaml
 mode: default
+```
+
+To enable Kubernetes gateway-api compatibility, add the following setting:
+
+```yaml
+route: gateway
 ```
 
 ## Services
@@ -100,6 +107,8 @@ If you are using multiple instances of homepage, an `instance` annotation can be
 
 If you have a single service that needs to be shown on multiple specific instances of homepage (but not on all of them), the service can be annotated by multiple `instance.name` annotations, where `name` can be the names of your specific multiple homepage instances. For example, a service that is annotated with `gethomepage.dev/instance.public: ""` and `gethomepage.dev/instance.internal: ""` will be shown on `public` and `internal` homepage instances.
 
+Use the `gethomepage.dev/pod-selector` selector to specify the pod used for the health check. For example, a service that is annotated with `gethomepage.dev/pod-selector: app.kubernetes.io/name=deployment` would link to a pod with the label `app.kubernetes.io/name: deployment`.
+
 ### Traefik IngressRoute support
 
 Homepage can also read ingresses defined using the Traefik IngressRoute custom resource definition. Due to the complex nature of Traefik routing rules, it is required for the `gethomepage.dev/href` annotation to be set:
@@ -139,6 +148,10 @@ spec:
 ```
 
 If the `href` attribute is not present, Homepage will ignore the specific IngressRoute.
+
+### Gateway API HttpRoute support
+
+Homepage also features automatic service discovery for gateway-api. Service definitions are read by annotating the HttpRoute custom resource definition and are indentical to the Ingress example as defined in [Automatic Service Discovery](#automatic-service-discovery).
 
 ## Caveats
 

@@ -215,6 +215,15 @@ rules:
     verbs:
       - get
       - list
+  # if using gateway api add the following:
+  # - apiGroups:
+  #     - gateway.networking.k8s.io
+  #   resources:
+  #     - httproutes
+  #     - gateways
+  #   verbs:
+  #     - get
+  #     - list
   - apiGroups:
       - metrics.k8s.io
     resources:
@@ -370,7 +379,7 @@ prevent unnecessary re-renders on page loads and window / tab focusing. The
 procedure for enabling sticky sessions depends on your Ingress controller. Below
 is an example using Traefik as the Ingress controller.
 
-```
+```yaml
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
