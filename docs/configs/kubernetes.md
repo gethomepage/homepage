@@ -151,7 +151,7 @@ If the `href` attribute is not present, Homepage will ignore the specific Ingres
 
 ### Gateway API HttpRoute support
 
-Homepage also features automatic service discovery for gateway-api. Service definitions are read by annotating the HttpRoute custom resource definition and are indentical to the Ingress example as defined in [Automatic Service Discovery](#automatic-service-discovery).
+Homepage also features automatic service discovery for Gateway API. Service definitions are read by annotating the HttpRoute custom resource definition and are indentical to the Ingress example as defined in [Automatic Service Discovery](#automatic-service-discovery).
 
 ## Caveats
 
