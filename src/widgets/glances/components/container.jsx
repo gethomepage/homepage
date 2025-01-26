@@ -18,10 +18,10 @@ export default function Container({ children, widget, error = null, chart = true
   }
 
   return (
-    <div className={classNames("service-container relative", chart ? "chart h-[84px]" : "")}>
+    <div className={classNames("service-container", chart ? "chart relative h-[68px]" : "")}>
       {children}
-      <div className={`absolute top-0 right-0 bottom-0 left-0 overflow-clip pointer-events-none ${className}`} />
-      {chart && <div className="chart h-[68px] overflow-clip" />}
+      <div className={`absolute -top-10 right-0 bottom-0 left-0 overflow-clip pointer-events-none ${className}`} />
+      {chart && <div className="h-[68px] overflow-clip" />}
       {!chart && <div className="h-[16px] overflow-clip" />}
     </div>
   );

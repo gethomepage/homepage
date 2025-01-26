@@ -311,13 +311,13 @@
     },
     "suwayomi": {
         "download": "Gedownload",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "Niet gedownload",
         "read": "Gelezen",
         "unread": "Ongelezen",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Gedownload & gelezen",
+        "downloadedunread": "Gedownload & ongelezen",
+        "nondownloadedread": "Niet-gedownload & gelezen",
+        "nondownloadedunread": "Niet-gedownload & ongelezen"
     },
     "tailscale": {
         "address": "Adres",
@@ -980,32 +980,35 @@
     },
     "beszel": {
         "name": "Naam",
-        "systems": "Systems",
+        "systems": "Systemen",
         "up": "Online",
+        "down": "Offline",
+        "paused": "Gepauzeerd",
+        "pending": "In afwachting",
         "status": "Status",
         "updated": "Bijgewerkt",
         "cpu": "CPU",
         "memory": "GEH",
-        "disk": "Disk",
+        "disk": "Schijf",
         "network": "NET"
     },
     "argocd": {
         "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "synced": "Gesynchroniseerd",
+        "outOfSync": "Niet gesynchroniseerd",
         "healthy": "Gezond",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Gedegradeerd",
+        "progressing": "Doorvoeren",
         "missing": "Ontbreekt",
-        "suspended": "Suspended"
+        "suspended": "Onderbroken"
     },
     "spoolman": {
         "loading": "Laden"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Groepen",
         "issues": "Problemen",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Merge Verzoeken",
+        "projects": "Projecten"
     }
 }

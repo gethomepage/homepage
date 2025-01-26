@@ -25,6 +25,10 @@ function parseServicesToGroups(services) {
     const serviceGroupServices = [];
     serviceGroup[name].forEach((entries) => {
       const entryName = Object.keys(entries)[0];
+      if (!entries[entryName]) {
+        logger.warn(`Error parsing service "${entryName}" from config. Ensure required fields are present.`);
+        return;
+      }
       if (Array.isArray(entries[entryName])) {
         groups = groups.concat(parseServicesToGroups([{ [entryName]: entries[entryName] }]));
       } else {

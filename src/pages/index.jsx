@@ -166,6 +166,18 @@ const headerStyles = {
   boxedWidgets: "m-5 mb-0 sm:m-9 sm:mb-0 sm:mt-1",
 };
 
+function getAllServices(services) {
+  function getServices(group) {
+    let nestedServices = [...group.services];
+    if (group.groups.length > 0) {
+      nestedServices = [...nestedServices, ...group.groups.map(getServices).flat()];
+    }
+    return nestedServices;
+  }
+
+  return [...services.map(getServices).flat()];
+}
+
 function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
@@ -182,10 +194,9 @@ function Home({ initialSettings }) {
   const { data: bookmarks } = useSWR("/api/bookmarks");
   const { data: widgets } = useSWR("/api/widgets");
 
-  const servicesAndBookmarks = [
-    ...services.map((sg) => sg.services).flat(),
-    ...bookmarks.map((bg) => bg.bookmarks).flat(),
-  ].filter((i) => i?.href);
+  const servicesAndBookmarks = [...bookmarks.map((bg) => bg.bookmarks).flat(), ...getAllServices(services)].filter(
+    (i) => i?.href,
+  );
 
   useEffect(() => {
     if (settings.language) {
@@ -297,7 +308,6 @@ function Home({ initialSettings }) {
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
-                  bookmarksStyle={settings.bookmarksStyle}
                 />
               ) : (
                 <BookmarksGroup
@@ -360,6 +370,13 @@ function Home({ initialSettings }) {
     <>
       <Head>
         <title>{initialSettings.title || "Homepage"}</title>
+        <meta
+          name="description"
+          content={
+            initialSettings.description ||
+            "A highly customizable homepage (or startpage / application dashboard) with Docker and service API integrations."
+          }
+        />
         {settings.base && <base href={settings.base} />}
         {settings.favicon ? (
           <>
@@ -453,7 +470,7 @@ function Home({ initialSettings }) {
 }
 
 export default function Wrapper({ initialSettings, fallback }) {
-  const { theme } = useContext(ThemeContext);
+  const { themeContext } = useContext(ThemeContext);
   const wrappedStyle = {};
   let backgroundBlur = false;
   let backgroundSaturate = false;
@@ -484,9 +501,9 @@ export default function Wrapper({ initialSettings, fallback }) {
       id="page_wrapper"
       className={classNames(
         "relative",
-        theme && theme,
+        initialSettings.theme && initialSettings.theme,
         initialSettings.color && `theme-${initialSettings.color}`,
-        theme === "dark" ? "scheme-dark" : "scheme-light",
+        themeContext === "dark" ? "scheme-dark" : "scheme-light",
       )}
     >
       <div

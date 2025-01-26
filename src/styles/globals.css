@@ -65,5 +65,10 @@ dialog ::-webkit-scrollbar {
 }
 
 .chart + .chart {
-  margin-top: 36px;
+  margin-top: 2em;
+}
+
+.service-container + .chart {
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
 }

@@ -1,7 +1,8 @@
 import { useState, useEffect, Fragment } from "react";
 import { useTranslation } from "next-i18next";
 import { FiSearch } from "react-icons/fi";
-import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
+import { SiDuckduckgo, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
+import { BiLogoBing } from "react-icons/bi";
 import { Listbox, Transition, Combobox } from "@headlessui/react";
 import classNames from "classnames";
 
@@ -25,7 +26,7 @@ export const searchProviders = {
     name: "Bing",
     url: "https://www.bing.com/search?q=",
     suggestionUrl: "https://api.bing.com/osjson.aspx?query=",
-    icon: SiMicrosoftbing,
+    icon: BiLogoBing,
   },
   baidu: {
     name: "Baidu",
