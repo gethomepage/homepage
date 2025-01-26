@@ -1,19 +1,8 @@
 import classNames from "classnames";
 import prettyBytes from "pretty-bytes";
 
-export default function Pool({ name, free, allocated, healthy, data, nasType }) {
-  let total = 0;
-  if (nasType === "scale") {
-    total = free + allocated;
-  } else {
-    allocated = 0; // eslint-disable-line no-param-reassign
-    for (let i = 0; i < data.length; i += 1) {
-      total += data[i].stats.size;
-      allocated += data[i].stats.allocated; // eslint-disable-line no-param-reassign
-    }
-  }
-
-  const usedPercent = Math.round((allocated / total) * 100);
+export default function Pool({ name, free, allocated, healthy }) {
+  const usedPercent = Math.round((allocated / (free + allocated)) * 100);
   const statusColor = healthy ? "bg-green-500" : "bg-yellow-500";
 
   return (
@@ -32,7 +21,7 @@ export default function Pool({ name, free, allocated, healthy, data, nasType }) 
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
         <span>
-          {prettyBytes(allocated)} / {prettyBytes(total)}
+          {prettyBytes(allocated)} / {prettyBytes(free + allocated)}
         </span>
         <span className="pl-2">({usedPercent}%)</span>
       </div>
