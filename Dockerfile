@@ -41,7 +41,7 @@ LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/hom
 LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
 LABEL org.opencontainers.image.licenses='Apache-2.0'
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 WORKDIR /app
 
@@ -56,7 +56,8 @@ COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec
 
-ENV PORT 3000
+ENV HOSTNAME=::
+ENV PORT=3000
 EXPOSE $PORT
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
