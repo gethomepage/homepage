@@ -64,7 +64,7 @@
         "up": "Up",
         "down": "INACTIF",
         "wait": "Veuillez patienter",
-        "empty_data": "Statut sous-système inconnu"
+        "empty_data": "Statut du sous-système inconnu"
     },
     "docker": {
         "rx": "Rx",
@@ -84,17 +84,17 @@
     },
     "ping": {
         "error": "Erreur",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
+        "ping": "Latence",
+        "down": "Bas",
+        "up": "Haut",
         "not_available": "Non disponible"
     },
     "siteMonitor": {
         "http_status": "Statut HTTP",
         "error": "Erreur",
         "response": "Réponse",
-        "down": "Down",
-        "up": "Up",
+        "down": "Bas",
+        "up": "Haut",
         "not_available": "Non disponible"
     },
     "emby": {
@@ -144,8 +144,8 @@
         "uptime": "Démarré depuis",
         "maxDown": "Max. Bas",
         "maxUp": "Max. Haut",
-        "down": "Down",
-        "up": "Up",
+        "down": "Bas",
+        "up": "Haut",
         "received": "Reçu",
         "sent": "Envoyé",
         "externalIPAddress": "IP externe"
@@ -173,11 +173,11 @@
         "plex_connection_error": "Vérifier la connexion à Plex"
     },
     "omada": {
-        "connectedAp": "AP connectés",
-        "activeUser": "Équipts actifs",
+        "connectedAp": "APs connectées",
+        "activeUser": "Périphériques actifs",
         "alerts": "Alertes",
         "connectedGateway": "Passerelles connectées",
-        "connectedSwitches": "Switches connectés"
+        "connectedSwitches": "Switchs connectés"
     },
     "nzbget": {
         "rate": "Débit",
@@ -213,11 +213,11 @@
         "seed": "Seed"
     },
     "qnap": {
-        "cpuUsage": "Cpu",
-        "memUsage": "Mém",
-        "systemTempC": "Temp",
-        "poolUsage": "Pool",
-        "volumeUsage": "Volume",
+        "cpuUsage": "Utilisation CPU",
+        "memUsage": "Utilisation MÉM",
+        "systemTempC": "Temp. système",
+        "poolUsage": "Utilisation de la pool",
+        "volumeUsage": "Utilisation du volume",
         "invalid": "Invalide"
     },
     "deluge": {
@@ -302,7 +302,7 @@
     "speedtest": {
         "upload": "Envoi",
         "download": "Récep.",
-        "ping": "Ping"
+        "ping": "Latence"
     },
     "portainer": {
         "running": "Démarré",
@@ -349,8 +349,8 @@
     "tdarr": {
         "queue": "En attente",
         "processed": "Traité",
-        "errored": "En erreur",
-        "saved": "Libéré"
+        "errored": "Erroné",
+        "saved": "Enregistré"
     },
     "traefik": {
         "routers": "Routeurs",
@@ -376,7 +376,7 @@
     "gotify": {
         "apps": "Applis",
         "clients": "Clients",
-        "messages": "Msg"
+        "messages": "Messages"
     },
     "prowlarr": {
         "enableIndexers": "Indexeur",
@@ -387,7 +387,7 @@
     },
     "jackett": {
         "configured": "Configuré",
-        "errored": "En erreur"
+        "errored": "Erroné"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
@@ -461,10 +461,10 @@
         "0-night": "Ciel clair",
         "1-day": "Principalement ensoleillé",
         "1-night": "Principalement clair",
-        "2-day": "Partiellement couvert",
-        "2-night": "Partiellement couvert",
-        "3-day": "Couvert",
-        "3-night": "Couvert",
+        "2-day": "Partiellement nuageux",
+        "2-night": "Partiellement nuageux",
+        "3-day": "Nuageux",
+        "3-night": "Nuageux",
         "45-day": "Brumeux",
         "45-night": "Brumeux",
         "48-day": "Brumeux",
@@ -489,8 +489,8 @@
         "66-night": "Pluie verglaçante",
         "67-day": "Pluie verglaçante",
         "67-night": "Pluie verglaçante",
-        "71-day": "Neige légère",
-        "71-night": "Neige légère",
+        "71-day": "Légères chutes de neige",
+        "71-night": "Légères chutes de neige",
         "73-day": "Neige",
         "73-night": "Neige",
         "75-day": "Neige abondante",
@@ -521,15 +521,15 @@
         "up_to_date": "À jour",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Haut",
         "pending": "En attente",
-        "down": "Down"
+        "down": "Bas"
     },
     "healthchecks": {
         "new": "Nouveau",
-        "up": "Up",
+        "up": "Haut",
         "grace": "En Période de Grâce",
-        "down": "Down",
+        "down": "Bas",
         "paused": "En Pause",
         "status": "Statut",
         "last_ping": "Dernier Ping",
@@ -632,8 +632,8 @@
     },
     "octoprint": {
         "printer_state": "Statut",
-        "temp_tool": "Tool T°",
-        "temp_bed": "Bed T°",
+        "temp_tool": "Temp. de l'outil",
+        "temp_bed": "Temp. du lit",
         "job_completion": "Achèvement"
     },
     "cloudflared": {
@@ -644,8 +644,8 @@
         "load": "Charge moy.",
         "memory": "Util. Mém.",
         "wanStatus": "Statut WAN",
-        "up": "Up",
-        "down": "Down",
+        "up": "Haut",
+        "down": "Bas",
         "temp": "T°",
         "disk": "Util. Disque",
         "wanIP": "IP WAN"
@@ -754,9 +754,9 @@
         "booksDuration": "Durée"
     },
     "homeassistant": {
-        "people_home": "People Home",
+        "people_home": "Personne à la maison",
         "lights_on": "Lumières allumées",
-        "switches_on": "Commutateur On"
+        "switches_on": "Interrupteurs allumés"
     },
     "whatsupdocker": {
         "monitoring": "Conteneurs",
@@ -800,8 +800,8 @@
         "currentPlayers": "Joueurs actuels",
         "players": "Joueurs",
         "maxPlayers": "Joueurs max",
-        "bots": "Bots",
-        "ping": "Ping"
+        "bots": "Robots",
+        "ping": "Latence"
     },
     "urbackup": {
         "ok": "Ok",
@@ -826,8 +826,8 @@
     "openwrt": {
         "uptime": "Démarré depuis",
         "cpuLoad": "Charge moyenne CPU (5 min)",
-        "up": "Up",
-        "down": "Down",
+        "up": "Haut",
+        "down": "Bas",
         "bytesTx": "Transmis",
         "bytesRx": "Reçu"
     },
@@ -840,9 +840,9 @@
         "sitesDown": "Hors ligne",
         "paused": "En Pause",
         "notyetchecked": "Non vérifié",
-        "up": "Up",
+        "up": "Haut",
         "seemsdown": "Semble hors ligne",
-        "down": "Down",
+        "down": "Bas",
         "unknown": "Inconnu"
     },
     "calendar": {
@@ -912,7 +912,7 @@
     },
     "crowdsec": {
         "alerts": "Alertes",
-        "bans": "Exclusions"
+        "bans": "Bannissements"
     },
     "wgeasy": {
         "connected": "Connecté",
@@ -927,12 +927,12 @@
         "banned": "Banni"
     },
     "myspeed": {
-        "ping": "Ping",
+        "ping": "Latence",
         "download": "Récep.",
         "upload": "Envoi"
     },
     "stocks": {
-        "stocks": "Actions",
+        "stocks": "Stocks",
         "loading": "Chargement",
         "open": "Ouvert - Marché américain",
         "closed": "Fermé - marché américain",
@@ -981,8 +981,8 @@
     "beszel": {
         "name": "Nom",
         "systems": "Systèmes",
-        "up": "Up",
-        "down": "Down",
+        "up": "Haut",
+        "down": "Bas",
         "paused": "En Pause",
         "pending": "En attente",
         "status": "Statut",
