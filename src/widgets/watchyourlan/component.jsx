@@ -28,11 +28,11 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block
         label="watchyourlan.unknown_hosts"
-        value={t("common.number", { value: watchYourLANData.filter((item) => item.Known != 1).length })}
+        value={t("common.number", { value: watchYourLANData.filter((item) => item.Known !== 1).length })}
       />
       <Block
         label="watchyourlan.known_hosts"
-        value={t("common.number", { value: watchYourLANData.filter((item) => item.Known == 1).length })}
+        value={t("common.number", { value: watchYourLANData.filter((item) => item.Known === 1).length })}
       />
     </Container>
   );
