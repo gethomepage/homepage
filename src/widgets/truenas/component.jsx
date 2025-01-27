@@ -36,13 +36,13 @@ export default function Component({ service }) {
 
   if (showPools) {
     pools = poolsData.map((pool) => {
-      const dataset = datasetData.find((d) => d.pool === pool.name);
+      const dataset = datasetData.find((d) => d.pool === pool.name && d.name === pool.name);
       return {
         id: pool.id,
         name: pool.name,
         healthy: pool.healthy,
-        allocated: dataset.children.reduce((acc, d) => acc + parseInt(d.used.rawvalue, 10), 0),
-        free: dataset.children.reduce((acc, d) => acc + parseInt(d.available.rawvalue, 10), 0),
+        allocated: dataset?.used.parsed ?? 0,
+        free: dataset?.available.parsed ?? 0,
       };
     });
   }
