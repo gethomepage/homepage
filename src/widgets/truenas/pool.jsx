@@ -1,7 +1,8 @@
 import classNames from "classnames";
-import prettyBytes from "pretty-bytes";
+import { useTranslation } from "next-i18next";
 
 export default function Pool({ name, free, allocated, healthy }) {
+  const { t } = useTranslation();
   const usedPercent = Math.round((allocated / (free + allocated)) * 100);
   const statusColor = healthy ? "bg-green-500" : "bg-yellow-500";
 
@@ -21,7 +22,17 @@ export default function Pool({ name, free, allocated, healthy }) {
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
         <span>
-          {prettyBytes(allocated)} / {prettyBytes(free + allocated)}
+          {t("common.bytes", {
+            value: allocated,
+            maximumFractionDigits: 1,
+            binary: true,
+          })}{" "}
+          /{" "}
+          {t("common.bytes", {
+            value: free + allocated,
+            maximumFractionDigits: 1,
+            binary: true,
+          })}
         </span>
         <span className="pl-2">({usedPercent}%)</span>
       </div>
