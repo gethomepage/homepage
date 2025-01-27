@@ -124,6 +124,7 @@ import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
 import vikunja from "./vikunja/widget";
 import watchtower from "./watchtower/widget";
+import watchyourlan from "./watchyourlan/widget";
 import wgeasy from "./wgeasy/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
@@ -263,6 +264,7 @@ const widgets = {
   urbackup,
   vikunja,
   watchtower,
+  watchyourlan,
   wgeasy,
   whatsupdocker,
   xteve,

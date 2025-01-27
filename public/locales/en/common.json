@@ -1010,5 +1010,9 @@
         "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "watchyourlan": {
+        "unknown_hosts": "Unknown Hosts",
+        "known_hosts": "Known Hosts"
     }
 }

@@ -134,6 +134,7 @@ const components = {
   urbackup: dynamic(() => import("./urbackup/component")),
   vikunja: dynamic(() => import("./vikunja/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
+  watchyourlan: dynamic(() => import("./watchyourlan/component")),
   wgeasy: dynamic(() => import("./wgeasy/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
