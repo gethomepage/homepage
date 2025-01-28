@@ -6,6 +6,8 @@
     - Github:
         - abbr: GH
           href: https://github.com/
+          icon: github-light.png
+          desc: github
 
 - Social:
     - Reddit:
