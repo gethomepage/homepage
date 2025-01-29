@@ -78,6 +78,9 @@ function formatValue(t, mapping, rawValue) {
     case "percent":
       value = t("common.percent", { value });
       break;
+    case "duration":
+      value = t("common.duration", { value });
+      break;
     case "bytes":
       value = t("common.bytes", { value });
       break;

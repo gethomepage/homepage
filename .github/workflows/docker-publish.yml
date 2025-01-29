@@ -46,6 +46,24 @@ jobs:
       -
         name: Check files
         uses: pre-commit/action@v3.0.1
+      -
+        name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+      -
+        name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      -
+        name: Install dependencies
+        run: pnpm install
+      -
+        name: Lint frontend
+        run: pnpm run lint
 
   build:
     name: Docker Build & Push
@@ -127,7 +145,7 @@ jobs:
             REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
           # https://github.com/docker/setup-qemu-action#about
           # platforms: linux/amd64,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/386,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
-          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+          platforms: linux/amd64,linux/arm64
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 

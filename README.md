@@ -73,7 +73,7 @@ With features like quick search, bookmarks, weather support, a wide range of int
 
 - **Fast** - The site is statically generated at build time for instant load times.
 - **Secure** - All API requests to backend services are proxied, keeping your API keys hidden. Constantly reviewed for security by the community.
-- **For Everyone** - Images built for AMD64, ARM64, ARMv7, and ARMv6.
+- **For Everyone** - Images built for AMD64, ARM64.
 - **Full i18n** - Support for over 40 languages.
 - **Service & Web Bookmarks** - Add custom links to the homepage.
 - **Docker Integration** - Container status and stats. Automatic service discovery via labels.
