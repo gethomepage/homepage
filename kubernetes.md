@@ -23,6 +23,12 @@ Set the `mode` in the `kubernetes.yaml` to `cluster`.
 mode: default
 ```
 
+To enable Kubernetes gateway-api compatibility, set `route` to `gateway`.
+
+```yaml
+route: gateway
+```
+
 ## Widgets
 
 The Kubernetes widget can show a high-level overview of the cluster,
