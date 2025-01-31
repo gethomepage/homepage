@@ -311,13 +311,13 @@
     },
     "suwayomi": {
         "download": "下载",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "未下载",
         "read": "已读",
         "unread": "未读",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "已下载 & 已读",
+        "downloadedunread": "已下载 & 未读",
+        "nondownloadedread": "未下载 & 已读",
+        "nondownloadedunread": "未下载 & 未读"
     },
     "tailscale": {
         "address": "地址",
@@ -980,7 +980,7 @@
     },
     "beszel": {
         "name": "Name",
-        "systems": "Systems",
+        "systems": "系统",
         "up": "Up",
         "down": "Down",
         "paused": "暂停",
@@ -989,26 +989,26 @@
         "updated": "已升级",
         "cpu": "CPU",
         "memory": "内存",
-        "disk": "Disk",
-        "network": "NET"
+        "disk": "磁盘",
+        "network": "网络"
     },
     "argocd": {
         "apps": "应用程序",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "synced": "已同步",
+        "outOfSync": "未同步",
         "healthy": "健康",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "已降级",
+        "progressing": "进行中",
         "missing": "丢失",
-        "suspended": "Suspended"
+        "suspended": "已停用"
     },
     "spoolman": {
         "loading": "正在加载"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "群组",
         "issues": "问题",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "合并请求",
+        "projects": "项目"
     }
 }
