@@ -18,7 +18,7 @@
     "dockerode": "^4.0.2",
     "follow-redirects": "^1.15.9",
     "gamedig": "^5.1.4",
-    "i18next": "^21.10.0",
+    "i18next": "^24.2.2",
     "js-yaml": "^4.1.0",
     "json-rpc-2.0": "^1.7.0",
     "luxon": "^3.5.0",
