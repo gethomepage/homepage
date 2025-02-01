@@ -53,10 +53,15 @@ const getSchemaFromGateway = async (gatewayRef) => {
 };
 
 async function getUrlFromHttpRoute(ingress) {
-  const urlHost = ingress.spec.hostnames[0];
-  const urlPath = ingress.spec.rules[0].matches[0].path.value;
-  const urlSchema = (await getSchemaFromGateway(ingress.spec.parentRefs[0])) ? "https" : "http";
-  return `${urlSchema}://${urlHost}${urlPath}`;
+
+  let url = null
+  if (ingress.spec.has("hostnames")) {
+    const urlHost = ingress.spec.hostnames[0];
+    const urlPath = ingress.spec.rules[0].matches[0].path.value;
+    const urlSchema = (await getSchemaFromGateway(ingress.spec.parentRefs[0])) ? "https" : "http";
+    url = `${urlSchema}://${urlHost}${urlPath}`;
+  } 
+  return url;
 }
 
 function getUrlFromIngress(ingress) {
