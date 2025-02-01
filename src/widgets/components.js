@@ -30,6 +30,7 @@ const components = {
   esphome: dynamic(() => import("./esphome/component")),
   evcc: dynamic(() => import("./evcc/component")),
   fileflows: dynamic(() => import("./fileflows/component")),
+  firefly: dynamic(() => import("./firefly/component")),
   flood: dynamic(() => import("./flood/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
   frigate: dynamic(() => import("./frigate/component")),
