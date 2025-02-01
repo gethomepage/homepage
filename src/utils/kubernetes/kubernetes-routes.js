@@ -1,4 +1,4 @@
-import { CustomObjectsApi, NetworkingV1Api, CoreV1Api, ApiextensionsV1Api } from "@kubernetes/client-node";
+import { CustomObjectsApi, NetworkingV1Api, CoreV1Api } from "@kubernetes/client-node";
 
 import getKubeArguments from "utils/config/kubernetes";
 import createLogger from "utils/logger";
@@ -16,26 +16,6 @@ let core;
 let networking;
 let routingType;
 let traefik;
-
-export async function checkCRD(name) {
-  const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
-  const exist = await apiExtensions
-    .readCustomResourceDefinitionStatus(name)
-    .then(() => true)
-    .catch(async (error) => {
-      if (error.statusCode === 403) {
-        logger.error(
-          "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
-          name,
-          error.statusCode,
-          error.body.message,
-        );
-      }
-      return false;
-    });
-
-  return exist;
-}
 
 const getSchemaFromGateway = async (gatewayRef) => {
   const schema = await crd
@@ -123,8 +103,8 @@ async function getIngressList(ANNOTATION_BASE) {
     });
 
   if (traefik) {
-    const traefikContainoExists = await checkCRD("ingressroutes.traefik.containo.us");
-    const traefikExists = await checkCRD("ingressroutes.traefik.io");
+    const traefikContainoExists = await checkCRD("ingressroutes.traefik.containo.us",kc,logger);
+    const traefikExists = await checkCRD("ingressroutes.traefik.io",kc,logger);
 
     const traefikIngressListContaino = await crd
       .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")

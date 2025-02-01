@@ -2,7 +2,7 @@ import path from "path";
 import { readFileSync } from "fs";
 
 import yaml from "js-yaml";
-import { KubeConfig } from "@kubernetes/client-node";
+import { KubeConfig,ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
@@ -52,4 +52,25 @@ export default function getKubeArguments() {
   }
 
   return kubeData;
+}
+
+
+export async function checkCRD(name,kc,logger) {
+  const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
+  const exist = await apiExtensions
+    .readCustomResourceDefinitionStatus(name)
+    .then(() => true)
+    .catch(async (error) => {
+      if (error.statusCode === 403) {
+        logger.error(
+          "Error checking if CRD %s exists. Make sure to add the following permission to your RBAC: %d %s %s",
+          name,
+          error.statusCode,
+          error.body.message,
+        );
+      }
+      return false;
+    });
+
+  return exist;
 }
