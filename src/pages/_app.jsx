@@ -26,6 +26,16 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <style
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: `@media (prefers-color-scheme: dark) {
+              #page_wrapper {
+                background-color: rgb(30, 41, 59);
+              }
+            }`,
+          }}
+        />
       </Head>
       <ColorProvider>
         <ThemeProvider>
