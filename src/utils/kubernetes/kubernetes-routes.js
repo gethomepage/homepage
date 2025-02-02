@@ -36,7 +36,7 @@ async function getUrlFromHttpRoute(ingress) {
 
   let url = null
   if (ingress.spec.has("hostnames")) {
-    if (ingress.spec.rules[0].matches[0].path.type=="PathPrefix"){
+    if (ingress.spec.rules[0].matches[0].path.type!="RegularExpression"){
       const urlHost = ingress.spec.hostnames[0];
       const urlPath = ingress.spec.rules[0].matches[0].path.value;
       const urlSchema = (await getSchemaFromGateway(ingress.spec.parentRefs[0])) ? "https" : "http";
