@@ -9,7 +9,18 @@ import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/c
 const extractKubeData = (config) => {
   // kubeconfig
   const kc = new KubeConfig();
-  kc.loadFromCluster();
+
+  switch (config?.mode) {
+    case "cluster":
+      kc.loadFromCluster();
+      break;
+    case "default":
+      kc.loadFromDefault();
+      break;
+    case "disabled":
+    default:
+      return null;
+  }
 
   // route
   const route = config?.route ?? "ingress";
