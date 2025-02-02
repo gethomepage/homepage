@@ -11,13 +11,8 @@ const kc = kubeArguments.config;
 const apiGroup = "gateway.networking.k8s.io";
 const version = "v1";
 
-let crd;
-let core;
-let networking;
-let routingType;
-let traefik;
-
 const getSchemaFromGateway = async (gatewayRef) => {
+  const crd = kc.makeApiClient(CustomObjectsApi);
   const schema = await crd
     .getNamespacedCustomObject(apiGroup, version, gatewayRef.namespace, "gateways", gatewayRef.name)
     .then((response) => {
@@ -54,6 +49,10 @@ function getUrlFromIngress(ingress) {
 }
 
 async function getHttpRouteList() {
+  
+  const crd = kc.makeApiClient(CustomObjectsApi);
+  const core = kc.makeApiClient(CoreV1Api);
+
   // httproutes
   const getHttpRoute = async (namespace) =>
     crd
@@ -93,6 +92,10 @@ async function getHttpRouteList() {
 }
 
 async function getIngressList(annotation_base) {
+  
+  const traefik = kubeArguments.traefik;
+  const networking = kc.makeApiClient(NetworkingV1Api);
+
   const ingressList = await networking
     .listIngressForAllNamespaces(null, null, null, null)
     .then((response) => response.body)
@@ -103,6 +106,7 @@ async function getIngressList(annotation_base) {
     });
 
   if (traefik) {
+    const crd = kc.makeApiClient(CustomObjectsApi);
     const traefikContainoExists = await checkCRD("ingressroutes.traefik.containo.us",kc,logger);
     const traefikExists = await checkCRD("ingressroutes.traefik.io",kc,logger);
 
@@ -160,12 +164,7 @@ export async function getRouteList(annotation_base) {
     return [];
   }
 
-  crd = kc.makeApiClient(CustomObjectsApi);
-  core = kc.makeApiClient(CoreV1Api);
-  networking = kc.makeApiClient(NetworkingV1Api);
-
-  routingType = kubeArguments.route;
-  traefik = kubeArguments.traefik;
+  const routingType = kubeArguments.route;
 
   switch (routingType) {
     case "ingress":
@@ -183,6 +182,7 @@ export async function getRouteList(annotation_base) {
 
 export async function getUrlSchema(route) {
   let urlSchema;
+  const routingType = kubeArguments.route;
 
   switch (routingType) {
     case "ingress":
