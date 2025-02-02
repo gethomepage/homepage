@@ -12,16 +12,10 @@ const extractKubeData = (config) => {
   kc.loadFromCluster();
 
   // route
-  let route = "ingress";
-  if (config?.route === "gateway") {
-    route = "gateway";
-  }
+  const route = config?.route ?? "ingress";
 
   // traefik
-  let traefik = true;
-  if (config?.traefik === "disable") {
-    traefik = false;
-  }
+  const traefik = config?.traefik !== "disable";
 
   return {
     config: kc,
