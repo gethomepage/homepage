@@ -8,17 +8,16 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const formatter = new Intl.DateTimeFormat("fr-CA", { year: "numeric", month: "2-digit", day: "2-digit" });
-
   const startOfMonth = new Date();
   startOfMonth.setDate(1);
   startOfMonth.setHours(0, 0, 0, 0);
-  const startOfMonthFormatted = formatter.format(startOfMonth);
+  const startOfMonthFormatted = startOfMonth.toISOString().split("T")[0];
+
   const endOfMonth = new Date(startOfMonth);
   endOfMonth.setMonth(endOfMonth.getMonth() + 1);
   endOfMonth.setDate(0);
   endOfMonth.setHours(23, 59, 59, 999);
-  const endOfMonthFormatted = formatter.format(endOfMonth);
+  const endOfMonthFormatted = endOfMonth.toISOString().split("T")[0];
 
   const { data: summaryData, error: summaryError } = useWidgetAPI(widget, "summary", {
     start: startOfMonthFormatted,
@@ -43,24 +42,24 @@ export default function Component({ service }) {
     );
   }
 
-  const netWorth = [];
-  Object.keys(summaryData).forEach((key) => {
-    if (key.includes("net-worth-in")) {
-      netWorth.push(summaryData[key]);
-    }
-  });
+  const netWorth = Object.keys(summaryData)
+    .filter((key) => key.includes("net-worth-in"))
+    .map((key) => summaryData[key]);
 
   let budgetValue = null;
 
-  if (budgetData.data && budgetData.data.length > 0 && budgetData.data[0].type === "available_budgets") {
+  if (budgetData.data?.length && budgetData.data[0].type === "available_budgets") {
     const budgetAmount = parseFloat(budgetData.data[0].attributes.amount);
     const budgetSpent = -parseFloat(budgetData.data[0].attributes.spent_in_budgets[0]?.sum ?? "0");
     const budgetCurrency = budgetData.data[0].attributes.currency_symbol;
 
-    budgetValue = `${budgetCurrency} ${t("common.number", { value: budgetSpent })} / ${budgetCurrency} ${t(
-      "common.number",
-      { value: budgetAmount },
-    )}`;
+    budgetValue = `${budgetCurrency} ${t("common.number", {
+      value: budgetSpent,
+      minimumFractionDigits: 2,
+    })} / ${budgetCurrency} ${t("common.number", {
+      value: budgetAmount,
+      minimumFractionDigits: 2,
+    })}`;
   }
 
   return (
