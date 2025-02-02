@@ -92,7 +92,7 @@ async function getHttpRouteList() {
   return httpRouteList;
 }
 
-async function getIngressList(ANNOTATION_BASE) {
+async function getIngressList(annotation_base) {
   const ingressList = await networking
     .listIngressForAllNamespaces(null, null, null, null)
     .then((response) => response.body)
@@ -144,7 +144,7 @@ async function getIngressList(ANNOTATION_BASE) {
 
     if (traefikIngressList.length > 0) {
       const traefikServices = traefikIngressList.filter(
-        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${ANNOTATION_BASE}/href`],
+        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${annotation_base}/href`],
       );
       ingressList.items.push(...traefikServices);
     }
@@ -153,7 +153,7 @@ async function getIngressList(ANNOTATION_BASE) {
   return ingressList.items;
 }
 
-export async function getRouteList(ANNOTATION_BASE) {
+export async function getRouteList(annotation_base) {
   let routeList = [];
 
   if (!kc) {
@@ -169,13 +169,13 @@ export async function getRouteList(ANNOTATION_BASE) {
 
   switch (routingType) {
     case "ingress":
-      routeList = await getIngressList(ANNOTATION_BASE);
+      routeList = await getIngressList(annotation_base);
       break;
     case "gateway":
       routeList = await getHttpRouteList();
       break;
     default:
-      routeList = await getIngressList(ANNOTATION_BASE);
+      routeList = await getIngressList(annotation_base);
   }
 
   return routeList;
