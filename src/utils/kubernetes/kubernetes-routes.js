@@ -91,7 +91,7 @@ async function getHttpRouteList() {
   return httpRouteList;
 }
 
-async function getIngressList(annotation_base) {
+async function getIngressList(annotationBase) {
   
   const traefik = kubeArguments.traefik;
   const networking = kc.makeApiClient(NetworkingV1Api);
@@ -148,7 +148,7 @@ async function getIngressList(annotation_base) {
 
     if (traefikIngressList.length > 0) {
       const traefikServices = traefikIngressList.filter(
-        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${annotation_base}/href`],
+        (ingress) => ingress.metadata.annotations && ingress.metadata.annotations[`${annotationBase}/href`],
       );
       ingressList.items.push(...traefikServices);
     }
@@ -157,7 +157,7 @@ async function getIngressList(annotation_base) {
   return ingressList.items;
 }
 
-export async function getRouteList(annotation_base) {
+export async function getRouteList(annotationBase) {
   let routeList = [];
 
   if (!kc) {
@@ -168,13 +168,13 @@ export async function getRouteList(annotation_base) {
 
   switch (routingType) {
     case "ingress":
-      routeList = await getIngressList(annotation_base);
+      routeList = await getIngressList(annotationBase);
       break;
     case "gateway":
       routeList = await getHttpRouteList();
       break;
     default:
-      routeList = await getIngressList(annotation_base);
+      routeList = await getIngressList(annotationBase);
   }
 
   return routeList;
