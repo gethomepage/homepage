@@ -432,7 +432,7 @@ export function cleanServiceGroups(groups) {
           // frigate
           enableRecentEvents,
 
-          // beszel, glances, immich, mealie, pihole, pfsense
+          // beszel, glances, immich, mealie, pihole, pfsense, speedtest
           version,
 
           // glances
@@ -610,7 +610,7 @@ export function cleanServiceGroups(groups) {
           if (snapshotHost) widget.snapshotHost = snapshotHost;
           if (snapshotPath) widget.snapshotPath = snapshotPath;
         }
-        if (["beszel", "glances", "immich", "mealie", "pfsense", "pihole"].includes(type)) {
+        if (["beszel", "glances", "immich", "mealie", "pfsense", "pihole", "speedtest"].includes(type)) {
           if (version) widget.version = parseInt(version, 10);
         }
         if (type === "glances") {
