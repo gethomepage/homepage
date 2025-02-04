@@ -5,7 +5,7 @@ description: Health checks Widget Configuration
 
 Learn more about [Health Checks](https://github.com/healthchecks/healthchecks).
 
-Specify a single check by including the `uuid` field or show the toal 'up', total 'down', total 'other' (new, paused & grace) and overall total for all
+Specify a single check by including the `uuid` field or show the total 'up', total 'down', total 'other' (new, paused & grace) and overall total for all
 checks by leaving off the `uuid` field.
 
 To use the Health Checks widget, you first need to generate an API key.
