@@ -30,18 +30,23 @@ function formatDate(dateString) {
 function countStatus(data) {
   let upCount = 0;
   let downCount = 0;
+  let otherCount = 0;
+  let totalCount = 0;
 
   if (data.checks) {
     data.checks.forEach((check) => {
+      totalCount += 1;
       if (check.status === "up") {
         upCount += 1;
       } else if (check.status === "down") {
         downCount += 1;
+      } else {
+        otherCount += 1;
       }
     });
   }
 
-  return { upCount, downCount };
+  return { upCount, downCount, otherCount, totalCount };
 }
 
 export default function Component({ service }) {
@@ -65,7 +70,7 @@ export default function Component({ service }) {
 
   const hasUuid = !!widget?.uuid;
 
-  const { upCount, downCount } = countStatus(data);
+  const { upCount, downCount, otherCount, totalCount } = countStatus(data);
 
   return hasUuid ? (
     <Container service={service}>
@@ -79,6 +84,8 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="healthchecks.up" value={upCount} />
       <Block label="healthchecks.down" value={downCount} />
+      <Block label="healthchecks.other" value={otherCount} />
+      <Block label="healthchecks.total" value={totalCount} />
     </Container>
   );
 }

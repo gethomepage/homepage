@@ -2,17 +2,14 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/services/
 
-- My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
-
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
-
 - My Third Group:
     - My Third Service:
         href: http://localhost/
         description: Homepage is 😎
+    - Healthchecks - General (6):
+        icon: healthchecks.png
+        href: http://healthchecks.home
+        widget:
+          type: healthchecks
+          url: http://healthchecks.home
+          key: HoRf-AQOVvXaMjtB4b5tB91FP6qMbgxq

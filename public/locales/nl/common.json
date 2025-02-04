@@ -531,6 +531,8 @@
         "grace": "In de respijt periode",
         "down": "Offline",
         "paused": "Gepauzeerd",
+        "other": "Overig",
+        "total": "Totaal",
         "status": "Status",
         "last_ping": "Laatste Ping",
         "never": "Nog geen pings"

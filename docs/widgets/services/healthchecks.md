@@ -5,7 +5,7 @@ description: Health checks Widget Configuration
 
 Learn more about [Health Checks](https://github.com/healthchecks/healthchecks).
 
-Specify a single check by including the `uuid` field or show the total 'up' and 'down' for all
+Specify a single check by including the `uuid` field or show the toal 'up', total 'down', total 'other' (new, paused & grace) and overall total for all
 checks by leaving off the `uuid` field.
 
 To use the Health Checks widget, you first need to generate an API key.
@@ -14,7 +14,7 @@ To use the Health Checks widget, you first need to generate an API key.
 2. Click on API key (read-only) and then click _Create_.
 3. Copy the API key that is generated for you.
 
-Allowed fields: `["status", "last_ping"]` for single checks, `["up", "down"]` for total stats.
+Allowed fields: `["status", "last_ping"]` for single checks, `["up", "down", "other", "total"]` for total stats.
 
 ```yaml
 widget:
