@@ -175,6 +175,9 @@ export async function servicesResponse() {
         // this is a nested group, so find the parent group and merge the services
         mergeSubgroups(configuredServices, mergedGroup);
       } else unsortedGroups.push(mergedGroup);
+    } else if (configuredGroup.parent) {
+      // this is a nested group, so find the parent group and merge the services
+      mergeSubgroups(configuredServices, mergedGroup);
     } else {
       unsortedGroups.push(mergedGroup);
     }
