@@ -12,14 +12,15 @@ export default function Component({ service }) {
 
   const { data: alertData, error: alertError } = useWidgetAPI(widget, "alerts");
   const { data: statusData, error: statusError } = useWidgetAPI(widget, "status");
-  const { data: poolsData, error: poolsError } = useWidgetAPI(widget, "pools");
+  const { data: poolsData, error: poolsError } = useWidgetAPI(widget, widget?.enablePools ? "pools" : null);
+  const { data: datasetData, error: datasetError } = useWidgetAPI(widget, widget?.enablePools ? "dataset" : null);
 
   if (alertError || statusError || poolsError) {
-    const finalError = alertError ?? statusError ?? poolsError;
+    const finalError = alertError ?? statusError ?? poolsError ?? datasetError;
     return <Container service={service} error={finalError} />;
   }
 
-  if (!alertData || !statusData) {
+  if (!alertData || !statusData || (widget?.enablePools && (!poolsData || !datasetData))) {
     return (
       <Container service={service}>
         <Block label="truenas.load" />
@@ -29,7 +30,22 @@ export default function Component({ service }) {
     );
   }
 
-  const enablePools = widget?.enablePools && Array.isArray(poolsData) && poolsData.length > 0;
+  let pools = [];
+  const showPools =
+    Array.isArray(poolsData) && poolsData.length > 0 && Array.isArray(datasetData) && datasetData.length > 0;
+
+  if (showPools) {
+    pools = poolsData.map((pool) => {
+      const dataset = datasetData.find((d) => d.pool === pool.name && d.name === pool.name);
+      return {
+        id: pool.id,
+        name: pool.name,
+        healthy: pool.healthy,
+        allocated: dataset?.used.parsed ?? 0,
+        free: dataset?.available.parsed ?? 0,
+      };
+    });
+  }
 
   return (
     <>
@@ -38,19 +54,11 @@ export default function Component({ service }) {
         <Block label="truenas.uptime" value={t("common.duration", { value: statusData.uptime_seconds })} />
         <Block label="truenas.alerts" value={t("common.number", { value: alertData.pending })} />
       </Container>
-      {enablePools &&
-        poolsData
+      {showPools &&
+        pools
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((pool) => (
-            <Pool
-              key={pool.id}
-              name={pool.name}
-              healthy={pool.healthy}
-              allocated={pool.allocated}
-              free={pool.free}
-              data={pool.data}
-              nasType={widget?.nasType ?? "scale"}
-            />
+            <Pool key={pool.id} name={pool.name} healthy={pool.healthy} allocated={pool.allocated} free={pool.free} />
           ))}
     </>
   );
