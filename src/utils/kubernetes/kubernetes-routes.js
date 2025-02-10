@@ -1,6 +1,6 @@
 import { CustomObjectsApi, NetworkingV1Api, CoreV1Api } from "@kubernetes/client-node";
 
-import getKubeArguments from "utils/config/kubernetes";
+import getKubeArguments,{checkCRD} from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("service-helpers");
@@ -31,7 +31,7 @@ async function getUrlFromHttpRoute(ingress) {
 
   let url = null
   if (ingress.spec.has("hostnames")) {
-    if (ingress.spec.rules[0].matches[0].path.type!="RegularExpression"){
+    if (ingress.spec.rules[0].matches[0].path.type!=="RegularExpression"){
       const urlHost = ingress.spec.hostnames[0];
       const urlPath = ingress.spec.rules[0].matches[0].path.value;
       const urlSchema = (await getSchemaFromGateway(ingress.spec.parentRefs[0])) ? "https" : "http";
@@ -93,7 +93,7 @@ async function getHttpRouteList() {
 
 async function getIngressList(annotationBase) {
   
-  const traefik = kubeArguments.traefik;
+  const {traefik} = kubeArguments;
   const networking = kc.makeApiClient(NetworkingV1Api);
 
   const ingressList = await networking

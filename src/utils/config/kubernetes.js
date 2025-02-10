@@ -44,10 +44,10 @@ export default function getKubeArguments() {
   const config = yaml.load(configData);
   let kubeData;
 
-  if (config?.mode === "disabled") {
-    kubeData = { config: null };
-  } else {
+  if (config?.mode === "default" || config?.mode === "cluster") {
     kubeData = extractKubeData(config);
+  } else {
+    kubeData = { config: null };
   }
 
   return kubeData;
