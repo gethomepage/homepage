@@ -191,32 +191,33 @@ export async function servicesFromKubernetes() {
     if (!resources) {
       return [];
     }
-
-    const services = resources
+    const services = await Promise.all( resources
       .filter(resource => kubernetes.isDiscoverable(resource, instanceName))
-      .map(resource => kubernetes.constructedServiceFromResource(resource));
+      .map(async (resource) => kubernetes.constructedServiceFromResource(resource)));
 
-    // const mappedServiceGroups = services.reduce((groups, serverService) => {
-    //   let serverGroup = groups.find(group => group.name === serverService.group);
+    const mappedServiceGroups = services.reduce((groups, serverService) => {
+      let serverGroup = groups.find(group => group.name === serverService.group);
     
-    //   if (!serverGroup) {
-    //     serverGroup = {
-    //       name: serverService.group,
-    //       services: []
-    //     };
-    //     groups.push(serverGroup);
-    //   }
+      if (!serverGroup) {
+        serverGroup = {
+          name: serverService.group,
+          services: []
+        };
+        groups.push(serverGroup);
+      }
     
-    //   const { name: serviceName, group: _, ...pushedService } = serverService;
+      const { name: serviceName, group: _, ...pushedService } = serverService;
     
-    //   serverGroup.services.push({
-    //     name: serviceName,
-    //     ...pushedService
-    //   });
+      serverGroup.services.push({
+        name: serviceName,
+        ...pushedService
+      });
     
-    //   return groups;
-    // }, []);
+      return groups;
+    }, []);
 
+    
+    // console.log(mappedServiceGroups);
     // const routeList = await getRouteList(ANNOTATION_BASE);
 
     // if (!routeList) {
@@ -282,26 +283,26 @@ export async function servicesFromKubernetes() {
     //     }),
     // );
 
-    const mappedServiceGroups = [];
+    // const mappedServiceGroups = [];
 
-    services.forEach((serverService) => {
-      let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === serverService.group);
-      if (!serverGroup) {
-        mappedServiceGroups.push({
-          name: serverService.group,
-          services: [],
-        });
-        serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
-      }
+    // services.forEach((serverService) => {
+    //   let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === serverService.group);
+    //   if (!serverGroup) {
+    //     mappedServiceGroups.push({
+    //       name: serverService.group,
+    //       services: [],
+    //     });
+    //     serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
+    //   }
 
-      const { name: serviceName, group: serverServiceGroup, ...pushedService } = serverService;
-      const result = {
-        name: serviceName,
-        ...pushedService,
-      };
+    //   const { name: serviceName, group: serverServiceGroup, ...pushedService } = serverService;
+    //   const result = {
+    //     name: serviceName,
+    //     ...pushedService,
+    //   };
 
-      serverGroup.services.push(result);
-    });
+    //   serverGroup.services.push(result);
+    // });
 
     return mappedServiceGroups;
   } catch (e) {
