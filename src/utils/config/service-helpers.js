@@ -9,8 +9,6 @@ import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } 
 import getDockerArguments from "utils/config/docker";
 import kubernetes from "utils/kubernetes/kubernetes-export";
 import getKubeArguments from "utils/config/kubernetes";
-// import { getUrlSchema, getRouteList } from "utils/kubernetes/kubernetes-routes";
-// import { ANNOTATION_BASE, ANNOTATION_WIDGET_BASE } from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
@@ -180,6 +178,7 @@ export async function servicesFromKubernetes() {
       return [];
     }
     
+    //resource lists
     const [ingressList, traefikIngressList, httpRouteList] = await Promise.all([
       kubernetes.listIngress(kubeArguments),
       kubernetes.listTraefikIngress(kubeArguments),
@@ -195,6 +194,7 @@ export async function servicesFromKubernetes() {
       .filter(resource => kubernetes.isDiscoverable(resource, instanceName))
       .map(async (resource) => kubernetes.constructedServiceFromResource(resource)));
 
+    //map service groups
     const mappedServiceGroups = services.reduce((groups, serverService) => {
       let serverGroup = groups.find(group => group.name === serverService.group);
     
@@ -215,94 +215,6 @@ export async function servicesFromKubernetes() {
     
       return groups;
     }, []);
-
-    
-    // console.log(mappedServiceGroups);
-    // const routeList = await getRouteList(ANNOTATION_BASE);
-
-    // if (!routeList) {
-    //   return [];
-    // }
-
-    // const services = await Promise.all(
-    //   routeList
-    //     .filter(
-    //       (route) =>
-    //         route.metadata.annotations &&
-    //         route.metadata.annotations[`${ANNOTATION_BASE}/enabled`] === "true" &&
-    //         (!route.metadata.annotations[`${ANNOTATION_BASE}/instance`] ||
-    //           route.metadata.annotations[`${ANNOTATION_BASE}/instance`] === instanceName ||
-    //           `${ANNOTATION_BASE}/instance.${instanceName}` in route.metadata.annotations),
-    //     )
-    //     .map(async (route) => {
-    //       let constructedService = {
-    //         app: route.metadata.annotations[`${ANNOTATION_BASE}/app`] || route.metadata.name,
-    //         namespace: route.metadata.namespace,
-    //         href: route.metadata.annotations[`${ANNOTATION_BASE}/href`] || (await getUrlSchema(route)),
-    //         name: route.metadata.annotations[`${ANNOTATION_BASE}/name`] || route.metadata.name,
-    //         group: route.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
-    //         weight: route.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
-    //         icon: route.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
-    //         description: route.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
-    //         external: false,
-    //         type: "service",
-    //       };
-    //       if (route.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
-    //         constructedService.external =
-    //           String(route.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
-    //       }
-    //       if (route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
-    //         constructedService.podSelector = route.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
-    //       }
-    //       if (route.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
-    //         constructedService.ping = route.metadata.annotations[`${ANNOTATION_BASE}/ping`];
-    //       }
-    //       if (route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
-    //         constructedService.siteMonitor = route.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
-    //       }
-    //       if (route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
-    //         constructedService.statusStyle = route.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
-    //       }
-    //       Object.keys(route.metadata.annotations).forEach((annotation) => {
-    //         if (annotation.startsWith(ANNOTATION_WIDGET_BASE)) {
-    //           shvl.set(
-    //             constructedService,
-    //             annotation.replace(`${ANNOTATION_BASE}/`, ""),
-    //             route.metadata.annotations[annotation],
-    //           );
-    //         }
-    //       });
-
-    //       try {
-    //         constructedService = JSON.parse(substituteEnvironmentVars(JSON.stringify(constructedService)));
-    //       } catch (e) {
-    //         logger.error("Error attempting k8s environment variable substitution.");
-    //         logger.debug(e);
-    //       }
-    //       return constructedService;
-    //     }),
-    // );
-
-    // const mappedServiceGroups = [];
-
-    // services.forEach((serverService) => {
-    //   let serverGroup = mappedServiceGroups.find((searchedGroup) => searchedGroup.name === serverService.group);
-    //   if (!serverGroup) {
-    //     mappedServiceGroups.push({
-    //       name: serverService.group,
-    //       services: [],
-    //     });
-    //     serverGroup = mappedServiceGroups[mappedServiceGroups.length - 1];
-    //   }
-
-    //   const { name: serviceName, group: serverServiceGroup, ...pushedService } = serverService;
-    //   const result = {
-    //     name: serviceName,
-    //     ...pushedService,
-    //   };
-
-    //   serverGroup.services.push(result);
-    // });
 
     return mappedServiceGroups;
   } catch (e) {

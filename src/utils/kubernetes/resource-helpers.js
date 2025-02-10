@@ -1,10 +1,72 @@
-import getUrlSchema from "utils/kubernetes/kubernetes-routes";
+import { CustomObjectsApi } from "@kubernetes/client-node";
+
+import getKubeArguments,{ ANNOTATION_BASE,ANNOTATION_WIDGET_BASE,HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
 import { substituteEnvironmentVars } from "utils/config/config";
-import { ANNOTATION_BASE,ANNOTATION_WIDGET_BASE } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("resource-helpers");
+const kubeArguments = getKubeArguments();
+const kc = kubeArguments.config;
+
+const getSchemaFromGateway = async (gatewayRef) => {
+    const crd = kc.makeApiClient(CustomObjectsApi);
+    const schema = await crd
+      .getNamespacedCustomObject(HTTPROUTE_API_GROUP, HTTPROUTE_API_VERSION, gatewayRef.namespace, "gateways", gatewayRef.name)
+      .then((response) => {
+        const listner = response.body.spec.listeners.filter((listener) => listener.name === gatewayRef.sectionName)[0];
+        return listner.protocol.toLowerCase();
+      })
+      .catch((error) => {
+        logger.error("Error getting gateways: %d %s %s", error.statusCode, error.body, error.response);
+        logger.debug(error);
+        return "";
+      });
+    return schema;
+  };
+  
+  async function getUrlFromHttpRoute(resource) {
+    let url = null;
+    const hasHostName = resource.spec?.hostnames;
+    const isHttpRoute = resource.kind === "HTTPRoute";
+    
+    if (isHttpRoute && hasHostName) {
+      if (resource.spec.rules[0].matches[0].path.type!=="RegularExpression"){
+        const urlHost = resource.spec.hostnames[0];
+        const urlPath = resource.spec.rules[0].matches[0].path.value;
+        const urlSchema = (await getSchemaFromGateway(resource.spec.parentRefs[0])) ? "https" : "http";
+        url = `${urlSchema}://${urlHost}${urlPath}`;
+      }
+    } 
+    return url;
+  }
+  
+  function getUrlFromIngress(resource) {
+    const isNotHttpRoute = resource.kind !== "HTTPRoute";
+    let url = null
+  
+    if (isNotHttpRoute){
+      const urlHost = resource.spec.rules[0].host;
+      const urlPath = resource.spec.rules[0].http.paths[0].path;
+      const urlSchema = resource.spec.tls ? "https" : "http";
+      url = `${urlSchema}://${urlHost}${urlPath}`; 
+  }
+    return url;
+  }
+  
+  async function getUrlSchema(resource) {
+    let urlSchema;
+  
+    if (kubeArguments.ingress){
+      urlSchema = getUrlFromIngress(resource);
+    }else if (kubeArguments.gateway){
+      urlSchema = await getUrlFromHttpRoute(resource);
+    }else{
+      urlSchema = getUrlFromIngress(resource);
+    }
+  
+    return urlSchema;
+  }
 
 export function isDiscoverable(resource,instanceName) {
     return resource.metadata.annotations &&

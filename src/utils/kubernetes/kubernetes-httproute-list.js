@@ -1,11 +1,10 @@
 
 import { CustomObjectsApi, CoreV1Api } from "@kubernetes/client-node";
 
+import { HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("kubernetes-httproute-list");
-const HTTPROUTE_API_GROUP = "gateway.networking.k8s.io";
-const HTTPROUTE_API_VERSION = "v1";
 
 export default async function listHttpRoute(kubeArguments) {
   

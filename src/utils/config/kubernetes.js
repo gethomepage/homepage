@@ -77,3 +77,5 @@ export async function checkCRD(name,kc,logger) {
 
 export const ANNOTATION_BASE = "gethomepage.dev";
 export const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+export const HTTPROUTE_API_GROUP = "gateway.networking.k8s.io";
+export const HTTPROUTE_API_VERSION = "v1";
