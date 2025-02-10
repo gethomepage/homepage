@@ -1,0 +1,230 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+- Media:
+    - Radarr:
+        href: https://radarr.asbblog.com/
+        description: Radarr
+        icon: radarr
+        siteMonitor: https://radarr.asbblog.com/
+        widget:
+            type: radarr
+            url: https://radarr.asbblog.com
+            key: 89786ab3384c4a748562df01b485b49c
+            enableQueue: true
+    - QbTorrent:
+        href: https://qb.asbblog.com/
+        description: Bit torrent
+        icon: qbittorrent
+        siteMonitor: https1://qb.asbblog.com/
+        widget:
+            type: qbittorrent
+            url: https://qb.asbblog.com
+            username: admin
+            password: adminadmin
+    - jellyseerr:
+        href: https://jelly.asbblog.com/
+        description: jellyseerr
+        icon: jellyseerr
+        siteMontior: https://jelly.asbblog.com
+        widget:
+            type: jellyseerr
+            url: https://jelly.asbblog.com
+            key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
+    - Sonarr:
+        href: https://sonarr.asbblog.com/
+        description: Sonnar
+        siteMonitor: http://sonarr.asbblog.com/
+        icon: sonarr
+        widget:
+            type: sonarr
+            url:  https://sonarr.asbblog.com
+            key: d9d1f45e906d4564a0563f792ca4b37b
+            enableQueue: true # optional, defaults to false
+    - prowlarr:
+        href: https://prowlarr.asbblog.com
+        description: prowlarr
+        icon: prowlarr
+        widget:
+            type: prowlarr
+            url: https://prowlarr.asbblog.com
+            key: 4e036a829b1145cf89799e38586e40aa
+    - kodi:
+        href: https://kodi.asbblog.com/
+        description: kodi
+        icon: kodi
+    - kodi2:
+        href: https://kodi2.asbblog.com/
+        description: kodi2
+        icon: kodi
+    - plex:
+        href: https://plex.tv
+        description: Plex media player
+        icon: plex
+        widget:
+            type: plex
+            url: https://192.168.68.79:32400
+            key: Cet9igiJQVNosbeUmj1s
+- Media2:
+    - Radarr:
+        href: https://radarr2.asbblog.com/
+        description: Radarr
+        icon: radarr
+        siteMonitor: https://radarr2.asbblog.com/
+        widget:
+            type: radarr
+            url: https://radarr2.asbblog.com
+            key: 04c84f1ec0e841299f3046ce04356f5f
+            enableQueue: true
+    - QbTorrent:
+        href: https://qb2.asbblog.com/
+        description: Bit torrent
+        icon: qbittorrent
+        siteMonitor: https://qb2.asbblog.com/
+        widget:
+            type: qbittorrent
+            url: https://qb2.asbblog.com
+            username: admin
+            password: adminadmin
+    - jellyseerr: 
+        href: https://jelly.asbblog.com/
+        description: jellyseerr 
+        icon: jellyseerr
+        siteMontior: https://jelly.asbblog.com
+        widget:
+            type: jellyseerr
+            url: http://jelly.asbblog.com
+            key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
+    - Sonarr: 
+        href: https://sonarr2.asbblog.com/
+        description: Sonnar
+        siteMonitor: https://sonarr2.asbblog.com/
+        icon: sonarr
+        widget:
+            type: sonarr
+            url:  http://sonarr2.asbblog.com
+            key: 4f3fd7fa3ca5407eb986ddadc149a9c5
+            enableQueue: true # optional, defaults to false
+    - prowlarr: 
+        href: https://prowlarr2.asbblog.com/
+        description: prowlarr
+        icon: prowlarr
+        siteMonitor: https://prowlarr2.asbblog.com/ 
+        widget:
+            type: prowlarr
+            url: http://prowlarr2.asbblog.com
+            key: 16bc79a702aa44d1987f7c62efd3d706
+- Monitoring:
+    - Pi One:
+        href: https://pi.asbblog.com/admin
+        description: pi hole - main
+        icon: pi-hole
+        siteMonitor: https://pi.asbblog.com/admin
+        widget:
+            type: pihole
+            url: https://pi.asbblog.com
+            key: d5cee877ac04b8c52c6a182d64781fa30bf3a00d590af20a70bc82f0037bd55e
+    - Pi two:
+        href: https://192.168.68.113/admin
+        description: pi2 hole - main
+        siteMonitor: https://192.168.68.133/admin
+        icon: pi-hole
+        widget:
+            type: pihole
+            url: https://192.168.68.133
+            key: d5cee877ac04b8c52c6a182d64781fa30bf3a00d590af20a70bc82f0037bd55e
+    - Portainer:
+        href: https://potainer.asbblog.com
+        description: portainer container
+        siteMonitor: https://portainer.asbblog.com/
+        icon: portainer
+        widget:
+            type: portainer
+            url: https://portainer.asbblog.com
+            env: 2
+            key: ptr_T4o9B+spPrciNRWmFjdv5volVpHDrxehs9OfcOWzwAA=
+    - Portainer-129:
+        href: https://192.168.68.129:9443
+        description: portainer container
+        siteMonitor:  https://192.168.68.129:9443
+        icon: portainer
+        widget:
+            type: portainer
+            url:  https://192.168.68.129:9443
+            env: 2
+            key: ptr_T4o9B+spPrciNRWmFjdv5volVpHDrxehs9OfcOWzwAA=
+     - Portainer-132:
+        href: https://192.168.68.132:9443
+        description: portainer container
+        siteMonitor: https://192.168.68.132:9443
+        icon: portainer
+        widget:
+            type: portainer
+            url: https://192.168.68.132:9443
+            env: 1
+            key: ptr_T+fTOADZ0Zm6DHMBV0NWeaW7KkyU4q+Mp6IJTyfBbOI=
+- Storage-Server:
+    - NAS:
+        href: https://unraid.asbblog.com/login/
+        description: Unraid 
+        siteMonitor: https://unraid.asbblog.com/login
+        icon: unraid
+    - NAS: 
+        href: https://192-168-68-80.abambah.direct.quickconnect.to:5001/#/signin/
+        description: synology 
+        siteMonitor: https://192-168-68-80.abambah.direct.quickconnect.to:5001/#/signin/
+        icon: si-synology
+- Automation:
+    - Home: 
+        href: https://home.asbblog.com
+        description: Home Assistance for home
+        icon: home-assistant 
+        siteMonitor: https://home.asbblog.com
+        widget:
+            type: homeassistant
+            url: https://home.asbblog.com
+            key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzYjk3MmY4ODRjYmM0MTE5OGViYzAyMzIzMjM3M2Q5YSIsImlhdCI6MTczOTIxMDIwMCwiZXhwIjoyMDU0NTcwMjAwfQ.TZ_nXHXnto1tsKxQa_fOhkfkJ-KYKsqI_lSeTdFkFlE
+    - Casaos:           
+        href: https://casaos.asbblog.com/
+        description : Casaos Asbblog 
+        icon: casaos 
+    - Casaos Ubuntu: 
+        href: https://ubuntu2.asbblog.com/
+        descripition: Casaos Ubuntu 
+        icon: casaos
+- Business:
+    - Vikunja:
+        href: https://vj.asbblog.com/
+        description: Project management tool 
+        icon: vikunja
+        siteMonitor: https://vj.asbblog.com/
+    - Books:
+        href: https://books.asbsolutionsgroup.com
+        description: Zoho Books for timesheet and invoicing
+        icon: mdi-book-account
+        siteMonitor: https://books.asbsolutionsgroup.com/
+    - Ceipal:
+        href: https://talenthire.ceipal.com/signin/
+        description: CEIPAL for candidate and job management. 
+        icon: mdi-application
+    - IT Tools:
+        href:  https://tools.asbblog.com/
+        description: IT Tools for the developers
+        icon: mdi-tools
+        siteMonitor: https://tools.asbblog.com/
+- Other: 
+    - Calander: 
+        widget:
+            type: calendar
+            firstDayInWeek: sunday # optional - defaults to monday
+            view: monthly # optional - possible values monthly, agenda
+            maxEvents: 10 # optional - defaults to 10
+            showTime: true # optional - show time for event happening today - defaults to false
+            timezone: America/Los_Angeles # optional and only when timezone is not detected 
+            integrations: # optional
+                - type: sonarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
+                  service_group: Media # group name where widget exists
+                  service_name: Sonarr # service name for that widget
+                  color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
+      

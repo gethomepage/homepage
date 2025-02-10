@@ -1,0 +1,32 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/info-widgets/
+
+- weatherapi:
+    # label: San Jose # optional
+    # latitude: 37.29402454636174 
+    # longitude: 121.87890364473624
+    units: metric # or imperial
+    apiKey: 37a1a38835174500ae5200432241202
+    cache: 5 
+
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: short
+
+- resources:
+    cpu: true
+    memory: true
+    disk: /
+
+- search:
+    provider: google
+    target: _blank
+
+- openmeteo:
+    label: Current
+    latitude: 37.29
+    longitude: -121.88
+    cache: 5
+

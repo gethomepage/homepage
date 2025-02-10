@@ -1,0 +1,20 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Developer:
+    - IT Tools:
+        - abbr: IT
+          href: https://tools.asbblog.com/
+    - Github - avnit: 
+        - abbr: GT
+          href: https://https://github.com/avnit/
+- Social:
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com/
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/

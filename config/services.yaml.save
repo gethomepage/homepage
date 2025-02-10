@@ -1,0 +1,274 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- Media:
+    - Radarr:
+        href: https://radarr.asbblog.com/
+        description: Radarr
+        icon: radarr
+        siteMonitor: https://radarr.asbblog.com/
+        widget:
+            type: radarr
+            url: https://radarr.asbblog.com
+            key: 89786ab3384c4a748562df01b485b49c
+            enableQueue: true
+    - QbTorrent:
+        href: https://qb.asbblog.com/
+        description: Bit torrent
+        icon: qbittorrent
+        siteMonitor: https://qb.asbblog.com/
+        widget:
+            type: qbittorrent
+            url: https://qb.asbblog.com
+            username: admin
+            password: adminadmin
+    - jellyseerr:
+        href: https://jelly.asbblog.com/
+        description: jellyseerr
+        icon: jellyseerr
+        siteMontior: https://jelly.asbblog.com
+        widget:
+            type: jellyseerr
+            url: https://jelly.asbblog.com
+            key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
+    - Sonarr:
+        href: https://sonarr.asbblog.com/
+        description: Sonnar
+        siteMonitor: https://sonarr.asbblog.com/
+        icon: sonarr
+        widget:
+            type: sonarr
+            url:  https://sonarr.asbblog.com
+            key: d9d1f45e906d4564a0563f792ca4b37b
+            enableQueue: true # optional, defaults to false
+    - prowlarr:
+        href: https//prowlarr.asbblog.com
+        description: prowlarr
+        icon: prowlarr
+        widget:
+            type: prowlarr
+            url: http://prowlarr.asbblog.com
+            key: 4e036a829b1145cf89799e38586e40aa
+    - plex:
+        href: https://plex.tv
+        description: Plex media player
+        icon: plex
+        widget:
+            type: plex
+            url: http://192.168.68.79:32400
+            key: Cet9igiJQVNosbeUmj1s
+    - MusicAssistant:
+        href: https://music.asbblog.com
+        description: Music Assistant
+        icon: music-assistant
+- Media2:
+    - Radarr:
+        href: https://radarr2.asbblog.com/
+        description: Radarr
+        icon: radarr
+        siteMonitor: https://radarr2.asbblog.com/
+        widget:
+            type: radarr
+            url: https://radarr2.asbblog.com
+            key: 04c84f1ec0e841299f3046ce04356f5f
+            enableQueue: true
+    - QbTorrent:
+        href: https://qb2.asbblog.com/
+        description: Bit torrent
+        icon: qbittorrent
+        siteMonitor: http://qb2.asbblog.com/
+        widget:
+            type: qbittorrent
+            url: http://qb2.asbblog.com
+            username: admin
+            password: adminadmin
+    - jellyseerr:
+        href: http://jelly.asbblog.com/
+        description: jellyseerr
+        icon: jellyseerr
+        siteMontior: http://jelly.asbblog.com
+        widget:
+            type: jellyseerr
+            url: http://jelly.asbblog.com
+            key: MTcwMzcxMzUwNTY1NWQwZWUyODNlLWVhYmEtNDllOS05ZDFhLTVmMDY5NTVhYjhhMg==
+    - Sonarr:
+        href: https://sonarr2.asbblog.com/
+        description: Sonnar
+        siteMonitor: https://sonarr2.asbblog.com/
+        icon: sonarr
+        widget:
+            type: sonarr
+            url:  https://sonarr2.asbblog.com
+            key: 4f3fd7fa3ca5407eb986ddadc149a9c5
+            enableQueue: true # optional, defaults to false
+    - prowlarr:
+        href: https://prowlarr2.asbblog.com/
+        description: prowlarr
+        icon: prowlarr
+        siteMonitor: https://prowlarr2.asbblog.com/
+        widget:
+            type: prowlarr
+            url: https://prowlarr2.asbblog.com
+            key: 16bc79a702aa44d1987f7c62efd3d706
+- Monitoring:
+    - Pi-One:
+        href: https://pi.asbblog.com/admin
+        description: pi hole - main
+        icon: pi-hole
+        siteMonitor: https://pi.asbblog.com/admin
+        widget:
+            type: pihole
+            url: https://pi.asbblog.com
+            key: 5536c470d038c11793b535e8c1176817c001d6f20a4704fa7908939be82e2922
+    - Pi-two:
+        href: http://pi2.asbblog.com/admin
+        description: pi2 hole - main
+        siteMonitor: https://pi2.asbblog.com/admin
+        icon: pi-hole
+        widget:
+            type: pihole
+            url: https://pi2.asbblog.com
+            key: 5536c470d038c11793b535e8c1176817c001d6f20a4704fa7908939be82e2922
+    - Portainer:
+        href: http://192.168.68.78:9000
+        description: portainer container
+        siteMonitor: http://192.168.68.78:9000
+        icon: portainer
+        widget:
+            type: portainer
+            url: http://192.168.68.78:9000
+            env: 2
+            key: ptr_T4o9B+spPrciNRWmFjdv5volVpHDrxehs9OfcOWzwAA=
+    - Portainer:
+        href: http://192.168.68.132:944
+        description: portainer container
+        siteMonitor: http://192.168.68.132:9443
+        icon: portainer
+        widget:
+            type: portainer
+            url: http://192.168.68.132:9443
+            env: 2
+            key: 
+
+
+
+
+    - InfluxDB:
+        href: https://192.168.68.100:8086
+        icon: influxdb.png
+        description: influx on home assistance
+    - Proxmox:
+        href: https://pve.asbblog.com
+        description: proxmox server
+        siteMonitor: https://pve.asbblog.com
+        icon: proxmox
+        widget:
+          type: proxmox
+          url: https://pve.asbblog.com
+          username: api@pam!homepage
+          password: 71c80cc0-b50c-43a8-9277-3b6d9f27bab9
+- Storage Server:
+    - unraid:
+        href: http://unraid.asbblog.com/login/
+        description: Unraid
+        siteMonitor: https://unraid.asbblog.com/login
+        icon: unraid
+    - synology:
+        href: https://abambah.synology.me:5001/#/signin/
+        description: synology
+        siteMonitor: https://nas1.asbblog.com/signin/
+        icon: si-synology
+    - True Nas:
+        href: https://true-nas.asblog.com
+        description: True Nas
+        siteMonitor: https://true-nas.asbblog.com
+        icon: truenas
+        widget:
+          type: truenas
+          url : https://true-nas.asbblog.com/
+          username : root
+          password : golD123@
+          enablePools: true
+          nasType: scale
+- Automation:
+    - Home: 
+        href: https://home.asbblog.com
+        description: Home Assistance for home
+        icon: home-assistant
+        siteMonitor: https://home.asbblog.com
+        widget:
+            type: homeassistant
+            url: https://home.asbblog.com
+            key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIzZGZkZDUzM2EwMWY0N2ZmYjViYmZmZTZmNGI0NDgwNSIsImlhdCI6MTcwNzkzODA2MywiZXhwIjoyMDIzMjk4MDYzfQ.SzfzMZnVBsexBFO2VIFZQekmN7CnrMd0Ld28sgFe-TI
+            fields: ["people_home", "lights_on","swtiches_on"]
+    - Casaos:
+        href: http://casaos.asbblog.com
+        description : Casaos Asbblog
+        icon: casaos
+    - Casaos-Ubuntu:
+        href: http://ubuntu2.asbblog.com/
+        descripition: Casaos Ubuntu
+        icon: casaos
+    - Docker-web:
+        href: https://docker.asbblog.com/
+        description: Docker on Unraid
+        icon: docker.png
+        siteMonitor: https://docker.asbblog.com
+    - Jacket:
+        href: http://jacket.asbblog.com/
+        description: Jacket on Orange Pi 
+        icon: jackett.png
+        widget: 
+            type: jackett
+            url: http://jacket.asbblog.com
+            fields: ["configured", "errored"]
+            password: x4w1b60du1bvovzmhclpwgbdfmtjai2q 
+- Business:
+    - Vikunja:
+        href: http://vj.asbblog.com/
+        description: Project management tool 
+        icon: vikunja
+        siteMonitor: http://vj.asbblog.com/
+    - Ceipal:
+        href: https://talenthire.ceipal.com/signin/
+        description: CEIPAL for candidate and job management. 
+        icon: mdi-application
+    - Timesheet: 
+        href: https://kimai.asbblog.com
+      # href: https://www.appsheet.com/start/757b606f-8201-467a-a20a-42d247bf53b9?platform=desktop#vss=H4sIAAAAAAAAA6XOsQ7CIBQF0H-5M1_AahyM0UXjIg7P8poQKTSFVhvCvwumxlkdueTcdxMmw_dDpOYGeU6f15ZnSCSF49yzglRYeRcHbxWEwp66JSTLTtOgkJEv4u0jB8j0HZf_XRcwml00reGhdlVZOhZXvquqwWKQBbox0tXya3AxOZes9c0YWJ_KlB8mhI1bP3pyeud1qWzJBs5PZkXeSmUBAAA=&view=Calendar&appName=TimesheetTracker-330590035
+        description: Timesheet for ASB Employees
+- Other: 
+    - Calander: 
+        widget:
+            type: calendar
+            firstDayInWeek: sunday # optional - defaults to monday
+            view: monthly # optional - possible values monthly, agenda
+            maxEvents: 10 # optional - defaults to 10
+            showTime: true # optional - show time for event happening today - defaults to false
+            timezone: America/Los_Angeles # optional and only when timezone is not detected 
+            integrations: # optional
+                - type: sonarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
+                  service_group: Media2 # group name where widget exists
+                  service_name: Sonarr # service name for that widget
+                  color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
+    - Grafana:
+        href: http://grafana.asbblog.com
+        icon: grafana.png
+        widget:
+            type: grafana
+            url: http://192.168.68.84:3010
+            username: admin
+            password: golD123@
+    - ESPHome:
+        widget:
+          type: esphome
+          url: http://192.168.68.84:6052
+    - Calibre-web:
+        href: http://calibre.asbblog.com
+        icon: calibre.png
+        widget: 
+          type: calibreweb
+          url: http://calibre.asbblog.com
+          username: admin
+          password: golD123@
