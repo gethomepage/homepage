@@ -1,13 +1,12 @@
 import { CustomObjectsApi } from "@kubernetes/client-node";
 
-import getKubeArguments,{ ANNOTATION_BASE,ANNOTATION_WIDGET_BASE,HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
+import getKubeConfig,{ ANNOTATION_BASE,ANNOTATION_WIDGET_BASE,HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
 import { substituteEnvironmentVars } from "utils/config/config";
 import createLogger from "utils/logger";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("resource-helpers");
-const kubeArguments = getKubeArguments();
-const kc = kubeArguments.config;
+const kc = getKubeConfig();
 
 const getSchemaFromGateway = async (gatewayRef) => {
     const crd = kc.makeApiClient(CustomObjectsApi);
@@ -28,9 +27,8 @@ const getSchemaFromGateway = async (gatewayRef) => {
   async function getUrlFromHttpRoute(resource) {
     let url = null;
     const hasHostName = resource.spec?.hostnames;
-    const isHttpRoute = resource.kind === "HTTPRoute";
     
-    if (isHttpRoute && hasHostName) {
+    if (hasHostName) {
       if (resource.spec.rules[0].matches[0].path.type!=="RegularExpression"){
         const urlHost = resource.spec.hostnames[0];
         const urlPath = resource.spec.rules[0].matches[0].path.value;
@@ -42,29 +40,20 @@ const getSchemaFromGateway = async (gatewayRef) => {
   }
   
   function getUrlFromIngress(resource) {
-    const isNotHttpRoute = resource.kind !== "HTTPRoute";
-    let url = null
-  
-    if (isNotHttpRoute){
-      const urlHost = resource.spec.rules[0].host;
-      const urlPath = resource.spec.rules[0].http.paths[0].path;
-      const urlSchema = resource.spec.tls ? "https" : "http";
-      url = `${urlSchema}://${urlHost}${urlPath}`; 
-  }
-    return url;
+    const urlHost = resource.spec.rules[0].host;
+    const urlPath = resource.spec.rules[0].http.paths[0].path;
+    const urlSchema = resource.spec.tls ? "https" : "http";
+    return `${urlSchema}://${urlHost}${urlPath}`; 
   }
   
   async function getUrlSchema(resource) {
+    const isHttpRoute = resource.kind == "HTTPRoute";
     let urlSchema;
-  
-    if (kubeArguments.ingress){
+    if (!isHttpRoute){
       urlSchema = getUrlFromIngress(resource);
-    }else if (kubeArguments.gateway){
-      urlSchema = await getUrlFromHttpRoute(resource);
     }else{
-      urlSchema = getUrlFromIngress(resource);
+      urlSchema = getUrlFromHttpRoute(resource);
     }
-  
     return urlSchema;
   }
 

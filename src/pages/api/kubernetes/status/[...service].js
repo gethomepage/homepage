@@ -1,6 +1,6 @@
 import { CoreV1Api } from "@kubernetes/client-node";
 
-import getKubeArguments from "../../../../utils/config/kubernetes";
+import getKubeConfig from "../../../../utils/config/kubernetes";
 import createLogger from "../../../../utils/logger";
 
 const logger = createLogger("kubernetesStatusService");
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
   const labelSelector = podSelector !== undefined ? podSelector : `${APP_LABEL}=${appName}`;
   try {
-    const kc = getKubeArguments().config;
+    const kc = getKubeConfig();
     if (!kc) {
       res.status(500).send({
         error: "No kubernetes configuration",

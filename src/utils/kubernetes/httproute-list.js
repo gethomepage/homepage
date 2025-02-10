@@ -1,17 +1,18 @@
 
 import { CustomObjectsApi, CoreV1Api } from "@kubernetes/client-node";
 
+import getKubeConfig, {getKubernetes} from "utils/config/kubernetes";
 import { HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("httproute-list");
+const kc = getKubeConfig();
 
-export default async function listHttpRoute(kubeArguments) {
+export default async function listHttpRoute() {
   
-    const kc = kubeArguments.config;
     const crd = kc.makeApiClient(CustomObjectsApi);
     const core = kc.makeApiClient(CoreV1Api);
-    const { gateway } = kubeArguments;
+    const { gateway } = getKubernetes();
     let httpRouteList = [];
 
     if (gateway === true) {

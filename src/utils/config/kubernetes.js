@@ -6,9 +6,9 @@ import { KubeConfig,ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
-const extractKubeData = (config) => {
-  // kubeconfig
+const getKubeConfig = () => {
   const kc = new KubeConfig();
+  const config = getKubernetes()
 
   switch (config?.mode) {
     case "cluster":
@@ -22,37 +22,15 @@ const extractKubeData = (config) => {
       return null;
   }
 
-  // route
-  const ingress = config?.ingress === true;
-  // traefik
-  const traefik = config?.traefik === true;
-  // gateway-api
-  const gateway = config?.gateway === true;
-
-  return {
-    config: kc,
-    ingress,
-    gateway,
-    traefik,
-  };
+  return kc
 };
 
-export default function getKubeArguments() {
+export function getKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
-
   const configFile = path.join(CONF_DIR, "kubernetes.yaml");
   const rawConfigData = readFileSync(configFile, "utf8");
   const configData = substituteEnvironmentVars(rawConfigData);
-  const config = yaml.load(configData);
-  let kubeData;
-
-  if (config?.mode === "default" || config?.mode === "cluster") {
-    kubeData = extractKubeData(config);
-  } else {
-    kubeData = { config: null };
-  }
-
-  return kubeData;
+  return yaml.load(configData);
 }
 
 export async function checkCRD(name,kc,logger) {
@@ -75,6 +53,7 @@ export async function checkCRD(name,kc,logger) {
   return exist;
 }
 
+export default getKubeConfig;
 export const ANNOTATION_BASE = "gethomepage.dev";
 export const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
 export const HTTPROUTE_API_GROUP = "gateway.networking.k8s.io";

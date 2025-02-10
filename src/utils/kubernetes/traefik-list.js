@@ -1,14 +1,15 @@
 import CustomObjectsApi from "@kubernetes/client-node";
 
+import getKubeConfig, {getKubernetes} from "utils/config/kubernetes";
 import { checkCRD,ANNOTATION_BASE } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("traefik-list");
+const kc = getKubeConfig();
 
-export default async function listTraefikIngress(kubeArguments) {
+export default async function listTraefikIngress() {
     
-    const kc = kubeArguments.config;
-    const { traefik } = kubeArguments;
+    const { traefik } = getKubernetes();
     const traefikList = [];
 
     if (traefik) {
