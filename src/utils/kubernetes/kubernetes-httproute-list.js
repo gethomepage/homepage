@@ -9,8 +9,9 @@ const HTTPROUTE_API_VERSION = "v1";
 
 export default async function listHttpRoute(kubeArguments) {
   
-    const crd = kubeArguments.config.makeApiClient(CustomObjectsApi);
-    const core = kubeArguments.config.makeApiClient(CoreV1Api);
+    const kc = kubeArguments.config;
+    const crd = kc.makeApiClient(CustomObjectsApi);
+    const core = kc.makeApiClient(CoreV1Api);
     const { gateway } = kubeArguments;
     let httpRouteList = [];
 

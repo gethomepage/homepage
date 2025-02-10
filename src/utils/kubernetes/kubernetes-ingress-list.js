@@ -1,4 +1,4 @@
-import NetworkingV1Api from "@kubernetes/client-node";
+import {NetworkingV1Api} from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 
@@ -7,12 +7,14 @@ const logger = createLogger("kubernetes-ingress-list");
 
 export default async function listIngress(kubeArguments) {
 
-    const networking = kubeArguments.config.makeApiClient(NetworkingV1Api);
-    const { ingress} = kubeArguments;
+    const kc = kubeArguments.config;
+    const networking = kc.makeApiClient(NetworkingV1Api);
+    const { ingress } = kubeArguments;
     let ingressList = []
     
     if (ingress===true){
-        ingressList = await networking
+
+        const ingressData = await networking
         .listIngressForAllNamespaces(null, null, null, null)
         .then((response) => response.body)
         .catch((error) => {
@@ -20,6 +22,7 @@ export default async function listIngress(kubeArguments) {
             logger.debug(error);
             return null;
         });
+        ingressList = ingressData.items;
     }
-    return ingressList.items;
+    return ingressList;
 }

@@ -39,14 +39,14 @@ async function getUrlFromHttpRoute(ingress) {
     }
   } 
   return url;
-}
+};
 
 function getUrlFromIngress(ingress) {
   const urlHost = ingress.spec.rules[0].host;
   const urlPath = ingress.spec.rules[0].http.paths[0].path;
   const urlSchema = ingress.spec.tls ? "https" : "http";
   return `${urlSchema}://${urlHost}${urlPath}`;
-}
+};
 
 async function getHttpRouteList() {
   
@@ -89,7 +89,7 @@ async function getHttpRouteList() {
     httpRouteList = httpRouteListUnfiltered.filter((httpRoute) => httpRoute !== undefined);
   }
   return httpRouteList;
-}
+};
 
 async function getIngressList(annotationBase) {
   
@@ -155,7 +155,7 @@ async function getIngressList(annotationBase) {
   }
 
   return ingressList.items;
-}
+};
 
 export async function getRouteList(annotationBase) {
   let routeList = [];
@@ -178,7 +178,7 @@ export async function getRouteList(annotationBase) {
   }
 
   return routeList;
-}
+};
 
 export async function getUrlSchema(route) {
   let urlSchema;
@@ -195,4 +195,4 @@ export async function getUrlSchema(route) {
       urlSchema = getUrlFromIngress(route);
   }
   return urlSchema;
-}
+};

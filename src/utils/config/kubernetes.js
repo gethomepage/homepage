@@ -23,20 +23,19 @@ const extractKubeData = (config) => {
   }
 
   // route
-  const route = config?.route ?? "ingress";
-
+  const ingress = config?.ingress === true;
   // traefik
-  const traefik = config?.traefik !== "disable";
+  const traefik = config?.traefik === true;
+  // gateway-api
+  const gateway = config?.gateway === true;
 
   return {
     config: kc,
-    route,
+    ingress,
+    gateway,
     traefik,
   };
 };
-
-export const ANNOTATION_BASE = "gethomepage.dev";
-export const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
 
 export default function getKubeArguments() {
   checkAndCopyConfig("kubernetes.yaml");
@@ -55,7 +54,6 @@ export default function getKubeArguments() {
 
   return kubeData;
 }
-
 
 export async function checkCRD(name,kc,logger) {
   const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
@@ -76,3 +74,6 @@ export async function checkCRD(name,kc,logger) {
 
   return exist;
 }
+
+export const ANNOTATION_BASE = "gethomepage.dev";
+export const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
