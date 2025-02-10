@@ -3,7 +3,7 @@ import CustomObjectsApi from "@kubernetes/client-node";
 import { checkCRD,ANNOTATION_BASE } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
-const logger = createLogger("kubernetes-traefik-list");
+const logger = createLogger("traefik-list");
 
 export default async function listTraefikIngress(kubeArguments) {
     

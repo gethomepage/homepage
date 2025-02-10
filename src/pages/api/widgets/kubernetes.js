@@ -1,10 +1,10 @@
 import { CoreV1Api, Metrics } from "@kubernetes/client-node";
 
 import getKubeArguments from "../../../utils/config/kubernetes";
-import { parseCpu, parseMemory } from "../../../utils/kubernetes/kubernetes-utils";
+import { parseCpu, parseMemory } from "../../../utils/kubernetes/utils";
 import createLogger from "../../../utils/logger";
 
-const logger = createLogger("kubernetes-widget");
+const logger = createLogger("widget");
 
 export default async function handler(req, res) {
   try {

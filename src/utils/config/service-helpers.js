@@ -7,7 +7,7 @@ import Docker from "dockerode";
 import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
-import kubernetes from "utils/kubernetes/kubernetes-export";
+import kubernetes from "utils/kubernetes/export";
 import getKubeArguments from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
 

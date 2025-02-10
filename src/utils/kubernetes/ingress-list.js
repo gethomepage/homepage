@@ -2,7 +2,7 @@ import {NetworkingV1Api} from "@kubernetes/client-node";
 
 import createLogger from "utils/logger";
 
-const logger = createLogger("kubernetes-ingress-list");
+const logger = createLogger("ingress-list");
 
 
 export default async function listIngress(kubeArguments) {
