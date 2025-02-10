@@ -1,6 +1,6 @@
 import { CoreV1Api } from "@kubernetes/client-node";
 
-import getKubeConfig from "../../../../utils/config/kubernetes";
+import {getKubeConfig} from "../../../../utils/config/kubernetes";
 import createLogger from "../../../../utils/logger";
 
 const logger = createLogger("kubernetesStatusService");

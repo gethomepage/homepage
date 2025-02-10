@@ -1,6 +1,6 @@
 import { CoreV1Api, Metrics } from "@kubernetes/client-node";
 
-import getKubeConfig from "../../../../utils/config/kubernetes";
+import {getKubeConfig} from "../../../../utils/config/kubernetes";
 import { parseCpu, parseMemory } from "../../../../utils/kubernetes/utils";
 import createLogger from "../../../../utils/logger";
 

@@ -1,6 +1,6 @@
 import {NetworkingV1Api} from "@kubernetes/client-node";
 
-import getKubeConfig, {getKubernetes} from "utils/config/kubernetes";
+import getKubernetes, {getKubeConfig} from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("ingress-list");

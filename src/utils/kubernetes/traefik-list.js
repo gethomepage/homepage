@@ -1,7 +1,6 @@
 import CustomObjectsApi from "@kubernetes/client-node";
 
-import getKubeConfig, {getKubernetes} from "utils/config/kubernetes";
-import { checkCRD,ANNOTATION_BASE } from "utils/config/kubernetes";
+import getKubernetes,{ getKubeConfig,checkCRD,ANNOTATION_BASE } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("traefik-list");

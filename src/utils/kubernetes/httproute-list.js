@@ -1,8 +1,7 @@
 
 import { CustomObjectsApi, CoreV1Api } from "@kubernetes/client-node";
 
-import getKubeConfig, {getKubernetes} from "utils/config/kubernetes";
-import { HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
+import getKubernetes, {getKubeConfig,HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION} from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("httproute-list");

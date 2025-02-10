@@ -1,6 +1,6 @@
 import { CustomObjectsApi } from "@kubernetes/client-node";
 
-import getKubeConfig,{ ANNOTATION_BASE,ANNOTATION_WIDGET_BASE,HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
+import { getKubeConfig,ANNOTATION_BASE,ANNOTATION_WIDGET_BASE,HTTPROUTE_API_GROUP,HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
 import { substituteEnvironmentVars } from "utils/config/config";
 import createLogger from "utils/logger";
 import * as shvl from "utils/config/shvl";
@@ -47,12 +47,12 @@ const getSchemaFromGateway = async (gatewayRef) => {
   }
   
   async function getUrlSchema(resource) {
-    const isHttpRoute = resource.kind == "HTTPRoute";
+    const isHttpRoute = resource.kind === "HTTPRoute";
     let urlSchema;
-    if (!isHttpRoute){
-      urlSchema = getUrlFromIngress(resource);
-    }else{
+    if (isHttpRoute){
       urlSchema = getUrlFromHttpRoute(resource);
+    }else{
+      urlSchema = getUrlFromIngress(resource);
     }
     return urlSchema;
   }

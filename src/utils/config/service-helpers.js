@@ -8,7 +8,7 @@ import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import kubernetes from "utils/kubernetes/export";
-import getKubeConfig from "utils/config/kubernetes";
+import {getKubeConfig} from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");

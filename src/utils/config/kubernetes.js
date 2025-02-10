@@ -6,7 +6,15 @@ import { KubeConfig,ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
-const getKubeConfig = () => {
+export default function getKubernetes() {
+  checkAndCopyConfig("kubernetes.yaml");
+  const configFile = path.join(CONF_DIR, "kubernetes.yaml");
+  const rawConfigData = readFileSync(configFile, "utf8");
+  const configData = substituteEnvironmentVars(rawConfigData);
+  return yaml.load(configData);
+}
+
+export const getKubeConfig = () => {
   const kc = new KubeConfig();
   const config = getKubernetes()
 
@@ -24,14 +32,6 @@ const getKubeConfig = () => {
 
   return kc
 };
-
-export function getKubernetes() {
-  checkAndCopyConfig("kubernetes.yaml");
-  const configFile = path.join(CONF_DIR, "kubernetes.yaml");
-  const rawConfigData = readFileSync(configFile, "utf8");
-  const configData = substituteEnvironmentVars(rawConfigData);
-  return yaml.load(configData);
-}
 
 export async function checkCRD(name,kc,logger) {
   const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
@@ -53,7 +53,6 @@ export async function checkCRD(name,kc,logger) {
   return exist;
 }
 
-export default getKubeConfig;
 export const ANNOTATION_BASE = "gethomepage.dev";
 export const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
 export const HTTPROUTE_API_GROUP = "gateway.networking.k8s.io";
