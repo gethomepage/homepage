@@ -8,6 +8,7 @@ import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import { getUrlSchema, getRouteList } from "utils/kubernetes/kubernetes-routes";
+import {ANNOTATION_BASE,ANNOTATION_WIDGET_BASE} from "utils/config/kubernetes"
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
@@ -167,8 +168,6 @@ export async function servicesFromDocker() {
 }
 
 export async function servicesFromKubernetes() {
-  const ANNOTATION_BASE = "gethomepage.dev";
-  const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
   const { instanceName } = getSettings();
 
   checkAndCopyConfig("kubernetes.yaml");

@@ -35,6 +35,9 @@ const extractKubeData = (config) => {
   };
 };
 
+export const ANNOTATION_BASE = "gethomepage.dev";
+export const ANNOTATION_WIDGET_BASE = `${ANNOTATION_BASE}/widget.`;
+
 export default function getKubeArguments() {
   checkAndCopyConfig("kubernetes.yaml");
 
