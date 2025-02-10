@@ -178,7 +178,7 @@ export async function servicesFromKubernetes() {
       return [];
     }
     
-    //resource lists
+    // resource lists
     const [ingressList, traefikIngressList, httpRouteList] = await Promise.all([
       kubernetes.listIngress(kubeArguments),
       kubernetes.listTraefikIngress(kubeArguments),
@@ -194,7 +194,7 @@ export async function servicesFromKubernetes() {
       .filter(resource => kubernetes.isDiscoverable(resource, instanceName))
       .map(async (resource) => kubernetes.constructedServiceFromResource(resource)));
 
-    //map service groups
+    // map service groups
     const mappedServiceGroups = services.reduce((groups, serverService) => {
       let serverGroup = groups.find(group => group.name === serverService.group);
     
