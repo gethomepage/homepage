@@ -20,11 +20,20 @@ The Kubernetes connection is configured in the `kubernetes.yaml` file. There are
 mode: default
 ```
 
-To enable Kubernetes gateway-api compatibility, add the following setting:
+To configure Kubernetes gateway-api, ingress or ingressRoute service discovery, add one or multiple of the following settings.
+
+Example settings:
 
 ```yaml
-route: gateway
+ingress: true   # enable ingress only
 ```
+or
+```yaml
+ingress: true   # enable ingress
+traefik: true   # enable traefik ingressRoute
+gateway: true   # enable gateway-api
+```
+
 
 ## Services
 
