@@ -16,13 +16,11 @@ export default async function listTraefikIngress() {
     const traefikExists = await checkCRD("ingressroutes.traefik.io", kc, logger);
 
     const traefikIngressListContaino = await crd
-      .listClusterCustomObject(
-        {
-          group: "traefik.containo.us",
-          version: "v1alpha1",
-          plural: "ingressroutes"
-        }
-      )
+      .listClusterCustomObject({
+        group: "traefik.containo.us",
+        version: "v1alpha1",
+        plural: "ingressroutes",
+      })
       .then((response) => response)
       .catch(async (error) => {
         if (traefikContainoExists) {
@@ -39,13 +37,11 @@ export default async function listTraefikIngress() {
       });
 
     const traefikIngressListIo = await crd
-      .listClusterCustomObject(
-        {
-          group: "traefik.io",
-          version: "v1alpha1",
-          plural:"ingressroutes"
-        }
-      )
+      .listClusterCustomObject({
+        group: "traefik.io",
+        version: "v1alpha1",
+        plural: "ingressroutes",
+      })
       .then((response) => response.body)
       .catch(async (error) => {
         if (traefikExists) {

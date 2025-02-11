@@ -36,11 +36,9 @@ export const getKubeConfig = () => {
 export async function checkCRD(name, kc, logger) {
   const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
   const exist = await apiExtensions
-    .readCustomResourceDefinitionStatus(
-      {
-        name
-      }
-    )
+    .readCustomResourceDefinitionStatus({
+      name,
+    })
     .then(() => true)
     .catch(async (error) => {
       if (error.statusCode === 403) {

@@ -14,16 +14,14 @@ export default async function listHttpRoute() {
 
   if (gateway) {
     // httproutes
-    const getHttpRoute = async (namespace) => 
+    const getHttpRoute = async (namespace) =>
       crd
-        .listNamespacedCustomObject(
-          {
-            group: HTTPROUTE_API_GROUP, 
-            version: HTTPROUTE_API_VERSION, 
-            namespace, 
-            plural: "httproutes" 
-          }
-        )
+        .listNamespacedCustomObject({
+          group: HTTPROUTE_API_GROUP,
+          version: HTTPROUTE_API_VERSION,
+          namespace,
+          plural: "httproutes",
+        })
         .then((response) => {
           const [httpRoute] = response.items;
           return httpRoute;
