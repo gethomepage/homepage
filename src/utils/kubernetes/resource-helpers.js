@@ -18,14 +18,16 @@ const getSchemaFromGateway = async (gatewayRef) => {
   const crd = kc.makeApiClient(CustomObjectsApi);
   const schema = await crd
     .getNamespacedCustomObject(
-      HTTPROUTE_API_GROUP,
-      HTTPROUTE_API_VERSION,
-      gatewayRef.namespace,
-      "gateways",
-      gatewayRef.name,
+      {
+        group: HTTPROUTE_API_GROUP,
+        version: HTTPROUTE_API_VERSION,
+        namespace: gatewayRef.namespace,
+        plural: "gateways",
+        name: gatewayRef.name
+      }
     )
     .then((response) => {
-      const listner = response.body.spec.listeners.filter((listener) => listener.name === gatewayRef.sectionName)[0];
+      const listner = response.spec.listeners.filter((listener) => listener.name === gatewayRef.sectionName)[0];
       return listner.protocol.toLowerCase();
     })
     .catch((error) => {

@@ -27,8 +27,13 @@ export default async function handler(req, res) {
     }
     const coreApi = kc.makeApiClient(CoreV1Api);
     const podsResponse = await coreApi
-      .listNamespacedPod(namespace, null, null, null, null, labelSelector)
-      .then((response) => response.body)
+      .listNamespacedPod(
+        {
+          namespace: namespace, 
+          labelSelector:labelSelector
+        }
+      )
+      .then((response) => response)
       .catch((err) => {
         logger.error("Error getting pods: %d %s %s", err.statusCode, err.body, err.response);
         return null;

@@ -6,7 +6,7 @@ import { KubeConfig, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
-export default function getKubernetes() {
+export function getKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
   const configFile = path.join(CONF_DIR, "kubernetes.yaml");
   const rawConfigData = readFileSync(configFile, "utf8");
@@ -36,7 +36,7 @@ export const getKubeConfig = () => {
 export async function checkCRD(name, kc, logger) {
   const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
   const exist = await apiExtensions
-    .readCustomResourceDefinitionStatus(name)
+    .readCustomResourceDefinitionStatus({name:name})
     .then(() => true)
     .catch(async (error) => {
       if (error.statusCode === 403) {

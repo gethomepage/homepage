@@ -1,6 +1,6 @@
-import CustomObjectsApi from "@kubernetes/client-node";
+import { CustomObjectsApi } from "@kubernetes/client-node";
 
-import getKubernetes, { getKubeConfig, checkCRD, ANNOTATION_BASE } from "utils/config/kubernetes";
+import { getKubernetes, getKubeConfig, checkCRD, ANNOTATION_BASE } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("traefik-list");
@@ -16,8 +16,14 @@ export default async function listTraefikIngress() {
     const traefikExists = await checkCRD("ingressroutes.traefik.io", kc, logger);
 
     const traefikIngressListContaino = await crd
-      .listClusterCustomObject("traefik.containo.us", "v1alpha1", "ingressroutes")
-      .then((response) => response.body)
+      .listClusterCustomObject(
+        {
+          group: "traefik.containo.us",
+          version: "v1alpha1",
+          plural: "ingressroutes"
+        }
+      )
+      .then((response) => response)
       .catch(async (error) => {
         if (traefikContainoExists) {
           logger.error(
@@ -33,7 +39,13 @@ export default async function listTraefikIngress() {
       });
 
     const traefikIngressListIo = await crd
-      .listClusterCustomObject("traefik.io", "v1alpha1", "ingressroutes")
+      .listClusterCustomObject(
+        {
+          group: "traefik.io",
+          version: "v1alpha1",
+          plural:"ingressroutes"
+        }
+      )
       .then((response) => response.body)
       .catch(async (error) => {
         if (traefikExists) {
