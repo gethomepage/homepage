@@ -8,7 +8,7 @@ import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import kubernetes from "utils/kubernetes/export";
-import {getKubeConfig} from "utils/config/kubernetes";
+import { getKubeConfig } from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
 
 const logger = createLogger("service-helpers");
@@ -177,42 +177,44 @@ export async function servicesFromKubernetes() {
     if (!kc) {
       return [];
     }
-    
+
     // resource lists
     const [ingressList, traefikIngressList, httpRouteList] = await Promise.all([
       kubernetes.listIngress(),
       kubernetes.listTraefikIngress(),
-      kubernetes.listHttpRoute()
+      kubernetes.listHttpRoute(),
     ]);
 
-    const resources = [ ...ingressList, ...traefikIngressList, ...httpRouteList ];
-    
+    const resources = [...ingressList, ...traefikIngressList, ...httpRouteList];
+
     if (!resources) {
       return [];
     }
-    const services = await Promise.all( resources
-      .filter(resource => kubernetes.isDiscoverable(resource, instanceName))
-      .map(async (resource) => kubernetes.constructedServiceFromResource(resource)));
+    const services = await Promise.all(
+      resources
+        .filter((resource) => kubernetes.isDiscoverable(resource, instanceName))
+        .map(async (resource) => kubernetes.constructedServiceFromResource(resource)),
+    );
 
     // map service groups
     const mappedServiceGroups = services.reduce((groups, serverService) => {
-      let serverGroup = groups.find(group => group.name === serverService.group);
-    
+      let serverGroup = groups.find((group) => group.name === serverService.group);
+
       if (!serverGroup) {
         serverGroup = {
           name: serverService.group,
-          services: []
+          services: [],
         };
         groups.push(serverGroup);
       }
-    
+
       const { name: serviceName, group: _, ...pushedService } = serverService;
-    
+
       serverGroup.services.push({
         name: serviceName,
-        ...pushedService
+        ...pushedService,
       });
-    
+
       return groups;
     }, []);
 

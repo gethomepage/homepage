@@ -2,7 +2,7 @@ import path from "path";
 import { readFileSync } from "fs";
 
 import yaml from "js-yaml";
-import { KubeConfig,ApiextensionsV1Api } from "@kubernetes/client-node";
+import { KubeConfig, ApiextensionsV1Api } from "@kubernetes/client-node";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
@@ -16,7 +16,7 @@ export default function getKubernetes() {
 
 export const getKubeConfig = () => {
   const kc = new KubeConfig();
-  const config = getKubernetes()
+  const config = getKubernetes();
 
   switch (config?.mode) {
     case "cluster":
@@ -30,10 +30,10 @@ export const getKubeConfig = () => {
       return null;
   }
 
-  return kc
+  return kc;
 };
 
-export async function checkCRD(name,kc,logger) {
+export async function checkCRD(name, kc, logger) {
   const apiExtensions = kc.makeApiClient(ApiextensionsV1Api);
   const exist = await apiExtensions
     .readCustomResourceDefinitionStatus(name)
