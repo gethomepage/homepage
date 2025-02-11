@@ -12,7 +12,7 @@ export default async function listHttpRoute() {
   const { gateway } = getKubernetes();
   let httpRouteList = [];
 
-  if (!gateway) {
+  if (gateway) {
     // httproutes
     const getHttpRoute = async (namespace) =>
       crd

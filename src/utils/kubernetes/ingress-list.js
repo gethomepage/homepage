@@ -11,7 +11,7 @@ export default async function listIngress() {
   const { ingress } = getKubernetes();
   let ingressList = [];
 
-  if (!ingress) {
+  if (ingress) {
     const ingressData = await networking
       .listIngressForAllNamespaces(null, null, null, null)
       .then((response) => response.body)
