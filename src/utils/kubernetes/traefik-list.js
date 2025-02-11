@@ -11,7 +11,7 @@ export default async function listTraefikIngress() {
     const { traefik } = getKubernetes();
     const traefikList = [];
 
-    if (traefik) {
+    if (!!traefik) {
         const crd = kc.makeApiClient(CustomObjectsApi);
         const traefikContainoExists = await checkCRD("ingressroutes.traefik.containo.us",kc,logger);
         const traefikExists = await checkCRD("ingressroutes.traefik.io",kc,logger);
