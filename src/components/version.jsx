@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next";
 import useSWR from "swr";
-import { compareVersions } from "compare-versions";
+import { compareVersions, validate } from "compare-versions";
 import { MdNewReleases } from "react-icons/md";
 
 export default function Version() {
@@ -44,7 +44,7 @@ export default function Version() {
           </a>
         )}
       </span>
-      {version === "main" || version === "dev" || version === "nightly"
+      {!validate(version)
         ? null
         : releaseData &&
           latestRelease &&
