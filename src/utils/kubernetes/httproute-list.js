@@ -1,5 +1,4 @@
-import { CustomObjectsApi, CoreV1Api, CustomObjectsApiListNamespacedCustomObjectRequest } from "@kubernetes/client-node";
-import { parseAppSegmentConfig } from "next/dist/build/segment-config/app/app-segment-config";
+import { CustomObjectsApi, CoreV1Api } from "@kubernetes/client-node";
 
 import { getKubernetes, getKubeConfig, HTTPROUTE_API_GROUP, HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
@@ -15,9 +14,16 @@ export default async function listHttpRoute() {
 
   if (gateway) {
     // httproutes
-    const getHttpRoute = async (namespace) => {
-      return crd
-        .listNamespacedCustomObject({ group: HTTPROUTE_API_GROUP, version: HTTPROUTE_API_VERSION, namespace: namespace, plural: "httproutes" })
+    const getHttpRoute = async (namespace) => 
+      crd
+        .listNamespacedCustomObject(
+          {
+            group: HTTPROUTE_API_GROUP, 
+            version: HTTPROUTE_API_VERSION, 
+            namespace, 
+            plural: "httproutes" 
+          }
+        )
         .then((response) => {
           const [httpRoute] = response.items;
           return httpRoute;
@@ -26,7 +32,7 @@ export default async function listHttpRoute() {
           logger.error("Error getting httproutes: %d %s %s", error.statusCode, error.body, error.response);
           logger.debug(error);
           return null;
-        });}
+        });
     // namespaces
     const namespaces = await core
       .listNamespace()

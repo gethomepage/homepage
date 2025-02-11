@@ -32,8 +32,8 @@ export default async function handler(req, res) {
     const podsResponse = await coreApi
       .listNamespacedPod(
         {
-          namespace: namespace, 
-          labelSelector:labelSelector
+          namespace, 
+          labelSelector
         }
       )
       .then((response) => response.body)
