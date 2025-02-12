@@ -12,6 +12,9 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
   const cellDate = showDate.set({ weekday, weekNumber, weekYear: showDate.year }).startOf("day");
   const filteredEvents = events?.filter((event) => compareDateTimezone(cellDate, event));
 
+  console.log(`cellDate = ${cellDate.startOf("day").ts}`)
+  console.log(`events = ${events[0].date.startOf("day").ts}`)
+
   const dayStyles = (displayDate) => {
     let style = "h-9 ";
 
@@ -40,7 +43,6 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
 
     return style;
   };
-
   return (
     <button
       key={`day${weekday}${weekNumber}}`}
@@ -107,7 +109,6 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
 
   const eventsArray = Object.keys(events).map((eventKey) => events[eventKey]);
   eventsArray.sort((a, b) => a.date - b.date);
-
   return (
     <div className="w-full text-center">
       <div className="flex-col">
