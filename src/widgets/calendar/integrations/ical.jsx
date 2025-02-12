@@ -78,7 +78,16 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           const rule = new RRule(recurrenceOptions);
           const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
 
-          recurringEvents.forEach((date, i) => eventToAdd(date, i, "recurring"));
+          recurringEvents.forEach((date, i) => {
+            let eventDate = date;
+            if (event.dtstart?.params?.tzid) {
+              // date is in UTC but parsed as if it is in current timezone, so we need to adjust it
+              const dateInUTC = DateTime.fromJSDate(date).setZone("UTC");
+              const offset = dateInUTC.offset - DateTime.fromJSDate(date, { zone: event.dtstart.params.tzid }).offset;
+              eventDate = dateInUTC.plus({ minutes: offset }).toJSDate();
+            }
+            eventToAdd(eventDate, i, "recurring");
+          });
           return;
         } catch (e) {
           // eslint-disable-next-line no-console
