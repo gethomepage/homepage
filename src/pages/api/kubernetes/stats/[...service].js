@@ -1,7 +1,7 @@
 import { CoreV1Api, Metrics } from "@kubernetes/client-node";
 
-import getKubeConfig from "../../../../utils/config/kubernetes";
-import { parseCpu, parseMemory } from "../../../../utils/kubernetes/kubernetes-utils";
+import { getKubeConfig } from "../../../../utils/config/kubernetes";
+import { parseCpu, parseMemory } from "../../../../utils/kubernetes/utils";
 import createLogger from "../../../../utils/logger";
 
 const logger = createLogger("kubernetesStatsService");
@@ -30,7 +30,10 @@ export default async function handler(req, res) {
     const coreApi = kc.makeApiClient(CoreV1Api);
     const metricsApi = new Metrics(kc);
     const podsResponse = await coreApi
-      .listNamespacedPod(namespace, null, null, null, null, labelSelector)
+      .listNamespacedPod({
+        namespace,
+        labelSelector,
+      })
       .then((response) => response.body)
       .catch((err) => {
         logger.error("Error getting pods: %d %s %s", err.statusCode, err.body, err.response);
