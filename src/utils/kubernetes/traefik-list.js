@@ -21,7 +21,6 @@ export default async function listTraefikIngress() {
         version: "v1alpha1",
         plural: "ingressroutes",
       })
-      .then((response) => response)
       .catch(async (error) => {
         if (traefikContainoExists) {
           logger.error(
@@ -42,7 +41,6 @@ export default async function listTraefikIngress() {
         version: "v1alpha1",
         plural: "ingressroutes",
       })
-      .then((response) => response.body)
       .catch(async (error) => {
         if (traefikExists) {
           logger.error(
