@@ -25,7 +25,7 @@ const getSchemaFromGateway = async (parentRef) => {
       name: parentRef.name,
     })
     .then((response) => {
-      const namedListener =
+      const listener =
         response.spec.listeners.find((l) => l.name === parentRef.sectionName) ?? response.spec.listeners[0];
 
       return listener.protocol.toLowerCase();
