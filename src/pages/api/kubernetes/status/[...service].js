@@ -31,7 +31,6 @@ export default async function handler(req, res) {
         namespace,
         labelSelector,
       })
-      .then((response) => response)
       .catch((err) => {
         logger.error("Error getting pods: %d %s %s", err.statusCode, err.body, err.response);
         return null;
