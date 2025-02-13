@@ -14,25 +14,29 @@ import * as shvl from "utils/config/shvl";
 const logger = createLogger("resource-helpers");
 const kc = getKubeConfig();
 
-const getSchemaFromGateway = async (gatewayRef) => {
+const getSchemaFromGateway = async (parentRef) => {
   const crd = kc.makeApiClient(CustomObjectsApi);
   const schema = await crd
     .getNamespacedCustomObject({
       group: HTTPROUTE_API_GROUP,
       version: HTTPROUTE_API_VERSION,
-      namespace: gatewayRef.namespace,
+      namespace: parentRef.namespace,
       plural: "gateways",
-      name: gatewayRef.name,
+      name: parentRef.name,
     })
     .then((response) => {
-      const listner = response.spec.listeners.filter((listener) => listener.name === gatewayRef.sectionName)[0];
-      return listner.protocol.toLowerCase();
+      const listener =
+        response.spec.listeners.find((l) => l.name === parentRef.sectionName) ?? response.spec.listeners[0];
+
+      return listener.protocol.toLowerCase();
     })
     .catch((error) => {
       logger.error("Error getting gateways: %d %s %s", error.statusCode, error.body, error.response);
       logger.debug(error);
-      return "";
+
+      return "http";
     });
+
   return schema;
 };
 
@@ -44,10 +48,11 @@ async function getUrlFromHttpRoute(resource) {
     if (resource.spec.rules[0].matches[0].path.type !== "RegularExpression") {
       const urlHost = resource.spec.hostnames[0];
       const urlPath = resource.spec.rules[0].matches[0].path.value;
-      const urlSchema = (await getSchemaFromGateway(resource.spec.parentRefs[0])) ? "https" : "http";
+      const urlSchema = await getSchemaFromGateway(resource.spec.parentRefs[0]);
       url = `${urlSchema}://${urlHost}${urlPath}`;
     }
   }
+
   return url;
 }
 
@@ -55,6 +60,7 @@ function getUrlFromIngress(resource) {
   const urlHost = resource.spec.rules[0].host;
   const urlPath = resource.spec.rules[0].http.paths[0].path;
   const urlSchema = resource.spec.tls ? "https" : "http";
+
   return `${urlSchema}://${urlHost}${urlPath}`;
 }
 
@@ -66,6 +72,7 @@ async function getUrlSchema(resource) {
   } else {
     urlSchema = getUrlFromIngress(resource);
   }
+
   return urlSchema;
 }
 
