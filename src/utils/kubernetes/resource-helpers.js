@@ -25,17 +25,18 @@ const getSchemaFromGateway = async (parentRef) => {
       name: parentRef.name,
     })
     .then((response) => {
-      const namedListener = response.spec.listeners.find(l => l.name === parentRef.sectionName) ?? response.spec.listeners[0];
+      const namedListener =
+        response.spec.listeners.find((l) => l.name === parentRef.sectionName) ?? response.spec.listeners[0];
 
-      return listener.protocol.toLowerCase()
+      return listener.protocol.toLowerCase();
     })
     .catch((error) => {
       logger.error("Error getting gateways: %d %s %s", error.statusCode, error.body, error.response);
       logger.debug(error);
-      
+
       return "http";
     });
-  
+
   return schema;
 };
 
@@ -51,7 +52,7 @@ async function getUrlFromHttpRoute(resource) {
       url = `${urlSchema}://${urlHost}${urlPath}`;
     }
   }
-  
+
   return url;
 }
 
@@ -59,7 +60,7 @@ function getUrlFromIngress(resource) {
   const urlHost = resource.spec.rules[0].host;
   const urlPath = resource.spec.rules[0].http.paths[0].path;
   const urlSchema = resource.spec.tls ? "https" : "http";
-  
+
   return `${urlSchema}://${urlHost}${urlPath}`;
 }
 
@@ -71,7 +72,7 @@ async function getUrlSchema(resource) {
   } else {
     urlSchema = getUrlFromIngress(resource);
   }
-  
+
   return urlSchema;
 }
 
