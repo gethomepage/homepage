@@ -26,6 +26,8 @@
     "minecraft-ping-js": "^1.0.2",
     "next": "^15.0.3",
     "next-i18next": "^12.1.0",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.3.2",
     "ping": "^0.4.4",
     "pretty-bytes": "^6.1.1",
     "raw-body": "^3.0.0",

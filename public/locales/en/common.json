@@ -1014,5 +1014,17 @@
         "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "openstack": {
+        "name": "Name",
+        "status": "Status",
+        "cputime": "CPU time",
+        "states": {
+            "active": "Active",
+            "build": "Build",
+            "shutoff": "Shut off",
+            "error": "Error",
+            "deleted": "Deleted"
+        }
     }
 }

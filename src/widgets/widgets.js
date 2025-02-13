@@ -79,6 +79,7 @@ import opendtu from "./opendtu/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import openmediavault from "./openmediavault/widget";
+import openstack from "./openstack/widget";
 import openwrt from "./openwrt/widget";
 import paperlessngx from "./paperlessngx/widget";
 import peanut from "./peanut/widget";
@@ -215,6 +216,7 @@ const widgets = {
   opnsense,
   overseerr,
   openmediavault,
+  openstack,
   openwrt,
   paperlessngx,
   peanut,
