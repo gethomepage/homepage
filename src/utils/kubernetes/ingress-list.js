@@ -14,7 +14,6 @@ export default async function listIngress() {
   if (ingress) {
     const ingressData = await networking
       .listIngressForAllNamespaces()
-      .then((response) => response)
       .catch((error) => {
         logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
         logger.debug(error);
