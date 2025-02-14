@@ -746,5 +746,11 @@
         "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
         "digitalRelease": "Digital release"
+    },
+    "backrest": {
+        "num_plans": "Planos",
+        "num_success": "Sucessos",
+        "num_failure": "Falhas",
+        "bytes_added": "Bytes adicionados"
     }
 }

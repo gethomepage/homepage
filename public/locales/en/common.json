@@ -1014,5 +1014,11 @@
         "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "backrest": {
+        "num_plans": "Plans",
+        "num_success": "Successes",
+        "num_failure": "Failures",
+        "bytes_added": "Bytes Added"
     }
 }
