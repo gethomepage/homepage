@@ -14,6 +14,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Authentik](authentik.md)
 - [Autobrr](autobrr.md)
 - [Azure DevOps](azuredevops.md)
+- [Backrest](backrest.md)
 - [Bazarr](bazarr.md)
 - [Beszel](beszel.md)
 - [Caddy](caddy.md)
