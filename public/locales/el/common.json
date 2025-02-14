@@ -702,6 +702,10 @@
         "processed": "Σε επεξεργασία",
         "time": "Ώρα"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Πίνακας Ελέγχου",
         "datasources": "Πηγές Δεδομένων",

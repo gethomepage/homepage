@@ -702,6 +702,10 @@
         "processed": "Zpracováno",
         "time": "Čas"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Nástěnky",
         "datasources": "Zdroje dat",

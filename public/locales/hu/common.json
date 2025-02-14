@@ -702,6 +702,10 @@
         "processed": "Feldolgozott",
         "time": "Idő"
     },
+    "firefly": {
+        "networth": "Nettó érték",
+        "budget": "Költségkeret"
+    },
     "grafana": {
         "dashboards": "Műszerfalak",
         "datasources": "Adatforrások",

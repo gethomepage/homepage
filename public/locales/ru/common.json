@@ -702,6 +702,10 @@
         "processed": "Обработано",
         "time": "Время"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Панели",
         "datasources": "Источники данных",

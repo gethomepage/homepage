@@ -702,6 +702,10 @@
         "processed": "Verwerk",
         "time": "Tyd"
     },
+    "firefly": {
+        "networth": "Netto Waarde",
+        "budget": "Begroting"
+    },
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Databronne",

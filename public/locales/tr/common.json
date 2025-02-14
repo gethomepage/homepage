@@ -702,6 +702,10 @@
         "processed": "İşlendi",
         "time": "Zaman"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Kontrol Paneli",
         "datasources": "Veri Kaynakları",
