@@ -8,6 +8,7 @@ const components = {
   authentik: dynamic(() => import("./authentik/component")),
   autobrr: dynamic(() => import("./autobrr/component")),
   azuredevops: dynamic(() => import("./azuredevops/component")),
+  backrest: dynamic(() => import("./backrest/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
   beszel: dynamic(() => import("./beszel/component")),
   caddy: dynamic(() => import("./caddy/component")),
