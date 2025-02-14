@@ -157,12 +157,12 @@ Multiple widgets can be specified by incrementing the index, e.g.
 
 ```yaml
 labels: ...
-  - homepage.widget[0].type=emby
-  - homepage.widget[0].url=http://emby.home
-  - homepage.widget[0].key=yourembyapikeyhere
-  - homepage.widget[1].type=uptimekuma
-  - homepage.widget[1].url=http://uptimekuma.home
-  - homepage.widget[1].slug=youreventslughere
+  - homepage.widgets[0].type=emby
+  - homepage.widgets[0].url=http://emby.home
+  - homepage.widgets[0].key=yourembyapikeyhere
+  - homepage.widgets[1].type=uptimekuma
+  - homepage.widgets[1].url=http://uptimekuma.home
+  - homepage.widgets[1].slug=youreventslughere
 ```
 
 You can add specify fields for e.g. the [CustomAPI](../widgets/services/customapi.md) widget by using array-style dot notation:
