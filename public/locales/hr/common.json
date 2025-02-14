@@ -702,6 +702,10 @@
         "processed": "Obrađeno",
         "time": "Vrijeme"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Pregledne ploče",
         "datasources": "Izvori podataka",

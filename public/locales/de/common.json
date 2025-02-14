@@ -702,6 +702,10 @@
         "processed": "Verarbeitet",
         "time": "Zeit"
     },
+    "firefly": {
+        "networth": "Reinvermögen",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Datenquellen",

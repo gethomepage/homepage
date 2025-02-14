@@ -702,6 +702,10 @@
         "processed": "처리됨",
         "time": "Time"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "대시보드",
         "datasources": "Data Sources",

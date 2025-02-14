@@ -702,6 +702,10 @@
         "processed": "Procesiran",
         "time": "Čas"
     },
+    "firefly": {
+        "networth": "Neto vrednost",
+        "budget": "Proračun"
+    },
     "grafana": {
         "dashboards": "Nadzorne plošče",
         "datasources": "Viri podatkov",

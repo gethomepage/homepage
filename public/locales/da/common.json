@@ -702,6 +702,10 @@
         "processed": "Behandlet",
         "time": "Tid"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Kontrolpanel",
         "datasources": "Data Kilder",

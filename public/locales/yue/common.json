@@ -702,6 +702,10 @@
         "processed": "已處理",
         "time": "時間"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "控制面板",
         "datasources": "數據來源",

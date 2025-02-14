@@ -702,6 +702,10 @@
         "processed": "Przetworzone",
         "time": "Czas"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Panel główny",
         "datasources": "Źródła danych",
