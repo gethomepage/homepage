@@ -37,6 +37,8 @@ export default function Component({ service }) {
         <Block label="fritzbox.received" />
         <Block label="fritzbox.sent" />
         <Block label="fritzbox.externalIPAddress" />
+        <Block label="fritzbox.externalIPv6Address" />
+        <Block label="fritzbox.externalIPv6Prefix" />
       </Container>
     );
   }
@@ -52,6 +54,8 @@ export default function Component({ service }) {
       <Block label="fritzbox.received" value={t("common.bytes", { value: fritzboxData.received })} />
       <Block label="fritzbox.sent" value={t("common.bytes", { value: fritzboxData.sent })} />
       <Block label="fritzbox.externalIPAddress" value={fritzboxData.externalIPAddress} />
+      <Block label="fritzbox.externalIPv6Address" value={fritzboxData.externalIPv6Address} />
+      <Block label="fritzbox.externalIPv6Prefix" value={fritzboxData.externalIPv6Prefix} />
     </Container>
   );
 }
