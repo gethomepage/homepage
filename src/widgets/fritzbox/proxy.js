@@ -79,7 +79,9 @@ export default async function fritzboxProxyHandler(req, res) {
     requestLinkProperties ? requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetCommonLinkProperties") : null,
     requestAddonInfos ? requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetAddonInfos") : null,
     requestExternalIPAddress ? requestEndpoint(apiBaseUrl, "WANIPConnection", "GetExternalIPAddress") : null,
-    requestExternalIPv6Address ? requestEndpoint(apiBaseUrl, "WANIPConnection", "X_AVM_DE_GetExternalIPv6Address") : null,
+    requestExternalIPv6Address
+      ? requestEndpoint(apiBaseUrl, "WANIPConnection", "X_AVM_DE_GetExternalIPv6Address")
+      : null,
     requestExternalIPv6Prefix ? requestEndpoint(apiBaseUrl, "WANIPConnection", "X_AVM_DE_GetIPv6Prefix") : null,
   ])
     .then(([statusInfo, linkProperties, addonInfos, externalIPAddress, externalIPv6Address, externalIPv6Prefix]) => {
