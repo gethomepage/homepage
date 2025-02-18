@@ -14,7 +14,13 @@ async function login(widget, service) {
   const endpoint = "Account/login";
   const api = widgets?.[widget.type]?.api;
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
-  const loginBody = { username: widget.username, password: widget.password };
+  const loginBody = {};
+  if (widget.username && widget.password) {
+    loginBody.username = widget.username;
+    loginBody.password = widget.password;
+  } else if (widget.key) {
+    loginBody.apiKey = widget.key;
+  }
   const headers = { "Content-Type": "application/json", accept: "text/plain" };
 
   const [, , data] = await httpProxy(loginUrl, {
