@@ -2,11 +2,10 @@ import { useRef, useEffect } from "react";
 import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
-import { columnMap } from "../../utils/layout/columns";
-
 import List from "components/services/list";
 import ResolvedIcon from "components/resolvedicon";
+
+import { columnMap } from "../../utils/layout/columns";
 
 export default function ServicesGroup({
   group,

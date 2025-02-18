@@ -2,7 +2,6 @@ import { useRef, useEffect } from "react";
 import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
 import ErrorBoundary from "components/errorboundry";
 import List from "components/bookmarks/list";
 import ResolvedIcon from "components/resolvedicon";

@@ -9,23 +9,23 @@ import { useEffect, useContext, useState, useMemo } from "react";
 import { BiError } from "react-icons/bi";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
-
 import Tab, { slugifyAndEncode } from "components/tab";
 import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
 import Widget from "components/widgets/widget";
 import Revalidate from "components/toggles/revalidate";
-import createLogger from "utils/logger";
-import useWindowFocus from "utils/hooks/window-focus";
-import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { ThemeContext } from "utils/contexts/theme";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
-import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import ErrorBoundary from "components/errorboundry";
-import themes from "utils/styles/themes";
 import QuickLaunch from "components/quicklaunch";
+
+import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
+import themes from "utils/styles/themes";
+import { getSettings } from "utils/config/config";
+import useWindowFocus from "utils/hooks/window-focus";
+import createLogger from "utils/logger";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,

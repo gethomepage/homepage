@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
-
 import Container from "components/services/widget/container";
 
 export default function Component({ service }) {

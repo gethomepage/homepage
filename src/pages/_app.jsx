@@ -2,16 +2,15 @@
 import { SWRConfig } from "swr";
 import { appWithTranslation } from "next-i18next";
 import Head from "next/head";
-
 import "styles/globals.css";
 import "styles/theme.css";
 import "styles/manrope.css";
-import nextI18nextConfig from "../../next-i18next.config";
-
 import { ColorProvider } from "utils/contexts/color";
 import { ThemeProvider } from "utils/contexts/theme";
 import { SettingsProvider } from "utils/contexts/settings";
 import { TabProvider } from "utils/contexts/tab";
+
+import nextI18nextConfig from "../../next-i18next.config";
 
 function MyApp({ Component, pageProps }) {
   return (
