@@ -11,7 +11,7 @@ export function middleware(req) {
   if (!host || !allowedHosts.includes(host)) {
     // eslint-disable-next-line no-console
     console.error(
-      `Host validation failed for: ${host}. Hint: Set HOMEPAGE_ALLOWED_HOSTS to allow requests from this host.`,
+      `Host validation failed for: ${host}. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host.`,
     );
     return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
