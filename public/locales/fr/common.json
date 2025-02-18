@@ -1171,5 +1171,13 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "bbox": {
+        "Up": "Up",
+        "Down": "Down",
+        "modelname": "Modèle",
+        "wanIPAddress": "Adresse IP Externe",
+        "uptime":"Démarré depuis",
+        "devices":"Appareils"
     }
 }

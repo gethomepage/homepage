@@ -12,6 +12,7 @@ const components = {
   azuredevops: dynamic(() => import("./azuredevops/component")),
   backrest: dynamic(() => import("./backrest/component")),
   bazarr: dynamic(() => import("./bazarr/component")),
+  bbox: dynamic(() => import("./bbox/component")),
   beszel: dynamic(() => import("./beszel/component")),
   booklore: dynamic(() => import("./booklore/component")),
   caddy: dynamic(() => import("./caddy/component")),

@@ -1180,5 +1180,13 @@
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"
+    },
+    "bbox": {
+        "Up": "Up",
+        "Down": "Down",
+        "modelname": "Model",
+        "wanIPAddress": "Ext. IP Address",
+        "uptime":"Uptime",
+        "devices":"Devices"
     }
 }

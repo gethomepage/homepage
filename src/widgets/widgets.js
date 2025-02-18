@@ -9,6 +9,7 @@ import autobrr from "./autobrr/widget";
 import azuredevops from "./azuredevops/widget";
 import backrest from "./backrest/widget";
 import bazarr from "./bazarr/widget";
+import bbox from "./bbox/widget";
 import beszel from "./beszel/widget";
 import booklore from "./booklore/widget";
 import caddy from "./caddy/widget";
@@ -163,6 +164,7 @@ const widgets = {
   azuredevops,
   backrest,
   bazarr,
+  bbox,
   booklore,
   beszel,
   caddy,
