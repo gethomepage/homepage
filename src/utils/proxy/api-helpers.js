@@ -8,7 +8,7 @@ export function formatApiCall(url, args) {
     return args[key] || "";
   };
 
-  return url.replace(/\/+$/, "").replace(find, replace).replace(find, replace);
+  return url.replace(find, replace).replace(find, replace);
 }
 
 export function getURLSearchParams(widget, endpoint) {
