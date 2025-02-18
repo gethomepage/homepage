@@ -19,7 +19,9 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 
 1.  **URLs should not end with a / or other API path. Each widget will handle the path on its own.**. Including a trailing slash can result in an error.
 
-2.  Verify the homepage installation can connect to the IP address or host you are using for the widget `url`. This is most simply achieved by pinging the server from the homepage machine, in Docker this means _from inside the container_ itself, e.g.:
+2.  All services with a widget require a unique name.
+
+3.  Verify the homepage installation can connect to the IP address or host you are using for the widget `url`. This is most simply achieved by pinging the server from the homepage machine, in Docker this means _from inside the container_ itself, e.g.:
 
     ```
     docker exec homepage ping SERVICEIPORDOMAIN
@@ -27,7 +29,7 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 
     If your homepage install (container) cannot reach the service then you need to figure out why, for example in Docker this can mean putting the two containers on the same network, checking firewall issues, etc.
 
-3.  If you have verified that homepage can in fact reach the service then you can also check the API output using e.g. `curl`, which is often helpful if you do need to file a bug report. Again, depending on your networking setup this may need to be run from _inside the container_ as IP / hostname resolution can differ inside vs outside.
+4.  If you have verified that homepage can in fact reach the service then you can also check the API output using e.g. `curl`, which is often helpful if you do need to file a bug report. Again, depending on your networking setup this may need to be run from _inside the container_ as IP / hostname resolution can differ inside vs outside.
 
     !!! note
 
