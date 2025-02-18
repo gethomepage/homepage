@@ -2,10 +2,11 @@ export function formatApiCall(url, args) {
   const find = /\{.*?\}/g;
   const replace = (match) => {
     const key = match.replace(/\{|\}/g, "");
+    let value = args[key];
     if (key === "url") {
-      args[key] = args[key].replace(/\/+$/, ""); // remove trailing slashes
+      value = value.replace(/\/+$/, ""); // remove trailing slashes
     }
-    return args[key] || "";
+    return value || "";
   };
 
   return url.replace(find, replace).replace(find, replace);
