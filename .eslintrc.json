@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "next/core-web-vitals", "prettier"],
+  "extends": ["next/core-web-vitals", "prettier"],
   "plugins": ["prettier"],
   "rules": {
     "import/no-cycle": [
@@ -26,6 +26,13 @@
       "node": {
         "paths": ["src"]
       }
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
     }
   }
 }
