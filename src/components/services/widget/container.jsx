@@ -1,8 +1,7 @@
 import { useContext } from "react";
+import { SettingsContext } from "utils/contexts/settings";
 
 import Error from "./error";
-
-import { SettingsContext } from "utils/contexts/settings";
 
 export default function Container({ error = false, children, service }) {
   const { settings } = useContext(SettingsContext);

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import Image from "next/image";
-
 import { SettingsContext } from "utils/contexts/settings";
 import { ThemeContext } from "utils/contexts/theme";
 

@@ -1,10 +1,10 @@
 import { useTranslation } from "next-i18next";
+import ResolvedIcon from "components/resolvedicon";
 
 import Container from "../components/container";
 import Block from "../components/block";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import ResolvedIcon from "components/resolvedicon";
 
 const statusMap = {
   R: <ResolvedIcon icon="mdi-circle" width={32} height={32} />, // running

@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 

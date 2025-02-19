@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import classNames from "classnames";
-
 import { SettingsContext } from "utils/contexts/settings";
 import ResolvedIcon from "components/resolvedicon";
 
