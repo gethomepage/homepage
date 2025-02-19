@@ -47,9 +47,9 @@ importers:
       memory-cache:
         specifier: ^0.2.0
         version: 0.2.0
-      minecraft-ping-js:
-        specifier: ^1.0.2
-        version: 1.0.2
+      minecraftstatuspinger:
+        specifier: ^1.2.1
+        version: 1.2.1
       next:
         specifier: ^15.1.7
         version: 15.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1849,9 +1849,9 @@ packages:
     resolution: {integrity: sha512-e5ISH9xMYU0DzrT+jl8q2ze9D6eWBto+I8CNpe+VI+K2J/F/k3PdkdTdz4wvGVH4NTpo+NRYTVIuMQEMMcsLqg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  minecraft-ping-js@1.0.2:
-    resolution: {integrity: sha512-h9QYG2n+fBKgp520tXBwR354XRzR/w5wXe8CJCmxKm6jbLpAoLODM8Nj5+ssuIVQF8rtxkAnjwv7PH+7ehFzQQ==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+  minecraftstatuspinger@1.2.1:
+    resolution: {integrity: sha512-Qo/3TzV0UeULbVyqMqS9sUPbNKGFK7U7as1xlS/xeXryQQEwitOz5SkVhVphY4fCTacl5a+E4VXiTq6TPKYDKw==}
+    engines: {node: '>=16.0.0'}
 
   mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
@@ -1940,9 +1940,6 @@ packages:
     peerDependenciesMeta:
       encoding:
         optional: true
-
-  node-int64@0.4.0:
-    resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
 
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
@@ -4664,10 +4661,7 @@ snapshots:
 
   mimic-response@4.0.0: {}
 
-  minecraft-ping-js@1.0.2:
-    dependencies:
-      node-int64: 0.4.0
-      varint: 6.0.0
+  minecraftstatuspinger@1.2.1: {}
 
   mini-svg-data-uri@1.4.4: {}
 
@@ -4752,8 +4746,6 @@ snapshots:
   node-fetch@2.7.0:
     dependencies:
       whatwg-url: 5.0.0
-
-  node-int64@0.4.0: {}
 
   node-releases@2.0.19: {}
 
