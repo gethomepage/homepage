@@ -1,8 +1,13 @@
 import cachedFetch from "utils/proxy/cached-fetch";
 import { getSettings } from "utils/config/config";
+import createLogger from "utils/logger";
+
+const logger = createLogger("stocks");
 
 export default async function handler(req, res) {
   const { watchlist, provider, cache } = req.query;
+
+  logger.debug("Stocks API request: %o", { watchlist, provider, cache });
 
   if (!watchlist) {
     return res.status(400).json({ error: "Missing watchlist" });
@@ -56,6 +61,7 @@ export default async function handler(req, res) {
         // Finnhub free accounts allow up to 60 calls/minute
         // https://finnhub.io/pricing
         const { c, dp } = await cachedFetch(apiUrl, cache || 1);
+        logger.debug("Finnhub API response for %s: %o", ticker, { c, dp });
 
         // API sometimes returns 200, but values returned are `null`
         if (c === null || dp === null) {

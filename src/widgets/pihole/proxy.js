@@ -33,7 +33,7 @@ async function login(widget, service) {
 }
 
 export default async function piholeProxyHandler(req, res) {
-  const { group, service } = req.query;
+  const { group, service, index } = req.query;
   let endpoint = "stats/summary";
 
   if (!group || !service) {
@@ -41,7 +41,7 @@ export default async function piholeProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const widget = await getServiceWidget(group, service);
+  const widget = await getServiceWidget(group, service, index);
   if (!widget) {
     logger.error("Invalid or missing widget for service '%s' in group '%s'", service, group);
     return res.status(400).json({ error: "Invalid widget configuration" });

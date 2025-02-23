@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import useSWR from "swr";
 
-export default function Ping({ group, service, style }) {
+export default function Ping({ groupName, serviceName, style }) {
   const { t } = useTranslation();
-  const { data, error } = useSWR(`/api/ping?${new URLSearchParams({ group, service }).toString()}`, {
+  const { data, error } = useSWR(`/api/ping?${new URLSearchParams({ groupName, serviceName }).toString()}`, {
     refreshInterval: 30000,
   });
 

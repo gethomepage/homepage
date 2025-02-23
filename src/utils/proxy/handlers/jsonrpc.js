@@ -65,10 +65,10 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
 }
 
 export default async function jsonrpcProxyHandler(req, res) {
-  const { group, service, endpoint: method } = req.query;
+  const { group, service, endpoint: method, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
     const api = widgets?.[widget.type]?.api;
 
     const [, mapping] = Object.entries(widgets?.[widget.type]?.mappings).find(([, value]) => value.endpoint === method);

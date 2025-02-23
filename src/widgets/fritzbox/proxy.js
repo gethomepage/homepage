@@ -46,8 +46,8 @@ async function requestEndpoint(apiBaseUrl, service, action) {
 }
 
 export default async function fritzboxProxyHandler(req, res) {
-  const { group, service } = req.query;
-  const serviceWidget = await getServiceWidget(group, service);
+  const { group, service, index } = req.query;
+  const serviceWidget = await getServiceWidget(group, service, index);
 
   if (!serviceWidget) {
     res.status(500).json({ error: { message: "Service widget not found" } });
