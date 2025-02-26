@@ -17,9 +17,11 @@ export default function Component({ service }) {
   if (!resultData) {
     return (
       <Container service={service}>
+        <Block label="mailcow.domains" />
         <Block label="mailcow.mailboxes" />
         <Block label="mailcow.aliases" />
-        <Block label="mailcow.quarantined" />
+        <Block label="mailcow.mails" />
+        <Block label="mailcow.storage" />
       </Container>
     );
   }
@@ -28,11 +30,13 @@ export default function Component({ service }) {
   const mailboxes = resultData.reduce((acc, val) => acc + parseInt(val.mboxes_in_domain, 10), 0);
   const mails = resultData.reduce((acc, val) => acc + parseInt(val.msgs_total, 10), 0);
   const storage = resultData.reduce((acc, val) => acc + parseInt(val.bytes_total, 10), 0);
+  const aliases = resultData.reduce((acc, val) => acc + parseInt(val.aliases_in_domain, 10), 0);
 
   return (
     <Container service={service}>
       <Block label="mailcow.domains" value={t("common.number", { value: domains })} />
       <Block label="mailcow.mailboxes" value={t("common.number", { value: mailboxes })} />
+      <Block label="mailcow.aliases" value={t("common.number", { value: aliases })} />
       <Block label="mailcow.mails" value={t("common.number", { value: mails })} />
       <Block label="mailcow.storage" value={t("common.bytes", { value: storage })} />
     </Container>
