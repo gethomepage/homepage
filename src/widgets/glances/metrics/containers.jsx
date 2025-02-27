@@ -65,7 +65,7 @@ export default function Component({ service }) {
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
-                    value: item.memory.usage,
+                    value: item.memory.usage - item.memory.inactive_file,
                     maximumFractionDigits: 0,
                   })}
                 </div>
