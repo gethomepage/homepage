@@ -25,6 +25,7 @@ import emby from "./emby/widget";
 import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
+import firefly from "./firefly/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import frigate from "./frigate/widget";
@@ -159,6 +160,7 @@ const widgets = {
   esphome,
   evcc,
   fileflows,
+  firefly,
   flood,
   freshrss,
   frigate,

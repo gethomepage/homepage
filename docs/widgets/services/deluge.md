@@ -14,4 +14,5 @@ widget:
   type: deluge
   url: http://deluge.host.or.ip
   password: password # webui password
+  enableLeechProgress: true # optional, defaults to false
 ```

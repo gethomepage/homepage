@@ -14,8 +14,10 @@ export default class ErrorBoundary extends React.Component {
     });
 
     // You can also log error messages to an error reporting service here
-    // eslint-disable-next-line no-console
-    console.error(error, errorInfo);
+    if (error || errorInfo) {
+      // eslint-disable-next-line no-console
+      console.error("component error: %s, info: %s", error, errorInfo);
+    }
   }
 
   render() {

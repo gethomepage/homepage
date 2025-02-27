@@ -2,11 +2,10 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
 import useSWR from "swr";
+import { SettingsContext } from "utils/contexts/settings";
 
 import ResolvedIcon from "./resolvedicon";
 import { getStoredProvider, searchProviders } from "./widgets/search/search";
-
-import { SettingsContext } from "utils/contexts/settings";
 
 export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, close }) {
   const { t } = useTranslation();

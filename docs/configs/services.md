@@ -97,6 +97,10 @@ Each service can have multiple widgets attached to it, for example:
         slug: statuspageslug
 ```
 
+!!! note
+
+      Multiple widgets per service are not yet supported with Kubernetes ingress annotations.
+
 #### Field Visibility
 
 Each widget can optionally provide a list of which fields should be visible via the `fields` widget property. If no fields are specified, then all fields will be displayed. The `fields` property must be a valid YAML array of strings. As an example, here is the entry for Sonarr showing only a couple of fields.
@@ -134,7 +138,7 @@ Services may have descriptions,
 
 ## Icons
 
-Services may have an icon attached to them, you can use icons from [Dashboard Icons](https://github.com/walkxcode/dashboard-icons) automatically, by passing the name of the icon, with, or without `.png` or with `.svg` to use the svg version.
+Services may have an icon attached to them, you can use icons from [Dashboard Icons](https://github.com/homarr-labs/dashboard-icons) automatically, by passing the name of the icon, with, or without `.png`, `.webp` or `.svg` to specify the desired version.
 
 You can also specify prefixed icons from:
 
@@ -177,6 +181,10 @@ To use a local icon, first create a Docker mount to `/app/public/icons` and then
 ## Ping
 
 Services may have an optional `ping` property that allows you to monitor the availability of an external host. As of v0.8.0, the ping feature attempts to use a true (ICMP) ping command on the underlying host. Currently, only IPv4 is supported.
+
+!!! note
+
+      Because ping uses the ping command on the underlying host, in some cases you may need to install e.g. the `iputils-ping` package on the host system.
 
 ```yaml
 - Group A:

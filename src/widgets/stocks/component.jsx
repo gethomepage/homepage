@@ -1,8 +1,8 @@
 import { useTranslation } from "next-i18next";
 import classNames from "classnames";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function MarketStatus({ service }) {

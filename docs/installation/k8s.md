@@ -217,6 +217,14 @@ rules:
       - get
       - list
   - apiGroups:
+      - gateway.networking.k8s.io
+    resources:
+      - httproutes
+      - gateways
+    verbs:
+      - get
+      - list
+  - apiGroups:
       - metrics.k8s.io
     resources:
       - nodes

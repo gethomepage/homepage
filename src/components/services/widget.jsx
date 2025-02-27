@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next";
-
 import ErrorBoundary from "components/errorboundry";
+
 import components from "widgets/components";
 
 export default function Widget({ widget, service }) {

@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getValue(field, data) {
@@ -77,6 +77,9 @@ function formatValue(t, mapping, rawValue) {
       break;
     case "percent":
       value = t("common.percent", { value });
+      break;
+    case "duration":
+      value = t("common.duration", { value });
       break;
     case "bytes":
       value = t("common.bytes", { value });

@@ -120,7 +120,7 @@
         "grid_power": "グリッド",
         "home_power": "消費",
         "charge_power": "チャージャー",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "ダウンロード",
@@ -804,7 +804,7 @@
         "ping": "Ping"
     },
     "urbackup": {
-        "ok": "はい",
+        "ok": "正常",
         "errored": "エラー",
         "noRecent": "期限切れ",
         "totalUsed": "使用済みストレージ"
@@ -957,7 +957,7 @@
         "disaster": "災害"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
+        "vehicle": "車両",
         "vehicles": "Vehicles",
         "serviceRecords": "Service Records",
         "reminders": "Reminders",
@@ -982,6 +982,9 @@
         "name": "名前",
         "systems": "Systems",
         "up": "稼働",
+        "down": "下へ",
+        "paused": "一時停止中",
+        "pending": "保留中",
         "status": "状態",
         "updated": "更新済",
         "cpu": "CPU",

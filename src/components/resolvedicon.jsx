@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import Image from "next/future/image";
-
+import Image from "next/image";
 import { SettingsContext } from "utils/contexts/settings";
 import { ThemeContext } from "utils/contexts/theme";
 
@@ -101,7 +100,26 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
     const iconName = icon.replace(".svg", "");
     return (
       <Image
-        src={`https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/${iconName}.svg`}
+        src={`https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/${iconName}.svg`}
+        width={width}
+        height={height}
+        style={{
+          width,
+          height,
+          objectFit: "contain",
+          maxHeight: "100%",
+          maxWidth: "100%",
+        }}
+        alt={alt}
+      />
+    );
+  }
+
+  if (icon.endsWith(".webp")) {
+    const iconName = icon.replace(".webp", "");
+    return (
+      <Image
+        src={`https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/${iconName}.webp`}
         width={width}
         height={height}
         style={{
@@ -119,7 +137,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
   const iconName = icon.replace(".png", "");
   return (
     <Image
-      src={`https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/${iconName}.png`}
+      src={`https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/${iconName}.png`}
       width={width}
       height={height}
       style={{
