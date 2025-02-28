@@ -83,18 +83,18 @@ export function httpRequest(url, params) {
 
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
+  const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
+  const agentOptions = disableIpv6 ? { family: 4, autoSelectFamily: false } : {};
 
   let request = null;
   if (constructedUrl.protocol === "https:") {
     request = httpsRequest(constructedUrl, {
-      agent: new https.Agent({
-        rejectUnauthorized: false,
-      }),
+      agent: new https.Agent({ ...agentOptions, rejectUnauthorized: false }),
       ...params,
     });
   } else {
     request = httpRequest(constructedUrl, {
-      agent: new http.Agent(),
+      agent: new http.Agent(agentOptions),
       ...params,
     });
   }
