@@ -89,8 +89,11 @@ export default async function unifiProxyHandler(req, res) {
       // Unifi OS < 3.2.5 passes & requires csrf-token
       prefix = udmpPrefix;
       csrfToken = responseHeaders["x-csrf-token"];
-    } else if (responseHeaders?.["access-control-expose-headers"]) {
-      // Unifi OS ≥ 3.2.5 doesnt pass csrf token but still uses different endpoint
+    } else if (
+      responseHeaders?.["access-control-expose-headers"] ||
+      responseHeaders?.["Access-Control-Expose-Headers"]
+    ) {
+      // Unifi OS ≥ 3.2.5 doesnt pass csrf token but still uses different endpoint, same with Network API
       prefix = udmpPrefix;
     }
   }
