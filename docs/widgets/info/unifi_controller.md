@@ -19,19 +19,11 @@ An optional 'site' parameter can be supplied, if it is not the widget will use t
 
 <img width="162" alt="unifi_infowidget" src="https://user-images.githubusercontent.com/4887959/197706832-f5a8706b-7282-4892-a666-b7d999752562.png">
 
-Version 2 of the widget supports the Unifi Network API (2024) which requires an API key instead of a username and password. The API key can be generated in the Unifi Controller under Settings > Control Plane > Integrations
-
-| Unifi API          | Homepage Widget Version |
-| ------------------ | ----------------------- |
-| Controller API     | 1 (default)             |
-| Network API (2024) | 2                       |
-
 ```yaml
 - unifi_console:
     url: https://unifi.host.or.ip:port
     site: Site Name # optional
-    username: user # version 1
-    password: pass # version 1
-    key: unifiapikey # version 2
-    version: 2 # default is 1
+    username: user
+    password: pass
+    key: unifiapikey # required if using API key instead of username/password
 ```

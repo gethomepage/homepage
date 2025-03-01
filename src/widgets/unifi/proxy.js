@@ -47,7 +47,7 @@ async function login(widget, csrfToken) {
   const endpoint = widget.prefix === udmpPrefix ? "auth/login" : "login";
   const api = widgets?.[widget.type]?.api?.replace("{prefix}", ""); // no prefix for login url
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
-  const loginBody = { username: widget.username, password: widget.password, remember: true };
+  const loginBody = { username: widget.username, password: widget.password, remember: true, rememberMe: true };
   const headers = { "Content-Type": "application/json" };
   if (csrfToken) {
     headers["X-CSRF-TOKEN"] = csrfToken;
@@ -74,15 +74,15 @@ export default async function unifiProxyHandler(req, res) {
 
   let [status, contentType, data, responseHeaders] = [];
   let prefix = cache.get(`${prefixCacheKey}.${service}`);
-  const headers = {};
   let csrfToken;
-  if (widget.version === 2) {
-    prefix = "/proxy/network";
+  const headers = {};
+  if (widget.key) {
+    prefix = udmpPrefix;
     headers["X-API-KEY"] = widget.key;
-    headers["Content-Type"] = "application/json";
+    headers["Accept"] = "application/json";
   } else if (prefix === null) {
-    // auto detect if we're talking to a UDM Pro, and cache the result so that we
-    // don't make two requests each time data from Unifi is required
+    // auto detect if we're talking to a UDM Pro or Network API device, and cache the result
+    // so that we don't make two requests each time data from Unifi is required
     [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
     prefix = "";
     if (responseHeaders?.["x-csrf-token"]) {
@@ -104,7 +104,7 @@ export default async function unifiProxyHandler(req, res) {
 
   [status, contentType, data, responseHeaders] = await httpProxy(url, params);
 
-  if (status === 401 && widget.version < 2) {
+  if (status === 401 && !widget.key) {
     logger.debug("Unifi isn't logged in or rejected the reqeust, attempting login.");
     if (responseHeaders?.["x-csrf-token"]) {
       csrfToken = responseHeaders["x-csrf-token"];
