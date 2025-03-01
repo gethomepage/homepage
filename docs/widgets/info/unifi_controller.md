@@ -22,9 +22,8 @@ An optional 'site' parameter can be supplied, if it is not the widget will use t
 ```yaml
 - unifi_console:
     url: https://unifi.host.or.ip:port
+    site: Site Name # optional
     username: user
     password: pass
-    site: Site Name # optional
+    key: unifiapikey # required if using API key instead of username/password
 ```
-
-_Added in v0.4.18, updated in 0.6.7_
