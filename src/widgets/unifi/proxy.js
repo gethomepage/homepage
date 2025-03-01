@@ -74,8 +74,13 @@ export default async function unifiProxyHandler(req, res) {
 
   let [status, contentType, data, responseHeaders] = [];
   let prefix = cache.get(`${prefixCacheKey}.${service}`);
+  const headers = {};
   let csrfToken;
-  if (prefix === null) {
+  if (widget.version === 2) {
+    prefix = "/proxy/network";
+    headers["X-API-KEY"] = widget.key;
+    headers["Content-Type"] = "application/json";
+  } else if (prefix === null) {
     // auto detect if we're talking to a UDM Pro, and cache the result so that we
     // don't make two requests each time data from Unifi is required
     [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
@@ -88,18 +93,18 @@ export default async function unifiProxyHandler(req, res) {
       // Unifi OS ≥ 3.2.5 doesnt pass csrf token but still uses different endpoint
       prefix = udmpPrefix;
     }
-    cache.put(`${prefixCacheKey}.${service}`, prefix);
   }
+  cache.put(`${prefixCacheKey}.${service}`, prefix);
 
   widget.prefix = prefix;
   const { endpoint } = req.query;
   const url = new URL(formatApiCall(api, { endpoint, ...widget }));
-  const params = { method: "GET", headers: {} };
+  const params = { method: "GET", headers };
   setCookieHeader(url, params);
 
   [status, contentType, data, responseHeaders] = await httpProxy(url, params);
 
-  if (status === 401) {
+  if (status === 401 && widget.version < 2) {
     logger.debug("Unifi isn't logged in or rejected the reqeust, attempting login.");
     if (responseHeaders?.["x-csrf-token"]) {
       csrfToken = responseHeaders["x-csrf-token"];

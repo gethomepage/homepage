@@ -38,7 +38,7 @@ export async function cleanWidgetGroups(widgets) {
       }
     });
 
-    // delete url from the sanitized options if the widget is not a search or glances widgeth
+    // delete url from the sanitized options if the widget is not a search or glances widget
     if (widget.type !== "search" && widget.type !== "glances" && optionKeys.includes("url")) {
       delete sanitizedOptions.url;
     }
@@ -57,7 +57,7 @@ export async function getPrivateWidgetOptions(type, widgetIndex) {
   const widgets = await widgetsFromConfig();
 
   const privateOptions = widgets.map((widget) => {
-    const { index, url, username, password, key, apiKey } = widget.options;
+    const { index, url, username, password, key, apiKey, version } = widget.options;
 
     return {
       type: widget.type,
@@ -68,6 +68,7 @@ export async function getPrivateWidgetOptions(type, widgetIndex) {
         password,
         key,
         apiKey,
+        version,
       },
     };
   });
