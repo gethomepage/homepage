@@ -191,7 +191,7 @@ export default function Search({ options }) {
               <div>
                 <Listbox.Button
                   className="
-                  absolute right-0.5 bottom-0.5 rounded-r-md px-4 py-2 border-1
+                  absolute right-0.5 bottom-0.5 rounded-r-md px-4 py-2
                   text-white font-medium text-sm
                   bg-theme-600/40 dark:bg-white/10
                   focus:ring-theme-500 dark:focus:ring-white/50"
