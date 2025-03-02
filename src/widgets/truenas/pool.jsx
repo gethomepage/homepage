@@ -15,7 +15,7 @@ export default function Pool({ name, free, allocated, healthy }) {
         }}
       />
       <span className="ml-2 h-2 w-2 z-10">
-        <span className={classNames("block w-2 h-2 rounded", statusColor)} />
+        <span className={classNames("block w-2 h-2 rounded-sm", statusColor)} />
       </span>
       <div className="text-xs z-10 self-center ml-2 relative h-4 grow mr-2">
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden text-left">{name}</div>

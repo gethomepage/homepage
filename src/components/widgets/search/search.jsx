@@ -212,7 +212,7 @@ export default function Search({ options }) {
                 <Listbox.Options
                   className="absolute right-0 z-10 mt-1 origin-top-right rounded-md
                   bg-theme-100 dark:bg-theme-600 shadow-lg
-                  ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  ring-1 ring-black ring-opacity-5 focus:outline-hidden"
                 >
                   <div className="flex flex-col">
                     {availableProviderIds.map((providerId) => {

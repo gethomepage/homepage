@@ -172,7 +172,7 @@ export default function Component({ service }) {
               {mappings.map((mapping) => (
                 <div
                   key={mapping.label}
-                  className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs animate-pulse"
+                  className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs animate-pulse"
                 >
                   <div className="font-thin pl-2">{mapping.label}</div>
                   <div className="flex flex-row text-right">
@@ -203,7 +203,7 @@ export default function Component({ service }) {
             {mappings.map((mapping) => (
               <div
                 key={mapping.label}
-                className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
+                className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
               >
                 <div className="font-thin pl-2">{mapping.label}</div>
                 <div className="flex flex-row text-right">
