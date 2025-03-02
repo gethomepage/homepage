@@ -24,10 +24,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="apcups.status" value={ data.status }/>
-      <Block label="apcups.load" value={ data.load } />
-      <Block label="apcups.bcharge" value={ data.bcharge } />
-      <Block label="apcups.timeleft" value={ data.timeleft } />
+      <Block label="apcups.status" value={data.status} />
+      <Block label="apcups.load" value={data.load} />
+      <Block label="apcups.bcharge" value={data.bcharge} />
+      <Block label="apcups.timeleft" value={data.timeleft} />
     </Container>
   );
 }
