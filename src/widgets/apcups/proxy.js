@@ -6,13 +6,6 @@ import createLogger from "utils/logger";
 
 const logger = createLogger("apcupsProxyHandler");
 
-const DEBUG = false;
-
-const APC_COMMANDS = {
-    status: 'status',
-    events: 'events',
-};
-
 const dumpBuffer = (buffer) => {
     logger.debug(buffer.toString('hex').match(/../g).join(' '))
 }
@@ -23,7 +16,6 @@ const parseResponse = (buffer) => {
     while (ptr < buffer.length) {
         const lineLen = buffer.readUInt16BE(ptr);
         const asciiData = buffer.toString('ascii', ptr + 2, lineLen + ptr + 2);
-        if (DEBUG) logger.debug(ptr, lineLen, asciiData);
         output.push(asciiData);
         ptr += 2 + lineLen;
     }
@@ -39,10 +31,7 @@ const statusAsJSON = (statusOutput) => statusOutput?.reduce((output, line) => {
     return newOutput;
 }, {})
 
-const getStatus = async (_host, _port) => new Promise((resolve, reject) => {
-    const host = _host ?? '127.0.0.1';
-    const port = _port ?? 3551;
-
+const getStatus = async (host = '127.0.0.1', port = 3551) => new Promise((resolve, reject) => {    
     const socket = new net.Socket();
     socket.setTimeout(5000);
     socket.connect({ host, port });
@@ -50,10 +39,11 @@ const getStatus = async (_host, _port) => new Promise((resolve, reject) => {
     const fullResponse = [];
 
     socket.on('connect', () => {
+        const CMD = 'status';
         logger.debug(`Connecting to ${host}:${port}`);
-        const buffer = Buffer.alloc(APC_COMMANDS.status.length + 2);
-        buffer.writeUInt16BE(APC_COMMANDS.status.length, 0);
-        buffer.write(APC_COMMANDS.status, 2);
+        const buffer = Buffer.alloc(CMD.length + 2);
+        buffer.writeUInt16BE(CMD.length, 0);
+        buffer.write(CMD, 2);
         socket.write(buffer);
     });
 
@@ -63,7 +53,7 @@ const getStatus = async (_host, _port) => new Promise((resolve, reject) => {
         if (data.readUInt16BE(data.length - 2) === 0) {
             try {
                 const buffer = Buffer.concat(fullResponse);
-                if (DEBUG) dumpBuffer(buffer);
+                dumpBuffer(buffer);
                 const output = parseResponse(buffer);
                 resolve(output);
             } catch (e) {
@@ -103,10 +93,11 @@ export default async function apcupsProxyHandler(req, res) {
         return res.status(400).json({ error: "Invalid proxy service type" });
     }
 
+    const url = new URL(widget.url);
     const data = {};
 
     try {
-        const statusData = await getStatus(widget.host, widget.port);
+        const statusData = await getStatus(url.hostname, url.port);
         const jsonData = statusAsJSON(statusData);
 
         data.status = jsonData.STATUS;
