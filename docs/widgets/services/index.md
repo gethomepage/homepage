@@ -50,6 +50,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [HDHomeRun](hdhomerun.md)
 - [Headscale](headscale.md)
 - [Healthchecks](healthchecks.md)
+- [Hoarder](hoarder.md)
 - [Home Assistant](homeassistant.md)
 - [HomeBox](homebox.md)
 - [Homebridge](homebridge.md)
