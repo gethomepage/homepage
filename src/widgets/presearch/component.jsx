@@ -38,7 +38,6 @@ export default function Component({ service }) {
       <Block label="presearch.status" value={status.connected ? "UP" : "DOWN"} />
       <Block label="presearch.total_requests" value={stats.total_requests} />
       <Block label="presearch.avg_reliability_score" value={stats.avg_reliability_score} />
-
     </Container>
   );
 }
