@@ -48,7 +48,7 @@ export default async function listHttpRoute() {
         }),
       );
 
-      httpRouteList = httpRouteListUnfiltered.flat().filter((httpRoute) => httpRoute !== undefined);
+      httpRouteList = httpRouteListUnfiltered.flat().filter((httpRoute) => httpRoute);
     }
   }
   return httpRouteList;
