@@ -7,7 +7,7 @@ const widget = {
   mappings: {
     // `/api/nodes/status`
     status: {
-      endpoint: "status"
+      endpoint: "status",
     },
   },
 };
