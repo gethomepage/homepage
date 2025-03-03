@@ -1,6 +1,6 @@
-import { CustomObjectsApi, CoreV1Api } from "@kubernetes/client-node";
+import { CoreV1Api, CustomObjectsApi } from "@kubernetes/client-node";
 
-import { getKubernetes, getKubeConfig, HTTPROUTE_API_GROUP, HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
+import { getKubeConfig, getKubernetes, HTTPROUTE_API_GROUP, HTTPROUTE_API_VERSION } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("httproute-list");
@@ -14,7 +14,7 @@ export default async function listHttpRoute() {
 
   if (gateway) {
     // httproutes
-    const getHttpRoute = async (namespace) =>
+    const getHttpRoutes = async (namespace) =>
       crd
         .listNamespacedCustomObject({
           group: HTTPROUTE_API_GROUP,
@@ -23,8 +23,7 @@ export default async function listHttpRoute() {
           plural: "httproutes",
         })
         .then((response) => {
-          const [httpRoute] = response.items;
-          return httpRoute;
+          return response.items;
         })
         .catch((error) => {
           logger.error("Error getting httproutes: %d %s %s", error.statusCode, error.body, error.response);
@@ -44,12 +43,12 @@ export default async function listHttpRoute() {
     if (namespaces) {
       const httpRouteListUnfiltered = await Promise.all(
         namespaces.map(async (namespace) => {
-          const httpRoute = await getHttpRoute(namespace);
-          return httpRoute;
+          const httpRoutes = await getHttpRoutes(namespace);
+          return httpRoutes;
         }),
       );
 
-      httpRouteList = httpRouteListUnfiltered.filter((httpRoute) => httpRoute !== undefined);
+      httpRouteList = httpRouteListUnfiltered.flat().filter((httpRoute) => httpRoute);
     }
   }
   return httpRouteList;
