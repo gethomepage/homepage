@@ -98,6 +98,7 @@ const components = {
   plantit: dynamic(() => import("./plantit/component")),
   plex: dynamic(() => import("./plex/component")),
   portainer: dynamic(() => import("./portainer/component")),
+  presearch: dynamic(() => import("./presearch/component")),
   prometheus: dynamic(() => import("./prometheus/component")),
   prometheusmetric: dynamic(() => import("./prometheusmetric/component")),
   prowlarr: dynamic(() => import("./prowlarr/component")),

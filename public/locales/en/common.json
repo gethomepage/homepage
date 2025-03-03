@@ -1022,5 +1022,12 @@
         "load": "Load",
         "bcharge":"Battery Charge",
         "timeleft":"Time Left"
+    },
+    "presearch": {
+      "nodes": "Nodes",
+      "gateway_pool": "Pool",
+      "status": "Status",
+      "total_requests": "Requests",
+      "avg_reliability_score": "Reliability"
     }
 }
