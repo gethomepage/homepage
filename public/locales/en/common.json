@@ -178,7 +178,7 @@
         "connectedAp": "Connected APs",
         "activeUser": "Active devices",
         "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Connected switches"
     },
     "nzbget": {

@@ -18,7 +18,7 @@ export default function Component({ service }) {
   }
 
   if (!widget.fields) {
-    widget.fields = ["connectedAp", "activeUser", "alerts", "connectedGateway"];
+    widget.fields = ["connectedAp", "activeUser", "alerts", "connectedGateways"];
   } else if (widget.fields?.length > 4) {
     widget.fields = widget.fields.slice(0, 4);
   }
@@ -29,7 +29,7 @@ export default function Component({ service }) {
         <Block label="omada.connectedAp" />
         <Block label="omada.activeUser" />
         <Block label="omada.alerts" />
-        <Block label="omada.connectedGateway" />
+        <Block label="omada.connectedGateways" />
         <Block label="omada.connectedSwitches" />
       </Container>
     );
@@ -40,7 +40,7 @@ export default function Component({ service }) {
       <Block label="omada.connectedAp" value={t("common.number", { value: omadaData.connectedAp })} />
       <Block label="omada.activeUser" value={t("common.number", { value: omadaData.activeUser })} />
       <Block label="omada.alerts" value={t("common.number", { value: omadaData.alerts })} />
-      <Block label="omada.connectedGateway" value={t("common.number", { value: omadaData.connectedGateways })} />
+      <Block label="omada.connectedGateways" value={t("common.number", { value: omadaData.connectedGateways })} />
       <Block label="omada.connectedSwitches" value={t("common.number", { value: omadaData.connectedSwitches })} />
     </Container>
   );
