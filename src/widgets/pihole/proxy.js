@@ -28,7 +28,7 @@ async function login(widget, service) {
     logger.error("Failed to login to Pi-Hole API, status: %d", status);
     cache.del(`${sessionSIDCacheKey}.${service}`);
   } else {
-    cache.put(`${sessionSIDCacheKey}.${service}`, dataParsed.session.sid, dataParsed.session.validity);
+    cache.put(`${sessionSIDCacheKey}.${service}`, dataParsed.session.sid, dataParsed.session.validity * 1000);
   }
 }
 
