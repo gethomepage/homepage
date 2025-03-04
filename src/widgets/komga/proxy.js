@@ -21,18 +21,19 @@ export default async function komgaProxyHandler(req, res) {
       try {
         const data = {};
         const headers = {
-          Accept: "application/json",
+          accept: "application/json",
           "Content-Type": "application/json",
         };
         if (widget.username && widget.password) {
           headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
         } else if (widget.key) {
-          headers["X-Api-Key"] = widget.key;
+          headers["X-API-Key"] = widget.key;
         }
         const librariesURL = formatApiCall(widgets?.[widget.type].api, { ...widget, endpoint: "libraries" });
         const [librariesStatus, , librariesData] = await httpProxy(librariesURL, {
           method: "GET",
           headers,
+          cookieHeader: "X-Auth-Token",
         });
 
         if (librariesStatus !== 200) {
@@ -48,6 +49,7 @@ export default async function komgaProxyHandler(req, res) {
           method: widgets[widget.type].mappings[seriesEndpointName].method || "GET",
           headers,
           body: "{}",
+          cookieHeader: "X-Auth-Token",
         });
 
         if (seriesStatus !== 200) {
@@ -63,6 +65,7 @@ export default async function komgaProxyHandler(req, res) {
           method: widgets[widget.type].mappings[booksEndpointName].method || "GET",
           headers,
           body: "{}",
+          cookieHeader: "X-Auth-Token",
         });
 
         if (booksStatus !== 200) {
