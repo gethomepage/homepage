@@ -5,7 +5,7 @@ description: Omada Widget Configuration
 
 The widget supports controller versions 3, 4 and 5.
 
-Allowed fields: `["connectedAp", "activeUser", "alerts", "connectedGateways", "connectedSwitches"]`.
+Allowed fields: `["connectedAp", "activeUser", "alerts", "connectedGateway", "connectedSwitches"]`.
 
 ```yaml
 widget:
