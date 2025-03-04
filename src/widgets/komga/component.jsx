@@ -8,16 +8,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { data: libraryData, error: libraryError } = useWidgetAPI(widget, "libraries");
-  const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "series");
-  const { data: bookData, error: bookError } = useWidgetAPI(widget, "books");
+  const { data: komgaData, error: komgaError } = useWidgetAPI(widget);
 
-  if (libraryError || seriesError || bookError) {
-    const finalError = libraryError ?? seriesError ?? bookError;
-    return <Container service={service} error={finalError} />;
+  if (komgaError) {
+    return <Container service={service} error={komgaError} />;
   }
 
-  if (!libraryData || !seriesData || !bookData) {
+  if (!komgaData) {
     return (
       <Container service={service}>
         <Block label="komga.libraries" />
@@ -27,9 +24,11 @@ export default function Component({ service }) {
     );
   }
 
+  const { libraries: libraryData, series: seriesData, books: bookData } = komgaData;
+
   return (
     <Container service={service}>
-      <Block label="komga.libraries" value={t("common.number", { value: libraryData.total })} />
+      <Block label="komga.libraries" value={t("common.number", { value: libraryData.length })} />
       <Block label="komga.series" value={t("common.number", { value: seriesData.totalElements })} />
       <Block label="komga.books" value={t("common.number", { value: bookData.totalElements })} />
     </Container>
