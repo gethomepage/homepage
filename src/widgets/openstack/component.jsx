@@ -11,11 +11,9 @@ export default function Component({ service }) {
 
   if (serverError) {
     return <Container service={service} error={serverError} />;
-  } else if (diagnosticsError) {
-    return <Container service={service} error={diagnosticsError} />;
-  }
+  } 
 
-  if (!diagnosticsData || !serverData) {
+  if (!serverData) {
     return (
       <Container service={service}>
           <Block label="openstack.name"/>
@@ -26,23 +24,23 @@ export default function Component({ service }) {
     );
   }
   
-  const { server: { status: serverStatus, name: serverName } } = serverData;
-  const uptime = diagnosticsData.cpu0_time;
-  const memoryUsage = (diagnosticsData["memory-rss"] / diagnosticsData["memory-actual"]) * 100;
+  const { server: { "status": serverStatus, name: serverName } } = serverData;
+  const uptime = diagnosticsData?.cpu0_time;
+  const memoryUsage = (diagnosticsData?.["memory-rss"] / diagnosticsData?.["memory-actual"]) * 100;
 
   return (
     <Container service={service}>
         <Block label="openstack.name" value={serverName} />
         <Block label="openstack.status" value={t("openstack.states." + serverStatus.toLowerCase())} />
 
-        {serverStatus === 'ACTIVE' &&
+        {serverStatus === "ACTIVE" && !diagnosticsError &&
           <>
             <Block label="openstack.cputime" value={t("common.duration", { value: uptime / 1000000000 })} />
             <Block label="resources.mem" value={t("common.percent", { value: memoryUsage.toFixed() })} />
           </>
         }
 
-        {serverStatus !== 'ACTIVE' &&
+        {serverStatus !== "ACTIVE" || diagnosticsError &&
           <>
             <Block label="openstack.cputime"/>
             <Block label="resources.mem"/>

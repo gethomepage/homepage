@@ -1,4 +1,3 @@
-import { validate } from "compare-versions";
 import openstackProxyHandler from "utils/proxy/handlers/openstack"; 
 
 const widget =  {
@@ -7,11 +6,11 @@ const widget =  {
 
   mappings:  {
     server:  {
-      endpoint: "v2.1/servers/{server}",
+      endpoint: "{version}/servers/{server}",
       validate: ["server"]
     },
     serverDiagnostics:  {
-      endpoint: "v2.1/servers/{server}/diagnostics",
+      endpoint: "{version}/servers/{server}/diagnostics",
       validate: ["cpu0_time", "memory-rss", "memory-actual"]
     },
   },
