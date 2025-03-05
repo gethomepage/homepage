@@ -43,8 +43,7 @@ export default function Component({ service }) {
   // utilization info
   const { cpu, memory } = utilizationData.data;
   const cpuLoad = parseFloat(cpu.user_load) + parseFloat(cpu.system_load);
-  const memoryUsage =
-    100 - (100 * (parseFloat(memory.avail_real) + parseFloat(memory.cached))) / parseFloat(memory.total_real);
+  const memoryUsage = parseFloat(memory.real_usage);
 
   return (
     <Container service={service}>
