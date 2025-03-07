@@ -5,7 +5,7 @@ description: Gotify Widget Configuration
 
 Learn more about [Gotify](https://github.com/gotify/server).
 
-Get a Gotify client token from an existing client or create a new one on your Gotify admin page.
+Get a Gotify app token from an existing app or create a new one on your Gotify admin page.
 
 Allowed fields: `["apps", "clients", "messages"]`.
 
