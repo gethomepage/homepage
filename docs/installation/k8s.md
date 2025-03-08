@@ -213,6 +213,7 @@ rules:
       - traefik.io
     resources:
       - ingressroutes
+      - ingressroutetcps
     verbs:
       - get
       - list
