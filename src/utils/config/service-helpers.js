@@ -432,7 +432,7 @@ export function cleanServiceGroups(groups) {
           // frigate
           enableRecentEvents,
 
-          // beszel, glances, immich, mealie, pihole, pfsense, speedtest
+          // beszel, glances, immich, mealie, pihole, pfsense, speedtest, openstack
           version,
 
           // glances
@@ -477,6 +477,10 @@ export function cleanServiceGroups(groups) {
 
           // openmediavault
           method,
+
+          // openstack
+          enableDiagnostics,
+          enableNetwork,
 
           // openwrt
           interfaceName,
@@ -585,6 +589,11 @@ export function cleanServiceGroups(groups) {
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) widget.wan = wan;
+        }
+        if (type === "openstack") {
+          if (enableDiagnostics !== undefined) widget.enableDiagnostics = JSON.parse(enableDiagnostics);
+          if (enableNetwork !== undefined) widget.enableNetwork = JSON.parse(enableNetwork);
+          if (version !== undefined) widget.version = version;
         }
         if (["emby", "jellyfin"].includes(type)) {
           if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
