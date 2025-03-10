@@ -41,7 +41,12 @@ async function fetchFromPlexAPI(endpoint, widget) {
 
   const url = new URL(formatApiCall(api, { endpoint, ...widget }));
 
-  const [status, contentType, data] = await httpProxy(url);
+  const [status, contentType, data] = await httpProxy(url, {
+    headers: {
+      "X-Plex-Container-Start": `0`,
+      "X-Plex-Container-Size": `500`,
+    },
+  });
 
   if (status !== 200) {
     logger.error("HTTP %d communicating with Plex. Data: %s", status, data.toString());
