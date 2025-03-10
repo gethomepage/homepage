@@ -303,7 +303,7 @@ function Home({ initialSettings }) {
               className={classNames(
                 "sm:flex rounded-md bg-theme-100/20 dark:bg-white/5",
                 settings.cardBlur !== undefined &&
-                  `backdrop-blur-sm${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
+                  `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
               )}
               id="myTab"
               data-tabs-toggle="#myTabContent"
@@ -432,7 +432,7 @@ function Home({ initialSettings }) {
             headerStyles[headerStyle],
             settings.cardBlur !== undefined &&
               headerStyle === "boxed" &&
-              `backdrop-blur-sm${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
+              `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
           )}
         >
           <div id="widgets-wrap" className={classNames("flex flex-row w-full flex-wrap justify-between gap-x-2")}>
@@ -536,7 +536,7 @@ export default function Wrapper({ initialSettings, fallback }) {
           className={classNames(
             "fixed overflow-auto w-full h-full",
             backgroundBlur &&
-              `backdrop-blur-sm${initialSettings.background.blur.length ? "-" : ""}${
+              `backdrop-blur${initialSettings.background.blur.length ? "-" : ""}${
                 initialSettings.background.blur - sm
               }`,
             backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,

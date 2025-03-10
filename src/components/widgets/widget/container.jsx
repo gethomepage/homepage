@@ -13,7 +13,7 @@ export function getAllClasses(options, additionalClassNames = "") {
       // eslint-disable-next-line no-param-reassign
       additionalClassNames = [
         additionalClassNames,
-        `backdrop-blur-sm${options.style.cardBlur.length ? "-" : ""}${options.style.cardBlur}`,
+        `backdrop-blur${options.style.cardBlur.length ? "-" : ""}${options.style.cardBlur}`,
       ].join(" ");
     }
 
