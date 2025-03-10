@@ -5,6 +5,10 @@ const widget =  {
   proxyHandler: openstackProxyHandler,
 
   mappings:  {
+    servers:  {
+      endpoint: "{version}/servers/detail",
+      validate: ["servers"]
+    },
     server:  {
       endpoint: "{version}/servers/{server}",
       validate: ["server"]

@@ -4,6 +4,16 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import { useTranslation } from "next-i18next";
 
 export default function Component({ service }) {
+  const { widget: { server: isServerWidget } } = service;
+  
+  if (isServerWidget) {
+    return ServerComponent(service);
+  } else {
+    return ClusterComponent(service);
+  }
+}
+
+function ServerComponent(service) {
   const { t } = useTranslation();
   const { widget } = service;
   const { enableDiagnostics = true, enableNetwork = true } = widget;
@@ -65,6 +75,52 @@ export default function Component({ service }) {
             <Block label={name} value={network[0].addr} />
           ))
         }
+    </Container>
+  );
+}
+
+function ClusterComponent(service) {
+  const { widget } = service;
+  const { data, error } = useWidgetAPI(widget, "servers");
+
+  if (error) {
+    return <Container service={service} error={error} />;
+  }
+
+  if (!data) {
+    return (
+      <Container service={service}>
+          <Block label="openstack.total"/>
+          <Block label="openstack.states.active"/>
+          <Block label="openstack.states.shutoff"/>
+          <Block label="openstack.states.other"/>
+      </Container>
+    );
+  }
+
+  let activeCount = 0;
+  let shutoffCount = 0;
+  let othersCount = 0;
+
+  data.servers.forEach(server => {
+    switch (server.status) {
+      case "ACTIVE":
+        activeCount++;
+        break;
+      case "SHUTOFF":
+        shutoffCount++;
+        break;
+      default:
+        othersCount++;
+    }
+  });
+
+  return (
+    <Container service={service}>
+        <Block label="openstack.total" value={data.servers.length}/>
+        <Block label="openstack.states.active" value={activeCount}/>
+        <Block label="openstack.states.shutoff" value={shutoffCount}/>
+        <Block label="openstack.states.other" value={othersCount}/>
     </Container>
   );
 }

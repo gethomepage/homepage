@@ -1019,12 +1019,14 @@
         "name": "Name",
         "status": "Status",
         "cputime": "CPU time",
+        "total": "Total",
         "states": {
             "active": "Active",
             "build": "Build",
             "shutoff": "Shut off",
             "error": "Error",
-            "deleted": "Deleted"
+            "deleted": "Deleted",
+            "other": "Other"
         }
     }
 }

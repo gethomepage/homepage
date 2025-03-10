@@ -418,6 +418,8 @@ export function cleanServiceGroups(groups) {
 
           // docker
           container,
+
+          // docker, openstack
           server,
 
           // emby, jellyfin
@@ -591,6 +593,7 @@ export function cleanServiceGroups(groups) {
           if (wan) widget.wan = wan;
         }
         if (type === "openstack") {
+          widget.server = server !== undefined;
           if (enableDiagnostics !== undefined) widget.enableDiagnostics = JSON.parse(enableDiagnostics);
           if (enableNetwork !== undefined) widget.enableNetwork = JSON.parse(enableNetwork);
           if (version !== undefined) widget.version = version;
