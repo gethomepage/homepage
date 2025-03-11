@@ -10,7 +10,7 @@ RUN <<EOF
     apk add libc6-compat
     apk add --virtual .gyp python3 make g++
     npm install -g pnpm
-    npm install -g next
+    pnpm install -g next
 EOF
 
 RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"

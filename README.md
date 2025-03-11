@@ -111,7 +111,7 @@ First, clone the repository:
 git clone https://github.com/gethomepage/homepage.git
 ```
 
-Then install dependencies and build the production bundle (I'm using pnpm here, you can use npm or yarn if you like):
+Then install dependencies and build the production bundle:
 
 ```bash
 pnpm install
