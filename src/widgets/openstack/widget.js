@@ -1,21 +1,21 @@
-import openstackProxyHandler from "utils/proxy/handlers/openstack"; 
+import openstackProxyHandler from "utils/proxy/handlers/openstack";
 
-const widget =  {
-  api: "{url}/{version}/{endpoint}" ,
+const widget = {
+  api: "{url}/{version}/{endpoint}",
   proxyHandler: openstackProxyHandler,
 
-  mappings:  {
-    servers:  {
+  mappings: {
+    servers: {
       endpoint: "servers/detail",
-      validate: ["servers"]
+      validate: ["servers"],
     },
-    server:  {
+    server: {
       endpoint: "servers/{server}",
-      validate: ["server"]
+      validate: ["server"],
     },
-    diagnostics:  {
+    diagnostics: {
       endpoint: "servers/{server}/diagnostics",
-      validate: ["cpu0_time", "memory-rss", "memory-actual"]
+      validate: ["cpu0_time", "memory-rss", "memory-actual"],
     },
   },
 };
