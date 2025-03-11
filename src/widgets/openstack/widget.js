@@ -1,20 +1,20 @@
 import openstackProxyHandler from "utils/proxy/handlers/openstack"; 
 
 const widget =  {
-  api: "{url}/{endpoint}" ,
+  api: "{url}/{version}/{endpoint}" ,
   proxyHandler: openstackProxyHandler,
 
   mappings:  {
     servers:  {
-      endpoint: "{version}/servers/detail",
+      endpoint: "servers/detail",
       validate: ["servers"]
     },
     server:  {
-      endpoint: "{version}/servers/{server}",
+      endpoint: "servers/{server}",
       validate: ["server"]
     },
     diagnostics:  {
-      endpoint: "{version}/servers/{server}/diagnostics",
+      endpoint: "servers/{server}/diagnostics",
       validate: ["cpu0_time", "memory-rss", "memory-actual"]
     },
   },

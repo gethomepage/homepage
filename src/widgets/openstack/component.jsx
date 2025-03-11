@@ -18,9 +18,10 @@ function ServerComponent(service) {
   const { widget } = service;
   const { enableDiagnostics = true, enableNetwork = true } = widget;
   const { data: serverData, error: serverError } = useWidgetAPI(widget, "server");
+  const shouldRenderDiagnostics = enableDiagnostics && serverData?.server?.status === "ACTIVE";
   
   let diagnosticsData, diagnosticsError;
-  if (enableDiagnostics) {
+  if (shouldRenderDiagnostics) {
     const diagnosticsResult = useWidgetAPI(widget, "diagnostics");
     diagnosticsData = diagnosticsResult.data;
     diagnosticsError = diagnosticsResult.error;
@@ -32,7 +33,7 @@ function ServerComponent(service) {
     return <Container service={service} error={diagnosticsError} />;
   }
 
-  if (!serverData || (enableDiagnostics && !diagnosticsData)) {
+  if (!serverData || (shouldRenderDiagnostics && !diagnosticsData)) {
     return (
       <Container service={service}>
           <Block label="openstack.name"/>
@@ -56,7 +57,7 @@ function ServerComponent(service) {
         <Block label="openstack.name" value={serverName} />
         <Block label="openstack.status" value={t("openstack.states." + serverStatus.toLowerCase())} />
 
-        {enableDiagnostics && serverStatus === "ACTIVE" &&
+        {shouldRenderDiagnostics &&
           <>
             <Block label="openstack.cputime" value={t("common.duration", { value: uptime / 1000000000 })} />
             <Block label="resources.mem" value={t("common.percent", { value: memoryUsage.toFixed() })} />

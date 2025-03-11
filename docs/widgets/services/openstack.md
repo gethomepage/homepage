@@ -9,7 +9,7 @@ Learn more about [OpenStack](https://docs.openstack.org/).
 widget:
     type: openstack
     version: v2.1
-    idpUrl: http://keystone.host.or.ip:port
+    identityUrl: http://keystone.host.or.ip:port
     url: http://openstack.host.or.ip:port
     appCredId: app_credential_id
     appCredName: app_credential_name
@@ -19,16 +19,8 @@ widget:
     enableNetwork: true # optional, only applicable for server widget
 ```
 
-In order to use the widget, you will need to obtain an application credential via the web interface (Identity > Application Credentials) or via CLI as described in the [documentation](https://docs.openstack.org/keystone/2024.2/admin/oauth2-usage-guide.html). Said credential should be assigned the role *reader* and have the following acces rules:
+In order to use the widget, an application credential with role *reader* must be obtained via the web interface (Identity > Application Credentials) or via CLI as described in the [documentation](https://docs.openstack.org/keystone/2024.2/admin/oauth2-usage-guide.html).
 
-```json
-[
-    {
-        "path": "/v2.1/servers/**",
-        "method": "GET",
-        "service": "compute"
-    }
-]
-```
-
-Limitations: Advanced diagnostics data (RAM, CPU time) can currently only be retrieved for libvirt based instances.
+Limitations:
+- Widget currently only supports Identity API v3 and Compute API v2.1
+- Diagnostics data can only be retrieved for libvirt based instances
