@@ -19,7 +19,7 @@ widget:
     enableNetwork: true # optional, only applicable for server widget
 ```
 
-In order to use the widget, an application credential with role *reader* must be obtained via the web interface (Identity > Application Credentials) or via CLI as described in the [documentation](https://docs.openstack.org/keystone/2024.2/admin/oauth2-usage-guide.html).
+In order to use the widget, an application credential must be obtained via the web interface (Identity > Application Credentials) or via CLI as described in the [documentation](https://docs.openstack.org/keystone/2024.2/admin/oauth2-usage-guide.html). Said credential must be assigned role *reader* or *admin* if diagnostics data should be displayed.
 
 Limitations:
 - Widget currently only supports Identity API v3 and Compute API v2.1

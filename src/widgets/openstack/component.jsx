@@ -7,21 +7,20 @@ export default function Component({ service }) {
   const { widget: { server: isServerWidget } } = service;
   
   if (isServerWidget) {
-    return ServerComponent(service);
+    return <ServerComponent service={service}/>;
   } else {
-    return ClusterComponent(service);
+    return <ClusterComponent service={service}/>;
   }
 }
 
-function ServerComponent(service) {
+function ServerComponent({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { enableDiagnostics = true, enableNetwork = true } = widget;
   const { data: serverData, error: serverError } = useWidgetAPI(widget, "server");
-  const shouldRenderDiagnostics = enableDiagnostics && serverData?.server?.status === "ACTIVE";
-  
+
   let diagnosticsData, diagnosticsError;
-  if (shouldRenderDiagnostics) {
+  if (enableDiagnostics) {
     const diagnosticsResult = useWidgetAPI(widget, "diagnostics");
     diagnosticsData = diagnosticsResult.data;
     diagnosticsError = diagnosticsResult.error;
@@ -33,7 +32,7 @@ function ServerComponent(service) {
     return <Container service={service} error={diagnosticsError} />;
   }
 
-  if (!serverData || (shouldRenderDiagnostics && !diagnosticsData)) {
+  if (!serverData || (enableDiagnostics && !diagnosticsData)) {
     return (
       <Container service={service}>
           <Block label="openstack.name"/>
@@ -57,7 +56,7 @@ function ServerComponent(service) {
         <Block label="openstack.name" value={serverName} />
         <Block label="openstack.status" value={t("openstack.states." + serverStatus.toLowerCase())} />
 
-        {shouldRenderDiagnostics &&
+        {enableDiagnostics && serverStatus === "ACTIVE" &&
           <>
             <Block label="openstack.cputime" value={t("common.duration", { value: uptime / 1000000000 })} />
             <Block label="resources.mem" value={t("common.percent", { value: memoryUsage.toFixed() })} />
@@ -80,7 +79,7 @@ function ServerComponent(service) {
   );
 }
 
-function ClusterComponent(service) {
+function ClusterComponent({ service }) {
   const { widget } = service;
   const { data, error } = useWidgetAPI(widget, "servers");
 
