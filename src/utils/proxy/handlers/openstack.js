@@ -25,7 +25,8 @@ export default async function openstackProxyHandler(req, res, map) {
         logger.warn(err.message);
         return res
             .status(err?.code || 500)
-            .json({ error: { 
+            .json({ error: {
+                status: err?.code,
                 message: err.message,
                 url: sanitizeErrorURL(err?.details?.url),
                 data: err?.details?.data
@@ -53,6 +54,7 @@ export default async function openstackProxyHandler(req, res, map) {
         return res
             .status(err?.code || 500)
             .json({ error: { 
+                status: err?.code,
                 message: err.message,
                 url: sanitizeErrorURL(err?.details?.url),
                 data: err?.details?.data
@@ -81,6 +83,7 @@ export default async function openstackProxyHandler(req, res, map) {
         return res
             .status(status)
             .json({ error: { 
+                status: status,
                 message: errMsg,
                 url: sanitizeErrorURL(url),
                 data: data

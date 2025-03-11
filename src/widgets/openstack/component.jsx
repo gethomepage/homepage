@@ -28,7 +28,7 @@ function ServerComponent({ service }) {
 
   if (serverError) {
     return <Container service={service} error={serverError} />;
-  } else if (diagnosticsError) {
+  } else if (diagnosticsError && diagnosticsError.status !== 409) {
     return <Container service={service} error={diagnosticsError} />;
   }
 
