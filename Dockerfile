@@ -1,5 +1,3 @@
-# syntax = docker/dockerfile:latest
-
 # Install dependencies only when needed
 FROM docker.io/node:22-alpine AS deps
 
