@@ -14,8 +14,8 @@ export default function Component({ service }) {
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "channels");
   const { data: playlistsData, error: playlistsError } = useWidgetAPI(widget, "playlists");
 
-  if (downloadsError || videosError || channelsError || playlistsError) {
-    const finalError = downloadsError ?? videosError ?? channelsError ?? playlistsError;
+  if (downloadsError || videosError || channelsError || playlistsError || (downloadsData && downloadsData.detail)) {
+    const finalError = downloadsError ?? videosError ?? channelsError ?? playlistsError ?? downloadsData.detail;
     return <Container service={service} error={finalError} />;
   }
 
