@@ -20,6 +20,8 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm i
 FROM docker.io/node:22-alpine AS builder
 WORKDIR /app
 
+RUN mkdir config
+
 ARG BUILDTIME
 ARG VERSION
 ARG REVISION
@@ -28,9 +30,9 @@ COPY --link --from=deps /app/node_modules ./node_modules/
 COPY . .
 
 SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
-RUN npm run telemetry \
- && mkdir config \
- && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
+RUN npm install -g pnpm \
+ && pnpm run telemetry \
+ && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION pnpm run build
 
 # Production image, copy all the files and run next
 FROM docker.io/node:22-alpine AS runner
