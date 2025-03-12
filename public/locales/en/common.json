@@ -1022,5 +1022,13 @@
         "load": "Load",
         "bcharge":"Battery Charge",
         "timeleft":"Time Left"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tags"
     }
 }
