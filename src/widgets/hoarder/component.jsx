@@ -5,6 +5,7 @@ import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export const hoarderDefaultFields = ["bookmarks", "favorites", "archived", "highlights"];
+const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -13,15 +14,12 @@ export default function Component({ service }) {
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
 
   if (statsError) {
-    const finalError = statsError;
-    return <Container service={service} error={finalError} />;
+    return <Container service={service} error={statsError} />;
   }
 
-  if (!widget.fields?.length > 0) {
+  if (!widget.fields || widget.fields.length === 0) {
     widget.fields = hoarderDefaultFields;
-  }
-  const MAX_ALLOWED_FIELDS = 4;
-  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
+  } else if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
