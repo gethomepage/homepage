@@ -14,7 +14,7 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "bulan",
+        "months": "bln",
         "days": "h",
         "hours": "j",
         "minutes": "m",
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Menunggu Terputus",
         "connectionStatusDisconnecting": "Sedan Memutus",
         "connectionStatusDisconnected": "Terputus",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Tersambung",
         "uptime": "Waktu Aktif",
         "maxDown": "Maks Unduh",
         "maxUp": "Maks Unggah",
@@ -148,7 +148,9 @@
         "up": "Hidup",
         "received": "Diterima",
         "sent": "Terkirim",
-        "externalIPAddress": "IP Eksternal"
+        "externalIPAddress": "IP Eksternal",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Strim Luar",
@@ -176,7 +178,7 @@
         "connectedAp": "AP Tersambung",
         "activeUser": "Perangakat yang Aktif",
         "alerts": "Peringatan",
-        "connectedGateway": "Gateway Tersambung",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Switch Tersambung"
     },
     "nzbget": {
@@ -283,9 +285,9 @@
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Tersambung",
+        "new_devices": "Perangkat Baru",
+        "down_alerts": "Peringatan Pemadaman"
     },
     "pihole": {
         "queries": "Kueri",
@@ -311,17 +313,17 @@
     },
     "suwayomi": {
         "download": "Terunduh",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "Belum Diunduh",
         "read": "Baca",
         "unread": "Belum Dibaca",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Diunduh & Dibaca",
+        "downloadedunread": "Diunduh & Belum Dibaca",
+        "nondownloadedread": "Belum Diunduh & Dibaca",
+        "nondownloadedunread": "Belum Diunduh & Belum Dibaca"
     },
     "tailscale": {
         "address": "Alamat",
-        "expires": "Kadaluarsa",
+        "expires": "Kedaluwarsa",
         "never": "Tidak Pernah",
         "last_seen": "Terakhir terlihat",
         "now": "Sekarang",
@@ -335,10 +337,10 @@
     },
     "technitium": {
         "totalQueries": "Kueri",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
+        "totalNoError": "Berhasil",
+        "totalServerFailure": "Gagal",
+        "totalNxDomain": "Domain NX",
+        "totalRefused": "Ditolak",
         "totalAuthoritative": "Authoritative",
         "totalRecursive": "Recursive",
         "totalCached": "Cached",
@@ -702,6 +704,10 @@
         "processed": "Terproses",
         "time": "Waktu"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Dasbor",
         "datasources": "Sumber Data",
@@ -854,16 +860,16 @@
     },
     "romm": {
         "platforms": "Platform",
-        "totalRoms": "Games",
+        "totalRoms": "Permainan",
         "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "states": "Kondisi",
+        "screenshots": "Tangkapan Layar",
+        "totalfilesize": "Total Ukuran"
     },
     "mailcow": {
         "domains": "Jumlah Domain",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Kotak surat",
+        "mails": "Surat",
         "storage": "Penyimpanan"
     },
     "netdata": {
@@ -882,48 +888,48 @@
         "pulls": "Pull Requests"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
+        "scenes": "Adegan",
+        "scenesPlayed": "Adegan Dimainkan",
+        "playCount": "Total Dimainkan",
+        "playDuration": "Waktu Ditonton",
+        "sceneSize": "Ukuran Adegan",
+        "sceneDuration": "Durasi Adegan",
+        "images": "Gambar",
+        "imageSize": "Ukuran Gambar",
+        "galleries": "Galeri",
+        "performers": "Pemain",
+        "studios": "Studio",
         "movies": "Film",
         "tags": "Tag",
-        "oCount": "O Count"
+        "oCount": "Jumlah O"
     },
     "tandoor": {
         "users": "Pengguna",
         "recipes": "Resep",
-        "keywords": "Keywords"
+        "keywords": "Kata Kunci"
     },
     "homebox": {
         "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "totalWithWarranty": "Dengan Garansi",
+        "locations": "Lokasi",
+        "labels": "Label",
         "users": "Pengguna",
-        "totalValue": "Total Value"
+        "totalValue": "Total Nilai"
     },
     "crowdsec": {
         "alerts": "Peringatan",
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "Tersambung",
         "enabled": "Aktif",
         "disabled": "Nonaktif",
         "total": "Total"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
+        "proxied": "Diproksi",
         "auth": "With Auth",
-        "outdated": "Outdated",
+        "outdated": "Usang",
         "banned": "Banned"
     },
     "myspeed": {
@@ -932,43 +938,43 @@
         "upload": "Unggah"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Saham",
+        "loading": "Memuat",
+        "open": "Buka - Pasar AS",
+        "closed": "Tutup - Pasar AS",
+        "invalidConfiguration": "Konfigurasi Invalid"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kamera",
         "uptime": "Waktu Aktif",
         "version": "Versi"
     },
     "linkwarden": {
-        "links": "Links",
-        "collections": "Collections",
+        "links": "Tautan",
+        "collections": "Koleksi",
         "tags": "Tag"
     },
     "zabbix": {
         "unclassified": "Not classified",
         "information": "Informasi",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Peringatan",
+        "average": "Rata-rata",
+        "high": "Tinggi",
+        "disaster": "Bencana"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
+        "vehicle": "Kendaraan",
+        "vehicles": "Kendaraan",
         "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "reminders": "Pengingat",
+        "nextReminder": "Pengingat Berikutnya",
+        "none": "Tidak ada"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "Proyek Aktif",
+        "tasks7d": "Tugas Jatuh Tempo Minggu Ini",
+        "tasksOverdue": "Tugas Terlewat",
+        "tasksInProgress": "Tugas Berlangsung"
     },
     "headscale": {
         "name": "Nama",
@@ -980,7 +986,7 @@
     },
     "beszel": {
         "name": "Nama",
-        "systems": "Systems",
+        "systems": "Sistem",
         "up": "Hidup",
         "down": "Mati",
         "paused": "Pause",
@@ -989,26 +995,40 @@
         "updated": "Terbarui",
         "cpu": "CPU",
         "memory": "MEM",
-        "disk": "Disk",
+        "disk": "Diska",
         "network": "NET"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Apl",
+        "synced": "Tersinkron",
+        "outOfSync": "Tidak Sinkron",
         "healthy": "Lancar",
-        "degraded": "Degraded",
+        "degraded": "Terdegradasi",
         "progressing": "Progressing",
         "missing": "Tidak Ditemukan",
-        "suspended": "Suspended"
+        "suspended": "Ditangguhkan"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "Memuat"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Grup",
         "issues": "Isu",
         "merges": "Merge Requests",
-        "projects": "Projects"
+        "projects": "Proyek"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Beban",
+        "bcharge": "Sisa Baterai",
+        "timeleft": "Sisa Waktu"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tag"
     }
 }

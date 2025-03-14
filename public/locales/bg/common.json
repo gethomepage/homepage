@@ -14,11 +14,11 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "mo",
-        "days": "d",
+        "months": "м",
+        "days": "д",
         "hours": "ч",
-        "minutes": "m",
-        "seconds": "s"
+        "minutes": "мин",
+        "seconds": "сек"
     },
     "widget": {
         "missing_type": "Липсваща приставка: {{type}}",
@@ -26,8 +26,8 @@
         "information": "Информация",
         "status": "Статус",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Грешка",
+        "response_data": "Отговор"
     },
     "weather": {
         "current": "Текущо местоположение",
@@ -51,7 +51,7 @@
     },
     "unifi": {
         "users": "Потребители",
-        "uptime": "Uptime",
+        "uptime": "Ъптайм",
         "days": "Дни",
         "wan": "WAN",
         "lan": "LAN",
@@ -64,103 +64,105 @@
         "up": "Онлайн",
         "down": "DOWN",
         "wait": "Моля изчакайте",
-        "empty_data": "Subsystem status unknown"
+        "empty_data": "Неизвестен статус на подсистема"
     },
     "docker": {
-        "rx": "RX",
-        "tx": "TX",
+        "rx": "ПЧ",
+        "tx": "ИЗ",
         "mem": "Памет",
         "cpu": "Процесор",
-        "running": "Running",
+        "running": "Работи",
         "offline": "Изключен",
         "error": "Грешка",
         "unknown": "Неизв.",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
+        "healthy": "Здрав",
+        "starting": "Стартиращ",
+        "unhealthy": "Нездравословен",
+        "not_found": "Не е открит",
+        "exited": "Напуснал",
+        "partial": "Частично"
     },
     "ping": {
         "error": "Грешка",
-        "ping": "Ping",
+        "ping": "Пинг",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Не е налично"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
+        "http_status": "HTTP статус",
         "error": "Грешка",
-        "response": "Response",
+        "response": "Отговор",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Не е налично"
     },
     "emby": {
         "playing": "Възпроизвежда",
         "transcoding": "Конвертира",
-        "bitrate": "Bitrate",
+        "bitrate": "Битрейт",
         "no_active": "Няма активни потоци",
         "movies": "Филми",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "series": "Сериали",
+        "episodes": "Епизоди",
+        "songs": "Песни"
     },
     "esphome": {
         "offline": "Изключен",
         "offline_alt": "Изключен",
-        "online": "Online",
+        "online": "Онлайн",
         "total": "Общо",
         "unknown": "Неизв."
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
-        "kilowatt": "kW"
+        "pv_power": "Произведено",
+        "battery_soc": "Батерия",
+        "grid_power": "Мрежа",
+        "home_power": "Потребление",
+        "charge_power": "Зарядно",
+        "kilowatt": "кВ"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Изтегляне",
+        "upload": "Качване",
+        "leech": "Лийч",
+        "seed": "Сийд"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Абонаменти",
+        "unread": "Непрочетени"
     },
     "fritzbox": {
         "connectionStatus": "Статус",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Connected",
-        "uptime": "Uptime",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "connectionStatusUnconfigured": "Неконфигуриран",
+        "connectionStatusConnecting": "Свързване",
+        "connectionStatusAuthenticating": "Удостоверяване",
+        "connectionStatusPendingDisconnect": "Изчава прекратяване на връзка",
+        "connectionStatusDisconnecting": "Прекъсване на връзката",
+        "connectionStatusDisconnected": "Не е свързан",
+        "connectionStatusConnected": "Свързан",
+        "uptime": "Ъптайм",
+        "maxDown": "Макс сваляне",
+        "maxUp": "Макс качване",
         "down": "Down",
         "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "received": "Получени",
+        "sent": "Изпратени",
+        "externalIPAddress": "Външно IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "requests": "Текущи заявки",
+        "requests_failed": "Провалени заявки"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Общо наблюдавани",
+        "diffsDetected": "Открити разлики"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
+        "shows": "Шоута",
         "recordings": "Записи",
         "scheduled": "Планирано",
         "passes": "Passes"
@@ -168,19 +170,19 @@
     "tautulli": {
         "playing": "Възпроизвежда",
         "transcoding": "Конвертира",
-        "bitrate": "Bitrate",
+        "bitrate": "Битрейт",
         "no_active": "Няма активни потоци",
         "plex_connection_error": "Провери връзка с Plex"
     },
     "omada": {
-        "connectedAp": "Connected APs",
+        "connectedAp": "Свързани точки",
         "activeUser": "Активни устройства",
         "alerts": "Предупреждения",
-        "connectedGateway": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedGateways": "Connected gateways",
+        "connectedSwitches": "Свързани суичове"
     },
     "nzbget": {
-        "rate": "Rate",
+        "rate": "Скорост",
         "remaining": "Остава",
         "downloaded": "Изтеглени"
     },
@@ -191,55 +193,55 @@
         "tv": "Сериали"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Скорост",
         "queue": "Опашка",
         "timeleft": "Оставащо Време"
     },
     "rutorrent": {
         "active": "Акитивен",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Качване",
+        "download": "Изтегляне"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Изтегляне",
+        "upload": "Качване",
+        "leech": "Лийч",
+        "seed": "Сийд"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Изтегляне",
+        "upload": "Качване",
+        "leech": "Лийч",
+        "seed": "Сийд"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
+        "cpuUsage": "CPU употреба",
+        "memUsage": "Упортеба памет",
+        "systemTempC": "Системна темп",
+        "poolUsage": "Употреба на пул",
         "volumeUsage": "Volume Usage",
         "invalid": "Невалидни"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Изтегляне",
+        "upload": "Качване",
+        "leech": "Лийч",
+        "seed": "Сийд"
     },
     "develancacheui": {
         "cachehitbytes": "Cache Hit Bytes",
         "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Изтегляне",
+        "upload": "Качване",
+        "leech": "Лийч",
+        "seed": "Сийд"
     },
     "sonarr": {
         "wanted": "Търсени",
         "queued": "В изчакване",
-        "series": "Series",
+        "series": "Сериали",
         "queue": "Опашка",
         "unknown": "Неизв."
     },
@@ -283,7 +285,7 @@
     },
     "netalertx": {
         "total": "Общо",
-        "connected": "Connected",
+        "connected": "Свързан",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
     },
@@ -300,12 +302,12 @@
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "Качване",
+        "download": "Изтегляне",
+        "ping": "Пинг"
     },
     "portainer": {
-        "running": "Running",
+        "running": "Работи",
         "stopped": "Спрян",
         "total": "Общо"
     },
@@ -313,15 +315,15 @@
         "download": "Изтеглени",
         "nondownload": "Non-Downloaded",
         "read": "Read",
-        "unread": "Unread",
+        "unread": "Непрочетени",
         "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedunread": "Изтеглени и непрочетени",
+        "nondownloadedread": "Не-изтеглени и прочетени",
+        "nondownloadedunread": "Не-изтеглени и непрочетени"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
+        "address": "Адрес",
+        "expires": "Изтича",
         "never": "Никога",
         "last_seen": "Последно видян",
         "now": "Сега",
@@ -335,26 +337,26 @@
     },
     "technitium": {
         "totalQueries": "Заявки",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
+        "totalNoError": "Успех",
+        "totalServerFailure": "Грешки",
+        "totalNxDomain": "NX домейни",
+        "totalRefused": "Отказани",
         "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalRecursive": "Рекурсивни",
+        "totalCached": "Кеширани",
         "totalBlocked": "Блокирани",
-        "totalDropped": "Dropped",
-        "totalClients": "Clients"
+        "totalDropped": "Отпаднали",
+        "totalClients": "Клиенти"
     },
     "tdarr": {
         "queue": "Опашка",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "processed": "Обработени",
+        "errored": "С грешки",
+        "saved": "Запазени"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
+        "routers": "Рутери",
+        "services": "Услуги",
         "middleware": "Middleware"
     },
     "navidrome": {
@@ -367,33 +369,33 @@
         "total": "Общо"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
+        "configure": "Настрой за следене една или повече крипто валути",
         "1hour": "1 Час",
         "1day": "1 Ден",
         "7days": "7 Дена",
-        "30days": "30 Days"
+        "30days": "30 дни"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Приложения",
+        "clients": "Клиенти",
+        "messages": "Съобщения"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
+        "enableIndexers": "Индексъри",
         "numberOfGrabs": "Grabs",
         "numberOfQueries": "Заявки",
         "numberOfFailGrabs": "Fail Grabs",
         "numberOfFailQueries": "Fail Queries"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Настроен",
+        "errored": "С грешки"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
+        "numActiveSessions": "Сесии",
         "numConnections": "Connections",
         "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "transferRate": "Скорост"
     },
     "mastodon": {
         "user_count": "Потребители",
@@ -403,18 +405,18 @@
     "medusa": {
         "wanted": "Търсени",
         "queued": "В изчакване",
-        "series": "Series"
+        "series": "Сериали"
     },
     "minecraft": {
         "players": "Играчи",
         "version": "Version",
         "status": "Статус",
-        "up": "Online",
+        "up": "Онлайн",
         "down": "Изключен"
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Unread"
+        "unread": "Непрочетени"
     },
     "authentik": {
         "users": "Потребители",
@@ -438,7 +440,7 @@
         "total": "Общо",
         "free": "Свободни",
         "used": "Заети",
-        "days": "d",
+        "days": "д",
         "hours": "ч",
         "crit": "Crit",
         "read": "Read",
@@ -451,10 +453,10 @@
         "bookmark": "Bookmark",
         "service": "Service",
         "search": "Търсене",
-        "custom": "Custom",
-        "visit": "Visit",
+        "custom": "По избор",
+        "visit": "Посети",
         "url": "URL",
-        "searchsuggestion": "Suggestion"
+        "searchsuggestion": "Предложение"
     },
     "wmo": {
         "0-day": "Слънчево",
@@ -463,62 +465,62 @@
         "1-night": "Предимно Ясно",
         "2-day": "Частична Облачност",
         "2-night": "Частична Облачност",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
+        "3-day": "Облачно",
+        "3-night": "Облачно",
+        "45-day": "Мъгливо",
+        "45-night": "Мъгливо",
+        "48-day": "Мъгливо",
+        "48-night": "Мъгливо",
+        "51-day": "Слабо преваляване",
+        "51-night": "Слабо преваляване",
+        "53-day": "Преваляване",
+        "53-night": "Преваляване",
+        "55-day": "Тежко преваляване",
+        "55-night": "Тежко преваляване",
+        "56-day": "Слабо студено преваляване",
+        "56-night": "Слабо студено преваляване",
+        "57-day": "Студено преваляване",
+        "57-night": "Студено преваляване",
+        "61-day": "Слаб дъжд",
+        "61-night": "Слаб дъжд",
+        "63-day": "Дъжд",
+        "63-night": "Дъжд",
+        "65-day": "Силен дъжд",
+        "65-night": "Силен дъжд",
+        "66-day": "Леден дъжд",
+        "66-night": "Леден дъжд",
+        "67-day": "Леден дъжд",
+        "67-night": "Леден дъжд",
+        "71-day": "Лек снеговалеж",
+        "71-night": "Лек снеговалеж",
+        "73-day": "Снеговалеж",
+        "73-night": "Снеговалеж",
+        "75-day": "Силен снеговалеж",
+        "75-night": "Силен снеговалеж",
         "77-day": "Snow Grains",
         "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "80-day": "Лек дъжд",
+        "80-night": "Лек дъжд",
+        "81-day": "Дъжд",
+        "81-night": "Дъжд",
+        "82-day": "Силен дъжд",
+        "82-night": "Силен дъжд",
+        "85-day": "Снеговалеж",
+        "85-night": "Снеговалеж",
+        "86-day": "Снеговалеж",
+        "86-night": "Снеговалеж",
+        "95-day": "Гръмотевична буря",
+        "95-night": "Гръмотевична буря",
+        "96-day": "Гръмотевична буря с градушка",
+        "96-night": "Гръмотевична буря с градушка",
+        "99-day": "Гръмотевична буря с градушка",
+        "99-night": "Гръмотевична буря с градушка"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
+        "available_update": "Система",
+        "updates": "Актуализации",
+        "update_available": "Налична актуализация",
+        "up_to_date": "Актуално",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
@@ -530,188 +532,192 @@
         "up": "Up",
         "grace": "Гратисен период",
         "down": "Down",
-        "paused": "Paused",
+        "paused": "На пауза",
         "status": "Статус",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "last_ping": "Последен пинг",
+        "never": "Няма пинг все още"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Сканирани",
+        "containers_updated": "Обновени",
+        "containers_failed": "Провалени"
     },
     "autobrr": {
         "approvedPushes": "Одобрен",
-        "rejectedPushes": "Rejected",
+        "rejectedPushes": "Отхвърлени",
         "filters": "Филтри",
-        "indexers": "Indexers"
+        "indexers": "Индексъри"
     },
     "tubearchivist": {
         "downloads": "Опашка",
         "videos": "Видео",
         "channels": "Канали",
-        "playlists": "Playlists"
+        "playlists": "Плейлист"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
+        "load": "Натоварване на системата",
+        "uptime": "Ъптайм",
         "alerts": "Предупреждения"
     },
     "pyload": {
-        "speed": "Speed",
+        "speed": "Скорост",
         "active": "Акитивен",
         "queue": "Опашка",
         "total": "Общо"
     },
     "gluetun": {
-        "public_ip": "Public IP",
+        "public_ip": "Публично IP",
         "region": "Регион",
         "country": "Страна"
     },
     "hdhomerun": {
         "channels": "Канали",
         "hd": "HD",
-        "tunerCount": "Tuners",
-        "channelNumber": "Channel",
-        "channelNetwork": "Network",
-        "signalStrength": "Strength",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
-        "networkRate": "Bitrate",
-        "clientIP": "Client"
+        "tunerCount": "Тунери",
+        "channelNumber": "Канал",
+        "channelNetwork": "Мрежа",
+        "signalStrength": "Сила",
+        "signalQuality": "Качество",
+        "symbolQuality": "Качество",
+        "networkRate": "Битрейт",
+        "clientIP": "Клиент"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
+        "passed": "Одобрени",
+        "failed": "Провалени",
         "unknown": "Неизв."
     },
     "paperlessngx": {
-        "inbox": "Inbox",
+        "inbox": "Входящи",
         "total": "Общо"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
-        "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "battery_charge": "Заряд на батерията",
+        "ups_load": "Натоварване на UPS",
+        "ups_status": "Статус на UPS",
+        "online": "Онлайн",
+        "on_battery": "На батерия",
+        "low_battery": "Слаба батерия"
     },
     "nextdns": {
         "wait": "Моля Изчакайте",
-        "no_devices": "No Device Data Received"
+        "no_devices": "Не е получена дата от устройство"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
+        "cpuLoad": "Натоварване на процесор",
+        "memoryUsed": "Изполвана памет",
+        "uptime": "Ъптайм",
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "All Streams",
+        "streams_all": "Всички потоци",
         "streams_active": "Активни Потоци",
-        "streams_xepg": "XEPG Channels"
+        "streams_xepg": "XEPG канали"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "yieldDay": "Днес",
+        "absolutePower": "Захранване",
+        "relativePower": "Захранване %",
+        "limit": "Лимит"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Натоварване на процесор",
+        "memory": "Активна памет",
+        "wanUpload": "WAN качване",
+        "wanDownload": "WAN теглене"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Статус на принтер",
+        "print_status": "Статус на принта",
+        "print_progress": "Напредък",
+        "layers": "Слоеве"
     },
     "octoprint": {
         "printer_state": "Статус",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "temp_tool": "Температур на уреда",
+        "temp_bed": "Температура на леглото",
+        "job_completion": "Завършване"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
         "status": "Статус"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
+        "load": "Средно натоварване",
+        "memory": "Употреба памет",
+        "wanStatus": "WAN статус",
         "up": "Up",
         "down": "Down",
         "temp": "Температура",
-        "disk": "Disk Usage",
+        "disk": "Употреба на диска",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
+        "datastore_usage": "База данни",
+        "failed_tasks_24h": "Провалени задачи 24ч",
         "cpu_usage": "Процесор",
-        "memory_usage": "Memory"
+        "memory_usage": "Памет"
     },
     "immich": {
         "users": "Потребители",
-        "photos": "Photos",
+        "photos": "Снимки",
         "videos": "Видео",
-        "storage": "Storage"
+        "storage": "Хранилище"
     },
     "uptimekuma": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
-        "m": "m"
+        "uptime": "Ъптайм",
+        "incident": "Инцидент",
+        "m": "мин"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "series": "Сериали",
+        "archives": "Архиви",
+        "chapters": "Глави",
+        "categories": "Категории"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
+        "libraries": "Библиотеки",
+        "series": "Сериали",
         "books": "Книги"
     },
     "diskstation": {
         "days": "Дни",
-        "uptime": "Uptime",
+        "uptime": "Ъптайм",
         "volumeAvailable": "Наличен"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
+        "series": "Сериали",
+        "issues": "Издания",
         "wanted": "Търсени"
     },
     "photoprism": {
         "albums": "Албуми",
-        "photos": "Photos",
+        "photos": "Снимки",
         "videos": "Видео",
-        "people": "People"
+        "people": "Хора"
     },
     "fileflows": {
         "queue": "Опашка",
         "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "processed": "Обработени",
+        "time": "Време"
+    },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Бюджет"
     },
     "grafana": {
         "dashboards": "Dashboards",
-        "datasources": "Data Sources",
+        "datasources": "Източници на данни",
         "totalalerts": "Total Alerts",
         "alertstriggered": "Alerts Triggered"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
+        "cpuload": "Натоварване на процесор",
+        "memoryusage": "Употреба на паметта",
+        "freespace": "Свободно пространство",
         "activeusers": "Активни потребители",
         "numfiles": "Файлове",
         "numshares": "Споделени записи"
@@ -719,18 +725,18 @@
     "kopia": {
         "status": "Статус",
         "size": "Размер",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "lastrun": "Последно стартиране",
+        "nextrun": "Следващо стартиране",
+        "failed": "Провалени"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Активни работници",
+        "total_workers": "Общо работници",
+        "records_total": "Дължина на опашка"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Сървъри",
+        "nodes": "Възли"
     },
     "prometheus": {
         "targets_up": "Targets Up",
@@ -740,15 +746,15 @@
     "gatus": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime"
+        "uptime": "Ъптайм"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
+        "gross_percent_today": "Днес",
+        "gross_percent_1y": "Една година",
         "gross_percent_max": "All time"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
+        "podcasts": "Подкасти",
         "books": "Книги",
         "podcastsDuration": "Продължителност",
         "booksDuration": "Продължителност"
@@ -759,49 +765,49 @@
         "switches_on": "Switches On"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Наблюдение",
+        "updates": "Актуализации"
     },
     "calibreweb": {
         "books": "Книги",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+        "authors": "Автори",
+        "categories": "Категории",
+        "series": "Сериали"
     },
     "jdownloader": {
         "downloadCount": "Опашка",
         "downloadBytesRemaining": "Остава",
         "downloadTotalBytes": "Размер",
-        "downloadSpeed": "Speed"
+        "downloadSpeed": "Скорост"
     },
     "kavita": {
-        "seriesCount": "Series",
+        "seriesCount": "Сериали",
         "totalFiles": "Файлове"
     },
     "azuredevops": {
-        "result": "Result",
+        "result": "Резултат",
         "status": "Статус",
         "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
+        "succeeded": "Успешни",
+        "notStarted": "Не стартирани",
+        "failed": "Провалени",
+        "canceled": "Отказани",
+        "inProgress": "В процес",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
         "approved": "Одобрен"
     },
     "gamedig": {
         "status": "Статус",
-        "online": "Online",
+        "online": "Онлайн",
         "offline": "Изключен",
-        "name": "Name",
+        "name": "Име",
         "map": "Карта",
         "currentPlayers": "Текущи играчи",
         "players": "Играчи",
         "maxPlayers": "Максимален брой играчи",
         "bots": "Ботове",
-        "ping": "Ping"
+        "ping": "Пинг"
     },
     "urbackup": {
         "ok": "ОК",
@@ -812,87 +818,87 @@
     "mealie": {
         "recipes": "Рецепти",
         "users": "Потребители",
-        "categories": "Categories",
+        "categories": "Категории",
         "tags": "Тагове"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Изтегляне",
         "total": "Общо",
-        "running": "Running",
+        "running": "Работи",
         "stopped": "Спрян",
-        "passed": "Passed",
-        "failed": "Failed"
+        "passed": "Одобрени",
+        "failed": "Провалени"
     },
     "openwrt": {
-        "uptime": "Uptime",
+        "uptime": "Ъптайм",
         "cpuLoad": "CPU Load Avg (5m)",
         "up": "Up",
         "down": "Down",
-        "bytesTx": "Transmitted",
-        "bytesRx": "Received"
+        "bytesTx": "Изпратено",
+        "bytesRx": "Получени"
     },
     "uptimerobot": {
         "status": "Статус",
-        "uptime": "Uptime",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
+        "uptime": "Ъптайм",
+        "lastDown": "Последно изключване",
+        "downDuration": "Продължителност на изключване",
         "sitesUp": "Sites Up",
         "sitesDown": "Sites Down",
-        "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
+        "paused": "На пауза",
+        "notyetchecked": "Непроверено",
         "up": "Up",
-        "seemsdown": "Seems Down",
+        "seemsdown": "Изглежда изключено",
         "down": "Down",
         "unknown": "Неизв."
     },
     "calendar": {
-        "inCinemas": "In cinemas",
+        "inCinemas": "В кината",
         "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
+        "digitalRelease": "Дигитално издания",
         "noEventsToday": "Няма събития за днес!",
         "noEventsFound": "Няма намерени събития"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Games",
+        "platforms": "Платформи",
+        "totalRoms": "Игри",
         "saves": "Saves",
         "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "screenshots": "Снимки на екрана",
+        "totalfilesize": "Общ размер"
     },
     "mailcow": {
         "domains": "Domains",
-        "mailboxes": "Mailboxes",
+        "mailboxes": "Пощенски кутии",
         "mails": "Mails",
-        "storage": "Storage"
+        "storage": "Хранилище"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Предупреждения",
+        "criticals": "Критични"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
-        "photos": "Photos",
-        "species": "Species"
+        "events": "Събития",
+        "plants": "Растения",
+        "photos": "Снимки",
+        "species": "Видове"
     },
     "gitea": {
-        "notifications": "Notifications",
-        "issues": "Issues",
-        "pulls": "Pull Requests"
+        "notifications": "Известия",
+        "issues": "Издания",
+        "pulls": "Заявки за сливане"
     },
     "stash": {
-        "scenes": "Scenes",
+        "scenes": "Сцени",
         "scenesPlayed": "Scenes Played",
         "playCount": "Total Plays",
         "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
+        "sceneSize": "Размер на сцени",
+        "sceneDuration": "Продължителност на сцени",
+        "images": "Изображения",
+        "imageSize": "Размер на изображенията",
+        "galleries": "Галерии",
         "performers": "Performers",
-        "studios": "Studios",
+        "studios": "Студиа",
         "movies": "Филми",
         "tags": "Тагове",
         "oCount": "O Count"
@@ -900,22 +906,22 @@
     "tandoor": {
         "users": "Потребители",
         "recipes": "Рецепти",
-        "keywords": "Keywords"
+        "keywords": "Ключови думи"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "items": "Елементи",
+        "totalWithWarranty": "В гаранция",
+        "locations": "Места",
+        "labels": "Етикети",
         "users": "Потребители",
-        "totalValue": "Total Value"
+        "totalValue": "Обща стойност"
     },
     "crowdsec": {
         "alerts": "Предупреждения",
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "Свързан",
         "enabled": "Активирано",
         "disabled": "Деактивирано",
         "total": "Общо"
@@ -927,20 +933,20 @@
         "banned": "Banned"
     },
     "myspeed": {
-        "ping": "Ping",
-        "download": "Download",
-        "upload": "Upload"
+        "ping": "Пинг",
+        "download": "Изтегляне",
+        "upload": "Качване"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Акции",
+        "loading": "Зареждане",
+        "open": "Отворен - пазар САЩ",
+        "closed": "Затворен - пазар САЩ",
+        "invalidConfiguration": "Невалидна конфигурация"
     },
     "frigate": {
         "cameras": "Cameras",
-        "uptime": "Uptime",
+        "uptime": "Ъптайм",
         "version": "Version"
     },
     "linkwarden": {
@@ -961,54 +967,68 @@
         "vehicles": "Vehicles",
         "serviceRecords": "Service Records",
         "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "nextReminder": "Следващо напомняне",
+        "none": "Нищо"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
+        "projects": "Активни проекти",
+        "tasks7d": "Задачи тази седмица",
         "tasksOverdue": "Overdue Tasks",
         "tasksInProgress": "Tasks In Progress"
     },
     "headscale": {
-        "name": "Name",
-        "address": "Address",
+        "name": "Име",
+        "address": "Адрес",
         "last_seen": "Последно видян",
         "status": "Статус",
-        "online": "Online",
+        "online": "Онлайн",
         "offline": "Изключен"
     },
     "beszel": {
-        "name": "Name",
-        "systems": "Systems",
+        "name": "Име",
+        "systems": "Системи",
         "up": "Up",
         "down": "Down",
-        "paused": "Paused",
+        "paused": "На пауза",
         "pending": "Pending",
         "status": "Статус",
-        "updated": "Updated",
+        "updated": "Обновени",
         "cpu": "Процесор",
         "memory": "Памет",
-        "disk": "Disk",
+        "disk": "Диск",
         "network": "NET"
     },
     "argocd": {
-        "apps": "Apps",
+        "apps": "Приложения",
         "synced": "Synced",
         "outOfSync": "Out Of Sync",
-        "healthy": "Healthy",
-        "degraded": "Degraded",
+        "healthy": "Здрав",
+        "degraded": "Деградирани",
         "progressing": "Progressing",
         "missing": "Липсващи",
         "suspended": "Suspended"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "Зареждане"
     },
     "gitlab": {
         "groups": "Groups",
-        "issues": "Issues",
+        "issues": "Издания",
         "merges": "Merge Requests",
-        "projects": "Projects"
+        "projects": "Проекти"
+    },
+    "apcups": {
+        "status": "Статус",
+        "load": "Натоварване",
+        "bcharge": "Заряд на батерията",
+        "timeleft": "Оставащо Време"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Тагове"
     }
 }

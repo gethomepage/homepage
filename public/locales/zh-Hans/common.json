@@ -148,7 +148,9 @@
         "up": "Up",
         "received": "已接收",
         "sent": "已发送",
-        "externalIPAddress": "外部IP"
+        "externalIPAddress": "外部IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "上游",
@@ -176,7 +178,7 @@
         "connectedAp": "连接中的AP",
         "activeUser": "活跃设备",
         "alerts": "警报",
-        "connectedGateway": "已连接网关",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "已连接开关"
     },
     "nzbget": {
@@ -311,13 +313,13 @@
     },
     "suwayomi": {
         "download": "下载",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "未下载",
         "read": "已读",
         "unread": "未读",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "已下载 & 已读",
+        "downloadedunread": "已下载 & 未读",
+        "nondownloadedread": "未下载 & 已读",
+        "nondownloadedunread": "未下载 & 未读"
     },
     "tailscale": {
         "address": "地址",
@@ -702,6 +704,10 @@
         "processed": "已处理",
         "time": "时间"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "控制面板",
         "datasources": "数据来源",
@@ -980,7 +986,7 @@
     },
     "beszel": {
         "name": "Name",
-        "systems": "Systems",
+        "systems": "系统",
         "up": "Up",
         "down": "Down",
         "paused": "暂停",
@@ -989,26 +995,40 @@
         "updated": "已升级",
         "cpu": "CPU",
         "memory": "内存",
-        "disk": "Disk",
-        "network": "NET"
+        "disk": "磁盘",
+        "network": "网络"
     },
     "argocd": {
         "apps": "应用程序",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "synced": "已同步",
+        "outOfSync": "未同步",
         "healthy": "健康",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "已降级",
+        "progressing": "进行中",
         "missing": "丢失",
-        "suspended": "Suspended"
+        "suspended": "已停用"
     },
     "spoolman": {
         "loading": "正在加载"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "群组",
         "issues": "问题",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "合并请求",
+        "projects": "项目"
+    },
+    "apcups": {
+        "status": "状态",
+        "load": "负载",
+        "bcharge": "充电中",
+        "timeleft": "剩余时间"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tags"
     }
 }
