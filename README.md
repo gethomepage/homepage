@@ -80,6 +80,7 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required when deploying via public URL
       PUID: 1000 # optional, your user id
       PGID: 1000 # optional, your group id
     ports:
@@ -94,6 +95,7 @@ or docker run:
 
 ```bash
 docker run --name homepage \
+  -e HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev \
   -e PUID=1000 \
   -e PGID=1000 \
   -p 3000:3000 \
