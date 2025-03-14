@@ -21,7 +21,7 @@ If this is your first time starting, copy the `src/skeleton` directory to `confi
 Finally, run the server:
 
 ```bash
-pnpm start
+HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev pnpm start
 ```
 
 When updating homepage versions you will need to re-build the static files i.e. repeat the process above.

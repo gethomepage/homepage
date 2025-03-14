@@ -148,7 +148,9 @@
         "up": "Онлайн",
         "received": "Получено",
         "sent": "Отправлено",
-        "externalIPAddress": "Внеш. IP"
+        "externalIPAddress": "Внеш. IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Входящие каналы",
@@ -176,7 +178,7 @@
         "connectedAp": "Подключенные точки доступа",
         "activeUser": "Активные устройства",
         "alerts": "Предупреждения",
-        "connectedGateway": "Подключенные шлюзы",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Подключенные коммутаторы"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Обработано",
         "time": "Время"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Панели",
         "datasources": "Источники данных",
@@ -1010,5 +1016,19 @@
         "issues": "Вопросы",
         "merges": "Мердж-реквесты",
         "projects": "Проекты"
+    },
+    "apcups": {
+        "status": "Статус",
+        "load": "Загрузка",
+        "bcharge": "Заряд батареи",
+        "timeleft": "Осталось"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Теги"
     }
 }

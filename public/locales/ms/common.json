@@ -148,7 +148,9 @@
         "up": "Hidup",
         "received": "Diterima",
         "sent": "Telah dihantar",
-        "externalIPAddress": "IP Luaran"
+        "externalIPAddress": "IP Luaran",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Connected APs",
         "activeUser": "Peranti aktif",
         "alerts": "Perhatian",
-        "connectedGateway": "Connected gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Connected switches"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Sudah diprosess",
         "time": "Time"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Data Sources",
@@ -1010,5 +1016,19 @@
         "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Beban",
+        "bcharge": "Bateri dicas",
+        "timeleft": "Masa Tinggal"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tanda nama"
     }
 }

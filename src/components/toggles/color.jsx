@@ -2,7 +2,6 @@ import { useContext, Fragment } from "react";
 import { IoColorPalette } from "react-icons/io5";
 import { Popover, Transition } from "@headlessui/react";
 import classNames from "classnames";
-
 import { ColorContext } from "utils/contexts/color";
 
 const colors = [
@@ -40,7 +39,7 @@ export default function ColorToggle() {
   return (
     <div id="color" className="w-full self-center">
       <Popover className="relative flex items-center">
-        <Popover.Button className="outline-none">
+        <Popover.Button className="outline-hidden">
           <IoColorPalette
             className="h-5 w-5 text-theme-800 dark:text-theme-200 transition duration-150 ease-in-out"
             aria-hidden="true"

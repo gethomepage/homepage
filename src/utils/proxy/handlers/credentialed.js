@@ -41,6 +41,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           "cloudflared",
           "ghostfolio",
           "headscale",
+          "hoarder",
           "linkwarden",
           "mealie",
           "netalertx",
@@ -48,6 +49,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           "tandoor",
           "pterodactyl",
           "vikunja",
+          "firefly",
         ].includes(widget.type)
       ) {
         headers.Authorization = `Bearer ${widget.key}`;
@@ -98,6 +100,11 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = widget.password;
       } else if (widget.type === "gitlab") {
         headers["PRIVATE-TOKEN"] = widget.key;
+      } else if (widget.type === "speedtest") {
+        if (widget.key) {
+          // v1 does not require a key
+          headers.Authorization = `Bearer ${widget.key}`;
+        }
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

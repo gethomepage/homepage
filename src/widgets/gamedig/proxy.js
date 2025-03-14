@@ -24,7 +24,7 @@ export default async function gamedigProxyHandler(req, res) {
       online: true,
       name: serverData.name,
       map: serverData.map,
-      players: serverData.players.length,
+      players: serverData.numplayers ?? serverData.players?.length,
       maxplayers: serverData.maxplayers,
       bots: serverData.bots.length,
       ping: serverData.ping,

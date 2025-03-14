@@ -85,16 +85,16 @@
     "ping": {
         "error": "Fehler",
         "ping": "Ping",
-        "down": "Empfangen",
-        "up": "Senden",
+        "down": "Offline",
+        "up": "Online",
         "not_available": "Nicht verfügbar"
     },
     "siteMonitor": {
         "http_status": "HTTP-Status",
         "error": "Fehler",
         "response": "Antwort",
-        "down": "Empfangen",
-        "up": "Senden",
+        "down": "Offline",
+        "up": "Online",
         "not_available": "Nicht verfügbar"
     },
     "emby": {
@@ -144,11 +144,13 @@
         "uptime": "Betriebszeit",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Empfangen",
-        "up": "Senden",
+        "down": "Offline",
+        "up": "Online",
         "received": "Empfangen",
         "sent": "Gesendet",
-        "externalIPAddress": "Externe IP"
+        "externalIPAddress": "Externe IP",
+        "externalIPv6Address": "Externe IPv6",
+        "externalIPv6Prefix": "Externer IPv4-Präfix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Verbundene APs",
         "activeUser": "Aktive Geräte",
         "alerts": "Warnungen",
-        "connectedGateway": "Verbundene Gateways",
+        "connectedGateways": "Verbundene Gateways",
         "connectedSwitches": "Verbundene Switche"
     },
     "nzbget": {
@@ -350,7 +352,7 @@
         "queue": "Warteschlange",
         "processed": "Verarbeitet",
         "errored": "Fehlgeschlagen",
-        "saved": "Gespeichert"
+        "saved": "Eingespart"
     },
     "traefik": {
         "routers": "Router",
@@ -521,15 +523,15 @@
         "up_to_date": "Aktuell",
         "child_bridges": "Unter-Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Senden",
+        "up": "Online",
         "pending": "Ausstehend",
-        "down": "Empfangen"
+        "down": "Offline"
     },
     "healthchecks": {
         "new": "Neu",
-        "up": "Senden",
+        "up": "Online",
         "grace": "In Karenzzeit",
-        "down": "Empfangen",
+        "down": "Offline",
         "paused": "Pausiert",
         "status": "Status",
         "last_ping": "Letzter Ping",
@@ -644,8 +646,8 @@
         "load": "Durchschnittliche Last",
         "memory": "Speichernutzung",
         "wanStatus": "WAN-Status",
-        "up": "Senden",
-        "down": "Empfangen",
+        "up": "Online",
+        "down": "Offline",
         "temp": "Temperatur",
         "disk": "Datenträgernutzung",
         "wanIP": "WAN-IP"
@@ -701,6 +703,10 @@
         "processing": "Wird verarbeitet",
         "processed": "Verarbeitet",
         "time": "Zeit"
+    },
+    "firefly": {
+        "networth": "Reinvermögen",
+        "budget": "Budget"
     },
     "grafana": {
         "dashboards": "Dashboards",
@@ -826,8 +832,8 @@
     "openwrt": {
         "uptime": "Betriebszeit",
         "cpuLoad": "CPU-Last (5 min-Durchschnitt)",
-        "up": "Senden",
-        "down": "Empfangen",
+        "up": "Online",
+        "down": "Offline",
         "bytesTx": "Übertragen",
         "bytesRx": "Empfangen"
     },
@@ -840,9 +846,9 @@
         "sitesDown": "Seiten nicht verfügbar",
         "paused": "Pausiert",
         "notyetchecked": "Noch nicht geprüft",
-        "up": "Senden",
+        "up": "Online",
         "seemsdown": "Scheint nicht verfügbar",
-        "down": "Empfangen",
+        "down": "Offline",
         "unknown": "Unbekannt"
     },
     "calendar": {
@@ -981,8 +987,8 @@
     "beszel": {
         "name": "Name",
         "systems": "Systeme",
-        "up": "Senden",
-        "down": "Empfangen",
+        "up": "Online",
+        "down": "Offline",
         "paused": "Pausiert",
         "pending": "Ausstehend",
         "status": "Status",
@@ -1010,5 +1016,19 @@
         "issues": "Probleme",
         "merges": "Merge Requests",
         "projects": "Projekte"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Last",
+        "bcharge": "Akkuladung",
+        "timeleft": "Verbleibende Zeit"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Schlagwörter"
     }
 }

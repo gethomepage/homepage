@@ -15,4 +15,5 @@ widget:
   url: http://kavita.host.or.ip:port
   username: username
   password: password
+  key: kavitaapikey # Optional, e.g. if not using username and password
 ```

@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import classNames from "classnames";
+import { SettingsContext } from "utils/contexts/settings";
 
 import Error from "./error";
-
-import { SettingsContext } from "utils/contexts/settings";
 
 export default function Container({ children, widget, error = null, chart = true, className = "" }) {
   const { settings } = useContext(SettingsContext);

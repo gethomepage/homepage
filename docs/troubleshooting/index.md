@@ -15,9 +15,9 @@ hide:
 
 ## Service Widget Errors
 
-All service widgets work essentially the same, that is, homepage makes a proxied call to an API made available by that service. The majority of the time widgets don't work it is a configuration issue. Of course, sometimes things do break. Some basic steps to try:
+All service widgets work essentially the same, that is, homepage makes a proxied call to an API made available by that service. The majority of the time widgets don't work it is a configuration issue. Of course, sometimes things do break. Some basic steps to check:
 
-1.  **URLs should not end with a / or other API path. Each widget will handle the path on its own.**. Including a trailing slash can result in an error.
+1.  URLs should not end with a / or other API path. Each widget will handle the path on its own.
 
 2.  All services with a widget require a unique name.
 
