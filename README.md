@@ -80,7 +80,7 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required when deploying via public URL
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port
       PUID: 1000 # optional, your user id
       PGID: 1000 # optional, your group id
     ports:
