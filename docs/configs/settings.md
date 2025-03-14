@@ -447,12 +447,18 @@ quicklaunch:
   suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
 ```
 
-## Homepage Version
+## Homepage Version & Update Checking
 
 By default the release version is displayed at the bottom of the page. To hide this, use the `hideVersion` setting, like so:
 
 ```yaml
 hideVersion: true
+```
+
+You can disable checking for new versions from GitHub (enabled by default) with:
+
+```yaml
+disableUpdateCheck: true
 ```
 
 ## Log Path
