@@ -16,7 +16,7 @@ services:
       - /path/to/config:/app/config # Make sure your local config directory exists
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required when deploying via public URL
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port
 ```
 
 ### Running as non-root
@@ -38,7 +38,7 @@ services:
       - /path/to/config:/app/config # Make sure your local config directory exists
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev:1234 # required when deploying via public URL
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port
       PUID: $PUID
       PGID: $PGID
 ```
@@ -46,7 +46,7 @@ services:
 ### With Docker Run
 
 ```bash
-docker run -p 3000:3000 -e HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev:1234 -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/gethomepage/homepage:latest
+docker run -p 3000:3000 -e HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/gethomepage/homepage:latest
 ```
 
 ### Using Environment Secrets
