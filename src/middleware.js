@@ -6,7 +6,7 @@ export function middleware(req) {
   const port = process.env.PORT || 3000;
   let allowedHosts = [`localhost:${port}`];
   if (process.env.HOMEPAGE_ALLOWED_HOSTS) {
-    allowedHosts = allowedHosts.concat(process.env.HOMEPAGE_ALLOWED_HOSTS.split(","));
+    allowedHosts = allowedHosts.concat(process.env.HOMEPAGE_ALLOWED_HOSTS.split(",").map(host => host.trim());
   }
   if (!host || !allowedHosts.includes(host)) {
     // eslint-disable-next-line no-console
