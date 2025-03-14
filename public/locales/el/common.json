@@ -148,7 +148,9 @@
         "up": "Ping up",
         "received": "Ληφθέντα",
         "sent": "Απεσταλμένα",
-        "externalIPAddress": "Εξωτερική IP"
+        "externalIPAddress": "Εξωτερική IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Συνδεδεμένα APs",
         "activeUser": "Ενεργές συσκευές",
         "alerts": "Ειδοποιήσεις",
-        "connectedGateway": "Συνδεδεμένα gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Συνδεδεμένα switches"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Σε επεξεργασία",
         "time": "Ώρα"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Πίνακας Ελέγχου",
         "datasources": "Πηγές Δεδομένων",
@@ -1010,5 +1016,19 @@
         "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Κατάσταση",
+        "load": "Φόρτωση",
+        "bcharge": "Battery Charge",
+        "timeleft": "Χρόνος που απομένει"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Ετικέτες"
     }
 }

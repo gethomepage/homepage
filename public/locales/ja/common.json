@@ -148,7 +148,9 @@
         "up": "稼働",
         "received": "受信済み",
         "sent": "送信済み",
-        "externalIPAddress": "退出ID"
+        "externalIPAddress": "退出ID",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "アップストリーム",
@@ -176,7 +178,7 @@
         "connectedAp": "接続されたAP",
         "activeUser": "アクティブデバイス",
         "alerts": "アラート",
-        "connectedGateway": "接続されたゲートウェイ",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "接続スイッチ"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "処理済み",
         "time": "時間"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "ダッシュ ボード",
         "datasources": "データソース",
@@ -1010,5 +1016,19 @@
         "issues": "課題",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "状態",
+        "load": "ロード",
+        "bcharge": "バッテリー充電",
+        "timeleft": "残り時間"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "タグ"
     }
 }

@@ -148,7 +148,9 @@
         "up": "Fel",
         "received": "Fogadott",
         "sent": "Küldött",
-        "externalIPAddress": "Külső IP cím"
+        "externalIPAddress": "Külső IP cím",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreamek",
@@ -176,7 +178,7 @@
         "connectedAp": "Csatlakoztatott AP-k",
         "activeUser": "Aktív eszközök",
         "alerts": "Riasztások",
-        "connectedGateway": "Csatlakoztatott gateway-ek",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Csatlakoztatott switch-ek"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Feldolgozott",
         "time": "Idő"
     },
+    "firefly": {
+        "networth": "Nettó érték",
+        "budget": "Költségkeret"
+    },
     "grafana": {
         "dashboards": "Műszerfalak",
         "datasources": "Adatforrások",
@@ -1010,5 +1016,19 @@
         "issues": "Problémák",
         "merges": "Merge kérések",
         "projects": "Projektek"
+    },
+    "apcups": {
+        "status": "Státusz",
+        "load": "Terhelés",
+        "bcharge": "Akku töltöttsége",
+        "timeleft": "Hátralévő idő"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Címkék"
     }
 }

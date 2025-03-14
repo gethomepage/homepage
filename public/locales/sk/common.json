@@ -148,7 +148,9 @@
         "up": "Nahrávanie",
         "received": "Prijaté",
         "sent": "Odoslané",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "Ext. IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Odosielanie dát",
@@ -176,7 +178,7 @@
         "connectedAp": "Pripojené prístupové body",
         "activeUser": "Aktívne zariadenia",
         "alerts": "Upozornenia",
-        "connectedGateway": "Pripojené sieťové brány",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Pripojené prepínače"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Spracované",
         "time": "Čas"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Panely",
         "datasources": "Zdroje dát",
@@ -1010,5 +1016,19 @@
         "issues": "Problémy",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Stav",
+        "load": "Záťaž",
+        "bcharge": "Nabitie batérie",
+        "timeleft": "Zostávajúci čas"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Štítky"
     }
 }

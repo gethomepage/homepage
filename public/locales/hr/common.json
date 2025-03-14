@@ -148,7 +148,9 @@
         "up": "Dostupno",
         "received": "Primljeno",
         "sent": "Poslano",
-        "externalIPAddress": "Eksterna IP adresa"
+        "externalIPAddress": "Eksterna IP adresa",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Glavne grane",
@@ -176,7 +178,7 @@
         "connectedAp": "Povezani AP-ovi",
         "activeUser": "Aktivni uređaji",
         "alerts": "Upozorenja",
-        "connectedGateway": "Povezani pristupi",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Povezani prekidači"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Obrađeno",
         "time": "Vrijeme"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Pregledne ploče",
         "datasources": "Izvori podataka",
@@ -1010,5 +1016,19 @@
         "issues": "Problemi",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Stanje",
+        "load": "Opterećenje",
+        "bcharge": "Napunjenost baterije",
+        "timeleft": "Preostalo vrijeme"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Oznake"
     }
 }
