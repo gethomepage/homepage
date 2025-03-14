@@ -30,10 +30,6 @@ module.exports = {
           900: "rgb(var(--color-900) / <alpha-value>)",
         },
       },
-      screens: {
-        "3xl": "1800px",
-        // => @media (min-width: 1800px) { ... }
-      },
     },
   },
   plugins: [tailwindForms, tailwindScrollbars],
