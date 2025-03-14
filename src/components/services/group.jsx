@@ -31,7 +31,7 @@ export default function ServicesGroup({
       className={classNames(
         "services-group flex-1",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
-        layout?.style !== "row" && fiveColumns ? "3xl:basis-1/5" : "",
+        layout?.style !== "row" && fiveColumns ? "2xl:basis-1/5" : "",
         groupPadding,
         isSubgroup ? "subgroup" : "",
       )}
