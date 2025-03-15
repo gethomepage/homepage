@@ -223,6 +223,9 @@ spec:
         - name: homepage
           image: "ghcr.io/gethomepage/homepage:latest"
           imagePullPolicy: Always
+          env:
+            - name: HOMEPAGE_ALLOWED_HOSTS
+              value: gethomepage.dev # required, may need port
           ports:
             - name: http
               containerPort: 3000

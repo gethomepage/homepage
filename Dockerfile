@@ -56,12 +56,12 @@ COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec
 
-ENV HOSTNAME=::
+ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 EXPOSE $PORT
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
-  CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://localhost:$PORT/api/healthcheck || exit 1
+  CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://127.0.0.1:$PORT/api/healthcheck || exit 1
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["node", "server.js"]
