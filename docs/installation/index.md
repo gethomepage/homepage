@@ -29,8 +29,8 @@ You have a few options for deploying homepage, depending on your needs. We offer
 
 ### `HOMEPAGE_ALLOWED_HOSTS`
 
-As of v1.0 there is one required environment variable when deploying via a public URL, <code>HOMEPAGE_ALLOWED_HOSTS</code>. This is a comma separated (no spaces) list of allowed hosts (sometimes with the port) that can access your homepage. See the [docker](docker.md) and [source](source.md) installation pages for more information.
+As of v1.0 there is one required environment variable when deploying via a public URL, <code>HOMEPAGE_ALLOWED_HOSTS</code>. This is a comma separated (no spaces) list of allowed hosts (sometimes with the port) that can host your homepage install. See the [docker](docker.md) and [source](source.md) installation pages for more information.
 
-`localhost:3000` and `127.0.0.1:3000` are always allowed, but you can add a domain or IP address to this list to allow access from that host such as `HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev,192.168.1.2:1234`, etc.
+`localhost:3000` and `127.0.0.1:3000` are always allowed, but you can add a domain or IP address to this list to allow that host such as `HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev,192.168.1.2:1234`, etc.
 
 This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended.
