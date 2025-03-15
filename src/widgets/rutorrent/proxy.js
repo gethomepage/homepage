@@ -68,25 +68,18 @@ export default async function rutorrentProxyHandler(req, res) {
         let options = {
           strictSSL: false,
           rejectUnauthorized: false,
-          url: url.toString()
-        }
+          url: url.toString(),
+        };
 
         if (widget.username) {
           options.basic_auth = {
             user: widget.username,
             pass: widget.password,
-          }
+          };
         }
 
         const client = xmlrpc.createSecureClient(options);
-        const multicallParams = [
-          "",
-          "main",
-          "d.hash=",
-          "d.down.rate=",
-          "d.up.rate=",
-          "d.state="
-        ];
+        const multicallParams = ["", "main", "d.hash=", "d.down.rate=", "d.up.rate=", "d.state="];
 
         let result;
         try {
@@ -116,7 +109,7 @@ export default async function rutorrentProxyHandler(req, res) {
               hash: hashString,
               "d.get_down_rate": downRate,
               "d.get_up_rate": upRate,
-              "d.get_state": state
+              "d.get_state": state,
             };
           });
 
@@ -149,7 +142,9 @@ export default async function rutorrentProxyHandler(req, res) {
 
           return res.status(200).send(parsedData);
         } catch (e) {
-          return res.status(500).json({ error: { message: e?.toString() ?? "Error parsing rutorrent data", url, data } });
+          return res
+            .status(500)
+            .json({ error: { message: e?.toString() ?? "Error parsing rutorrent data", url, data } });
         }
       }
     }
