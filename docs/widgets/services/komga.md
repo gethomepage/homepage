@@ -20,4 +20,5 @@ widget:
   url: http://komga.host.or.ip:port
   username: username
   password: password
+  key: komgaapikey # optional
 ```
