@@ -16,3 +16,14 @@ widget:
   username: username # optional, false if not used
   password: password # optional, false if not used
 ```
+
+Some seedboxes may use an alternate XMLRPC endpoint, if that's the case the below configuration may work
+```yaml
+widget:
+  type: rutorrent
+  xmlrpc: true
+  host: http://rutorrent.host.or.ip
+  endpoint: /xmlrpc
+  username: username # optional, false if not used
+  password: password # optional, false if not used
+```

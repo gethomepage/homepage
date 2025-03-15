@@ -1,3 +1,5 @@
+import xmlrpc from "xmlrpc";
+
 import getServiceWidget from "utils/config/service-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
@@ -44,6 +46,15 @@ const getTorrentInfo = (data) => ({
   "d.is_multi_file": data[33],
 });
 
+function xmlrpcMethodCall(client, methodName, params = []) {
+  return new Promise((resolve, reject) => {
+    client.methodCall(methodName, params, (error, value) => {
+      if (error) return reject(error);
+      resolve(value);
+    });
+  });
+}
+
 export default async function rutorrentProxyHandler(req, res) {
   const { group, service, index } = req.query;
 
@@ -51,32 +62,95 @@ export default async function rutorrentProxyHandler(req, res) {
     const widget = await getServiceWidget(group, service, index);
 
     if (widget) {
-      const api = widgets?.[widget.type]?.api;
-      const url = new URL(formatApiCall(api, { ...widget }));
+      if (widget.xmlrpc) {
+        const url = new URL(`${widget.host}${widget.endpoint}`);
 
-      const headers = {};
-      if (widget.username) {
-        headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
-      }
+        let options = {
+          strictSSL: false,
+          rejectUnauthorized: false,
+          url: url.toString()
+        }
 
-      const [status, , data] = await httpProxy(url, {
-        method: "POST",
-        headers,
-        body: "mode=list",
-      });
+        if (widget.username) {
+          options.basic_auth = {
+            user: widget.username,
+            pass: widget.password,
+          }
+        }
 
-      if (status !== 200) {
-        logger.error("HTTP Error %d calling %s", status, url.toString());
-        return res.status(status).json({ error: { message: "HTTP Error", url, data } });
-      }
+        const client = xmlrpc.createSecureClient(options);
+        const multicallParams = [
+          "",
+          "main",
+          "d.hash=",
+          "d.down.rate=",
+          "d.up.rate=",
+          "d.state="
+        ];
 
-      try {
-        const rawData = JSON.parse(data);
-        const parsedData = Object.keys(rawData.t).map((hashString) => getTorrentInfo(rawData.t[hashString]));
+        let result;
+        try {
+          result = await xmlrpcMethodCall(client, "d.multicall2", multicallParams);
+        } catch (err) {
+          // If rTorrent rejects the params, you might see
+          // "XML-RPC fault: Unsupported target type found"
+          console.error("XML-RPC call failed:", err);
+          return res.status(500).json({ error: err.message });
+        }
 
-        return res.status(200).send(parsedData);
-      } catch (e) {
-        return res.status(500).json({ error: { message: e?.toString() ?? "Error parsing rutorrent data", url, data } });
+        const torrentsObject = {};
+        for (const row of result) {
+          const theHash = row[0];
+          torrentsObject[theHash] = row.slice(1);
+        }
+
+        // Convert to a JSON structure mimicking non-XML data format
+        const data = JSON.stringify({ t: torrentsObject });
+
+        // Parse and respond as normal
+        try {
+          const rawData = JSON.parse(data);
+          const parsedData = Object.keys(rawData.t).map((hashString) => {
+            const [downRate, upRate, state] = rawData.t[hashString];
+            return {
+              hash: hashString,
+              "d.get_down_rate": downRate,
+              "d.get_up_rate": upRate,
+              "d.get_state": state
+            };
+          });
+
+          return res.status(200).send(parsedData);
+        } catch (parseErr) {
+          return res.status(500).json({ error: parseErr.message });
+        }
+      } else {
+        const headers = {};
+        if (widget.username) {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        }
+
+        const api = widgets?.[widget.type]?.api;
+        const url = new URL(formatApiCall(api, { ...widget }));
+        const [status, , data] = await httpProxy(url, {
+          method: "POST",
+          headers,
+          body: "mode=list",
+        });
+
+        if (status !== 200) {
+          logger.error("HTTP Error %d calling %s", status, url.toString());
+          return res.status(status).json({ error: { message: "HTTP Error", url, data } });
+        }
+
+        try {
+          const rawData = JSON.parse(data);
+          const parsedData = Object.keys(rawData.t).map((hashString) => getTorrentInfo(rawData.t[hashString]));
+
+          return res.status(200).send(parsedData);
+        } catch (e) {
+          return res.status(500).json({ error: { message: e?.toString() ?? "Error parsing rutorrent data", url, data } });
+        }
       }
     }
   }
