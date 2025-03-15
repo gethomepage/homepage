@@ -4,6 +4,7 @@ import { asJson } from "utils/proxy/api-helpers";
 const widget = {
   api: "{url}/api/v3/{endpoint}?apikey={key}",
   proxyHandler: genericProxyHandler,
+  providerOverrides: ["key"],
 
   mappings: {
     series: {

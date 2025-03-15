@@ -4,6 +4,7 @@ const widget = {
   api: "{url}/jsonrpc",
   proxyHandler: jsonrpcProxyHandler,
   allowedEndpoints: /status/,
+  providerOverrides: ["username", "password"],
 
   mappings: {
     status: {

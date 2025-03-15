@@ -3,6 +3,7 @@ import genericProxyHandler from "utils/proxy/handlers/generic";
 const widget = {
   api: "{url}/emby/{endpoint}?api_key={key}",
   proxyHandler: genericProxyHandler,
+  providerOverrides: ["key"],
 
   mappings: {
     Sessions: {

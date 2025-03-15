@@ -4,6 +4,7 @@ import { asJson, jsonArrayFilter } from "utils/proxy/api-helpers";
 const widget = {
   api: "{url}/api/v2.0/{endpoint}",
   proxyHandler: credentialedProxyHandler,
+  providerOverrides: ["username", "password", "key"],
 
   mappings: {
     alerts: {

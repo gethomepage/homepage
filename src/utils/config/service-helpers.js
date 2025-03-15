@@ -10,8 +10,58 @@ import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } 
 import getDockerArguments from "utils/config/docker";
 import getKubeConfig from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
+import widgets from "widgets/widgets";
 
 const logger = createLogger("service-helpers");
+
+function handleServiceProviders(services) {
+  const { providers } = getSettings();
+  return services.map((service) => {
+    if (!service.widget || !service.widget.provider) {
+      return service;
+    }
+    if (!providers[service.widget.provider]) {
+      logger.error(`No provider found for service '${service.name}'.`);
+      return service
+    }
+    const widget = widgets[service.widget.type];
+    if (!widget) {
+      logger.errror(`Unknown widget type '${service.widget.type}'. Unable to map provider value(s).`);
+      return service;
+    }
+
+    // TODO: If there is a single provided settings value, assume it is "key"
+    // This allows for less voerrides on widget definition
+    if (!widget.providerOverrides) {
+      logger.error(`No providerOverrides configured for ${service.widget.type}.`);
+      return service;
+    }
+    const { providerOverrides } = widget;
+    const providerValues = providers[service.widget.provider];
+    if (typeof providerValues === "object") {
+      const providerOVerrideResults = providerOverrides.reduce((overrideResults, overrideKey) => {
+        if (!providerValues[overrideKey]) {
+          return overrideResults;
+        }
+        return { ...overrideResults, [overrideKey]:providerValues[overrideKey]};
+      }, {});
+      return {
+        ...service,
+        widget: {...service.widget, ...providerOVerrideResults},
+      };
+    }
+    if (providerOverrides.length !== 1) {
+      logger.error(
+        `Multiple potential providerOverrides, but only one value supplied for '${service.name}'. Must specify one of "${providerOverrides.join(", ")}".`,
+      );
+      return service;
+    }
+    return {
+      ...service,
+      widget: { ...service.widget, [providerOverrides[0]]: providerValues },
+    };
+  });
+}
 
 function parseServicesToGroups(services) {
   if (!services) {
@@ -43,7 +93,7 @@ function parseServicesToGroups(services) {
     return {
       name,
       type: "group",
-      services: serviceGroupServices,
+      services: handleServiceProviders(serviceGroupServices),
       groups,
     };
   });
