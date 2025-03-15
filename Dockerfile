@@ -56,6 +56,7 @@ COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec
 
+ENV HOSTNAME=::
 ENV PORT=3000
 EXPOSE $PORT
 
