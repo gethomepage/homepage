@@ -13,6 +13,10 @@ hide:
 - Check the browser error console, this can also sometimes provide useful information.
 - Consider setting the `ENV` variable `LOG_LEVEL` to `debug`.
 
+## Disabling IPv6
+
+In certain environments, you may need to disable IPv6 for the proxy to work correctly. Set the environment variable `HOMEPAGE_PROXY_DISABLE_IPV6` to `true` to disable IPv6.
+
 ## Service Widget Errors
 
 All service widgets work essentially the same, that is, homepage makes a proxied call to an API made available by that service. The majority of the time widgets don't work it is a configuration issue. Of course, sometimes things do break. Some basic steps to check:
