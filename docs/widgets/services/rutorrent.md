@@ -18,6 +18,7 @@ widget:
 ```
 
 Some seedboxes may use an alternate XMLRPC endpoint, if that's the case the below configuration may work
+
 ```yaml
 widget:
   type: rutorrent
