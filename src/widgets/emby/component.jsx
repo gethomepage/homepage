@@ -35,8 +35,8 @@ function generateStreamTitle(session, enableUser, showEpisodeNumber) {
   let streamTitle = "";
 
   if (Type === "Episode" && showEpisodeNumber) {
-    const seasonStr = `S${ParentIndexNumber.toString().padStart(2, "0")}`;
-    const episodeStr = `E${IndexNumber.toString().padStart(2, "0")}`;
+    const seasonStr = ParentIndexNumber ? `S${ParentIndexNumber.toString().padStart(2, "0")}` : "";
+    const episodeStr = IndexNumber ? `E${IndexNumber.toString().padStart(2, "0")}` : "";
     streamTitle = `${SeriesName}: ${seasonStr} · ${episodeStr} - ${Name}`;
   } else {
     streamTitle = `${Name}${SeriesName ? ` - ${SeriesName}` : ""}`;
