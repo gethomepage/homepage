@@ -89,15 +89,12 @@ export async function httpProxy(url, params = {}) {
     request = httpsRequest(constructedUrl, {
       agent: new https.Agent({
         rejectUnauthorized: false,
-        autoSelectFamily: true,
       }),
       ...params,
     });
   } else {
     request = httpRequest(constructedUrl, {
-      agent: new http.Agent({
-        autoSelectFamily: true,
-      }),
+      agent: new http.Agent(),
       ...params,
     });
   }

@@ -1,4 +1,5 @@
 import adguard from "./adguard/widget";
+import apcups from "./apcups/widget";
 import argocd from "./argocd/widget";
 import atsumeru from "./atsumeru/widget";
 import audiobookshelf from "./audiobookshelf/widget";
@@ -41,6 +42,7 @@ import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import headscale from "./headscale/widget";
+import hoarder from "./hoarder/widget";
 import homeassistant from "./homeassistant/widget";
 import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
@@ -135,6 +137,7 @@ import zabbix from "./zabbix/widget";
 
 const widgets = {
   adguard,
+  apcups,
   argocd,
   atsumeru,
   audiobookshelf,
@@ -176,6 +179,7 @@ const widgets = {
   grafana,
   hdhomerun,
   headscale,
+  hoarder,
   homeassistant,
   homebox,
   homebridge,

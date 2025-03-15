@@ -1,8 +1,7 @@
 import classNames from "classnames";
+import Item from "components/services/item";
 
 import { columnMap } from "../../utils/layout/columns";
-
-import Item from "components/services/item";
 
 export default function List({ groupName, services, layout, useEqualHeights, header }) {
   return (

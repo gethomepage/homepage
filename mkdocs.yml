@@ -31,6 +31,7 @@ nav:
       - "Service Widgets":
           - widgets/services/index.md
           - widgets/services/adguard-home.md
+          - widgets/services/apcups.md
           - widgets/services/argocd.md
           - widgets/services/atsumeru.md
           - widgets/services/audiobookshelf.md
@@ -73,6 +74,7 @@ nav:
           - widgets/services/hdhomerun.md
           - widgets/services/headscale.md
           - widgets/services/healthchecks.md
+          - widgets/services/hoarder.md
           - widgets/services/homeassistant.md
           - widgets/services/homebox.md
           - widgets/services/homebridge.md

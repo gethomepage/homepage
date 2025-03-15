@@ -8,6 +8,7 @@ search:
 You can also find a list of all available service widgets in the sidebar navigation.
 
 - [Adguard Home](adguard-home.md)
+- [APC UPS](apcups.md)
 - [ArgoCD](argocd.md)
 - [Atsumeru](atsumeru.md)
 - [Audiobookshelf](audiobookshelf.md)
@@ -51,6 +52,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [HDHomeRun](hdhomerun.md)
 - [Headscale](headscale.md)
 - [Healthchecks](healthchecks.md)
+- [Hoarder](hoarder.md)
 - [Home Assistant](homeassistant.md)
 - [HomeBox](homebox.md)
 - [Homebridge](homebridge.md)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 

@@ -12,14 +12,17 @@ hide:
 - Check config/logs/homepage.log, on docker simply e.g. `docker logs homepage`. This may provide some insight into the reason for an error.
 - Check the browser error console, this can also sometimes provide useful information.
 - Consider setting the `ENV` variable `LOG_LEVEL` to `debug`.
+- If certain widgets are failing when connecting to public APIs, consider [disabling IPv6](#disabling-ipv6).
 
 ## Service Widget Errors
 
-All service widgets work essentially the same, that is, homepage makes a proxied call to an API made available by that service. The majority of the time widgets don't work it is a configuration issue. Of course, sometimes things do break. Some basic steps to try:
+All service widgets work essentially the same, that is, homepage makes a proxied call to an API made available by that service. The majority of the time widgets don't work it is a configuration issue. Of course, sometimes things do break. Some basic steps to check:
 
-1.  **URLs should not end with a / or other API path. Each widget will handle the path on its own.**. Including a trailing slash can result in an error.
+1.  URLs should not end with a / or other API path. Each widget will handle the path on its own.
 
-2.  Verify the homepage installation can connect to the IP address or host you are using for the widget `url`. This is most simply achieved by pinging the server from the homepage machine, in Docker this means _from inside the container_ itself, e.g.:
+2.  All services with a widget require a unique name.
+
+3.  Verify the homepage installation can connect to the IP address or host you are using for the widget `url`. This is most simply achieved by pinging the server from the homepage machine, in Docker this means _from inside the container_ itself, e.g.:
 
     ```
     docker exec homepage ping SERVICEIPORDOMAIN
@@ -27,7 +30,7 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 
     If your homepage install (container) cannot reach the service then you need to figure out why, for example in Docker this can mean putting the two containers on the same network, checking firewall issues, etc.
 
-3.  If you have verified that homepage can in fact reach the service then you can also check the API output using e.g. `curl`, which is often helpful if you do need to file a bug report. Again, depending on your networking setup this may need to be run from _inside the container_ as IP / hostname resolution can differ inside vs outside.
+4.  If you have verified that homepage can in fact reach the service then you can also check the API output using e.g. `curl`, which is often helpful if you do need to file a bug report. Again, depending on your networking setup this may need to be run from _inside the container_ as IP / hostname resolution can differ inside vs outside.
 
     !!! note
 
@@ -64,3 +67,24 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 ## Missing custom icons
 
 If, after correctly adding and mapping your custom icons via the [Icons](../configs/services.md#icons) instructions, you are still unable to see your icons please try recreating your container.
+
+## Disabling IPv6
+
+If you are having issues with certain widgets that are unable to reach public APIs (e.g. weather), you may need to disable IPv6 on your host machine. This can be done by adding the following to your `docker-compose.yml` file (or for docker run, the equivalent flag):
+
+```yaml
+services:
+  homepage:
+    ...
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=1
+```
+
+or disable IPv6 for the docker network:
+
+```yaml
+networks:
+  some_network:
+    driver: bridge
+    enable_ipv6: false
+```

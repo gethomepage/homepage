@@ -1,4 +1,5 @@
 import { searchProviders } from "components/widgets/search/search";
+
 import cachedFetch from "utils/proxy/cached-fetch";
 import { widgetsFromConfig } from "utils/config/widget-helpers";
 

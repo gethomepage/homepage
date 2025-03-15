@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     const metricsApi = new Metrics(kc);
 
     const nodes = await coreApi.listNode().catch((error) => {
-      logger.error("Error getting ingresses: %d %s %s", error.statusCode, error.body, error.response);
+      logger.error("Error getting nodes: %d %s %s", error.statusCode, error.body, error.response);
       logger.debug(error);
       return null;
     });

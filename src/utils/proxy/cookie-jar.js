@@ -8,7 +8,7 @@ export function setCookieHeader(url, params) {
   const existingCookie = cookieJar.getCookieStringSync(url.toString());
   if (existingCookie) {
     params.headers = params.headers ?? {};
-    params.headers.Cookie = existingCookie;
+    params.headers[params.cookieHeader ?? "Cookie"] = existingCookie;
   }
 }
 

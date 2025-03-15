@@ -1,5 +1,3 @@
-# syntax = docker/dockerfile:latest
-
 # Install dependencies only when needed
 FROM docker.io/node:22-alpine AS deps
 
@@ -20,6 +18,8 @@ RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm i
 FROM docker.io/node:22-alpine AS builder
 WORKDIR /app
 
+RUN mkdir config
+
 ARG BUILDTIME
 ARG VERSION
 ARG REVISION
@@ -28,9 +28,9 @@ COPY --link --from=deps /app/node_modules ./node_modules/
 COPY . .
 
 SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
-RUN npm run telemetry \
- && mkdir config \
- && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION npm run build
+RUN npm install -g pnpm \
+ && pnpm run telemetry \
+ && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION pnpm run build
 
 # Production image, copy all the files and run next
 FROM docker.io/node:22-alpine AS runner
@@ -56,12 +56,12 @@ COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec
 
-ENV HOSTNAME=::
+ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 EXPOSE $PORT
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
-  CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://localhost:$PORT/api/healthcheck || exit 1
+  CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://127.0.0.1:$PORT/api/healthcheck || exit 1
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["node", "server.js"]
