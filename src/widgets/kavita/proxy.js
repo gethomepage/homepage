@@ -14,7 +14,11 @@ async function login(widget, service) {
   const endpoint = "Account/login";
   const api = widgets?.[widget.type]?.api;
   const loginUrl = new URL(formatApiCall(api, { endpoint, ...widget }));
-  const loginBody = {};
+  const loginBody = {
+    username: "",
+    password: "",
+    apiKey: "",
+  };
   if (widget.username && widget.password) {
     loginBody.username = widget.username;
     loginBody.password = widget.password;
