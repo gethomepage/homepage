@@ -71,24 +71,3 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 ## Missing custom icons
 
 If, after correctly adding and mapping your custom icons via the [Icons](../configs/services.md#icons) instructions, you are still unable to see your icons please try recreating your container.
-
-## Disabling IPv6
-
-If you are having issues with certain widgets that are unable to reach public APIs (e.g. weather), you may need to disable IPv6 on your host machine. This can be done by adding the following to your `docker-compose.yml` file (or for docker run, the equivalent flag):
-
-```yaml
-services:
-  homepage:
-    ...
-    sysctls:
-      - net.ipv6.conf.all.disable_ipv6=1
-```
-
-or disable IPv6 for the docker network:
-
-```yaml
-networks:
-  some_network:
-    driver: bridge
-    enable_ipv6: false
-```
