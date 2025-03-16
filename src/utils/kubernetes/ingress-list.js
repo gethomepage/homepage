@@ -8,7 +8,7 @@ const kc = getKubeConfig();
 
 export default async function listIngress() {
   const networking = kc.makeApiClient(NetworkingV1Api);
-  const { ingress } = getKubernetes();
+  const { ingress = true } = getKubernetes();
   let ingressList = [];
 
   if (ingress) {

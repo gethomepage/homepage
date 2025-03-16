@@ -48,8 +48,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0
       minecraftstatuspinger:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^1.2.2
+        version: 1.2.2
       next:
         specifier: ^15.1.7
         version: 15.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -101,10 +101,6 @@ importers:
       xml-js:
         specifier: ^1.6.11
         version: 1.6.11
-    optionalDependencies:
-      osx-temperature-sensor:
-        specifier: ^1.0.8
-        version: 1.0.8
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.10
@@ -151,6 +147,10 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+    optionalDependencies:
+      osx-temperature-sensor:
+        specifier: ^1.0.8
+        version: 1.0.8
 
 packages:
 
@@ -1911,9 +1911,9 @@ packages:
     resolution: {integrity: sha512-e5ISH9xMYU0DzrT+jl8q2ze9D6eWBto+I8CNpe+VI+K2J/F/k3PdkdTdz4wvGVH4NTpo+NRYTVIuMQEMMcsLqg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  minecraftstatuspinger@1.2.1:
-    resolution: {integrity: sha512-Qo/3TzV0UeULbVyqMqS9sUPbNKGFK7U7as1xlS/xeXryQQEwitOz5SkVhVphY4fCTacl5a+E4VXiTq6TPKYDKw==}
-    engines: {node: '>=16.0.0'}
+  minecraftstatuspinger@1.2.2:
+    resolution: {integrity: sha512-3PDWcifjw6cliGnGqw0+nJVWWPOcpLDyNLh4D84vCNzPD2h9REbN5Ne11I//CMkIu5xJiIuyGwI44gyRYYbpuw==}
+    engines: {node: '>=14.0.0'}
 
   mini-svg-data-uri@1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
@@ -3918,7 +3918,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.2(eslint-plugin-import@2.31.0)(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2)):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.2)(eslint@9.21.0(jiti@2.4.2)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -3940,7 +3940,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.21.0(jiti@2.4.2)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.2(eslint-plugin-import@2.31.0)(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.8.2)(eslint@9.21.0(jiti@2.4.2))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -4652,7 +4652,7 @@ snapshots:
 
   mimic-response@4.0.0: {}
 
-  minecraftstatuspinger@1.2.1: {}
+  minecraftstatuspinger@1.2.2: {}
 
   mini-svg-data-uri@1.4.4: {}
 
