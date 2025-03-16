@@ -25,13 +25,13 @@ To configure Kubernetes gateway-api, ingress or ingressRoute service discovery, 
 Example settings:
 
 ```yaml
-ingress: true # enable ingress only
+ingress: true # default, enable ingress only
 ```
 
 or
 
 ```yaml
-ingress: true # enable ingress
+ingress: true # default, enable ingress
 traefik: true # enable traefik ingressRoute
 gateway: true # enable gateway-api
 ```
