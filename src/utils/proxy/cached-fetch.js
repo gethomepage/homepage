@@ -1,4 +1,5 @@
 import cache from "memory-cache";
+import { httpProxy } from "utils/proxy/http";
 
 const defaultDuration = 5;
 
@@ -12,14 +13,13 @@ export default async function cachedFetch(url, duration, ua) {
     return cached;
   }
 
-  // wrapping text in JSON.parse to handle utf-8 issues
   const options = {};
   if (ua) {
     options.headers = {
       "User-Agent": ua,
     };
   }
-  const data = await fetch(url, options).then((res) => res.json());
+  const [, , data] = await httpProxy(url, options);
   cache.put(url, data, duration * 1000 * 60);
   return data;
 }
