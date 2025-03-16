@@ -20,12 +20,12 @@ The Kubernetes connection is configured in the `kubernetes.yaml` file. There are
 mode: default
 ```
 
-To configure Kubernetes gateway-api, ingress or ingressRoute service discovery, add one or multiple of the following settings.
+To configure Kubernetes gateway-api, ingress or ingressRoute service discovery, add one or multiple of the following settings. At least one setting must be set for service discovery via annotation to work.
 
 Example settings:
 
 ```yaml
-ingress: true # default, enable ingress only
+ingress: true # enable ingress only
 ```
 
 or
