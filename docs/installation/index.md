@@ -27,6 +27,8 @@ You have a few options for deploying homepage, depending on your needs. We offer
 
 </div>
 
+## Environment Variables
+
 ### `HOMEPAGE_ALLOWED_HOSTS`
 
 As of v1.0 there is one required environment variable to access homepage via a URL other than `localhost`, <code>HOMEPAGE_ALLOWED_HOSTS</code>. This is a comma separated (no spaces) list of allowed hosts (sometimes with the port) that can host your homepage install. See the [docker](docker.md) and [source](source.md) installation pages for more information.
@@ -36,3 +38,9 @@ As of v1.0 there is one required environment variable to access homepage via a U
 If you are seeing errors about host validation, check the homepage logs and ensure that the host as listed in the logs is in the `HOMEPAGE_ALLOWED_HOSTS` list.
 
 This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended.
+
+### `HOMEPAGE_PROXY_DISABLE_IPV6`
+
+_Optional._
+
+In certain environments, you may need to disable IPv6 for the proxy to work correctly. Set this environment variable to `true` to disable IPv6.
