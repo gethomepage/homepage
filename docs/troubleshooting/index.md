@@ -16,7 +16,7 @@ hide:
 
 ## Disabling IPv6
 
-In certain environments, you may need to disable IPv6 for the proxy to work correctly. Set the environment variable `HOMEPAGE_PROXY_DISABLE_IPV6` to `true` to disable IPv6.
+If you are having issues with certain widgets that are unable to reach public APIs (e.g. weather), in certain setups you may need to disable IPv6 for the proxy to work correctly. Set the environment variable `HOMEPAGE_PROXY_DISABLE_IPV6` to `true` to disable IPv6.
 
 ## Service Widget Errors
 
