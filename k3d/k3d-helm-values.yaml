@@ -43,7 +43,6 @@ config:
         target: _blank
   kubernetes:
     mode: cluster
-    ingress: true
   docker:
   settings:
 
