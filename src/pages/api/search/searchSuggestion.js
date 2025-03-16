@@ -1,5 +1,6 @@
 import { searchProviders } from "components/widgets/search/search";
 
+import { getSettings } from "utils/config/config";
 import cachedFetch from "utils/proxy/cached-fetch";
 import { widgetsFromConfig } from "utils/config/widget-helpers";
 
@@ -12,8 +13,16 @@ export default async function handler(req, res) {
     const widgets = await widgetsFromConfig();
     const searchWidget = widgets.find((w) => w.type === "search");
 
-    provider.url = searchWidget.options.url;
-    provider.suggestionUrl = searchWidget.options.suggestionUrl;
+    if (searchWidget) {
+      provider.url = searchWidget.options.url;
+      provider.suggestionUrl = searchWidget.options.suggestionUrl;
+    } else {
+      const settings = getSettings();
+      if (settings.quicklaunch && settings.quicklaunch.provider === "custom") {
+        provider.url = settings.quicklaunch.url;
+        provider.suggestionUrl = settings.quicklaunch.suggestionUrl;
+      }
+    }
   }
 
   if (!provider.suggestionUrl) {

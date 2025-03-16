@@ -71,8 +71,8 @@ export default async function handler(req, res) {
         let depMem = 0;
         let depCpu = 0;
         const podMetrics = await metricsApi
-          .getPodMetrics(namespace, pod.metadata.name)
-          .then((response) => response)
+          .getPodMetrics(namespace, pod.items)
+          .then((response) => response.items)
           .catch((err) => {
             // 404 generally means that the metrics have not been populated yet
             if (err.statusCode !== 404) {
@@ -81,9 +81,11 @@ export default async function handler(req, res) {
             return null;
           });
         if (podMetrics) {
-          podMetrics.containers.forEach((container) => {
-            depMem += parseMemory(container.usage.memory);
-            depCpu += parseCpu(container.usage.cpu);
+          podMetrics.forEach((metrics) => {
+            metrics.containers.forEach((container) => {
+              depMem += parseMemory(container.usage.memory);
+              depCpu += parseCpu(container.usage.cpu);
+            });
           });
         }
         return {
