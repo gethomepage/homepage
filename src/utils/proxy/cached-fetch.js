@@ -1,4 +1,5 @@
 import cache from "memory-cache";
+
 import { httpProxy } from "utils/proxy/http";
 
 const defaultDuration = 5;
