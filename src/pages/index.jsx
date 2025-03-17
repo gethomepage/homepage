@@ -334,6 +334,7 @@ function Home({ initialSettings }) {
                   bookmarks={group}
                   layout={settings.layout?.[group.name]}
                   disableCollapse={settings.disableCollapse}
+                  maxGroupColumns={settings.maxBookmarkGroupColumns ?? settings.maxGroupColumns}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 />
               ),
@@ -362,6 +363,7 @@ function Home({ initialSettings }) {
                 bookmarks={group}
                 layout={settings.layout?.[group.name]}
                 disableCollapse={settings.disableCollapse}
+                maxGroupColumns={settings.maxBookmarkGroupColumns ?? settings.maxGroupColumns}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 bookmarksStyle={settings.bookmarksStyle}
               />
@@ -378,6 +380,7 @@ function Home({ initialSettings }) {
     settings.layout,
     settings.fiveColumns,
     settings.maxGroupColumns,
+    settings.maxBookmarkGroupColumns,
     settings.disableCollapse,
     settings.useEqualHeights,
     settings.cardBlur,
