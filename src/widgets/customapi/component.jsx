@@ -210,12 +210,19 @@ export default function Component({ service }) {
     case "dynamic-list":
       let listItems = customData;
       if (mappings.items) listItems = shvl.get(customData, mappings.items, null);
+      let error;
       if (!listItems || !Array.isArray(listItems)) {
-        const error = { message: "Unable to find items" };
-        return <Container service={service} error={error}></Container>;
+        error = { message: "Unable to find items" };
       }
       const name = mappings.name;
       const label = mappings.label;
+      if (!name || !label) {
+        error = { message: "Name and label options are required" };
+      }
+      if (error) {
+        return <Container service={service} error={error}></Container>;
+      }
+
       const target = mappings.target;
       if (mappings.limit && parseInt(mappings.limit, 10) > 0) {
         listItems.splice(mappings.limit);
