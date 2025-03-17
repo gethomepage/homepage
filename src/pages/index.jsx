@@ -323,7 +323,7 @@ function Home({ initialSettings }) {
                   key={group.name}
                   group={group}
                   layout={settings.layout?.[group.name]}
-                  fiveColumns={settings.fiveColumns}
+                  maxGroupColumns={settings.fiveColumns ? 5 : settings.maxGroupColumns}
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
@@ -347,7 +347,7 @@ function Home({ initialSettings }) {
                 key={group.name}
                 group={group}
                 layout={settings.layout?.[group.name]}
-                fiveColumns={settings.fiveColumns}
+                maxGroupColumns={settings.fiveColumns ? 5 : settings.maxGroupColumns}
                 disableCollapse={settings.disableCollapse}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
               />
@@ -377,6 +377,7 @@ function Home({ initialSettings }) {
     bookmarks,
     settings.layout,
     settings.fiveColumns,
+    settings.maxGroupColumns,
     settings.disableCollapse,
     settings.useEqualHeights,
     settings.cardBlur,
