@@ -1,6 +1,7 @@
 import { useTranslation } from "next-i18next";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import classNames from "classnames";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import * as shvl from "utils/config/shvl";
@@ -240,26 +241,29 @@ export default function Component({ service }) {
                 const itemName = shvl.get(item, name, "");
                 const itemLabel = shvl.get(item, label, "");
                 const itemUrl = target ? target.replace(/\{([^}]+)\}/g, (_, key) => item[key] || "") : null;
+                const className =
+                  "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs";
 
-                const WrapperElement = itemUrl ? "a" : "div";
-                const wrapperProps = {
-                  className:
-                    "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs",
-                };
-                if (itemUrl) {
-                  wrapperProps.href = itemUrl;
-                  wrapperProps.target = "_blank";
-                  wrapperProps.rel = "noopener noreferrer";
-                  wrapperProps.className += " hover:bg-theme-300/50 dark:hover:bg-theme-800/20";
-                }
-
-                return (
-                  <WrapperElement key={`${itemName}-${index}`} {...wrapperProps}>
+                return itemUrl ? (
+                  <a
+                    key={`${itemName}-${index}`}
+                    className={classNames(className, "hover:bg-theme-300/50 dark:hover:bg-theme-800/20")}
+                    href={itemUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
                       <div className="font-bold mr-2">{itemLabel}</div>
                     </div>
-                  </WrapperElement>
+                  </a>
+                ) : (
+                  <div key={`${itemName}-${index}`} className={className}>
+                    <div className="font-thin pl-2">{itemName}</div>
+                    <div className="flex flex-row text-right">
+                      <div className="font-bold mr-2">{itemLabel}</div>
+                    </div>
+                  </div>
                 );
               })
             )}
