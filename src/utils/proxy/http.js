@@ -100,7 +100,7 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
     try {
       data = JSON.parse(Buffer.from(data).toString());
     } catch (e) {
-      console.log("Failed to parse JSON", url, data, Buffer.from(data).toString(), e);
+      logger.debug("Error parsing cachedRequest data for %s: %s %s", url, Buffer.from(data).toString(), e);
       data = Buffer.from(data).toString();
     }
   }
