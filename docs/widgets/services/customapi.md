@@ -187,14 +187,10 @@ widget:
   url: https://example.com/api/servers
   display: dynamic-list
   mappings:
-    # 'items' specifies the path to the array in the API response
-    items: data
-    # 'name' specifies which field in each item to use as the item name (right side)
-    name: id
-    # 'label' specifies which field in each item to use as the item label (left side)
-    label: name
-  # The target property makes items clickable with template support
-  target: https://example.com/server/{id}
+    items: data # the path to the array in the API response. Use special '.' to access the root of the response
+    name: id # which field in each item to use as the item name (right side)
+    label: name # field in each item to use as the item label (left side)
+    target: https://example.com/server/{id} # makes items clickable with template support
 ```
 
 This configuration would work with an API that returns a response like:

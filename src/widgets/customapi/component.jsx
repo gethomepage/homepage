@@ -149,14 +149,12 @@ function getColor(mapping, customData) {
   }
 }
 
-// New function to get dynamic list items from API response
 function getDynamicListItems(items, customData) {
   if (!items || !customData) {
     console.log("Missing items or customData");
     return [];
   }
 
-  // Extract the array from the API response using the items field
   let itemsArray = customData;
 
   if (typeof items === "string") {
@@ -239,13 +237,11 @@ export default function Component({ service }) {
 
   switch (display) {
     case "dynamic-list":
-      // Handle dynamic list rendering
       const items = mappings.items;
       const name = mappings.name;
       const label = mappings.label;
       const target = mappings.target;
       const listItems = getDynamicListItems(items, customData);
-      console.log("listItems:", listItems);
 
       return (
         <Container service={service}>
