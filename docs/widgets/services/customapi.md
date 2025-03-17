@@ -19,7 +19,7 @@ widget:
   requestBody: # optional, can be string or object, see below
   display: # optional, default to block, see below
   mappings:
-    - field: key # needs to be YAML string or object
+    - field: key
       label: Field 1
       format: text # optional - defaults to text
     - field: path.to.key2
@@ -28,13 +28,13 @@ widget:
     - field: path.to.another.key3
       label: Field 3
       format: percent # optional - defaults to text
-    - field: key # needs to be YAML string or object
+    - field: key
       label: Field 4
       format: date # optional - defaults to text
       locale: nl # optional
       dateStyle: long # optional - defaults to "long". Allowed values: `["full", "long", "medium", "short"]`.
       timeStyle: medium # optional - Allowed values: `["full", "long", "medium", "short"]`.
-    - field: key # needs to be YAML string or object
+    - field: key
       label: Field 5
       format: relativeDate # optional - defaults to text
       locale: nl # optional
