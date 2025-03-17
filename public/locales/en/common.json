@@ -1030,5 +1030,11 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Tags"
+    },
+    "bitcoin": {
+        "blocks": "Blocks",
+        "connections_in": "Connections In",
+        "connections_out": "Connections Out",
+        "size_on_disk": "Size On Disk"
     }
 }

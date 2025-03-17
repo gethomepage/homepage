@@ -17,6 +17,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Azure DevOps](azuredevops.md)
 - [Bazarr](bazarr.md)
 - [Beszel](beszel.md)
+- [Bitcoin](bitcoin.md)
 - [Caddy](caddy.md)
 - [Calendar](calendar.md)
 - [Calibre-Web](calibre-web.md)

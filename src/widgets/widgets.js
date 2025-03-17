@@ -8,6 +8,7 @@ import autobrr from "./autobrr/widget";
 import azuredevops from "./azuredevops/widget";
 import bazarr from "./bazarr/widget";
 import beszel from "./beszel/widget";
+import bitcoin from "./bitcoin/widget";
 import caddy from "./caddy/widget";
 import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
@@ -145,6 +146,7 @@ const widgets = {
   azuredevops,
   bazarr,
   beszel,
+  bitcoin,
   caddy,
   calibreweb,
   changedetectionio,
