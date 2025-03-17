@@ -53,7 +53,6 @@ const tailwindSafelist = [
   "bg-orange-400",
   "dark:bg-orange-400",
   // maxGroupColumns
-  "3xl:basis-1/4",
   "3xl:basis-1/5",
   "3xl:basis-1/6",
   "3xl:basis-1/7",

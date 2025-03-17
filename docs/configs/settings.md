@@ -270,7 +270,7 @@ You can set the maximum number of columns of service groups on larger screen siz
 maxGroupColumns: 8 # default is 4, max 8
 ```
 
-By default homepage will max out at 4 columns (also the minimum number). If you're setting this to 8, you may want to consider enabling the [fullWidth](#full-width) option as well.
+By default homepage will max out at 4 columns (thus the minimum for this setting is _5_). Of course, if you're setting this to higher numbers, you may want to consider enabling the [fullWidth](#full-width) option as well.
 
 ### Collapsible sections
 
