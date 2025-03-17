@@ -3,6 +3,7 @@ import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import * as shvl from "utils/config/shvl";
 
 function getValue(field, data) {
   let value = data;
@@ -149,29 +150,6 @@ function getColor(mapping, customData) {
   }
 }
 
-function getDynamicListItems(items, customData) {
-  let itemsArray = customData;
-
-  if (typeof items === "string") {
-    // Navigate through nested objects to find the array
-    const parts = items.split(".");
-    for (const part of parts) {
-      if (part === "") continue; // Skip empty parts (for example if items is ".")
-      if (!itemsArray || !itemsArray[part]) {
-        return null;
-      }
-      itemsArray = itemsArray[part];
-    }
-  }
-
-  // Ensure we have an array
-  if (!Array.isArray(itemsArray)) {
-    return null;
-  }
-
-  return itemsArray;
-}
-
 export default function Component({ service }) {
   const { t } = useTranslation();
 
@@ -230,9 +208,10 @@ export default function Component({ service }) {
 
   switch (display) {
     case "dynamic-list":
-      const listItems = getDynamicListItems(mappings.items, customData);
-      if (!listItems) {
-        const error = { message: "Cannot find items" };
+      let listItems = customData;
+      if (mappings.items) listItems = shvl.get(customData, mappings.items, null);
+      if (!listItems || !Array.isArray(listItems)) {
+        const error = { message: "Unable to find items" };
         return <Container service={service} error={error}></Container>;
       }
       const name = mappings.name;
