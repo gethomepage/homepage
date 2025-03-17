@@ -189,7 +189,7 @@ widget:
   mappings:
     items: data # the path to the array in the API response. Omit this option if the array is at the root level
     name: id # which field in each item to use as the item name (left side)
-    label: name # field in each item to use as the item label (right side)
+    label: ip_address # field in each item to use as the item label (right side)
     limit: 5 # optional, limit the number of items to display
     target: https://example.com/server/{id} # makes items clickable with template support
 ```
@@ -199,16 +199,16 @@ This configuration would work with an API that returns a response like:
 ```json
 {
   "data": [
-    { "id": "server1", "name": "Server 1" },
-    { "id": "server2", "name": "Server 2" }
+    { "id": "server1", "name": "Server 1", "ip_address": "192.168.0.1" },
+    { "id": "server2", "name": "Server 2", "ip_address": "192.168.0.2" }
   ]
 }
 ```
 
 The widget would display a list with two items:
 
-- "Server 1" on the left and "server1" on the right, clickable to "https://example.com/server/server1"
-- "Server 2" on the left and "server2" on the right, clickable to "https://example.com/server/server2"
+- "Server 1" on the left and "192.168.0.1" on the right, clickable to "https://example.com/server/server1"
+- "Server 2" on the left and "192.168.0.2" on the right, clickable to "https://example.com/server/server2"
 
 For nested fields in the items, you can use dot notation:
 
