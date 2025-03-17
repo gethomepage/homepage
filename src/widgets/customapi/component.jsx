@@ -158,8 +158,7 @@ function getDynamicListItems(items, customData) {
     for (const part of parts) {
       if (part === "") continue; // Skip empty parts (for example if items is ".")
       if (!itemsArray || !itemsArray[part]) {
-        console.log(`Cannot find part '${part}' in itemsArray`);
-        return [];
+        return null;
       }
       itemsArray = itemsArray[part];
     }
@@ -167,8 +166,7 @@ function getDynamicListItems(items, customData) {
 
   // Ensure we have an array
   if (!Array.isArray(itemsArray)) {
-    console.log("itemsArray is not an array");
-    return [];
+    return null;
   }
 
   return itemsArray;
@@ -232,11 +230,14 @@ export default function Component({ service }) {
 
   switch (display) {
     case "dynamic-list":
-      const items = mappings.items;
+      const listItems = getDynamicListItems(mappings.items, customData);
+      if (!listItems) {
+        const error = { message: "Cannot find items" };
+        return <Container service={service} error={error}></Container>;
+      }
       const name = mappings.name;
       const label = mappings.label;
       const target = mappings.target;
-      const listItems = getDynamicListItems(items, customData);
       if (mappings.limit && parseInt(mappings.limit, 10) > 0) {
         listItems.splice(mappings.limit);
       }
