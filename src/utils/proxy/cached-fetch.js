@@ -18,6 +18,7 @@ export default async function cachedFetch(url, duration, ua) {
   if (ua) {
     options.headers = {
       "User-Agent": ua,
+      Accept: "application/json",
     };
   }
   const [, , data] = await httpProxy(url, options);
