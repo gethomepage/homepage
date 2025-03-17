@@ -262,12 +262,12 @@ You can make homepage take up the entire window width by adding:
 fullWidth: true
 ```
 
-### Five Columns
+### Maximum Group Columns
 
-You can add a fifth column to services (when `style: columns` which is default) by adding:
+You can set the maximum number of columns of service groups on larger screen sizes (groups with `style: columns` which is default) by adding:
 
 ```yaml
-fiveColumns: true
+maxGroupColumns: 8 # default (and minimum) is 4, max 8
 ```
 
 By default homepage will max out at 4 columns for services with `columns` style
