@@ -230,8 +230,8 @@ export default function Component({ service }) {
               </div>
             ) : (
               listItems.map((item, index) => {
-                const itemName = name ? (typeof name === "string" ? item[name] : getValue(name, item)) : item;
-                const itemLabel = label ? (typeof label === "string" ? item[label] : getValue(label, item)) : itemName;
+                const itemName = shvl.get(item, name, "");
+                const itemLabel = shvl.get(item, label, "");
                 const itemUrl = target ? target.replace(/\{([^}]+)\}/g, (_, key) => item[key] || "") : null;
 
                 // Wrapper element - either a link or a div
