@@ -138,7 +138,15 @@ You can manipulate data with the following tools `remap`, `scale`, `prefix` and 
   prefix: "$"
 ```
 
-## List View
+## Display Options
+
+The widget supports different display modes that can be set using the `display` property.
+
+### Block View (Default)
+
+The default display mode is `block`, which shows fields in a block format.
+
+### List View
 
 You can change the default block view to a list view by setting the `display` option to `list`.
 
@@ -167,6 +175,48 @@ The list view can optionally display an additional field next to the primary fie
         time: key
     color: theme
     format: date
+```
+
+### Dynamic List View
+
+To display a list of items from an array in the API response, set the `display` property to `dynamic-list` and configure the `mappings` object with the following properties:
+
+```yaml
+widget:
+  type: customapi
+  url: https://example.com/api/servers
+  display: dynamic-list
+  mappings:
+    items: data # optional, the path to the array in the API response. Omit this option if the array is at the root level
+    name: id # required, field in each item to use as the item name (left side)
+    label: ip_address # required, field in each item to use as the item label (right side)
+    limit: 5 # optional, limit the number of items to display
+    target: https://example.com/server/{id} # optional, makes items clickable with template support
+```
+
+This configuration would work with an API that returns a response like:
+
+```json
+{
+  "data": [
+    { "id": "server1", "name": "Server 1", "ip_address": "192.168.0.1" },
+    { "id": "server2", "name": "Server 2", "ip_address": "192.168.0.2" }
+  ]
+}
+```
+
+The widget would display a list with two items:
+
+- "Server 1" on the left and "192.168.0.1" on the right, clickable to "https://example.com/server/server1"
+- "Server 2" on the left and "192.168.0.2" on the right, clickable to "https://example.com/server/server2"
+
+For nested fields in the items, you can use dot notation:
+
+```yaml
+mappings:
+  items: data.results.servers
+  name: details.id
+  label: details.name
 ```
 
 ## Custom Headers
