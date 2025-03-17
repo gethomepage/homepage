@@ -22,15 +22,10 @@ widget:
     - field: key # needs to be YAML string or object
       label: Field 1
       format: text # optional - defaults to text
-    - field: # needs to be YAML string or object
-        path:
-          to: key2
+    - field: path.to.key2
       format: number # optional - defaults to text
       label: Field 2
-    - field: # needs to be YAML string or object
-        path:
-          to:
-            another: key3
+    - field: path.to.another.key3
       label: Field 3
       format: percent # optional - defaults to text
     - field: key # needs to be YAML string or object
@@ -49,9 +44,7 @@ widget:
       label: Field 6
       format: text
       additionalField: # optional
-        field:
-          hourly:
-            time: other key
+        field: hourly.time.key
         color: theme # optional - defaults to "". Allowed values: `["theme", "adaptive", "black", "white"]`.
         format: date # optional
     - field: key
@@ -103,9 +96,16 @@ mappings:
     label: Name
   - field: status # Alive
     label: Status
-  - field:
-      origin: name # Earth (C-137)
+  - field: origin.name # Earth (C-137)
     label: Origin
+  - field: locations.1.name # Citadel of Ricks
+    label: Location
+```
+
+Note that older versions of the widget accepted fields as a yaml object, which is still supported. E.g.:
+
+```yaml
+mappings:
   - field:
       locations:
         1: name # Citadel of Ricks
@@ -170,9 +170,7 @@ The list view can optionally display an additional field next to the primary fie
     - any: true # will map all other values
       to: Unknown
   additionalField:
-    field:
-      hourly:
-        time: key
+    field: hourly.time.key
     color: theme
     format: date
 ```
