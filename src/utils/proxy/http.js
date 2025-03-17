@@ -3,6 +3,7 @@
 import { createUnzip, constants as zlibConstants } from "node:zlib";
 
 import { http, https } from "follow-redirects";
+import cache from "memory-cache";
 
 import { addCookieToJar, setCookieHeader } from "./cookie-jar";
 import { sanitizeErrorURL } from "./api-helpers";
@@ -79,6 +80,32 @@ export function httpsRequest(url, params) {
 
 export function httpRequest(url, params) {
   return handleRequest(http, url, params);
+}
+
+export async function cachedRequest(url, duration = 5, ua = "homepage") {
+  const cached = cache.get(url);
+
+  if (cached) {
+    return cached;
+  }
+
+  const options = {
+    headers: {
+      "User-Agent": ua,
+      Accept: "application/json",
+    },
+  };
+  let [, , data] = await httpProxy(url, options);
+  if (Buffer.isBuffer(data)) {
+    try {
+      data = JSON.parse(Buffer.from(data).toString());
+    } catch (e) {
+      console.log("Failed to parse JSON", url, data, Buffer.from(data).toString(), e);
+      data = Buffer.from(data).toString();
+    }
+  }
+  cache.put(url, data, duration * 1000 * 60);
+  return data;
 }
 
 export async function httpProxy(url, params = {}) {
