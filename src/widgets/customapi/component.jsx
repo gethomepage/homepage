@@ -217,7 +217,7 @@ export default function Component({ service }) {
       const name = mappings.name;
       const label = mappings.label;
       if (!name || !label) {
-        error = { message: "Name and label options are required" };
+        error = { message: "Name and label properties are required" };
       }
       if (error) {
         return <Container service={service} error={error}></Container>;

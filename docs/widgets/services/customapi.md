@@ -187,11 +187,11 @@ widget:
   url: https://example.com/api/servers
   display: dynamic-list
   mappings:
-    items: data # the path to the array in the API response. Omit this option if the array is at the root level
-    name: id # which field in each item to use as the item name (left side)
-    label: ip_address # field in each item to use as the item label (right side)
+    items: data # optional, the path to the array in the API response. Omit this option if the array is at the root level
+    name: id # required, field in each item to use as the item name (left side)
+    label: ip_address # required, field in each item to use as the item label (right side)
     limit: 5 # optional, limit the number of items to display
-    target: https://example.com/server/{id} # makes items clickable with template support
+    target: https://example.com/server/{id} # optional, makes items clickable with template support
 ```
 
 This configuration would work with an API that returns a response like:
