@@ -242,6 +242,9 @@ export default function Component({ service }) {
       const label = mappings.label;
       const target = mappings.target;
       const listItems = getDynamicListItems(items, customData);
+      if (mappings.limit && parseInt(mappings.limit, 10) > 0) {
+        listItems.splice(mappings.limit);
+      }
 
       return (
         <Container service={service}>

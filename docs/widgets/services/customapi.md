@@ -190,6 +190,7 @@ widget:
     items: data # the path to the array in the API response. Use special '.' to access the root of the response
     name: id # which field in each item to use as the item name (right side)
     label: name # field in each item to use as the item label (left side)
+    limit: 5 # optional, limit the number of items to display
     target: https://example.com/server/{id} # makes items clickable with template support
 ```
 
