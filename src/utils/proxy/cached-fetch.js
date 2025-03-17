@@ -14,14 +14,21 @@ export default async function cachedFetch(url, duration, ua) {
     return cached;
   }
 
-  const options = {};
-  if (ua) {
-    options.headers = {
-      "User-Agent": ua,
+  const options = {
+    headers: {
+      "User-Agent": ua ?? "homepage",
       Accept: "application/json",
-    };
+    },
+  };
+  let [, , data] = await httpProxy(url, options);
+  if (Buffer.isBuffer(data)) {
+    try {
+      data = JSON.parse(Buffer.from(data).toString());
+    } catch (e) {
+      console.log("Failed to parse JSON", url, data, Buffer.from(data).toString(), e);
+      data = Buffer.from(data).toString();
+    }
   }
-  const [, , data] = await httpProxy(url, options);
   cache.put(url, data, duration * 1000 * 60);
   return data;
 }
