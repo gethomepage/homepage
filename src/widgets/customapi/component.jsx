@@ -151,20 +151,19 @@ function getColor(mapping, customData) {
 
 // New function to get dynamic list items from API response
 function getDynamicListItems(items, customData) {
-  
   if (!items || !customData) {
     console.log("Missing items or customData");
     return [];
   }
-  
+
   // Extract the array from the API response using the items field
   let itemsArray = customData;
-  
-  if (typeof items === 'string') {
+
+  if (typeof items === "string") {
     // Navigate through nested objects to find the array
-    const parts = items.split('.');
+    const parts = items.split(".");
     for (const part of parts) {
-      if (part === '') continue; // Skip empty parts (for example if items is ".")
+      if (part === "") continue; // Skip empty parts (for example if items is ".")
       if (!itemsArray || !itemsArray[part]) {
         console.log(`Cannot find part '${part}' in itemsArray`);
         return [];
@@ -172,13 +171,13 @@ function getDynamicListItems(items, customData) {
       itemsArray = itemsArray[part];
     }
   }
-  
+
   // Ensure we have an array
   if (!Array.isArray(itemsArray)) {
     console.log("itemsArray is not an array");
     return [];
   }
-  
+
   return itemsArray;
 }
 
@@ -247,7 +246,7 @@ export default function Component({ service }) {
       const target = mappings.target;
       const listItems = getDynamicListItems(items, customData);
       console.log("listItems:", listItems);
-      
+
       return (
         <Container service={service}>
           <div className="flex flex-col w-full">
@@ -257,26 +256,27 @@ export default function Component({ service }) {
               </div>
             ) : (
               listItems.map((item, index) => {
-                const itemName = name ? (typeof name === 'string' ? item[name] : getValue(name, item)) : item;
-                const itemLabel = label ? (typeof label === 'string' ? item[label] : getValue(label, item)) : itemName;
-                const itemUrl = target ? target.replace(/\{([^}]+)\}/g, (_, key) => item[key] || '') : null;
-                
+                const itemName = name ? (typeof name === "string" ? item[name] : getValue(name, item)) : item;
+                const itemLabel = label ? (typeof label === "string" ? item[label] : getValue(label, item)) : itemName;
+                const itemUrl = target ? target.replace(/\{([^}]+)\}/g, (_, key) => item[key] || "") : null;
+
                 // Wrapper element - either a link or a div
-                const WrapperElement = itemUrl ? 'a' : 'div';
-                const wrapperProps = itemUrl ? {
-                  href: itemUrl,
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                  className: "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs hover:bg-theme-300/50 dark:hover:bg-theme-800/20 cursor-pointer"
-                } : {
-                  className: "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
-                };
-                
+                const WrapperElement = itemUrl ? "a" : "div";
+                const wrapperProps = itemUrl
+                  ? {
+                      href: itemUrl,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                      className:
+                        "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs hover:bg-theme-300/50 dark:hover:bg-theme-800/20 cursor-pointer",
+                    }
+                  : {
+                      className:
+                        "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs",
+                    };
+
                 return (
-                  <WrapperElement
-                    key={`${itemName}-${index}`}
-                    {...wrapperProps}
-                  >
+                  <WrapperElement key={`${itemName}-${index}`} {...wrapperProps}>
                     <div className="font-thin pl-2">{itemLabel}</div>
                     <div className="flex flex-row text-right">
                       <div className="font-bold mr-2">{itemName}</div>
