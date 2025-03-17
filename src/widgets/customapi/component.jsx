@@ -241,20 +241,17 @@ export default function Component({ service }) {
                 const itemLabel = shvl.get(item, label, "");
                 const itemUrl = target ? target.replace(/\{([^}]+)\}/g, (_, key) => item[key] || "") : null;
 
-                // Wrapper element - either a link or a div
                 const WrapperElement = itemUrl ? "a" : "div";
-                const wrapperProps = itemUrl
-                  ? {
-                      href: itemUrl,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                      className:
-                        "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs hover:bg-theme-300/50 dark:hover:bg-theme-800/20 cursor-pointer",
-                    }
-                  : {
-                      className:
-                        "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs",
-                    };
+                const wrapperProps = {
+                  className:
+                    "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs",
+                };
+                if (itemUrl) {
+                  wrapperProps.href = itemUrl;
+                  wrapperProps.target = "_blank";
+                  wrapperProps.rel = "noopener noreferrer";
+                  wrapperProps.className += " hover:bg-theme-300/50 dark:hover:bg-theme-800/20";
+                }
 
                 return (
                   <WrapperElement key={`${itemName}-${index}`} {...wrapperProps}>
