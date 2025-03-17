@@ -251,9 +251,9 @@ export default function Component({ service }) {
 
                 return (
                   <WrapperElement key={`${itemName}-${index}`} {...wrapperProps}>
-                    <div className="font-thin pl-2">{itemLabel}</div>
+                    <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">{itemName}</div>
+                      <div className="font-bold mr-2">{itemLabel}</div>
                     </div>
                   </WrapperElement>
                 );
