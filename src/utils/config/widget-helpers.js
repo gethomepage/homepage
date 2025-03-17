@@ -56,21 +56,22 @@ export async function cleanWidgetGroups(widgets) {
 export async function getPrivateWidgetOptions(type, widgetIndex) {
   const widgets = await widgetsFromConfig();
 
-  const privateOptions = widgets.map((widget) => {
-    const { index, url, username, password, key, apiKey } = widget.options;
+  const privateOptions =
+    widgets.map((widget) => {
+      const { index, url, username, password, key, apiKey } = widget.options;
 
-    return {
-      type: widget.type,
-      options: {
-        index,
-        url,
-        username,
-        password,
-        key,
-        apiKey,
-      },
-    };
-  });
+      return {
+        type: widget.type,
+        options: {
+          index,
+          url,
+          username,
+          password,
+          key,
+          apiKey,
+        },
+      };
+    }) || {};
 
   return type !== undefined && widgetIndex !== undefined
     ? privateOptions.find((o) => o.type === type && o.options.index === parseInt(widgetIndex, 10))?.options
