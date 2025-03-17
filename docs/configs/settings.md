@@ -254,6 +254,14 @@ layout:
     columns: 4
 ```
 
+### Full Width
+
+You can make homepage take up the entire window width by adding:
+
+```yaml
+fullWidth: true
+```
+
 ### Five Columns
 
 You can add a fifth column to services (when `style: columns` which is default) by adding:
