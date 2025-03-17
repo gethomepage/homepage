@@ -150,11 +150,6 @@ function getColor(mapping, customData) {
 }
 
 function getDynamicListItems(items, customData) {
-  if (!items || !customData) {
-    console.log("Missing items or customData");
-    return [];
-  }
-
   let itemsArray = customData;
 
   if (typeof items === "string") {

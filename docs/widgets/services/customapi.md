@@ -187,7 +187,7 @@ widget:
   url: https://example.com/api/servers
   display: dynamic-list
   mappings:
-    items: data # the path to the array in the API response. Use special '.' to access the root of the response
+    items: data # the path to the array in the API response. Omit this option if the array is at the root level
     name: id # which field in each item to use as the item name (right side)
     label: name # field in each item to use as the item label (left side)
     limit: 5 # optional, limit the number of items to display
