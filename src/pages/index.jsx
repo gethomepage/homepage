@@ -417,7 +417,12 @@ function Home({ initialSettings }) {
 
       <Script src="/api/config/custom.js" />
 
-      <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
+      <div
+        className={classNames(
+          settings.fullWidth ? "" : "container",
+          "relative m-auto flex flex-col justify-start z-10 h-full",
+        )}
+      >
         <QuickLaunch
           servicesAndBookmarks={servicesAndBookmarks}
           searchString={searchString}
