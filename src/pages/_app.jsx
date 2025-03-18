@@ -16,6 +16,7 @@ import nextI18nextConfig from "../../next-i18next.config";
 const tailwindSafelist = [
   // TODO: remove pending https://github.com/tailwindlabs/tailwindcss/pull/17147
   "backdrop-blur",
+  "backdrop-blur-xs",
   "backdrop-blur-sm",
   "backdrop-blur-md",
   "backdrop-blur-xl",

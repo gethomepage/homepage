@@ -78,7 +78,7 @@ background:
 You can apply a blur filter to the service & bookmark cards. Note this option is incompatible with the background blur, saturate and brightness filters.
 
 ```yaml
-cardBlur: sm # sm, "", md, etc... see https://tailwindcss.com/docs/backdrop-blur
+cardBlur: xs # xs, md, etc... see https://tailwindcss.com/docs/backdrop-blur
 ```
 
 ## Favicon
