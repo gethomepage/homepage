@@ -25,9 +25,8 @@ Allowed fields: `["uptime", "wan", "lan", "lan_users", "lan_devices", "wlan", "w
 widget:
   type: unifi
   url: https://unifi.host.or.ip:port
-  username: username
-  password: password
   site: Site Name # optional
+  username: user
+  password: pass
+  key: unifiapikey # required if using API key instead of username/password
 ```
-
-_Added in v0.4.18, updated in 0.6.7_

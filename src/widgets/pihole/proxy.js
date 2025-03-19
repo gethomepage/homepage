@@ -28,7 +28,11 @@ async function login(widget, service) {
     logger.error("Failed to login to Pi-Hole API, status: %d", status);
     cache.del(`${sessionSIDCacheKey}.${service}`);
   } else {
-    cache.put(`${sessionSIDCacheKey}.${service}`, dataParsed.session.sid, dataParsed.session.validity);
+    cache.put(
+      `${sessionSIDCacheKey}.${service}`,
+      dataParsed.session.sid,
+      Math.min(2147483647, dataParsed.session.validity * 1000), // https://github.com/ptarjan/node-cache/issues/84
+    );
   }
 }
 

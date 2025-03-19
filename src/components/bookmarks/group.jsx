@@ -2,7 +2,6 @@ import { useRef, useEffect } from "react";
 import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
 import ErrorBoundary from "components/errorboundry";
 import List from "components/bookmarks/list";
 import ResolvedIcon from "components/resolvedicon";
@@ -13,6 +12,7 @@ export default function BookmarksGroup({
   disableCollapse,
   groupsInitiallyCollapsed,
   bookmarksStyle,
+  maxGroupColumns,
 }) {
   const panel = useRef();
 
@@ -26,6 +26,9 @@ export default function BookmarksGroup({
       className={classNames(
         "bookmark-group flex-1 overflow-hidden",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/4 lg:basis-1/5 xl:basis-1/6",
+        layout?.style !== "row" && maxGroupColumns && parseInt(maxGroupColumns, 10) > 6
+          ? `3xl:basis-1/${maxGroupColumns}`
+          : "",
         layout?.header === false ? "px-1" : "p-1 pb-0",
       )}
     >
@@ -35,7 +38,7 @@ export default function BookmarksGroup({
             {layout?.header !== false && (
               <Disclosure.Button disabled={disableCollapse} className="flex w-full select-none items-center group">
                 {layout?.icon && (
-                  <div className="flex-shrink-0 mr-2 w-7 h-7 bookmark-group-icon">
+                  <div className="shrink-0 mr-2 w-7 h-7 bookmark-group-icon">
                     <ResolvedIcon icon={layout.icon} />
                   </div>
                 )}
@@ -53,7 +56,7 @@ export default function BookmarksGroup({
             )}
             <Transition
               // Otherwise the transition group does display: none and cancels animation
-              className="!block"
+              className="block!"
               unmount={false}
               beforeLeave={() => {
                 panel.current.style.height = `${panel.current.scrollHeight}px`;

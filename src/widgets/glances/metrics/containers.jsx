@@ -1,10 +1,10 @@
 import { useTranslation } from "next-i18next";
+import ResolvedIcon from "components/resolvedicon";
 
 import Container from "../components/container";
 import Block from "../components/block";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import ResolvedIcon from "components/resolvedicon";
 
 const statusMap = {
   running: <ResolvedIcon icon="mdi-circle" width={32} height={32} />,
@@ -65,7 +65,7 @@ export default function Component({ service }) {
                 <div className="opacity-25 w-14 text-right">{item.cpu_percent.toFixed(1)}%</div>
                 <div className="opacity-25 w-14 text-right">
                   {t("common.bytes", {
-                    value: item.memory.usage,
+                    value: item.memory.usage - item.memory.inactive_file,
                     maximumFractionDigits: 0,
                   })}
                 </div>

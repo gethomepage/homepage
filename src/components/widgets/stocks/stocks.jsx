@@ -40,7 +40,7 @@ export default function Widget({ options }) {
           <button
             type="button"
             onClick={() => setViewingPercentChange(!viewingPercentChange)}
-            className="flex items-center w-full h-full hover:outline-none focus:outline-none"
+            className="flex items-center w-full h-full hover:outline-hidden focus:outline-hidden"
           >
             <FaChartLine className="flex-none w-5 h-5 text-theme-800 dark:text-theme-200 mr-2" />
             <div className="flex flex-wrap items-center gap-0.5">
@@ -49,7 +49,7 @@ export default function Widget({ options }) {
                   stock && (
                     <div
                       key={stock.ticker}
-                      className="rounded h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
+                      className="rounded-sm h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
                     >
                       <span className="text-theme-800 dark:text-theme-200 text-xs">
                         {stock.ticker.split(":").pop()}

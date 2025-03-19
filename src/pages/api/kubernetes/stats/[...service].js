@@ -1,7 +1,7 @@
 import { CoreV1Api, Metrics } from "@kubernetes/client-node";
 
-import getKubeConfig from "../../../../utils/config/kubernetes";
-import { parseCpu, parseMemory } from "../../../../utils/kubernetes/kubernetes-utils";
+import { getKubeConfig } from "../../../../utils/config/kubernetes";
+import { parseCpu, parseMemory } from "../../../../utils/kubernetes/utils";
 import createLogger from "../../../../utils/logger";
 
 const logger = createLogger("kubernetesStatsService");
@@ -30,8 +30,10 @@ export default async function handler(req, res) {
     const coreApi = kc.makeApiClient(CoreV1Api);
     const metricsApi = new Metrics(kc);
     const podsResponse = await coreApi
-      .listNamespacedPod(namespace, null, null, null, null, labelSelector)
-      .then((response) => response.body)
+      .listNamespacedPod({
+        namespace,
+        labelSelector,
+      })
       .catch((err) => {
         logger.error("Error getting pods: %d %s %s", err.statusCode, err.body, err.response);
         return null;
@@ -69,8 +71,8 @@ export default async function handler(req, res) {
         let depMem = 0;
         let depCpu = 0;
         const podMetrics = await metricsApi
-          .getPodMetrics(namespace, pod.metadata.name)
-          .then((response) => response)
+          .getPodMetrics(namespace, pod.items)
+          .then((response) => response.items)
           .catch((err) => {
             // 404 generally means that the metrics have not been populated yet
             if (err.statusCode !== 404) {
@@ -79,9 +81,11 @@ export default async function handler(req, res) {
             return null;
           });
         if (podMetrics) {
-          podMetrics.containers.forEach((container) => {
-            depMem += parseMemory(container.usage.memory);
-            depCpu += parseCpu(container.usage.cpu);
+          podMetrics.forEach((metrics) => {
+            metrics.containers.forEach((container) => {
+              depMem += parseMemory(container.usage.memory);
+              depCpu += parseCpu(container.usage.cpu);
+            });
           });
         }
         return {

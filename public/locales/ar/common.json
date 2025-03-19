@@ -148,7 +148,9 @@
         "up": "يعمل",
         "received": "تم الإستلام",
         "sent": "تم الإرسال",
-        "externalIPAddress": "IP الخارجي"
+        "externalIPAddress": "IP الخارجي",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "تدفق",
@@ -176,7 +178,7 @@
         "connectedAp": "المتصلة APs",
         "activeUser": "الأجهزة النشطة",
         "alerts": "تنبيهات",
-        "connectedGateway": "البوابات المتصلة",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "مفاتيح التبديل المتصلة"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "معالجة",
         "time": "الوقت"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "لوحات المعلومات",
         "datasources": "مصادر البيانات",
@@ -1010,5 +1016,19 @@
         "issues": "المُشكِلات",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "الحالة",
+        "load": "الضغط",
+        "bcharge": "شحن البطارية",
+        "timeleft": "الوقت المتبقي"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "التصنيفات"
     }
 }
