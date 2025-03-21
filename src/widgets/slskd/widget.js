@@ -8,14 +8,6 @@ const widget = {
   mappings: {
     application: {
       endpoint: "application",
-      map: (data) => {
-        const jsonData = asJson(data);
-        return {
-          serverStatus: jsonData?.server?.isConnected,
-          updateAvailable: jsonData?.version?.isUpdateAvailable,
-          filesShared: jsonData?.shares.files,
-        };
-      },
     },
     downloads: {
       endpoint: "transfers/downloads",
