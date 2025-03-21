@@ -41,7 +41,12 @@ async function fetchFromPlexAPI(endpoint, widget) {
 
   const url = new URL(formatApiCall(api, { endpoint, ...widget }));
 
-  const [status, contentType, data] = await httpProxy(url);
+  const [status, contentType, data] = await httpProxy(url, {
+    headers: {
+      "X-Plex-Container-Start": `0`,
+      "X-Plex-Container-Size": `500`,
+    },
+  });
 
   if (status !== 200) {
     logger.error("HTTP %d communicating with Plex. Data: %s", status, data.toString());
@@ -106,7 +111,8 @@ export default async function plexProxyHandler(req, res) {
           : `/library/sections/${library._attributes.key}/albums`; // music
         [status, apiData] = await fetchFromPlexAPI(libraryURL, widget);
         if (apiData && apiData.MediaContainer) {
-          const size = parseInt(apiData.MediaContainer._attributes.size, 10);
+          const sizeProp = apiData.MediaContainer._attributes["totalSize"] ? "totalSize" : "size";
+          const size = parseInt(apiData.MediaContainer._attributes[sizeProp], 10);
           if (library._attributes.type === "movie") {
             movies += size;
           } else if (library._attributes.type === "show") {

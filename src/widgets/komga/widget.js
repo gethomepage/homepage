@@ -1,23 +1,29 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
-import { jsonArrayFilter } from "utils/proxy/api-helpers";
+import komgaProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}/api/v1/{endpoint}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: komgaProxyHandler,
 
   mappings: {
     libraries: {
       endpoint: "libraries",
-      map: (data) => ({
-        total: jsonArrayFilter(data, (item) => !item.unavailable).length,
-      }),
     },
     series: {
       endpoint: "series",
       validate: ["totalElements"],
     },
+    seriesv2: {
+      endpoint: "series/list",
+      method: "POST",
+      validate: ["totalElements"],
+    },
     books: {
       endpoint: "books",
+      validate: ["totalElements"],
+    },
+    booksv2: {
+      endpoint: "books/list",
+      method: "POST",
       validate: ["totalElements"],
     },
   },

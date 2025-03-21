@@ -2,10 +2,14 @@ export function formatApiCall(url, args) {
   const find = /\{.*?\}/g;
   const replace = (match) => {
     const key = match.replace(/\{|\}/g, "");
-    return args[key] || "";
+    let value = args[key];
+    if (key === "url") {
+      value = value.replace(/\/+$/, ""); // remove trailing slashes
+    }
+    return value || "";
   };
 
-  return url.replace(/\/+$/, "").replace(find, replace).replace(find, replace);
+  return url.replace(find, replace).replace(find, replace);
 }
 
 export function getURLSearchParams(widget, endpoint) {

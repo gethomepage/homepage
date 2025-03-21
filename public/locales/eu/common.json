@@ -85,16 +85,16 @@
     "ping": {
         "error": "Error",
         "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
+        "down": "Behera",
+        "up": "Gora",
         "not_available": "Not Available"
     },
     "siteMonitor": {
         "http_status": "HTTP status",
         "error": "Error",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
+        "response": "Erantzuna",
+        "down": "Behera",
+        "up": "Gora",
         "not_available": "Not Available"
     },
     "emby": {
@@ -102,8 +102,8 @@
         "transcoding": "Transcoding",
         "bitrate": "Bit-tasa",
         "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
+        "movies": "Filmak",
+        "series": "Serieak",
         "episodes": "Episodes",
         "songs": "Abestiak"
     },
@@ -115,40 +115,42 @@
         "unknown": "Ezezaguna"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "pv_power": "Produkzioak",
+        "battery_soc": "Bateria",
+        "grid_power": "Sarea",
+        "home_power": "Kontsumoa",
+        "charge_power": "Kargagailua",
         "kilowatt": "kW"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Jeitsierak",
+        "upload": "Kargatu",
         "leech": "Leech",
         "seed": "Seed"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Harpidetzak",
+        "unread": "Irakurri gabe"
     },
     "fritzbox": {
         "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
+        "connectionStatusConnecting": "Konektatzen",
         "connectionStatusAuthenticating": "Authenticating",
         "connectionStatusPendingDisconnect": "Pending Disconnect",
         "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusDisconnected": "Deskonektatuta",
+        "connectionStatusConnected": "Konektatuta",
         "uptime": "Uptime",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
+        "down": "Behera",
+        "up": "Gora",
         "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "sent": "Bidalita",
+        "externalIPAddress": "Ext. IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Connected APs",
         "activeUser": "Active devices",
         "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Connected switches"
     },
     "nzbget": {
@@ -187,7 +189,7 @@
     "plex": {
         "streams": "Active Streams",
         "albums": "Albums",
-        "movies": "Movies",
+        "movies": "Filmak",
         "tv": "TV Shows"
     },
     "sabnzbd": {
@@ -197,18 +199,18 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Kargatu",
+        "download": "Jeitsierak"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Jeitsierak",
+        "upload": "Kargatu",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Jeitsierak",
+        "upload": "Kargatu",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -221,8 +223,8 @@
         "invalid": "Invalid"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Jeitsierak",
+        "upload": "Kargatu",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -231,15 +233,15 @@
         "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Jeitsierak",
+        "upload": "Kargatu",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series",
+        "series": "Serieak",
         "queue": "Queue",
         "unknown": "Ezezaguna"
     },
@@ -247,7 +249,7 @@
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Movies",
+        "movies": "Filmak",
         "queue": "Queue",
         "unknown": "Ezezaguna"
     },
@@ -283,7 +285,7 @@
     },
     "netalertx": {
         "total": "Guztira",
-        "connected": "Connected",
+        "connected": "Konektatuta",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
     },
@@ -300,8 +302,8 @@
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Kargatu",
+        "download": "Jeitsierak",
         "ping": "Ping"
     },
     "portainer": {
@@ -313,7 +315,7 @@
         "download": "Downloaded",
         "nondownload": "Non-Downloaded",
         "read": "Read",
-        "unread": "Unread",
+        "unread": "Irakurri gabe",
         "downloadedread": "Downloaded & Read",
         "downloadedunread": "Downloaded & Unread",
         "nondownloadedread": "Non-Downloaded & Read",
@@ -403,7 +405,7 @@
     "medusa": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series"
+        "series": "Serieak"
     },
     "minecraft": {
         "players": "Jokalariak",
@@ -414,7 +416,7 @@
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Unread"
+        "unread": "Irakurri gabe"
     },
     "authentik": {
         "users": "Users",
@@ -521,15 +523,15 @@
         "up_to_date": "Up to Date",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Gora",
         "pending": "Pending",
-        "down": "Down"
+        "down": "Behera"
     },
     "healthchecks": {
         "new": "New",
-        "up": "Up",
+        "up": "Gora",
         "grace": "In Grace Period",
-        "down": "Down",
+        "down": "Behera",
         "paused": "Paused",
         "status": "Status",
         "last_ping": "Last Ping",
@@ -644,8 +646,8 @@
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
+        "up": "Gora",
+        "down": "Behera",
         "temp": "Temp",
         "disk": "Disk Usage",
         "wanIP": "WAN IP"
@@ -658,7 +660,7 @@
     },
     "immich": {
         "users": "Users",
-        "photos": "Photos",
+        "photos": "Argazkiak",
         "videos": "Videos",
         "storage": "Storage"
     },
@@ -670,14 +672,14 @@
         "m": "m"
     },
     "atsumeru": {
-        "series": "Series",
+        "series": "Serieak",
         "archives": "Archives",
         "chapters": "Chapters",
         "categories": "Categories"
     },
     "komga": {
         "libraries": "Libraries",
-        "series": "Series",
+        "series": "Serieak",
         "books": "Books"
     },
     "diskstation": {
@@ -686,13 +688,13 @@
         "volumeAvailable": "Available"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
+        "series": "Serieak",
+        "issues": "Arazoak",
         "wanted": "Wanted"
     },
     "photoprism": {
         "albums": "Albums",
-        "photos": "Photos",
+        "photos": "Argazkiak",
         "videos": "Videos",
         "people": "People"
     },
@@ -701,6 +703,10 @@
         "processing": "Processing",
         "processed": "Processed",
         "time": "Time"
+    },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
     },
     "grafana": {
         "dashboards": "Dashboards",
@@ -766,7 +772,7 @@
         "books": "Books",
         "authors": "Authors",
         "categories": "Categories",
-        "series": "Series"
+        "series": "Serieak"
     },
     "jdownloader": {
         "downloadCount": "Queue",
@@ -775,7 +781,7 @@
         "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "Series",
+        "seriesCount": "Serieak",
         "totalFiles": "Files"
     },
     "azuredevops": {
@@ -795,8 +801,8 @@
         "status": "Status",
         "online": "Online",
         "offline": "Offline",
-        "name": "Name",
-        "map": "Map",
+        "name": "Izena",
+        "map": "Mapa",
         "currentPlayers": "Current players",
         "players": "Jokalariak",
         "maxPlayers": "Max players",
@@ -813,10 +819,10 @@
         "recipes": "Recipes",
         "users": "Users",
         "categories": "Categories",
-        "tags": "Tags"
+        "tags": "Etiketak"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Deskargatzen",
         "total": "Guztira",
         "running": "Running",
         "stopped": "Stopped",
@@ -826,8 +832,8 @@
     "openwrt": {
         "uptime": "Uptime",
         "cpuLoad": "CPU Load Avg (5m)",
-        "up": "Up",
-        "down": "Down",
+        "up": "Gora",
+        "down": "Behera",
         "bytesTx": "Transmitted",
         "bytesRx": "Received"
     },
@@ -840,9 +846,9 @@
         "sitesDown": "Sites Down",
         "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
-        "up": "Up",
+        "up": "Gora",
         "seemsdown": "Seems Down",
-        "down": "Down",
+        "down": "Behera",
         "unknown": "Ezezaguna"
     },
     "calendar": {
@@ -850,7 +856,7 @@
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "Ez da gertaerarik aurkitu."
     },
     "romm": {
         "platforms": "Platforms",
@@ -862,7 +868,7 @@
     },
     "mailcow": {
         "domains": "Domains",
-        "mailboxes": "Mailboxes",
+        "mailboxes": "Gutunontziak",
         "mails": "Mails",
         "storage": "Storage"
     },
@@ -871,14 +877,14 @@
         "criticals": "Criticals"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
-        "photos": "Photos",
+        "events": "Ekitaldiak",
+        "plants": "Landareak",
+        "photos": "Argazkiak",
         "species": "Species"
     },
     "gitea": {
-        "notifications": "Notifications",
-        "issues": "Issues",
+        "notifications": "Jakinarazpenak",
+        "issues": "Arazoak",
         "pulls": "Pull Requests"
     },
     "stash": {
@@ -888,34 +894,34 @@
         "playDuration": "Time Watched",
         "sceneSize": "Scenes Size",
         "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
+        "images": "Irudia",
+        "imageSize": "Irudiaren tamaina",
         "galleries": "Galleries",
         "performers": "Performers",
         "studios": "Studios",
-        "movies": "Movies",
-        "tags": "Tags",
+        "movies": "Filmak",
+        "tags": "Etiketak",
         "oCount": "O Count"
     },
     "tandoor": {
         "users": "Users",
         "recipes": "Recipes",
-        "keywords": "Keywords"
+        "keywords": "Hitz gakoak"
     },
     "homebox": {
-        "items": "Items",
+        "items": "Elementuak",
         "totalWithWarranty": "With Warranty",
         "locations": "Locations",
-        "labels": "Labels",
+        "labels": "Etiketak",
         "users": "Users",
-        "totalValue": "Total Value"
+        "totalValue": "Guztira"
     },
     "crowdsec": {
         "alerts": "Alerts",
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "Konektatuta",
         "enabled": "Enabled",
         "disabled": "Disabled",
         "total": "Guztira"
@@ -928,8 +934,8 @@
     },
     "myspeed": {
         "ping": "Ping",
-        "download": "Download",
-        "upload": "Upload"
+        "download": "Jeitsierak",
+        "upload": "Kargatu"
     },
     "stocks": {
         "stocks": "Stocks",
@@ -945,23 +951,23 @@
     },
     "linkwarden": {
         "links": "Links",
-        "collections": "Collections",
-        "tags": "Tags"
+        "collections": "Bildumak",
+        "tags": "Etiketak"
     },
     "zabbix": {
         "unclassified": "Not classified",
         "information": "Informazioa",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
+        "warning": "Abisua",
+        "average": "Batez besteko",
+        "high": "Altua",
         "disaster": "Disaster"
     },
     "lubelogger": {
         "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
+        "vehicles": "Ibilgailuak",
         "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
+        "reminders": "Oroigarriak",
+        "nextReminder": "Hurrengo abisua",
         "none": "None"
     },
     "vikunja": {
@@ -971,7 +977,7 @@
         "tasksInProgress": "Tasks In Progress"
     },
     "headscale": {
-        "name": "Name",
+        "name": "Izena",
         "address": "Address",
         "last_seen": "Last Seen",
         "status": "Status",
@@ -979,10 +985,10 @@
         "offline": "Offline"
     },
     "beszel": {
-        "name": "Name",
+        "name": "Izena",
         "systems": "Systems",
-        "up": "Up",
-        "down": "Down",
+        "up": "Gora",
+        "down": "Behera",
         "paused": "Paused",
         "pending": "Pending",
         "status": "Status",
@@ -993,22 +999,36 @@
         "network": "NET"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
+        "apps": "Aplikazioak",
+        "synced": "Sinkronizatuta",
         "outOfSync": "Out Of Sync",
         "healthy": "Osasuntsu",
         "degraded": "Degraded",
         "progressing": "Progressing",
         "missing": "Missing",
-        "suspended": "Suspended"
+        "suspended": "Etenda"
     },
     "spoolman": {
         "loading": "Loading"
     },
     "gitlab": {
-        "groups": "Groups",
-        "issues": "Issues",
+        "groups": "Taldeak",
+        "issues": "Arazoak",
         "merges": "Merge Requests",
-        "projects": "Projects"
+        "projects": "Proiektuak"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Load",
+        "bcharge": "Battery Charge",
+        "timeleft": "Time Left"
+    },
+    "hoarder": {
+        "bookmarks": "Laster-markak",
+        "favorites": "Gogokoak",
+        "archived": "Artxibatuta",
+        "highlights": "Highlights",
+        "lists": "Zerrendak",
+        "tags": "Etiketak"
     }
 }

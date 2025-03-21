@@ -1,19 +1,9 @@
 import classNames from "classnames";
-import prettyBytes from "pretty-bytes";
+import { useTranslation } from "next-i18next";
 
-export default function Pool({ name, free, allocated, healthy, data, nasType }) {
-  let total = 0;
-  if (nasType === "scale") {
-    total = free + allocated;
-  } else {
-    allocated = 0; // eslint-disable-line no-param-reassign
-    for (let i = 0; i < data.length; i += 1) {
-      total += data[i].stats.size;
-      allocated += data[i].stats.allocated; // eslint-disable-line no-param-reassign
-    }
-  }
-
-  const usedPercent = Math.round((allocated / total) * 100);
+export default function Pool({ name, free, allocated, healthy }) {
+  const { t } = useTranslation();
+  const usedPercent = Math.round((allocated / (free + allocated)) * 100);
   const statusColor = healthy ? "bg-green-500" : "bg-yellow-500";
 
   return (
@@ -25,14 +15,22 @@ export default function Pool({ name, free, allocated, healthy, data, nasType }) 
         }}
       />
       <span className="ml-2 h-2 w-2 z-10">
-        <span className={classNames("block w-2 h-2 rounded", statusColor)} />
+        <span className={classNames("block w-2 h-2 rounded-sm", statusColor)} />
       </span>
       <div className="text-xs z-10 self-center ml-2 relative h-4 grow mr-2">
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden text-left">{name}</div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
         <span>
-          {prettyBytes(allocated)} / {prettyBytes(total)}
+          {`${t("common.bytes", {
+            value: allocated,
+            maximumFractionDigits: 1,
+            binary: true,
+          })} / ${t("common.bytes", {
+            value: free + allocated,
+            maximumFractionDigits: 1,
+            binary: true,
+          })}`}
         </span>
         <span className="pl-2">({usedPercent}%)</span>
       </div>

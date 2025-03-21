@@ -51,7 +51,7 @@ body:
     id: troubleshooting
     attributes:
       label: Troubleshooting
-      description: Please include output from your [troubleshooting tests](https://gethomepage.dev/more/troubleshooting/#service-widget-errors), if relevant.
+      description: Please include output from your [troubleshooting steps](https://gethomepage.dev/more/troubleshooting/#service-widget-errors), if relevant.
     validations:
       required: true
   - type: markdown
