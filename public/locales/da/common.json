@@ -148,7 +148,9 @@
         "up": "Op",
         "received": "Modtaget",
         "sent": "Sendt",
-        "externalIPAddress": "Ekstern IP"
+        "externalIPAddress": "Ekstern IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Forbundne APs",
         "activeUser": "Aktive enheder",
         "alerts": "Advarsler",
-        "connectedGateway": "Forbundne gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Forbundne switches"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Behandlet",
         "time": "Tid"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Kontrolpanel",
         "datasources": "Data Kilder",
@@ -1010,5 +1016,19 @@
         "issues": "Problemer",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Belastning",
+        "bcharge": "Batteriniveau",
+        "timeleft": "Resterende tid"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tags"
     }
 }

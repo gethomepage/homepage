@@ -57,7 +57,7 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
             .map((event) => (
               <span
                 key={`${event.date.ts}+${event.color}-${event.title}-${event.additional}`}
-                className={classNames("inline-flex h-1 w-1 m-0.5 rounded", colorVariants[event.color] ?? "gray")}
+                className={classNames("inline-flex h-1 w-1 m-0.5 rounded-sm", colorVariants[event.color] ?? "gray")}
               />
             ))}
       </span>

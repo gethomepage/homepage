@@ -1,10 +1,9 @@
 import useSWR from "swr";
 import { useTranslation } from "next-i18next";
-
-import { calculateCPUPercent, calculateUsedMemory, calculateThroughput } from "./stats-helpers";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+
+import { calculateCPUPercent, calculateUsedMemory, calculateThroughput } from "./stats-helpers";
 
 export default function Component({ service }) {
   const { t } = useTranslation();

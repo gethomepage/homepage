@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 const components = {
   adguard: dynamic(() => import("./adguard/component")),
+  apcups: dynamic(() => import("./apcups/component")),
   argocd: dynamic(() => import("./argocd/component")),
   atsumeru: dynamic(() => import("./atsumeru/component")),
   audiobookshelf: dynamic(() => import("./audiobookshelf/component")),
@@ -30,6 +31,7 @@ const components = {
   esphome: dynamic(() => import("./esphome/component")),
   evcc: dynamic(() => import("./evcc/component")),
   fileflows: dynamic(() => import("./fileflows/component")),
+  firefly: dynamic(() => import("./firefly/component")),
   flood: dynamic(() => import("./flood/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
   frigate: dynamic(() => import("./frigate/component")),
@@ -45,6 +47,7 @@ const components = {
   grafana: dynamic(() => import("./grafana/component")),
   hdhomerun: dynamic(() => import("./hdhomerun/component")),
   headscale: dynamic(() => import("./headscale/component")),
+  hoarder: dynamic(() => import("./hoarder/component")),
   peanut: dynamic(() => import("./peanut/component")),
   homeassistant: dynamic(() => import("./homeassistant/component")),
   homebox: dynamic(() => import("./homebox/component")),

@@ -51,9 +51,10 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
         title = `${config.name}: ${title}`;
       }
 
+      // 'dtend' is null for all-day events
+      const { dtstart, dtend = { value: 0 } } = event;
+
       const eventToAdd = (date, i, type) => {
-        // 'dtend' is null for all-day events
-        const { dtstart, dtend = { value: 0 } } = event;
         const days = dtend.value === 0 ? 1 : (dtend.value - dtstart.value) / (1000 * 60 * 60 * 24);
         const eventDate = timezone ? DateTime.fromJSDate(date, { zone: timezone }) : DateTime.fromJSDate(date);
 
@@ -72,13 +73,28 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
         }
       };
 
-      const recurrenceOptions = event?.recurrenceRule?.origOptions;
+      let recurrenceOptions = event?.recurrenceRule?.origOptions;
+      // RRuleSet does not have dtstart, add it manually
+      if (event?.recurrenceRule && event.recurrenceRule.rrules && event.recurrenceRule.rrules()?.[0]?.origOptions) {
+        recurrenceOptions = event.recurrenceRule.rrules()[0].origOptions;
+        recurrenceOptions.dtstart = dtstart.value;
+      }
+
       if (recurrenceOptions && Object.keys(recurrenceOptions).length !== 0) {
         try {
           const rule = new RRule(recurrenceOptions);
           const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
 
-          recurringEvents.forEach((date, i) => eventToAdd(date, i, "recurring"));
+          recurringEvents.forEach((date, i) => {
+            let eventDate = date;
+            if (event.dtstart?.params?.tzid) {
+              // date is in UTC but parsed as if it is in current timezone, so we need to adjust it
+              const dateInUTC = DateTime.fromJSDate(date).setZone("UTC");
+              const offset = dateInUTC.offset - DateTime.fromJSDate(date, { zone: event.dtstart.params.tzid }).offset;
+              eventDate = dateInUTC.plus({ minutes: offset }).toJSDate();
+            }
+            eventToAdd(eventDate, i, "recurring");
+          });
           return;
         } catch (e) {
           // eslint-disable-next-line no-console

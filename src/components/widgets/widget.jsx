@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-
 import ErrorBoundary from "components/errorboundry";
 
 const widgetMappings = {

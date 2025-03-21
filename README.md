@@ -38,7 +38,7 @@ With features like quick search, bookmarks, weather support, a wide range of int
 
 - **Fast** - The site is statically generated at build time for instant load times.
 - **Secure** - All API requests to backend services are proxied, keeping your API keys hidden. Constantly reviewed for security by the community.
-- **For Everyone** - Images built for AMD64, ARM64, ARMv7, and ARMv6.
+- **For Everyone** - Images built for AMD64, ARM64.
 - **Full i18n** - Support for over 40 languages.
 - **Service & Web Bookmarks** - Add custom links to the homepage.
 - **Docker Integration** - Container status and stats. Automatic service discovery via labels.
@@ -80,6 +80,7 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
       PUID: 1000 # optional, your user id
       PGID: 1000 # optional, your group id
     ports:
@@ -94,6 +95,7 @@ or docker run:
 
 ```bash
 docker run --name homepage \
+  -e HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev \
   -e PUID=1000 \
   -e PGID=1000 \
   -p 3000:3000 \
@@ -111,7 +113,7 @@ First, clone the repository:
 git clone https://github.com/gethomepage/homepage.git
 ```
 
-Then install dependencies and build the production bundle (I'm using pnpm here, you can use npm or yarn if you like):
+Then install dependencies and build the production bundle:
 
 ```bash
 pnpm install

@@ -148,7 +148,9 @@
         "up": "在線",
         "received": "已接收",
         "sent": "已送出",
-        "externalIPAddress": "外部 IP"
+        "externalIPAddress": "外部 IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "上行",
@@ -176,7 +178,7 @@
         "connectedAp": "已連接的存取點",
         "activeUser": "在線裝置",
         "alerts": "警示",
-        "connectedGateway": "已連接的閘道",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "已連接的交換器"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "已處理",
         "time": "時間"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "控制面板",
         "datasources": "數據來源",
@@ -1010,5 +1016,19 @@
         "issues": "出版",
         "merges": "Merge Requests",
         "projects": "Projects"
+    },
+    "apcups": {
+        "status": "狀態",
+        "load": "負載",
+        "bcharge": "充電",
+        "timeleft": "剩餘時間"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "標籤"
     }
 }

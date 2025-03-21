@@ -46,6 +46,10 @@ config:
   docker:
   settings:
 
+env:
+  - name: HOMEPAGE_ALLOWED_HOSTS
+    value: "homepage.k3d.localhost:8080"
+
 serviceAccount:
   create: true
   name: homepage

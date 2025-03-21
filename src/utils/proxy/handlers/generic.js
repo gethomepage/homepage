@@ -79,7 +79,7 @@ export default async function genericProxyHandler(req, res, map) {
           error: {
             message: "HTTP Error",
             url: sanitizeErrorURL(url),
-            resultData: Buffer.isBuffer(resultData) ? Buffer.from(resultData).toString() : resultData,
+            data: Buffer.isBuffer(resultData) ? Buffer.from(resultData).toString() : resultData,
           },
         });
       }

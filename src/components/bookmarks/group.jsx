@@ -2,7 +2,6 @@ import { useRef, useEffect } from "react";
 import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-
 import ErrorBoundary from "components/errorboundry";
 import List from "components/bookmarks/list";
 import ResolvedIcon from "components/resolvedicon";
@@ -35,7 +34,7 @@ export default function BookmarksGroup({
             {layout?.header !== false && (
               <Disclosure.Button disabled={disableCollapse} className="flex w-full select-none items-center group">
                 {layout?.icon && (
-                  <div className="flex-shrink-0 mr-2 w-7 h-7 bookmark-group-icon">
+                  <div className="shrink-0 mr-2 w-7 h-7 bookmark-group-icon">
                     <ResolvedIcon icon={layout.icon} />
                   </div>
                 )}
@@ -53,7 +52,7 @@ export default function BookmarksGroup({
             )}
             <Transition
               // Otherwise the transition group does display: none and cancels animation
-              className="!block"
+              className="block!"
               unmount={false}
               beforeLeave={() => {
                 panel.current.style.height = `${panel.current.scrollHeight}px`;
