@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Tanda nama"
+    },
+    "slskd": {
+        "slskStatus": "Rangkaian",
+        "connected": "Connected",
+        "disconnected": "Sambungan Terputus",
+        "updateStatus": "Update",
+        "update_yes": "Sudah Ada",
+        "update_no": "Terkemaskini",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Files"
     }
 }

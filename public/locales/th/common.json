@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Tags"
+    },
+    "slskd": {
+        "slskStatus": "Network",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "updateStatus": "Update",
+        "update_yes": "Available",
+        "update_no": "Up to Date",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Files"
     }
 }

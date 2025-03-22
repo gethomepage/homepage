@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Stikkord"
+    },
+    "slskd": {
+        "slskStatus": "Nettverk",
+        "connected": "Tilkoblet",
+        "disconnected": "Frakoblet",
+        "updateStatus": "Update",
+        "update_yes": "Tilgjengelig",
+        "update_no": "Oppdatert",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Files"
     }
 }

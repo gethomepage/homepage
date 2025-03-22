@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Etiquetes"
+    },
+    "slskd": {
+        "slskStatus": "Xarxa",
+        "connected": "Connectat",
+        "disconnected": "Desconnectat",
+        "updateStatus": "Update",
+        "update_yes": "Disponible",
+        "update_no": "Actualitzat",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Fitxers"
     }
 }

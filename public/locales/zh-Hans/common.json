@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Tags"
+    },
+    "slskd": {
+        "slskStatus": "网络",
+        "connected": "已连接",
+        "disconnected": "未连接",
+        "updateStatus": "Update",
+        "update_yes": "可用",
+        "update_no": "Up to Date",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Files"
     }
 }

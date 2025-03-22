@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Ετικέτες"
+    },
+    "slskd": {
+        "slskStatus": "Δίκτυο",
+        "connected": "Συνδέθηκε",
+        "disconnected": "Αποσυνδέθηκε",
+        "updateStatus": "Update",
+        "update_yes": "Διαθέσιμο",
+        "update_no": "Ενημερωμένο",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Αρχεία"
     }
 }
