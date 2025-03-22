@@ -11,7 +11,9 @@ export default function Component({ service }) {
   const { data: giteaRepositories, error: giteaRepositoriesError } = useWidgetAPI(widget, "repositories");
 
   if (giteaNotificationsError || giteaIssuesError || giteaRepositoriesError) {
-    return <Container service={service} error={giteaNotificationsError ?? giteaIssuesError ?? giteaRepositoriesError} />;
+    return (
+      <Container service={service} error={giteaNotificationsError ?? giteaIssuesError ?? giteaRepositoriesError} />
+    );
   }
 
   if (!giteaNotifications || !giteaIssues || !giteaRepositories) {
