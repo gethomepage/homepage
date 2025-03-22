@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Теги"
+    },
+    "slskd": {
+        "slskStatus": "Мережа",
+        "connected": "З'єднано",
+        "disconnected": "Відключено",
+        "updateStatus": "Update",
+        "update_yes": "Доступно",
+        "update_no": "Актуально",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Файли"
     }
 }

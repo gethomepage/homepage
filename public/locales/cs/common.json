@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Tags"
+    },
+    "slskd": {
+        "slskStatus": "Network",
+        "connected": "",
+        "disconnected": "Odpojeno",
+        "updateStatus": "Update",
+        "update_yes": "Dostupné",
+        "update_no": "Žádné",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Soubory"
     }
 }

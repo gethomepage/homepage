@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Etiketler"
+    },
+    "slskd": {
+        "slskStatus": "Ağ",
+        "connected": "Bağlandı",
+        "disconnected": "Bağlantı kesildi",
+        "updateStatus": "Update",
+        "update_yes": "Kullanılabilir",
+        "update_no": "Güncel",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Dosyalar"
     }
 }

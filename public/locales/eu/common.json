@@ -1030,5 +1030,16 @@
         "highlights": "Highlights",
         "lists": "Zerrendak",
         "tags": "Etiketak"
+    },
+    "slskd": {
+        "slskStatus": "Network",
+        "connected": "Konektatuta",
+        "disconnected": "Deskonektatuta",
+        "updateStatus": "Update",
+        "update_yes": "Available",
+        "update_no": "Up to Date",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Files"
     }
 }
