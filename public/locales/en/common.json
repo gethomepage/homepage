@@ -883,7 +883,7 @@
         "species": "Species"
     },
     "gitea": {
-        "repositories" : "Repositories",
+        "repositories": "Repositories",
         "notifications": "Notifications",
         "issues": "Issues",
         "pulls": "Pull Requests"
