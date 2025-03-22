@@ -32,7 +32,7 @@ export default function Component({ service }) {
       <Block label="gitea.notifications" value={giteaNotifications.length} />
       <Block label="gitea.issues" value={giteaIssues.issues.length} />
       <Block label="gitea.pulls" value={giteaIssues.pulls.length} />
-      <Block label="gitea.repositories" value={giteaRepositories} />
+      <Block label="gitea.repositories" value={giteaRepositories.data.length} />
     </Container>
   );
 }

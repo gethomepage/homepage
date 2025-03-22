@@ -18,7 +18,6 @@ const widget = {
     },
     repositories: {
       endpoint: "repos/search",
-      map: (data) => asJson(data).total_count,
     },
   },
 };
