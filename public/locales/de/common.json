@@ -447,7 +447,7 @@
         "write": "Schreiben",
         "gpu": "GPU",
         "mem": "RAM",
-        "swap": "Swap"
+        "swap": "Auslagerung"
     },
     "quicklaunch": {
         "bookmark": "Lesezeichen",
@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Benachrichtigungen",
         "issues": "Probleme",
-        "pulls": "Pull-Requests"
+        "pulls": "Pull-Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Szenen",
@@ -1024,11 +1025,22 @@
         "timeleft": "Verbleibende Zeit"
     },
     "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
+        "bookmarks": "Lesezeichen",
+        "favorites": "Favoriten",
+        "archived": "Archiviert",
         "highlights": "Highlights",
-        "lists": "Lists",
+        "lists": "Listen",
         "tags": "Schlagwörter"
+    },
+    "slskd": {
+        "slskStatus": "Netzwerk",
+        "connected": "Verbunden",
+        "disconnected": "Getrennt",
+        "updateStatus": "Update",
+        "update_yes": "Verfügbar",
+        "update_no": "Aktuell",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Dateien"
     }
 }

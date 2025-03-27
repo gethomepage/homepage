@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "알림",
         "issues": "Issues",
-        "pulls": "Pull Requests"
+        "pulls": "Pull Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "장면",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "태그"
+    },
+    "slskd": {
+        "slskStatus": "네트워크",
+        "connected": "연결됨",
+        "disconnected": "연결 끊김",
+        "updateStatus": "Update",
+        "update_yes": "이용 가능",
+        "update_no": "최신 상태",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "파일"
     }
 }

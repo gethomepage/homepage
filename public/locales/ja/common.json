@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "通知",
         "issues": "課題",
-        "pulls": "プルリクエスト"
+        "pulls": "プルリクエスト",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "シーン",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "タグ"
+    },
+    "slskd": {
+        "slskStatus": "ネットワーク",
+        "connected": "接続済",
+        "disconnected": "切断されました",
+        "updateStatus": "Update",
+        "update_yes": "利用可",
+        "update_no": "最新",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "ファイル"
     }
 }
