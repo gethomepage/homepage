@@ -9,13 +9,13 @@ import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 
 // https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
 function simpleHash(str) {
-  /* eslint-disable no-plusplus, no-bitwise */
+  /* eslint-disable, no-bitwise */
   let hash = 0;
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
   }
   return (hash >>> 0).toString(36);
-  /* eslint-disable no-plusplus, no-bitwise */
+  /* eslint-disable, no-bitwise */
 }
 
 export default function Integration({ config, params, setEvents, hideErrors, timezone }) {
