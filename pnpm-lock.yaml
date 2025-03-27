@@ -14,9 +14,6 @@ importers:
       '@kubernetes/client-node':
         specifier: ^1.0.0
         version: 1.0.0
-      cal-parser:
-        specifier: ^1.0.2
-        version: 1.0.2
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -35,6 +32,9 @@ importers:
       i18next:
         specifier: ^24.2.3
         version: 24.2.3(typescript@5.7.3)
+      ical.js:
+        specifier: ^2.1.0
+        version: 2.1.0
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -80,9 +80,6 @@ importers:
       recharts:
         specifier: ^2.15.3
         version: 2.15.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rrule:
-        specifier: ^2.8.1
-        version: 2.8.1
       swr:
         specifier: ^2.3.3
         version: 2.3.3(react@18.3.1)
@@ -970,9 +967,6 @@ packages:
     resolution: {integrity: sha512-zkDT5WAF4hSSoUgyfg5tFIxz8XQK+25W/TLVojJTMKBaxevLBBtLxgqguAuVQB8PVW79FVjHcU+GJ9tVbDZ9mQ==}
     engines: {node: '>=14.16'}
 
-  cal-parser@1.0.2:
-    resolution: {integrity: sha512-wlQwcF0fl4eLclyGdncF9rcNNq0ipRYZGagG6h3LVgRXvCWE1fdMUaCLXwfC9YWoz9jKKbjQAq7TpO2Y3yrvmA==}
-
   call-bind-apply-helpers@1.0.2:
     resolution: {integrity: sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==}
     engines: {node: '>= 0.4'}
@@ -1670,8 +1664,8 @@ packages:
       typescript:
         optional: true
 
-  ical-date-parser@4.0.0:
-    resolution: {integrity: sha512-XRCK/FU1akC2ZaJOdKIeZI6BLLgzWUuE0pegSrrkEva89GOan5mNkLVqCU4EMhCJ9nkG5TLWdMXrVX1fNAkFzw==}
+  ical.js@2.1.0:
+    resolution: {integrity: sha512-BOVfrH55xQ6kpS3muGvIXIg2l7p+eoe12/oS7R5yrO3TL/j/bLsR0PR+tYQESFbyTbvGgPHn9zQ6tI4FWyuSaQ==}
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -2423,9 +2417,6 @@ packages:
   rimraf@5.0.10:
     resolution: {integrity: sha512-l0OE8wL34P4nJH/H2ffoaniAokM2qSmrtXHmlpvYr5AVVX8msAyW0l8NVJFDxlSK4u3Uh/f41cQheDVdnYijwQ==}
     hasBin: true
-
-  rrule@2.8.1:
-    resolution: {integrity: sha512-hM3dHSBMeaJ0Ktp7W38BJZ7O1zOgaFEsn41PDk+yHoEtfLV+PoJt9E9xAlZiWgf/iqEqionN0ebHFZIDAp+iGw==}
 
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -3680,11 +3671,6 @@ snapshots:
       normalize-url: 8.0.1
       responselike: 3.0.0
 
-  cal-parser@1.0.2:
-    dependencies:
-      ical-date-parser: 4.0.0
-      rrule: 2.8.1
-
   call-bind-apply-helpers@1.0.2:
     dependencies:
       es-errors: 1.3.0
@@ -4557,7 +4543,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.7.3
 
-  ical-date-parser@4.0.0: {}
+  ical.js@2.1.0: {}
 
   iconv-lite@0.6.3:
     dependencies:
@@ -5305,10 +5291,6 @@ snapshots:
   rimraf@5.0.10:
     dependencies:
       glob: 10.4.5
-
-  rrule@2.8.1:
-    dependencies:
-      tslib: 2.8.1
 
   run-parallel@1.2.0:
     dependencies:
