@@ -47,7 +47,7 @@
         "load": "Carga",
         "temp": "TEMP",
         "max": "Máximo",
-        "uptime": "CIMA"
+        "uptime": "ATIVO"
     },
     "unifi": {
         "users": "Usuários",
@@ -61,7 +61,7 @@
         "wlan_devices": "Dispositivos WLAN",
         "lan_users": "Usuários de LAN",
         "wlan_users": "Usuários de WLAN",
-        "up": "CIMA",
+        "up": "ATIVO",
         "down": "Desligado",
         "wait": "Por favor, aguarde",
         "empty_data": "Status do Subsistema desconhecido"
@@ -149,8 +149,8 @@
         "received": "Recebido",
         "sent": "Enviado",
         "externalIPAddress": "IP Externo",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "IPv6 Externo",
+        "externalIPv6Prefix": "Prefixo IPv6 Externo"
     },
     "caddy": {
         "upstreams": "Streams de Envio",
@@ -178,7 +178,7 @@
         "connectedAp": "APs Ligados",
         "activeUser": "Dispositivos ativos",
         "alerts": "Alertas",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Gateways conectados",
         "connectedSwitches": "Switches conectados"
     },
     "nzbget": {
@@ -229,8 +229,8 @@
         "seed": "Semente"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "Bytes de Acerto de Cache",
+        "cachemissbytes": "Bytes de Falha de Cache"
     },
     "downloadstation": {
         "download": "Descarregar",
@@ -313,13 +313,13 @@
     },
     "suwayomi": {
         "download": "Baixado",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "Não Baixado",
         "read": "Lido",
         "unread": "Não lida",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Baixado e Lido",
+        "downloadedunread": "Baixado e Não Lido",
+        "nondownloadedread": "Não Baixado e Lido",
+        "nondownloadedunread": "Não Baixado e Não Lido"
     },
     "tailscale": {
         "address": "Endereço",
@@ -337,15 +337,15 @@
     },
     "technitium": {
         "totalQueries": "Consultas",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Sucesso",
+        "totalServerFailure": "Falhas",
+        "totalNxDomain": "Domínios NX",
+        "totalRefused": "Recusado",
+        "totalAuthoritative": "Autoritativo",
+        "totalRecursive": "Recursivo",
+        "totalCached": "Em cache",
         "totalBlocked": "Bloqueado",
-        "totalDropped": "Dropped",
+        "totalDropped": "Perdidos",
         "totalClients": "Clientes"
     },
     "tdarr": {
@@ -436,7 +436,7 @@
         "temp": "TEMP",
         "_temp": "Temperatura",
         "warn": "Aviso",
-        "uptime": "CIMA",
+        "uptime": "ATIVO",
         "total": "Total",
         "free": "Livre",
         "used": "Utilizado",
@@ -705,8 +705,8 @@
         "time": "Hora"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Valor Líquido",
+        "budget": "Orçamento"
     },
     "grafana": {
         "dashboards": "Painéis",
@@ -860,16 +860,16 @@
     },
     "romm": {
         "platforms": "Plataformas",
-        "totalRoms": "Games",
+        "totalRoms": "Jogos",
         "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "states": "Estados",
+        "screenshots": "Capturas de Tela",
+        "totalfilesize": "Tamanho total"
     },
     "mailcow": {
         "domains": "Domínios",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Caixas de e-mail",
+        "mails": "Mensagens",
         "storage": "Armazenamento"
     },
     "netdata": {
@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Notificações",
         "issues": "Problemas",
-        "pulls": "Solicitações de Envio"
+        "pulls": "Solicitações de Envio",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Cenas",
@@ -951,30 +952,30 @@
     },
     "linkwarden": {
         "links": "Links",
-        "collections": "Collections",
+        "collections": "Coleções",
         "tags": "Marcadores"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Não classificado",
         "information": "Informação",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Aviso",
+        "average": "Médio",
+        "high": "Alto",
+        "disaster": "Desastre"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Veículo",
+        "vehicles": "Veículos",
+        "serviceRecords": "Registros de Serviço",
+        "reminders": "Lembretes",
+        "nextReminder": "Próximo Lembrete",
+        "none": "Nenhum"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "Projetos Ativos",
+        "tasks7d": "Tarefas que vencem nesta semana",
+        "tasksOverdue": "Tarefas Atrasadas",
+        "tasksInProgress": "Tarefas em Andamento"
     },
     "headscale": {
         "name": "Nome",
@@ -986,7 +987,7 @@
     },
     "beszel": {
         "name": "Nome",
-        "systems": "Systems",
+        "systems": "Sistemas",
         "up": "Ativo",
         "down": "Inativo",
         "paused": "Pausado",
@@ -995,27 +996,27 @@
         "updated": "Atualizado",
         "cpu": "CPU",
         "memory": "MEM",
-        "disk": "Disk",
-        "network": "NET"
+        "disk": "Disco",
+        "network": "Rede"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Aplicativos",
+        "synced": "Sincronizado",
+        "outOfSync": "Fora de sincronia",
         "healthy": "Saudável",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Degradado",
+        "progressing": "Progredindo",
         "missing": "Faltando",
-        "suspended": "Suspended"
+        "suspended": "Suspenso"
     },
     "spoolman": {
         "loading": "Carregando"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Grupos",
         "issues": "Problemas",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Solicitações de mesclagem",
+        "projects": "Projetos"
     },
     "apcups": {
         "status": "Status",
@@ -1024,11 +1025,22 @@
         "timeleft": "Tempo restante"
     },
     "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+        "bookmarks": "Favoritos",
+        "favorites": "Favoritos",
+        "archived": "Arquivados",
+        "highlights": "Destaques",
+        "lists": "Listas",
         "tags": "Marcadores"
+    },
+    "slskd": {
+        "slskStatus": "Rede",
+        "connected": "Conectado",
+        "disconnected": "Desconectado",
+        "updateStatus": "Update",
+        "update_yes": "Disponível",
+        "update_no": "Atualizado",
+        "downloads": "Transferências",
+        "uploads": "Envios",
+        "sharedFiles": "Arquivos"
     }
 }

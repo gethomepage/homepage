@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Notifications",
         "issues": "Issues",
-        "pulls": "Pull Requests"
+        "pulls": "Pull Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scenes",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Ετικέτες"
+    },
+    "slskd": {
+        "slskStatus": "Δίκτυο",
+        "connected": "Συνδέθηκε",
+        "disconnected": "Αποσυνδέθηκε",
+        "updateStatus": "Update",
+        "update_yes": "Διαθέσιμο",
+        "update_no": "Ενημερωμένο",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Αρχεία"
     }
 }

@@ -342,7 +342,7 @@
         "totalNxDomain": "Domain NX",
         "totalRefused": "Ditolak",
         "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
+        "totalRecursive": "Rekursif",
         "totalCached": "Cached",
         "totalBlocked": "Terblokir",
         "totalDropped": "Dropped",
@@ -705,8 +705,8 @@
         "time": "Waktu"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Kekayaan Bersih",
+        "budget": "Anggaran"
     },
     "grafana": {
         "dashboards": "Dasbor",
@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Notifikasi",
         "issues": "Isu",
-        "pulls": "Pull Requests"
+        "pulls": "Pull Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Adegan",
@@ -965,7 +966,7 @@
     "lubelogger": {
         "vehicle": "Kendaraan",
         "vehicles": "Kendaraan",
-        "serviceRecords": "Service Records",
+        "serviceRecords": "Catatan Servis",
         "reminders": "Pengingat",
         "nextReminder": "Pengingat Berikutnya",
         "none": "Tidak ada"
@@ -1024,11 +1025,22 @@
         "timeleft": "Sisa Waktu"
     },
     "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+        "bookmarks": "Markah",
+        "favorites": "Favorit",
+        "archived": "Diarsipkan",
+        "highlights": "Sorotan",
+        "lists": "Daftar",
         "tags": "Tag"
+    },
+    "slskd": {
+        "slskStatus": "Jaringan",
+        "connected": "Tersambung",
+        "disconnected": "Terputus",
+        "updateStatus": "Update",
+        "update_yes": "Tersedia",
+        "update_no": "Terbaru",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "File"
     }
 }

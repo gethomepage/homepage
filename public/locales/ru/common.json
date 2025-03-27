@@ -149,8 +149,8 @@
         "received": "Получено",
         "sent": "Отправлено",
         "externalIPAddress": "Внеш. IP",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "Внешний IPv6",
+        "externalIPv6Prefix": "Внешний IPv6 префикс"
     },
     "caddy": {
         "upstreams": "Входящие каналы",
@@ -178,7 +178,7 @@
         "connectedAp": "Подключенные точки доступа",
         "activeUser": "Активные устройства",
         "alerts": "Предупреждения",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Подключенные шлюзы",
         "connectedSwitches": "Подключенные коммутаторы"
     },
     "nzbget": {
@@ -705,8 +705,8 @@
         "time": "Время"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Общая средства",
+        "budget": "Бюджет"
     },
     "grafana": {
         "dashboards": "Панели",
@@ -861,7 +861,7 @@
     "romm": {
         "platforms": "Платформы",
         "totalRoms": "Игры",
-        "saves": "Сейвы",
+        "saves": "Сохранения",
         "states": "Состояния",
         "screenshots": "Скриншоты",
         "totalfilesize": "Общий объем"
@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Уведомления",
         "issues": "Вопросы",
-        "pulls": "Запросы на слияние (Pull Request)"
+        "pulls": "Запросы на слияние (Pull Request)",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Сцены",
@@ -927,7 +928,7 @@
         "total": "Всего"
     },
     "swagdashboard": {
-        "proxied": "Прокси",
+        "proxied": "Проксировано",
         "auth": "С Авторизацией",
         "outdated": "Устаревшие",
         "banned": "Заблокированные"
@@ -958,17 +959,17 @@
         "unclassified": "Не классифицировано",
         "information": "Информация",
         "warning": "Предупреждение",
-        "average": "Средняя",
+        "average": "Среднее",
         "high": "Высокая",
-        "disaster": "Чрезвычайная"
+        "disaster": "Чрезвычайное"
     },
     "lubelogger": {
-        "vehicle": "Автомобиль",
-        "vehicles": "Автомобили",
-        "serviceRecords": "Сервисные работы",
+        "vehicle": "Транспорт",
+        "vehicles": "Транспорты",
+        "serviceRecords": "Сервисные записи",
         "reminders": "Напоминания",
         "nextReminder": "Следующее напоминание",
-        "none": "Нет"
+        "none": "Отсутствует"
     },
     "vikunja": {
         "projects": "Активные Проекты",
@@ -1024,11 +1025,22 @@
         "timeleft": "Осталось"
     },
     "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+        "bookmarks": "Закладки",
+        "favorites": "Избранное",
+        "archived": "Архивированное",
+        "highlights": "События",
+        "lists": "Список",
         "tags": "Теги"
+    },
+    "slskd": {
+        "slskStatus": "Сеть",
+        "connected": "Подключено",
+        "disconnected": "Отключено",
+        "updateStatus": "Обновление",
+        "update_yes": "Доступно",
+        "update_no": "Последняя версия",
+        "downloads": "Скачивания",
+        "uploads": "Загрузки",
+        "sharedFiles": "Файлов"
     }
 }
