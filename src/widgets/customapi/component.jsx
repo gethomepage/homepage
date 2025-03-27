@@ -1,8 +1,10 @@
 import { useTranslation } from "next-i18next";
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import classNames from "classnames";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import * as shvl from "utils/config/shvl";
 
 function getValue(field, data) {
   let value = data;
@@ -12,6 +14,11 @@ function getValue(field, data) {
   // Support APIs that return arrays or scalars directly.
   if (typeof field === "undefined") {
     return value;
+  }
+
+  // shvl is easier, everything else is kept for backwards compatibility.
+  if (typeof field === "string") {
+    return shvl.get(data, field, null);
   }
 
   while (typeof lastField === "object") {
@@ -165,6 +172,16 @@ export default function Component({ service }) {
 
   if (!customData) {
     switch (display) {
+      case "dynamic-list":
+        return (
+          <Container service={service}>
+            <div className="flex flex-col w-full">
+              <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs animate-pulse">
+                <div className="font-thin pl-2">Loading...</div>
+              </div>
+            </div>
+          </Container>
+        );
       case "list":
         return (
           <Container service={service}>
@@ -196,6 +213,68 @@ export default function Component({ service }) {
   }
 
   switch (display) {
+    case "dynamic-list":
+      let listItems = customData;
+      if (mappings.items) listItems = shvl.get(customData, mappings.items, null);
+      let error;
+      if (!listItems || !Array.isArray(listItems)) {
+        error = { message: "Unable to find items" };
+      }
+      const name = mappings.name;
+      const label = mappings.label;
+      if (!name || !label) {
+        error = { message: "Name and label properties are required" };
+      }
+      if (error) {
+        return <Container service={service} error={error}></Container>;
+      }
+
+      const target = mappings.target;
+      if (mappings.limit && parseInt(mappings.limit, 10) > 0) {
+        listItems.splice(mappings.limit);
+      }
+
+      return (
+        <Container service={service}>
+          <div className="flex flex-col w-full">
+            {listItems.length === 0 ? (
+              <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs">
+                <div className="font-thin pl-2">No items found</div>
+              </div>
+            ) : (
+              listItems.map((item, index) => {
+                const itemName = shvl.get(item, name, "");
+                const itemLabel = shvl.get(item, label, "");
+                const itemUrl = target ? target.replace(/\{([^}]+)\}/g, (_, key) => item[key] || "") : null;
+                const className =
+                  "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs";
+
+                return itemUrl ? (
+                  <a
+                    key={`${itemName}-${index}`}
+                    className={classNames(className, "hover:bg-theme-300/50 dark:hover:bg-theme-800/20")}
+                    href={itemUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="font-thin pl-2">{itemName}</div>
+                    <div className="flex flex-row text-right">
+                      <div className="font-bold mr-2">{itemLabel}</div>
+                    </div>
+                  </a>
+                ) : (
+                  <div key={`${itemName}-${index}`} className={className}>
+                    <div className="font-thin pl-2">{itemName}</div>
+                    <div className="flex flex-row text-right">
+                      <div className="font-bold mr-2">{itemLabel}</div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </Container>
+      );
     case "list":
       return (
         <Container service={service}>

@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "信息",
         "issues": "出版",
-        "pulls": "提取請求"
+        "pulls": "提取請求",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "場景",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "標籤"
+    },
+    "slskd": {
+        "slskStatus": "網絡",
+        "connected": "Connected",
+        "disconnected": "連接已中斷",
+        "updateStatus": "Update",
+        "update_yes": "可用",
+        "update_no": "已更新至最新",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "檔案"
     }
 }

@@ -323,7 +323,7 @@ function Home({ initialSettings }) {
                   key={group.name}
                   group={group}
                   layout={settings.layout?.[group.name]}
-                  fiveColumns={settings.fiveColumns}
+                  maxGroupColumns={settings.fiveColumns ? 5 : settings.maxGroupColumns}
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
@@ -334,6 +334,7 @@ function Home({ initialSettings }) {
                   bookmarks={group}
                   layout={settings.layout?.[group.name]}
                   disableCollapse={settings.disableCollapse}
+                  maxGroupColumns={settings.maxBookmarkGroupColumns ?? settings.maxGroupColumns}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 />
               ),
@@ -347,7 +348,7 @@ function Home({ initialSettings }) {
                 key={group.name}
                 group={group}
                 layout={settings.layout?.[group.name]}
-                fiveColumns={settings.fiveColumns}
+                maxGroupColumns={settings.fiveColumns ? 5 : settings.maxGroupColumns}
                 disableCollapse={settings.disableCollapse}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
               />
@@ -362,6 +363,7 @@ function Home({ initialSettings }) {
                 bookmarks={group}
                 layout={settings.layout?.[group.name]}
                 disableCollapse={settings.disableCollapse}
+                maxGroupColumns={settings.maxBookmarkGroupColumns ?? settings.maxGroupColumns}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 bookmarksStyle={settings.bookmarksStyle}
               />
@@ -377,6 +379,8 @@ function Home({ initialSettings }) {
     bookmarks,
     settings.layout,
     settings.fiveColumns,
+    settings.maxGroupColumns,
+    settings.maxBookmarkGroupColumns,
     settings.disableCollapse,
     settings.useEqualHeights,
     settings.cardBlur,
@@ -417,7 +421,12 @@ function Home({ initialSettings }) {
 
       <Script src="/api/config/custom.js" />
 
-      <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
+      <div
+        className={classNames(
+          settings.fullWidth ? "" : "container",
+          "relative m-auto flex flex-col justify-start z-10 h-full",
+        )}
+      >
         <QuickLaunch
           servicesAndBookmarks={servicesAndBookmarks}
           searchString={searchString}

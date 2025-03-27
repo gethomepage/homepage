@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Notificacions",
         "issues": "Problemes",
-        "pulls": "Sol·licitud de Canvis"
+        "pulls": "Sol·licitud de Canvis",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Escenes",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Etiquetes"
+    },
+    "slskd": {
+        "slskStatus": "Xarxa",
+        "connected": "Connectat",
+        "disconnected": "Desconnectat",
+        "updateStatus": "Update",
+        "update_yes": "Disponible",
+        "update_no": "Actualitzat",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Fitxers"
     }
 }
