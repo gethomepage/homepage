@@ -55,7 +55,7 @@ jobs:
         run: MKINSIDERS=false mkdocs build
   deploy:
     name: Build & Deploy
-    if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request'
+    if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs:
       - pre-commit
