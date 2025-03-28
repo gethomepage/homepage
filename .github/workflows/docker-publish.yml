@@ -68,9 +68,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .next/cache
-          key: nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          key: nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx') }}
           restore-keys: |
-            nextjs-${{ runner.os }}-
+            nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
