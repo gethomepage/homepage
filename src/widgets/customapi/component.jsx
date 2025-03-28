@@ -246,10 +246,14 @@ export default function Component({ service }) {
                 const itemName = shvl.get(item, name, "");
                 const itemLabel = shvl.get(item, label, "");
 
-                const itemUrl = target ? [...target.matchAll(/\{(.*?)\}/g)].map((match) => match[1]).targetReplaces.reduce((url, targetTemplate) => {
-                  const value = shvl.get(item, targetTemplate, "");
-                  return url.replaceAll(`{${targetTemplate}}`, value);
-                }, target) : null;
+                const itemUrl = target
+                  ? [...target.matchAll(/\{(.*?)\}/g)]
+                      .map((match) => match[1])
+                      .reduce((url, targetTemplate) => {
+                        const value = shvl.get(item, targetTemplate, item[targetTemplate]) ?? "";
+                        return url.replaceAll(`{${targetTemplate}}`, value);
+                      }, target)
+                  : null;
                 const className =
                   "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs";
 
