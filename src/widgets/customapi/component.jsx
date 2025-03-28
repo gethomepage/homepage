@@ -18,7 +18,7 @@ function getValue(field, data) {
 
   // shvl is easier, everything else is kept for backwards compatibility.
   if (typeof field === "string") {
-    return shvl.get(data, field, null);
+    return shvl.get(data, field, null) ?? data[field] ?? null;
   }
 
   while (typeof lastField === "object") {
