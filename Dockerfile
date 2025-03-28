@@ -48,9 +48,15 @@ COPY package.json pnpm-lock.yaml ./
 RUN corepack enable && corepack prepare pnpm@latest --activate
 RUN pnpm install --frozen-lockfile --prod
 
+COPY --link --chown=1000:1000 package.json next.config.js ./
+COPY --link --chown=1000:1000 /public ./public/
+
 # Copy pre-built assets from builder stage
-COPY --from=builder /app/.next .next
-COPY --from=builder /app/public public
+COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
+COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static/
+COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
+
+RUN apk add --no-cache su-exec
 
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
@@ -59,4 +65,5 @@ EXPOSE $PORT
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://127.0.0.1:$PORT/api/healthcheck || exit 1
 
-CMD ["pnpm", "start"]
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["node", "server.js"]
