@@ -1,38 +1,25 @@
-# Install dependencies only when needed
-FROM docker.io/node:22-alpine AS deps
+# Base build stage (for building Next.js if needed)
+FROM node:22-alpine AS builder
 
-WORKDIR /app
-
-COPY --link package.json pnpm-lock.yaml* ./
-
-SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
-RUN apk add --no-cache libc6-compat \
- && apk add --no-cache --virtual .gyp python3 make g++ \
- && npm install -g pnpm
-
-RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
-
-RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm install -r --offline
-
-# Rebuild the source code only when needed
-FROM docker.io/node:22-alpine AS builder
 WORKDIR /app
 
 RUN mkdir config
+
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN pnpm install --frozen-lockfile
+
+COPY . .
 
 ARG BUILDTIME
 ARG VERSION
 ARG REVISION
 
-COPY --link --from=deps /app/node_modules ./node_modules/
-COPY . .
+# Build only if needed (local use)
+RUN pnpm run telemetry \
+&& NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION pnpm run build
 
-SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
-RUN npm install -g pnpm \
- && pnpm run telemetry \
- && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION pnpm run build
-
-# Production image, copy all the files and run next
+# Final runtime image
 FROM docker.io/node:22-alpine AS runner
 LABEL org.opencontainers.image.title "Homepage"
 LABEL org.opencontainers.image.description "A self-hosted services landing page, with docker and service integrations."
@@ -41,20 +28,16 @@ LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/hom
 LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
 LABEL org.opencontainers.image.licenses='Apache-2.0'
 
+WORKDIR /app
 ENV NODE_ENV=production
 
-WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN pnpm install --frozen-lockfile --prod
 
-# Copy files from context (this allows the files to copy before the builder stage is done).
-COPY --link --chown=1000:1000 package.json next.config.js ./
-COPY --link --chown=1000:1000 /public ./public/
-
-# Copy files from builder
-COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
-COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static/
-COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
-
-RUN apk add --no-cache su-exec
+# Copy pre-built assets from builder stage
+COPY --from=builder /app/.next .next
+COPY --from=builder /app/public public
 
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
@@ -63,5 +46,4 @@ EXPOSE $PORT
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://127.0.0.1:$PORT/api/healthcheck || exit 1
 
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["node", "server.js"]
+CMD ["pnpm", "start"]
