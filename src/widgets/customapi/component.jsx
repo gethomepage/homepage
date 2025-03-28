@@ -243,8 +243,8 @@ export default function Component({ service }) {
               </div>
             ) : (
               listItems.map((item, index) => {
-                const itemName = shvl.get(item, name, "");
-                const itemLabel = shvl.get(item, label, "");
+                const itemName = shvl.get(item, name, item[name]) ?? "";
+                const itemLabel = shvl.get(item, label, item[label]) ?? "";
 
                 const itemUrl = target
                   ? [...target.matchAll(/\{(.*?)\}/g)]
