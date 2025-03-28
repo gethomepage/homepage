@@ -13,9 +13,13 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 COPY .next .next
 
+ARG CI
 ARG BUILDTIME
 ARG VERSION
 ARG REVISION
+
+# Make CI available in RUN steps
+ENV CI=$CI
 
 # Build only if needed (local use)
 RUN pnpm run telemetry \
