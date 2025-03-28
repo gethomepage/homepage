@@ -64,6 +64,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ env.IMAGE_NAME }}
+            ghcr.io/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=auto
+
       - name: Next.js build cache
         uses: actions/cache@v4
         with:
@@ -87,9 +97,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # Build Next.js app
       - name: Build Next.js app
-        run: pnpm run build
+        run: |
+          NEXT_PUBLIC_BUILDTIME="${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}" \
+          NEXT_PUBLIC_VERSION="${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}" \
+          NEXT_PUBLIC_REVISION="${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}" \
+          pnpm run build
 
       # Docker logins
       - name: Log into registry ${{ env.REGISTRY }}
@@ -113,16 +126,6 @@ jobs:
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            ${{ env.IMAGE_NAME }}
-            ghcr.io/${{ env.IMAGE_NAME }}
-          flavor: |
-            latest=auto
-
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v6
@@ -132,6 +135,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
+            CI=true
             BUILDTIME=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
             VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
             REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}

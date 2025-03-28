@@ -19,7 +19,14 @@ ARG REVISION
 
 # Build only if needed (local use)
 RUN pnpm run telemetry \
-&& NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION pnpm run build
+&& if [ "$CI" != "true" ]; then \
+NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
+NEXT_PUBLIC_VERSION=$VERSION \
+NEXT_PUBLIC_REVISION=$REVISION \
+pnpm run build; \
+else \
+echo "Skipping build in CI (already built)"; \
+fi
 
 # Final runtime image
 FROM docker.io/node:22-alpine AS runner
