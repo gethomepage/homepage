@@ -10,6 +10,7 @@ You can also find a list of all available info widgets in the sidebar navigation
 - [Date & Time](datetime.md)
 - [Glances](glances.md)
 - [Greeting](greeting.md)
+- [Ipify](ipify.md)
 - [Kubernetes](kubernetes.md)
 - [Logo](logo.md)
 - [Longhorn](longhorn.md)
