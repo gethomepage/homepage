@@ -12,7 +12,6 @@ RUN pnpm install --frozen-lockfile --prefer-offline
 
 # Copy source
 COPY . .
-COPY .next .next
 
 ARG CI
 ARG BUILDTIME
@@ -47,7 +46,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Copy only necessary files from the build stage
-COPY --from=builder --chown=1000:1000 /app/.next/standalone ./
+COPY --from=builder --chown=1000:1000 /app/.next/standalone/ ./
 COPY --from=builder --chown=1000:1000 /app/.next/static ./.next/static
 COPY --from=builder --chown=1000:1000 /app/public ./public
 COPY --from=builder --chmod=755 /app/docker-entrypoint.sh /usr/local/bin/
