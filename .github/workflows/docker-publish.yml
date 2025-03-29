@@ -104,6 +104,9 @@ jobs:
           NEXT_PUBLIC_REVISION="${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}" \
           pnpm run build
 
+      - name: Confirm build
+        run: ls -lhR .next/standalone || echo "❌ No standalone output!"
+
       # Docker logins
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
