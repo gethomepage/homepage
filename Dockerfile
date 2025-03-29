@@ -45,11 +45,13 @@ LABEL org.opencontainers.image.licenses='Apache-2.0'
 WORKDIR /app
 ENV NODE_ENV=production
 
+# Copy some files from context
+COPY --link --chown=1000:1000 /public ./public/
+COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
+
 # Copy only necessary files from the build stage
 COPY --link --from=builder --chown=1000:1000 /app/.next/standalone/ ./
-COPY --link --from=builder --chown=1000:1000 /app/.next/static ./.next/static
-COPY --link --from=builder --chown=1000:1000 /app/public ./public
-COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
+COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static
 
 RUN apk add --no-cache su-exec
 
