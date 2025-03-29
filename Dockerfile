@@ -1,16 +1,18 @@
-# Base build stage (for building Next.js if needed)
+# =========================
+# Builder Stage
+# =========================
 FROM node:22-slim AS builder
-
 WORKDIR /app
 
+# Setup
 RUN mkdir config
-
 COPY package.json pnpm-lock.yaml ./
 RUN corepack enable && corepack prepare pnpm@latest --activate
 RUN pnpm install --frozen-lockfile --prefer-offline
 
-# Copy all source files, .next dir included
+# Copy source
 COPY . .
+COPY .next .next
 
 ARG CI
 ARG BUILDTIME
@@ -20,19 +22,20 @@ ARG REVISION
 # Make CI available in RUN steps
 ENV CI=$CI
 
-# Build only if needed (local use)
 RUN pnpm run telemetry \
-&& if [ "$CI" != "true" ]; then \
-NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
-NEXT_PUBLIC_VERSION=$VERSION \
-NEXT_PUBLIC_REVISION=$REVISION \
-pnpm run build; \
-else \
-echo "Skipping build in CI (already built)"; \
-fi
+ && if [ "$CI" != "true" ]; then \
+      NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
+      NEXT_PUBLIC_VERSION=$VERSION \
+      NEXT_PUBLIC_REVISION=$REVISION \
+      pnpm run build; \
+    else \
+      echo "✅ Using prebuilt .next from CI context"; \
+    fi
 
-# Final runtime image
-FROM docker.io/node:22-alpine AS runner
+# =========================
+# Runtime Stage
+# =========================
+FROM node:22-alpine AS runner
 LABEL org.opencontainers.image.title "Homepage"
 LABEL org.opencontainers.image.description "A self-hosted services landing page, with docker and service integrations."
 LABEL org.opencontainers.image.url="https://github.com/gethomepage/homepage"
@@ -43,7 +46,7 @@ LABEL org.opencontainers.image.licenses='Apache-2.0'
 WORKDIR /app
 ENV NODE_ENV=production
 
-# Trust the traced production app output — no reinstall needed
+# Copy only necessary files from the build stage
 COPY --from=builder --chown=1000:1000 /app/.next/standalone/ ./
 COPY --from=builder --chown=1000:1000 /app/.next/static ./.next/static
 COPY --from=builder --chown=1000:1000 /app/public ./public
