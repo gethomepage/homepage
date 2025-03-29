@@ -1,5 +1,5 @@
 # Base build stage (for building Next.js if needed)
-FROM node:22-alpine AS builder
+FROM node:22-slim AS builder
 
 WORKDIR /app
 
@@ -7,11 +7,10 @@ RUN mkdir config
 
 COPY package.json pnpm-lock.yaml ./
 RUN corepack enable && corepack prepare pnpm@latest --activate
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --prefer-offline
 
-# Copy all source files
+# Copy all source files, .next dir included
 COPY . .
-COPY .next .next
 
 ARG CI
 ARG BUILDTIME
@@ -44,21 +43,11 @@ LABEL org.opencontainers.image.licenses='Apache-2.0'
 WORKDIR /app
 ENV NODE_ENV=production
 
-COPY package.json pnpm-lock.yaml ./
-RUN corepack enable && corepack prepare pnpm@latest --activate
-RUN pnpm install --frozen-lockfile --prod
-
-COPY --link --chown=1000:1000 package.json next.config.js ./
-COPY --link --chown=1000:1000 /public ./public/
-
-# Copy pre-built assets from builder stage
-COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
-COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static/
-COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
-
-# Remove unnecessary files
-RUN rm -rf /app/.next/cache \
-&& rm -rf /app/node_modules/.pnpm
+# Trust the traced production app output — no reinstall needed
+COPY --from=builder --chown=1000:1000 /app/.next/standalone/ ./
+COPY --from=builder --chown=1000:1000 /app/.next/static ./.next/static
+COPY --from=builder --chown=1000:1000 /app/public ./public
+COPY --from=builder --chmod=755 /app/docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec
 
