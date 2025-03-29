@@ -49,7 +49,7 @@ ENV NODE_ENV=production
 COPY --link --from=builder --chown=1000:1000 /app/.next/standalone/ ./
 COPY --link --from=builder --chown=1000:1000 /app/.next/static ./.next/static
 COPY --link --from=builder --chown=1000:1000 /app/public ./public
-COPY --link --from=builder --chmod=755 /app/docker-entrypoint.sh /usr/local/bin/
+COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec
 
