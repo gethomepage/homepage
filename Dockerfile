@@ -56,6 +56,10 @@ COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
 COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static/
 COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
+# Remove unnecessary files
+RUN rm -rf /app/.next/cache \
+&& rm -rf /app/node_modules/.pnpm
+
 RUN apk add --no-cache su-exec
 
 ENV HOSTNAME=0.0.0.0
