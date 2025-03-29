@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Setup
 RUN mkdir config
-COPY package.json pnpm-lock.yaml ./
+COPY --link package.json pnpm-lock.yaml ./
 RUN corepack enable && corepack prepare pnpm@latest --activate
 RUN pnpm install --frozen-lockfile --prefer-offline
 
@@ -46,10 +46,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Copy only necessary files from the build stage
-COPY --from=builder --chown=1000:1000 /app/.next/standalone/ ./
-COPY --from=builder --chown=1000:1000 /app/.next/static ./.next/static
-COPY --from=builder --chown=1000:1000 /app/public ./public
-COPY --from=builder --chmod=755 /app/docker-entrypoint.sh /usr/local/bin/
+COPY --link --from=builder --chown=1000:1000 /app/.next/standalone/ ./
+COPY --link --from=builder --chown=1000:1000 /app/.next/static ./.next/static
+COPY --link --from=builder --chown=1000:1000 /app/public ./public
+COPY --link --from=builder --chmod=755 /app/docker-entrypoint.sh /usr/local/bin/
 
 RUN apk add --no-cache su-exec
 
