@@ -7,9 +7,6 @@ WORKDIR /app
 # Setup
 RUN mkdir config
 COPY --link package.json pnpm-lock.yaml ./
-RUN corepack enable && corepack prepare pnpm@latest --activate
-RUN pnpm install --frozen-lockfile --prefer-offline
-
 # Copy source
 COPY . .
 
@@ -21,8 +18,10 @@ ARG REVISION
 # Make CI available in RUN steps
 ENV CI=$CI
 
-RUN pnpm run telemetry \
- && if [ "$CI" != "true" ]; then \
+RUN if [ "$CI" != "true" ]; then \
+      corepack enable && corepack prepare pnpm@latest --activate && \
+      pnpm install --prefer-offline --prod-only && \
+      pnpm run telemetry \
       NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
       NEXT_PUBLIC_VERSION=$VERSION \
       NEXT_PUBLIC_REVISION=$REVISION \
