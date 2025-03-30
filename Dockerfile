@@ -6,28 +6,25 @@ WORKDIR /app
 
 # Setup
 RUN mkdir config
-COPY --link package.json pnpm-lock.yaml ./
-# Copy source
 COPY . .
 
 ARG CI
 ARG BUILDTIME
 ARG VERSION
 ARG REVISION
-
-# Make CI available in RUN steps
 ENV CI=$CI
 
 RUN if [ "$CI" != "true" ]; then \
+      echo "📦 Installing deps and building app" && \
       corepack enable && corepack prepare pnpm@latest --activate && \
-      pnpm install --prefer-offline --prod-only && \
-      pnpm run telemetry \
+      pnpm install --frozen-lockfile --prefer-offline && \
+      pnpm run telemetry && \
       NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
       NEXT_PUBLIC_VERSION=$VERSION \
       NEXT_PUBLIC_REVISION=$REVISION \
       pnpm run build; \
     else \
-      echo "✅ Using prebuilt .next from CI context"; \
+      echo "✅ Using prebuilt app from CI context"; \
     fi
 
 # =========================
