@@ -14,10 +14,11 @@ ARG VERSION
 ARG REVISION
 ENV CI=$CI
 
+# Install and build only outside CI
 RUN if [ "$CI" != "true" ]; then \
       corepack enable && corepack prepare pnpm@latest --activate && \
       pnpm install --frozen-lockfile --prefer-offline && \
-      pnpm run telemetry && \
+      NEXT_TELEMETRY_DISABLED=1 \
       NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
       NEXT_PUBLIC_VERSION=$VERSION \
       NEXT_PUBLIC_REVISION=$REVISION \
@@ -37,8 +38,8 @@ LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/hom
 LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
 LABEL org.opencontainers.image.licenses='Apache-2.0'
 
+# Setup
 WORKDIR /app
-ENV NODE_ENV=production
 
 # Copy some files from context
 COPY --link --chown=1000:1000 /public ./public/
@@ -50,6 +51,7 @@ COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static
 
 RUN apk add --no-cache su-exec
 
+ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 EXPOSE $PORT
