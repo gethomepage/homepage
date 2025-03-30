@@ -15,7 +15,6 @@ ARG REVISION
 ENV CI=$CI
 
 RUN if [ "$CI" != "true" ]; then \
-      echo "📦 Installing deps and building app" && \
       corepack enable && corepack prepare pnpm@latest --activate && \
       pnpm install --frozen-lockfile --prefer-offline && \
       pnpm run telemetry && \
@@ -31,8 +30,8 @@ RUN if [ "$CI" != "true" ]; then \
 # Runtime Stage
 # =========================
 FROM node:22-alpine AS runner
-LABEL org.opencontainers.image.title "Homepage"
-LABEL org.opencontainers.image.description "A self-hosted services landing page, with docker and service integrations."
+LABEL org.opencontainers.image.title="Homepage"
+LABEL org.opencontainers.image.description="A self-hosted services landing page, with docker and service integrations."
 LABEL org.opencontainers.image.url="https://github.com/gethomepage/homepage"
 LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/homepage/wiki'
 LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
