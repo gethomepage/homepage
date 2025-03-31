@@ -1,31 +1,31 @@
 /* eslint-disable react/no-array-index-key */
-import useSWR, { SWRConfig } from "swr";
-import Head from "next/head";
-import Script from "next/script";
-import dynamic from "next/dynamic";
 import classNames from "classnames";
-import { useTranslation } from "next-i18next";
-import { useEffect, useContext, useState, useMemo } from "react";
-import { BiError } from "react-icons/bi";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
-import Tab, { slugifyAndEncode } from "components/tab";
-import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
-import Widget from "components/widgets/widget";
-import Revalidate from "components/toggles/revalidate";
-import { ColorContext } from "utils/contexts/color";
-import { ThemeContext } from "utils/contexts/theme";
-import { SettingsContext } from "utils/contexts/settings";
-import { TabContext } from "utils/contexts/tab";
 import ErrorBoundary from "components/errorboundry";
 import QuickLaunch from "components/quicklaunch";
+import ServicesGroup from "components/services/group";
+import Tab, { slugifyAndEncode } from "components/tab";
+import Revalidate from "components/toggles/revalidate";
+import Widget from "components/widgets/widget";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Script from "next/script";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { BiError } from "react-icons/bi";
+import useSWR, { SWRConfig } from "swr";
+import { ColorContext } from "utils/contexts/color";
+import { SettingsContext } from "utils/contexts/settings";
+import { TabContext } from "utils/contexts/tab";
+import { ThemeContext } from "utils/contexts/theme";
 
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
-import themes from "utils/styles/themes";
 import { getSettings } from "utils/config/config";
 import useWindowFocus from "utils/hooks/window-focus";
 import createLogger from "utils/logger";
+import themes from "utils/styles/themes";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,

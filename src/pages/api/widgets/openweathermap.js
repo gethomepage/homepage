@@ -1,6 +1,6 @@
-import { cachedRequest } from "utils/proxy/http";
 import { getSettings } from "utils/config/config";
 import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
+import { cachedRequest } from "utils/proxy/http";
 
 export default async function handler(req, res) {
   const { latitude, longitude, units, provider, cache, lang, index } = req.query;

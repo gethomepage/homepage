@@ -1,8 +1,8 @@
 import classNames from "classnames";
 
 import ContainerLink from "./container_link";
-import Resource from "./resource";
 import Raw from "./raw";
+import Resource from "./resource";
 import WidgetLabel from "./widget_label";
 
 export default function Resources({ options, children, target, additionalClassNames }) {

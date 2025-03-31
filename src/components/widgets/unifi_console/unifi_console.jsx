@@ -1,13 +1,13 @@
-import { BiError, BiWifi, BiCheckCircle, BiXCircle, BiNetworkChart } from "react-icons/bi";
-import { MdSettingsEthernet } from "react-icons/md";
 import { useTranslation } from "next-i18next";
+import { BiCheckCircle, BiError, BiNetworkChart, BiWifi, BiXCircle } from "react-icons/bi";
+import { MdSettingsEthernet } from "react-icons/md";
 import { SiUbiquiti } from "react-icons/si";
 
-import Error from "../widget/error";
 import Container from "../widget/container";
+import Error from "../widget/error";
+import PrimaryText from "../widget/primary_text";
 import Raw from "../widget/raw";
 import WidgetIcon from "../widget/widget_icon";
-import PrimaryText from "../widget/primary_text";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 

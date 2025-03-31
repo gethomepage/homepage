@@ -1,10 +1,10 @@
-import { useTranslation } from "next-i18next";
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 import classNames from "classnames";
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
 
-import useWidgetAPI from "utils/proxy/use-widget-api";
 import * as shvl from "utils/config/shvl";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getValue(field, data) {
   let value = data;
