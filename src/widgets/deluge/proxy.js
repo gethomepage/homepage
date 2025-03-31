@@ -1,7 +1,7 @@
-import { formatApiCall } from "utils/proxy/api-helpers";
-import { sendJsonRpcRequest } from "utils/proxy/handlers/jsonrpc";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { sendJsonRpcRequest } from "utils/proxy/handlers/jsonrpc";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("delugeProxyHandler");

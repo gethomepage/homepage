@@ -101,10 +101,6 @@ importers:
       xml-js:
         specifier: ^1.6.11
         version: 1.6.11
-    optionalDependencies:
-      osx-temperature-sensor:
-        specifier: ^1.0.8
-        version: 1.0.8
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.10
@@ -142,6 +138,9 @@ importers:
       prettier:
         specifier: ^3.5.2
         version: 3.5.2
+      prettier-plugin-organize-imports:
+        specifier: ^4.1.0
+        version: 4.1.0(prettier@3.5.2)(typescript@5.7.3)
       tailwind-scrollbar:
         specifier: ^4.0.1
         version: 4.0.1(react@18.3.1)(tailwindcss@4.0.9)
@@ -151,6 +150,10 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+    optionalDependencies:
+      osx-temperature-sensor:
+        specifier: ^1.0.8
+        version: 1.0.8
 
 packages:
 
@@ -2143,6 +2146,16 @@ packages:
   prettier-linter-helpers@1.0.0:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
+
+  prettier-plugin-organize-imports@4.1.0:
+    resolution: {integrity: sha512-5aWRdCgv645xaa58X8lOxzZoiHAldAPChljr/MT0crXVOWTZ+Svl4hIWlz+niYSlO6ikE5UXkN1JrRvIP2ut0A==}
+    peerDependencies:
+      prettier: '>=2.0'
+      typescript: '>=2.9'
+      vue-tsc: ^2.1.0
+    peerDependenciesMeta:
+      vue-tsc:
+        optional: true
 
   prettier@3.5.2:
     resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
@@ -4882,6 +4895,11 @@ snapshots:
   prettier-linter-helpers@1.0.0:
     dependencies:
       fast-diff: 1.3.0
+
+  prettier-plugin-organize-imports@4.1.0(prettier@3.5.2)(typescript@5.7.3):
+    dependencies:
+      prettier: 3.5.2
+      typescript: 5.7.3
 
   prettier@3.5.2: {}
 

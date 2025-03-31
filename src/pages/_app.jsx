@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { SWRConfig } from "swr";
 import { appWithTranslation } from "next-i18next";
 import Head from "next/head";
 import "styles/globals.css";
-import "styles/theme.css";
 import "styles/manrope.css";
+import "styles/theme.css";
+import { SWRConfig } from "swr";
 import { ColorProvider } from "utils/contexts/color";
-import { ThemeProvider } from "utils/contexts/theme";
 import { SettingsProvider } from "utils/contexts/settings";
 import { TabProvider } from "utils/contexts/tab";
+import { ThemeProvider } from "utils/contexts/theme";
 
 import nextI18nextConfig from "../../next-i18next.config";
 

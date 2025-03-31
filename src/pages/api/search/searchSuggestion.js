@@ -1,8 +1,8 @@
 import { searchProviders } from "components/widgets/search/search";
 
 import { getSettings } from "utils/config/config";
-import { cachedRequest } from "utils/proxy/http";
 import { widgetsFromConfig } from "utils/config/widget-helpers";
+import { cachedRequest } from "utils/proxy/http";
 
 export default async function handler(req, res) {
   const { query, providerName } = req.query;
