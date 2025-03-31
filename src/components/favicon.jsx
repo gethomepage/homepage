@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
-import { useRef, useEffect, useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { ColorContext } from "utils/contexts/color";
 
 import themes from "utils/styles/themes";

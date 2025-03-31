@@ -2,11 +2,11 @@
 import crypto from "crypto";
 import querystring from "querystring";
 
-import { sha256, uniqueRid, validateRid, createEncryptionToken, decrypt, encrypt } from "./tools";
+import { createEncryptionToken, decrypt, encrypt, sha256, uniqueRid, validateRid } from "./tools";
 
 import getServiceWidget from "utils/config/service-helpers";
-import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { httpProxy } from "utils/proxy/http";
 
 const proxyName = "jdownloaderProxyHandler";
 const logger = createLogger(proxyName);

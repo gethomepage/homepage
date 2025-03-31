@@ -1,7 +1,7 @@
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
 import { useCallback } from "react";
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 
 import QueueEntry from "../../components/widgets/queue/queueEntry";
 

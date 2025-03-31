@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-import { AreaChart, Area, ResponsiveContainer, Tooltip } from "recharts";
+import { Area, AreaChart, ResponsiveContainer, Tooltip } from "recharts";
 
 import CustomTooltip from "./custom_tooltip";
 

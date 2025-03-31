@@ -1,7 +1,7 @@
 import { GameDig } from "gamedig";
 
-import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 
 const proxyName = "gamedigProxyHandler";
 const logger = createLogger(proxyName);

@@ -1,5 +1,5 @@
-import { useTranslation } from "next-i18next";
 import ErrorBoundary from "components/errorboundry";
+import { useTranslation } from "next-i18next";
 
 import components from "widgets/components";
 

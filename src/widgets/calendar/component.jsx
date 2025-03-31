@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useState, useContext } from "react";
-import dynamic from "next/dynamic";
+import Container from "components/services/widget/container";
 import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next";
-import Container from "components/services/widget/container";
+import dynamic from "next/dynamic";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { SettingsContext } from "utils/contexts/settings";
 
-import Monthly from "./monthly";
 import Agenda from "./agenda";
+import Monthly from "./monthly";
 
 const colorVariants = {
   // https://tailwindcss.com/docs/content-configuration#dynamic-class-names
