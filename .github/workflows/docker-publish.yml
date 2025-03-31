@@ -116,6 +116,16 @@ jobs:
           images: |
             ${{ env.IMAGE_NAME }}
             ghcr.io/${{ env.IMAGE_NAME }}
+          tags: |
+            # Default tags
+            type=schedule,pattern=nightly
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr,prefix=pr-
+            # Versioning tags
+            type=semver,pattern=v{{version}}
+            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern=v{{major}}
           flavor: |
             latest=auto
 
