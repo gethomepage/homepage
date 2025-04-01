@@ -33,8 +33,8 @@ importers:
         specifier: ^5.2.0
         version: 5.2.0
       i18next:
-        specifier: ^21.10.0
-        version: 21.10.0
+        specifier: ^24.2.3
+        version: 24.2.3(typescript@5.7.3)
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -73,7 +73,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-i18next:
         specifier: ^11.18.6
-        version: 11.18.6(i18next@21.10.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 11.18.6(i18next@24.2.3(typescript@5.7.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-icons:
         specifier: ^5.4.0
         version: 5.4.0(react@18.3.1)
@@ -101,6 +101,10 @@ importers:
       xml-js:
         specifier: ^1.6.11
         version: 1.6.11
+    optionalDependencies:
+      osx-temperature-sensor:
+        specifier: ^1.0.8
+        version: 1.0.8
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.10
@@ -150,10 +154,6 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
-    optionalDependencies:
-      osx-temperature-sensor:
-        specifier: ^1.0.8
-        version: 1.0.8
 
 packages:
 
@@ -163,6 +163,10 @@ packages:
 
   '@babel/runtime@7.26.9':
     resolution: {integrity: sha512-aA63XwOkcl4xxQa3HjPMqOP6LiK0ZDv3mUPYEFXkpHbaFjtGggE1A61FjFzJnB+p7/oy2gA8E+rcBNl/zC1tMg==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.27.0':
+    resolution: {integrity: sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw==}
     engines: {node: '>=6.9.0'}
 
   '@balena/dockerignore@1.0.2':
@@ -1554,6 +1558,14 @@ packages:
   i18next@21.10.0:
     resolution: {integrity: sha512-YeuIBmFsGjUfO3qBmMOc0rQaun4mIpGKET5WDwvu8lU7gvwpcariZLNtL0Fzj+zazcHUrlXHiptcFhBMFaxzfg==}
 
+  i18next@24.2.3:
+    resolution: {integrity: sha512-lfbf80OzkocvX7nmZtu7nSTNbrTYR52sLWxPtlXX1zAhVw8WEnFk4puUkCR4B1dNQwbSpEHHHemcZu//7EcB7A==}
+    peerDependencies:
+      typescript: ^5
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   ical-date-parser@4.0.0:
     resolution: {integrity: sha512-XRCK/FU1akC2ZaJOdKIeZI6BLLgzWUuE0pegSrrkEva89GOan5mNkLVqCU4EMhCJ9nkG5TLWdMXrVX1fNAkFzw==}
 
@@ -2783,6 +2795,10 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
+  '@babel/runtime@7.27.0':
+    dependencies:
+      regenerator-runtime: 0.14.1
+
   '@balena/dockerignore@1.0.2': {}
 
   '@colors/colors@1.6.0': {}
@@ -3741,7 +3757,7 @@ snapshots:
 
   dom-helpers@5.2.1:
     dependencies:
-      '@babel/runtime': 7.26.9
+      '@babel/runtime': 7.27.0
       csstype: 3.1.3
 
   dom-serializer@2.0.0:
@@ -4346,7 +4362,13 @@ snapshots:
 
   i18next@21.10.0:
     dependencies:
-      '@babel/runtime': 7.26.9
+      '@babel/runtime': 7.27.0
+
+  i18next@24.2.3(typescript@5.7.3):
+    dependencies:
+      '@babel/runtime': 7.27.0
+    optionalDependencies:
+      typescript: 5.7.3
 
   ical-date-parser@4.0.0: {}
 
@@ -4967,6 +4989,15 @@ snapshots:
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
+  react-i18next@11.18.6(i18next@24.2.3(typescript@5.7.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.26.9
+      html-parse-stringify: 3.0.1
+      i18next: 24.2.3(typescript@5.7.3)
+      react: 18.3.1
+    optionalDependencies:
+      react-dom: 18.3.1(react@18.3.1)
+
   react-icons@5.4.0(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -4985,7 +5016,7 @@ snapshots:
 
   react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.26.9
+      '@babel/runtime': 7.27.0
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
