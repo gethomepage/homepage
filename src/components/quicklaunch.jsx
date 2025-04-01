@@ -204,7 +204,8 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     return () => {
       abortController.abort();
     };
-  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url, t]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
