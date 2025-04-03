@@ -49,7 +49,8 @@ COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 COPY --link --from=builder --chown=1000:1000 /app/.next/standalone/ ./
 COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static
 
-RUN apk add --no-cache su-exec
+RUN apk add --no-cache su-exec && \
+  apk add --no-cache iputils
 
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
