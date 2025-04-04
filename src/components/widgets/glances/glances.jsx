@@ -1,9 +1,9 @@
-import useSWR from "swr";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
 import { useContext } from "react";
 import { FaMemory, FaRegClock, FaThermometerHalf } from "react-icons/fa";
 import { FiCpu, FiHardDrive } from "react-icons/fi";
-import { useTranslation } from "next-i18next";
-import classNames from "classnames";
+import useSWR from "swr";
 import { SettingsContext } from "utils/contexts/settings";
 
 import Error from "../widget/error";

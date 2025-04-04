@@ -1,6 +1,6 @@
-import { useTranslation } from "react-i18next";
-import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import { SettingsContext } from "utils/contexts/settings";
 
@@ -53,7 +53,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     const result = results[currentItemIndex];
     window.open(
       result.href,
-      newWindow ? "_blank" : result.target ?? searchProvider?.target ?? settings.target ?? "_blank",
+      newWindow ? "_blank" : (result.target ?? searchProvider?.target ?? settings.target ?? "_blank"),
       "noreferrer",
     );
   }
@@ -204,7 +204,8 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     return () => {
       abortController.abort();
     };
-  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url, t]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {

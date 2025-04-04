@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Oznámenia",
         "issues": "Problémy",
-        "pulls": "Pull requesty"
+        "pulls": "Pull requesty",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scény",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Štítky"
+    },
+    "slskd": {
+        "slskStatus": "Sieť",
+        "connected": "Pripojené",
+        "disconnected": "Odpojené",
+        "updateStatus": "Update",
+        "update_yes": "Dostupné",
+        "update_no": "Aktuálny",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Súborov"
     }
 }

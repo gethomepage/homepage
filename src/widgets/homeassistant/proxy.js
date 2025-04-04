@@ -1,6 +1,6 @@
-import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("homeassistantProxyHandler");
 

@@ -1,7 +1,7 @@
-import listIngress from "utils/kubernetes/ingress-list";
-import listTraefikIngress from "utils/kubernetes/traefik-list";
 import listHttpRoute from "utils/kubernetes/httproute-list";
-import { isDiscoverable, constructedServiceFromResource } from "utils/kubernetes/resource-helpers";
+import listIngress from "utils/kubernetes/ingress-list";
+import { constructedServiceFromResource, isDiscoverable } from "utils/kubernetes/resource-helpers";
+import listTraefikIngress from "utils/kubernetes/traefik-list";
 
 const kubernetes = {
   listIngress,

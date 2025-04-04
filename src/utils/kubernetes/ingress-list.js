@@ -1,6 +1,6 @@
 import { NetworkingV1Api } from "@kubernetes/client-node";
 
-import { getKubernetes, getKubeConfig } from "utils/config/kubernetes";
+import { getKubeConfig, getKubernetes } from "utils/config/kubernetes";
 import createLogger from "utils/logger";
 
 const logger = createLogger("ingress-list");
@@ -8,7 +8,7 @@ const kc = getKubeConfig();
 
 export default async function listIngress() {
   const networking = kc.makeApiClient(NetworkingV1Api);
-  const { ingress } = getKubernetes();
+  const { ingress = true } = getKubernetes();
   let ingressList = [];
 
   if (ingress) {

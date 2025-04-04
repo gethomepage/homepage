@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Notifications",
         "issues": "Problemer",
-        "pulls": "Pull Requests"
+        "pulls": "Pull Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scenes",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Tags"
+    },
+    "slskd": {
+        "slskStatus": "Network",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "updateStatus": "Update",
+        "update_yes": "Tilgængelig",
+        "update_no": "Opdateret",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Filer"
     }
 }

@@ -1,5 +1,5 @@
-import { useContext } from "react";
 import classNames from "classnames";
+import { useContext } from "react";
 import { SettingsContext } from "utils/contexts/settings";
 
 import Error from "./error";

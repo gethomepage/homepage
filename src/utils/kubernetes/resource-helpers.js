@@ -1,15 +1,15 @@
 import { CustomObjectsApi } from "@kubernetes/client-node";
 
+import { substituteEnvironmentVars } from "utils/config/config";
 import {
-  getKubeConfig,
   ANNOTATION_BASE,
   ANNOTATION_WIDGET_BASE,
+  getKubeConfig,
   HTTPROUTE_API_GROUP,
   HTTPROUTE_API_VERSION,
 } from "utils/config/kubernetes";
-import { substituteEnvironmentVars } from "utils/config/config";
-import createLogger from "utils/logger";
 import * as shvl from "utils/config/shvl";
+import createLogger from "utils/logger";
 
 const logger = createLogger("resource-helpers");
 const kc = getKubeConfig();

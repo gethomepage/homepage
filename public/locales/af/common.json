@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Kennisgewings",
         "issues": "Kwessies",
-        "pulls": "Trek Versoeke"
+        "pulls": "Trek Versoeke",
+        "repositories": "Bewaarplekke"
     },
     "stash": {
         "scenes": "Tonele",
@@ -1024,11 +1025,22 @@
         "timeleft": "Oorblywende Tyd"
     },
     "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+        "bookmarks": "Boekmerke",
+        "favorites": "Gunstelinge",
+        "archived": "Geargiveer",
+        "highlights": "Hoogtepunte",
+        "lists": "Lyste",
         "tags": "Merkers"
+    },
+    "slskd": {
+        "slskStatus": "Netwerk",
+        "connected": "Gekoppel",
+        "disconnected": "Ontkoppel",
+        "updateStatus": "Opdateer",
+        "update_yes": "Beskikbaar",
+        "update_no": "Op Datum",
+        "downloads": "Aflaaie",
+        "uploads": "Oplaaie",
+        "sharedFiles": "Lêers"
     }
 }

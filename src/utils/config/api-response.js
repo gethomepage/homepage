@@ -4,13 +4,13 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig, { getSettings, substituteEnvironmentVars, CONF_DIR } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import {
+  cleanServiceGroups,
+  findGroupByName,
   servicesFromConfig,
   servicesFromDocker,
-  cleanServiceGroups,
   servicesFromKubernetes,
-  findGroupByName,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
 

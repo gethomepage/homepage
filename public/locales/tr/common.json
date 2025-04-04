@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Bildirimler",
         "issues": "Sorunlar",
-        "pulls": "Değişiklik İstekleri"
+        "pulls": "Değişiklik İstekleri",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Sahneler",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Etiketler"
+    },
+    "slskd": {
+        "slskStatus": "Ağ",
+        "connected": "Bağlandı",
+        "disconnected": "Bağlantı kesildi",
+        "updateStatus": "Update",
+        "update_yes": "Kullanılabilir",
+        "update_no": "Güncel",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Dosyalar"
     }
 }

@@ -286,3 +286,13 @@ body[data-md-color-scheme="default"] {
 .md-tabs__link {
   transform: translateZ(0);
 }
+
+.grid.cards .card {
+  padding: 0;
+}
+
+.grid.cards .card a {
+  display: block;
+  padding: 0.8rem;
+  text-decoration: none;
+}

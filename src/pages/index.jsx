@@ -1,31 +1,31 @@
 /* eslint-disable react/no-array-index-key */
-import useSWR, { SWRConfig } from "swr";
-import Head from "next/head";
-import Script from "next/script";
-import dynamic from "next/dynamic";
 import classNames from "classnames";
-import { useTranslation } from "next-i18next";
-import { useEffect, useContext, useState, useMemo } from "react";
-import { BiError } from "react-icons/bi";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
-import Tab, { slugifyAndEncode } from "components/tab";
-import ServicesGroup from "components/services/group";
 import BookmarksGroup from "components/bookmarks/group";
-import Widget from "components/widgets/widget";
-import Revalidate from "components/toggles/revalidate";
-import { ColorContext } from "utils/contexts/color";
-import { ThemeContext } from "utils/contexts/theme";
-import { SettingsContext } from "utils/contexts/settings";
-import { TabContext } from "utils/contexts/tab";
 import ErrorBoundary from "components/errorboundry";
 import QuickLaunch from "components/quicklaunch";
+import ServicesGroup from "components/services/group";
+import Tab, { slugifyAndEncode } from "components/tab";
+import Revalidate from "components/toggles/revalidate";
+import Widget from "components/widgets/widget";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Script from "next/script";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { BiError } from "react-icons/bi";
+import useSWR, { SWRConfig } from "swr";
+import { ColorContext } from "utils/contexts/color";
+import { SettingsContext } from "utils/contexts/settings";
+import { TabContext } from "utils/contexts/tab";
+import { ThemeContext } from "utils/contexts/theme";
 
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
-import themes from "utils/styles/themes";
 import { getSettings } from "utils/config/config";
 import useWindowFocus from "utils/hooks/window-focus";
 import createLogger from "utils/logger";
+import themes from "utils/styles/themes";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
   ssr: false,
@@ -323,7 +323,7 @@ function Home({ initialSettings }) {
                   key={group.name}
                   group={group}
                   layout={settings.layout?.[group.name]}
-                  fiveColumns={settings.fiveColumns}
+                  maxGroupColumns={settings.fiveColumns ? 5 : settings.maxGroupColumns}
                   disableCollapse={settings.disableCollapse}
                   useEqualHeights={settings.useEqualHeights}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
@@ -334,6 +334,7 @@ function Home({ initialSettings }) {
                   bookmarks={group}
                   layout={settings.layout?.[group.name]}
                   disableCollapse={settings.disableCollapse}
+                  maxGroupColumns={settings.maxBookmarkGroupColumns ?? settings.maxGroupColumns}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 />
               ),
@@ -347,7 +348,7 @@ function Home({ initialSettings }) {
                 key={group.name}
                 group={group}
                 layout={settings.layout?.[group.name]}
-                fiveColumns={settings.fiveColumns}
+                maxGroupColumns={settings.fiveColumns ? 5 : settings.maxGroupColumns}
                 disableCollapse={settings.disableCollapse}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
               />
@@ -362,6 +363,7 @@ function Home({ initialSettings }) {
                 bookmarks={group}
                 layout={settings.layout?.[group.name]}
                 disableCollapse={settings.disableCollapse}
+                maxGroupColumns={settings.maxBookmarkGroupColumns ?? settings.maxGroupColumns}
                 groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
                 bookmarksStyle={settings.bookmarksStyle}
               />
@@ -377,6 +379,8 @@ function Home({ initialSettings }) {
     bookmarks,
     settings.layout,
     settings.fiveColumns,
+    settings.maxGroupColumns,
+    settings.maxBookmarkGroupColumns,
     settings.disableCollapse,
     settings.useEqualHeights,
     settings.cardBlur,
@@ -417,7 +421,12 @@ function Home({ initialSettings }) {
 
       <Script src="/api/config/custom.js" />
 
-      <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
+      <div
+        className={classNames(
+          settings.fullWidth ? "" : "container",
+          "relative m-auto flex flex-col justify-start z-10 h-full",
+        )}
+      >
         <QuickLaunch
           servicesAndBookmarks={servicesAndBookmarks}
           searchString={searchString}

@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import { useTranslation } from "next-i18next";
-import { BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
-import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
+import { BsCpu, BsFillCpuFill, BsFillPlayFill, BsPauseFill } from "react-icons/bs";
+import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
