@@ -14,7 +14,7 @@ Homepage has an UNRAID community package that you may use to install homepage. T
   - You may need to add the `HOMEPAGE_ALLOWED_HOSTS` variable to your configuration.
     - Click `Add another Path, Port, Variable, Label or Device` at the bottom of the page.
     - Click `Variable` and set `HOMEPAGE_ALLOWED_HOSTS` as the key.
-    - In the value page enter the same value as the `WebUI` field. 
+    - In the value page enter the same value as the `WebUI` field.
   - Click on **APPLY**.
 
 ## Run the Container
