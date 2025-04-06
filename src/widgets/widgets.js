@@ -42,7 +42,6 @@ import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import headscale from "./headscale/widget";
 import healthchecks from "./healthchecks/widget";
-import hoarder from "./hoarder/widget";
 import homeassistant from "./homeassistant/widget";
 import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
@@ -50,6 +49,7 @@ import immich from "./immich/widget";
 import jackett from "./jackett/widget";
 import jdownloader from "./jdownloader/widget";
 import jellyseerr from "./jellyseerr/widget";
+import karakeep from "./karakeep/widget";
 import kavita from "./kavita/widget";
 import komga from "./komga/widget";
 import kopia from "./kopia/widget";
@@ -178,7 +178,8 @@ const widgets = {
   grafana,
   hdhomerun,
   headscale,
-  hoarder,
+  hoarder: karakeep,
+  karakeep,
   homeassistant,
   homebox,
   homebridge,
