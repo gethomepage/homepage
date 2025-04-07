@@ -29,6 +29,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Deluge](deluge.md)
 - [DeveLanCacheUI](develancacheui.md)
 - [DiskStation](diskstation.md)
+- [Dockwatch](dockwatch.md)
 - [DownloadStation](downloadstation.md)
 - [Emby](emby.md)
 - [ESPHome](esphome.md)

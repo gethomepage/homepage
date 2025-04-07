@@ -1042,5 +1042,20 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Files"
+    },
+    "dockwatch": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "total": "Total",
+        "healthy": "Healthy",
+        "unhealthy": "Unhealthy",
+        "unknown": "Unknown",
+        "uptodate": "UpToDate",
+        "outdated": "Outdated",
+        "unchecked": "Unchecked",
+        "disk": "Disk",
+        "cpu": "Cpu",
+        "memory": "Memory",
+        "netIO": "NetIO"
     }
 }

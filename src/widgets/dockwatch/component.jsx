@@ -1,9 +1,10 @@
-import { useTranslation } from "next-i18next";
-
 import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import { useTranslation } from "next-i18next";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
-export const dockwatchDefaultFields = ["running", "stopped", "uptodate", "outdated"];
+
+const dockwatchDefaultFields = ["running", "stopped", "uptodate", "outdated"];
 const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service }) {
