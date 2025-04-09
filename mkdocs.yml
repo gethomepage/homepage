@@ -21,8 +21,8 @@ nav:
       - configs/index.md
       - configs/settings.md
       - configs/bookmarks.md
+      - configs/info-widgets.md
       - configs/services.md
-      - configs/service-widgets.md
       - configs/kubernetes.md
       - configs/docker.md
       - configs/custom-css-js.md
@@ -31,12 +31,15 @@ nav:
       - "Service Widgets":
           - widgets/services/index.md
           - widgets/services/adguard-home.md
+          - widgets/services/apcups.md
+          - widgets/services/argocd.md
           - widgets/services/atsumeru.md
           - widgets/services/audiobookshelf.md
           - widgets/services/authentik.md
           - widgets/services/autobrr.md
           - widgets/services/azuredevops.md
           - widgets/services/bazarr.md
+          - widgets/services/beszel.md
           - widgets/services/caddy.md
           - widgets/services/calendar.md
           - widgets/services/calibre-web.md
@@ -47,12 +50,14 @@ nav:
           - widgets/services/crowdsec.md
           - widgets/services/customapi.md
           - widgets/services/deluge.md
+          - widgets/services/develancacheui.md
           - widgets/services/diskstation.md
           - widgets/services/downloadstation.md
           - widgets/services/emby.md
           - widgets/services/esphome.md
           - widgets/services/evcc.md
           - widgets/services/fileflows.md
+          - widgets/services/firefly.md
           - widgets/services/flood.md
           - widgets/services/freshrss.md
           - widgets/services/frigate.md
@@ -61,12 +66,15 @@ nav:
           - widgets/services/gatus.md
           - widgets/services/ghostfolio.md
           - widgets/services/gitea.md
+          - widgets/services/gitlab.md
           - widgets/services/glances.md
           - widgets/services/gluetun.md
           - widgets/services/gotify.md
           - widgets/services/grafana.md
           - widgets/services/hdhomerun.md
+          - widgets/services/headscale.md
           - widgets/services/healthchecks.md
+          - widgets/services/karakeep.md
           - widgets/services/homeassistant.md
           - widgets/services/homebox.md
           - widgets/services/homebridge.md
@@ -81,7 +89,9 @@ nav:
           - widgets/services/kopia.md
           - widgets/services/lidarr.md
           - widgets/services/linkwarden.md
+          - widgets/services/lubelogger.md
           - widgets/services/mastodon.md
+          - widgets/services/mailcow.md
           - widgets/services/mealie.md
           - widgets/services/medusa.md
           - widgets/services/mikrotik.md
@@ -116,6 +126,7 @@ nav:
           - widgets/services/plex.md
           - widgets/services/portainer.md
           - widgets/services/prometheus.md
+          - widgets/services/prometheusmetric.md
           - widgets/services/prowlarr.md
           - widgets/services/proxmox.md
           - widgets/services/proxmoxbackupserver.md
@@ -131,8 +142,10 @@ nav:
           - widgets/services/scrutiny.md
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
+          - widgets/services/spoolman.md
           - widgets/services/stash.md
           - widgets/services/stocks.md
+          - widgets/services/suwayomi.md
           - widgets/services/swagdashboard.md
           - widgets/services/syncthing-relay-server.md
           - widgets/services/tailscale.md
@@ -148,6 +161,7 @@ nav:
           - widgets/services/uptime-kuma.md
           - widgets/services/uptimerobot.md
           - widgets/services/urbackup.md
+          - widgets/services/vikunja.md
           - widgets/services/watchtower.md
           - widgets/services/wgeasy.md
           - widgets/services/whatsupdocker.md
@@ -168,7 +182,6 @@ nav:
           - widgets/info/search.md
           - widgets/info/stocks.md
           - widgets/info/unifi_controller.md
-          - widgets/info/weather.md
   - "Learn":
       - widgets/authoring/index.md
       - "Getting Started": widgets/authoring/getting-started.md
@@ -232,8 +245,6 @@ extra_css:
   - "stylesheets/extra.css"
 
 extra:
-  version:
-    provider: mike
   social:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/k4ruYNrudu

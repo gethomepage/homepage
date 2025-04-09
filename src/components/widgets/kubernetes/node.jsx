@@ -1,7 +1,7 @@
+import { useTranslation } from "next-i18next";
 import { FaMemory } from "react-icons/fa";
 import { FiAlertTriangle, FiCpu, FiServer } from "react-icons/fi";
 import { SiKubernetes } from "react-icons/si";
-import { useTranslation } from "next-i18next";
 
 import UsageBar from "../resources/usage-bar";
 

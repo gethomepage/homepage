@@ -1,10 +1,11 @@
 import Container from "../widget/container";
 import Raw from "../widget/raw";
 
-import Disk from "./disk";
 import Cpu from "./cpu";
-import Memory from "./memory";
 import CpuTemp from "./cputemp";
+import Disk from "./disk";
+import Memory from "./memory";
+import Network from "./network";
 import Uptime from "./uptime";
 
 export default function Resources({ options }) {
@@ -23,6 +24,7 @@ export default function Resources({ options }) {
                 <Disk key={disk} options={{ disk }} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />
               ))
             : options.disk && <Disk options={options} expanded={expanded} diskUnits={diskUnits} refresh={refresh} />}
+          {options.network && <Network options={options} refresh={refresh} />}
           {options.cputemp && (
             <CpuTemp expanded={expanded} units={units} refresh={refresh} tempmin={tempmin} tempmax={tempmax} />
           )}

@@ -2,16 +2,21 @@ export function formatApiCall(url, args) {
   const find = /\{.*?\}/g;
   const replace = (match) => {
     const key = match.replace(/\{|\}/g, "");
-    return args[key] || "";
+    let value = args[key];
+    if (key === "url") {
+      value = value.replace(/\/+$/, ""); // remove trailing slashes
+    }
+    return value || "";
   };
 
-  return url.replace(/\/+$/, "").replace(find, replace).replace(find, replace);
+  return url.replace(find, replace).replace(find, replace);
 }
 
 export function getURLSearchParams(widget, endpoint) {
   const params = new URLSearchParams({
     group: widget.service_group,
     service: widget.service_name,
+    index: widget.index,
   });
   if (endpoint) {
     params.append("endpoint", endpoint);

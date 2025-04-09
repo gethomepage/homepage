@@ -1,9 +1,9 @@
 import cache from "memory-cache";
 
-import { httpProxy } from "utils/proxy/http";
-import { formatApiCall } from "utils/proxy/api-helpers";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const proxyName = "freshrssProxyHandler";
@@ -74,14 +74,14 @@ async function apiCall(widget, endpoint, service) {
 }
 
 export default async function freshrssProxyHandler(req, res) {
-  const { group, service } = req.query;
+  const { group, service, index } = req.query;
 
   if (!group || !service) {
     logger.debug("Invalid or missing service '%s' or group '%s'", service, group);
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const widget = await getServiceWidget(group, service);
+  const widget = await getServiceWidget(group, service, index);
   if (!widget) {
     logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
     return res.status(400).json({ error: "Invalid proxy service type" });

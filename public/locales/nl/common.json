@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mnd",
         "days": "d",
         "hours": "u",
@@ -71,8 +71,8 @@
         "tx": "TX",
         "mem": "GEH",
         "cpu": "CPU",
-        "running": "Wordt uitgevoerd",
-        "offline": "Onbereikbaar",
+        "running": "Actief",
+        "offline": "Offline",
         "error": "Fout",
         "unknown": "Onbekend",
         "healthy": "Gezond",
@@ -108,8 +108,8 @@
         "songs": "Nummers"
     },
     "esphome": {
-        "offline": "Onbereikbaar",
-        "offline_alt": "Onbereikbaar",
+        "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Bereikbaar",
         "total": "Totaal",
         "unknown": "Onbekend"
@@ -120,7 +120,7 @@
         "grid_power": "Netstroom",
         "home_power": "Consumptie",
         "charge_power": "Oplader",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",
@@ -148,7 +148,9 @@
         "up": "Online",
         "received": "Ontvangen",
         "sent": "Verzonden",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "Ext. IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Verbonden APs",
         "activeUser": "Actieve apparaten",
         "alerts": "Meldingen",
-        "connectedGateway": "Verbonden gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Verbonden switches"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Delen"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
         "download": "Download",
@@ -301,9 +307,19 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Wordt uitgevoerd",
+        "running": "Actief",
         "stopped": "Gestopt",
         "total": "Totaal"
+    },
+    "suwayomi": {
+        "download": "Gedownload",
+        "nondownload": "Niet gedownload",
+        "read": "Gelezen",
+        "unread": "Ongelezen",
+        "downloadedread": "Gedownload & gelezen",
+        "downloadedunread": "Gedownload & ongelezen",
+        "nondownloadedread": "Niet-gedownload & gelezen",
+        "nondownloadedunread": "Niet-gedownload & ongelezen"
     },
     "tailscale": {
         "address": "Adres",
@@ -318,6 +334,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Geleden"
+    },
+    "technitium": {
+        "totalQueries": "Verzoeken",
+        "totalNoError": "Geslaagd",
+        "totalServerFailure": "Gefaald",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Geweigerd",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Gecached",
+        "totalBlocked": "Geblokkeerd",
+        "totalDropped": "Dropped",
+        "totalClients": "Cliënten"
     },
     "tdarr": {
         "queue": "Wachtrij",
@@ -383,7 +412,7 @@
         "version": "Versie",
         "status": "Status",
         "up": "Bereikbaar",
-        "down": "Onbereikbaar"
+        "down": "Offline"
     },
     "miniflux": {
         "read": "Gelezen",
@@ -675,6 +704,10 @@
         "processed": "Verwerkt",
         "time": "Tijd"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Data Bronnen",
@@ -767,7 +800,7 @@
     "gamedig": {
         "status": "Status",
         "online": "Bereikbaar",
-        "offline": "Onbereikbaar",
+        "offline": "Offline",
         "name": "Naam",
         "map": "Kaart",
         "currentPlayers": "Huidige spelers",
@@ -791,7 +824,7 @@
     "openmediavault": {
         "downloading": "Downloaden",
         "total": "Totaal",
-        "running": "Wordt uitgevoerd",
+        "running": "Actief",
         "stopped": "Gestopt",
         "passed": "Geslaagd",
         "failed": "Gefaald"
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Platformen",
-        "totalRoms": "Totale ROM's"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots ",
+        "totalfilesize": "Totale grootte"
+    },
+    "mailcow": {
+        "domains": "Domeinen",
+        "mailboxes": "Mailboxen",
+        "mails": "Mails",
+        "storage": "Opslag"
     },
     "netdata": {
         "warnings": "Waarschuwingen",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Notificaties",
         "issues": "Problemen",
-        "pulls": "Pull Requests"
+        "pulls": "Pull Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scènes",
@@ -886,8 +930,8 @@
     "swagdashboard": {
         "proxied": "Proxied",
         "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "outdated": "Verouderd",
+        "banned": "Verbannen"
     },
     "myspeed": {
         "ping": "Ping",
@@ -895,15 +939,108 @@
         "upload": "Upload"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
+        "stocks": "Aandelen",
+        "loading": "Laden",
         "open": "Open - US Market",
         "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "invalidConfiguration": "Ongeldige configuratie"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Camera's",
         "uptime": "Online",
         "version": "Versie"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Label"
+    },
+    "zabbix": {
+        "unclassified": "Niet geclassificeerd",
+        "information": "Informatie",
+        "warning": "Waarschuwingen",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Voertuig",
+        "vehicles": "Voertuigen",
+        "serviceRecords": "Service Historie",
+        "reminders": "Herinneringen",
+        "nextReminder": "Volgende Herinnering",
+        "none": "Geen"
+    },
+    "vikunja": {
+        "projects": "Actieve Projecten",
+        "tasks7d": "Taken Die Deze Week Af Moeten Zijn",
+        "tasksOverdue": "Achterstallige Taken",
+        "tasksInProgress": "Taken In Uitvoering"
+    },
+    "headscale": {
+        "name": "Naam",
+        "address": "Adres",
+        "last_seen": "Laatst Gezien",
+        "status": "Status",
+        "online": "Bereikbaar",
+        "offline": "Offline"
+    },
+    "beszel": {
+        "name": "Naam",
+        "systems": "Systemen",
+        "up": "Online",
+        "down": "Offline",
+        "paused": "Gepauzeerd",
+        "pending": "In afwachting",
+        "status": "Status",
+        "updated": "Bijgewerkt",
+        "cpu": "CPU",
+        "memory": "GEH",
+        "disk": "Schijf",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Gesynchroniseerd",
+        "outOfSync": "Niet gesynchroniseerd",
+        "healthy": "Gezond",
+        "degraded": "Gedegradeerd",
+        "progressing": "Doorvoeren",
+        "missing": "Ontbreekt",
+        "suspended": "Onderbroken"
+    },
+    "spoolman": {
+        "loading": "Laden"
+    },
+    "gitlab": {
+        "groups": "Groepen",
+        "issues": "Problemen",
+        "merges": "Merge Verzoeken",
+        "projects": "Projecten"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Belasting",
+        "bcharge": "Batterij opladen",
+        "timeleft": "Resterende Tijd"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Label"
+    },
+    "slskd": {
+        "slskStatus": "Netwerk",
+        "connected": "Verbonden",
+        "disconnected": "Verbinding verbroken",
+        "updateStatus": "Update",
+        "update_yes": "Beschikbaar",
+        "update_no": "Bijgewerkt",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Bestanden"
     }
 }

@@ -1,8 +1,8 @@
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="openwrt.uptime" value={t("common.uptime", { value: uptime })} />
+      <Block label="openwrt.uptime" value={t("common.duration", { value: uptime })} />
       <Block label="openwrt.cpuLoad" value={cpuLoad} />
     </Container>
   );

@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mes",
         "days": "d",
         "hours": "h",
@@ -120,7 +120,7 @@
         "grid_power": "Xarxa",
         "home_power": "Consum",
         "charge_power": "Carregador",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Descarregar",
@@ -148,7 +148,9 @@
         "up": "Actiu",
         "received": "Rebuts",
         "sent": "Enviats",
-        "externalIPAddress": "IP ext."
+        "externalIPAddress": "IP ext.",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "AP connectats",
         "activeUser": "Dispositius actius",
         "alerts": "Alertes",
-        "connectedGateway": "Pasarel·les connectades",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Conmutadors connectats"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Pujada",
         "leech": "Sangonera",
         "seed": "Llavors"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Bytes trobats a la memòria cau",
+        "cachemissbytes": "Bytes no trobats a la memòria cau"
     },
     "downloadstation": {
         "download": "Descarregar",
@@ -305,6 +311,16 @@
         "stopped": "Aturat",
         "total": "Total"
     },
+    "suwayomi": {
+        "download": "Descarregat",
+        "nondownload": "No descarregat",
+        "read": "Llegit",
+        "unread": "Sense llegir",
+        "downloadedread": "Descarregat i llegit",
+        "downloadedunread": "Descarregat i per llegir",
+        "nondownloadedread": "No descarregat i llegit",
+        "nondownloadedunread": "No descarregat i per llegir"
+    },
     "tailscale": {
         "address": "Adreça",
         "expires": "Caduca",
@@ -319,11 +335,24 @@
         "seconds": "{{number}}s",
         "ago": "Fa {{value}}"
     },
+    "technitium": {
+        "totalQueries": "Consultes",
+        "totalNoError": "Èxits",
+        "totalServerFailure": "Fallades",
+        "totalNxDomain": "Dominis NX",
+        "totalRefused": "Rebutjat",
+        "totalAuthoritative": "Autoritatiu",
+        "totalRecursive": "Recursiu",
+        "totalCached": "A la memòria cau",
+        "totalBlocked": "Bloquejat",
+        "totalDropped": "Abandonat",
+        "totalClients": "Clients"
+    },
     "tdarr": {
         "queue": "Cua",
         "processed": "Processat",
         "errored": "Error",
-        "saved": "Desat"
+        "saved": "Estalviat"
     },
     "traefik": {
         "routers": "Encaminadors",
@@ -554,7 +583,7 @@
         "clientIP": "Client"
     },
     "scrutiny": {
-        "passed": "Aprobat",
+        "passed": "Aprovat",
         "failed": "Error",
         "unknown": "Desconegut"
     },
@@ -675,6 +704,10 @@
         "processed": "Processat",
         "time": "Temps"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Taulells",
         "datasources": "Orígens de dades",
@@ -793,7 +826,7 @@
         "total": "Total",
         "running": "En execució",
         "stopped": "Aturat",
-        "passed": "Aprobat",
+        "passed": "Aprovat",
         "failed": "Error"
     },
     "openwrt": {
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Plataformes",
-        "totalRoms": "ROMs totals"
+        "totalRoms": "Jocs",
+        "saves": "Partides desades",
+        "states": "Estats",
+        "screenshots": "Captures de pantalla",
+        "totalfilesize": "Tamany total"
+    },
+    "mailcow": {
+        "domains": "Dominis",
+        "mailboxes": "Bústies",
+        "mails": "Correus",
+        "storage": "Emmagatzematge"
     },
     "netdata": {
         "warnings": "Avisos",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Notificacions",
         "issues": "Problemes",
-        "pulls": "Sol·licitud de Canvis"
+        "pulls": "Sol·licitud de Canvis",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Escenes",
@@ -902,8 +946,101 @@
         "invalidConfiguration": "Configuració no vàlida"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Càmeres",
         "uptime": "Temps actiu",
         "version": "Versió"
+    },
+    "linkwarden": {
+        "links": "Enllaços",
+        "collections": "Col·leccions",
+        "tags": "Etiquetes"
+    },
+    "zabbix": {
+        "unclassified": "No classificat",
+        "information": "Informació",
+        "warning": "Avís",
+        "average": "Mitjana",
+        "high": "Alt",
+        "disaster": "Desastre"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Constàncies de manteniment",
+        "reminders": "Recordatoris",
+        "nextReminder": "Proper recordatori",
+        "none": "Cap"
+    },
+    "vikunja": {
+        "projects": "Projectes actius",
+        "tasks7d": "Tasques a completar aquesta setmana",
+        "tasksOverdue": "Tasques vençudes",
+        "tasksInProgress": "Tasques en marxa"
+    },
+    "headscale": {
+        "name": "Nom",
+        "address": "Adreça",
+        "last_seen": "Vist per darrer cop",
+        "status": "Estat",
+        "online": "En línia",
+        "offline": "Fora de línia"
+    },
+    "beszel": {
+        "name": "Nom",
+        "systems": "Sistemes",
+        "up": "Actiu",
+        "down": "Inactiu",
+        "paused": "En pausa",
+        "pending": "Pendent",
+        "status": "Estat",
+        "updated": "Actualitzat",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disc",
+        "network": "XARXA"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Sincronitzats",
+        "outOfSync": "Dessincronitzats",
+        "healthy": "Saludable",
+        "degraded": "Degradats",
+        "progressing": "Progressant",
+        "missing": "Falten",
+        "suspended": "Suspesos"
+    },
+    "spoolman": {
+        "loading": "Carregant"
+    },
+    "gitlab": {
+        "groups": "Grups",
+        "issues": "Problemes",
+        "merges": "Merge Requests",
+        "projects": "Projectes"
+    },
+    "apcups": {
+        "status": "Estat",
+        "load": "Càrrega",
+        "bcharge": "Càrrega de la bateria",
+        "timeleft": "Temps restant"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Etiquetes"
+    },
+    "slskd": {
+        "slskStatus": "Xarxa",
+        "connected": "Connectat",
+        "disconnected": "Desconnectat",
+        "updateStatus": "Update",
+        "update_yes": "Disponible",
+        "update_no": "Actualitzat",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Fitxers"
     }
 }

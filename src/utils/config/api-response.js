@@ -4,11 +4,12 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig, { getSettings, substituteEnvironmentVars, CONF_DIR } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import {
+  cleanServiceGroups,
+  findGroupByName,
   servicesFromConfig,
   servicesFromDocker,
-  cleanServiceGroups,
   servicesFromKubernetes,
 } from "utils/config/service-helpers";
 import { cleanWidgetGroups, widgetsFromConfig } from "utils/config/widget-helpers";
@@ -84,6 +85,56 @@ export async function widgetsResponse() {
   return configuredWidgets;
 }
 
+function convertLayoutGroupToGroup(name, layoutGroup) {
+  const group = { name, services: [], groups: [] };
+  if (layoutGroup) {
+    Object.entries(layoutGroup).forEach(([key, value]) => {
+      if (typeof value === "object") {
+        group.groups.push(convertLayoutGroupToGroup(key, value));
+      }
+    });
+  }
+  return group;
+}
+
+function mergeSubgroups(configuredGroups, mergedGroup) {
+  configuredGroups.forEach((group) => {
+    if (group.name === mergedGroup.name) {
+      // eslint-disable-next-line no-param-reassign
+      group.services = mergedGroup.services;
+    } else if (group.groups) {
+      mergeSubgroups(group.groups, mergedGroup);
+    }
+  });
+}
+
+function ensureParentGroupExists(sortedGroups, configuredGroups, group, definedLayouts) {
+  // make sure the top level parent group exists in the sortedGroups array
+  const parentGroupName = group.parent;
+  const parentGroup = findGroupByName(configuredGroups, parentGroupName);
+  if (parentGroup && parentGroup.parent) {
+    ensureParentGroupExists(sortedGroups, configuredGroups, parentGroup);
+  } else {
+    const parentGroupIndex = definedLayouts.findIndex((layout) => layout === parentGroupName);
+    if (parentGroupIndex > -1) {
+      sortedGroups[parentGroupIndex] = parentGroup;
+    }
+  }
+}
+
+function pruneEmptyGroups(groups) {
+  // remove any groups that have no services
+  return groups.filter((group) => {
+    if (group.services.length === 0 && group.groups.length === 0) {
+      return false;
+    }
+    if (group.groups.length > 0) {
+      group.groups = pruneEmptyGroups(group.groups);
+    }
+    return true;
+  });
+}
+
 export async function servicesResponse() {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
@@ -138,31 +189,52 @@ export async function servicesResponse() {
   const sortedGroups = [];
   const unsortedGroups = [];
   const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
+  if (definedLayouts) {
+    // this handles cases where groups are only defined in the settings.yaml layout and not in the services.yaml
+    const layoutConfiguredGroups = Object.entries(initialSettings.layout).map(([key, value]) =>
+      convertLayoutGroupToGroup(key, value),
+    );
+    layoutConfiguredGroups.forEach((group) => {
+      if (!configuredServices.find((serviceGroup) => serviceGroup.name === group.name)) {
+        configuredServices.push(group);
+      }
+    });
+  }
 
   mergedGroupsNames.forEach((groupName) => {
-    const discoveredDockerGroup = discoveredDockerServices.find((group) => group.name === groupName) || {
+    const discoveredDockerGroup = findGroupByName(discoveredDockerServices, groupName) || {
       services: [],
     };
-    const discoveredKubernetesGroup = discoveredKubernetesServices.find((group) => group.name === groupName) || {
+    const discoveredKubernetesGroup = findGroupByName(discoveredKubernetesServices, groupName) || {
       services: [],
     };
-    const configuredGroup = configuredServices.find((group) => group.name === groupName) || { services: [] };
+    const configuredGroup = findGroupByName(configuredServices, groupName) || { services: [], groups: [] };
 
     const mergedGroup = {
       name: groupName,
       services: [...discoveredDockerGroup.services, ...discoveredKubernetesGroup.services, ...configuredGroup.services]
         .filter((service) => service)
         .sort(compareServices),
+      groups: [...configuredGroup.groups],
     };
 
     if (definedLayouts) {
       const layoutIndex = definedLayouts.findIndex((layout) => layout === mergedGroup.name);
       if (layoutIndex > -1) sortedGroups[layoutIndex] = mergedGroup;
-      else unsortedGroups.push(mergedGroup);
+      else if (configuredGroup.parent) {
+        // this is a nested group, so find the parent group and merge the services
+        mergeSubgroups(configuredServices, mergedGroup);
+        // make sure the top level parent group exists in the sortedGroups array
+        ensureParentGroupExists(sortedGroups, configuredServices, configuredGroup, definedLayouts);
+      } else unsortedGroups.push(mergedGroup);
+    } else if (configuredGroup.parent) {
+      // this is a nested group, so find the parent group and merge the services
+      mergeSubgroups(configuredServices, mergedGroup);
     } else {
       unsortedGroups.push(mergedGroup);
     }
   });
 
-  return [...sortedGroups.filter((g) => g), ...unsortedGroups];
+  const allGroups = [...sortedGroups.filter((g) => g), ...unsortedGroups];
+  return pruneEmptyGroups(allGroups);
 }

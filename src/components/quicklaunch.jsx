@@ -1,12 +1,11 @@
-import { useTranslation } from "react-i18next";
-import { useEffect, useState, useRef, useCallback, useContext } from "react";
 import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import useSWR from "swr";
+import { SettingsContext } from "utils/contexts/settings";
 
 import ResolvedIcon from "./resolvedicon";
 import { getStoredProvider, searchProviders } from "./widgets/search/search";
-
-import { SettingsContext } from "utils/contexts/settings";
 
 export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, close }) {
   const { t } = useTranslation();
@@ -54,7 +53,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     const result = results[currentItemIndex];
     window.open(
       result.href,
-      newWindow ? "_blank" : result.target ?? searchProvider?.target ?? settings.target ?? "_blank",
+      newWindow ? "_blank" : (result.target ?? searchProvider?.target ?? settings.target ?? "_blank"),
       "noreferrer",
     );
   }
@@ -98,6 +97,12 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     } else if (event.key === "ArrowUp" && currentItemIndex > 0) {
       setCurrentItemIndex(currentItemIndex - 1);
       event.preventDefault();
+    } else if (
+      event.key === "ArrowRight" &&
+      results[currentItemIndex] &&
+      results[currentItemIndex].type === "searchSuggestion"
+    ) {
+      setSearchString(results[currentItemIndex].name);
     }
   }
 
@@ -123,7 +128,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   useEffect(() => {
     const abortController = new AbortController();
 
-    if (searchString.length === 0) setResults([]);
+    if (searchString.trim().length === 0) setResults([]);
     else {
       let newResults = servicesAndBookmarks.filter((r) => {
         const nameMatch = r.name.toLowerCase().includes(searchString);
@@ -199,7 +204,8 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     return () => {
       abortController.abort();
     };
-  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url, t]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url]);
 
   const [hidden, setHidden] = useState(true);
   useEffect(() => {
@@ -249,10 +255,10 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
       role="dialog"
       aria-modal="true"
     >
-      <div className="fixed inset-0 bg-gray-500 bg-opacity-50" />
+      <div className="fixed inset-0 bg-gray-500 opacity-50" />
       <div className="fixed inset-0 z-20 overflow-y-auto">
         <div className="flex min-h-full min-w-full items-start justify-center text-center">
-          <dialog className="mt-[10%] min-w-[90%] max-w-[90%] md:min-w-[40%] md:max-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
+          <dialog className="mt-[10%] mx-auto min-w-[90%] max-w-[90%] md:min-w-[40%] md:max-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
             <input
               placeholder="Search"
               className={classNames(

@@ -1,13 +1,13 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
   api: "{url}/v1/{endpoint}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: credentialedProxyHandler,
 
   mappings: {
     ip: {
       endpoint: "publicip/ip",
-      validate: ["public_ip", "region", "country"],
+      validate: ["public_ip", "country"],
     },
   },
 };

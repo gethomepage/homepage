@@ -1,10 +1,10 @@
 import cache from "memory-cache";
 
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
-import createLogger from "utils/logger";
 
 const proxyName = "npmProxyHandler";
 const tokenCacheKey = `${proxyName}__token`;
@@ -30,16 +30,16 @@ async function login(loginUrl, username, password, service) {
       cache.put(`${tokenCacheKey}.${service}`, data.token, expiration - 5 * 60 * 1000); // expiration -5 minutes
     }
   } catch (e) {
-    logger.error(`Error ${status} logging into npm`, authResponse[2]);
+    logger.error(`Error ${status} logging into npm`, JSON.stringify(authResponse[2]));
   }
   return [status, data.token ?? data];
 }
 
 export default async function npmProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
 
     if (!widgets?.[widget.type]?.api) {
       return res.status(403).json({ error: "Service does not support API calls" });
@@ -50,19 +50,18 @@ export default async function npmProxyHandler(req, res) {
       const loginUrl = `${widget.url}/api/tokens`;
 
       let status;
-      let contentType;
       let data;
 
       let token = cache.get(`${tokenCacheKey}.${service}`);
       if (!token) {
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
         if (status !== 200) {
-          logger.debug(`HTTTP ${status} logging into npm api: ${token}`);
+          logger.debug(`HTTP ${status} logging into npm api: ${token}`);
           return res.status(status).send(token);
         }
       }
 
-      [status, contentType, data] = await httpProxy(url, {
+      [status, , data] = await httpProxy(url, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -71,17 +70,17 @@ export default async function npmProxyHandler(req, res) {
       });
 
       if (status === 403) {
-        logger.debug(`HTTTP ${status} retrieving data from npm api, logging in and trying again.`);
+        logger.debug(`HTTP ${status} retrieving data from npm api, logging in and trying again.`);
         cache.del(`${tokenCacheKey}.${service}`);
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
 
         if (status !== 200) {
-          logger.debug(`HTTTP ${status} logging into npm api: ${data}`);
+          logger.debug(`HTTP ${status} logging into npm api: ${data}`);
           return res.status(status).send(data);
         }
 
         // eslint-disable-next-line no-unused-vars
-        [status, contentType, data] = await httpProxy(url, {
+        [status, , data] = await httpProxy(url, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

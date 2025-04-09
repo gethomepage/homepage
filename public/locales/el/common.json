@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "d",
         "hours": "h",
@@ -120,7 +120,7 @@
         "grid_power": "Πλέγμα",
         "home_power": "Κατανάλωση",
         "charge_power": "Φορτιστής",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Λήξη",
@@ -148,7 +148,9 @@
         "up": "Ping up",
         "received": "Ληφθέντα",
         "sent": "Απεσταλμένα",
-        "externalIPAddress": "Εξωτερική IP"
+        "externalIPAddress": "Εξωτερική IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Συνδεδεμένα APs",
         "activeUser": "Ενεργές συσκευές",
         "alerts": "Ειδοποιήσεις",
-        "connectedGateway": "Συνδεδεμένα gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Συνδεδεμένα switches"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Μεταφόρτωση",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
         "download": "Λήξη",
@@ -305,6 +311,16 @@
         "stopped": "Σταματημένο",
         "total": "Σύνολο"
     },
+    "suwayomi": {
+        "download": "Κατεβασμένο",
+        "nondownload": "Non-Downloaded",
+        "read": "Διαβάστηκε",
+        "unread": "Μη Διαβασμένο",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "Διεύθυνση",
         "expires": "Λήγει",
@@ -318,6 +334,19 @@
         "minutes": "{{number}}λεπτά",
         "seconds": "{{number}}δευτερόλεπτα",
         "ago": "{{value}} πρίν"
+    },
+    "technitium": {
+        "totalQueries": "Queries",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Αποκλεισμένο",
+        "totalDropped": "Dropped",
+        "totalClients": "Πελάτες"
     },
     "tdarr": {
         "queue": "Ουρά",
@@ -675,6 +704,10 @@
         "processed": "Σε επεξεργασία",
         "time": "Ώρα"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Πίνακας Ελέγχου",
         "datasources": "Πηγές Δεδομένων",
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Platforms",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Τομείς",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Αποθηκευτικός χώρος"
     },
     "netdata": {
         "warnings": "Warnings",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Notifications",
         "issues": "Issues",
-        "pulls": "Pull Requests"
+        "pulls": "Pull Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scenes",
@@ -905,5 +949,98 @@
         "cameras": "Cameras",
         "uptime": "Χρόνος Λειτουργίας",
         "version": "Έκδοση"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Ετικέτες"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Πληροφορία",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Όνομα",
+        "address": "Διεύθυνση",
+        "last_seen": "Τελευταία Σύνδεση",
+        "status": "Κατάσταση",
+        "online": "Συνδεδεμένοι",
+        "offline": "Εκτός σύνδεσης"
+    },
+    "beszel": {
+        "name": "Όνομα",
+        "systems": "Systems",
+        "up": "Ping up",
+        "down": "Ping down",
+        "paused": "Paused",
+        "pending": "Σε εκκρεμότητα",
+        "status": "Κατάσταση",
+        "updated": "Ενημερώθηκε",
+        "cpu": "Επεξεργαστής",
+        "memory": "Μνήμη",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Υγειές",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Απουσιάζει",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Issues",
+        "merges": "Merge Requests",
+        "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Κατάσταση",
+        "load": "Φόρτωση",
+        "bcharge": "Battery Charge",
+        "timeleft": "Χρόνος που απομένει"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Ετικέτες"
+    },
+    "slskd": {
+        "slskStatus": "Δίκτυο",
+        "connected": "Συνδέθηκε",
+        "disconnected": "Αποσυνδέθηκε",
+        "updateStatus": "Update",
+        "update_yes": "Διαθέσιμο",
+        "update_no": "Ενημερωμένο",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Αρχεία"
     }
 }

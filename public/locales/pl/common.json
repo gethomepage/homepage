@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mc",
         "days": "d",
         "hours": "g",
@@ -120,7 +120,7 @@
         "grid_power": "Siatka",
         "home_power": "Zużycie",
         "charge_power": "Ładowarka",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Pobieranie",
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "Oczekujące rozłączenie",
         "connectionStatusDisconnecting": "Rozłączanie",
         "connectionStatusDisconnected": "Rozłączono",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "Połączono",
         "uptime": "Czas działania",
         "maxDown": "Maks. Pobieranie",
         "maxUp": "Maks. Wysyłanie",
@@ -148,7 +148,9 @@
         "up": "Dostępny",
         "received": "Odebrane",
         "sent": "Wysłane",
-        "externalIPAddress": "Pub. IP"
+        "externalIPAddress": "Pub. IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Połączone punkty dostępowe",
         "activeUser": "Aktywne urządzenia",
         "alerts": "Alarmy",
-        "connectedGateway": "Połączone bramy",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Połączone przełączniki"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Trafienia w cache'u",
+        "cachemissbytes": "Straty cache'u"
     },
     "downloadstation": {
         "download": "Pobieranie",
@@ -279,9 +285,9 @@
     },
     "netalertx": {
         "total": "Całkowite",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "Połączono",
+        "new_devices": "Nowe urządzenia",
+        "down_alerts": "Alerty niedostępności"
     },
     "pihole": {
         "queries": "Zapytania",
@@ -305,6 +311,16 @@
         "stopped": "Zatrzymane",
         "total": "Całkowite"
     },
+    "suwayomi": {
+        "download": "Pobrano",
+        "nondownload": "Niepobrane",
+        "read": "Przeczytane",
+        "unread": "Nieprzeczytane",
+        "downloadedread": "Pobrane i przeczytane",
+        "downloadedunread": "Pobrane i nieprzeczytane",
+        "nondownloadedread": "Niepobrane i przeczytane",
+        "nondownloadedunread": "Niepobrane i nieprzeczytane"
+    },
     "tailscale": {
         "address": "Adres",
         "expires": "Wygasa za",
@@ -318,6 +334,19 @@
         "minutes": "{{number}}miesięcy",
         "seconds": "{{number}}sekund",
         "ago": "{{value}} temu"
+    },
+    "technitium": {
+        "totalQueries": "Zapytania",
+        "totalNoError": "Sukces",
+        "totalServerFailure": "Porażki",
+        "totalNxDomain": "Domeny NX",
+        "totalRefused": "Odrzucone",
+        "totalAuthoritative": "Autorytatywne",
+        "totalRecursive": "Rekursywne",
+        "totalCached": "Zbuforowane",
+        "totalBlocked": "Zablokowane",
+        "totalDropped": "Upuszczone",
+        "totalClients": "Klienci"
     },
     "tdarr": {
         "queue": "Kolejka",
@@ -446,8 +475,8 @@
         "51-night": "Lekka mżawka",
         "53-day": "Mżawka",
         "53-night": "Mżawka",
-        "55-day": "Ciężka mżawka",
-        "55-night": "Ciężka mżawka",
+        "55-day": "Gęsta mżawka",
+        "55-night": "Gęsta mżawka",
         "56-day": "Lekko chłodna mżawka",
         "56-night": "Lekko chłodna mżawka",
         "57-day": "Chłodna mżawka",
@@ -675,6 +704,10 @@
         "processed": "Przetworzone",
         "time": "Czas"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Panel główny",
         "datasources": "Źródła danych",
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Platformy",
-        "totalRoms": "Łącznie ROM"
+        "totalRoms": "Gry",
+        "saves": "Zapisy",
+        "states": "Stany",
+        "screenshots": "Screeny",
+        "totalfilesize": "Rozmiar całkowity"
+    },
+    "mailcow": {
+        "domains": "Domeny",
+        "mailboxes": "Skrzynki",
+        "mails": "Poczta",
+        "storage": "Pamięć"
     },
     "netdata": {
         "warnings": "Ostrzeżenia",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Powiadomienia",
         "issues": "Zgłoszenia",
-        "pulls": "Żądania Pull"
+        "pulls": "Żądania Pull",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Sceny",
@@ -878,16 +922,16 @@
         "bans": "Bany"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "Połączono",
         "enabled": "Włączone",
         "disabled": "Wyłączone",
         "total": "Całkowite"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Proxy",
+        "auth": "Z uwietrzytelnieniem",
+        "outdated": "Nieaktualne",
+        "banned": "Zbanowano"
     },
     "myspeed": {
         "ping": "Ping",
@@ -895,15 +939,108 @@
         "upload": "Wysyłanie"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Giełda",
+        "loading": "Wczytywanie",
+        "open": "Otwarte - rynek US",
+        "closed": "Zamknięte - rynek US",
+        "invalidConfiguration": "Nieprawidłowa konfiguracja"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kamery",
         "uptime": "Czas działania",
         "version": "Wersja"
+    },
+    "linkwarden": {
+        "links": "Łącza",
+        "collections": "Kolekcje",
+        "tags": "Tagi"
+    },
+    "zabbix": {
+        "unclassified": "Niezaklasyfikowane",
+        "information": "Informacje",
+        "warning": "Ostrzeżenie",
+        "average": "Średnia",
+        "high": "Wysokie",
+        "disaster": "Katastrofa"
+    },
+    "lubelogger": {
+        "vehicle": "Pojazd",
+        "vehicles": "Pojazdy",
+        "serviceRecords": "Wpisy serwisowe",
+        "reminders": "Przypomnienia",
+        "nextReminder": "Następne przypomnienie",
+        "none": "Brak"
+    },
+    "vikunja": {
+        "projects": "Aktywne Projekty",
+        "tasks7d": "Zadania w tym tygodniu",
+        "tasksOverdue": "Zaległe zadania",
+        "tasksInProgress": "Zadania w toku"
+    },
+    "headscale": {
+        "name": "Nazwa",
+        "address": "Adres",
+        "last_seen": "Ostatnio dostępny",
+        "status": "Stan",
+        "online": "Dostępny",
+        "offline": "Nieosiągalny"
+    },
+    "beszel": {
+        "name": "Nazwa",
+        "systems": "Systemy",
+        "up": "Dostępny",
+        "down": "Niedostępny",
+        "paused": "Zatrzymane",
+        "pending": "Oczekiwane",
+        "status": "Stan",
+        "updated": "Zaktualizowane",
+        "cpu": "Procesor",
+        "memory": "RAM",
+        "disk": "Dysk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Aplikacje",
+        "synced": "Synchronizowane",
+        "outOfSync": "Bez synchronizacji",
+        "healthy": "Zdrowy",
+        "degraded": "Zdegradowane",
+        "progressing": "Postępujące",
+        "missing": "Brakujące",
+        "suspended": "Zawieszone"
+    },
+    "spoolman": {
+        "loading": "Wczytywanie"
+    },
+    "gitlab": {
+        "groups": "Grupy",
+        "issues": "Zgłoszenia",
+        "merges": "Żądania scaleń",
+        "projects": "Projekty"
+    },
+    "apcups": {
+        "status": "Stan",
+        "load": "Obciążenie",
+        "bcharge": "Stan baterii",
+        "timeleft": "Pozostało"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tagi"
+    },
+    "slskd": {
+        "slskStatus": "Sieć",
+        "connected": "Połączono",
+        "disconnected": "Rozłączono",
+        "updateStatus": "Update",
+        "update_yes": "Dostępne",
+        "update_no": "Aktualny",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Pliki"
     }
 }

@@ -1,9 +1,9 @@
 import cache from "memory-cache";
 
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 import { asJson, formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
-import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 
 const INFO_ENDPOINT = "{url}/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query";
@@ -131,13 +131,13 @@ function toError(url, synologyError) {
 }
 
 export default async function synologyProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   if (!group || !service) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const serviceWidget = await getServiceWidget(group, service);
+  const serviceWidget = await getServiceWidget(group, service, index);
   const widget = widgets?.[serviceWidget.type];
   const mapping = widget?.mappings?.[endpoint];
   if (!widget.api || !mapping) {

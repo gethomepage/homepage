@@ -20,6 +20,6 @@ Allowed fields: `["users", "loginsLast24H", "failedLoginsLast24H"]`.
 ```yaml
 widget:
   type: authentik
-  url: http://authentik.host.or.ip:22070
+  url: http://authentik.host.or.ip:port
   key: api_token
 ```

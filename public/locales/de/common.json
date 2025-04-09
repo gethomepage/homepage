@@ -13,8 +13,8 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
-        "months": "mo",
+        "duration": "{{value, duration}}",
+        "months": "Mo.",
         "days": "d",
         "hours": "h",
         "minutes": "min",
@@ -85,16 +85,16 @@
     "ping": {
         "error": "Fehler",
         "ping": "Ping",
-        "down": "Empfangen",
-        "up": "Senden",
+        "down": "Offline",
+        "up": "Online",
         "not_available": "Nicht verfügbar"
     },
     "siteMonitor": {
         "http_status": "HTTP-Status",
         "error": "Fehler",
         "response": "Antwort",
-        "down": "Empfangen",
-        "up": "Senden",
+        "down": "Offline",
+        "up": "Online",
         "not_available": "Nicht verfügbar"
     },
     "emby": {
@@ -120,7 +120,7 @@
         "grid_power": "Netz",
         "home_power": "verbauch",
         "charge_power": "Ladegerät",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",
@@ -144,11 +144,13 @@
         "uptime": "Betriebszeit",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Empfangen",
-        "up": "Senden",
+        "down": "Offline",
+        "up": "Online",
         "received": "Empfangen",
         "sent": "Gesendet",
-        "externalIPAddress": "Externe IP"
+        "externalIPAddress": "Externe IP",
+        "externalIPv6Address": "Externe IPv6",
+        "externalIPv6Prefix": "Externer IPv4-Präfix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Verbundene APs",
         "activeUser": "Aktive Geräte",
         "alerts": "Warnungen",
-        "connectedGateway": "Verbundene Gateways",
+        "connectedGateways": "Verbundene Gateways",
         "connectedSwitches": "Verbundene Switche"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache-Trefferbytes",
+        "cachemissbytes": "Cache-Fehlbytes"
     },
     "downloadstation": {
         "download": "Download",
@@ -301,9 +307,19 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Werden ausgeführt",
+        "running": "Wird ausgeführt",
         "stopped": "Gestoppt",
         "total": "Gesamt"
+    },
+    "suwayomi": {
+        "download": "Heruntergeladen",
+        "nondownload": "Nicht heruntergeladen",
+        "read": "Gelesen",
+        "unread": "Ungelesen",
+        "downloadedread": "Heruntergeladen & gelesen",
+        "downloadedunread": "Heruntergeladen & ungelesen",
+        "nondownloadedread": "Nicht heruntergeladen & gelesen",
+        "nondownloadedunread": "Nicht heruntergeladen & ungelesen"
     },
     "tailscale": {
         "address": "Adresse",
@@ -319,11 +335,24 @@
         "seconds": "{{number}}s",
         "ago": "Vor {{value}}"
     },
+    "technitium": {
+        "totalQueries": "Anfragen",
+        "totalNoError": "Erfolgreich",
+        "totalServerFailure": "Fehler",
+        "totalNxDomain": "NX-Domänen",
+        "totalRefused": "Verweigert",
+        "totalAuthoritative": "Autoritativ",
+        "totalRecursive": "Rekursiv",
+        "totalCached": "Im Cache",
+        "totalBlocked": "Blockiert",
+        "totalDropped": "Verworfen",
+        "totalClients": "Benutzer"
+    },
     "tdarr": {
         "queue": "Warteschlange",
         "processed": "Verarbeitet",
         "errored": "Fehlgeschlagen",
-        "saved": "Gespeichert"
+        "saved": "Eingespart"
     },
     "traefik": {
         "routers": "Router",
@@ -418,7 +447,7 @@
         "write": "Schreiben",
         "gpu": "GPU",
         "mem": "RAM",
-        "swap": "Swap"
+        "swap": "Auslagerung"
     },
     "quicklaunch": {
         "bookmark": "Lesezeichen",
@@ -494,15 +523,15 @@
         "up_to_date": "Aktuell",
         "child_bridges": "Unter-Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Senden",
+        "up": "Online",
         "pending": "Ausstehend",
-        "down": "Empfangen"
+        "down": "Offline"
     },
     "healthchecks": {
         "new": "Neu",
-        "up": "Senden",
+        "up": "Online",
         "grace": "In Karenzzeit",
-        "down": "Empfangen",
+        "down": "Offline",
         "paused": "Pausiert",
         "status": "Status",
         "last_ping": "Letzter Ping",
@@ -617,8 +646,8 @@
         "load": "Durchschnittliche Last",
         "memory": "Speichernutzung",
         "wanStatus": "WAN-Status",
-        "up": "Senden",
-        "down": "Empfangen",
+        "up": "Online",
+        "down": "Offline",
         "temp": "Temperatur",
         "disk": "Datenträgernutzung",
         "wanIP": "WAN-IP"
@@ -674,6 +703,10 @@
         "processing": "Wird verarbeitet",
         "processed": "Verarbeitet",
         "time": "Zeit"
+    },
+    "firefly": {
+        "networth": "Reinvermögen",
+        "budget": "Budget"
     },
     "grafana": {
         "dashboards": "Dashboards",
@@ -799,8 +832,8 @@
     "openwrt": {
         "uptime": "Betriebszeit",
         "cpuLoad": "CPU-Last (5 min-Durchschnitt)",
-        "up": "Senden",
-        "down": "Empfangen",
+        "up": "Online",
+        "down": "Offline",
         "bytesTx": "Übertragen",
         "bytesRx": "Empfangen"
     },
@@ -813,9 +846,9 @@
         "sitesDown": "Seiten nicht verfügbar",
         "paused": "Pausiert",
         "notyetchecked": "Noch nicht geprüft",
-        "up": "Senden",
+        "up": "Online",
         "seemsdown": "Scheint nicht verfügbar",
-        "down": "Empfangen",
+        "down": "Offline",
         "unknown": "Unbekannt"
     },
     "calendar": {
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Plattformen",
-        "totalRoms": "ROMs gesamt"
+        "totalRoms": "Spiele",
+        "saves": "Spielstände",
+        "states": "Speicherstände",
+        "screenshots": "Bildschirmfotos",
+        "totalfilesize": "Gesamtgröße"
+    },
+    "mailcow": {
+        "domains": "Domänen",
+        "mailboxes": "Postfächer",
+        "mails": "E-Mails",
+        "storage": "Speicher"
     },
     "netdata": {
         "warnings": "Warnungen",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Benachrichtigungen",
         "issues": "Probleme",
-        "pulls": "Pull-Requests"
+        "pulls": "Pull-Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Szenen",
@@ -902,8 +946,101 @@
         "invalidConfiguration": "Ungültige Konfiguration"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kameras",
         "uptime": "Betriebszeit",
         "version": "Version"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Sammlungen",
+        "tags": "Schlagwörter"
+    },
+    "zabbix": {
+        "unclassified": "Nicht klassifiziert",
+        "information": "Informationen",
+        "warning": "Warnung",
+        "average": "Durchschnitt",
+        "high": "Hoch",
+        "disaster": "Katastrophe"
+    },
+    "lubelogger": {
+        "vehicle": "Fahrzeug",
+        "vehicles": "Fahrzeuge",
+        "serviceRecords": "Wartungseinträge",
+        "reminders": "Erinnerungen",
+        "nextReminder": "Nächste Erinnerung",
+        "none": "Keine"
+    },
+    "vikunja": {
+        "projects": "Aktive Projekte",
+        "tasks7d": "Diese Woche fällige Aufgaben",
+        "tasksOverdue": "Überfällige Aufgaben",
+        "tasksInProgress": "Aufgaben in Arbeit"
+    },
+    "headscale": {
+        "name": "Name",
+        "address": "Adresse",
+        "last_seen": "Zuletzt gesehen",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "beszel": {
+        "name": "Name",
+        "systems": "Systeme",
+        "up": "Online",
+        "down": "Offline",
+        "paused": "Pausiert",
+        "pending": "Ausstehend",
+        "status": "Status",
+        "updated": "Aktualisiert",
+        "cpu": "CPU",
+        "memory": "RAM",
+        "disk": "Festplatte",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Anwendungen",
+        "synced": "Synchronisiert",
+        "outOfSync": "Nicht mehr synchronisiert",
+        "healthy": "Fehlerfrei",
+        "degraded": "Beeinträchtigt",
+        "progressing": "Fortschritt",
+        "missing": "Fehlend",
+        "suspended": "Unterbrochen"
+    },
+    "spoolman": {
+        "loading": "Wird geladen"
+    },
+    "gitlab": {
+        "groups": "Gruppen",
+        "issues": "Probleme",
+        "merges": "Merge Requests",
+        "projects": "Projekte"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Last",
+        "bcharge": "Akkuladung",
+        "timeleft": "Verbleibende Zeit"
+    },
+    "hoarder": {
+        "bookmarks": "Lesezeichen",
+        "favorites": "Favoriten",
+        "archived": "Archiviert",
+        "highlights": "Highlights",
+        "lists": "Listen",
+        "tags": "Schlagwörter"
+    },
+    "slskd": {
+        "slskStatus": "Netzwerk",
+        "connected": "Verbunden",
+        "disconnected": "Getrennt",
+        "updateStatus": "Update",
+        "update_yes": "Verfügbar",
+        "update_no": "Aktuell",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Dateien"
     }
 }

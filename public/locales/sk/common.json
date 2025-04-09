@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mes",
         "days": "d",
         "hours": "h",
@@ -120,7 +120,7 @@
         "grid_power": "Mriežka",
         "home_power": "Spotreba",
         "charge_power": "Nabíjačka",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Sťahovanie",
@@ -148,7 +148,9 @@
         "up": "Nahrávanie",
         "received": "Prijaté",
         "sent": "Odoslané",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "Ext. IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Odosielanie dát",
@@ -176,7 +178,7 @@
         "connectedAp": "Pripojené prístupové body",
         "activeUser": "Aktívne zariadenia",
         "alerts": "Upozornenia",
-        "connectedGateway": "Pripojené sieťové brány",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Pripojené prepínače"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Nahrávanie",
         "leech": "Leechované",
         "seed": "Seedované"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
         "download": "Sťahovanie",
@@ -305,6 +311,16 @@
         "stopped": "Zastavené",
         "total": "Celkovo"
     },
+    "suwayomi": {
+        "download": "Stiahnuté",
+        "nondownload": "Non-Downloaded",
+        "read": "Prečítané",
+        "unread": "Neprečítané",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "Adresa",
         "expires": "Vyprší",
@@ -318,6 +334,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "Pred {{value}}"
+    },
+    "technitium": {
+        "totalQueries": "Dopyty",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Zablokované",
+        "totalDropped": "Dropped",
+        "totalClients": "Klienti"
     },
     "tdarr": {
         "queue": "V poradí",
@@ -675,6 +704,10 @@
         "processed": "Spracované",
         "time": "Čas"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Panely",
         "datasources": "Zdroje dát",
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Platformy",
-        "totalRoms": "Celkovo ROM"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domény",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Úložisko"
     },
     "netdata": {
         "warnings": "Upozornenia",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Oznámenia",
         "issues": "Problémy",
-        "pulls": "Pull requesty"
+        "pulls": "Pull requesty",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scény",
@@ -905,5 +949,98 @@
         "cameras": "Cameras",
         "uptime": "Prevádzka",
         "version": "Verzia"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Štítky"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informácia",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Meno",
+        "address": "Adresa",
+        "last_seen": "Naposledy videné",
+        "status": "Stav",
+        "online": "Online",
+        "offline": "Nedostupný"
+    },
+    "beszel": {
+        "name": "Meno",
+        "systems": "Systems",
+        "up": "Nahrávanie",
+        "down": "Sťahovanie",
+        "paused": "Pozastavené",
+        "pending": "Čakajúce",
+        "status": "Stav",
+        "updated": "Aktualizované",
+        "cpu": "CPU",
+        "memory": "RAM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Zdravý",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Chýbajúce",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problémy",
+        "merges": "Merge Requests",
+        "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Stav",
+        "load": "Záťaž",
+        "bcharge": "Nabitie batérie",
+        "timeleft": "Zostávajúci čas"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Štítky"
+    },
+    "slskd": {
+        "slskStatus": "Sieť",
+        "connected": "Pripojené",
+        "disconnected": "Odpojené",
+        "updateStatus": "Update",
+        "update_yes": "Dostupné",
+        "update_no": "Aktuálny",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Súborov"
     }
 }

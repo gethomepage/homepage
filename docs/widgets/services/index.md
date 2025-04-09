@@ -1,17 +1,22 @@
 ---
 title: Service Widgets
 description: Homepage service widgets.
+search:
+  exclude: true
 ---
 
 You can also find a list of all available service widgets in the sidebar navigation.
 
 - [Adguard Home](adguard-home.md)
+- [APC UPS](apcups.md)
+- [ArgoCD](argocd.md)
 - [Atsumeru](atsumeru.md)
 - [Audiobookshelf](audiobookshelf.md)
 - [Authentik](authentik.md)
 - [Autobrr](autobrr.md)
 - [Azure DevOps](azuredevops.md)
 - [Bazarr](bazarr.md)
+- [Beszel](beszel.md)
 - [Caddy](caddy.md)
 - [Calendar](calendar.md)
 - [Calibre-Web](calibre-web.md)
@@ -29,6 +34,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [ESPHome](esphome.md)
 - [EVCC](evcc.md)
 - [Fileflows](fileflows.md)
+- [Firefly III](firefly.md)
 - [Flood](flood.md)
 - [FreshRSS](freshrss.md)
 - [Frigate](frigate.md)
@@ -37,12 +43,15 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Gatus](gatus.md)
 - [Ghostfolio](ghostfolio.md)
 - [Gitea](gitea.md)
+- [Gitlab](gitlab.md)
 - [Glances](glances.md)
 - [Gluetun](gluetun.md)
 - [Gotify](gotify.md)
 - [Grafana](grafana.md)
 - [HDHomeRun](hdhomerun.md)
+- [Headscale](headscale.md)
 - [Healthchecks](healthchecks.md)
+- [Karakeep](karakeep.md)
 - [Home Assistant](homeassistant.md)
 - [HomeBox](homebox.md)
 - [Homebridge](homebridge.md)
@@ -57,7 +66,9 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Kopia](kopia.md)
 - [Lidarr](lidarr.md)
 - [Linkwarden](linkwarden.md)
+- [Lubelogger](lubelogger.md)
 - [Mastodon](mastodon.md)
+- [Mailcow](mailcow.md)
 - [Mealie](mealie.md)
 - [Medusa](medusa.md)
 - [Mikrotik](mikrotik.md)
@@ -92,6 +103,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Plex](plex.md)
 - [Portainer](portainer.md)
 - [Prometheus](prometheus.md)
+- [Prometheus Metric](prometheusmetric.md)
 - [Prowlarr](prowlarr.md)
 - [Proxmox](proxmox.md)
 - [Proxmox Backup Server](proxmoxbackupserver.md)
@@ -105,6 +117,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [ruTorrent](rutorrent.md)
 - [SABnzbd](sabnzbd.md)
 - [Scrutiny](scrutiny.md)
+- [Slskd](slskd.md)
 - [Sonarr](sonarr.md)
 - [Speedtest Tracker](speedtest-tracker.md)
 - [Stash](stash.md)
@@ -124,6 +137,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Uptime Kuma](uptime-kuma.md)
 - [UptimeRobot](uptimerobot.md)
 - [UrBackup](urbackup.md)
+- [Vikunja](vikunja.md)
 - [Watchtower](watchtower.md)
 - [WGEasy](wgeasy.md)
 - [WhatsUpDocker](whatsupdocker.md)

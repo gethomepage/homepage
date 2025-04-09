@@ -1,9 +1,9 @@
 import cache from "memory-cache";
 
-import { httpProxy } from "utils/proxy/http";
-import { formatApiCall } from "utils/proxy/api-helpers";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const proxyName = "crowdsecProxyHandler";
@@ -35,14 +35,14 @@ async function login(widget, service) {
 }
 
 export default async function crowdsecProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   if (!group || !service) {
     logger.error("Invalid or missing service '%s' or group '%s'", service, group);
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  const widget = await getServiceWidget(group, service);
+  const widget = await getServiceWidget(group, service, index);
   if (!widget || !widgets[widget.type].api) {
     logger.error("Invalid or missing widget for service '%s' in group '%s'", service, group);
     return res.status(400).json({ error: "Invalid widget configuration" });

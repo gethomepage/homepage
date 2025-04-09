@@ -1,7 +1,7 @@
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
 
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
@@ -39,21 +39,15 @@ export default function Component({ service }) {
       <Block label="audiobookshelf.podcasts" value={t("common.number", { value: totalPodcasts })} />
       <Block
         label="audiobookshelf.podcastsDuration"
-        value={t("common.number", {
-          value: totalPodcastsDuration / 60,
-          maximumFractionDigits: 0,
-          style: "unit",
-          unit: "minute",
+        value={t("common.duration", {
+          value: totalPodcastsDuration,
         })}
       />
       <Block label="audiobookshelf.books" value={t("common.number", { value: totalBooks })} />
       <Block
         label="audiobookshelf.booksDuration"
-        value={t("common.number", {
-          value: totalBooksDuration / 60,
-          maximumFractionDigits: 0,
-          style: "unit",
-          unit: "minute",
+        value={t("common.duration", {
+          value: totalBooksDuration,
         })}
       />
     </Container>

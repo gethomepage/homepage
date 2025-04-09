@@ -1,7 +1,7 @@
-import { useMemo } from "react";
-import { DateTime, Info } from "luxon";
 import classNames from "classnames";
+import { DateTime, Info } from "luxon";
 import { useTranslation } from "next-i18next";
+import { useMemo } from "react";
 
 import Event, { compareDateTimezone } from "./event";
 
@@ -9,7 +9,7 @@ const cellStyle = "relative w-10 flex items-center justify-center flex-col";
 const monthButton = "pl-6 pr-6 ml-2 mr-2 hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
 
 export function Day({ weekNumber, weekday, events, colorVariants, showDate, setShowDate, currentDate }) {
-  const cellDate = showDate.set({ weekday, weekNumber }).startOf("day");
+  const cellDate = showDate.set({ weekday, weekNumber, weekYear: showDate.year }).startOf("day");
   const filteredEvents = events?.filter((event) => compareDateTimezone(cellDate, event));
 
   const dayStyles = (displayDate) => {
@@ -35,7 +35,7 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
       // today style
       style += "text-black-500 bg-theme-100/20 dark:bg-black/20 rounded-md ";
     } else {
-      style += "hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer ";
+      style += "hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
     }
 
     return style;
@@ -57,7 +57,7 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
             .map((event) => (
               <span
                 key={`${event.date.ts}+${event.color}-${event.title}-${event.additional}`}
-                className={classNames("inline-flex h-1 w-1 m-0.5 rounded", colorVariants[event.color] ?? "gray")}
+                className={classNames("inline-flex h-1 w-1 m-0.5 rounded-sm", colorVariants[event.color] ?? "gray")}
               />
             ))}
       </span>

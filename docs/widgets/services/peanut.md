@@ -20,4 +20,6 @@ widget:
   type: peanut
   url: http://peanut.host.or.ip:port
   key: nameofyourups
+  username: username # only needed if set
+  password: password # only needed if set
 ```

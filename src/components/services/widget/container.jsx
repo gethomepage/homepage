@@ -1,8 +1,12 @@
 import { useContext } from "react";
+import { SettingsContext } from "utils/contexts/settings";
 
 import Error from "./error";
 
-import { SettingsContext } from "utils/contexts/settings";
+const ALIASED_WIDGETS = {
+  pialert: "netalertx",
+  hoarder: "karakeep",
+};
 
 export default function Container({ error = false, children, service }) {
   const { settings } = useContext(SettingsContext);
@@ -33,7 +37,17 @@ export default function Container({ error = false, children, service }) {
         if (!field.includes(".")) {
           fullField = `${type}.${field}`;
         }
-        return fullField === child?.props?.label;
+        let matches = fullField === child?.props?.label;
+        // check if the field is an 'alias'
+        if (matches) {
+          return true;
+        } else if (ALIASED_WIDGETS[type]) {
+          matches = fullField.replace(type, ALIASED_WIDGETS[type]) === child?.props?.label;
+
+          return matches;
+        }
+        // no match
+        return false;
       }),
     );
   }

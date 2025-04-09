@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mnd",
         "days": "d",
         "hours": "t",
@@ -120,7 +120,7 @@
         "grid_power": "Gitter",
         "home_power": "Forbrug",
         "charge_power": "Oplader",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",
@@ -148,7 +148,9 @@
         "up": "Op",
         "received": "Modtaget",
         "sent": "Sendt",
-        "externalIPAddress": "Ekstern IP"
+        "externalIPAddress": "Ekstern IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Forbundne APs",
         "activeUser": "Aktive enheder",
         "alerts": "Advarsler",
-        "connectedGateway": "Forbundne gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Forbundne switches"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
         "download": "Download",
@@ -305,6 +311,16 @@
         "stopped": "Stoppede",
         "total": "Total"
     },
+    "suwayomi": {
+        "download": "Hentet",
+        "nondownload": "Non-Downloaded",
+        "read": "Læst",
+        "unread": "Ulæst",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "Adresse",
         "expires": "Udløber",
@@ -318,6 +334,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Siden"
+    },
+    "technitium": {
+        "totalQueries": "Forespørgsler",
+        "totalNoError": "Success",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Blokerede",
+        "totalDropped": "Dropped",
+        "totalClients": "Klienter"
     },
     "tdarr": {
         "queue": "Kø",
@@ -675,6 +704,10 @@
         "processed": "Behandlet",
         "time": "Tid"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Kontrolpanel",
         "datasources": "Data Kilder",
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Platforme",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "Games",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domæner",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Lager"
     },
     "netdata": {
         "warnings": "Advarsler",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Notifications",
         "issues": "Problemer",
-        "pulls": "Pull Requests"
+        "pulls": "Pull Requests",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scenes",
@@ -905,5 +949,98 @@
         "cameras": "Cameras",
         "uptime": "Oppetid",
         "version": "Version"
+    },
+    "linkwarden": {
+        "links": "Links",
+        "collections": "Collections",
+        "tags": "Tags"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Information",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Navn",
+        "address": "Adresse",
+        "last_seen": "Sidst Set",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
+    },
+    "beszel": {
+        "name": "Navn",
+        "systems": "Systems",
+        "up": "Op",
+        "down": "Ned",
+        "paused": "Pause",
+        "pending": "Afventer",
+        "status": "Status",
+        "updated": "Opdateret",
+        "cpu": "CPU",
+        "memory": "RAM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sund",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Mangler",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemer",
+        "merges": "Merge Requests",
+        "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Belastning",
+        "bcharge": "Batteriniveau",
+        "timeleft": "Resterende tid"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tags"
+    },
+    "slskd": {
+        "slskStatus": "Network",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "updateStatus": "Update",
+        "update_yes": "Tilgængelig",
+        "update_no": "Opdateret",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Filer"
     }
 }

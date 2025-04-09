@@ -1,8 +1,8 @@
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
 import { useEffect, useState } from "react";
 
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {
@@ -58,7 +58,7 @@ export default function Component({ service }) {
       break;
     case 2:
       status = t("uptimerobot.up");
-      uptime = t("common.uptime", { value: monitor.logs[0].duration });
+      uptime = t("common.duration", { value: monitor.logs[0].duration });
       logIndex = 1;
       break;
     case 8:
@@ -73,7 +73,7 @@ export default function Component({ service }) {
   }
 
   const lastDown = new Date(monitor.logs[logIndex].datetime * 1000).toLocaleString();
-  const downDuration = t("common.uptime", { value: monitor.logs[logIndex].duration });
+  const downDuration = t("common.duration", { value: monitor.logs[logIndex].duration });
   const hideDown = logIndex === 1 && monitor.logs[logIndex].type !== 1;
 
   return (

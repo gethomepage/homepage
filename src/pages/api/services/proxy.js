@@ -1,16 +1,16 @@
-import { formatApiCall } from "utils/proxy/api-helpers";
-import createLogger from "utils/logger";
-import genericProxyHandler from "utils/proxy/handlers/generic";
-import widgets from "widgets/widgets";
-import calendarProxyHandler from "widgets/calendar/proxy";
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import genericProxyHandler from "utils/proxy/handlers/generic";
+import calendarProxyHandler from "widgets/calendar/proxy";
+import widgets from "widgets/widgets";
 
 const logger = createLogger("servicesProxy");
 
 export default async function handler(req, res) {
   try {
-    const { service, group } = req.query;
-    const serviceWidget = await getServiceWidget(group, service);
+    const { service, group, index } = req.query;
+    const serviceWidget = await getServiceWidget(group, service, index);
     let type = serviceWidget?.type;
 
     // exceptions
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     if (!widget) {
       logger.debug("Unknown proxy service type: %s", type);
-      return res.status(403).json({ error: "Unkown proxy service type" });
+      return res.status(403).json({ error: "Unknown proxy service type" });
     }
 
     const serviceProxyHandler = widget.proxyHandler || genericProxyHandler;
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         const endpoint = mapping?.endpoint;
         const endpointProxy = mapping?.proxyHandler || serviceProxyHandler;
 
-        if (mapping.method && mapping.method !== req.method) {
+        if (mapping?.method && mapping.method !== req.method) {
           logger.debug("Unsupported method: %s", req.method);
           return res.status(403).json({ error: "Unsupported method" });
         }
@@ -107,7 +107,7 @@ export default async function handler(req, res) {
     }
 
     logger.debug("Unknown proxy service type: %s", type);
-    return res.status(403).json({ error: "Unkown proxy service type" });
+    return res.status(403).json({ error: "Unknown proxy service type" });
   } catch (e) {
     if (e) logger.error(e);
     return res.status(500).send({ error: "Unexpected error" });

@@ -1,5 +1,5 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 import { asJson, jsonArrayFilter } from "utils/proxy/api-helpers";
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
   api: "{url}/api/v2.0/{endpoint}",
@@ -23,10 +23,10 @@ const widget = {
           id: entry.name,
           name: entry.name,
           healthy: entry.healthy,
-          allocated: entry.allocated,
-          free: entry.free,
-          data: entry.topology?.data ?? [],
         })),
+    },
+    dataset: {
+      endpoint: "pool/dataset",
     },
   },
 };

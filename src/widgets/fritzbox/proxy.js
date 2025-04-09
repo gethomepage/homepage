@@ -2,9 +2,9 @@ import { xml2json } from "xml-js";
 
 import { fritzboxDefaultFields } from "./component";
 
-import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("fritzboxProxyHandler");
 
@@ -46,8 +46,8 @@ async function requestEndpoint(apiBaseUrl, service, action) {
 }
 
 export default async function fritzboxProxyHandler(req, res) {
-  const { group, service } = req.query;
-  const serviceWidget = await getServiceWidget(group, service);
+  const { group, service, index } = req.query;
+  const serviceWidget = await getServiceWidget(group, service, index);
 
   if (!serviceWidget) {
     res.status(500).json({ error: { message: "Service widget not found" } });
@@ -70,14 +70,21 @@ export default async function fritzboxProxyHandler(req, res) {
   const requestLinkProperties = ["maxDown", "maxUp"].some((field) => serviceWidget.fields.includes(field));
   const requestAddonInfos = ["down", "up", "received", "sent"].some((field) => serviceWidget.fields.includes(field));
   const requestExternalIPAddress = ["externalIPAddress"].some((field) => serviceWidget.fields.includes(field));
+  const requestExternalIPv6Address = ["externalIPv6Address"].some((field) => serviceWidget.fields.includes(field));
+  const requestExternalIPv6Prefix = ["externalIPv6Prefix"].some((field) => serviceWidget.fields.includes(field));
 
   await Promise.all([
+    // as per http://fritz.box:49000/igddesc.xml specifications (fritz.box is a hostname of your router)
     requestStatusInfo ? requestEndpoint(apiBaseUrl, "WANIPConnection", "GetStatusInfo") : null,
     requestLinkProperties ? requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetCommonLinkProperties") : null,
     requestAddonInfos ? requestEndpoint(apiBaseUrl, "WANCommonInterfaceConfig", "GetAddonInfos") : null,
     requestExternalIPAddress ? requestEndpoint(apiBaseUrl, "WANIPConnection", "GetExternalIPAddress") : null,
+    requestExternalIPv6Address
+      ? requestEndpoint(apiBaseUrl, "WANIPConnection", "X_AVM_DE_GetExternalIPv6Address")
+      : null,
+    requestExternalIPv6Prefix ? requestEndpoint(apiBaseUrl, "WANIPConnection", "X_AVM_DE_GetIPv6Prefix") : null,
   ])
-    .then(([statusInfo, linkProperties, addonInfos, externalIPAddress]) => {
+    .then(([statusInfo, linkProperties, addonInfos, externalIPAddress, externalIPv6Address, externalIPv6Prefix]) => {
       res.status(200).json({
         connectionStatus: statusInfo?.NewConnectionStatus || "Unconfigured",
         uptime: statusInfo?.NewUptime || 0,
@@ -88,6 +95,8 @@ export default async function fritzboxProxyHandler(req, res) {
         received: addonInfos?.NewX_AVM_DE_TotalBytesReceived64 || 0,
         sent: addonInfos?.NewX_AVM_DE_TotalBytesSent64 || 0,
         externalIPAddress: externalIPAddress?.NewExternalIPAddress || null,
+        externalIPv6Address: externalIPv6Address?.NewExternalIPv6Address || null,
+        externalIPv6Prefix: externalIPv6Prefix?.NewIPv6Prefix || null,
       });
     })
     .catch((error) => {

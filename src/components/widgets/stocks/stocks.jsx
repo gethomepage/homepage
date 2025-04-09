@@ -1,13 +1,13 @@
-import useSWR from "swr";
-import { useState } from "react";
 import { useTranslation } from "next-i18next";
+import { useState } from "react";
 import { FaChartLine } from "react-icons/fa6";
+import useSWR from "swr";
 
-import Error from "../widget/error";
 import Container from "../widget/container";
+import Error from "../widget/error";
 import PrimaryText from "../widget/primary_text";
-import WidgetIcon from "../widget/widget_icon";
 import Raw from "../widget/raw";
+import WidgetIcon from "../widget/widget_icon";
 
 export default function Widget({ options }) {
   const { t, i18n } = useTranslation();
@@ -40,7 +40,7 @@ export default function Widget({ options }) {
           <button
             type="button"
             onClick={() => setViewingPercentChange(!viewingPercentChange)}
-            className="flex items-center w-full h-full hover:outline-none focus:outline-none"
+            className="flex items-center w-full h-full hover:outline-hidden focus:outline-hidden"
           >
             <FaChartLine className="flex-none w-5 h-5 text-theme-800 dark:text-theme-200 mr-2" />
             <div className="flex flex-wrap items-center gap-0.5">
@@ -49,9 +49,11 @@ export default function Widget({ options }) {
                   stock && (
                     <div
                       key={stock.ticker}
-                      className="rounded h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
+                      className="rounded-sm h-full text-xs px-1 w-[4.75rem] flex flex-col items-center justify-center"
                     >
-                      <span className="text-theme-800 dark:text-theme-200 text-xs">{stock.ticker}</span>
+                      <span className="text-theme-800 dark:text-theme-200 text-xs">
+                        {stock.ticker.split(":").pop()}
+                      </span>
                       {!viewingPercentChange ? (
                         <span
                           className={

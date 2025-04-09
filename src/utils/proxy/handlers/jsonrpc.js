@@ -1,9 +1,9 @@
 import { JSONRPCClient, JSONRPCErrorException } from "json-rpc-2.0";
 
-import { formatApiCall } from "utils/proxy/api-helpers";
-import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("jsonrpcProxyHandler");
@@ -14,11 +14,11 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
     accept: "application/json",
   };
 
-  if (widget.username && widget.password) {
+  if (widget?.username && widget?.password) {
     headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
   }
 
-  if (widget.key) {
+  if (widget?.key) {
     headers.Authorization = `Bearer ${widget.key}`;
   }
 
@@ -65,10 +65,10 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
 }
 
 export default async function jsonrpcProxyHandler(req, res) {
-  const { group, service, endpoint: method } = req.query;
+  const { group, service, endpoint: method, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
     const api = widgets?.[widget.type]?.api;
 
     const [, mapping] = Object.entries(widgets?.[widget.type]?.mappings).find(([, value]) => value.endpoint === method);

@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "g",
         "hours": "o",
@@ -120,7 +120,7 @@
         "grid_power": "Griglia",
         "home_power": "Consumo",
         "charge_power": "Caricatore",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",
@@ -148,7 +148,9 @@
         "up": "Up",
         "received": "Ricevuti",
         "sent": "Inviati",
-        "externalIPAddress": "IP Esterno"
+        "externalIPAddress": "IP Esterno",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstream",
@@ -176,7 +178,7 @@
         "connectedAp": "AP Connessi",
         "activeUser": "Dispositivi attivi",
         "alerts": "Allarmi",
-        "connectedGateway": "Gateway connessi",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Switch connessi"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Upload",
         "leech": "In download",
         "seed": "Seed"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Cache Hit Bytes",
+        "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
         "download": "Download",
@@ -287,7 +293,7 @@
         "queries": "Richieste",
         "blocked": "Bloccati",
         "blocked_percent": "Bloccato %",
-        "gravity": "Severità"
+        "gravity": "Gravity"
     },
     "adguard": {
         "queries": "Richieste",
@@ -305,6 +311,16 @@
         "stopped": "Fermati",
         "total": "Totale"
     },
+    "suwayomi": {
+        "download": "Scaricato",
+        "nondownload": "Non-Downloaded",
+        "read": "Letti",
+        "unread": "Non letto",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "Indirizzo",
         "expires": "Scade",
@@ -318,6 +334,19 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Fa"
+    },
+    "technitium": {
+        "totalQueries": "Richieste",
+        "totalNoError": "Successo",
+        "totalServerFailure": "Failures",
+        "totalNxDomain": "NX Domains",
+        "totalRefused": "Refused",
+        "totalAuthoritative": "Authoritative",
+        "totalRecursive": "Recursive",
+        "totalCached": "Cached",
+        "totalBlocked": "Bloccati",
+        "totalDropped": "Dropped",
+        "totalClients": "Client"
     },
     "tdarr": {
         "queue": "Coda",
@@ -563,7 +592,7 @@
         "total": "Totale"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
+        "battery_charge": "Carica Batteria",
         "ups_load": "Carico UPS",
         "ups_status": "Stato UPS",
         "online": "Online",
@@ -674,6 +703,10 @@
         "processing": "In lavorazione",
         "processed": "Elaborati",
         "time": "Tempo"
+    },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
     },
     "grafana": {
         "dashboards": "Dashboard",
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Piattaforme",
-        "totalRoms": "Total ROMs"
+        "totalRoms": "Giochi",
+        "saves": "Saves",
+        "states": "States",
+        "screenshots": "Screenshots",
+        "totalfilesize": "Total Size"
+    },
+    "mailcow": {
+        "domains": "Domini",
+        "mailboxes": "Mailboxes",
+        "mails": "Mails",
+        "storage": "Archiviazione"
     },
     "netdata": {
         "warnings": "Avvisi",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Notifiche",
         "issues": "Problemi",
-        "pulls": "Richieste di Pull"
+        "pulls": "Richieste di Pull",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scene",
@@ -853,7 +897,7 @@
         "sceneDuration": "Durata Delle Scene",
         "images": "Immagini",
         "imageSize": "Dimensioni immagine",
-        "galleries": "Galleries",
+        "galleries": "Gallerie",
         "performers": "Esecutori",
         "studios": "Studi",
         "movies": "Film",
@@ -896,7 +940,7 @@
     },
     "stocks": {
         "stocks": "Stocks",
-        "loading": "Loading",
+        "loading": "Caricamento",
         "open": "Open - US Market",
         "closed": "Closed - US Market",
         "invalidConfiguration": "Invalid Configuration"
@@ -905,5 +949,98 @@
         "cameras": "Cameras",
         "uptime": "Tempo di attività",
         "version": "Versione"
+    },
+    "linkwarden": {
+        "links": "Collegamenti",
+        "collections": "Raccolte",
+        "tags": "Tag"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Informazioni",
+        "warning": "Warning",
+        "average": "Average",
+        "high": "High",
+        "disaster": "Disaster"
+    },
+    "lubelogger": {
+        "vehicle": "Veicolo",
+        "vehicles": "Veicoli",
+        "serviceRecords": "Service Records",
+        "reminders": "Promemoria",
+        "nextReminder": "Promemoria Seguente",
+        "none": "Nessuno"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Tasks Due This Week",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "Nome",
+        "address": "Indirizzo",
+        "last_seen": "Ultima visualizzazione",
+        "status": "Stato",
+        "online": "Online",
+        "offline": "Non in linea"
+    },
+    "beszel": {
+        "name": "Nome",
+        "systems": "Systems",
+        "up": "Up",
+        "down": "Down",
+        "paused": "In Pausa",
+        "pending": "In attesa",
+        "status": "Stato",
+        "updated": "Aggiornato",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sano",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Mancanti",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Caricamento"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Problemi",
+        "merges": "Merge Requests",
+        "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Stato",
+        "load": "Carico",
+        "bcharge": "Carica Batteria",
+        "timeleft": "Tempo Rimanente"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tag"
+    },
+    "slskd": {
+        "slskStatus": "Rete",
+        "connected": "Connesso",
+        "disconnected": "Disconnesso",
+        "updateStatus": "Update",
+        "update_yes": "Disponibili",
+        "update_no": "Aggiornato",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "File"
     }
 }

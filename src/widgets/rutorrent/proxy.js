@@ -1,8 +1,8 @@
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
-import { formatApiCall } from "utils/proxy/api-helpers";
-import createLogger from "utils/logger";
 
 const logger = createLogger("rutorrentProxyHandler");
 
@@ -45,10 +45,10 @@ const getTorrentInfo = (data) => ({
 });
 
 export default async function rutorrentProxyHandler(req, res) {
-  const { group, service } = req.query;
+  const { group, service, index } = req.query;
 
   if (group && service) {
-    const widget = await getServiceWidget(group, service);
+    const widget = await getServiceWidget(group, service, index);
 
     if (widget) {
       const api = widgets?.[widget.type]?.api;

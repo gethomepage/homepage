@@ -1,9 +1,10 @@
-import { useState, useEffect, Fragment } from "react";
-import { useTranslation } from "next-i18next";
-import { FiSearch } from "react-icons/fi";
-import { SiDuckduckgo, SiMicrosoftbing, SiGoogle, SiBaidu, SiBrave } from "react-icons/si";
-import { Listbox, Transition, Combobox } from "@headlessui/react";
+import { Combobox, Listbox, Transition } from "@headlessui/react";
 import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import { Fragment, useEffect, useState } from "react";
+import { BiLogoBing } from "react-icons/bi";
+import { FiSearch } from "react-icons/fi";
+import { SiBaidu, SiBrave, SiDuckduckgo, SiGoogle } from "react-icons/si";
 
 import ContainerForm from "../widget/container_form";
 import Raw from "../widget/raw";
@@ -25,7 +26,7 @@ export const searchProviders = {
     name: "Bing",
     url: "https://www.bing.com/search?q=",
     suggestionUrl: "https://api.bing.com/osjson.aspx?query=",
-    icon: SiMicrosoftbing,
+    icon: BiLogoBing,
   },
   baidu: {
     name: "Baidu",
@@ -94,6 +95,7 @@ export default function Search({ options }) {
     if (
       options.showSearchSuggestions &&
       (selectedProvider.suggestionUrl || options.suggestionUrl) && // custom providers pass url via options
+      query.trim().length > 0 &&
       query.trim() !== searchSuggestions[0]
     ) {
       fetch(`/api/search/searchSuggestion?query=${encodeURIComponent(query)}&providerName=${selectedProvider.name}`, {
@@ -189,7 +191,7 @@ export default function Search({ options }) {
               <div>
                 <Listbox.Button
                   className="
-                  absolute right-0.5 bottom-0.5 rounded-r-md px-4 py-2 border-1
+                  absolute right-0.5 bottom-0.5 rounded-r-md px-4 py-2
                   text-white font-medium text-sm
                   bg-theme-600/40 dark:bg-white/10
                   focus:ring-theme-500 dark:focus:ring-white/50"
@@ -210,7 +212,7 @@ export default function Search({ options }) {
                 <Listbox.Options
                   className="absolute right-0 z-10 mt-1 origin-top-right rounded-md
                   bg-theme-100 dark:bg-theme-600 shadow-lg
-                  ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  ring-1 ring-black ring-opacity-5 focus:outline-hidden"
                 >
                   <div className="flex flex-col">
                     {availableProviderIds.map((providerId) => {

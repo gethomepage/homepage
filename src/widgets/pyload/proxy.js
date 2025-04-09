@@ -1,10 +1,10 @@
 import cache from "memory-cache";
 
 import getServiceWidget from "utils/config/service-helpers";
-import { formatApiCall } from "utils/proxy/api-helpers";
-import widgets from "widgets/widgets";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
+import widgets from "widgets/widgets";
 
 const proxyName = "pyloadProxyHandler";
 const logger = createLogger(proxyName);
@@ -15,7 +15,7 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
   const options = {
     body: params
       ? Object.keys(params)
-          .map((prop) => `${prop}=${params[prop]}`)
+          .map((prop) => `${prop}=${encodeURIComponent(params[prop])}`)
           .join("&")
       : `session=${sessionId}`,
     method: "POST",
@@ -67,11 +67,11 @@ async function login(loginUrl, service, username, password = "") {
 }
 
 export default async function pyloadProxyHandler(req, res) {
-  const { group, service, endpoint } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   try {
     if (group && service) {
-      const widget = await getServiceWidget(group, service);
+      const widget = await getServiceWidget(group, service, index);
 
       if (widget) {
         const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));

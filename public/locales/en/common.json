@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "mo",
         "days": "d",
         "hours": "h",
@@ -120,7 +120,7 @@
         "grid_power": "Grid",
         "home_power": "Consumption",
         "charge_power": "Charger",
-        "watt_hour": "Wh"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "Download",
@@ -148,7 +148,9 @@
         "up": "Up",
         "received": "Received",
         "sent": "Sent",
-        "externalIPAddress": "Ext. IP"
+        "externalIPAddress": "Ext. IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -176,7 +178,7 @@
         "connectedAp": "Connected APs",
         "activeUser": "Active devices",
         "alerts": "Alerts",
-        "connectedGateway": "Connected gateways",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Connected switches"
     },
     "nzbget": {
@@ -308,6 +310,16 @@
         "running": "Running",
         "stopped": "Stopped",
         "total": "Total"
+    },
+    "suwayomi": {
+      "download": "Downloaded",
+      "nondownload": "Non-Downloaded",
+      "read": "Read",
+      "unread": "Unread",
+      "downloadedread": "Downloaded & Read",
+      "downloadedunread": "Downloaded & Unread",
+      "nondownloadedread": "Non-Downloaded & Read",
+      "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Address",
@@ -692,6 +704,10 @@
         "processed": "Processed",
         "time": "Time"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Dashboards",
         "datasources": "Data Sources",
@@ -850,6 +866,12 @@
         "screenshots": "Screenshots",
         "totalfilesize": "Total Size"
     },
+    "mailcow": {
+      "domains": "Domains",
+      "mailboxes": "Mailboxes",
+      "mails": "Mails",
+      "storage": "Storage"
+    },
     "netdata": {
       "warnings": "Warnings",
       "criticals": "Criticals"
@@ -861,9 +883,10 @@
         "species": "Species"
     },
     "gitea": {
-        "notifications": "Notifications",
-        "issues": "Issues",
-        "pulls": "Pull Requests"
+      "notifications": "Notifications",
+      "issues": "Issues",
+      "pulls": "Pull Requests",
+      "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scenes",
@@ -933,16 +956,98 @@
         "tags": "Tags"
     },
     "zabbix": {
+      "unclassified": "Not classified",
+      "information": "Information",
       "warning": "Warning",
       "average": "Average",
       "high": "High",
       "disaster": "Disaster"
     },
     "prayerTimes": {
-    "fajr": "Fajr",
-    "dhuhr": "Dhuhr",
-    "asr": "Asr",
-    "maghrib": "Maghrib",
-    "isha": "Isha"
-  }
+      "fajr": "Fajr",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha"
+    },
+    "lubelogger": {
+      "vehicle": "Vehicle",
+      "vehicles": "Vehicles",
+      "serviceRecords": "Service Records",
+      "reminders": "Reminders",
+      "nextReminder": "Next Reminder",
+      "none": "None"
+    },
+    "vikunja": {
+      "projects": "Active Projects",
+      "tasks7d": "Tasks Due This Week",
+      "tasksOverdue": "Overdue Tasks",
+      "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+      "name": "Name",
+      "address": "Address",
+      "last_seen": "Last Seen",
+      "status": "Status",
+      "online": "Online",
+      "offline": "Offline"
+    },
+    "beszel": {
+      "name": "Name",
+      "systems": "Systems",
+      "up": "Up",
+      "down": "Down",
+      "paused": "Paused",
+      "pending": "Pending",
+      "status": "Status",
+      "updated": "Updated",
+      "cpu": "CPU",
+      "memory": "MEM",
+      "disk": "Disk",
+      "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Missing",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Loading"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Issues",
+        "merges": "Merge Requests",
+        "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Status",
+        "load": "Load",
+        "bcharge":"Battery Charge",
+        "timeleft":"Time Left"
+    },
+    "karakeep": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Tags"
+    },
+    "slskd": {
+        "slskStatus": "Network",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
+        "updateStatus": "Update",
+        "update_yes": "Available",
+        "update_no": "Up to Date",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Files"
+    }
 }

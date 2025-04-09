@@ -13,7 +13,7 @@
         "ms": "{{value, number}}",
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
-        "uptime": "{{value, uptime}}",
+        "duration": "{{value, duration}}",
         "months": "ay",
         "days": "g",
         "hours": "sa",
@@ -120,7 +120,7 @@
         "grid_power": "Güç",
         "home_power": "Tüketim",
         "charge_power": "Şarj",
-        "watt_hour": "Watt/Saat"
+        "kilowatt": "kW"
     },
     "flood": {
         "download": "İndirme",
@@ -148,7 +148,9 @@
         "up": "Yükleme",
         "received": "Alınan",
         "sent": "Gönderilen",
-        "externalIPAddress": "Harici IP"
+        "externalIPAddress": "Harici IP",
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
         "upstreams": "Akış",
@@ -176,7 +178,7 @@
         "connectedAp": "Bağlı AP'ler",
         "activeUser": "Aktif cihazlar",
         "alerts": "Alarmlar",
-        "connectedGateway": "Bağlı ağ geçitleri",
+        "connectedGateways": "Connected gateways",
         "connectedSwitches": "Bağlı anahtarlar"
     },
     "nzbget": {
@@ -225,6 +227,10 @@
         "upload": "Yükleme",
         "leech": "Tüketici",
         "seed": "Sağlayıcı"
+    },
+    "develancacheui": {
+        "cachehitbytes": "Önbellek İsabetli Byte",
+        "cachemissbytes": "Önbellek Kaçırılan Byte"
     },
     "downloadstation": {
         "download": "İndirme",
@@ -305,6 +311,16 @@
         "stopped": "Durduruldu",
         "total": "Toplam"
     },
+    "suwayomi": {
+        "download": "İndirilen",
+        "nondownload": "Non-Downloaded",
+        "read": "Okunan",
+        "unread": "Okunmamış",
+        "downloadedread": "Downloaded & Read",
+        "downloadedunread": "Downloaded & Unread",
+        "nondownloadedread": "Non-Downloaded & Read",
+        "nondownloadedunread": "Non-Downloaded & Unread"
+    },
     "tailscale": {
         "address": "Adres",
         "expires": "Geciken",
@@ -318,6 +334,19 @@
         "minutes": "{{number}} Dakika",
         "seconds": "{{number}} Saniye",
         "ago": "{{value}} Önce"
+    },
+    "technitium": {
+        "totalQueries": "Sorgular",
+        "totalNoError": "Başarılı",
+        "totalServerFailure": "Başarısızlıklar",
+        "totalNxDomain": "NX Alan Adları",
+        "totalRefused": "Reddedildi",
+        "totalAuthoritative": "Yetkili",
+        "totalRecursive": "Tekrarlamalı",
+        "totalCached": "Önbelleğe alındı",
+        "totalBlocked": "Engellenen",
+        "totalDropped": "Bırakıldı",
+        "totalClients": "Alıcılar"
     },
     "tdarr": {
         "queue": "Kuyruk",
@@ -675,6 +704,10 @@
         "processed": "İşlendi",
         "time": "Zaman"
     },
+    "firefly": {
+        "networth": "Net Worth",
+        "budget": "Budget"
+    },
     "grafana": {
         "dashboards": "Kontrol Paneli",
         "datasources": "Veri Kaynakları",
@@ -827,7 +860,17 @@
     },
     "romm": {
         "platforms": "Platformlar",
-        "totalRoms": "Toplam ROM'lar"
+        "totalRoms": "Oyunlar",
+        "saves": "Kayıtlar",
+        "states": "Durumlar",
+        "screenshots": "Ekran görüntüleri",
+        "totalfilesize": "Toplam Kapasite"
+    },
+    "mailcow": {
+        "domains": "Etki Alanları",
+        "mailboxes": "Mailboxes",
+        "mails": "Postalar",
+        "storage": "Depo"
     },
     "netdata": {
         "warnings": "Uyarılar",
@@ -842,7 +885,8 @@
     "gitea": {
         "notifications": "Bildirimler",
         "issues": "Sorunlar",
-        "pulls": "Değişiklik İstekleri"
+        "pulls": "Değişiklik İstekleri",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Sahneler",
@@ -902,8 +946,101 @@
         "invalidConfiguration": "Geçersiz Yapılandırma"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kameralar",
         "uptime": "Çalışma Süresi",
         "version": "Versiyon"
+    },
+    "linkwarden": {
+        "links": "Bağlantılar",
+        "collections": "Koleksiyonlar",
+        "tags": "Etiketler"
+    },
+    "zabbix": {
+        "unclassified": "Not classified",
+        "information": "Bilgi",
+        "warning": "Uyarı",
+        "average": "Ortalama",
+        "high": "Yüksek",
+        "disaster": "Felaket"
+    },
+    "lubelogger": {
+        "vehicle": "Vehicle",
+        "vehicles": "Vehicles",
+        "serviceRecords": "Service Records",
+        "reminders": "Reminders",
+        "nextReminder": "Next Reminder",
+        "none": "None"
+    },
+    "vikunja": {
+        "projects": "Active Projects",
+        "tasks7d": "Bitişi Bu Hafta Olan Görevler",
+        "tasksOverdue": "Overdue Tasks",
+        "tasksInProgress": "Tasks In Progress"
+    },
+    "headscale": {
+        "name": "İsim",
+        "address": "Adres",
+        "last_seen": "Son Görülme",
+        "status": "Durum",
+        "online": "Çevrimiçi",
+        "offline": "Çevrimdışı"
+    },
+    "beszel": {
+        "name": "İsim",
+        "systems": "Systems",
+        "up": "Yükleme",
+        "down": "İndirme",
+        "paused": "Duraklatıldı",
+        "pending": "Bekleyen",
+        "status": "Durum",
+        "updated": "Güncellendi",
+        "cpu": "CPU",
+        "memory": "MEM",
+        "disk": "Disk",
+        "network": "NET"
+    },
+    "argocd": {
+        "apps": "Apps",
+        "synced": "Synced",
+        "outOfSync": "Out Of Sync",
+        "healthy": "Sağlıklı",
+        "degraded": "Degraded",
+        "progressing": "Progressing",
+        "missing": "Eksik",
+        "suspended": "Suspended"
+    },
+    "spoolman": {
+        "loading": "Yükleniyor"
+    },
+    "gitlab": {
+        "groups": "Groups",
+        "issues": "Sorunlar",
+        "merges": "Merge Requests",
+        "projects": "Projects"
+    },
+    "apcups": {
+        "status": "Durum",
+        "load": "Yük",
+        "bcharge": "Pil Yüzdesi",
+        "timeleft": "Kalan Zaman"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Etiketler"
+    },
+    "slskd": {
+        "slskStatus": "Ağ",
+        "connected": "Bağlandı",
+        "disconnected": "Bağlantı kesildi",
+        "updateStatus": "Update",
+        "update_yes": "Kullanılabilir",
+        "update_no": "Güncel",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Dosyalar"
     }
 }

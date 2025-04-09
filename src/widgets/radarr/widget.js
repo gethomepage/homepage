@@ -1,5 +1,5 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
 import { asJson, jsonArrayFilter } from "utils/proxy/api-helpers";
+import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
   api: "{url}/api/v3/{endpoint}?apikey={key}",
@@ -12,7 +12,10 @@ const widget = {
         wanted: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile && item.isAvailable).length,
         have: jsonArrayFilter(data, (item) => item.hasFile).length,
         missing: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile).length,
-        all: asJson(data),
+        all: asJson(data).map((entry) => ({
+          title: entry.title,
+          id: entry.id,
+        })),
       }),
     },
     "queue/status": {

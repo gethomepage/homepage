@@ -1,7 +1,7 @@
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
 
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
@@ -29,7 +29,7 @@ export default function Component({ service }) {
     );
   }
 
-  const datastoreUsage = (datastoreData.data[0].used / datastoreData.data[0].total) * 100;
+  const datastoreUsage = datastoreData.data ? (datastoreData.data[0].used / datastoreData.data[0].total) * 100 : 0;
   const cpuUsage = hostData.data.cpu * 100;
   const memoryUsage = (hostData.data.memory.used / hostData.data.memory.total) * 100;
   const failedTasks = tasksData.total >= 100 ? "99+" : tasksData.total;

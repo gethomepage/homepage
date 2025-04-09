@@ -1,14 +1,14 @@
 import { GameDig } from "gamedig";
 
-import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 
 const proxyName = "gamedigProxyHandler";
 const logger = createLogger(proxyName);
 
 export default async function gamedigProxyHandler(req, res) {
-  const { group, service } = req.query;
-  const serviceWidget = await getServiceWidget(group, service);
+  const { group, service, index } = req.query;
+  const serviceWidget = await getServiceWidget(group, service, index);
   const url = new URL(serviceWidget.url);
 
   try {
@@ -24,7 +24,7 @@ export default async function gamedigProxyHandler(req, res) {
       online: true,
       name: serverData.name,
       map: serverData.map,
-      players: serverData.players.length,
+      players: serverData.numplayers ?? serverData.players?.length,
       maxplayers: serverData.maxplayers,
       bots: serverData.bots.length,
       ping: serverData.ping,
