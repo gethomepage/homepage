@@ -1049,5 +1049,12 @@
         "movies": "Movies",
         "episodes": "Episodes",
         "other": "Other"
+    },
+    "prayerTimes": {
+      "fajr": "Fajr",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha"
     }
 }

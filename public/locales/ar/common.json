@@ -1042,5 +1042,12 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "ملفات"
-    }
+    },
+    "prayerTimes": {
+      "fajr": "الفجر",
+      "dhuhr": "الظهر",
+      "asr": "العصر",
+      "maghrib": "المغرب",
+      "isha": "العشاء"
+  }
 }

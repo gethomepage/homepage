@@ -14,6 +14,12 @@ importers:
       '@kubernetes/client-node':
         specifier: ^1.0.0
         version: 1.0.0
+      adhan:
+        specifier: ^4.4.3
+        version: 4.4.3
+      cal-parser:
+        specifier: ^1.0.2
+        version: 1.0.2
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -823,6 +829,9 @@ packages:
     resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  adhan@4.4.3:
+    resolution: {integrity: sha512-568KkQd8OMLUj7o7+d2FDcm6vZHWQrE7vsm/Evssh8sfUDpPyaboj3PVsScZAr7L7sNRgPrtLMmDZZfM7VeAYw==}
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -3500,6 +3509,8 @@ snapshots:
       acorn: 8.14.1
 
   acorn@8.14.1: {}
+
+  adhan@4.4.3: {}
 
   ajv@6.12.6:
     dependencies:
