@@ -14,6 +14,9 @@ importers:
       '@kubernetes/client-node':
         specifier: ^0.17.1
         version: 0.17.1
+      adhan:
+        specifier: ^4.4.3
+        version: 4.4.3
       cal-parser:
         specifier: ^1.0.2
         version: 1.0.2

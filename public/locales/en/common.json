@@ -937,5 +937,12 @@
       "average": "Average",
       "high": "High",
       "disaster": "Disaster"
+    },
+    "prayerTimes": {
+      "fajr": "Fajr",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha"
     }
 }
