@@ -28,7 +28,7 @@ export default function Component({ service }) {
     // containersData can be itself an error object e.g. if environment fails
     return <Container service={service} error={containersData?.error ?? containersData} />;
   }
-  
+
   return (
     <Container service={service}>
       <Block label="portainer.running" value={containersData.running} />

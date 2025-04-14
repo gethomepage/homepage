@@ -6,8 +6,8 @@ const widget = {
 
   mappings: {
     "docker/containers/json": {
-      endpoint: "endpoints/{env}/docker/containers/json"
-    }
+      endpoint: "endpoints/{env}/docker/containers/json",
+    },
   },
 };
 
