@@ -28,16 +28,12 @@ export default function Component({ service }) {
     // containersData can be itself an error object e.g. if environment fails
     return <Container service={service} error={containersData?.error ?? containersData} />;
   }
-
-  const running = containersData.filter((c) => c.State === "running").length;
-  const stopped = containersData.filter((c) => c.State === "exited").length;
-  const total = containersData.length;
-
+  
   return (
     <Container service={service}>
-      <Block label="portainer.running" value={running} />
-      <Block label="portainer.stopped" value={stopped} />
-      <Block label="portainer.total" value={total} />
+      <Block label="portainer.running" value={containersData.running} />
+      <Block label="portainer.stopped" value={containersData.stopped} />
+      <Block label="portainer.total" value={containersData.total} />
     </Container>
   );
 }

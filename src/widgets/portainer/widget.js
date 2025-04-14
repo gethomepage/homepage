@@ -1,14 +1,13 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import portainerProxyHandler from "./proxy";
 
 const widget = {
-  api: "{url}/api/endpoints/{env}/{endpoint}",
-  proxyHandler: credentialedProxyHandler,
+  api: "{url}/api/{endpoint}",
+  proxyHandler: portainerProxyHandler,
 
   mappings: {
     "docker/containers/json": {
-      endpoint: "docker/containers/json",
-      params: ["all"],
-    },
+      endpoint: "endpoints/{env}/docker/containers/json"
+    }
   },
 };
 
