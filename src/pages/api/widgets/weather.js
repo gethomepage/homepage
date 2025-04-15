@@ -1,4 +1,4 @@
-import cachedFetch from "utils/proxy/cached-fetch";
+import { cachedRequest } from "utils/proxy/http";
 import { getSettings } from "utils/config/config";
 import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 
@@ -26,5 +26,5 @@ export default async function handler(req, res) {
 
   const apiUrl = `http://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}&lang=${lang}`;
 
-  return res.send(await cachedFetch(apiUrl, cache));
+  return res.send(await cachedRequest(apiUrl, cache));
 }

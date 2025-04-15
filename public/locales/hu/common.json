@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Üzenetek",
         "issues": "Problémák",
-        "pulls": "Pull request-ek"
+        "pulls": "Pull request-ek",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Jelenetek",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Címkék"
+    },
+    "slskd": {
+        "slskStatus": "Hálózat",
+        "connected": "Csatlakozva",
+        "disconnected": "Kapcsolat bontva",
+        "updateStatus": "Update",
+        "update_yes": "Elérhető",
+        "update_no": "Naprakész",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Fájlok"
     }
 }
