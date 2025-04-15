@@ -149,8 +149,8 @@
         "received": "Reçu",
         "sent": "Envoyé",
         "externalIPAddress": "IP externe",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "IPv6 externe",
+        "externalIPv6Prefix": "Préfixe IPv6 externe"
     },
     "caddy": {
         "upstreams": "En amont",
@@ -178,7 +178,7 @@
         "connectedAp": "AP connectés",
         "activeUser": "Périphériques actifs",
         "alerts": "Alertes",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Passerelles connectées",
         "connectedSwitches": "Switchs connectés"
     },
     "nzbget": {
@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Notifications",
         "issues": "Anomalies",
-        "pulls": "Demandes de tirage"
+        "pulls": "Demandes de tirage",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scènes",
@@ -1024,11 +1025,22 @@
         "timeleft": "Temps restant"
     },
     "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
+        "bookmarks": "Marque-pages",
+        "favorites": "Favoris",
+        "archived": "Archivé",
         "highlights": "Highlights",
-        "lists": "Lists",
+        "lists": "Listes",
         "tags": "Étiquettes"
+    },
+    "slskd": {
+        "slskStatus": "Réseau",
+        "connected": "Connecté",
+        "disconnected": "Déconnecté",
+        "updateStatus": "Mise à jour",
+        "update_yes": "Disponible",
+        "update_no": "À jour",
+        "downloads": "Téléchargements",
+        "uploads": "Téléversements",
+        "sharedFiles": "Fichiers"
     }
 }

@@ -16,6 +16,7 @@ import nextI18nextConfig from "../../next-i18next.config";
 const tailwindSafelist = [
   // TODO: remove pending https://github.com/tailwindlabs/tailwindcss/pull/17147
   "backdrop-blur",
+  "backdrop-blur-xs",
   "backdrop-blur-sm",
   "backdrop-blur-md",
   "backdrop-blur-xl",
@@ -52,6 +53,11 @@ const tailwindSafelist = [
   "dark:bg-white",
   "bg-orange-400",
   "dark:bg-orange-400",
+  // maxGroupColumns
+  "3xl:basis-1/5",
+  "3xl:basis-1/6",
+  "3xl:basis-1/7",
+  "3xl:basis-1/8",
   // yep
   "h-0 h-1 h-2 h-3 h-4 h-5 h-6 h-7 h-8 h-9 h-10 h-11 h-12 h-13 h-14 h-15 h-16 h-17 h-18 h-19 h-20 h-21 h-22 h-23 h-24 h-25 h-26 h-27 h-28 h-29 h-30 h-31 h-32 h-33 h-34 h-35 h-36 h-37 h-38 h-39 h-40 h-41 h-42 h-43 h-44 h-45 h-46 h-47 h-48 h-49 h-50 h-51 h-52 h-53 h-54 h-55 h-56 h-57 h-58 h-59 h-60 h-61 h-62 h-63 h-64 h-65 h-66 h-67 h-68 h-69 h-70 h-71 h-72 h-73 h-74 h-75 h-76 h-77 h-78 h-79 h-80 h-81 h-82 h-83 h-84 h-85 h-86 h-87 h-88 h-89 h-90 h-91 h-92 h-93 h-94 h-95 h-96",
   "sm:h-0 sm:h-1 sm:h-2 sm:h-3 sm:h-4 sm:h-5 sm:h-6 sm:h-7 sm:h-8 sm:h-9 sm:h-10 sm:h-11 sm:h-12 sm:h-13 sm:h-14 sm:h-15 sm:h-16 sm:h-17 sm:h-18 sm:h-19 sm:h-20 sm:h-21 sm:h-22 sm:h-23 sm:h-24 sm:h-25 sm:h-26 sm:h-27 sm:h-28 sm:h-29 sm:h-30 sm:h-31 sm:h-32 sm:h-33 sm:h-34 sm:h-35 sm:h-36 sm:h-37 sm:h-38 sm:h-39 sm:h-40 sm:h-41 sm:h-42 sm:h-43 sm:h-44 sm:h-45 sm:h-46 sm:h-47 sm:h-48 sm:h-49 sm:h-50 sm:h-51 sm:h-52 sm:h-53 sm:h-54 sm:h-55 sm:h-56 sm:h-57 sm:h-58 sm:h-59 sm:h-60 sm:h-61 sm:h-62 sm:h-63 sm:h-64 sm:h-65 sm:h-66 sm:h-67 sm:h-68 sm:h-69 sm:h-70 sm:h-71 sm:h-72 sm:h-73 sm:h-74 sm:h-75 sm:h-76 sm:h-77 sm:h-78 sm:h-79 sm:h-80 sm:h-81 sm:h-82 sm:h-83 sm:h-84 sm:h-85 sm:h-86 sm:h-87 sm:h-88 sm:h-89 sm:h-90 sm:h-91 sm:h-92 sm:h-93 sm:h-94 sm:h-95 sm:h-96",

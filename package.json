@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "1.0.4",
+  "version": "1.1.1",
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -25,7 +25,7 @@
     "luxon": "^3.5.0",
     "memory-cache": "^0.2.0",
     "minecraftstatuspinger": "^1.2.2",
-    "next": "^15.1.7",
+    "next": "^15.2.3",
     "next-i18next": "^12.1.0",
     "ping": "^0.4.4",
     "pretty-bytes": "^6.1.1",

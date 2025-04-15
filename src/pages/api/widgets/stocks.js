@@ -1,4 +1,4 @@
-import cachedFetch from "utils/proxy/cached-fetch";
+import { cachedRequest } from "utils/proxy/http";
 import { getSettings } from "utils/config/config";
 import createLogger from "utils/logger";
 
@@ -60,7 +60,7 @@ export default async function handler(req, res) {
         const apiUrl = `https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${apiKey}`;
         // Finnhub free accounts allow up to 60 calls/minute
         // https://finnhub.io/pricing
-        const { c, dp } = await cachedFetch(apiUrl, cache || 1);
+        const { c, dp } = await cachedRequest(apiUrl, cache || 1);
         logger.debug("Finnhub API response for %s: %o", ticker, { c, dp });
 
         // API sometimes returns 200, but values returned are `null`

@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "Известия",
         "issues": "Издания",
-        "pulls": "Заявки за сливане"
+        "pulls": "Заявки за сливане",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Сцени",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "Тагове"
+    },
+    "slskd": {
+        "slskStatus": "Мрежа",
+        "connected": "Свързан",
+        "disconnected": "Не е свързан",
+        "updateStatus": "Update",
+        "update_yes": "Наличен",
+        "update_no": "Актуално",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Файлове"
     }
 }

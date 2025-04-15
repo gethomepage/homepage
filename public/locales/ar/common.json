@@ -885,7 +885,8 @@
     "gitea": {
         "notifications": "الإشعارات",
         "issues": "المُشكِلات",
-        "pulls": "طلبات السحب"
+        "pulls": "طلبات السحب",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "المشاهد",
@@ -1030,5 +1031,16 @@
         "highlights": "Highlights",
         "lists": "Lists",
         "tags": "التصنيفات"
+    },
+    "slskd": {
+        "slskStatus": "الشبكة",
+        "connected": "متصل",
+        "disconnected": "غير متصل",
+        "updateStatus": "Update",
+        "update_yes": "متاح",
+        "update_no": "حتى الآن",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "ملفات"
     }
 }
