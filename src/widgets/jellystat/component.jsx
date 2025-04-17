@@ -1,0 +1,43 @@
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+
+import useWidgetAPI from "utils/proxy/use-widget-api";
+
+export default function Component({ service }) {
+  const { widget } = service;
+
+  if (!widget.fields) {
+    widget.fields = [];
+  }
+
+  const MAX_ALLOWED_FIELDS = 4;
+  if (widget.fields.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
+
+  const { data: viewsData, error: viewsError } = useWidgetAPI(widget, "getViewsByLibraryType");
+
+  if (viewsError) {
+    return <Container service={service} error={viewsError} />;
+  }
+
+  if (!viewsData) {
+    return (
+      <Container service={service}>
+        <Block label="jellystat.songs" />
+        <Block label="jellystat.movies" />
+        <Block label="jellystat.episodes" />
+        <Block label="jellystat.other" />
+      </Container>
+    );
+  }
+
+  return (
+    <Container service={service}>
+      <Block label="jellystat.songs" value={viewsData.Audio} />
+      <Block label="jellystat.movies" value={viewsData.Movie} />
+      <Block label="jellystat.episodes" value={viewsData.Series} />
+      <Block label="jellystat.other" value={viewsData.Other} />
+    </Container>
+  );
+}

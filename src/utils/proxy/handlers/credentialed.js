@@ -65,7 +65,7 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "proxmoxbackupserver") {
         delete headers["Content-Type"];
         headers.Authorization = `PBSAPIToken=${widget.username}:${widget.password}`;
-      } else if (widget.type === "autobrr") {
+      } else if (["autobrr", "jellystat"].includes(widget.type)) {
         headers["X-API-Token"] = `${widget.key}`;
       } else if (widget.type === "tubearchivist") {
         headers.Authorization = `Token ${widget.key}`;
