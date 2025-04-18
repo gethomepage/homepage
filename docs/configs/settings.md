@@ -278,6 +278,15 @@ If you want to set the maximum columns for bookmark groups separately, you can d
 maxBookmarkGroupColumns: 6 # default is 6, max 8
 ```
 
+### Underlined section headers
+You can set an underlined style to sections by adding:
+
+```yaml
+underlinedHeader: true
+```
+
+By default the feature is disabled.
+
 ### Collapsible sections
 
 You can disable the collapsible feature of services & bookmarks by adding:
