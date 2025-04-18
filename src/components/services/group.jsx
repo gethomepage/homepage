@@ -40,8 +40,10 @@ export default function ServicesGroup({
         {({ open }) => (
           <>
             {layout?.header !== false && (
-              <Disclosure.Button disabled={disableCollapse} className={classNames("flex w-full select-none items-center group",
-                layout?.underlinedHeader ? "border-b-2 pb-1 border-theme-800 dark:border-theme-200/50" : ""
+              <Disclosure.Button 
+              disabled={disableCollapse} 
+              className={classNames("flex w-full select-none items-center group",
+                layout?.underlinedHeader ? "border-b-2 pb-1 border-theme-800 dark:border-theme-200/50" : "",
               )}>
                 {layout?.icon && (
                   <div className="shrink-0 mr-2 w-7 h-7 service-group-icon">
