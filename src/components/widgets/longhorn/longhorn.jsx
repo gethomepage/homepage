@@ -32,8 +32,8 @@ export default function Longhorn({ options }) {
         <div className="flex flex-row self-center flex-wrap justify-between">
           {data.nodes
             .filter((node) => {
-              if (node.id === "total" && total) {
-                return true;
+              if (node.id === "total") {
+                return total;
               }
               if (!nodes) {
                 return false;
