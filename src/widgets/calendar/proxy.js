@@ -16,7 +16,17 @@ export default async function calendarProxyHandler(req, res) {
         return res.status(403).json({ error: "No integration URL specified" });
       }
 
-      const [status, contentType, data] = await httpProxy(integration.url);
+      let url = integration.url;
+
+      // ✨ Basic Auth dynamisch einbauen
+      if (integration.username && integration.password) {
+        const parsed = new URL(url);
+        parsed.username = integration.username;
+        parsed.password = integration.password;
+        url = parsed.toString();
+      }
+
+      const [status, contentType, data] = await httpProxy(url);
 
       if (contentType) res.setHeader("Content-Type", contentType);
 

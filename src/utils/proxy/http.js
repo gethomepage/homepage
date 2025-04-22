@@ -110,6 +110,19 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
 
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
+
+  if (constructedUrl.username && constructedUrl.password) {
+    const basicAuth = Buffer.from(`${constructedUrl.username}:${constructedUrl.password}`).toString("base64");
+
+    params.headers = {
+      ...(params.headers || {}),
+      Authorization: `Basic ${basicAuth}`,
+    };
+
+    constructedUrl.username = "";
+    constructedUrl.password = "";
+  }
+
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
   const agentOptions = disableIpv6 ? { family: 4, autoSelectFamily: false } : {};
 

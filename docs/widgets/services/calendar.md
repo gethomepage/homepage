@@ -26,6 +26,8 @@ widget:
         unmonitored: true # optional - defaults to false, used with *arr stack
     - type: ical # Show calendar events from another service
       url: https://domain.url/with/link/to.ics # URL with calendar events
+      username: username # optional
+      password: password # optional
       name: My Events # required - name for these calendar events
       color: zinc # optional - defaults to pre-defined color for the service (zinc for ical)
       params: # optional - additional params for the service
