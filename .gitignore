@@ -52,3 +52,6 @@ site*/
 
 # venv
 .venv/
+
+# local icons
+/public/icons
