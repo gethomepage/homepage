@@ -18,7 +18,7 @@ export default function Component({ service }) {
     return <Container service={service} error={finalError} />;
   }
 
-  if (!datastoreData || !datastoreData.data || !tasksData || !hostData) {
+  if (!datastoreData || !tasksData || !hostData) {
     return (
       <Container service={service}>
         <Block label="proxmoxbackupserver.datastore_usage" />
