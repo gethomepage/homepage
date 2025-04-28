@@ -665,8 +665,8 @@
         "storage": "Speicher"
     },
     "uptimekuma": {
-        "up": "Seiten verfügbar",
-        "down": "Seiten nicht verfügbar",
+        "up": "Up",
+        "down": "Down",
         "uptime": "Betriebszeit",
         "incident": "Vorfall",
         "m": "min"
@@ -744,8 +744,8 @@
         "targets_total": "Alle Ziele"
     },
     "gatus": {
-        "up": "Seiten verfügbar",
-        "down": "Seiten nicht verfügbar",
+        "up": "Up",
+        "down": "Down",
         "uptime": "Betriebszeit"
     },
     "ghostfolio": {
@@ -842,8 +842,8 @@
         "uptime": "Betriebszeit",
         "lastDown": "Letzter Ausfall",
         "downDuration": "Ausfalldauer",
-        "sitesUp": "Seiten verfügbar",
-        "sitesDown": "Seiten nicht verfügbar",
+        "sitesUp": "Up",
+        "sitesDown": "Down",
         "paused": "Pausiert",
         "notyetchecked": "Noch nicht geprüft",
         "up": "Online",
@@ -1024,12 +1024,12 @@
         "bcharge": "Akkuladung",
         "timeleft": "Verbleibende Zeit"
     },
-    "hoarder": {
-        "bookmarks": "Lesezeichen",
-        "favorites": "Favoriten",
-        "archived": "Archiviert",
+    "karakeep": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
         "highlights": "Highlights",
-        "lists": "Listen",
+        "lists": "Lists",
         "tags": "Schlagwörter"
     },
     "slskd": {

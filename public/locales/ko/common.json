@@ -14,11 +14,11 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
-        "seconds": "s"
+        "months": "달",
+        "days": "일",
+        "hours": "시",
+        "minutes": "분",
+        "seconds": "초"
     },
     "widget": {
         "missing_type": "없는 위젯 유형: {{type}}",
@@ -51,7 +51,7 @@
     },
     "unifi": {
         "users": "사용자",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "days": "일",
         "wan": "WAN",
         "lan": "LAN",
@@ -141,7 +141,7 @@
         "connectionStatusDisconnecting": "연결을 끊는 중...",
         "connectionStatusDisconnected": "연결 끊김",
         "connectionStatusConnected": "연결됨",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
         "down": "Down",
@@ -188,7 +188,7 @@
     },
     "plex": {
         "streams": "활성 스트림",
-        "albums": "Albums",
+        "albums": "앨범",
         "movies": "영화",
         "tv": "TV 쇼"
     },
@@ -440,8 +440,8 @@
         "total": "총합",
         "free": "남음",
         "used": "사용",
-        "days": "d",
-        "hours": "h",
+        "days": "일",
+        "hours": "시",
         "crit": "Crit",
         "read": "읽음",
         "write": "쓰기",
@@ -556,7 +556,7 @@
     },
     "truenas": {
         "load": "System Load",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "alerts": "경고"
     },
     "pyload": {
@@ -606,7 +606,7 @@
     "mikrotik": {
         "cpuLoad": "CPU Load",
         "memoryUsed": "메모리 사용량",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "numberOfLeases": "Leases"
     },
     "xteve": {
@@ -667,9 +667,9 @@
     "uptimekuma": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "incident": "Incident",
-        "m": "m"
+        "m": "분"
     },
     "atsumeru": {
         "series": "시리즈",
@@ -684,7 +684,7 @@
     },
     "diskstation": {
         "days": "일",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "volumeAvailable": "이용 가능"
     },
     "mylar": {
@@ -693,7 +693,7 @@
         "wanted": "요청"
     },
     "photoprism": {
-        "albums": "Albums",
+        "albums": "앨범",
         "photos": "사진",
         "videos": "동영상",
         "people": "People"
@@ -705,8 +705,8 @@
         "time": "Time"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "순자산",
+        "budget": "예산"
     },
     "grafana": {
         "dashboards": "대시보드",
@@ -746,7 +746,7 @@
     "gatus": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime"
+        "uptime": "가동 시간"
     },
     "ghostfolio": {
         "gross_percent_today": "오늘",
@@ -816,7 +816,7 @@
         "totalUsed": "Used Storage"
     },
     "mealie": {
-        "recipes": "Recipes",
+        "recipes": "레시피",
         "users": "사용자",
         "categories": "분류",
         "tags": "태그"
@@ -830,7 +830,7 @@
         "failed": "Failed"
     },
     "openwrt": {
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "cpuLoad": "CPU Load Avg (5m)",
         "up": "Up",
         "down": "Down",
@@ -839,7 +839,7 @@
     },
     "uptimerobot": {
         "status": "상태",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
@@ -906,7 +906,7 @@
     },
     "tandoor": {
         "users": "사용자",
-        "recipes": "Recipes",
+        "recipes": "레시피",
         "keywords": "키워드"
     },
     "homebox": {
@@ -947,7 +947,7 @@
     },
     "frigate": {
         "cameras": "카메라",
-        "uptime": "Uptime",
+        "uptime": "가동 시간",
         "version": "버전"
     },
     "linkwarden": {
@@ -1024,7 +1024,7 @@
         "bcharge": "배터리 충전 중",
         "timeleft": "남은 시간"
     },
-    "hoarder": {
+    "karakeep": {
         "bookmarks": "Bookmarks",
         "favorites": "Favorites",
         "archived": "Archived",
