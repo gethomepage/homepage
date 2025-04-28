@@ -148,7 +148,9 @@
         "up": "Povezan",
         "received": "Prejeto",
         "sent": "Poslano",
-        "externalIPAddress": "Zun. IP"
+        "externalIPAddress": "Zun. IP",
+        "externalIPv6Address": "Eks. IPv6",
+        "externalIPv6Prefix": "Eks. IPv6-predpona"
     },
     "caddy": {
         "upstreams": "Pretok gor",
@@ -176,7 +178,7 @@
         "connectedAp": "Povezanih AP",
         "activeUser": "Aktivne naprave",
         "alerts": "Opozorila",
-        "connectedGateway": "Povezan prehod",
+        "connectedGateways": "Povezani prehodi",
         "connectedSwitches": "Povezana stikala"
     },
     "nzbget": {
@@ -702,6 +704,10 @@
         "processed": "Procesiran",
         "time": "Čas"
     },
+    "firefly": {
+        "networth": "Neto vrednost",
+        "budget": "Proračun"
+    },
     "grafana": {
         "dashboards": "Nadzorne plošče",
         "datasources": "Viri podatkov",
@@ -879,7 +885,8 @@
     "gitea": {
         "notifications": "Obvestila",
         "issues": "Težave",
-        "pulls": "Zahteve za prenos"
+        "pulls": "Zahteve za prenos",
+        "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scene",
@@ -1010,5 +1017,30 @@
         "issues": "Težave",
         "merges": "Združi zahtevke",
         "projects": "Projekti"
+    },
+    "apcups": {
+        "status": "Stanje",
+        "load": "Bremenitev",
+        "bcharge": "Napolnjenost baterije",
+        "timeleft": "Preostali čas"
+    },
+    "hoarder": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
+        "highlights": "Highlights",
+        "lists": "Lists",
+        "tags": "Značke"
+    },
+    "slskd": {
+        "slskStatus": "Omrežje",
+        "connected": "Povezan",
+        "disconnected": "Prekinjeno",
+        "updateStatus": "Update",
+        "update_yes": "Na voljo",
+        "update_no": "Posodobljeno",
+        "downloads": "Downloads",
+        "uploads": "Uploads",
+        "sharedFiles": "Datotek"
     }
 }

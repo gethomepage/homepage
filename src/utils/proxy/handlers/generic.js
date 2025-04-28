@@ -1,8 +1,8 @@
 import getServiceWidget from "utils/config/service-helpers";
-import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
-import validateWidgetData from "utils/proxy/validate-widget-data";
-import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
+import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("genericProxyHandler");
@@ -79,7 +79,7 @@ export default async function genericProxyHandler(req, res, map) {
           error: {
             message: "HTTP Error",
             url: sanitizeErrorURL(url),
-            resultData: Buffer.isBuffer(resultData) ? Buffer.from(resultData).toString() : resultData,
+            data: Buffer.isBuffer(resultData) ? Buffer.from(resultData).toString() : resultData,
           },
         });
       }

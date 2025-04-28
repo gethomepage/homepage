@@ -1,8 +1,8 @@
-import { useTranslation } from "next-i18next";
 import classNames from "classnames";
-
-import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function MarketStatus({ service }) {
@@ -61,7 +61,7 @@ function StockItem({ service, ticker }) {
   }
 
   return (
-    <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded flex flex-1 items-center justify-between m-1 p-1 text-xs">
+    <div className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm flex flex-1 items-center justify-between m-1 p-1 text-xs">
       <span className="font-thin ml-2 flex-none">{ticker}</span>
       <div className="flex items-center flex-row-reverse mr-2 text-right">
         <span className={`font-bold ml-2 w-10 ${data.dp > 0 ? "text-emerald-300" : "text-rose-300"}`}>

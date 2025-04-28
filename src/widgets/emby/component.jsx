@@ -1,9 +1,9 @@
-import { useTranslation } from "next-i18next";
-import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
-import { MdOutlineSmartDisplay } from "react-icons/md";
-
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
+import { BsCpu, BsFillCpuFill, BsFillPlayFill, BsPauseFill, BsVolumeMuteFill } from "react-icons/bs";
+import { MdOutlineSmartDisplay } from "react-icons/md";
+
 import { getURLSearchParams } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -35,8 +35,8 @@ function generateStreamTitle(session, enableUser, showEpisodeNumber) {
   let streamTitle = "";
 
   if (Type === "Episode" && showEpisodeNumber) {
-    const seasonStr = `S${ParentIndexNumber.toString().padStart(2, "0")}`;
-    const episodeStr = `E${IndexNumber.toString().padStart(2, "0")}`;
+    const seasonStr = ParentIndexNumber ? `S${ParentIndexNumber.toString().padStart(2, "0")}` : "";
+    const episodeStr = IndexNumber ? `E${IndexNumber.toString().padStart(2, "0")}` : "";
     streamTitle = `${SeriesName}: ${seasonStr} · ${episodeStr} - ${Name}`;
   } else {
     streamTitle = `${Name}${SeriesName ? ` - ${SeriesName}` : ""}`;

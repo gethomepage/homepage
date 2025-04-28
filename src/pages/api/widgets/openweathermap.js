@@ -1,6 +1,6 @@
-import cachedFetch from "utils/proxy/cached-fetch";
 import { getSettings } from "utils/config/config";
 import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
+import { cachedRequest } from "utils/proxy/http";
 
 export default async function handler(req, res) {
   const { latitude, longitude, units, provider, cache, lang, index } = req.query;
@@ -26,5 +26,5 @@ export default async function handler(req, res) {
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}&lang=${lang}`;
 
-  return res.send(await cachedFetch(apiUrl, cache));
+  return res.send(await cachedRequest(apiUrl, cache));
 }

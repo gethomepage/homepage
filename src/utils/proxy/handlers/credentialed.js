@@ -1,9 +1,9 @@
-import getServiceWidget from "utils/config/service-helpers";
-import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
-import validateWidgetData from "utils/proxy/validate-widget-data";
-import { httpProxy } from "utils/proxy/http";
-import createLogger from "utils/logger";
 import { getSettings } from "utils/config/config";
+import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
+import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
+import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("credentialedProxyHandler");
@@ -41,6 +41,8 @@ export default async function credentialedProxyHandler(req, res, map) {
           "cloudflared",
           "ghostfolio",
           "headscale",
+          "hoarder",
+          "karakeep",
           "linkwarden",
           "mealie",
           "netalertx",
@@ -48,6 +50,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           "tandoor",
           "pterodactyl",
           "vikunja",
+          "firefly",
         ].includes(widget.type)
       ) {
         headers.Authorization = `Bearer ${widget.key}`;
@@ -98,6 +101,11 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = widget.password;
       } else if (widget.type === "gitlab") {
         headers["PRIVATE-TOKEN"] = widget.key;
+      } else if (widget.type === "speedtest") {
+        if (widget.key) {
+          // v1 does not require a key
+          headers.Authorization = `Bearer ${widget.key}`;
+        }
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }

@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next";
 
-import Container from "../components/container";
 import Block from "../components/block";
+import Container from "../components/container";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -109,7 +109,7 @@ export default function Component({ service }) {
   return (
     <Container chart={chart}>
       {chart && (
-        <div className="bg-gradient-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10 absolute -top-10 -left-2 -right-2 -bottom-2 h-[calc(100%+3em)] w-[calc(100%+1em)]" />
+        <div className="bg-linear-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10 absolute -top-10 -left-2 -right-2 -bottom-2 h-[calc(100%+3em)] w-[calc(100%+1em)]" />
       )}
 
       <Block position="-top-6 right-2">

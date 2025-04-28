@@ -1,7 +1,7 @@
-import { pingWithPromise } from "minecraft-ping-js";
+import mc from "minecraftstatuspinger";
 
-import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 
 const proxyName = "minecraftProxyHandler";
 const logger = createLogger(proxyName);
@@ -11,11 +11,14 @@ export default async function minecraftProxyHandler(req, res) {
   const serviceWidget = await getServiceWidget(group, service, index);
   const url = new URL(serviceWidget.url);
   try {
-    const pingResponse = await pingWithPromise(url.hostname, url.port || 25565);
+    const pingResponse = await mc.lookup({
+      host: url.hostname,
+      port: url.port || 25565,
+    });
     res.status(200).send({
-      version: pingResponse.version.name,
+      version: pingResponse.status.version.name,
       online: true,
-      players: pingResponse.players,
+      players: pingResponse.status.players,
     });
   } catch (e) {
     if (e) logger.error(e);

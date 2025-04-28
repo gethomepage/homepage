@@ -1,17 +1,16 @@
-import { useRef, useEffect } from "react";
-import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
+import classNames from "classnames";
+import ResolvedIcon from "components/resolvedicon";
+import List from "components/services/list";
+import { useEffect, useRef } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { columnMap } from "../../utils/layout/columns";
 
-import List from "components/services/list";
-import ResolvedIcon from "components/resolvedicon";
-
 export default function ServicesGroup({
   group,
   layout,
-  fiveColumns,
+  maxGroupColumns,
   disableCollapse,
   useEqualHeights,
   groupsInitiallyCollapsed,
@@ -32,7 +31,7 @@ export default function ServicesGroup({
       className={classNames(
         "services-group flex-1",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
-        layout?.style !== "row" && fiveColumns ? "3xl:basis-1/5" : "",
+        layout?.style !== "row" && maxGroupColumns ? `3xl:basis-1/${maxGroupColumns}` : "",
         groupPadding,
         isSubgroup ? "subgroup" : "",
       )}
@@ -43,7 +42,7 @@ export default function ServicesGroup({
             {layout?.header !== false && (
               <Disclosure.Button disabled={disableCollapse} className="flex w-full select-none items-center group">
                 {layout?.icon && (
-                  <div className="flex-shrink-0 mr-2 w-7 h-7 service-group-icon">
+                  <div className="shrink-0 mr-2 w-7 h-7 service-group-icon">
                     <ResolvedIcon icon={layout.icon} />
                   </div>
                 )}
@@ -61,7 +60,7 @@ export default function ServicesGroup({
             )}
             <Transition
               // Otherwise the transition group does display: none and cancels animation
-              className="!block"
+              className="block!"
               unmount={false}
               beforeLeave={() => {
                 panel.current.style.height = `${panel.current.scrollHeight}px`;
@@ -98,7 +97,7 @@ export default function ServicesGroup({
                         key={subgroup.name}
                         group={subgroup}
                         layout={layout?.[subgroup.name]}
-                        fiveColumns={fiveColumns}
+                        maxGroupColumns={maxGroupColumns}
                         disableCollapse={disableCollapse}
                         useEqualHeights={useEqualHeights}
                         groupsInitiallyCollapsed={groupsInitiallyCollapsed}

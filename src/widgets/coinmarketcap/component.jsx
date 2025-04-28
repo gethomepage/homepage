@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useTranslation } from "next-i18next";
 import classNames from "classnames";
-
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 import Dropdown from "components/services/dropdown";
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
+import { useState } from "react";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
@@ -73,7 +73,7 @@ export default function Component({ service }) {
         {validCryptos.map((crypto) => (
           <div
             key={crypto.id}
-            className="bg-theme-200/50 dark:bg-theme-900/20 rounded m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
+            className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs"
           >
             <div className="font-thin pl-2">{crypto.name}</div>
             <div className="flex flex-row text-right">

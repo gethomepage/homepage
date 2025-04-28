@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next";
 
-import Container from "../components/container";
 import Block from "../components/block";
+import Container from "../components/container";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -48,7 +48,7 @@ export default function Component({ service }) {
             style={{
               height: `${Math.max(20, (140 * (fsData.size - fsData.free)) / fsData.size)}px`,
             }}
-            className="absolute bottom-0 border-t border-t-theme-500 bg-gradient-to-b from-theme-500/40 to-theme-500/10 w-full"
+            className="absolute bottom-0 border-t border-t-theme-500 bg-linear-to-b from-theme-500/40 to-theme-500/10 w-full"
           />
         </div>
       )}

@@ -1,4 +1,5 @@
 import adguard from "./adguard/widget";
+import apcups from "./apcups/widget";
 import argocd from "./argocd/widget";
 import atsumeru from "./atsumeru/widget";
 import audiobookshelf from "./audiobookshelf/widget";
@@ -24,6 +25,7 @@ import emby from "./emby/widget";
 import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
 import fileflows from "./fileflows/widget";
+import firefly from "./firefly/widget";
 import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import frigate from "./frigate/widget";
@@ -39,14 +41,15 @@ import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import headscale from "./headscale/widget";
+import healthchecks from "./healthchecks/widget";
 import homeassistant from "./homeassistant/widget";
 import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
-import healthchecks from "./healthchecks/widget";
 import immich from "./immich/widget";
 import jackett from "./jackett/widget";
-import jellyseerr from "./jellyseerr/widget";
 import jdownloader from "./jdownloader/widget";
+import jellyseerr from "./jellyseerr/widget";
+import karakeep from "./karakeep/widget";
 import kavita from "./kavita/widget";
 import komga from "./komga/widget";
 import kopia from "./kopia/widget";
@@ -57,9 +60,9 @@ import mailcow from "./mailcow/widget";
 import mastodon from "./mastodon/widget";
 import mealie from "./mealie/widget";
 import medusa from "./medusa/widget";
+import mikrotik from "./mikrotik/widget";
 import minecraft from "./minecraft/widget";
 import miniflux from "./miniflux/widget";
-import mikrotik from "./mikrotik/widget";
 import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
 import mylar from "./mylar/widget";
@@ -75,15 +78,14 @@ import octoprint from "./octoprint/widget";
 import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import opendtu from "./opendtu/widget";
-import opnsense from "./opnsense/widget";
-import overseerr from "./overseerr/widget";
 import openmediavault from "./openmediavault/widget";
 import openwrt from "./openwrt/widget";
+import opnsense from "./opnsense/widget";
+import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
 import peanut from "./peanut/widget";
 import pfsense from "./pfsense/widget";
 import photoprism from "./photoprism/widget";
-import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pihole from "./pihole/widget";
 import plantit from "./plantit/widget";
 import plex from "./plex/widget";
@@ -92,47 +94,50 @@ import prometheus from "./prometheus/widget";
 import prometheusmetric from "./prometheusmetric/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
+import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pterodactyl from "./pterodactyl/widget";
 import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
 import qnap from "./qnap/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
+import romm from "./romm/widget";
 import rutorrent from "./rutorrent/widget";
 import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
+import slskd from "./slskd/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
 import spoolman from "./spoolman/widget";
 import stash from "./stash/widget";
 import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
-import swagdashboard from "./swagdashboard/widget";
 import suwayomi from "./suwayomi/widget";
+import swagdashboard from "./swagdashboard/widget";
 import tailscale from "./tailscale/widget";
 import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
-import technitium from "./technitium/widget";
 import tdarr from "./tdarr/widget";
+import technitium from "./technitium/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
-import tubearchivist from "./tubearchivist/widget";
 import truenas from "./truenas/widget";
+import tubearchivist from "./tubearchivist/widget";
 import unifi from "./unifi/widget";
 import unmanic from "./unmanic/widget";
 import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
+import urbackup from "./urbackup/widget";
 import vikunja from "./vikunja/widget";
 import watchtower from "./watchtower/widget";
 import wgeasy from "./wgeasy/widget";
 import whatsupdocker from "./whatsupdocker/widget";
 import xteve from "./xteve/widget";
-import urbackup from "./urbackup/widget";
-import romm from "./romm/widget";
 import zabbix from "./zabbix/widget";
 
 const widgets = {
   adguard,
+  apcups,
   argocd,
   atsumeru,
   audiobookshelf,
@@ -157,6 +162,7 @@ const widgets = {
   esphome,
   evcc,
   fileflows,
+  firefly,
   flood,
   freshrss,
   frigate,
@@ -172,6 +178,8 @@ const widgets = {
   grafana,
   hdhomerun,
   headscale,
+  hoarder: karakeep,
+  karakeep,
   homeassistant,
   homebox,
   homebridge,
@@ -238,6 +246,7 @@ const widgets = {
   rutorrent,
   sabnzbd,
   scrutiny,
+  slskd,
   sonarr,
   speedtest,
   spoolman,

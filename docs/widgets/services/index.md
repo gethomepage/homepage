@@ -8,6 +8,7 @@ search:
 You can also find a list of all available service widgets in the sidebar navigation.
 
 - [Adguard Home](adguard-home.md)
+- [APC UPS](apcups.md)
 - [ArgoCD](argocd.md)
 - [Atsumeru](atsumeru.md)
 - [Audiobookshelf](audiobookshelf.md)
@@ -33,6 +34,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [ESPHome](esphome.md)
 - [EVCC](evcc.md)
 - [Fileflows](fileflows.md)
+- [Firefly III](firefly.md)
 - [Flood](flood.md)
 - [FreshRSS](freshrss.md)
 - [Frigate](frigate.md)
@@ -49,6 +51,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [HDHomeRun](hdhomerun.md)
 - [Headscale](headscale.md)
 - [Healthchecks](healthchecks.md)
+- [Karakeep](karakeep.md)
 - [Home Assistant](homeassistant.md)
 - [HomeBox](homebox.md)
 - [Homebridge](homebridge.md)
@@ -114,6 +117,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [ruTorrent](rutorrent.md)
 - [SABnzbd](sabnzbd.md)
 - [Scrutiny](scrutiny.md)
+- [Slskd](slskd.md)
 - [Sonarr](sonarr.md)
 - [Speedtest Tracker](speedtest-tracker.md)
 - [Stash](stash.md)

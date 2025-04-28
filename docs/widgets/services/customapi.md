@@ -19,27 +19,22 @@ widget:
   requestBody: # optional, can be string or object, see below
   display: # optional, default to block, see below
   mappings:
-    - field: key # needs to be YAML string or object
+    - field: key
       label: Field 1
       format: text # optional - defaults to text
-    - field: # needs to be YAML string or object
-        path:
-          to: key2
+    - field: path.to.key2
       format: number # optional - defaults to text
       label: Field 2
-    - field: # needs to be YAML string or object
-        path:
-          to:
-            another: key3
+    - field: path.to.another.key3
       label: Field 3
       format: percent # optional - defaults to text
-    - field: key # needs to be YAML string or object
+    - field: key
       label: Field 4
       format: date # optional - defaults to text
       locale: nl # optional
       dateStyle: long # optional - defaults to "long". Allowed values: `["full", "long", "medium", "short"]`.
       timeStyle: medium # optional - Allowed values: `["full", "long", "medium", "short"]`.
-    - field: key # needs to be YAML string or object
+    - field: key
       label: Field 5
       format: relativeDate # optional - defaults to text
       locale: nl # optional
@@ -49,9 +44,7 @@ widget:
       label: Field 6
       format: text
       additionalField: # optional
-        field:
-          hourly:
-            time: other key
+        field: hourly.time.key
         color: theme # optional - defaults to "". Allowed values: `["theme", "adaptive", "black", "white"]`.
         format: date # optional
     - field: key
@@ -103,9 +96,16 @@ mappings:
     label: Name
   - field: status # Alive
     label: Status
-  - field:
-      origin: name # Earth (C-137)
+  - field: origin.name # Earth (C-137)
     label: Origin
+  - field: locations.1.name # Citadel of Ricks
+    label: Location
+```
+
+Note that older versions of the widget accepted fields as a yaml object, which is still supported. E.g.:
+
+```yaml
+mappings:
   - field:
       locations:
         1: name # Citadel of Ricks
@@ -138,7 +138,15 @@ You can manipulate data with the following tools `remap`, `scale`, `prefix` and 
   prefix: "$"
 ```
 
-## List View
+## Display Options
+
+The widget supports different display modes that can be set using the `display` property.
+
+### Block View (Default)
+
+The default display mode is `block`, which shows fields in a block format.
+
+### List View
 
 You can change the default block view to a list view by setting the `display` option to `list`.
 
@@ -162,11 +170,52 @@ The list view can optionally display an additional field next to the primary fie
     - any: true # will map all other values
       to: Unknown
   additionalField:
-    field:
-      hourly:
-        time: key
+    field: hourly.time.key
     color: theme
     format: date
+```
+
+### Dynamic List View
+
+To display a list of items from an array in the API response, set the `display` property to `dynamic-list` and configure the `mappings` object with the following properties:
+
+```yaml
+widget:
+  type: customapi
+  url: https://example.com/api/servers
+  display: dynamic-list
+  mappings:
+    items: data # optional, the path to the array in the API response. Omit this option if the array is at the root level
+    name: id # required, field in each item to use as the item name (left side)
+    label: ip_address # required, field in each item to use as the item label (right side)
+    limit: 5 # optional, limit the number of items to display
+    format: text # optional - format of the label field
+    target: https://example.com/server/{id} # optional, makes items clickable with template support
+```
+
+This configuration would work with an API that returns a response like:
+
+```json
+{
+  "data": [
+    { "id": "server1", "name": "Server 1", "ip_address": "192.168.0.1" },
+    { "id": "server2", "name": "Server 2", "ip_address": "192.168.0.2" }
+  ]
+}
+```
+
+The widget would display a list with two items:
+
+- "Server 1" on the left and "192.168.0.1" on the right, clickable to "https://example.com/server/server1"
+- "Server 2" on the left and "192.168.0.2" on the right, clickable to "https://example.com/server/server2"
+
+For nested fields in the items, you can use dot notation:
+
+```yaml
+mappings:
+  items: data.results.servers
+  name: details.id
+  label: details.name
 ```
 
 ## Custom Headers

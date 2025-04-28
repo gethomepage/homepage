@@ -1,9 +1,12 @@
+import { compareVersions, validate } from "compare-versions";
+import cache from "memory-cache";
 import { useTranslation } from "next-i18next";
-import useSWR from "swr";
-import { compareVersions } from "compare-versions";
 import { MdNewReleases } from "react-icons/md";
+import useSWR from "swr";
 
-export default function Version() {
+const LATEST_RELEASE_CACHE_KEY = "latestRelease";
+
+export default function Version({ disableUpdateCheck = false }) {
   const { t, i18n } = useTranslation();
 
   const buildTime = process.env.NEXT_PUBLIC_BUILDTIME?.length
@@ -11,8 +14,6 @@ export default function Version() {
     : new Date().toISOString();
   const revision = process.env.NEXT_PUBLIC_REVISION?.length ? process.env.NEXT_PUBLIC_REVISION : "dev";
   const version = process.env.NEXT_PUBLIC_VERSION?.length ? process.env.NEXT_PUBLIC_VERSION : "dev";
-
-  const { data: releaseData } = useSWR("/api/releases");
 
   // use Intl.DateTimeFormat to format the date
   const formatDate = (date) => {
@@ -24,7 +25,15 @@ export default function Version() {
     return new Intl.DateTimeFormat(i18n.language, options).format(new Date(date));
   };
 
-  const latestRelease = releaseData?.[0];
+  let latestRelease = cache.get(LATEST_RELEASE_CACHE_KEY);
+
+  const { data: releaseData } = useSWR(latestRelease || disableUpdateCheck ? null : "/api/releases");
+
+  if (releaseData) {
+    latestRelease = releaseData?.[0];
+    // cache the latest release for 1h
+    cache.put(LATEST_RELEASE_CACHE_KEY, latestRelease, 3600000);
+  }
 
   return (
     <div id="version" className="flex flex-row items-center">
@@ -44,7 +53,7 @@ export default function Version() {
           </a>
         )}
       </span>
-      {version === "main" || version === "dev" || version === "nightly"
+      {!validate(version)
         ? null
         : releaseData &&
           latestRelease &&

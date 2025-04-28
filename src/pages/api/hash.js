@@ -1,6 +1,6 @@
-import { join } from "path";
 import { createHash } from "crypto";
 import { readFileSync } from "fs";
+import { join } from "path";
 
 import checkAndCopyConfig, { CONF_DIR } from "utils/config/config";
 

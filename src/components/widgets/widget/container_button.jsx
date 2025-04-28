@@ -1,4 +1,4 @@
-import { getAllClasses, getInnerBlock, getBottomBlock } from "./container";
+import { getAllClasses, getBottomBlock, getInnerBlock } from "./container";
 
 export default function ContainerButton({ children = [], options, additionalClassNames = "", callback }) {
   return (

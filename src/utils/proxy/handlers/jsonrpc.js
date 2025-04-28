@@ -1,9 +1,9 @@
 import { JSONRPCClient, JSONRPCErrorException } from "json-rpc-2.0";
 
-import { formatApiCall } from "utils/proxy/api-helpers";
-import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("jsonrpcProxyHandler");
