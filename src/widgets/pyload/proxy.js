@@ -1,10 +1,10 @@
 import cache from "memory-cache";
 
 import getServiceWidget from "utils/config/service-helpers";
-import { formatApiCall } from "utils/proxy/api-helpers";
-import widgets from "widgets/widgets";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
+import widgets from "widgets/widgets";
 
 const proxyName = "pyloadProxyHandler";
 const logger = createLogger(proxyName);

@@ -1,5 +1,5 @@
-import { useTranslation } from "next-i18next";
 import classNames from "classnames";
+import { useTranslation } from "next-i18next";
 
 export default function Block({ value, label }) {
   const { t } = useTranslation();

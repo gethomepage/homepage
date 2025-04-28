@@ -1,9 +1,9 @@
-import getServiceWidget from "utils/config/service-helpers";
-import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
-import validateWidgetData from "utils/proxy/validate-widget-data";
-import { httpProxy } from "utils/proxy/http";
-import createLogger from "utils/logger";
 import { getSettings } from "utils/config/config";
+import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
+import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
+import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("credentialedProxyHandler");
@@ -42,6 +42,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           "ghostfolio",
           "headscale",
           "hoarder",
+          "karakeep",
           "linkwarden",
           "mealie",
           "netalertx",

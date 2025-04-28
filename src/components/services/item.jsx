@@ -1,15 +1,15 @@
 import classNames from "classnames";
+import ResolvedIcon from "components/resolvedicon";
 import { useContext, useState } from "react";
+import { SettingsContext } from "utils/contexts/settings";
 import Docker from "widgets/docker/component";
 import Kubernetes from "widgets/kubernetes/component";
-import { SettingsContext } from "utils/contexts/settings";
-import ResolvedIcon from "components/resolvedicon";
 
-import Status from "./status";
-import Widget from "./widget";
+import KubernetesStatus from "./kubernetes-status";
 import Ping from "./ping";
 import SiteMonitor from "./site-monitor";
-import KubernetesStatus from "./kubernetes-status";
+import Status from "./status";
+import Widget from "./widget";
 
 export default function Item({ service, groupName, useEqualHeights }) {
   const hasLink = service.href && service.href !== "#";

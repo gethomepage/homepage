@@ -1,5 +1,5 @@
-import { cachedRequest } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { cachedRequest } from "utils/proxy/http";
 
 const logger = createLogger("releases");
 

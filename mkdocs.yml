@@ -74,7 +74,7 @@ nav:
           - widgets/services/hdhomerun.md
           - widgets/services/headscale.md
           - widgets/services/healthchecks.md
-          - widgets/services/hoarder.md
+          - widgets/services/karakeep.md
           - widgets/services/homeassistant.md
           - widgets/services/homebox.md
           - widgets/services/homebridge.md

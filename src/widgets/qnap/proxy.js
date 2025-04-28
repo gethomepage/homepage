@@ -3,10 +3,10 @@
 import cache from "memory-cache";
 import { xml2json } from "xml-js";
 
-import { httpProxy } from "utils/proxy/http";
-import { formatApiCall } from "utils/proxy/api-helpers";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 
 const proxyName = "qnapProxyHandler";
 const sessionTokenCacheKey = `${proxyName}__sessionToken`;

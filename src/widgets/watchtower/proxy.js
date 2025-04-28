@@ -1,7 +1,7 @@
-import { httpProxy } from "utils/proxy/http";
-import { formatApiCall } from "utils/proxy/api-helpers";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const proxyName = "watchtowerProxyHandler";

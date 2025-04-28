@@ -1,67 +1,63 @@
-# Install dependencies only when needed
-FROM docker.io/node:22-alpine AS deps
-
+# =========================
+# Builder Stage
+# =========================
+FROM node:22-slim AS builder
 WORKDIR /app
 
-COPY --link package.json pnpm-lock.yaml* ./
-
-SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
-RUN apk add --no-cache libc6-compat \
- && apk add --no-cache --virtual .gyp python3 make g++ \
- && npm install -g pnpm
-
-RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm fetch | grep -v "cross-device link not permitted\|Falling back to copying packages from store"
-
-RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store pnpm install -r --offline
-
-# Rebuild the source code only when needed
-FROM docker.io/node:22-alpine AS builder
-WORKDIR /app
-
+# Setup
 RUN mkdir config
+COPY . .
 
+ARG CI
 ARG BUILDTIME
 ARG VERSION
 ARG REVISION
+ENV CI=$CI
 
-COPY --link --from=deps /app/node_modules ./node_modules/
-COPY . .
+# Install and build only outside CI
+RUN if [ "$CI" != "true" ]; then \
+      corepack enable && corepack prepare pnpm@latest --activate && \
+      pnpm install --frozen-lockfile --prefer-offline && \
+      NEXT_TELEMETRY_DISABLED=1 \
+      NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
+      NEXT_PUBLIC_VERSION=$VERSION \
+      NEXT_PUBLIC_REVISION=$REVISION \
+      pnpm run build; \
+    else \
+      echo "✅ Using prebuilt app from CI context"; \
+    fi
 
-SHELL ["/bin/ash", "-xeo", "pipefail", "-c"]
-RUN npm install -g pnpm \
- && pnpm run telemetry \
- && NEXT_PUBLIC_BUILDTIME=$BUILDTIME NEXT_PUBLIC_VERSION=$VERSION NEXT_PUBLIC_REVISION=$REVISION pnpm run build
-
-# Production image, copy all the files and run next
-FROM docker.io/node:22-alpine AS runner
-LABEL org.opencontainers.image.title "Homepage"
-LABEL org.opencontainers.image.description "A self-hosted services landing page, with docker and service integrations."
+# =========================
+# Runtime Stage
+# =========================
+FROM node:22-alpine AS runner
+LABEL org.opencontainers.image.title="Homepage"
+LABEL org.opencontainers.image.description="A self-hosted services landing page, with docker and service integrations."
 LABEL org.opencontainers.image.url="https://github.com/gethomepage/homepage"
 LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/homepage/wiki'
 LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
 LABEL org.opencontainers.image.licenses='Apache-2.0'
 
-ENV NODE_ENV=production
-
+# Setup
 WORKDIR /app
 
-# Copy files from context (this allows the files to copy before the builder stage is done).
-COPY --link --chown=1000:1000 package.json next.config.js ./
+# Copy some files from context
 COPY --link --chown=1000:1000 /public ./public/
-
-# Copy files from builder
-COPY --link --from=builder --chown=1000:1000 /app/.next/standalone ./
-COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static/
 COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
-RUN apk add --no-cache su-exec
+# Copy only necessary files from the build stage
+COPY --link --from=builder --chown=1000:1000 /app/.next/standalone/ ./
+COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static
 
+RUN apk add --no-cache su-exec iputils-ping
+
+ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 EXPOSE $PORT
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
-  CMD wget --no-verbose --tries=1 --spider --no-check-certificate http://127.0.0.1:$PORT/api/healthcheck || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:$PORT/api/healthcheck || exit 1
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["node", "server.js"]

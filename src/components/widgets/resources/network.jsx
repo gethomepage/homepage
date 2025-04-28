@@ -1,9 +1,9 @@
-import useSWR from "swr";
-import { FaNetworkWired } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
+import { FaNetworkWired } from "react-icons/fa";
+import useSWR from "swr";
 
-import Resource from "../widget/resource";
 import Error from "../widget/error";
+import Resource from "../widget/resource";
 
 export default function Network({ options, refresh = 1500 }) {
   const { t } = useTranslation();
