@@ -29,11 +29,7 @@ export default function Component({ service }) {
     );
   }
 
-  // check for presence of datastore key
-  const hasDatastore = !!widget.datastore;
-  // return index of specified datastore
-  const datastoreIndex = hasDatastore ? datastoreData.data.findIndex(function(ds) { return ds.store == widget.datastore }) : -1;
-  // calculate usage for specified datastore, unless no match, then calculate for all datastores returned by API
+  const datastoreIndex = !!widget.datastore ? datastoreData.data.findIndex(function(ds) { return ds.store == widget.datastore }) : -1;
   const datastoreUsage = (datastoreIndex > -1) 
   ? (datastoreData.data[datastoreIndex].used / datastoreData.data[datastoreIndex].total) * 100 
   : ((datastoreData.data.reduce((sum, datastore) => sum + datastore.used, 0) / (datastoreData.data.reduce((sum, datastore) => sum + datastore.total, 0)))) * 100;
