@@ -120,7 +120,7 @@
         "grid_power": "Сітка",
         "home_power": "Споживання",
         "charge_power": "Зарядний пристрій",
-        "kilowatt": "kW"
+        "kilowatt": "кВт"
     },
     "flood": {
         "download": "Завантажено",
@@ -149,8 +149,8 @@
         "received": "Отримано",
         "sent": "Надіслано",
         "externalIPAddress": "Зовнішній IP",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "Зовнішній IPv6",
+        "externalIPv6Prefix": "Зовнішній Префікс IPv6-"
     },
     "caddy": {
         "upstreams": "Потоки",
@@ -178,7 +178,7 @@
         "connectedAp": "Підключені точки доступу",
         "activeUser": "Активні пристрої",
         "alerts": "Оповіщення",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Підключені шлюзи",
         "connectedSwitches": "Підключені перемикачі"
     },
     "nzbget": {
@@ -420,8 +420,8 @@
     },
     "authentik": {
         "users": "Користувачі",
-        "loginsLast24H": "Вхід (24 години)",
-        "failedLoginsLast24H": "Невдалі входи (24 години)"
+        "loginsLast24H": "Вхід (протягом доби)",
+        "failedLoginsLast24H": "Невдалі входи (протягом доби)"
     },
     "proxmox": {
         "mem": "ОЗП",
@@ -434,7 +434,7 @@
         "load": "Завантаження",
         "wait": "Будь ласка, зачекайте",
         "temp": "Температура",
-        "_temp": "Темп.",
+        "_temp": "Температура",
         "warn": "Увага",
         "uptime": "Онлайн",
         "total": "Усього",
@@ -616,7 +616,7 @@
     },
     "opendtu": {
         "yieldDay": "Сьогодні",
-        "absolutePower": "Абс. потуж.",
+        "absolutePower": "Потужність",
         "relativePower": "Заряд %",
         "limit": "Ліміт"
     },
@@ -648,13 +648,13 @@
         "wanStatus": "Статус WAN",
         "up": "Онлайн",
         "down": "Офлайн",
-        "temp": "Темп.",
+        "temp": "Температура",
         "disk": "Використання диска",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Сховище даних",
-        "failed_tasks_24h": "Невиконані завдання 24 години",
+        "failed_tasks_24h": "Невиконані завдання за останню добу",
         "cpu_usage": "ЦП",
         "memory_usage": "Пам'ять"
     },
@@ -705,8 +705,8 @@
         "time": "Час"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Чисті Активи",
+        "budget": "Бюджет"
     },
     "grafana": {
         "dashboards": "Інформаційні панелі",
@@ -831,7 +831,7 @@
     },
     "openwrt": {
         "uptime": "Час роботи",
-        "cpuLoad": "Сер. навантаження ЦП (5 хв)",
+        "cpuLoad": "Сер. навантаження ЦП (\"5\" хв)",
         "up": "Онлайн",
         "down": "Офлайн",
         "bytesTx": "Передано",
@@ -855,7 +855,7 @@
         "inCinemas": "У кінотеатрах",
         "physicalRelease": "Фізичний реліз",
         "digitalRelease": "Цифровий реліз",
-        "noEventsToday": "Події на сьогодні відсутні",
+        "noEventsToday": "Події на сьогодні відсутні!",
         "noEventsFound": "Події не знайдено"
     },
     "romm": {
@@ -886,7 +886,7 @@
         "notifications": "Сповіщення",
         "issues": "Питання",
         "pulls": "Pull-запити",
-        "repositories": "Repositories"
+        "repositories": "Репозиторії"
     },
     "stash": {
         "scenes": "Сцени",
@@ -1024,23 +1024,23 @@
         "bcharge": "Заряд батареї",
         "timeleft": "Залишилось"
     },
-    "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+    "karakeep": {
+        "bookmarks": "Закладки",
+        "favorites": "Обране",
+        "archived": "Заархівовані",
+        "highlights": "Основні моменти",
+        "lists": "Списки",
         "tags": "Теги"
     },
     "slskd": {
         "slskStatus": "Мережа",
         "connected": "З'єднано",
         "disconnected": "Відключено",
-        "updateStatus": "Update",
+        "updateStatus": "Оновити",
         "update_yes": "Доступно",
         "update_no": "Актуально",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
+        "downloads": "Завантаження",
+        "uploads": "Вивантаження",
         "sharedFiles": "Файли"
     }
 }
