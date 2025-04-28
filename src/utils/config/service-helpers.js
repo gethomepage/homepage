@@ -362,6 +362,9 @@ export function cleanServiceGroups(groups) {
           // proxmox
           node,
 
+          // proxmoxbackupserver
+          datastore,
+
           // speedtest
           bitratePrecision,
 
@@ -436,6 +439,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "proxmox") {
           if (node) widget.node = node;
+        }
+        if (type === "proxmoxbackupserver") {
+          if (datastore) widget.datastore = datastore;
         }
         if (type === "kubernetes") {
           if (namespace) widget.namespace = namespace;
