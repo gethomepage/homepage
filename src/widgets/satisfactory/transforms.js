@@ -4,30 +4,31 @@ export function formatDuration(seconds) {
   const minutes = Math.floor((seconds % (60 * 60)) / 60);
   const secs = Math.floor(seconds % 60);
 
+
   let result = '';
   if (hours > 0) result += `${formattedHours}h `;
   if (minutes > 0) result += `${minutes}m `;
   if (secs > 0 || seconds < 60) result += `${secs}s`;
 
   return result.trim();
-  }
+}
 
 export const formatInternalName = {
 
   gamephase: (gamePhase) => {
 
-    const parts = gamePhase.split('/');
+    const parts = gamePhase.split("/");
     const lastPart = parts[parts.length - 1];
-    const phaseName = lastPart.split('.')[1].slice(0, -1);
+    const phaseName = lastPart.split(".")[1].slice(0, -1);
     const phaseMapping = {
-      "GP_Project_Assembly_Phase_0": "Onboarding",
-      "GP_Project_Assembly_Phase_1": "Distribution Platform",
-      "GP_Project_Assembly_Phase_2": "Construction Dock",
-      "GP_Project_Assembly_Phase_3": "Main Body",
-      "GP_Project_Assembly_Phase_4": "Propulsion",
-      "GP_Project_Assembly_Phase_5": "Assembly",
-      "GP_Project_Assembly_Phase_6": "Launch",
-      "GP_Project_Assembly_Phase_7": "Completed",
+      GP_Project_Assembly_Phase_0: "Onboarding",
+      GP_Project_Assembly_Phase_1: "Distribution Platform",
+      GP_Project_Assembly_Phase_2: "Construction Dock",
+      GP_Project_Assembly_Phase_3: "Main Body",
+      GP_Project_Assembly_Phase_4: "Propulsion",
+      GP_Project_Assembly_Phase_5: "Assembly",
+      GP_Project_Assembly_Phase_6: "Launch",
+      GP_Project_Assembly_Phase_7: "Completed",
     };
 
     const formattedPhase = phaseMapping[phaseName] || "N/A";
@@ -37,9 +38,9 @@ export const formatInternalName = {
 
   schematic: (schematic) => {
 
-    const parts = schematic.split('/');
+    const parts = schematic.split("/");
     const lastPart = parts[parts.length - 1];
-    const schematicName = lastPart.split('.')[0];
+    const schematicName = lastPart.split(".")[0];
     const schematicMapping = {
       // Tier 1
       "Schematic_1-1": "Base Building",
