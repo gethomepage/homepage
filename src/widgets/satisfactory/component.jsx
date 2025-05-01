@@ -37,7 +37,6 @@ export default function Component({ service }) {
         <Block label="satisfactory.tickrate" />
       </Container>
     );
-
   }
 
   const playerCount = `${serverData?.numConnectedPlayers || "0"} / ${serverData?.playerLimit || "0"}`;
@@ -51,8 +50,14 @@ export default function Component({ service }) {
       <Block label="satisfactory.duration" value={formatDuration(serverData?.totalGameDuration) || "N/A"} />
       <Block label="satisfactory.gamephase" value={formatInternalName.gamephase(serverData?.gamePhase) || "N/A"} />
       <Block label="satisfactory.techtier" value={serverData?.techTier || "N/A"} />
-      <Block label="satisfactory.milestone" value={formatInternalName.schematic(serverData?.activeSchematic) || "N/A"} />
-      <Block label="satisfactory.tickrate" value={t("common.number", { value: serverData?.averageTickRate }) || "N/A"} />
+      <Block
+        label="satisfactory.milestone"
+        value={formatInternalName.schematic(serverData?.activeSchematic) || "N/A"}
+      />
+      <Block
+        label="satisfactory.tickrate"
+        value={t("common.number", { value: serverData?.averageTickRate }) || "N/A"}
+      />
     </Container>
   );
 }
