@@ -4,8 +4,7 @@ export function formatDuration(seconds) {
   const minutes = Math.floor((seconds % (60 * 60)) / 60);
   const secs = Math.floor(seconds % 60);
 
-
-  let result = '';
+  let result = "";
   if (hours > 0) result += `${formattedHours}h `;
   if (minutes > 0) result += `${minutes}m `;
   if (secs > 0 || seconds < 60) result += `${secs}s`;
@@ -101,4 +100,3 @@ export const formatInternalName = {
     return formattedSchematic;
   },
 };
-
