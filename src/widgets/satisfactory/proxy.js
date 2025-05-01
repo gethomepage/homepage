@@ -36,7 +36,7 @@ export default async function satisfactoryProxyHandler(req, res) {
     });
 
 
-    const data = JSON.parse(responseData.toString('utf8')).data.serverGameState;
+    const data = JSON.parse(responseData.toString("utf8")).data.serverGameState;
 
     if (status !== 200) {
       logger.debug("Error %d calling server endpoint %s", status, url);
