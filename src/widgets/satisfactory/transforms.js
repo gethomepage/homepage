@@ -13,9 +13,7 @@ export function formatDuration(seconds) {
 }
 
 export const formatInternalName = {
-
   gamephase: (gamePhase) => {
-
     const parts = gamePhase.split("/");
     const lastPart = parts[parts.length - 1];
     const phaseName = lastPart.split(".")[1].slice(0, -1);
@@ -36,7 +34,6 @@ export const formatInternalName = {
   },
 
   schematic: (schematic) => {
-
     const parts = schematic.split("/");
     const lastPart = parts[parts.length - 1];
     const schematicName = lastPart.split(".")[0];
@@ -92,7 +89,6 @@ export const formatInternalName = {
       "Schematic_9-3": "FICSIT Blueprints Mk.3",
       "Schematic_9-4": "Spatial Energy Regulation",
       "Schematic_9-5": "Peak Efficiency",
-
     };
 
     const formattedSchematic = schematicMapping[schematicName] || schematicName;
