@@ -113,6 +113,7 @@ const components = {
   romm: dynamic(() => import("./romm/component")),
   rutorrent: dynamic(() => import("./rutorrent/component")),
   sabnzbd: dynamic(() => import("./sabnzbd/component")),
+  satisfactory: dynamic(() => import("./satisfactory/component")),
   scrutiny: dynamic(() => import("./scrutiny/component")),
   slskd: dynamic(() => import("./slskd/component")),
   sonarr: dynamic(() => import("./sonarr/component")),
