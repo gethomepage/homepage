@@ -35,7 +35,6 @@ export default async function satisfactoryProxyHandler(req, res) {
       headers,
     });
 
-
     const data = JSON.parse(responseData.toString("utf8")).data.serverGameState;
 
     if (status !== 200) {
@@ -45,7 +44,6 @@ export default async function satisfactoryProxyHandler(req, res) {
 
     if (contentType) res.setHeader("Content-Type", contentType);
     return res.status(status).send(data);
-
   } catch (err) {
     return res.status(500).json({ error: "Internal server error", details: err });
   }
