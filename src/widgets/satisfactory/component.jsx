@@ -2,8 +2,8 @@ import { useTranslation } from "next-i18next";
 
 import { formatDuration, formatInternalName } from "./transforms";
 
-import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
@@ -26,7 +26,7 @@ export default function Component({ service }) {
 
   if (!serverData) {
     return (
-      <Container service={ service }>
+      <Container service={service}>
         <Block label="satisfactory.session" />
         <Block label="satisfactory.players" />
         <Block label="satisfactory.state" />
@@ -37,21 +37,22 @@ export default function Component({ service }) {
         <Block label="satisfactory.tickrate" />
       </Container>
     );
-  }  
 
-  const playerCount = `${ serverData?.numConnectedPlayers || "0" } / ${ serverData?.playerLimit || "0" }`;
+  }
+
+  const playerCount = `${serverData?.numConnectedPlayers || "0"} / ${serverData?.playerLimit || "0"}`;
   const pausedState = serverData?.isGamePaused === true ? "Paused" : "Running";
 
   return (
-    <Container service={ service }>
-      <Block label="satisfactory.session" value={ serverData?.activeSessionName || "N/A" } />
-      <Block label="satisfactory.players" value={ playerCount || "N/A" } />
-      <Block label="satisfactory.state" value={ pausedState || "N/A" } />
-      <Block label="satisfactory.duration" value={ formatDuration(serverData?.totalGameDuration) || "N/A" } />
-      <Block label="satisfactory.gamephase" value={ formatInternalName.gamephase(serverData?.gamePhase) || "N/A" } />
-      <Block label="satisfactory.techtier" value={ serverData?.techTier || "N/A" } />
-      <Block label="satisfactory.milestone" value={ formatInternalName.schematic(serverData?.activeSchematic) || "N/A" } />
-      <Block label="satisfactory.tickrate" value={t("common.number", { value: serverData?.averageTickRate }) || "N/A" } />
+    <Container service={service}>
+      <Block label="satisfactory.session" value={serverData?.activeSessionName || "N/A"} />
+      <Block label="satisfactory.players" value={playerCount || "N/A"} />
+      <Block label="satisfactory.state" value={pausedState || "N/A"} />
+      <Block label="satisfactory.duration" value={formatDuration(serverData?.totalGameDuration) || "N/A"} />
+      <Block label="satisfactory.gamephase" value={formatInternalName.gamephase(serverData?.gamePhase) || "N/A"} />
+      <Block label="satisfactory.techtier" value={serverData?.techTier || "N/A"} />
+      <Block label="satisfactory.milestone" value={formatInternalName.schematic(serverData?.activeSchematic) || "N/A"} />
+      <Block label="satisfactory.tickrate" value={t("common.number", { value: serverData?.averageTickRate }) || "N/A"} />
     </Container>
   );
 }
