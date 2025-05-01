@@ -2,8 +2,10 @@ import { useTranslation } from "next-i18next";
 
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
-import { formatDuration, formatInternalName } from "widgets/satisfactory/transforms";
+
+import { formatDuration, formatInternalName } from "./transforms";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
