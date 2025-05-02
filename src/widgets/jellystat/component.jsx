@@ -20,8 +20,9 @@ export default function Component({ service }) {
 
   const { data: viewsData, error: viewsError } = useWidgetAPI(widget, "getViewsByLibraryType", { days: widget.days });
 
-  if (viewsError) {
-    return <Container service={service} error={viewsError} />;
+  const error = viewsError || viewsData?.message;
+  if (error) {
+    return <Container service={service} error={error} />;
   }
 
   if (!viewsData) {
