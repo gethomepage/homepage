@@ -104,6 +104,7 @@ import readarr from "./readarr/widget";
 import romm from "./romm/widget";
 import rutorrent from "./rutorrent/widget";
 import sabnzbd from "./sabnzbd/widget";
+import satisfactory from "./satisfactory/widget";
 import scrutiny from "./scrutiny/widget";
 import slskd from "./slskd/widget";
 import sonarr from "./sonarr/widget";
@@ -245,6 +246,7 @@ const widgets = {
   romm,
   rutorrent,
   sabnzbd,
+  satisfactory,
   scrutiny,
   slskd,
   sonarr,

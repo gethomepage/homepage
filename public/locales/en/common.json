@@ -1042,5 +1042,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Files"
+    },
+    "satisfactory": {
+        "session": "Session",
+        "players": "Players",
+        "techtier": "Tech Tier",
+        "state": "State",
+        "milestone": "Milestone",
+        "gamephase": "Game Phase",
+        "duration": "Duration",
+        "tickrate": "Tick Rate"
     }
 }
