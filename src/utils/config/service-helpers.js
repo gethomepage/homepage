@@ -393,6 +393,9 @@ export function cleanServiceGroups(groups) {
 
           // spoolman
           spoolIds,
+
+          // jellystat
+          days,
         } = widgetData;
 
         let fieldsList = fields;
@@ -562,6 +565,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "spoolman") {
           if (spoolIds !== undefined) widget.spoolIds = spoolIds;
+        }
+        if (type === "jellystat") {
+          if (days !== undefined) widget.days = parseInt(days, 10);
         }
         return widget;
       });

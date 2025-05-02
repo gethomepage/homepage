@@ -6,6 +6,9 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
+  // Days validation
+  if (!(Number.isInteger(widget.days) && 0 < widget.days)) widget.days = 30;
+
   if (!widget.fields) {
     widget.fields = [];
   }
@@ -15,7 +18,7 @@ export default function Component({ service }) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
-  const { data: viewsData, error: viewsError } = useWidgetAPI(widget, "getViewsByLibraryType");
+  const { data: viewsData, error: viewsError } = useWidgetAPI(widget, "getViewsByLibraryType", { days: widget.days });
 
   if (viewsError) {
     return <Container service={service} error={viewsError} />;

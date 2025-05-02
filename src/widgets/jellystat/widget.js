@@ -7,6 +7,7 @@ const widget = {
   mappings: {
     getViewsByLibraryType: {
       endpoint: "stats/getViewsByLibraryType",
+      params: ["days"],
     },
   },
 };
