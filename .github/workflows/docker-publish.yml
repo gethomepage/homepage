@@ -20,7 +20,8 @@ on:
   merge_group:
 
 env:
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: insertdisc/homepage
+
 
 jobs:
   pre-commit:
@@ -75,19 +76,18 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ env.IMAGE_NAME }}
-            ghcr.io/${{ env.IMAGE_NAME }}
+            docker.io/insertdisc/homepage
+            ghcr.io/insertdisc/homepage
           tags: |
-            # Default tags
             type=schedule,pattern=nightly
             type=ref,event=branch
             type=ref,event=tag
-            # Versioning tags
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}.{{minor}}
             type=semver,pattern=v{{major}}
           flavor: |
             latest=auto
+
 
       - name: Next.js build cache
         uses: actions/cache@v4
@@ -119,7 +119,7 @@ jobs:
           NEXT_PUBLIC_REVISION="${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}" \
           pnpm run build
 
-      - name: Log into registry ${{ env.REGISTRY }}
+      - name: Log into GitHub Container Registry
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
@@ -127,7 +127,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Login to Docker Hub
+      - name: Log into Docker Hub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
