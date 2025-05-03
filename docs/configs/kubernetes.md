@@ -169,13 +169,11 @@ To enable Gateway API HttpRoute update `kubernetes.yaml` to include:
 gateway: true # enable gateway-api
 ```
 
-See [kubernetes config](https://github.com/gethomepage/homepage/blob/dev/docs/configs/kubernetes.md)
-
 #### Using the unoffocial helm chart?
 
 If you are using the unofficial helm chart ensure that the `ClusterRole` has required permissions for `gateway.networking.k8s.io`.
 
-See [ClusterRole and ClusterRoleBinding](https://github.com/gethomepage/homepage/blob/dev/docs/installation/k8s.md#clusterrole-and-clusterrolebinding)
+See [ClusterRole and ClusterRoleBinding](../installation/k8s.md#clusterrole-and-clusterrolebinding)
 
 ## Caveats
 
