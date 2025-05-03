@@ -331,6 +331,9 @@ export function cleanServiceGroups(groups) {
           referrerPolicy,
           src,
 
+          // jellystat
+          days,
+
           // kopia
           snapshotHost,
           snapshotPath,
@@ -393,9 +396,6 @@ export function cleanServiceGroups(groups) {
 
           // spoolman
           spoolIds,
-
-          // jellystat
-          days,
         } = widgetData;
 
         let fieldsList = fields;
