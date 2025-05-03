@@ -9,10 +9,6 @@ export default function Component({ service }) {
   // Days validation
   if (!(Number.isInteger(widget.days) && 0 < widget.days)) widget.days = 30;
 
-  if (!widget.fields) {
-    widget.fields = [];
-  }
-
   const { data: viewsData, error: viewsError } = useWidgetAPI(widget, "getViewsByLibraryType", { days: widget.days });
 
   const error = viewsError || viewsData?.message;
