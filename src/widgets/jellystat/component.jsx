@@ -13,11 +13,6 @@ export default function Component({ service }) {
     widget.fields = [];
   }
 
-  const MAX_ALLOWED_FIELDS = 4;
-  if (widget.fields.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
-  }
-
   const { data: viewsData, error: viewsError } = useWidgetAPI(widget, "getViewsByLibraryType", { days: widget.days });
 
   const error = viewsError || viewsData?.message;
