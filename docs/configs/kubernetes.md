@@ -163,6 +163,18 @@ If the `href` attribute is not present, Homepage will ignore the specific Ingres
 
 Homepage also features automatic service discovery for Gateway API. Service definitions are read by annotating the HttpRoute custom resource definition and are indentical to the Ingress example as defined in [Automatic Service Discovery](#automatic-service-discovery).
 
+To enable Gateway API HttpRoute update `kubernetes.yaml` to include:
+
+```
+gateway: true # enable gateway-api
+```
+
+#### Using the unoffocial helm chart?
+
+If you are using the unofficial helm chart ensure that the `ClusterRole` has required permissions for `gateway.networking.k8s.io`.
+
+See [ClusterRole and ClusterRoleBinding](../installation/k8s.md#clusterrole-and-clusterrolebinding)
+
 ## Caveats
 
 Similarly to Docker service discovery, there currently is no rigid ordering to discovered services and discovered services will be displayed above those specified in the `services.yaml`.
