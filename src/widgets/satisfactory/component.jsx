@@ -30,7 +30,7 @@ export default function Component({ service }) {
         <Block label="satisfactory.serverName" />
         <Block label="satisfactory.online" />
         <Block label="satisfactory.players" />
-        <Block label="satisfactory.session" />  
+        <Block label="satisfactory.session" />
         <Block label="satisfactory.state" />
         <Block label="satisfactory.gamephase" />
         <Block label="satisfactory.techtier" />
@@ -48,7 +48,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="satisfactory.serverName" value={serverData?.serverName || "N/A"} />
-      <Block 
+      <Block
         label="satisfactory.online"
         value={
           serverData?.online ? (
@@ -56,11 +56,11 @@ export default function Component({ service }) {
           ) : (
             <span className="text-red-500">Offline</span>
           )
-        } 
+        }
       />
       <Block label="satisfactory.players" value={playerCount} />
       <Block label="satisfactory.session" value={serverData?.activeSessionName || "N/A"} />
-      <Block 
+      <Block
         label="satisfactory.state"
         value={
           serverData?.isGamePaused ? (
@@ -72,15 +72,15 @@ export default function Component({ service }) {
       />
       <Block label="satisfactory.gamephase" value={formatInternalName.gamephase(serverData?.gamePhase) || "N/A"} />
       <Block label="satisfactory.techtier" value={serverData?.techTier || "N/A"} />
-      <Block 
-        label="satisfactory.milestone" 
-        value={formatInternalName.schematic(serverData?.activeSchematic) || "N/A"} 
+      <Block
+        label="satisfactory.milestone"
+        value={formatInternalName.schematic(serverData?.activeSchematic) || "N/A"}
       />
       <Block label="satisfactory.duration" value={formatDuration(serverData?.totalGameDuration) || "N/A"} />
       <Block label="satisfactory.ping" value={serverData?.ping != null ? `${serverData.ping}ms` : "N/A"} />
-      <Block 
-        label="satisfactory.tickrate" 
-        value={t("common.number", { value: serverData?.averageTickRate }) || "N/A"} 
+      <Block
+        label="satisfactory.tickrate"
+        value={t("common.number", { value: serverData?.averageTickRate }) || "N/A"}
       />
     </Container>
   );
