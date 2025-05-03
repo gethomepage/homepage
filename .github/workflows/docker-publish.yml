@@ -58,7 +58,7 @@ jobs:
   build:
     name: Docker Build & Push
     if: github.repository == 'insertdisc/homepage'
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
     needs: [ pre-commit ]
     permissions:
       contents: read
