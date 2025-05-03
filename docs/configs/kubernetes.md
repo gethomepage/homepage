@@ -168,6 +168,7 @@ To enable Gateway API HttpRoute update `kubernetes.yaml` to include:
 ```
 gateway: true # enable gateway-api
 ```
+
 See [kubernetes config](https://github.com/gethomepage/homepage/blob/dev/docs/configs/kubernetes.md)
 
 #### Using the unoffocial helm chart?
