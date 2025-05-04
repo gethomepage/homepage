@@ -6,15 +6,15 @@ import { useEffect } from "react";
 import Error from "../../../components/services/widget/error";
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 
-// https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
 function simpleHash(str) {
-  /* eslint-disable, no-bitwise */
   let hash = 0;
-  for (let i = 0; i < str.length; i += 1) {
-    hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+  const prime = 31;
+
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * prime + str.charCodeAt(i)) % 2_147_483_647;
   }
-  return (hash >>> 0).toString(36);
-  /* eslint-disable, no-bitwise */
+
+  return Math.abs(hash).toString(36);
 }
 
 export default function Integration({ config, params, setEvents, hideErrors, timezone }) {
