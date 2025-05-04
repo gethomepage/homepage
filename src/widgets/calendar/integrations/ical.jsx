@@ -1,5 +1,5 @@
-import { DateTime } from "luxon";
 import ICAL from "ical.js";
+import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next";
 import { useEffect } from "react";
 
@@ -24,19 +24,17 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
   });
 
   useEffect(() => {
-    const {
-      showName = false,
-    } = config?.params || {};
+    const { showName = false } = config?.params || {};
     let events = [];
 
     if (!icalError && icalData && !icalData.error) {
       if (!icalData.data) {
         icalData.error = { message: `'${config.name}': ${t("calendar.errorWhenLoadingData")}` };
-        return
+        return;
       }
 
-      const jCal = ICAL.parse(icalData.data)
-      const vCalendar = new ICAL.Component(jCal)
+      const jCal = ICAL.parse(icalData.data);
+      const vCalendar = new ICAL.Component(jCal);
 
       const buildEvent = (event, type) => {
         return {
@@ -44,27 +42,30 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           type,
           title: event.getFirstPropertyValue("summary"),
           rrule: event.getFirstPropertyValue("rrule"),
-          dtstart: event.getFirstPropertyValue("dtstart") || event.getFirstPropertyValue("due") || event.getFirstPropertyValue("completed") || ICAL.Time.now(),
-          dtend: event.getFirstPropertyValue("dtend") || event.getFirstPropertyValue("due") || event.getFirstPropertyValue("completed") || ICAL.Time.now(),
+          dtstart:
+            event.getFirstPropertyValue("dtstart") ||
+            event.getFirstPropertyValue("due") ||
+            event.getFirstPropertyValue("completed") ||
+            ICAL.Time.now(),
+          dtend:
+            event.getFirstPropertyValue("dtend") ||
+            event.getFirstPropertyValue("due") ||
+            event.getFirstPropertyValue("completed") ||
+            ICAL.Time.now(),
           location: event.getFirstPropertyValue("location"),
           status: event.getFirstPropertyValue("status"),
-        }
-      }
+        };
+      };
 
       const getEvents = () => {
-        const vEvents = vCalendar.getAllSubcomponents("vevent")
-          .map(event => buildEvent(event, 'vevent'))
+        const vEvents = vCalendar.getAllSubcomponents("vevent").map((event) => buildEvent(event, "vevent"));
 
-        const vTodos = vCalendar.getAllSubcomponents("vtodo")
-          .map(todo => buildEvent(todo, 'vtodo'))
+        const vTodos = vCalendar.getAllSubcomponents("vtodo").map((todo) => buildEvent(todo, "vtodo"));
 
-        return [
-          ...vEvents,
-          ...vTodos,
-        ]
-      }
+        return [...vEvents, ...vTodos];
+      };
 
-      events = getEvents()
+      events = getEvents();
       if (events.length === 0) {
         icalData.error = { message: `'${config.name}': ${t("calendar.noEventsFound")}` };
       }
@@ -83,47 +84,47 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     const getOcurrencesFromRange = (event) => {
       if (!event.rrule) {
         if (event.dtstart.compare(rangeStart) >= 0 && event.dtend.compare(rangeEnd) <= 0) {
-          return [event.dtstart]
+          return [event.dtstart];
         }
 
-        return []
+        return [];
       }
 
       const iterator = event.rrule.iterator(event.dtstart);
 
-      const occurrences = []
+      const occurrences = [];
       for (let next = iterator.next(); next && next.compare(rangeEnd) < 0; next = iterator.next()) {
         if (next.compare(rangeStart) < 0) {
-          continue
+          continue;
         }
 
-        occurrences.push(next.clone())
+        occurrences.push(next.clone());
       }
 
-      return occurrences
-    }
+      return occurrences;
+    };
 
     const eventsToAdd = [];
     events.forEach((event, index) => {
-      const occurrences = getOcurrencesFromRange(event)
+      const occurrences = getOcurrencesFromRange(event);
 
       occurrences.forEach((icalDate) => {
-        const date = icalDate.toJSDate()
+        const date = icalDate.toJSDate();
 
         const hash = simpleHash(`${event.id}-${event.title}-${index}-${date.toString()}`);
 
-        let title = event.title
+        let title = event.title;
         if (showName) {
           title = `${config.name}: ${title}`;
         }
 
         const getIsCompleted = () => {
-          if (event.type === 'vtodo') {
-            return event.status === "COMPLETED"
+          if (event.type === "vtodo") {
+            return event.status === "COMPLETED";
           }
 
-          return DateTime.fromJSDate(date) < DateTime.now()
-        }
+          return DateTime.fromJSDate(date) < DateTime.now();
+        };
 
         eventsToAdd[hash] = {
           title,
@@ -133,8 +134,8 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           additional: event.location,
           type: "ical",
         };
-      })
-    })
+      });
+    });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
   }, [icalData, icalError, config, params, setEvents, timezone, t]);
