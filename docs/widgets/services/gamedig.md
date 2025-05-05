@@ -14,4 +14,5 @@ widget:
   type: gamedig
   serverType: csgo # see https://github.com/gamedig/node-gamedig#games-list
   url: udp://server.host.or.ip:port
+  token: # optional, required for certain services to authorize correctly, i.e. Satisfactory
 ```
