@@ -14,5 +14,5 @@ widget:
   type: gamedig
   serverType: csgo # see https://github.com/gamedig/node-gamedig#games-list
   url: udp://server.host.or.ip:port
-  gameToken: # optional, used by gamedig with certain games
+  gameToken: # optional, a token used by gamedig with certain games
 ```
