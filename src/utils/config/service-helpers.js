@@ -304,6 +304,9 @@ export function cleanServiceGroups(groups) {
           // frigate
           enableRecentEvents,
 
+          // gamedig
+          gameToken,
+
           // beszel, glances, immich, komga, mealie, pihole, pfsense, speedtest
           version,
 
@@ -486,6 +489,9 @@ export function cleanServiceGroups(groups) {
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) widget.volume = volume;
+        }
+        if (type === "gamedig") {
+          if (gameToken) widget.gameToken = gameToken;
         }
         if (type === "kopia") {
           if (snapshotHost) widget.snapshotHost = snapshotHost;
