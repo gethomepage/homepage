@@ -12,13 +12,20 @@ export default async function gamedigProxyHandler(req, res) {
   const url = new URL(serviceWidget.url);
 
   try {
-    const serverData = await GameDig.query({
+    const gamedigOptions = {
       type: serviceWidget.serverType,
       host: url.hostname,
-      port: url.port,
+      port: Number(url.port),
       givenPortOnly: true,
       checkOldIDs: true,
-    });
+    };
+
+    if (serviceWidget.token) {
+      gamedigOptions.token = serviceWidget.token;
+    }
+
+    const serverData = await
+      GameDig.query(gamedigOptions);
 
     res.status(200).send({
       online: true,
@@ -31,7 +38,6 @@ export default async function gamedigProxyHandler(req, res) {
     });
   } catch (e) {
     if (e) logger.error(e);
-
     res.status(200).send({
       online: false,
     });
