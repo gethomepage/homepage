@@ -21,7 +21,7 @@ export default async function gamedigProxyHandler(req, res) {
     };
 
     if (serviceWidget.token) {
-      gamedigOptions.token = serviceWidget.token;
+      gamedigOptions.token = serviceWidget.gameToken;
     }
 
     const serverData = await GameDig.query(gamedigOptions);
