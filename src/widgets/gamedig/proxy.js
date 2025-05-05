@@ -20,7 +20,7 @@ export default async function gamedigProxyHandler(req, res) {
       checkOldIDs: true,
     };
 
-    if (serviceWidget.token) {
+    if (serviceWidget.gameToken) {
       gamedigOptions.token = serviceWidget.gameToken;
     }
 
