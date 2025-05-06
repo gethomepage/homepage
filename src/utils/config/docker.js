@@ -40,6 +40,7 @@ export default function getDockerArguments(server) {
         res.conn.ca = readFileSync(path.join(CONF_DIR, servers[server].tls.caFile));
         res.conn.cert = readFileSync(path.join(CONF_DIR, servers[server].tls.certFile));
         res.conn.key = readFileSync(path.join(CONF_DIR, servers[server].tls.keyFile));
+        res.conn.protocol = "https";
       }
 
       return res;
