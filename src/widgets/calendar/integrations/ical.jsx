@@ -1,21 +1,20 @@
-import { parseString } from "cal-parser";
+import ICAL from "ical.js";
 import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next";
 import { useEffect } from "react";
-import { RRule } from "rrule";
 
 import Error from "../../../components/services/widget/error";
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 
-// https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
 function simpleHash(str) {
-  /* eslint-disable no-plusplus, no-bitwise */
   let hash = 0;
+  const prime = 31;
+
   for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+    hash = (hash * prime + str.charCodeAt(i)) % 2_147_483_647;
   }
-  return (hash >>> 0).toString(36);
-  /* eslint-disable no-plusplus, no-bitwise */
+
+  return Math.abs(hash).toString(36);
 }
 
 export default function Integration({ config, params, setEvents, hideErrors, timezone }) {
@@ -25,11 +24,49 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
   });
 
   useEffect(() => {
-    let parsedIcal;
+    const { showName = false } = config?.params || {};
+    let events = [];
 
     if (!icalError && icalData && !icalData.error) {
-      parsedIcal = parseString(icalData.data);
-      if (parsedIcal.events.length === 0) {
+      if (!icalData.data) {
+        icalData.error = { message: `'${config.name}': ${t("calendar.errorWhenLoadingData")}` };
+        return;
+      }
+
+      const jCal = ICAL.parse(icalData.data);
+      const vCalendar = new ICAL.Component(jCal);
+
+      const buildEvent = (event, type) => {
+        return {
+          id: event.getFirstPropertyValue("uid"),
+          type,
+          title: event.getFirstPropertyValue("summary"),
+          rrule: event.getFirstPropertyValue("rrule"),
+          dtstart:
+            event.getFirstPropertyValue("dtstart") ||
+            event.getFirstPropertyValue("due") ||
+            event.getFirstPropertyValue("completed") ||
+            ICAL.Time.now(), // handles events without a date
+          dtend:
+            event.getFirstPropertyValue("dtend") ||
+            event.getFirstPropertyValue("due") ||
+            event.getFirstPropertyValue("completed") ||
+            ICAL.Time.now(), // handles events without a date
+          location: event.getFirstPropertyValue("location"),
+          status: event.getFirstPropertyValue("status"),
+        };
+      };
+
+      const getEvents = () => {
+        const vEvents = vCalendar.getAllSubcomponents("vevent").map((event) => buildEvent(event, "vevent"));
+
+        const vTodos = vCalendar.getAllSubcomponents("vtodo").map((todo) => buildEvent(todo, "vtodo"));
+
+        return [...vEvents, ...vTodos];
+      };
+
+      events = getEvents();
+      if (events.length === 0) {
         icalData.error = { message: `'${config.name}': ${t("calendar.noEventsFound")}` };
       }
     }
@@ -37,72 +74,67 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     const startDate = DateTime.fromISO(params.start);
     const endDate = DateTime.fromISO(params.end);
 
-    if (icalError || !parsedIcal || !startDate.isValid || !endDate.isValid) {
+    if (icalError || events.length === 0 || !startDate.isValid || !endDate.isValid) {
       return;
     }
 
-    const eventsToAdd = {};
-    const events = parsedIcal?.getEventsBetweenDates(startDate.toJSDate(), endDate.toJSDate());
-    const now = timezone ? DateTime.now().setZone(timezone) : DateTime.now();
+    const rangeStart = ICAL.Time.fromJSDate(startDate.toJSDate());
+    const rangeEnd = ICAL.Time.fromJSDate(endDate.toJSDate());
 
-    events?.forEach((event) => {
-      let title = `${event?.summary?.value}`;
-      if (config?.params?.showName) {
-        title = `${config.name}: ${title}`;
-      }
-
-      // 'dtend' is null for all-day events
-      const { dtstart, dtend = { value: 0 } } = event;
-
-      const eventToAdd = (date, i, type) => {
-        const days = dtend.value === 0 ? 1 : (dtend.value - dtstart.value) / (1000 * 60 * 60 * 24);
-        const eventDate = timezone ? DateTime.fromJSDate(date, { zone: timezone }) : DateTime.fromJSDate(date);
-
-        for (let j = 0; j < days; j += 1) {
-          // See https://github.com/gethomepage/homepage/issues/2753 uid is not stable
-          // assumption is that the event is the same if the start, end and title are all the same
-          const hash = simpleHash(`${dtstart?.value}${dtend?.value}${title}${i}${j}${type}}`);
-          eventsToAdd[hash] = {
-            title,
-            date: eventDate.plus({ days: j }),
-            color: config?.color ?? "zinc",
-            isCompleted: eventDate < now,
-            additional: event.location?.value,
-            type: "ical",
-          };
+    const getOcurrencesFromRange = (event) => {
+      if (!event.rrule) {
+        if (event.dtstart.compare(rangeStart) >= 0 && event.dtend.compare(rangeEnd) <= 0) {
+          return [event.dtstart];
         }
-      };
 
-      let recurrenceOptions = event?.recurrenceRule?.origOptions;
-      // RRuleSet does not have dtstart, add it manually
-      if (event?.recurrenceRule && event.recurrenceRule.rrules && event.recurrenceRule.rrules()?.[0]?.origOptions) {
-        recurrenceOptions = event.recurrenceRule.rrules()[0].origOptions;
-        recurrenceOptions.dtstart = dtstart.value;
+        return [];
       }
 
-      if (recurrenceOptions && Object.keys(recurrenceOptions).length !== 0) {
-        try {
-          const rule = new RRule(recurrenceOptions);
-          const recurringEvents = rule.between(startDate.toJSDate(), endDate.toJSDate());
+      const iterator = event.rrule.iterator(event.dtstart);
 
-          recurringEvents.forEach((date, i) => {
-            let eventDate = date;
-            if (event.dtstart?.params?.tzid) {
-              // date is in UTC but parsed as if it is in current timezone, so we need to adjust it
-              const dateInUTC = DateTime.fromJSDate(date).setZone("UTC");
-              const offset = dateInUTC.offset - DateTime.fromJSDate(date, { zone: event.dtstart.params.tzid }).offset;
-              eventDate = dateInUTC.plus({ minutes: offset }).toJSDate();
-            }
-            eventToAdd(eventDate, i, "recurring");
-          });
-          return;
-        } catch (e) {
-          // eslint-disable-next-line no-console
-          console.error("Unable to parse recurring events from iCal: %s", e);
+      const occurrences = [];
+      for (let next = iterator.next(); next && next.compare(rangeEnd) < 0; next = iterator.next()) {
+        if (next.compare(rangeStart) < 0) {
+          continue;
         }
+
+        occurrences.push(next.clone());
       }
 
-      event.matchingDates.forEach((date, i) => eventToAdd(date, i, "single"));
+      return occurrences;
+    };
+
+    const eventsToAdd = [];
+    events.forEach((event, index) => {
+      const occurrences = getOcurrencesFromRange(event);
+
+      occurrences.forEach((icalDate) => {
+        const date = icalDate.toJSDate();
+
+        const hash = simpleHash(`${event.id}-${event.title}-${index}-${date.toString()}`);
+
+        let title = event.title;
+        if (showName) {
+          title = `${config.name}: ${title}`;
+        }
+
+        const getIsCompleted = () => {
+          if (event.type === "vtodo") {
+            return event.status === "COMPLETED";
+          }
+
+          return DateTime.fromJSDate(date) < DateTime.now();
+        };
+
+        eventsToAdd[hash] = {
+          title,
+          date: DateTime.fromJSDate(date),
+          color: config?.color ?? "zinc",
+          isCompleted: getIsCompleted(),
+          additional: event.location,
+          type: "ical",
+        };
+      });
     });
 
     setEvents((prevEvents) => ({ ...prevEvents, ...eventsToAdd }));
