@@ -46,12 +46,12 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
             event.getFirstPropertyValue("dtstart") ||
             event.getFirstPropertyValue("due") ||
             event.getFirstPropertyValue("completed") ||
-            ICAL.Time.now(),
+            ICAL.Time.now(), // handles events without a date
           dtend:
             event.getFirstPropertyValue("dtend") ||
             event.getFirstPropertyValue("due") ||
             event.getFirstPropertyValue("completed") ||
-            ICAL.Time.now(),
+            ICAL.Time.now(), // handles events without a date
           location: event.getFirstPropertyValue("location"),
           status: event.getFirstPropertyValue("status"),
         };
