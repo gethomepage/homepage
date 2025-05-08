@@ -168,6 +168,7 @@ nav:
           - widgets/services/xteve.md
           - widgets/services/zabbix.md
       - "Information Widgets":
+          - widgets/info/adhan.md
           - widgets/info/index.md
           - widgets/info/datetime.md
           - widgets/info/glances.md
