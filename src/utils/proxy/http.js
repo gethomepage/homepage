@@ -3,6 +3,7 @@
 import { createUnzip, constants as zlibConstants } from "node:zlib";
 
 import { http, https } from "follow-redirects";
+import "global-agent/bootstrap";
 import cache from "memory-cache";
 
 import { sanitizeErrorURL } from "./api-helpers";
