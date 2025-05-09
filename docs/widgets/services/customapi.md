@@ -191,6 +191,10 @@ widget:
     limit: 5 # optional, limit the number of items to display
     format: text # optional - format of the label field
     target: https://example.com/server/{id} # optional, makes items clickable with template support
+    additionalField: # optional
+      field: status
+      color: theme # optional - defaults to "". Allowed values: `["theme", "adaptive", "black", "white"]`.
+      format: text # optional
 ```
 
 This configuration would work with an API that returns a response like:
@@ -198,8 +202,8 @@ This configuration would work with an API that returns a response like:
 ```json
 {
   "data": [
-    { "id": "server1", "name": "Server 1", "ip_address": "192.168.0.1" },
-    { "id": "server2", "name": "Server 2", "ip_address": "192.168.0.2" }
+    { "id": "server1", "name": "Server 1", "ip_address": "192.168.0.1", "status": "active" },
+    { "id": "server2", "name": "Server 2", "ip_address": "192.168.0.2", "status": "inactive" }
   ]
 }
 ```

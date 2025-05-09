@@ -257,6 +257,19 @@ export default function Component({ service }) {
                 const className =
                   "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs";
 
+                const content = (
+                  <>
+                    <div className="font-thin pl-2">{itemName}</div>
+                    <div className="flex flex-row text-right">
+                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
+                      {mappings.additionalField && (
+                        <div className={`font-bold mr-2 ${getColor(mappings, item)}`}>
+                          {formatValue(t, mappings.additionalField, getValue(mappings.additionalField.field, item))}
+                        </div>
+                      )}
+                    </div>
+                  </>
+                );
                 return itemUrl ? (
                   <a
                     key={`${itemName}-${index}`}
@@ -265,17 +278,11 @@ export default function Component({ service }) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <div className="font-thin pl-2">{itemName}</div>
-                    <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
-                    </div>
+                    {content}
                   </a>
                 ) : (
                   <div key={`${itemName}-${index}`} className={className}>
-                    <div className="font-thin pl-2">{itemName}</div>
-                    <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
-                    </div>
+                    {content}
                   </div>
                 );
               })
