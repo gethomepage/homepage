@@ -81,3 +81,17 @@ services:
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1
 ```
+
+## Running homepage behind a proxy
+
+If you are running homepage behind e.g. squid proxy, you can set the environment variable `HOMEPAGE_HTTP_PROXY_FROM_ENV` to `true` to honor `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables. This will allow homepage to use the proxy settings for all outgoing requests.
+
+```yaml
+services:
+  homepage:
+    ...
+    environment:
+      - HOMEPAGE_HTTP_PROXY_FROM_ENV=true
+      - HTTP_PROXY=http://proxy.local:3128
+      - NO_PROXY=local
+```

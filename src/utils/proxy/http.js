@@ -4,6 +4,7 @@ import { createUnzip, constants as zlibConstants } from "node:zlib";
 
 import { http, https } from "follow-redirects";
 import cache from "memory-cache";
+import { ProxyAgent } from "proxy-agent";
 
 import { sanitizeErrorURL } from "./api-helpers";
 import { addCookieToJar, setCookieHeader } from "./cookie-jar";
@@ -110,21 +111,23 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
 
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
+  const enableProxyEnv = process.env.HOMEPAGE_HTTP_PROXY_FROM_ENV === "true";
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
   const agentOptions = disableIpv6 ? { family: 4, autoSelectFamily: false } : {};
 
-  let request = null;
-  if (constructedUrl.protocol === "https:") {
-    request = httpsRequest(constructedUrl, {
-      agent: new https.Agent({ ...agentOptions, rejectUnauthorized: false }),
-      ...params,
-    });
+  let agent;
+  if (enableProxyEnv) {
+    agent = new ProxyAgent();
   } else {
-    request = httpRequest(constructedUrl, {
-      agent: new http.Agent(agentOptions),
-      ...params,
-    });
+    agent =
+      constructedUrl.protocol === "https:"
+        ? new https.Agent({ ...agentOptions, rejectUnauthorized: false })
+        : new http.Agent(agentOptions);
   }
+  const request =
+    constructedUrl.protocol === "https:"
+      ? httpsRequest(constructedUrl, { agent, ...params })
+      : httpRequest(constructedUrl, { agent, ...params });
 
   try {
     const [status, contentType, data, responseHeaders] = await request;
