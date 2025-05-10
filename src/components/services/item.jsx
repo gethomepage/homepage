@@ -4,8 +4,8 @@ import { useContext, useState } from "react";
 import { SettingsContext } from "utils/contexts/settings";
 import Docker from "widgets/docker/component";
 import Kubernetes from "widgets/kubernetes/component";
-import ContainerActions from "./container-actions";
 
+import ContainerActions from "./container-actions";
 import KubernetesStatus from "./kubernetes-status";
 import Ping from "./ping";
 import SiteMonitor from "./site-monitor";
