@@ -856,7 +856,8 @@
         "physicalRelease": "Fysisk udgivelse",
         "digitalRelease": "Digitale udgivelser",
         "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "No events found",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platforme",
@@ -1042,5 +1043,11 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Filer"
+    },
+    "jellystat": {
+        "songs": "Sange",
+        "movies": "Film",
+        "episodes": "Episoder",
+        "other": "Other"
     }
 }

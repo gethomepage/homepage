@@ -856,7 +856,8 @@
         "physicalRelease": "Fisiese Vrylating",
         "digitalRelease": "Digitale Vrylating",
         "noEventsToday": "Geen gebeure vir vandag nie!",
-        "noEventsFound": "Geen gebeure gevind nie"
+        "noEventsFound": "Geen gebeure gevind nie",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platform",
@@ -1042,5 +1043,11 @@
         "downloads": "Aflaaie",
         "uploads": "Oplaaie",
         "sharedFiles": "Lêers"
+    },
+    "jellystat": {
+        "songs": "Liedjies",
+        "movies": "Flieks",
+        "episodes": "Episodes",
+        "other": "Other"
     }
 }

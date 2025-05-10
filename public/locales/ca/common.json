@@ -856,7 +856,8 @@
         "physicalRelease": "Estrena física",
         "digitalRelease": "Estrena digital",
         "noEventsToday": "Cap esdeveniment per avui!",
-        "noEventsFound": "No s'han trobat esdeveniments"
+        "noEventsFound": "No s'han trobat esdeveniments",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Plataformes",
@@ -1042,5 +1043,11 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Fitxers"
+    },
+    "jellystat": {
+        "songs": "Cançons",
+        "movies": "Pel·lícules",
+        "episodes": "Episodis",
+        "other": "Other"
     }
 }

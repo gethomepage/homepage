@@ -856,7 +856,8 @@
         "physicalRelease": "Fizična izdaja",
         "digitalRelease": "Digitalna izdaja",
         "noEventsToday": "Za danes ni dogodkov!",
-        "noEventsFound": "Ni dogodkov"
+        "noEventsFound": "Ni dogodkov",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platforme",
@@ -1042,5 +1043,11 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Datotek"
+    },
+    "jellystat": {
+        "songs": "Pesmi",
+        "movies": "Filmi",
+        "episodes": "Epizode",
+        "other": "Other"
     }
 }

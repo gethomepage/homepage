@@ -856,7 +856,8 @@
         "physicalRelease": "الإصدار المادي",
         "digitalRelease": "الإصدار الرقمي",
         "noEventsToday": "لا توجد أحداث اليوم!",
-        "noEventsFound": "لم يتم العثور على أحداث"
+        "noEventsFound": "لم يتم العثور على أحداث",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "المِنصات",
@@ -1042,5 +1043,11 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "ملفات"
+    },
+    "jellystat": {
+        "songs": "أغاني",
+        "movies": "أفلام",
+        "episodes": "حلقات",
+        "other": "Other"
     }
 }

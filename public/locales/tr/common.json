@@ -856,7 +856,8 @@
         "physicalRelease": "Fiziksel Yayınlanan",
         "digitalRelease": "Dijitalde Yayınlandı",
         "noEventsToday": "Bugün için etkinlik yok!",
-        "noEventsFound": "Etkinlik bulunamadı"
+        "noEventsFound": "Etkinlik bulunamadı",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platformlar",
@@ -1042,5 +1043,11 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Dosyalar"
+    },
+    "jellystat": {
+        "songs": "Şarkılar",
+        "movies": "Filmler",
+        "episodes": "Bölümler",
+        "other": "Other"
     }
 }

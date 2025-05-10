@@ -856,7 +856,8 @@
         "physicalRelease": "Physische Version",
         "digitalRelease": "Digitale Version",
         "noEventsToday": "Heute keine Ereignisse!",
-        "noEventsFound": "Keine Termine gefunden"
+        "noEventsFound": "Keine Termine gefunden",
+        "errorWhenLoadingData": "Fehler beim Laden der Kalenderdaten"
     },
     "romm": {
         "platforms": "Plattformen",
@@ -1025,11 +1026,11 @@
         "timeleft": "Verbleibende Zeit"
     },
     "karakeep": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
+        "bookmarks": "Lesezeichen",
+        "favorites": "Favoriten",
+        "archived": "Archiviert",
         "highlights": "Highlights",
-        "lists": "Lists",
+        "lists": "Listen",
         "tags": "Schlagwörter"
     },
     "slskd": {
@@ -1042,5 +1043,11 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Dateien"
+    },
+    "jellystat": {
+        "songs": "Songs",
+        "movies": "Filme",
+        "episodes": "Episoden",
+        "other": "Andere"
     }
 }

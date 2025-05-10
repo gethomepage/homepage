@@ -856,7 +856,8 @@
         "physicalRelease": "Фізичний реліз",
         "digitalRelease": "Цифровий реліз",
         "noEventsToday": "Події на сьогодні відсутні!",
-        "noEventsFound": "Події не знайдено"
+        "noEventsFound": "Події не знайдено",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Платформи",
@@ -1042,5 +1043,11 @@
         "downloads": "Завантаження",
         "uploads": "Вивантаження",
         "sharedFiles": "Файли"
+    },
+    "jellystat": {
+        "songs": "Пісні",
+        "movies": "Фільми",
+        "episodes": "Епізоди",
+        "other": "Інше"
     }
 }
