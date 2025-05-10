@@ -10,7 +10,6 @@ export default function ContainerActions({ containerName, server, service }) {
 
   const handleContainerAction = async (action) => {
     try {
-      console.log("Attempting to", action, "container:", containerName, "on server:", server);
       const response = await fetch(`/api/docker/container/${action}/${containerName}/${server || ""}`, {
         method: "POST",
       });
@@ -28,11 +27,8 @@ export default function ContainerActions({ containerName, server, service }) {
         });
         throw new Error(errorMessage);
       }
-      // Reset selected action after successful operation
       setSelectedAction(null);
-      // Refresh the container status in both components
       await mutate(statusUrl);
-      // If we have the service object, we can also trigger refresh in the status component
       if (service) {
         const serviceStatusUrl = `/api/docker/status/${service.container}/${service.server || ""}`;
         await mutate(serviceStatusUrl);
@@ -42,8 +38,7 @@ export default function ContainerActions({ containerName, server, service }) {
     }
   };
 
-  // Only show dropdown if container status is running, exited, or unknown
-  if (!data || error || (data.status !== "running" && data.status !== "exited" && data.status !== "unknown")) {
+  if (!data || error) {
     return null;
   }
 
@@ -54,7 +49,6 @@ export default function ContainerActions({ containerName, server, service }) {
           { value: "restart", label: "Restart" },
         ]
       : [{ value: "start", label: "Start" }];
-  // For unknown status, treat it like a stopped container
 
   return (
     <div className="relative" style={{ position: "relative" }}>
