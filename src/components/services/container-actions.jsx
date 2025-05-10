@@ -13,7 +13,6 @@ export default function ContainerActions({ containerName, server, service }) {
       const response = await fetch(`/api/docker/container/${action}/${containerName}/${server || ""}`, {
         method: "POST",
       });
-      
       if (!response.ok) {
         const errorData = await response.json().catch(() => null);
         const errorMessage = `Failed to ${action} container: ${
@@ -28,13 +27,10 @@ export default function ContainerActions({ containerName, server, service }) {
         });
         throw new Error(errorMessage);
       }
-      
       // Reset selected action after successful operation
       setSelectedAction(null);
-      
       // Refresh the container status in both components
       await mutate(statusUrl);
-      
       // If we have the service object, we can also trigger refresh in the status component
       if (service) {
         const serviceStatusUrl = `/api/docker/status/${service.container}/${service.server || ""}`;

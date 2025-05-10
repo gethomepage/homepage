@@ -21,18 +21,14 @@ export default async function handler(req, res) {
 
     switch (req.method) {
       case "POST":
-
         switch (actionType) {
           case "stop":
-
             await container.stop();
             break;
           case "start":
-
             await container.start();
             break;
           case "restart":
-
             await container.restart();
             break;
           default:

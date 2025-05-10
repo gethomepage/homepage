@@ -509,7 +509,6 @@ The container actions menu provides a dropdown interface for managing Docker con
 
 The menu includes the following actions:
 
-
 - Start Container
 - Stop Container
 - Restart Container
