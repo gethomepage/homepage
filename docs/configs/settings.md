@@ -503,6 +503,34 @@ or per-service (`services.yaml`) with:
 
 If you have both set the per-service settings take precedence.
 
+## Show Container Actions
+
+The container actions menu provides a dropdown interface for managing Docker containers directly from your homepage. When enabled, it appears in the bottom-right corner of each service card that has a container defined.
+
+The menu includes the following actions:
+- Start Container
+- Stop Container
+- Restart Container
+
+To enable container actions globally in `settings.yaml`:
+
+```yaml
+showContainerActions: true
+```
+
+Or enable it per-service in `services.yaml`:
+
+```yaml
+- Example Service:
+    container: my-container-name
+    server: my-docker-server
+    showContainerActions: true
+```
+
+If both settings are present, the per-service setting takes precedence. The default value is `false`.
+
+**Note:** Container actions require proper Docker API access to be configured in your `services.yaml` file. Ensure that the `server` field points to a valid Docker server with appropriate authentication credentials.
+
 ## Status Style
 
 You can choose from the following styles for docker or k8s status, site monitor and ping: `dot` or `basic`
