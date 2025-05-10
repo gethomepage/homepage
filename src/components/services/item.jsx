@@ -105,9 +105,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
 
             {service.container && (
               <>
-                {showContainerActions && (
-                  <ContainerActions containerName={service.container} server={service.server} />
-                )}
+                {showContainerActions && <ContainerActions containerName={service.container} server={service.server} />}
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}

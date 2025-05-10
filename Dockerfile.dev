@@ -23,4 +23,5 @@ ENV PORT=3000
 EXPOSE $PORT
 
 # Start the development server
-CMD ["pnpm", "dev"] 
+CMD ["pnpm", "dev"]
+ 
