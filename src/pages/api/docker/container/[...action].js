@@ -1,6 +1,6 @@
 import Docker from "dockerode";
-import createLogger from "utils/logger";
 import getDockerArguments from "utils/config/docker";
+import createLogger from "utils/logger";
 
 const logger = createLogger("dockerContainerAction");
 
