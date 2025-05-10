@@ -78,7 +78,7 @@ export default function ServicesGroup({
                 }, 150); // animation is 150ms
               }}
             >
-              <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
+              <Disclosure.Panel className="transition-all duration-300 ease-out" ref={panel} static>
                 <List
                   groupName={group.name}
                   services={group.services}
