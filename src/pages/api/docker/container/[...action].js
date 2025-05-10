@@ -20,15 +20,19 @@ export default async function handler(req, res) {
     const container = docker.getContainer(containerName);
 
     switch (req.method) {
-      case 'POST':
+      case "POST":
+
         switch (actionType) {
-          case 'stop':
+          case "stop":
+
             await container.stop();
             break;
-          case 'start':
+          case "start":
+
             await container.start();
             break;
-          case 'restart':
+          case "restart":
+
             await container.restart();
             break;
           default:
@@ -48,4 +52,4 @@ export default async function handler(req, res) {
       error: e.message || "Unknown error",
     });
   }
-} 
+}

@@ -24,4 +24,3 @@ EXPOSE $PORT
 
 # Start the development server
 CMD ["pnpm", "dev"]
- 

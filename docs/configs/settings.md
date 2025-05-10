@@ -508,6 +508,8 @@ If you have both set the per-service settings take precedence.
 The container actions menu provides a dropdown interface for managing Docker containers directly from your homepage. When enabled, it appears in the bottom-right corner of each service card that has a container defined.
 
 The menu includes the following actions:
+
+
 - Start Container
 - Stop Container
 - Restart Container

@@ -9,7 +9,7 @@ export default function ContainerActions({ containerName, server, service }) {
 
   const handleContainerAction = async (action) => {
     try {
-      console.log('Attempting to', action, 'container:', containerName, 'on server:', server);
+      console.log("Attempting to", action, "container:", containerName, "on server:", server);
       const response = await fetch(`/api/docker/container/${action}/${containerName}/${server || ""}`, {
         method: "POST",
       });
@@ -17,14 +17,14 @@ export default function ContainerActions({ containerName, server, service }) {
       if (!response.ok) {
         const errorData = await response.json().catch(() => null);
         const errorMessage = `Failed to ${action} container: ${
-          errorData?.message || response.statusText || 'Unknown error'
+          errorData?.message || response.statusText || "Unknown error"
         }`;
-        console.error('Full response:', {
+        console.error("Full response:", {
           status: response.status,
           statusText: response.statusText,
           errorData,
           containerName,
-          server
+          server,
         });
         throw new Error(errorMessage);
       }
@@ -50,18 +50,17 @@ export default function ContainerActions({ containerName, server, service }) {
     return null;
   }
 
-  const options = data.status === "running" 
-    ? [
-        { value: "stop", label: "Stop" },
-        { value: "restart", label: "Restart" }
-      ]
-    : [
-        { value: "start", label: "Start" }
-      ];
+  const options =
+    data.status === "running"
+      ? [
+          { value: "stop", label: "Stop" },
+          { value: "restart", label: "Restart" },
+        ]
+      : [{ value: "start", label: "Start" }];
 
   return (
-    <div className="relative" style={{ position: 'relative' }}>
-      <Dropdown 
+    <div className="relative" style={{ position: "relative" }}>
+      <Dropdown
         options={options}
         value={selectedAction}
         setValue={(value) => {
@@ -72,4 +71,4 @@ export default function ContainerActions({ containerName, server, service }) {
       />
     </div>
   );
-} 
+}
