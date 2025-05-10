@@ -52,3 +52,5 @@ site*/
 
 # venv
 .venv/
+
+/local_app_config

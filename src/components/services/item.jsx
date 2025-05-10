@@ -5,6 +5,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import Docker from "widgets/docker/component";
 import Kubernetes from "widgets/kubernetes/component";
 
+import ContainerActions from "./container-actions";
 import KubernetesStatus from "./kubernetes-status";
 import Ping from "./ping";
 import SiteMonitor from "./site-monitor";
@@ -16,6 +17,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
   const { settings } = useContext(SettingsContext);
   const showStats = service.showStats === false ? false : settings.showStats;
   const statusStyle = service.statusStyle !== undefined ? service.statusStyle : settings.statusStyle;
+  const showContainerActions = service.showContainerActions === false ? false : settings.showContainerActions;
   const [statsOpen, setStatsOpen] = useState(service.showStats);
   const [statsClosing, setStatsClosing] = useState(false);
 
@@ -36,7 +38,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
         className={classNames(
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
           useEqualHeights && "h-[calc(100%-0.5rem)]",
-          "transition-all mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip service-card",
+          "transition-all mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-visible service-card",
         )}
       >
         <div className="flex select-none z-0 service-title">
@@ -85,7 +87,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
           <div
             className={`absolute top-0 right-0 flex flex-row justify-end ${
               statusStyle === "dot" ? "gap-0" : "gap-2 mr-2"
-            } z-10 service-tags`}
+            } z-20 service-tags`}
           >
             {service.ping && (
               <div className="shrink-0 flex items-center justify-center service-tag service-ping">
@@ -102,14 +104,17 @@ export default function Item({ service, groupName, useEqualHeights }) {
             )}
 
             {service.container && (
-              <button
-                type="button"
-                onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
-                className="shrink-0 flex items-center justify-center cursor-pointer service-tag service-container-stats"
-              >
-                <Status service={service} style={statusStyle} />
-                <span className="sr-only">View container stats</span>
-              </button>
+              <>
+                {showContainerActions && <ContainerActions containerName={service.container} server={service.server} />}
+                <button
+                  type="button"
+                  onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
+                  className="shrink-0 flex items-center justify-center cursor-pointer service-tag service-container-stats"
+                >
+                  <Status service={service} style={statusStyle} />
+                  <span className="sr-only">View container stats</span>
+                </button>
+              </>
             )}
             {service.app && !service.external && (
               <button
