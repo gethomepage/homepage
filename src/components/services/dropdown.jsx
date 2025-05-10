@@ -3,9 +3,8 @@ import classNames from "classnames";
 import { Fragment } from "react";
 import { BiCog } from "react-icons/bi";
 
-export default function Dropdown({ options, value, setValue, actionsText = "Select" }) {
+export default function Dropdown({ options, value, setValue }) {
   const selectedOption = options.find((option) => option.value === value);
-  const displayLabel = selectedOption ? selectedOption.label : actionsText;
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -14,8 +13,14 @@ export default function Dropdown({ options, value, setValue, actionsText = "Sele
           className="text-xs inline-flex w-full items-center rounded-sm bg-theme-200/50 dark:bg-theme-900/20 px-3 py-1.5"
           style={{ pointerEvents: "auto", zIndex: 10 }}
         >
-          {displayLabel}
-          <BiCog className="-mr-1 ml-2 h-4 w-4" aria-hidden="true" />
+          {selectedOption ? (
+            <>
+              {selectedOption.label}
+              <BiCog className="-mr-1 ml-2 h-4 w-4" aria-hidden="true" />
+            </>
+          ) : (
+            <BiCog className="h-4 w-4" aria-hidden="true" />
+          )}
         </Menu.Button>
       </div>
 

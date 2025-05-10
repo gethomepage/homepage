@@ -105,7 +105,6 @@ export default function Item({ service, groupName, useEqualHeights }) {
 
             {service.container && (
               <>
-                {showContainerActions && <ContainerActions containerName={service.container} server={service.server} />}
                 <button
                   type="button"
                   onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
@@ -114,6 +113,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
                   <Status service={service} style={statusStyle} />
                   <span className="sr-only">View container stats</span>
                 </button>
+                {showContainerActions && <ContainerActions containerName={service.container} server={service.server} />}
               </>
             )}
             {service.app && !service.external && (

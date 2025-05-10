@@ -42,8 +42,8 @@ export default function ContainerActions({ containerName, server, service }) {
     }
   };
 
-  // Only show dropdown if container status is running or exited
-  if (!data || error || (data.status !== "running" && data.status !== "exited")) {
+  // Only show dropdown if container status is running, exited, or unknown
+  if (!data || error || (data.status !== "running" && data.status !== "exited" && data.status !== "unknown")) {
     return null;
   }
 
@@ -54,6 +54,7 @@ export default function ContainerActions({ containerName, server, service }) {
           { value: "restart", label: "Restart" },
         ]
       : [{ value: "start", label: "Start" }];
+  // For unknown status, treat it like a stopped container
 
   return (
     <div className="relative" style={{ position: "relative" }}>
@@ -64,7 +65,6 @@ export default function ContainerActions({ containerName, server, service }) {
           setSelectedAction(value);
           handleContainerAction(value);
         }}
-        actionsText="Actions"
       />
     </div>
   );
