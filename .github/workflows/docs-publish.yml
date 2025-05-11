@@ -77,6 +77,7 @@ jobs:
             mkdocs-material-
       - run: sudo apt-get install pngquant
       # - run: pip install git+https://${GH_TOKEN}@github.com/benphelps/mkdocs-material-insiders.git
+      - run: pip install typeset
       - run: pip install mkdocs-redirects "mkdocs-material[imaging]"
       - name: Docs Deploy
         run: MKINSIDERS=true mkdocs gh-deploy --force
