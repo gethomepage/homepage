@@ -3,7 +3,7 @@
 This is a custom fork of the original [gethomepage/homepage](https://github.com/gethomepage/homepage) project, with additional functionality extending beyond the scope of the original project.
 
 > **Docker Image**:
-> 🐳 `ghcr.io/stancuflorin/homepage:dev`
+> 🐳 `ghcr.io/stancuflorin/homepage-plus:dev`
 
 ## ✨ What's New in This Fork
 
@@ -23,7 +23,7 @@ Run the fork using Docker:
 docker run -d \
   -p 3000:3000 \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  ghcr.io/stancuflorin/homepage:dev
+  ghcr.io/stancuflorin/homepage-plus:dev
 ```
 
 > **Note:** Mounting the Docker socket is required for container control features.

@@ -59,7 +59,7 @@ jobs:
 
   build:
     name: Docker Build & Push
-    if: github.repository == 'StancuFlorin/homepage'
+    if: github.repository == 'StancuFlorin/homepage-plus'
     runs-on: ubuntu-22.04
     needs: [ pre-commit ]
     permissions:

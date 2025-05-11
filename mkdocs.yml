@@ -1,12 +1,12 @@
-site_name: Homepage
+site_name: Homepage+
 
 # Project information
 site_url: https://gethomepage.dev/
 
 # Repository
-repo_name: gethomepage/homepage
-repo_url: https://github.com/gethomepage/homepage
-edit_uri: https://github.com/gethomepage/homepage/tree/main/docs/
+repo_name: StancuFlorin/homepage-plus
+repo_url: https://github.com/StancuFlorin/homepage-plus
+edit_uri: https://github.com/StancuFlorin/homepage-plus/tree/main/docs/
 
 nav:
   - "Home":
