@@ -281,7 +281,7 @@ plugins:
   - group:
       enabled: !ENV MKINSIDERS
       plugins:
-        - typeset
+        # - typeset
         - social:
             cards_layout: default
             cards_layout_options:
