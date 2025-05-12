@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Public IP",
         "region": "Region",
-        "country": "Country"
+        "country": "Country",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Channels",
