@@ -8,8 +8,8 @@ const widget = {
     "app-info": {
       endpoint: "app-info",
     },
-    "allnotes": {
-      endpoint: "notes?search=note.id%20%3D%20%22root%22"
+    allnotes: {
+      endpoint: "notes?search=note.id%20%3D%20%22root%22",
     },
   },
 };
