@@ -169,18 +169,18 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
 
         <div className="flex flex-col">
           {widget?.maxEvents !== 0 &&
-            eventsArray
-              ?.filter((event) => compareDateTimezone(showDate, event))
-              .slice(0, widget?.maxEvents ?? 10)
-              .map((event) => (
-                <Event
-                  key={`event-monthly-${event.title}-${event.date}-${event.additional}`}
-                  event={event}
-                  colorVariants={colorVariants}
-                 showDateColumn={widget?.showTime ?? false}
-                  s howTime={widget?.showTime && compareDateTimezone(showDate, event)}
-                />
-              ))}
+           eventsArray
+            ?.filter((event) => compareDateTimezone(showDate, event))
+            .slice(0, widget?.maxEvents ?? 10)
+            .map((event) => (
+              <Event
+                key={`event-monthly-${event.title}-${event.date}-${event.additional}`}
+                event={event}
+                colorVariants={colorVariants}
+                showDateColumn={widget?.showTime ?? false}
+                showTime={widget?.showTime && compareDateTimezone(showDate, event)}
+              />
+            ))}
         </div>
       </div>
     </div>
