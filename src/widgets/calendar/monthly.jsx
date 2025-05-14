@@ -168,7 +168,7 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
         </div>
 
         <div className="flex flex-col">
-          {(widget?.maxEvents !== 0) &&
+          {widget?.maxEvents !== 0 &&
             eventsArray
             ?.filter((event) => compareDateTimezone(showDate, event))
             .slice(0, widget?.maxEvents ?? 10)
