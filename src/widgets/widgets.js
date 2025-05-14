@@ -122,6 +122,7 @@ import tdarr from "./tdarr/widget";
 import technitium from "./technitium/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
+import trilium from "./trilium/widget";
 import truenas from "./truenas/widget";
 import tubearchivist from "./tubearchivist/widget";
 import unifi from "./unifi/widget";
@@ -264,6 +265,7 @@ const widgets = {
   tdarr,
   traefik,
   transmission,
+  trilium,
   tubearchivist,
   truenas,
   unifi,

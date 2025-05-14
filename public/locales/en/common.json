@@ -359,6 +359,13 @@
         "services": "Services",
         "middleware": "Middleware"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "attachmentsCount": "Attachments",
+        "unknown": "Unknown",
+        "none": "None"
+    },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
         "please_wait": "Please Wait"
