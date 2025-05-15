@@ -58,11 +58,11 @@ ENV PORT=3000
 EXPOSE $PORT
 
 # Environment variables for OIDC (Keycloak)
-ENV NEXTAUTH_URL=http://localhost:3000
-ENV NEXTAUTH_SECRET=""
+ENV NEXTAUTH_URL="http://localhost:3000:OR:your dash.domainurl.com"
+ENV NEXTAUTH_SECRET="set this the same as the keycloack secret."
 ENV KEYCLOAK_CLIENT_ID=""
 ENV KEYCLOAK_CLIENT_SECRET=""
-ENV KEYCLOAK_ISSUER=""
+ENV KEYCLOAK_ISSUER="https://keycloak.YOURDOMAIN.come/realms/master" #- make sure you set the realm you have configured your client in
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:$PORT/api/healthcheck || exit 1
