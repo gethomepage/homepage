@@ -1,9 +1,6 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
-// Check ENABLE_SSO environment variable (defaults to false if not set)
-const isSSOEnabled = process.env.ENABLE_SSO === "true";
-
 export default function LoginForm() {
   const [password, setPassword] = useState("");
 
@@ -35,7 +32,7 @@ export default function LoginForm() {
     <div className="flex min-h-screen items-center justify-center bg-theme-50 dark:bg-theme-800">
       <div className="w-full max-w-md rounded-lg bg-theme-100 dark:bg-theme-900 p-8 shadow-md">
         <h2 className="mb-6 text-center text-2xl font-bold text-theme-800 dark:text-theme-200">Login to Homepage</h2>
-        {/* Password form (always shown as fallback) */}
+        {/* Password form (optional) */}
         <form onSubmit={handlePasswordLogin}>
           <input
             type="password"
@@ -51,15 +48,13 @@ export default function LoginForm() {
             Login with Password
           </button>
         </form>
-        {/* OIDC button (shown only if ENABLE_SSO is true) */}
-        {isSSOEnabled && (
-          <button
-            onClick={handleOidcLogin}
-            className="mt-4 w-full rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700"
-          >
-            Sign in with Keycloak
-          </button>
-        )}
+        {/* OIDC button */}
+        <button
+          onClick={handleOidcLogin}
+          className="mt-4 w-full rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700"
+        >
+          Sign in with Keycloak
+        </button>
       </div>
     </div>
   );

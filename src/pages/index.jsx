@@ -44,10 +44,7 @@ const Version = dynamic(() => import("components/version"), {
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
 
-// Check ENABLE_SSO environment variable (defaults to false if not set)
-const isSSOEnabled = process.env.ENABLE_SSO === "true";
-
-export async function getStaticProps({ locale }) {
+export async function getStaticProps() {
   let logger;
   try {
     logger = createLogger("index");
@@ -66,7 +63,7 @@ export async function getStaticProps({ locale }) {
           "/api/widgets": widgets,
           "/api/hash": false,
         },
-        ...(await serverSideTranslations(locale ?? "en")),
+        ...(await serverSideTranslations(settings.language ?? "en")),
       },
     };
   } catch (e) {
@@ -82,7 +79,7 @@ export async function getStaticProps({ locale }) {
           "/api/widgets": [],
           "/api/hash": false,
         },
-        ...(await serverSideTranslations(locale ?? "en")),
+        ...(await serverSideTranslations("en")),
       },
     };
   }
@@ -125,8 +122,7 @@ function Index({ initialSettings, fallback }) {
     }
   }, [hashData]);
 
-  // If SSO is enabled and user is not authenticated, redirect to login
-  if (isSSOEnabled && !isAuthenticated) {
+  if (!isAuthenticated) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
@@ -475,13 +471,11 @@ function Home({ initialSettings, user }) {
                     "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end gap-x-2",
                   )}
                 >
-                  {isSSOEnabled && user && (
-                    <div className="flex items-center">
-                      <span className="text-sm text-theme-600 dark:text-theme-300">
-                        Welcome, {user?.name || user?.email || "User"}
-                      </span>
-                    </div>
-                  )}
+                  <div className="flex items-center">
+                    <span className="text-sm text-theme-600 dark:text-theme-300">
+                      Welcome, {user?.name || user?.email || "User"}
+                    </span>
+                  </div>
                   {widgets
                     .filter((widget) => rightAlignedWidgets.includes(widget.type))
                     .map((widget, i) => (
