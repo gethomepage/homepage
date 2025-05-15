@@ -1,1 +1,4 @@
+> docker build -t homepage-sso . --no-cache
+
+
 docker run -d --name homepage -p 3000:3000 -v "$(pwd)/config:/app/config" -v "$(pwd)/images:/app/public/images" -v /var/run/docker.sock:/var/run/docker.sock -e HOMEPAGE_ALLOWED_HOSTS="dash.nydaforge.au"  homepage-sso
