@@ -1,5 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 import classNames from "classnames";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import Link from "next/link";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import Script from "next/script";
+import { useContext, useEffect, useMemo, useState } from "react";
+import { BiError } from "react-icons/bi";
+import useSWR, { SWRConfig } from "swr";
 import BookmarksGroup from "components/bookmarks/group";
 import ErrorBoundary from "components/errorboundry";
 import QuickLaunch from "components/quicklaunch";
@@ -7,19 +17,12 @@ import ServicesGroup from "components/services/group";
 import Tab, { slugifyAndEncode } from "components/tab";
 import Revalidate from "components/toggles/revalidate";
 import Widget from "components/widgets/widget";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import Script from "next/script";
-import { useContext, useEffect, useMemo, useState } from "react";
-import { BiError } from "react-icons/bi";
-import useSWR, { SWRConfig } from "swr";
 import { ColorContext } from "utils/contexts/color";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
 import { ThemeContext } from "utils/contexts/theme";
+
+import { useAuth } from "../lib/AuthContext";
 
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import { getSettings } from "utils/config/config";
@@ -83,6 +86,7 @@ export async function getStaticProps() {
 }
 
 function Index({ initialSettings, fallback }) {
+  const { isAuthenticated, user } = useAuth();
   const windowFocused = useWindowFocus();
   const [stale, setStale] = useState(false);
   const { data: errorsData } = useSWR("/api/validate");
@@ -117,6 +121,19 @@ function Index({ initialSettings, fallback }) {
       }
     }
   }, [hashData]);
+
+  if (!isAuthenticated) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <p className="mb-4">Please log in to view the homepage.</p>
+          <Link href="/login">
+            <a className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Go to Login</a>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   if (validateError) {
     return (
@@ -171,7 +188,7 @@ function Index({ initialSettings, fallback }) {
   return (
     <SWRConfig value={{ fallback, fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()) }}>
       <ErrorBoundary>
-        <Home initialSettings={initialSettings} />
+        <Home initialSettings={initialSettings} user={user} />
       </ErrorBoundary>
     </SWRConfig>
   );
@@ -197,7 +214,7 @@ function getAllServices(services) {
   return [...services.map(getServices).flat()];
 }
 
-function Home({ initialSettings }) {
+function Home({ initialSettings, user }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);
@@ -242,7 +259,6 @@ function Home({ initialSettings }) {
           (e.key.length === 1 &&
             e.key.match(/(\w|\s|[à-ü]|[À-Ü]|[\w\u0430-\u044f])/gi) &&
             !(e.altKey || e.ctrlKey || e.metaKey || e.shiftKey)) ||
-          // accented characters and the bang may require modifier keys
           e.key.match(/([à-ü]|[À-Ü]|!)/g) ||
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
@@ -259,7 +275,7 @@ function Home({ initialSettings }) {
     return function cleanup() {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  });
+  }, []);
 
   const tabs = useMemo(
     () => [
@@ -277,7 +293,7 @@ function Home({ initialSettings }) {
       const initialTab = asPath.substring(asPath.indexOf("#") + 1);
       setActiveTab(initialTab === "/" ? slugifyAndEncode(tabs["0"]) : initialTab);
     }
-  });
+  }, [activeTab, asPath, setActiveTab, tabs]);
 
   const servicesAndBookmarksGroups = useMemo(() => {
     const tabGroupFilter = (g) => g && [activeTab, ""].includes(slugifyAndEncode(settings.layout?.[g.name]?.tab));
@@ -288,7 +304,6 @@ function Home({ initialSettings }) {
       .filter(tabGroupFilter);
 
     if (!settings.layout && JSON.stringify(settings.layout) !== JSON.stringify(initialSettings.layout)) {
-      // wait for settings to populate (if different from initial settings), otherwise all the widgets will be requested initially even if we are on a single tab
       return <div />;
     }
 
@@ -427,13 +442,6 @@ function Home({ initialSettings }) {
           "relative m-auto flex flex-col justify-start z-10 h-full",
         )}
       >
-        <QuickLaunch
-          servicesAndBookmarks={servicesAndBookmarks}
-          searchString={searchString}
-          setSearchString={setSearchString}
-          isOpen={searching}
-          close={setSearching}
-        />
         <div
           id="information-widgets"
           className={classNames(
@@ -460,10 +468,14 @@ function Home({ initialSettings }) {
                 <div
                   id="information-widgets-right"
                   className={classNames(
-                    "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end",
                     "m-auto flex flex-wrap grow sm:basis-auto justify-between md:justify-end gap-x-2",
                   )}
                 >
+                  <div className="flex items-center">
+                    <span className="text-sm text-theme-600 dark:text-theme-300">
+                      Welcome, {user?.name || user?.email || "User"}
+                    </span>
+                  </div>
                   {widgets
                     .filter((widget) => rightAlignedWidgets.includes(widget.type))
                     .map((widget, i) => (

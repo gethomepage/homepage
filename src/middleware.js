@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import { withAuth } from "next-auth/middleware";
 
-export function middleware(req) {
-  // Check the Host header, if HOMEPAGE_ALLOWED_HOSTS is set
+// Existing host validation middleware
+function hostValidationMiddleware(req) {
   const host = req.headers.get("host");
   const port = process.env.PORT || 3000;
   let allowedHosts = [`localhost:${port}`, `127.0.0.1:${port}`];
@@ -10,7 +11,6 @@ export function middleware(req) {
     allowedHosts = allowedHosts.concat(process.env.HOMEPAGE_ALLOWED_HOSTS.split(","));
   }
   if (!allowAll && (!host || !allowedHosts.includes(host))) {
-    // eslint-disable-next-line no-console
     console.error(
       `Host validation failed for: ${host}. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.`,
     );
@@ -19,6 +19,23 @@ export function middleware(req) {
   return NextResponse.next();
 }
 
+// Combine host validation with next-auth middleware
+export const middleware = withAuth(
+  function middleware(req) {
+    // Apply host validation for API routes
+    if (req.nextUrl.pathname.startsWith("/api")) {
+      return hostValidationMiddleware(req);
+    }
+    // For non-API routes, next-auth handles authentication
+    return NextResponse.next();
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token, // Require a valid session
+    },
+  }
+);
+
 export const config = {
-  matcher: "/api/:path*",
+  matcher: ["/", "/settings", "/api/:path*"], // Protect homepage, settings, and API routes
 };

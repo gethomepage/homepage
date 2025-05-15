@@ -14,7 +14,7 @@ ARG VERSION
 ARG REVISION
 ENV CI=$CI
 
-# Install and build only outside CI
+# Install and build
 RUN if [ "$CI" != "true" ]; then \
       corepack enable && corepack prepare pnpm@latest --activate && \
       pnpm install --frozen-lockfile --prefer-offline && \
@@ -32,7 +32,7 @@ RUN if [ "$CI" != "true" ]; then \
 # =========================
 FROM node:22-alpine AS runner
 LABEL org.opencontainers.image.title="Homepage"
-LABEL org.opencontainers.image.description="A self-hosted services landing page, with docker and service integrations."
+LABEL org.opencontainers.image.description="A self-hosted services landing page, with docker and service integrations, supporting OpenID Connect."
 LABEL org.opencontainers.image.url="https://github.com/gethomepage/homepage"
 LABEL org.opencontainers.image.documentation='https://github.com/gethomepage/homepage/wiki'
 LABEL org.opencontainers.image.source='https://github.com/gethomepage/homepage'
@@ -54,10 +54,18 @@ RUN apk add --no-cache su-exec iputils-ping
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
+# Expose port
 EXPOSE $PORT
+
+# Environment variables for OIDC (Keycloak)
+ENV NEXTAUTH_URL=http://localhost:3000
+ENV NEXTAUTH_SECRET=""
+ENV KEYCLOAK_CLIENT_ID=""
+ENV KEYCLOAK_CLIENT_SECRET=""
+ENV KEYCLOAK_ISSUER=""
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=20s \
   CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:$PORT/api/healthcheck || exit 1
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+#ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["node", "server.js"]

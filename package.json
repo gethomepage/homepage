@@ -11,6 +11,7 @@
     "telemetry": "next telemetry disable"
   },
   "dependencies": {
+    "next-auth": "^4.24.8",
     "@headlessui/react": "^1.7.19",
     "@kubernetes/client-node": "^1.0.0",
     "classnames": "^2.5.1",

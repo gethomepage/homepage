@@ -1,0 +1,1 @@
+docker run -d -p 3000:3000 -e KEYCLOAK_CLIENT_ID=your-keycloak-client-id -e KEYCLOAK_CLIENT_SECRET=your-keycloak-client-secret -e KEYCLOAK_ISSUER=http://keycloak:8080/realms/your-realm -e NEXTAUTH_URL=http://localhost:3000-e NEXTAUTH_SECRET=your-random-secret-string homepage-sso
