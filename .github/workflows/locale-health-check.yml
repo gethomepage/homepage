@@ -1,0 +1,16 @@
+name: Check Translations
+
+on:
+    pull_request:
+        branches: [ main ]
+        # paths:
+        # - 'public/locales/**'
+
+
+jobs:
+    translation-check:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        - name: Algebras Translation Status
+          uses: algebras-ai/locale-checker-action@main
