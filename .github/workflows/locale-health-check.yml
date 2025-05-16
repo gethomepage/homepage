@@ -3,8 +3,8 @@ name: Check Translations
 on:
     pull_request:
         branches: [ "dev", "main" ]
-        # paths:
-        # - 'public/locales/**'
+        paths:
+        - 'public/locales/**'
 
 jobs:
     translation-check:
@@ -13,3 +13,6 @@ jobs:
         - uses: actions/checkout@v3
         - name: Algebras Translation Status
           uses: algebras-ai/locale-checker-action@main
+          with:
+            file_pattern: "public/locales/**"
+            only-missing: true
