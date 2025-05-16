@@ -6,7 +6,6 @@ on:
         # paths:
         # - 'public/locales/**'
 
-
 jobs:
     translation-check:
         runs-on: ubuntu-latest
