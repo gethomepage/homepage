@@ -2,7 +2,7 @@ name: Check Translations
 
 on:
     pull_request:
-        branches: [ main ]
+        branches: [ "dev", "main" ]
         # paths:
         # - 'public/locales/**'
 
