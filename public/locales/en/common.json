@@ -1,5 +1,4 @@
 {
-    "test_if_healthcheck_works": "test_if_healthcheck_works",
     "common": {
         "bytes": "{{value, bytes}}",
         "bits": "{{value, bytes(bits: true)}}",
