@@ -16,4 +16,7 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
+    "i18n-ally.localesPaths": [
+        "public/locales"
+    ],
 }
