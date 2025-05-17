@@ -8,7 +8,7 @@ Using docker compose:
 ```yaml
 services:
   homepage:
-    image: ghcr.io/gethomepage/homepage:latest
+    image: ghcr.io/stancuflorin/homepage-plus:latest
     container_name: homepage
     ports:
       - 3000:3000
@@ -30,7 +30,7 @@ In the docker compose example below, the environment variables `$PUID` and `$PGI
 ```yaml
 services:
   homepage:
-    image: ghcr.io/gethomepage/homepage:latest
+    image: ghcr.io/stancuflorin/homepage-plus:latest
     container_name: homepage
     ports:
       - 3000:3000
@@ -46,7 +46,7 @@ services:
 ### With Docker Run
 
 ```bash
-docker run -p 3000:3000 -e HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/gethomepage/homepage:latest
+docker run -p 3000:3000 -e HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev -v /path/to/config:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/stancuflorin/homepage-plus:latest
 ```
 
 ### Using Environment Secrets

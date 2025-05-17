@@ -245,14 +245,8 @@ extra_css:
 
 extra:
   social:
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/k4ruYNrudu
     - icon: fontawesome/brands/github
-      link: https://github.com/gethomepage/homepage
-    - icon: simple/opencollective
-      link: https://opencollective.com/homepage
-    - icon: simple/patreon
-      link: https://www.patreon.com/gethomepage
+      link: https://github.com/stancuflorin/homepage-plus
 
 markdown_extensions:
   - pymdownx.highlight:

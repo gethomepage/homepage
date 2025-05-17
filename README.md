@@ -1,6 +1,6 @@
 # 🚀 Homepage+
 
-This is a custom fork of the original [gethomepage/homepage](https://github.com/gethomepage/homepage) project, with additional functionality extending beyond the scope of the original project.
+This is a custom fork of the original [stancuflorin/homepage-plus](https://github.com/stancuflorin/homepage-plus) project, with additional functionality extending beyond the scope of the original project.
 
 > **Docker Image**:
 > 🐳 `ghcr.io/stancuflorin/homepage-plus:dev`
@@ -38,4 +38,4 @@ Only the **container management** feature is added on top.
 
 ## 🤝 Acknowledgments
 
-Thanks to the maintainers of the original [Homepage project](https://github.com/gethomepage/homepage) for building an awesome and extensible dashboard.
+Thanks to the maintainers of the original [Homepage project](https://github.com/stancuflorin/homepage-plus) for building an awesome and extensible dashboard.

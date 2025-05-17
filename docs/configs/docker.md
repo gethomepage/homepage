@@ -49,7 +49,7 @@ dockerproxy:
   restart: unless-stopped
 
 homepage:
-  image: ghcr.io/gethomepage/homepage:latest
+  image: ghcr.io/stancuflorin/homepage-plus:latest
   container_name: homepage
   volumes:
     - /path/to/config:/app/config
@@ -76,7 +76,7 @@ If you'd rather use the socket directly, first make sure that you're passing the
 
 ```yaml
 homepage:
-  image: ghcr.io/gethomepage/homepage:latest
+  image: ghcr.io/stancuflorin/homepage-plus:latest
   container_name: homepage
   volumes:
     - /path/to/config:/app/config

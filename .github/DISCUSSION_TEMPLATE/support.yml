@@ -5,7 +5,7 @@ body:
         ### ⚠️ Before opening a discussion:
 
         - [Check the troubleshooting guide](https://gethomepage.dev/troubleshooting/).
-        - [Search existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) [and discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions) (including closed ones!).
+        - [Search existing issues](https://github.com/stancuflorin/homepage-plus/search?q=&type=issues) [and discussions](https://github.com/stancuflorin/homepage-plus/search?q=&type=discussions) (including closed ones!).
   - type: textarea
     id: description
     attributes:

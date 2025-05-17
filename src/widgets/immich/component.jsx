@@ -16,7 +16,7 @@ export default function Component({ service }) {
 
   let statsEndpoint = version === 2 ? "statistics_v2" : "stats";
   if (version === 1) {
-    // see https://github.com/gethomepage/homepage/issues/2282
+    // see https://github.com/stancuflorin/homepage-plus/issues/2282
     statsEndpoint =
       versionData?.major > 1 || (versionData?.major === 1 && versionData?.minor > 84) ? "statistics" : "stats";
   }
