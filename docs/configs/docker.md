@@ -66,6 +66,15 @@ my-docker:
   port: 2375
 ```
 
+Use protocol attribute if you'd want to use HTTPS instead:
+
+```yaml
+my-docker:
+  host: dockerproxy
+  port: 2375
+  protocol: https
+```
+
 ## Using Socket Directly
 
 If you'd rather use the socket directly, first make sure that you're passing the local socket into the Docker container.
