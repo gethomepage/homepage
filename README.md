@@ -7,7 +7,9 @@ This is a custom fork of the original [gethomepage/homepage](https://github.com/
 
 ## ✨ What's New in This Fork
 
-- [docker container actions](https://stancuflorin.github.io/homepage-plus/configs/settings/#show-container-actions) - it allows users to start / restart / stop Docker containers **directly from the homepage interface**.
+[Docker Container Actions](https://stancuflorin.github.io/homepage-plus/configs/settings/#show-container-actions) - it allows users to start / restart / stop Docker containers **directly from the homepage interface**.
+
+![Docker Commands](images/plus/docker-container-actions.png)
 
 ## 📦 Why This Fork?
 
