@@ -3,7 +3,7 @@ name: Docs
 on:
   push:
     tags: ["v*.*.*"]
-    branches: ["main"]
+    branches: ["dev"]
     paths:
       - "docs/**"
       - "mkdocs.yml"
