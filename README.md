@@ -13,7 +13,7 @@ This is a custom fork of the original [gethomepage/homepage](https://github.com/
 
 ## 📦 Why This Fork?
 
-The original `homepage` project is intentionally **read-only by design**. The maintainers aim to avoid adding features that alter system state or introduce complex edge cases (like full Kubernetes support).
+The original `homepage` project is intentionally **read-only by design**. The [maintainers aim to avoid](https://github.com/gethomepage/homepage/pull/5260#issuecomment-2868871704) adding features that alter system state or introduce complex edge cases (like full Kubernetes support).
 
 This fork breaks that limitation to provide more control and usability for users who want **lightweight container management** directly from their dashboard.
 
