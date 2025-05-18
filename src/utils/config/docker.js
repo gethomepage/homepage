@@ -43,6 +43,10 @@ export default function getDockerArguments(server) {
         res.conn.protocol = "https";
       }
 
+      if (servers[server].protocol) {
+        res.conn.protocol = servers[server].protocol;
+      }
+
       return res;
     }
 
