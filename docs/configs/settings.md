@@ -271,6 +271,7 @@ maxGroupColumns: 8 # default is 4 for services, 6 for bookmarks, max 8
 ```
 
 The layout is responsive and follows this pattern:
+
 - Medium screens (md): Always 2 columns (1/2 width each)
 - Large screens (lg): 2-3 columns based on maxGroupColumns
 - Extra large screens (xl): 2-4 columns based on maxGroupColumns
