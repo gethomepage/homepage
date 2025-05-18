@@ -41,8 +41,7 @@ export default function ServicesGroup({
         layout?.style !== "row" ? getColumnBasisClasses(maxGroupColumns) : "",
         groupPadding,
         isSubgroup ? "subgroup" : "",
-        )
-      }
+      )}
     >
       <Disclosure defaultOpen={!(layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) ?? true}>
         {({ open }) => (
