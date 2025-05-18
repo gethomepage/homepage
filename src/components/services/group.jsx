@@ -8,11 +8,18 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { columnMap } from "../../utils/layout/columns";
 
 const getColumnBasisClasses = (maxGroupColumns) => {
-  if (maxGroupColumns === 2) return "md:basis-1/2 lg:basis-1/2 xl:basis-1/2 3xl:basis-1/2";
-  if (maxGroupColumns === 3) return "md:basis-1/2 lg:basis-1/3 xl:basis-1/3 3xl:basis-1/3";
-  if (maxGroupColumns === 4) return "md:basis-1/2 lg:basis-1/3 xl:basis-1/4 3xl:basis-1/4";
-  if (maxGroupColumns >= 5) return `md:basis-1/2 lg:basis-1/3 xl:basis-1/4 3xl:basis-1/${maxGroupColumns}`;
-  return "md:basis-1/2 lg:basis-1/3 xl:basis-1/4 3xl:basis-1/4";
+  switch (maxGroupColumns) {
+    case 2:
+      return "md:basis-1/2 lg:basis-1/2 xl:basis-1/2 3xl:basis-1/2";
+    case 3:
+      return "md:basis-1/2 lg:basis-1/3 xl:basis-1/3 3xl:basis-1/3";
+    case 4:
+      return "md:basis-1/2 lg:basis-1/3 xl:basis-1/4 3xl:basis-1/4";
+    default:
+      return maxGroupColumns >= 5
+        ? `md:basis-1/2 lg:basis-1/3 xl:basis-1/4 3xl:basis-1/${maxGroupColumns}`
+        : "md:basis-1/2 lg:basis-1/3 xl:basis-1/4 3xl:basis-1/4";
+  }
 };
 
 export default function ServicesGroup({
