@@ -34,6 +34,9 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
+      } else if (widget.type === "checkmk") {
+        headers["Accept"] = `application/json`
+        headers.Authorization = `Bearer ${widget.key}`;
       } else if (
         [
           "argocd",
@@ -110,6 +113,13 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-API-Key"] = `${widget.key}`;
       }
 
+      logger.debug('Making request to httpProxy', {
+        url,
+        method: req.method,
+        withCredentials: true,
+        credentials: "include",
+        headers,
+      });
       const [status, contentType, data] = await httpProxy(url, {
         method: req.method,
         withCredentials: true,
