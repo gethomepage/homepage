@@ -1,5 +1,5 @@
-import { useContext } from "react";
 import classNames from "classnames";
+import { useContext } from "react";
 import { TabContext } from "utils/contexts/tab";
 
 function slugify(tabName) {

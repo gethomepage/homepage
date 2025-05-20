@@ -1,7 +1,7 @@
-import { useContext, Fragment } from "react";
-import { IoColorPalette } from "react-icons/io5";
 import { Popover, Transition } from "@headlessui/react";
 import classNames from "classnames";
+import { Fragment, useContext } from "react";
+import { IoColorPalette } from "react-icons/io5";
 import { ColorContext } from "utils/contexts/color";
 
 const colors = [

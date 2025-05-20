@@ -1,15 +1,15 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-import yaml from "js-yaml";
 import Docker from "dockerode";
+import yaml from "js-yaml";
 
-import createLogger from "utils/logger";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
-import kubernetes from "utils/kubernetes/export";
 import { getKubeConfig } from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
+import kubernetes from "utils/kubernetes/export";
+import createLogger from "utils/logger";
 
 const logger = createLogger("service-helpers");
 
@@ -362,6 +362,9 @@ export function cleanServiceGroups(groups) {
           // proxmox
           node,
 
+          // proxmoxbackupserver
+          datastore,
+
           // speedtest
           bitratePrecision,
 
@@ -436,6 +439,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "proxmox") {
           if (node) widget.node = node;
+        }
+        if (type === "proxmoxbackupserver") {
+          if (datastore) widget.datastore = datastore;
         }
         if (type === "kubernetes") {
           if (namespace) widget.namespace = namespace;

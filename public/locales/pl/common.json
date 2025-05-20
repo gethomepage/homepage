@@ -149,8 +149,8 @@
         "received": "Odebrane",
         "sent": "Wysłane",
         "externalIPAddress": "Pub. IP",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "Zewn. IPv6",
+        "externalIPv6Prefix": "Zewn. prefiks IPv6"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -705,8 +705,8 @@
         "time": "Czas"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Wartość netto",
+        "budget": "Budżet"
     },
     "grafana": {
         "dashboards": "Panel główny",
@@ -886,7 +886,7 @@
         "notifications": "Powiadomienia",
         "issues": "Zgłoszenia",
         "pulls": "Żądania Pull",
-        "repositories": "Repositories"
+        "repositories": "Repozytoria"
     },
     "stash": {
         "scenes": "Sceny",
@@ -1024,12 +1024,12 @@
         "bcharge": "Stan baterii",
         "timeleft": "Pozostało"
     },
-    "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+    "karakeep": {
+        "bookmarks": "Zakładki",
+        "favorites": "Ulubione",
+        "archived": "Zarchiwizowane",
+        "highlights": "Wyróżnione",
+        "lists": "Listy",
         "tags": "Tagi"
     },
     "slskd": {

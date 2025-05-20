@@ -131,8 +131,8 @@ module.exports = {
               ? BIBIT_UNITS
               : BIT_UNITS
             : options.binary
-            ? BIBYTE_UNITS
-            : BYTE_UNITS;
+              ? BIBYTE_UNITS
+              : BYTE_UNITS;
 
           if (value === 0) return `0 ${sizes[0]}/s`;
 

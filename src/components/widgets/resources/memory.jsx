@@ -1,9 +1,9 @@
-import useSWR from "swr";
-import { FaMemory } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
+import { FaMemory } from "react-icons/fa";
+import useSWR from "swr";
 
-import Resource from "../widget/resource";
 import Error from "../widget/error";
+import Resource from "../widget/resource";
 
 export default function Memory({ expanded, refresh = 1500 }) {
   const { t } = useTranslation();

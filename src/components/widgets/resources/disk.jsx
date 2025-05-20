@@ -1,9 +1,9 @@
-import useSWR from "swr";
-import { FiHardDrive } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
+import { FiHardDrive } from "react-icons/fi";
+import useSWR from "swr";
 
-import Resource from "../widget/resource";
 import Error from "../widget/error";
+import Resource from "../widget/resource";
 
 export default function Disk({ options, expanded, diskUnits, refresh = 1500 }) {
   const { t } = useTranslation();

@@ -53,9 +53,11 @@ export default async function handler(req, res) {
       return;
     }
 
+    const podNames = new Set();
     let cpuLimit = 0;
     let memLimit = 0;
     pods.forEach((pod) => {
+      podNames.add(pod.metadata.name);
       pod.spec.containers.forEach((container) => {
         if (container?.resources?.limits?.cpu) {
           cpuLimit += parseCpu(container?.resources?.limits?.cpu);
@@ -66,42 +68,32 @@ export default async function handler(req, res) {
       });
     });
 
-    const podStatsList = await Promise.all(
-      pods.map(async (pod) => {
-        let depMem = 0;
-        let depCpu = 0;
-        const podMetrics = await metricsApi
-          .getPodMetrics(namespace, pod.items)
-          .then((response) => response.items)
-          .catch((err) => {
-            // 404 generally means that the metrics have not been populated yet
-            if (err.statusCode !== 404) {
-              logger.error("Error getting pod metrics: %d %s %s", err.statusCode, err.body, err.response);
-            }
-            return null;
-          });
-        if (podMetrics) {
-          podMetrics.forEach((metrics) => {
-            metrics.containers.forEach((container) => {
-              depMem += parseMemory(container.usage.memory);
-              depCpu += parseCpu(container.usage.cpu);
-            });
-          });
+    const namespaceMetrics = await metricsApi
+      .getPodMetrics(namespace)
+      .then((response) => response.items)
+      .catch((err) => {
+        // 404 generally means that the metrics have not been populated yet
+        if (err.statusCode !== 404) {
+          logger.error("Error getting pod metrics: %d %s %s", err.statusCode, err.body, err.response);
         }
-        return {
-          mem: depMem,
-          cpu: depCpu,
-        };
-      }),
-    );
+        return null;
+      });
+
     const stats = {
       mem: 0,
       cpu: 0,
     };
-    podStatsList.forEach((podStat) => {
-      stats.mem += podStat.mem;
-      stats.cpu += podStat.cpu;
-    });
+
+    if (namespaceMetrics) {
+      const podMetrics = namespaceMetrics.filter((item) => podNames.has(item.metadata.name));
+      podMetrics.forEach((metrics) => {
+        metrics.containers.forEach((container) => {
+          stats.mem += parseMemory(container.usage.memory);
+          stats.cpu += parseCpu(container.usage.cpu);
+        });
+      });
+    }
+
     stats.cpuLimit = cpuLimit;
     stats.memLimit = memLimit;
     stats.cpuUsage = cpuLimit ? 100 * (stats.cpu / cpuLimit) : 0;

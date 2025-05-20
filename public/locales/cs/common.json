@@ -85,16 +85,16 @@
     "ping": {
         "error": "Chyba",
         "ping": "Odezva",
-        "down": "Down",
-        "up": "Up",
+        "down": "Výpadek",
+        "up": "Běží",
         "not_available": "Není k dispozici"
     },
     "siteMonitor": {
         "http_status": "Stav HTTP",
         "error": "Chyba",
         "response": "Odpověď",
-        "down": "Down",
-        "up": "Up",
+        "down": "Výpadek",
+        "up": "Běží",
         "not_available": "Není k dispozici"
     },
     "emby": {
@@ -144,13 +144,13 @@
         "uptime": "Doba spuštění",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
+        "down": "Výpadek",
+        "up": "Běží",
         "received": "Přijaté",
         "sent": "Odeslané",
         "externalIPAddress": "Ext. IP",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "Veřejná IPv6",
+        "externalIPv6Prefix": "Věřejná IPv6 prefix"
     },
     "caddy": {
         "upstreams": "Odesílání dat",
@@ -178,7 +178,7 @@
         "connectedAp": "Připojené APs",
         "activeUser": "Aktivní zařízení",
         "alerts": "Upozornění",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Připojené brány",
         "connectedSwitches": "Připojené přepínače"
     },
     "nzbget": {
@@ -229,8 +229,8 @@
         "seed": "Seedované"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "Byty nalezené v mezipaměti",
+        "cachemissbytes": "Byty nenalezené v mezipaměti"
     },
     "downloadstation": {
         "download": "Stahování",
@@ -287,7 +287,7 @@
         "total": "Celkem",
         "connected": "",
         "new_devices": "",
-        "down_alerts": "Down Alerts"
+        "down_alerts": "Upozornění na výpadek"
     },
     "pihole": {
         "queries": "Dotazy",
@@ -313,13 +313,13 @@
     },
     "suwayomi": {
         "download": "Staženo",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "Nestaženo",
         "read": "Přečteno",
         "unread": "Nepřečteno",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Staženo a přečteno",
+        "downloadedunread": "Staženo a nepřečteno",
+        "nondownloadedread": "Nestaženo a přečteno",
+        "nondownloadedunread": "Nestaženo a nepřečteno"
     },
     "tailscale": {
         "address": "Adresa",
@@ -337,15 +337,15 @@
     },
     "technitium": {
         "totalQueries": "Dotazy",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "Úspěšně",
+        "totalServerFailure": "Chyby",
+        "totalNxDomain": "NX domény",
+        "totalRefused": "Odmítnuto",
+        "totalAuthoritative": "Autoritativní",
+        "totalRecursive": "Rekurzivní",
+        "totalCached": "V mezipaměti",
         "totalBlocked": "Blokováno",
-        "totalDropped": "Dropped",
+        "totalDropped": "Vynecháno",
         "totalClients": "Klienti"
     },
     "tdarr": {
@@ -434,7 +434,7 @@
         "load": "Zatížení",
         "wait": "Počkejte prosím",
         "temp": "TEPLOTA",
-        "_temp": "Temp",
+        "_temp": "Teplota",
         "warn": "Varováni",
         "uptime": "BĚŽÍ",
         "total": "Celkem",
@@ -442,12 +442,12 @@
         "used": "Využité",
         "days": "d",
         "hours": "h",
-        "crit": "Crit",
+        "crit": "Kritické",
         "read": "Přečteno",
-        "write": "Write",
-        "gpu": "GPU",
-        "mem": "Mem",
-        "swap": "Swap"
+        "write": "Zápis",
+        "gpu": "Grafická karta",
+        "mem": "Pamět RAM",
+        "swap": "Swap RAM"
     },
     "quicklaunch": {
         "bookmark": "Záložka",
@@ -456,7 +456,7 @@
         "custom": "Vlastní",
         "visit": "Navštivte",
         "url": "Odkaz",
-        "searchsuggestion": "Suggestion"
+        "searchsuggestion": "Doporučení"
     },
     "wmo": {
         "0-day": "Slunečno",
@@ -523,15 +523,15 @@
         "up_to_date": "Žádné",
         "child_bridges": "Podřízené můstky",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
+        "up": "Běží",
         "pending": "Čeká",
-        "down": "Down"
+        "down": "Výpadek"
     },
     "healthchecks": {
         "new": "Nové",
-        "up": "Up",
+        "up": "Běží",
         "grace": "V období odkladu",
-        "down": "Down",
+        "down": "Výpadek",
         "paused": "Pozastaveno",
         "status": "Stav",
         "last_ping": "Poslední ping",
@@ -573,14 +573,14 @@
     "hdhomerun": {
         "channels": "Kanály",
         "hd": "HD",
-        "tunerCount": "Tuners",
-        "channelNumber": "Channel",
-        "channelNetwork": "Network",
-        "signalStrength": "Strength",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
+        "tunerCount": "Tuner",
+        "channelNumber": "Kanál",
+        "channelNetwork": "Síť",
+        "signalStrength": "Síla",
+        "signalQuality": "Kvalita",
+        "symbolQuality": "Kvalita",
         "networkRate": "Přenosová rychlost",
-        "clientIP": "Client"
+        "clientIP": "Klient"
     },
     "scrutiny": {
         "passed": "Úspěšné",
@@ -592,12 +592,12 @@
         "total": "Celkem"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
+        "battery_charge": "Úroveň baterie",
+        "ups_load": "Zítěž UPS",
+        "ups_status": "Stav UPS",
         "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "on_battery": "Na baterii",
+        "low_battery": "Nízký stav baterie"
     },
     "nextdns": {
         "wait": "Čekejte prosím",
@@ -615,9 +615,9 @@
         "streams_xepg": "Kanály XEPG"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
+        "yieldDay": "Dnes",
+        "absolutePower": "Výkon",
+        "relativePower": "Výkon %",
         "limit": "Limit"
     },
     "opnsense": {
@@ -646,9 +646,9 @@
         "load": "Prům. zatížení",
         "memory": "Využití paměti",
         "wanStatus": "Stav WAN",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
+        "up": "Běží",
+        "down": "Výpadek",
+        "temp": "Teplota",
         "disk": "Využití disku",
         "wanIP": "IP WAN"
     },
@@ -668,14 +668,14 @@
         "up": "Stránky Up",
         "down": "Stránky Down",
         "uptime": "Doba spuštění",
-        "incident": "Incident",
+        "incident": "Událost",
         "m": "m"
     },
     "atsumeru": {
         "series": "Seriály",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "archives": "Archivy",
+        "chapters": "Kapitoly",
+        "categories": "Kategorie"
     },
     "komga": {
         "libraries": "Knihovny",
@@ -705,13 +705,13 @@
         "time": "Čas"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Čisté jmění",
+        "budget": "Rozpočet"
     },
     "grafana": {
         "dashboards": "Nástěnky",
         "datasources": "Zdroje dat",
-        "totalalerts": "Celkový počet upozornění",
+        "totalalerts": "Celkový počet upozornění2",
         "alertstriggered": "Spuštěné výstrahy"
     },
     "nextcloud": {
@@ -749,7 +749,7 @@
         "uptime": "Doba spuštění"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "Dnes",
         "gross_percent_1y": "Jeden rok",
         "gross_percent_max": "Za celou dobu"
     },
@@ -770,8 +770,8 @@
     },
     "calibreweb": {
         "books": "Knihy",
-        "authors": "Authors",
-        "categories": "Categories",
+        "authors": "Autoři",
+        "categories": "Kategorie",
         "series": "Seriály"
     },
     "jdownloader": {
@@ -785,44 +785,44 @@
         "totalFiles": "Soubory"
     },
     "azuredevops": {
-        "result": "Result",
+        "result": "Výsledek",
         "status": "Stav",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
+        "buildId": "ID sestavení",
+        "succeeded": "Úspěšně",
+        "notStarted": "Nezahájeno",
         "failed": "Selhalo",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
+        "canceled": "Zrušeno",
+        "inProgress": "Probíhá",
+        "totalPrs": "Celkem PR",
+        "myPrs": "Moje PR",
         "approved": "Schváleno"
     },
     "gamedig": {
         "status": "Stav",
         "online": "Online",
         "offline": "Offline",
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
+        "name": "Jméno",
+        "map": "Mapa",
+        "currentPlayers": "Počet hráčů",
         "players": "Hráči",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
+        "maxPlayers": "Maximální počet hráčů",
+        "bots": "Boti",
         "ping": "Odezva"
     },
     "urbackup": {
         "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "errored": "Chyby",
+        "noRecent": "Zastaralý",
+        "totalUsed": "Využití úložiště"
     },
     "mealie": {
-        "recipes": "Recipes",
+        "recipes": "Recepty",
         "users": "Uživatelé",
-        "categories": "Categories",
-        "tags": "Tags"
+        "categories": "Kategorie",
+        "tags": "Štítky"
     },
     "openmediavault": {
-        "downloading": "Downloading",
+        "downloading": "Stahování",
         "total": "Celkem",
         "running": "Běží",
         "stopped": "Zastaveno",
@@ -831,95 +831,95 @@
     },
     "openwrt": {
         "uptime": "Doba spuštění",
-        "cpuLoad": "CPU Load Avg (5m)",
-        "up": "Up",
-        "down": "Down",
-        "bytesTx": "Transmitted",
+        "cpuLoad": "Prům. zatížení procesoru (5m)",
+        "up": "Běží",
+        "down": "Výpadek",
+        "bytesTx": "Přeneseno",
         "bytesRx": "Přijaté"
     },
     "uptimerobot": {
         "status": "Stav",
         "uptime": "Doba spuštění",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
+        "lastDown": "Poslední výpadek",
+        "downDuration": "Trvání výpadku",
         "sitesUp": "Stránky Up",
         "sitesDown": "Stránky Down",
         "paused": "Pozastaveno",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
+        "notyetchecked": "Zatím nezkontrolováno",
+        "up": "Běží",
+        "seemsdown": "Zdá se nedostupný",
+        "down": "Výpadek",
         "unknown": "Neznámý"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "inCinemas": "V kinech",
+        "physicalRelease": "Fyzické vydání",
+        "digitalRelease": "Digitální vydání",
+        "noEventsToday": "Pro dnešek žádné události!",
+        "noEventsFound": "Nemáte žádné události"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "platforms": "Platformy",
+        "totalRoms": "Hry",
+        "saves": "Uložené",
+        "states": "Stavy",
+        "screenshots": "Snímky obrazovky",
+        "totalfilesize": "Celková velikost"
     },
     "mailcow": {
         "domains": "Domény",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "E-mailové schránky",
+        "mails": "Maily",
         "storage": "Úložiště"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Upozornění",
+        "criticals": "Kritické"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
+        "events": "Události",
+        "plants": "Rostliny",
         "photos": "Fotografie",
-        "species": "Species"
+        "species": "Druhy"
     },
     "gitea": {
-        "notifications": "Notifications",
+        "notifications": "Oznámení",
         "issues": "Problémy",
         "pulls": "Pull Requests",
-        "repositories": "Repositories"
+        "repositories": "Repozitáře"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
+        "scenes": "Scény",
+        "scenesPlayed": "Přehrané scény",
+        "playCount": "Celkový počet přehrání",
+        "playDuration": "Čas sledování",
+        "sceneSize": "Velikost scén",
+        "sceneDuration": "Délka scény",
+        "images": "Obrázky",
+        "imageSize": "Velikost obrázků",
+        "galleries": "Galerie",
+        "performers": "Herci",
+        "studios": "Studia",
         "movies": "Filmy",
-        "tags": "Tags",
-        "oCount": "O Count"
+        "tags": "Štítky",
+        "oCount": "Počet O"
     },
     "tandoor": {
         "users": "Uživatelé",
-        "recipes": "Recipes",
-        "keywords": "Keywords"
+        "recipes": "Recepty",
+        "keywords": "Klíčová slova"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
+        "items": "Položky",
+        "totalWithWarranty": "Se zárukou",
+        "locations": "Lokality",
+        "labels": "Štítky",
         "users": "Uživatelé",
-        "totalValue": "Total Value"
+        "totalValue": "Celková hodnota"
     },
     "crowdsec": {
         "alerts": "Upozornění",
-        "bans": "Bans"
+        "bans": "Bany"
     },
     "wgeasy": {
         "connected": "",
@@ -928,10 +928,10 @@
         "total": "Celkem"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Přes proxy",
+        "auth": "S ověřením",
+        "outdated": "Zastaralé",
+        "banned": "Zabanován"
     },
     "myspeed": {
         "ping": "Odezva",
@@ -939,46 +939,46 @@
         "upload": "Nahrávání"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Akcie",
+        "loading": "Načítání",
+        "open": "Otevřeno - US trh",
+        "closed": "Uzavřeno - US trh",
+        "invalidConfiguration": "Neplatná konfigurace"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kamery",
         "uptime": "Doba spuštění",
         "version": "Verze"
     },
     "linkwarden": {
-        "links": "Links",
-        "collections": "Collections",
-        "tags": "Tags"
+        "links": "Linky",
+        "collections": "Sbírky",
+        "tags": "Štítky"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Neklasifikováno",
         "information": "Informace",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "Upozornění",
+        "average": "Průměr",
+        "high": "Vysoký",
+        "disaster": "Katastrofa"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Vozidlo",
+        "vehicles": "Vozidla",
+        "serviceRecords": "Servisní záznamy",
+        "reminders": "Připomenutí",
+        "nextReminder": "Další připomenutí",
+        "none": "Žádné"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "Aktivní projekty",
+        "tasks7d": "Úkoly k dokončení tento týden",
+        "tasksOverdue": "Zpožděné úkoly",
+        "tasksInProgress": "Probíhají úkoly"
     },
     "headscale": {
-        "name": "Name",
+        "name": "Jméno",
         "address": "Adresa",
         "last_seen": "Naposledy viděno",
         "status": "Stav",
@@ -986,10 +986,10 @@
         "offline": "Offline"
     },
     "beszel": {
-        "name": "Name",
-        "systems": "Systems",
-        "up": "Up",
-        "down": "Down",
+        "name": "Jméno",
+        "systems": "Systém",
+        "up": "Běží",
+        "down": "Výpadek",
         "paused": "Pozastaveno",
         "pending": "Čeká",
         "status": "Stav",
@@ -997,50 +997,50 @@
         "cpu": "CPU",
         "memory": "RAM",
         "disk": "Disk",
-        "network": "NET"
+        "network": "Síť"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "Aplikace",
+        "synced": "Synchronizováno",
+        "outOfSync": "Nesynchronizováno",
         "healthy": "Zdravý",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "Degradováno",
+        "progressing": "Probíhá",
         "missing": "Chybějící",
-        "suspended": "Suspended"
+        "suspended": "Pozastaveno"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "Načítání"
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "Skupiny",
         "issues": "Problémy",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "Žádosti o sloučení",
+        "projects": "Projekty"
     },
     "apcups": {
         "status": "Stav",
         "load": "Zatížení",
-        "bcharge": "Battery Charge",
+        "bcharge": "Úroveň baterie",
         "timeleft": "Zbývající čas"
     },
-    "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
-        "tags": "Tags"
+    "karakeep": {
+        "bookmarks": "Záložky",
+        "favorites": "Oblíbené",
+        "archived": "Archivováno",
+        "highlights": "Zvýraznění",
+        "lists": "Seznamy",
+        "tags": "Štítky"
     },
     "slskd": {
-        "slskStatus": "Network",
+        "slskStatus": "Síť",
         "connected": "",
         "disconnected": "Odpojeno",
-        "updateStatus": "Update",
+        "updateStatus": "Aktualizace",
         "update_yes": "Dostupné",
         "update_no": "Žádné",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
+        "downloads": "Stažení",
+        "uploads": "Nahrávání",
         "sharedFiles": "Soubory"
     }
 }

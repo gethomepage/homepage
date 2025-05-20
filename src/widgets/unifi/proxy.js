@@ -1,11 +1,11 @@
 import cache from "memory-cache";
 
-import { formatApiCall } from "utils/proxy/api-helpers";
-import { httpProxy } from "utils/proxy/http";
-import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
 import getServiceWidget from "utils/config/service-helpers";
 import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const udmpPrefix = "/proxy/network";

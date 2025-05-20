@@ -1,7 +1,7 @@
-import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { BiCog } from "react-icons/bi";
 import classNames from "classnames";
+import { Fragment } from "react";
+import { BiCog } from "react-icons/bi";
 
 export default function Dropdown({ options, value, setValue }) {
   return (

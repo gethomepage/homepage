@@ -886,7 +886,7 @@
         "notifications": "Notificações",
         "issues": "Problemas",
         "pulls": "Solicitações de Envio",
-        "repositories": "Repositories"
+        "repositories": "Repositórios"
     },
     "stash": {
         "scenes": "Cenas",
@@ -1024,8 +1024,8 @@
         "bcharge": "Carga da bateria",
         "timeleft": "Tempo restante"
     },
-    "hoarder": {
-        "bookmarks": "Favoritos",
+    "karakeep": {
+        "bookmarks": "Marcadores",
         "favorites": "Favoritos",
         "archived": "Arquivados",
         "highlights": "Destaques",
@@ -1036,7 +1036,7 @@
         "slskStatus": "Rede",
         "connected": "Conectado",
         "disconnected": "Desconectado",
-        "updateStatus": "Update",
+        "updateStatus": "Atualize",
         "update_yes": "Disponível",
         "update_no": "Atualizado",
         "downloads": "Transferências",

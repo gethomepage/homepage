@@ -1,8 +1,8 @@
-import { useTranslation } from "next-i18next";
-import { BsVolumeMuteFill, BsFillPlayFill, BsPauseFill, BsCpu, BsFillCpuFill } from "react-icons/bs";
-import { MdOutlineSmartDisplay } from "react-icons/md";
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
+import { BsCpu, BsFillCpuFill, BsFillPlayFill, BsPauseFill, BsVolumeMuteFill } from "react-icons/bs";
+import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import { getURLSearchParams } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";

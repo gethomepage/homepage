@@ -2,9 +2,9 @@ import { xml2json } from "xml-js";
 
 import { fritzboxDefaultFields } from "./component";
 
-import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("fritzboxProxyHandler");
 

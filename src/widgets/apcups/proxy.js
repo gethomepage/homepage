@@ -1,5 +1,5 @@
-import net from "node:net";
 import { Buffer } from "node:buffer";
+import net from "node:net";
 
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";

@@ -1,6 +1,6 @@
 import getServiceWidget from "utils/config/service-helpers";
-import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("calendarProxyHandler");
 
