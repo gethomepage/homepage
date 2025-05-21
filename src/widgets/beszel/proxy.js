@@ -73,7 +73,15 @@ export default async function beszelProxyHandler(req, res) {
       });
 
       const badRequest = [400, 403].includes(status);
-      const isEmpty = data.includes("[]");
+      const text = data.toString("utf-8");
+      let isEmpty = false;
+
+      try {
+        const json = JSON.parse(text);
+        isEmpty = Array.isArray(json.items) && json.items.length === 0;
+      } catch (err) {
+        logger.debug("Failed to parse Beszel response JSON:", err);
+      }
 
       if (badRequest || isEmpty) {
         if (badRequest) {
