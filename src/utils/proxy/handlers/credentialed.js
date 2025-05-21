@@ -36,7 +36,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-gotify-Key"] = `${widget.key}`;
       } else if (widget.type === "checkmk") {
         headers["Accept"] = `application/json`
-        headers.Authorization = `Bearer ${widget.key}`;
+        headers.Authorization = `Bearer ${widget.username} ${widget.password}`;
       } else if (
         [
           "argocd",

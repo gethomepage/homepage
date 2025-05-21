@@ -23,15 +23,15 @@ export default function Component({ service }) {
   if (!servicesData || !hostsData) {
     return (
       <Container service={service}>
-        <Block label="checkmk.key3" />
+        <Block label="checkmk.connectionError" />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="checkmk.service_errors" value={t("common.number", { value: servicesData.value.length })} />
-      <Block label="checkmk.host_errors" value={t("common.number", { value: hostsData.value.length })} />
+      <Block label="checkmk.serviceErrors" value={t("common.number", { value: servicesData.value.length })} />
+      <Block label="checkmk.hostErrors" value={t("common.number", { value: hostsData.value.length })} />
     </Container>
   );
 }

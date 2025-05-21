@@ -1050,5 +1050,10 @@
         "movies": "Movies",
         "episodes": "Episodes",
         "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues",
+        "connectionError": "API connection failed"
     }
 }
