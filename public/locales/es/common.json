@@ -149,8 +149,8 @@
         "received": "Recibido",
         "sent": "Enviado",
         "externalIPAddress": "IP ext.",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "IPv6 ext.",
+        "externalIPv6Prefix": "Prefijo IPv6 ext."
     },
     "caddy": {
         "upstreams": "Upstream (desarrollo de software)",
@@ -178,7 +178,7 @@
         "connectedAp": "AP conectados",
         "activeUser": "Dispositivos activos",
         "alerts": "Alertas",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Puertas de enlace conectadas",
         "connectedSwitches": "Conmutadores conectados"
     },
     "nzbget": {
@@ -705,8 +705,8 @@
         "time": "Tiempo"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Patrimonio neto",
+        "budget": "Presupuesto"
     },
     "grafana": {
         "dashboards": "Tableros",
@@ -886,7 +886,7 @@
         "notifications": "Notificaciones",
         "issues": "Números",
         "pulls": "Solicitudes de cambios",
-        "repositories": "Repositories"
+        "repositories": "Repositorios"
     },
     "stash": {
         "scenes": "Escenas",
@@ -1024,7 +1024,7 @@
         "bcharge": "Carga de la batería",
         "timeleft": "Tiempo restante"
     },
-    "hoarder": {
+    "karakeep": {
         "bookmarks": "Bookmarks",
         "favorites": "Favorites",
         "archived": "Archived",
@@ -1036,11 +1036,11 @@
         "slskStatus": "Red",
         "connected": "Conectado",
         "disconnected": "Desconectado",
-        "updateStatus": "Update",
+        "updateStatus": "Actualización",
         "update_yes": "Disponible",
         "update_no": "Actualizado",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
+        "downloads": "Descargas",
+        "uploads": "Subidas",
         "sharedFiles": "Archivos"
     }
 }

@@ -1,9 +1,9 @@
-import useSWR from "swr";
-import { FaThermometerHalf } from "react-icons/fa";
 import { useTranslation } from "next-i18next";
+import { FaThermometerHalf } from "react-icons/fa";
+import useSWR from "swr";
 
-import Resource from "../widget/resource";
 import Error from "../widget/error";
+import Resource from "../widget/resource";
 
 function convertToFahrenheit(t) {
   return (t * 9) / 5 + 32;

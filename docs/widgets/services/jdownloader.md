@@ -1,6 +1,6 @@
 ---
 title: JDownloader
-description: NextPVR Widget Configuration
+description: JDownloader Widget Configuration
 ---
 
 Learn more about [JDownloader](https://jdownloader.org/).

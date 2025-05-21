@@ -394,7 +394,7 @@
     "strelaysrv": {
         "numActiveSessions": "Сесии",
         "numConnections": "Connections",
-        "dataRelayed": "Relayed",
+        "dataRelayed": "",
         "transferRate": "Скорост"
     },
     "mastodon": {
@@ -1002,7 +1002,7 @@
     "argocd": {
         "apps": "Приложения",
         "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "outOfSync": "",
         "healthy": "Здрав",
         "degraded": "Деградирани",
         "progressing": "Progressing",
@@ -1024,7 +1024,7 @@
         "bcharge": "Заряд на батерията",
         "timeleft": "Оставащо Време"
     },
-    "hoarder": {
+    "karakeep": {
         "bookmarks": "Bookmarks",
         "favorites": "Favorites",
         "archived": "Archived",

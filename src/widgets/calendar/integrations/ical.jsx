@@ -1,11 +1,11 @@
-import { DateTime } from "luxon";
 import { parseString } from "cal-parser";
-import { useEffect } from "react";
+import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next";
+import { useEffect } from "react";
 import { RRule } from "rrule";
 
-import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 import Error from "../../../components/services/widget/error";
+import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 
 // https://gist.github.com/jlevy/c246006675becc446360a798e2b2d781
 function simpleHash(str) {

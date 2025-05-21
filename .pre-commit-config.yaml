@@ -9,11 +9,14 @@ repos:
     -   id: check-yaml
         exclude: "(^mkdocs\\.yml$)"
     -   id: check-added-large-files
--   repo: https://github.com/pre-commit/mirrors-prettier
-    rev: 'v3.0.3'
+-   repo: https://github.com/rbubley/mirrors-prettier
+    rev: 'v3.3.3'
     hooks:
     -   id: prettier
         types_or:
           - javascript
           - markdown
           - jsx
+        additional_dependencies:
+          - prettier@3.3.3
+          - 'prettier-plugin-organize-imports@4.1.0'

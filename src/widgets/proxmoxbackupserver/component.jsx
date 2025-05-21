@@ -1,6 +1,6 @@
-import { useTranslation } from "next-i18next";
-import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -29,7 +29,18 @@ export default function Component({ service }) {
     );
   }
 
-  const datastoreUsage = datastoreData.data ? (datastoreData.data[0].used / datastoreData.data[0].total) * 100 : 0;
+  const datastoreIndex = !!widget.datastore
+    ? datastoreData.data.findIndex(function (ds) {
+        return ds.store == widget.datastore;
+      })
+    : -1;
+  const datastoreUsage =
+    datastoreIndex > -1
+      ? (datastoreData.data[datastoreIndex].used / datastoreData.data[datastoreIndex].total) * 100
+      : (datastoreData.data.reduce((sum, datastore) => sum + datastore.used, 0) /
+          datastoreData.data.reduce((sum, datastore) => sum + datastore.total, 0)) *
+        100;
+
   const cpuUsage = hostData.data.cpu * 100;
   const memoryUsage = (hostData.data.memory.used / hostData.data.memory.total) * 100;
   const failedTasks = tasksData.total >= 100 ? "99+" : tasksData.total;

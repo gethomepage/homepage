@@ -1,13 +1,13 @@
-import useSWR from "swr";
-import { useState } from "react";
 import { useTranslation } from "next-i18next";
+import { useState } from "react";
 import { FaChartLine } from "react-icons/fa6";
+import useSWR from "swr";
 
-import Error from "../widget/error";
 import Container from "../widget/container";
+import Error from "../widget/error";
 import PrimaryText from "../widget/primary_text";
-import WidgetIcon from "../widget/widget_icon";
 import Raw from "../widget/raw";
+import WidgetIcon from "../widget/widget_icon";
 
 export default function Widget({ options }) {
   const { t, i18n } = useTranslation();

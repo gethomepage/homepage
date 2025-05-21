@@ -1,7 +1,7 @@
-import { useContext } from "react";
 import classNames from "classnames";
-import { SettingsContext } from "utils/contexts/settings";
 import ResolvedIcon from "components/resolvedicon";
+import { useContext } from "react";
+import { SettingsContext } from "utils/contexts/settings";
 
 export default function Item({ bookmark, iconOnly = false }) {
   const description = bookmark.description ?? new URL(bookmark.href).hostname;

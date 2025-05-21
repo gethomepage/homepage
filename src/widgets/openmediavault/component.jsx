@@ -1,6 +1,6 @@
+import DownloaderGetDownloadList from "./methods/downloader_get_downloadlist";
 import ServicesGetStatus from "./methods/services_get_status";
 import SmartGetList from "./methods/smart_get_list";
-import DownloaderGetDownloadList from "./methods/downloader_get_downloadlist";
 
 export default function Component({ service }) {
   switch (service.widget.method) {

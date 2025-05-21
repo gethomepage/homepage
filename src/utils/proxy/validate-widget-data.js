@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import widgets from "widgets/widgets";
 import createLogger from "utils/logger";
+import widgets from "widgets/widgets";
 
 const logger = createLogger("validateWidgetData");
 

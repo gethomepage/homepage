@@ -1,12 +1,12 @@
 import Container from "../widget/container";
 import Raw from "../widget/raw";
 
-import Disk from "./disk";
 import Cpu from "./cpu";
-import Memory from "./memory";
 import CpuTemp from "./cputemp";
-import Uptime from "./uptime";
+import Disk from "./disk";
+import Memory from "./memory";
 import Network from "./network";
+import Uptime from "./uptime";
 
 export default function Resources({ options }) {
   const { expanded, units, diskUnits, tempmin, tempmax } = options;

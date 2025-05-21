@@ -1,5 +1,5 @@
-import useSWR from "swr";
 import { t } from "i18next";
+import useSWR from "swr";
 
 export default function KubernetesStatus({ service, style }) {
   const podSelectorString = service.podSelector !== undefined ? `podSelector=${service.podSelector}` : "";

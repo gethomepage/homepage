@@ -1024,12 +1024,12 @@
         "bcharge": "Battery Charge",
         "timeleft": "Time Left"
     },
-    "hoarder": {
-        "bookmarks": "Laster-markak",
-        "favorites": "Gogokoak",
-        "archived": "Artxibatuta",
+    "karakeep": {
+        "bookmarks": "Bookmarks",
+        "favorites": "Favorites",
+        "archived": "Archived",
         "highlights": "Highlights",
-        "lists": "Zerrendak",
+        "lists": "Lists",
         "tags": "Etiketak"
     },
     "slskd": {

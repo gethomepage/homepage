@@ -16,11 +16,11 @@
 **/compose*
 **/Dockerfile*
 **/node_modules
+!.next/standalone/node_modules
 **/npm-debug.log
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
-**/.next
 README.md
 config/
 k3d/

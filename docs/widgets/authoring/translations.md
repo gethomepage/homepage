@@ -34,7 +34,7 @@ Homepage uses the [next-i18next](https://github.com/i18next/next-i18next) librar
 
 Homepage uses translated and localized strings for **all text and numerical content** in widgets. English is the default language, and other languages can be added via [Crowdin](https://crowdin.com/project/gethomepage). To add the English translations for your widget, follow these steps:
 
-Open the `public/locales/en/common.js` file.
+Open the `public/locales/en/common.json` file.
 
 Add a new object for your widget to the bottom of the list, like this:
 

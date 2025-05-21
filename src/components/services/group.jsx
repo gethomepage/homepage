@@ -1,9 +1,9 @@
-import { useRef, useEffect } from "react";
-import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import List from "components/services/list";
+import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
+import List from "components/services/list";
+import { useEffect, useRef } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 import { columnMap } from "../../utils/layout/columns";
 

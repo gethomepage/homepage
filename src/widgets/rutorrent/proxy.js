@@ -1,8 +1,8 @@
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
-import { formatApiCall } from "utils/proxy/api-helpers";
-import createLogger from "utils/logger";
 
 const logger = createLogger("rutorrentProxyHandler");
 

@@ -1,10 +1,10 @@
-import { useTranslation } from "next-i18next";
-import Container from "components/services/widget/container";
-import Block from "components/services/widget/block";
 import classNames from "classnames";
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
 
-import useWidgetAPI from "utils/proxy/use-widget-api";
 import * as shvl from "utils/config/shvl";
+import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getValue(field, data) {
   let value = data;
@@ -243,9 +243,17 @@ export default function Component({ service }) {
               </div>
             ) : (
               listItems.map((item, index) => {
-                const itemName = shvl.get(item, name, "");
-                const itemLabel = shvl.get(item, label, "");
-                const itemUrl = target ? target.replace(/\{([^}]+)\}/g, (_, key) => item[key] || "") : null;
+                const itemName = shvl.get(item, name, item[name]) ?? "";
+                const itemLabel = shvl.get(item, label, item[label]) ?? "";
+
+                const itemUrl = target
+                  ? [...target.matchAll(/\{(.*?)\}/g)]
+                      .map((match) => match[1])
+                      .reduce((url, targetTemplate) => {
+                        const value = shvl.get(item, targetTemplate, item[targetTemplate]) ?? "";
+                        return url.replaceAll(`{${targetTemplate}}`, value);
+                      }, target)
+                  : null;
                 const className =
                   "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs";
 
@@ -259,14 +267,14 @@ export default function Component({ service }) {
                   >
                     <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">{itemLabel}</div>
+                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
                     </div>
                   </a>
                 ) : (
                   <div key={`${itemName}-${index}`} className={className}>
                     <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">{itemLabel}</div>
+                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
                     </div>
                   </div>
                 );

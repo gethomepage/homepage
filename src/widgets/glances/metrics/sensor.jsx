@@ -1,9 +1,9 @@
-import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
-import Container from "../components/container";
 import Block from "../components/block";
+import Container from "../components/container";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 

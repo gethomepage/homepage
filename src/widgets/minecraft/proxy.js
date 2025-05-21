@@ -1,7 +1,7 @@
 import mc from "minecraftstatuspinger";
 
-import createLogger from "utils/logger";
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 
 const proxyName = "minecraftProxyHandler";
 const logger = createLogger(proxyName);

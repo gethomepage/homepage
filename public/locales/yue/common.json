@@ -5,9 +5,9 @@
         "bbytes": "{{value, bytes(binary: true)}}",
         "bbits": "{{value, bytes(bits: true; binary: true)}}",
         "byterate": "{{value, rate(bits: false)}}",
-        "bibyterate": "{{value, rate(bits: false; binary: true)}}",
+        "bibyterate": "{{value, bytes(bits: true; binary: true)}}",
         "bitrate": "{{value, rate(bits: true)}}",
-        "bibitrate": "{{value, rate(bits: true; binary: true)}}",
+        "bibitrate": "{{value, bytes(bits: true; binary: true)}}",
         "percent": "{{value, percent}}",
         "number": "{{value, number}}",
         "ms": "{{value, number}}",
@@ -120,7 +120,7 @@
         "grid_power": "電網",
         "home_power": "電源使用率",
         "charge_power": "充電",
-        "kilowatt": "kW"
+        "kilowatt": "千瓦"
     },
     "flood": {
         "download": "下載速率",
@@ -140,7 +140,7 @@
         "connectionStatusPendingDisconnect": "待辦的斷開",
         "connectionStatusDisconnecting": "正在中斷連線",
         "connectionStatusDisconnected": "連接已中斷",
-        "connectionStatusConnected": "Connected",
+        "connectionStatusConnected": "已連線",
         "uptime": "運行時間",
         "maxDown": "最大下載速率",
         "maxUp": "最大上傳速率",
@@ -149,8 +149,8 @@
         "received": "已接收",
         "sent": "已送出",
         "externalIPAddress": "外部 IP",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "外部 IP",
+        "externalIPv6Prefix": "擴展 IPv-前綴"
     },
     "caddy": {
         "upstreams": "上行",
@@ -178,7 +178,7 @@
         "connectedAp": "已連接的存取點",
         "activeUser": "在線裝置",
         "alerts": "警示",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "已連繫的網關",
         "connectedSwitches": "已連接的交換器"
     },
     "nzbget": {
@@ -229,8 +229,8 @@
         "seed": "已完成下載"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "快取未命中位元組",
+        "cachemissbytes": "快取未命中位元組"
     },
     "downloadstation": {
         "download": "下載速率",
@@ -285,9 +285,9 @@
     },
     "netalertx": {
         "total": "全部",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "connected": "已連線",
+        "new_devices": "新裝置",
+        "down_alerts": "離線警告"
     },
     "pihole": {
         "queries": "查詢",
@@ -313,13 +313,13 @@
     },
     "suwayomi": {
         "download": "下載咗",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "已下載",
         "read": "已讀",
         "unread": "未讀",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "已下載且已閱讀",
+        "downloadedunread": "已下載且未閱讀",
+        "nondownloadedread": "未下載但已閱讀",
+        "nondownloadedunread": "未下載且未閱讀"
     },
     "tailscale": {
         "address": "位址",
@@ -337,15 +337,15 @@
     },
     "technitium": {
         "totalQueries": "查詢",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNoError": "成功",
+        "totalServerFailure": "失敗",
+        "totalNxDomain": "網域",
+        "totalRefused": "對方拒投誠信",
+        "totalAuthoritative": "權威的",
+        "totalRecursive": "遞迴",
+        "totalCached": "快取",
         "totalBlocked": "封鎖",
-        "totalDropped": "Dropped",
+        "totalDropped": "丟棄",
         "totalClients": "客戶端"
     },
     "tdarr": {
@@ -705,8 +705,8 @@
         "time": "時間"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "淨值",
+        "budget": "預算"
     },
     "grafana": {
         "dashboards": "控制面板",
@@ -860,16 +860,16 @@
     },
     "romm": {
         "platforms": "平台",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "totalRoms": "遊戲",
+        "saves": "已儲存",
+        "states": "州",
+        "screenshots": "螢幕截圖",
+        "totalfilesize": "大小總計"
     },
     "mailcow": {
         "domains": "域",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "信箱",
+        "mails": "郵件數",
         "storage": "儲存空間"
     },
     "netdata": {
@@ -886,7 +886,7 @@
         "notifications": "信息",
         "issues": "出版",
         "pulls": "提取請求",
-        "repositories": "Repositories"
+        "repositories": "套件來源"
     },
     "stash": {
         "scenes": "場景",
@@ -922,16 +922,16 @@
         "bans": "禁止"
     },
     "wgeasy": {
-        "connected": "Connected",
+        "connected": "已連線",
         "enabled": "啟用",
         "disabled": "停用咗",
         "total": "全部"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "已代理",
+        "auth": "已授權",
+        "outdated": "須更新",
+        "banned": "已封鎖"
     },
     "myspeed": {
         "ping": "延遲",
@@ -939,43 +939,43 @@
         "upload": "上傳速率"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "股票",
+        "loading": "載入中 ",
+        "open": "美國市場已開放",
+        "closed": "美國市場已關閉",
+        "invalidConfiguration": "無效的設定"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "  ",
         "uptime": "運行時間",
         "version": "版本"
     },
     "linkwarden": {
-        "links": "Links",
-        "collections": "Collections",
+        "links": "  ",
+        "collections": "收藏庫",
         "tags": "標籤"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "未分類",
         "information": "資訊",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "warning": "警告",
+        "average": "平均",
+        "high": "高優先權",
+        "disaster": "災難"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "車輛",
+        "vehicles": "車輛",
+        "serviceRecords": "保養記錄",
+        "reminders": "提醒",
+        "nextReminder": "下一個提醒",
+        "none": "沒有"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "正在應用的項目",
+        "tasks7d": "本週到期任務",
+        "tasksOverdue": "逾期處理",
+        "tasksInProgress": "正在執行的任務"
     },
     "headscale": {
         "name": "名稱",
@@ -987,7 +987,7 @@
     },
     "beszel": {
         "name": "名稱",
-        "systems": "Systems",
+        "systems": "系統",
         "up": "在線",
         "down": "離線",
         "paused": "擱置中",
@@ -996,27 +996,27 @@
         "updated": "已更新",
         "cpu": "CPU",
         "memory": "記憶體",
-        "disk": "Disk",
-        "network": "NET"
+        "disk": "儲存空間",
+        "network": "網路"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
+        "apps": "應用程式",
+        "synced": "已同步",
+        "outOfSync": "不同步",
         "healthy": "健康",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
+        "degraded": "已降級",
+        "progressing": "進度",
         "missing": "缺少",
-        "suspended": "Suspended"
+        "suspended": "暫停"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "載入中 "
     },
     "gitlab": {
-        "groups": "Groups",
+        "groups": "群組",
         "issues": "出版",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "merges": "合併請求",
+        "projects": "專"
     },
     "apcups": {
         "status": "狀況",
@@ -1024,23 +1024,23 @@
         "bcharge": "充電",
         "timeleft": "用時"
     },
-    "hoarder": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+    "karakeep": {
+        "bookmarks": "書籤",
+        "favorites": "我的最愛",
+        "archived": "已存檔",
+        "highlights": "標記",
+        "lists": "列表",
         "tags": "標籤"
     },
     "slskd": {
         "slskStatus": "網絡",
-        "connected": "Connected",
+        "connected": "已連線",
         "disconnected": "連接已中斷",
-        "updateStatus": "Update",
+        "updateStatus": "更新",
         "update_yes": "可用",
         "update_no": "已更新至最新",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
+        "downloads": "下載",
+        "uploads": "上傳",
         "sharedFiles": "檔案"
     }
 }

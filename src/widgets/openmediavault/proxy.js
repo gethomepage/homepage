@@ -1,8 +1,8 @@
-import { formatApiCall } from "utils/proxy/api-helpers";
-import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
-import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const PROXY_NAME = "OMVProxyHandler";

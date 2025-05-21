@@ -1,13 +1,13 @@
-import Memory from "./metrics/memory";
+import Containers from "./metrics/containers";
 import Cpu from "./metrics/cpu";
-import Sensor from "./metrics/sensor";
-import Net from "./metrics/net";
-import Process from "./metrics/process";
 import Disk from "./metrics/disk";
+import Fs from "./metrics/fs";
 import GPU from "./metrics/gpu";
 import Info from "./metrics/info";
-import Fs from "./metrics/fs";
-import Containers from "./metrics/containers";
+import Memory from "./metrics/memory";
+import Net from "./metrics/net";
+import Process from "./metrics/process";
+import Sensor from "./metrics/sensor";
 
 export default function Component({ service }) {
   const { widget } = service;

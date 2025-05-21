@@ -886,7 +886,7 @@
         "notifications": "Уведомления",
         "issues": "Вопросы",
         "pulls": "Запросы на слияние (Pull Request)",
-        "repositories": "Repositories"
+        "repositories": "Репозитории"
     },
     "stash": {
         "scenes": "Сцены",
@@ -1024,10 +1024,10 @@
         "bcharge": "Заряд батареи",
         "timeleft": "Осталось"
     },
-    "hoarder": {
+    "karakeep": {
         "bookmarks": "Закладки",
         "favorites": "Избранное",
-        "archived": "Архивированное",
+        "archived": "Архив",
         "highlights": "События",
         "lists": "Список",
         "tags": "Теги"

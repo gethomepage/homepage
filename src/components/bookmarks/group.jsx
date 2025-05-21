@@ -1,10 +1,10 @@
-import { useRef, useEffect } from "react";
-import classNames from "classnames";
 import { Disclosure, Transition } from "@headlessui/react";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import ErrorBoundary from "components/errorboundry";
+import classNames from "classnames";
 import List from "components/bookmarks/list";
+import ErrorBoundary from "components/errorboundry";
 import ResolvedIcon from "components/resolvedicon";
+import { useEffect, useRef } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 export default function BookmarksGroup({
   bookmarks,
