@@ -135,6 +135,28 @@ function pruneEmptyGroups(groups) {
   });
 }
 
+function mergeLayoutGroupsIntoConfigured(configuredGroups, layoutGroups) {
+  for (const layoutGroup of layoutGroups) {
+    const existing = findGroupByName(configuredGroups, layoutGroup.name);
+    if (existing) {
+      if (layoutGroup.groups?.length) {
+        existing.groups ??= [];
+        for (const sub of layoutGroup.groups) {
+          const existingSub = findGroupByName(existing.groups, sub.name);
+          if (!existingSub) {
+            existing.groups.push(sub);
+          } else {
+            // recursive merge if needed
+            mergeLayoutGroupsIntoConfigured([existingSub], [sub]);
+          }
+        }
+      }
+    } else {
+      configuredGroups.push(layoutGroup);
+    }
+  }
+}
+
 export async function servicesResponse() {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
@@ -191,14 +213,10 @@ export async function servicesResponse() {
   const definedLayouts = initialSettings.layout ? Object.keys(initialSettings.layout) : null;
   if (definedLayouts) {
     // this handles cases where groups are only defined in the settings.yaml layout and not in the services.yaml
-    const layoutConfiguredGroups = Object.entries(initialSettings.layout).map(([key, value]) =>
+    const layoutGroups = Object.entries(initialSettings.layout).map(([key, value]) =>
       convertLayoutGroupToGroup(key, value),
     );
-    layoutConfiguredGroups.forEach((group) => {
-      if (!configuredServices.find((serviceGroup) => serviceGroup.name === group.name)) {
-        configuredServices.push(group);
-      }
-    });
+    mergeLayoutGroupsIntoConfigured(configuredServices, layoutGroups);
   }
 
   mergedGroupsNames.forEach((groupName) => {
