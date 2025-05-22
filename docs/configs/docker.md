@@ -79,6 +79,18 @@ my-docker:
 
     Note: This does not require TLS certificates if the proxy handles encryption. Do not use `protocol: https` unless you’re sure the target host supports HTTPS.
 
+You can further customize the connection options via `pathPrefix` and `headers`:
+
+```yaml
+my-docker:
+  host: dockerproxy
+  port: 443
+  protocol: https
+  pathPrefix: /docker_api/ # If a reverse proxy serves the API on a subpath
+  headers:
+    Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ== # Send an authorization header if the API access is secured via basic auth
+```
+
 ## Using Socket Directly
 
 If you'd rather use the socket directly, first make sure that you're passing the local socket into the Docker container.
