@@ -25,8 +25,8 @@ export default function Component({ service }) {
   if (!servicesData || !hostsData) {
     return (
       <Container service={service}>
-      <Block label="checkmk.serviceErrors" />
-      <Block label="checkmk.hostErrors" />
+        <Block label="checkmk.serviceErrors" />
+        <Block label="checkmk.hostErrors" />
       </Container>
     );
   }
