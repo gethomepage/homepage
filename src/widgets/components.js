@@ -50,6 +50,7 @@ const components = {
   hoarder: dynamic(() => import("./karakeep/component")),
   karakeep: dynamic(() => import("./karakeep/component")),
   peanut: dynamic(() => import("./peanut/component")),
+  pelican: dynamic(() => import("./pelican/component")),
   homeassistant: dynamic(() => import("./homeassistant/component")),
   homebox: dynamic(() => import("./homebox/component")),
   homebridge: dynamic(() => import("./homebridge/component")),
