@@ -18,11 +18,8 @@ export default function Component({ service }) {
     query: '{"op": "!=", "left": "state", "right": "0"}',
   });
 
-  if (servicesError) {
-    return <Container service={service} error={servicesError} />;
-  }
-  if (hostsError) {
-    return <Container service={service} error={hostsError} />;
+  if (servicesError || hostsError) {
+    return <Container service={service} error={servicesError ?? hostsError} />;
   }
 
   if (!servicesData || !hostsData) {
