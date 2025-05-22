@@ -13,6 +13,7 @@ import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
+import checkmk from "./checkmk/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import crowdsec from "./crowdsec/widget";
@@ -151,6 +152,7 @@ const widgets = {
   calibreweb,
   changedetectionio,
   channelsdvrserver,
+  checkmk,
   cloudflared,
   coinmarketcap,
   crowdsec,
