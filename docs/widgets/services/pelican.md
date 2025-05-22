@@ -16,4 +16,4 @@ widget:
   key: pelicanapikey
 ```
 
-If you encounter ``HTTP 500 Server Error Invalid IP address format`` then you have configured IP whitelisting in Pelican which is blacklisting your Homepage instance.
+If you encounter `HTTP 500 Server Error Invalid IP address format` then you have configured IP whitelisting in Pelican which is blacklisting your Homepage instance.

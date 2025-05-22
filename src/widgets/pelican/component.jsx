@@ -26,8 +26,6 @@ export default function Component({ service }) {
     );
   }
 
-
-
   return (
     <Container service={service}>
       <Block label="nodes" value={nodesData.data.length} />
