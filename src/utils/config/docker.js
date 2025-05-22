@@ -47,10 +47,6 @@ export default function getDockerArguments(server) {
         res.conn.protocol = servers[server].protocol;
       }
 
-      if (servers[server].pathPrefix) {
-        res.conn.pathPrefix = servers[server].pathPrefix;
-      }
-
       if (servers[server].headers) {
         res.conn.headers = servers[server].headers;
       }
