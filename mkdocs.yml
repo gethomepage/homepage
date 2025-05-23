@@ -114,6 +114,7 @@ nav:
           - widgets/services/opendtu.md
           - widgets/services/openmediavault.md
           - widgets/services/opnsense.md
+          - widgets/services/openwebui.md
           - widgets/services/openwrt.md
           - widgets/services/overseerr.md
           - widgets/services/paperlessngx.md

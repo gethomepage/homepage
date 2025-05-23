@@ -90,6 +90,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Ombi](ombi.md)
 - [OpenDTU](opendtu.md)
 - [OpenMediaVault](openmediavault.md)
+- [Open WebUI](openwebui.md)
 - [OpenWRT](openwrt.md)
 - [OPNsense](opnsense.md)
 - [Overseerr](overseerr.md)
