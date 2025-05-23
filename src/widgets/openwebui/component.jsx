@@ -25,7 +25,7 @@ export default function Component({ service }) {
     );
   }
 
-  const activeModelsCount = modelsData.filter((model => model.is_active === true)).length;
+  const activeModelsCount = modelsData.filter((model) => model.is_active === true).length;
 
   return (
     <Container service={service}>
