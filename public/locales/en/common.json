@@ -1053,6 +1053,6 @@
     },
     "checkmk": {
         "serviceErrors": "Service issues",
-        "hostErrors": "Host issues",
+        "hostErrors": "Host issues"
     }
 }
