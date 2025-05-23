@@ -1053,6 +1053,10 @@
     },
     "checkmk": {
         "serviceErrors": "Service issues",
-        "hostErrors": "Host issues",
+        "hostErrors": "Host issues"
+    },
+    "openwebui": {
+        "users": "Users",
+        "models": "Models"
     }
 }

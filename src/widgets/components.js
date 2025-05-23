@@ -89,6 +89,7 @@ const components = {
   omada: dynamic(() => import("./omada/component")),
   ombi: dynamic(() => import("./ombi/component")),
   opendtu: dynamic(() => import("./opendtu/component")),
+  openwebui: dynamic(() => import("./openwebui/component")),
   opnsense: dynamic(() => import("./opnsense/component")),
   overseerr: dynamic(() => import("./overseerr/component")),
   openmediavault: dynamic(() => import("./openmediavault/component")),

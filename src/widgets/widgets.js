@@ -80,6 +80,7 @@ import octoprint from "./octoprint/widget";
 import omada from "./omada/widget";
 import ombi from "./ombi/widget";
 import opendtu from "./opendtu/widget";
+import openwebui from "./openwebui/widget";
 import openmediavault from "./openmediavault/widget";
 import openwrt from "./openwrt/widget";
 import opnsense from "./opnsense/widget";
@@ -222,6 +223,7 @@ const widgets = {
   omada,
   ombi,
   opendtu,
+  openwebui,
   opnsense,
   overseerr,
   openmediavault,
