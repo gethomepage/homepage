@@ -4,7 +4,7 @@ body:
       value: |
         ### ⚠️ Before opening a discussion:
 
-        - [Check the troubleshooting guide](https://gethomepage.dev/troubleshooting/).
+        - [Check the troubleshooting guide](https://gethomepage.dev/troubleshooting/) and include the output of all steps below.
         - [Search existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) [and discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions) (including closed ones!).
   - type: textarea
     id: description
@@ -59,6 +59,6 @@ body:
       value: |
         ## ⚠️ STOP ⚠️
 
-        Before you submit this support request, please ensure you have entered your configuration files and actually followed the steps from the troubleshooting guide linked above, if relevant. The troubleshooting steps often help to solve the problem.
+        Before you submit this support request, please ensure you have entered your configuration files and actually followed the steps from the troubleshooting guide linked above *and posted the output*, if relevant. The troubleshooting steps often help to solve the problem or at least can help figure it out.
 
         *Please remember that this project is maintained by regular people **just like you**, so if you don't take the time to fill out the requested information, don't expect a reply back.*
