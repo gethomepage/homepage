@@ -672,14 +672,14 @@
         "m": "m"
     },
     "atsumeru": {
-        "series": "Séries TV",
+        "series": "Séries",
         "archives": "Archives",
         "chapters": "Chapitres",
         "categories": "Catégories"
     },
     "komga": {
         "libraries": "Bibliothèques",
-        "series": "Séries TV",
+        "series": "Séries",
         "books": "Livres"
     },
     "diskstation": {
@@ -688,7 +688,7 @@
         "volumeAvailable": "Disponible"
     },
     "mylar": {
-        "series": "Séries TV",
+        "series": "Séries",
         "issues": "Anomalies",
         "wanted": "Demandé"
     },
@@ -772,7 +772,7 @@
         "books": "Livres",
         "authors": "Auteurs",
         "categories": "Catégories",
-        "series": "Séries TV"
+        "series": "Séries"
     },
     "jdownloader": {
         "downloadCount": "En attente",
@@ -781,7 +781,7 @@
         "downloadSpeed": "Débit"
     },
     "kavita": {
-        "seriesCount": "Séries TV",
+        "seriesCount": "Séries",
         "totalFiles": "Fichiers"
     },
     "azuredevops": {
