@@ -20,7 +20,7 @@ Since Docker supports connecting with TLS and client certificate authentication,
 ```yaml
 my-remote-docker:
   host: 192.168.0.101
-  port: 275
+  port: 2375
   tls:
     keyFile: tls/key.pem
     caFile: tls/ca.pem
