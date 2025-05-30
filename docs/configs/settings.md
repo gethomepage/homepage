@@ -101,7 +101,7 @@ theme: dark # or light
 
 ## Color Palette
 
-You can configured a fixed color palette (and disable the palette switcher) by passing the `color` option, like so:
+You can configure a fixed color palette (and disable the palette switcher) by passing the `color` option, like so:
 
 ```yaml
 color: slate

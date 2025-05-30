@@ -47,6 +47,10 @@ export default function getDockerArguments(server) {
         res.conn.protocol = servers[server].protocol;
       }
 
+      if (servers[server].headers) {
+        res.conn.headers = servers[server].headers;
+      }
+
       return res;
     }
 

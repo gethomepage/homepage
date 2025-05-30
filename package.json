@@ -62,5 +62,10 @@
   },
   "optionalDependencies": {
     "osx-temperature-sensor": "^1.0.8"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
   }
 }
