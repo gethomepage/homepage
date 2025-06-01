@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Offentlig IP",
         "region": "Område",
-        "country": "Land"
+        "country": "Land",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Kanaler",
@@ -856,7 +857,8 @@
         "physicalRelease": "Fysisk udgivelse",
         "digitalRelease": "Digitale udgivelser",
         "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "No events found",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platforme",
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Filer"
+    },
+    "jellystat": {
+        "songs": "Sange",
+        "movies": "Film",
+        "episodes": "Episoder",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

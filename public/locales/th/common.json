@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
+        "missing_type": "ประเภทวิดเจ็ตหาย: {{type}}",
         "api_error": "API มีข้อผิดพลาด",
         "information": "ข้อมูล",
         "status": "สถานะ",
@@ -110,7 +110,7 @@
     "esphome": {
         "offline": "ออฟไลน์",
         "offline_alt": "ออฟไลน์",
-        "online": "Online",
+        "online": "ออนไลน์",
         "total": "ทั้งหมด",
         "unknown": "ไม่ทราบ"
     },
@@ -130,12 +130,12 @@
     },
     "freshrss": {
         "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "unread": "ยังไม่ได้อ่าน"
     },
     "fritzbox": {
         "connectionStatus": "สถานะ",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
+        "connectionStatusUnconfigured": "ยังไม่ได้กำหนดค่า",
+        "connectionStatusConnecting": "กำลังเชื่อมต่อ",
         "connectionStatusAuthenticating": "Authenticating",
         "connectionStatusPendingDisconnect": "Pending Disconnect",
         "connectionStatusDisconnecting": "Disconnecting",
@@ -247,7 +247,7 @@
     },
     "radarr": {
         "wanted": "Wanted",
-        "missing": "Missing",
+        "missing": "หายไป",
         "queued": "Queued",
         "movies": "Movies",
         "queue": "Queue",
@@ -315,7 +315,7 @@
         "download": "Downloaded",
         "nondownload": "Non-Downloaded",
         "read": "Read",
-        "unread": "Unread",
+        "unread": "ยังไม่ได้อ่าน",
         "downloadedread": "Downloaded & Read",
         "downloadedunread": "Downloaded & Unread",
         "nondownloadedread": "Non-Downloaded & Read",
@@ -364,8 +364,8 @@
         "please_wait": "Please Wait"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "เปิด",
+        "disabled": "ปิด",
         "total": "ทั้งหมด"
     },
     "coinmarketcap": {
@@ -409,14 +409,14 @@
     },
     "minecraft": {
         "players": "Players",
-        "version": "Version",
+        "version": "เวอร์ชั่น",
         "status": "สถานะ",
-        "up": "Online",
+        "up": "ออนไลน์",
         "down": "ออฟไลน์"
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Unread"
+        "unread": "ยังไม่ได้อ่าน"
     },
     "authentik": {
         "users": "ผู้ใช้",
@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Public IP",
         "region": "Region",
-        "country": "Country"
+        "country": "Country",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Channels",
@@ -595,7 +596,7 @@
         "battery_charge": "Battery Charge",
         "ups_load": "UPS Load",
         "ups_status": "UPS Status",
-        "online": "Online",
+        "online": "ออนไลน์",
         "on_battery": "On Battery",
         "low_battery": "Low Battery"
     },
@@ -799,7 +800,7 @@
     },
     "gamedig": {
         "status": "สถานะ",
-        "online": "Online",
+        "online": "ออนไลน์",
         "offline": "ออฟไลน์",
         "name": "Name",
         "map": "Map",
@@ -856,7 +857,8 @@
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "noEventsFound": "No events found",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platforms",
@@ -923,8 +925,8 @@
     },
     "wgeasy": {
         "connected": "Connected",
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "enabled": "เปิด",
+        "disabled": "ปิด",
         "total": "ทั้งหมด"
     },
     "swagdashboard": {
@@ -948,7 +950,7 @@
     "frigate": {
         "cameras": "Cameras",
         "uptime": "Uptime",
-        "version": "Version"
+        "version": "เวอร์ชั่น"
     },
     "linkwarden": {
         "links": "Links",
@@ -982,7 +984,7 @@
         "address": "Address",
         "last_seen": "Last Seen",
         "status": "สถานะ",
-        "online": "Online",
+        "online": "ออนไลน์",
         "offline": "ออฟไลน์"
     },
     "beszel": {
@@ -1006,7 +1008,7 @@
         "healthy": "Healthy",
         "degraded": "Degraded",
         "progressing": "Progressing",
-        "missing": "Missing",
+        "missing": "หายไป",
         "suspended": "Suspended"
     },
     "spoolman": {
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Files"
+    },
+    "jellystat": {
+        "songs": "Songs",
+        "movies": "Movies",
+        "episodes": "Episodes",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

@@ -49,7 +49,7 @@ export const searchProviders = {
 
 function getAvailableProviderIds(options) {
   if (options.provider && Array.isArray(options.provider)) {
-    return Object.keys(searchProviders).filter((value) => options.provider.includes(value));
+    return options.provider.filter((value) => searchProviders.hasOwnProperty(value));
   }
   if (options.provider && searchProviders[options.provider]) {
     return [options.provider];

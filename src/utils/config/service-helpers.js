@@ -304,6 +304,9 @@ export function cleanServiceGroups(groups) {
           // frigate
           enableRecentEvents,
 
+          // gamedig
+          gameToken,
+
           // beszel, glances, immich, komga, mealie, pihole, pfsense, speedtest
           version,
 
@@ -330,6 +333,9 @@ export function cleanServiceGroups(groups) {
           loadingStrategy,
           referrerPolicy,
           src,
+
+          // jellystat
+          days,
 
           // kopia
           snapshotHost,
@@ -484,6 +490,9 @@ export function cleanServiceGroups(groups) {
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) widget.volume = volume;
         }
+        if (type === "gamedig") {
+          if (gameToken) widget.gameToken = gameToken;
+        }
         if (type === "kopia") {
           if (snapshotHost) widget.snapshotHost = snapshotHost;
           if (snapshotPath) widget.snapshotPath = snapshotPath;
@@ -562,6 +571,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "spoolman") {
           if (spoolIds !== undefined) widget.spoolIds = spoolIds;
+        }
+        if (type === "jellystat") {
+          if (days !== undefined) widget.days = parseInt(days, 10);
         }
         return widget;
       });
