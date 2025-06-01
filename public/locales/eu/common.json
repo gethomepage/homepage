@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Public IP",
         "region": "Region",
-        "country": "Country"
+        "country": "Country",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Channels",
@@ -856,7 +857,8 @@
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
         "noEventsToday": "No events for today!",
-        "noEventsFound": "Ez da gertaerarik aurkitu."
+        "noEventsFound": "Ez da gertaerarik aurkitu.",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platforms",
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Files"
+    },
+    "jellystat": {
+        "songs": "Abestiak",
+        "movies": "Filmak",
+        "episodes": "Episodes",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

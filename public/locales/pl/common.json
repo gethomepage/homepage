@@ -178,7 +178,7 @@
         "connectedAp": "Połączone punkty dostępowe",
         "activeUser": "Aktywne urządzenia",
         "alerts": "Alarmy",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Połączone bramy",
         "connectedSwitches": "Połączone przełączniki"
     },
     "nzbget": {
@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Adres publiczny",
         "region": "Region",
-        "country": "Państwo"
+        "country": "Państwo",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Kanały",
@@ -856,7 +857,8 @@
         "physicalRelease": "Wydanie fizyczne",
         "digitalRelease": "Wydanie cyfrowe",
         "noEventsToday": "Brak wydarzeń na dziś!",
-        "noEventsFound": "Nie znaleziono wydarzeń"
+        "noEventsFound": "Nie znaleziono wydarzeń",
+        "errorWhenLoadingData": "Wystąpił błąd podczas ładowania danych kalendarza"
     },
     "romm": {
         "platforms": "Platformy",
@@ -1036,11 +1038,21 @@
         "slskStatus": "Sieć",
         "connected": "Połączono",
         "disconnected": "Rozłączono",
-        "updateStatus": "Update",
+        "updateStatus": "Aktualizacja",
         "update_yes": "Dostępne",
         "update_no": "Aktualny",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
+        "downloads": "Pobieranie",
+        "uploads": "Przesyłanie",
         "sharedFiles": "Pliki"
+    },
+    "jellystat": {
+        "songs": "Piosenki",
+        "movies": "Filmy",
+        "episodes": "Odcinki",
+        "other": "Inne"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Publieke IP",
         "region": "Streek",
-        "country": "Land"
+        "country": "Land",
+        "port_forwarded": "Poort Aangestuur"
     },
     "hdhomerun": {
         "channels": "Kanale",
@@ -856,7 +857,8 @@
         "physicalRelease": "Fisiese Vrylating",
         "digitalRelease": "Digitale Vrylating",
         "noEventsToday": "Geen gebeure vir vandag nie!",
-        "noEventsFound": "Geen gebeure gevind nie"
+        "noEventsFound": "Geen gebeure gevind nie",
+        "errorWhenLoadingData": "Fout tydens laai van kalenderdata"
     },
     "romm": {
         "platforms": "Platform",
@@ -1042,5 +1044,15 @@
         "downloads": "Aflaaie",
         "uploads": "Oplaaie",
         "sharedFiles": "Lêers"
+    },
+    "jellystat": {
+        "songs": "Liedjies",
+        "movies": "Flieks",
+        "episodes": "Episodes",
+        "other": "Ander"
+    },
+    "checkmk": {
+        "serviceErrors": "Diensprobleme",
+        "hostErrors": "Gasheerprobleme"
     }
 }

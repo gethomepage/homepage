@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Публічний IP",
         "region": "Регіон",
-        "country": "Країна"
+        "country": "Країна",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Канали",
@@ -856,7 +857,8 @@
         "physicalRelease": "Фізичний реліз",
         "digitalRelease": "Цифровий реліз",
         "noEventsToday": "Події на сьогодні відсутні!",
-        "noEventsFound": "Події не знайдено"
+        "noEventsFound": "Події не знайдено",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Платформи",
@@ -1042,5 +1044,15 @@
         "downloads": "Завантаження",
         "uploads": "Вивантаження",
         "sharedFiles": "Файли"
+    },
+    "jellystat": {
+        "songs": "Пісні",
+        "movies": "Фільми",
+        "episodes": "Епізоди",
+        "other": "Інше"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

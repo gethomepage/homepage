@@ -149,7 +149,7 @@
         "received": "已接收",
         "sent": "已发送",
         "externalIPAddress": "外部IP",
-        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Address": "",
         "externalIPv6Prefix": "Ext. IPv6-Prefix"
     },
     "caddy": {
@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "公网 IP",
         "region": "区域",
-        "country": "国家"
+        "country": "国家",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "频道",
@@ -719,7 +720,7 @@
         "memoryusage": "内存",
         "freespace": "剩余空间",
         "activeusers": "活跃用户",
-        "numfiles": "Files",
+        "numfiles": "文件",
         "numshares": "共享项目"
     },
     "kopia": {
@@ -760,7 +761,7 @@
         "booksDuration": "持续时间"
     },
     "homeassistant": {
-        "people_home": "房间",
+        "people_home": "在家人数",
         "lights_on": "照明开",
         "switches_on": "开关开"
     },
@@ -782,7 +783,7 @@
     },
     "kavita": {
         "seriesCount": "系列",
-        "totalFiles": "Files"
+        "totalFiles": "文件"
     },
     "azuredevops": {
         "result": "Result",
@@ -856,7 +857,8 @@
         "physicalRelease": "Physical release",
         "digitalRelease": "Digital release",
         "noEventsToday": "今天没有活动！",
-        "noEventsFound": "未找到事件"
+        "noEventsFound": "未找到事件",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "平台",
@@ -886,7 +888,7 @@
         "notifications": "通知",
         "issues": "问题",
         "pulls": "PR",
-        "repositories": "Repositories"
+        "repositories": "代码仓库"
     },
     "stash": {
         "scenes": "场景",
@@ -1041,6 +1043,16 @@
         "update_no": "Up to Date",
         "downloads": "Downloads",
         "uploads": "Uploads",
-        "sharedFiles": "Files"
+        "sharedFiles": "文件"
+    },
+    "jellystat": {
+        "songs": "歌曲",
+        "movies": "电影",
+        "episodes": "剧集",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }
