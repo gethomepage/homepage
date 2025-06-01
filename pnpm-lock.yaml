@@ -42,8 +42,8 @@ importers:
         specifier: ^1.7.0
         version: 1.7.0
       luxon:
-        specifier: ^3.5.0
-        version: 3.5.0
+        specifier: ^3.6.1
+        version: 3.6.1
       memory-cache:
         specifier: ^0.2.0
         version: 0.2.0
@@ -1989,8 +1989,8 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  luxon@3.5.0:
-    resolution: {integrity: sha512-rh+Zjr6DNfUYR3bPwJEnuwDdqMbxZW7LOQfUN4B54+Cl+0o5zaU9RJ6bcidfDtC1cWCZXQ+nvX8bf6bAji37QQ==}
+  luxon@3.6.1:
+    resolution: {integrity: sha512-tJLxrKJhO2ukZ5z0gyjY1zPh3Rh88Ej9P7jNrZiHMUXHae1yvI2imgOZtL1TO8TW6biMMKfTtAOoEJANgtWBMQ==}
     engines: {node: '>=12'}
 
   math-intrinsics@1.1.0:
@@ -4842,7 +4842,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  luxon@3.5.0: {}
+  luxon@3.6.1: {}
 
   math-intrinsics@1.1.0: {}
 
