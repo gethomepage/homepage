@@ -35,7 +35,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.8.1
+          version: 10
           run_install: false
 
       - name: Setup Node.js
