@@ -14,1033 +14,1045 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
-        "seconds": "s"
+        "months": "мес",
+        "days": "д",
+        "hours": "ч",
+        "minutes": "м",
+        "seconds": "с"
     },
     "widget": {
-        "missing_type": "Missing Widget Type: {{type}}",
-        "api_error": "API Error",
-        "information": "Information",
-        "status": "Status",
-        "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "missing_type": "Недостаје тип виџета: {{type}}",
+        "api_error": "API Грешка",
+        "information": "Информација",
+        "status": "Стање",
+        "url": "УРЛ адреса",
+        "raw_error": "Оригинална грешка",
+        "response_data": "Подаци о одговору"
     },
     "weather": {
-        "current": "Current Location",
-        "allow": "Click to allow",
-        "updating": "Updating",
-        "wait": "Please wait"
+        "current": "Тренутна локација",
+        "allow": "Кликни да дозволиш",
+        "updating": "Ажурирање",
+        "wait": "Молим сачекајте"
     },
     "search": {
-        "placeholder": "Search…"
+        "placeholder": "Претражи…"
     },
     "resources": {
-        "cpu": "CPU",
-        "mem": "MEM",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "load": "Load",
-        "temp": "TEMP",
-        "max": "Max",
-        "uptime": "UP"
+        "cpu": "Процесор",
+        "mem": "Меморија",
+        "total": "Укупно",
+        "free": "Слободно",
+        "used": "У употреби",
+        "load": "Учитавање",
+        "temp": "Температура",
+        "max": "Макс",
+        "uptime": "Активно"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "Uptime",
-        "days": "Days",
+        "users": "Корисника",
+        "uptime": "Време рада",
+        "days": "Дана",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
-        "up": "UP",
-        "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown"
+        "devices": "Уређаји",
+        "lan_devices": "LAN уређаји",
+        "wlan_devices": "WLAN уређаји",
+        "lan_users": "LAN корисници",
+        "wlan_users": "WLAN корисници",
+        "up": "Активно",
+        "down": "Прекид",
+        "wait": "Молим сачекајте",
+        "empty_data": "Статус подсистема непознат"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
-        "cpu": "CPU",
-        "running": "Running",
-        "offline": "Offline",
-        "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
-        "exited": "Exited",
-        "partial": "Partial"
+        "mem": "Меморија",
+        "cpu": "Процесор",
+        "running": "Покренуто",
+        "offline": "Није на мрежи",
+        "error": "Грешка",
+        "unknown": "Непознато",
+        "healthy": "Здравих",
+        "starting": "Покретање",
+        "unhealthy": "Нездравих",
+        "not_found": "Није пронађено",
+        "exited": "Напуштених",
+        "partial": "Делимично"
     },
     "ping": {
-        "error": "Error",
-        "ping": "Ping",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "error": "Грешка",
+        "ping": "Пинг",
+        "down": "Доле",
+        "up": "Горе",
+        "not_available": "Није доступно"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
-        "error": "Error",
-        "response": "Response",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "http_status": "HTTP Статус",
+        "error": "Грешка",
+        "response": "Одговор",
+        "down": "Доле",
+        "up": "Горе",
+        "not_available": "Није доступно"
     },
     "emby": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Репродукција",
+        "transcoding": "Транскодирање",
+        "bitrate": "Проток",
+        "no_active": "Нема активних стримова",
+        "movies": "Филмови",
+        "series": "Серије",
+        "episodes": "Епизоде",
+        "songs": "Песме"
     },
     "esphome": {
-        "offline": "Offline",
-        "offline_alt": "Offline",
-        "online": "Online",
-        "total": "Total",
-        "unknown": "Unknown"
+        "offline": "Није на мрежи",
+        "offline_alt": "Није на мрежи",
+        "online": "На мрежи",
+        "total": "Укупно",
+        "unknown": "Непознато"
     },
     "evcc": {
-        "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
-        "home_power": "Consumption",
-        "charge_power": "Charger",
+        "pv_power": "Продукција",
+        "battery_soc": "Батерија",
+        "grid_power": "Mreža",
+        "home_power": "Потрошња",
+        "charge_power": "Пуњач",
         "kilowatt": "kW"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Преузимање",
+        "upload": "Слање",
         "leech": "Leech",
         "seed": "Seed"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Претплате",
+        "unread": "Непрочитано"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Connected",
-        "uptime": "Uptime",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "connectionStatus": "Стање",
+        "connectionStatusUnconfigured": "Неподешено",
+        "connectionStatusConnecting": "Повезивање",
+        "connectionStatusAuthenticating": "Аутентификација",
+        "connectionStatusPendingDisconnect": "Чекање на прекид везе",
+        "connectionStatusDisconnecting": "Прекидање",
+        "connectionStatusDisconnected": "Прекинуто",
+        "connectionStatusConnected": "Повезано",
+        "uptime": "Време рада",
+        "maxDown": "Макс. Преузимање",
+        "maxUp": "Макс. Слање",
+        "down": "Доле",
+        "up": "Горе",
+        "received": "Примљено",
+        "sent": "Послато",
+        "externalIPAddress": "Екст. IP",
+        "externalIPv6Address": "Екст. IPv6",
+        "externalIPv6Prefix": "Екст. IPv6-Префикс"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Узводно",
+        "requests": "Тренутни захтеви",
+        "requests_failed": "Неуспешни захтеви"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Укупно посматрано",
+        "diffsDetected": "Откривене разлике"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "Емисије",
+        "recordings": "Сачувано",
+        "scheduled": "Заказано",
+        "passes": "Пређено"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "plex_connection_error": "Check Plex Connection"
+        "playing": "Репродукција",
+        "transcoding": "Транскодирање",
+        "bitrate": "Проток",
+        "no_active": "Нема активних стримова",
+        "plex_connection_error": "Провери везу са Plex-ом"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateways": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "Повезани АПи",
+        "activeUser": "Активни уређаји",
+        "alerts": "Упозорења",
+        "connectedGateways": "Повезани мрежни пролази",
+        "connectedSwitches": "Повезани мрежни прекидачи"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
-        "downloaded": "Downloaded"
+        "rate": "Стопа",
+        "remaining": "Преостало",
+        "downloaded": "Преузето"
     },
     "plex": {
-        "streams": "Active Streams",
-        "albums": "Albums",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Активно",
+        "albums": "Албуми",
+        "movies": "Филмови",
+        "tv": "ТВ емисије"
     },
     "sabnzbd": {
-        "rate": "Rate",
-        "queue": "Queue",
-        "timeleft": "Time Left"
+        "rate": "Стопа",
+        "queue": "Ред",
+        "timeleft": "Преостало време"
     },
     "rutorrent": {
-        "active": "Active",
-        "upload": "Upload",
-        "download": "Download"
+        "active": "Активно",
+        "upload": "Слање",
+        "download": "Преузимање"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Преузимање",
+        "upload": "Слање",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Преузимање",
+        "upload": "Слање",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "Искоришћеност процесора",
+        "memUsage": "Заузеће меморије",
+        "systemTempC": "Температура система",
+        "poolUsage": "Заузеће Пула",
+        "volumeUsage": "Употребљена запремина",
+        "invalid": "Неважеће"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Преузимање",
+        "upload": "Слање",
         "leech": "Leech",
         "seed": "Seed"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "Бајтови погодака кеша",
+        "cachemissbytes": "Бајтови промашаја кеша"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "Преузимање",
+        "upload": "Слање",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "wanted": "Тражено",
+        "queued": "На чекању",
+        "series": "Серије",
+        "queue": "Ред",
+        "unknown": "Непознато"
     },
     "radarr": {
-        "wanted": "Wanted",
-        "missing": "Missing",
-        "queued": "Queued",
-        "movies": "Movies",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "wanted": "Тражено",
+        "missing": "Недостаје",
+        "queued": "На чекању",
+        "movies": "Филмови",
+        "queue": "Ред",
+        "unknown": "Непознато"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "artists": "Artists"
+        "wanted": "Тражено",
+        "queued": "На чекању",
+        "artists": "Извођачи"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "books": "Books"
+        "wanted": "Тражено",
+        "queued": "На чекању",
+        "books": "Књиге"
     },
     "bazarr": {
-        "missingEpisodes": "Missing Episodes",
-        "missingMovies": "Missing Movies"
+        "missingEpisodes": "Недостајеће епизоде",
+        "missingMovies": "Недостајећи филмови"
     },
     "ombi": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "На чекању",
+        "approved": "Одобрено",
+        "available": "Доступно"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "На чекању",
+        "approved": "Одобрено",
+        "available": "Доступно"
     },
     "overseerr": {
-        "pending": "Pending",
-        "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "На чекању",
+        "processing": "Обрада",
+        "approved": "Одобрено",
+        "available": "Доступно"
     },
     "netalertx": {
-        "total": "Total",
-        "connected": "Connected",
-        "new_devices": "New Devices",
-        "down_alerts": "Down Alerts"
+        "total": "Укупно",
+        "connected": "Повезано",
+        "new_devices": "Нови уређаји",
+        "down_alerts": "Упозорења о паду"
     },
     "pihole": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "blocked_percent": "Blocked %",
+        "queries": "Упити",
+        "blocked": "Блокирано",
+        "blocked_percent": "Блокирано %",
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
-        "filtered": "Filtered",
-        "latency": "Latency"
+        "queries": "Упити",
+        "blocked": "Блокирано",
+        "filtered": "Филтрирано",
+        "latency": "Кашњење"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "Слање",
+        "download": "Преузимање",
+        "ping": "Пинг"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Покренуто",
+        "stopped": "Заустављено",
+        "total": "Укупно"
     },
     "suwayomi": {
-        "download": "Downloaded",
-        "nondownload": "Non-Downloaded",
-        "read": "Read",
-        "unread": "Unread",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "download": "Преузето",
+        "nondownload": "Непреузето",
+        "read": "Прочитано",
+        "unread": "Непрочитано",
+        "downloadedread": "Преузето и прочитано",
+        "downloadedunread": "Преузето и непрочитано",
+        "nondownloadedread": "Непреузето и прочитано",
+        "nondownloadedunread": "Непреузето и непрочитано"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "address": "Адреса",
+        "expires": "Истиче",
+        "never": "Никада",
+        "last_seen": "Последње виђен",
+        "now": "Сада",
+        "years": "{{number}}г",
+        "weeks": "{{number}}н",
+        "days": "{{number}}д",
+        "hours": "{{number}}ч",
+        "minutes": "{{number}}м",
+        "seconds": "{{number}}с",
+        "ago": "Пре {{value}}"
     },
     "technitium": {
-        "totalQueries": "Queries",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
-        "totalBlocked": "Blocked",
-        "totalDropped": "Dropped",
-        "totalClients": "Clients"
+        "totalQueries": "Упити",
+        "totalNoError": "Успешно",
+        "totalServerFailure": "Неуспешно",
+        "totalNxDomain": "NX домени",
+        "totalRefused": "Одбијено",
+        "totalAuthoritative": "Ауторитативно",
+        "totalRecursive": "Рекурзивно",
+        "totalCached": "Кеширано",
+        "totalBlocked": "Блокирано",
+        "totalDropped": "Испуштено",
+        "totalClients": "Клијенти"
     },
     "tdarr": {
-        "queue": "Queue",
-        "processed": "Processed",
-        "errored": "Errored",
-        "saved": "Saved"
+        "queue": "Ред",
+        "processed": "Обрада",
+        "errored": "Грешке",
+        "saved": "Сачувано"
     },
     "traefik": {
-        "routers": "Routers",
-        "services": "Services",
-        "middleware": "Middleware"
+        "routers": "Рутери",
+        "services": "Сервиси",
+        "middleware": "Мидлвер"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Нема активних стримова",
+        "please_wait": "Молим сачекајте"
     },
     "npm": {
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "enabled": "Омогућено",
+        "disabled": "Онемогућено",
+        "total": "Укупно"
     },
     "coinmarketcap": {
-        "configure": "Configure one or more crypto currencies to track",
-        "1hour": "1 Hour",
-        "1day": "1 Day",
-        "7days": "7 Days",
-        "30days": "30 Days"
+        "configure": "Конфигуришите једну или више криптовалута за праћење",
+        "1hour": "1 сат",
+        "1day": "1 дан",
+        "7days": "7 дана",
+        "30days": "30 дана"
     },
     "gotify": {
-        "apps": "Applications",
-        "clients": "Clients",
-        "messages": "Messages"
+        "apps": "Апликација",
+        "clients": "Клијенти",
+        "messages": "Поруке"
     },
     "prowlarr": {
-        "enableIndexers": "Indexers",
-        "numberOfGrabs": "Grabs",
-        "numberOfQueries": "Queries",
-        "numberOfFailGrabs": "Fail Grabs",
-        "numberOfFailQueries": "Fail Queries"
+        "enableIndexers": "Индексери",
+        "numberOfGrabs": "Број грабова",
+        "numberOfQueries": "Упити",
+        "numberOfFailGrabs": "Неуспешни грабови",
+        "numberOfFailQueries": "Неуспешни упити"
     },
     "jackett": {
-        "configured": "Configured",
-        "errored": "Errored"
+        "configured": "Подешено",
+        "errored": "Грешке"
     },
     "strelaysrv": {
-        "numActiveSessions": "Sessions",
-        "numConnections": "Connections",
-        "dataRelayed": "Relayed",
-        "transferRate": "Rate"
+        "numActiveSessions": "Сесије",
+        "numConnections": "Повезивање",
+        "dataRelayed": "Пренето",
+        "transferRate": "Стопа"
     },
     "mastodon": {
-        "user_count": "Users",
-        "status_count": "Posts",
-        "domain_count": "Domains"
+        "user_count": "Корисника",
+        "status_count": "Објаве",
+        "domain_count": "Домени"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Тражено",
+        "queued": "На чекању",
+        "series": "Серије"
     },
     "minecraft": {
-        "players": "Players",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "players": "Играчи",
+        "version": "Верзија",
+        "status": "Стање",
+        "up": "На мрежи",
+        "down": "Није на мрежи"
     },
     "miniflux": {
-        "read": "Read",
-        "unread": "Unread"
+        "read": "Прочитано",
+        "unread": "Непрочитано"
     },
     "authentik": {
-        "users": "Users",
-        "loginsLast24H": "Logins (24h)",
-        "failedLoginsLast24H": "Failed Logins (24h)"
+        "users": "Корисника",
+        "loginsLast24H": "Пријаве (24ч)",
+        "failedLoginsLast24H": "Неуспешне пријаве (24ч)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "Меморија",
+        "cpu": "Процесор",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "CPU",
-        "load": "Load",
-        "wait": "Please wait",
-        "temp": "TEMP",
-        "_temp": "Temp",
-        "warn": "Warn",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "days": "d",
-        "hours": "h",
-        "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
-        "gpu": "GPU",
-        "mem": "Mem",
+        "cpu": "Процесор",
+        "load": "Учитавање",
+        "wait": "Молим сачекајте",
+        "temp": "Температура",
+        "_temp": "Темп.",
+        "warn": "Упоз.",
+        "uptime": "Активно",
+        "total": "Укупно",
+        "free": "Слободно",
+        "used": "У употреби",
+        "days": "д",
+        "hours": "ч",
+        "crit": "Крит.",
+        "read": "Прочитано",
+        "write": "Уписа",
+        "gpu": "Граф.",
+        "mem": "Мем.",
         "swap": "Swap"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
-        "url": "URL",
-        "searchsuggestion": "Suggestion"
+        "bookmark": "Обележивачи",
+        "service": "Услуга",
+        "search": "Претрага",
+        "custom": "Прилагођено",
+        "visit": "Посети",
+        "url": "УРЛ адреса",
+        "searchsuggestion": "Предлози"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
-        "55-night": "Heavy Drizzle",
-        "56-day": "Light Freezing Drizzle",
-        "56-night": "Light Freezing Drizzle",
-        "57-day": "Freezing Drizzle",
-        "57-night": "Freezing Drizzle",
-        "61-day": "Light Rain",
-        "61-night": "Light Rain",
-        "63-day": "Rain",
-        "63-night": "Rain",
-        "65-day": "Heavy Rain",
-        "65-night": "Heavy Rain",
-        "66-day": "Freezing Rain",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
-        "71-day": "Light Snow",
-        "71-night": "Light Snow",
-        "73-day": "Snow",
-        "73-night": "Snow",
-        "75-day": "Heavy Snow",
-        "75-night": "Heavy Snow",
-        "77-day": "Snow Grains",
-        "77-night": "Snow Grains",
-        "80-day": "Light Showers",
-        "80-night": "Light Showers",
-        "81-day": "Showers",
-        "81-night": "Showers",
-        "82-day": "Heavy Showers",
-        "82-night": "Heavy Showers",
-        "85-day": "Snow Showers",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
-        "95-day": "Thunderstorm",
-        "95-night": "Thunderstorm",
-        "96-day": "Thunderstorm With Hail",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "0-day": "Сунчано",
+        "0-night": "Ведро",
+        "1-day": "Прережно сунчано",
+        "1-night": "Претежно ведро",
+        "2-day": "Делимично облачно",
+        "2-night": "Делимично облачно",
+        "3-day": "Облачно",
+        "3-night": "Облачно",
+        "45-day": "Магловито",
+        "45-night": "Магловито",
+        "48-day": "Магловито",
+        "48-night": "Магловито",
+        "51-day": "Слаба киша",
+        "51-night": "Слаба киша",
+        "53-day": "Слаба киша",
+        "53-night": "Слаба киша",
+        "55-day": "Јака киша",
+        "55-night": "Јака киша",
+        "56-day": "Слаба ледена киша",
+        "56-night": "Слаба ледена киша",
+        "57-day": "Ледена киша",
+        "57-night": "Ледена киша",
+        "61-day": "Слаба киша",
+        "61-night": "Слаба киша",
+        "63-day": "Киша",
+        "63-night": "Киша",
+        "65-day": "Јака киша",
+        "65-night": "Јака киша",
+        "66-day": "Ледена киша",
+        "66-night": "Ледена киша",
+        "67-day": "Ледена киша",
+        "67-night": "Ледена киша",
+        "71-day": "Слаб снег",
+        "71-night": "Слаб снег",
+        "73-day": "Снег",
+        "73-night": "Снег",
+        "75-day": "Јак снег",
+        "75-night": "Јак снег",
+        "77-day": "Снежна зрна",
+        "77-night": "Снежна зрна",
+        "80-day": "Слаби пљускови",
+        "80-night": "Слаби пљускови",
+        "81-day": "Пљускови",
+        "81-night": "Пљускови",
+        "82-day": "Јаки пљускови",
+        "82-night": "Јаки пљускови",
+        "85-day": "Снежне падавине",
+        "85-night": "Снежне падавине",
+        "86-day": "Снежне падавине",
+        "86-night": "Снежне падавине",
+        "95-day": "Грмљавина",
+        "95-night": "Грмљавина",
+        "96-day": "Грмљавина са градом",
+        "96-night": "Грмљавина са градом",
+        "99-day": "Грмљавина са градом",
+        "99-night": "Грмљавина са градом"
     },
     "homebridge": {
-        "available_update": "System",
-        "updates": "Updates",
-        "update_available": "Update Available",
-        "up_to_date": "Up to Date",
-        "child_bridges": "Child Bridges",
+        "available_update": "Систем",
+        "updates": "Ажурирања",
+        "update_available": "Доступно ажурирање",
+        "up_to_date": "Ажурирано",
+        "child_bridges": "Мостови потомака",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
+        "up": "Горе",
+        "pending": "На чекању",
+        "down": "Доле"
     },
     "healthchecks": {
-        "new": "New",
-        "up": "Up",
-        "grace": "In Grace Period",
-        "down": "Down",
-        "paused": "Paused",
-        "status": "Status",
-        "last_ping": "Last Ping",
-        "never": "No pings yet"
+        "new": "Сада",
+        "up": "Горе",
+        "grace": "У грејс периоду",
+        "down": "Доле",
+        "paused": "Паузирано",
+        "status": "Стање",
+        "last_ping": "Последњи пинг",
+        "never": "Још без пинга"
     },
     "watchtower": {
-        "containers_scanned": "Scanned",
-        "containers_updated": "Updated",
-        "containers_failed": "Failed"
+        "containers_scanned": "Скенирано",
+        "containers_updated": "Ажурирано",
+        "containers_failed": "Неуспешно"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
-        "rejectedPushes": "Rejected",
-        "filters": "Filters",
-        "indexers": "Indexers"
+        "approvedPushes": "Одобрено",
+        "rejectedPushes": "Одбијено",
+        "filters": "Филтери",
+        "indexers": "Индексери"
     },
     "tubearchivist": {
-        "downloads": "Queue",
-        "videos": "Videos",
-        "channels": "Channels",
-        "playlists": "Playlists"
+        "downloads": "Ред",
+        "videos": "Видеи",
+        "channels": "Канали",
+        "playlists": "Плејлисте"
     },
     "truenas": {
-        "load": "System Load",
-        "uptime": "Uptime",
-        "alerts": "Alerts"
+        "load": "Заузеће система",
+        "uptime": "Време рада",
+        "alerts": "Упозорења"
     },
     "pyload": {
-        "speed": "Speed",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "speed": "Брзина",
+        "active": "Активно",
+        "queue": "Ред",
+        "total": "Укупно"
     },
     "gluetun": {
-        "public_ip": "Public IP",
-        "region": "Region",
-        "country": "Country"
+        "public_ip": "Јавна ИП адреса",
+        "region": "Регион",
+        "country": "Држава",
+        "port_forwarded": "Порт прослеђен"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Канали",
         "hd": "HD",
-        "tunerCount": "Tuners",
-        "channelNumber": "Channel",
-        "channelNetwork": "Network",
-        "signalStrength": "Strength",
-        "signalQuality": "Quality",
-        "symbolQuality": "Quality",
-        "networkRate": "Bitrate",
-        "clientIP": "Client"
+        "tunerCount": "Тјунери",
+        "channelNumber": "Канал",
+        "channelNetwork": "Мрежа",
+        "signalStrength": "Јачина",
+        "signalQuality": "Количина",
+        "symbolQuality": "Количина",
+        "networkRate": "Проток",
+        "clientIP": "Клијент"
     },
     "scrutiny": {
-        "passed": "Passed",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "passed": "Пређено",
+        "failed": "Неуспешно",
+        "unknown": "Непознато"
     },
     "paperlessngx": {
-        "inbox": "Inbox",
-        "total": "Total"
+        "inbox": "Примљено",
+        "total": "Укупно"
     },
     "peanut": {
-        "battery_charge": "Battery Charge",
-        "ups_load": "UPS Load",
-        "ups_status": "UPS Status",
-        "online": "Online",
-        "on_battery": "On Battery",
-        "low_battery": "Low Battery"
+        "battery_charge": "Напуњеност батерије",
+        "ups_load": "Оптерећење УПС-а",
+        "ups_status": "Статус УПС-а",
+        "online": "На мрежи",
+        "on_battery": "На батерији",
+        "low_battery": "Низак ниво батерије"
     },
     "nextdns": {
-        "wait": "Please Wait",
-        "no_devices": "No Device Data Received"
+        "wait": "Молим сачекајте",
+        "no_devices": "Нису примљени подаци са уређаја"
     },
     "mikrotik": {
-        "cpuLoad": "CPU Load",
-        "memoryUsed": "Memory Used",
-        "uptime": "Uptime",
-        "numberOfLeases": "Leases"
+        "cpuLoad": "Заузеће процесора",
+        "memoryUsed": "Заузеће меморије",
+        "uptime": "Време рада",
+        "numberOfLeases": "Закупи"
     },
     "xteve": {
-        "streams_all": "All Streams",
-        "streams_active": "Active Streams",
-        "streams_xepg": "XEPG Channels"
+        "streams_all": "Сви стримови",
+        "streams_active": "Активно",
+        "streams_xepg": "XEPG канали"
     },
     "opendtu": {
-        "yieldDay": "Today",
-        "absolutePower": "Power",
-        "relativePower": "Power %",
-        "limit": "Limit"
+        "yieldDay": "Данас",
+        "absolutePower": "Енергија",
+        "relativePower": "% Енергије",
+        "limit": "Лимитер"
     },
     "opnsense": {
-        "cpu": "CPU Load",
-        "memory": "Active Memory",
-        "wanUpload": "WAN Upload",
-        "wanDownload": "WAN Download"
+        "cpu": "Заузеће процесора",
+        "memory": "Активна меморија",
+        "wanUpload": "WAN слање",
+        "wanDownload": "WAN примање"
     },
     "moonraker": {
-        "printer_state": "Printer State",
-        "print_status": "Print Status",
-        "print_progress": "Progress",
-        "layers": "Layers"
+        "printer_state": "Стање штампача",
+        "print_status": "Статус штампања",
+        "print_progress": "Напредак",
+        "layers": "Слојеви"
     },
     "octoprint": {
-        "printer_state": "Status",
-        "temp_tool": "Tool temp",
-        "temp_bed": "Bed temp",
-        "job_completion": "Completion"
+        "printer_state": "Стање",
+        "temp_tool": "Температура алата",
+        "temp_bed": "Температура постоља",
+        "job_completion": "Завршетак"
     },
     "cloudflared": {
-        "origin_ip": "Origin IP",
-        "status": "Status"
+        "origin_ip": "Порекло IP адресе",
+        "status": "Стање"
     },
     "pfsense": {
-        "load": "Load Avg",
-        "memory": "Mem Usage",
-        "wanStatus": "WAN Status",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
-        "disk": "Disk Usage",
+        "load": "Просечно оптерећење",
+        "memory": "Заузеће меморије",
+        "wanStatus": "WAN статус",
+        "up": "Горе",
+        "down": "Доле",
+        "temp": "Темп.",
+        "disk": "Коришћење диска",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
-        "datastore_usage": "Datastore",
-        "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "CPU",
-        "memory_usage": "Memory"
+        "datastore_usage": "Складиште података",
+        "failed_tasks_24h": "Неуспешни задаци 24ч",
+        "cpu_usage": "Процесор",
+        "memory_usage": "Меморија"
     },
     "immich": {
-        "users": "Users",
-        "photos": "Photos",
-        "videos": "Videos",
-        "storage": "Storage"
+        "users": "Корисника",
+        "photos": "Фотографије",
+        "videos": "Видеи",
+        "storage": "Складиште"
     },
     "uptimekuma": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime",
-        "incident": "Incident",
-        "m": "m"
+        "up": "Локација активно",
+        "down": "Локација неактивно",
+        "uptime": "Време рада",
+        "incident": "Инцидент",
+        "m": "м"
     },
     "atsumeru": {
-        "series": "Series",
-        "archives": "Archives",
-        "chapters": "Chapters",
-        "categories": "Categories"
+        "series": "Серије",
+        "archives": "Архиве",
+        "chapters": "Поглавља",
+        "categories": "Категорије"
     },
     "komga": {
-        "libraries": "Libraries",
-        "series": "Series",
-        "books": "Books"
+        "libraries": "Библиотеке",
+        "series": "Серије",
+        "books": "Књиге"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Дана",
+        "uptime": "Време рада",
+        "volumeAvailable": "Доступно"
     },
     "mylar": {
-        "series": "Series",
-        "issues": "Issues",
-        "wanted": "Wanted"
+        "series": "Серије",
+        "issues": "Издања",
+        "wanted": "Тражено"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
-        "people": "People"
+        "albums": "Албуми",
+        "photos": "Фотографије",
+        "videos": "Видеи",
+        "people": "Особе"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
-        "time": "Time"
+        "queue": "Ред",
+        "processing": "Обрада",
+        "processed": "Обрада",
+        "time": "Време"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Нето вредност",
+        "budget": "Буџет"
     },
     "grafana": {
-        "dashboards": "Dashboards",
-        "datasources": "Data Sources",
-        "totalalerts": "Total Alerts",
-        "alertstriggered": "Alerts Triggered"
+        "dashboards": "Командна табла",
+        "datasources": "Извори података",
+        "totalalerts": "Укупно обавешења",
+        "alertstriggered": "Покренута упозорења"
     },
     "nextcloud": {
-        "cpuload": "Cpu Load",
-        "memoryusage": "Memory Usage",
-        "freespace": "Free Space",
-        "activeusers": "Active Users",
-        "numfiles": "Files",
-        "numshares": "Shared Items"
+        "cpuload": "Заузеће процесора",
+        "memoryusage": "Заузеће меморије",
+        "freespace": "Слободан простор",
+        "activeusers": "Активни корисници",
+        "numfiles": "Датотеке",
+        "numshares": "Ставке подељене"
     },
     "kopia": {
-        "status": "Status",
-        "size": "Size",
-        "lastrun": "Last Run",
-        "nextrun": "Next Run",
-        "failed": "Failed"
+        "status": "Стање",
+        "size": "Величина",
+        "lastrun": "Последње покретање",
+        "nextrun": "Счедеће покретање",
+        "failed": "Неуспешно"
     },
     "unmanic": {
-        "active_workers": "Active Workers",
-        "total_workers": "Total Workers",
-        "records_total": "Queue Length"
+        "active_workers": "Активни радници",
+        "total_workers": "Укупно радника",
+        "records_total": "Дужина реда"
     },
     "pterodactyl": {
-        "servers": "Servers",
-        "nodes": "Nodes"
+        "servers": "Сервери",
+        "nodes": "Чворови"
     },
     "prometheus": {
-        "targets_up": "Targets Up",
-        "targets_down": "Targets Down",
-        "targets_total": "Total Targets"
+        "targets_up": "Циљева активно",
+        "targets_down": "Циљева неактивно",
+        "targets_total": "Укупно циљева"
     },
     "gatus": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime"
+        "up": "Локација активно",
+        "down": "Локација неактивно",
+        "uptime": "Време рада"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
-        "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_today": "Данас",
+        "gross_percent_1y": "Једна година",
+        "gross_percent_max": "Све време"
     },
     "audiobookshelf": {
-        "podcasts": "Podcasts",
-        "books": "Books",
-        "podcastsDuration": "Duration",
-        "booksDuration": "Duration"
+        "podcasts": "Подкасти",
+        "books": "Књиге",
+        "podcastsDuration": "Трајање",
+        "booksDuration": "Трајање"
     },
     "homeassistant": {
-        "people_home": "People Home",
-        "lights_on": "Lights On",
-        "switches_on": "Switches On"
+        "people_home": "Дом људи",
+        "lights_on": "Укључена светла",
+        "switches_on": "Укључени прекидачи"
     },
     "whatsupdocker": {
-        "monitoring": "Monitoring",
-        "updates": "Updates"
+        "monitoring": "Надгледање",
+        "updates": "Ажурирања"
     },
     "calibreweb": {
-        "books": "Books",
-        "authors": "Authors",
-        "categories": "Categories",
-        "series": "Series"
+        "books": "Књиге",
+        "authors": "Аутори",
+        "categories": "Категорије",
+        "series": "Серије"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size",
-        "downloadSpeed": "Speed"
+        "downloadCount": "Ред",
+        "downloadBytesRemaining": "Преостало",
+        "downloadTotalBytes": "Величина",
+        "downloadSpeed": "Брзина"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "Серије",
+        "totalFiles": "Датотеке"
     },
     "azuredevops": {
-        "result": "Result",
-        "status": "Status",
-        "buildId": "Build ID",
-        "succeeded": "Succeeded",
-        "notStarted": "Not Started",
-        "failed": "Failed",
-        "canceled": "Canceled",
-        "inProgress": "In Progress",
-        "totalPrs": "Total PRs",
-        "myPrs": "My PRs",
-        "approved": "Approved"
+        "result": "Резултат",
+        "status": "Стање",
+        "buildId": "ИД верзије",
+        "succeeded": "Успело",
+        "notStarted": "Није започето",
+        "failed": "Неуспешно",
+        "canceled": "Отказано",
+        "inProgress": "У току",
+        "totalPrs": "Укупно ПР",
+        "myPrs": "Моји ПР",
+        "approved": "Одобрено"
     },
     "gamedig": {
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline",
-        "name": "Name",
-        "map": "Map",
-        "currentPlayers": "Current players",
-        "players": "Players",
-        "maxPlayers": "Max players",
-        "bots": "Bots",
-        "ping": "Ping"
+        "status": "Стање",
+        "online": "На мрежи",
+        "offline": "Није на мрежи",
+        "name": "Назив",
+        "map": "Мапа",
+        "currentPlayers": "Тренутни играчи",
+        "players": "Играчи",
+        "maxPlayers": "Максимално играча",
+        "bots": "Ботови",
+        "ping": "Пинг"
     },
     "urbackup": {
-        "ok": "Ok",
-        "errored": "Errors",
-        "noRecent": "Out of Date",
-        "totalUsed": "Used Storage"
+        "ok": "Ок",
+        "errored": "Грешке",
+        "noRecent": "Застарели",
+        "totalUsed": "Искоришћени простор"
     },
     "mealie": {
-        "recipes": "Recipes",
-        "users": "Users",
-        "categories": "Categories",
-        "tags": "Tags"
+        "recipes": "Рецепти",
+        "users": "Корисника",
+        "categories": "Категорије",
+        "tags": "Ознаке"
     },
     "openmediavault": {
-        "downloading": "Downloading",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "downloading": "Преузимање",
+        "total": "Укупно",
+        "running": "Покренуто",
+        "stopped": "Заустављено",
+        "passed": "Пређено",
+        "failed": "Неуспешно"
     },
     "openwrt": {
-        "uptime": "Uptime",
-        "cpuLoad": "CPU Load Avg (5m)",
-        "up": "Up",
-        "down": "Down",
-        "bytesTx": "Transmitted",
-        "bytesRx": "Received"
+        "uptime": "Време рада",
+        "cpuLoad": "Просечно оптерећење процесора (5 мин)",
+        "up": "Горе",
+        "down": "Доле",
+        "bytesTx": "Пренесено",
+        "bytesRx": "Примљено"
     },
     "uptimerobot": {
-        "status": "Status",
-        "uptime": "Uptime",
-        "lastDown": "Last Downtime",
-        "downDuration": "Downtime Duration",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
-        "notyetchecked": "Not Yet Checked",
-        "up": "Up",
-        "seemsdown": "Seems Down",
-        "down": "Down",
-        "unknown": "Unknown"
+        "status": "Стање",
+        "uptime": "Време рада",
+        "lastDown": "Последњи прекид рада",
+        "downDuration": "Трајање прекида рада",
+        "sitesUp": "Локација активно",
+        "sitesDown": "Локација неактивно",
+        "paused": "Паузирано",
+        "notyetchecked": "Још није проверено",
+        "up": "Горе",
+        "seemsdown": "Делује неактивно",
+        "down": "Доле",
+        "unknown": "Непознато"
     },
     "calendar": {
-        "inCinemas": "In cinemas",
-        "physicalRelease": "Physical release",
-        "digitalRelease": "Digital release",
-        "noEventsToday": "No events for today!",
-        "noEventsFound": "No events found"
+        "inCinemas": "У биоскопима",
+        "physicalRelease": "Физичко издање",
+        "digitalRelease": "Дигитално иѕдање",
+        "noEventsToday": "Нема догађаја за данас!",
+        "noEventsFound": "Није пронађен ниједан догађај",
+        "errorWhenLoadingData": "Грешка при учитавању података календара"
     },
     "romm": {
-        "platforms": "Platforms",
-        "totalRoms": "Games",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "platforms": "Платформе",
+        "totalRoms": "Игре",
+        "saves": "Сачувано",
+        "states": "Стања",
+        "screenshots": "Снимци екрана",
+        "totalfilesize": "Укупна величина"
     },
     "mailcow": {
-        "domains": "Domains",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
-        "storage": "Storage"
+        "domains": "Домени",
+        "mailboxes": "Сандучићи",
+        "mails": "Пошта",
+        "storage": "Складиште"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+        "warnings": "Упозорења",
+        "criticals": "Критично"
     },
     "plantit": {
-        "events": "Events",
-        "plants": "Plants",
-        "photos": "Photos",
-        "species": "Species"
+        "events": "Догађаји",
+        "plants": "Биљке",
+        "photos": "Фотографије",
+        "species": "Врсте"
     },
     "gitea": {
-        "notifications": "Notifications",
-        "issues": "Issues",
-        "pulls": "Pull Requests",
-        "repositories": "Repositories"
+        "notifications": "Обавештења",
+        "issues": "Издања",
+        "pulls": "Захтеви за спајање",
+        "repositories": "Ризнице"
     },
     "stash": {
-        "scenes": "Scenes",
-        "scenesPlayed": "Scenes Played",
-        "playCount": "Total Plays",
-        "playDuration": "Time Watched",
-        "sceneSize": "Scenes Size",
-        "sceneDuration": "Scenes Duration",
-        "images": "Images",
-        "imageSize": "Images Size",
-        "galleries": "Galleries",
-        "performers": "Performers",
-        "studios": "Studios",
-        "movies": "Movies",
-        "tags": "Tags",
-        "oCount": "O Count"
+        "scenes": "Сцене",
+        "scenesPlayed": "Одигране сцене",
+        "playCount": "Укупан број репродукција",
+        "playDuration": "Време гледања",
+        "sceneSize": "Величина сцена",
+        "sceneDuration": "Трајање сцена",
+        "images": "Слике",
+        "imageSize": "Величина слика",
+        "galleries": "Галерије",
+        "performers": "Извођачи",
+        "studios": "Студији",
+        "movies": "Филмови",
+        "tags": "Ознаке",
+        "oCount": "О број"
     },
     "tandoor": {
-        "users": "Users",
-        "recipes": "Recipes",
-        "keywords": "Keywords"
+        "users": "Корисника",
+        "recipes": "Рецепти",
+        "keywords": "Кључне речи"
     },
     "homebox": {
-        "items": "Items",
-        "totalWithWarranty": "With Warranty",
-        "locations": "Locations",
-        "labels": "Labels",
-        "users": "Users",
-        "totalValue": "Total Value"
+        "items": "Ставке",
+        "totalWithWarranty": "Са гаранцијом",
+        "locations": "Локације",
+        "labels": "Ознаке",
+        "users": "Корисника",
+        "totalValue": "Укупна вредност"
     },
     "crowdsec": {
-        "alerts": "Alerts",
-        "bans": "Bans"
+        "alerts": "Упозорења",
+        "bans": "Забране"
     },
     "wgeasy": {
-        "connected": "Connected",
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "connected": "Повезано",
+        "enabled": "Омогућено",
+        "disabled": "Онемогућено",
+        "total": "Укупно"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "Проксирано",
+        "auth": "Са ауторизацијом",
+        "outdated": "Застарело",
+        "banned": "Бановано"
     },
     "myspeed": {
-        "ping": "Ping",
-        "download": "Download",
-        "upload": "Upload"
+        "ping": "Пинг",
+        "download": "Преузимање",
+        "upload": "Слање"
     },
     "stocks": {
-        "stocks": "Stocks",
-        "loading": "Loading",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "stocks": "Акције",
+        "loading": "Учитавање",
+        "open": "Отворено - Америчко тржиште",
+        "closed": "Затворено - Америчко тржиште",
+        "invalidConfiguration": "Неважећа конфигурација"
     },
     "frigate": {
-        "cameras": "Cameras",
-        "uptime": "Uptime",
-        "version": "Version"
+        "cameras": "Камере",
+        "uptime": "Време рада",
+        "version": "Верзија"
     },
     "linkwarden": {
-        "links": "Links",
-        "collections": "Collections",
-        "tags": "Tags"
+        "links": "Везе",
+        "collections": "Колекције",
+        "tags": "Ознаке"
     },
     "zabbix": {
-        "unclassified": "Not classified",
-        "information": "Information",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+        "unclassified": "Није класификовано",
+        "information": "Информација",
+        "warning": "Упозорење",
+        "average": "Просечно",
+        "high": "Високо",
+        "disaster": "Катастрофа"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "Возило",
+        "vehicles": "Возила",
+        "serviceRecords": "Сервисни записи",
+        "reminders": "Подсетници",
+        "nextReminder": "Следећи подсетник",
+        "none": "Без"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "Активни пројекти",
+        "tasks7d": "Задаци за ову недељу",
+        "tasksOverdue": "Закаснели задаци",
+        "tasksInProgress": "Задаци у току"
     },
     "headscale": {
-        "name": "Name",
-        "address": "Address",
-        "last_seen": "Last Seen",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "name": "Назив",
+        "address": "Адреса",
+        "last_seen": "Последње виђен",
+        "status": "Стање",
+        "online": "На мрежи",
+        "offline": "Није на мрежи"
     },
     "beszel": {
-        "name": "Name",
-        "systems": "Systems",
-        "up": "Up",
-        "down": "Down",
-        "paused": "Paused",
-        "pending": "Pending",
-        "status": "Status",
-        "updated": "Updated",
-        "cpu": "CPU",
-        "memory": "MEM",
-        "disk": "Disk",
-        "network": "NET"
+        "name": "Назив",
+        "systems": "Системи",
+        "up": "Горе",
+        "down": "Доле",
+        "paused": "Паузирано",
+        "pending": "На чекању",
+        "status": "Стање",
+        "updated": "Ажурирано",
+        "cpu": "Процесор",
+        "memory": "Меморија",
+        "disk": "Диск",
+        "network": "Мрежа"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
-        "missing": "Missing",
-        "suspended": "Suspended"
+        "apps": "Апликације",
+        "synced": "Синхронизовано",
+        "outOfSync": "Ван синхронизације",
+        "healthy": "Здравих",
+        "degraded": "Деградирано",
+        "progressing": "Напредак",
+        "missing": "Недостаје",
+        "suspended": "Суспендовано"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "Учитавање"
     },
     "gitlab": {
-        "groups": "Groups",
-        "issues": "Issues",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "groups": "Групе",
+        "issues": "Издања",
+        "merges": "Захтеви за спајање",
+        "projects": "Пројекти"
     },
     "apcups": {
-        "status": "Status",
-        "load": "Load",
-        "bcharge": "Battery Charge",
-        "timeleft": "Time Left"
+        "status": "Стање",
+        "load": "Учитавање",
+        "bcharge": "Напуњеност батерије",
+        "timeleft": "Преостало време"
     },
     "karakeep": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
-        "tags": "Tags"
+        "bookmarks": "Обележивачи",
+        "favorites": "Омиљено",
+        "archived": "Архивирано",
+        "highlights": "Истакнуто",
+        "lists": "Листе",
+        "tags": "Ознаке"
     },
     "slskd": {
-        "slskStatus": "Network",
-        "connected": "Connected",
-        "disconnected": "Disconnected",
-        "updateStatus": "Update",
-        "update_yes": "Available",
-        "update_no": "Up to Date",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
-        "sharedFiles": "Files"
+        "slskStatus": "Мрежа",
+        "connected": "Повезано",
+        "disconnected": "Прекинуто",
+        "updateStatus": "Ажурирај",
+        "update_yes": "Доступно",
+        "update_no": "Ажурирано",
+        "downloads": "Преузимање",
+        "uploads": "Слање",
+        "sharedFiles": "Датотеке"
+    },
+    "jellystat": {
+        "songs": "Песме",
+        "movies": "Филмови",
+        "episodes": "Епизоде",
+        "other": "Остало"
+    },
+    "checkmk": {
+        "serviceErrors": "Проблеми са услугом",
+        "hostErrors": "Проблеми са хостом"
     }
 }

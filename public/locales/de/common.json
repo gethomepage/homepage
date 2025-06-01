@@ -47,7 +47,7 @@
         "load": "Last",
         "temp": "TEMP",
         "max": "Max",
-        "uptime": "UP"
+        "uptime": "BETRIEBSZEIT"
     },
     "unifi": {
         "users": "Benutzer",
@@ -61,7 +61,7 @@
         "wlan_devices": "WLAN-Geräte",
         "lan_users": "LAN-Benutzer",
         "wlan_users": "WLAN-Benutzer",
-        "up": "UP",
+        "up": "BETRIEBSZEIT",
         "down": "EMPFANGEN",
         "wait": "Bitte warten",
         "empty_data": "Subsystem-Status unbekannt"
@@ -150,7 +150,7 @@
         "sent": "Gesendet",
         "externalIPAddress": "Externe IP",
         "externalIPv6Address": "Externe IPv6",
-        "externalIPv6Prefix": "Externer IPv4-Präfix"
+        "externalIPv6Prefix": "Externes IPv6-Präfix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -436,7 +436,7 @@
         "temp": "TEMP",
         "_temp": "Temperatur",
         "warn": "Warnung",
-        "uptime": "UP",
+        "uptime": "BETRIEBSZEIT",
         "total": "Gesamt",
         "free": "Frei",
         "used": "In Benutzung",
@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Öffentliche IP",
         "region": "Region",
-        "country": "Land"
+        "country": "Land",
+        "port_forwarded": "Port weitergeleitet"
     },
     "hdhomerun": {
         "channels": "Kanäle",
@@ -856,7 +857,8 @@
         "physicalRelease": "Physische Version",
         "digitalRelease": "Digitale Version",
         "noEventsToday": "Heute keine Ereignisse!",
-        "noEventsFound": "Keine Termine gefunden"
+        "noEventsFound": "Keine Termine gefunden",
+        "errorWhenLoadingData": "Fehler beim Laden der Kalenderdaten"
     },
     "romm": {
         "platforms": "Plattformen",
@@ -1025,11 +1027,11 @@
         "timeleft": "Verbleibende Zeit"
     },
     "karakeep": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
+        "bookmarks": "Lesezeichen",
+        "favorites": "Favoriten",
+        "archived": "Archiviert",
         "highlights": "Highlights",
-        "lists": "Lists",
+        "lists": "Listen",
         "tags": "Schlagwörter"
     },
     "slskd": {
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Dateien"
+    },
+    "jellystat": {
+        "songs": "Songs",
+        "movies": "Filme",
+        "episodes": "Episoden",
+        "other": "Andere"
+    },
+    "checkmk": {
+        "serviceErrors": "Dienstprobleme",
+        "hostErrors": "Hostprobleme"
     }
 }

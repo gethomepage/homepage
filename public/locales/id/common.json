@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "IP Publik",
         "region": "Region",
-        "country": "Negara"
+        "country": "Negara",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Channel",
@@ -856,7 +857,8 @@
         "physicalRelease": "Rilis Fisik",
         "digitalRelease": "Rilis Digital",
         "noEventsToday": "Tidak ada acara untuk hari ini!",
-        "noEventsFound": "Tidak ada acara yang ditemukan"
+        "noEventsFound": "Tidak ada acara yang ditemukan",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platform",
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "File"
+    },
+    "jellystat": {
+        "songs": "Lagu",
+        "movies": "Film",
+        "episodes": "Episode",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }
