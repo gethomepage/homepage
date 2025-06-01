@@ -4,13 +4,7 @@ on:
   push:
     tags: ["v*.*.*"]
     branches: ["main"]
-    paths:
-      - "docs/**"
-      - "mkdocs.yml"
   pull_request:
-    paths:
-      - "docs/**"
-      - "mkdocs.yml"
   merge_group:
   workflow_dispatch:
 
@@ -32,7 +26,7 @@ jobs:
         uses: pre-commit/action@v3.0.1
 
   test:
-    name: Test Build
+    name: Test Build Docs
     if: github.repository == 'gethomepage/homepage' && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     needs:
@@ -54,7 +48,7 @@ jobs:
       - name: Test Docs Build
         run: MKINSIDERS=false mkdocs build
   deploy:
-    name: Build & Deploy
+    name: Build & Deploy Docs
     if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs:
