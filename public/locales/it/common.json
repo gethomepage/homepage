@@ -14,7 +14,7 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "mo",
+        "months": "m",
         "days": "g",
         "hours": "o",
         "minutes": "m",
@@ -313,13 +313,13 @@
     },
     "suwayomi": {
         "download": "Scaricato",
-        "nondownload": "Non-Downloaded",
+        "nondownload": "Non Scaricato",
         "read": "Letti",
         "unread": "Non letto",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "downloadedread": "Scaricato E Letto",
+        "downloadedunread": "Scaricato E Non Letto",
+        "nondownloadedread": "Non Scaricato E Letto",
+        "nondownloadedunread": "Non Scaricato E Non Letto"
     },
     "tailscale": {
         "address": "Indirizzo",
@@ -339,13 +339,13 @@
         "totalQueries": "Richieste",
         "totalNoError": "Successo",
         "totalServerFailure": "Fallimenti",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
-        "totalAuthoritative": "Authoritative",
-        "totalRecursive": "Recursive",
-        "totalCached": "Cached",
+        "totalNxDomain": "Domini NX",
+        "totalRefused": "Rifiutato",
+        "totalAuthoritative": "Autoritario",
+        "totalRecursive": "Ricorsivo",
+        "totalCached": "In cache",
         "totalBlocked": "Bloccati",
-        "totalDropped": "Dropped",
+        "totalDropped": "Saltati",
         "totalClients": "Client"
     },
     "tdarr": {
@@ -568,12 +568,13 @@
     "gluetun": {
         "public_ip": "IP pubblico",
         "region": "Località",
-        "country": "Paese"
+        "country": "Paese",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Canali",
         "hd": "HD",
-        "tunerCount": "Tuners",
+        "tunerCount": "Regolatori",
         "channelNumber": "Canale",
         "channelNetwork": "Rete",
         "signalStrength": "Intensità",
@@ -705,7 +706,7 @@
         "time": "Tempo"
     },
     "firefly": {
-        "networth": "Net Worth",
+        "networth": "Valore Netto",
         "budget": "Budget"
     },
     "grafana": {
@@ -856,29 +857,30 @@
         "physicalRelease": "Release fisici",
         "digitalRelease": "Versione digitale",
         "noEventsToday": "Nessun evento per oggi!",
-        "noEventsFound": "Nessun evento trovato"
+        "noEventsFound": "Nessun evento trovato",
+        "errorWhenLoadingData": "Errore durante il caricamento dei dati del calendario"
     },
     "romm": {
         "platforms": "Piattaforme",
         "totalRoms": "Giochi",
-        "saves": "Saves",
-        "states": "States",
-        "screenshots": "Screenshots",
-        "totalfilesize": "Total Size"
+        "saves": "Salvati",
+        "states": "Stati",
+        "screenshots": "Screenshot",
+        "totalfilesize": "Dimensioni totali"
     },
     "mailcow": {
         "domains": "Domini",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
+        "mailboxes": "Caselle di posta",
+        "mails": "Mail",
         "storage": "Archiviazione"
     },
     "netdata": {
         "warnings": "Avvisi",
-        "criticals": "Criticals"
+        "criticals": "Critici"
     },
     "plantit": {
         "events": "Eventi",
-        "plants": "Plants",
+        "plants": "Piante",
         "photos": "Foto",
         "species": "Specie"
     },
@@ -886,7 +888,7 @@
         "notifications": "Notifiche",
         "issues": "Problemi",
         "pulls": "Richieste di Pull",
-        "repositories": "Repositories"
+        "repositories": "Repository"
     },
     "stash": {
         "scenes": "Scene",
@@ -928,8 +930,8 @@
         "total": "Totale"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
+        "proxied": "Proxato",
+        "auth": "Con Autenticazione",
         "outdated": "Obsoleto",
         "banned": "Bannato"
     },
@@ -939,14 +941,14 @@
         "upload": "Upload"
     },
     "stocks": {
-        "stocks": "Stocks",
+        "stocks": "Azioni",
         "loading": "Caricamento",
-        "open": "Open - US Market",
-        "closed": "Closed - US Market",
+        "open": "Aperto - Mercato USA",
+        "closed": "Chiuso - Mercato USA",
         "invalidConfiguration": "Configurazione non valida"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Telecamere",
         "uptime": "Tempo di attività",
         "version": "Versione"
     },
@@ -956,26 +958,26 @@
         "tags": "Tag"
     },
     "zabbix": {
-        "unclassified": "Not classified",
+        "unclassified": "Non classificato",
         "information": "Informazioni",
-        "warning": "Warning",
+        "warning": "Avviso",
         "average": "Media",
-        "high": "High",
-        "disaster": "Disaster"
+        "high": "Alto",
+        "disaster": "Disastri"
     },
     "lubelogger": {
         "vehicle": "Veicolo",
         "vehicles": "Veicoli",
-        "serviceRecords": "Service Records",
+        "serviceRecords": "Record Di Servizio",
         "reminders": "Promemoria",
         "nextReminder": "Promemoria Seguente",
         "none": "Nessuno"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "Progetti attivi",
+        "tasks7d": "Attività Settimanali",
+        "tasksOverdue": "Task scaduti",
+        "tasksInProgress": "Task In Corso"
     },
     "headscale": {
         "name": "Nome",
@@ -1005,9 +1007,9 @@
         "outOfSync": "Non Sincronizzato",
         "healthy": "Sano",
         "degraded": "Degradato",
-        "progressing": "Progressing",
+        "progressing": "Progressione",
         "missing": "Mancanti",
-        "suspended": "Suspended"
+        "suspended": "Sospeso"
     },
     "spoolman": {
         "loading": "Caricamento"
@@ -1027,7 +1029,7 @@
     "karakeep": {
         "bookmarks": "Segnalibri",
         "favorites": "Preferiti",
-        "archived": "Archived",
+        "archived": "Archiviato",
         "highlights": "Highlights",
         "lists": "Liste",
         "tags": "Tag"
@@ -1036,11 +1038,21 @@
         "slskStatus": "Rete",
         "connected": "Connesso",
         "disconnected": "Disconnesso",
-        "updateStatus": "Update",
+        "updateStatus": "Aggiornamento",
         "update_yes": "Disponibili",
         "update_no": "Aggiornato",
         "downloads": "Download",
-        "uploads": "Uploads",
+        "uploads": "Caricamenti",
         "sharedFiles": "File"
+    },
+    "jellystat": {
+        "songs": "Canzoni",
+        "movies": "Film",
+        "episodes": "Episodi",
+        "other": "Altro"
+    },
+    "checkmk": {
+        "serviceErrors": "Problemi di servizio",
+        "hostErrors": "Problemi di host"
     }
 }

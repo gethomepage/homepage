@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Javni IP",
         "region": "Regija",
-        "country": "Država"
+        "country": "Država",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Kanali",
@@ -856,7 +857,8 @@
         "physicalRelease": "Fizična izdaja",
         "digitalRelease": "Digitalna izdaja",
         "noEventsToday": "Za danes ni dogodkov!",
-        "noEventsFound": "Ni dogodkov"
+        "noEventsFound": "Ni dogodkov",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platforme",
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Datotek"
+    },
+    "jellystat": {
+        "songs": "Pesmi",
+        "movies": "Filmi",
+        "episodes": "Epizode",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

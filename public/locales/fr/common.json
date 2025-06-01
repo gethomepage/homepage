@@ -103,7 +103,7 @@
         "bitrate": "Débit",
         "no_active": "Aucun flux actif",
         "movies": "Films",
-        "series": "Séries TV",
+        "series": "Séries",
         "episodes": "Épisodes",
         "songs": "Chansons"
     },
@@ -241,7 +241,7 @@
     "sonarr": {
         "wanted": "Demandé",
         "queued": "En file d'attente",
-        "series": "Séries TV",
+        "series": "Séries",
         "queue": "En attente",
         "unknown": "Inconnu"
     },
@@ -405,7 +405,7 @@
     "medusa": {
         "wanted": "Demandé",
         "queued": "En file d'attente",
-        "series": "Séries TV"
+        "series": "Séries"
     },
     "minecraft": {
         "players": "Joueurs",
@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "IP publique",
         "region": "Région",
-        "country": "Pays"
+        "country": "Pays",
+        "port_forwarded": "Port Transféré"
     },
     "hdhomerun": {
         "channels": "Chaînes",
@@ -672,14 +673,14 @@
         "m": "m"
     },
     "atsumeru": {
-        "series": "Séries TV",
+        "series": "Séries",
         "archives": "Archives",
         "chapters": "Chapitres",
         "categories": "Catégories"
     },
     "komga": {
         "libraries": "Bibliothèques",
-        "series": "Séries TV",
+        "series": "Séries",
         "books": "Livres"
     },
     "diskstation": {
@@ -688,7 +689,7 @@
         "volumeAvailable": "Disponible"
     },
     "mylar": {
-        "series": "Séries TV",
+        "series": "Séries",
         "issues": "Anomalies",
         "wanted": "Demandé"
     },
@@ -772,7 +773,7 @@
         "books": "Livres",
         "authors": "Auteurs",
         "categories": "Catégories",
-        "series": "Séries TV"
+        "series": "Séries"
     },
     "jdownloader": {
         "downloadCount": "En attente",
@@ -781,7 +782,7 @@
         "downloadSpeed": "Débit"
     },
     "kavita": {
-        "seriesCount": "Séries TV",
+        "seriesCount": "Séries",
         "totalFiles": "Fichiers"
     },
     "azuredevops": {
@@ -856,7 +857,8 @@
         "physicalRelease": "Sortie physique",
         "digitalRelease": "Sortie numérique",
         "noEventsToday": "Rien pour aujourd'hui !",
-        "noEventsFound": "Aucun événement trouvé"
+        "noEventsFound": "Aucun événement trouvé",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Plateformes",
@@ -1028,7 +1030,7 @@
         "bookmarks": "Marque-pages",
         "favorites": "Favoris",
         "archived": "Archivé",
-        "highlights": "Highlights",
+        "highlights": "À la une",
         "lists": "Listes",
         "tags": "Étiquettes"
     },
@@ -1042,5 +1044,15 @@
         "downloads": "Téléchargements",
         "uploads": "Téléversements",
         "sharedFiles": "Fichiers"
+    },
+    "jellystat": {
+        "songs": "Chansons",
+        "movies": "Films",
+        "episodes": "Épisodes",
+        "other": "Autres"
+    },
+    "checkmk": {
+        "serviceErrors": "Problèmes de service",
+        "hostErrors": "Problèmes d'hôte"
     }
 }

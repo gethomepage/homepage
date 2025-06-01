@@ -101,7 +101,11 @@ export default async function credentialedProxyHandler(req, res, map) {
           headers.Cookie = `authenticated=${widget.key}`;
         }
       } else if (widget.type === "wgeasy") {
-        headers.Authorization = widget.password;
+        if (widget.username && widget.password) {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        } else {
+          headers.Authorization = widget.password;
+        }
       } else if (widget.type === "gitlab") {
         headers["PRIVATE-TOKEN"] = widget.key;
       } else if (widget.type === "speedtest") {

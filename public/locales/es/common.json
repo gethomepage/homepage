@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "IP pública",
         "region": "Región",
-        "country": "País"
+        "country": "País",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Canales",
@@ -856,7 +857,8 @@
         "physicalRelease": "Lanzamiento en físico",
         "digitalRelease": "Lanzamiento en digital",
         "noEventsToday": "¡Sin eventos para hoy!",
-        "noEventsFound": "No se encontraron eventos"
+        "noEventsFound": "No se encontraron eventos",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Plataformas",
@@ -1025,11 +1027,11 @@
         "timeleft": "Tiempo restante"
     },
     "karakeep": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
+        "bookmarks": "Marcadores",
+        "favorites": "Favoritos",
+        "archived": "Archivado",
+        "highlights": "Destacados",
+        "lists": "Listas",
         "tags": "Etiquetas"
     },
     "slskd": {
@@ -1042,5 +1044,15 @@
         "downloads": "Descargas",
         "uploads": "Subidas",
         "sharedFiles": "Archivos"
+    },
+    "jellystat": {
+        "songs": "Canciones",
+        "movies": "Películas",
+        "episodes": "Episodios",
+        "other": "Otros"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

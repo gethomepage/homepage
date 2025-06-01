@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Veřejná IP",
         "region": "Oblast",
-        "country": "Stát"
+        "country": "Stát",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Kanály",
@@ -856,7 +857,8 @@
         "physicalRelease": "Fyzické vydání",
         "digitalRelease": "Digitální vydání",
         "noEventsToday": "Pro dnešek žádné události!",
-        "noEventsFound": "Nemáte žádné události"
+        "noEventsFound": "Nemáte žádné události",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platformy",
@@ -1042,5 +1044,15 @@
         "downloads": "Stažení",
         "uploads": "Nahrávání",
         "sharedFiles": "Soubory"
+    },
+    "jellystat": {
+        "songs": "Skladby",
+        "movies": "Filmy",
+        "episodes": "Epizody",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }
