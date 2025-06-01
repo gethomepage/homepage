@@ -497,7 +497,9 @@ export function cleanServiceGroups(groups) {
           if (snapshotHost) widget.snapshotHost = snapshotHost;
           if (snapshotPath) widget.snapshotPath = snapshotPath;
         }
-        if (["beszel", "glances", "immich", "komga", "mealie", "pfsense", "pihole", "speedtest"].includes(type)) {
+        if (
+          ["beszel", "glances", "immich", "komga", "mealie", "pfsense", "pihole", "speedtest", "wgeasy"].includes(type)
+        ) {
           if (version) widget.version = parseInt(version, 10);
         }
         if (type === "glances") {
