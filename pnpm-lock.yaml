@@ -139,8 +139,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0(prettier@3.5.3)(typescript@5.7.3)
       tailwind-scrollbar:
-        specifier: ^4.0.1
-        version: 4.0.1(react@18.3.1)(tailwindcss@4.0.9)
+        specifier: ^4.0.2
+        version: 4.0.2(react@18.3.1)(tailwindcss@4.0.9)
       tailwindcss:
         specifier: ^4.0.9
         version: 4.0.9
@@ -2642,8 +2642,8 @@ packages:
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
 
-  tailwind-scrollbar@4.0.1:
-    resolution: {integrity: sha512-j2ZfUI7p8xmSQdlqaCxEb4Mha8ErvWjDVyu2Ke4IstWprQ/6TmIz1GSLE62vsTlXwnMLYhuvbFbIFzaJGOGtMg==}
+  tailwind-scrollbar@4.0.2:
+    resolution: {integrity: sha512-wAQiIxAPqk0MNTPptVe/xoyWi27y+NRGnTwvn4PQnbvB9kp8QUBiGl/wsfoVBHnQxTmhXJSNt9NHTmcz9EivFA==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
       tailwindcss: 4.x
@@ -5566,7 +5566,7 @@ snapshots:
 
   systeminformation@5.25.11: {}
 
-  tailwind-scrollbar@4.0.1(react@18.3.1)(tailwindcss@4.0.9):
+  tailwind-scrollbar@4.0.2(react@18.3.1)(tailwindcss@4.0.9):
     dependencies:
       prism-react-renderer: 2.4.1(react@18.3.1)
       tailwindcss: 4.0.9
