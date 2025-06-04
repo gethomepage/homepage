@@ -364,7 +364,6 @@
         "notesCount": "Notes",
         "attachmentsCount": "Attachments",
         "unknown": "Unknown",
-        "none": "None"
     },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
