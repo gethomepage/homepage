@@ -1,8 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
-import { FiFileText, FiPaperclip } from "react-icons/fi";
-import { RiStackLine } from "react-icons/ri";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -32,10 +30,9 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block icon={RiStackLine} label="trilium.version" value={version ? `v${version}` : t("trilium.unknown")} />
-      <Block icon={FiFileText} label="trilium.notesCount" value={t("common.number", { value: notesCount })} />
+      <Block label="trilium.version" value={version ? `v${version}` : t("trilium.unknown")} />
+      <Block label="trilium.notesCount" value={t("common.number", { value: notesCount })} />
       <Block
-        icon={FiPaperclip}
         label="trilium.attachmentsCount"
         value={t("common.number", { value: attachmentsCount })}
       />
