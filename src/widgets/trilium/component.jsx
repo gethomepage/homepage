@@ -11,9 +11,7 @@ export default function Component({ service }) {
   const { widget } = service;
 
   // Fetch metrics from Trilium in JSON format
-  const { data: metricsData, error: metricsError } = useWidgetAPI(widget, "metrics", {
-    refreshInterval: 60000, // refresh every minute
-  });
+  const { data: metricsData, error: metricsError } = useWidgetAPI(widget, "metrics");
 
   if (metricsError) {
     return <Container service={service} error={metricsError} />;
