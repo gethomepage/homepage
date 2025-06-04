@@ -150,7 +150,7 @@ This will render the widget with placeholders for the data, i.e., a skeleton vie
 
 !!! tip "Translation Tips"
 
-      The `label` prop in the `Block` component corresponds to the translation key we defined earlier in the `common.js` file.  All text and numerical content should be translated.
+      The `label` prop in the `Block` component corresponds to the translation key we defined earlier in the `common.json` file.  All text and numerical content should be translated.
 
 ---
 

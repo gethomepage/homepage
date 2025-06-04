@@ -9,14 +9,8 @@ on:
       - feature/**
       - dev
     tags: [ 'v*.*.*' ]
-    paths-ignore:
-      - 'docs/**'
-      - 'mkdocs.yml'
   pull_request:
     branches: [ "dev" ]
-    paths-ignore:
-      - 'docs/**'
-      - 'mkdocs.yml'
   merge_group:
 
 env:
@@ -41,7 +35,6 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
           run_install: false
 
       - name: Setup Node.js
@@ -100,7 +93,6 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
           run_install: false
 
       - name: Setup Node.js
@@ -154,6 +146,7 @@ jobs:
             VERSION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
             REVISION=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
           platforms: linux/amd64,linux/arm64
+          provenance: false
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 

@@ -112,7 +112,7 @@ export default function Component({ service }) {
         <div className="bg-linear-to-br from-theme-500/30 via-theme-600/20 to-theme-700/10 absolute -top-10 -left-2 -right-2 -bottom-2 h-[calc(100%+3em)] w-[calc(100%+1em)]" />
       )}
 
-      <Block position="-top-6 right-2">
+      <Block position={chart ? "-top-6 right-2" : "top-3 right-3"}>
         {quicklookData && quicklookData.cpu_name && chart && (
           <div className="text-[0.6rem] opacity-50">{quicklookData.cpu_name}</div>
         )}

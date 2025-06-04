@@ -14,19 +14,29 @@ export const CONF_DIR = process.env.HOMEPAGE_CONFIG_DIR
   : join(process.cwd(), "config");
 
 export default function checkAndCopyConfig(config) {
+  // Ensure config directory exists
   if (!existsSync(CONF_DIR)) {
-    mkdirSync(CONF_DIR, { recursive: true });
+    try {
+      mkdirSync(CONF_DIR, { recursive: true });
+    } catch (e) {
+      console.warn(`Could not create config directory ${CONF_DIR}: ${e.message}`);
+      return false;
+    }
   }
 
   const configYaml = join(CONF_DIR, config);
+
+  // If the config file doesn't exist, try to copy the skeleton
   if (!existsSync(configYaml)) {
     const configSkeleton = join(process.cwd(), "src", "skeleton", config);
     try {
       copyFileSync(configSkeleton, configYaml);
       console.info("%s was copied to the config folder", config);
     } catch (err) {
-      console.error("error copying config", err);
-      throw err;
+      console.error("❌ Failed to initialize required config: %s", configYaml);
+      console.error("Reason: %s", err.message);
+      console.error("Hint: Make /app/config writable or manually place the config file.");
+      process.exit(1);
     }
 
     return true;

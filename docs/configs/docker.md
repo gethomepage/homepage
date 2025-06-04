@@ -20,7 +20,7 @@ Since Docker supports connecting with TLS and client certificate authentication,
 ```yaml
 my-remote-docker:
   host: 192.168.0.101
-  port: 275
+  port: 2375
   tls:
     keyFile: tls/key.pem
     caFile: tls/ca.pem
@@ -64,6 +64,30 @@ Then, inside of your `docker.yaml` settings file, you'd configure the docker ins
 my-docker:
   host: dockerproxy
   port: 2375
+```
+
+Use `protocol: https` if you’re connecting through a reverse proxy (e.g., Traefik) that serves the Docker API over HTTPS:
+
+```yaml
+my-docker:
+  host: dockerproxy
+  port: 443
+  protocol: https
+```
+
+!!! note
+
+    Note: This does not require TLS certificates if the proxy handles encryption. Do not use `protocol: https` unless you’re sure the target host supports HTTPS.
+
+You can also include `headers` for the connection, for example, if you are using a reverse proxy that requires authentication:
+
+```yaml
+my-docker:
+  host: dockerproxy
+  port: 443
+  protocol: https
+  headers:
+    Authorization: Basic <base64-encoded-credentials>
 ```
 
 ## Using Socket Directly

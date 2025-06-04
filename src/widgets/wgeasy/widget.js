@@ -8,6 +8,9 @@ const widget = {
     client: {
       endpoint: "wireguard/client",
     },
+    clientv2: {
+      endpoint: "client",
+    },
   },
 };
 
