@@ -10,20 +10,16 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  // Fetch app info for version and stats
-  const { data: appInfo, error: appInfoError } = useWidgetAPI(widget, "app-info");
-
-  // Fetch all notes using search API
-  const { data: notesData, error: notesError } = useWidgetAPI(widget, "allnotes", {
+  // Fetch metrics from Trilium in JSON format
+  const { data: metricsData, error: metricsError } = useWidgetAPI(widget, "metrics", {
     refreshInterval: 60000, // refresh every minute
   });
 
-  if (appInfoError || notesError) {
-    const error = appInfoError || notesError;
-    return <Container service={service} error={error} />;
+  if (metricsError) {
+    return <Container service={service} error={metricsError} />;
   }
 
-  if (!appInfo || !notesData) {
+  if (!metricsData) {
     return (
       <Container service={service}>
         <Block label="trilium.version" />
@@ -33,16 +29,23 @@ export default function Component({ service }) {
     );
   }
 
-  // Calculate total notes count and attachment count
-  const notesCount = notesData?.results?.length || 0;
-
-  // Count notes that don't have 'text' in the mime type
-  const attachmentsCount = notesData?.results?.filter((note) => note.mime && !note.mime.includes("text"))?.length || 0;
+  // Extract values from the clean JSON structure
+  const version = metricsData?.version?.app;
+  const notesCount = metricsData?.database?.activeNotes || 0;
+  const attachmentsCount = metricsData?.database?.activeAttachments || 0;
 
   return (
     <Container service={service}>
-      <Block icon={RiStackLine} label="trilium.version" value={"v" + appInfo.appVersion || t("trilium.unknown")} />
-      <Block icon={FiFileText} label="trilium.notesCount" value={t("common.number", { value: notesCount })} />
+      <Block
+        icon={RiStackLine}
+        label="trilium.version"
+        value={version ? `v${version}` : t("trilium.unknown")}
+      />
+      <Block
+        icon={FiFileText}
+        label="trilium.notesCount"
+        value={t("common.number", { value: notesCount })}
+      />
       <Block
         icon={FiPaperclip}
         label="trilium.attachmentsCount"

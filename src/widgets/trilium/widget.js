@@ -5,11 +5,8 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    "app-info": {
-      endpoint: "app-info",
-    },
-    allnotes: {
-      endpoint: "notes?search=note.id%20%3D%20%22root%22",
+    metrics: {
+      endpoint: "metrics?format=json",
     },
   },
 };
