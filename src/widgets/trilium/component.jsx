@@ -10,7 +10,6 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  // Fetch metrics from Trilium in JSON format
   const { data: metricsData, error: metricsError } = useWidgetAPI(widget, "metrics");
 
   if (metricsError) {
