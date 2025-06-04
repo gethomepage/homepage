@@ -36,16 +36,8 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block
-        icon={RiStackLine}
-        label="trilium.version"
-        value={version ? `v${version}` : t("trilium.unknown")}
-      />
-      <Block
-        icon={FiFileText}
-        label="trilium.notesCount"
-        value={t("common.number", { value: notesCount })}
-      />
+      <Block icon={RiStackLine} label="trilium.version" value={version ? `v${version}` : t("trilium.unknown")} />
+      <Block icon={FiFileText} label="trilium.notesCount" value={t("common.number", { value: notesCount })} />
       <Block
         icon={FiPaperclip}
         label="trilium.attachmentsCount"
