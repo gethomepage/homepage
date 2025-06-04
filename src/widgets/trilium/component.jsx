@@ -32,10 +32,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="trilium.version" value={version ? `v${version}` : t("trilium.unknown")} />
       <Block label="trilium.notesCount" value={t("common.number", { value: notesCount })} />
-      <Block
-        label="trilium.attachmentsCount"
-        value={t("common.number", { value: attachmentsCount })}
-      />
+      <Block label="trilium.attachmentsCount" value={t("common.number", { value: attachmentsCount })} />
     </Container>
   );
 }
