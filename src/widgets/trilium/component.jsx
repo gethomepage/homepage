@@ -29,10 +29,9 @@ export default function Component({ service }) {
     );
   }
 
-  // Extract values from the clean JSON structure
-  const version = metricsData?.version?.app;
-  const notesCount = metricsData?.database?.activeNotes || 0;
-  const attachmentsCount = metricsData?.database?.activeAttachments || 0;
+  const version = metricsData.version?.app;
+  const notesCount = metricsData.database?.activeNotes || 0;
+  const attachmentsCount = metricsData.database?.activeAttachments || 0;
 
   return (
     <Container service={service}>
