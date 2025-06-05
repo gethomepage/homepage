@@ -7,8 +7,8 @@ import Kubernetes from "widgets/kubernetes/component";
 import ProxmoxVM from "widgets/proxmoxvm/component";
 
 import KubernetesStatus from "./kubernetes-status";
-import ProxmoxStatus from "./proxmox-status";
 import Ping from "./ping";
+import ProxmoxStatus from "./proxmox-status";
 import SiteMonitor from "./site-monitor";
 import Status from "./status";
 import Widget from "./widget";
@@ -123,7 +123,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
                 <span className="sr-only">View container stats</span>
               </button>
             )}
-            {(service.proxmox_node && service.proxmox_vmid) && (
+            {service.proxmox_node && service.proxmox_vmid && (
               <button
                 type="button"
                 onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
@@ -164,7 +164,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
             )}
           </div>
         )}
-        {(service.proxmox_node && service.proxmox_vmid) && (
+        {service.proxmox_node && service.proxmox_vmid && (
           <div
             className={classNames(
               showStats || (statsOpen && !statsClosing) ? "max-h-[110px] opacity-100" : " max-h-0 opacity-0",
@@ -172,13 +172,15 @@ export default function Item({ service, groupName, useEqualHeights }) {
             )}
           >
             {(showStats || statsOpen) && (
-              <ProxmoxVM service={{
-                widget: {
-                  node: service.proxmox_node,
-                  vmid: service.proxmox_vmid,
-                  type: service.proxmox_type || 'qemu'
-                }
-              }} />
+              <ProxmoxVM
+                service={{
+                  widget: {
+                    node: service.proxmox_node,
+                    vmid: service.proxmox_vmid,
+                    type: service.proxmox_type || "qemu",
+                  },
+                }}
+              />
             )}
           </div>
         )}

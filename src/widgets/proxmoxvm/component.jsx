@@ -8,9 +8,7 @@ export default function ProxmoxVM({ service }) {
 
   const { widget } = service;
 
-  const { data, error } = useSWR(
-    `/api/proxmox/stats/${widget.node}/${widget.vmid}?type=${widget.type || 'qemu'}`
-  );
+  const { data, error } = useSWR(`/api/proxmox/stats/${widget.node}/${widget.vmid}?type=${widget.type || "qemu"}`);
 
   if (error) {
     return <Container service={service} error={error} />;

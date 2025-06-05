@@ -1,6 +1,6 @@
 import { getProxmoxConfig } from "utils/config/proxmox";
-import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
+import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("proxmoxStatsService");
 
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     if (status !== 200) {
       logger.error("HTTP Error %d calling Proxmox API", status);
       return res.status(status).send({
-        error: `Failed to fetch Proxmox ${vmType} status`
+        error: `Failed to fetch Proxmox ${vmType} status`,
       });
     }
 
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
     return res.status(200).json({
       status: responseData_.status || "unknown",
       cpu: responseData_.cpu,
-      mem: responseData_.mem
+      mem: responseData_.mem,
     });
   } catch (error) {
     logger.error("Error fetching Proxmox status:", error);
