@@ -362,8 +362,8 @@
     "trilium": {
         "version": "Version",
         "notesCount": "Notes",
-        "attachmentsCount": "Attachments",
-        "unknown": "Unknown",
+        "dbSize": "Database Size",
+        "unknown": "Unknown"
     },
     "navidrome": {
         "nothing_streaming": "No Active Streams",

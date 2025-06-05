@@ -19,20 +19,20 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="trilium.version" />
         <Block label="trilium.notesCount" />
-        <Block label="trilium.attachmentsCount" />
+        <Block label="trilium.dbSize" />
       </Container>
     );
   }
 
   const version = metricsData.version?.app;
   const notesCount = metricsData.database?.activeNotes || 0;
-  const attachmentsCount = metricsData.database?.activeAttachments || 0;
+  const databaseSizeBytes = metricsData.statistics?.databaseSizeBytes || 0;
 
   return (
     <Container service={service}>
       <Block label="trilium.version" value={version ? `v${version}` : t("trilium.unknown")} />
       <Block label="trilium.notesCount" value={t("common.number", { value: notesCount })} />
-      <Block label="trilium.attachmentsCount" value={t("common.number", { value: attachmentsCount })} />
+      <Block label="trilium.dbSize" value={t("common.bytes", { value: databaseSizeBytes })} />
     </Container>
   );
 }
