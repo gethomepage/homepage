@@ -7,6 +7,7 @@ const widget = {
   mappings: {
     metrics: {
       endpoint: "metrics?format=json",
+      validate: ["version", "database"],
     },
   },
 };
