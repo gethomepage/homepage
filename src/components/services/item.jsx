@@ -123,7 +123,6 @@ export default function Item({ service, groupName, useEqualHeights }) {
                 <span className="sr-only">View container stats</span>
               </button>
             )}
-            <span className="ml-2 text-xs text-theme-500 dark:text-theme-300">{String(statsOpen)}</span>
             {(service.proxmox_node && service.proxmox_vmid) && (
               <button
                 type="button"
