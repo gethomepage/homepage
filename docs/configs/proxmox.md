@@ -24,6 +24,7 @@ Once the Proxmox connection is configured, individual services can be configured
 #### Examples
 
 For a QEMU VM (default):
+
 ```yaml
 - HomeAssistant:
   icon: home-assistant.png
@@ -35,6 +36,7 @@ For a QEMU VM (default):
 ```
 
 For an LXC container:
+
 ```yaml
 - Nginx:
   icon: nginx.png

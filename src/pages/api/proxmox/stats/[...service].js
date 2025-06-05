@@ -43,9 +43,6 @@ export default async function handler(req, res) {
       });
     }
 
-
-
-    // Parse the Buffer response as JSON
     let parsedData = JSON.parse(Buffer.from(data).toString());
 
     if (!parsedData || !parsedData.data) {
