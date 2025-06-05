@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "IP público",
         "region": "Região",
-        "country": "País"
+        "country": "País",
+        "port_forwarded": "Porta Encaminhada"
     },
     "hdhomerun": {
         "channels": "Canais",
@@ -856,7 +857,8 @@
         "physicalRelease": "Versão física",
         "digitalRelease": "Versão digital",
         "noEventsToday": "Nenhum evento para hoje!",
-        "noEventsFound": "Nenhum evento encontrado"
+        "noEventsFound": "Nenhum evento encontrado",
+        "errorWhenLoadingData": "Erro ao carregar dados do calendário"
     },
     "romm": {
         "platforms": "Plataformas",
@@ -1042,5 +1044,15 @@
         "downloads": "Transferências",
         "uploads": "Envios",
         "sharedFiles": "Arquivos"
+    },
+    "jellystat": {
+        "songs": "Canções",
+        "movies": "Filmes",
+        "episodes": "Episódios",
+        "other": "Outro"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

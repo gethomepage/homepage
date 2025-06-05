@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "パブリックIP",
         "region": "地域",
-        "country": "国"
+        "country": "国",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "チャンネル",
@@ -856,7 +857,8 @@
         "physicalRelease": "物理的なリリース",
         "digitalRelease": "デジタル・リリース",
         "noEventsToday": "本日の予定なし",
-        "noEventsFound": "予定が見つかりません"
+        "noEventsFound": "予定が見つかりません",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "プラットフォーム",
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "ファイル"
+    },
+    "jellystat": {
+        "songs": "曲",
+        "movies": "映画",
+        "episodes": "エピソード",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

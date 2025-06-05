@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Публичный IP-адрес",
         "region": "Регион",
-        "country": "Страна"
+        "country": "Страна",
+        "port_forwarded": "Порт переадресован"
     },
     "hdhomerun": {
         "channels": "Каналы",
@@ -856,7 +857,8 @@
         "physicalRelease": "Физический релиз",
         "digitalRelease": "Цифровой релиз",
         "noEventsToday": "Нет событий на сегодня!",
-        "noEventsFound": "Событий не найдено"
+        "noEventsFound": "Событий не найдено",
+        "errorWhenLoadingData": "Ошибка при загрузке данных календаря"
     },
     "romm": {
         "platforms": "Платформы",
@@ -1042,5 +1044,15 @@
         "downloads": "Скачивания",
         "uploads": "Загрузки",
         "sharedFiles": "Файлов"
+    },
+    "jellystat": {
+        "songs": "Песни",
+        "movies": "Фильмы",
+        "episodes": "Эпизоды",
+        "other": "Другой"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }
