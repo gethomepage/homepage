@@ -359,6 +359,12 @@
         "services": "Tjenester",
         "middleware": "Mellomvare"
     },
+    "trilium": {
+        "version": "Versjon",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Ukjent"
+    },
     "navidrome": {
         "nothing_streaming": "Ingen aktive strømminger",
         "please_wait": "Vennligst vent"

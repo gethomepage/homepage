@@ -359,6 +359,12 @@
         "services": "Serveis",
         "middleware": "Intermediari"
     },
+    "trilium": {
+        "version": "Versió",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Desconegut"
+    },
     "navidrome": {
         "nothing_streaming": "Sense reproduccions actives",
         "please_wait": "Espereu si us plau"

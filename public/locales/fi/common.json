@@ -359,6 +359,12 @@
         "services": "Palveluja",
         "middleware": "Middlewareja"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Unknown"
+    },
     "navidrome": {
         "nothing_streaming": "Ei aktiivisia striimejä",
         "please_wait": "Odota, ole hyvä"

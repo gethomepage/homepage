@@ -359,6 +359,12 @@
         "services": "Services",
         "middleware": "Middleware"
     },
+    "trilium": {
+        "version": "เวอร์ชั่น",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "ไม่ทราบ"
+    },
     "navidrome": {
         "nothing_streaming": "ไม่มีสตรีมที่ใช้งานอยู่",
         "please_wait": "Please Wait"

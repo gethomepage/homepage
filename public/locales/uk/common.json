@@ -359,6 +359,12 @@
         "services": "Сервіси",
         "middleware": "Проміжне програмне забезпечення"
     },
+    "trilium": {
+        "version": "Версія",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Невідомий"
+    },
     "navidrome": {
         "nothing_streaming": "Немає активних потоків",
         "please_wait": "Будь ласка, зачекайте"

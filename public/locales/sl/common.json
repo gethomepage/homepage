@@ -359,6 +359,12 @@
         "services": "Servisi",
         "middleware": "Vmesna programska oprema"
     },
+    "trilium": {
+        "version": "Verzija",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Neznano"
+    },
     "navidrome": {
         "nothing_streaming": "Ni aktivne vsebine",
         "please_wait": "Prosim počakajte"

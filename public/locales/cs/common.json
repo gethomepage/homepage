@@ -359,6 +359,12 @@
         "services": "Služby",
         "middleware": "Prostředník"
     },
+    "trilium": {
+        "version": "Verze",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Neznámý"
+    },
     "navidrome": {
         "nothing_streaming": "Žádný aktivní stream",
         "please_wait": "Čekejte prosím"

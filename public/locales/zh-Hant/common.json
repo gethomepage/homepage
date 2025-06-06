@@ -359,6 +359,12 @@
         "services": "服務",
         "middleware": "中介軟體"
     },
+    "trilium": {
+        "version": "版本",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "未知"
+    },
     "navidrome": {
         "nothing_streaming": "無播放活動",
         "please_wait": "請稍後"
