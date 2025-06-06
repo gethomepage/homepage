@@ -28,7 +28,7 @@ For a QEMU VM (default):
 ```yaml
 - HomeAssistant:
   icon: home-assistant.png
-  href: "http://homeassistant.local/"
+  href: http://homeassistant.local/
   description: Home automation
   proxmox_node: pve
   proxmox_vmid: 101
@@ -40,7 +40,7 @@ For an LXC container:
 ```yaml
 - Nginx:
   icon: nginx.png
-  href: "http://nginx.local/"
+  href: http://nginx.local/
   description: Web server
   proxmox_node: pve
   proxmox_vmid: 200

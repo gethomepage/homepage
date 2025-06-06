@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   if (!node) {
     return res.status(400).send({
-      error: "proxmox node parameter is required",
+      error: "Proxmox node parameter is required",
     });
   }
 
@@ -51,12 +51,10 @@ export default async function handler(req, res) {
       });
     }
 
-    const responseData_ = parsedData.data;
-
     return res.status(200).json({
-      status: responseData_.status || "unknown",
-      cpu: responseData_.cpu,
-      mem: responseData_.mem,
+      status: parsedData.data.status || "unknown",
+      cpu: parsedData.data.cpu,
+      mem: parsedData.data.mem,
     });
   } catch (error) {
     logger.error("Error fetching Proxmox status:", error);

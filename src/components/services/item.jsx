@@ -177,7 +177,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
                   widget: {
                     node: service.proxmox_node,
                     vmid: service.proxmox_vmid,
-                    type: service.proxmox_type || "qemu",
+                    type: service.proxmox_type,
                   },
                 }}
               />

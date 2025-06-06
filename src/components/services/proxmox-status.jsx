@@ -4,7 +4,6 @@ import useSWR from "swr";
 export default function ProxmoxStatus({ service, style }) {
   const { t } = useTranslation();
 
-  // VM/LXC monitoring only - use stats endpoint which includes status
   const vmType = service.proxmox_type || "qemu";
   const apiUrl = `/api/proxmox/stats/${service.proxmox_node}/${service.proxmox_vmid}?type=${vmType}`;
 
