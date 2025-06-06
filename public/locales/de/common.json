@@ -149,8 +149,8 @@
         "received": "Empfangen",
         "sent": "Gesendet",
         "externalIPAddress": "Externe IP",
-        "externalIPv6Address": "Externe IPv6",
-        "externalIPv6Prefix": "Externes IPv6-Präfix"
+        "externalIPv6Address": "Ext. IPv6",
+        "externalIPv6Prefix": "Ext. IPv6-Präfix"
     },
     "caddy": {
         "upstreams": "Upstreams",
@@ -165,7 +165,7 @@
         "shows": "Serien",
         "recordings": "Aufnahmen",
         "scheduled": "Geplant",
-        "passes": "Pässe"
+        "passes": "Durchläufe"
     },
     "tautulli": {
         "playing": "Wiedergabe",
@@ -358,6 +358,12 @@
         "routers": "Router",
         "services": "Dienste",
         "middleware": "Middleware"
+    },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notizen",
+        "dbSize": "Datenbankgröße",
+        "unknown": "Unbekannt"
     },
     "navidrome": {
         "nothing_streaming": "Keine aktiven Streams",

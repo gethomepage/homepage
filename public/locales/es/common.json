@@ -359,6 +359,12 @@
         "services": "Servicios",
         "middleware": "Software intermedio"
     },
+    "trilium": {
+        "version": "Versión",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Desconocido"
+    },
     "navidrome": {
         "nothing_streaming": "Sin transmisiones activas",
         "please_wait": "Por favor, espera"
@@ -569,7 +575,7 @@
         "public_ip": "IP pública",
         "region": "Región",
         "country": "País",
-        "port_forwarded": "Port Forwarded"
+        "port_forwarded": "Puerto redireccionado"
     },
     "hdhomerun": {
         "channels": "Canales",
@@ -858,7 +864,7 @@
         "digitalRelease": "Lanzamiento en digital",
         "noEventsToday": "¡Sin eventos para hoy!",
         "noEventsFound": "No se encontraron eventos",
-        "errorWhenLoadingData": "Error when loading calendar data"
+        "errorWhenLoadingData": "Error al cargar los datos del calendario"
     },
     "romm": {
         "platforms": "Plataformas",
@@ -1052,7 +1058,7 @@
         "other": "Otros"
     },
     "checkmk": {
-        "serviceErrors": "Service issues",
-        "hostErrors": "Host issues"
+        "serviceErrors": "Problemas de servicio",
+        "hostErrors": "Problemas de host"
     }
 }

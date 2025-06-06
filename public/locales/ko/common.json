@@ -359,6 +359,12 @@
         "services": "서비스",
         "middleware": "미들웨어"
     },
+    "trilium": {
+        "version": "버전",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "알 수 없음"
+    },
     "navidrome": {
         "nothing_streaming": "활성 스트림 없음",
         "please_wait": "잠시만 기다리세요"

@@ -359,6 +359,12 @@
         "services": "Services",
         "middleware": "Middleware"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Nezināms"
+    },
     "navidrome": {
         "nothing_streaming": "Nav aktīvu straumju",
         "please_wait": "Please Wait"

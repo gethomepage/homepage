@@ -359,6 +359,12 @@
         "services": "Layanan",
         "middleware": "Middleware"
     },
+    "trilium": {
+        "version": "Versi",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Tidak Diketahui"
+    },
     "navidrome": {
         "nothing_streaming": "Tidak ada Strim Aktif",
         "please_wait": "Mohon menunggu"

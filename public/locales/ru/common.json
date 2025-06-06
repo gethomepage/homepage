@@ -359,6 +359,12 @@
         "services": "Сервисы",
         "middleware": "Связующее ПО"
     },
+    "trilium": {
+        "version": "Версия",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Неизвестен"
+    },
     "navidrome": {
         "nothing_streaming": "Нет активных потоков",
         "please_wait": "Пожалуйста, подождите"

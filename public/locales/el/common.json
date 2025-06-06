@@ -359,6 +359,12 @@
         "services": "Υπηρεσίες",
         "middleware": "Ενδιάμεσο λογισμικό"
     },
+    "trilium": {
+        "version": "Έκδοση",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Άγνωστο"
+    },
     "navidrome": {
         "nothing_streaming": "Δεν υπάρχουν ενεργές ροές",
         "please_wait": "Παρακαλώ περιμένετε"

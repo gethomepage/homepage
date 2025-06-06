@@ -359,6 +359,12 @@
         "services": "שירותים",
         "middleware": "מתווך"
     },
+    "trilium": {
+        "version": "גרסה",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "לא ידוע"
+    },
     "navidrome": {
         "nothing_streaming": "אין הזרמות פעילות",
         "please_wait": "המתן בבקשה"
