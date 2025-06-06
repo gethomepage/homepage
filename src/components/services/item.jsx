@@ -4,9 +4,11 @@ import { useContext, useState } from "react";
 import { SettingsContext } from "utils/contexts/settings";
 import Docker from "widgets/docker/component";
 import Kubernetes from "widgets/kubernetes/component";
+import ProxmoxVM from "widgets/proxmoxvm/component";
 
 import KubernetesStatus from "./kubernetes-status";
 import Ping from "./ping";
+import ProxmoxStatus from "./proxmox-status";
 import SiteMonitor from "./site-monitor";
 import Status from "./status";
 import Widget from "./widget";
@@ -121,6 +123,16 @@ export default function Item({ service, groupName, useEqualHeights }) {
                 <span className="sr-only">View container stats</span>
               </button>
             )}
+            {service.proxmoxNode && service.proxmoxVMID && (
+              <button
+                type="button"
+                onClick={() => (statsOpen ? closeStats() : setStatsOpen(true))}
+                className="shrink-0 flex items-center justify-center cursor-pointer service-tag service-proxmoxstatus"
+              >
+                <ProxmoxStatus service={service} style={statusStyle} />
+                <span className="sr-only">View Proxmox stats</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -147,6 +159,26 @@ export default function Item({ service, groupName, useEqualHeights }) {
               <Kubernetes
                 service={{
                   widget: { namespace: service.namespace, app: service.app, podSelector: service.podSelector },
+                }}
+              />
+            )}
+          </div>
+        )}
+        {service.proxmoxNode && service.proxmoxVMID && (
+          <div
+            className={classNames(
+              showStats || (statsOpen && !statsClosing) ? "max-h-[110px] opacity-100" : " max-h-0 opacity-0",
+              "w-full overflow-hidden transition-all duration-300 ease-in-out service-stats",
+            )}
+          >
+            {(showStats || statsOpen) && (
+              <ProxmoxVM
+                service={{
+                  widget: {
+                    node: service.proxmoxNode,
+                    vmid: service.proxmoxVMID,
+                    type: service.proxmoxType,
+                  },
                 }}
               />
             )}
