@@ -1,4 +1,4 @@
 ---
 # url: https://proxmox.host.or.ip:8006
-# username: api_token_id
-# password: api_token_secret
+# token: username@pam!Token ID
+# secret: secret
