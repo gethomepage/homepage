@@ -359,6 +359,12 @@
         "services": "Hizmetler",
         "middleware": "Ara Katman"
     },
+    "trilium": {
+        "version": "Versiyon",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Bilinmiyor"
+    },
     "navidrome": {
         "nothing_streaming": "Aktif akış yok",
         "please_wait": "Lütfen Bekleyin"

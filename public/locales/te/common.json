@@ -359,6 +359,12 @@
         "services": "సేవలు",
         "middleware": "మిడిల్వేర్"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Unknown"
+    },
     "navidrome": {
         "nothing_streaming": "యాక్టివ్ స్ట్రీమ్‌లు లేవు",
         "please_wait": "Please Wait"

@@ -359,6 +359,12 @@
         "services": "Сервиси",
         "middleware": "Мидлвер"
     },
+    "trilium": {
+        "version": "Верзија",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Непознато"
+    },
     "navidrome": {
         "nothing_streaming": "Нема активних стримова",
         "please_wait": "Молим сачекајте"

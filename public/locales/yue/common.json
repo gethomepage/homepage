@@ -359,6 +359,12 @@
         "services": "服務項",
         "middleware": "中間件"
     },
+    "trilium": {
+        "version": "版本",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "未知"
+    },
     "navidrome": {
         "nothing_streaming": "無任何活動",
         "please_wait": "請稍後"

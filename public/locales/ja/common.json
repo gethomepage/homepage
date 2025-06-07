@@ -359,6 +359,12 @@
         "services": "サービス",
         "middleware": "ミドルウェア"
     },
+    "trilium": {
+        "version": "バージョン",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "不明"
+    },
     "navidrome": {
         "nothing_streaming": "アクティブ・ストリーム無し",
         "please_wait": "お待ちください"

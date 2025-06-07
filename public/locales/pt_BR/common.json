@@ -359,6 +359,12 @@
         "services": "Serviços",
         "middleware": ""
     },
+    "trilium": {
+        "version": "Versão",
+        "notesCount": "Notas",
+        "dbSize": "Tamanho do banco de dados",
+        "unknown": "Desconhecido"
+    },
     "navidrome": {
         "nothing_streaming": "Sem Streams Ativos",
         "please_wait": "Por favor, aguarde"
@@ -1052,7 +1058,7 @@
         "other": "Outro"
     },
     "checkmk": {
-        "serviceErrors": "Service issues",
-        "hostErrors": "Host issues"
+        "serviceErrors": "Problemas de serviço",
+        "hostErrors": "Problemas do host"
     }
 }

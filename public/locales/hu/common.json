@@ -359,6 +359,12 @@
         "services": "Folyamatok",
         "middleware": "Közvetítő"
     },
+    "trilium": {
+        "version": "Verzió",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Ismeretlen"
+    },
     "navidrome": {
         "nothing_streaming": "Nincs aktív lejátszás",
         "please_wait": "Kérjük Várjon"

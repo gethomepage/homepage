@@ -359,6 +359,12 @@
         "services": "Dienste",
         "middleware": "Filtreerprogramme"
     },
+    "trilium": {
+        "version": "Weergawe",
+        "notesCount": "Notas",
+        "dbSize": "Databasis Grootte",
+        "unknown": "Onbekend"
+    },
     "navidrome": {
         "nothing_streaming": "Geen aktiewe strome nie",
         "please_wait": "Wag Asseblief"

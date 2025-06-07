@@ -359,6 +359,12 @@
         "services": "خدمات",
         "middleware": "الوسيطة"
     },
+    "trilium": {
+        "version": "الإصدار",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "مجهول"
+    },
     "navidrome": {
         "nothing_streaming": "لا يوجد بث نشط",
         "please_wait": "الرجاء الإنتظار"
