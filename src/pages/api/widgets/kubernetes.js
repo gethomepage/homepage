@@ -67,7 +67,7 @@ export default async function handler(req, res) {
         nodeMap[nodeMetric.metadata.name].memory.percent = (mem / nodeMap[nodeMetric.metadata.name].memory.total) * 100;
       });
     } catch (error) {
-      logger.error("Error getting metrics, ensure you have metrics-server installed: s", JSON.stringify(error));
+      logger.error("Error getting metrics, ensure you have metrics-server installed:", JSON.stringify(error));
       return res.status(500).send({
         error: "Error getting metrics, check logs for more details",
       });
