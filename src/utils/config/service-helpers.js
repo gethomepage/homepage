@@ -295,6 +295,7 @@ export function cleanServiceGroups(groups) {
           // emby, jellyfin
           enableBlocks,
           enableNowPlaying,
+          enableMediaControl,
 
           // emby, jellyfin, tautulli
           enableUser,
@@ -471,6 +472,7 @@ export function cleanServiceGroups(groups) {
           if (wan) widget.wan = wan;
         }
         if (["emby", "jellyfin"].includes(type)) {
+          if (enableMediaControl !== undefined) widget.enableMediaControl = !!JSON.parse(enableMediaControl);
           if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) widget.enableNowPlaying = JSON.parse(enableNowPlaying);
         }
