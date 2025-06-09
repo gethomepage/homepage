@@ -17,6 +17,7 @@ widget:
   enableBlocks: true # optional, defaults to false
   enableNowPlaying: true # optional, defaults to true
   enableUser: true # optional, defaults to false
+  enableMediaControl: false # optional, defaults to true
   showEpisodeNumber: true # optional, defaults to false
   expandOneStreamToTwoRows: false # optional, defaults to true
 ```
