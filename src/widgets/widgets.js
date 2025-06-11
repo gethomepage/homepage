@@ -54,6 +54,7 @@ import jellystat from "./jellystat/widget";
 import karakeep from "./karakeep/widget";
 import kavita from "./kavita/widget";
 import komga from "./komga/widget";
+import komodo from "./komodo/widget";
 import kopia from "./kopia/widget";
 import lidarr from "./lidarr/widget";
 import linkwarden from "./linkwarden/widget";
@@ -197,6 +198,7 @@ const widgets = {
   jellystat,
   kavita,
   komga,
+  komodo,
   kopia,
   lidarr,
   linkwarden,
