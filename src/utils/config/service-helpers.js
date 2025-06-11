@@ -340,6 +340,7 @@ export function cleanServiceGroups(groups) {
 
           // komodo
           showSummary,
+          showStacks,
 
           // kopia
           snapshotHost,
@@ -455,6 +456,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "komodo") {
           if (showSummary !== undefined) widget.showSummary = !!JSON.parse(showSummary);
+          if (showStacks !== undefined) widget.showStacks = !!JSON.parse(showStacks);
         }
         if (type === "kubernetes") {
           if (namespace) widget.namespace = namespace;

@@ -9,8 +9,9 @@ const MAX_ALLOWED_FIELDS = 4;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { data: containersData, error: containersError } = useWidgetAPI(widget, "containers");
-  const stacksEndpoint = widget.showSummary ? "stacks" : "";
+  const containersEndpoint = !(!widget.showSummary && widget.showStacks) ? "containers" : "";
+  const { data: containersData, error: containersError } = useWidgetAPI(widget, containersEndpoint);
+  const stacksEndpoint = widget.showSummary || widget.showStacks ? "stacks" : "";
   const { data: stacksData, error: stacksError } = useWidgetAPI(widget, stacksEndpoint);
   const serversEndpoint = widget.showSummary ? "servers" : "";
   const { data: serversData, error: serversError } = useWidgetAPI(widget, serversEndpoint);
@@ -27,7 +28,11 @@ export default function Component({ service }) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
-  if (!containersData || (widget.showSummary && (!stacksData || !serversData))) {
+  if (
+    (!widget.showStacks && !containersData) ||
+    (widget.showSummary && (!stacksData || !serversData)) ||
+    (widget.showStacks && !stacksData)
+  ) {
     return widget.showSummary ? (
       <Container service={service}>
         <Block label="komodo.servers" />
@@ -49,6 +54,14 @@ export default function Component({ service }) {
       <Block label="komodo.servers" value={`${serversData.healthy} / ${serversData.total}`} />
       <Block label="komodo.stacks" value={`${stacksData.running} / ${stacksData.total}`} />
       <Block label="komodo.containers" value={`${containersData.running} / ${containersData.total}`} />
+    </Container>
+  ) : widget.showStacks ? (
+    <Container service={service}>
+      <Block label="komodo.total" value={t("common.number", { value: stacksData.total })} />
+      <Block label="komodo.running" value={t("common.number", { value: stacksData.running })} />
+      <Block label="komodo.stopped" value={t("common.number", { value: stacksData.stopped + stacksData.down })} />
+      <Block label="komodo.unhealthy" value={t("common.number", { value: stacksData.unhealthy })} />
+      <Block label="komodo.unknown" value={t("common.number", { value: stacksData.unknown })} />
     </Container>
   ) : (
     <Container service={service}>
