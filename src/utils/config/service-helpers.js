@@ -363,6 +363,9 @@ export function cleanServiceGroups(groups) {
           // opnsense, pfsense
           wan,
 
+          // portainer
+          kubernetes,
+
           // prometheusmetric
           metrics,
 
@@ -443,6 +446,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "unifi") {
           if (site) widget.site = site;
+        }
+        if (type === "portainer") {
+          if (kubernetes) widget.kubernetes = kubernetes;
         }
         if (type === "proxmox") {
           if (node) widget.node = node;
