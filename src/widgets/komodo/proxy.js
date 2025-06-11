@@ -1,7 +1,7 @@
-import createLogger from "utils/logger";
-import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
 
@@ -22,15 +22,14 @@ export default async function komodoProxyHandler(req, res, map) {
       const headers = {
         "Content-Type": "application/json",
         "X-API-Key": `${widget.key}`,
-        "X-API-Secret": `${widget.secret}`
+        "X-API-Secret": `${widget.secret}`,
       };
       const [status, contentType, data] = await httpProxy(url, {
         method: "POST",
         withCredentials: true,
         body: JSON.stringify({
-            type: "GetStacksSummary",
-            params: {},
-  
+          type: "GetStacksSummary",
+          params: {},
         }),
         credentials: "include",
         headers,
