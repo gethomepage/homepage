@@ -6,7 +6,18 @@ const widget = {
 
   mappings: {
     containers: {
-      endpoint: "read",
+      endpoint: "containers", // api actually uses unified read endpoint
+      body: {
+        type: "GetDockerContainersSummary",
+        params: {},
+      },
+    },
+    stacks: {
+      endpoint: "stacks", // api actually uses unified read endpoint
+      body: {
+        type: "GetStacksSummary",
+        params: {},
+      },
     },
   },
 };

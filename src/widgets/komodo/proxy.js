@@ -10,6 +10,8 @@ const logger = createLogger("komodoProxyHandler");
 export default async function komodoProxyHandler(req, res) {
   const { group, service, endpoint, index } = req.query;
 
+  console.log(req.query);
+
   if (group && service) {
     const widget = await getServiceWidget(group, service, index);
     if (!widgets?.[widget.type]?.api) {
@@ -17,7 +19,8 @@ export default async function komodoProxyHandler(req, res) {
     }
 
     if (widget) {
-      const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget })).toString();
+      // api uses unified read endpoint
+      const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint: "read", ...widget })).toString();
 
       const headers = {
         "Content-Type": "application/json",
@@ -26,10 +29,7 @@ export default async function komodoProxyHandler(req, res) {
       };
       const [status, contentType, data] = await httpProxy(url, {
         method: "POST",
-        body: JSON.stringify({
-          type: "GetDockerContainersSummary",
-          params: {},
-        }),
+        body: JSON.stringify(widgets[widget.type].mappings?.[endpoint]?.body || {}),
         headers,
       });
 

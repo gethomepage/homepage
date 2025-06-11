@@ -1066,6 +1066,8 @@
         "running": "Running",
         "stopped": "Stopped",
         "unhealthy": "Unhealthy",
-        "unknown": "Unknown"
+        "unknown": "Unknown",
+        "stacks": "Stacks",
+        "containers": "Containers"
     }
 }
