@@ -1,20 +1,12 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import komodoProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}/{endpoint}",
-  proxyHandler: credentialedProxyHandler,
+  proxyHandler: komodoProxyHandler,
 
   mappings: {
     stacks: {
       endpoint: "read",
-      method: "POST",
-      body: {
-        type: "GetStacksSummary",
-        params: {},
-      },
-      headers: {
-        "Content-Type": "application/json",
-      },
     },
   },
 };
