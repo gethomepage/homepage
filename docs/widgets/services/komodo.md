@@ -3,7 +3,7 @@ title: Komodo
 description: Komodo Widget Configuration
 ---
 
-This widget shows either a summary of containers managed by [Komodo](https://komo.do/) or the number of running servers, containers and stacks.
+This widget shows either details about all containers managed by [Komodo](https://komo.do/) or the number of running servers, containers and stacks when `showSummary` is enabled.
 
 The api key and secret can be found in the Komodo settings.
 
