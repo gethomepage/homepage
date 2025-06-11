@@ -7,7 +7,7 @@ import widgets from "widgets/widgets";
 
 const logger = createLogger("komodoProxyHandler");
 
-export default async function komodoProxyHandler(req, res, map) {
+export default async function komodoProxyHandler(req, res) {
   const { group, service, endpoint, index } = req.query;
 
   if (group && service) {
@@ -37,12 +37,8 @@ export default async function komodoProxyHandler(req, res, map) {
 
       let resultData = data;
 
-      if (status === 204 || status === 304) {
-        return res.status(status).end();
-      }
-
       if (status >= 400) {
-        logger.error("HTTP Error %d calling %s", status, url.toString());
+        logger.error("HTTP Error %d calling %s", status, sanitizeErrorURL(url));
       }
 
       if (status === 200) {
@@ -51,7 +47,6 @@ export default async function komodoProxyHandler(req, res, map) {
             .status(500)
             .json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: resultData } });
         }
-        if (map) resultData = map(resultData);
       }
 
       if (contentType) res.setHeader("Content-Type", contentType);
