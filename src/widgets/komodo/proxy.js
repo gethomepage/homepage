@@ -26,12 +26,10 @@ export default async function komodoProxyHandler(req, res) {
       };
       const [status, contentType, data] = await httpProxy(url, {
         method: "POST",
-        withCredentials: true,
         body: JSON.stringify({
           type: "GetDockerContainersSummary",
           params: {},
         }),
-        credentials: "include",
         headers,
       });
 
