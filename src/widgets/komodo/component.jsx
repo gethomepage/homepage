@@ -9,10 +9,7 @@ const MAX_ALLOWED_FIELDS = 4;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { data, error } = useWidgetAPI(widget, "stacks", {
-    columns: "state",
-    query: '{"op": "!=", "left": "state", "right": "0"}',
-  });
+  const { data, error } = useWidgetAPI(widget, "stacks");
 
   if (error) {
     return <Container service={service} error={error} />;
