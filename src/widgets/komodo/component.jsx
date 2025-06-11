@@ -19,7 +19,7 @@ export default function Component({ service }) {
   }
 
   if (!widget.fields || widget.fields.length === 0) {
-    widget.fields = ["total", "running", "down", "unhealthy"];
+    widget.fields = ["total", "running", "stopped", "unhealthy"];
   } else if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
@@ -29,7 +29,7 @@ export default function Component({ service }) {
       <Container service={service}>
         <Block label="komodo.total" />
         <Block label="komodo.running" />
-        <Block label="komodo.down" />
+        <Block label="komodo.stopped" />
         <Block label="komodo.unhealthy" />
       </Container>
     );
@@ -38,9 +38,8 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="komodo.total" value={t("common.number", { value: data.total })} />
-      <Block label="komodo.stopped" value={t("common.number", { value: data.stopped })} />
       <Block label="komodo.running" value={t("common.number", { value: data.running })} />
-      <Block label="komodo.down" value={t("common.number", { value: data.down })} />
+      <Block label="komodo.stopped" value={t("common.number", { value: data.stopped })} />
       <Block label="komodo.unhealthy" value={t("common.number", { value: data.unhealthy })} />
       <Block label="komodo.unknown" value={t("common.number", { value: data.unknown })} />
     </Container>

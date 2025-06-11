@@ -3,11 +3,9 @@ title: Komodo
 description: Komodo Widget Configuration
 ---
 
-This widget shows the summary of Stacks managed by [Komodo](https://komo.do/).
+This widget shows the summary of containers managed by [Komodo](https://komo.do/). See the [komodo docs](https://docs.rs/komodo_client/latest/komodo_client/api/index.html) for api key and secret.
 
-This widget requires an API Key and Secret, which can be setup at: `http://komodo.hostname.or.ip:port/settings`.
-
-Allowed fields: `["total", "running", "stopped", "down", "unhealthy", "unknown"]`.
+Allowed fields (max 4): `["total", "running", "stopped", "unhealthy", "unknown"]`.
 
 ```yaml
 widget:

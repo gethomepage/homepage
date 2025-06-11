@@ -28,7 +28,7 @@ export default async function komodoProxyHandler(req, res) {
         method: "POST",
         withCredentials: true,
         body: JSON.stringify({
-          type: "GetStacksSummary",
+          type: "GetDockerContainersSummary",
           params: {},
         }),
         credentials: "include",
