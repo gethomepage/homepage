@@ -17,17 +17,28 @@ export default function Component({ service }) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
-  // Conditionally call Kubernetes APIs only when widget.kubernetes is true
-  const { data: applicationsData, error: applicationsError } = useWidgetAPI(widget, isKubernetesWidget ? "kubernetes/applications": "");
+  const { data: applicationsData, error: applicationsError } = useWidgetAPI(
+    widget,
+    isKubernetesWidget ? "kubernetes/applications" : "",
+  );
 
-  const { data: servicesData, error: servicesError } = useWidgetAPI(widget, isKubernetesWidget ? "kubernetes/services": "");
+  const { data: servicesData, error: servicesError } = useWidgetAPI(
+    widget,
+    isKubernetesWidget ? "kubernetes/services" : "",
+  );
 
-  const { data: namespacesData, error: namespacesError } = useWidgetAPI(widget, isKubernetesWidget ? "kubernetes/namespaces": "");
+  const { data: namespacesData, error: namespacesError } = useWidgetAPI(
+    widget,
+    isKubernetesWidget ? "kubernetes/namespaces" : "",
+  );
 
-  // Conditionally call Docker API only when widget.kubernetes is false
-  const { data: containersData, error: containersError } = useWidgetAPI(widget, isKubernetesWidget ? "" : "docker/containers", {
-    all: 1,
-  });
+  const { data: containersData, error: containersError } = useWidgetAPI(
+    widget,
+    isKubernetesWidget ? "" : "docker/containers",
+    {
+      all: 1,
+    },
+  );
 
   // Kubernetes widget handling
   if (isKubernetesWidget) {
