@@ -1067,6 +1067,7 @@
         "stopped": "Stopped",
         "unhealthy": "Unhealthy",
         "unknown": "Unknown",
+        "servers": "Servers",
         "stacks": "Stacks",
         "containers": "Containers"
     }

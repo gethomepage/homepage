@@ -19,6 +19,13 @@ const widget = {
         params: {},
       },
     },
+    servers: {
+      endpoint: "servers", // api actually uses unified read endpoint
+      body: {
+        type: "GetServersSummary",
+        params: {},
+      },
+    },
   },
 };
 

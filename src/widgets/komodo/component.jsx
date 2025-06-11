@@ -12,20 +12,25 @@ export default function Component({ service }) {
   const { data: containersData, error: containersError } = useWidgetAPI(widget, "containers");
   const stacksEndpoint = widget.showSummary ? "stacks" : "";
   const { data: stacksData, error: stacksError } = useWidgetAPI(widget, stacksEndpoint);
+  const serversEndpoint = widget.showSummary ? "servers" : "";
+  const { data: serversData, error: serversError } = useWidgetAPI(widget, serversEndpoint);
 
-  if (containersError || stacksError) {
-    return <Container service={service} error={containersError ?? stacksError} />;
+  if (containersError || stacksError || serversError) {
+    return <Container service={service} error={containersError ?? stacksError ?? serversError} />;
   }
 
   if (!widget.fields || widget.fields.length === 0) {
-    widget.fields = widget.showSummary ? ["stacks", "containers"] : ["total", "running", "stopped", "unhealthy"];
+    widget.fields = widget.showSummary
+      ? ["servers", "stacks", "containers"]
+      : ["total", "running", "stopped", "unhealthy"];
   } else if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
-  if (!containersData || (widget.showSummary && !stacksData)) {
+  if (!containersData || (widget.showSummary && (!stacksData || !serversData))) {
     return widget.showSummary ? (
       <Container service={service}>
+        <Block label="komodo.servers" />
         <Block label="komodo.stacks" />
         <Block label="komodo.containers" />
       </Container>
@@ -41,6 +46,7 @@ export default function Component({ service }) {
 
   return widget.showSummary ? (
     <Container service={service}>
+      <Block label="komodo.servers" value={`${serversData.healthy} / ${serversData.total}`} />
       <Block label="komodo.stacks" value={`${stacksData.running} / ${stacksData.total}`} />
       <Block label="komodo.containers" value={`${containersData.running} / ${containersData.total}`} />
     </Container>
