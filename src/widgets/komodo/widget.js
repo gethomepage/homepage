@@ -5,7 +5,7 @@ const widget = {
   proxyHandler: komodoProxyHandler,
 
   mappings: {
-    stacks: {
+    containers: {
       endpoint: "read",
     },
   },

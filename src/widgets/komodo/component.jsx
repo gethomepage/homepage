@@ -9,7 +9,7 @@ const MAX_ALLOWED_FIELDS = 4;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { data, error } = useWidgetAPI(widget, "stacks");
+  const { data, error } = useWidgetAPI(widget, "containers");
 
   if (error) {
     return <Container service={service} error={error} />;
