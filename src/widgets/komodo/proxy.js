@@ -10,8 +10,6 @@ const logger = createLogger("komodoProxyHandler");
 export default async function komodoProxyHandler(req, res) {
   const { group, service, endpoint, index } = req.query;
 
-  console.log(req.query);
-
   if (group && service) {
     const widget = await getServiceWidget(group, service, index);
     if (!widgets?.[widget.type]?.api) {
