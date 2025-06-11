@@ -1064,7 +1064,8 @@
     "komodo": {
         "total": "Total",
         "running": "Running",
-        "stopped": "Stopped/Down",
+        "stopped": "Stopped",
+        "down": "Down",
         "unhealthy": "Unhealthy",
         "unknown": "Unknown",
         "servers": "Servers",

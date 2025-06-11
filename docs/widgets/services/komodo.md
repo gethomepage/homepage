@@ -7,7 +7,8 @@ This widget shows either details about all containers or stacks (if `showStacks`
 
 The api key and secret can be found in the Komodo settings.
 
-Allowed fields without `showSummary` (max 4): `["total", "running", "stopped", "unhealthy", "unknown"]`.
+Allowed fields (max 4): `["total", "running", "stopped", "unhealthy", "unknown"]`.
+Allowed fields with `showStacks` (max 4): `["total", "running", "down", "unhealthy", "unknown"]`.
 Allowed fields with `showSummary`: `["servers", "stacks", "containers"]`.
 
 ```yaml
