@@ -6,37 +6,31 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
+  const isKubernetesWidget = !!widget.kubernetes;
+
+  if (!widget.fields) {
+    widget.fields = isKubernetesWidget ? ["applications", "services", "namespaces"] : ["running", "stopped", "total"];
+  }
+
+  const MAX_ALLOWED_FIELDS = 4;
+  if (widget.fields.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
+
   // Conditionally call Kubernetes APIs only when widget.kubernetes is true
-  const { data: applicationsData, error: applicationsError } = useWidgetAPI(
-    widget,
-    "kubernetes/applications",
-    { disabled: !widget.kubernetes }
-  );
+  const { data: applicationsData, error: applicationsError } = useWidgetAPI(widget, "kubernetes/applications");
 
-  const { data: servicesData, error: servicesError } = useWidgetAPI(
-    widget,
-    "kubernetes/services",
-    { disabled: !widget.kubernetes }
-  );
+  const { data: servicesData, error: servicesError } = useWidgetAPI(widget, "kubernetes/services");
 
-  const { data: namespacesData, error: namespacesError } = useWidgetAPI(
-    widget,
-    "kubernetes/namespaces",
-    { disabled: !widget.kubernetes }
-  );
+  const { data: namespacesData, error: namespacesError } = useWidgetAPI(widget, "kubernetes/namespaces");
 
   // Conditionally call Docker API only when widget.kubernetes is false
-  const { data: containersData, error: containersError } = useWidgetAPI(
-    widget,
-    "docker/containers",
-    {
-      all: 1,
-      disabled: !!widget.kubernetes
-    }
-  );
+  const { data: containersData, error: containersError } = useWidgetAPI(widget, "docker/containers", {
+    all: 1
+  });
 
   // Kubernetes widget handling
-  if (!!widget.kubernetes) {
+  if (isKubernetesWidget) {
     const error = applicationsError || servicesError || namespacesError;
     if (error) {
       return <Container service={service} error={error} />;
