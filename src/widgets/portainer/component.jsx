@@ -26,7 +26,7 @@ export default function Component({ service }) {
 
   // Conditionally call Docker API only when widget.kubernetes is false
   const { data: containersData, error: containersError } = useWidgetAPI(widget, "docker/containers", {
-    all: 1
+    all: 1,
   });
 
   // Kubernetes widget handling
@@ -37,12 +37,12 @@ export default function Component({ service }) {
     }
 
     return (
-        <Container service={service}>
-          <Block label="portainer.applications" value={applicationsData ?? 0} />
-          <Block label="portainer.services" value={servicesData ?? 0} />
-          <Block label="portainer.namespaces" value={namespacesData ?? 0} />
-        </Container>
-      );
+      <Container service={service}>
+        <Block label="portainer.applications" value={applicationsData ?? 0} />
+        <Block label="portainer.services" value={servicesData ?? 0} />
+        <Block label="portainer.namespaces" value={namespacesData ?? 0} />
+      </Container>
+    );
   }
 
   // Docker widget handling
