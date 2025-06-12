@@ -147,7 +147,7 @@ const components = {
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
   zabbix: dynamic(() => import("./zabbix/component")),
-  watchyourlan: dynamic(() => import("./watchyourlan/component")),
+  watchyourlan: dynamic(() => import("./watchyourlan/component"))
 };
 
 export default components;
