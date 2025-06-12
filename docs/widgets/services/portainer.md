@@ -9,8 +9,8 @@ You'll need to make sure you have the correct environment set for the integratio
 
 Allowed fields:
 
-- For Kubernetes mode (`kubernetes: true`): `["applications", "services", "namespaces"]`
 - For Docker mode (default): `["running", "stopped", "total"]`
+- For Kubernetes mode (`kubernetes: true`): `["applications", "services", "namespaces"]`
 
 ```yaml
 widget:

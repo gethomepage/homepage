@@ -12,11 +12,6 @@ export default function Component({ service }) {
     widget.fields = isKubernetesWidget ? ["applications", "services", "namespaces"] : ["running", "stopped", "total"];
   }
 
-  const MAX_ALLOWED_FIELDS = 4;
-  if (widget.fields.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
-  }
-
   const { data: applicationsData, error: applicationsError } = useWidgetAPI(
     widget,
     isKubernetesWidget ? "kubernetes/applications" : "",
@@ -42,9 +37,19 @@ export default function Component({ service }) {
 
   // Kubernetes widget handling
   if (isKubernetesWidget) {
-    const error = applicationsError || servicesError || namespacesError;
+    const error = applicationsError ?? servicesError ?? namespacesError ?? applicationsData;
     if (error) {
       return <Container service={service} error={error} />;
+    }
+
+    if (!applicationsData || !servicesData || !namespacesData) {
+      return (
+        <Container service={service}>
+          <Block label="portainer.applications" />
+          <Block label="portainer.services" />
+          <Block label="portainer.namespaces" />
+        </Container>
+      );
     }
 
     return (

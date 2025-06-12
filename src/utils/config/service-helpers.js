@@ -448,7 +448,7 @@ export function cleanServiceGroups(groups) {
           if (site) widget.site = site;
         }
         if (type === "portainer") {
-          if (kubernetes) widget.kubernetes = kubernetes;
+          if (kubernetes) widget.kubernetes = !!JSON.parse(kubernetes);
         }
         if (type === "proxmox") {
           if (node) widget.node = node;
