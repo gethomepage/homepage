@@ -15,4 +15,3 @@ widget:
   type: watchyourlan
   url: http://watchyourlan.host.or.ip:port
 ```
-=
