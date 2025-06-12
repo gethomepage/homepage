@@ -285,7 +285,7 @@ const widgets = {
   whatsupdocker,
   xteve,
   zabbix,
-  watchyourlan,
+  watchyourlan
 };
 
 export default widgets;
