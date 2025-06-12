@@ -1071,5 +1071,12 @@
         "servers": "Servers",
         "stacks": "Stacks",
         "containers": "Containers"
+    },
+    "watchyourlan": {
+        "total": "Total",
+        "online": "Online",
+        "offline": "Offline",
+        "known": "Known",
+        "unknown": "Unknown"
     }
 }
