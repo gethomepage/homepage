@@ -5,9 +5,9 @@ const widget = {
   proxyHandler: genericProxyHandler,
   mappings: {
     info: {
-      endpoint: "api/status/",
-    },
-  },
+      endpoint: "api/status/"
+    }
+  }
 };
 
 export default widget;
