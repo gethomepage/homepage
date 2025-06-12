@@ -72,8 +72,23 @@ export default async function beszelProxyHandler(req, res) {
         },
       });
 
-      if ([400, 403].includes(status)) {
-        logger.debug(`HTTP ${status} retrieving data from Beszel, logging in and trying again.`);
+      const badRequest = [400, 403].includes(status);
+      const text = data.toString("utf-8");
+      let isEmpty = false;
+
+      try {
+        const json = JSON.parse(text);
+        isEmpty = Array.isArray(json.items) && json.items.length === 0;
+      } catch (err) {
+        logger.debug("Failed to parse Beszel response JSON:", err);
+      }
+
+      if (badRequest || isEmpty) {
+        if (badRequest) {
+          logger.debug(`HTTP ${status} retrieving data from Beszel, logging in and trying again.`);
+        } else {
+          logger.debug(`Received empty list from Beszel, logging in and trying again.`);
+        }
         cache.del(`${tokenCacheKey}.${service}`);
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
 

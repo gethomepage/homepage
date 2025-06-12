@@ -13,6 +13,7 @@ import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
+import checkmk from "./checkmk/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import crowdsec from "./crowdsec/widget";
@@ -49,6 +50,7 @@ import immich from "./immich/widget";
 import jackett from "./jackett/widget";
 import jdownloader from "./jdownloader/widget";
 import jellyseerr from "./jellyseerr/widget";
+import jellystat from "./jellystat/widget";
 import karakeep from "./karakeep/widget";
 import kavita from "./kavita/widget";
 import komga from "./komga/widget";
@@ -151,6 +153,7 @@ const widgets = {
   calibreweb,
   changedetectionio,
   channelsdvrserver,
+  checkmk,
   cloudflared,
   coinmarketcap,
   crowdsec,
@@ -191,6 +194,7 @@ const widgets = {
   jdownloader,
   jellyfin: emby,
   jellyseerr,
+  jellystat,
   kavita,
   komga,
   kopia,

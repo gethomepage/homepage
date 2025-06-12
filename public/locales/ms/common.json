@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "IP Awam",
         "region": "Rantau",
-        "country": "Negara"
+        "country": "Negara",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Saluran",
@@ -856,7 +857,8 @@
         "physicalRelease": "Edaran fizikal",
         "digitalRelease": "Edaran digital",
         "noEventsToday": "Tiada agenda untuk hari ini!",
-        "noEventsFound": "Tiada agenda dijumpai"
+        "noEventsFound": "Tiada agenda dijumpai",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Platform",
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Files"
+    },
+    "jellystat": {
+        "songs": "Lagu",
+        "movies": "Filem",
+        "episodes": "Episod",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }

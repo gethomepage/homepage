@@ -34,6 +34,9 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;
+      } else if (widget.type === "checkmk") {
+        headers["Accept"] = `application/json`;
+        headers.Authorization = `Bearer ${widget.username} ${widget.password}`;
       } else if (
         [
           "argocd",
@@ -65,7 +68,7 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "proxmoxbackupserver") {
         delete headers["Content-Type"];
         headers.Authorization = `PBSAPIToken=${widget.username}:${widget.password}`;
-      } else if (widget.type === "autobrr") {
+      } else if (["autobrr", "jellystat"].includes(widget.type)) {
         headers["X-API-Token"] = `${widget.key}`;
       } else if (widget.type === "tubearchivist") {
         headers.Authorization = `Token ${widget.key}`;
@@ -98,7 +101,11 @@ export default async function credentialedProxyHandler(req, res, map) {
           headers.Cookie = `authenticated=${widget.key}`;
         }
       } else if (widget.type === "wgeasy") {
-        headers.Authorization = widget.password;
+        if (widget.username && widget.password) {
+          headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
+        } else {
+          headers.Authorization = widget.password;
+        }
       } else if (widget.type === "gitlab") {
         headers["PRIVATE-TOKEN"] = widget.key;
       } else if (widget.type === "speedtest") {

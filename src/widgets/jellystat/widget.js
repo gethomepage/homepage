@@ -1,15 +1,13 @@
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
-  api: "{url}/api/{endpoint}",
+  api: "{url}/{endpoint}",
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    client: {
-      endpoint: "wireguard/client",
-    },
-    clientv2: {
-      endpoint: "client",
+    getViewsByLibraryType: {
+      endpoint: "stats/getViewsByLibraryType",
+      params: ["days"],
     },
   },
 };

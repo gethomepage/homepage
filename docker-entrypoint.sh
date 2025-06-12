@@ -12,10 +12,43 @@ export PGID=${PGID:-0}
 
 export HOMEPAGE_BUILDTIME=$(date +%s)
 
-# Set privileges for /app but only if pid 1 user is root and we are dropping privileges.
-# If container is run as an unprivileged user, it means owner already handled ownership setup on their own.
-# Running chown in that case (as non-root) will cause error
-[ "$(id -u)" == "0" ] && [ "${PUID}" != "0" ] && chown -R ${PUID}:${PGID} /app/config /app/public
+# Check ownership before chown
+if [ -e /app/config ]; then
+  CURRENT_UID=$(stat -c %u /app/config)
+  CURRENT_GID=$(stat -c %g /app/config)
+
+  if [ "$CURRENT_UID" -ne "$PUID" ] || [ "$CURRENT_GID" -ne "$PGID" ]; then
+    echo "Fixing ownership of /app/config"
+    if ! chown -R "$PUID:$PGID" /app/config 2>/dev/null; then
+      echo "Warning: Could not chown /app/config; continuing anyway"
+    fi
+  else
+    echo "/app/config already owned by correct UID/GID, skipping chown"
+  fi
+else
+  echo "/app/config does not exist; skipping ownership check"
+fi
+
+# Ensure /app/config/logs exists and is owned
+if [ -n "$PUID" ] && [ -n "$PGID" ]; then
+  mkdir -p /app/config/logs 2>/dev/null || true
+  if [ -d /app/config/logs ]; then
+    LOG_UID=$(stat -c %u /app/config/logs)
+    LOG_GID=$(stat -c %g /app/config/logs)
+    if [ "$LOG_UID" -ne "$PUID" ] || [ "$LOG_GID" -ne "$PGID" ]; then
+      echo "Fixing ownership of /app/config/logs"
+      chown -R "$PUID:$PGID" /app/config/logs 2>/dev/null || echo "Warning: Could not chown /app/config/logs"
+    fi
+  fi
+fi
+
+if [ -d /app/.next ]; then
+  CURRENT_UID=$(stat -c %u /app/.next)
+  if [ "$CURRENT_UID" -ne "$PUID" ]; then
+    echo "Fixing ownership of /app/.next"
+    chown -R "$PUID:$PGID" /app/.next || echo "Warning: Could not chown /app/.next"
+  fi
+fi
 
 # Drop privileges (when asked to) if root, otherwise run as current user
 if [ "$(id -u)" == "0" ] && [ "${PUID}" != "0" ]; then

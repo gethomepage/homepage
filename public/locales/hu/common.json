@@ -568,7 +568,8 @@
     "gluetun": {
         "public_ip": "Nyilvános IP-cím",
         "region": "Régió",
-        "country": "Ország"
+        "country": "Ország",
+        "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
         "channels": "Csatornák",
@@ -856,7 +857,8 @@
         "physicalRelease": "Fizikai kiadás",
         "digitalRelease": "Digitális kiadás",
         "noEventsToday": "Ezen a napon nincsenek események!",
-        "noEventsFound": "Nem található esemény"
+        "noEventsFound": "Nem található esemény",
+        "errorWhenLoadingData": "Error when loading calendar data"
     },
     "romm": {
         "platforms": "Felület",
@@ -1042,5 +1044,15 @@
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Fájlok"
+    },
+    "jellystat": {
+        "songs": "Zeneszám",
+        "movies": "Film",
+        "episodes": "Epizód",
+        "other": "Other"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
     }
 }
