@@ -10,6 +10,14 @@ export default function Component({ service }) {
     widget.fields = widget.kubernetes ? ["applications", "services", "namespaces"] : ["running", "stopped", "total"];
   }
 
+  const { data: containersCount, error: containersError } = useWidgetAPI(
+    widget,
+    widget.kubernetes ? "" : "docker/containers",
+    {
+      all: 1,
+    },
+  );
+
   const { data: applicationsCount, error: applicationsError } = useWidgetAPI(
     widget,
     widget.kubernetes ? "kubernetes/applications" : "",
@@ -25,16 +33,8 @@ export default function Component({ service }) {
     widget.kubernetes ? "kubernetes/namespaces" : "",
   );
 
-  const { data: containersCount, error: containersError } = useWidgetAPI(
-    widget,
-    widget.kubernetes ? "" : "docker/containers",
-    {
-      all: 1,
-    },
-  );
-
-  // Kubernetes widget handling
   if (widget.kubernetes) {
+    // count can be an error object
     const error = applicationsError ?? servicesError ?? namespacesError ?? applicationsCount;
     if (error) {
       return <Container service={service} error={error} />;
@@ -59,7 +59,6 @@ export default function Component({ service }) {
     );
   }
 
-  // Docker widget handling
   if (containersError) {
     return <Container service={service} error={containersError} />;
   }
