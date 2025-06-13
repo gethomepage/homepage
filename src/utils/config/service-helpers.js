@@ -338,6 +338,10 @@ export function cleanServiceGroups(groups) {
           // jellystat
           days,
 
+          // komodo
+          showSummary,
+          showStacks,
+
           // kopia
           snapshotHost,
           snapshotPath,
@@ -455,6 +459,10 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "proxmoxbackupserver") {
           if (datastore) widget.datastore = datastore;
+        }
+        if (type === "komodo") {
+          if (showSummary !== undefined) widget.showSummary = !!JSON.parse(showSummary);
+          if (showStacks !== undefined) widget.showStacks = !!JSON.parse(showStacks);
         }
         if (type === "kubernetes") {
           if (namespace) widget.namespace = namespace;

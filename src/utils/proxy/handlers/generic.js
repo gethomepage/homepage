@@ -19,9 +19,11 @@ export default async function genericProxyHandler(req, res, map) {
 
     if (widget) {
       // if there are more than one question marks, replace others to &
-      const url = new URL(
-        formatApiCall(widgets[widget.type].api, { endpoint, ...widget }).replace(/(?<=\?.*)\?/g, "&"),
-      );
+      let urlString = formatApiCall(widgets[widget.type].api, { endpoint, ...widget }).replace(/(?<=\?.*)\?/g, "&");
+      if (widget.type === "customapi" && widget.url?.endsWith("/")) {
+        urlString += "/"; // Ensure we dont lose the trailing slash for custom API calls
+      }
+      const url = new URL(urlString);
 
       const headers = req.extraHeaders ?? widget.headers ?? widgets[widget.type].headers ?? {};
 

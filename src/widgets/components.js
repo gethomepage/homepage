@@ -63,6 +63,7 @@ const components = {
   jellystat: dynamic(() => import("./jellystat/component")),
   kavita: dynamic(() => import("./kavita/component")),
   komga: dynamic(() => import("./komga/component")),
+  komodo: dynamic(() => import("./komodo/component")),
   kopia: dynamic(() => import("./kopia/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
   linkwarden: dynamic(() => import("./linkwarden/component")),
