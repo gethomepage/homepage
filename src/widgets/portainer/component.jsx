@@ -12,22 +12,22 @@ export default function Component({ service }) {
     widget.fields = isKubernetesWidget ? ["applications", "services", "namespaces"] : ["running", "stopped", "total"];
   }
 
-  const { data: applicationsData, error: applicationsError } = useWidgetAPI(
+  const { data: applicationsCount, error: applicationsError } = useWidgetAPI(
     widget,
     isKubernetesWidget ? "kubernetes/applications" : "",
   );
 
-  const { data: servicesData, error: servicesError } = useWidgetAPI(
+  const { data: servicesCount, error: servicesError } = useWidgetAPI(
     widget,
     isKubernetesWidget ? "kubernetes/services" : "",
   );
 
-  const { data: namespacesData, error: namespacesError } = useWidgetAPI(
+  const { data: namespacesCount, error: namespacesError } = useWidgetAPI(
     widget,
     isKubernetesWidget ? "kubernetes/namespaces" : "",
   );
 
-  const { data: containersData, error: containersError } = useWidgetAPI(
+  const { data: containersCount, error: containersError } = useWidgetAPI(
     widget,
     isKubernetesWidget ? "" : "docker/containers",
     {
@@ -37,12 +37,12 @@ export default function Component({ service }) {
 
   // Kubernetes widget handling
   if (isKubernetesWidget) {
-    const error = applicationsError ?? servicesError ?? namespacesError ?? applicationsData;
+    const error = applicationsError ?? servicesError ?? namespacesError ?? applicationsCount;
     if (error) {
       return <Container service={service} error={error} />;
     }
 
-    if (!applicationsData || !servicesData || !namespacesData) {
+    if (applicationsCount == undefined || servicesCount == undefined || namespacesCount == undefined) {
       return (
         <Container service={service}>
           <Block label="portainer.applications" />
@@ -54,9 +54,9 @@ export default function Component({ service }) {
 
     return (
       <Container service={service}>
-        <Block label="portainer.applications" value={applicationsData ?? 0} />
-        <Block label="portainer.services" value={servicesData ?? 0} />
-        <Block label="portainer.namespaces" value={namespacesData ?? 0} />
+        <Block label="portainer.applications" value={applicationsCount ?? 0} />
+        <Block label="portainer.services" value={servicesCount ?? 0} />
+        <Block label="portainer.namespaces" value={namespacesCount ?? 0} />
       </Container>
     );
   }
@@ -66,7 +66,7 @@ export default function Component({ service }) {
     return <Container service={service} error={containersError} />;
   }
 
-  if (!containersData) {
+  if (!containersCount) {
     return (
       <Container service={service}>
         <Block label="portainer.running" />
@@ -76,14 +76,14 @@ export default function Component({ service }) {
     );
   }
 
-  if (containersData.error || containersData.message) {
+  if (containersCount.error || containersCount.message) {
     // containersData can be itself an error object e.g. if environment fails
-    return <Container service={service} error={containersData?.error ?? containersData} />;
+    return <Container service={service} error={containersCount?.error ?? containersCount} />;
   }
 
-  const running = containersData.filter((c) => c.State === "running").length;
-  const stopped = containersData.filter((c) => c.State === "exited").length;
-  const total = containersData.length;
+  const running = containersCount.filter((c) => c.State === "running").length;
+  const stopped = containersCount.filter((c) => c.State === "exited").length;
+  const total = containersCount.length;
 
   return (
     <Container service={service}>
