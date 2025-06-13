@@ -6,37 +6,35 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { widget } = service;
 
-  const isKubernetesWidget = !!widget.kubernetes;
-
   if (!widget.fields) {
-    widget.fields = isKubernetesWidget ? ["applications", "services", "namespaces"] : ["running", "stopped", "total"];
+    widget.fields = widget.kubernetes ? ["applications", "services", "namespaces"] : ["running", "stopped", "total"];
   }
 
   const { data: applicationsCount, error: applicationsError } = useWidgetAPI(
     widget,
-    isKubernetesWidget ? "kubernetes/applications" : "",
+    widget.kubernetes ? "kubernetes/applications" : "",
   );
 
   const { data: servicesCount, error: servicesError } = useWidgetAPI(
     widget,
-    isKubernetesWidget ? "kubernetes/services" : "",
+    widget.kubernetes ? "kubernetes/services" : "",
   );
 
   const { data: namespacesCount, error: namespacesError } = useWidgetAPI(
     widget,
-    isKubernetesWidget ? "kubernetes/namespaces" : "",
+    widget.kubernetes ? "kubernetes/namespaces" : "",
   );
 
   const { data: containersCount, error: containersError } = useWidgetAPI(
     widget,
-    isKubernetesWidget ? "" : "docker/containers",
+    widget.kubernetes ? "" : "docker/containers",
     {
       all: 1,
     },
   );
 
   // Kubernetes widget handling
-  if (isKubernetesWidget) {
+  if (widget.kubernetes) {
     const error = applicationsError ?? servicesError ?? namespacesError ?? applicationsCount;
     if (error) {
       return <Container service={service} error={error} />;
