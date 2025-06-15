@@ -359,6 +359,12 @@
         "services": "Сервиси",
         "middleware": "Мидлвер"
     },
+    "trilium": {
+        "version": "Верзија",
+        "notesCount": "Белешке",
+        "dbSize": "Величина базе података",
+        "unknown": "Непознато"
+    },
     "navidrome": {
         "nothing_streaming": "Нема активних стримова",
         "please_wait": "Молим сачекајте"
@@ -1054,5 +1060,16 @@
     "checkmk": {
         "serviceErrors": "Проблеми са услугом",
         "hostErrors": "Проблеми са хостом"
+    },
+    "komodo": {
+        "total": "Укупно",
+        "running": "Покренуто",
+        "stopped": "Заустављено",
+        "down": "Доле",
+        "unhealthy": "Нездравих",
+        "unknown": "Непознато",
+        "servers": "Сервери",
+        "stacks": "Стекови",
+        "containers": "Контејнера"
     }
 }
