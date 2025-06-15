@@ -61,16 +61,16 @@
         "wlan_devices": "מכשירים ב-WAN",
         "lan_users": "משתמשים ב-LAN",
         "wlan_users": "משתמשים ב-WLAN",
-        "up": "זמן פעילות",
+        "up": "UP",
         "down": "כבוי",
-        "wait": "המתן בבקשה",
+        "wait": "Please wait",
         "empty_data": "מצב תת-מערכת לא ידוע"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "זיכרון",
-        "cpu": "מעבד",
+        "mem": "MEM",
+        "cpu": "CPU",
         "running": "רץ",
         "offline": "לא מקוון",
         "error": "שגיאה",
@@ -83,7 +83,7 @@
         "partial": "חלקי"
     },
     "ping": {
-        "error": "שגיאה",
+        "error": "Error",
         "ping": "פינג",
         "down": "למטה",
         "up": "למעלה",
@@ -91,11 +91,11 @@
     },
     "siteMonitor": {
         "http_status": "סטטוס HTTP",
-        "error": "שגיאה",
+        "error": "Error",
         "response": "תגובה",
-        "down": "למטה",
-        "up": "למעלה",
-        "not_available": "לא זמין"
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "מנגן",
@@ -108,11 +108,11 @@
         "songs": "שירים"
     },
     "esphome": {
-        "offline": "לא מקוון",
-        "offline_alt": "לא מקוון",
+        "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "מקוון",
-        "total": "סה\"כ",
-        "unknown": "לא ידוע"
+        "total": "Total",
+        "unknown": "Unknown"
     },
     "evcc": {
         "pv_power": "הפקה",
@@ -133,7 +133,7 @@
         "unread": "לא נקרא"
     },
     "fritzbox": {
-        "connectionStatus": "סטטוס",
+        "connectionStatus": "Status",
         "connectionStatusUnconfigured": "לא מוגדר",
         "connectionStatusConnecting": "מתחבר",
         "connectionStatusAuthenticating": "מאמת",
@@ -141,11 +141,11 @@
         "connectionStatusDisconnecting": "מתנתק",
         "connectionStatusDisconnected": "מנותק",
         "connectionStatusConnected": "מחובר",
-        "uptime": "זמן פעילות",
+        "uptime": "Uptime",
         "maxDown": "מקס׳ הורדה",
         "maxUp": "מקס׳ העלאה",
-        "down": "למטה",
-        "up": "למעלה",
+        "down": "Down",
+        "up": "Up",
         "received": "התקבל",
         "sent": "נשלח",
         "externalIPAddress": "כתובת IP חיצונית",
@@ -168,10 +168,10 @@
         "passes": "Passes"
     },
     "tautulli": {
-        "playing": "מנגן",
-        "transcoding": "מקודד",
-        "bitrate": "סיביות",
-        "no_active": "אין הזרמות פעילות",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
         "plex_connection_error": "בדוק חיבור ל-Plex"
     },
     "omada": {
@@ -189,30 +189,30 @@
     "plex": {
         "streams": "הזרמות פעילות",
         "albums": "אלבומים",
-        "movies": "סרטים",
+        "movies": "Movies",
         "tv": "תוכניות טלוויזיה"
     },
     "sabnzbd": {
-        "rate": "יחס",
+        "rate": "Rate",
         "queue": "תור",
         "timeleft": "זמן שנותר"
     },
     "rutorrent": {
         "active": "פעיל",
-        "upload": "העלאה",
-        "download": "הורדה"
+        "upload": "Upload",
+        "download": "Download"
     },
     "transmission": {
-        "download": "הורדה",
-        "upload": "העלאה",
-        "leech": "עלוקה",
-        "seed": "זרע"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "הורדה",
-        "upload": "העלאה",
-        "leech": "עלוקה",
-        "seed": "זרע"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "qnap": {
         "cpuUsage": "שימוש במעבד",
@@ -223,44 +223,44 @@
         "invalid": "לא תקין"
     },
     "deluge": {
-        "download": "הורדה",
-        "upload": "העלאה",
-        "leech": "עלוקה",
-        "seed": "זרע"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "develancacheui": {
         "cachehitbytes": "Cache Hit Bytes",
         "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
-        "download": "הורדה",
-        "upload": "העלאה",
-        "leech": "עלוקה",
-        "seed": "זרע"
+        "download": "Download",
+        "upload": "Upload",
+        "leech": "Leech",
+        "seed": "Seed"
     },
     "sonarr": {
         "wanted": "מבוקש",
         "queued": "בתור",
-        "series": "סדרות",
-        "queue": "תור",
-        "unknown": "לא ידוע"
+        "series": "Series",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
-        "wanted": "מבוקש",
+        "wanted": "Wanted",
         "missing": "חסרים",
-        "queued": "בתור",
-        "movies": "סרטים",
-        "queue": "תור",
-        "unknown": "לא ידוע"
+        "queued": "Queued",
+        "movies": "Movies",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
-        "wanted": "מבוקש",
-        "queued": "בתור",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "artists": "אמנים"
     },
     "readarr": {
-        "wanted": "מבוקש",
-        "queued": "בתור",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "books": "ספרים"
     },
     "bazarr": {
@@ -273,19 +273,19 @@
         "available": "זמין"
     },
     "jellyseerr": {
-        "pending": "ממתין",
-        "approved": "מאושר",
-        "available": "זמין"
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "overseerr": {
-        "pending": "ממתין",
+        "pending": "Pending",
         "processing": "מעבד",
-        "approved": "מאושר",
-        "available": "זמין"
+        "approved": "Approved",
+        "available": "Available"
     },
     "netalertx": {
-        "total": "סה\"כ",
-        "connected": "מחובר",
+        "total": "Total",
+        "connected": "Connected",
         "new_devices": "מכשירים חדשים",
         "down_alerts": "התראות חוסר פעילות"
     },
@@ -296,26 +296,26 @@
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "שאילתות",
-        "blocked": "נחסם",
+        "queries": "Queries",
+        "blocked": "Blocked",
         "filtered": "מסונן",
         "latency": "השהיה"
     },
     "speedtest": {
-        "upload": "העלאה",
-        "download": "הורדה",
-        "ping": "פינג"
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
     },
     "portainer": {
-        "running": "רץ",
+        "running": "Running",
         "stopped": "נעצר",
-        "total": "סה\"כ"
+        "total": "Total"
     },
     "suwayomi": {
-        "download": "הורד",
+        "download": "Downloaded",
         "nondownload": "לא הורד",
-        "read": "נקרא",
-        "unread": "לא נקרא",
+        "read": "Read",
+        "unread": "Unread",
         "downloadedread": "ירד ונקרא",
         "downloadedunread": "ירד ולא נקרא",
         "nondownloadedread": "לא ירד ונקרא",
@@ -336,7 +336,7 @@
         "ago": "{{value}} Ago"
     },
     "technitium": {
-        "totalQueries": "שאילתות",
+        "totalQueries": "Queries",
         "totalNoError": "הצלחה",
         "totalServerFailure": "כשלונות",
         "totalNxDomain": "NX Domains",
@@ -344,12 +344,12 @@
         "totalAuthoritative": "Authoritative",
         "totalRecursive": "רקורסיבי",
         "totalCached": "נשמר במטמון",
-        "totalBlocked": "נחסם",
+        "totalBlocked": "Blocked",
         "totalDropped": "נפל",
         "totalClients": "לקוחות"
     },
     "tdarr": {
-        "queue": "תור",
+        "queue": "Queue",
         "processed": "עובד",
         "errored": "נכשל",
         "saved": "נשמר"
@@ -359,14 +359,20 @@
         "services": "שירותים",
         "middleware": "מתווך"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Unknown"
+    },
     "navidrome": {
-        "nothing_streaming": "אין הזרמות פעילות",
+        "nothing_streaming": "No Active Streams",
         "please_wait": "המתן בבקשה"
     },
     "npm": {
         "enabled": "מופעל",
         "disabled": "מבוטל",
-        "total": "סה\"כ"
+        "total": "Total"
     },
     "coinmarketcap": {
         "configure": "קבע את התצורה של מטבע קריפטו אחד או יותר למעקב",
@@ -377,73 +383,73 @@
     },
     "gotify": {
         "apps": "אפליקציות",
-        "clients": "לקוחות",
+        "clients": "Clients",
         "messages": "הודעות"
     },
     "prowlarr": {
         "enableIndexers": "אינדקסים",
         "numberOfGrabs": "תפיסות",
-        "numberOfQueries": "שאילתות",
+        "numberOfQueries": "Queries",
         "numberOfFailGrabs": "תפיסות שנכשלו",
         "numberOfFailQueries": "שאילתות שנכשלו"
     },
     "jackett": {
         "configured": "מוגדר",
-        "errored": "נכשל"
+        "errored": "Errored"
     },
     "strelaysrv": {
         "numActiveSessions": "סשנים פעילים",
         "numConnections": "חיבורים",
         "dataRelayed": "דאטה שהועבר",
-        "transferRate": "יחס"
+        "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "משתמשים",
+        "user_count": "Users",
         "status_count": "פוסטים",
         "domain_count": "דומיינים"
     },
     "medusa": {
-        "wanted": "מבוקש",
-        "queued": "בתור",
-        "series": "סדרות"
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     },
     "minecraft": {
         "players": "שחקנים",
         "version": "גרסה",
-        "status": "סטטוס",
-        "up": "מקוון",
-        "down": "לא מקוון"
+        "status": "Status",
+        "up": "Online",
+        "down": "Offline"
     },
     "miniflux": {
         "read": "נקרא",
-        "unread": "לא נקרא"
+        "unread": "Unread"
     },
     "authentik": {
-        "users": "משתמשים",
+        "users": "Users",
         "loginsLast24H": "כניסות (24h)",
         "failedLoginsLast24H": "כניסות שנכשלו (24h)"
     },
     "proxmox": {
-        "mem": "זיכרון",
-        "cpu": "מעבד",
+        "mem": "MEM",
+        "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "מעבד",
-        "load": "עומס",
-        "wait": "המתן בבקשה",
-        "temp": "טמפ׳",
+        "cpu": "CPU",
+        "load": "Load",
+        "wait": "Please wait",
+        "temp": "TEMP",
         "_temp": "טמפ׳",
         "warn": "אזהרה",
-        "uptime": "זמן פעילות",
-        "total": "סה\"כ",
-        "free": "פנוי",
-        "used": "בשימוש",
-        "days": "יום",
-        "hours": "שעה",
+        "uptime": "UP",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
+        "days": "d",
+        "hours": "h",
         "crit": "Crit",
-        "read": "נקרא",
+        "read": "Read",
         "write": "כתיבה",
         "gpu": "כרטיס מסך",
         "mem": "זיכרון",
@@ -455,7 +461,7 @@
         "search": "חיפוש",
         "custom": "מותאם אישית",
         "visit": "ביקור",
-        "url": "קישור",
+        "url": "URL",
         "searchsuggestion": "הצעה"
     },
     "wmo": {
@@ -464,57 +470,57 @@
         "1-day": "בעיקר שמשי",
         "1-night": "בעיקר בהיר",
         "2-day": "מעונן חלקית",
-        "2-night": "מעונן חלקית",
+        "2-night": "Partly Cloudy",
         "3-day": "מעונן",
-        "3-night": "מעונן",
+        "3-night": "Cloudy",
         "45-day": "ערפילי",
-        "45-night": "ערפילי",
-        "48-day": "ערפילי",
-        "48-night": "ערפילי",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
         "51-day": "טפטוף קל",
-        "51-night": "טפטוף קל",
+        "51-night": "Light Drizzle",
         "53-day": "טפטוף",
-        "53-night": "טפטוף",
+        "53-night": "Drizzle",
         "55-day": "טפטוף כבד",
-        "55-night": "טפטוף כבד",
+        "55-night": "Heavy Drizzle",
         "56-day": "טפטוף קפוא קל",
-        "56-night": "טפטוף קפוא קל",
+        "56-night": "Light Freezing Drizzle",
         "57-day": "טפטוף קפוא",
-        "57-night": "טפטוף קפוא",
+        "57-night": "Freezing Drizzle",
         "61-day": "גשם קל",
-        "61-night": "גשם קל",
+        "61-night": "Light Rain",
         "63-day": "גשם",
-        "63-night": "גשם",
+        "63-night": "Rain",
         "65-day": "גשם כבד",
-        "65-night": "גשם כבד",
+        "65-night": "Heavy Rain",
         "66-day": "גשם קפוא",
-        "66-night": "גשם קפוא",
-        "67-day": "גשם קפוא",
-        "67-night": "גשם קפוא",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
         "71-day": "שלג קל",
-        "71-night": "שלג קל",
+        "71-night": "Light Snow",
         "73-day": "שלג",
-        "73-night": "שלג",
+        "73-night": "Snow",
         "75-day": "שלג כבד",
-        "75-night": "שלג כבד",
+        "75-night": "Heavy Snow",
         "77-day": "גרגרי שלג",
-        "77-night": "גרגרי שלג",
+        "77-night": "Snow Grains",
         "80-day": "ממטרים קלים",
-        "80-night": "ממטרים קלים",
+        "80-night": "Light Showers",
         "81-day": "ממטרים",
-        "81-night": "ממטרים",
+        "81-night": "Showers",
         "82-day": "ממטרים כבדים",
-        "82-night": "ממטרים כבדים",
+        "82-night": "Heavy Showers",
         "85-day": "ממטרי שלג",
-        "85-night": "ממטרי שלג",
-        "86-day": "ממטרי שלג",
-        "86-night": "ממטרי שלג",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
         "95-day": "סופת רעמים",
-        "95-night": "סופת רעמים",
+        "95-night": "Thunderstorm",
         "96-day": "סופת רעמים עם ברד",
-        "96-night": "סופת רעמים עם ברד",
-        "99-day": "סופת רעמים עם ברד",
-        "99-night": "סופת רעמים עם ברד"
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
     },
     "homebridge": {
         "available_update": "מערכת",
@@ -523,17 +529,17 @@
         "up_to_date": "עדכני",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "למעלה",
-        "pending": "ממתין",
-        "down": "למטה"
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "healthchecks": {
         "new": "חדש",
-        "up": "למעלה",
+        "up": "Up",
         "grace": "בתקופת חסד",
-        "down": "למטה",
+        "down": "Down",
         "paused": "מושהה",
-        "status": "סטטוס",
+        "status": "Status",
         "last_ping": "פינג אחרון",
         "never": "אין פינגים עדיין"
     },
@@ -543,27 +549,27 @@
         "containers_failed": "נכשל"
     },
     "autobrr": {
-        "approvedPushes": "מאושר",
+        "approvedPushes": "Approved",
         "rejectedPushes": "נדחה",
         "filters": "פילטרים",
-        "indexers": "אינדקסים"
+        "indexers": "Indexers"
     },
     "tubearchivist": {
-        "downloads": "תור",
+        "downloads": "Queue",
         "videos": "סרטונים",
         "channels": "ערוצים",
         "playlists": "רשימות השמעה"
     },
     "truenas": {
         "load": "עומס מערכת",
-        "uptime": "זמן פעילות",
-        "alerts": "התראות"
+        "uptime": "Uptime",
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "מהירות",
-        "active": "פעיל",
-        "queue": "תור",
-        "total": "סה\"כ"
+        "active": "Active",
+        "queue": "Queue",
+        "total": "Total"
     },
     "gluetun": {
         "public_ip": "כתובת IP ציבורית",
@@ -572,47 +578,47 @@
         "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
-        "channels": "ערוצים",
+        "channels": "Channels",
         "hd": "HD",
         "tunerCount": "Tuners",
         "channelNumber": "ערוץ",
         "channelNetwork": "רשת",
         "signalStrength": "עוצמה",
         "signalQuality": "איכות",
-        "symbolQuality": "איכות",
-        "networkRate": "סיביות",
+        "symbolQuality": "Quality",
+        "networkRate": "Bitrate",
         "clientIP": "לקוח"
     },
     "scrutiny": {
         "passed": "עבר",
-        "failed": "נכשל",
-        "unknown": "לא ידוע"
+        "failed": "Failed",
+        "unknown": "Unknown"
     },
     "paperlessngx": {
         "inbox": "תיבת דואר נכנס",
-        "total": "סה\"כ"
+        "total": "Total"
     },
     "peanut": {
         "battery_charge": "טעינת סוללה",
         "ups_load": "עומס UPS",
         "ups_status": "סטטוס UPS",
-        "online": "מקוון",
+        "online": "Online",
         "on_battery": "על סוללה",
         "low_battery": "סוללה חלשה"
     },
     "nextdns": {
-        "wait": "המתן בבקשה",
+        "wait": "Please Wait",
         "no_devices": "אין מכשירים"
     },
     "mikrotik": {
         "cpuLoad": "עומס מעבד",
         "memoryUsed": "זיכרון בשימוש",
-        "uptime": "זמן פעילות",
+        "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
     "xteve": {
         "streams_all": "כל ההזרמות",
-        "streams_active": "הזרמות פעילות",
+        "streams_active": "Active Streams",
         "streams_xepg": "ערוצי XEPG"
     },
     "opendtu": {
@@ -622,7 +628,7 @@
         "limit": "Limit"
     },
     "opnsense": {
-        "cpu": "עומס מעבד",
+        "cpu": "CPU Load",
         "memory": "שימוש בזיכרון",
         "wanUpload": "העלאה ל-WAN",
         "wanDownload": "הורדה מ-WAN"
@@ -634,75 +640,75 @@
         "layers": "שכבות"
     },
     "octoprint": {
-        "printer_state": "סטטוס",
+        "printer_state": "Status",
         "temp_tool": "טמפ׳ כלי",
         "temp_bed": "טמפ׳ מיטה",
         "job_completion": "השלמת עבודה"
     },
     "cloudflared": {
         "origin_ip": "כתובת IP מקורית",
-        "status": "סטטוס"
+        "status": "Status"
     },
     "pfsense": {
         "load": "עומס מערכת ממוצע",
         "memory": "שימוש בזיכרון",
         "wanStatus": "סטטוס WAN",
-        "up": "למעלה",
-        "down": "למטה",
-        "temp": "טמפ׳",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
         "disk": "שימוש בדיסק",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "משימות שנכשלו 24h",
-        "cpu_usage": "מעבד",
+        "cpu_usage": "CPU",
         "memory_usage": "זיכרון"
     },
     "immich": {
-        "users": "משתמשים",
+        "users": "Users",
         "photos": "תמונות",
-        "videos": "סרטונים",
+        "videos": "Videos",
         "storage": "אחסון"
     },
     "uptimekuma": {
         "up": "אתרים פעילים",
         "down": "אתרים לא פעילים",
-        "uptime": "זמן פעילות",
+        "uptime": "Uptime",
         "incident": "תקריות",
-        "m": "דקה"
+        "m": "m"
     },
     "atsumeru": {
-        "series": "סדרות",
+        "series": "Series",
         "archives": "ארכיונים",
         "chapters": "פרקים",
         "categories": "קטגוריות"
     },
     "komga": {
         "libraries": "ספריות",
-        "series": "סדרות",
-        "books": "ספרים"
+        "series": "Series",
+        "books": "Books"
     },
     "diskstation": {
-        "days": "ימים",
-        "uptime": "זמן פעילות",
-        "volumeAvailable": "זמין"
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     },
     "mylar": {
-        "series": "סדרות",
+        "series": "Series",
         "issues": "גיליונות",
-        "wanted": "מבוקש"
+        "wanted": "Wanted"
     },
     "photoprism": {
-        "albums": "אלבומים",
-        "photos": "תמונות",
-        "videos": "סרטונים",
+        "albums": "Albums",
+        "photos": "Photos",
+        "videos": "Videos",
         "people": "אנשים"
     },
     "fileflows": {
-        "queue": "תור",
-        "processing": "מעבד",
-        "processed": "עובד",
+        "queue": "Queue",
+        "processing": "Processing",
+        "processed": "Processed",
         "time": "זמן"
     },
     "firefly": {
@@ -724,11 +730,11 @@
         "numshares": "שיתופים"
     },
     "kopia": {
-        "status": "סטטוס",
+        "status": "Status",
         "size": "גודל",
         "lastrun": "הרצה אחרונה",
         "nextrun": "הרצה הבאה",
-        "failed": "נכשל"
+        "failed": "Failed"
     },
     "unmanic": {
         "active_workers": "עובדים פעילים",
@@ -745,20 +751,20 @@
         "targets_total": "סה\"כ מטרות"
     },
     "gatus": {
-        "up": "אתרים פעילים",
-        "down": "אתרים לא פעילים",
-        "uptime": "זמן פעילות"
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime"
     },
     "ghostfolio": {
-        "gross_percent_today": "היום",
+        "gross_percent_today": "Today",
         "gross_percent_1y": "שנה",
         "gross_percent_max": "כל הזמן"
     },
     "audiobookshelf": {
         "podcasts": "פודקאסטים",
-        "books": "ספרים",
+        "books": "Books",
         "podcastsDuration": "משך פודקאסטים",
-        "booksDuration": "משך פודקאסטים"
+        "booksDuration": "Duration"
     },
     "homeassistant": {
         "people_home": "אנשים בבית",
@@ -767,48 +773,48 @@
     },
     "whatsupdocker": {
         "monitoring": "מנטר",
-        "updates": "עדכונים"
+        "updates": "Updates"
     },
     "calibreweb": {
-        "books": "ספרים",
+        "books": "Books",
         "authors": "מחברים",
-        "categories": "קטגוריות",
-        "series": "סדרות"
+        "categories": "Categories",
+        "series": "Series"
     },
     "jdownloader": {
-        "downloadCount": "תור",
-        "downloadBytesRemaining": "נותר",
-        "downloadTotalBytes": "גודל",
-        "downloadSpeed": "מהירות"
+        "downloadCount": "Queue",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "סדרות",
-        "totalFiles": "קבצים"
+        "seriesCount": "Series",
+        "totalFiles": "Files"
     },
     "azuredevops": {
         "result": "תוצאה",
-        "status": "סטטוס",
+        "status": "Status",
         "buildId": "Build ID",
         "succeeded": "הצליח",
         "notStarted": "לא התחיל",
-        "failed": "נכשל",
+        "failed": "Failed",
         "canceled": "בוטל",
         "inProgress": "בתהליך",
         "totalPrs": "סה\"כ PRs",
         "myPrs": "PRs שלי",
-        "approved": "מאושר"
+        "approved": "Approved"
     },
     "gamedig": {
-        "status": "סטטוס",
-        "online": "מקוון",
-        "offline": "לא מקוון",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline",
         "name": "שם",
         "map": "מפה",
         "currentPlayers": "שחקנים נוכחיים",
-        "players": "שחקנים",
+        "players": "Players",
         "maxPlayers": "שחקנים מקסימליים",
         "bots": "בוטים",
-        "ping": "פינג"
+        "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
@@ -818,39 +824,39 @@
     },
     "mealie": {
         "recipes": "מתכונים",
-        "users": "משתמשים",
-        "categories": "קטגוריות",
+        "users": "Users",
+        "categories": "Categories",
         "tags": "טגיות"
     },
     "openmediavault": {
         "downloading": "מוריד",
-        "total": "סה\"כ",
-        "running": "רץ",
-        "stopped": "נעצר",
-        "passed": "עבר",
-        "failed": "נכשל"
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     },
     "openwrt": {
-        "uptime": "זמן פעילות",
+        "uptime": "Uptime",
         "cpuLoad": "עומס מעבד ממוצע (5ד)",
-        "up": "למעלה",
-        "down": "למטה",
+        "up": "Up",
+        "down": "Down",
         "bytesTx": "נשלח",
-        "bytesRx": "התקבל"
+        "bytesRx": "Received"
     },
     "uptimerobot": {
-        "status": "סטטוס",
-        "uptime": "זמן פעילות",
+        "status": "Status",
+        "uptime": "Uptime",
         "lastDown": "זמן השבתה אחרון",
         "downDuration": "משך השבתה",
-        "sitesUp": "אתרים פעילים",
-        "sitesDown": "אתרים לא פעילים",
-        "paused": "מושהה",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
         "notyetchecked": "לא נבדק עדיין",
-        "up": "למעלה",
+        "up": "Up",
         "seemsdown": "נראה לא פעיל",
-        "down": "למטה",
-        "unknown": "לא ידוע"
+        "down": "Down",
+        "unknown": "Unknown"
     },
     "calendar": {
         "inCinemas": "בקולנוע",
@@ -869,10 +875,10 @@
         "totalfilesize": "גודל סה\"כ"
     },
     "mailcow": {
-        "domains": "דומיינים",
+        "domains": "Domains",
         "mailboxes": "תיבות דואר",
         "mails": "מיילים",
-        "storage": "אחסון"
+        "storage": "Storage"
     },
     "netdata": {
         "warnings": "התראות",
@@ -881,12 +887,12 @@
     "plantit": {
         "events": "אירועים",
         "plants": "צמחים",
-        "photos": "תמונות",
+        "photos": "Photos",
         "species": "מינים"
     },
     "gitea": {
         "notifications": "התראות",
-        "issues": "גיליונות",
+        "issues": "Issues",
         "pulls": "בקשות משיכה",
         "repositories": "מאגרי מידע"
     },
@@ -902,13 +908,13 @@
         "galleries": "גלריות",
         "performers": "מבצעים",
         "studios": "אולפנים",
-        "movies": "סרטים",
-        "tags": "טגיות",
+        "movies": "Movies",
+        "tags": "Tags",
         "oCount": "O Count"
     },
     "tandoor": {
-        "users": "משתמשים",
-        "recipes": "מתכונים",
+        "users": "Users",
+        "recipes": "Recipes",
         "keywords": "מילות מפתח"
     },
     "homebox": {
@@ -916,18 +922,18 @@
         "totalWithWarranty": "עם אחריות",
         "locations": "מיקומים",
         "labels": "תוויות",
-        "users": "משתמשים",
+        "users": "Users",
         "totalValue": "ערך כולל"
     },
     "crowdsec": {
-        "alerts": "התראות",
+        "alerts": "Alerts",
         "bans": "חסימות"
     },
     "wgeasy": {
-        "connected": "מחובר",
-        "enabled": "מופעל",
-        "disabled": "מבוטל",
-        "total": "סה\"כ"
+        "connected": "Connected",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "total": "Total"
     },
     "swagdashboard": {
         "proxied": "Proxied",
@@ -936,9 +942,9 @@
         "banned": "Banned"
     },
     "myspeed": {
-        "ping": "פינג",
-        "download": "הורדה",
-        "upload": "העלאה"
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
     },
     "stocks": {
         "stocks": "מניות",
@@ -949,17 +955,17 @@
     },
     "frigate": {
         "cameras": "מצלמות",
-        "uptime": "זמן פעילות",
-        "version": "גרסה"
+        "uptime": "Uptime",
+        "version": "Version"
     },
     "linkwarden": {
         "links": "קישורים",
         "collections": "אוספים",
-        "tags": "טגיות"
+        "tags": "Tags"
     },
     "zabbix": {
         "unclassified": "לא ממויין",
-        "information": "מידע",
+        "information": "Information",
         "warning": "אזהרה",
         "average": "ממוצע",
         "high": "גבוה",
@@ -980,24 +986,24 @@
         "tasksInProgress": "משימות בעבודה"
     },
     "headscale": {
-        "name": "שם",
-        "address": "כתובת",
-        "last_seen": "נראה לאחרונה",
-        "status": "סטטוס",
-        "online": "מקוון",
-        "offline": "לא מקוון"
+        "name": "Name",
+        "address": "Address",
+        "last_seen": "Last Seen",
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline"
     },
     "beszel": {
-        "name": "שם",
+        "name": "Name",
         "systems": "מערכות",
-        "up": "למעלה",
-        "down": "למטה",
-        "paused": "מושהה",
-        "pending": "ממתין",
-        "status": "סטטוס",
-        "updated": "עודכן",
-        "cpu": "מעבד",
-        "memory": "זיכרון",
+        "up": "Up",
+        "down": "Down",
+        "paused": "Paused",
+        "pending": "Pending",
+        "status": "Status",
+        "updated": "Updated",
+        "cpu": "CPU",
+        "memory": "MEM",
         "disk": "דיסק",
         "network": "NET"
     },
@@ -1005,26 +1011,26 @@
         "apps": "אפליקציות",
         "synced": "מסונכרן",
         "outOfSync": "לא מסונכרן",
-        "healthy": "בריא",
+        "healthy": "Healthy",
         "degraded": "פגום",
         "progressing": "מתקדם",
-        "missing": "חסרים",
+        "missing": "Missing",
         "suspended": "מושהה"
     },
     "spoolman": {
-        "loading": "טוען"
+        "loading": "Loading"
     },
     "gitlab": {
         "groups": "קבוצות",
-        "issues": "גיליונות",
+        "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "פרוייקטים"
     },
     "apcups": {
-        "status": "סטטוס",
-        "load": "עומס",
-        "bcharge": "טעינת סוללה",
-        "timeleft": "זמן שנותר"
+        "status": "Status",
+        "load": "Load",
+        "bcharge": "Battery Charge",
+        "timeleft": "Time Left"
     },
     "karakeep": {
         "bookmarks": "סימניות",
@@ -1032,27 +1038,38 @@
         "archived": "ארכיון",
         "highlights": "הדגשות",
         "lists": "רשימות",
-        "tags": "טגיות"
+        "tags": "Tags"
     },
     "slskd": {
-        "slskStatus": "רשת",
-        "connected": "מחובר",
-        "disconnected": "מנותק",
+        "slskStatus": "Network",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
         "updateStatus": "עדכן",
-        "update_yes": "זמין",
-        "update_no": "עדכני",
+        "update_yes": "Available",
+        "update_no": "Up to Date",
         "downloads": "הורדות",
         "uploads": "העלאות",
-        "sharedFiles": "קבצים"
+        "sharedFiles": "Files"
     },
     "jellystat": {
-        "songs": "שירים",
-        "movies": "סרטים",
-        "episodes": "פרקים",
+        "songs": "Songs",
+        "movies": "Movies",
+        "episodes": "Episodes",
         "other": "אחר"
     },
     "checkmk": {
         "serviceErrors": "שגיאות שירות",
         "hostErrors": "שגיאות מארח"
+    },
+    "komodo": {
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "down": "Down",
+        "unhealthy": "Unhealthy",
+        "unknown": "Unknown",
+        "servers": "Servers",
+        "stacks": "Stacks",
+        "containers": "Containers"
     }
 }
