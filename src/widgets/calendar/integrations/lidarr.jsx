@@ -27,6 +27,7 @@ export default function Integration({ config, params, setEvents, hideErrors = fa
         color: config?.color ?? "green",
         isCompleted: event.grabbed,
         additional: "",
+        url: config?.params?.baseUrl && event.id && `${config.params.baseUrl}/album/${event.id}`,
       };
     });
 

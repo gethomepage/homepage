@@ -29,6 +29,10 @@ export default function Integration({ config, params, setEvents, hideErrors = fa
         color: config?.color ?? "teal",
         isCompleted: event.hasFile,
         additional: `S${event.seasonNumber} E${event.episodeNumber}`,
+        url:
+          config?.params?.baseUrl &&
+          event.series.titleSlug &&
+          `${config.params.baseUrl}/series/${event.series.titleSlug}`,
       };
     });
 

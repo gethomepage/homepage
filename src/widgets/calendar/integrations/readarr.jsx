@@ -28,6 +28,7 @@ export default function Integration({ config, params, setEvents, hideErrors = fa
         color: config?.color ?? "rose",
         isCompleted: event.grabbed,
         additional: "",
+        url: config?.params?.baseUrl && event.titleSlug && `${config.params.baseUrl}/book/${event.titleSlug}`,
       };
     });
 
