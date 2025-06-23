@@ -3,8 +3,8 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "../config";
 import createLogger from "../../logger";
+import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "../config";
 
 const logger = createLogger("service-helpers");
 

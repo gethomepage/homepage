@@ -164,6 +164,7 @@ When your Docker instance has been properly configured, this service will be aut
 
 It's possible to configure multiple services that point to the same container. This can be useful when you want
 to display different aspects or endpoints of the same container as separate services:
+
 ```yaml
 services:
   media-organizer:

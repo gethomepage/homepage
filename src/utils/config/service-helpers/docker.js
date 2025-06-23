@@ -1,13 +1,13 @@
-import path from "path";
 import fs from "fs";
+import path from "path";
 
-import yaml from "js-yaml";
 import Docker from "dockerode";
+import yaml from "js-yaml";
 
-import checkAndCopyConfig, {CONF_DIR, getSettings, substituteEnvironmentVars} from "../config";
+import createLogger from "../../logger";
+import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "../config";
 import getDockerArguments from "../docker";
 import * as shvl from "../shvl";
-import createLogger from "../../logger";
 
 const logger = createLogger("service-helpers");
 
@@ -84,7 +84,7 @@ export async function servicesFromDocker() {
             shvl.set(constructedService, propertyPath, substitutedVal);
           }
 
-          const tryCreateService = service => {
+          const tryCreateService = (service) => {
             if (service && (!service.name || !service.group) && !service.services) {
               logger.error(
                 `Error constructing service using homepage labels for container '${containerName.replace(
@@ -97,7 +97,7 @@ export async function servicesFromDocker() {
             }
 
             return service;
-          }
+          };
 
           if (constructedService && constructedService.services) {
             for (const service of constructedService.services) {

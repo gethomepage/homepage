@@ -1,7 +1,7 @@
 import kubernetes from "../../kubernetes/export";
-import checkAndCopyConfig, {getSettings} from "../config";
-import {getKubeConfig} from "../kubernetes";
 import createLogger from "../../logger";
+import checkAndCopyConfig, { getSettings } from "../config";
+import { getKubeConfig } from "../kubernetes";
 
 const logger = createLogger("service-helpers");
 
@@ -46,7 +46,7 @@ export async function servicesFromKubernetes() {
         groups.push(serverGroup);
       }
 
-      const {name: serviceName, group: _, ...pushedService} = serverService;
+      const { name: serviceName, group: _, ...pushedService } = serverService;
 
       serverGroup.services.push({
         name: serviceName,

@@ -1,11 +1,11 @@
-import { servicesFromDocker } from "./service-helpers/docker";
 import { servicesFromConfig } from "./service-helpers/config";
+import { servicesFromDocker } from "./service-helpers/docker";
 import { servicesFromKubernetes } from "./service-helpers/kubernetes";
 
 import createLogger from "utils/logger";
 const logger = createLogger("service-helpers");
 
-export {servicesFromDocker, servicesFromConfig, servicesFromKubernetes};
+export { servicesFromConfig, servicesFromDocker, servicesFromKubernetes };
 
 export function cleanServiceGroups(groups) {
   return groups.map((serviceGroup) => ({
