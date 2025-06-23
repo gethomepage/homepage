@@ -160,6 +160,44 @@ When your Docker instance has been properly configured, this service will be aut
 
 **When using docker swarm use _deploy/labels_**
 
+### Multiple services per Docker container
+
+It's possible to configure multiple services that point to the same container. This can be useful when you want
+to display different aspects or endpoints of the same container as separate services:
+```yaml
+services:
+  media-organizer:
+    # Docker Compose service definition using a custom container running multiple services, for example
+    # ...
+    labels:
+      # Top-level settings
+      - homepage.group=Media
+      # Simple service definition
+      - homepage.services[0].name=Sonarr
+      - homepage.services[0].description=TV show organizer
+      - homepage.services[0].icon=sonarr.png
+      - homepage.services[0].href=http://sonarr.home/
+      # Service definition with a single widget
+      - homepage.services[1].name=Radarr
+      - homepage.services[1].description=Movie organizer
+      - homepage.services[1].icon=radarr.png
+      - homepage.services[1].href=http://radarr.home/
+      - homepage.services[1].widget.type=radarr
+      - homepage.services[1].widget.url=http://media-organizer:7878
+      # Service definition with multiple widgets
+      - homepage.services[2].name=Overseerr
+      - homepage.services[2].description=Media organizer
+      - homepage.services[2].icon=overseerr.png
+      - homepage.services[2].href=http://overseerr.home/
+      - homepage.services[2].widgets[0].type=sonarr
+      - homepage.services[2].widgets[0].url=http://media-organizer:8989
+      - homepage.services[2].widgets[1].type=radarr
+      - homepage.services[2].widgets[1].url=http://media-organizer:7878
+```
+
+Services should be defined using incrementing integer key (ie. 0, 1, 2, ...).
+It can be combined with single-service syntax, and every additional service will inherit top-level settings.
+
 ## Widgets
 
 You may also configure widgets, along with the standard service entry, again, using dot notation.

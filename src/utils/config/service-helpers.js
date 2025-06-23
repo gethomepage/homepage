@@ -63,7 +63,7 @@ export async function servicesFromDocker() {
   checkAndCopyConfig("docker.yaml");
 
   const dockerYaml = path.join(CONF_DIR, "docker.yaml");
-  const rawDockerFileContents = await fs.readFile(dockerYaml, "utf8");
+  const rawDockerFileContents = await fs.promises.readFile(dockerYaml, "utf8");
   const dockerFileContents = substituteEnvironmentVars(rawDockerFileContents);
   const servers = yaml.load(dockerFileContents);
 
@@ -89,47 +89,75 @@ export async function servicesFromDocker() {
           return [];
         }
 
-        const discovered = containers.map((container) => {
+        const discovered = [];
+        containers.forEach((container) => {
+          const generator = createServicesFromContainer(container);
+          let result = generator.next();
+          while (!result.done) {
+            if (result.value !== null) discovered.push(result.value);
+            result = generator.next();
+          }
+        });
+
+        function* createServicesFromContainer(container) {
           let constructedService = null;
           const containerLabels = isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels;
           const containerName = isSwarm ? shvl.get(container, "Spec.Name") : container.Names[0];
 
-          Object.keys(containerLabels).forEach((label) => {
-            if (label.startsWith("homepage.")) {
-              let value = label.replace("homepage.", "");
-              if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
-                value = value.replace(`instance.${instanceName}.`, "");
-              } else if (value.startsWith("instance.")) {
-                return;
-              }
-
-              if (!constructedService) {
-                constructedService = {
-                  container: containerName.replace(/^\//, ""),
-                  server: serverName,
-                  type: "service",
-                };
-              }
-              let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
-              if (value === "widget.version") {
-                substitutedVal = parseInt(substitutedVal, 10);
-              }
-              shvl.set(constructedService, value, substitutedVal);
+          for (const [labelName, labelValue] of Object.entries(containerLabels)) {
+            if (!labelName.startsWith("homepage.")) {
+              continue;
             }
-          });
 
-          if (constructedService && (!constructedService.name || !constructedService.group)) {
-            logger.error(
-              `Error constructing service using homepage labels for container '${containerName.replace(
-                /^\//,
-                "",
-              )}'. Ensure required labels are present.`,
-            );
-            return null;
+            let propertyPath = labelName.replace("homepage.", "");
+            if (instanceName && propertyPath.startsWith(`instance.${instanceName}.`)) {
+              propertyPath = propertyPath.replace(`instance.${instanceName}.`, "");
+            } else if (propertyPath.startsWith("instance.")) {
+              continue;
+            }
+
+            if (!constructedService) {
+              constructedService = {
+                container: containerName.replace(/^\//, ""),
+                server: serverName,
+                type: "service",
+              };
+            }
+
+            let substitutedVal = substituteEnvironmentVars(labelValue);
+            if (propertyPath === "widget.version") {
+              substitutedVal = parseInt(substitutedVal, 10);
+            }
+
+            shvl.set(constructedService, propertyPath, substitutedVal);
           }
 
-          return constructedService;
-        });
+          const tryCreateService = service => {
+            if (service && (!service.name || !service.group) && !service.services) {
+              logger.error(
+                `Error constructing service using homepage labels for container '${containerName.replace(
+                  /^\//,
+                  "",
+                )}'. Ensure required labels are present.`,
+              );
+              logger.error(service);
+              return null;
+            }
+
+            return service;
+          }
+
+          if (constructedService && constructedService.services) {
+            for (const service of constructedService.services) {
+              const resultingService = structuredClone(constructedService);
+              delete resultingService.services;
+              yield tryCreateService(Object.assign(resultingService, service));
+            }
+            return;
+          }
+
+          yield tryCreateService(constructedService);
+        }
 
         return { server: serverName, services: discovered.filter((filteredService) => filteredService) };
       } catch (e) {
