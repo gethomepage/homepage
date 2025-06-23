@@ -84,6 +84,9 @@ export default async function unifiProxyHandler(req, res) {
     // auto detect if we're talking to a UDM Pro or Network API device, and cache the result
     // so that we don't make two requests each time data from Unifi is required
     [status, contentType, data, responseHeaders] = await httpProxy(widget.url);
+    logger.info("Unifi proxy initial request status: %d", status);
+    logger.info("Unifi proxy response data: %s", data);
+    logger.info("Unifi proxy response headers: %o", responseHeaders);
     prefix = "";
     if (responseHeaders?.["x-csrf-token"]) {
       // Unifi OS < 3.2.5 passes & requires csrf-token
