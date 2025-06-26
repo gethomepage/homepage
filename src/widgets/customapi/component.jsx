@@ -39,14 +39,72 @@ function getValue(field, data) {
   return value[lastField] ?? null;
 }
 
-function getSize(data) {
-  if (Array.isArray(data) || typeof data === "string") {
+function applyFilter(data, filter) {
+  if (!filter) {
+    return data;
+  }
+
+  const vars = filter?.vars ?? {};
+
+  let expression = (filter?.expression ?? "true")
+
+  return data.filter((item) => {
+
+    Object.keys(vars).forEach((key) => {
+      const value = getValue(vars[key], item);
+      expression = expression.replace(`{{${key}}}`, JSON.stringify(value));
+    })
+
+    return eval(expression);
+  });
+}
+
+function getSize(data, filter) {
+  if ((Array.isArray(data) && !filter) || typeof data === "string") {
     return data.length;
+  } else if (Array.isArray(data) && filter) {
+    const filteredData = applyFilter(data, filter);
+    return filteredData.length;
   } else if (typeof data === "object" && data !== null) {
     return Object.keys(data).length;
   }
 
   return NaN;
+}
+
+function getAggregate(data, filter, functionName = "sum") {
+  if (!Array.isArray(data)) {
+    return NaN;
+  }
+
+  if (filter) {
+    data = applyFilter(data, filter);
+  }
+
+  if (data.length === 0) {
+    return NaN;
+  }
+
+  switch (functionName) {
+    case "sum":
+      return data.reduce((acc, item) => acc + item, 0);
+    case "avg":
+      return data.reduce((acc, item) => acc + item, 0) / data.length;
+    case "min":
+      return Math.min(...data);
+    case "max":
+      return Math.max(...data);
+    case "med":
+      const sortedData = [...data].sort((a, b) => a - b);
+      const mid = Math.floor(sortedData.length / 2);
+      return sortedData.length % 2 !== 0
+        ? sortedData[mid]
+        : (sortedData[mid - 1] + sortedData[mid]) / 2;
+    case "count":
+      return data.length;
+    default:
+      return NaN;
+  }
 }
 
 function formatValue(t, mapping, rawValue) {
@@ -111,7 +169,12 @@ function formatValue(t, mapping, rawValue) {
       });
       break;
     case "size":
-      value = t("common.number", { value: getSize(value) });
+      value = t("common.number", { value: getSize(value, mapping?.filter) });
+      break;
+    case "aggregate":
+      value = t("common.number", {
+        value: getAggregate(value, mapping?.filter, mapping?.func),
+      });
       break;
     case "text":
     default:
@@ -215,7 +278,8 @@ export default function Component({ service }) {
   switch (display) {
     case "dynamic-list":
       let listItems = customData;
-      if (mappings.items) listItems = shvl.get(customData, mappings.items, null);
+      if (mappings.items)
+        listItems = shvl.get(customData, mappings.items, null);
       let error;
       if (!listItems || !Array.isArray(listItems)) {
         error = { message: "Unable to find items" };
@@ -247,12 +311,17 @@ export default function Component({ service }) {
                 const itemLabel = shvl.get(item, label, item[label]) ?? "";
 
                 const itemUrl = target
-                  ? [...target.matchAll(/\{(.*?)\}/g)]
-                      .map((match) => match[1])
-                      .reduce((url, targetTemplate) => {
-                        const value = shvl.get(item, targetTemplate, item[targetTemplate]) ?? "";
-                        return url.replaceAll(`{${targetTemplate}}`, value);
-                      }, target)
+                  ? [...target.matchAll(/\{(.*?)}/g)]
+                    .map((match) => match[1])
+                    .reduce((url, targetTemplate) => {
+                      const value =
+                        shvl.get(
+                          item,
+                          targetTemplate,
+                          item[targetTemplate]
+                        ) ?? "";
+                      return url.replaceAll(`{${targetTemplate}}`, value);
+                    }, target)
                   : null;
                 const className =
                   "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs";
@@ -260,21 +329,28 @@ export default function Component({ service }) {
                 return itemUrl ? (
                   <a
                     key={`${itemName}-${index}`}
-                    className={classNames(className, "hover:bg-theme-300/50 dark:hover:bg-theme-800/20")}
+                    className={classNames(
+                      className,
+                      "hover:bg-theme-300/50 dark:hover:bg-theme-800/20"
+                    )}
                     href={itemUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
+                      <div className="font-bold mr-2">
+                        {formatValue(t, mappings, itemLabel)}
+                      </div>
                     </div>
                   </a>
                 ) : (
                   <div key={`${itemName}-${index}`} className={className}>
                     <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
+                      <div className="font-bold mr-2">
+                        {formatValue(t, mappings, itemLabel)}
+                      </div>
                     </div>
                   </div>
                 );
@@ -294,10 +370,25 @@ export default function Component({ service }) {
               >
                 <div className="font-thin pl-2">{mapping.label}</div>
                 <div className="flex flex-row text-right">
-                  <div className="font-bold mr-2">{formatValue(t, mapping, getValue(mapping.field, customData))}</div>
+                  <div className="font-bold mr-2">
+                    {formatValue(
+                      t,
+                      mapping,
+                      getValue(mapping.field, customData)
+                    )}
+                  </div>
                   {mapping.additionalField && (
-                    <div className={`font-bold mr-2 ${getColor(mapping, customData)}`}>
-                      {formatValue(t, mapping.additionalField, getValue(mapping.additionalField.field, customData))}
+                    <div
+                      className={`font-bold mr-2 ${getColor(
+                        mapping,
+                        customData
+                      )}`}
+                    >
+                      {formatValue(
+                        t,
+                        mapping.additionalField,
+                        getValue(mapping.additionalField.field, customData)
+                      )}
                     </div>
                   )}
                 </div>
@@ -314,7 +405,11 @@ export default function Component({ service }) {
             <Block
               label={mapping.label}
               key={mapping.label}
-              value={formatValue(t, mapping, getValue(mapping.field, customData))}
+              value={formatValue(
+                t,
+                mapping,
+                getValue(mapping.field, customData)
+              )}
             />
           ))}
         </Container>
