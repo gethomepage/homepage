@@ -46,14 +46,13 @@ function applyFilter(data, filter) {
 
   const vars = filter?.vars ?? {};
 
-  let expression = (filter?.expression ?? "true")
+  let expression = filter?.expression ?? "true";
 
   return data.filter((item) => {
-
     Object.keys(vars).forEach((key) => {
       const value = getValue(vars[key], item);
       expression = expression.replace(`{{${key}}}`, JSON.stringify(value));
-    })
+    });
 
     return eval(expression);
   });
@@ -97,9 +96,7 @@ function getAggregate(data, filter, functionName = "sum") {
     case "med":
       const sortedData = [...data].sort((a, b) => a - b);
       const mid = Math.floor(sortedData.length / 2);
-      return sortedData.length % 2 !== 0
-        ? sortedData[mid]
-        : (sortedData[mid - 1] + sortedData[mid]) / 2;
+      return sortedData.length % 2 !== 0 ? sortedData[mid] : (sortedData[mid - 1] + sortedData[mid]) / 2;
     case "count":
       return data.length;
     default:
@@ -278,8 +275,7 @@ export default function Component({ service }) {
   switch (display) {
     case "dynamic-list":
       let listItems = customData;
-      if (mappings.items)
-        listItems = shvl.get(customData, mappings.items, null);
+      if (mappings.items) listItems = shvl.get(customData, mappings.items, null);
       let error;
       if (!listItems || !Array.isArray(listItems)) {
         error = { message: "Unable to find items" };
@@ -312,16 +308,11 @@ export default function Component({ service }) {
 
                 const itemUrl = target
                   ? [...target.matchAll(/\{(.*?)}/g)]
-                    .map((match) => match[1])
-                    .reduce((url, targetTemplate) => {
-                      const value =
-                        shvl.get(
-                          item,
-                          targetTemplate,
-                          item[targetTemplate]
-                        ) ?? "";
-                      return url.replaceAll(`{${targetTemplate}}`, value);
-                    }, target)
+                      .map((match) => match[1])
+                      .reduce((url, targetTemplate) => {
+                        const value = shvl.get(item, targetTemplate, item[targetTemplate]) ?? "";
+                        return url.replaceAll(`{${targetTemplate}}`, value);
+                      }, target)
                   : null;
                 const className =
                   "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-row items-center justify-between p-1 text-xs";
@@ -329,28 +320,21 @@ export default function Component({ service }) {
                 return itemUrl ? (
                   <a
                     key={`${itemName}-${index}`}
-                    className={classNames(
-                      className,
-                      "hover:bg-theme-300/50 dark:hover:bg-theme-800/20"
-                    )}
+                    className={classNames(className, "hover:bg-theme-300/50 dark:hover:bg-theme-800/20")}
                     href={itemUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">
-                        {formatValue(t, mappings, itemLabel)}
-                      </div>
+                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
                     </div>
                   </a>
                 ) : (
                   <div key={`${itemName}-${index}`} className={className}>
                     <div className="font-thin pl-2">{itemName}</div>
                     <div className="flex flex-row text-right">
-                      <div className="font-bold mr-2">
-                        {formatValue(t, mappings, itemLabel)}
-                      </div>
+                      <div className="font-bold mr-2">{formatValue(t, mappings, itemLabel)}</div>
                     </div>
                   </div>
                 );
@@ -370,25 +354,10 @@ export default function Component({ service }) {
               >
                 <div className="font-thin pl-2">{mapping.label}</div>
                 <div className="flex flex-row text-right">
-                  <div className="font-bold mr-2">
-                    {formatValue(
-                      t,
-                      mapping,
-                      getValue(mapping.field, customData)
-                    )}
-                  </div>
+                  <div className="font-bold mr-2">{formatValue(t, mapping, getValue(mapping.field, customData))}</div>
                   {mapping.additionalField && (
-                    <div
-                      className={`font-bold mr-2 ${getColor(
-                        mapping,
-                        customData
-                      )}`}
-                    >
-                      {formatValue(
-                        t,
-                        mapping.additionalField,
-                        getValue(mapping.additionalField.field, customData)
-                      )}
+                    <div className={`font-bold mr-2 ${getColor(mapping, customData)}`}>
+                      {formatValue(t, mapping.additionalField, getValue(mapping.additionalField.field, customData))}
                     </div>
                   )}
                 </div>
@@ -405,11 +374,7 @@ export default function Component({ service }) {
             <Block
               label={mapping.label}
               key={mapping.label}
-              value={formatValue(
-                t,
-                mapping,
-                getValue(mapping.field, customData)
-              )}
+              value={formatValue(t, mapping, getValue(mapping.field, customData))}
             />
           ))}
         </Container>
