@@ -22,9 +22,9 @@ widget:
       service_group: Media # group name where widget exists
       service_name: Sonarr # service name for that widget
       color: teal # optional - defaults to pre-defined color for the service (teal for sonarr)
+      baseUrl: https://sonarr.domain.url # optional - adds links to sonarr/radarr pages
       params: # optional - additional params for the service
         unmonitored: true # optional - defaults to false, used with *arr stack
-        baseUrl: https://sonarr.domain.url # optional - adds links to sonarr/radarr pages
     - type: ical # Show calendar events from another service
       url: https://domain.url/with/link/to.ics # URL with calendar events
       name: My Events # required - name for these calendar events

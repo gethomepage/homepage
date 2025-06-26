@@ -22,7 +22,7 @@ export default function Integration({ config, params, setEvents, hideErrors = fa
       const cinemaTitle = `${event.title} - ${t("calendar.inCinemas")}`;
       const physicalTitle = `${event.title} - ${t("calendar.physicalRelease")}`;
       const digitalTitle = `${event.title} - ${t("calendar.digitalRelease")}`;
-      const url = config?.params?.baseUrl && event.titleSlug && `${config.params.baseUrl}/movie/${event.titleSlug}`;
+      const url = config?.baseUrl && event.titleSlug && `${config.baseUrl}/movie/${event.titleSlug}`;
 
       if (event.inCinemas) {
         eventsToAdd[cinemaTitle] = {
