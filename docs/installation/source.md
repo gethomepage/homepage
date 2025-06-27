@@ -6,7 +6,7 @@ description: Install and run homepage from source
 First, clone the repository:
 
 ```bash
-git clone https://github.com/gethomepage/homepage.git
+git clone https://github.com/stancuflorin/homepage-plus.git
 ```
 
 If `pnpm` is not installed, install it:

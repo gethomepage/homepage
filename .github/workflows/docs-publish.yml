@@ -3,7 +3,10 @@ name: Docs
 on:
   push:
     tags: ["v*.*.*"]
-    branches: ["main"]
+    branches: ["dev"]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
   pull_request:
   merge_group:
   workflow_dispatch:
@@ -26,8 +29,8 @@ jobs:
         uses: pre-commit/action@v3.0.1
 
   test:
-    name: Test Build Docs
-    if: github.repository == 'gethomepage/homepage' && github.event_name == 'pull_request'
+    name: Test Build
+    if: github.repository == 'StancuFlorin/homepage-plus' && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     needs:
       - pre-commit
@@ -48,8 +51,8 @@ jobs:
       - name: Test Docs Build
         run: MKINSIDERS=false mkdocs build
   deploy:
-    name: Build & Deploy Docs
-    if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    name: Build & Deploy
+    if: github.repository == 'StancuFlorin/homepage-plus' && github.event_name != 'pull_request' && github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     needs:
       - pre-commit
@@ -70,7 +73,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: sudo apt-get install pngquant
-      - run: pip install git+https://${GH_TOKEN}@github.com/benphelps/mkdocs-material-insiders.git
+      # - run: pip install git+https://${GH_TOKEN}@github.com/benphelps/mkdocs-material-insiders.git
       - run: pip install mkdocs-redirects "mkdocs-material[imaging]"
       - name: Docs Deploy
         run: MKINSIDERS=true mkdocs gh-deploy --force

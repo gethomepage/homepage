@@ -34,4 +34,4 @@ which renders to (depending on your theme, etc.):
 
 <img width="1000" alt="Bookmarks" src="https://user-images.githubusercontent.com/19408/269307009-d7e45885-230f-4e07-b421-9822017ae878.png">
 
-The default [bookmarks.yaml](https://github.com/gethomepage/homepage/blob/main/src/skeleton/bookmarks.yaml) is a working example.
+The default [bookmarks.yaml](https://github.com/stancuflorin/homepage-plus/blob/dev/src/skeleton/bookmarks.yaml) is a working example.

@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         ## ⚠️ Please note
-        The starting point for a bug report should always be a [GitHub discussion](https://github.com/gethomepage/homepage/discussions/new?category=support)
+        The starting point for a bug report should always be a [GitHub discussion](https://github.com/stancuflorin/homepage-plus/discussions/new?category=support)
         Thank you for contributing to homepage! ✊
   - type: checkboxes
     id: pre-flight

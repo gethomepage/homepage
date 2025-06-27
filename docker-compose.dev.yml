@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: homepage-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount source code with proper permissions
+      - .:/app
+      # Use a dedicated volume for node_modules to prevent permission issues
+      - node_modules:/app/node_modules
+      - .next:/app/.next
+      - ./local_app_config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    # Enable hot reloading
+    command: pnpm dev
+    # Restart on file changes
+    restart: unless-stopped
+    # Enable proper file watching
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  node_modules:

@@ -200,7 +200,7 @@ Services may have an optional `ping` property that allows you to monitor the ava
         ping: some.other.host
 ```
 
-<img width="1038" alt="Ping" src="https://github.com/gethomepage/homepage/assets/88257202/7bc13bd3-0d0b-44e3-888c-a20e069a3233">
+<img width="1038" alt="Ping" src="https://github.com/stancuflorin/homepage-plus/assets/88257202/7bc13bd3-0d0b-44e3-888c-a20e069a3233">
 
 You can also apply different styles to the ping indicator by using the `statusStyle` property, see [settings](settings.md#status-style).
 
@@ -248,7 +248,7 @@ Services may be connected to a Docker container, either running on the local mac
         container: other-container
 ```
 
-<img width="1038" alt="Service Containers" src="https://github.com/gethomepage/homepage/assets/88257202/4c685783-52c6-4e55-afb3-affe9baac09b">
+<img width="1038" alt="Service Containers" src="https://github.com/stancuflorin/homepage-plus/assets/88257202/4c685783-52c6-4e55-afb3-affe9baac09b">
 
 **Clicking on the status label of a service with Docker integration enabled will expand the container stats, where you can see CPU, Memory, and Network activity.**
 
@@ -256,7 +256,7 @@ Services may be connected to a Docker container, either running on the local mac
 
       This can also be controlled with `showStats`. See [show docker stats](docker.md#show-stats) for more information
 
-<img width="1038" alt="Docker Stats Expanded" src="https://github.com/gethomepage/homepage/assets/88257202/f95fd595-449e-48ae-af67-fd89618904ec">
+<img width="1038" alt="Docker Stats Expanded" src="https://github.com/stancuflorin/homepage-plus/assets/88257202/f95fd595-449e-48ae-af67-fd89618904ec">
 
 ## Service Integrations
 

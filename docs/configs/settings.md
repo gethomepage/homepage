@@ -270,7 +270,14 @@ You can set the maximum number of columns of groups on larger screen sizes (note
 maxGroupColumns: 8 # default is 4 for services, 6 for bookmarks, max 8
 ```
 
-By default homepage will max out at 4 columns for services and 6 for bookmarks, thus the minimum for this setting is _5_. Of course, if you're setting this to higher numbers, you may want to consider enabling the [fullWidth](#full-width) option as well.
+The layout is responsive and follows this pattern:
+
+- Medium screens (md): Always 2 columns (1/2 width each)
+- Large screens (lg): 2-3 columns based on maxGroupColumns
+- Extra large screens (xl): 2-4 columns based on maxGroupColumns
+- 3x Extra large screens (3xl): Matches maxGroupColumns value (2-8 columns)
+
+By default homepage will max out at 4 columns for services and 6 for bookmarks. If you're setting this to higher numbers, you may want to consider enabling the [fullWidth](#full-width) option as well.
 
 If you want to set the maximum columns for bookmark groups separately, you can do so by adding:
 
@@ -502,6 +509,35 @@ or per-service (`services.yaml`) with:
 ```
 
 If you have both set the per-service settings take precedence.
+
+## Show Container Actions
+
+The container actions menu provides a dropdown interface for managing Docker containers directly from your homepage. When enabled, it appears in the bottom-right corner of each service card that has a container defined.
+
+The menu includes the following actions:
+
+- Start Container
+- Stop Container
+- Restart Container
+
+To enable container actions globally in `settings.yaml`:
+
+```yaml
+showContainerActions: true
+```
+
+Or enable it per-service in `services.yaml`:
+
+```yaml
+- Example Service:
+    container: my-container-name
+    server: my-docker-server
+    showContainerActions: true
+```
+
+If both settings are present, the per-service setting takes precedence. The default value is `false`.
+
+**Note:** Container actions require proper Docker API access to be configured in your `services.yaml` file. Ensure that the `server` field points to a valid Docker server with appropriate authentication credentials.
 
 ## Status Style
 
