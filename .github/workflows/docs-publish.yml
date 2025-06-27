@@ -8,9 +8,6 @@ on:
       - "docs/**"
       - "mkdocs.yml"
   pull_request:
-    paths:
-      - "docs/**"
-      - "mkdocs.yml"
   merge_group:
   workflow_dispatch:
 

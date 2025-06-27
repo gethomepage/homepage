@@ -54,6 +54,7 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
             ICAL.Time.now(), // handles events without a date
           location: event.getFirstPropertyValue("location"),
           status: event.getFirstPropertyValue("status"),
+          url: event.getFirstPropertyValue("url"),
         };
       };
 
@@ -133,6 +134,7 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           isCompleted: getIsCompleted(),
           additional: event.location,
           type: "ical",
+          url: event.url,
         };
       });
     });
