@@ -53,7 +53,7 @@ export default function Component({ service }) {
     "checkingDL",
     "stalledDL",
     "queuedDL",
-    "pausedDL"
+    "pausedDL",
   ];
 
   leechTorrents.sort((firstTorrent, secondTorrent) => {
