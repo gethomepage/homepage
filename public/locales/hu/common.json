@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Aktív oldalak",
+        "down": "Inaktív oldalak",
+        "uptime": "Üzemidő",
+        "avgResponse": "Átlagos válasz",
+        "unknown": "Ismeretlen"
     }
 }

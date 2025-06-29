@@ -1052,7 +1052,14 @@
         "other": "אחר"
     },
     "checkmk": {
-        "serviceErrors": "שגיאות שירות",
-        "hostErrors": "שגיאות מארח"
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "אתרים פעילים",
+        "down": "אתרים לא פעילים",
+        "uptime": "זמן פעילות",
+        "avgResponse": "תגובה ממוצעת",
+        "unknown": "לא ידוע"
     }
 }

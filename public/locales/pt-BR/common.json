@@ -746,5 +746,12 @@
         "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
         "digitalRelease": "Digital release"
+    },
+    "peekaping": {
+        "up": "Sites Ativos",
+        "down": "Sites Inativos",
+        "uptime": "Tempo Ativo",
+        "avgResponse": "Resposta Média",
+        "unknown": "Desconhecido"
     }
 }

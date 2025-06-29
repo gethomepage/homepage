@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Webbplatser igång",
+        "down": "Webbplatser ner",
+        "uptime": "Drifttid",
+        "avgResponse": "Genomsnittlig svar",
+        "unknown": "Okänd"
     }
 }

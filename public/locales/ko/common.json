@@ -812,7 +812,7 @@
     },
     "urbackup": {
         "ok": "확인",
-        "errored": "오류 :",
+        "errored": "오류 :",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },
@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "정상 사이트",
+        "down": "오류 사이트",
+        "uptime": "가동 시간",
+        "avgResponse": "평균 응답",
+        "unknown": "알 수 없음"
     }
 }

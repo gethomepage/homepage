@@ -655,7 +655,7 @@
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Spremište podataka",
-        "failed_tasks_24h": "Neuspjeli zadaci 24 h",
+        "failed_tasks_24h": "Neuspjeli zadaci 24 h",
         "cpu_usage": "CPU",
         "memory_usage": "Memorija"
     },
@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Aktivne stranice",
+        "down": "Neaktivne stranice",
+        "uptime": "Vrijeme rada",
+        "avgResponse": "Prosječni odgovor",
+        "unknown": "Nepoznato"
     }
 }

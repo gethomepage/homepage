@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Laman web aktif",
+        "down": "Laman web tidak aktif",
+        "uptime": "Masa beroperasi",
+        "avgResponse": "Respons purata",
+        "unknown": "Tidak diketahui"
     }
 }

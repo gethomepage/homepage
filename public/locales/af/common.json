@@ -1052,7 +1052,14 @@
         "other": "Ander"
     },
     "checkmk": {
-        "serviceErrors": "Diensprobleme",
-        "hostErrors": "Gasheerprobleme"
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Aktiewe webwerwe",
+        "down": "Onaktiewe webwerwe",
+        "uptime": "Bedryftyd",
+        "avgResponse": "Gemiddelde respons",
+        "unknown": "Onbekend"
     }
 }

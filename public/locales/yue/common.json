@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "正常網站",
+        "down": "故障網站",
+        "uptime": "運行時間",
+        "avgResponse": "平均響應",
+        "unknown": "未知"
     }
 }

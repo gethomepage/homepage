@@ -88,6 +88,7 @@ import overseerr from "./overseerr/widget";
 import paperlessngx from "./paperlessngx/widget";
 import peanut from "./peanut/widget";
 import pfsense from "./pfsense/widget";
+import peekaping from "./peekaping/widget";
 import photoprism from "./photoprism/widget";
 import pihole from "./pihole/widget";
 import plantit from "./plantit/widget";
@@ -231,6 +232,7 @@ const widgets = {
   openwrt,
   paperlessngx,
   peanut,
+  peekaping,
   pfsense,
   photoprism,
   proxmoxbackupserver,

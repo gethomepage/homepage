@@ -109,6 +109,7 @@ const components = {
   proxmox: dynamic(() => import("./proxmox/component")),
   pterodactyl: dynamic(() => import("./pterodactyl/component")),
   pyload: dynamic(() => import("./pyload/component")),
+  peekaping: dynamic(() => import("./peekaping/component")),
   qbittorrent: dynamic(() => import("./qbittorrent/component")),
   qnap: dynamic(() => import("./qnap/component")),
   radarr: dynamic(() => import("./radarr/component")),

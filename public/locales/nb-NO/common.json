@@ -746,5 +746,16 @@
         "physicalRelease": "Physical release",
         "inCinemas": "In cinemas",
         "digitalRelease": "Digital release"
+    },
+    "checkmk": {
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Aktive nettsteder",
+        "down": "Inaktive nettsteder",
+        "uptime": "Oppetid",
+        "avgResponse": "Gjennomsnittlig respons",
+        "unknown": "Ukjent"
     }
 }

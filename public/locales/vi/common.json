@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Trang web hoạt động",
+        "down": "Trang web không hoạt động",
+        "uptime": "Thời gian hoạt động",
+        "avgResponse": "Phản hồi trung bình",
+        "unknown": "Không xác định"
     }
 }

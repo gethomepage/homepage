@@ -1052,7 +1052,14 @@
         "other": "Остало"
     },
     "checkmk": {
-        "serviceErrors": "Проблеми са услугом",
-        "hostErrors": "Проблеми са хостом"
+        "serviceErrors": "Service issues",
+        "hostErrors": "Host issues"
+    },
+    "peekaping": {
+        "up": "Aktivni sajtovi",
+        "down": "Neaktivni sajtovi",
+        "uptime": "Vreme rada",
+        "avgResponse": "Prosečan odgovor",
+        "unknown": "Nepoznato"
     }
 }

@@ -1054,5 +1054,12 @@
     "checkmk": {
         "serviceErrors": "Problemi di servizio",
         "hostErrors": "Problemi di host"
+    },
+    "peekaping": {
+        "up": "Siti attivi",
+        "down": "Siti inattivi",
+        "uptime": "Tempo di attività",
+        "avgResponse": "Risposta media",
+        "unknown": "Sconosciuto"
     }
 }
