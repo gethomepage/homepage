@@ -9,8 +9,11 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
+  const interval = widget?.refreshInterval || 0;
 
-  const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents");
+  const { data: torrentData, error: torrentError } = useWidgetAPI(widget, "torrents", {
+    refreshInterval: interval,
+  });
 
   if (torrentError) {
     return <Container service={service} error={torrentError} />;

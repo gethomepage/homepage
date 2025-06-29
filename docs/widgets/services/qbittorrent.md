@@ -16,4 +16,5 @@ widget:
   username: username
   password: password
   enableLeechProgress: true # optional, defaults to false
+  refreshInterval: 10000 # optional, defaults to 0 (i.e: only update on refresh)
 ```

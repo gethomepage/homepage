@@ -317,7 +317,7 @@ export function cleanServiceGroups(groups) {
           pointsLimit,
           diskUnits,
 
-          // glances, customapi, iframe, prometheusmetric
+          // glances, customapi, iframe, prometheusmetric, qbittorrent
           refreshInterval,
 
           // hdhomerun
@@ -481,6 +481,9 @@ export function cleanServiceGroups(groups) {
         }
         if (["deluge", "qbittorrent"].includes(type)) {
           if (enableLeechProgress !== undefined) widget.enableLeechProgress = JSON.parse(enableLeechProgress);
+        }
+        if (type === "qbittorrent") {
+          if (refreshInterval) widget.refreshInterval = refreshInterval;
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) widget.wan = wan;
