@@ -45,6 +45,25 @@ export default function Component({ service }) {
   }
 
   const leech = torrentData.length - completed;
+  const statePriority = [
+    "downloading",
+    "forcedDL",
+    "metaDL",
+    "forcedMetaDL",
+    "checkingDL",
+    "stalledDL",
+    "queuedDL",
+    "pausedDL",
+  ];
+
+  leechTorrents.sort((firstTorrent, secondTorrent) => {
+    const firstStateIndex = statePriority.indexOf(firstTorrent.state);
+    const secondStateIndex = statePriority.indexOf(secondTorrent.state);
+    if (firstStateIndex !== secondStateIndex) {
+      return firstStateIndex - secondStateIndex;
+    }
+    return secondTorrent.progress - firstTorrent.progress;
+  });
 
   return (
     <>
