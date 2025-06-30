@@ -66,6 +66,7 @@ The `size` format will return the length of the array or string, or the number o
 ## Filtering with `size` and Aggregation with `aggregate`
 
 ### Filtering with `size`
+
 You can filter arrays before counting their size using the `filter` property. The filter allows you to specify an expression and variables to match items in the array.
 
 ```yaml
@@ -77,9 +78,11 @@ You can filter arrays before counting their size using the `filter` property. Th
     vars:
       status: status
 ```
+
 This will count only the items in the `items` array where the `status` field is `'active'`.
 
 ### Aggregation with `aggregate`
+
 You can aggregate values in an array using the `aggregate` format. Supported aggregation functions are: `sum`, `avg`, `min`, `max`, `med` (median), and `count`. You can also use a `filter` to aggregate only matching items.
 
 ```yaml
@@ -92,9 +95,11 @@ You can aggregate values in an array using the `aggregate` format. Supported agg
     vars:
       enabled: enabled
 ```
+
 This will sum the `values` in the `items` array where the `enabled` field is `true`.
 
 ### Expression
+
 The `expression` is actually just a JavaScript expression that can use the variables defined in `vars`. For example, you can use `{{item.value}}` to access the value of the `value` field in each item of the array.
 That also means you can use any JavaScript expression, such as `{{item}}.length > 5` to filter items based on their length.
 
