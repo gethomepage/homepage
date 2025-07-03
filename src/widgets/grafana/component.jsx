@@ -11,22 +11,26 @@ export default function Component({ service }) {
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
   const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
   const { data: alertmanagerData, error: alertmanagerError } = useWidgetAPI(widget, "alertmanager");
+  const { data: grafanaData, error: grafanaError } = useWidgetAPI(widget, "grafana");
 
   let alertsInt = 0;
 
   if (alertsError || !alertsData || alertsData.length === 0) {
-    if (alertmanagerData) {
+    if (alertmanagerData.length > 0) {
       alertsInt = alertmanagerData.length;
+    }
+    if (grafanaData.length > 0) {
+      alertsInt = grafanaData.length;
     }
   } else {
     alertsInt = alertsData.filter((a) => a.state === "alerting").length;
   }
 
-  if (statsError || (alertsError && alertmanagerError)) {
+  if (statsError || (alertsError && alertmanagerError && grafanaError)) {
     return <Container service={service} error={statsError ?? alertsError} />;
   }
 
-  if (!statsData || (!alertsData && !alertmanagerData)) {
+  if (!statsData || (!alertsData && !alertmanagerData && !grafanaData)) {
     return (
       <Container service={service}>
         <Block label="grafana.dashboards" />
