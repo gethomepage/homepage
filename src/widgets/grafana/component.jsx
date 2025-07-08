@@ -6,31 +6,34 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
-
   const { widget } = service;
+
+  const { version = 3 } = widget;
+
+  const alertsEndpointMap = {
+    1: "alerts",
+    2: "alertmanager",
+    3: "grafana",
+  };
+  const alertsEndpoint = alertsEndpointMap[version] || alertsEndpointMap[3];
+
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
-  const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
-  const { data: alertmanagerData, error: alertmanagerError } = useWidgetAPI(widget, "alertmanager");
-  const { data: grafanaData, error: grafanaError } = useWidgetAPI(widget, "grafana");
+  const { data: alertsData, error: alertsError } = useWidgetAPI(widget, alertsEndpoint);
 
   let alertsInt = 0;
-
-  if (alertsError || !alertsData || alertsData.length === 0) {
-    if (alertmanagerData.length > 0) {
-      alertsInt = alertmanagerData.length;
+  if(alertsData) {
+    if (version === 1) {
+      alertsInt = alertsData.filter((a) => a.state === "alerting").length;
+    } else {
+      alertsInt = alertsData.length;
     }
-    if (grafanaData.length > 0) {
-      alertsInt = grafanaData.length;
-    }
-  } else {
-    alertsInt = alertsData.filter((a) => a.state === "alerting").length;
   }
 
-  if (statsError || (alertsError && alertmanagerError && grafanaError)) {
+  if (statsError || alertsError) {
     return <Container service={service} error={statsError ?? alertsError} />;
   }
 
-  if (!statsData || (!alertsData && !alertmanagerData && !grafanaData)) {
+  if (!statsData || !alertsData) {
     return (
       <Container service={service}>
         <Block label="grafana.dashboards" />

@@ -9,7 +9,7 @@ const widget = {
       endpoint: "alerts",
     },
     alertmanager: {
-      endpoint: "alertmanager/alertmanager/api/v2/alerts",
+      endpoint: "alertmanager/alertmanager/api/v2/alerts", 
     },
     grafana: {
       endpoint: "alertmanager/grafana/api/v2/alerts",
