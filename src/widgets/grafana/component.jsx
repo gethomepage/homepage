@@ -21,7 +21,7 @@ export default function Component({ service }) {
   const { data: alertsData, error: alertsError } = useWidgetAPI(widget, alertsEndpoint);
 
   let alertsInt = 0;
-  if(alertsData) {
+  if (alertsData) {
     if (version === 1) {
       alertsInt = alertsData.filter((a) => a.state === "alerting").length;
     } else {
