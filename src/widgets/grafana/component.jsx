@@ -12,9 +12,12 @@ export default function Component({ service }) {
 
   const allowedEndpoints = ["alertmanager", "grafana"];
   if (!allowedEndpoints.includes(alerts)) {
-    return <Container service={service} error={new Error(
-        `Invalid alerts endpoint: ${alerts}, allowed endpoints are: ${allowedEndpoints.join(", ")}`,
-      )} />;
+    return (
+      <Container
+        service={service}
+        error={new Error(`Invalid alerts endpoint: ${alerts}, allowed endpoints are: ${allowedEndpoints.join(", ")}`)}
+      />
+    );
   }
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
