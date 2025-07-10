@@ -8,32 +8,51 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { version = 3 } = widget;
-
-  const alertsEndpointMap = {
-    1: "alerts",
-    2: "alertmanager",
-    3: "grafana",
-  };
-  const alertsEndpoint = alertsEndpointMap[version] || alertsEndpointMap[3];
+  const { version = 1, alerts = "grafana" } = widget;
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
-  const { data: alertsData, error: alertsError } = useWidgetAPI(widget, alertsEndpoint);
 
   let alertsInt = 0;
-  if (alertsData) {
-    if (version === 1) {
-      alertsInt = alertsData.filter((a) => a.state === "alerting").length;
+  let fetchError = null;
+  if (version === 1) {
+    const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
+    const { data: grafanaData, error: grafanaError } = useWidgetAPI(widget, "grafana");
+
+    if (alertsError || !alertsData || alertsData.length === 0) {
+      if (grafanaData) {
+        alertsInt = grafanaData.length;
+      }
     } else {
-      alertsInt = alertsData.length;
+      alertsInt = alertsData.filter((a) => a.state === "alerting").length;
+    }
+
+    if (statsError || (alertsError && grafanaError)) {
+      fetchError = statsError ?? alertsError ?? grafanaError;
+    }
+  } else if (version === 2) {
+    const allowedEndpoints = ["alertmanager", "grafana"];
+    if (!allowedEndpoints.includes(alerts)) {
+      fetchError = new Error(
+        `Invalid alerts endpoint: ${alerts}, allowed endpoints are: ${allowedEndpoints.join(", ")}`,
+      );
+    } else {
+      const { data: alertsData, error: alertsError } = useWidgetAPI(widget, alerts);
+
+      if (alertsData) {
+        alertsInt = alertsData.length;
+      }
+
+      if (statsError || alertsError) {
+        fetchError = statsError ?? alertsError;
+      }
     }
   }
 
-  if (statsError || alertsError) {
-    return <Container service={service} error={statsError ?? alertsError} />;
+  if (fetchError) {
+    return <Container service={service} error={fetchError} />;
   }
 
-  if (!statsData || !alertsData) {
+  if (!statsData) {
     return (
       <Container service={service}>
         <Block label="grafana.dashboards" />
