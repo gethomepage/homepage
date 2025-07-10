@@ -10,46 +10,52 @@ export default function Component({ service }) {
 
   const { version = 1, alerts = "grafana" } = widget;
 
+  const allowedEndpoints = ["alertmanager", "grafana"];
+  if (!allowedEndpoints.includes(alerts)) {
+    return <Container service={service} error={new Error(
+        `Invalid alerts endpoint: ${alerts}, allowed endpoints are: ${allowedEndpoints.join(", ")}`,
+      )} />;
+  }
+
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
 
-  let alertsInt = 0;
-  let fetchError = null;
-  if (version === 1) {
-    const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
-    const { data: grafanaData, error: grafanaError } = useWidgetAPI(widget, "grafana");
+  let primaryAlertsEndpoint = "alerts";
+  let secondaryAlertsEndpoint = "grafana";
+  if (version === 2) {
+    primaryAlertsEndpoint = alerts;
+    secondaryAlertsEndpoint = "";
+  }
 
-    if (alertsError || !alertsData || alertsData.length === 0) {
-      if (grafanaData) {
-        alertsInt = grafanaData.length;
+  let alertsInt = 0;
+
+  const { data: primaryAlertsData, error: primaryAlertsError } = useWidgetAPI(widget, primaryAlertsEndpoint);
+  const { data: secondaryAlertsData, error: secondaryAlertsError } = useWidgetAPI(widget, secondaryAlertsEndpoint);
+
+  let alertsError = null;
+  if (version === 1) {
+    if (primaryAlertsError || !primaryAlertsData || primaryAlertsData.length === 0) {
+      if (secondaryAlertsData) {
+        alertsInt = secondaryAlertsData.length;
       }
     } else {
-      alertsInt = alertsData.filter((a) => a.state === "alerting").length;
+      alertsInt = primaryAlertsData.filter((a) => a.state === "alerting").length;
     }
 
-    if (statsError || (alertsError && grafanaError)) {
-      fetchError = statsError ?? alertsError ?? grafanaError;
+    if (primaryAlertsError && secondaryAlertsError) {
+      alertsError = primaryAlertsError ?? secondaryAlertsError;
     }
   } else if (version === 2) {
-    const allowedEndpoints = ["alertmanager", "grafana"];
-    if (!allowedEndpoints.includes(alerts)) {
-      fetchError = new Error(
-        `Invalid alerts endpoint: ${alerts}, allowed endpoints are: ${allowedEndpoints.join(", ")}`,
-      );
-    } else {
-      const { data: alertsData, error: alertsError } = useWidgetAPI(widget, alerts);
+    if (primaryAlertsData) {
+      alertsInt = primaryAlertsData.length;
+    }
 
-      if (alertsData) {
-        alertsInt = alertsData.length;
-      }
-
-      if (statsError || alertsError) {
-        fetchError = statsError ?? alertsError;
-      }
+    if (primaryAlertsError) {
+      alertsError = primaryAlertsError;
     }
   }
 
-  if (fetchError) {
-    return <Container service={service} error={fetchError} />;
+  if (statsError || alertsError) {
+    return <Container service={service} error={statsError ?? alertsError} />;
   }
 
   if (!statsData) {
