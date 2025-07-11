@@ -812,7 +812,7 @@
     },
     "urbackup": {
         "ok": "확인",
-        "errored": "오류 :",
+        "errored": "오류 :",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
     },

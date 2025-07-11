@@ -1052,8 +1052,8 @@
         "other": "Остало"
     },
     "checkmk": {
-        "serviceErrors": "Service issues",
-        "hostErrors": "Host issues"
+        "serviceErrors": "Проблеми са услугом",
+        "hostErrors": "Проблеми са хостом"
     },
     "peekaping": {
         "up": "Aktivni sajtovi",

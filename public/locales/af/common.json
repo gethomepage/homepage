@@ -1052,8 +1052,8 @@
         "other": "Ander"
     },
     "checkmk": {
-        "serviceErrors": "Service issues",
-        "hostErrors": "Host issues"
+        "serviceErrors": "Diensprobleme",
+        "hostErrors": "Gasheerprobleme"
     },
     "peekaping": {
         "up": "Aktiewe webwerwe",

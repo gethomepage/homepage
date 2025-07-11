@@ -1052,8 +1052,8 @@
         "other": "אחר"
     },
     "checkmk": {
-        "serviceErrors": "Service issues",
-        "hostErrors": "Host issues"
+        "serviceErrors": "שגיאות שירות",
+        "hostErrors": "שגיאות מארח"
     },
     "peekaping": {
         "up": "אתרים פעילים",
