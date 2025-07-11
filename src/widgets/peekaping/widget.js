@@ -6,7 +6,7 @@ const widget = {
 
   mappings: {
     monitors: {
-      endpoint: "status-pages/slug/{slug}/monitors",
+      endpoint: "status-pages/slug/{slug}/monitors/homepage",
     },
   },
 };
