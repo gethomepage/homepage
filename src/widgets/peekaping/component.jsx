@@ -49,8 +49,8 @@ export default function Component({ service }) {
 
       // Calculate response times from heartbeats
       monitor.heartbeats.forEach((heartbeat) => {
-        totalResponseTime += heartbeat.ping || 0
-        responseTimeCount ++
+        totalResponseTime += heartbeat.ping || 0;
+        responseTimeCount++;
       });
     }
   });
