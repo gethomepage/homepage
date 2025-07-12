@@ -8,7 +8,7 @@ Learn more about [Grafana](https://github.com/grafana/grafana).
 | Grafana Version | Homepage Widget Version |
 | --------------- | ----------------------- |
 | <= v10.4        | 1 (default)             |
-| >= v10          | 2                       |
+| > v10.4         | 2                       |
 
 Allowed fields: `["dashboards", "datasources", "totalalerts", "alertstriggered"]`.
 
