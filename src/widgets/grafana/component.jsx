@@ -10,15 +10,6 @@ export default function Component({ service }) {
 
   const { version = 1, alerts = "grafana" } = widget;
 
-  let alertsError = null;
-  const allowedEndpoints = ["alertmanager", "grafana"];
-  if (!allowedEndpoints.includes(alerts)) {
-    alerts = ""; // Reset to empty string if invalid
-    alertsError = new Error(
-      `Invalid alerts endpoint: ${alerts}, allowed endpoints are: ${allowedEndpoints.join(", ")}`,
-    );
-  }
-
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
 
   let primaryAlertsEndpoint = "alerts";
@@ -32,6 +23,7 @@ export default function Component({ service }) {
   const { data: secondaryAlertsData, error: secondaryAlertsError } = useWidgetAPI(widget, secondaryAlertsEndpoint);
 
   let alertsInt = 0;
+  let alertsError = null;
   if (version === 1) {
     if (primaryAlertsError || !primaryAlertsData || primaryAlertsData.length === 0) {
       if (secondaryAlertsData) {
