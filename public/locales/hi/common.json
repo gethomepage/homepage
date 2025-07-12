@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "सक्रिय साइट",
-        "down": "निष्क्रिय साइट",
-        "uptime": "अपटाइम",
-        "avgResponse": "औसत प्रतिक्रिया",
-        "unknown": "अज्ञात"
     }
 }

@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "Nettsteder oppe",
-        "down": "Nettsteder nede",
-        "uptime": "Oppetid",
-        "avgResponse": "Gjennomsnittlig svar",
-        "unknown": "Ukjent"
     }
 }

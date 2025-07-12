@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "Llocs web actius",
-        "down": "Llocs web inactius",
-        "uptime": "Temps d'activitat",
-        "avgResponse": "Resposta mitjana",
-        "unknown": "Desconegut"
     }
 }

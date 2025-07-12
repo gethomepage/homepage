@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "مواقع تعمل",
-        "down": "مواقع لا تعمل",
-        "uptime": "مدة التشغيل",
-        "avgResponse": "متوسط الاستجابة",
-        "unknown": "مجهول"
     }
 }

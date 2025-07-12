@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "サイト稼働",
-        "down": "サイト停止",
-        "uptime": "稼働時間",
-        "avgResponse": "平均応答",
-        "unknown": "不明"
     }
 }

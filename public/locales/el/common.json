@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "Ενεργοί ιστότοποι",
-        "down": "Ανενεργοί ιστότοποι",
-        "uptime": "Χρόνος λειτουργίας",
-        "avgResponse": "Μέση απόκριση",
-        "unknown": "Άγνωστο"
     }
 }

@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "网站正常",
-        "down": "网站故障",
-        "uptime": "正常运行时间",
-        "avgResponse": "平均响应",
-        "unknown": "未知"
     }
 }

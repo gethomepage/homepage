@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Diensprobleme",
         "hostErrors": "Gasheerprobleme"
-    },
-    "peekaping": {
-        "up": "Aktiewe webwerwe",
-        "down": "Onaktiewe webwerwe",
-        "uptime": "Bedryftyd",
-        "avgResponse": "Gemiddelde respons",
-        "unknown": "Onbekend"
     }
 }

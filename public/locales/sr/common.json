@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Проблеми са услугом",
         "hostErrors": "Проблеми са хостом"
-    },
-    "peekaping": {
-        "up": "Aktivni sajtovi",
-        "down": "Neaktivni sajtovi",
-        "uptime": "Vreme rada",
-        "avgResponse": "Prosečan odgovor",
-        "unknown": "Nepoznato"
     }
 }

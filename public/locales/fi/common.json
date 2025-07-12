@@ -1054,12 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "peekaping": {
-        "up": "Toimivat sivustot",
-        "down": "Toimimattomat sivustot",
-        "uptime": "Käyttöaika",
-        "avgResponse": "Keskim. vastaus",
-        "unknown": "Tuntematon"
     }
 }
