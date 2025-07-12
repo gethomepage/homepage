@@ -6,27 +6,51 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
-
   const { widget } = service;
+
+  const { version = 1, alerts = "grafana" } = widget;
+
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");
-  const { data: alertsData, error: alertsError } = useWidgetAPI(widget, "alerts");
-  const { data: alertmanagerData, error: alertmanagerError } = useWidgetAPI(widget, "alertmanager");
 
-  let alertsInt = 0;
-
-  if (alertsError || !alertsData || alertsData.length === 0) {
-    if (alertmanagerData) {
-      alertsInt = alertmanagerData.length;
-    }
-  } else {
-    alertsInt = alertsData.filter((a) => a.state === "alerting").length;
+  let primaryAlertsEndpoint = "alerts";
+  let secondaryAlertsEndpoint = "grafana";
+  if (version === 2) {
+    primaryAlertsEndpoint = alerts;
+    secondaryAlertsEndpoint = "";
   }
 
-  if (statsError || (alertsError && alertmanagerError)) {
+  const { data: primaryAlertsData, error: primaryAlertsError } = useWidgetAPI(widget, primaryAlertsEndpoint);
+  const { data: secondaryAlertsData, error: secondaryAlertsError } = useWidgetAPI(widget, secondaryAlertsEndpoint);
+
+  let alertsInt = 0;
+  let alertsError = null;
+  if (version === 1) {
+    if (primaryAlertsError || !primaryAlertsData || primaryAlertsData.length === 0) {
+      if (secondaryAlertsData) {
+        alertsInt = secondaryAlertsData.length;
+      }
+    } else {
+      alertsInt = primaryAlertsData.filter((a) => a.state === "alerting").length;
+    }
+
+    if (primaryAlertsError && secondaryAlertsError) {
+      alertsError = primaryAlertsError ?? secondaryAlertsError;
+    }
+  } else if (version === 2) {
+    if (primaryAlertsData) {
+      alertsInt = primaryAlertsData.length;
+    }
+
+    if (primaryAlertsError) {
+      alertsError = primaryAlertsError;
+    }
+  }
+
+  if (statsError || alertsError) {
     return <Container service={service} error={statsError ?? alertsError} />;
   }
 
-  if (!statsData || (!alertsData && !alertmanagerData)) {
+  if (!statsData) {
     return (
       <Container service={service}>
         <Block label="grafana.dashboards" />
