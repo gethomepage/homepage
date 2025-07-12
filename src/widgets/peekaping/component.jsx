@@ -34,7 +34,7 @@ export default function Component({ service }) {
   let totalResponseTime = 0;
   let responseTimeCount = 0;
 
-  monitors.forEach(monitor => {
+  monitors.forEach((monitor) => {
     if (monitor.active && monitor.heartbeats && monitor.heartbeats.length > 0) {
       // Get the latest heartbeat status
       const latestHeartbeat = monitor.heartbeats[monitor.heartbeats.length - 1];
@@ -48,7 +48,7 @@ export default function Component({ service }) {
       totalUptime += monitor.uptime_24h || 0;
 
       // Calculate response times from heartbeats
-      monitor.heartbeats.forEach(heartbeat => {
+      monitor.heartbeats.forEach((heartbeat) => {
         totalResponseTime += heartbeat.ping || 0
         responseTimeCount ++
       });
@@ -60,14 +60,12 @@ export default function Component({ service }) {
   const avgResponseTime = responseTimeCount > 0 ? totalResponseTime / responseTimeCount : 0;
 
   // Format uptime percentage
-  const uptimeFormatted = uptimePercent != null
-    ? t("common.percent", { value: uptimePercent.toFixed(1) })
-    : t("peekaping.unknown");
+  const uptimeFormatted =
+    uptimePercent != null ? t("common.percent", { value: uptimePercent.toFixed(1) }) : t("peekaping.unknown");
 
   // Format average response time
-  const avgResponseFormatted = avgResponseTime > 0
-    ? t("common.ms", { value: Math.round(avgResponseTime) })
-    : t("peekaping.unknown");
+  const avgResponseFormatted =
+    avgResponseTime > 0 ? t("common.ms", { value: Math.round(avgResponseTime) }) : t("peekaping.unknown");
 
   return (
     <Container service={service}>
