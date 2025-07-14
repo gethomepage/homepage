@@ -44,9 +44,15 @@ fi
 
 if [ -d /app/.next ]; then
   CURRENT_UID=$(stat -c %u /app/.next)
-  if [ "$CURRENT_UID" -ne "$PUID" ]; then
+  CURRENT_GID=$(stat -c %g /app/.next)
+
+  if [ "$PUID" -ne 0 ] && ([ "$CURRENT_UID" -ne "$PUID" ] || [ "$CURRENT_GID" -ne "$PGID" ]); then
     echo "Fixing ownership of /app/.next"
-    chown -R "$PUID:$PGID" /app/.next || echo "Warning: Could not chown /app/.next"
+    if ! chown -R "$PUID:$PGID" /app/.next 2>/dev/null; then
+      echo "Warning: Could not chown /app/.next; continuing anyway"
+    fi
+  else
+    echo "/app/.next already owned by correct UID/GID or running as root, skipping chown"
   fi
 fi
 
