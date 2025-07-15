@@ -77,7 +77,7 @@ widget:
 
 The widget requires access to the following TradeTally API endpoints:
 
-- `/api/analytics/overview` - For trade statistics and P&L data
+- `/api/v2/analytics/overview` - For trade statistics and P&L data
 - Authentication via Bearer token (API key only)
 
 Make sure your TradeTally instance allows API access from your Homepage instance's IP address.
