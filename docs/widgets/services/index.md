@@ -128,6 +128,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Tandoor](tandoor.md)
 - [Technitium DNS](technitium.md)
 - [TDarr](tdarr.md)
+- [TradeTally](tradetally.md)
 - [Traefik](traefik.md)
 - [Transmission](transmission.md)
 - [TrueNAS](truenas.md)

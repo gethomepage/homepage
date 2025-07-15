@@ -1071,5 +1071,21 @@
         "servers": "Servers",
         "stacks": "Stacks",
         "containers": "Containers"
+    },
+    "tradetally": {
+        "total_pnl": "Total P&L",
+        "win_rate": "Win Rate",
+        "trades_today": "Trades Today",
+        "open_positions": "Open Positions",
+        "total_trades": "Total Trades",
+        "total_executions": "Executions",
+        "unrealized_pnl": "Unrealized P&L",
+        "realized_pnl": "Realized P&L",
+        "avg_win": "Avg Win",
+        "avg_loss": "Avg Loss",
+        "best_performer": "Best Performer",
+        "worst_performer": "Worst Performer",
+        "winning_trades": "Winning Trades",
+        "losing_trades": "Losing Trades"
     }
 }

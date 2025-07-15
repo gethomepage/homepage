@@ -115,6 +115,11 @@ export default async function credentialedProxyHandler(req, res, map) {
           // v1 does not require a key
           headers.Authorization = `Bearer ${widget.key}`;
         }
+      } else if (widget.type === "tradetally") {
+        if (widget.key) {
+          // TradeTally expects API keys as Bearer tokens in Authorization header
+          headers.Authorization = `Bearer ${widget.key}`;
+        }
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
