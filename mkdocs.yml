@@ -25,6 +25,7 @@ nav:
       - configs/services.md
       - configs/kubernetes.md
       - configs/docker.md
+      - configs/proxmox.md
       - configs/custom-css-js.md
   - "Widgets":
       - widgets/index.md
@@ -45,6 +46,7 @@ nav:
           - widgets/services/calibre-web.md
           - widgets/services/changedetectionio.md
           - widgets/services/channelsdvrserver.md
+          - widgets/services/checkmk.md
           - widgets/services/cloudflared.md
           - widgets/services/coin-market-cap.md
           - widgets/services/crowdsec.md
@@ -84,8 +86,10 @@ nav:
           - widgets/services/jdownloader.md
           - widgets/services/jellyfin.md
           - widgets/services/jellyseerr.md
+          - widgets/services/jellystat.md
           - widgets/services/kavita.md
           - widgets/services/komga.md
+          - widgets/services/komodo.md
           - widgets/services/kopia.md
           - widgets/services/lidarr.md
           - widgets/services/linkwarden.md
@@ -140,6 +144,7 @@ nav:
           - widgets/services/rutorrent.md
           - widgets/services/sabnzbd.md
           - widgets/services/scrutiny.md
+          - widgets/services/slskd.md
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
           - widgets/services/spoolman.md
@@ -154,6 +159,7 @@ nav:
           - widgets/services/tdarr.md
           - widgets/services/traefik.md
           - widgets/services/transmission.md
+          - widgets/services/trilium.md
           - widgets/services/truenas.md
           - widgets/services/tubearchivist.md
           - widgets/services/unifi-controller.md
