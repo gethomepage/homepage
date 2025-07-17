@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block header %}
+  <div id="blur-overlay" class="blur-overlay"></div>
+  {% include "partials/header.html" %}
+{% endblock %}
+
+{% block site_nav %}
+  <!-- Navigation -->
+  {% if nav %}
+    {% if page.meta and page.meta.hide %}
+      {% set hidden = "hidden" if "navigation" in page.meta.hide %}
+    {% endif %}
+    <div
+      class="md-sidebar md-sidebar--primary"
+      data-md-component="sidebar"
+      data-md-type="navigation"
+      {{ hidden }}
+    >
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/nav.html" %}
+          {% if 'widgets/' not in page.url and 'more/' not in page.url %}
+            <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWYIL2JU&placement=gethomepagedev&format=cover" id="_carbonads_js"></script>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Table of contents -->
+  {% if "toc.integrate" not in features %}
+    {% if page.meta and page.meta.hide %}
+      {% set hidden = "hidden" if "toc" in page.meta.hide %}
+    {% endif %}
+    <div
+      class="md-sidebar md-sidebar--secondary"
+      data-md-component="sidebar"
+      data-md-type="toc"
+      {{ hidden }}
+    >
+      <div class="md-sidebar__scrollwrap" style="height: 200px;">
+        <div class="md-sidebar__inner">
+          {% include "partials/toc.html" %}
+          {% if 'widgets/' in page.url or 'more/' in page.url %}
+            <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CWYIL2JU&placement=gethomepagedev&format=cover" id="_carbonads_js"></script>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
