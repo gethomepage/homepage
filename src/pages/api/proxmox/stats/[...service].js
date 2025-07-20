@@ -24,9 +24,9 @@ export default async function handler(req, res) {
       });
     }
 
-    const baseUrl = `${proxmoxConfig.url}/api2/json`;
+    const baseUrl = `${proxmoxConfig[node].url}/api2/json`;
     const headers = {
-      Authorization: `PVEAPIToken=${proxmoxConfig.token}=${proxmoxConfig.secret}`,
+      Authorization: `PVEAPIToken=${proxmoxConfig[node].token}=${proxmoxConfig[node].secret}`,
     };
 
     const statusUrl = `${baseUrl}/nodes/${node}/${vmType}/${vmid}/status/current`;
