@@ -18,7 +18,7 @@ To access these system metrics you need to connect to the DiskStation (`DSM`) wi
 3. Under the `User Groups` tab of the user config dialogue check the box for `Administrators`.
 4. On the `Permissions` tab check the top box for `No Access`, effectively prohibiting the user from accessing anything in the shared folders.
 5. Under `Applications` check the box next to `Deny` in the header to explicitly prohibit login to all applications.
-6. Now _only_ allow login to the `DSM` application, either by
+6. Now _only_ allow login to the `DSM` and `Download Station` applications, either by
    - unchecking `Deny` in the respective row, or (if inheriting permission doesn't work because of other group settings)
    - checking `Allow` for this app, or
    - checking `By IP` for this app to limit the source of login attempts to one or more IP addresses/subnets.

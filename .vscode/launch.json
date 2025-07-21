@@ -1,19 +1,31 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
   "configurations": [
     {
-      "name": "Next.js: debug full stack",
+      "name": "Debug homepage",
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/next",
-      "serverReadyAction": {
-        "pattern": "started server on .+, url: (https?://.+)",
-        "uriFormat": "%s",
-        "action": "debugWithChrome"
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run", "dev"],
+      "env": {
+        "LOG_LEVEL": "debug"
+      },
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal",
+      "serverReadyAction":{
+        "pattern": ".*http://localhost:3000.*",
+        "action": "startDebugging",
+        "name": "Launch Chromium",
+        "killOnServerStop": true,
       }
+    },
+    {
+      "name": "Launch Chromium",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "urlFilter": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "trace": true
     }
   ]
 }

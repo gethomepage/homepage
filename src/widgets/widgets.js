@@ -54,6 +54,7 @@ import jellystat from "./jellystat/widget";
 import karakeep from "./karakeep/widget";
 import kavita from "./kavita/widget";
 import komga from "./komga/widget";
+import komodo from "./komodo/widget";
 import kopia from "./kopia/widget";
 import lidarr from "./lidarr/widget";
 import linkwarden from "./linkwarden/widget";
@@ -123,6 +124,7 @@ import tdarr from "./tdarr/widget";
 import technitium from "./technitium/widget";
 import traefik from "./traefik/widget";
 import transmission from "./transmission/widget";
+import trilium from "./trilium/widget";
 import truenas from "./truenas/widget";
 import tubearchivist from "./tubearchivist/widget";
 import unifi from "./unifi/widget";
@@ -197,6 +199,7 @@ const widgets = {
   jellystat,
   kavita,
   komga,
+  komodo,
   kopia,
   lidarr,
   linkwarden,
@@ -267,6 +270,7 @@ const widgets = {
   tdarr,
   traefik,
   transmission,
+  trilium,
   tubearchivist,
   truenas,
   unifi,

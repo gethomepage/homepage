@@ -106,6 +106,8 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = widget.password;
         }
+      } else if (widget.type === "trilium") {
+        headers.Authorization = widget.key;
       } else if (widget.type === "gitlab") {
         headers["PRIVATE-TOKEN"] = widget.key;
       } else if (widget.type === "speedtest") {
