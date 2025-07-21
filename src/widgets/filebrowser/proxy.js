@@ -14,9 +14,11 @@ async function login(widget, service) {
   const [status, , data] = await httpProxy(url, {
     method: "POST",
     headers: {
-      ...(widget.authHeader ? {
-        [widget.authHeader]: widget.username,
-      } : {}),
+      ...(widget.authHeader
+        ? {
+            [widget.authHeader]: widget.username,
+          }
+        : {}),
     },
     body: JSON.stringify({
       username: widget.username,
@@ -61,13 +63,13 @@ export default async function filebrowserProxyHandler(req, res) {
     const params = {
       method: "GET",
       headers: {
-        "X-AUTH": token
+        "X-AUTH": token,
       },
     };
 
     logger.debug("Calling Filebrowser API endpoint: %s", endpoint);
 
-    const [status,, data] = await httpProxy(url, params);
+    const [status, , data] = await httpProxy(url, params);
 
     if (status !== 200) {
       logger.error("Error calling Filebrowser API: %d. Data: %s", status, data);
