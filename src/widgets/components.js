@@ -34,6 +34,7 @@ const components = {
   fileflows: dynamic(() => import("./fileflows/component")),
   firefly: dynamic(() => import("./firefly/component")),
   flood: dynamic(() => import("./flood/component")),
+  forgejo: dynamic(() => import("./forgejo/component")),
   freshrss: dynamic(() => import("./freshrss/component")),
   frigate: dynamic(() => import("./frigate/component")),
   fritzbox: dynamic(() => import("./fritzbox/component")),
