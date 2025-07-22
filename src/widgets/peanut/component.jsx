@@ -52,6 +52,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
+      <Block label="peanut.ups_name" value={widget.key} />
       <Block label="peanut.battery_charge" value={t("common.percent", { value: upsData.battery_charge })} />
       <Block label="peanut.ups_load" value={t("common.percent", { value: upsData.ups_load })} />
       <Block label="peanut.ups_status" value={status} />

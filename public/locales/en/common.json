@@ -599,6 +599,7 @@
         "total": "Total"
     },
     "peanut": {
+        "ups_name": "Name",
         "battery_charge": "Battery Charge",
         "ups_load": "UPS Load",
         "ups_status": "UPS Status",
