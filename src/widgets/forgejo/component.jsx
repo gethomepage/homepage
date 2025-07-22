@@ -12,7 +12,10 @@ export default function Component({ service }) {
 
   if (forgejoNotificationsError || forgejoIssuesError || forgejoRepositoriesError) {
     return (
-      <Container service={service} error={forgejoNotificationsError ?? forgejoIssuesError ?? forgejoRepositoriesError} />
+      <Container
+        service={service}
+        error={forgejoNotificationsError ?? forgejoIssuesError ?? forgejoRepositoriesError}
+      />
     );
   }
 
