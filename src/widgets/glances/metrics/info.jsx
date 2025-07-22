@@ -31,7 +31,8 @@ function CPU({ quicklookData, className = "" }) {
 
   return (
     quicklookData &&
-    quicklookData.cpu && (
+    quicklookData.cpu !== undefined &&
+    quicklookData.cpu !== null && (
       <div className="text-xs flex place-content-between">
         <div className={className}>{t("glances.cpu")}</div>
         <div className={className}>
