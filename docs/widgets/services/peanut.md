@@ -9,7 +9,9 @@ This widget adds support for [Network UPS Tools](https://networkupstools.org/) v
 
 The default ups name is `ups`. To configure more than one ups, you must create multiple peanut services.
 
-Allowed fields: `["battery_charge", "ups_load", "ups_status"]`.
+Allowed fields: `["ups_name", "battery_charge", "ups_load", "ups_status"]`.
+
+The widget displays the UPS name (configured via the `key` parameter) as a label, along with battery charge percentage, UPS load percentage, and UPS status.
 
 !!! note
 
