@@ -9,12 +9,20 @@ const widget = {
       endpoint: "subscriptions/get_monthly_cost.php",
       validate: [
         "localized_monthly_cost",
-        "currency_symbol"
+        "currency_symbol",
       ],
       params: [
         "month",
-        "year"
+        "year",
       ],
+    },
+    "subscriptions/get_subscriptions": {
+      endpoint: "subscriptions/get_subscriptions.php",
+      validate: ["subscriptions"],
+      params: [
+        "state",
+        "sort",
+      ]
     },
   },
 };
