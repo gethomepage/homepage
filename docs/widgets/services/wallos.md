@@ -9,7 +9,7 @@ You'll need to have set-up and configured your Wallos instance already with at l
 
 If you're using more than one currency to record subscriptions then you should also have your "Fixer API" key set-up (`Settings > Fixer API Key`).
 
-> **Please Note:** The monthly cost displayed is what that month actually cost in that month. It is **not** the *"monthly"* cost as an average of all subscriptions spread over 12 months.
+> **Please Note:** The monthly cost displayed is what that month actually cost in that month. It is **not** the _"monthly"_ cost as an average of all subscriptions spread over 12 months.
 
 Generate/Regenerate your API key under `Profile > API Key`.
 

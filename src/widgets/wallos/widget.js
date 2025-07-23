@@ -7,22 +7,13 @@ const widget = {
   mappings: {
     "subscriptions/get_monthly_cost": {
       endpoint: "subscriptions/get_monthly_cost.php",
-      validate: [
-        "localized_monthly_cost",
-        "currency_symbol",
-      ],
-      params: [
-        "month",
-        "year",
-      ],
+      validate: ["localized_monthly_cost", "currency_symbol"],
+      params: ["month", "year"],
     },
     "subscriptions/get_subscriptions": {
       endpoint: "subscriptions/get_subscriptions.php",
       validate: ["subscriptions"],
-      params: [
-        "state",
-        "sort",
-      ]
+      params: ["state", "sort"],
     },
   },
 };
