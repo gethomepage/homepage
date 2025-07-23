@@ -1071,5 +1071,9 @@
         "servers": "Servers",
         "stacks": "Stacks",
         "containers": "Containers"
+    },
+    "wallos": {
+        "thisMonthlyCost": "This Month's Cost",
+        "nextMonthlyCost": "Next Month's Cost"
     }
 }
