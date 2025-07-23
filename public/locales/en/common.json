@@ -1075,6 +1075,7 @@
     "wallos": {
         "activeSubscriptions": "Active Subscriptions",
         "thisMonthlyCost": "This Month Cost",
-        "nextMonthlyCost": "Next Month Cost"
+        "nextMonthlyCost": "Next Month Cost",
+        "previousMonthlyCost": "Previous Month Cost"
     }
 }

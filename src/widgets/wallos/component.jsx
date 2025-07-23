@@ -20,16 +20,21 @@ export default function Component({ service }) {
     month: todayDate.getMonth() + 1,
     year: todayDate.getFullYear(),
   });
+  const { data: subscriptionsPreviousMonthlyCostData, error: subscriptionsPreviousMonthlyCostError } = useWidgetAPI(widget, "subscriptions/get_monthly_cost", {
+    month: todayDate.getMonth() - 1,
+    year: todayDate.getFullYear(),
+  });
 
-  if (subscriptionsError || subscriptionsThisMonthlyCostError || subscriptionsNextMonthlyCostError) {
-    const finalError = subscriptionsError ?? subscriptionsThisMonthlyCostError ?? subscriptionsNextMonthlyCostError;
+  if (subscriptionsError || subscriptionsThisMonthlyCostError || subscriptionsNextMonthlyCostError || subscriptionsPreviousMonthlyCostError) {
+    const finalError = subscriptionsError ?? subscriptionsThisMonthlyCostError ?? subscriptionsNextMonthlyCostError ?? subscriptionsPreviousMonthlyCostError;
     return <Container service={service} error={finalError} />;
   }
 
-  if (!subscriptionsThisMonthlyCostData || !subscriptionsNextMonthlyCostData) {
+  if (!subscriptionsData || !subscriptionsThisMonthlyCostData || !subscriptionsNextMonthlyCostData || !subscriptionsPreviousMonthlyCostData) {
     return (
       <Container service={service}>
         <Block label="wallos.activeSubscriptions" />
+        <Block label="wallos.previousMonthlyCost" />
         <Block label="wallos.thisMonthlyCost" />
         <Block label="wallos.nextMonthlyCost" />
       </Container>
@@ -39,6 +44,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="wallos.activeSubscriptions" value={t("common.number", { value: subscriptionsData.subscriptions?.length })} />
+      <Block label="wallos.previousMonthlyCost" value={subscriptionsPreviousMonthlyCostData.localized_monthly_cost} />
       <Block label="wallos.thisMonthlyCost" value={subscriptionsThisMonthlyCostData.localized_monthly_cost} />
       <Block label="wallos.nextMonthlyCost" value={subscriptionsNextMonthlyCostData.localized_monthly_cost} />
     </Container>
