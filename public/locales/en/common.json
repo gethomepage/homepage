@@ -1073,7 +1073,7 @@
         "containers": "Containers"
     },
     "wallos": {
-        "thisMonthlyCost": "This Month's Cost",
-        "nextMonthlyCost": "Next Month's Cost"
+        "thisMonthlyCost": "This Month Cost",
+        "nextMonthlyCost": "Next Month Cost"
     }
 }
