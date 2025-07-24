@@ -48,7 +48,7 @@ export default function Component({ service }) {
     },
   );
   const subscriptionsPreviousMonthlyEndpoint = widget.fields.includes("previousMonthlyCost")
-    ? "subscriptions/get_monthly_cost"
+    ? "get_monthly_cost"
     : "";
   const { data: subscriptionsPreviousMonthlyCostData, error: subscriptionsPreviousMonthlyCostError } = useWidgetAPI(
     widget,
