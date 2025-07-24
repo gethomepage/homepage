@@ -1073,7 +1073,7 @@
         "containers": "Containers"
     },
     "wallos": {
-        "activeSubscriptions": "Active Subscriptions",
+        "activeSubscriptions": "Subscriptions",
         "thisMonthlyCost": "This Monthly",
         "nextMonthlyCost": "Next Monthly",
         "previousMonthlyCost": "Prev. Monthly",
