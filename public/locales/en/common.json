@@ -1076,6 +1076,7 @@
         "activeSubscriptions": "Active Subscriptions",
         "thisMonthlyCost": "This Monthly",
         "nextMonthlyCost": "Next Monthly",
-        "previousMonthlyCost": "Prev. Monthly"
+        "previousMonthlyCost": "Prev. Monthly",
+        "nextRenewingSubscription": "Next Payment"
     }
 }
