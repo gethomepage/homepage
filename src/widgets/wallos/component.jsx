@@ -37,7 +37,7 @@ export default function Component({ service }) {
     },
   );
   const subscriptionsNextMonthlyEndpoint = widget.fields.includes("nextMonthlyCost")
-    ? "subscriptions/get_monthly_cost"
+    ? "get_monthly_cost"
     : "";
   const { data: subscriptionsNextMonthlyCostData, error: subscriptionsNextMonthlyCostError } = useWidgetAPI(
     widget,
