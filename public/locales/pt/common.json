@@ -1054,11 +1054,5 @@
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
-    },
-    "wallos": {
-        "activeSubscriptions": "Subscrições ativas",
-        "thisMonthlyCost": "Mensal atual",
-        "nextMonthlyCost": "Mensal seguinte",
-        "previousMonthlyCost": "Mensal anterior"
     }
 }

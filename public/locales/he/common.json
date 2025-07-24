@@ -1054,11 +1054,5 @@
     "checkmk": {
         "serviceErrors": "שגיאות שירות",
         "hostErrors": "שגיאות מארח"
-    },
-    "wallos": {
-        "activeSubscriptions": "מנויים פעילים",
-        "thisMonthlyCost": "החודש",
-        "nextMonthlyCost": "חודש הבא",
-        "previousMonthlyCost": "חודש קודם"
     }
 }
