@@ -1074,7 +1074,7 @@
     },
     "wallos": {
         "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Monthly",
+        "thisMonthlyCost": "This Month",
         "nextMonthlyCost": "Next Monthly",
         "previousMonthlyCost": "Prev. Monthly",
         "nextRenewingSubscription": "Next Payment"
