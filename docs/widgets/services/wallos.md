@@ -5,8 +5,6 @@ description: Wallos Widget Configuration
 
 Learn more about [Wallos](https://github.com/ellite/wallos).
 
-You'll need to have set-up and configured your Wallos instance already with at least one user and a "Main Currency" (`Profile > User Details > Main Currency`).
-
 If you're using more than one currency to record subscriptions then you should also have your "Fixer API" key set-up (`Settings > Fixer API Key`).
 
 > **Please Note:** The monthly cost displayed is the total cost of subscriptions in that month, **not** the _"monthly"_ average cost.
