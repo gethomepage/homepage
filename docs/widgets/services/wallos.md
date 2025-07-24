@@ -14,6 +14,7 @@ If you're using more than one currency to record subscriptions then you should a
 Generate/Regenerate your API key under `Profile > API Key`.
 
 Allowed fields: `["activeSubscriptions", "previousMonthlyCost", "thisMonthlyCost", "nextMonthlyCost"]`.
+Default fields: `["activeSubscriptions", "thisMonthlyCost", "nextMonthlyCost"]`.
 
 ```yaml
 widget:
