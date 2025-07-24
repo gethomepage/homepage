@@ -19,7 +19,7 @@ export default function Component({ service }) {
 
   const subscriptionsEndPoint =
     widget.fields.includes("activeSubscriptions") || widget.fields.includes("nextRenewingSubscription")
-      ? "subscriptions/get_subscriptions"
+      ? "get_subscriptions"
       : "";
   const { data: subscriptionsData, error: subscriptionsError } = useWidgetAPI(widget, subscriptionsEndPoint, {
     state: 0,
