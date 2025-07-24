@@ -10,7 +10,7 @@ const widget = {
       validate: ["localized_monthly_cost", "currency_symbol"],
       params: ["month", "year"],
     },
-    "subscriptions/get_subscriptions": {
+    "get_subscriptions": {
       endpoint: "subscriptions/get_subscriptions.php",
       validate: ["subscriptions"],
       params: ["state", "sort"],
