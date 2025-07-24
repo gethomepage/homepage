@@ -87,19 +87,14 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      ({widget.fields.includes("previousMonthlyCost")} &&
       <Block
         label="wallos.activeSubscriptions"
         value={t("common.number", { value: subscriptionsData?.subscriptions?.length })}
       />
-      ) ({widget.fields.includes("previousMonthlyCost")} &&
-      <Block label="wallos.nextRenewingSubscription" value={subscriptionsData?.subscriptions[0]?.name} />) (
-      {widget.fields.includes("previousMonthlyCost")} &&
-      <Block label="wallos.previousMonthlyCost" value={subscriptionsPreviousMonthlyCostData?.localized_monthly_cost} />)
-      ({widget.fields.includes("thisMonthlyCost")} &&
-      <Block label="wallos.thisMonthlyCost" value={subscriptionsThisMonthlyCostData?.localized_monthly_cost} />) (
-      {widget.fields.includes("nextMonthlyCost")} &&
-      <Block label="wallos.nextMonthlyCost" value={subscriptionsNextMonthlyCostData?.localized_monthly_cost} />)
+      <Block label="wallos.nextRenewingSubscription" value={subscriptionsData?.subscriptions[0]?.name} />
+      <Block label="wallos.previousMonthlyCost" value={subscriptionsPreviousMonthlyCostData?.localized_monthly_cost} />
+      <Block label="wallos.thisMonthlyCost" value={subscriptionsThisMonthlyCostData?.localized_monthly_cost} />
+      <Block label="wallos.nextMonthlyCost" value={subscriptionsNextMonthlyCostData?.localized_monthly_cost} />
     </Container>
   );
 }
