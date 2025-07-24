@@ -25,9 +25,7 @@ export default function Component({ service }) {
     state: 0,
     sort: "next_payment",
   });
-  const subscriptionsThisMonthlyEndpoint = widget.fields.includes("thisMonthlyCost")
-    ? "get_monthly_cost"
-    : "";
+  const subscriptionsThisMonthlyEndpoint = widget.fields.includes("thisMonthlyCost") ? "get_monthly_cost" : "";
   const { data: subscriptionsThisMonthlyCostData, error: subscriptionsThisMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsThisMonthlyEndpoint,
@@ -36,9 +34,7 @@ export default function Component({ service }) {
       year: todayDate.getFullYear(),
     },
   );
-  const subscriptionsNextMonthlyEndpoint = widget.fields.includes("nextMonthlyCost")
-    ? "get_monthly_cost"
-    : "";
+  const subscriptionsNextMonthlyEndpoint = widget.fields.includes("nextMonthlyCost") ? "get_monthly_cost" : "";
   const { data: subscriptionsNextMonthlyCostData, error: subscriptionsNextMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsNextMonthlyEndpoint,
@@ -47,9 +43,7 @@ export default function Component({ service }) {
       year: todayDate.getFullYear(),
     },
   );
-  const subscriptionsPreviousMonthlyEndpoint = widget.fields.includes("previousMonthlyCost")
-    ? "get_monthly_cost"
-    : "";
+  const subscriptionsPreviousMonthlyEndpoint = widget.fields.includes("previousMonthlyCost") ? "get_monthly_cost" : "";
   const { data: subscriptionsPreviousMonthlyCostData, error: subscriptionsPreviousMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsPreviousMonthlyEndpoint,

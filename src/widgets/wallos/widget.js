@@ -5,12 +5,12 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "get_monthly_cost": {
+    get_monthly_cost: {
       endpoint: "subscriptions/get_monthly_cost.php",
       validate: ["localized_monthly_cost", "currency_symbol"],
       params: ["month", "year"],
     },
-    "get_subscriptions": {
+    get_subscriptions: {
       endpoint: "subscriptions/get_subscriptions.php",
       validate: ["subscriptions"],
       params: ["state", "sort"],
