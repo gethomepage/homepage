@@ -8,7 +8,7 @@ const proxyName = "filebrowserProxyHandler";
 const logger = createLogger(proxyName);
 
 async function login(widget, service) {
-  const url = formatApiCall(widgets[widget.type].loginURL, widget);
+  const url = formatApiCall(widgets[widget.type].api, { ...widget, endpoint: "login" });
   const headers = {};
   if (widget.authHeader) {
     headers[widget.authHeader] = widget.username;
