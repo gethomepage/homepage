@@ -498,54 +498,67 @@ function Home({ initialSettings }) {
 }
 
 export default function Wrapper({ initialSettings, fallback }) {
-  const { themeContext } = useContext(ThemeContext);
-  const wrappedStyle = {};
+  const { theme } = useContext(ThemeContext);
+  let backgroundImage = "";
+  let opacity = 0.5;
   let backgroundBlur = false;
   let backgroundSaturate = false;
   let backgroundBrightness = false;
   if (initialSettings && initialSettings.background) {
-    let opacity = initialSettings.backgroundOpacity ?? 1;
-    let backgroundImage = initialSettings.background;
-    if (typeof initialSettings.background === "object") {
-      backgroundImage = initialSettings.background.image;
-      backgroundBlur = initialSettings.background.blur !== undefined;
-      backgroundSaturate = initialSettings.background.saturate !== undefined;
-      backgroundBrightness = initialSettings.background.brightness !== undefined;
-      if (initialSettings.background.opacity !== undefined) opacity = initialSettings.background.opacity / 100;
+    const bg = initialSettings.background;
+    if (typeof bg === "object") {
+      backgroundImage = bg.image || "";
+      opacity = 1 - (bg.opacity ?? 1);
+      backgroundBlur = bg.blur !== undefined;
+      backgroundSaturate = bg.saturate !== undefined;
+      backgroundBrightness = bg.brightness !== undefined;
+    } else {
+      backgroundImage = bg;
     }
-    const opacityValue = 1 - opacity;
-    wrappedStyle.backgroundImage = `
-      linear-gradient(
-        rgb(var(--bg-color) / ${opacityValue}),
-        rgb(var(--bg-color) / ${opacityValue})
-      ),
-      url('${backgroundImage}')`;
-    wrappedStyle.backgroundPosition = "center";
-    wrappedStyle.backgroundSize = "cover";
   }
 
+  // Apply background styles to <body> and theme classes to <html>
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+
+    if (backgroundImage) {
+      body.style.backgroundImage = `linear-gradient(rgb(var(--bg-color) / ${opacity}), rgb(var(--bg-color) / ${opacity})), url('${backgroundImage}')`;
+    } else {
+      body.style.backgroundImage = "none";
+      body.style.backgroundColor = "rgb(var(--bg-color))";
+    }
+    body.style.backgroundSize = "cover";
+    body.style.backgroundPosition = "center";
+    body.style.backgroundAttachment = "fixed";
+    body.style.backgroundRepeat = "no-repeat";
+
+    html.classList.remove("dark", "scheme-dark", "scheme-light");
+    if (theme === "dark") {
+      html.classList.add("dark");
+    }
+    html.classList.add(theme === "dark" ? "scheme-dark" : "scheme-light");
+
+    html.classList.remove(...Array.from(html.classList).filter((cls) => cls.startsWith("theme-")));
+    const themeClass = initialSettings.color ? `theme-${initialSettings.color}` : "theme-slate";
+    html.classList.add(themeClass);
+
+    return () => {
+      body.style.backgroundImage = "";
+      body.style.backgroundColor = "";
+    };
+  }, [backgroundImage, opacity, theme, initialSettings.color]);
+
   return (
-    <div
-      id="page_wrapper"
-      className={classNames(
-        "relative",
-        initialSettings.theme && initialSettings.theme,
-        initialSettings.color && `theme-${initialSettings.color}`,
-        themeContext === "dark" ? "scheme-dark" : "scheme-light",
-      )}
-    >
-      <div
-        id="page_container"
-        className="fixed overflow-auto w-full h-full bg-theme-50 dark:bg-theme-800 transition-all"
-        style={wrappedStyle}
-      >
+    <div id="page_wrapper" className="relative min-h-screen">
+      <div id="page_container" className="w-full h-full bg-theme-50 dark:bg-theme-800 transition-all">
         <div
           id="inner_wrapper"
           tabIndex="-1"
           className={classNames(
-            "fixed overflow-auto w-full h-full",
+            "w-full h-full overflow-auto",
             backgroundBlur &&
-              `backdrop-blur${initialSettings.background.blur.length ? "-" : ""}${initialSettings.background.blur}`,
+              `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
             backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
             backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
           )}
