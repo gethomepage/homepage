@@ -61,8 +61,8 @@
         "wlan_devices": "WLAN-Geräte",
         "lan_users": "LAN-Benutzer",
         "wlan_users": "WLAN-Benutzer",
-        "up": "BETRIEBSZEIT",
-        "down": "EMPFANGEN",
+        "up": "UP",
+        "down": "DOWN",
         "wait": "Bitte warten",
         "empty_data": "Subsystem-Status unbekannt"
     },
