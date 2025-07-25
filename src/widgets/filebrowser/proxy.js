@@ -9,15 +9,13 @@ const logger = createLogger(proxyName);
 
 async function login(widget, service) {
   const url = formatApiCall(widgets[widget.type].loginURL, widget);
+  const headers = {};
+  if (widget.authHeader) {
+    headers[widget.authHeader] = widget.username;
+  }
   const [status, , data] = await httpProxy(url, {
     method: "POST",
-    headers: {
-      ...(widget.authHeader
-        ? {
-            [widget.authHeader]: widget.username,
-          }
-        : {}),
-    },
+    headers,
     body: JSON.stringify({
       username: widget.username,
       password: widget.password,
