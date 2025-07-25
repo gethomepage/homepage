@@ -143,6 +143,7 @@ const components = {
   uptimerobot: dynamic(() => import("./uptimerobot/component")),
   urbackup: dynamic(() => import("./urbackup/component")),
   vikunja: dynamic(() => import("./vikunja/component")),
+  wallos: dynamic(() => import("./wallos/component")),
   watchtower: dynamic(() => import("./watchtower/component")),
   wgeasy: dynamic(() => import("./wgeasy/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),

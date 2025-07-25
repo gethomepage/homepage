@@ -29,7 +29,7 @@ function ticksToString(ticks) {
 
 function generateStreamTitle(session, enableUser, showEpisodeNumber) {
   const {
-    NowPlayingItem: { Name, SeriesName, Type, ParentIndexNumber, IndexNumber },
+    NowPlayingItem: { Name, SeriesName, Type, ParentIndexNumber, IndexNumber, AlbumArtist, Album },
     UserName,
   } = session;
   let streamTitle = "";
@@ -38,6 +38,8 @@ function generateStreamTitle(session, enableUser, showEpisodeNumber) {
     const seasonStr = ParentIndexNumber ? `S${ParentIndexNumber.toString().padStart(2, "0")}` : "";
     const episodeStr = IndexNumber ? `E${IndexNumber.toString().padStart(2, "0")}` : "";
     streamTitle = `${SeriesName}: ${seasonStr} · ${episodeStr} - ${Name}`;
+  } else if (Type === "Audio") {
+    streamTitle = `${AlbumArtist} - ${Album} - ${Name}`;
   } else {
     streamTitle = `${Name}${SeriesName ? ` - ${SeriesName}` : ""}`;
   }
