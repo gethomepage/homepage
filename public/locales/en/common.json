@@ -1072,6 +1072,11 @@
         "stacks": "Stacks",
         "containers": "Containers"
     },
+    "filebrowser": {
+        "available": "Available",
+        "used": "Used",
+        "total": "Total"
+    },
     "wallos": {
         "activeSubscriptions": "Subscriptions",
         "thisMonthlyCost": "This Month",
