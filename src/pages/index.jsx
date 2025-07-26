@@ -551,7 +551,7 @@ export default function Wrapper({ initialSettings, fallback }) {
 
   return (
     <div id="page_wrapper" className="relative min-h-screen">
-      <div id="page_container" className="w-full h-full bg-theme-50 dark:bg-theme-800 transition-all">
+      <div id="page_container" className="w-full h-full transition-all">
         <div
           id="inner_wrapper"
           tabIndex="-1"
