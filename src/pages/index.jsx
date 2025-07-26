@@ -551,20 +551,18 @@ export default function Wrapper({ initialSettings, fallback }) {
 
   return (
     <div id="page_wrapper" className="relative min-h-screen">
-      <div id="page_container" className="w-full h-full transition-all">
-        <div
-          id="inner_wrapper"
-          tabIndex="-1"
-          className={classNames(
-            "w-full h-full overflow-auto",
-            backgroundBlur &&
-              `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
-            backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
-            backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
-          )}
-        >
-          <Index initialSettings={initialSettings} fallback={fallback} />
-        </div>
+      <div
+        id="inner_wrapper"
+        tabIndex="-1"
+        className={classNames(
+          "w-full h-full overflow-auto",
+          backgroundBlur &&
+            `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
+          backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
+          backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
+        )}
+      >
+        <Index initialSettings={initialSettings} fallback={fallback} />
       </div>
     </div>
   );
