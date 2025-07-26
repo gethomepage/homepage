@@ -41,7 +41,7 @@ body {
 }
 
 #page_wrapper {
-  width: 100vw;
+  width: 100%;
   min-height: 100%;
   margin: 0;
   padding: 0;
@@ -57,10 +57,6 @@ body {
   --bg-color: var(--color-800);
   --scrollbar-thumb: rgb(var(--color-600));
   --scrollbar-track: rgb(var(--color-700));
-}
-
-::-webkit-scrollbar {
-  width: 0.75em;
 }
 
 dialog ::-webkit-scrollbar {
