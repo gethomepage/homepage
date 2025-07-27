@@ -56,3 +56,24 @@ You can also include environment variables in your config files to protect sensi
 - Environment variables must start with `HOMEPAGE_VAR_` or `HOMEPAGE_FILE_`
 - The value of env var `HOMEPAGE_VAR_XXX` will replace `{{HOMEPAGE_VAR_XXX}}` in any config
 - The value of env var `HOMEPAGE_FILE_XXX` must be a file path, the contents of which will be used to replace `{{HOMEPAGE_FILE_XXX}}` in any config
+
+If you want to use this variables, you need to add this line in your docker compose file.
+
+```yaml
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 3000:3000
+    volumes:
+      - /path/to/config:/app/config # Make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+      PUID: $PUID
+      PGID: $PGID
+    # ADD THIS LINE
+    env_file:
+      - /path/to/.env
+```
