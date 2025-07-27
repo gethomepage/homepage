@@ -8,14 +8,27 @@ import Event, { compareDateTimezone } from "./event";
 const cellStyle = "relative w-10 flex items-center justify-center flex-col";
 const monthButton = "pl-6 pr-6 ml-2 mr-2 hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
 
-export function Day({ weekNumber, weekday, events, colorVariants, showDate, setShowDate, currentDate }) {
+function wrapSubtract(val, sub) {
+  return ((val - sub - 1 + 7) % 7) + 1;
+}
+
+export function Day({
+  weekNumber,
+  weekday,
+  events,
+  colorVariants,
+  showDate,
+  setShowDate,
+  currentDate,
+  weekendDaysIds,
+}) {
   const cellDate = showDate.set({ weekday, weekNumber, weekYear: showDate.year }).startOf("day");
   const filteredEvents = events?.filter((event) => compareDateTimezone(cellDate, event));
 
   const dayStyles = (displayDate) => {
     let style = "h-9 ";
 
-    if ([6, 7].includes(displayDate.weekday)) {
+    if (weekendDaysIds.includes(displayDate.weekday)) {
       // weekend style
       style += "text-red-500 ";
       // different month style
@@ -95,6 +108,11 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
     return <div className="w-full text-center" />;
   }
 
+  let firstWeekendDayId = wrapSubtract(dayInWeekId[firstDayInWeekCalendar], 1);
+  let secondWeekendDayId = wrapSubtract(dayInWeekId[firstDayInWeekCalendar], 2);
+
+  const weekendDaysIds = [firstWeekendDayId, secondWeekendDayId];
+
   const firstWeek = DateTime.local(showDate.year, showDate.month, 1).setLocale(i18n.language);
 
   const weekIncrementChange = dayInWeekId[firstDayInWeekCalendar] > firstWeek.weekday ? -1 : 0;
@@ -162,6 +180,7 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
                 showDate={showDate}
                 setShowDate={setShowDate}
                 currentDate={currentDate}
+                weekendDaysIds={weekendDaysIds}
               />
             )),
           )}
