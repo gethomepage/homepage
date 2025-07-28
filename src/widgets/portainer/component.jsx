@@ -34,10 +34,10 @@ export default function Component({ service }) {
   );
 
   if (widget.kubernetes) {
+    const error = applicationsError ?? servicesError ?? namespacesError;
     // count can be an error object
-    const error = applicationsError ?? servicesError ?? namespacesError ?? applicationsCount;
-    if (error) {
-      return <Container service={service} error={error} />;
+    if (error || typeof applicationsCount === "object") {
+      return <Container service={service} error={error ?? applicationsCount} />;
     }
 
     if (applicationsCount == undefined || servicesCount == undefined || namespacesCount == undefined) {
