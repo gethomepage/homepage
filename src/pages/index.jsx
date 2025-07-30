@@ -500,7 +500,7 @@ function Home({ initialSettings }) {
 export default function Wrapper({ initialSettings, fallback }) {
   const { theme } = useContext(ThemeContext);
   let backgroundImage = "";
-  let opacity = initialSettings?.backgroundOpacity ?? 1;
+  let opacity = initialSettings?.backgroundOpacity ?? 0;
   let backgroundBlur = false;
   let backgroundSaturate = false;
   let backgroundBrightness = false;
