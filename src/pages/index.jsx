@@ -556,7 +556,7 @@ export default function Wrapper({ initialSettings, fallback }) {
         id="inner_wrapper"
         tabIndex="-1"
         className={classNames(
-          "w-full h-full overflow-auto",
+          "w-full h-full min-h-screen overflow-auto",
           backgroundBlur &&
             `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
           backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
