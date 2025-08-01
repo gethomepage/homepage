@@ -504,7 +504,7 @@ export default function Wrapper({ initialSettings, fallback }) {
   let backgroundBlur = false;
   let backgroundSaturate = false;
   let backgroundBrightness = false;
-  if (initialSettings && initialSettings.background) {
+  if (initialSettings?.background) {
     const bg = initialSettings.background;
     if (typeof bg === "object") {
       backgroundImage = bg.image || "";
@@ -519,26 +519,24 @@ export default function Wrapper({ initialSettings, fallback }) {
     }
   }
 
-  // Apply background styles to <body> and theme classes to <html>
+  const wrapperStyle = backgroundImage
+    ? {
+        backgroundImage: `linear-gradient(rgb(var(--bg-color) / ${opacity}), rgb(var(--bg-color) / ${opacity})), url('${backgroundImage}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+      }
+    : {
+        backgroundColor: "rgb(var(--bg-color))",
+      };
+
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
 
-    if (backgroundImage) {
-      body.style.backgroundImage = `linear-gradient(rgb(var(--bg-color) / ${opacity}), rgb(var(--bg-color) / ${opacity})), url('${backgroundImage}')`;
-    } else {
-      body.style.backgroundImage = "none";
-      body.style.backgroundColor = "rgb(var(--bg-color))";
-    }
-    body.style.backgroundSize = "cover";
-    body.style.backgroundPosition = "center";
-    body.style.backgroundAttachment = "fixed";
-    body.style.backgroundRepeat = "no-repeat";
-
     html.classList.remove("dark", "scheme-dark", "scheme-light");
-    if (theme === "dark") {
-      html.classList.add("dark");
-    }
+    html.classList.add(theme === "dark" ? "dark" : "");
     html.classList.add(theme === "dark" ? "scheme-dark" : "scheme-light");
 
     html.classList.remove(...Array.from(html.classList).filter((cls) => cls.startsWith("theme-")));
@@ -546,13 +544,14 @@ export default function Wrapper({ initialSettings, fallback }) {
     html.classList.add(themeClass);
 
     return () => {
+      // Clean up background-related styles
       body.style.backgroundImage = "";
       body.style.backgroundColor = "";
     };
   }, [backgroundImage, opacity, theme, initialSettings.color]);
 
   return (
-    <div id="page_wrapper" className="relative min-h-screen">
+    <div id="page_wrapper" className="relative min-h-screen" style={wrapperStyle}>
       <div
         id="inner_wrapper"
         tabIndex="-1"
