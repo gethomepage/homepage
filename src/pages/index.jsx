@@ -519,18 +519,6 @@ export default function Wrapper({ initialSettings, fallback }) {
     }
   }
 
-  const wrapperStyle = backgroundImage
-    ? {
-        backgroundImage: `linear-gradient(rgb(var(--bg-color) / ${opacity}), rgb(var(--bg-color) / ${opacity})), url('${backgroundImage}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        backgroundRepeat: "no-repeat",
-      }
-    : {
-        backgroundColor: "rgb(var(--bg-color))",
-      };
-
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
@@ -540,31 +528,40 @@ export default function Wrapper({ initialSettings, fallback }) {
     html.classList.add(theme === "dark" ? "scheme-dark" : "scheme-light");
 
     html.classList.remove(...Array.from(html.classList).filter((cls) => cls.startsWith("theme-")));
-    const themeClass = initialSettings.color ? `theme-${initialSettings.color}` : "theme-slate";
-    html.classList.add(themeClass);
+    html.classList.add(`theme-${initialSettings.color || "slate"}`);
 
-    return () => {
-      // Clean up background-related styles
-      body.style.backgroundImage = "";
-      body.style.backgroundColor = "";
-    };
+    // Remove any previously applied inline styles
+    body.style.backgroundImage = "";
+    body.style.backgroundColor = "";
+    body.style.backgroundAttachment = "";
   }, [backgroundImage, opacity, theme, initialSettings.color]);
 
   return (
-    <div id="page_wrapper" className="relative min-h-screen" style={wrapperStyle}>
-      <div
-        id="inner_wrapper"
-        tabIndex="-1"
-        className={classNames(
-          "w-full h-full min-h-screen overflow-auto",
-          backgroundBlur &&
-            `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
-          backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
-          backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
-        )}
-      >
-        <Index initialSettings={initialSettings} fallback={fallback} />
+    <>
+      {backgroundImage && (
+        <div
+          id="background"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `linear-gradient(rgb(var(--bg-color) / ${opacity}), rgb(var(--bg-color) / ${opacity})), url('${backgroundImage}')`,
+          }}
+        />
+      )}
+      <div id="page_wrapper" className="relative h-full">
+        <div
+          id="inner_wrapper"
+          tabIndex="-1"
+          className={classNames(
+            "w-full h-full overflow-auto",
+            backgroundBlur &&
+              `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
+            backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
+            backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
+          )}
+        >
+          <Index initialSettings={initialSettings} fallback={fallback} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
