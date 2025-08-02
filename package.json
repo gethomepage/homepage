@@ -16,7 +16,7 @@
     "classnames": "^2.5.1",
     "compare-versions": "^6.1.1",
     "dockerode": "^4.0.4",
-    "follow-redirects": "^1.15.9",
+    "follow-redirects": "^1.15.11",
     "gamedig": "^5.2.0",
     "i18next": "^24.2.3",
     "ical.js": "^2.1.0",
