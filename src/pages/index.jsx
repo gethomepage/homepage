@@ -17,6 +17,7 @@ import { useContext, useEffect, useMemo, useState } from "react";
 import { BiError } from "react-icons/bi";
 import useSWR, { SWRConfig } from "swr";
 import { ColorContext } from "utils/contexts/color";
+import { HideContext } from "utils/contexts/hide";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
 import { ThemeContext } from "utils/contexts/theme";
@@ -32,6 +33,10 @@ const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
 });
 
 const ColorToggle = dynamic(() => import("components/toggles/color"), {
+  ssr: false,
+});
+
+const HideSensitiveToggle = dynamic(() => import("components/toggles/hide"), {
   ssr: false,
 });
 
@@ -201,6 +206,7 @@ function Home({ initialSettings }) {
   const { i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
   const { color, setColor } = useContext(ColorContext);
+  const { hideSensitive, setHideSensitive } = useContext(HideContext);
   const { settings, setSettings } = useContext(SettingsContext);
   const { activeTab, setActiveTab } = useContext(TabContext);
   const { asPath } = useRouter();
@@ -484,6 +490,7 @@ function Home({ initialSettings }) {
         <div id="footer" className="flex flex-col mt-auto p-8 w-full">
           <div id="style" className="flex w-full justify-end">
             {!settings?.color && <ColorToggle />}
+            <HideSensitiveToggle />
             <Revalidate />
             {!settings.theme && <ThemeToggle />}
           </div>

@@ -1,8 +1,17 @@
+import { useContext } from "react";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 
-export default function Block({ value, label }) {
+import { HideContext } from "../../../utils/contexts/hide";
+import { maskSensitiveData, isSensitiveField } from "../../../utils/sensitive-data";
+
+export default function Block({ value, label, disableHide = false }) {
   const { t } = useTranslation();
+  const { hideSensitive } = useContext(HideContext);
+
+  // Determine if this field should be hidden based on label or content
+  const shouldMask = !disableHide && (isSensitiveField(label) || isSensitiveField(String(value || "")));
+  const displayValue = shouldMask ? maskSensitiveData(value, hideSensitive) : value;
 
   return (
     <div
@@ -12,7 +21,7 @@ export default function Block({ value, label }) {
         "service-block",
       )}
     >
-      <div className="font-thin text-sm">{value === undefined || value === null ? "-" : value}</div>
+      <div className="font-thin text-sm">{displayValue === undefined || displayValue === null ? "-" : displayValue}</div>
       <div className="font-bold text-xs uppercase">{t(label)}</div>
     </div>
   );
