@@ -63,14 +63,14 @@
         "wlan_users": "Utilizatori WLAN",
         "up": "UP",
         "down": "Oprit",
-        "wait": "Va rugăm așteptați",
+        "wait": "Please wait",
         "empty_data": "Starea subsistemului este necunoscut"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "running": "Rulează",
         "offline": "Offline",
         "error": "Eroare",
@@ -83,7 +83,7 @@
         "partial": "Parțial"
     },
     "ping": {
-        "error": "Eroare",
+        "error": "Error",
         "ping": "Ping",
         "down": "Jos",
         "up": "Sus",
@@ -91,11 +91,11 @@
     },
     "siteMonitor": {
         "http_status": "Stare HTTP",
-        "error": "Eroare",
+        "error": "Error",
         "response": "Răspuns",
-        "down": "Jos",
-        "up": "Sus",
-        "not_available": "Indisponibil"
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Activ",
@@ -112,7 +112,7 @@
         "offline_alt": "Offline",
         "online": "Online",
         "total": "Total",
-        "unknown": "Necunoscut"
+        "unknown": "Unknown"
     },
     "evcc": {
         "pv_power": "Producție",
@@ -133,7 +133,7 @@
         "unread": "Necitit"
     },
     "fritzbox": {
-        "connectionStatus": "Stare",
+        "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Neconfigurat",
         "connectionStatusConnecting": "Connecting",
         "connectionStatusAuthenticating": "Authenticating",
@@ -144,8 +144,8 @@
         "uptime": "Uptime",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Jos",
-        "up": "Sus",
+        "down": "Down",
+        "up": "Up",
         "received": "Primit",
         "sent": "Trimis",
         "externalIPAddress": "Ext. IP",
@@ -168,10 +168,10 @@
         "passes": "Passes"
     },
     "tautulli": {
-        "playing": "Activ",
-        "transcoding": "Transcodare",
-        "bitrate": "Rata de biți",
-        "no_active": "Niciun stream activ",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
     },
     "omada": {
@@ -189,28 +189,28 @@
     "plex": {
         "streams": "Fluxuri active",
         "albums": "Albume",
-        "movies": "Filme",
+        "movies": "Movies",
         "tv": "Seriale"
     },
     "sabnzbd": {
-        "rate": "Rată",
+        "rate": "Rate",
         "queue": "Coadă",
         "timeleft": "Timp rămas"
     },
     "rutorrent": {
         "active": "Activ",
-        "upload": "Încarcă",
-        "download": "Descarcă"
+        "upload": "Upload",
+        "download": "Download"
     },
     "transmission": {
-        "download": "Descarcă",
-        "upload": "Încarcă",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Descarcă",
-        "upload": "Încarcă",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -223,8 +223,8 @@
         "invalid": "Invalid"
     },
     "deluge": {
-        "download": "Descarcă",
-        "upload": "Încarcă",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -233,34 +233,34 @@
         "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
-        "download": "Descarcă",
-        "upload": "Încarcă",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Dorite",
         "queued": "În coadă",
-        "series": "Serie",
-        "queue": "Coadă",
-        "unknown": "Necunoscut"
+        "series": "Series",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
-        "wanted": "Dorite",
+        "wanted": "Wanted",
         "missing": "Lipsește",
-        "queued": "În coadă",
-        "movies": "Filme",
-        "queue": "Coadă",
-        "unknown": "Necunoscut"
+        "queued": "Queued",
+        "movies": "Movies",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
-        "wanted": "Dorite",
-        "queued": "În coadă",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "artists": "Artiști"
     },
     "readarr": {
-        "wanted": "Dorite",
-        "queued": "În coadă",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "books": "Cărți"
     },
     "bazarr": {
@@ -273,19 +273,19 @@
         "available": "Disponibile"
     },
     "jellyseerr": {
-        "pending": "În așteptare",
-        "approved": "Aprobate",
-        "available": "Disponibile"
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available"
     },
     "overseerr": {
-        "pending": "În așteptare",
+        "pending": "Pending",
         "processing": "Procesare",
-        "approved": "Aprobate",
-        "available": "Disponibile"
+        "approved": "Approved",
+        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Conectat",
+        "connected": "Connected",
         "new_devices": "Dispozitive Noi",
         "down_alerts": "Down Alerts"
     },
@@ -296,26 +296,26 @@
         "gravity": "Gravitație"
     },
     "adguard": {
-        "queries": "Cereri",
-        "blocked": "Blocate",
+        "queries": "Queries",
+        "blocked": "Blocked",
         "filtered": "Filtrate",
         "latency": "Latentă"
     },
     "speedtest": {
-        "upload": "Încarcă",
-        "download": "Descarcă",
+        "upload": "Upload",
+        "download": "Download",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Rulează",
+        "running": "Running",
         "stopped": "Oprit",
         "total": "Total"
     },
     "suwayomi": {
-        "download": "Descărcat",
+        "download": "Downloaded",
         "nondownload": "Non-Downloaded",
         "read": "Read",
-        "unread": "Necitit",
+        "unread": "Unread",
         "downloadedread": "Downloaded & Read",
         "downloadedunread": "Downloaded & Unread",
         "nondownloadedread": "Non-Downloaded & Read",
@@ -336,7 +336,7 @@
         "ago": "{{value}} Ago"
     },
     "technitium": {
-        "totalQueries": "Cereri",
+        "totalQueries": "Queries",
         "totalNoError": "Success",
         "totalServerFailure": "Failures",
         "totalNxDomain": "NX Domains",
@@ -344,12 +344,12 @@
         "totalAuthoritative": "Authoritative",
         "totalRecursive": "Recursiv",
         "totalCached": "Cached",
-        "totalBlocked": "Blocate",
+        "totalBlocked": "Blocked",
         "totalDropped": "Dropped",
         "totalClients": "Clienți"
     },
     "tdarr": {
-        "queue": "Coadă",
+        "queue": "Queue",
         "processed": "Processed",
         "errored": "Errored",
         "saved": "Salvat"
@@ -359,8 +359,14 @@
         "services": "Servicii",
         "middleware": "Middleware"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Unknown"
+    },
     "navidrome": {
-        "nothing_streaming": "Niciun stream activ",
+        "nothing_streaming": "No Active Streams",
         "please_wait": "Please Wait"
     },
     "npm": {
@@ -377,13 +383,13 @@
     },
     "gotify": {
         "apps": "Aplicații",
-        "clients": "Clienți",
+        "clients": "Clients",
         "messages": "Mesaje"
     },
     "prowlarr": {
         "enableIndexers": "Indexatori",
         "numberOfGrabs": "Descărcate",
-        "numberOfQueries": "Cereri",
+        "numberOfQueries": "Queries",
         "numberOfFailGrabs": "Descărcări eșuate",
         "numberOfFailQueries": "Cereri eșuate"
     },
@@ -395,51 +401,51 @@
         "numActiveSessions": "Sesiuni",
         "numConnections": "Conexiuni",
         "dataRelayed": "Retransmise",
-        "transferRate": "Rată"
+        "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Utilizatori",
+        "user_count": "Users",
         "status_count": "Postări",
         "domain_count": "Domenii"
     },
     "medusa": {
-        "wanted": "Dorite",
-        "queued": "În coadă",
-        "series": "Serie"
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     },
     "minecraft": {
         "players": "Jucători",
         "version": "Versiune",
-        "status": "Stare",
+        "status": "Status",
         "up": "Online",
         "down": "Offline"
     },
     "miniflux": {
         "read": "Read",
-        "unread": "Necitit"
+        "unread": "Unread"
     },
     "authentik": {
-        "users": "Utilizatori",
+        "users": "Users",
         "loginsLast24H": "Autentificări (24h)",
         "failedLoginsLast24H": "Conectări eșuate (24h)"
     },
     "proxmox": {
         "mem": "MEM",
-        "cpu": "Procesor",
+        "cpu": "CPU",
         "lxc": "Container",
         "vms": "Masini Virtuale"
     },
     "glances": {
-        "cpu": "Procesor",
-        "load": "Sarcină",
-        "wait": "Va rugăm așteptați",
+        "cpu": "CPU",
+        "load": "Load",
+        "wait": "Please wait",
         "temp": "TEMP",
         "_temp": "Temperatură",
         "warn": "Warn",
         "uptime": "UP",
         "total": "Total",
-        "free": "Disponibili",
-        "used": "Utilizați",
+        "free": "Free",
+        "used": "Used",
         "days": "d",
         "hours": "h",
         "crit": "Crit",
@@ -464,13 +470,13 @@
         "1-day": "Aproape însorit",
         "1-night": "Aproape fără nori",
         "2-day": "Parţial Înnorat",
-        "2-night": "Parţial Înnorat",
+        "2-night": "Partly Cloudy",
         "3-day": "Înnorat",
-        "3-night": "Înnorat",
+        "3-night": "Cloudy",
         "45-day": "Ceaţă",
-        "45-night": "Ceaţă",
-        "48-day": "Ceaţă",
-        "48-night": "Ceaţă",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
         "51-day": "Light Drizzle",
         "51-night": "Light Drizzle",
         "53-day": "Drizzle",
@@ -482,9 +488,9 @@
         "57-day": "Freezing Drizzle",
         "57-night": "Freezing Drizzle",
         "61-day": "Ploaie Ușoară",
-        "61-night": "Ploaie Ușoară",
+        "61-night": "Light Rain",
         "63-day": "Ploaie",
-        "63-night": "Ploaie",
+        "63-night": "Rain",
         "65-day": "Heavy Rain",
         "65-night": "Heavy Rain",
         "66-day": "Freezing Rain",
@@ -523,17 +529,17 @@
         "up_to_date": "Actualizat",
         "child_bridges": "Child Bridges",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Sus",
-        "pending": "În așteptare",
-        "down": "Jos"
+        "up": "Up",
+        "pending": "Pending",
+        "down": "Down"
     },
     "healthchecks": {
         "new": "Nou",
-        "up": "Sus",
+        "up": "Up",
         "grace": "In Grace Period",
-        "down": "Jos",
+        "down": "Down",
         "paused": "Pauză",
-        "status": "Stare",
+        "status": "Status",
         "last_ping": "Ultimul Ping",
         "never": "No pings yet"
     },
@@ -543,13 +549,13 @@
         "containers_failed": "Eșuat"
     },
     "autobrr": {
-        "approvedPushes": "Aprobate",
+        "approvedPushes": "Approved",
         "rejectedPushes": "Respinse",
         "filters": "Filtre",
-        "indexers": "Indexatori"
+        "indexers": "Indexers"
     },
     "tubearchivist": {
-        "downloads": "Coadă",
+        "downloads": "Queue",
         "videos": "Videos",
         "channels": "Canale",
         "playlists": "Playlists"
@@ -557,12 +563,12 @@
     "truenas": {
         "load": "System Load",
         "uptime": "Uptime",
-        "alerts": "Alerte"
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Viteză",
-        "active": "Activ",
-        "queue": "Coadă",
+        "active": "Active",
+        "queue": "Queue",
         "total": "Total"
     },
     "gluetun": {
@@ -572,21 +578,21 @@
         "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
-        "channels": "Canale",
+        "channels": "Channels",
         "hd": "HD",
         "tunerCount": "Tunere",
         "channelNumber": "Canal",
         "channelNetwork": "Rețea",
         "signalStrength": "Putere",
         "signalQuality": "Calitate",
-        "symbolQuality": "Calitate",
-        "networkRate": "Rata de biți",
+        "symbolQuality": "Quality",
+        "networkRate": "Bitrate",
         "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Passed",
-        "failed": "Eșuat",
-        "unknown": "Necunoscut"
+        "failed": "Failed",
+        "unknown": "Unknown"
     },
     "paperlessngx": {
         "inbox": "Inbox",
@@ -612,7 +618,7 @@
     },
     "xteve": {
         "streams_all": "All Streams",
-        "streams_active": "Fluxuri active",
+        "streams_active": "Active Streams",
         "streams_xepg": "XEPG Channels"
     },
     "opendtu": {
@@ -634,33 +640,33 @@
         "layers": "Straturi"
     },
     "octoprint": {
-        "printer_state": "Stare",
+        "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Stare"
+        "status": "Status"
     },
     "pfsense": {
         "load": "Load Avg",
         "memory": "Mem Usage",
         "wanStatus": "WAN Status",
-        "up": "Sus",
-        "down": "Jos",
-        "temp": "Temperatură",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
         "disk": "Utilizare Disc",
         "wanIP": "WAN IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "Procesor",
+        "cpu_usage": "CPU",
         "memory_usage": "Memorie"
     },
     "immich": {
-        "users": "Utilizatori",
+        "users": "Users",
         "photos": "Fotografii",
         "videos": "Videos",
         "storage": "Storage"
@@ -673,35 +679,35 @@
         "m": "m"
     },
     "atsumeru": {
-        "series": "Serie",
+        "series": "Series",
         "archives": "Arhive",
         "chapters": "Chapters",
         "categories": "Categorii"
     },
     "komga": {
         "libraries": "Biblioteci",
-        "series": "Serie",
-        "books": "Cărți"
+        "series": "Series",
+        "books": "Books"
     },
     "diskstation": {
-        "days": "Zile",
+        "days": "Days",
         "uptime": "Uptime",
-        "volumeAvailable": "Disponibile"
+        "volumeAvailable": "Available"
     },
     "mylar": {
-        "series": "Serie",
+        "series": "Series",
         "issues": "Issues",
-        "wanted": "Dorite"
+        "wanted": "Wanted"
     },
     "photoprism": {
-        "albums": "Albume",
-        "photos": "Fotografii",
+        "albums": "Albums",
+        "photos": "Photos",
         "videos": "Videos",
         "people": "Oameni"
     },
     "fileflows": {
-        "queue": "Coadă",
-        "processing": "Procesare",
+        "queue": "Queue",
+        "processing": "Processing",
         "processed": "Processed",
         "time": "Timp"
     },
@@ -724,11 +730,11 @@
         "numshares": "Articole Partajate"
     },
     "kopia": {
-        "status": "Stare",
+        "status": "Status",
         "size": "Mărime",
         "lastrun": "Ultima Rulare",
         "nextrun": "Următoarea Rulare",
-        "failed": "Eșuat"
+        "failed": "Failed"
     },
     "unmanic": {
         "active_workers": "Muncitori activi",
@@ -750,15 +756,15 @@
         "uptime": "Uptime"
     },
     "ghostfolio": {
-        "gross_percent_today": "Astăzi",
+        "gross_percent_today": "Today",
         "gross_percent_1y": "Un an",
         "gross_percent_max": "Tot timpul"
     },
     "audiobookshelf": {
         "podcasts": "Podcasturi",
-        "books": "Cărți",
+        "books": "Books",
         "podcastsDuration": "Durată",
-        "booksDuration": "Durată"
+        "booksDuration": "Duration"
     },
     "homeassistant": {
         "people_home": "People Home",
@@ -767,45 +773,45 @@
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
-        "updates": "Actualizări"
+        "updates": "Updates"
     },
     "calibreweb": {
-        "books": "Cărți",
+        "books": "Books",
         "authors": "Autori",
-        "categories": "Categorii",
-        "series": "Serie"
+        "categories": "Categories",
+        "series": "Series"
     },
     "jdownloader": {
-        "downloadCount": "Coadă",
-        "downloadBytesRemaining": "Rămas",
-        "downloadTotalBytes": "Mărime",
-        "downloadSpeed": "Viteză"
+        "downloadCount": "Queue",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "Serie",
-        "totalFiles": "Fișiere"
+        "seriesCount": "Series",
+        "totalFiles": "Files"
     },
     "azuredevops": {
         "result": "Rezultat",
-        "status": "Stare",
+        "status": "Status",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
-        "failed": "Eșuat",
+        "failed": "Failed",
         "canceled": "Anulat",
         "inProgress": "În Progres",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "Aprobate"
+        "approved": "Approved"
     },
     "gamedig": {
-        "status": "Stare",
+        "status": "Status",
         "online": "Online",
         "offline": "Offline",
         "name": "Nume",
         "map": "Hartă",
         "currentPlayers": "Current players",
-        "players": "Jucători",
+        "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Boți",
         "ping": "Ping"
@@ -818,39 +824,39 @@
     },
     "mealie": {
         "recipes": "Recipes",
-        "users": "Utilizatori",
-        "categories": "Categorii",
+        "users": "Users",
+        "categories": "Categories",
         "tags": "Etichete"
     },
     "openmediavault": {
         "downloading": "Downloading",
         "total": "Total",
-        "running": "Rulează",
-        "stopped": "Oprit",
+        "running": "Running",
+        "stopped": "Stopped",
         "passed": "Passed",
-        "failed": "Eșuat"
+        "failed": "Failed"
     },
     "openwrt": {
         "uptime": "Uptime",
         "cpuLoad": "CPU Load Avg (5m)",
-        "up": "Sus",
-        "down": "Jos",
+        "up": "Up",
+        "down": "Down",
         "bytesTx": "Transmis",
-        "bytesRx": "Primit"
+        "bytesRx": "Received"
     },
     "uptimerobot": {
-        "status": "Stare",
+        "status": "Status",
         "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
         "sitesUp": "Sites Up",
         "sitesDown": "Sites Down",
-        "paused": "Pauză",
+        "paused": "Paused",
         "notyetchecked": "Not Yet Checked",
-        "up": "Sus",
+        "up": "Up",
         "seemsdown": "Seems Down",
-        "down": "Jos",
-        "unknown": "Necunoscut"
+        "down": "Down",
+        "unknown": "Unknown"
     },
     "calendar": {
         "inCinemas": "În cinematografe",
@@ -869,7 +875,7 @@
         "totalfilesize": "Mărime Totală"
     },
     "mailcow": {
-        "domains": "Domenii",
+        "domains": "Domains",
         "mailboxes": "Cutii poştale",
         "mails": "Mails",
         "storage": "Storage"
@@ -881,7 +887,7 @@
     "plantit": {
         "events": "Evenimente",
         "plants": "Plante",
-        "photos": "Fotografii",
+        "photos": "Photos",
         "species": "Specii"
     },
     "gitea": {
@@ -902,12 +908,12 @@
         "galleries": "Galerii",
         "performers": "Performers",
         "studios": "Studios",
-        "movies": "Filme",
-        "tags": "Etichete",
+        "movies": "Movies",
+        "tags": "Tags",
         "oCount": "O Count"
     },
     "tandoor": {
-        "users": "Utilizatori",
+        "users": "Users",
         "recipes": "Recipes",
         "keywords": "Cuvinte cheie"
     },
@@ -916,17 +922,17 @@
         "totalWithWarranty": "Cu Garanție",
         "locations": "Locaţii",
         "labels": "Etichete",
-        "users": "Utilizatori",
+        "users": "Users",
         "totalValue": "Total Value"
     },
     "crowdsec": {
-        "alerts": "Alerte",
+        "alerts": "Alerts",
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Conectat",
-        "enabled": "Activat",
-        "disabled": "Dezactivat",
+        "connected": "Connected",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
         "total": "Total"
     },
     "swagdashboard": {
@@ -937,8 +943,8 @@
     },
     "myspeed": {
         "ping": "Ping",
-        "download": "Descarcă",
-        "upload": "Încarcă"
+        "download": "Download",
+        "upload": "Upload"
     },
     "stocks": {
         "stocks": "Acțiuni",
@@ -950,16 +956,16 @@
     "frigate": {
         "cameras": "Camere",
         "uptime": "Uptime",
-        "version": "Versiune"
+        "version": "Version"
     },
     "linkwarden": {
         "links": "Links",
         "collections": "Colecții",
-        "tags": "Etichete"
+        "tags": "Tags"
     },
     "zabbix": {
         "unclassified": "Not classified",
-        "information": "Informație",
+        "information": "Information",
         "warning": "Atenție",
         "average": "Medie",
         "high": "Înalt",
@@ -980,23 +986,23 @@
         "tasksInProgress": "Tasks In Progress"
     },
     "headscale": {
-        "name": "Nume",
-        "address": "Adresă",
+        "name": "Name",
+        "address": "Address",
         "last_seen": "Last Seen",
-        "status": "Stare",
+        "status": "Status",
         "online": "Online",
         "offline": "Offline"
     },
     "beszel": {
-        "name": "Nume",
+        "name": "Name",
         "systems": "Sistem",
-        "up": "Sus",
-        "down": "Jos",
-        "paused": "Pauză",
-        "pending": "În așteptare",
-        "status": "Stare",
-        "updated": "Actualizat",
-        "cpu": "Procesor",
+        "up": "Up",
+        "down": "Down",
+        "paused": "Paused",
+        "pending": "Pending",
+        "status": "Status",
+        "updated": "Updated",
+        "cpu": "CPU",
         "memory": "MEM",
         "disk": "Disk",
         "network": "NET"
@@ -1005,10 +1011,10 @@
         "apps": "Aplicaţii",
         "synced": "Synced",
         "outOfSync": "Out Of Sync",
-        "healthy": "Sănătos",
+        "healthy": "Healthy",
         "degraded": "Degraded",
         "progressing": "Progressing",
-        "missing": "Lipsește",
+        "missing": "Missing",
         "suspended": "Suspendat"
     },
     "spoolman": {
@@ -1021,10 +1027,10 @@
         "projects": "Proiecte"
     },
     "apcups": {
-        "status": "Stare",
-        "load": "Sarcină",
-        "bcharge": "Încărcare Baterie",
-        "timeleft": "Timp rămas"
+        "status": "Status",
+        "load": "Load",
+        "bcharge": "Battery Charge",
+        "timeleft": "Time Left"
     },
     "karakeep": {
         "bookmarks": "Marcaje",
@@ -1032,27 +1038,50 @@
         "archived": "Arhivat",
         "highlights": "Highlights",
         "lists": "Liste",
-        "tags": "Etichete"
+        "tags": "Tags"
     },
     "slskd": {
-        "slskStatus": "Rețea",
-        "connected": "Conectat",
-        "disconnected": "Deconectat",
+        "slskStatus": "Network",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
         "updateStatus": "Update",
-        "update_yes": "Disponibile",
-        "update_no": "Actualizat",
+        "update_yes": "Available",
+        "update_no": "Up to Date",
         "downloads": "Downloads",
         "uploads": "Uploads",
-        "sharedFiles": "Fișiere"
+        "sharedFiles": "Files"
     },
     "jellystat": {
-        "songs": "Melodii",
-        "movies": "Filme",
-        "episodes": "Episoade",
+        "songs": "Songs",
+        "movies": "Movies",
+        "episodes": "Episodes",
         "other": "Altele"
     },
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "komodo": {
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "down": "Down",
+        "unhealthy": "Unhealthy",
+        "unknown": "Unknown",
+        "servers": "Servers",
+        "stacks": "Stacks",
+        "containers": "Containers"
+    },
+    "filebrowser": {
+        "available": "Available",
+        "used": "Used",
+        "total": "Total"
+    },
+    "wallos": {
+        "activeSubscriptions": "Subscriptions",
+        "thisMonthlyCost": "This Month",
+        "nextMonthlyCost": "Next Month",
+        "previousMonthlyCost": "Prev. Month",
+        "nextRenewingSubscription": "Next Payment"
     }
 }
