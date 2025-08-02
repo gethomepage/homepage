@@ -63,14 +63,14 @@
         "wlan_users": "WLAN-Uzantoj",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Bonvolu atendi",
+        "wait": "Please wait",
         "empty_data": "Subsistemostatuso nekonata"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "MEM",
-        "cpu": "Ĉefprocesoro",
+        "cpu": "CPU",
         "running": "Rulata",
         "offline": "Malkonekta",
         "error": "Eraro",
@@ -83,7 +83,7 @@
         "partial": "Parta"
     },
     "ping": {
-        "error": "Eraro",
+        "error": "Error",
         "ping": "Sondaĵo",
         "down": "Down",
         "up": "Up",
@@ -91,7 +91,7 @@
     },
     "siteMonitor": {
         "http_status": "HTTP status",
-        "error": "Eraro",
+        "error": "Error",
         "response": "Response",
         "down": "Down",
         "up": "Up",
@@ -108,11 +108,11 @@
         "songs": "Kantoj"
     },
     "esphome": {
-        "offline": "Malkonekta",
-        "offline_alt": "Malkonekta",
+        "offline": "Offline",
+        "offline_alt": "Offline",
         "online": "Online",
-        "total": "Totalo",
-        "unknown": "Nekonata"
+        "total": "Total",
+        "unknown": "Unknown"
     },
     "evcc": {
         "pv_power": "Production",
@@ -133,7 +133,7 @@
         "unread": "Unread"
     },
     "fritzbox": {
-        "connectionStatus": "Stato",
+        "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Unconfigured",
         "connectionStatusConnecting": "Connecting",
         "connectionStatusAuthenticating": "Authenticating",
@@ -168,9 +168,9 @@
         "passes": "Passes"
     },
     "tautulli": {
-        "playing": "Ludante",
-        "transcoding": "Transkodigo",
-        "bitrate": "Bitrapido",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
         "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
     },
@@ -189,7 +189,7 @@
     "plex": {
         "streams": "Active Streams",
         "albums": "Albums",
-        "movies": "Filmoj",
+        "movies": "Movies",
         "tv": "Televidprogramoj"
     },
     "sabnzbd": {
@@ -199,18 +199,18 @@
     },
     "rutorrent": {
         "active": "Active",
-        "upload": "Alŝuti",
-        "download": "Elŝuti"
+        "upload": "Upload",
+        "download": "Download"
     },
     "transmission": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -223,8 +223,8 @@
         "invalid": "Invalid"
     },
     "deluge": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -233,25 +233,25 @@
         "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
-        "download": "Elŝuti",
-        "upload": "Alŝuti",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Serioj",
+        "series": "Series",
         "queue": "Queue",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
     },
     "radarr": {
         "wanted": "Wanted",
         "missing": "Missing",
         "queued": "Queued",
-        "movies": "Filmoj",
+        "movies": "Movies",
         "queue": "Queue",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
     },
     "lidarr": {
         "wanted": "Wanted",
@@ -274,17 +274,17 @@
     },
     "jellyseerr": {
         "pending": "Pending",
-        "approved": "Aprobita",
-        "available": "Havebla"
+        "approved": "Approved",
+        "available": "Available"
     },
     "overseerr": {
         "pending": "Pending",
         "processing": "Processing",
-        "approved": "Aprobita",
-        "available": "Havebla"
+        "approved": "Approved",
+        "available": "Available"
     },
     "netalertx": {
-        "total": "Totalo",
+        "total": "Total",
         "connected": "Connected",
         "new_devices": "New Devices",
         "down_alerts": "Down Alerts"
@@ -302,14 +302,14 @@
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Alŝuti",
-        "download": "Elŝuti",
-        "ping": "Sondaĵo"
+        "upload": "Upload",
+        "download": "Download",
+        "ping": "Ping"
     },
     "portainer": {
-        "running": "Rulata",
+        "running": "Running",
         "stopped": "Stopped",
-        "total": "Totalo"
+        "total": "Total"
     },
     "suwayomi": {
         "download": "Downloaded",
@@ -359,6 +359,12 @@
         "services": "Servoj",
         "middleware": "Middleware"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Unknown"
+    },
     "navidrome": {
         "nothing_streaming": "No Active Streams",
         "please_wait": "Please Wait"
@@ -366,7 +372,7 @@
     "npm": {
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Totalo"
+        "total": "Total"
     },
     "coinmarketcap": {
         "configure": "Configure one or more crypto currencies to track",
@@ -377,7 +383,7 @@
     },
     "gotify": {
         "apps": "Applications",
-        "clients": "Klientoj",
+        "clients": "Clients",
         "messages": "Mesaĝoj"
     },
     "prowlarr": {
@@ -398,48 +404,48 @@
         "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Uzantoj",
+        "user_count": "Users",
         "status_count": "Afiŝoj",
         "domain_count": "Domains"
     },
     "medusa": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Serioj"
+        "series": "Series"
     },
     "minecraft": {
         "players": "Players",
         "version": "Version",
-        "status": "Stato",
+        "status": "Status",
         "up": "Online",
-        "down": "Malkonekta"
+        "down": "Offline"
     },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
     },
     "authentik": {
-        "users": "Uzantoj",
+        "users": "Users",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
         "mem": "MEM",
-        "cpu": "Ĉefprocesoro",
+        "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "Ĉefprocesoro",
-        "load": "Ŝarĝo",
-        "wait": "Bonvolu atendi",
+        "cpu": "CPU",
+        "load": "Load",
+        "wait": "Please wait",
         "temp": "TEMP",
         "_temp": "Temp",
         "warn": "Warn",
         "uptime": "UP",
-        "total": "Totalo",
-        "free": "Libera",
-        "used": "Uzata",
+        "total": "Total",
+        "free": "Free",
+        "used": "Used",
         "days": "d",
         "hours": "h",
         "crit": "Crit",
@@ -464,13 +470,13 @@
         "1-day": "Mainly Sunny",
         "1-night": "Mainly Clear",
         "2-day": "Nubeta",
-        "2-night": "Nubeta",
+        "2-night": "Partly Cloudy",
         "3-day": "Nuba",
-        "3-night": "Nuba",
+        "3-night": "Cloudy",
         "45-day": "Nebula",
-        "45-night": "Nebula",
-        "48-day": "Nebula",
-        "48-night": "Nebula",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
         "51-day": "Light Drizzle",
         "51-night": "Light Drizzle",
         "53-day": "Drizzle",
@@ -484,19 +490,19 @@
         "61-day": "Light Rain",
         "61-night": "Light Rain",
         "63-day": "Pluvo",
-        "63-night": "Pluvo",
+        "63-night": "Rain",
         "65-day": "Pluvego",
-        "65-night": "Pluvego",
+        "65-night": "Heavy Rain",
         "66-day": "Frosta pluvo",
-        "66-night": "Frosta pluvo",
-        "67-day": "Frosta pluvo",
-        "67-night": "Frosta pluvo",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
         "71-day": "Light Snow",
         "71-night": "Light Snow",
         "73-day": "Neĝo",
-        "73-night": "Neĝo",
+        "73-night": "Snow",
         "75-day": "Neĝego",
-        "75-night": "Neĝego",
+        "75-night": "Heavy Snow",
         "77-day": "Snow Grains",
         "77-night": "Snow Grains",
         "80-day": "Light Showers",
@@ -510,11 +516,11 @@
         "86-day": "Snow Showers",
         "86-night": "Snow Showers",
         "95-day": "Fulmotondro",
-        "95-night": "Fulmotondro",
+        "95-night": "Thunderstorm",
         "96-day": "Fulmotondro kun hajlo",
-        "96-night": "Fulmotondro kun hajlo",
-        "99-day": "Fulmotondro kun hajlo",
-        "99-night": "Fulmotondro kun hajlo"
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
     },
     "homebridge": {
         "available_update": "Sistemo",
@@ -533,7 +539,7 @@
         "grace": "In Grace Period",
         "down": "Down",
         "paused": "Paused",
-        "status": "Stato",
+        "status": "Status",
         "last_ping": "Last Ping",
         "never": "No pings yet"
     },
@@ -543,7 +549,7 @@
         "containers_failed": "Failed"
     },
     "autobrr": {
-        "approvedPushes": "Aprobita",
+        "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",
         "filters": "Filtriloj",
         "indexers": "Indexers"
@@ -563,7 +569,7 @@
         "speed": "Speed",
         "active": "Active",
         "queue": "Queue",
-        "total": "Totalo"
+        "total": "Total"
     },
     "gluetun": {
         "public_ip": "Public IP",
@@ -572,7 +578,7 @@
         "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
-        "channels": "Kanaloj",
+        "channels": "Channels",
         "hd": "HD",
         "tunerCount": "Tuners",
         "channelNumber": "Channel",
@@ -580,17 +586,17 @@
         "signalStrength": "Strength",
         "signalQuality": "Quality",
         "symbolQuality": "Quality",
-        "networkRate": "Bitrapido",
+        "networkRate": "Bitrate",
         "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Passed",
         "failed": "Failed",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
     },
     "paperlessngx": {
         "inbox": "Inbox",
-        "total": "Totalo"
+        "total": "Total"
     },
     "peanut": {
         "battery_charge": "Battery Charge",
@@ -634,14 +640,14 @@
         "layers": "Layers"
     },
     "octoprint": {
-        "printer_state": "Stato",
+        "printer_state": "Status",
         "temp_tool": "Tool temp",
         "temp_bed": "Bed temp",
         "job_completion": "Completion"
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Stato"
+        "status": "Status"
     },
     "pfsense": {
         "load": "Load Avg",
@@ -656,11 +662,11 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "Failed Tasks 24h",
-        "cpu_usage": "Ĉefprocesoro",
+        "cpu_usage": "CPU",
         "memory_usage": "Memory"
     },
     "immich": {
-        "users": "Uzantoj",
+        "users": "Users",
         "photos": "Photos",
         "videos": "Videos",
         "storage": "Storage"
@@ -673,23 +679,23 @@
         "m": "m"
     },
     "atsumeru": {
-        "series": "Serioj",
+        "series": "Series",
         "archives": "Archives",
         "chapters": "Chapters",
         "categories": "Categories"
     },
     "komga": {
         "libraries": "Libraries",
-        "series": "Serioj",
-        "books": "Libroj"
+        "series": "Series",
+        "books": "Books"
     },
     "diskstation": {
-        "days": "Tagoj",
+        "days": "Days",
         "uptime": "Uptime",
-        "volumeAvailable": "Havebla"
+        "volumeAvailable": "Available"
     },
     "mylar": {
-        "series": "Serioj",
+        "series": "Series",
         "issues": "Issues",
         "wanted": "Wanted"
     },
@@ -724,7 +730,7 @@
         "numshares": "Shared Items"
     },
     "kopia": {
-        "status": "Stato",
+        "status": "Status",
         "size": "Size",
         "lastrun": "Last Run",
         "nextrun": "Next Run",
@@ -756,7 +762,7 @@
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
-        "books": "Libroj",
+        "books": "Books",
         "podcastsDuration": "Duration",
         "booksDuration": "Duration"
     },
@@ -770,10 +776,10 @@
         "updates": "Updates"
     },
     "calibreweb": {
-        "books": "Libroj",
+        "books": "Books",
         "authors": "Authors",
         "categories": "Categories",
-        "series": "Serioj"
+        "series": "Series"
     },
     "jdownloader": {
         "downloadCount": "Queue",
@@ -782,12 +788,12 @@
         "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "Serioj",
+        "seriesCount": "Series",
         "totalFiles": "Files"
     },
     "azuredevops": {
         "result": "Result",
-        "status": "Stato",
+        "status": "Status",
         "buildId": "Build ID",
         "succeeded": "Succeeded",
         "notStarted": "Not Started",
@@ -796,19 +802,19 @@
         "inProgress": "In Progress",
         "totalPrs": "Total PRs",
         "myPrs": "My PRs",
-        "approved": "Aprobita"
+        "approved": "Approved"
     },
     "gamedig": {
-        "status": "Stato",
+        "status": "Status",
         "online": "Online",
-        "offline": "Malkonekta",
+        "offline": "Offline",
         "name": "Name",
         "map": "Map",
         "currentPlayers": "Current players",
         "players": "Players",
         "maxPlayers": "Max players",
         "bots": "Bots",
-        "ping": "Sondaĵo"
+        "ping": "Ping"
     },
     "urbackup": {
         "ok": "Ok",
@@ -818,14 +824,14 @@
     },
     "mealie": {
         "recipes": "Recipes",
-        "users": "Uzantoj",
+        "users": "Users",
         "categories": "Categories",
         "tags": "Tags"
     },
     "openmediavault": {
         "downloading": "Downloading",
-        "total": "Totalo",
-        "running": "Rulata",
+        "total": "Total",
+        "running": "Running",
         "stopped": "Stopped",
         "passed": "Passed",
         "failed": "Failed"
@@ -839,7 +845,7 @@
         "bytesRx": "Received"
     },
     "uptimerobot": {
-        "status": "Stato",
+        "status": "Status",
         "uptime": "Uptime",
         "lastDown": "Last Downtime",
         "downDuration": "Downtime Duration",
@@ -850,7 +856,7 @@
         "up": "Up",
         "seemsdown": "Seems Down",
         "down": "Down",
-        "unknown": "Nekonata"
+        "unknown": "Unknown"
     },
     "calendar": {
         "inCinemas": "In cinemas",
@@ -902,12 +908,12 @@
         "galleries": "Galleries",
         "performers": "Performers",
         "studios": "Studios",
-        "movies": "Filmoj",
+        "movies": "Movies",
         "tags": "Tags",
         "oCount": "O Count"
     },
     "tandoor": {
-        "users": "Uzantoj",
+        "users": "Users",
         "recipes": "Recipes",
         "keywords": "Keywords"
     },
@@ -916,7 +922,7 @@
         "totalWithWarranty": "With Warranty",
         "locations": "Locations",
         "labels": "Labels",
-        "users": "Uzantoj",
+        "users": "Users",
         "totalValue": "Total Value"
     },
     "crowdsec": {
@@ -927,7 +933,7 @@
         "connected": "Connected",
         "enabled": "Enabled",
         "disabled": "Disabled",
-        "total": "Totalo"
+        "total": "Total"
     },
     "swagdashboard": {
         "proxied": "Proxied",
@@ -936,9 +942,9 @@
         "banned": "Banned"
     },
     "myspeed": {
-        "ping": "Sondaĵo",
-        "download": "Elŝuti",
-        "upload": "Alŝuti"
+        "ping": "Ping",
+        "download": "Download",
+        "upload": "Upload"
     },
     "stocks": {
         "stocks": "Stocks",
@@ -959,7 +965,7 @@
     },
     "zabbix": {
         "unclassified": "Not classified",
-        "information": "Informo",
+        "information": "Information",
         "warning": "Warning",
         "average": "Average",
         "high": "High",
@@ -983,9 +989,9 @@
         "name": "Name",
         "address": "Address",
         "last_seen": "Last Seen",
-        "status": "Stato",
+        "status": "Status",
         "online": "Online",
-        "offline": "Malkonekta"
+        "offline": "Offline"
     },
     "beszel": {
         "name": "Name",
@@ -994,9 +1000,9 @@
         "down": "Down",
         "paused": "Paused",
         "pending": "Pending",
-        "status": "Stato",
+        "status": "Status",
         "updated": "Updated",
-        "cpu": "Ĉefprocesoro",
+        "cpu": "CPU",
         "memory": "MEM",
         "disk": "Disk",
         "network": "NET"
@@ -1005,7 +1011,7 @@
         "apps": "Apps",
         "synced": "Synced",
         "outOfSync": "Out Of Sync",
-        "healthy": "Sana",
+        "healthy": "Healthy",
         "degraded": "Degraded",
         "progressing": "Progressing",
         "missing": "Missing",
@@ -1021,8 +1027,8 @@
         "projects": "Projects"
     },
     "apcups": {
-        "status": "Stato",
-        "load": "Ŝarĝo",
+        "status": "Status",
+        "load": "Load",
         "bcharge": "Battery Charge",
         "timeleft": "Time Left"
     },
@@ -1039,20 +1045,43 @@
         "connected": "Connected",
         "disconnected": "Disconnected",
         "updateStatus": "Update",
-        "update_yes": "Havebla",
+        "update_yes": "Available",
         "update_no": "Up to Date",
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Files"
     },
     "jellystat": {
-        "songs": "Kantoj",
-        "movies": "Filmoj",
-        "episodes": "Epizodoj",
+        "songs": "Songs",
+        "movies": "Movies",
+        "episodes": "Episodes",
         "other": "Other"
     },
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "komodo": {
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "down": "Down",
+        "unhealthy": "Unhealthy",
+        "unknown": "Unknown",
+        "servers": "Servers",
+        "stacks": "Stacks",
+        "containers": "Containers"
+    },
+    "filebrowser": {
+        "available": "Available",
+        "used": "Used",
+        "total": "Total"
+    },
+    "wallos": {
+        "activeSubscriptions": "Subscriptions",
+        "thisMonthlyCost": "This Month",
+        "nextMonthlyCost": "Next Month",
+        "previousMonthlyCost": "Prev. Month",
+        "nextRenewingSubscription": "Next Payment"
     }
 }
