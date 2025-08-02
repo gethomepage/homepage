@@ -524,7 +524,7 @@ export default function Wrapper({ initialSettings, fallback }) {
     const body = document.body;
 
     html.classList.remove("dark", "scheme-dark", "scheme-light");
-    html.classList.add(theme === "dark" ? "dark" : "");
+    html.classList.toggle("dark", theme === "dark");
     html.classList.add(theme === "dark" ? "scheme-dark" : "scheme-light");
 
     html.classList.remove(...Array.from(html.classList).filter((cls) => cls.startsWith("theme-")));
