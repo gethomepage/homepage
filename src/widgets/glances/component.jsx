@@ -12,6 +12,8 @@ import Sensor from "./metrics/sensor";
 export default function Component({ service }) {
   const { widget } = service;
 
+  console.log(widget);
+
   if (widget.metric === "info") {
     return <Info service={service} />;
   }
@@ -37,6 +39,11 @@ export default function Component({ service }) {
   }
 
   if (widget.metric.match(/^sensor:/)) {
+    
+    if (widget.metric.match(/^sensor:BAT/)) {
+      return <Sensor service={service} type="battery" />;
+    }
+    
     return <Sensor service={service} />;
   }
 
