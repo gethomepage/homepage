@@ -30,7 +30,7 @@
         "response_data": "Données de réponse"
     },
     "weather": {
-        "current": "Localisation actuelle",
+        "current": "Emplacement actuel",
         "allow": "Cliquez pour autoriser",
         "updating": "Mise à jour",
         "wait": "Veuillez patienter"
@@ -47,7 +47,7 @@
         "load": "Charge",
         "temp": "Température",
         "max": "Max",
-        "uptime": "Démarré depuis"
+        "uptime": "Actif"
     },
     "unifi": {
         "users": "Utilisateurs",
@@ -1073,15 +1073,15 @@
         "containers": "Conteneurs"
     },
     "filebrowser": {
-        "available": "Available",
-        "used": "Used",
+        "available": "Disponible",
+        "used": "Utilisé",
         "total": "Total"
     },
     "wallos": {
-        "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
-        "previousMonthlyCost": "Prev. Month",
-        "nextRenewingSubscription": "Next Payment"
+        "activeSubscriptions": "Abonnements",
+        "thisMonthlyCost": "Ce mois",
+        "nextMonthlyCost": "Mois prochain",
+        "previousMonthlyCost": "Mois précédent",
+        "nextRenewingSubscription": "Prochain paiement"
     }
 }
