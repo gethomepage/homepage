@@ -509,7 +509,7 @@ export default function Wrapper({ initialSettings, fallback }) {
     if (typeof bg === "object") {
       backgroundImage = bg.image || "";
       if (bg.opacity !== undefined) {
-        opacity = bg.opacity / 100;
+        opacity = 1 - bg.opacity / 100;
       }
       backgroundBlur = bg.blur !== undefined;
       backgroundSaturate = bg.saturate !== undefined;
