@@ -11,7 +11,9 @@ export default function useWidgetAPI(widget, ...options) {
   if (options[0] === "") {
     url = null;
   }
-  const { data, error, mutate } = useSWR(url, config);
+  const method = (options && options[1]?.method) || "GET";
+  const fetcher = async (url) => fetch(url, { method }).then((r) => r.json());
+  const { data, error, mutate } = useSWR(url, fetcher, config);
   // make the data error the top-level error
   return { data, error: data?.error ?? error, mutate };
 }
