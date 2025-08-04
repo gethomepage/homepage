@@ -143,6 +143,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [UptimeRobot](uptimerobot.md)
 - [UrBackup](urbackup.md)
 - [Vikunja](vikunja.md)
+- [Wallos](wallos.md)
 - [Watchtower](watchtower.md)
 - [WGEasy](wgeasy.md)
 - [WhatsUpDocker](whatsupdocker.md)
