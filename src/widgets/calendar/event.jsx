@@ -4,7 +4,14 @@ import { useTranslation } from "next-i18next";
 import { useState } from "react";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
-export default function Event({ event, colorVariants, showDate = false, showTime = false, hoverForMore = true, showDateColumn = true }) {
+export default function Event({
+  event,
+  colorVariants,
+  showDate = false,
+  showTime = false,
+  hoverForMore = true,
+  showDateColumn = true,
+}) {
   const [hover, setHover] = useState(false);
   const { i18n } = useTranslation();
 
@@ -26,7 +33,9 @@ export default function Event({ event, colorVariants, showDate = false, showTime
       <div className="ml-2 h-5 text-left relative truncate" style={{ width: "70%" }}>
         <div className="absolute mt-0.5 text-xs">
           {hoverForMore
-            ? (hover && event?.additional ? event?.additional : event?.title)
+            ? hover && event?.additional
+              ? event?.additional
+              : event?.title
             : [event?.title, event?.additional].filter(Boolean).join(" - ")}
         </div>
       </div>
