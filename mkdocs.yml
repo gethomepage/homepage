@@ -169,6 +169,7 @@ nav:
           - widgets/services/uptimerobot.md
           - widgets/services/urbackup.md
           - widgets/services/vikunja.md
+          - widgets/services/wallos.md
           - widgets/services/watchtower.md
           - widgets/services/wgeasy.md
           - widgets/services/whatsupdocker.md
