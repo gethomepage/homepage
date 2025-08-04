@@ -268,6 +268,7 @@ export function cleanServiceGroups(groups) {
           integrations,
           maxEvents,
           showTime,
+          hoverForMore,
           previousDays,
           view,
           timezone,
@@ -565,6 +566,7 @@ export function cleanServiceGroups(groups) {
           if (maxEvents) widget.maxEvents = maxEvents;
           if (previousDays) widget.previousDays = previousDays;
           if (showTime) widget.showTime = showTime;
+          if (hoverForMore !== undefined) widget.hoverForMore = hoverForMore;
           if (timezone) widget.timezone = timezone;
         }
         if (type === "hdhomerun") {

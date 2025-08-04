@@ -57,6 +57,7 @@ export default function Agenda({ service, colorVariants, events, showDate }) {
                 colorVariants={colorVariants}
                 showDate={j === 0}
                 showTime={widget?.showTime && compareDateTimezone(showDate, event)}
+                hoverForMore={widget?.hoverForMore ?? true}
               />
             ))}
           </div>

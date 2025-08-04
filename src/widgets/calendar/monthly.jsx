@@ -178,6 +178,7 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
                 colorVariants={colorVariants}
                 showDateColumn={widget?.showTime ?? false}
                 showTime={widget?.showTime && compareDateTimezone(showDate, event)}
+                hoverForMore={widget?.hoverForMore ?? true}
               />
             ))}
         </div>

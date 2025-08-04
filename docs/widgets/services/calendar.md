@@ -16,6 +16,7 @@ widget:
   view: monthly # optional - possible values monthly, agenda
   maxEvents: 10 # optional - defaults to 10
   showTime: true # optional - show time for event happening today - defaults to false
+  hoverForMore: false # optinal - shows additional info such as season and episode numbers only on hover (otherwise shows always) - defaults to true
   timezone: America/Los_Angeles # optional and only when timezone is not detected properly (slightly slower performance) - force timezone for ical events (if it's the same - no change, if missing or different in ical - will be converted to this timezone)
   integrations: # optional
     - type: sonarr # active widget type that is currently enabled on homepage - possible values: radarr, sonarr, lidarr, readarr, ical
@@ -43,6 +44,7 @@ widget:
   view: agenda
   maxEvents: 10 # optional - defaults to 10
   showTime: true # optional - show time for event happening today - defaults to false
+  hoverForMore: false # optinal - shows additional info such as season and episode numbers only on hover (otherwise shows always) - defaults to true
   previousDays: 3 # optional - shows events since three days ago - defaults to 0
   integrations: # same as in Monthly view example
 ```
