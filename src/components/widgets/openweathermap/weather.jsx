@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MdLocationDisabled, MdLocationSearching } from "react-icons/md";
 import { WiCloudDown } from "react-icons/wi";
 import useSWR from "swr";
@@ -59,7 +59,7 @@ export default function OpenWeatherMap({ options }) {
     setLocation({ latitude: options.latitude, longitude: options.longitude });
   }
 
-  const requestLocation = () => {
+  const requestLocation = useCallback(() => {
     setRequesting(true);
     if (typeof window !== "undefined") {
       navigator.geolocation.getCurrentPosition(
@@ -77,7 +77,17 @@ export default function OpenWeatherMap({ options }) {
         },
       );
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (!options.latitude && !options.longitude && typeof navigator !== "undefined") {
+      navigator.permissions?.query({ name: "geolocation" }).then((result) => {
+        if (result.state === "granted") {
+          requestLocation();
+        }
+      });
+    }
+  }, [options.latitude, options.longitude, requestLocation]);
 
   if (!location) {
     return (
