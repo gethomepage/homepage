@@ -451,7 +451,7 @@
         "crit": "Krytyczyny",
         "read": "Read",
         "write": "Zapis",
-        "gpu": "Karta graficzna",
+        "gpu": "GPU",
         "mem": "Pamięć",
         "swap": "Swap"
     },

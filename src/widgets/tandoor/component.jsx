@@ -23,10 +23,13 @@ export default function Component({ service }) {
       </Container>
     );
   }
+
+  const space = spaceData.results ? spaceData.results[0] : spaceData[0];
+
   return (
     <Container service={service}>
-      <Block label="tandoor.users" value={spaceData[0]?.user_count} />
-      <Block label="tandoor.recipes" value={spaceData[0]?.recipe_count} />
+      <Block label="tandoor.users" value={space?.user_count} />
+      <Block label="tandoor.recipes" value={space?.recipe_count} />
       <Block label="tandoor.keywords" value={keywordData.count} />
     </Container>
   );
