@@ -43,7 +43,7 @@
         "mem": "MEM",
         "total": "Total",
         "free": "Libre",
-        "used": "Usado",
+        "used": "Utilizado",
         "load": "Carga",
         "temp": "TEMP",
         "max": "Máx.",
@@ -61,9 +61,9 @@
         "wlan_devices": "Dispositivos WLAN",
         "lan_users": "Usuarios LAN",
         "wlan_users": "Usuarios WLAN",
-        "up": "UP",
+        "up": "ACTIVO",
         "down": "CAÍDO",
-        "wait": "Please wait",
+        "wait": "Espere, por favor",
         "empty_data": "Se desconoce el estado del subsistema"
     },
     "docker": {
@@ -168,10 +168,10 @@
         "passes": "Pases"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "Reproduciendo",
+        "transcoding": "Transcodificando",
+        "bitrate": "Tasa de bits",
+        "no_active": "Sin transmisiones activas",
         "plex_connection_error": "Comprueba la conexión a Plex"
     },
     "omada": {
@@ -189,7 +189,7 @@
     "plex": {
         "streams": "Transmisiones activas",
         "albums": "Álbumes",
-        "movies": "Movies",
+        "movies": "Películas",
         "tv": "Series"
     },
     "sabnzbd": {
@@ -199,20 +199,20 @@
     },
     "rutorrent": {
         "active": "Activo",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Subida",
+        "download": "Descarga"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Descargando",
+        "seed": "Semillas"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Descargando",
+        "seed": "Semillas"
     },
     "qnap": {
         "cpuUsage": "Uso de la CPU",
@@ -223,44 +223,44 @@
         "invalid": "No válido"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Descargando",
+        "seed": "Semillas"
     },
     "develancacheui": {
         "cachehitbytes": "Bytes encontrados en caché",
         "cachemissbytes": "Bytes faltantes en caché"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Descarga",
+        "upload": "Subida",
+        "leech": "Descargando",
+        "seed": "Semillas"
     },
     "sonarr": {
         "wanted": "Buscando",
         "queued": "En cola",
         "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queue": "Cola",
+        "unknown": "Desconocido"
     },
     "radarr": {
-        "wanted": "Wanted",
+        "wanted": "Buscando",
         "missing": "Faltantes",
-        "queued": "Queued",
-        "movies": "Movies",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queued": "En cola",
+        "movies": "Películas",
+        "queue": "Cola",
+        "unknown": "Desconocido"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Buscando",
+        "queued": "En cola",
         "artists": "Artistas"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Buscando",
+        "queued": "En cola",
         "books": "Libros"
     },
     "bazarr": {
@@ -273,19 +273,19 @@
         "available": "Disponible"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "available": "Disponible"
     },
     "overseerr": {
-        "pending": "Pending",
+        "pending": "Pendiente",
         "processing": "Procesando",
-        "approved": "Approved",
-        "available": "Available"
+        "approved": "Aprobado",
+        "available": "Disponible"
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Connected",
+        "connected": "Conectado",
         "new_devices": "Nuevos dispositivos",
         "down_alerts": "Alertas de caída"
     },
@@ -296,26 +296,26 @@
         "gravity": "Gravity"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "Consultas",
+        "blocked": "Bloqueado",
         "filtered": "Filtrado",
         "latency": "Latencia"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Subida",
+        "download": "Descarga",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
+        "running": "En ejecución",
         "stopped": "Detenido",
         "total": "Total"
     },
     "suwayomi": {
-        "download": "Downloaded",
+        "download": "Descargado",
         "nondownload": "No descargado",
-        "read": "Read",
-        "unread": "Unread",
+        "read": "Leído",
+        "unread": "Sin leer",
         "downloadedread": "Descargado y leído",
         "downloadedunread": "Descargado y no leído",
         "nondownloadedread": "No descargado y leído",
@@ -336,7 +336,7 @@
         "ago": "Hace {{value}}"
     },
     "technitium": {
-        "totalQueries": "Queries",
+        "totalQueries": "Consultas",
         "totalNoError": "Éxitos",
         "totalServerFailure": "Fallas",
         "totalNxDomain": "Dominios NX",
@@ -370,8 +370,8 @@
         "please_wait": "Por favor, espera"
     },
     "npm": {
-        "enabled": "Activado",
-        "disabled": "Desactivado",
+        "enabled": "Activos",
+        "disabled": "Inactivos",
         "total": "Total"
     },
     "coinmarketcap": {
@@ -383,19 +383,19 @@
     },
     "gotify": {
         "apps": "Aplicaciones",
-        "clients": "Clients",
+        "clients": "Clientes",
         "messages": "Mensajes"
     },
     "prowlarr": {
         "enableIndexers": "Indexadores",
         "numberOfGrabs": "Capturas",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "Consultas",
         "numberOfFailGrabs": "Capturas fallidas",
         "numberOfFailQueries": "Consultas fallidas"
     },
     "jackett": {
         "configured": "Configurado",
-        "errored": "Errored"
+        "errored": "Con fallo"
     },
     "strelaysrv": {
         "numActiveSessions": "Sesiones",
@@ -529,9 +529,9 @@
         "up_to_date": "Actualizado",
         "child_bridges": "Bridges secundarios",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down"
+        "up": "Activo",
+        "pending": "Pendiente",
+        "down": "Inactivo"
     },
     "healthchecks": {
         "new": "Nuevo",
@@ -647,7 +647,7 @@
     },
     "cloudflared": {
         "origin_ip": "IP de origen",
-        "status": "Status"
+        "status": "Estado"
     },
     "pfsense": {
         "load": "Promedio de carga",
@@ -700,8 +700,8 @@
         "wanted": "Wanted"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
+        "albums": "Álbumes",
+        "photos": "Fotos",
         "videos": "Videos",
         "people": "Personas"
     },
@@ -776,16 +776,16 @@
         "updates": "Updates"
     },
     "calibreweb": {
-        "books": "Books",
+        "books": "Libros",
         "authors": "Autores",
-        "categories": "Categories",
+        "categories": "Categorías",
         "series": "Series"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size",
-        "downloadSpeed": "Speed"
+        "downloadCount": "En cola",
+        "downloadBytesRemaining": "Restante",
+        "downloadTotalBytes": "Tamaño",
+        "downloadSpeed": "Velocidad"
     },
     "kavita": {
         "seriesCount": "Series",
@@ -930,9 +930,9 @@
         "bans": "Baneos"
     },
     "wgeasy": {
-        "connected": "Connected",
-        "enabled": "Enabled",
-        "disabled": "Disabled",
+        "connected": "Conectados",
+        "enabled": "Activo",
+        "disabled": "Inactivos",
         "total": "Total"
     },
     "swagdashboard": {
@@ -1042,14 +1042,14 @@
     },
     "slskd": {
         "slskStatus": "Network",
-        "connected": "Connected",
-        "disconnected": "Disconnected",
+        "connected": "Conectado",
+        "disconnected": "Desconectado",
         "updateStatus": "Actualización",
-        "update_yes": "Available",
-        "update_no": "Up to Date",
+        "update_yes": "Disponible",
+        "update_no": "Actualizado",
         "downloads": "Descargas",
         "uploads": "Subidas",
-        "sharedFiles": "Files"
+        "sharedFiles": "Compartidos"
     },
     "jellystat": {
         "songs": "Songs",
