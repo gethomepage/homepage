@@ -421,7 +421,7 @@
         "down": "Offline"
     },
     "miniflux": {
-        "read": "Okunmayan",
+        "read": "Okunmuş",
         "unread": "Okunmamış"
     },
     "authentik": {
