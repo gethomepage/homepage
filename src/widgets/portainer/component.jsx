@@ -10,12 +10,9 @@ export default function Component({ service }) {
     widget.fields = widget.kubernetes ? ["applications", "services", "namespaces"] : ["running", "stopped", "total"];
   }
 
-  const { data: containersCount, error: containersError } = useWidgetAPI(
+  const { data: dockerDashboard, error: dockerError } = useWidgetAPI(
     widget,
-    widget.kubernetes ? "" : "docker/containers",
-    {
-      all: 1,
-    },
+    widget.kubernetes ? "" : "docker/dashboard",
   );
 
   const { data: applicationsCount, error: applicationsError } = useWidgetAPI(
@@ -59,11 +56,11 @@ export default function Component({ service }) {
     );
   }
 
-  if (containersError) {
-    return <Container service={service} error={containersError} />;
+  if (dockerError) {
+    return <Container service={service} error={dockerError} />;
   }
 
-  if (!containersCount) {
+  if (!dockerDashboard) {
     return (
       <Container service={service}>
         <Block label="portainer.running" />
@@ -73,20 +70,16 @@ export default function Component({ service }) {
     );
   }
 
-  if (containersCount.error || containersCount.message) {
-    // containersData can be itself an error object e.g. if environment fails
-    return <Container service={service} error={containersCount?.error ?? containersCount} />;
+  if (dockerDashboard.error || dockerDashboard.message) {
+    // dockerDashboard can be itself an error object e.g. if environment fails
+    return <Container service={service} error={dockerDashboard?.error ?? dockerDashboard} />;
   }
-
-  const running = containersCount.filter((c) => c.State === "running").length;
-  const stopped = containersCount.filter((c) => c.State === "exited").length;
-  const total = containersCount.length;
 
   return (
     <Container service={service}>
-      <Block label="portainer.running" value={running} />
-      <Block label="portainer.stopped" value={stopped} />
-      <Block label="portainer.total" value={total} />
+      <Block label="portainer.running" value={dockerDashboard.containers.running} />
+      <Block label="portainer.stopped" value={dockerDashboard.containers.stopped} />
+      <Block label="portainer.total" value={dockerDashboard.containers.total} />
     </Container>
   );
 }

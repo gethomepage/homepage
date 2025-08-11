@@ -5,9 +5,8 @@ const widget = {
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
-    "docker/containers": {
-      endpoint: "endpoints/{env}/docker/containers/json",
-      params: ["all"],
+    "docker/dashboard": {
+      endpoint: "docker/{env}/dashboard",
     },
     "kubernetes/applications": {
       endpoint: "kubernetes/{env}/applications/count",
