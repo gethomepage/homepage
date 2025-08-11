@@ -70,11 +70,6 @@ export default function Component({ service }) {
     );
   }
 
-  if (dockerDashboard.error || dockerDashboard.message) {
-    // dockerDashboard can be itself an error object e.g. if environment fails
-    return <Container service={service} error={dockerDashboard?.error ?? dockerDashboard} />;
-  }
-
   return (
     <Container service={service}>
       <Block label="portainer.running" value={dockerDashboard.containers.running} />
