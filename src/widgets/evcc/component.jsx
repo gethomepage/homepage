@@ -45,10 +45,7 @@ export default function Component({ service }) {
       <Block label="evcc.pv_power" value={`${toKilowatts(t, data.pvPower)} ${t("evcc.kilowatt")}`} />
       <Block label="evcc.grid_power" value={`${toKilowatts(t, gridPower)} ${t("evcc.kilowatt")}`} />
       <Block label="evcc.home_power" value={`${toKilowatts(t, data.homePower)} ${t("evcc.kilowatt")}`} />
-      <Block
-        label="evcc.charge_power"
-        value={`${toKilowatts(t, totalChargePower)} ${t("evcc.kilowatt")}`}
-      />
+      <Block label="evcc.charge_power" value={`${toKilowatts(t, totalChargePower)} ${t("evcc.kilowatt")}`} />
     </Container>
   );
 }
