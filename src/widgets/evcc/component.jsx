@@ -35,15 +35,17 @@ export default function Component({ service }) {
   // broken by evcc v0.133.0 https://github.com/evcc-io/evcc/commit/9dcb1fa0a7c08dd926b79309aa1f676a5fc6c8aa
   const gridPower = data.gridPower ?? data.grid?.power ?? 0;
 
+  // Sum chargePower of all loadpoints
+  const totalChargePower = Array.isArray(data.loadpoints)
+    ? data.loadpoints.reduce((sum, lp) => sum + (lp.chargePower ?? 0), 0)
+    : 0;
+
   return (
     <Container service={service}>
       <Block label="evcc.pv_power" value={`${toKilowatts(t, data.pvPower)} ${t("evcc.kilowatt")}`} />
       <Block label="evcc.grid_power" value={`${toKilowatts(t, gridPower)} ${t("evcc.kilowatt")}`} />
       <Block label="evcc.home_power" value={`${toKilowatts(t, data.homePower)} ${t("evcc.kilowatt")}`} />
-      <Block
-        label="evcc.charge_power"
-        value={`${toKilowatts(t, data.loadpoints[0].chargePower)} ${t("evcc.kilowatt")}`}
-      />
+      <Block label="evcc.charge_power" value={`${toKilowatts(t, totalChargePower)} ${t("evcc.kilowatt")}`} />
     </Container>
   );
 }

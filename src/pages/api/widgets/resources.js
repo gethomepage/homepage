@@ -1,5 +1,3 @@
-import { existsSync } from "fs";
-
 import createLogger from "utils/logger";
 
 const logger = createLogger("resources");
@@ -20,17 +18,18 @@ export default async function handler(req, res) {
   }
 
   if (type === "disk") {
-    if (!existsSync(target)) {
-      return res.status(404).json({
-        error: "Target not found",
-      });
-    }
-
+    const requested = typeof target === "string" && target ? target : "/";
     const fsSize = await si.fsSize();
     logger.debug("fsSize:", JSON.stringify(fsSize));
-    return res.status(200).json({
-      drive: fsSize.find((fs) => fs.mount === target) ?? fsSize.find((fs) => fs.mount === "/"),
-    });
+
+    const drive = fsSize.find((fs) => fs.mount === requested) ?? fsSize.find((fs) => fs.mount === "/");
+
+    if (!drive) {
+      logger.warn(`Drive not found for target: ${requested}`);
+      return res.status(404).json({ error: "Resource not available." });
+    }
+
+    return res.status(200).json({ drive });
   }
 
   if (type === "memory") {
