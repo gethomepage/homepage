@@ -22,7 +22,9 @@ export default async function handler(req, res) {
     const fsSize = await si.fsSize();
     logger.debug("fsSize:", JSON.stringify(fsSize));
 
-    const drive = fsSize.find((fs) => fs.mount === requested) ?? fsSize.find((fs) => fs.mount === "/");
+    const drive = fsSize.find((fs) => {
+      return fs.mount === requested;
+    });
 
     if (!drive) {
       logger.warn(`Drive not found for target: ${requested}`);
