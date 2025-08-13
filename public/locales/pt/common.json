@@ -212,7 +212,7 @@
         "download": "Download",
         "upload": "Upload",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Semear"
     },
     "qnap": {
         "cpuUsage": "Utilização do CPU",
@@ -223,39 +223,39 @@
         "invalid": "Inválido"
     },
     "deluge": {
-        "download": "Download",
+        "download": "Baixar",
         "upload": "Upload",
         "leech": "Leech",
-        "seed": "Seed"
+        "seed": "Semear"
     },
     "develancacheui": {
         "cachehitbytes": "‘Bytes’ de Acerto na Memória transitória",
         "cachemissbytes": "‘Bytes’ de Falha de Memória transitória"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Baixar",
+        "upload": "Envio de Dados",
+        "leech": "Sanguessuga",
+        "seed": "Semear"
     },
     "sonarr": {
         "wanted": "Desejados",
         "queued": "Em fila de espera",
-        "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "series": "Séries",
+        "queue": "Fila",
+        "unknown": "Desconhecido"
     },
     "radarr": {
-        "wanted": "Wanted",
+        "wanted": "Desejado",
         "missing": "Em falta",
-        "queued": "Queued",
-        "movies": "Movies",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queued": "Na Fila",
+        "movies": "Filmes",
+        "queue": "Fila",
+        "unknown": "Desconhecido"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Desejado",
+        "queued": "Na Fila",
         "artists": "Artistas"
     },
     "readarr": {
