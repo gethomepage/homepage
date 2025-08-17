@@ -130,6 +130,7 @@ import truenas from "./truenas/widget";
 import tubearchivist from "./tubearchivist/widget";
 import unifi from "./unifi/widget";
 import unmanic from "./unmanic/widget";
+import unraid from "./unraid/widget";
 import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
 import urbackup from "./urbackup/widget";
@@ -278,6 +279,7 @@ const widgets = {
   unifi,
   unifi_console: unifi,
   unmanic,
+  unraid,
   uptimekuma,
   uptimerobot,
   urbackup,
