@@ -32,11 +32,11 @@ export default function Component({ service }) {
     );
   }
 
-  const yesterday = new Date(Date.now()).setHours(-24);
   let loginsLast24H;
   let failedLoginsLast24H;
   switch (widget.version) {
     case 1:
+      const yesterday = new Date(Date.now()).setHours(-24);
       loginsLast24H = loginsData.reduce(
         (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
         0,
