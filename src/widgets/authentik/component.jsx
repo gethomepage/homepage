@@ -47,12 +47,8 @@ export default function Component({ service }) {
       );
       break;
     case 2:
-      if (loginsData.length > 0) {
-        loginsLast24H = loginsData[0]?.count || 0;
-      }
-      if (failedLoginsData.length > 0) {
-        failedLoginsLast24H = failedLoginsData[0]?.count || 0;
-      }
+      loginsLast24H = loginsData[0]?.count || 0;
+      failedLoginsLast24H = failedLoginsData[0]?.count || 0;
       break;
   }
 
