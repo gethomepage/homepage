@@ -139,6 +139,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [TubeArchivist](tubearchivist.md)
 - [UniFi Controller](unifi-controller.md)
 - [Unmanic](unmanic.md)
+- [Unraid](unraid.md)
 - [Uptime Kuma](uptime-kuma.md)
 - [UptimeRobot](uptimerobot.md)
 - [UrBackup](urbackup.md)

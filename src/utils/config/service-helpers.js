@@ -396,6 +396,12 @@ export function cleanServiceGroups(groups) {
           // unifi
           site,
 
+          // unraid
+          pool1,
+          pool2,
+          pool3,
+          pool4,
+
           // vikunja
           enableTaskList,
 
@@ -610,6 +616,12 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "grafana") {
           if (alerts) widget.alerts = alerts;
+        }
+        if (type === "unraid") {
+          if (pool1) widget.pool1 = pool1;
+          if (pool2) widget.pool2 = pool2;
+          if (pool3) widget.pool3 = pool3;
+          if (pool4) widget.pool4 = pool4;
         }
         return widget;
       });
