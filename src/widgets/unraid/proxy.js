@@ -1,6 +1,6 @@
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { asJson, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { asJson } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("unraidProxyHandler");
@@ -105,20 +105,12 @@ export default async function unraidProxyHandler(req, res) {
   const params = {
     method: "POST",
     headers,
-    withCredentials: true,
-    credentials: "include",
   };
   params.body = JSON.stringify({
     query: graphqlQuery,
   });
 
   const [status, , data] = await httpProxy(url, params);
-
-  let resultData = data;
-
-  if (resultData.error?.url) {
-    resultData.error.url = sanitizeErrorURL(url);
-  }
 
   if (status === 204 || status === 304) {
     return res.status(status).end();
@@ -135,7 +127,7 @@ export default async function unraidProxyHandler(req, res) {
     return res.status(status).send({ error: { message: "Error calling Unraid API.", data } });
   }
 
-  const result = processUnraidResponse(resultData);
+  const result = processUnraidResponse(data);
   if (result.error) {
     logger.error("Error processing Unraid data: %s", result.error);
     return res.status(500).json({ error: result.error });

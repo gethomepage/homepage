@@ -1099,14 +1099,11 @@
         "notifications": "Notifications",
         "status": "Status",
         "cpu": "CPU",
-        "memoryPercent": "Memory Used (%)",
         "memoryUsed": "Memory Used",
         "memoryAvailable": "Memory Available",
-        "arrayUsedSpace": "Array Used",
-        "arrayFreeSpace": "Array Free",
-        "arrayUsedPercent": "Array Used (%)",
-        "poolUsedSpace": "{{pool}} Used",
-        "poolFreeSpace": "{{pool}} Free",
-        "poolUsedPercent": "{{pool}} Used (%)"
+        "arrayUsed": "Array Used",
+        "arrayFree": "Array Free",
+        "poolUsed": "{{pool}} Used",
+        "poolFree": "{{pool}} Free"
     }
 }

@@ -9,9 +9,9 @@ const MAX_ALLOWED_FIELDS = 4;
 
 const POOLS = ["pool1", "pool2", "pool3", "pool4"];
 const POOL_FIELDS = [
-  { param: "UsedSpace", label: "poolUsedSpace", valueKey: "fsUsed", valueType: "common.bytes" },
-  { param: "FreeSpace", label: "poolFreeSpace", valueKey: "fsFree", valueType: "common.bytes" },
-  { param: "UsedPercent", label: "poolUsedPercent", valueKey: "fsUsedPercent", valueType: "common.percent" },
+  { param: "UsedSpace", label: "poolUsed", valueKey: "fsUsed", valueType: "common.bytes" },
+  { param: "FreeSpace", label: "poolFree", valueKey: "fsFree", valueType: "common.bytes" },
+  { param: "UsedPercent", label: "poolUsed", valueKey: "fsUsedPercent", valueType: "common.percent" },
 ];
 
 export default function Component({ service }) {
@@ -24,7 +24,7 @@ export default function Component({ service }) {
     return <Container service={service} error={error} />;
   }
 
-  if (!widget.fields?.length > 0) {
+  if (!widget.fields?.length) {
     widget.fields = UNRAID_DEFAULT_FIELDS;
   } else if (widget.fields.length > MAX_ALLOWED_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
@@ -36,12 +36,12 @@ export default function Component({ service }) {
         <Block label="unraid.status" />
         <Block label="unraid.memoryAvailable" />
         <Block label="unraid.memoryUsed" />
-        <Block label="unraid.memoryPercent" />
+        <Block field="unraid.memoryPercent" label="unraid.memoryUsed" />
         <Block label="unraid.cpu" />
         <Block label="unraid.notifications" />
-        <Block label="unraid.arrayUsedSpace" />
-        <Block label="unraid.arrayFreeSpace" />
-        <Block label="unraid.arrayUsedPercent" />
+        <Block field="unraid.arrayUsedSpace" label="unraid.arrayUsed" />
+        <Block field="unraid.arrayFree" label="unraid.arrayFree" />
+        <Block field="unraid.arrayUsedPercent" label="unraid.arrayUsed" />
         {...POOLS.flatMap((pool) =>
           POOL_FIELDS.map(({ param, label }) => (
             <Block
@@ -60,12 +60,24 @@ export default function Component({ service }) {
       <Block label="unraid.status" value={t(`unraid.${data.arrayState}`)} />
       <Block label="unraid.memoryAvailable" value={t("common.bbytes", { value: data.memoryAvailable })} />
       <Block label="unraid.memoryUsed" value={t("common.bbytes", { value: data.memoryUsed })} />
-      <Block label="unraid.memoryPercent" value={t("common.percent", { value: data.memoryUsedPercent })} />
+      <Block
+        field="unraid.memoryPercent"
+        label="unraid.memoryUsed"
+        value={t("common.percent", { value: data.memoryUsedPercent })}
+      />
       <Block label="unraid.cpu" value={t("common.percent", { value: data.cpuPercent })} />
       <Block label="unraid.notifications" value={t("common.number", { value: data.unreadNotifications })} />
-      <Block label="unraid.arrayUsedSpace" value={t("common.bytes", { value: data.arrayUsed })} />
-      <Block label="unraid.arrayFreeSpace" value={t("common.bytes", { value: data.arrayFree })} />
-      <Block label="unraid.arrayUsedPercent" value={t("common.percent", { value: data.arrayUsedPercent })} />
+      <Block
+        field="unraid.arrayUsedSpace"
+        label="unraid.arrayUsed"
+        value={t("common.bytes", { value: data.arrayUsed })}
+      />
+      <Block label="unraid.arrayFree" value={t("common.bytes", { value: data.arrayFree })} />
+      <Block
+        field="unraid.arrayUsedPercent"
+        label="unraid.arrayUsed"
+        value={t("common.percent", { value: data.arrayUsedPercent })}
+      />
       {...POOLS.flatMap((pool) =>
         POOL_FIELDS.map(({ param, label, valueKey, valueType }) => (
           <Block

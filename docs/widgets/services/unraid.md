@@ -9,8 +9,8 @@ The Unraid widget allows you to monitor the resources of an Unraid server.
 
 **Minimum Requirements:**
 
-- Unraid 7.2 (starting with beta2) -or- Unraid Connect plugin 2025.08.19.1850
-- API key with the **GUEST** (read only) role: [Managing API Keys](https://docs.unraid.net/API/how-to-use-the-api/#managing-api-keys)
+- Unraid 7.2 -or- Unraid Connect plugin 2025.08.19.1850
+- API key with the **GUEST** (read only) role: [Managing API Keys](https://docs.unraid.net/go/managing-api-keys)
 
 The widget can display metrics for selected Unraid pools. If using one of the "pool" fields, you must also add the pool name to the settings.
 
@@ -21,8 +21,8 @@ widget:
   type: unraid
   url: https://unraid.host.or.ip
   key: api-key
-  pool1: # optional, name of pool for pool1... fields
-  pool2: # optional, name of pool for pool2... fields
-  pool3: # optional, name of pool for pool3... fields
-  pool4: # optional, name of pool for pool4... fields
+  pool1: pool1name # required only if using pool1 fields
+  pool2: pool2name # required only if using pool2 fields
+  pool3: pool3name # required only if using pool3 fields
+  pool4: pool4name # required only if using pool4 fields
 ```
