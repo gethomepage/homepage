@@ -285,7 +285,7 @@
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Connected",
+        "connected": "Conectado",
         "new_devices": "Novos Dispositivos",
         "down_alerts": "Alertas de Falha"
     },
