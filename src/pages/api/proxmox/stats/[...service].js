@@ -27,10 +27,7 @@ export default async function handler(req, res) {
     // Prefer per-node config (new format), fall back to legacy flat creds.
     const nodeConfig =
       (node && proxmoxConfig && proxmoxConfig[node]) ||
-      (proxmoxConfig &&
-      proxmoxConfig.url &&
-      proxmoxConfig.token &&
-      proxmoxConfig.secret
+      (proxmoxConfig && proxmoxConfig.url && proxmoxConfig.token && proxmoxConfig.secret
         ? {
             url: proxmoxConfig.url,
             token: proxmoxConfig.token,
@@ -50,7 +47,7 @@ export default async function handler(req, res) {
     const headers = {
       Authorization: `PVEAPIToken=${nodeConfig.token}=${nodeConfig.secret}`,
     };
-    
+
     const statusUrl = `${baseUrl}/nodes/${node}/${vmType}/${vmid}/status/current`;
 
     const [status, , data] = await httpProxy(statusUrl, {
