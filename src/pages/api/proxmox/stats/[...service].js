@@ -24,11 +24,33 @@ export default async function handler(req, res) {
       });
     }
 
-    const baseUrl = `${proxmoxConfig[node].url}/api2/json`;
-    const headers = {
-      Authorization: `PVEAPIToken=${proxmoxConfig[node].token}=${proxmoxConfig[node].secret}`,
-    };
+    // Prefer per-node config (new format), fall back to legacy flat creds.
+    const nodeConfig =
+      (node && proxmoxConfig && proxmoxConfig[node]) ||
+      (proxmoxConfig &&
+      proxmoxConfig.url &&
+      proxmoxConfig.token &&
+      proxmoxConfig.secret
+        ? {
+            url: proxmoxConfig.url,
+            token: proxmoxConfig.token,
+            secret: proxmoxConfig.secret,
+          }
+        : null);
 
+    if (!nodeConfig) {
+      return res.status(400).json({
+        error:
+          "Proxmox config not found for the specified node and no legacy credentials detected. " +
+          "Add a node block in proxmox.yaml (e.g., 'pve: { url, token, secret }') or restore legacy top-level url/token/secret.",
+      });
+    }
+
+    const baseUrl = `${nodeConfig.url}/api2/json`;
+    const headers = {
+      Authorization: `PVEAPIToken=${nodeConfig.token}=${nodeConfig.secret}`,
+    };
+    
     const statusUrl = `${baseUrl}/nodes/${node}/${vmType}/${vmid}/status/current`;
 
     const [status, , data] = await httpProxy(statusUrl, {
