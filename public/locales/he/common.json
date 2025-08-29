@@ -14,11 +14,11 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "חודש",
-        "days": "יום",
-        "hours": "שעה",
-        "minutes": "דקה",
-        "seconds": "שניה"
+        "months": "חודשים",
+        "days": "ימים",
+        "hours": "שעות",
+        "minutes": "דקות",
+        "seconds": "שניות"
     },
     "widget": {
         "missing_type": "סוג ווידג'ט חסר: {{type}}",
@@ -61,16 +61,16 @@
         "wlan_devices": "מכשירים ב-WAN",
         "lan_users": "משתמשים ב-LAN",
         "wlan_users": "משתמשים ב-WLAN",
-        "up": "זמן פעילות",
+        "up": "למעלה",
         "down": "כבוי",
-        "wait": "המתן בבקשה",
+        "wait": "נא להמתין",
         "empty_data": "מצב תת-מערכת לא ידוע"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "זיכרון",
-        "cpu": "מעבד",
+        "cpu": "ניצול מעבד",
         "running": "רץ",
         "offline": "לא מקוון",
         "error": "שגיאה",
@@ -108,8 +108,8 @@
         "songs": "שירים"
     },
     "esphome": {
-        "offline": "לא מקוון",
-        "offline_alt": "לא מקוון",
+        "offline": "מכובה",
+        "offline_alt": "מכובה",
         "online": "מקוון",
         "total": "סה\"כ",
         "unknown": "לא ידוע"
@@ -169,8 +169,8 @@
     },
     "tautulli": {
         "playing": "מנגן",
-        "transcoding": "מקודד",
-        "bitrate": "סיביות",
+        "transcoding": "המרת קידוד",
+        "bitrate": "קצב נתונים",
         "no_active": "אין הזרמות פעילות",
         "plex_connection_error": "בדוק חיבור ל-Plex"
     },
@@ -178,7 +178,7 @@
         "connectedAp": "נקודות גישה מחוברות",
         "activeUser": "מכשירים פעילים",
         "alerts": "התראות",
-        "connectedGateways": "שערי רשת מחוברים (Gateway)",
+        "connectedGateways": "נתבים מחוברים",
         "connectedSwitches": "נתבים מחוברים"
     },
     "nzbget": {
@@ -193,7 +193,7 @@
         "tv": "תוכניות טלוויזיה"
     },
     "sabnzbd": {
-        "rate": "יחס",
+        "rate": "קצב",
         "queue": "תור",
         "timeleft": "זמן שנותר"
     },
@@ -206,13 +206,13 @@
         "download": "הורדה",
         "upload": "העלאה",
         "leech": "עלוקה",
-        "seed": "זרע"
+        "seed": "זורע"
     },
     "qbittorrent": {
         "download": "הורדה",
         "upload": "העלאה",
         "leech": "עלוקה",
-        "seed": "זרע"
+        "seed": "זורע"
     },
     "qnap": {
         "cpuUsage": "שימוש במעבד",
@@ -226,7 +226,7 @@
         "download": "הורדה",
         "upload": "העלאה",
         "leech": "עלוקה",
-        "seed": "זרע"
+        "seed": "זורע"
     },
     "develancacheui": {
         "cachehitbytes": "Cache Hit Bytes",
@@ -236,7 +236,7 @@
         "download": "הורדה",
         "upload": "העלאה",
         "leech": "עלוקה",
-        "seed": "זרע"
+        "seed": "זורע"
     },
     "sonarr": {
         "wanted": "מבוקש",
@@ -273,12 +273,12 @@
         "available": "זמין"
     },
     "jellyseerr": {
-        "pending": "ממתין",
+        "pending": "ממתין לאישור",
         "approved": "מאושר",
         "available": "זמין"
     },
     "overseerr": {
-        "pending": "ממתין",
+        "pending": "ממתין לאישור",
         "processing": "מעבד",
         "approved": "מאושר",
         "available": "זמין"
@@ -304,7 +304,7 @@
     "speedtest": {
         "upload": "העלאה",
         "download": "הורדה",
-        "ping": "פינג"
+        "ping": "זמן תגובה"
     },
     "portainer": {
         "running": "רץ",
@@ -312,10 +312,10 @@
         "total": "סה\"כ"
     },
     "suwayomi": {
-        "download": "הורד",
+        "download": "ירד",
         "nondownload": "לא הורד",
-        "read": "נקרא",
-        "unread": "לא נקרא",
+        "read": "נקראו",
+        "unread": "לא נקראו",
         "downloadedread": "ירד ונקרא",
         "downloadedunread": "ירד ולא נקרא",
         "nondownloadedread": "לא ירד ונקרא",
@@ -344,7 +344,7 @@
         "totalAuthoritative": "Authoritative",
         "totalRecursive": "רקורסיבי",
         "totalCached": "נשמר במטמון",
-        "totalBlocked": "נחסם",
+        "totalBlocked": "חסומות",
         "totalDropped": "נפל",
         "totalClients": "לקוחות"
     },
@@ -358,6 +358,12 @@
         "routers": "נתבים",
         "services": "שירותים",
         "middleware": "מתווך"
+    },
+    "trilium": {
+        "version": "גרסה",
+        "notesCount": "הערות",
+        "dbSize": "גודל מסד הנתונים",
+        "unknown": "לא ידוע"
     },
     "navidrome": {
         "nothing_streaming": "אין הזרמות פעילות",
@@ -389,13 +395,13 @@
     },
     "jackett": {
         "configured": "מוגדר",
-        "errored": "נכשל"
+        "errored": "שגיאות"
     },
     "strelaysrv": {
         "numActiveSessions": "סשנים פעילים",
         "numConnections": "חיבורים",
         "dataRelayed": "דאטה שהועבר",
-        "transferRate": "יחס"
+        "transferRate": "קצב"
     },
     "mastodon": {
         "user_count": "משתמשים",
@@ -403,7 +409,7 @@
         "domain_count": "דומיינים"
     },
     "medusa": {
-        "wanted": "מבוקש",
+        "wanted": "רצוי",
         "queued": "בתור",
         "series": "סדרות"
     },
@@ -416,7 +422,7 @@
     },
     "miniflux": {
         "read": "נקרא",
-        "unread": "לא נקרא"
+        "unread": "לא נקראו"
     },
     "authentik": {
         "users": "משתמשים",
@@ -425,14 +431,14 @@
     },
     "proxmox": {
         "mem": "זיכרון",
-        "cpu": "מעבד",
+        "cpu": "ניצול מעבד",
         "lxc": "LXC",
         "vms": "VMs"
     },
     "glances": {
-        "cpu": "מעבד",
+        "cpu": "ניצול מעבד",
         "load": "עומס",
-        "wait": "המתן בבקשה",
+        "wait": "נא להמתין",
         "temp": "טמפ׳",
         "_temp": "טמפ׳",
         "warn": "אזהרה",
@@ -440,8 +446,8 @@
         "total": "סה\"כ",
         "free": "פנוי",
         "used": "בשימוש",
-        "days": "יום",
-        "hours": "שעה",
+        "days": "ימים",
+        "hours": "שעות",
         "crit": "Crit",
         "read": "נקרא",
         "write": "כתיבה",
@@ -498,23 +504,23 @@
         "75-day": "שלג כבד",
         "75-night": "שלג כבד",
         "77-day": "גרגרי שלג",
-        "77-night": "גרגרי שלג",
+        "77-night": "פתיתי שלג",
         "80-day": "ממטרים קלים",
-        "80-night": "ממטרים קלים",
+        "80-night": "גשם קל",
         "81-day": "ממטרים",
-        "81-night": "ממטרים",
+        "81-night": "גשם",
         "82-day": "ממטרים כבדים",
-        "82-night": "ממטרים כבדים",
+        "82-night": "גשם כבד",
         "85-day": "ממטרי שלג",
-        "85-night": "ממטרי שלג",
-        "86-day": "ממטרי שלג",
-        "86-night": "ממטרי שלג",
+        "85-night": "גשם מושלג",
+        "86-day": "גשם מושלג",
+        "86-night": "גשם מושלג",
         "95-day": "סופת רעמים",
-        "95-night": "סופת רעמים",
+        "95-night": "סופת ברקים",
         "96-day": "סופת רעמים עם ברד",
-        "96-night": "סופת רעמים עם ברד",
-        "99-day": "סופת רעמים עם ברד",
-        "99-night": "סופת רעמים עם ברד"
+        "96-night": "סופת ברקים וברד",
+        "99-day": "סופת ברקים וברד",
+        "99-night": "סופת ברקים וברד"
     },
     "homebridge": {
         "available_update": "מערכת",
@@ -543,7 +549,7 @@
         "containers_failed": "נכשל"
     },
     "autobrr": {
-        "approvedPushes": "מאושר",
+        "approvedPushes": "אושרו",
         "rejectedPushes": "נדחה",
         "filters": "פילטרים",
         "indexers": "אינדקסים"
@@ -561,7 +567,7 @@
     },
     "pyload": {
         "speed": "מהירות",
-        "active": "פעיל",
+        "active": "פעילות",
         "queue": "תור",
         "total": "סה\"כ"
     },
@@ -580,12 +586,12 @@
         "signalStrength": "עוצמה",
         "signalQuality": "איכות",
         "symbolQuality": "איכות",
-        "networkRate": "סיביות",
+        "networkRate": "קצב נתונים",
         "clientIP": "לקוח"
     },
     "scrutiny": {
         "passed": "עבר",
-        "failed": "נכשל",
+        "failed": "נכשלו",
         "unknown": "לא ידוע"
     },
     "paperlessngx": {
@@ -596,12 +602,12 @@
         "battery_charge": "טעינת סוללה",
         "ups_load": "עומס UPS",
         "ups_status": "סטטוס UPS",
-        "online": "מקוון",
+        "online": "מחובר",
         "on_battery": "על סוללה",
         "low_battery": "סוללה חלשה"
     },
     "nextdns": {
-        "wait": "המתן בבקשה",
+        "wait": "נא להמתין",
         "no_devices": "אין מכשירים"
     },
     "mikrotik": {
@@ -656,7 +662,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",
         "failed_tasks_24h": "משימות שנכשלו 24h",
-        "cpu_usage": "מעבד",
+        "cpu_usage": "ניצול מעבד",
         "memory_usage": "זיכרון"
     },
     "immich": {
@@ -670,7 +676,7 @@
         "down": "אתרים לא פעילים",
         "uptime": "זמן פעילות",
         "incident": "תקריות",
-        "m": "דקה"
+        "m": "דקות"
     },
     "atsumeru": {
         "series": "סדרות",
@@ -701,8 +707,8 @@
     },
     "fileflows": {
         "queue": "תור",
-        "processing": "מעבד",
-        "processed": "עובד",
+        "processing": "בעיבוד",
+        "processed": "עובדו",
         "time": "זמן"
     },
     "firefly": {
@@ -728,7 +734,7 @@
         "size": "גודל",
         "lastrun": "הרצה אחרונה",
         "nextrun": "הרצה הבאה",
-        "failed": "נכשל"
+        "failed": "נכשלו"
     },
     "unmanic": {
         "active_workers": "עובדים פעילים",
@@ -745,8 +751,8 @@
         "targets_total": "סה\"כ מטרות"
     },
     "gatus": {
-        "up": "אתרים פעילים",
-        "down": "אתרים לא פעילים",
+        "up": "אתרים למעלה",
+        "down": "אתרים למטה",
         "uptime": "זמן פעילות"
     },
     "ghostfolio": {
@@ -758,7 +764,7 @@
         "podcasts": "פודקאסטים",
         "books": "ספרים",
         "podcastsDuration": "משך פודקאסטים",
-        "booksDuration": "משך פודקאסטים"
+        "booksDuration": "משך זמן"
     },
     "homeassistant": {
         "people_home": "אנשים בבית",
@@ -791,17 +797,17 @@
         "buildId": "Build ID",
         "succeeded": "הצליח",
         "notStarted": "לא התחיל",
-        "failed": "נכשל",
+        "failed": "נכשלו",
         "canceled": "בוטל",
         "inProgress": "בתהליך",
         "totalPrs": "סה\"כ PRs",
         "myPrs": "PRs שלי",
-        "approved": "מאושר"
+        "approved": "אושרו"
     },
     "gamedig": {
         "status": "סטטוס",
-        "online": "מקוון",
-        "offline": "לא מקוון",
+        "online": "מחובר",
+        "offline": "מנותק",
         "name": "שם",
         "map": "מפה",
         "currentPlayers": "שחקנים נוכחיים",
@@ -813,7 +819,7 @@
     "urbackup": {
         "ok": "Ok",
         "errored": "שגיאות",
-        "noRecent": "ללא תאריך",
+        "noRecent": "לא עדכני",
         "totalUsed": "אחסון בשימוש"
     },
     "mealie": {
@@ -825,10 +831,10 @@
     "openmediavault": {
         "downloading": "מוריד",
         "total": "סה\"כ",
-        "running": "רץ",
-        "stopped": "נעצר",
-        "passed": "עבר",
-        "failed": "נכשל"
+        "running": "רצים",
+        "stopped": "נעצרו",
+        "passed": "עברו",
+        "failed": "נכשלו"
     },
     "openwrt": {
         "uptime": "זמן פעילות",
@@ -839,12 +845,12 @@
         "bytesRx": "התקבל"
     },
     "uptimerobot": {
-        "status": "סטטוס",
+        "status": "זמן פעילות",
         "uptime": "זמן פעילות",
         "lastDown": "זמן השבתה אחרון",
         "downDuration": "משך השבתה",
-        "sitesUp": "אתרים פעילים",
-        "sitesDown": "אתרים לא פעילים",
+        "sitesUp": "אתרים למעלה",
+        "sitesDown": "אתרים למטה",
         "paused": "מושהה",
         "notyetchecked": "לא נבדק עדיין",
         "up": "למעלה",
@@ -886,7 +892,7 @@
     },
     "gitea": {
         "notifications": "התראות",
-        "issues": "גיליונות",
+        "issues": "נושאים",
         "pulls": "בקשות משיכה",
         "repositories": "מאגרי מידע"
     },
@@ -903,7 +909,7 @@
         "performers": "מבצעים",
         "studios": "אולפנים",
         "movies": "סרטים",
-        "tags": "טגיות",
+        "tags": "תגיות",
         "oCount": "O Count"
     },
     "tandoor": {
@@ -926,7 +932,7 @@
     "wgeasy": {
         "connected": "מחובר",
         "enabled": "מופעל",
-        "disabled": "מבוטל",
+        "disabled": "מושבת",
         "total": "סה\"כ"
     },
     "swagdashboard": {
@@ -955,7 +961,7 @@
     "linkwarden": {
         "links": "קישורים",
         "collections": "אוספים",
-        "tags": "טגיות"
+        "tags": "תגיות"
     },
     "zabbix": {
         "unclassified": "לא ממויין",
@@ -984,8 +990,8 @@
         "address": "כתובת",
         "last_seen": "נראה לאחרונה",
         "status": "סטטוס",
-        "online": "מקוון",
-        "offline": "לא מקוון"
+        "online": "מחובר",
+        "offline": "מנותק"
     },
     "beszel": {
         "name": "שם",
@@ -995,7 +1001,7 @@
         "paused": "מושהה",
         "pending": "ממתין",
         "status": "סטטוס",
-        "updated": "עודכן",
+        "updated": "מעודכן",
         "cpu": "מעבד",
         "memory": "זיכרון",
         "disk": "דיסק",
@@ -1008,7 +1014,7 @@
         "healthy": "בריא",
         "degraded": "פגום",
         "progressing": "מתקדם",
-        "missing": "חסרים",
+        "missing": "חסר",
         "suspended": "מושהה"
     },
     "spoolman": {
@@ -1016,7 +1022,7 @@
     },
     "gitlab": {
         "groups": "קבוצות",
-        "issues": "גיליונות",
+        "issues": "נושאים",
         "merges": "Merge Requests",
         "projects": "פרוייקטים"
     },
@@ -1032,7 +1038,7 @@
         "archived": "ארכיון",
         "highlights": "הדגשות",
         "lists": "רשימות",
-        "tags": "טגיות"
+        "tags": "תגיות"
     },
     "slskd": {
         "slskStatus": "רשת",
@@ -1040,7 +1046,7 @@
         "disconnected": "מנותק",
         "updateStatus": "עדכן",
         "update_yes": "זמין",
-        "update_no": "עדכני",
+        "update_no": "מעודכן",
         "downloads": "הורדות",
         "uploads": "העלאות",
         "sharedFiles": "קבצים"
@@ -1054,5 +1060,28 @@
     "checkmk": {
         "serviceErrors": "שגיאות שירות",
         "hostErrors": "שגיאות מארח"
+    },
+    "komodo": {
+        "total": "סה\"כ",
+        "running": "רץ",
+        "stopped": "עצר",
+        "down": "למטה",
+        "unhealthy": "לא בריא",
+        "unknown": "לא ידוע",
+        "servers": "שרתים",
+        "stacks": "ערימות",
+        "containers": "קונטיינרים"
+    },
+    "filebrowser": {
+        "available": "פנוי",
+        "used": "בשימוש",
+        "total": "סה\"כ"
+    },
+    "wallos": {
+        "activeSubscriptions": "מנויים",
+        "thisMonthlyCost": "החודש",
+        "nextMonthlyCost": "חודש הבא",
+        "previousMonthlyCost": "חודש קודם",
+        "nextRenewingSubscription": "תשלום הבא"
     }
 }

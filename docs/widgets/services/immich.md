@@ -10,11 +10,10 @@ Learn more about [Immich](https://github.com/immich-app/immich).
 | < v1.118       | 1 (default)             |
 | >= v1.118      | 2                       |
 
-Find your API key under `Account Settings > API Keys`.
+Find your API key under `Account Settings > API Keys`. The key should have the
+`server.statistics` permission.
 
 Allowed fields: `["users" ,"photos", "videos", "storage"]`.
-
-Note that API key must be from admin user.
 
 ```yaml
 widget:

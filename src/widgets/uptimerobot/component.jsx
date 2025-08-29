@@ -31,6 +31,10 @@ export default function Component({ service }) {
     );
   }
 
+  if (uptimerobotData.error) {
+    return <Container service={service} error={uptimerobotData.error} />;
+  }
+
   // multiple monitors
   if (uptimerobotData.pagination?.total > 1) {
     const sitesUp = uptimerobotData.monitors.filter((m) => m.status === 2).length;

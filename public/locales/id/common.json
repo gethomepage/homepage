@@ -61,9 +61,9 @@
         "wlan_devices": "Perangkat WLAN",
         "lan_users": "Pengguna LAN",
         "wlan_users": "Pengguna WLAN",
-        "up": "Waktu Aktif",
+        "up": "UP",
         "down": "Mati",
-        "wait": "Harap tunggu",
+        "wait": "Please wait",
         "empty_data": "Status subsistem tdk diketahui"
     },
     "docker": {
@@ -93,9 +93,9 @@
         "http_status": "HTTP Status",
         "error": "Error",
         "response": "Respons",
-        "down": "Mati",
-        "up": "Hidup",
-        "not_available": "Tidak Tersedia"
+        "down": "Down",
+        "up": "Up",
+        "not_available": "Not Available"
     },
     "emby": {
         "playing": "Sedang Diputar",
@@ -112,7 +112,7 @@
         "offline_alt": "Offline",
         "online": "Online",
         "total": "Total",
-        "unknown": "Tidak Diketahui"
+        "unknown": "Unknown"
     },
     "evcc": {
         "pv_power": "Produksi",
@@ -141,11 +141,11 @@
         "connectionStatusDisconnecting": "Sedan Memutus",
         "connectionStatusDisconnected": "Terputus",
         "connectionStatusConnected": "Tersambung",
-        "uptime": "Waktu Aktif",
+        "uptime": "Uptime",
         "maxDown": "Maks Unduh",
         "maxUp": "Maks Unggah",
-        "down": "Mati",
-        "up": "Hidup",
+        "down": "Down",
+        "up": "Up",
         "received": "Diterima",
         "sent": "Terkirim",
         "externalIPAddress": "IP Eksternal",
@@ -168,10 +168,10 @@
         "passes": "Tiket"
     },
     "tautulli": {
-        "playing": "Sedang Diputar",
-        "transcoding": "Mentranskode",
+        "playing": "Playing",
+        "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "Tidak ada Strim Aktif",
+        "no_active": "No Active Streams",
         "plex_connection_error": "Cek Koneksi ke Plex"
     },
     "omada": {
@@ -189,28 +189,28 @@
     "plex": {
         "streams": "Stream Berjalan",
         "albums": "Albums",
-        "movies": "Film",
+        "movies": "Movies",
         "tv": "Acara TV"
     },
     "sabnzbd": {
-        "rate": "Laju Bandwidth",
+        "rate": "Rate",
         "queue": "Antrian",
         "timeleft": "Sisa Waktu"
     },
     "rutorrent": {
         "active": "Aktif",
-        "upload": "Unggah",
-        "download": "Unduh"
+        "upload": "Upload",
+        "download": "Download"
     },
     "transmission": {
-        "download": "Unduh",
-        "upload": "Unggah",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Unduh",
-        "upload": "Unggah",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -223,8 +223,8 @@
         "invalid": "Tidak valid"
     },
     "deluge": {
-        "download": "Unduh",
-        "upload": "Unggah",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -233,34 +233,34 @@
         "cachemissbytes": "Cache Miss Bytes"
     },
     "downloadstation": {
-        "download": "Unduh",
-        "upload": "Unggah",
+        "download": "Download",
+        "upload": "Upload",
         "leech": "Leech",
         "seed": "Seed"
     },
     "sonarr": {
         "wanted": "Dicari",
         "queued": "Terantrikan",
-        "series": "Seri",
-        "queue": "Antrian",
-        "unknown": "Tidak Diketahui"
+        "series": "Series",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "radarr": {
-        "wanted": "Dicari",
+        "wanted": "Wanted",
         "missing": "Tidak Ditemukan",
-        "queued": "Terantrikan",
-        "movies": "Film",
-        "queue": "Antrian",
-        "unknown": "Tidak Diketahui"
+        "queued": "Queued",
+        "movies": "Movies",
+        "queue": "Queue",
+        "unknown": "Unknown"
     },
     "lidarr": {
-        "wanted": "Dicari",
-        "queued": "Terantrikan",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "artists": "Artis"
     },
     "readarr": {
-        "wanted": "Dicari",
-        "queued": "Terantrikan",
+        "wanted": "Wanted",
+        "queued": "Queued",
         "books": "Buku"
     },
     "bazarr": {
@@ -274,18 +274,18 @@
     },
     "jellyseerr": {
         "pending": "Pending",
-        "approved": "Tersetujui",
-        "available": "Tersedia"
+        "approved": "Approved",
+        "available": "Available"
     },
     "overseerr": {
         "pending": "Pending",
         "processing": "Memproses",
-        "approved": "Tersetujui",
-        "available": "Tersedia"
+        "approved": "Approved",
+        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
-        "connected": "Tersambung",
+        "connected": "Connected",
         "new_devices": "Perangkat Baru",
         "down_alerts": "Peringatan Pemadaman"
     },
@@ -296,26 +296,26 @@
         "gravity": "Gravitasi"
     },
     "adguard": {
-        "queries": "Kueri",
-        "blocked": "Terblokir",
+        "queries": "Queries",
+        "blocked": "Blocked",
         "filtered": "Terfilter",
         "latency": "Latensi"
     },
     "speedtest": {
-        "upload": "Unggah",
-        "download": "Unduh",
+        "upload": "Upload",
+        "download": "Download",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Berjalan",
+        "running": "Running",
         "stopped": "Terhenti",
         "total": "Total"
     },
     "suwayomi": {
-        "download": "Terunduh",
+        "download": "Downloaded",
         "nondownload": "Belum Diunduh",
-        "read": "Baca",
-        "unread": "Belum Dibaca",
+        "read": "Read",
+        "unread": "Unread",
         "downloadedread": "Diunduh & Dibaca",
         "downloadedunread": "Diunduh & Belum Dibaca",
         "nondownloadedread": "Belum Diunduh & Dibaca",
@@ -336,7 +336,7 @@
         "ago": "{{value}} Yang Lalu"
     },
     "technitium": {
-        "totalQueries": "Kueri",
+        "totalQueries": "Queries",
         "totalNoError": "Berhasil",
         "totalServerFailure": "Gagal",
         "totalNxDomain": "Domain NX",
@@ -344,12 +344,12 @@
         "totalAuthoritative": "Authoritative",
         "totalRecursive": "Rekursif",
         "totalCached": "Cached",
-        "totalBlocked": "Terblokir",
+        "totalBlocked": "Blocked",
         "totalDropped": "Dropped",
         "totalClients": "Klien"
     },
     "tdarr": {
-        "queue": "Antrian",
+        "queue": "Queue",
         "processed": "Terproses",
         "errored": "Error",
         "saved": "Tersimpan"
@@ -359,8 +359,14 @@
         "services": "Layanan",
         "middleware": "Middleware"
     },
+    "trilium": {
+        "version": "Version",
+        "notesCount": "Notes",
+        "dbSize": "Database Size",
+        "unknown": "Unknown"
+    },
     "navidrome": {
-        "nothing_streaming": "Tidak ada Strim Aktif",
+        "nothing_streaming": "No Active Streams",
         "please_wait": "Mohon menunggu"
     },
     "npm": {
@@ -377,35 +383,35 @@
     },
     "gotify": {
         "apps": "Aplikasi",
-        "clients": "Klien",
+        "clients": "Clients",
         "messages": "Pesan"
     },
     "prowlarr": {
         "enableIndexers": "Pengindeks",
         "numberOfGrabs": "Jumlah Ambilan",
-        "numberOfQueries": "Kueri",
+        "numberOfQueries": "Queries",
         "numberOfFailGrabs": "Ambilan Gagal",
         "numberOfFailQueries": "Jumlah Kueri Gagal"
     },
     "jackett": {
         "configured": "Konfigurasi",
-        "errored": "Error"
+        "errored": "Errored"
     },
     "strelaysrv": {
         "numActiveSessions": "Sesi",
         "numConnections": "Jumlah Koneksi",
         "dataRelayed": "Data Diteruskan",
-        "transferRate": "Laju Bandwidth"
+        "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Pengguna",
+        "user_count": "Users",
         "status_count": "Jumlah Posting",
         "domain_count": "Jumlah Domain"
     },
     "medusa": {
-        "wanted": "Dicari",
-        "queued": "Terantrikan",
-        "series": "Seri"
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "series": "Series"
     },
     "minecraft": {
         "players": "Jumlah Pemain",
@@ -416,10 +422,10 @@
     },
     "miniflux": {
         "read": "Baca",
-        "unread": "Belum Dibaca"
+        "unread": "Unread"
     },
     "authentik": {
-        "users": "Pengguna",
+        "users": "Users",
         "loginsLast24H": "Login (24j)",
         "failedLoginsLast24H": "Login Gagal (24j)"
     },
@@ -431,19 +437,19 @@
     },
     "glances": {
         "cpu": "CPU",
-        "load": "Beban",
-        "wait": "Harap tunggu",
+        "load": "Load",
+        "wait": "Please wait",
         "temp": "TEMP",
         "_temp": "Suhu",
         "warn": "Peringatan",
-        "uptime": "Waktu Aktif",
+        "uptime": "UP",
         "total": "Total",
-        "free": "Luang",
-        "used": "Digunakan",
-        "days": "h",
-        "hours": "j",
+        "free": "Free",
+        "used": "Used",
+        "days": "d",
+        "hours": "h",
         "crit": "Penting",
-        "read": "Baca",
+        "read": "Read",
         "write": "Tulis",
         "gpu": "GPU",
         "mem": "Mem",
@@ -464,57 +470,57 @@
         "1-day": "Cerah",
         "1-night": "Cerah",
         "2-day": "Sedikit Berawan",
-        "2-night": "Sedikit Berawan",
+        "2-night": "Partly Cloudy",
         "3-day": "Berawan",
-        "3-night": "Berawan",
+        "3-night": "Cloudy",
         "45-day": "Berkabut",
-        "45-night": "Berkabut",
-        "48-day": "Berkabut",
-        "48-night": "Berkabut",
+        "45-night": "Foggy",
+        "48-day": "Foggy",
+        "48-night": "Foggy",
         "51-day": "Gerimis Ringan",
-        "51-night": "Gerimis Ringan",
+        "51-night": "Light Drizzle",
         "53-day": "Gerimis",
-        "53-night": "Gerimis",
+        "53-night": "Drizzle",
         "55-day": "Gerimis Lebat",
-        "55-night": "Gerimis Lebat",
+        "55-night": "Heavy Drizzle",
         "56-day": "Gerimis Membeku Ringan",
-        "56-night": "Gerimis Membeku Ringan",
+        "56-night": "Light Freezing Drizzle",
         "57-day": "Gerimis Membeku",
-        "57-night": "Gerimis Membeku",
+        "57-night": "Freezing Drizzle",
         "61-day": "Hujan Ringan",
-        "61-night": "Hujan Ringan",
+        "61-night": "Light Rain",
         "63-day": "Hujan",
-        "63-night": "Hujan",
+        "63-night": "Rain",
         "65-day": "Hujan Deras",
-        "65-night": "Hujan Deras",
+        "65-night": "Heavy Rain",
         "66-day": "Hujan Dingin",
-        "66-night": "Hujan Dingin",
-        "67-day": "Hujan Dingin",
-        "67-night": "Hujan Dingin",
+        "66-night": "Freezing Rain",
+        "67-day": "Freezing Rain",
+        "67-night": "Freezing Rain",
         "71-day": "Hujan Salju Ringan",
-        "71-night": "Hujan Salju Ringan",
+        "71-night": "Light Snow",
         "73-day": "Hujan Salju",
-        "73-night": "Hujan Salju",
+        "73-night": "Snow",
         "75-day": "Hujan Salju Lebat",
-        "75-night": "Hujan Salju Lebat",
+        "75-night": "Heavy Snow",
         "77-day": "Hujan Salju Butiran",
-        "77-night": "Hujan Salju Butiran",
+        "77-night": "Snow Grains",
         "80-day": "Hujan Ringan",
-        "80-night": "Hujan Ringan",
+        "80-night": "Light Showers",
         "81-day": "Hujan",
-        "81-night": "Hujan",
+        "81-night": "Showers",
         "82-day": "Hujan Lebat",
-        "82-night": "Hujan Lebat",
+        "82-night": "Heavy Showers",
         "85-day": "Hujan Salju",
-        "85-night": "Hujan Salju",
-        "86-day": "Hujan Salju",
-        "86-night": "Hujan Salju",
+        "85-night": "Snow Showers",
+        "86-day": "Snow Showers",
+        "86-night": "Snow Showers",
         "95-day": "Badai Petir",
-        "95-night": "Badai Petir",
+        "95-night": "Thunderstorm",
         "96-day": "Badai Petir Hujan Es",
-        "96-night": "Badai Petir Hujan Es",
-        "99-day": "Badai Petir Hujan Es",
-        "99-night": "Badai Petir Hujan Es"
+        "96-night": "Thunderstorm With Hail",
+        "99-day": "Thunderstorm With Hail",
+        "99-night": "Thunderstorm With Hail"
     },
     "homebridge": {
         "available_update": "Sistem",
@@ -523,15 +529,15 @@
         "up_to_date": "Terbaru",
         "child_bridges": "Bridge Turunan",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Hidup",
+        "up": "Up",
         "pending": "Pending",
-        "down": "Mati"
+        "down": "Down"
     },
     "healthchecks": {
         "new": "Baru",
-        "up": "Hidup",
+        "up": "Up",
         "grace": "Dalam Masa Tenggang",
-        "down": "Mati",
+        "down": "Down",
         "paused": "Pause",
         "status": "Status",
         "last_ping": "Ping Terakhir",
@@ -543,26 +549,26 @@
         "containers_failed": "Gagal"
     },
     "autobrr": {
-        "approvedPushes": "Tersetujui",
+        "approvedPushes": "Approved",
         "rejectedPushes": "Tertolak",
         "filters": "Filter",
-        "indexers": "Pengindeks"
+        "indexers": "Indexers"
     },
     "tubearchivist": {
-        "downloads": "Antrian",
+        "downloads": "Queue",
         "videos": "Video",
         "channels": "Channel",
         "playlists": "Daftar Putar"
     },
     "truenas": {
         "load": "Beban Sistem",
-        "uptime": "Waktu Aktif",
-        "alerts": "Peringatan"
+        "uptime": "Uptime",
+        "alerts": "Alerts"
     },
     "pyload": {
         "speed": "Kecepatan",
-        "active": "Aktif",
-        "queue": "Antrian",
+        "active": "Active",
+        "queue": "Queue",
         "total": "Total"
     },
     "gluetun": {
@@ -572,21 +578,21 @@
         "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
-        "channels": "Channel",
+        "channels": "Channels",
         "hd": "HD",
         "tunerCount": "Tuner",
         "channelNumber": "Channel",
         "channelNetwork": "Jaringan",
         "signalStrength": "Kekuatan Signal",
         "signalQuality": "Kualitas",
-        "symbolQuality": "Kualitas",
+        "symbolQuality": "Quality",
         "networkRate": "Bitrate",
         "clientIP": "Klien"
     },
     "scrutiny": {
         "passed": "Sukses",
-        "failed": "Gagal",
-        "unknown": "Tidak Diketahui"
+        "failed": "Failed",
+        "unknown": "Unknown"
     },
     "paperlessngx": {
         "inbox": "Kotak Masuk",
@@ -601,18 +607,18 @@
         "low_battery": "Baterai Lemah"
     },
     "nextdns": {
-        "wait": "Mohon menunggu",
+        "wait": "Please Wait",
         "no_devices": "Tidak ada Data Perangkat Diterima"
     },
     "mikrotik": {
         "cpuLoad": "Beban CPU",
         "memoryUsed": "Memori Terpakai",
-        "uptime": "Waktu Aktif",
+        "uptime": "Uptime",
         "numberOfLeases": "Leases"
     },
     "xteve": {
         "streams_all": "Semua Strim",
-        "streams_active": "Stream Berjalan",
+        "streams_active": "Active Streams",
         "streams_xepg": "Channel XEPG"
     },
     "opendtu": {
@@ -622,7 +628,7 @@
         "limit": "Batas"
     },
     "opnsense": {
-        "cpu": "Beban CPU",
+        "cpu": "CPU Load",
         "memory": "Memori Aktif",
         "wanUpload": "WAN Unggan",
         "wanDownload": "WAN Unduh"
@@ -647,9 +653,9 @@
         "load": "Beban Rata-rata",
         "memory": "Penggunaan Memory",
         "wanStatus": "Status WAN",
-        "up": "Hidup",
-        "down": "Mati",
-        "temp": "Suhu",
+        "up": "Up",
+        "down": "Down",
+        "temp": "Temp",
         "disk": "Penggunaan Disk",
         "wanIP": "IP WAN"
     },
@@ -660,49 +666,49 @@
         "memory_usage": "Memory"
     },
     "immich": {
-        "users": "Pengguna",
+        "users": "Users",
         "photos": "Foto",
-        "videos": "Video",
+        "videos": "Videos",
         "storage": "Penyimpanan"
     },
     "uptimekuma": {
         "up": "Situs Hidup",
         "down": "Situs Mati",
-        "uptime": "Waktu Aktif",
+        "uptime": "Uptime",
         "incident": "Insiden",
         "m": "m"
     },
     "atsumeru": {
-        "series": "Seri",
+        "series": "Series",
         "archives": "Arsip",
         "chapters": "Bab",
         "categories": "Kategori"
     },
     "komga": {
         "libraries": "Perpustakaan",
-        "series": "Seri",
-        "books": "Buku"
+        "series": "Series",
+        "books": "Books"
     },
     "diskstation": {
-        "days": "Hari-hari",
-        "uptime": "Waktu Aktif",
-        "volumeAvailable": "Tersedia"
+        "days": "Days",
+        "uptime": "Uptime",
+        "volumeAvailable": "Available"
     },
     "mylar": {
-        "series": "Seri",
+        "series": "Series",
         "issues": "Isu",
-        "wanted": "Dicari"
+        "wanted": "Wanted"
     },
     "photoprism": {
         "albums": "Albums",
-        "photos": "Foto",
-        "videos": "Video",
+        "photos": "Photos",
+        "videos": "Videos",
         "people": "Orang"
     },
     "fileflows": {
-        "queue": "Antrian",
-        "processing": "Memproses",
-        "processed": "Terproses",
+        "queue": "Queue",
+        "processing": "Processing",
+        "processed": "Processed",
         "time": "Waktu"
     },
     "firefly": {
@@ -728,7 +734,7 @@
         "size": "Ukuran",
         "lastrun": "Terakhir Dijalankan",
         "nextrun": "Akan Dijalankan Dalam",
-        "failed": "Gagal"
+        "failed": "Failed"
     },
     "unmanic": {
         "active_workers": "Pengguna Aktif",
@@ -745,20 +751,20 @@
         "targets_total": "Target Total"
     },
     "gatus": {
-        "up": "Situs Hidup",
-        "down": "Situs Mati",
-        "uptime": "Waktu Aktif"
+        "up": "Sites Up",
+        "down": "Sites Down",
+        "uptime": "Uptime"
     },
     "ghostfolio": {
-        "gross_percent_today": "Hari ini",
+        "gross_percent_today": "Today",
         "gross_percent_1y": "Satu Tahun",
         "gross_percent_max": "Sepanjang Masa"
     },
     "audiobookshelf": {
         "podcasts": "Podcast",
-        "books": "Buku",
+        "books": "Books",
         "podcastsDuration": "Durasi",
-        "booksDuration": "Durasi"
+        "booksDuration": "Duration"
     },
     "homeassistant": {
         "people_home": "Orang Di Rumah",
@@ -767,23 +773,23 @@
     },
     "whatsupdocker": {
         "monitoring": "Pengawasan",
-        "updates": "Pembaruan"
+        "updates": "Updates"
     },
     "calibreweb": {
-        "books": "Buku",
+        "books": "Books",
         "authors": "Penulis",
-        "categories": "Kategori",
-        "series": "Seri"
+        "categories": "Categories",
+        "series": "Series"
     },
     "jdownloader": {
-        "downloadCount": "Antrian",
-        "downloadBytesRemaining": "Sisa",
-        "downloadTotalBytes": "Ukuran",
-        "downloadSpeed": "Kecepatan"
+        "downloadCount": "Queue",
+        "downloadBytesRemaining": "Remaining",
+        "downloadTotalBytes": "Size",
+        "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "Seri",
-        "totalFiles": "File"
+        "seriesCount": "Series",
+        "totalFiles": "Files"
     },
     "azuredevops": {
         "result": "Hasil",
@@ -791,12 +797,12 @@
         "buildId": "Build ID",
         "succeeded": "Berhasil",
         "notStarted": "Belum Dimulai",
-        "failed": "Gagal",
+        "failed": "Failed",
         "canceled": "Dibatalkan",
         "inProgress": "Sedang Berlangsung",
         "totalPrs": "PR Total",
         "myPrs": "PR Saya",
-        "approved": "Tersetujui"
+        "approved": "Approved"
     },
     "gamedig": {
         "status": "Status",
@@ -805,7 +811,7 @@
         "name": "Nama",
         "map": "Peta",
         "currentPlayers": "Jumlah pemain",
-        "players": "Jumlah Pemain",
+        "players": "Players",
         "maxPlayers": "Maksimum pemain",
         "bots": "Bot",
         "ping": "Ping"
@@ -818,39 +824,39 @@
     },
     "mealie": {
         "recipes": "Resep",
-        "users": "Pengguna",
-        "categories": "Kategori",
+        "users": "Users",
+        "categories": "Categories",
         "tags": "Tag"
     },
     "openmediavault": {
         "downloading": "Mengunduh",
         "total": "Total",
-        "running": "Berjalan",
-        "stopped": "Terhenti",
-        "passed": "Sukses",
-        "failed": "Gagal"
+        "running": "Running",
+        "stopped": "Stopped",
+        "passed": "Passed",
+        "failed": "Failed"
     },
     "openwrt": {
-        "uptime": "Waktu Aktif",
+        "uptime": "Uptime",
         "cpuLoad": "Beban rata2 CPU (5m)",
-        "up": "Hidup",
-        "down": "Mati",
+        "up": "Up",
+        "down": "Down",
         "bytesTx": "Tersalur",
-        "bytesRx": "Diterima"
+        "bytesRx": "Received"
     },
     "uptimerobot": {
         "status": "Status",
-        "uptime": "Waktu Aktif",
+        "uptime": "Uptime",
         "lastDown": "Terakhir Terhenti",
         "downDuration": "Jumlah Waktu Terhenti",
-        "sitesUp": "Situs Hidup",
-        "sitesDown": "Situs Mati",
-        "paused": "Pause",
+        "sitesUp": "Sites Up",
+        "sitesDown": "Sites Down",
+        "paused": "Paused",
         "notyetchecked": "Belum Di Cek",
-        "up": "Hidup",
+        "up": "Up",
         "seemsdown": "Sepertinya Mati",
-        "down": "Mati",
-        "unknown": "Tidak Diketahui"
+        "down": "Down",
+        "unknown": "Unknown"
     },
     "calendar": {
         "inCinemas": "Tersedia Di Bioskop",
@@ -869,10 +875,10 @@
         "totalfilesize": "Total Ukuran"
     },
     "mailcow": {
-        "domains": "Jumlah Domain",
+        "domains": "Domains",
         "mailboxes": "Kotak surat",
         "mails": "Surat",
-        "storage": "Penyimpanan"
+        "storage": "Storage"
     },
     "netdata": {
         "warnings": "Peringatan",
@@ -881,12 +887,12 @@
     "plantit": {
         "events": "Acara",
         "plants": "Tanaman",
-        "photos": "Foto",
+        "photos": "Photos",
         "species": "Spesies"
     },
     "gitea": {
         "notifications": "Notifikasi",
-        "issues": "Isu",
+        "issues": "Issues",
         "pulls": "Pull Requests",
         "repositories": "Repositories"
     },
@@ -902,13 +908,13 @@
         "galleries": "Galeri",
         "performers": "Pemain",
         "studios": "Studio",
-        "movies": "Film",
-        "tags": "Tag",
+        "movies": "Movies",
+        "tags": "Tags",
         "oCount": "Jumlah O"
     },
     "tandoor": {
-        "users": "Pengguna",
-        "recipes": "Resep",
+        "users": "Users",
+        "recipes": "Recipes",
         "keywords": "Kata Kunci"
     },
     "homebox": {
@@ -916,17 +922,17 @@
         "totalWithWarranty": "Dengan Garansi",
         "locations": "Lokasi",
         "labels": "Label",
-        "users": "Pengguna",
+        "users": "Users",
         "totalValue": "Total Nilai"
     },
     "crowdsec": {
-        "alerts": "Peringatan",
+        "alerts": "Alerts",
         "bans": "Bans"
     },
     "wgeasy": {
-        "connected": "Tersambung",
-        "enabled": "Aktif",
-        "disabled": "Nonaktif",
+        "connected": "Connected",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
         "total": "Total"
     },
     "swagdashboard": {
@@ -937,8 +943,8 @@
     },
     "myspeed": {
         "ping": "Ping",
-        "download": "Unduh",
-        "upload": "Unggah"
+        "download": "Download",
+        "upload": "Upload"
     },
     "stocks": {
         "stocks": "Saham",
@@ -949,17 +955,17 @@
     },
     "frigate": {
         "cameras": "Kamera",
-        "uptime": "Waktu Aktif",
-        "version": "Versi"
+        "uptime": "Uptime",
+        "version": "Version"
     },
     "linkwarden": {
         "links": "Tautan",
         "collections": "Koleksi",
-        "tags": "Tag"
+        "tags": "Tags"
     },
     "zabbix": {
         "unclassified": "Not classified",
-        "information": "Informasi",
+        "information": "Information",
         "warning": "Peringatan",
         "average": "Rata-rata",
         "high": "Tinggi",
@@ -980,22 +986,22 @@
         "tasksInProgress": "Tugas Berlangsung"
     },
     "headscale": {
-        "name": "Nama",
-        "address": "Alamat",
-        "last_seen": "Terakhir terlihat",
+        "name": "Name",
+        "address": "Address",
+        "last_seen": "Last Seen",
         "status": "Status",
         "online": "Online",
         "offline": "Offline"
     },
     "beszel": {
-        "name": "Nama",
+        "name": "Name",
         "systems": "Sistem",
-        "up": "Hidup",
-        "down": "Mati",
-        "paused": "Pause",
+        "up": "Up",
+        "down": "Down",
+        "paused": "Paused",
         "pending": "Pending",
         "status": "Status",
-        "updated": "Terbarui",
+        "updated": "Updated",
         "cpu": "CPU",
         "memory": "MEM",
         "disk": "Diska",
@@ -1005,26 +1011,26 @@
         "apps": "Apl",
         "synced": "Tersinkron",
         "outOfSync": "Tidak Sinkron",
-        "healthy": "Lancar",
+        "healthy": "Healthy",
         "degraded": "Terdegradasi",
         "progressing": "Progressing",
-        "missing": "Tidak Ditemukan",
+        "missing": "Missing",
         "suspended": "Ditangguhkan"
     },
     "spoolman": {
-        "loading": "Memuat"
+        "loading": "Loading"
     },
     "gitlab": {
         "groups": "Grup",
-        "issues": "Isu",
+        "issues": "Issues",
         "merges": "Merge Requests",
         "projects": "Proyek"
     },
     "apcups": {
         "status": "Status",
-        "load": "Beban",
-        "bcharge": "Sisa Baterai",
-        "timeleft": "Sisa Waktu"
+        "load": "Load",
+        "bcharge": "Battery Charge",
+        "timeleft": "Time Left"
     },
     "karakeep": {
         "bookmarks": "Bookmarks",
@@ -1032,27 +1038,50 @@
         "archived": "Archived",
         "highlights": "Highlights",
         "lists": "Lists",
-        "tags": "Tag"
+        "tags": "Tags"
     },
     "slskd": {
-        "slskStatus": "Jaringan",
-        "connected": "Tersambung",
-        "disconnected": "Terputus",
+        "slskStatus": "Network",
+        "connected": "Connected",
+        "disconnected": "Disconnected",
         "updateStatus": "Update",
-        "update_yes": "Tersedia",
-        "update_no": "Terbaru",
+        "update_yes": "Available",
+        "update_no": "Up to Date",
         "downloads": "Downloads",
         "uploads": "Uploads",
-        "sharedFiles": "File"
+        "sharedFiles": "Files"
     },
     "jellystat": {
-        "songs": "Lagu",
-        "movies": "Film",
-        "episodes": "Episode",
+        "songs": "Songs",
+        "movies": "Movies",
+        "episodes": "Episodes",
         "other": "Other"
     },
     "checkmk": {
         "serviceErrors": "Service issues",
         "hostErrors": "Host issues"
+    },
+    "komodo": {
+        "total": "Total",
+        "running": "Running",
+        "stopped": "Stopped",
+        "down": "Down",
+        "unhealthy": "Unhealthy",
+        "unknown": "Unknown",
+        "servers": "Servers",
+        "stacks": "Stacks",
+        "containers": "Containers"
+    },
+    "filebrowser": {
+        "available": "Available",
+        "used": "Used",
+        "total": "Total"
+    },
+    "wallos": {
+        "activeSubscriptions": "Subscriptions",
+        "thisMonthlyCost": "This Month",
+        "nextMonthlyCost": "Next Month",
+        "previousMonthlyCost": "Prev. Month",
+        "nextRenewingSubscription": "Next Payment"
     }
 }

@@ -225,20 +225,8 @@ const widgetExample = {
 
 #### `method`
 
-The `method` property is a string that represents the HTTP method that should be used to make the API request. The default value is `GET`.
-
-```js
-const widgetExample = {
-  api: "{url}/api/{endpoint}",
-  mappings: {
-    // `/api/stats`
-    stats: {
-      endpoint: "stats",
-      method: "POST",
-    },
-  },
-};
-```
+The `method` represents the HTTP method that should be used to make the API request. The default value is `GET`. Note that `POST` requests are not allowed via the
+widget API and require the use of a custom proxy.
 
 #### `headers`
 
@@ -251,7 +239,6 @@ const widgetExample = {
     // `/api/stats`
     stats: {
       endpoint: "stats",
-      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -271,7 +258,6 @@ const widgetExample = {
     // `/api/graphql`
     stats: {
       endpoint: "graphql",
-      method: "POST",
       body: {
         query: `
           query {
