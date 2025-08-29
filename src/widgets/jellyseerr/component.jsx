@@ -10,8 +10,6 @@ export default function Component({ service }) {
 
   const fields = widget?.fields?.length ? widget.fields : jellyseerrDefaultFields;
   const isIssueEnabled = fields.includes("issues");
-
-  const isIssueEnabled = widget.fields.includes("issues");
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "request/count");
   const { data: issueData, error: issueError } = useWidgetAPI(widget, isIssueEnabled ? "issue/count" : "");
   if (statsError || (isIssueEnabled && issueError)) {
