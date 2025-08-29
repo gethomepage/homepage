@@ -15,7 +15,7 @@ export default function Component({ service }) {
   const isIssueEnabled = widget.fields.includes("issues");
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "request/count");
   const { data: issueData, error: issueError } = useWidgetAPI(widget, isIssueEnabled ? "issue/count" : "");
-  if (statsError || (isIssueEnabled && !issueData)) {
+  if (statsError || (isIssueEnabled && issueError)) {
     return <Container service={service} error={statsError ? statsError : issueError} />;
   }
 
