@@ -8,9 +8,8 @@ export const jellyseerrDefaultFields = ["pending", "approved", "available"];
 export default function Component({ service }) {
   const { widget } = service;
 
-  if (!widget.fields?.length > 0) {
-    widget.fields = jellyseerrDefaultFields;
-  }
+  const fields = widget?.fields?.length ? widget.fields : jellyseerrDefaultFields;
+  const isIssueEnabled = fields.includes("issues");
 
   const isIssueEnabled = widget.fields.includes("issues");
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "request/count");
