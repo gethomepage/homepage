@@ -275,7 +275,8 @@
     "jellyseerr": {
         "pending": "Pending",
         "approved": "Approved",
-        "available": "Available"
+        "available": "Available",
+        "issues": "Open Issues"
     },
     "overseerr": {
         "pending": "Pending",
