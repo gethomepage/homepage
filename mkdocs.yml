@@ -58,6 +58,7 @@ nav:
           - widgets/services/emby.md
           - widgets/services/esphome.md
           - widgets/services/evcc.md
+          - widgets/services/filebrowser.md
           - widgets/services/fileflows.md
           - widgets/services/firefly.md
           - widgets/services/flood.md
@@ -168,6 +169,7 @@ nav:
           - widgets/services/uptimerobot.md
           - widgets/services/urbackup.md
           - widgets/services/vikunja.md
+          - widgets/services/wallos.md
           - widgets/services/watchtower.md
           - widgets/services/wgeasy.md
           - widgets/services/whatsupdocker.md

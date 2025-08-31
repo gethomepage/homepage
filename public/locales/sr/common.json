@@ -25,7 +25,7 @@
         "api_error": "API Грешка",
         "information": "Информација",
         "status": "Стање",
-        "url": "УРЛ адреса",
+        "url": "URL адреса",
         "raw_error": "Оригинална грешка",
         "response_data": "Подаци о одговору"
     },
@@ -359,6 +359,12 @@
         "services": "Сервиси",
         "middleware": "Мидлвер"
     },
+    "trilium": {
+        "version": "Верзија",
+        "notesCount": "Белешке",
+        "dbSize": "Величина базе података",
+        "unknown": "Непознато"
+    },
     "navidrome": {
         "nothing_streaming": "Нема активних стримова",
         "please_wait": "Молим сачекајте"
@@ -566,7 +572,7 @@
         "total": "Укупно"
     },
     "gluetun": {
-        "public_ip": "Јавна ИП адреса",
+        "public_ip": "Јавна IP адреса",
         "region": "Регион",
         "country": "Држава",
         "port_forwarded": "Порт прослеђен"
@@ -1054,5 +1060,28 @@
     "checkmk": {
         "serviceErrors": "Проблеми са услугом",
         "hostErrors": "Проблеми са хостом"
+    },
+    "komodo": {
+        "total": "Укупно",
+        "running": "Покренуто",
+        "stopped": "Заустављено",
+        "down": "Доле",
+        "unhealthy": "Нездравих",
+        "unknown": "Непознато",
+        "servers": "Сервери",
+        "stacks": "Стекови",
+        "containers": "Контејнера"
+    },
+    "filebrowser": {
+        "available": "Доступно",
+        "used": "У употреби",
+        "total": "Укупно"
+    },
+    "wallos": {
+        "activeSubscriptions": "Претплате",
+        "thisMonthlyCost": "Овај мјесец",
+        "nextMonthlyCost": "Следећи месец",
+        "previousMonthlyCost": "Претходни месец",
+        "nextRenewingSubscription": "Следећа уплата"
     }
 }

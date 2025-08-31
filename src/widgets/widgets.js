@@ -25,6 +25,7 @@ import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
 import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
+import filebrowser from "./filebrowser/widget";
 import fileflows from "./fileflows/widget";
 import firefly from "./firefly/widget";
 import flood from "./flood/widget";
@@ -134,6 +135,7 @@ import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
 import urbackup from "./urbackup/widget";
 import vikunja from "./vikunja/widget";
+import wallos from "./wallos/widget";
 import watchtower from "./watchtower/widget";
 import wgeasy from "./wgeasy/widget";
 import whatsupdocker from "./whatsupdocker/widget";
@@ -167,6 +169,7 @@ const widgets = {
   emby,
   esphome,
   evcc,
+  filebrowser,
   fileflows,
   firefly,
   flood,
@@ -281,6 +284,7 @@ const widgets = {
   uptimerobot,
   urbackup,
   vikunja,
+  wallos,
   watchtower,
   wgeasy,
   whatsupdocker,
