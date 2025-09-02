@@ -1,9 +1,9 @@
 import cache from "memory-cache";
 
-import { httpProxy } from "utils/proxy/http";
-import { formatApiCall } from "utils/proxy/api-helpers";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const proxyName = "backrestProxyHandler";
@@ -29,7 +29,7 @@ export default async function backrestProxyHandler(req, res) {
   if (!headers) {
     headers = {
       "content-type": "application/json",
-      "Authorization": `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`,
+      Authorization: `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`,
     };
     cache.put(`${headerCacheKey}.${service}`, headers);
   }
@@ -41,7 +41,7 @@ export default async function backrestProxyHandler(req, res) {
   const body = JSON.stringify({});
 
   try {
-    const [status, contentType, data,] = await httpProxy(url, {
+    const [status, contentType, data] = await httpProxy(url, {
       method,
       body,
       headers,

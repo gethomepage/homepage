@@ -7,10 +7,11 @@ description: Backrest Widget Configuration
 the [Restic](https://restic.net/) backup tool.
 
 The widget shows:
-  - The number of configured plans;
-  - The number of successful backups in the last 30 days;
-  - The number of failed backups in the last 30 days; and
-  - The amount of data added to backups in the last 30 days.
+
+- The number of configured plans;
+- The number of successful backups in the last 30 days;
+- The number of failed backups in the last 30 days; and
+- The amount of data added to backups in the last 30 days.
 
 ```yaml
 widget:

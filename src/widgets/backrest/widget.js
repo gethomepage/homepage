@@ -1,6 +1,5 @@
 import backrestProxyHandler from "./proxy";
 
-
 const widget = {
   api: "{url}/v1.Backrest/GetSummaryDashboard",
   proxyHandler: backrestProxyHandler,
@@ -8,4 +7,3 @@ const widget = {
 };
 
 export default widget;
-
