@@ -37,7 +37,7 @@
     "recharts": "^2.15.3",
     "swr": "^2.3.3",
     "systeminformation": "^5.27.7",
-    "tough-cookie": "^5.1.2",
+    "tough-cookie": "^6.0.0",
     "urbackup-server-api": "^0.8.9",
     "winston": "^3.17.0",
     "xml-js": "^1.6.11"
