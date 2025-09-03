@@ -12,7 +12,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data, error } = useWidgetAPI(widget);
+  const { data, error } = useWidgetAPI(widget, "GetSummaryDashboard");
 
   if (error) {
     return <Container service={service} error={error} />;

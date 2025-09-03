@@ -1,9 +1,14 @@
 import backrestProxyHandler from "./proxy";
 
 const widget = {
-  api: "{url}/v1.Backrest/GetSummaryDashboard",
+  api: "{url}/v1.Backrest/{endpoint}",
   proxyHandler: backrestProxyHandler,
-  // allowedEndpoints: /\d\/num_plans|num_success|num_failure/,
+
+  mappings: {
+    GetSummaryDashboard: {
+      endpoint: "GetSummaryDashboard",
+    },
+  },
 };
 
 export default widget;
