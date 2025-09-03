@@ -1109,8 +1109,10 @@
     },
     "backrest": {
         "num_plans": "Plans",
-        "num_success": "Successes",
-        "num_failure": "Failures",
-        "bytes_added": "Bytes Added"
+        "num_success_30": "Successes",
+        "num_failure_30": "Failures",
+        "num_success_latest": "Succeeding",
+        "num_failure_latest": "Failing",
+        "bytes_added_30": "Bytes Added"
     }
 }

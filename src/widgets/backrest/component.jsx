@@ -4,6 +4,9 @@ import { useTranslation } from "next-i18next";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+const BACKREST_DEFAULT_FIELDS = ["num_success_latest", "num_failure_latest", "num_failure_30", "bytes_added_30"];
+const MAX_ALLOWED_FIELDS = 4;
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
@@ -15,53 +18,33 @@ export default function Component({ service }) {
     return <Container service={service} error={error} />;
   }
 
+  if (!widget.fields?.length) {
+    widget.fields = BACKREST_DEFAULT_FIELDS;
+  } else if (widget.fields.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
+
   if (!data) {
     return (
       <Container service={service}>
         <Block label="backrest.num_plans" />
-        <Block label="backrest.num_success" />
-        <Block label="backrest.num_failure" />
-        <Block label="backrest.bytes_added" />
+        <Block label="backrest.num_success_latest" />
+        <Block label="backrest.num_failure_latest" />
+        <Block label="backrest.num_success_30" />
+        <Block label="backrest.num_failure_30" />
+        <Block label="backrest.bytes_added_30" />
       </Container>
     );
   }
 
-  const plans = data.planSummaries;
-  const numPlans = plans.length;
-
-  // Number of successful runs in the last 30 days
-  const numSuccess = plans
-    .map((plan) => {
-      const num = Number(plan.backupsSuccessLast30days);
-      if (Number.isNaN(num)) return 0;
-      return num;
-    })
-    .reduce((a, b) => a + b, 0);
-
-  // Number of failed runs in the last 30 days
-  const numFailure = plans
-    .map((plan) => {
-      const num = Number(plan.backupsFailed30days);
-      if (Number.isNaN(num)) return 0;
-      return num;
-    })
-    .reduce((a, b) => a + b, 0);
-
-  // Total bytes added in the last 30 days
-  const bytesAdded = plans
-    .map((plan) => {
-      const num = Number(plan.bytesAddedLast30days);
-      if (Number.isNaN(num)) return 0;
-      return num;
-    })
-    .reduce((a, b) => a + b, 0);
-
   return (
     <Container service={service}>
-      <Block label="backrest.num_plans" value={t("common.number", { value: numPlans })} />
-      <Block label="backrest.num_success" value={t("common.number", { value: numSuccess })} />
-      <Block label="backrest.num_failure" value={t("common.number", { value: numFailure })} />
-      <Block label="backrest.bytes_added" value={t("common.bytes", { value: bytesAdded })} />
+      <Block label="backrest.num_plans" value={t("common.number", { value: data.numPlans })} />
+      <Block label="backrest.num_success_latest" value={t("common.number", { value: data.numSuccessLatest })} />
+      <Block label="backrest.num_failure_latest" value={t("common.number", { value: data.numFailureLatest })} />
+      <Block label="backrest.num_success_30" value={t("common.number", { value: data.numSuccess30Days })} />
+      <Block label="backrest.num_failure_30" value={t("common.number", { value: data.numFailure30Days })} />
+      <Block label="backrest.bytes_added_30" value={t("common.bytes", { value: data.bytesAdded30Days })} />
     </Container>
   );
 }
