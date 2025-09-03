@@ -5,7 +5,7 @@ const widget = {
   proxyHandler: backrestProxyHandler,
 
   mappings: {
-    GetSummaryDashboard: {
+    summary: {
       endpoint: "GetSummaryDashboard",
     },
   },
