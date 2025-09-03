@@ -14,9 +14,7 @@ function sumField(plans, field) {
   }, 0);
 }
 
-function buildResponse(data) {
-  const plans = data.planSummaries;
-
+function buildResponse(plans) {
   const numSuccess30Days = sumField(plans, "backupsSuccessLast30days");
   const numFailure30Days = sumField(plans, "backupsFailed30days");
   const bytesAdded30Days = sumField(plans, "bytesAddedLast30days");
@@ -84,8 +82,12 @@ export default async function backrestProxyHandler(req, res) {
     }
 
     if (contentType) res.setHeader("Content-Type", "application/json");
-
-    const response = buildResponse(asJson(data));
+    const plans = asJson(data).planSummaries;
+    if (!Array.isArray(plans)) {
+      logger.error("Invalid plans data: %s", JSON.stringify(plans));
+      return res.status(500).send({ error: { message: "Invalid plans data", url, data } });
+    }
+    const response = buildResponse(plans);
     return res.status(status).send(response);
   } catch (error) {
     logger.error("Exception calling Backrest API: %s", error.message);
