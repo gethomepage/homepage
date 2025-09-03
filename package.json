@@ -17,7 +17,7 @@
     "compare-versions": "^6.1.1",
     "dockerode": "^4.0.7",
     "follow-redirects": "^1.15.11",
-    "gamedig": "^5.2.0",
+    "gamedig": "^5.3.1",
     "i18next": "^24.2.3",
     "ical.js": "^2.1.0",
     "js-yaml": "^4.1.0",
