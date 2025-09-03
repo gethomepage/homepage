@@ -1106,5 +1106,13 @@
         "arrayFree": "Array Free",
         "poolUsed": "{{pool}} Used",
         "poolFree": "{{pool}} Free"
+    },
+    "backrest": {
+        "num_plans": "Plans",
+        "num_success_30": "Successes",
+        "num_failure_30": "Failures",
+        "num_success_latest": "Succeeding",
+        "num_failure_latest": "Failing",
+        "bytes_added_30": "Bytes Added"
     }
 }

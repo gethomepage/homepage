@@ -6,6 +6,7 @@ import audiobookshelf from "./audiobookshelf/widget";
 import authentik from "./authentik/widget";
 import autobrr from "./autobrr/widget";
 import azuredevops from "./azuredevops/widget";
+import backrest from "./backrest/widget";
 import bazarr from "./bazarr/widget";
 import beszel from "./beszel/widget";
 import caddy from "./caddy/widget";
@@ -151,6 +152,7 @@ const widgets = {
   authentik,
   autobrr,
   azuredevops,
+  backrest,
   bazarr,
   beszel,
   caddy,
