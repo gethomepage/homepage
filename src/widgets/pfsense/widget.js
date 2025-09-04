@@ -21,6 +21,14 @@ const widget = {
       endpoint: "v2/status/interfaces?limit=0&offset=0",
       validate: ["data"],
     },
+    gatewaysv2: {
+      endpoint: "v2/status/gateways",
+      validate: ["data"],
+    },
+    gatewaygroups: {
+      endpoint: "v2/routing/gateway/groups",
+      validate: ["data"],
+    },
   },
 };
 

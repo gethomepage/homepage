@@ -634,7 +634,9 @@
         "down": "Down",
         "temp": "Temp",
         "disk": "Uso de disco",
-        "wanIP": "WAN IP"
+        "wanIP": "WAN IP",
+        "wan2Status": "WAN2 Status",
+        "wan2IP": "WAN2 IP"
     },
     "caddy": {
         "upstreams": "Upstreams",

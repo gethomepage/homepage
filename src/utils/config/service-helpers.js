@@ -366,6 +366,7 @@ export function cleanServiceGroups(groups) {
 
           // opnsense, pfsense
           wan,
+          wan2,
 
           // portainer
           kubernetes,
@@ -493,6 +494,7 @@ export function cleanServiceGroups(groups) {
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) widget.wan = wan;
+          if (wan2) widget.wan2 = wan2;
         }
         if (["emby", "jellyfin"].includes(type)) {
           if (enableMediaControl !== undefined) widget.enableMediaControl = !!JSON.parse(enableMediaControl);

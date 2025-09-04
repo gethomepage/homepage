@@ -634,7 +634,9 @@
         "down": "下载",
         "temp": "温度",
         "disk": "磁盘",
-        "wanIP": "WAN IP"
+        "wanIP": "WAN IP",
+        "wan2Status": "WAN2 状态",
+        "wan2IP": "WAN2 IP"
     },
     "caddy": {
         "upstreams": "上游",

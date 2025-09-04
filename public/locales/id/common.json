@@ -657,7 +657,9 @@
         "down": "Down",
         "temp": "Temp",
         "disk": "Penggunaan Disk",
-        "wanIP": "IP WAN"
+        "wanIP": "IP WAN",
+        "wan2Status": "Status WAN2",
+        "wan2IP": "IP WAN2"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Datastore",

@@ -657,7 +657,9 @@
         "down": "Down",
         "temp": "Temp",
         "disk": "استخدام القرص",
-        "wanIP": "IP الشبكة الواسعة"
+        "wanIP": "IP الشبكة الواسعة",
+        "wan2Status": "حالة WAN2",
+        "wan2IP": "WAN2 IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "مخزن البيانات",

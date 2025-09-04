@@ -657,7 +657,9 @@
         "down": "Down",
         "temp": "Temp",
         "disk": "Lemezhasználat",
-        "wanIP": "WAN IP"
+        "wanIP": "WAN IP",
+        "wan2Status": "WAN2 Állapot",
+        "wan2IP": "WAN2 IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Adattár",

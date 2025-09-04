@@ -657,7 +657,9 @@
         "down": "Down",
         "temp": "Temp",
         "disk": "Využitie disku",
-        "wanIP": "IP adresa WAN"
+        "wanIP": "IP adresa WAN",
+        "wan2Status": "Stav WAN2",
+        "wan2IP": "IP adresa WAN2"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Dátové úložisko",

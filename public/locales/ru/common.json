@@ -657,7 +657,9 @@
         "down": "Не в сети",
         "temp": "Температура",
         "disk": "Использование диска",
-        "wanIP": "WAN IP"
+        "wanIP": "WAN IP",
+        "wan2Status": "Статус WAN2",
+        "wan2IP": "WAN2 IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "Хранилище данных",

@@ -657,7 +657,9 @@
         "down": "Down",
         "temp": "Temp",
         "disk": "硬碟使用率",
-        "wanIP": "網際網路 IP"
+        "wanIP": "網際網路 IP",
+        "wan2Status": "WAN2狀態",
+        "wan2IP": "WAN2 IP"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "資料存儲",
