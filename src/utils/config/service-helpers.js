@@ -308,7 +308,7 @@ export function cleanServiceGroups(groups) {
           // gamedig
           gameToken,
 
-          // beszel, glances, immich, komga, mealie, pihole, pfsense, speedtest
+          // authentik, beszel, glances, immich, komga, mealie, pihole, pfsense, speedtest
           version,
 
           // glances
@@ -395,6 +395,12 @@ export function cleanServiceGroups(groups) {
 
           // unifi
           site,
+
+          // unraid
+          pool1,
+          pool2,
+          pool3,
+          pool4,
 
           // vikunja
           enableTaskList,
@@ -518,6 +524,7 @@ export function cleanServiceGroups(groups) {
         }
         if (
           [
+            "authentik",
             "beszel",
             "glances",
             "immich",
@@ -609,6 +616,12 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "grafana") {
           if (alerts) widget.alerts = alerts;
+        }
+        if (type === "unraid") {
+          if (pool1) widget.pool1 = pool1;
+          if (pool2) widget.pool2 = pool2;
+          if (pool3) widget.pool3 = pool3;
+          if (pool4) widget.pool4 = pool4;
         }
         return widget;
       });

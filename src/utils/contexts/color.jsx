@@ -20,7 +20,7 @@ export function ColorProvider({ initialTheme, children }) {
   const [color, setColor] = useState(getInitialColor);
 
   const rawSetColor = (rawColor) => {
-    const root = window.document.getElementById("page_wrapper");
+    const root = window.document.documentElement;
 
     root.classList.remove(`theme-${lastColor}`);
     root.classList.add(`theme-${rawColor}`);

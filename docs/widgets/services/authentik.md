@@ -17,9 +17,15 @@ The account you made the API token for also needs the following **Assigned globa
 
 Allowed fields: `["users", "loginsLast24H", "failedLoginsLast24H"]`.
 
+| Authentik Version | Homepage Widget Version |
+| ----------------- | ----------------------- |
+| < 2025.8.0        | 1 (default)             |
+| >= 2025.8.0       | 2                       |
+
 ```yaml
 widget:
   type: authentik
   url: http://authentik.host.or.ip:port
   key: api_token
+  version: 2 # optional, default is 1
 ```
