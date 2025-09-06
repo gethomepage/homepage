@@ -1004,6 +1004,12 @@
       "online": "Online",
       "offline": "Offline"
     },
+    "mousehole": {
+      "status": "Status",
+      "ip_address": "IP Address",
+      "last_check": "Last Check",
+      "next_check": "Next Check"
+    },
     "beszel": {
       "name": "Name",
       "systems": "Systems",

@@ -104,6 +104,7 @@ nav:
           - widgets/services/minecraft.md
           - widgets/services/miniflux.md
           - widgets/services/mjpeg.md
+          - widgets/services/mousehole.md
           - widgets/services/moonraker.md
           - widgets/services/mylar.md
           - widgets/services/myspeed.md

@@ -81,6 +81,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Miniflux](miniflux.md)
 - [MJpeg](mjpeg.md)
 - [Moonraker](moonraker.md)
+- [Mousehole](mousehole.md)
 - [Mylar](mylar.md)
 - [MySpeed](myspeed.md)
 - [Navidrome](navidrome.md)

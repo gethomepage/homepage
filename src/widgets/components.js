@@ -78,6 +78,7 @@ const components = {
   miniflux: dynamic(() => import("./miniflux/component")),
   mikrotik: dynamic(() => import("./mikrotik/component")),
   mjpeg: dynamic(() => import("./mjpeg/component")),
+  mousehole: dynamic(() => import("./mousehole/component")),
   moonraker: dynamic(() => import("./moonraker/component")),
   mylar: dynamic(() => import("./mylar/component")),
   myspeed: dynamic(() => import("./myspeed/component")),
