@@ -48,6 +48,7 @@ import healthchecks from "./healthchecks/widget";
 import homeassistant from "./homeassistant/widget";
 import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
+import mousehole from "./mousehole/widget";
 import immich from "./immich/widget";
 import jackett from "./jackett/widget";
 import jdownloader from "./jdownloader/widget";
@@ -217,6 +218,7 @@ const widgets = {
   miniflux,
   mikrotik,
   mjpeg,
+  mousehole,
   moonraker,
   mylar,
   myspeed,
