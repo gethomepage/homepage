@@ -23,14 +23,14 @@ export default function Component({ service }) {
     );
   }
 
-  const {msg, Success: success} = stateData.lastMam.response.body
-  const status = success ?  <span className="text-green-500">{msg}</span> : <span className="text-red-500">{msg}</span>;
-  const formatTime = (time) => DateTime.fromISO(time).toLocaleString(DateTime.TIME_24_WITH_SECONDS)
+  const { msg, Success: success } = stateData.lastMam.response.body;
+  const status = success ? <span className="text-green-500">{msg}</span> : <span className="text-red-500">{msg}</span>;
+  const formatTime = (time) => DateTime.fromISO(time).toLocaleString(DateTime.TIME_24_WITH_SECONDS);
 
   return (
     <Container service={service}>
       <Block label="mousehole.status" value={status} />
-      <Block label="mousehole.ip_address" value={stateData.host.ip}/>
+      <Block label="mousehole.ip_address" value={stateData.host.ip} />
       <Block label="mousehole.last_check" value={formatTime(stateData.lastUpdate.at)} />
       <Block label="mousehole.next_check" value={formatTime(stateData.nextUpdateAt)} />
     </Container>
