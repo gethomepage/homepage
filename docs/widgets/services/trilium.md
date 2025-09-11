@@ -9,6 +9,8 @@ This widget is compatible with [TriliumNext](https://github.com/TriliumNext/Note
 
 Find (or create) your ETAPI key under `Options > ETAPI > Create new ETAPI token`.
 
+Allowed fields: `["version", "notesCount", "dbSize"]`
+
 ```yaml
 widget:
   type: trilium

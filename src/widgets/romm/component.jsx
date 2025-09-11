@@ -43,7 +43,10 @@ export default function Component({ service }) {
         <Block label="romm.saves" value={t("common.number", { value: response.SAVES })} />
         <Block label="romm.states" value={t("common.number", { value: response.STATES })} />
         <Block label="romm.screenshots" value={t("common.number", { value: response.SCREENSHOTS })} />
-        <Block label="romm.totalfilesize" value={t("common.bytes", { value: response.FILESIZE })} />
+        <Block
+          label="romm.totalfilesize"
+          value={t("common.bytes", { value: response.FILESIZE ?? response.TOTAL_FILESIZE_BYTES })}
+        />
       </Container>
     );
   }
