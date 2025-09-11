@@ -28,7 +28,7 @@ These companies help the Homepage project by providing services, tools, and reso
   </div>
 
   <div style="margin-bottom: 16px;">
-    <a href="https://crowdin.com/project/homepage"><img src="https://support.crowdin.com/assets/logos/core-logo/png/crowdin-core-logo-cWhite.png" alt="Crowdin" style="max-width: 100%; height: 64px; display: block;" /></a>
+    <a href="https://crowdin.com/project/gethomepage"><img src="https://support.crowdin.com/assets/logos/core-logo/png/crowdin-core-logo-cWhite.png" alt="Crowdin" style="max-width: 100%; height: 64px; display: block;" /></a>
     <p>
       Crowdin provides the translation platform for the project.  Making it easy to translate the project into multiple languages.
     </p>
