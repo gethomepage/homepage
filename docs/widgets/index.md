@@ -32,7 +32,7 @@ More detail on configuring service widgets can be found in the [Service Widgets 
 
 ## Info Widgets
 
-Info widgets are used to display information in the header, often about your system or environment. Info widgets are defined your `widgets.yaml` file. Here's an example:
+Info widgets are used to display information in the header, often about your system or environment. Info widgets are defined in your `widgets.yaml` file. Here's an example:
 
 ```yaml
 - openmeteo:
