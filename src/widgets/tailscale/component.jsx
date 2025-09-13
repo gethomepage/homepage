@@ -8,7 +8,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  
+
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "device");
 
   const MAX_ALLOWED_FIELDS = 4;
@@ -85,7 +85,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="tailscale.address" value={address} />
-      <Block label="tailscale.user" value={user} />    
+      <Block label="tailscale.user" value={user} />
       <Block label="tailscale.hostname" value={hostname} />
       <Block label="tailscale.name" value={name} />
       <Block label="tailscale.last_seen" value={getLastSeen()} />
