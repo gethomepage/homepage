@@ -8,8 +8,18 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-
+  
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "device");
+
+  const MAX_ALLOWED_FIELDS = 4;
+
+  if (!widget.fields?.length) {
+    widget.fields = ["address", "last_seen", "expires"];
+  }
+
+  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
 
   if (statsError || statsData?.message) {
     return <Container service={service} error={statsError ?? statsData} />;
@@ -27,9 +37,19 @@ export default function Component({ service }) {
 
   const {
     addresses: [address],
+    user,
+    name,
+    hostname,
+    clientVersion,
+    updateAvailable,
+    os,
+    created,
     keyExpiryDisabled,
     lastSeen,
     expires,
+    authorized,
+    isExternal,
+    tags,
   } = statsData;
 
   const now = new Date();
@@ -65,8 +85,18 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="tailscale.address" value={address} />
+      <Block label="tailscale.user" value={user} />    
+      <Block label="tailscale.hostname" value={hostname} />
+      <Block label="tailscale.name" value={name} />
       <Block label="tailscale.last_seen" value={getLastSeen()} />
       <Block label="tailscale.expires" value={getExpiry()} />
+      <Block label="tailscale.client_version" value={clientVersion} />
+      <Block label="tailscale.os" value={os} />
+      <Block label="tailscale.created" value={t("common.relativeDate", { value: created })} />
+      <Block label="tailscale.authorized" value={authorized ? t("tailscale.yes") : t("tailscale.no")} />
+      <Block label="tailscale.is_external" value={isExternal ? t("tailscale.yes") : t("tailscale.no")} />
+      <Block label="tailscale.update_available" value={updateAvailable ? t("tailscale.yes") : t("tailscale.no")} />
+      <Block label="tailscale.tags" value={tags?.length > 0 ? tags.join(", ") : t("tailscale.none")} />
     </Container>
   );
 }

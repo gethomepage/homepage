@@ -324,6 +324,19 @@
     },
     "tailscale": {
         "address": "Address",
+        "user": "User",
+        "name": "Name",
+        "hostname": "Hostname",
+        "client_version": "Client Version",
+        "update_available": "Update Available",
+        "os": "OS",
+        "created": "Created",
+        "device": "Device",
+        "status": "Status",
+        "none": "None",
+        "authorized": "Authorized",
+        "tags": "Tags",
+        "is_external": "Is External",
         "expires": "Expires",
         "never": "Never",
         "last_seen": "Last Seen",
@@ -334,7 +347,9 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Ago",
+        "yes": "Yes",
+        "no": "No"
     },
     "technitium": {
         "totalQueries": "Queries",
