@@ -243,31 +243,30 @@ function Home({ initialSettings }) {
       const searchParams = url.searchParams;
 
       // Check for quicklaunch trigger patterns
-      if (searchParams.has('quicklaunch') ||
-          searchParams.has('search') ||
-          url.hash === '#quicklaunch' ||
-          url.hash === '#search') {
-
+      if (
+        searchParams.has("quicklaunch") ||
+        searchParams.has("search") ||
+        url.hash === "#quicklaunch" ||
+        url.hash === "#search"
+      ) {
         // Get initial search string from URL if provided
-        const initialSearch = searchParams.get('q') ||
-                            searchParams.get('query') ||
-                            searchParams.get('search') || '';
+        const initialSearch = searchParams.get("q") || searchParams.get("query") || searchParams.get("search") || "";
 
         setSearchString(initialSearch);
         setSearching(true);
 
         // Clean up URL to remove trigger parameters
         const cleanUrl = new URL(window.location.href);
-        cleanUrl.searchParams.delete('quicklaunch');
-        cleanUrl.searchParams.delete('search');
-        cleanUrl.searchParams.delete('q');
-        cleanUrl.searchParams.delete('query');
-        if (cleanUrl.hash === '#quicklaunch' || cleanUrl.hash === '#search') {
-          cleanUrl.hash = '';
+        cleanUrl.searchParams.delete("quicklaunch");
+        cleanUrl.searchParams.delete("search");
+        cleanUrl.searchParams.delete("q");
+        cleanUrl.searchParams.delete("query");
+        if (cleanUrl.hash === "#quicklaunch" || cleanUrl.hash === "#search") {
+          cleanUrl.hash = "";
         }
 
         // Update URL without reloading page
-        window.history.replaceState({}, '', cleanUrl.toString());
+        window.history.replaceState({}, "", cleanUrl.toString());
       }
     };
 
@@ -275,10 +274,10 @@ function Home({ initialSettings }) {
     handleUrlQuickLaunch();
 
     // Listen for hash changes
-    window.addEventListener('hashchange', handleUrlQuickLaunch);
+    window.addEventListener("hashchange", handleUrlQuickLaunch);
 
     return () => {
-      window.removeEventListener('hashchange', handleUrlQuickLaunch);
+      window.removeEventListener("hashchange", handleUrlQuickLaunch);
     };
   }, [setSearchString, setSearching]);
 

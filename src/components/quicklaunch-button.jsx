@@ -1,5 +1,5 @@
-import { useContext } from "react";
 import { useTranslation } from "next-i18next";
+import { useContext } from "react";
 import { FiSearch } from "react-icons/fi";
 import { SettingsContext } from "utils/contexts/settings";
 
@@ -24,7 +24,7 @@ export default function QuickLaunchButton({ onClick }) {
     "bottom-left": "bottom-6 left-6",
     "bottom-right": "bottom-6 right-6",
     "top-left": "top-6 left-6",
-    "top-right": "top-6 right-6"
+    "top-right": "top-6 right-6",
   };
 
   return (

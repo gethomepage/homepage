@@ -469,7 +469,7 @@ The mobile Quick Launch button can be customized or disabled:
 ```yaml
 quicklaunch:
   mobileButton:
-    enabled: true  # false to disable the button entirely
+    enabled: true # false to disable the button entirely
     position: left # left, right, bottom-left, bottom-right, top-left, top-right
 ```
 
@@ -478,15 +478,18 @@ quicklaunch:
 You can trigger Quick Launch via URL parameters or hash fragments. This is useful for creating bookmarks or links that directly open the search interface:
 
 **URL Parameters:**
+
 - `?quicklaunch` or `?search` - Opens Quick Launch
 - `?search&q=term` - Opens Quick Launch with pre-filled search term
 - `?quicklaunch&query=term` - Opens Quick Launch with pre-filled search term
 
 **Hash Fragments:**
+
 - `#quicklaunch` - Opens Quick Launch
 - `#search` - Opens Quick Launch
 
 **Examples:**
+
 - `https://your-homepage.com/?quicklaunch` - Opens Quick Launch
 - `https://your-homepage.com/?search&q=docker` - Opens Quick Launch searching for "docker"
 - `https://your-homepage.com/#quicklaunch` - Opens Quick Launch via hash
