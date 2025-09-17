@@ -3,6 +3,7 @@ import classNames from "classnames";
 import BookmarksGroup from "components/bookmarks/group";
 import ErrorBoundary from "components/errorboundry";
 import QuickLaunch from "components/quicklaunch";
+import QuickLaunchButton from "components/quicklaunch-button";
 import ServicesGroup from "components/services/group";
 import Tab, { slugifyAndEncode } from "components/tab";
 import Revalidate from "components/toggles/revalidate";
@@ -235,6 +236,52 @@ function Home({ initialSettings }) {
   const [searchString, setSearchString] = useState("");
   const headerStyle = settings?.headerStyle || "underlined";
 
+  // URL-based Quick Launch trigger
+  useEffect(() => {
+    const handleUrlQuickLaunch = () => {
+      const url = new URL(window.location.href);
+      const searchParams = url.searchParams;
+
+      // Check for quicklaunch trigger patterns
+      if (searchParams.has('quicklaunch') ||
+          searchParams.has('search') ||
+          url.hash === '#quicklaunch' ||
+          url.hash === '#search') {
+
+        // Get initial search string from URL if provided
+        const initialSearch = searchParams.get('q') ||
+                            searchParams.get('query') ||
+                            searchParams.get('search') || '';
+
+        setSearchString(initialSearch);
+        setSearching(true);
+
+        // Clean up URL to remove trigger parameters
+        const cleanUrl = new URL(window.location.href);
+        cleanUrl.searchParams.delete('quicklaunch');
+        cleanUrl.searchParams.delete('search');
+        cleanUrl.searchParams.delete('q');
+        cleanUrl.searchParams.delete('query');
+        if (cleanUrl.hash === '#quicklaunch' || cleanUrl.hash === '#search') {
+          cleanUrl.hash = '';
+        }
+
+        // Update URL without reloading page
+        window.history.replaceState({}, '', cleanUrl.toString());
+      }
+    };
+
+    // Check on initial load
+    handleUrlQuickLaunch();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleUrlQuickLaunch);
+
+    return () => {
+      window.removeEventListener('hashchange', handleUrlQuickLaunch);
+    };
+  }, [setSearchString, setSearching]);
+
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
@@ -434,6 +481,7 @@ function Home({ initialSettings }) {
           isOpen={searching}
           close={setSearching}
         />
+        <QuickLaunchButton onClick={() => setSearching(true)} />
         <div
           id="information-widgets"
           className={classNames(

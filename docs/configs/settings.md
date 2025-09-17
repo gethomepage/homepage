@@ -430,7 +430,7 @@ You can then pass `provider` instead of `apiKey` in your widget configuration.
 
 ## Quick Launch
 
-You can use the 'Quick Launch' feature to search services, perform a web search or open a URL. To use Quick Launch, just start typing while on your homepage (as long as the search widget doesn't have focus).
+You can use the 'Quick Launch' feature to search services, perform a web search or open a URL. To use Quick Launch, just start typing while on your homepage (as long as the search widget doesn't have focus). On mobile devices, a floating search button will appear in the bottom-left corner that you can tap to open Quick Launch.
 
 <img width="1000" alt="quicklaunch" src="https://user-images.githubusercontent.com/4887959/216880811-90ff72cb-2990-4475-889b-7c3a31e6beef.png">
 
@@ -441,6 +441,7 @@ There are a few optional settings for the Quick Launch feature:
 - `showSearchSuggestions`: show search suggestions for the internet search. If this is not specified then the setting will be inherited from the search widget. If it is not specified there either, it will default to false. For custom providers the `suggestionUrl` needs to be set in order for this to work.
 - `provider`: search engine provider. If none is specified it will try to use the provider set for the Search Widget, if neither are present then internet search will be disabled.
 - `hideVisitURL`: disable detecting and offering an option to open URLs. This is false by default, enabling the feature.
+- `mobileButton`: configuration for the mobile Quick Launch button (see below)
 
 ```yaml
 quicklaunch:
@@ -460,6 +461,35 @@ quicklaunch:
   target: _blank
   suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
 ```
+
+### Mobile Button Configuration
+
+The mobile Quick Launch button can be customized or disabled:
+
+```yaml
+quicklaunch:
+  mobileButton:
+    enabled: true  # false to disable the button entirely
+    position: left # left, right, bottom-left, bottom-right, top-left, top-right
+```
+
+### URL-Based Triggers
+
+You can trigger Quick Launch via URL parameters or hash fragments. This is useful for creating bookmarks or links that directly open the search interface:
+
+**URL Parameters:**
+- `?quicklaunch` or `?search` - Opens Quick Launch
+- `?search&q=term` - Opens Quick Launch with pre-filled search term
+- `?quicklaunch&query=term` - Opens Quick Launch with pre-filled search term
+
+**Hash Fragments:**
+- `#quicklaunch` - Opens Quick Launch
+- `#search` - Opens Quick Launch
+
+**Examples:**
+- `https://your-homepage.com/?quicklaunch` - Opens Quick Launch
+- `https://your-homepage.com/?search&q=docker` - Opens Quick Launch searching for "docker"
+- `https://your-homepage.com/#quicklaunch` - Opens Quick Launch via hash
 
 ## Homepage Version & Update Checking
 
