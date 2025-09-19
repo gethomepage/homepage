@@ -1,13 +1,21 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { FiSearch } from "react-icons/fi";
 import useSWR from "swr";
 import { SettingsContext } from "utils/contexts/settings";
 
 import ResolvedIcon from "./resolvedicon";
 import { getStoredProvider, searchProviders } from "./widgets/search/search";
 
-export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, close }) {
+const MOBILE_BUTTON_POSITIONS = {
+  "top-left": "top-4 left-4",
+  "top-right": "top-4 right-4",
+  "bottom-left": "bottom-4 left-4",
+  "bottom-right": "bottom-4 right-4",
+};
+
+export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, setSearching }) {
   const { t } = useTranslation();
 
   const { settings } = useContext(SettingsContext);
@@ -49,6 +57,10 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     );
   }
 
+  let mobileButtonPosition = settings.quicklaunch?.mobileButtonPosition
+    ? MOBILE_BUTTON_POSITIONS[settings.quicklaunch.mobileButtonPosition]
+    : null;
+
   function openCurrentItem(newWindow) {
     const result = results[currentItemIndex];
     window.open(
@@ -59,13 +71,13 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   }
 
   const closeAndReset = useCallback(() => {
-    close(false);
+    setSearching(false);
     setTimeout(() => {
       setSearchString("");
       setCurrentItemIndex(null);
       setSearchSuggestions([]);
     }, 200); // delay a little for animations
-  }, [close, setSearchString, setCurrentItemIndex, setSearchSuggestions]);
+  }, [setSearching, setSearchString, setCurrentItemIndex, setSearchSuggestions]);
 
   function handleSearchChange(event) {
     const rawSearchString = event.target.value;
@@ -245,86 +257,98 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   }
 
   return (
-    <div
-      className={classNames(
-        "relative z-40 ease-in-out duration-300 transition-opacity",
-        hidden && !isOpen && "hidden",
-        !hidden && isOpen && "opacity-100",
-        !isOpen && "opacity-0",
-      )}
-      role="dialog"
-      aria-modal="true"
-    >
-      <div className="fixed inset-0 bg-gray-500 opacity-50" />
-      <div className="fixed inset-0 z-20 overflow-y-auto">
-        <div className="flex min-h-full min-w-full items-start justify-center text-center">
-          <dialog className="mt-[10%] mx-auto min-w-[90%] max-w-[90%] md:min-w-[40%] md:max-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
-            <input
-              placeholder="Search"
-              className={classNames(
-                results.length > 0 && "rounded-t-md",
-                results.length === 0 && "rounded-md",
-                "w-full p-4 m-0 border-0 border-b border-slate-700 focus:border-slate-700 focus:outline-0 focus:ring-0 text-sm md:text-xl text-theme-700 dark:text-theme-200 bg-theme-60 dark:bg-theme-800",
-              )}
-              type="text"
-              autoCorrect="false"
-              ref={searchField}
-              value={searchString}
-              onChange={handleSearchChange}
-              onKeyDown={handleSearchKeyDown}
-            />
-            {results.length > 0 && (
-              <ul className="max-h-[60vh] overflow-y-auto m-2">
-                {results.map((r, i) => (
-                  <li key={[r.name, r.container, r.app, r.href].filter((s) => s).join("-")}>
-                    <button
-                      type="button"
-                      data-index={i}
-                      onMouseEnter={handleItemHover}
-                      onClick={handleItemClick}
-                      onKeyDown={handleItemKeyDown}
-                      className={classNames(
-                        "flex flex-row w-full items-center justify-between rounded-md text-sm md:text-xl py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
-                        i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
-                      )}
-                    >
-                      <div className="flex flex-row items-center mr-4 pointer-events-none">
-                        {(r.icon || r.abbr) && (
-                          <div className="w-5 text-xs mr-4">
-                            {r.icon && <ResolvedIcon icon={r.icon} />}
-                            {r.abbr && r.abbr}
-                          </div>
+    <>
+      <div
+        className={classNames(
+          "relative z-40 ease-in-out duration-300 transition-opacity",
+          hidden && !isOpen && "hidden",
+          !hidden && isOpen && "opacity-100",
+          !isOpen && "opacity-0",
+        )}
+        role="dialog"
+        aria-modal="true"
+      >
+        <div className="fixed inset-0 bg-gray-500 opacity-50" />
+        <div className="fixed inset-0 z-20 overflow-y-auto">
+          <div className="flex min-h-full min-w-full items-start justify-center text-center">
+            <dialog className="mt-[10%] mx-auto min-w-[90%] max-w-[90%] md:min-w-[40%] md:max-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
+              <input
+                placeholder="Search"
+                className={classNames(
+                  results.length > 0 && "rounded-t-md",
+                  results.length === 0 && "rounded-md",
+                  "w-full p-4 m-0 border-0 border-b border-slate-700 focus:border-slate-700 focus:outline-0 focus:ring-0 text-sm md:text-xl text-theme-700 dark:text-theme-200 bg-theme-60 dark:bg-theme-800",
+                )}
+                type="text"
+                autoCorrect="false"
+                ref={searchField}
+                value={searchString}
+                onChange={handleSearchChange}
+                onKeyDown={handleSearchKeyDown}
+              />
+              {results.length > 0 && (
+                <ul className="max-h-[60vh] overflow-y-auto m-2">
+                  {results.map((r, i) => (
+                    <li key={[r.name, r.container, r.app, r.href].filter((s) => s).join("-")}>
+                      <button
+                        type="button"
+                        data-index={i}
+                        onMouseEnter={handleItemHover}
+                        onClick={handleItemClick}
+                        onKeyDown={handleItemKeyDown}
+                        className={classNames(
+                          "flex flex-row w-full items-center justify-between rounded-md text-sm md:text-xl py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
+                          i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
                         )}
-                        <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
-                          {r.type !== "searchSuggestion" && <span className="mr-4">{r.name}</span>}
-                          {r.type === "searchSuggestion" && (
-                            <div className="flex-nowrap">
-                              <span className="whitespace-pre">
-                                {r.name.indexOf(searchString) === 0 ? searchString : ""}
-                              </span>
-                              <span className="whitespace-pre opacity-50">
-                                {r.name.indexOf(searchString) === 0 ? r.name.substring(searchString.length) : r.name}
-                              </span>
+                      >
+                        <div className="flex flex-row items-center mr-4 pointer-events-none">
+                          {(r.icon || r.abbr) && (
+                            <div className="w-5 text-xs mr-4">
+                              {r.icon && <ResolvedIcon icon={r.icon} />}
+                              {r.abbr && r.abbr}
                             </div>
                           )}
-                          {r.description && (
-                            <span className="text-xs text-theme-600 text-light">
-                              {searchDescriptions && r.priority < 2 ? highlightText(r.description) : r.description}
-                            </span>
-                          )}
+                          <div className="flex flex-col md:flex-row text-left items-baseline mr-4 pointer-events-none">
+                            {r.type !== "searchSuggestion" && <span className="mr-4">{r.name}</span>}
+                            {r.type === "searchSuggestion" && (
+                              <div className="flex-nowrap">
+                                <span className="whitespace-pre">
+                                  {r.name.indexOf(searchString) === 0 ? searchString : ""}
+                                </span>
+                                <span className="whitespace-pre opacity-50">
+                                  {r.name.indexOf(searchString) === 0 ? r.name.substring(searchString.length) : r.name}
+                                </span>
+                              </div>
+                            )}
+                            {r.description && (
+                              <span className="text-xs text-theme-600 text-light">
+                                {searchDescriptions && r.priority < 2 ? highlightText(r.description) : r.description}
+                              </span>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      <div className="text-xs text-theme-600 font-bold pointer-events-none">
-                        {t(`quicklaunch.${r.type ? r.type.toLowerCase() : "bookmark"}`)}
-                      </div>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </dialog>
+                        <div className="text-xs text-theme-600 font-bold pointer-events-none">
+                          {t(`quicklaunch.${r.type ? r.type.toLowerCase() : "bookmark"}`)}
+                        </div>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </dialog>
+          </div>
         </div>
       </div>
-    </div>
+      {mobileButtonPosition && (
+        <button
+          type="button"
+          onClick={setSearching.bind(this, !isOpen)}
+          className={`fixed ${mobileButtonPosition} z-40 p-2 rounded-full sm:hidden text-theme-700 dark:text-theme-200 bg-theme-50 dark:bg-theme-800 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 transition-opacity duration-100`}
+          style={{ opacity: isOpen ? 0 : 1 }}
+        >
+          <FiSearch className="w-4 h-4" />
+        </button>
+      )}
+    </>
   );
 }
