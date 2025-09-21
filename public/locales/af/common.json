@@ -275,7 +275,8 @@
     "jellyseerr": {
         "pending": "Afwagtend",
         "approved": "Goedgekeur",
-        "available": "Beskikbaar"
+        "available": "Beskikbaar",
+        "issues": "Oop Kwessies"
     },
     "overseerr": {
         "pending": "Afwagtend",
@@ -1073,15 +1074,45 @@
         "containers": "Houers"
     },
     "filebrowser": {
-        "available": "Available",
-        "used": "Used",
-        "total": "Total"
+        "available": "Beskikbaar",
+        "used": "Gebruik",
+        "total": "Totaal"
     },
     "wallos": {
-        "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
-        "previousMonthlyCost": "Prev. Month",
-        "nextRenewingSubscription": "Next Payment"
+        "activeSubscriptions": "Intekeninge",
+        "thisMonthlyCost": "Hierdie Maand",
+        "nextMonthlyCost": "Volgende Maand",
+        "previousMonthlyCost": "Vorige Maand",
+        "nextRenewingSubscription": "Volgende paaiement"
+    },
+    "unraid": {
+        "STARTED": "Begin",
+        "STOPPED": "Gestop",
+        "NEW_ARRAY": "Nuwe Skikking",
+        "RECON_DISK": "Rekonstruksie van Skyf",
+        "DISABLE_DISK": "Skyf Gedeaktiveer",
+        "SWAP_DSBL": "Ruil Gedeaktiveer",
+        "INVALID_EXPANSION": "Ongeldige Uitbreiding",
+        "PARITY_NOT_BIGGEST": "Pariteit nie die grootste nie",
+        "TOO_MANY_MISSING_DISKS": "Te Veel Ontbrekende Skywe",
+        "NEW_DISK_TOO_SMALL": "Nuwe Skyf te Klein",
+        "NO_DATA_DISKS": "Geen Data Skywe",
+        "notifications": "Kennisgewings",
+        "status": "Status",
+        "cpu": "SVE",
+        "memoryUsed": "Geheue Gebruik",
+        "memoryAvailable": "Geheue Beskikbaar",
+        "arrayUsed": "Skikking Gebruik",
+        "arrayFree": "Skikking Vry",
+        "poolUsed": "{{pool}} Gebruik",
+        "poolFree": "{{pool}} Vry"
+    },
+    "backrest": {
+        "num_plans": "Planne",
+        "num_success_30": "Suksesse",
+        "num_failure_30": "Mislukkings",
+        "num_success_latest": "Slaag",
+        "num_failure_latest": "Mislukking",
+        "bytes_added_30": "Grepe bygevoeg"
     }
 }
