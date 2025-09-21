@@ -275,7 +275,8 @@
     "jellyseerr": {
         "pending": "Pendiente",
         "approved": "Aprobado",
-        "available": "Disponible"
+        "available": "Disponible",
+        "issues": "Open Issues"
     },
     "overseerr": {
         "pending": "Pendiente",
@@ -1083,5 +1084,35 @@
         "nextMonthlyCost": "Próximo mes",
         "previousMonthlyCost": "Mes anterior",
         "nextRenewingSubscription": "Próximo pago"
+    },
+    "unraid": {
+        "STARTED": "Iniciado",
+        "STOPPED": "Detenido",
+        "NEW_ARRAY": "Nueva matriz",
+        "RECON_DISK": "Reconstruyendo disco",
+        "DISABLE_DISK": "Disco deshabilitado",
+        "SWAP_DSBL": "Swap deshabilitado",
+        "INVALID_EXPANSION": "Expansión inválida",
+        "PARITY_NOT_BIGGEST": "Paridad no es el más grande",
+        "TOO_MANY_MISSING_DISKS": "Demasiados discos faltantes",
+        "NEW_DISK_TOO_SMALL": "Nuevo disco demasiado pequeño",
+        "NO_DATA_DISKS": "Sin discos de datos",
+        "notifications": "Notificaciones",
+        "status": "Estado",
+        "cpu": "CPU",
+        "memoryUsed": "Memoria usada",
+        "memoryAvailable": "Memoria disponible",
+        "arrayUsed": "Matriz usada",
+        "arrayFree": "Matriz libre",
+        "poolUsed": "{{pool}} Usado",
+        "poolFree": "{{pool}} Libre"
+    },
+    "backrest": {
+        "num_plans": "Plans",
+        "num_success_30": "Successes",
+        "num_failure_30": "Failures",
+        "num_success_latest": "Succeeding",
+        "num_failure_latest": "Failing",
+        "bytes_added_30": "Bytes Added"
     }
 }
