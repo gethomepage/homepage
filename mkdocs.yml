@@ -39,6 +39,7 @@ nav:
           - widgets/services/authentik.md
           - widgets/services/autobrr.md
           - widgets/services/azuredevops.md
+          - widgets/services/backrest.md
           - widgets/services/bazarr.md
           - widgets/services/beszel.md
           - widgets/services/caddy.md
@@ -165,6 +166,7 @@ nav:
           - widgets/services/tubearchivist.md
           - widgets/services/unifi-controller.md
           - widgets/services/unmanic.md
+          - widgets/services/unraid.md
           - widgets/services/uptime-kuma.md
           - widgets/services/uptimerobot.md
           - widgets/services/urbackup.md

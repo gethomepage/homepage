@@ -275,7 +275,8 @@
     "jellyseerr": {
         "pending": "На чекању",
         "approved": "Одобрено",
-        "available": "Доступно"
+        "available": "Доступно",
+        "issues": "Отворених питања"
     },
     "overseerr": {
         "pending": "На чекању",
@@ -1083,5 +1084,35 @@
         "nextMonthlyCost": "Следећи месец",
         "previousMonthlyCost": "Претходни месец",
         "nextRenewingSubscription": "Следећа уплата"
+    },
+    "unraid": {
+        "STARTED": "Покренуто",
+        "STOPPED": "Заустављено",
+        "NEW_ARRAY": "Нови Array",
+        "RECON_DISK": "Реконструкција диска",
+        "DISABLE_DISK": "Диск је онемогућен",
+        "SWAP_DSBL": "Swap је онемогућен",
+        "INVALID_EXPANSION": "Неважеће проширење",
+        "PARITY_NOT_BIGGEST": "Паритет није највећи",
+        "TOO_MANY_MISSING_DISKS": "Превише недостајућих дискова",
+        "NEW_DISK_TOO_SMALL": "Нови диск је премали",
+        "NO_DATA_DISKS": "Нема дискова са подацима",
+        "notifications": "Обавештења",
+        "status": "Статус",
+        "cpu": "Процесор",
+        "memoryUsed": "Искоришћена меморија",
+        "memoryAvailable": "Доступна меморија",
+        "arrayUsed": "Коришћени Array",
+        "arrayFree": "Слободан Array",
+        "poolUsed": "{{pool}} коришћено",
+        "poolFree": "{{pool}} слободно"
+    },
+    "backrest": {
+        "num_plans": "Планови",
+        "num_success_30": "Успешно",
+        "num_failure_30": "Неуспешно",
+        "num_success_latest": "Успевајући",
+        "num_failure_latest": "Неуспешно",
+        "bytes_added_30": "Додати бајтови"
     }
 }

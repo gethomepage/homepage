@@ -275,7 +275,8 @@
     "jellyseerr": {
         "pending": "Čakajúce",
         "approved": "Schválené",
-        "available": "Dostupné"
+        "available": "Dostupné",
+        "issues": "Open Issues"
     },
     "overseerr": {
         "pending": "Čakajúce",
@@ -470,15 +471,15 @@
         "1-day": "Prevažne slnečno",
         "1-night": "Prevažne jasno",
         "2-day": "Čiastočne zamračené",
-        "2-night": "Partly Cloudy",
+        "2-night": "Čiastočne zamračené",
         "3-day": "Oblačno",
-        "3-night": "Cloudy",
+        "3-night": "Oblačno",
         "45-day": "Hmlisto",
         "45-night": "Hmlisto",
         "48-day": "Hmlisto",
         "48-night": "Hmlisto",
         "51-day": "Mierne mrholenie",
-        "51-night": "Light Drizzle",
+        "51-night": "Slabé mrholenie",
         "53-day": "Mrholenie",
         "53-night": "Drizzle",
         "55-day": "Silné mrholenie",
@@ -518,9 +519,9 @@
         "95-day": "Búrka",
         "95-night": "Búrka",
         "96-day": "Búrka s krupobitím",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "96-night": "Búrka s krupobitím",
+        "99-day": "Búrka s krupobitím",
+        "99-night": "Búrka s krupobitím"
     },
     "homebridge": {
         "available_update": "Systém",
@@ -1083,5 +1084,35 @@
         "nextMonthlyCost": "Next Month",
         "previousMonthlyCost": "Prev. Month",
         "nextRenewingSubscription": "Next Payment"
+    },
+    "unraid": {
+        "STARTED": "Started",
+        "STOPPED": "Stopped",
+        "NEW_ARRAY": "New Array",
+        "RECON_DISK": "Reconstructing Disk",
+        "DISABLE_DISK": "Disk Disabled",
+        "SWAP_DSBL": "Swap Disable",
+        "INVALID_EXPANSION": "Invalid Expansion",
+        "PARITY_NOT_BIGGEST": "Parity Not Biggest",
+        "TOO_MANY_MISSING_DISKS": "Too Many Missing Disks",
+        "NEW_DISK_TOO_SMALL": "New Disk Too Small",
+        "NO_DATA_DISKS": "No Data Disks",
+        "notifications": "Oznámenia",
+        "status": "Stav",
+        "cpu": "CPU",
+        "memoryUsed": "Memory Used",
+        "memoryAvailable": "Memory Available",
+        "arrayUsed": "Array Used",
+        "arrayFree": "Array Free",
+        "poolUsed": "{{pool}} Used",
+        "poolFree": "{{pool}} Free"
+    },
+    "backrest": {
+        "num_plans": "Plans",
+        "num_success_30": "Successes",
+        "num_failure_30": "Failures",
+        "num_success_latest": "Succeeding",
+        "num_failure_latest": "Failing",
+        "bytes_added_30": "Bytes Added"
     }
 }

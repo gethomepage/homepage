@@ -432,7 +432,7 @@ function Home({ initialSettings }) {
           searchString={searchString}
           setSearchString={setSearchString}
           isOpen={searching}
-          close={setSearching}
+          setSearching={setSearching}
         />
         <div
           id="information-widgets"
@@ -499,6 +499,7 @@ function Home({ initialSettings }) {
 
 export default function Wrapper({ initialSettings, fallback }) {
   const { theme } = useContext(ThemeContext);
+  const { color } = useContext(ColorContext);
   let backgroundImage = "";
   let opacity = initialSettings?.backgroundOpacity ?? 0;
   let backgroundBlur = false;
@@ -527,14 +528,22 @@ export default function Wrapper({ initialSettings, fallback }) {
     html.classList.toggle("dark", theme === "dark");
     html.classList.add(theme === "dark" ? "scheme-dark" : "scheme-light");
 
-    html.classList.remove(...Array.from(html.classList).filter((cls) => cls.startsWith("theme-")));
-    html.classList.add(`theme-${initialSettings.color || "slate"}`);
+    const desiredThemeClass = `theme-${color || initialSettings.color || "slate"}`;
+    const themeClassesToRemove = Array.from(html.classList).filter(
+      (cls) => cls.startsWith("theme-") && cls !== desiredThemeClass,
+    );
+    if (themeClassesToRemove.length) {
+      html.classList.remove(...themeClassesToRemove);
+    }
+    if (!html.classList.contains(desiredThemeClass)) {
+      html.classList.add(desiredThemeClass);
+    }
 
     // Remove any previously applied inline styles
     body.style.backgroundImage = "";
     body.style.backgroundColor = "";
     body.style.backgroundAttachment = "";
-  }, [backgroundImage, opacity, theme, initialSettings.color]);
+  }, [backgroundImage, opacity, theme, color, initialSettings.color]);
 
   return (
     <>

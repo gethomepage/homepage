@@ -37,12 +37,12 @@ export default function Container({ error = false, children, service }) {
         if (!field.includes(".")) {
           fullField = `${type}.${field}`;
         }
-        let matches = fullField === child?.props?.label;
+        let matches = fullField === (child?.props?.field || child?.props?.label);
         // check if the field is an 'alias'
         if (matches) {
           return true;
         } else if (ALIASED_WIDGETS[type]) {
-          matches = fullField.replace(type, ALIASED_WIDGETS[type]) === child?.props?.label;
+          matches = fullField.replace(type, ALIASED_WIDGETS[type]) === (child?.props?.field || child?.props?.label);
 
           return matches;
         }
