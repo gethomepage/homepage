@@ -241,16 +241,16 @@
     "sonarr": {
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
-        "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "series": "Seriale",
+        "queue": "Kolejka",
+        "unknown": "Nieznany"
     },
     "radarr": {
-        "wanted": "Wanted",
+        "wanted": "Poszukiwane",
         "missing": "Brakujące",
-        "queued": "Queued",
-        "movies": "Movies",
-        "queue": "Queue",
+        "queued": "W kolejce",
+        "movies": "Filmy",
+        "queue": "Kolejka",
         "unknown": "Unknown"
     },
     "lidarr": {
@@ -273,15 +273,16 @@
         "available": "Dostępne"
     },
     "jellyseerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available"
+        "pending": "Oczekujące",
+        "approved": "Zaakceptowane",
+        "available": "Dostępne",
+        "issues": "Open Issues"
     },
     "overseerr": {
-        "pending": "Pending",
+        "pending": "Oczekujące",
         "processing": "Przetwarzane",
-        "approved": "Approved",
-        "available": "Available"
+        "approved": "Zaakceptowane",
+        "available": "Dostępne"
     },
     "netalertx": {
         "total": "Total",
@@ -296,8 +297,8 @@
         "gravity": "Grawitacja"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "Zapytania",
+        "blocked": "Zablokowane",
         "filtered": "Przefiltrowane",
         "latency": "Opóźnienia"
     },
@@ -312,7 +313,7 @@
         "total": "Total"
     },
     "suwayomi": {
-        "download": "Downloaded",
+        "download": "Pobrano",
         "nondownload": "Niepobrane",
         "read": "Read",
         "unread": "Unread",
@@ -366,7 +367,7 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
+        "nothing_streaming": "Brak aktywnych strumieni",
         "please_wait": "Proszę czekać"
     },
     "npm": {
@@ -425,26 +426,26 @@
         "unread": "Unread"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Użytkownicy",
         "loginsLast24H": "Logowania (24h)",
         "failedLoginsLast24H": "Nieudane logowania (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "Procesor",
         "lxc": "Kontenery LXC",
         "vms": "Maszyn wirtualnych"
     },
     "glances": {
         "cpu": "Procesor",
-        "load": "Load",
+        "load": "Obciążenie",
         "wait": "Proszę czekać",
-        "temp": "TEMP",
+        "temp": "TEMP.",
         "_temp": "Temperatura",
         "warn": "Ostrzeżenie",
         "uptime": "UP",
         "total": "Total",
-        "free": "Free",
+        "free": "Wolne",
         "used": "Used",
         "days": "d",
         "hours": "h",
@@ -470,57 +471,57 @@
         "1-day": "Głównie słoneczny",
         "1-night": "Głównie bezchmurny",
         "2-day": "Częściowo pochmurnie",
-        "2-night": "Partly Cloudy",
+        "2-night": "Częściowo pochmurnie",
         "3-day": "Pochmurnie",
-        "3-night": "Cloudy",
+        "3-night": "Pochmurnie",
         "45-day": "Mgliście",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "45-night": "Mgliście",
+        "48-day": "Mgliście",
+        "48-night": "Mgliście",
         "51-day": "Lekka mżawka",
-        "51-night": "Light Drizzle",
+        "51-night": "Lekka mżawka",
         "53-day": "Mżawka",
-        "53-night": "Drizzle",
+        "53-night": "Mżawka",
         "55-day": "Gęsta mżawka",
-        "55-night": "Heavy Drizzle",
+        "55-night": "Gęsta mżawka",
         "56-day": "Lekko chłodna mżawka",
-        "56-night": "Light Freezing Drizzle",
+        "56-night": "Lekko chłodna mżawka",
         "57-day": "Chłodna mżawka",
-        "57-night": "Freezing Drizzle",
+        "57-night": "Chłodna mżawka",
         "61-day": "Lekki deszcz",
-        "61-night": "Light Rain",
+        "61-night": "Lekki deszcz",
         "63-day": "Deszcz",
-        "63-night": "Rain",
+        "63-night": "Deszcz",
         "65-day": "Ciężki deszcz",
-        "65-night": "Heavy Rain",
+        "65-night": "Ciężki deszcz",
         "66-day": "Mroźny deszcz",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "66-night": "Mroźny deszcz",
+        "67-day": "Mroźny deszcz",
+        "67-night": "Mroźny deszcz",
         "71-day": "Lekki śnieg",
-        "71-night": "Light Snow",
+        "71-night": "Lekki śnieg",
         "73-day": "Śnieg",
-        "73-night": "Snow",
+        "73-night": "Śnieg",
         "75-day": "Ciężki śnieg",
-        "75-night": "Heavy Snow",
+        "75-night": "Ciężki śnieg",
         "77-day": "Ziarnisty śnieg",
-        "77-night": "Snow Grains",
+        "77-night": "Ziarnisty śnieg",
         "80-day": "Lekkie opady",
-        "80-night": "Light Showers",
+        "80-night": "Lekkie opady",
         "81-day": "Opady",
-        "81-night": "Showers",
+        "81-night": "Opady",
         "82-day": "Ciężkie opady",
-        "82-night": "Heavy Showers",
+        "82-night": "Ciężkie opady",
         "85-day": "Opady śniegu",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
+        "85-night": "Opady śniegu",
+        "86-day": "Opady śniegu",
+        "86-night": "Opady śniegu",
         "95-day": "Burze z piorunami",
-        "95-night": "Thunderstorm",
+        "95-night": "Burze z piorunami",
         "96-day": "Burza z gradobiciem",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "96-night": "Burza z gradobiciem",
+        "99-day": "Burza z gradobiciem",
+        "99-night": "Burza z gradobiciem"
     },
     "homebridge": {
         "available_update": "System",
@@ -1083,5 +1084,35 @@
         "nextMonthlyCost": "Next Month",
         "previousMonthlyCost": "Prev. Month",
         "nextRenewingSubscription": "Next Payment"
+    },
+    "unraid": {
+        "STARTED": "Started",
+        "STOPPED": "Stopped",
+        "NEW_ARRAY": "New Array",
+        "RECON_DISK": "Reconstructing Disk",
+        "DISABLE_DISK": "Disk Disabled",
+        "SWAP_DSBL": "Swap Disable",
+        "INVALID_EXPANSION": "Invalid Expansion",
+        "PARITY_NOT_BIGGEST": "Parity Not Biggest",
+        "TOO_MANY_MISSING_DISKS": "Too Many Missing Disks",
+        "NEW_DISK_TOO_SMALL": "New Disk Too Small",
+        "NO_DATA_DISKS": "No Data Disks",
+        "notifications": "Notifications",
+        "status": "Status",
+        "cpu": "CPU",
+        "memoryUsed": "Memory Used",
+        "memoryAvailable": "Memory Available",
+        "arrayUsed": "Array Used",
+        "arrayFree": "Array Free",
+        "poolUsed": "{{pool}} Used",
+        "poolFree": "{{pool}} Free"
+    },
+    "backrest": {
+        "num_plans": "Plans",
+        "num_success_30": "Successes",
+        "num_failure_30": "Failures",
+        "num_success_latest": "Succeeding",
+        "num_failure_latest": "Failing",
+        "bytes_added_30": "Bytes Added"
     }
 }
