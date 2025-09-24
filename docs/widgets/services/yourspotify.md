@@ -22,5 +22,7 @@ widget:
 
 Allowed values for `interval`: `day`, `week`, `month`, `year`, `all`.
 
-> NOTE: `interval` is different from predefined intervals you see in `Your Spotify`'s UI.
-> For example, `This week` in UI means _from the start of this week_, here `week` means _past 7 days_.
+!!! note
+
+    `interval` is different from predefined intervals you see in `Your Spotify`'s UI.
+    For example, `This week` in UI means _from the start of this week_, here `week` means _past 7 days_.
