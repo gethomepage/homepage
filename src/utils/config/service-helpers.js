@@ -382,6 +382,9 @@ export function cleanServiceGroups(groups) {
           // speedtest
           bitratePrecision,
 
+          // yourspotify
+          interval,
+
           // sonarr, radarr
           enableQueue,
 
@@ -583,6 +586,11 @@ export function cleanServiceGroups(groups) {
         if (type === "speedtest") {
           if (bitratePrecision !== undefined) {
             widget.bitratePrecision = parseInt(bitratePrecision, 10);
+          }
+        }
+        if (type === "yourspotify") {
+          if (interval !== undefined) {
+            widget.interval = interval;
           }
         }
         if (type === "stocks") {
