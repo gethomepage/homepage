@@ -13,7 +13,7 @@ Allowed fields: `["songs", "time", "artists"]`.
 ```yaml
 widget:
   type: yourspotify
-  url: http://your-spotify-server.host.or.ip
+  url: http://your-spotify-server.host.or.ip # if using lsio image, add /api/
   key: apikeyapikeyapikeyapikeyapikey
   interval: month # optional, defaults to week
 ```
