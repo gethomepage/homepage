@@ -43,14 +43,8 @@ export default function Component({ service }) {
   const { data: timeListened, error: timeError } = useWidgetAPI(widget, "time", params);
   const { data: artistsListened, error: artistsError } = useWidgetAPI(widget, "artists", params);
 
-  if (songsError) {
-    return <Container service={service} error={songsError} />;
-  }
-  if (timeError) {
-    return <Container service={service} error={timeError} />;
-  }
-  if (artistsError) {
-    return <Container service={service} error={artistsError} />;
+  if (songsError || timeError || artistsError) {
+    return <Container service={service} error={songsError ?? timeError ?? artistsError} />;
   }
 
   if (songsListened === undefined || timeListened === undefined || artistsListened === undefined) {
