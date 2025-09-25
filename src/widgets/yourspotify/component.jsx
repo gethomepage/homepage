@@ -47,7 +47,7 @@ export default function Component({ service }) {
     return <Container service={service} error={songsError ?? timeError ?? artistsError} />;
   }
 
-  if (songsListened === undefined || timeListened === undefined || artistsListened === undefined) {
+  if (isNaN(songsListened) || isNaN(timeListened) || isNaN(artistsListened)) {
     return (
       <Container service={service}>
         <Block label="yourspotify.songs" />
