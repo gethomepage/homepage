@@ -6,9 +6,6 @@ export default function Component({ service }){
     const { widget } = service;
     const { data, error } = useWidgetAPI(widget);
 
-    console.log(widget)
-    console.warn("veri erişimi burada", data);
-
     if(error){
         return <Container service={service} error={error} />;
     }
