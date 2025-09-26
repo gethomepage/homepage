@@ -58,6 +58,7 @@ import kavita from "./kavita/widget";
 import komga from "./komga/widget";
 import komodo from "./komodo/widget";
 import kopia from "./kopia/widget";
+import keenetic from "./keenetic/widget";
 import lidarr from "./lidarr/widget";
 import linkwarden from "./linkwarden/widget";
 import lubelogger from "./lubelogger/widget";
@@ -207,6 +208,7 @@ const widgets = {
   komga,
   komodo,
   kopia,
+  keenetic,
   lidarr,
   linkwarden,
   lubelogger,

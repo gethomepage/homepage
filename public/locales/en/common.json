@@ -253,6 +253,12 @@
         "queue": "Queue",
         "unknown": "Unknown"
     },
+    "keenetic": {
+        "registered": "Registered",
+        "unregistered": "Unregistered",
+        "active": "Active",
+        "inactive": "Inactive"
+    },
     "lidarr": {
         "wanted": "Wanted",
         "queued": "Queued",
