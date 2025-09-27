@@ -80,6 +80,11 @@ export default function Component({ service }) {
             timeLeft={t("common.duration", { value: queueEntry.eta })}
             title={queueEntry.name}
             activity={queueEntry.state}
+            size={
+              widget?.enableLeechSize
+                ? t("common.bbytes", { value: queueEntry.size, maximumFractionDigits: 1 })
+                : undefined
+            }
             key={`${queueEntry.name}-${queueEntry.amount_left}`}
           />
         ))}
