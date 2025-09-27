@@ -417,6 +417,7 @@ function Home({ initialSettings }) {
         )}
         <meta name="msapplication-TileColor" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
         <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
+        <meta name="color-scheme" content="dark light"></meta>
       </Head>
 
       <Script src="/api/config/custom.js" />
