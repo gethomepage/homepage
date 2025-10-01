@@ -27,8 +27,8 @@ importers:
         specifier: ^1.15.11
         version: 1.15.11
       gamedig:
-        specifier: ^5.3.1
-        version: 5.3.1
+        specifier: ^5.3.2
+        version: 5.3.2
       i18next:
         specifier: ^25.5.3
         version: 25.5.3(typescript@5.7.3)
@@ -1538,8 +1538,8 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
-  fast-xml-parser@5.2.3:
-    resolution: {integrity: sha512-OdCYfRqfpuLUFonTNjvd30rCBZUneHpSQkCqfaeWQ9qrKcl6XlWeDBNVwGb+INAIxRshuN2jF+BE0L6gbBO2mw==}
+  fast-xml-parser@5.2.5:
+    resolution: {integrity: sha512-pfX9uG9Ki0yekDHx2SiuRIyFdyAr1kMIMitPvb0YBo8SUfKvia7w7FIyd/l6av85pFYRhZscS75MwMnbvY+hcQ==}
     hasBin: true
 
   fastq@1.19.1:
@@ -1616,8 +1616,8 @@ packages:
   functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  gamedig@5.3.1:
-    resolution: {integrity: sha512-RM/eCR8bAKEX+5dA9sxg4D6oQjS5t0MPsIxGquerBLSIu0f1hAVaDGC58Lp1srYwF6A1C2wYY2p9PzOrPTKf4Q==}
+  gamedig@5.3.2:
+    resolution: {integrity: sha512-R2b1LwjW783PZsHRl9M8R06UkvJwXmJ6PDKk48UukJQ9ktiwrCeAk90MAZx6nF3oA444uf7r5eHjfaYbNoSV+Q==}
     engines: {node: '>=16.20.0'}
     hasBin: true
 
@@ -1746,10 +1746,6 @@ packages:
 
   ical.js@2.1.0:
     resolution: {integrity: sha512-BOVfrH55xQ6kpS3muGvIXIg2l7p+eoe12/oS7R5yrO3TL/j/bLsR0PR+tYQESFbyTbvGgPHn9zQ6tI4FWyuSaQ==}
-
-  iconv-lite@0.6.3:
-    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
-    engines: {node: '>=0.10.0'}
 
   iconv-lite@0.7.0:
     resolution: {integrity: sha512-cf6L2Ds3h57VVmkZe+Pn+5APsT7FpqJtEhhieDCvrE2MK5Qk9MyffgQyuxQTm6BChfeZNtcOLHp9IcWRVcIcBQ==}
@@ -2201,8 +2197,8 @@ packages:
       encoding:
         optional: true
 
-  normalize-url@8.0.2:
-    resolution: {integrity: sha512-Ee/R3SyN4BuynXcnTaekmaVdbDAEiNrHqjQIA37mHU8G9pf7aaAD4ZX3XjBLo6rsdcxA/gtkcNYZLt30ACgynw==}
+  normalize-url@8.1.0:
+    resolution: {integrity: sha512-X06Mfd/5aKsRHc0O0J5CUedwnPmnDtLF2+nq+KN9KSDlJHkPuh0JUviWjEWMe0SW/9TDdSLVPuk7L5gGTIA1/w==}
     engines: {node: '>=14.16'}
 
   oauth4webapi@3.3.0:
@@ -2779,8 +2775,8 @@ packages:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
 
-  telnet-client@2.2.5:
-    resolution: {integrity: sha512-X5xEkmKHgpCpngnH7QnkFX87UyBErauHsjzlCGVp87MbhnmHoaAeacuALGfqovHh3MXAfrpPs+g30PgyBpy8Jw==}
+  telnet-client@2.2.6:
+    resolution: {integrity: sha512-ZUYrLsPtQupQww3eSEORDVOb6ztdtKEghya6TVXPo2tg/UQq2pn5rHhvwuUvyYpbnsoqdNY1fyD1GNkXHR8dYA==}
 
   text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==}
@@ -3904,7 +3900,7 @@ snapshots:
       http-cache-semantics: 4.2.0
       keyv: 4.5.4
       mimic-response: 4.0.0
-      normalize-url: 8.0.2
+      normalize-url: 8.1.0
       responselike: 3.0.0
 
   call-bind-apply-helpers@1.0.2:
@@ -4567,7 +4563,7 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-xml-parser@5.2.3:
+  fast-xml-parser@5.2.5:
     dependencies:
       strnum: 2.1.1
 
@@ -4638,16 +4634,16 @@ snapshots:
 
   functions-have-names@1.2.3: {}
 
-  gamedig@5.3.1:
+  gamedig@5.3.2:
     dependencies:
-      fast-xml-parser: 5.2.3
+      fast-xml-parser: 5.2.5
       gbxremote: 0.2.1
       got: 13.0.0
-      iconv-lite: 0.6.3
+      iconv-lite: 0.7.0
       long: 5.3.2
       minimist: 1.2.8
       seek-bzip: 2.0.0
-      telnet-client: 2.2.5
+      telnet-client: 2.2.6
       varint: 6.0.0
 
   gbxremote@0.2.1:
@@ -4805,10 +4801,6 @@ snapshots:
       typescript: 5.7.3
 
   ical.js@2.1.0: {}
-
-  iconv-lite@0.6.3:
-    dependencies:
-      safer-buffer: 2.1.2
 
   iconv-lite@0.7.0:
     dependencies:
@@ -5210,7 +5202,7 @@ snapshots:
     dependencies:
       whatwg-url: 5.0.0
 
-  normalize-url@8.0.2: {}
+  normalize-url@8.1.0: {}
 
   oauth4webapi@3.3.0: {}
 
@@ -5869,7 +5861,7 @@ snapshots:
       mkdirp: 3.0.1
       yallist: 5.0.0
 
-  telnet-client@2.2.5:
+  telnet-client@2.2.6:
     dependencies:
       net: 1.0.2
       stream: 0.0.2
