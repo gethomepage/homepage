@@ -27,7 +27,7 @@ function buildResponse(plans) {
     if (Array.isArray(statuses) && statuses.length > 0) {
       if (statuses[0] === "STATUS_SUCCESS") {
         numSuccessLatest++;
-      } else {
+      } else if (statuses[0] === "STATUS_ERROR") {
         numFailureLatest++;
       }
     }
