@@ -109,6 +109,20 @@ color: slate
 
 Supported colors are: `slate`, `gray`, `zinc`, `neutral`, `stone`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`, `red`, `white`
 
+## Block Highlight Levels
+
+You can override the default Tailwind classes applied when a widget highlight rule resolves to the `good`, `warn`, or `danger` level. Only the `levels` map is read from `settings.yaml`; all highlight rules themselves are defined per widget in `services.yaml`.
+
+```yaml
+blockHighlights:
+  levels:
+    good: "bg-emerald-400/30 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-100"
+    warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-100"
+    danger: "bg-rose-400/30 text-rose-900 dark:bg-rose-900/30 dark:text-rose-100"
+```
+
+Any unspecified level falls back to the built-in defaults.
+
 ## Layout
 
 You can configure service and bookmarks sections to be either "column" or "row" based layouts, like so:

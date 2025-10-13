@@ -118,6 +118,43 @@ Each widget can optionally provide a list of which fields should be visible via 
       key: apikeyapikeyapikeyapikeyapikey
 ```
 
+### Block Highlighting
+
+Widgets can tint their metric blocks automatically based on rules defined alongside the service. Attach a `highlight` section to the widget configuration and map each block (use the translation key from the widget, or the explicit `field` prop if it is present) to one or more numeric or string rules. The first matching rule wins and its level controls the colours.
+
+```yaml
+- Sonarr:
+    icon: sonarr.png
+    href: http://sonarr.host.or.ip
+    widget:
+      type: sonarr
+      url: http://sonarr.host.or.ip
+      key: ${SONARR_API_KEY}
+      highlight:
+        fields:
+          sonarr.queued:
+            numeric:
+              - level: danger
+                when: gte
+                value: 20
+              - level: warn
+                when: gte
+                value: 5
+              - level: good
+                when: eq
+                value: 0
+          sonarr.status:
+            string:
+              - level: danger
+                when: regex
+                value: "(failed|import) pending"
+              - level: good
+                when: equals
+                value: "All good"
+```
+
+Supported numeric operators for the `when` property are `gt`, `gte`, `lt`, `lte`, `eq`, `ne`, `between`, and `outside`. String rules support `equals`, `includes`, `startsWith`, `endsWith`, and `regex`. Each rule can be inverted with `negate: true`, and string rules may pass `caseSensitive: true` or custom regex `flags`. If you format values before passing them into `<Block>`, also pass the unformatted number or string via the `valueRaw` prop so the highlight engine can evaluate correctly.
+
 ## Descriptions
 
 Services may have descriptions,
