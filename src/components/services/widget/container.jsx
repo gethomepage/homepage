@@ -1,9 +1,10 @@
 import { useContext, useMemo } from "react";
 import { SettingsContext } from "utils/contexts/settings";
 
-import { buildHighlightConfig } from "utils/highlights";
 import Error from "./error";
 import { BlockHighlightContext } from "./highlight-context";
+
+import { buildHighlightConfig } from "utils/highlights";
 
 const ALIASED_WIDGETS = {
   pialert: "netalertx",

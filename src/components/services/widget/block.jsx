@@ -2,9 +2,9 @@ import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import { useContext, useMemo } from "react";
 
-import { evaluateHighlight, getHighlightClass } from "utils/highlights";
-
 import { BlockHighlightContext } from "./highlight-context";
+
+import { evaluateHighlight, getHighlightClass } from "utils/highlights";
 
 export default function Block({ value, label, field }) {
   const { t } = useTranslation();
