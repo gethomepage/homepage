@@ -6,22 +6,26 @@ import { evaluateHighlight, getHighlightClass } from "utils/highlights";
 
 import { BlockHighlightContext } from "./highlight-context";
 
-export default function Block({ value, label }) {
+export default function Block({ value, label, field }) {
   const { t } = useTranslation();
   const highlightConfig = useContext(BlockHighlightContext);
 
   const highlight = useMemo(() => {
     if (!highlightConfig) return null;
     const labels = Array.isArray(label) ? label : [label];
+    const candidates = [];
+    if (typeof field === "string") candidates.push(field);
+    for (const candidateLabel of labels) {
+      if (typeof candidateLabel === "string") candidates.push(candidateLabel);
+    }
 
-    for (const candidate of labels) {
-      if (typeof candidate !== "string") continue;
+    for (const candidate of candidates) {
       const result = evaluateHighlight(candidate, value, highlightConfig);
       if (result) return result;
     }
 
     return null;
-  }, [label, value, highlightConfig]);
+  }, [field, label, value, highlightConfig]);
 
   const highlightClass = useMemo(() => {
     if (!highlight?.level) return undefined;
