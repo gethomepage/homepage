@@ -4,7 +4,23 @@ const DEFAULT_LEVEL_CLASSES = {
   danger: "bg-rose-700/45 text-rose-200 dark:bg-rose-950/70 dark:text-rose-400",
 };
 
-export const buildHighlightConfig = (globalConfig, widgetConfig) => {
+const normalizeFieldKeys = (fields, widgetType) => {
+  if (!fields || typeof fields !== "object") return {};
+
+  return Object.entries(fields).reduce((acc, [key, value]) => {
+    if (value === null || value === undefined) return acc;
+    if (typeof key !== "string") return acc;
+    const trimmedKey = key.trim();
+    if (trimmedKey === "") return acc;
+
+    const targetKey = widgetType ? `${widgetType}.${trimmedKey}` : trimmedKey;
+    acc[targetKey] = value;
+
+    return acc;
+  }, {});
+};
+
+export const buildHighlightConfig = (globalConfig, widgetConfig, widgetType) => {
   const levels = {
     ...DEFAULT_LEVEL_CLASSES,
     ...(globalConfig?.levels || {}),
@@ -12,19 +28,14 @@ export const buildHighlightConfig = (globalConfig, widgetConfig) => {
   };
 
   const { levels: _levels, ...fields } = widgetConfig || {};
-
-  Object.keys(fields).forEach((key) => {
-    if (fields[key] === null || fields[key] === undefined) {
-      delete fields[key];
-    }
-  });
+  const normalizedFields = normalizeFieldKeys(fields, widgetType);
 
   const hasLevels = Object.values(levels).some(Boolean);
-  const hasFields = Object.keys(fields).length > 0;
+  const hasFields = Object.keys(normalizedFields).length > 0;
 
   if (!hasLevels && !hasFields) return null;
 
-  return { levels, fields };
+  return { levels, fields: normalizedFields };
 };
 
 const NUMERIC_OPERATORS = {

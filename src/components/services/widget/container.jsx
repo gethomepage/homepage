@@ -14,8 +14,8 @@ export default function Container({ error = false, children, service }) {
   const { settings } = useContext(SettingsContext);
 
   const highlightConfig = useMemo(
-    () => buildHighlightConfig(settings?.blockHighlights, service?.widget?.highlight),
-    [settings?.blockHighlights, service?.widget?.highlight],
+    () => buildHighlightConfig(settings?.blockHighlights, service?.widget?.highlight, service?.widget?.type),
+    [settings?.blockHighlights, service?.widget?.highlight, service?.widget?.type],
   );
 
   if (error) {

@@ -120,7 +120,7 @@ Each widget can optionally provide a list of which fields should be visible via 
 
 ### Block Highlighting
 
-Widgets can tint their metric blocks automatically based on rules defined alongside the service. Attach a `highlight` section to the widget configuration and map each block (use the translation key from the widget, or the explicit `field` prop if it is present) to one or more numeric or string rules. The first matching rule wins and its level controls the colours.
+Widgets can tint their metric blocks automatically based on rules defined alongside the service. Attach a `highlight` section to the widget configuration and map each block to one or more numeric or string rules using the field key (for example, `queued`, `lan_users`).
 
 ```yaml
 - Sonarr:
@@ -131,7 +131,7 @@ Widgets can tint their metric blocks automatically based on rules defined alongs
       url: http://sonarr.host.or.ip
       key: ${SONARR_API_KEY}
       highlight:
-        sonarr.queued:
+        queued:
           numeric:
             - level: danger
               when: gte
@@ -142,7 +142,7 @@ Widgets can tint their metric blocks automatically based on rules defined alongs
             - level: good
               when: eq
               value: 0
-        sonarr.status:
+        status:
           string:
             - level: danger
               when: regex
