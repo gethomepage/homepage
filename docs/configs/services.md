@@ -131,26 +131,25 @@ Widgets can tint their metric blocks automatically based on rules defined alongs
       url: http://sonarr.host.or.ip
       key: ${SONARR_API_KEY}
       highlight:
-        fields:
-          sonarr.queued:
-            numeric:
-              - level: danger
-                when: gte
-                value: 20
-              - level: warn
-                when: gte
-                value: 5
-              - level: good
-                when: eq
-                value: 0
-          sonarr.status:
-            string:
-              - level: danger
-                when: regex
-                value: "(failed|import) pending"
-              - level: good
-                when: equals
-                value: "All good"
+        sonarr.queued:
+          numeric:
+            - level: danger
+              when: gte
+              value: 20
+            - level: warn
+              when: gte
+              value: 5
+            - level: good
+              when: eq
+              value: 0
+        sonarr.status:
+          string:
+            - level: danger
+              when: regex
+              value: "(failed|import) pending"
+            - level: good
+              when: equals
+              value: "All good"
 ```
 
 Supported numeric operators for the `when` property are `gt`, `gte`, `lt`, `lte`, `eq`, `ne`, `between`, and `outside`. String rules support `equals`, `includes`, `startsWith`, `endsWith`, and `regex`. Each rule can be inverted with `negate: true`, and string rules may pass `caseSensitive: true` or custom regex `flags`. If you format values before passing them into `<Block>`, also pass the unformatted number or string via the `valueRaw` prop so the highlight engine can evaluate correctly.

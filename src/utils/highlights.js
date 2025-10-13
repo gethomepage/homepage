@@ -11,7 +11,13 @@ export const buildHighlightConfig = (globalConfig, widgetConfig) => {
     ...(widgetConfig?.levels || {}),
   };
 
-  const fields = widgetConfig?.fields || {};
+  const { levels: _levels, ...fields } = widgetConfig || {};
+
+  Object.keys(fields).forEach((key) => {
+    if (fields[key] === null || fields[key] === undefined) {
+      delete fields[key];
+    }
+  });
 
   const hasLevels = Object.values(levels).some(Boolean);
   const hasFields = Object.keys(fields).length > 0;
