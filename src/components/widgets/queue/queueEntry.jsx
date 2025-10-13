@@ -1,4 +1,4 @@
-export default function QueueEntry({ title, activity, timeLeft, progress }) {
+export default function QueueEntry({ title, activity, timeLeft, progress, size }) {
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 rounded-md bg-theme-200/50 dark:bg-theme-900/20 m-1 px-1 flex">
       <div
@@ -11,6 +11,7 @@ export default function QueueEntry({ title, activity, timeLeft, progress }) {
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden text-left">{title}</div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10 text-ellipsis overflow-hidden whitespace-nowrap">
+        {size && `${size} - `}
         {timeLeft ? `${activity} - ${timeLeft}` : activity}
       </div>
     </div>

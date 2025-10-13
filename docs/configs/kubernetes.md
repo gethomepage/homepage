@@ -178,3 +178,32 @@ See [ClusterRole and ClusterRoleBinding](../installation/k8s.md#clusterrole-and-
 ## Caveats
 
 Similarly to Docker service discovery, there currently is no rigid ordering to discovered services and discovered services will be displayed above those specified in the `services.yaml`.
+
+## Adding extra configuration files
+
+Some Homepage features (for example, [Proxmox](../configs/proxmox.md)) require additional configuration files such as `proxmox.yaml`.
+When running Homepage on Kubernetes, these files must be provided via a `ConfigMap` and mounted into the container at `/app/config`.
+
+### ConfigMap example
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage
+data:
+  proxmox.yaml: |
+    pve:
+      url: https://proxmox.host.or.ip:8006
+      token: username@pam!Token ID
+      secret: secret
+```
+
+Mount the file into `/app/config` by updating the `Deployment`:
+
+```yaml
+volumeMounts:
+  - mountPath: /app/config/proxmox.yaml
+    name: homepage-config
+    subPath: proxmox.yaml
+```

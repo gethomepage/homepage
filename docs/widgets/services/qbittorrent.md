@@ -16,4 +16,5 @@ widget:
   username: username
   password: password
   enableLeechProgress: true # optional, defaults to false
+  enableLeechSize: true # optional, defaults to false
 ```

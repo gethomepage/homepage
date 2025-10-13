@@ -30,18 +30,6 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: rgb(var(--bg-color));
-}
-
-#background {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  pointer-events: none;
 }
 
 html,
