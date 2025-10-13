@@ -111,14 +111,14 @@ Supported colors are: `slate`, `gray`, `zinc`, `neutral`, `stone`, `amber`, `yel
 
 ## Block Highlight Levels
 
-You can override the default Tailwind classes applied when a widget highlight rule resolves to the `good`, `warn`, or `danger` level. Only the `levels` map is read from `settings.yaml`; all highlight rules themselves are defined per widget in `services.yaml`.
+You can override the default Tailwind classes applied when a widget highlight rule resolves to the `good`, `warn`, or `danger` level.
 
 ```yaml
 blockHighlights:
   levels:
-    good: "bg-emerald-400/30 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-100"
-    warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-100"
-    danger: "bg-rose-400/30 text-rose-900 dark:bg-rose-900/30 dark:text-rose-100"
+    good: "bg-emerald-500/40 text-emerald-950 dark:bg-emerald-900/60 dark:text-emerald-400",
+    warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200",
+    danger: "bg-rose-700/45 text-rose-200 dark:bg-rose-950/70 dark:text-rose-400",
 ```
 
 Any unspecified level falls back to the built-in defaults.

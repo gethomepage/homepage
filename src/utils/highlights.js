@@ -13,8 +13,14 @@ const normalizeFieldKeys = (fields, widgetType) => {
     const trimmedKey = key.trim();
     if (trimmedKey === "") return acc;
 
-    const targetKey = widgetType ? `${widgetType}.${trimmedKey}` : trimmedKey;
-    acc[targetKey] = value;
+    acc[trimmedKey] = value;
+
+    if (widgetType && !trimmedKey.includes(".")) {
+      const namespacedKey = `${widgetType}.${trimmedKey}`;
+      if (!(namespacedKey in acc)) {
+        acc[namespacedKey] = value;
+      }
+    }
 
     return acc;
   }, {});
@@ -76,65 +82,59 @@ const parseNumericValue = (value) => {
     const trimmed = value.trim();
     if (!trimmed) return undefined;
 
-    const numericMatch = trimmed.match(/[-+]?\d+(?:[\d.,]*\d)?/);
-    if (!numericMatch) return undefined;
+    const direct = Number(trimmed);
+    if (!Number.isNaN(direct)) return direct;
 
-    const numeric = numericMatch[0];
-    const separators = numeric.match(/[.,]/g) ?? [];
-    const uniqueSeparators = [...new Set(separators)];
+    const compact = trimmed.replace(/\s+/g, "");
+    if (!compact || !/^[-+]?[0-9.,]+$/.test(compact)) return undefined;
 
-    if (uniqueSeparators.length === 0) {
-      const parsed = Number(numeric);
-      return Number.isNaN(parsed) ? undefined : parsed;
-    }
+    const commaCount = (compact.match(/,/g) || []).length;
+    const dotCount = (compact.match(/\./g) || []).length;
 
-    if (uniqueSeparators.length >= 2) {
-      const lastComma = numeric.lastIndexOf(",");
-      const lastDot = numeric.lastIndexOf(".");
-      const decimalSeparator = lastComma > lastDot ? "," : ".";
-      const thousandsSeparator = decimalSeparator === "." ? "," : ".";
-
-      let canonical = numeric;
-      const thousandsPattern = thousandsSeparator === "." ? /\./g : /,/g;
-      canonical = canonical.replace(thousandsPattern, "");
-      if (decimalSeparator === ",") {
-        canonical = canonical.replace(/,/g, ".");
-      }
-
-      const parsed = Number(canonical);
-      return Number.isNaN(parsed) ? undefined : parsed;
-    }
-
-    const separator = uniqueSeparators[0];
-    const occurrences = separators.length;
-
-    if (separator === ".") {
-      if (occurrences === 1) {
-        const parsed = Number(numeric);
+    if (commaCount && dotCount) {
+      const lastComma = compact.lastIndexOf(",");
+      const lastDot = compact.lastIndexOf(".");
+      if (lastComma > lastDot) {
+        const asDecimal = compact.replace(/\./g, "").replace(/,/g, ".");
+        const parsed = Number(asDecimal);
         return Number.isNaN(parsed) ? undefined : parsed;
       }
-
-      const canonical = numeric.replace(/\./g, "");
-      const parsed = Number(canonical);
+      const asThousands = compact.replace(/,/g, "");
+      const parsed = Number(asThousands);
       return Number.isNaN(parsed) ? undefined : parsed;
     }
 
-    if (separator === ",") {
-      if (occurrences === 1) {
-        const decimalCandidate = Number(numeric.replace(/,/g, "."));
-        const thousandsCandidate = Number(numeric.replace(/,/g, ""));
-
-        const candidates = [thousandsCandidate, decimalCandidate].filter((candidate) => !Number.isNaN(candidate));
-        if (candidates.length === 0) return undefined;
-        if (candidates.length === 1) return candidates[0];
-        const uniqueCandidates = [...new Set(candidates)];
-        return uniqueCandidates.length === 1 ? uniqueCandidates[0] : uniqueCandidates;
+    if (commaCount) {
+      const parts = compact.split(",");
+      if (commaCount === 1 && parts[1]?.length <= 2) {
+        const parsed = Number(compact.replace(",", "."));
+        if (!Number.isNaN(parsed)) return parsed;
       }
+      const isGrouped = parts.length > 1 && parts.slice(1).every((part) => part.length === 3);
+      if (isGrouped) {
+        const parsed = Number(compact.replace(/,/g, ""));
+        if (!Number.isNaN(parsed)) return parsed;
+      }
+      return undefined;
+    }
 
-      const canonical = numeric.replace(/,/g, "");
-      const parsed = Number(canonical);
+    if (dotCount) {
+      const parts = compact.split(".");
+      if (dotCount === 1 && parts[1]?.length <= 2) {
+        const parsed = Number(compact);
+        if (!Number.isNaN(parsed)) return parsed;
+      }
+      const isGrouped = parts.length > 1 && parts.slice(1).every((part) => part.length === 3);
+      if (isGrouped) {
+        const parsed = Number(compact.replace(/\./g, ""));
+        if (!Number.isNaN(parsed)) return parsed;
+      }
+      const parsed = Number(compact);
       return Number.isNaN(parsed) ? undefined : parsed;
     }
+
+    const parsed = Number(compact);
+    return Number.isNaN(parsed) ? undefined : parsed;
   }
 
   if (typeof value === "object" && value !== null && "props" in value) {
