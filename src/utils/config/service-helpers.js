@@ -254,6 +254,7 @@ export function cleanServiceGroups(groups) {
           // all widgets
           fields,
           hideErrors,
+          highlight,
           type,
 
           // azuredevops
@@ -436,6 +437,21 @@ export function cleanServiceGroups(groups) {
           service_group: serviceGroup.name,
           index,
         };
+
+        if (highlight) {
+          let parsedHighlight = highlight;
+          if (typeof highlight === "string") {
+            try {
+              parsedHighlight = JSON.parse(highlight);
+            } catch (e) {
+              logger.error("Invalid highlight configuration detected in config for service '%s'", service.name);
+              parsedHighlight = null;
+            }
+          }
+          if (parsedHighlight && typeof parsedHighlight === "object") {
+            widget.highlight = parsedHighlight;
+          }
+        }
 
         if (type === "azuredevops") {
           if (userEmail) widget.userEmail = userEmail;
