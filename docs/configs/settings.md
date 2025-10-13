@@ -116,9 +116,9 @@ You can override the default Tailwind classes applied when a widget highlight ru
 ```yaml
 blockHighlights:
   levels:
-    good: "bg-emerald-500/40 text-emerald-950 dark:bg-emerald-900/60 dark:text-emerald-400",
-    warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200",
-    danger: "bg-rose-700/45 text-rose-200 dark:bg-rose-950/70 dark:text-rose-400",
+    good: "bg-emerald-500/40 text-emerald-950 dark:bg-emerald-900/60 dark:text-emerald-400"
+    warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200"
+    danger: "bg-rose-700/45 text-rose-200 dark:bg-rose-950/70 dark:text-rose-400"
 ```
 
 Any unspecified level falls back to the built-in defaults.
