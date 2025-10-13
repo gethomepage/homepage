@@ -1,7 +1,7 @@
 const DEFAULT_LEVEL_CLASSES = {
-  good: "bg-emerald-400/30 text-emerald-900 dark:bg-emerald-900/30 dark:text-emerald-100",
-  warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-100",
-  danger: "bg-rose-400/30 text-rose-900 dark:bg-rose-900/30 dark:text-rose-100",
+  good: "bg-emerald-500/40 text-emerald-950 dark:bg-emerald-900/60 dark:text-emerald-400",
+  warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200",
+  danger: "bg-rose-700/45 text-rose-200 dark:bg-rose-950/70 dark:text-rose-400",
 };
 
 export const buildHighlightConfig = (globalConfig, widgetConfig) => {
