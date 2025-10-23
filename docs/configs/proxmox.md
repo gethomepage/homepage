@@ -34,6 +34,7 @@ For a QEMU VM (default):
   description: Home automation
   proxmoxNode: pve
   proxmoxVMID: 101
+  showStats: true # Optional, will show CPU and Memory stats. Defaults to false
   # proxmoxType: qemu # This is the default, so it can be omitted
 ```
 
@@ -47,6 +48,7 @@ For an LXC container:
   proxmoxNode: pve
   proxmoxVMID: 200
   proxmoxType: lxc
+  showStats: true # Optional, will show CPU and Memory stats. Defaults to false
 ```
 
 ## Create token
