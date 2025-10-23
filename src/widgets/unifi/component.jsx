@@ -62,15 +62,11 @@ export default function Component({ service }) {
       {wan.show && <Block label="unifi.wan" value={wan.status === "ok" ? t("unifi.up") : t("unifi.down")} />}
 
       {lan.show && <Block label="unifi.lan_users" value={t("common.number", { value: lan.num_user })} />}
-      {lan.show && (
-        <Block label="unifi.lan_devices" value={t("common.number", { value: lan.num_adopted })} />
-      )}
+      {lan.show && <Block label="unifi.lan_devices" value={t("common.number", { value: lan.num_adopted })} />}
       {lan.show && <Block label="unifi.lan" value={lan.up ? t("unifi.up") : t("unifi.down")} />}
 
       {wlan.show && <Block label="unifi.wlan_users" value={t("common.number", { value: wlan.num_user })} />}
-      {wlan.show && (
-        <Block label="unifi.wlan_devices" value={t("common.number", { value: wlan.num_adopted })} />
-      )}
+      {wlan.show && <Block label="unifi.wlan_devices" value={t("common.number", { value: wlan.num_adopted })} />}
       {wlan.show && <Block label="unifi.wlan" value={wlan.up ? t("unifi.up") : t("unifi.down")} />}
     </Container>
   );
