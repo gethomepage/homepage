@@ -486,9 +486,9 @@ logpath: /logfile/path
 
 By default, logs are sent both to `stdout` and to a file at the path specified. This can be changed by setting the `LOG_TARGETS` environment variable to one of `both` (default), `stdout` or `file`.
 
-## Show Docker Stats
+## Show Container Stats
 
-You can show all docker stats expanded in `settings.yaml`:
+You can show all docker or proxmox stats expanded in `settings.yaml`:
 
 ```yaml
 showStats: true
