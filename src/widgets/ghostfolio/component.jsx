@@ -24,9 +24,10 @@ export default function Component({ service }) {
   const { data: performanceToday, error: ghostfolioErrorToday } = useWidgetAPI(widget, "today");
   const { data: performanceYear, error: ghostfolioErrorYear } = useWidgetAPI(widget, "year");
   const { data: performanceMax, error: ghostfolioErrorMax } = useWidgetAPI(widget, "max");
+  const { data: userInfo, error: ghostfolioErrorUserInfo } = useWidgetAPI(widget, "userInfo");
 
-  if (ghostfolioErrorToday || ghostfolioErrorYear || ghostfolioErrorMax) {
-    const finalError = ghostfolioErrorToday ?? ghostfolioErrorYear ?? ghostfolioErrorMax;
+  if (ghostfolioErrorToday || ghostfolioErrorYear || ghostfolioErrorMax || ghostfolioErrorUserInfo) {
+    const finalError = ghostfolioErrorToday ?? ghostfolioErrorYear ?? ghostfolioErrorMax ?? ghostfolioErrorUserInfo;
     return <Container service={service} error={finalError} />;
   }
 
@@ -34,12 +35,13 @@ export default function Component({ service }) {
     return <Container service={service} error={performanceToday} />;
   }
 
-  if (!performanceToday || !performanceYear || !performanceMax) {
+  if (!performanceToday || !performanceYear || !performanceMax || !userInfo) {
     return (
       <Container service={service}>
         <Block label="ghostfolio.gross_percent_today" />
         <Block label="ghostfolio.gross_percent_1y" />
         <Block label="ghostfolio.gross_percent_max" />
+        <Block label="ghostfolio.net_worth" />
       </Container>
     );
   }
@@ -49,6 +51,7 @@ export default function Component({ service }) {
       <Block label="ghostfolio.gross_percent_today" value={getPerformancePercent(t, performanceToday)} />
       <Block label="ghostfolio.gross_percent_1y" value={getPerformancePercent(t, performanceYear)} />
       <Block label="ghostfolio.gross_percent_max" value={getPerformancePercent(t, performanceMax)} />
+      <Block label="ghostfolio.net_worth" value={`${performanceToday.performance.currentNetWorth.toFixed(2)} ${userInfo?.settings?.currency ?? ""}`} />
     </Container>
   );
 }
