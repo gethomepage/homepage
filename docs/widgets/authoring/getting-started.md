@@ -62,3 +62,4 @@ To ensure cohesiveness of various widgets, the following should be used as a gui
 - Minimize the number of API calls
 - Avoid the use of custom proxy unless absolutely necessary
 - Widgets should be 'read-only', as in they should not make write changes using the relevant tool's API. Homepage widgets are designed to surface information, not to be a (usually worse) replacement for the tool itself.
+- Widgets should not allow manually overriding the "refresh interval" setting, as misconfigured refresh intervals can easily lead to performance issues for users.
