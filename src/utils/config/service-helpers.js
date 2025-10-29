@@ -521,7 +521,8 @@ export function cleanServiceGroups(groups) {
           if (enableMediaControl !== undefined) widget.enableMediaControl = !!JSON.parse(enableMediaControl);
           if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) widget.enableNowPlaying = JSON.parse(enableNowPlaying);
-          if (refreshIntervalNowPlaying !== undefined) widget.refreshIntervalNowPlaying = JSON.parse(refreshIntervalNowPlaying);
+          if (refreshIntervalNowPlaying !== undefined)
+            widget.refreshIntervalNowPlaying = JSON.parse(refreshIntervalNowPlaying);
           if (refreshIntervalBlocks !== undefined) widget.refreshIntervalBlocks = JSON.parse(refreshIntervalBlocks);
         }
         if (["emby", "jellyfin", "tautulli"].includes(type)) {
