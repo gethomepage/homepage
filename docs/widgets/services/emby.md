@@ -20,4 +20,6 @@ widget:
   enableMediaControl: false # optional, defaults to true
   showEpisodeNumber: true # optional, defaults to false
   expandOneStreamToTwoRows: false # optional, defaults to true
+  refreshIntervalNowPlaying: 5000 # optional - in milliseconds, defaults to 5s
+  refreshIntervalBlocks: 60000 # optional - in milliseconds , defaults to 60s
 ```

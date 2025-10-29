@@ -205,17 +205,18 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const { enableNowPlaying = true, refreshIntervalNowPlaying = 5000, refreshIntervalBlocks = 60000 } = widget;
 
   const {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useWidgetAPI(widget, "Sessions", {
-    refreshInterval: 5000,
+  } = useWidgetAPI(widget, enableNowPlaying ? "Sessions" : "", {
+    refreshInterval: enableNowPlaying ? refreshIntervalNowPlaying : undefined,
   });
 
   const { data: countData, error: countError } = useWidgetAPI(widget, "Count", {
-    refreshInterval: 60000,
+    refreshInterval: refreshIntervalBlocks,
   });
 
   async function handlePlayCommand(session, command) {
@@ -234,18 +235,17 @@ export default function Component({ service }) {
     });
   }
 
-  if (sessionsError || countError) {
+  if (countError || (enableNowPlaying && sessionsError)) {
     return <Container service={service} error={sessionsError ?? countError} />;
   }
 
   const enableBlocks = service.widget?.enableBlocks;
-  const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
   const enableMediaControl = service.widget?.enableMediaControl !== false; // default is true
   const enableUser = !!service.widget?.enableUser; // default is false
   const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false; // default is true
   const showEpisodeNumber = !!service.widget?.showEpisodeNumber; // default is false
 
-  if (!sessionsData || !countData) {
+  if ((enableNowPlaying && !sessionsData) || !countData) {
     return (
       <>
         {enableBlocks && <CountBlocks service={service} countData={null} />}
