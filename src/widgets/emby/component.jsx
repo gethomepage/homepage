@@ -211,7 +211,7 @@ export default function Component({ service }) {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useWidgetAPI(widget, enableNowPlaying ? "Sessions" : undefined, {
+  } = useWidgetAPI(widget, enableNowPlaying ? "Sessions" : "", {
     refreshInterval: enableNowPlaying ? 5000 : undefined,
   });
 
