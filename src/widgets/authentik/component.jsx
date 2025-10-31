@@ -11,11 +11,9 @@ export default function Component({ service }) {
 
   const { data: usersData, error: usersError } = useWidgetAPI(widget, "users");
 
-  const loginsEndpoint = widget.version === 2 ? "loginv2" : "login";
-  const { data: loginsData, error: loginsError } = useWidgetAPI(widget, loginsEndpoint);
+  const { data: loginsData, error: loginsError } = useWidgetAPI(widget, "login");
 
-  const failedLoginsEndpoint = widget.version === 2 ? "login_failedv2" : "login_failed";
-  const { data: failedLoginsData, error: failedLoginsError } = useWidgetAPI(widget, failedLoginsEndpoint);
+  const { data: failedLoginsData, error: failedLoginsError } = useWidgetAPI(widget, "login_failed");
 
   if (usersError || loginsError || failedLoginsError) {
     const finalError = usersError ?? loginsError ?? failedLoginsError;
@@ -32,25 +30,9 @@ export default function Component({ service }) {
     );
   }
 
-  let loginsLast24H;
-  let failedLoginsLast24H;
-  switch (widget.version) {
-    case 1:
-      const yesterday = new Date(Date.now()).setHours(-24);
-      loginsLast24H = loginsData.reduce(
-        (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
-        0,
-      );
-      failedLoginsLast24H = failedLoginsData.reduce(
-        (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
-        0,
-      );
-      break;
-    case 2:
-      loginsLast24H = loginsData[0]?.count || 0;
-      failedLoginsLast24H = failedLoginsData[0]?.count || 0;
-      break;
-  }
+  // Sum all login counts from the last 24 hours
+  const loginsLast24H = loginsData.reduce((total, current) => total + (current.count || 0), 0);
+  const failedLoginsLast24H = failedLoginsData.reduce((total, current) => total + (current.count || 0), 0);
 
   return (
     <Container service={service}>
