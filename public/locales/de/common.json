@@ -93,8 +93,8 @@
         "http_status": "HTTP-Status",
         "error": "Fehler",
         "response": "Antwort",
-        "down": "Online",
-        "up": "Offline",
+        "down": "Offline",
+        "up": "Online",
         "not_available": "Nicht verfügbar"
     },
     "emby": {
@@ -276,7 +276,7 @@
         "pending": "Wartend",
         "approved": "Genehmigt",
         "available": "Verfügbar",
-        "issues": "Open Issues"
+        "issues": "Offene Issues"
     },
     "overseerr": {
         "pending": "Wartend",
@@ -1086,33 +1086,38 @@
         "nextRenewingSubscription": "Nächste Zahlung"
     },
     "unraid": {
-        "STARTED": "Started",
-        "STOPPED": "Stopped",
-        "NEW_ARRAY": "New Array",
-        "RECON_DISK": "Reconstructing Disk",
-        "DISABLE_DISK": "Disk Disabled",
-        "SWAP_DSBL": "Swap Disable",
-        "INVALID_EXPANSION": "Invalid Expansion",
+        "STARTED": "Gestartet",
+        "STOPPED": "Angehalten",
+        "NEW_ARRAY": "Neues Array",
+        "RECON_DISK": "Festplatte wird neu aufgebaut",
+        "DISABLE_DISK": "Festplatte deaktiviert",
+        "SWAP_DSBL": "Swap deaktivieren",
+        "INVALID_EXPANSION": "Üngültige Erweiterung",
         "PARITY_NOT_BIGGEST": "Parity Not Biggest",
-        "TOO_MANY_MISSING_DISKS": "Too Many Missing Disks",
-        "NEW_DISK_TOO_SMALL": "New Disk Too Small",
-        "NO_DATA_DISKS": "No Data Disks",
-        "notifications": "Notifications",
+        "TOO_MANY_MISSING_DISKS": "Zu viele fehlende Festplatten",
+        "NEW_DISK_TOO_SMALL": "Neue Festplatte zu klein",
+        "NO_DATA_DISKS": "Keine Datenträger",
+        "notifications": "Mitteilungen",
         "status": "Status",
         "cpu": "CPU",
-        "memoryUsed": "Memory Used",
-        "memoryAvailable": "Memory Available",
-        "arrayUsed": "Array Used",
-        "arrayFree": "Array Free",
-        "poolUsed": "{{pool}} Used",
-        "poolFree": "{{pool}} Free"
+        "memoryUsed": "Speichernutzung",
+        "memoryAvailable": "Verfügbarer Speicher",
+        "arrayUsed": "Array verwendet",
+        "arrayFree": "Array frei",
+        "poolUsed": "{{pool}} verwendet",
+        "poolFree": "{{pool}} frei"
     },
     "backrest": {
-        "num_plans": "Plans",
-        "num_success_30": "Successes",
-        "num_failure_30": "Failures",
-        "num_success_latest": "Succeeding",
-        "num_failure_latest": "Failing",
-        "bytes_added_30": "Bytes Added"
+        "num_plans": "Pläne",
+        "num_success_30": "Erfolgreich",
+        "num_failure_30": "Fehlerhaft",
+        "num_success_latest": "Erfolgreich",
+        "num_failure_latest": "Fehlgeschlagen",
+        "bytes_added_30": "Bytes hinzugefügt"
+    },
+    "yourspotify": {
+        "songs": "Titel",
+        "time": "Zeit",
+        "artists": "Künstler"
     }
 }
