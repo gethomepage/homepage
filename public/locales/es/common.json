@@ -276,7 +276,7 @@
         "pending": "Pendiente",
         "approved": "Aprobado",
         "available": "Disponible",
-        "issues": "Open Issues"
+        "issues": "Issues Abiertos"
     },
     "overseerr": {
         "pending": "Pendiente",
@@ -1108,11 +1108,16 @@
         "poolFree": "{{pool}} Libre"
     },
     "backrest": {
-        "num_plans": "Plans",
-        "num_success_30": "Successes",
-        "num_failure_30": "Failures",
-        "num_success_latest": "Succeeding",
-        "num_failure_latest": "Failing",
-        "bytes_added_30": "Bytes Added"
+        "num_plans": "Planes",
+        "num_success_30": "Éxitos",
+        "num_failure_30": "Fallos",
+        "num_success_latest": "Exitosa",
+        "num_failure_latest": "Fallida",
+        "bytes_added_30": "Bytes Añadidos"
+    },
+    "yourspotify": {
+        "songs": "Canciones",
+        "time": "Tiempo",
+        "artists": "Artistas"
     }
 }

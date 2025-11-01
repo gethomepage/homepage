@@ -14,20 +14,20 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "mo",
-        "days": "d",
-        "hours": "h",
-        "minutes": "m",
-        "seconds": "s"
+        "months": "tháng",
+        "days": "ngày",
+        "hours": "giờ",
+        "minutes": "phút",
+        "seconds": "giây"
     },
     "widget": {
         "missing_type": "Thiếu loại Widget: {{type}}",
         "api_error": "Lỗi API",
-        "information": "Information",
+        "information": "Thông tin",
         "status": "Trạng thái",
         "url": "URL",
-        "raw_error": "Raw Error",
-        "response_data": "Response Data"
+        "raw_error": "Lỗi thô",
+        "response_data": "Dữ liệu phản hồi"
     },
     "weather": {
         "current": "Vị trí hiện tại",
@@ -44,106 +44,106 @@
         "total": "Tổng",
         "free": "Dư",
         "used": "Đã dùng",
-        "load": "Load",
+        "load": "\n",
         "temp": "TEMP",
-        "max": "Max",
+        "max": "Tối đa",
         "uptime": "UP"
     },
     "unifi": {
-        "users": "Users",
-        "uptime": "Uptime",
-        "days": "Days",
+        "users": "Người dùng",
+        "uptime": "Thời gian hoạt động",
+        "days": "Ngày",
         "wan": "WAN",
         "lan": "LAN",
         "wlan": "WLAN",
-        "devices": "Devices",
-        "lan_devices": "LAN Devices",
-        "wlan_devices": "WLAN Devices",
-        "lan_users": "LAN Users",
-        "wlan_users": "WLAN Users",
+        "devices": "Thiết bị",
+        "lan_devices": "Thiết bị trong mạng LAN",
+        "wlan_devices": "Thiết bị trong mạng WLAN",
+        "lan_users": "Người dùng mạng LAN",
+        "wlan_users": "Người dùng mạng WLAN",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
-        "empty_data": "Subsystem status unknown"
+        "wait": "Vui lòng chờ",
+        "empty_data": "Trạng thái hệ thống phụ không xác định"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "Bộ nhớ",
         "cpu": "CPU",
-        "running": "Running",
+        "running": "Đang hoạt động",
         "offline": "Ngoại tuyến",
-        "error": "Error",
-        "unknown": "Unknown",
-        "healthy": "Healthy",
-        "starting": "Starting",
-        "unhealthy": "Unhealthy",
-        "not_found": "Not Found",
+        "error": "Lỗi",
+        "unknown": "Không xác định",
+        "healthy": "Ổn định",
+        "starting": "Đang bắt đầu",
+        "unhealthy": "Bất thường",
+        "not_found": "Không tìm thấy",
         "exited": "Exited",
         "partial": "Partial"
     },
     "ping": {
-        "error": "Error",
+        "error": "Lỗi",
         "ping": "Ping",
         "down": "Down",
         "up": "Up",
         "not_available": "Không khả dụng"
     },
     "siteMonitor": {
-        "http_status": "HTTP status",
-        "error": "Error",
-        "response": "Response",
+        "http_status": "Trạng thái HTTP",
+        "error": "Lỗi",
+        "response": "Phản hồi",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Không có sẵn"
     },
     "emby": {
         "playing": "Đang chơi",
         "transcoding": "Chuyển định dạng",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",
-        "movies": "Movies",
+        "movies": "Phim ảnh",
         "series": "Series",
         "episodes": "Episodes",
-        "songs": "Songs"
+        "songs": "Bài hát"
     },
     "esphome": {
         "offline": "Offline",
         "offline_alt": "Offline",
         "online": "Online",
         "total": "Total",
-        "unknown": "Unknown"
+        "unknown": "Không xác định"
     },
     "evcc": {
         "pv_power": "Production",
-        "battery_soc": "Battery",
-        "grid_power": "Grid",
+        "battery_soc": "Pin",
+        "grid_power": "Lưới",
         "home_power": "Consumption",
-        "charge_power": "Charger",
+        "charge_power": "Bộ sạc",
         "kilowatt": "kW"
     },
     "flood": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
+        "download": "Tải xuống",
+        "upload": "Tải lên",
+        "leech": "",
         "seed": "Seed"
     },
     "freshrss": {
-        "subscriptions": "Subscriptions",
-        "unread": "Unread"
+        "subscriptions": "Đăng ký",
+        "unread": "Chưa đọc"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
-        "connectionStatusUnconfigured": "Unconfigured",
-        "connectionStatusConnecting": "Connecting",
-        "connectionStatusAuthenticating": "Authenticating",
-        "connectionStatusPendingDisconnect": "Pending Disconnect",
-        "connectionStatusDisconnecting": "Disconnecting",
-        "connectionStatusDisconnected": "Disconnected",
-        "connectionStatusConnected": "Connected",
-        "uptime": "Uptime",
-        "maxDown": "Max. Down",
-        "maxUp": "Max. Up",
+        "connectionStatus": "Trạng thái",
+        "connectionStatusUnconfigured": "Chưa được cấu hình",
+        "connectionStatusConnecting": "Đang kết nối",
+        "connectionStatusAuthenticating": "Đang uỷ quyền",
+        "connectionStatusPendingDisconnect": "Đang chờ ngắt kết nối",
+        "connectionStatusDisconnecting": "Đang ngắt kết nối",
+        "connectionStatusDisconnected": "Đã ngắt kết nối",
+        "connectionStatusConnected": "Đã kết nối",
+        "uptime": "Thời gian hoạt động",
+        "maxDown": "Tải xuống tối đa",
+        "maxUp": "Tải lên tối đa",
         "down": "Down",
         "up": "Up",
         "received": "Received",
@@ -999,64 +999,64 @@
         "systems": "Systems",
         "up": "Up",
         "down": "Down",
-        "paused": "Paused",
-        "pending": "Pending",
-        "status": "Status",
-        "updated": "Updated",
+        "paused": "Đã tạm dừng",
+        "pending": "Đang xử lý",
+        "status": "Trạng thái",
+        "updated": "Đã cập nhật",
         "cpu": "CPU",
         "memory": "MEM",
-        "disk": "Disk",
+        "disk": "Ổ đĩa",
         "network": "NET"
     },
     "argocd": {
-        "apps": "Apps",
+        "apps": "Ứng dụng",
         "synced": "Synced",
         "outOfSync": "Out Of Sync",
-        "healthy": "Healthy",
+        "healthy": "Ổn định",
         "degraded": "Degraded",
         "progressing": "Progressing",
-        "missing": "Missing",
+        "missing": "Bị thiếu",
         "suspended": "Suspended"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "Đang tải"
     },
     "gitlab": {
-        "groups": "Groups",
-        "issues": "Issues",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "groups": "Nhóm",
+        "issues": "Vấn đề",
+        "merges": "Yêu cầu Hợp nhất",
+        "projects": "Dự án"
     },
     "apcups": {
-        "status": "Status",
-        "load": "Load",
-        "bcharge": "Battery Charge",
-        "timeleft": "Time Left"
+        "status": "Trạng thái",
+        "load": "Đang tải\n",
+        "bcharge": "Sạc pin",
+        "timeleft": "Thời gian còn lại"
     },
     "karakeep": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
-        "tags": "Tags"
+        "bookmarks": "Dấu trang",
+        "favorites": "Mục yêu thích",
+        "archived": "Đã lưu trữ",
+        "highlights": "Tâm điểm",
+        "lists": "Danh sách",
+        "tags": "Thẻ"
     },
     "slskd": {
-        "slskStatus": "Network",
-        "connected": "Connected",
-        "disconnected": "Disconnected",
-        "updateStatus": "Update",
-        "update_yes": "Available",
-        "update_no": "Up to Date",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
-        "sharedFiles": "Files"
+        "slskStatus": "Mạng",
+        "connected": "Đã kết nối",
+        "disconnected": "Mất kết nối",
+        "updateStatus": "Cập nhật",
+        "update_yes": "Khả dụng",
+        "update_no": "Đã cập nhật",
+        "downloads": "Tải xuống",
+        "uploads": "Tải lên",
+        "sharedFiles": "Tập tin"
     },
     "jellystat": {
-        "songs": "Songs",
-        "movies": "Movies",
-        "episodes": "Episodes",
-        "other": "Other"
+        "songs": "Bài hát",
+        "movies": "Phim ảnh",
+        "episodes": "Tập",
+        "other": "Khác"
     },
     "checkmk": {
         "serviceErrors": "Service issues",
@@ -1067,8 +1067,8 @@
         "running": "Running",
         "stopped": "Stopped",
         "down": "Down",
-        "unhealthy": "Unhealthy",
-        "unknown": "Unknown",
+        "unhealthy": "Không ổn định",
+        "unknown": "Không xác định",
         "servers": "Servers",
         "stacks": "Stacks",
         "containers": "Containers"
@@ -1076,18 +1076,18 @@
     "filebrowser": {
         "available": "Available",
         "used": "Used",
-        "total": "Total"
+        "total": "Tổng"
     },
     "wallos": {
-        "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
-        "previousMonthlyCost": "Prev. Month",
-        "nextRenewingSubscription": "Next Payment"
+        "activeSubscriptions": "Đăng ký",
+        "thisMonthlyCost": "Tháng này",
+        "nextMonthlyCost": "Tháng sau",
+        "previousMonthlyCost": "Tháng trước",
+        "nextRenewingSubscription": "Lần thanh toán kế tiếp"
     },
     "unraid": {
-        "STARTED": "Started",
-        "STOPPED": "Stopped",
+        "STARTED": "Đã bắt đầu",
+        "STOPPED": "Đã dừng",
         "NEW_ARRAY": "New Array",
         "RECON_DISK": "Reconstructing Disk",
         "DISABLE_DISK": "Disk Disabled",
@@ -1096,9 +1096,9 @@
         "PARITY_NOT_BIGGEST": "Parity Not Biggest",
         "TOO_MANY_MISSING_DISKS": "Too Many Missing Disks",
         "NEW_DISK_TOO_SMALL": "New Disk Too Small",
-        "NO_DATA_DISKS": "No Data Disks",
-        "notifications": "Notifications",
-        "status": "Status",
+        "NO_DATA_DISKS": "Không có dữ liệu ổ đĩa",
+        "notifications": "Thông báo",
+        "status": "Trạng thái",
         "cpu": "CPU",
         "memoryUsed": "Memory Used",
         "memoryAvailable": "Memory Available",
@@ -1108,11 +1108,16 @@
         "poolFree": "{{pool}} Free"
     },
     "backrest": {
-        "num_plans": "Plans",
-        "num_success_30": "Successes",
-        "num_failure_30": "Failures",
+        "num_plans": "Các kế hoạch",
+        "num_success_30": "Thành công",
+        "num_failure_30": "Thất bại",
         "num_success_latest": "Succeeding",
         "num_failure_latest": "Failing",
         "bytes_added_30": "Bytes Added"
+    },
+    "yourspotify": {
+        "songs": "Bài hát",
+        "time": "Thời gian",
+        "artists": "Nghệ sĩ"
     }
 }
