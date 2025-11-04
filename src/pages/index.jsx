@@ -425,7 +425,7 @@ function Home({ initialSettings }) {
       <div
         className={classNames(
           settings.fullWidth ? "" : "container",
-          "relative m-auto flex flex-col justify-start z-10 h-full",
+          "relative m-auto flex flex-col justify-start z-10 h-full min-h-screen",
         )}
       >
         <QuickLaunch
