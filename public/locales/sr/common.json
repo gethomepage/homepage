@@ -1114,5 +1114,10 @@
         "num_success_latest": "Успевајући",
         "num_failure_latest": "Неуспешно",
         "bytes_added_30": "Додати бајтови"
+    },
+    "yourspotify": {
+        "songs": "Песме",
+        "time": "Време",
+        "artists": "Извођачи"
     }
 }
