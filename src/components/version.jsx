@@ -55,8 +55,7 @@ export default function Version({ disableUpdateCheck = false }) {
       </span>
       {!validate(version)
         ? null
-        : releaseData &&
-          latestRelease &&
+        : latestRelease &&
           compareVersions(latestRelease.tag_name, version) > 0 && (
             <a
               href={latestRelease.html_url}
