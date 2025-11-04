@@ -1114,5 +1114,10 @@
         "num_success_latest": "성공 중",
         "num_failure_latest": "실패 중",
         "bytes_added_30": "추가된 용량"
+    },
+    "yourspotify": {
+        "songs": "Songs",
+        "time": "Time",
+        "artists": "Artists"
     }
 }
