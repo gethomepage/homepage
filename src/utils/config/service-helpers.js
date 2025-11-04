@@ -254,6 +254,7 @@ export function cleanServiceGroups(groups) {
           // all widgets
           fields,
           hideErrors,
+          highlight,
           type,
 
           // azuredevops
@@ -284,6 +285,7 @@ export function cleanServiceGroups(groups) {
 
           // deluge, qbittorrent
           enableLeechProgress,
+          enableLeechSize,
 
           // diskstation
           volume,
@@ -408,6 +410,9 @@ export function cleanServiceGroups(groups) {
           // wgeasy
           threshold,
 
+          // yourspotify
+          interval,
+
           // technitium
           range,
 
@@ -436,6 +441,21 @@ export function cleanServiceGroups(groups) {
           service_group: serviceGroup.name,
           index,
         };
+
+        if (highlight) {
+          let parsedHighlight = highlight;
+          if (typeof highlight === "string") {
+            try {
+              parsedHighlight = JSON.parse(highlight);
+            } catch (e) {
+              logger.error("Invalid highlight configuration detected in config for service '%s'", service.name);
+              parsedHighlight = null;
+            }
+          }
+          if (parsedHighlight && typeof parsedHighlight === "object") {
+            widget.highlight = parsedHighlight;
+          }
+        }
 
         if (type === "azuredevops") {
           if (userEmail) widget.userEmail = userEmail;
@@ -490,6 +510,7 @@ export function cleanServiceGroups(groups) {
         }
         if (["deluge", "qbittorrent"].includes(type)) {
           if (enableLeechProgress !== undefined) widget.enableLeechProgress = JSON.parse(enableLeechProgress);
+          if (enableLeechSize !== undefined) widget.enableLeechSize = JSON.parse(enableLeechSize);
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) widget.wan = wan;
@@ -622,6 +643,11 @@ export function cleanServiceGroups(groups) {
           if (pool2) widget.pool2 = pool2;
           if (pool3) widget.pool3 = pool3;
           if (pool4) widget.pool4 = pool4;
+        }
+        if (type === "yourspotify") {
+          if (interval !== undefined) {
+            widget.interval = interval;
+          }
         }
         return widget;
       });

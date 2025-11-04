@@ -4,10 +4,10 @@ description: Proxmox Configuration
 ---
 
 The Proxmox connection is configured in the `proxmox.yaml` file. See [Create token](#create-token) section below for details on how to generate the required API token.
-You can configure multiple nodes - be sure to use the exact `proxmoxNode` identifier!
+To configure multiple nodes, ensure the key name in the `proxmox.yaml` matches the `proxmoxNode` field used in your service configuration.
 
 ```yaml
-pve:
+pve: # must match your actual Proxmox node name
   url: https://proxmox.host.or.ip:8006
   token: username@pam!Token ID
   secret: secret

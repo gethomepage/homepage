@@ -113,7 +113,7 @@ export default function Widget({ options }) {
         <Resource
           icon={FaMemory}
           value={t("common.bytes", {
-            value: data.mem.free,
+            value: data.mem.available,
             maximumFractionDigits: 1,
             binary: true,
           })}

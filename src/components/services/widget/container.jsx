@@ -1,7 +1,10 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { SettingsContext } from "utils/contexts/settings";
 
 import Error from "./error";
+import { BlockHighlightContext } from "./highlight-context";
+
+import { buildHighlightConfig } from "utils/highlights";
 
 const ALIASED_WIDGETS = {
   pialert: "netalertx",
@@ -10,6 +13,11 @@ const ALIASED_WIDGETS = {
 
 export default function Container({ error = false, children, service }) {
   const { settings } = useContext(SettingsContext);
+
+  const highlightConfig = useMemo(
+    () => buildHighlightConfig(settings?.blockHighlights, service?.widget?.highlight, service?.widget?.type),
+    [settings?.blockHighlights, service?.widget?.highlight, service?.widget?.type],
+  );
 
   if (error) {
     if (settings.hideErrors || service.widget.hide_errors) {
@@ -51,6 +59,11 @@ export default function Container({ error = false, children, service }) {
       }),
     );
   }
+  const content = <div className="relative flex flex-row w-full service-container">{visibleChildren}</div>;
 
-  return <div className="relative flex flex-row w-full service-container">{visibleChildren}</div>;
+  if (!highlightConfig) {
+    return content;
+  }
+
+  return <BlockHighlightContext.Provider value={highlightConfig}>{content}</BlockHighlightContext.Provider>;
 }

@@ -27,7 +27,7 @@ export default function Component({ service }) {
   useEffect(() => {
     if (data) {
       setDataPoints((prevDataPoints) => {
-        const newDataPoints = [...prevDataPoints, { a: data.used, b: data.free }];
+        const newDataPoints = [...prevDataPoints, { a: data.used, b: data.available }];
         if (newDataPoints.length > pointsLimit) {
           newDataPoints.shift();
         }
@@ -67,10 +67,10 @@ export default function Component({ service }) {
 
       {data && !error && (
         <Block position="bottom-3 left-3">
-          {data.free && chart && (
+          {data.available && chart && (
             <div className="text-xs opacity-50">
               {t("common.bytes", {
-                value: data.free,
+                value: data.available,
                 maximumFractionDigits: 1,
                 binary: true,
               })}{" "}
@@ -93,10 +93,10 @@ export default function Component({ service }) {
 
       {!chart && (
         <Block position="top-3 right-3">
-          {data.free && (
+          {data.available && (
             <div className="text-xs opacity-50">
               {t("common.bytes", {
-                value: data.free,
+                value: data.available,
                 maximumFractionDigits: 1,
                 binary: true,
               })}{" "}

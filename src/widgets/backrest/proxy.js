@@ -24,10 +24,11 @@ function buildResponse(plans) {
 
   plans.forEach((plan) => {
     const statuses = plan?.recentBackups?.status;
+    // See https://github.com/garethgeorge/backrest/blob/4357295a17cb2e71639473c9929a060c4dd1b624/proto/v1/operations.proto#L78-L87
     if (Array.isArray(statuses) && statuses.length > 0) {
       if (statuses[0] === "STATUS_SUCCESS") {
         numSuccessLatest++;
-      } else {
+      } else if (statuses[0] === "STATUS_ERROR") {
         numFailureLatest++;
       }
     }
