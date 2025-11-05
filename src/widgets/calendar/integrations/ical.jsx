@@ -106,13 +106,19 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     };
 
     const eventsToAdd = [];
-    events.forEach((event, index) => {
+    events.forEach((event) => {
       const occurrences = getOcurrencesFromRange(event);
 
       occurrences.forEach((icalDate) => {
         const date = icalDate.toJSDate();
 
-        const hash = simpleHash(`${event.id}-${event.title}-${index}-${date.toString()}`);
+        const occurrenceTimestamp = date.getTime();
+        const eventIdentifier =
+          event.id ??
+          simpleHash(
+            `${event.title ?? ""}-${event.type ?? ""}-${event.status ?? ""}-${event.url ?? ""}-${event.location ?? ""}`,
+          );
+        const hash = simpleHash(`${eventIdentifier}-${occurrenceTimestamp}`);
 
         let title = event.title;
         if (showName) {
