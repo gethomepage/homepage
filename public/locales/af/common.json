@@ -1093,7 +1093,7 @@
         "DISABLE_DISK": "Skyf Gedeaktiveer",
         "SWAP_DSBL": "Ruil Gedeaktiveer",
         "INVALID_EXPANSION": "Ongeldige Uitbreiding",
-        "PARITY_NOT_BIGGEST": "Pariteit nie die grootste nie",
+        "PARITY_NOT_BIGGEST": "Pariteit nie die Grootste nie",
         "TOO_MANY_MISSING_DISKS": "Te Veel Ontbrekende Skywe",
         "NEW_DISK_TOO_SMALL": "Nuwe Skyf te Klein",
         "NO_DATA_DISKS": "Geen Data Skywe",
@@ -1114,5 +1114,10 @@
         "num_success_latest": "Slaag",
         "num_failure_latest": "Mislukking",
         "bytes_added_30": "Grepe bygevoeg"
+    },
+    "yourspotify": {
+        "songs": "Liedjies",
+        "time": "Tyd",
+        "artists": "Kunstenaars"
     }
 }

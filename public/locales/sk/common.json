@@ -955,7 +955,7 @@
         "invalidConfiguration": "Invalid Configuration"
     },
     "frigate": {
-        "cameras": "Cameras",
+        "cameras": "Kamery",
         "uptime": "Dostupnosť",
         "version": "Verzia"
     },
@@ -966,7 +966,7 @@
     },
     "zabbix": {
         "unclassified": "Not classified",
-        "information": "Information",
+        "information": "Informácie",
         "warning": "Warning",
         "average": "Average",
         "high": "High",
@@ -1114,5 +1114,10 @@
         "num_success_latest": "Succeeding",
         "num_failure_latest": "Failing",
         "bytes_added_30": "Bytes Added"
+    },
+    "yourspotify": {
+        "songs": "Songs",
+        "time": "Time",
+        "artists": "Artists"
     }
 }
