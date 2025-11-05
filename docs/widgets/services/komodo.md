@@ -17,6 +17,6 @@ widget:
   url: http://komodo.hostname.or.ip:port
   key: K-xxxxxx...
   secret: S-xxxxxx...
-  showSummary: true # optional, default: false
+  showSummary: true # optional, default: false. Takes precedence over showStacks
   showStacks: true # optional, default: false
 ```
