@@ -32,7 +32,7 @@ export default function Component({ service }) {
 
   if (
     (!widget.showStacks && !containersData) ||
-    (widget.showSummary && (!stacksData || !serversData)) ||
+    (widget.showSummary && (!containersData || !stacksData || !serversData)) ||
     (widget.showStacks && !stacksData)
   ) {
     return widget.showSummary ? (
