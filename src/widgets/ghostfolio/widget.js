@@ -16,7 +16,7 @@ const widget = {
     },
     userInfo: {
       endpoint: "api/v1/user",
-    },    
+    },
   },
 };
 
