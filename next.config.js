@@ -9,6 +9,14 @@ const nextConfig = {
     unoptimized: true,
   },
   i18n,
+  async rewrites() {
+    return [
+      {
+        source: "/robots.txt",
+        destination: "/api/robots.txt",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

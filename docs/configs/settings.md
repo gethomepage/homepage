@@ -571,3 +571,19 @@ or per service widget (`services.yaml`) with:
 ```
 
 If either value is set to true, the error message will be hidden.
+
+## Disable Search Engine Indexing
+
+You can prevent search engines from indexing your Homepage instance by enabling the `disableIndexing` setting. This
+is useful for publicly accessible instances that you don't want appearing in search results.
+
+```yaml
+disableIndexing: true
+```
+
+When enabled, this will:
+
+- Generate a `robots.txt` file at `/robots.txt` that disallows all crawlers
+- Add `<meta name="robots" content="noindex, nofollow">` tags to prevent indexing
+
+By default this is disabled, allowing search engines to index your Homepage.
