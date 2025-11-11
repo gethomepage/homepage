@@ -14,6 +14,12 @@ export default function Component({ service }) {
     return <Container service={service} error={resultError} />;
   }
 
+  if (!widget.fields || widget.fields.length === 0) {
+    widget.fields = ["online", "offline", "offline_alt", "total"];
+  } else if (widget.fields.length > 4) {
+    widget.fields = widget.fields.slice(0, 4);
+  }
+
   if (!resultData) {
     return (
       <Container service={service}>
