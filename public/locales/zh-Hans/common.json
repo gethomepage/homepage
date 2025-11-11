@@ -200,10 +200,10 @@
     "rutorrent": {
         "active": "活动中",
         "upload": "Upload",
-        "download": "Download"
+        "download": "下载"
     },
     "transmission": {
-        "download": "Download",
+        "download": "下载",
         "upload": "",
         "leech": "Leech",
         "seed": "Seed"
@@ -223,8 +223,8 @@
         "invalid": "Invalid"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "下载",
+        "upload": "上传",
         "leech": "Leech",
         "seed": "Seed"
     },
