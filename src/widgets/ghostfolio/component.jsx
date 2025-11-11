@@ -20,11 +20,13 @@ function getPerformancePercent(t, performanceRange) {
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
+  const hasNetWorthField = widget.fields?.includes("net_worth");
 
   const { data: performanceToday, error: ghostfolioErrorToday } = useWidgetAPI(widget, "today");
   const { data: performanceYear, error: ghostfolioErrorYear } = useWidgetAPI(widget, "year");
   const { data: performanceMax, error: ghostfolioErrorMax } = useWidgetAPI(widget, "max");
-  const { data: userInfo, error: ghostfolioErrorUserInfo } = useWidgetAPI(widget, "userInfo");
+  // Only run the hook if "net_worth" is included in the fields due to this being a new API call - 11/11/2025 qmph22
+  const { data: userInfo, error: ghostfolioErrorUserInfo } = useWidgetAPI(widget, hasNetWorthField ? "userInfo" : "");
 
   if (ghostfolioErrorToday || ghostfolioErrorYear || ghostfolioErrorMax || ghostfolioErrorUserInfo) {
     const finalError = ghostfolioErrorToday ?? ghostfolioErrorYear ?? ghostfolioErrorMax ?? ghostfolioErrorUserInfo;
@@ -35,7 +37,7 @@ export default function Component({ service }) {
     return <Container service={service} error={performanceToday} />;
   }
 
-  if (!performanceToday || !performanceYear || !performanceMax || !userInfo) {
+  if (!performanceToday || !performanceYear || !performanceMax || (hasNetWorthField && !userInfo)) {
     return (
       <Container service={service}>
         <Block label="ghostfolio.gross_percent_today" />
