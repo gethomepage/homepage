@@ -51,6 +51,8 @@ COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static
 
 RUN apk add --no-cache su-exec iputils-ping shadow
 
+USER root
+
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
