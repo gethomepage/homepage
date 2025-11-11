@@ -3,7 +3,7 @@ title: Omada
 description: Omada Widget Configuration
 ---
 
-The widget supports controller versions 3, 4 and 5.
+The widget supports controller versions 3, 4, 5 and 6.
 
 Allowed fields: `["connectedAp", "activeUser", "alerts", "connectedGateways", "connectedSwitches"]`.
 
