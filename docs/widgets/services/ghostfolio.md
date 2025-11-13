@@ -15,7 +15,7 @@ See the [official docs](https://github.com/ghostfolio/ghostfolio#authorization-b
 
 _Note that the Bearer token is valid for 6 months, after which a new one must be generated._
 
-Allowed fields: `["gross_percent_today", "gross_percent_1y", "gross_percent_max"]`
+Allowed fields: `["gross_percent_today", "gross_percent_1y", "gross_percent_max", "net_worth"]`
 
 ```yaml
 widget:

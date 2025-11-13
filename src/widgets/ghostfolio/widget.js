@@ -1,18 +1,21 @@
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
-  api: "{url}/api/v2/portfolio/performance?range={endpoint}",
+  api: "{url}/api/{endpoint}",
   proxyHandler: credentialedProxyHandler,
 
   mappings: {
     today: {
-      endpoint: "1d",
+      endpoint: "v2/portfolio/performance?range=1d",
     },
     year: {
-      endpoint: "1y",
+      endpoint: "v2/portfolio/performance?range=1y",
     },
     max: {
-      endpoint: "max",
+      endpoint: "v2/portfolio/performance?range=max",
+    },
+    userInfo: {
+      endpoint: "v1/user",
     },
   },
 };
