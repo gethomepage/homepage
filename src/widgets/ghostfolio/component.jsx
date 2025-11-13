@@ -43,7 +43,7 @@ export default function Component({ service }) {
         <Block label="ghostfolio.gross_percent_today" />
         <Block label="ghostfolio.gross_percent_1y" />
         <Block label="ghostfolio.gross_percent_max" />
-        <Block label="ghostfolio.net_worth" />
+        {hasNetWorthField && <Block label="ghostfolio.net_worth" />}
       </Container>
     );
   }
@@ -53,10 +53,12 @@ export default function Component({ service }) {
       <Block label="ghostfolio.gross_percent_today" value={getPerformancePercent(t, performanceToday)} />
       <Block label="ghostfolio.gross_percent_1y" value={getPerformancePercent(t, performanceYear)} />
       <Block label="ghostfolio.gross_percent_max" value={getPerformancePercent(t, performanceMax)} />
-      <Block
-        label="ghostfolio.net_worth"
-        value={`${performanceToday.performance.currentNetWorth.toFixed(2)} ${userInfo?.settings?.currency ?? ""}`}
-      />
+      {hasNetWorthField && (
+        <Block
+          label="ghostfolio.net_worth"
+          value={`${performanceToday.performance.currentNetWorth.toFixed(2)} ${userInfo?.settings?.currency ?? ""}`}
+        />
+      )}
     </Container>
   );
 }
