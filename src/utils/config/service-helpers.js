@@ -383,6 +383,7 @@ export function cleanServiceGroups(groups) {
 
           // speedtest
           bitratePrecision,
+          pingPrecision,
 
           // sonarr, radarr
           enableQueue,
@@ -604,6 +605,9 @@ export function cleanServiceGroups(groups) {
         if (type === "speedtest") {
           if (bitratePrecision !== undefined) {
             widget.bitratePrecision = parseInt(bitratePrecision, 10);
+          }
+          if (pingPrecision !== undefined) {
+            widget.pingPrecision = parseInt(pingPrecision, 10);
           }
         }
         if (type === "stocks") {

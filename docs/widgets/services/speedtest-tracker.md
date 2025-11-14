@@ -24,4 +24,5 @@ widget:
   version: 1 # optional, default is 1
   key: speedtestapikey # required for version 2
   bitratePrecision: 3 # optional, default is 0
+  pingPrecision: 3 # optional, default is 0
 ```

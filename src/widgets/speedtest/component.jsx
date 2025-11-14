@@ -17,6 +17,11 @@ export default function Component({ service }) {
       ? 0
       : widget.bitratePrecision;
 
+  const pingPrecision =
+    !widget?.pingPrecision || Number.isNaN(widget?.pingPrecision) || widget?.pingPrecision < 0
+      ? 0
+      : widget.pingPrecision;
+
   if (speedtestError || speedtestData?.error) {
     return <Container service={service} error={speedtestError ?? speedtestData.error} />;
   }
@@ -52,6 +57,7 @@ export default function Component({ service }) {
         value={t("common.ms", {
           value: speedtestData.data.ping,
           style: "unit",
+          decimals: pingPrecision,
           unit: "millisecond",
         })}
       />
