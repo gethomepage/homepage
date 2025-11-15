@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import { useContext } from "react";
 import Item from "components/services/item";
+import { useContext } from "react";
 import { LabelFilterContext } from "utils/contexts/label-filter";
 
 import { columnMap } from "../../utils/layout/columns";
@@ -10,10 +10,7 @@ export default function List({ groupName, services, layout, useEqualHeights, hea
 
   const filteredServices = activeLabelSlug
     ? services.filter((service) => {
-        return (
-          service.labels &&
-          service.labels.some((label) => label.slug === activeLabelSlug)
-        );
+        return service.labels && service.labels.some((label) => label.slug === activeLabelSlug);
       })
     : services;
 

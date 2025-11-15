@@ -19,4 +19,3 @@ export function LabelFilterProvider({ children }) {
 
   return <LabelFilterContext.Provider value={value}>{children}</LabelFilterContext.Provider>;
 }
-

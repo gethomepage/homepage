@@ -26,10 +26,7 @@ export default function ServicesGroup({
 
   // Filter services and nested groups when a label filter is active
   const hasMatchingServices = activeLabelSlug
-    ? group.services.some(
-        (service) =>
-          service.labels && service.labels.some((label) => label.slug === activeLabelSlug),
-      )
+    ? group.services.some((service) => service.labels && service.labels.some((label) => label.slug === activeLabelSlug))
     : true;
 
   const hasMatchingSubgroups =
@@ -37,8 +34,7 @@ export default function ServicesGroup({
     (group.groups?.length > 0 &&
       group.groups.some((subgroup) =>
         subgroup.services.some(
-          (service) =>
-            service.labels && service.labels.some((label) => label.slug === activeLabelSlug),
+          (service) => service.labels && service.labels.some((label) => label.slug === activeLabelSlug),
         ),
       ));
 

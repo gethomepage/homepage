@@ -126,7 +126,7 @@ export function getContrastTextColor(backgroundColor) {
   // First resolve theme color names to actual colors
   const resolvedColor = resolveColor(backgroundColor) || backgroundColor;
   const rgb = parseColor(resolvedColor);
-  
+
   if (!rgb) {
     // Default to white if color parsing fails
     return "white";
@@ -139,4 +139,3 @@ export function getContrastTextColor(backgroundColor) {
   // Colors with luminance <= 0.5 are dark, use white text
   return luminance > 0.5 ? "black" : "white";
 }
-
