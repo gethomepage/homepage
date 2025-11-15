@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Один рік",
-        "gross_percent_max": "Весь час"
+        "gross_percent_max": "Весь час",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Подкасти",

@@ -362,8 +362,8 @@
     },
     "trilium": {
         "version": "Verzia",
-        "notesCount": "Notes",
-        "dbSize": "Database Size",
+        "notesCount": "Poznámky",
+        "dbSize": "Veľkosť databázy",
         "unknown": "Neznáme"
     },
     "navidrome": {
@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Dnes",
         "gross_percent_1y": "Jeden rok",
-        "gross_percent_max": "Za celý čas"
+        "gross_percent_max": "Za celý čas",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcasty",
@@ -1065,13 +1066,13 @@
     "komodo": {
         "total": "Celkom",
         "running": "Beží",
-        "stopped": "Stopped",
+        "stopped": "Zastavené",
         "down": "Down",
         "unhealthy": "Nezdravý",
         "unknown": "Neznáme",
-        "servers": "Servers",
+        "servers": "Servery",
         "stacks": "Stacks",
-        "containers": "Containers"
+        "containers": "Kontajnery"
     },
     "filebrowser": {
         "available": "Dostupné",
@@ -1080,8 +1081,8 @@
     },
     "wallos": {
         "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
+        "thisMonthlyCost": "Tento mesiac",
+        "nextMonthlyCost": "Ďalší mesiac",
         "previousMonthlyCost": "Prev. Month",
         "nextRenewingSubscription": "Next Payment"
     },

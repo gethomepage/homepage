@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Ett år",
-        "gross_percent_max": "Gjennom tidene"
+        "gross_percent_max": "Gjennom tidene",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podkaster",
