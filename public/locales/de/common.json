@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Heute",
         "gross_percent_1y": "Ein Jahr",
-        "gross_percent_max": "Gesamt"
+        "gross_percent_max": "Gesamt",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
