@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
 import { useContext, useState } from "react";
+import { LabelFilterContext } from "utils/contexts/label-filter";
 import { SettingsContext } from "utils/contexts/settings";
 import { getContrastTextColor, resolveColor } from "utils/color-contrast";
 import Docker from "widgets/docker/component";
@@ -17,6 +18,7 @@ import Widget from "./widget";
 export default function Item({ service, groupName, useEqualHeights }) {
   const hasLink = service.href && service.href !== "#";
   const { settings } = useContext(SettingsContext);
+  const { activeLabelSlug, toggleLabelFilter } = useContext(LabelFilterContext);
   const showStats = service.showStats === false ? false : settings.showStats;
   const statusStyle = service.statusStyle !== undefined ? service.statusStyle : settings.statusStyle;
   const [statsOpen, setStatsOpen] = useState(service.showStats);
@@ -196,10 +198,20 @@ export default function Item({ service, groupName, useEqualHeights }) {
               const slugClass = label.slug ? `service-label-${String(label.slug).toLowerCase().replace(/[^a-z0-9-]/g, "-")}` : `service-label-${index}`;
               const resolvedColor = resolveColor(label.color) || label.color;
               const textColor = getContrastTextColor(resolvedColor);
+              const isActive = activeLabelSlug === label.slug;
               return (
-                <div
+                <button
                   key={index}
-                  className={`shrink-0 flex items-center justify-center rounded-sm service-tag service-label ${slugClass}`}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleLabelFilter(label.slug);
+                  }}
+                  className={classNames(
+                    "shrink-0 flex items-center justify-center rounded-sm service-tag service-label cursor-pointer transition-all",
+                    slugClass,
+                    isActive ? "ring-2 ring-offset-1 ring-theme-500 dark:ring-theme-400" : "hover:opacity-80",
+                  )}
                   style={{ backgroundColor: resolvedColor }}
                   title={label.description}
                 >
@@ -209,7 +221,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
                   >
                     {label.slug}
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>

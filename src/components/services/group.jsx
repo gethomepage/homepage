@@ -2,8 +2,9 @@ import { Disclosure, Transition } from "@headlessui/react";
 import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
 import List from "components/services/list";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { LabelFilterContext } from "utils/contexts/label-filter";
 
 import { columnMap } from "../../utils/layout/columns";
 
@@ -17,10 +18,34 @@ export default function ServicesGroup({
   isSubgroup,
 }) {
   const panel = useRef();
+  const { activeLabelSlug } = useContext(LabelFilterContext);
 
   useEffect(() => {
     if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
   }, [layout, groupsInitiallyCollapsed]);
+
+  // Filter services and nested groups when a label filter is active
+  const hasMatchingServices = activeLabelSlug
+    ? group.services.some(
+        (service) =>
+          service.labels && service.labels.some((label) => label.slug === activeLabelSlug),
+      )
+    : true;
+
+  const hasMatchingSubgroups =
+    !activeLabelSlug ||
+    (group.groups?.length > 0 &&
+      group.groups.some((subgroup) =>
+        subgroup.services.some(
+          (service) =>
+            service.labels && service.labels.some((label) => label.slug === activeLabelSlug),
+        ),
+      ));
+
+  // Hide group if it has no matching services or subgroups when filtering
+  if (activeLabelSlug && !hasMatchingServices && !hasMatchingSubgroups) {
+    return null;
+  }
 
   let groupPadding = layout?.header === false ? "px-1" : "p-1 pb-0";
   if (isSubgroup) groupPadding = "";
