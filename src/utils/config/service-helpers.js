@@ -247,6 +247,8 @@ export function cleanServiceGroups(groups) {
         cleanedService.widgets.push(cleanedService.widget);
         delete cleanedService.widget;
       }
+      if (!cleanedService.labels) cleanedService.labels = [];
+      if (!Array.isArray(cleanedService.labels)) cleanedService.labels = [];
       cleanedService.widgets = cleanedService.widgets.map((widgetData, index) => {
         // whitelisted set of keys to pass to the frontend
         // alphabetical, grouped by widget(s)

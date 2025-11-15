@@ -154,6 +154,12 @@ services:
       - homepage.icon=emby.png
       - homepage.href=http://emby.home/
       - homepage.description=Media server
+      - homepage.labels[0].color=#ff0000
+      - homepage.labels[0].slug=production
+      - homepage.labels[0].description=Production environment
+      - homepage.labels[1].color=#00ff00
+      - homepage.labels[1].slug=monitored
+      - homepage.labels[1].description=Monitored service
 ```
 
 When your Docker instance has been properly configured, this service will be automatically discovered and added to your Homepage. **You do not need to specify the `server` or `container` values, as they will be automatically inferred.**
@@ -205,6 +211,27 @@ labels:
   - homepage.widget.mappings[1].label=Latest Version
   - homepage.widget.mappings[1].field.status=latest_version
 ```
+
+## Labels
+
+You may also configure labels for services using array notation, similar to widgets:
+
+```yaml
+labels:
+  - homepage.group=Media
+  - homepage.name=Emby
+  - homepage.icon=emby.png
+  - homepage.href=http://emby.home/
+  - homepage.description=Media server
+  - homepage.labels[0].color=#ff0000
+  - homepage.labels[0].slug=production
+  - homepage.labels[0].description=Production environment
+  - homepage.labels[1].color=#00ff00
+  - homepage.labels[1].slug=monitored
+  - homepage.labels[1].description=Monitored service
+```
+
+Each label requires a `color` (hex, rgb, or CSS color name), `slug` (text identifier), and `description` (hover text). Labels are displayed as colored badges in the top-right corner of the service card.
 
 ## Docker Swarm
 

@@ -269,6 +269,47 @@ Services may have an optional `siteMonitor` property (formerly `ping`) that allo
 
 You can also apply different styles to the site monitor indicator by using the `statusStyle` property, see [settings](settings.md#status-style).
 
+## Labels
+
+Services may have optional `labels` that display colored badges with a slug and description. Labels are displayed in the top-right corner of the service card alongside other status indicators.
+
+Each label requires:
+- `color`: A color value (hex, rgb, CSS color name, or homepage theme color name) used as the background color. You can use homepage theme color names like `red`, `blue`, `yellow`, `green`, `orange`, `purple`, `pink`, `amber`, `lime`, `emerald`, `teal`, `cyan`, `sky`, `indigo`, `violet`, `fuchsia`, `rose`, `slate`, `gray`, `zinc`, `neutral`, `stone`, or `white`.
+- `slug`: A text identifier displayed on the label
+- `description`: Text shown when hovering over the label
+
+The text color (white or black) is automatically determined based on the background color brightness for optimal readability.
+
+```yaml
+- Group A:
+    - Sonarr:
+        icon: sonarr.png
+        href: http://sonarr.host/
+        description: Series management
+        labels:
+          - color: "red"
+            slug: "production"
+            description: "Production environment"
+          - color: "green"
+            slug: "monitored"
+            description: "Monitored service"
+
+- Group B:
+    - Radarr:
+        icon: radarr.png
+        href: http://radarr.host/
+        description: Movie management
+        labels:
+          - color: "blue"
+            slug: "staging"
+            description: "Staging environment"
+          - color: "#ffd700"
+            slug: "custom"
+            description: "Custom hex color"
+```
+
+Labels support custom CSS styling. You can target all labels with `.service-label`, specific labels by slug with `.service-label-{slug}`, or labels for a specific service using `.service[data-name="ServiceName"] .service-label`.
+
 ## Docker Integration
 
 Services may be connected to a Docker container, either running on the local machine, or a remote machine.

@@ -2,6 +2,7 @@ import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
 import { useContext, useState } from "react";
 import { SettingsContext } from "utils/contexts/settings";
+import { getContrastTextColor, resolveColor } from "utils/color-contrast";
 import Docker from "widgets/docker/component";
 import Kubernetes from "widgets/kubernetes/component";
 import ProxmoxVM from "widgets/proxmoxvm/component";
@@ -188,6 +189,31 @@ export default function Item({ service, groupName, useEqualHeights }) {
         {service.widgets.map((widget) => (
           <Widget widget={widget} service={service} key={widget.index} />
         ))}
+
+        {service.labels && service.labels.length > 0 && (
+          <div className="flex flex-row-reverse flex-wrap justify-end gap-1 mt-2 m-1 service-labels">
+            {service.labels.map((label, index) => {
+              const slugClass = label.slug ? `service-label-${String(label.slug).toLowerCase().replace(/[^a-z0-9-]/g, "-")}` : `service-label-${index}`;
+              const resolvedColor = resolveColor(label.color) || label.color;
+              const textColor = getContrastTextColor(resolvedColor);
+              return (
+                <div
+                  key={index}
+                  className={`shrink-0 flex items-center justify-center rounded-sm service-tag service-label ${slugClass}`}
+                  style={{ backgroundColor: resolvedColor }}
+                  title={label.description}
+                >
+                  <div
+                    className="text-[8px] font-bold uppercase px-1.5 py-0.5"
+                    style={{ color: textColor === "white" ? "#ffffff" : "#000000" }}
+                  >
+                    {label.slug}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </li>
   );
