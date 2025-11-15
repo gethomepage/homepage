@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
 import { useContext, useState } from "react";
-import { getContrastTextColor, resolveColor } from "utils/color-contrast";
 import { LabelFilterContext } from "utils/contexts/label-filter";
 import { SettingsContext } from "utils/contexts/settings";
 import Docker from "widgets/docker/component";
@@ -14,6 +13,8 @@ import ProxmoxStatus from "./proxmox-status";
 import SiteMonitor from "./site-monitor";
 import Status from "./status";
 import Widget from "./widget";
+
+import { getContrastTextColor, resolveColor } from "utils/color-contrast";
 
 export default function Item({ service, groupName, useEqualHeights }) {
   const hasLink = service.href && service.href !== "#";
