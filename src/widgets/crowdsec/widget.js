@@ -9,6 +9,9 @@ const widget = {
     alerts: {
       endpoint: "alerts",
     },
+    alerts24h: {
+      endpoint: "alerts?limit=0&since=24h",
+    },
     bans: {
       endpoint: "alerts?decision_type=ban&origin=crowdsec&has_active_decision=1",
     },
