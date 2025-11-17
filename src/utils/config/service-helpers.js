@@ -279,6 +279,9 @@ export function cleanServiceGroups(groups) {
           slugs,
           symbols,
 
+          // crowdsec
+          limit24h,
+
           // customapi
           mappings,
           display,
@@ -471,6 +474,10 @@ export function cleanServiceGroups(groups) {
           if (symbols) widget.symbols = symbols;
           if (slugs) widget.slugs = slugs;
           if (defaultinterval) widget.defaultinterval = defaultinterval;
+        }
+
+        if (limit24h !== undefined) {
+          widget.limit24h = !!limit24h;
         }
 
         if (type === "docker") {

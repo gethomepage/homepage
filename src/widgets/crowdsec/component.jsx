@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: alerts, error: alertsError } = useWidgetAPI(widget, "alerts");
+  const { data: alerts, error: alertsError } = useWidgetAPI(widget, !!widget.limit24h ? "alerts24h" : "alerts");
   const { data: bans, error: bansError } = useWidgetAPI(widget, "bans");
 
   if (alertsError || bansError) {
