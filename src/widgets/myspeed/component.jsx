@@ -24,9 +24,9 @@ export default function Component({ service }) {
   if (!data || (data && data.length === 0)) {
     return (
       <Container service={service}>
-        <Block label="myspeed.ping" />
         <Block label="myspeed.download" />
         <Block label="myspeed.upload" />
+        <Block label="myspeed.ping" />
       </Container>
     );
   }
