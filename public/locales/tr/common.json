@@ -588,7 +588,11 @@
         "signalQuality": "Kalite",
         "symbolQuality": "Kalite",
         "networkRate": "Bit Oranı",
-        "clientIP": "Alıcı"
+        "clientIP": "Alıcı",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "Geçti",

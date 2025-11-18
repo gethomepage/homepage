@@ -588,7 +588,11 @@
         "signalQuality": "Количина",
         "symbolQuality": "Количина",
         "networkRate": "Проток",
-        "clientIP": "Клијент"
+        "clientIP": "Клијент",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "Пређено",

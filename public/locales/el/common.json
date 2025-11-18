@@ -588,7 +588,11 @@
         "signalQuality": "Ποιότητα",
         "symbolQuality": "Quality",
         "networkRate": "Bitrate",
-        "clientIP": "Πελάτης"
+        "clientIP": "Πελάτης",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "Passed",

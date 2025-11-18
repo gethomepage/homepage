@@ -588,7 +588,11 @@
         "signalQuality": "Kwaliteit",
         "symbolQuality": "Kwaliteit",
         "networkRate": "Bistempo",
-        "clientIP": "Kliënt"
+        "clientIP": "Kliënt",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "Geslaag",

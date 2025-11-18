@@ -588,7 +588,11 @@
         "signalQuality": "신호 품질",
         "symbolQuality": "심볼 품질",
         "networkRate": "비트레이트",
-        "clientIP": "클라이언트"
+        "clientIP": "클라이언트",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "통과",

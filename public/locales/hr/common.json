@@ -588,7 +588,11 @@
         "signalQuality": "Kvaliteta",
         "symbolQuality": "Kvaliteta",
         "networkRate": "Stopa bitova",
-        "clientIP": "Klijent"
+        "clientIP": "Klijent",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "Uspjelo",

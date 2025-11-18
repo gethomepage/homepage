@@ -588,7 +588,11 @@
         "signalQuality": "Качество",
         "symbolQuality": "Quality",
         "networkRate": "Bitrate",
-        "clientIP": "Клиент"
+        "clientIP": "Клиент",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "Одобрени",

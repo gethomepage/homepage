@@ -378,7 +378,11 @@
     },
     "hdhomerun": {
         "channels": "Channels",
-        "hd": "HD"
+        "hd": "HD",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "ping": {
         "error": "Error",

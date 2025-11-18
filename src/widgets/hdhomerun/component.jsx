@@ -5,7 +5,7 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { widget } = service;
-  const { tuner = 0 } = widget;
+  const { tuner = 0 } = widget
 
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "lineup");
   const { data: statusData, error: statusError } = useWidgetAPI(widget, "status");
@@ -48,6 +48,25 @@ export default function Component({ service }) {
       <Block label="hdhomerun.symbolQuality" value={statusData[tuner]?.SymbolQualityPercent ?? null} />
       <Block label="hdhomerun.clientIP" value={statusData[tuner]?.TargetIP ?? null} />
       <Block label="hdhomerun.networkRate" value={statusData[tuner]?.NetworkRate ?? null} />
+      <Block label="hdhomerun.tunerone" value={formatTunerStatus(statusData, 0)} />
+      <Block label="hdhomerun.tunertwo" value={formatTunerStatus(statusData, 1)} />
+      <Block label="hdhomerun.tunerthree" value={formatTunerStatus(statusData, 2)} />
+      <Block label="hdhomerun.tunerfour" value={formatTunerStatus(statusData, 3)} />
     </Container>
   );
+}
+
+function formatTunerStatus(statusData, tunerId) {
+  const tuner = statusData[tunerId];
+  if (!tuner) return "";
+
+  const vctNumber = tuner?.VctNumber ?? "";
+  const vctName = tuner?.VctName ?? "";
+  const vctFrequency = tuner?.Frequency ?? "-"
+  vctFrequency = vctFrequency !== "-" ? `${(Number(vctFrequency/1000000)).toFixed(0)} MHz`: "-";  
+  
+  // Conditional: if vctName is empty, use frequency + signalStrength
+  return vctName === ""
+    ? `${vctFrequency}`
+    : `${vctNumber} ${vctName}`;
 }

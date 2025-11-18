@@ -588,7 +588,11 @@
         "signalQuality": "Calidad",
         "symbolQuality": "Calidad",
         "networkRate": "Tasa de bits",
-        "clientIP": "Cliente"
+        "clientIP": "Cliente",
+        "tunerone": "#1",
+        "tunertwo": "#2",
+        "tunerthree": "#3",
+        "tunerfour": "#4"
     },
     "scrutiny": {
         "passed": "Aprobado",
