@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "سنة",
-        "gross_percent_max": "كل الوقت"
+        "gross_percent_max": "كل الوقت",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "بودكاست",
