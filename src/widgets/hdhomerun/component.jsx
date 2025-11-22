@@ -5,7 +5,7 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
   const { widget } = service;
-  const { tuner = 0 } = widget
+  const { tuner = 0 } = widget;
 
   const { data: channelsData, error: channelsError } = useWidgetAPI(widget, "lineup");
   const { data: statusData, error: statusError } = useWidgetAPI(widget, "status");
@@ -62,11 +62,9 @@ function formatTunerStatus(statusData, tunerId) {
 
   const vctNumber = tuner?.VctNumber ?? "";
   const vctName = tuner?.VctName ?? "";
-  const vctFrequency = tuner?.Frequency ?? "-"
-  vctFrequency = vctFrequency !== "-" ? `${(Number(vctFrequency/1000000)).toFixed(0)} MHz`: "-";  
-  
+  const vctFrequency = tuner?.Frequency ?? "-";
+  vctFrequency = vctFrequency !== "-" ? `${Number(vctFrequency / 1000000).toFixed(0)} MHz` : "-";
+
   // Conditional: if vctName is empty, use frequency + signalStrength
-  return vctName === ""
-    ? `${vctFrequency}`
-    : `${vctNumber} ${vctName}`;
+  return vctName === "" ? `${vctFrequency}` : `${vctNumber} ${vctName}`;
 }
