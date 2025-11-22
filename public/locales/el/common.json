@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Ένας χρόνος",
-        "gross_percent_max": "Διαχρονικά"
+        "gross_percent_max": "Διαχρονικά",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",

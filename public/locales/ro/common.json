@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Un an",
-        "gross_percent_max": "Tot timpul"
+        "gross_percent_max": "Tot timpul",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcasturi",

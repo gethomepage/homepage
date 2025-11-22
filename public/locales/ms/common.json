@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Satu tahun",
-        "gross_percent_max": "Sepanjang masa"
+        "gross_percent_max": "Sepanjang masa",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podkas",

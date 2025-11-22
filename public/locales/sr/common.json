@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Данас",
         "gross_percent_1y": "Једна година",
-        "gross_percent_max": "Све време"
+        "gross_percent_max": "Све време",
+        "net_worth": "Нето вредност"
     },
     "audiobookshelf": {
         "podcasts": "Подкасти",
