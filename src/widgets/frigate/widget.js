@@ -1,5 +1,6 @@
-import { asJson } from "utils/proxy/api-helpers";
 import frigateProxyHandler from "./proxy";
+
+import { asJson } from "utils/proxy/api-helpers";
 
 const widget = {
   api: "{url}/api/{endpoint}",
