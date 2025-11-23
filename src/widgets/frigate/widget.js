@@ -1,9 +1,9 @@
 import { asJson } from "utils/proxy/api-helpers";
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import frigateProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}/api/{endpoint}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: frigateProxyHandler,
 
   mappings: {
     stats: {
