@@ -15,5 +15,5 @@ widget:
   url: http://frigate.host.or.ip:port
   enableRecentEvents: true # Optional, defaults to false
   username: username # optional
-  password: password  # optional
+  password: password # optional
 ```
