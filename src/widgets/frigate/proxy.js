@@ -118,7 +118,6 @@ export default async function frigateProxyHandler(req, res, map) {
         });
       }
 
-      logger.error(data);
       return res.status(status).send(data);
     }
   }
