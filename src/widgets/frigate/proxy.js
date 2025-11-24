@@ -1,6 +1,6 @@
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { asJson, formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
 import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
 import { httpProxy } from "utils/proxy/http";
 import validateWidgetData from "utils/proxy/validate-widget-data";
@@ -93,8 +93,29 @@ export default async function frigateProxyHandler(req, res, map) {
         return res.status(status).json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: data } });
       }
 
-      if (map) data = map(data); // TODO: Move those from widget.js to here
-      return res.status(status).send(data);
+      data = asJson(data);
+
+      if (endpoint == "stats") {
+        res.status(status).send({
+          num_cameras: data?.cameras !== undefined ? Object.keys(data?.cameras).length : 0,
+          uptime: data?.service?.uptime,
+          version: data?.service.version,
+        });
+      }
+
+      if (endpoint == "events") {
+        return res.status(status).send(
+          data.slice(0, 5).map((event) => ({
+            id: event.id,
+            camera: event.camera,
+            label: event.label,
+            start_time: new Date(event.start_time * 1000),
+            thumbnail: event.thumbnail,
+            score: event.data.score,
+            type: event.data.type,
+          })),
+        );
+      }
     }
   }
 
