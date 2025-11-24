@@ -39,16 +39,7 @@ export default async function frigateProxyHandler(req, res, map) {
         resultData.error.url = sanitizeErrorURL(url);
       }
 
-      if (status === 200) {
-        if (!validateWidgetData(widget, endpoint, data)) {
-          return res
-            .status(status)
-            .json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: data } });
-        }
-        if (map) data = map(data);
-      }
-
-      if (status == 401) {
+      if (status === 401) {
         if (widget.username || widget.password)
           [status, contentType, data, responseHeaders] = await tryLogin(
             loginUrl,
@@ -57,27 +48,7 @@ export default async function frigateProxyHandler(req, res, map) {
             service,
           );
 
-        if (status === 200) {
-          addCookieToJar(url, responseHeaders);
-          setCookieHeader(url, params);
-          [status, , data] = await httpProxy(url, params);
-        } else if (status === 401) {
-          logger.debug(
-            "Invalid credentials (HTTP %d) used to log into Frigate on %s//%s%s%s...",
-            status,
-            url.protocol,
-            url.hostname,
-            url.port ? `:${url.port}` : "",
-            url.pathname,
-          );
-          return res.status(status).json({
-            error: {
-              message: `HTTP Error ${status} - Invalid credentials provided`,
-              url: sanitizeErrorURL(url),
-              data: Buffer.isBuffer(data) ? Buffer.from(data).toString() : data,
-            },
-          });
-        } else {
+        if (status !== 200) {
           logger.debug(
             "HTTP Error %d calling %s//%s%s%s...",
             status,
@@ -94,7 +65,13 @@ export default async function frigateProxyHandler(req, res, map) {
             },
           });
         }
-      } else if (status >= 400) {
+
+        addCookieToJar(url, responseHeaders);
+        setCookieHeader(url, params);
+        [status, , data] = await httpProxy(url, params);
+      }
+
+      if (status >= 402) {
         logger.debug(
           "HTTP Error %d calling %s//%s%s%s...",
           status,
@@ -112,6 +89,11 @@ export default async function frigateProxyHandler(req, res, map) {
         });
       }
 
+      if (!validateWidgetData(widget, endpoint, data)) {
+        return res.status(status).json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: data } });
+      }
+
+      if (map) data = map(data); // TODO: Move those from widget.js to here
       return res.status(status).send(data);
     }
   }
