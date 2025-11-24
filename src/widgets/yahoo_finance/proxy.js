@@ -1,6 +1,5 @@
-import { httpProxy } from "utils/proxy/http";
 import createLogger from "utils/logger";
-import { sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("yahooFinanceProxy");
 
@@ -54,10 +53,10 @@ export default async function yahooFinanceProxyHandler(req, res) {
 
         let resultData = data;
         if (status === 200) {
-            // Check for API errors in 200 OK response
-            if (resultData && resultData.chart && resultData.chart.error) {
-                return res.status(500).json({ error: resultData.chart.error });
-            }
+          // Check for API errors in 200 OK response
+          if (resultData && resultData.chart && resultData.chart.error) {
+            return res.status(500).json({ error: resultData.chart.error });
+          }
         }
 
         if (contentType) res.setHeader("Content-Type", contentType);
