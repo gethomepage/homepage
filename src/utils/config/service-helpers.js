@@ -476,6 +476,10 @@ export function cleanServiceGroups(groups) {
           if (defaultinterval) widget.defaultinterval = defaultinterval;
         }
 
+        if (type === "yahoo_finance") {
+          if (symbols) widget.symbols = symbols;
+        }
+
         if (limit24h !== undefined) {
           widget.limit24h = !!limit24h;
         }

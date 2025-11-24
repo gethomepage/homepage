@@ -150,6 +150,7 @@ const components = {
   wgeasy: dynamic(() => import("./wgeasy/component")),
   whatsupdocker: dynamic(() => import("./whatsupdocker/component")),
   xteve: dynamic(() => import("./xteve/component")),
+  yahoo_finance: dynamic(() => import("./yahoo_finance/component")),
   yourspotify: dynamic(() => import("./yourspotify/component")),
   zabbix: dynamic(() => import("./zabbix/component")),
 };
