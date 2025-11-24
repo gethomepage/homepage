@@ -42,12 +42,13 @@ LABEL org.opencontainers.image.licenses='Apache-2.0'
 WORKDIR /app
 
 # Copy some files from context
-COPY --link --chown=1000:1000 /public ./public/
-COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
+COPY --chown=1000:1000 /public ./public/
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
 
 # Copy only necessary files from the build stage
-COPY --link --from=builder --chown=1000:1000 /app/.next/standalone/ ./
-COPY --link --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static
+COPY --from=builder --chown=1000:1000 /app/.next/standalone/ ./
+COPY --from=builder --chown=1000:1000 /app/.next/static/ ./.next/static
 
 RUN apk add --no-cache su-exec iputils-ping shadow
 
