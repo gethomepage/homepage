@@ -34,7 +34,6 @@ export default async function frigateProxyHandler(req, res, map) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          //Cookie: `frigate_token=${token}`,
         },
       };
 
