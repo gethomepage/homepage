@@ -4,16 +4,48 @@ import { sanitizeErrorURL } from "utils/proxy/api-helpers";
 
 const logger = createLogger("yahooFinanceProxy");
 
+function getIntervalForRange(range) {
+  switch (range) {
+    case "1h":
+      return "1m";
+    case "1d":
+      return "2m"; // Yahoo defaults to 2m for 1d often
+    case "5d":
+      return "15m";
+    case "1mo":
+      return "30m";
+    case "3mo":
+      return "1d";
+    case "6mo":
+      return "1d";
+    case "1y":
+      return "1d";
+    case "2y":
+      return "1wk";
+    case "5y":
+      return "1wk";
+    case "10y":
+      return "1mo";
+    case "ytd":
+      return "1d";
+    case "max":
+      return "3mo";
+    default:
+      return "1d";
+  }
+}
+
 export default async function yahooFinanceProxyHandler(req, res) {
   const { endpoint } = req.query;
 
   if (endpoint === "quote" && req.query.query) {
     try {
       const query = JSON.parse(req.query.query);
-      const { symbol } = query;
+      const { symbol, range = "1d" } = query;
+      const interval = getIntervalForRange(range);
 
       if (symbol) {
-        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1d`;
+        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=${interval}&range=${range}`;
         const [status, contentType, data] = await httpProxy(url, {
           headers: {
             "User-Agent": "Mozilla/5.0",
