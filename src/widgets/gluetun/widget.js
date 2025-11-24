@@ -10,7 +10,7 @@ const widget = {
       validate: ["public_ip", "country"],
     },
     port_forwarded: {
-      endpoint: "openvpn/portforwarded",
+      endpoint: "v1/portforward",
       validate: ["port"],
     },
   },
