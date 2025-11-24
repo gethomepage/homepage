@@ -20,12 +20,7 @@ export default async function frigateProxyHandler(req, res, map) {
     }
 
     if (widget) {
-      // If there are more than one question marks, replace others to &
-      let urlString = formatApiCall(widgets[widget.type].api, { endpoint, ...widget }).replace(/(?<=\?.*)\?/g, "&");
-      if (widget.type === "customapi" && widget.url?.endsWith("/")) {
-        urlString += "/"; // Ensure we dont lose the trailing slash for custom API calls
-      }
-      const url = new URL(urlString);
+      const url = formatApiCall(widgets[widget.type].api, { endpoint, ...widget });
       const loginUrl = `${widget.url}/api/login`;
 
       let status, contentType, data, responseHeaders;
