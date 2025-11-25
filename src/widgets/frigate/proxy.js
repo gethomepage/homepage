@@ -35,12 +35,13 @@ export default async function frigateProxyHandler(req, res, map) {
 
       if (status === 401 && (widget.username || widget.password)) {
         const loginUrl = `${widget.url}/api/login`;
-        const [loginStatus, , , loginResponseHeaders] = await tryLogin(
-          loginUrl,
-          widget.username,
-          widget.password,
-          service,
-        );
+        const [loginStatus, , , loginResponseHeaders] = await httpProxy(loginUrl, {
+          method: "POST",
+          body: JSON.stringify({ user: username, password }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
         if (loginStatus !== 200) {
           logger.debug(
@@ -110,16 +111,4 @@ export default async function frigateProxyHandler(req, res, map) {
 
   logger.debug("Invalid or missing proxy service type '%s' in group '%s'", service, group);
   return res.status(400).json({ error: "Invalid proxy service type" });
-}
-
-async function tryLogin(loginUrl, username, password, service) {
-  const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
-    method: "POST",
-    body: JSON.stringify({ user: username, password: password }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  return [status, contentType, data, responseHeaders];
 }
