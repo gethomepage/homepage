@@ -5,19 +5,19 @@ const widget = {
   proxyHandler: genericProxyHandler,
 
   mappings: {
-    "status": {
+    status: {
       endpoint: "status",
       validate: ["running"],
     },
-    "assets": {
+    assets: {
       endpoint: "assets/stats",
       validate: ["stats"],
     },
-    "missing": {
+    missing: {
       endpoint: "assets/overview",
       validate: ["categories"],
     },
-    "lastRun": {
+    lastRun: {
       endpoint: "runtime-history?limit=1",
       validate: ["history"],
     },
