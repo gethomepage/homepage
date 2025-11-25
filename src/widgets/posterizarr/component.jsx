@@ -1,5 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const fieldNames = {
@@ -67,9 +68,9 @@ const formatStatusResult = (result) => {
     return "Running";
   } else if (status === false || status === "false") {
     return "Stopped";
-  } else {
-    return "Unknown";
   }
+
+  return "Unknown";
 }
 
 const formatAssetsResult = (result) => {
