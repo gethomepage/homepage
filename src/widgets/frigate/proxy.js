@@ -1,7 +1,7 @@
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { asJson, formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
-import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
+import { addCookieToJar } from "utils/proxy/cookie-jar";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
@@ -30,7 +30,6 @@ export default async function frigateProxyHandler(req, res, map) {
         },
       };
 
-      if (widget.username || widget.password) setCookieHeader(url, params);
       [status, , data] = await httpProxy(url, params);
 
       if (status === 401 && widget.username && widget.password) {
@@ -63,7 +62,6 @@ export default async function frigateProxyHandler(req, res, map) {
         }
 
         addCookieToJar(url, loginResponseHeaders);
-        setCookieHeader(url, params);
         // Retry original request with cookie set
         [status, , data] = await httpProxy(url, params);
       }
