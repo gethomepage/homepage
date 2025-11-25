@@ -37,7 +37,7 @@ export default async function frigateProxyHandler(req, res, map) {
         const loginUrl = `${widget.url}/api/login`;
         const [loginStatus, , , loginResponseHeaders] = await httpProxy(loginUrl, {
           method: "POST",
-          body: JSON.stringify({ user: username, password }),
+          body: JSON.stringify({ user: widget.username, password: widget.password }),
           headers: {
             "Content-Type": "application/json",
           },
