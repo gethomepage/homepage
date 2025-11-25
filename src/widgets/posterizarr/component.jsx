@@ -17,7 +17,6 @@ export default function Component({ service }) {
 
   widget.fields = widget?.fields?.length ? widget.fields : posterizarrDefaultFields;
 
-
   const isStatusEnabled = widget.fields.includes(fieldNames.status);
   const isAssetsEnabled = widget.fields.includes(fieldNames.assets);
   const isMissingEnabled = widget.fields.includes(fieldNames.missing);
