@@ -37,10 +37,10 @@ export default function Component({ service }) {
 
   // Loading state
   if (
-    (isStatusEnabled && !statusData)
-    || (isAssetsEnabled && !assetsData)
-    || (isMissingEnabled && !missingData)
-    || (isLastRunEnabled && !lastRunData)
+    (isStatusEnabled && !statusData) ||
+    (isAssetsEnabled && !assetsData) ||
+    (isMissingEnabled && !missingData) ||
+    (isLastRunEnabled && !lastRunData)
   ) {
     return (
       <Container service={service}>
