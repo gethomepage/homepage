@@ -12,10 +12,8 @@ export default function Component({ service }) {
 
   const { data: gluetunData, error: gluetunError } = useWidgetAPI(widget, "ip");
   const includePF = widget.fields.includes("port_forwarded");
-  const { data: portForwardedData, error: portForwardedError } = useWidgetAPI(
-    widget,
-    includePF ? "port_forwarded" : "",
-  );
+  const pfEndpoint = widget.version > 1 ? "port_forwarded_v2" : "port_forwarded";
+  const { data: portForwardedData, error: portForwardedError } = useWidgetAPI(widget, includePF ? pfEndpoint : "");
 
   if (gluetunError || (includePF && portForwardedError)) {
     return <Container service={service} error={gluetunError || portForwardedError} />;
