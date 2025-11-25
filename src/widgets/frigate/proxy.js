@@ -21,7 +21,6 @@ export default async function frigateProxyHandler(req, res, map) {
 
     if (widget) {
       const url = formatApiCall(widgets[widget.type].api, { endpoint, ...widget });
-      const loginUrl = `${widget.url}/api/login`;
 
       let status, contentType, data, responseHeaders;
 
@@ -35,27 +34,23 @@ export default async function frigateProxyHandler(req, res, map) {
       if (widget.username || widget.password) setCookieHeader(url, params);
       [status, , data] = await httpProxy(url, params);
 
-      if (data.error?.url) {
-        resultData.error.url = sanitizeErrorURL(url);
-      }
+      if (status === 401 && (widget.username || widget.password)) {
+        const loginUrl = `${widget.url}/api/login`;
+        let [loginStatus, , , loginResponseHeaders] = await tryLogin(
+          loginUrl,
+          widget.username,
+          widget.password,
+          service,
+        );
 
-      if (status === 401) {
-        if (widget.username || widget.password)
-          [status, contentType, data, responseHeaders] = await tryLogin(
-            loginUrl,
-            widget.username,
-            widget.password,
-            service,
-          );
-
-        if (status !== 200) {
+        if (loginStatus !== 200) {
           logger.debug(
             "HTTP Error %d calling %s//%s%s%s...",
-            status,
-            url.protocol,
-            url.hostname,
-            url.port ? `:${url.port}` : "",
-            url.pathname,
+            loginStatus,
+            loginUrl.protocol,
+            loginUrl.hostname,
+            loginUrl.port ? `:${loginUrl.port}` : "",
+            loginUrl.pathname,
           );
           return res.status(status).json({
             error: {
