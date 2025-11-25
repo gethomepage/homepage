@@ -13,6 +13,10 @@ const widget = {
       endpoint: "openvpn/portforwarded",
       validate: ["port"],
     },
+    port_forwarded_v2: {
+      endpoint: "portforward",
+      validate: ["port"],
+    },
   },
 };
 
