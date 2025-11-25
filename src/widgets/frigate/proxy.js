@@ -33,8 +33,9 @@ export default async function frigateProxyHandler(req, res, map) {
       if (widget.username || widget.password) setCookieHeader(url, params);
       [status, , data] = await httpProxy(url, params);
 
-      if (status === 401 && (widget.username || widget.password)) {
+      if (status === 401 && widget.username && widget.password) {
         const loginUrl = `${widget.url}/api/login`;
+        logger.debug("Attempting login to Frigate at %s", loginUrl);
         const [loginStatus, , , loginResponseHeaders] = await httpProxy(loginUrl, {
           method: "POST",
           body: JSON.stringify({ user: widget.username, password: widget.password }),
@@ -67,7 +68,7 @@ export default async function frigateProxyHandler(req, res, map) {
         [status, , data] = await httpProxy(url, params);
       }
 
-      if (status >= 402) {
+      if (status >= 400) {
         logger.debug(
           "HTTP Error %d calling %s//%s%s%s...",
           status,
