@@ -3,7 +3,6 @@ import createLogger from "utils/logger";
 import { asJson, formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
 import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
 import { httpProxy } from "utils/proxy/http";
-import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
 
 const proxyName = "frigateProxyHandler";
@@ -82,10 +81,6 @@ export default async function frigateProxyHandler(req, res, map) {
             data: Buffer.isBuffer(data) ? Buffer.from(data).toString() : data,
           },
         });
-      }
-
-      if (!validateWidgetData(widget, endpoint, data)) {
-        return res.status(status).json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: data } });
       }
 
       data = asJson(data);
