@@ -9,7 +9,7 @@ const proxyName = "frigateProxyHandler";
 const logger = createLogger(proxyName);
 
 export default async function frigateProxyHandler(req, res, map) {
-  const { group, service, endpoint, index, url } = req.query;
+  const { group, service, endpoint, index } = req.query;
 
   if (group && service) {
     const widget = await getServiceWidget(group, service, index);
@@ -35,7 +35,7 @@ export default async function frigateProxyHandler(req, res, map) {
 
       if (status === 401 && (widget.username || widget.password)) {
         const loginUrl = `${widget.url}/api/login`;
-        let [loginStatus, , , loginResponseHeaders] = await tryLogin(
+        const [loginStatus, , , loginResponseHeaders] = await tryLogin(
           loginUrl,
           widget.username,
           widget.password,
@@ -62,6 +62,7 @@ export default async function frigateProxyHandler(req, res, map) {
 
         addCookieToJar(url, loginResponseHeaders);
         setCookieHeader(url, params);
+        // Retry original request with cookie set
         [status, , data] = await httpProxy(url, params);
       }
 
