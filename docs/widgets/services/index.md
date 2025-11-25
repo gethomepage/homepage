@@ -107,6 +107,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Plex & Tautulli](plex-tautulli.md)
 - [Plex](plex.md)
 - [Portainer](portainer.md)
+- [Posterizarr](posterizarr.md)
 - [Prometheus](prometheus.md)
 - [Prometheus Metric](prometheusmetric.md)
 - [Prowlarr](prowlarr.md)

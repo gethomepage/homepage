@@ -131,6 +131,7 @@ nav:
           - widgets/services/plex-tautulli.md
           - widgets/services/plex.md
           - widgets/services/portainer.md
+          - widgets/services/posterizarr.md
           - widgets/services/prometheus.md
           - widgets/services/prometheusmetric.md
           - widgets/services/prowlarr.md

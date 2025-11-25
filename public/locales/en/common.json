@@ -312,6 +312,12 @@
         "stopped": "Stopped",
         "total": "Total"
     },
+    "posterizarr": {
+        "status": "Status",
+        "assets": "Assets",
+        "missing": "Missing",
+        "lastRun": "Last Run"
+    },
     "suwayomi": {
       "download": "Downloaded",
       "nondownload": "Non-Downloaded",
