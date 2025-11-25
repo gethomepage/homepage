@@ -22,7 +22,7 @@ export default async function frigateProxyHandler(req, res, map) {
     if (widget) {
       const url = formatApiCall(widgets[widget.type].api, { endpoint, ...widget });
 
-      let status, contentType, data, responseHeaders;
+      let status, data;
 
       const params = {
         method: "GET",
@@ -61,7 +61,7 @@ export default async function frigateProxyHandler(req, res, map) {
           });
         }
 
-        addCookieToJar(url, responseHeaders);
+        addCookieToJar(url, loginResponseHeaders);
         setCookieHeader(url, params);
         [status, , data] = await httpProxy(url, params);
       }
@@ -96,9 +96,7 @@ export default async function frigateProxyHandler(req, res, map) {
           uptime: data?.service?.uptime,
           version: data?.service.version,
         });
-      }
-
-      if (endpoint == "events") {
+      } else if (endpoint == "events") {
         return res.status(status).send(
           data.slice(0, 5).map((event) => ({
             id: event.id,
