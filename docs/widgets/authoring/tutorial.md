@@ -4,6 +4,7 @@ description: Follow along with this guide to learn how to create a custom widget
 ---
 
 In this guide, we'll walk through the process of creating a custom widget for Homepage. We'll cover the basic structure of a widget, how to use translations, and how to fetch data from an API. By the end of this guide, you'll have a solid understanding of how to build your own custom widget.
+Note that if you want to use a custom widget in a docker setup, you will have to build your own image since adding a custom widget requires editing some files that are minified during the image creation process. If you don't want to do this, maybe using the customapi widget might work for you.
 
 **Prerequisites:**
 
