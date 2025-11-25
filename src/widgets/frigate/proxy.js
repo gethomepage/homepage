@@ -21,8 +21,6 @@ export default async function frigateProxyHandler(req, res, map) {
     if (widget) {
       const url = formatApiCall(widgets[widget.type].api, { endpoint, ...widget });
 
-      let status, data;
-
       const params = {
         method: "GET",
         headers: {
@@ -30,7 +28,7 @@ export default async function frigateProxyHandler(req, res, map) {
         },
       };
 
-      [status, , data] = await httpProxy(url, params);
+      let [status, , data] = await httpProxy(url, params);
 
       if (status === 401 && widget.username && widget.password) {
         const loginUrl = `${widget.url}/api/login`;
@@ -49,7 +47,6 @@ export default async function frigateProxyHandler(req, res, map) {
             error: {
               message: `HTTP Error ${status} while trying to login to Frigate`,
               url: sanitizeErrorURL(url),
-              data: Buffer.isBuffer(data) ? Buffer.from(data).toString() : data,
             },
           });
         }
@@ -65,7 +62,6 @@ export default async function frigateProxyHandler(req, res, map) {
           error: {
             message: `HTTP Error ${status} from Frigate`,
             url: sanitizeErrorURL(url),
-            data: Buffer.isBuffer(data) ? Buffer.from(data).toString() : data,
           },
         });
       }
