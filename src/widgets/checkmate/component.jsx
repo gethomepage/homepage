@@ -4,42 +4,39 @@ import { useTranslation } from "next-i18next";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-  // 1. Setup Hooks
   const { t } = useTranslation();
   const { widget } = service;
 
-  // 2. Fetch Data
-  // "info" refers to the key inside mappings in your widget.js
-  const { data, error } = useWidgetAPI(widget, "info");
+  // We use the "summary" mapping we defined in widget.js
+  const { data, error } = useWidgetAPI(widget, "summary");
 
-  // 3. Handle Error State
   if (error) {
     return <Container service={service} error={error} />;
   }
 
-  // 4. Handle Loading State (Skeleton)
-  // If data hasn't arrived yet, we show empty blocks
+  // Skeleton view (Loading state)
   if (!data) {
     return (
       <Container service={service}>
-        <Block label="yourwidget.cpu" />
-        <Block label="yourwidget.memory" />
-        <Block label="yourwidget.status" />
+        <Block label="Uptime" />
+        <Block label="Infra" />
+        <Block label="Incidents" />
       </Container>
     );
   }
 
-  // 5. Render Actual Data
+  // Render actual data
   return (
     <Container service={service}>
-      {/* - label: The translation key for the title of the block
-         - value: The actual data, wrapped in a formatter
-      */}
-      <Block label="yourwidget.cpu" value={t("common.number", { value: data.cpu_usage, unit: "%" })} />
+      {/* Block 1: Active Monitors (uptime) */}
+      <Block label="Uptime" value={t("common.number", { value: data.uptime })} />
 
-      <Block label="yourwidget.memory" value={t("common.number", { value: data.memory_usage, unit: "MB" })} />
+      {/* Block 2: Hardware (infrastructure) */}
+      <Block label="Infra" value={t("common.number", { value: data.infrastructure })} />
 
-      <Block label="yourwidget.status" value={data.status_text} />
+      {/* Block 3: Incidents */}
+      {/* We can add a specialized className to color this red if > 0 later */}
+      <Block label="Incidents" value={t("common.number", { value: data.incidents })} />
     </Container>
   );
 }
