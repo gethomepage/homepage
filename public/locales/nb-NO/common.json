@@ -516,10 +516,6 @@
         "uptime": "Uptime",
         "volumeAvailable": "Available"
     },
-    "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Active Streams"
-    },
     "fileflows": {
         "queue": "Queue",
         "processing": "Processing",

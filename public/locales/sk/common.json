@@ -695,10 +695,6 @@
         "uptime": "Dostupnosť",
         "volumeAvailable": "Dostupné"
     },
-    "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Active Streams"
-    },
     "mylar": {
         "series": "Series",
         "issues": "Problémy",

@@ -695,10 +695,6 @@
         "uptime": "가동 시간",
         "volumeAvailable": "사용 가능"
     },
-    "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Active Streams"
-    },
     "mylar": {
         "series": "시리즈",
         "issues": "이슈",

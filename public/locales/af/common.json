@@ -695,10 +695,6 @@
         "uptime": "Optyd",
         "volumeAvailable": "Beskikbaar"
     },
-    "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Active Streams"
-    },
     "mylar": {
         "series": "Reekse",
         "issues": "Kwessies",
