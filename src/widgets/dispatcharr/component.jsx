@@ -23,8 +23,8 @@ export default function Component({ service }) {
   if (!channels || !streams) {
     return (
       <Container service={service}>
-      <Block label="dispatcharr.channels" />
-      <Block label="dispatcharr.streams" />
+        <Block label="dispatcharr.channels" />
+        <Block label="dispatcharr.streams" />
       </Container>
     );
   }
