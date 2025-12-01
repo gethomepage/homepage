@@ -695,6 +695,10 @@
         "uptime": "Tiempo activo",
         "volumeAvailable": "Disponible"
     },
+    "dispatcharr": {
+        "channels": "Canales",
+        "streams": "Streams activos"
+    },
     "mylar": {
         "series": "Series",
         "issues": "Números",

@@ -695,6 +695,10 @@
         "uptime": "זמן פעילות",
         "volumeAvailable": "זמין"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Active Streams"
+    },
     "mylar": {
         "series": "סדרות",
         "issues": "גיליונות",

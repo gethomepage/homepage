@@ -516,6 +516,10 @@
         "volumeAvailable": "剩余存储",
         "days": "天"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Active Streams"
+    },
     "fileflows": {
         "queue": "队列",
         "processing": "处理中",

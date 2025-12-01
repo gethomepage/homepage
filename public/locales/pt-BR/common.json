@@ -516,6 +516,10 @@
         "uptime": "Tempo Ativo",
         "volumeAvailable": "Disponível"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Active Streams"
+    },
     "fileflows": {
         "queue": "Fila",
         "processing": "Processando",

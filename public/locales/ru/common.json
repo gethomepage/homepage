@@ -695,6 +695,10 @@
         "uptime": "Время работы",
         "volumeAvailable": "Доступно"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Active Streams"
+    },
     "mylar": {
         "series": "Серии",
         "issues": "Вопросы",

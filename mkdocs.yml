@@ -55,6 +55,7 @@ nav:
           - widgets/services/deluge.md
           - widgets/services/develancacheui.md
           - widgets/services/diskstation.md
+          - widgets/services/dispatcharr.md
           - widgets/services/downloadstation.md
           - widgets/services/emby.md
           - widgets/services/esphome.md

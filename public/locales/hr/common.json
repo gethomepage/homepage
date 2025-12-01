@@ -695,6 +695,10 @@
         "uptime": "Vrijeme rada",
         "volumeAvailable": "Dostupno"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Active Streams"
+    },
     "mylar": {
         "series": "Serije",
         "issues": "Problemi",

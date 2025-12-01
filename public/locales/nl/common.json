@@ -695,6 +695,10 @@
         "uptime": "Uptime",
         "volumeAvailable": "Beschikbaar"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Active Streams"
+    },
     "mylar": {
         "series": "Series",
         "issues": "Problemen",

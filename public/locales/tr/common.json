@@ -695,6 +695,10 @@
         "uptime": "Çalışma süresi",
         "volumeAvailable": "Uygun"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Active Streams"
+    },
     "mylar": {
         "series": "Diziler",
         "issues": "Sorunlar",
