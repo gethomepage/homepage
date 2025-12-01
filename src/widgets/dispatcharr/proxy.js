@@ -70,7 +70,7 @@ export default async function dispatcharrProxyHandler(req, res) {
         },
       });
 
-      const badRequest = [400, 403].includes(status);
+      const badRequest = [400, 401, 403].includes(status);
       const text = data.toString("utf-8");
       let isEmpty = false;
 
