@@ -19,7 +19,7 @@ export default function Component({ service }) {
   if (finalError) {
     return <Container service={service} error={finalError} />;
   }
-  
+
   if (!channels || !streams) {
     return (
       <Container service={service}>
