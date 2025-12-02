@@ -17,6 +17,7 @@ const components = {
   calibreweb: dynamic(() => import("./calibreweb/component")),
   changedetectionio: dynamic(() => import("./changedetectionio/component")),
   channelsdvrserver: dynamic(() => import("./channelsdvrserver/component")),
+  checkmate: dynamic(() => import("./checkmate/component")),
   checkmk: dynamic(() => import("./checkmk/component")),
   cloudflared: dynamic(() => import("./cloudflared/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),

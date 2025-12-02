@@ -14,6 +14,7 @@ import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
+import checkmate from "./checkmate/widget";
 import checkmk from "./checkmk/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
@@ -160,6 +161,7 @@ const widgets = {
   calibreweb,
   changedetectionio,
   channelsdvrserver,
+  checkmate,
   checkmk,
   cloudflared,
   coinmarketcap,
