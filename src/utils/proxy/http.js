@@ -111,7 +111,7 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
-  const agentOptions = disableIpv6 ? { family: 4, autoSelectFamily: false } : {};
+  const agentOptions = disableIpv6 ? { family: 4, autoSelectFamily: false } : { autoSelectFamilyAttemptTimeout: 500 };
 
   let request = null;
   if (constructedUrl.protocol === "https:") {
