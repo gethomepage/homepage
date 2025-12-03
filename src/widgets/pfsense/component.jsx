@@ -56,16 +56,7 @@ export default function Component({ service }) {
         label="pfsense.temp"
         value={t("common.number", { value: systemData.data.temp_c, style: "unit", unit: "celsius" })}
       />
-      <Block
-        label="pfsense.wanStatus"
-        value={
-          wan.status === "up" ? (
-            <span className="text-green-500">{t("pfsense.up")}</span>
-          ) : (
-            <span className="text-red-500">{t("pfsense.down")}</span>
-          )
-        }
-      />
+      <Block label="pfsense.wanStatus" value={wan.status === "up" ? t("pfsense.up") : t("pfsense.down")} />
       {showWanIP && <Block label="pfsense.wanIP" value={wan.ipaddr} />}
       {showDiskUsage && <Block label="pfsense.disk" value={t("common.percent", { value: diskUsage.toFixed(2) })} />}
     </Container>
