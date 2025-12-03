@@ -159,6 +159,30 @@ Widgets can tint their metric block text automatically based on rules defined al
 
 Supported numeric operators for the `when` property are `gt`, `gte`, `lt`, `lte`, `eq`, `ne`, `between`, and `outside`. String rules support `equals`, `includes`, `startsWith`, `endsWith`, and `regex`. Each rule can be inverted with `negate: true`, and string rules may pass `caseSensitive: true` or custom regex `flags`. The highlight engine does its best to coerce formatted values, but you will get the most reliable results when you pass plain numbers or strings into `<Block>`.
 
+#### Value Only Display
+
+You can optionally hide the label and show only the value when a block is highlighted by setting `valueOnly: true` on the field configuration. This is useful when you want the highlighted value to stand out without the label text.
+
+```yaml
+- Sonarr:
+    icon: sonarr.png
+    href: http://sonarr.host.or.ip
+    widget:
+      type: sonarr
+      url: http://sonarr.host.or.ip
+      key: ${SONARR_API_KEY}
+      highlight:
+        queued:
+          valueOnly: true
+          numeric:
+            - level: danger
+              when: gte
+              value: 20
+            - level: warn
+              when: gte
+              value: 5
+```
+
 ## Descriptions
 
 Services may have descriptions,
