@@ -159,9 +159,9 @@ Widgets can tint their metric block text automatically based on rules defined al
 
 Supported numeric operators for the `when` property are `gt`, `gte`, `lt`, `lte`, `eq`, `ne`, `between`, and `outside`. String rules support `equals`, `includes`, `startsWith`, `endsWith`, and `regex`. Each rule can be inverted with `negate: true`, and string rules may pass `caseSensitive: true` or custom regex `flags`. The highlight engine does its best to coerce formatted values, but you will get the most reliable results when you pass plain numbers or strings into `<Block>`.
 
-#### Value Only Display
+#### Value Only Highlighting
 
-You can optionally hide the label and show only the value when a block is highlighted by setting `valueOnly: true` on the field configuration. This is useful when you want the highlighted value to stand out without the label text.
+You can optionally apply highlighting only to the value portion of a block (not the label) by setting `valueOnly: true` on the field configuration. This keeps the label visible while highlighting only the metric value itself.
 
 ```yaml
 - Sonarr:

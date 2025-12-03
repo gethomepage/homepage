@@ -32,21 +32,23 @@ export default function Block({ value, label, field }) {
     return getHighlightClass(highlight.level, highlightConfig);
   }, [highlight, highlightConfig]);
 
-  const showLabel = !highlight?.valueOnly;
+  const applyToValueOnly = highlight?.valueOnly === true;
 
   return (
     <div
       className={classNames(
         "bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 flex-1 flex flex-col items-center justify-center text-center p-1",
         value === undefined ? "animate-pulse" : "",
-        highlightClass,
+        !applyToValueOnly && highlightClass,
         "service-block",
       )}
       data-highlight-level={highlight?.level}
       data-highlight-source={highlight?.source}
     >
-      <div className="font-thin text-sm">{value === undefined || value === null ? "-" : value}</div>
-      {showLabel && <div className="font-bold text-xs uppercase">{t(label)}</div>}
+      <div className={classNames("font-thin text-sm", applyToValueOnly && highlightClass)}>
+        {value === undefined || value === null ? "-" : value}
+      </div>
+      <div className="font-bold text-xs uppercase">{t(label)}</div>
     </div>
   );
 }
