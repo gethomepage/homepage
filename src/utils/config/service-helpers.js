@@ -111,7 +111,7 @@ export async function servicesFromDocker() {
                 };
               }
               let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
-              if (value === "widget.version") {
+              if (value === "widget.version" || /^widgets\[\d+\]\.version$/.test(value)) {
                 substitutedVal = parseInt(substitutedVal, 10);
               }
               shvl.set(constructedService, value, substitutedVal);
