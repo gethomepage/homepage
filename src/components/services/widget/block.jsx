@@ -32,6 +32,8 @@ export default function Block({ value, label, field }) {
     return getHighlightClass(highlight.level, highlightConfig);
   }, [highlight, highlightConfig]);
 
+  const applyToValueOnly = highlight?.valueOnly === true;
+
   return (
     <div
       className={classNames(
@@ -44,7 +46,11 @@ export default function Block({ value, label, field }) {
       data-highlight-source={highlight?.source}
     >
       <div className="font-thin text-sm">{value === undefined || value === null ? "-" : value}</div>
-      <div className="font-bold text-xs uppercase">{t(label)}</div>
+      <div
+        className={classNames("font-bold text-xs uppercase", applyToValueOnly && "text-theme-700 dark:text-theme-200")}
+      >
+        {t(label)}
+      </div>
     </div>
   );
 }
