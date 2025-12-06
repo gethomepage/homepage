@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "一年",
-        "gross_percent_max": "所有时间"
+        "gross_percent_max": "所有时间",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "播客",

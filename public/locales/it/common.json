@@ -168,7 +168,7 @@
         "passes": "Tessere"
     },
     "tautulli": {
-        "playing": "Playing",
+        "playing": "In riproduzione",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",
@@ -313,7 +313,7 @@
         "total": "Total"
     },
     "suwayomi": {
-        "download": "Downloaded",
+        "download": "Scaricati",
         "nondownload": "Non Scaricato",
         "read": "Read",
         "unread": "Unread",
@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Un anno",
-        "gross_percent_max": "Sempre"
+        "gross_percent_max": "Sempre",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcast",
