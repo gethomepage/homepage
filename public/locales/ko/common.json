@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "오늘",
         "gross_percent_1y": "1년",
-        "gross_percent_max": "전체 기간"
+        "gross_percent_max": "전체 기간",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "팟캐스트",

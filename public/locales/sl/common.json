@@ -759,7 +759,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Eno leto",
-        "gross_percent_max": "Celoten čas"
+        "gross_percent_max": "Celoten čas",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcasti",
