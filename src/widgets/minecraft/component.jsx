@@ -22,11 +22,7 @@ export default function Component({ service }) {
     );
   }
 
-  const statusIndicator = serverData.online ? (
-    <span className="text-green-500">{t("minecraft.up")}</span>
-  ) : (
-    <span className="text-red-500">{t("minecraft.down")}</span>
-  );
+  const statusIndicator = serverData.online ? t("minecraft.up") : t("minecraft.down");
   const players = serverData.players ? `${serverData.players.online} / ${serverData.players.max}` : "-";
   const version = serverData.version || "-";
 

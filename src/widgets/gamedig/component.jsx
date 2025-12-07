@@ -38,11 +38,7 @@ export default function Component({ service }) {
     );
   }
 
-  const status = serverData.online ? (
-    <span className="text-green-500">{t("gamedig.online")}</span>
-  ) : (
-    <span className="text-red-500">{t("gamedig.offline")}</span>
-  );
+  const status = serverData.online ? t("gamedig.online") : t("gamedig.offline");
   const name = serverData.online ? serverData.name : "-";
   const map = serverData.online ? serverData.map : "-";
   const currentPlayers = serverData.online ? `${serverData.players} / ${serverData.maxplayers}` : "-";

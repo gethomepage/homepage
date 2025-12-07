@@ -200,7 +200,7 @@ const ensureArray = (value) => {
 };
 
 const findHighlightLevel = (ruleSet, numericValue, stringValue) => {
-  const { numeric, string } = ruleSet;
+  const { numeric, string, valueOnly } = ruleSet;
 
   if (numeric && numericValue !== undefined) {
     const numericRules = ensureArray(numeric);
@@ -208,7 +208,7 @@ const findHighlightLevel = (ruleSet, numericValue, stringValue) => {
     for (const candidate of numericCandidates) {
       for (const rule of numericRules) {
         if (rule?.level && evaluateNumericRule(candidate, rule)) {
-          return { level: rule.level, source: "numeric", rule };
+          return { level: rule.level, source: "numeric", rule, valueOnly };
         }
       }
     }
@@ -218,7 +218,7 @@ const findHighlightLevel = (ruleSet, numericValue, stringValue) => {
     const stringRules = ensureArray(string);
     for (const rule of stringRules) {
       if (rule?.level && evaluateStringRule(stringValue, rule)) {
-        return { level: rule.level, source: "string", rule };
+        return { level: rule.level, source: "string", rule, valueOnly };
       }
     }
   }
