@@ -81,7 +81,7 @@ services:
     container_name: homepage
     environment:
       HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
-      HOSTNAME: :: # optional, to enable listening on all IPv6 addresses within the container
+      HOSTNAME: '::' # optional, to enable listening on all IPv6 addresses within the container
       PUID: 1000 # optional, your user id
       PGID: 1000 # optional, your group id
     ports:
@@ -100,6 +100,7 @@ docker run --name homepage \
   -e PUID=1000 \
   -e PGID=1000 \
   -p 3000:3000 \
+  -p HOSTNAME='::' \
   -v /path/to/config:/app/config \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   --restart unless-stopped \
