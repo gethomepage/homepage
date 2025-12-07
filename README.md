@@ -81,6 +81,7 @@ services:
     container_name: homepage
     environment:
       HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+      HOSTNAME: :: # optional, to enable listening on all IPv6 addresses within the container
       PUID: 1000 # optional, your user id
       PGID: 1000 # optional, your group id
     ports:
