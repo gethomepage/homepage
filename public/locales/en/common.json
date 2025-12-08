@@ -599,6 +599,12 @@
         "inbox": "Inbox",
         "total": "Total"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets"
+    },
     "peanut": {
         "battery_charge": "Battery Charge",
         "ups_load": "UPS Load",
