@@ -603,7 +603,10 @@
         "orgs": "Orgs",
         "sites": "Sites",
         "resources": "Resources",
-        "targets": "Targets"
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
     },
     "peanut": {
         "battery_charge": "Battery Charge",
