@@ -13,4 +13,5 @@ widget:
   url: http://dispatcharr.host.or.ip
   username: username
   password: password
+  enableActiveStreams: true # ptional, defaults to false
 ```
