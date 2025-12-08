@@ -122,6 +122,7 @@ nav:
           - widgets/services/opnsense.md
           - widgets/services/openwrt.md
           - widgets/services/overseerr.md
+          - widgets/services/pangolin.md
           - widgets/services/paperlessngx.md
           - widgets/services/peanut.md
           - widgets/services/pfsense.md
