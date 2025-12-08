@@ -24,14 +24,16 @@ For self-hosted Pangolin with root API access, `org` can be omitted and all orga
 ### Self-Hosted Pangolin
 
 Enable the [Integration API](https://docs.pangolin.net/self-host/advanced/integration-api) in your Pangolin configuration and create an API key which includes the following permissions:
-   - **List Organizations** (if not specifying `org` in config)
-   - **List Sites**
-   - **List Resources**
+
+- **List Organizations** (if not specifying `org` in config)
+- **List Sites**
+- **List Resources**
 
 ### Hosted Pangolin (app.pangolin.net)
 
 Create an org-scoped API key with the following permissions:
-   - **List Sites**
-   - **List Resources**
+
+- **List Sites**
+- **List Resources**
 
 Find your organization ID in the URL when logged in (e.g., `https://app.pangolin.net/{org-id}/...`) and specify it in the `org` config option.
