@@ -142,8 +142,8 @@
         "connectionStatusDisconnected": "Déconnecté",
         "connectionStatusConnected": "Connecté",
         "uptime": "Démarré depuis",
-        "maxDown": "Réception max.",
-        "maxUp": "Envoi max.",
+        "maxDown": "Réception max",
+        "maxUp": "Envoi max",
         "down": "Réception",
         "up": "Envoi",
         "received": "Reçu",
@@ -229,7 +229,7 @@
         "seed": "En partage"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit (B)",
+        "cachehitbytes": "Octets acquis du cache",
         "cachemissbytes": "Cache Miss (B)"
     },
     "downloadstation": {
@@ -294,7 +294,7 @@
         "queries": "Requêtes",
         "blocked": "Bloqué",
         "blocked_percent": "% bloqué",
-        "gravity": "Listes dom. bloqués"
+        "gravity": "Listes dom. Bloqués"
     },
     "adguard": {
         "queries": "Requêtes",
@@ -599,6 +599,15 @@
         "inbox": "Boîte de réception",
         "total": "Total"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "Charge de la batterie",
         "ups_load": "Charge de l’ASI",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "Aujourd'hui",
         "gross_percent_1y": "Un an",
-        "gross_percent_max": "Depuis le début"
+        "gross_percent_max": "Depuis le début",
+        "net_worth": "Patrimoine net"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
@@ -1091,7 +1101,7 @@
         "NEW_ARRAY": "Nouveau tableau",
         "RECON_DISK": "Reconstruction du disque",
         "DISABLE_DISK": "Disque désactivé",
-        "SWAP_DSBL": "Swap Disable",
+        "SWAP_DSBL": "Désactiver le swap",
         "INVALID_EXPANSION": "Extension invalide",
         "PARITY_NOT_BIGGEST": "La parité n'est pas la plus grande",
         "TOO_MANY_MISSING_DISKS": "Trop de disques manquants",

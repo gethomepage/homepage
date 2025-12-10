@@ -362,8 +362,8 @@
     },
     "trilium": {
         "version": "Verzia",
-        "notesCount": "Notes",
-        "dbSize": "Database Size",
+        "notesCount": "Poznámky",
+        "dbSize": "Veľkosť databázy",
         "unknown": "Neznáme"
     },
     "navidrome": {
@@ -599,6 +599,15 @@
         "inbox": "Schránka správ",
         "total": "Celkom"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "Nabitie batérie",
         "ups_load": "Záťaž UPS",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "Dnes",
         "gross_percent_1y": "Jeden rok",
-        "gross_percent_max": "Za celý čas"
+        "gross_percent_max": "Za celý čas",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcasty",
@@ -786,7 +796,7 @@
         "downloadCount": "Poradie",
         "downloadBytesRemaining": "Zostávajúce",
         "downloadTotalBytes": "Veľkosť",
-        "downloadSpeed": "Speed"
+        "downloadSpeed": "Rýchlosť"
     },
     "kavita": {
         "seriesCount": "Series",
@@ -952,7 +962,7 @@
         "loading": "Načítava sa",
         "open": "Open - US Market",
         "closed": "Closed - US Market",
-        "invalidConfiguration": "Invalid Configuration"
+        "invalidConfiguration": "Neplatná konfigurácia"
     },
     "frigate": {
         "cameras": "Kamery",
@@ -1022,10 +1032,10 @@
         "loading": "Načítava sa"
     },
     "gitlab": {
-        "groups": "Groups",
-        "issues": "Issues",
+        "groups": "Skupiny",
+        "issues": "Problémy",
         "merges": "Merge Requests",
-        "projects": "Projects"
+        "projects": "Projekty"
     },
     "apcups": {
         "status": "Stav",
@@ -1035,7 +1045,7 @@
     },
     "karakeep": {
         "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
+        "favorites": "Obľúbené",
         "archived": "Archived",
         "highlights": "Highlights",
         "lists": "Zoznamy",
@@ -1065,13 +1075,13 @@
     "komodo": {
         "total": "Celkom",
         "running": "Beží",
-        "stopped": "Stopped",
+        "stopped": "Zastavené",
         "down": "Down",
         "unhealthy": "Nezdravý",
         "unknown": "Neznáme",
-        "servers": "Servers",
+        "servers": "Servery",
         "stacks": "Stacks",
-        "containers": "Containers"
+        "containers": "Kontajnery"
     },
     "filebrowser": {
         "available": "Dostupné",
@@ -1080,8 +1090,8 @@
     },
     "wallos": {
         "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
+        "thisMonthlyCost": "Tento mesiac",
+        "nextMonthlyCost": "Ďalší mesiac",
         "previousMonthlyCost": "Prev. Month",
         "nextRenewingSubscription": "Next Payment"
     },

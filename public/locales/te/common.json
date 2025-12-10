@@ -599,6 +599,15 @@
         "inbox": "Inbox",
         "total": "Total"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "Battery Charge",
         "ups_load": "UPS Load",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "One year",
-        "gross_percent_max": "All time"
+        "gross_percent_max": "All time",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
