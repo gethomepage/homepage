@@ -193,7 +193,7 @@
         "tv": "Сериалы"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "",
         "queue": "Очередь",
         "timeleft": "Осталось"
     },
@@ -599,6 +599,15 @@
         "inbox": "Входящие",
         "total": "Всего"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "Заряд батареи",
         "ups_load": "Нагрузка на UPS",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "Сегодня",
         "gross_percent_1y": "Один год",
-        "gross_percent_max": "Все время"
+        "gross_percent_max": "Все время",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Подкасты",
@@ -1088,7 +1098,7 @@
     "unraid": {
         "STARTED": "Started",
         "STOPPED": "Stopped",
-        "NEW_ARRAY": "New Array",
+        "NEW_ARRAY": "Новый массив",
         "RECON_DISK": "Reconstructing Disk",
         "DISABLE_DISK": "Disk Disabled",
         "SWAP_DSBL": "Swap Disable",
@@ -1097,8 +1107,8 @@
         "TOO_MANY_MISSING_DISKS": "Too Many Missing Disks",
         "NEW_DISK_TOO_SMALL": "New Disk Too Small",
         "NO_DATA_DISKS": "No Data Disks",
-        "notifications": "Notifications",
-        "status": "Status",
+        "notifications": "Уведомления",
+        "status": "Статус",
         "cpu": "CPU",
         "memoryUsed": "Memory Used",
         "memoryAvailable": "Memory Available",

@@ -599,6 +599,15 @@
         "inbox": "Beérkezett",
         "total": "Total"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "Akku töltöttsége",
         "ups_load": "UPS terheltsége",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "Egy év",
-        "gross_percent_max": "Mindig"
+        "gross_percent_max": "Mindig",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "Podcast",

@@ -69,7 +69,7 @@
     "docker": {
         "rx": "受信済み",
         "tx": "送信済み",
-        "mem": "MEM",
+        "mem": "メモリ",
         "cpu": "CPU",
         "running": "起動中",
         "offline": "オフライン",
@@ -83,7 +83,7 @@
         "partial": "部分的"
     },
     "ping": {
-        "error": "Error",
+        "error": "エラー",
         "ping": "Ping",
         "down": "下へ",
         "up": "稼働",
@@ -112,7 +112,7 @@
         "offline_alt": "オフライン",
         "online": "オンライン",
         "total": "Total",
-        "unknown": "Unknown"
+        "unknown": "不明"
     },
     "evcc": {
         "pv_power": "発電量",
@@ -223,8 +223,8 @@
         "invalid": "無効"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "ダウンロード",
+        "upload": "アップロード",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -233,8 +233,8 @@
         "cachemissbytes": "キャッシュミスバイト"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
+        "download": "ダウンロード",
+        "upload": "アップロード",
         "leech": "Leech",
         "seed": "Seed"
     },
@@ -251,7 +251,7 @@
         "queued": "Queued",
         "movies": "Movies",
         "queue": "Queue",
-        "unknown": "Unknown"
+        "unknown": "不明"
     },
     "lidarr": {
         "wanted": "Wanted",
@@ -599,6 +599,15 @@
         "inbox": "受信トレイ",
         "total": "Total"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "バッテリー充電",
         "ups_load": "UPS 負荷",
@@ -692,8 +701,8 @@
     },
     "diskstation": {
         "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "uptime": "稼働時間",
+        "volumeAvailable": "利用可能"
     },
     "mylar": {
         "series": "Series",
@@ -754,12 +763,13 @@
     "gatus": {
         "up": "Sites Up",
         "down": "Sites Down",
-        "uptime": "Uptime"
+        "uptime": "稼働時間"
     },
     "ghostfolio": {
         "gross_percent_today": "Today",
         "gross_percent_1y": "1年",
-        "gross_percent_max": "全期間"
+        "gross_percent_max": "全期間",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "ポッドキャスト",
