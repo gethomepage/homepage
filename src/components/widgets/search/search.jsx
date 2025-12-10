@@ -1,5 +1,6 @@
 import {
   Combobox,
+  ComboboxInput,
   ComboboxOption,
   ComboboxOptions,
   Listbox,
@@ -167,7 +168,7 @@ export default function Search({ options }) {
         <div className="flex-col relative h-8 my-4 min-w-fit z-20">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
           <Combobox value={query}>
-            <Combobox.Input
+            <ComboboxInput
               type="text"
               className="
               overflow-hidden w-full h-full rounded-md
