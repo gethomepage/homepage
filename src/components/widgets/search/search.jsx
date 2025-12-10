@@ -254,7 +254,7 @@ export default function Search({ options }) {
                     <ComboboxOption
                       key={suggestion}
                       value={suggestion}
-                      onClick={() => {
+                      onMouseDown={() => {
                         doSearch(suggestion);
                       }}
                       className="flex w-full"
