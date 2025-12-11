@@ -3,12 +3,12 @@ import Container from "components/services/widget/container";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-export const jellyseerrDefaultFields = ["pending", "approved", "available"];
+export const seerrDefaultFields = ["pending", "approved", "available"];
 
 export default function Component({ service }) {
   const { widget } = service;
 
-  widget.fields = widget?.fields?.length ? widget.fields : jellyseerrDefaultFields;
+  widget.fields = widget?.fields?.length ? widget.fields : seerrDefaultFields;
   const isIssueEnabled = widget.fields.includes("issues");
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "request/count");
@@ -20,20 +20,20 @@ export default function Component({ service }) {
   if (!statsData || (isIssueEnabled && !issueData)) {
     return (
       <Container service={service}>
-        <Block label="jellyseerr.pending" />
-        <Block label="jellyseerr.approved" />
-        <Block label="jellyseerr.available" />
-        <Block label="jellyseerr.issues" />
+        <Block label="seerr.pending" />
+        <Block label="seerr.approved" />
+        <Block label="seerr.available" />
+        <Block label="seerr.issues" />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="jellyseerr.pending" value={statsData.pending} />
-      <Block label="jellyseerr.approved" value={statsData.approved} />
-      <Block label="jellyseerr.available" value={statsData.available} />
-      <Block label="jellyseerr.issues" value={`${issueData?.open} / ${issueData?.total}`} />
+      <Block label="seerr.pending" value={statsData.pending} />
+      <Block label="seerr.approved" value={statsData.approved} />
+      <Block label="seerr.available" value={statsData.available} />
+      <Block label="seerr.issues" value={`${issueData?.open} / ${issueData?.total}`} />
     </Container>
   );
 }

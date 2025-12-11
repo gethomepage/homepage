@@ -1,11 +1,13 @@
 ---
-title: Jellyseerr
-description: Jellyseerr Widget Configuration
+title: Seerr Widget
+description: Seerr Widget Configuration
 ---
 
-Learn more about [Jellyseerr](https://github.com/Fallenbagel/jellyseerr).
+Learn more about [Seerr](https://github.com/seerr-team/seerr).
 
 Find your API key under `Settings > General > API Key`.
+
+_Note that Jellyseerr was merged with Overseerr and renamed Seerr._
 
 Allowed fields: `["pending", "approved", "available", "issues"]`.
 Default fields: `["pending", "approved", "available"]`.
