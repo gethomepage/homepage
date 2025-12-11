@@ -974,6 +974,10 @@
         "collections": "Kolekcje",
         "tags": "Tagi"
     },
+    "linkding": {
+        "bookmarks": "Zakładki",
+        "tags": "Tagi"
+    },
     "zabbix": {
         "unclassified": "Niezaklasyfikowane",
         "information": "Information",

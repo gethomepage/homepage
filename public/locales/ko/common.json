@@ -974,6 +974,10 @@
         "collections": "컬렉션",
         "tags": "태그"
     },
+    "linkding": {
+        "bookmarks": "북마크",
+        "tags": "태그"
+    },
     "zabbix": {
         "unclassified": "미분류",
         "information": "정보",

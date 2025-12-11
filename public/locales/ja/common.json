@@ -974,6 +974,10 @@
         "collections": "コレクション",
         "tags": "Tags"
     },
+    "linkding": {
+        "bookmarks": "Bookmarks",
+        "tags": "Tags"
+    },
     "zabbix": {
         "unclassified": "Not classified",
         "information": "Information",

@@ -974,6 +974,10 @@
         "collections": "Coleções",
         "tags": "Etiquetas"
     },
+    "linkding": {
+        "bookmarks": "Marcadores",
+        "tags": "Etiquetas"
+    },
     "zabbix": {
         "unclassified": "Não classificado",
         "information": "Informação",

@@ -974,6 +974,10 @@
         "collections": "Collections",
         "tags": "Labels"
     },
+    "linkding": {
+        "bookmarks": "Bladwijzers",
+        "tags": "Labels"
+    },
     "zabbix": {
         "unclassified": "Niet geclassificeerd",
         "information": "Informatie",

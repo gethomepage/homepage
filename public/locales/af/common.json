@@ -974,6 +974,10 @@
         "collections": "Versamelings",
         "tags": "Merkers"
     },
+    "linkding": {
+        "bookmarks": "Boekmerke",
+        "tags": "Merkers"
+    },
     "zabbix": {
         "unclassified": "Nie geklassifiseer nie",
         "information": "Inligting",

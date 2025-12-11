@@ -974,6 +974,10 @@
         "collections": "Колекції",
         "tags": "Tags"
     },
+    "linkding": {
+        "bookmarks": "Закладки",
+        "tags": "Tags"
+    },
     "zabbix": {
         "unclassified": "Не визначено",
         "information": "Information",

@@ -974,6 +974,10 @@
         "collections": "Sbírky",
         "tags": "Tags"
     },
+    "linkding": {
+        "bookmarks": "Záložky",
+        "tags": "Tags"
+    },
     "zabbix": {
         "unclassified": "Neklasifikováno",
         "information": "Information",

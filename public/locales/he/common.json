@@ -974,6 +974,10 @@
         "collections": "אוספים",
         "tags": "תגיות"
     },
+    "linkding": {
+        "bookmarks": "סימניות",
+        "tags": "תגיות"
+    },
     "zabbix": {
         "unclassified": "לא ממויין",
         "information": "מידע",

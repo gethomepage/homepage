@@ -94,6 +94,7 @@ nav:
           - widgets/services/komodo.md
           - widgets/services/kopia.md
           - widgets/services/lidarr.md
+          - widgets/services/linkding.md
           - widgets/services/linkwarden.md
           - widgets/services/lubelogger.md
           - widgets/services/mastodon.md

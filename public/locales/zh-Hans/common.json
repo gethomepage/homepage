@@ -974,6 +974,10 @@
         "collections": "收藏",
         "tags": "Tags"
     },
+    "linkding": {
+        "bookmarks": "书签",
+        "tags": "Tags"
+    },
     "zabbix": {
         "unclassified": "未分类",
         "information": "Information",

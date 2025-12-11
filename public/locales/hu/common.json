@@ -974,6 +974,10 @@
         "collections": "Gyűjtemény",
         "tags": "Tags"
     },
+    "linkding": {
+        "bookmarks": "Bookmarks",
+        "tags": "Tags"
+    },
     "zabbix": {
         "unclassified": "Nem titkosított",
         "information": "Information",

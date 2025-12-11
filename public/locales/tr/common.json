@@ -974,6 +974,10 @@
         "collections": "Koleksiyonlar",
         "tags": "Etiketler"
     },
+    "linkding": {
+        "bookmarks": "Yer imleri",
+        "tags": "Etiketler"
+    },
     "zabbix": {
         "unclassified": "Sınıflandırılmamış",
         "information": "Bilgi",

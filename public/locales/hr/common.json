@@ -974,6 +974,10 @@
         "collections": "Zbirke",
         "tags": "Oznake"
     },
+    "linkding": {
+        "bookmarks": "Oznake",
+        "tags": "Oznake"
+    },
     "zabbix": {
         "unclassified": "Nije klasificirano",
         "information": "Informacije",

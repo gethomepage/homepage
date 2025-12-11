@@ -974,6 +974,10 @@
         "collections": "Колекције",
         "tags": "Ознаке"
     },
+    "linkding": {
+        "bookmarks": "Обележивачи",
+        "tags": "Ознаке"
+    },
     "zabbix": {
         "unclassified": "Није класификовано",
         "information": "Информација",

@@ -974,6 +974,10 @@
         "collections": "مجموعات",
         "tags": "Tags"
     },
+    "linkding": {
+        "bookmarks": "Bookmarks",
+        "tags": "Tags"
+    },
     "zabbix": {
         "unclassified": "غير مصنفة",
         "information": "Information",
