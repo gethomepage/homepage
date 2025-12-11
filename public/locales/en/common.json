@@ -1129,5 +1129,11 @@
       "songs": "Songs",
       "time":  "Time",
       "artists": "Artists"
+    },
+    "seerr": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "available": "Available",
+      "issues": "Open Issues"
     }
 }

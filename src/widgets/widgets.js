@@ -111,6 +111,7 @@ import romm from "./romm/widget";
 import rutorrent from "./rutorrent/widget";
 import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
+import seerr from "./seerr/widget";
 import slskd from "./slskd/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
@@ -262,6 +263,7 @@ const widgets = {
   rutorrent,
   sabnzbd,
   scrutiny,
+  seerr,
   slskd,
   sonarr,
   speedtest,
