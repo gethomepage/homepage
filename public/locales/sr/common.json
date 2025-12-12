@@ -599,6 +599,15 @@
         "inbox": "Примљено",
         "total": "Укупно"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "Напуњеност батерије",
         "ups_load": "Оптерећење УПС-а",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "Данас",
         "gross_percent_1y": "Једна година",
-        "gross_percent_max": "Све време"
+        "gross_percent_max": "Све време",
+        "net_worth": "Нето вредност"
     },
     "audiobookshelf": {
         "podcasts": "Подкасти",

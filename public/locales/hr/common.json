@@ -599,6 +599,15 @@
         "inbox": "Ulazni sandučić",
         "total": "Ukupno"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "Napunjenost baterije",
         "ups_load": "UPS opterećenje",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "Danas",
         "gross_percent_1y": "Jedna godina",
-        "gross_percent_max": "Svo vrijeme"
+        "gross_percent_max": "Svo vrijeme",
+        "net_worth": "Neto vrijednost"
     },
     "audiobookshelf": {
         "podcasts": "Podcasti",

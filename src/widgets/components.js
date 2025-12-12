@@ -98,6 +98,7 @@ const components = {
   openmediavault: dynamic(() => import("./openmediavault/component")),
   openwrt: dynamic(() => import("./openwrt/component")),
   paperlessngx: dynamic(() => import("./paperlessngx/component")),
+  pangolin: dynamic(() => import("./pangolin/component")),
   pfsense: dynamic(() => import("./pfsense/component")),
   photoprism: dynamic(() => import("./photoprism/component")),
   proxmoxbackupserver: dynamic(() => import("./proxmoxbackupserver/component")),

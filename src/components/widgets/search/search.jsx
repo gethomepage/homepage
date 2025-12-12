@@ -1,4 +1,14 @@
-import { Combobox, Listbox, Transition } from "@headlessui/react";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxOption,
+  ComboboxOptions,
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+  Transition,
+} from "@headlessui/react";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import { Fragment, useEffect, useState } from "react";
@@ -158,7 +168,7 @@ export default function Search({ options }) {
         <div className="flex-col relative h-8 my-4 min-w-fit z-20">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
           <Combobox value={query}>
-            <Combobox.Input
+            <ComboboxInput
               type="text"
               className="
               overflow-hidden w-full h-full rounded-md
@@ -189,7 +199,7 @@ export default function Search({ options }) {
               disabled={availableProviderIds?.length === 1}
             >
               <div>
-                <Listbox.Button
+                <ListboxButton
                   className="
                   absolute right-0.5 bottom-0.5 rounded-r-md px-4 py-2
                   text-white font-medium text-sm
@@ -198,7 +208,7 @@ export default function Search({ options }) {
                 >
                   <selectedProvider.icon className="text-white w-3 h-3" />
                   <span className="sr-only">{t("search.search")}</span>
-                </Listbox.Button>
+                </ListboxButton>
               </div>
               <Transition
                 as={Fragment}
@@ -209,7 +219,7 @@ export default function Search({ options }) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Listbox.Options
+                <ListboxOptions
                   className="absolute right-0 z-10 mt-1 origin-top-right rounded-md
                   bg-theme-100 dark:bg-theme-600 shadow-lg
                   ring-1 ring-black ring-opacity-5 focus:outline-hidden"
@@ -218,7 +228,7 @@ export default function Search({ options }) {
                     {availableProviderIds.map((providerId) => {
                       const p = searchProviders[providerId];
                       return (
-                        <Listbox.Option key={providerId} value={p} as={Fragment}>
+                        <ListboxOption key={providerId} value={p} as={Fragment}>
                           {({ active }) => (
                             <li
                               className={classNames(
@@ -229,23 +239,23 @@ export default function Search({ options }) {
                               <p.icon className="h-4 w-4 mx-4 my-2" />
                             </li>
                           )}
-                        </Listbox.Option>
+                        </ListboxOption>
                       );
                     })}
                   </div>
-                </Listbox.Options>
+                </ListboxOptions>
               </Transition>
             </Listbox>
 
             {searchSuggestions[1]?.length > 0 && (
-              <Combobox.Options className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg">
+              <ComboboxOptions className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg">
                 <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
-                  <Combobox.Option key={query} value={query} />
+                  <ComboboxOption key={query} value={query} />
                   {searchSuggestions[1].map((suggestion) => (
-                    <Combobox.Option
+                    <ComboboxOption
                       key={suggestion}
                       value={suggestion}
-                      onClick={() => {
+                      onMouseDown={() => {
                         doSearch(suggestion);
                       }}
                       className="flex w-full"
@@ -266,10 +276,10 @@ export default function Search({ options }) {
                           </div>
                         );
                       }}
-                    </Combobox.Option>
+                    </ComboboxOption>
                   ))}
                 </div>
-              </Combobox.Options>
+              </ComboboxOptions>
             )}
           </Combobox>
         </div>
