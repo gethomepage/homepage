@@ -364,7 +364,7 @@
         "version": "版本",
         "notesCount": "笔记",
         "dbSize": "数据库大小",
-        "unknown": "Unknown"
+        "unknown": "未知"
     },
     "navidrome": {
         "nothing_streaming": "",
@@ -800,7 +800,7 @@
     },
     "kavita": {
         "seriesCount": "系列",
-        "totalFiles": "Files"
+        "totalFiles": "文件"
     },
     "azuredevops": {
         "result": "Result",
@@ -1097,7 +1097,7 @@
     },
     "unraid": {
         "STARTED": "Started",
-        "STOPPED": "Stopped",
+        "STOPPED": "已停止",
         "NEW_ARRAY": "New Array",
         "RECON_DISK": "Reconstructing Disk",
         "DISABLE_DISK": "Disk Disabled",

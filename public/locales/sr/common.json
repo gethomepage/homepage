@@ -600,13 +600,13 @@
         "total": "Укупно"
     },
     "pangolin": {
-        "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "orgs": "Организације",
+        "sites": "Сајтови",
+        "resources": "Ресурси",
+        "targets": "Циљеви",
+        "traffic": "Саобраћај",
+        "in": "Улазак",
+        "out": "Излазак"
     },
     "peanut": {
         "battery_charge": "Напуњеност батерије",
