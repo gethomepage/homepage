@@ -9,10 +9,15 @@ const kc = getKubeConfig();
 export default async function getConfigMapPropertyValue(namespace, name, property) {
   try {
     const core = kc.makeApiClient(CoreV1Api);
-    const secret = await core.readNamespacedConfigMap({ name, namespace });
-    const result = secret?.data[property];
+    const configMap = await core.readNamespacedConfigMap({ name, namespace });
+    const result = configMap?.data[property];
     if (!result) {
-      logger.warning("unable to find secret property '%s' in secret '%s' in namespace '%s'", property, name, namespace);
+      logger.warning(
+        "unable to find configMap property '%s' in configMap '%s' in namespace '%s'",
+        property,
+        name,
+        namespace,
+      );
     }
     return result;
   } catch (e) {
