@@ -93,33 +93,26 @@ export function isDiscoverable(resource, instanceName) {
 
 export async function constructedServiceFromResource(resource) {
   let constructedService = {
-    app: resource.metadata.annotations[`${ANNOTATION_BASE}/app`] || resource.metadata.name,
     namespace: resource.metadata.namespace,
-    href: resource.metadata.annotations[`${ANNOTATION_BASE}/href`] || (await getUrlSchema(resource)),
-    name: resource.metadata.annotations[`${ANNOTATION_BASE}/name`] || resource.metadata.name,
-    group: resource.metadata.annotations[`${ANNOTATION_BASE}/group`] || "Kubernetes",
-    weight: resource.metadata.annotations[`${ANNOTATION_BASE}/weight`] || "0",
-    icon: resource.metadata.annotations[`${ANNOTATION_BASE}/icon`] || "",
-    description: resource.metadata.annotations[`${ANNOTATION_BASE}/description`] || "",
     external: false,
     type: "service",
   };
+  await setPropertyOnService(constructedService, resource, "app", resource.metadata.name);
+  await setPropertyOnService(constructedService, resource, "href", await getUrlSchema(resource));
+  await setPropertyOnService(constructedService, resource, "name", resource.metadata.name);
+  await setPropertyOnService(constructedService, resource, "group", "Kubernetes");
+  await setPropertyOnService(constructedService, resource, "weight", "0");
+  await setPropertyOnService(constructedService, resource, "icon", "");
+  await setPropertyOnService(constructedService, resource, "description", "");
   if (resource.metadata.annotations[`${ANNOTATION_BASE}/external`]) {
     constructedService.external =
-      String(resource.metadata.annotations[`${ANNOTATION_BASE}/external`]).toLowerCase() === "true";
+      String(await resolveAsRef(resource.metadata.annotations[`${ANNOTATION_BASE}/external`])).toLowerCase() === "true";
   }
-  if (resource.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`] !== undefined) {
-    constructedService.podSelector = resource.metadata.annotations[`${ANNOTATION_BASE}/pod-selector`];
-  }
-  if (resource.metadata.annotations[`${ANNOTATION_BASE}/ping`]) {
-    constructedService.ping = resource.metadata.annotations[`${ANNOTATION_BASE}/ping`];
-  }
-  if (resource.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`]) {
-    constructedService.siteMonitor = resource.metadata.annotations[`${ANNOTATION_BASE}/siteMonitor`];
-  }
-  if (resource.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`]) {
-    constructedService.statusStyle = resource.metadata.annotations[`${ANNOTATION_BASE}/statusStyle`];
-  }
+
+  await setPropertyOnService(constructedService, resource, "pod-selector");
+  await setPropertyOnService(constructedService, resource, "ping");
+  await setPropertyOnService(constructedService, resource, "siteMonitor");
+  await setPropertyOnService(constructedService, resource, "statusStyle");
 
   await Promise.all(
     Object.keys(resource.metadata.annotations).map(async (annotation) => {
@@ -141,6 +134,14 @@ export async function constructedServiceFromResource(resource) {
   }
 
   return constructedService;
+}
+
+async function setPropertyOnService(service, resource, propertyName, defaultValue = undefined) {
+  if (resource.metadata.annotations[`${ANNOTATION_BASE}/${propertyName}`]) {
+    service[propertyName] = await resolveAsRef(resource.metadata.annotations[`${ANNOTATION_BASE}/${propertyName}`]);
+  } else if (defaultValue !== undefined) {
+    service[propertyName] = defaultValue;
+  }
 }
 
 async function resolveAsRef(value) {
