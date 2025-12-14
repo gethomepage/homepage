@@ -68,7 +68,7 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 
 If, after correctly adding and mapping your custom icons via the [Icons](../configs/services.md#icons) instructions, you are still unable to see your icons please try recreating your container.
 
-## Disabling IPv6
+## Disabling IPv6 for http requests {#disabling-ipv6}
 
 If you are having issues with certain widgets that are unable to reach public APIs (e.g. weather), in certain setups you may need to disable IPv6. You can set the environment variable `HOMEPAGE_PROXY_DISABLE_IPV6` to `true` to disable IPv6 for the homepage proxy.
 

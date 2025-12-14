@@ -599,6 +599,15 @@
         "inbox": "תיבת דואר נכנס",
         "total": "סה\"כ"
     },
+    "pangolin": {
+        "orgs": "Orgs",
+        "sites": "Sites",
+        "resources": "Resources",
+        "targets": "Targets",
+        "traffic": "Traffic",
+        "in": "In",
+        "out": "Out"
+    },
     "peanut": {
         "battery_charge": "טעינת סוללה",
         "ups_load": "עומס UPS",
@@ -759,7 +768,8 @@
     "ghostfolio": {
         "gross_percent_today": "היום",
         "gross_percent_1y": "שנה",
-        "gross_percent_max": "כל הזמן"
+        "gross_percent_max": "כל הזמן",
+        "net_worth": "Net Worth"
     },
     "audiobookshelf": {
         "podcasts": "פודקאסטים",
