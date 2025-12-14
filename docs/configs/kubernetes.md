@@ -169,6 +169,31 @@ To enable Gateway API HttpRoute update `kubernetes.yaml` to include:
 gateway: true # enable gateway-api
 ```
 
+### Referencing Configmap and Secret values
+
+Sometimes you may want to reference a ConfigMap or Secret value in your annotations. For example, using a secret for `gethomepage.dev/widget.key`.
+To do this, you can use the syntax `<sec|cm>.ref#<namespace>/<name>/<key>` where `sec` will reference a secret and `cm` will reference a configmap.
+
+For example:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pihole-credentials
+  namespace: pihole
+data:
+  password: my-safe-password
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pihole
+  annotations:
+    gethomepage.dev/widget.type: pihole
+    gethomepage.dev/widget.key: "sec.ref#pihole/pihole-credentials/password"
+```
+
 #### Using the unoffocial helm chart?
 
 If you are using the unofficial helm chart ensure that the `ClusterRole` has required permissions for `gateway.networking.k8s.io`.
