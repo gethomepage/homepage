@@ -59,7 +59,7 @@ export default async function handler(req, res) {
   }
 
   if (type === "network") {
-    let networkData = await si.networkStats();
+    let networkData = await si.networkStats("*");
     let interfaceDefault;
     logger.debug("networkData:", JSON.stringify(networkData));
     if (interfaceName && interfaceName !== "default") {
