@@ -397,6 +397,7 @@ export function cleanServiceGroups(groups) {
           // truenas
           enablePools,
           nasType,
+          useWebsocket,
 
           // unifi
           site,
@@ -539,6 +540,7 @@ export function cleanServiceGroups(groups) {
         if (type === "truenas") {
           if (enablePools !== undefined) widget.enablePools = JSON.parse(enablePools);
           if (nasType !== undefined) widget.nasType = nasType;
+          if (useWebsocket !== undefined) widget.useWebsocket = JSON.parse(useWebsocket);
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) widget.volume = volume;
