@@ -176,8 +176,8 @@ metadata:
     gethomepage.dev/icon: gatus.svg
     gethomepage.dev/widget.type: "gatus"
     gethomepage.dev/widget.url: "https://status.example.com"
-    gethomepage.dev/widget.http_header.X-Auth-Key: "abcabcabc"
-    gethomepage.dev/widget.http_header.X-Forwarded-User: "admin"
+    gethomepage.dev/widget.http_header.X-Auth-Key: "your-auth-key-here"
+    gethomepage.dev/widget.http_header.X-Forwarded-User: "your-username"
 spec:
   rules:
     - host: status.example.com

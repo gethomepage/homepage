@@ -219,8 +219,8 @@ labels:
   - homepage.description=Uptime Monitoring
   - homepage.widget.type=gatus
   - homepage.widget.url=https://status.example.com
-  - homepage.widget.http_header.X-Auth-Key=abcabcabc
-  - homepage.widget.http_header.X-Forwarded-User=admin
+  - homepage.widget.http_header.X-Auth-Key=your-auth-key-here
+  - homepage.widget.http_header.X-Forwarded-User=your-username
 ```
 
 This works with all service widgets that make API requests. See the [Services Configuration](services.md#custom-http-headers) for more details.
