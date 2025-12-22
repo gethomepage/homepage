@@ -101,6 +101,25 @@ Each service can have multiple widgets attached to it, for example:
 
       Multiple widgets per service are not yet supported with Kubernetes ingress annotations.
 
+#### Custom HTTP Headers
+
+All service widgets support custom HTTP headers for authentication or other purposes. This is useful when your services are behind a reverse proxy (like Traefik, nginx, or Caddy) that requires specific headers for authentication or routing.
+
+```yaml
+- Service Name:
+    icon: service.png
+    href: http://service.host.or.ip/
+    widget:
+      type: servicetype
+      url: http://service.host.or.ip
+      key: apikeyapikeyapikeyapikeyapikey
+      http_header:
+        X-Auth-Key: your-auth-key-here
+        X-Custom-Header: custom-value
+```
+
+The `http_header` parameter accepts key-value pairs where keys are header names and values are the header values to send with each API request.
+
 #### Field Visibility
 
 Each widget can optionally provide a list of which fields should be visible via the `fields` widget property. If no fields are specified, then all fields will be displayed. The `fields` property must be a valid YAML array of strings. As an example, here is the entry for Sonarr showing only a couple of fields.

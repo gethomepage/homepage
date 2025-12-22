@@ -255,6 +255,7 @@ export function cleanServiceGroups(groups) {
           fields,
           hideErrors,
           highlight,
+          http_header,
           type,
 
           // azuredevops
@@ -444,6 +445,10 @@ export function cleanServiceGroups(groups) {
           service_group: serviceGroup.name,
           index,
         };
+
+        if (http_header) {
+          widget.http_header = http_header;
+        }
 
         if (highlight) {
           let parsedHighlight = highlight;

@@ -29,6 +29,13 @@ export default async function credentialedProxyHandler(req, res, map) {
         "Content-Type": "application/json",
       };
 
+      // Add custom headers from widget configuration
+      if (widget.http_header) {
+        Object.entries(widget.http_header).forEach(([key, value]) => {
+          headers[key] = value;
+        });
+      }
+
       if (widget.type === "stocks") {
         const { providers } = getSettings();
         if (widget.provider === "finnhub" && providers?.finnhub) {
