@@ -159,6 +159,41 @@ spec:
 
 If the `href` attribute is not present, Homepage will ignore the specific IngressRoute.
 
+### Custom HTTP Headers
+
+You can add custom HTTP headers to widget API requests using annotations. This is useful when services are behind a reverse proxy that requires specific headers for authentication:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gatus
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: Gatus
+    gethomepage.dev/description: Uptime Monitoring
+    gethomepage.dev/group: Infrastructure
+    gethomepage.dev/icon: gatus.svg
+    gethomepage.dev/widget.type: "gatus"
+    gethomepage.dev/widget.url: "https://status.example.com"
+    gethomepage.dev/widget.http_header.X-Auth-Key: "abcabcabc"
+    gethomepage.dev/widget.http_header.X-Forwarded-User: "admin"
+spec:
+  rules:
+    - host: status.example.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: gatus
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
+```
+
+This works with all service widgets that make API requests. See the [Services Configuration](services.md#custom-http-headers) for more details.
+
 ### Gateway API HttpRoute support
 
 Homepage also features automatic service discovery for Gateway API. Service definitions are read by annotating the HttpRoute custom resource definition and are indentical to the Ingress example as defined in [Automatic Service Discovery](#automatic-service-discovery).

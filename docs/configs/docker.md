@@ -206,6 +206,25 @@ labels:
   - homepage.widget.mappings[1].field.status=latest_version
 ```
 
+### Custom HTTP Headers
+
+You can add custom HTTP headers to widget API requests using dot notation. This is useful when services are behind a reverse proxy that requires specific headers for authentication:
+
+```yaml
+labels:
+  - homepage.group=Infrastructure
+  - homepage.name=Gatus
+  - homepage.icon=gatus.svg
+  - homepage.href=https://status.example.com
+  - homepage.description=Uptime Monitoring
+  - homepage.widget.type=gatus
+  - homepage.widget.url=https://status.example.com
+  - homepage.widget.http_header.X-Auth-Key=abcabcabc
+  - homepage.widget.http_header.X-Forwarded-User=admin
+```
+
+This works with all service widgets that make API requests. See the [Services Configuration](services.md#custom-http-headers) for more details.
+
 ## Docker Swarm
 
 Docker swarm is supported and Docker services are specified with the same `server` and `container` notation. To enable swarm support you will need to include a `swarm` setting in your docker.yaml, e.g.
