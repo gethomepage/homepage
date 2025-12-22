@@ -1,7 +1,7 @@
 import { getSettings } from "utils/config/config";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { formatApiCall, sanitizeErrorURL, validateAndAddCustomHeaders } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
@@ -30,18 +30,7 @@ export default async function credentialedProxyHandler(req, res, map) {
       };
 
       // Add custom headers from widget configuration (http_header)
-      if (widget.http_header) {
-        Object.entries(widget.http_header).forEach(([key, value]) => {
-          // Validate header name and value to prevent injection attacks
-          if (typeof key === 'string' && typeof value === 'string' && 
-              /^[a-zA-Z0-9\-]+$/.test(key) && 
-              !/[\r\n]/.test(value)) {
-            headers[key] = value;
-          } else {
-            logger.warn('Invalid header in http_header configuration: %s', key);
-          }
-        });
-      }
+      validateAndAddCustomHeaders(headers, widget.http_header, logger);
 
       if (widget.type === "stocks") {
         const { providers } = getSettings();

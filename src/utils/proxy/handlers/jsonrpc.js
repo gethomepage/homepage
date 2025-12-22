@@ -2,7 +2,7 @@ import { JSONRPCClient, JSONRPCErrorException } from "json-rpc-2.0";
 
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { formatApiCall } from "utils/proxy/api-helpers";
+import { formatApiCall, validateAndAddCustomHeaders } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
@@ -15,18 +15,7 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
   };
 
   // Add custom headers from widget configuration (http_header)
-  if (widget?.http_header) {
-    Object.entries(widget.http_header).forEach(([key, value]) => {
-      // Validate header name and value to prevent injection attacks
-      if (typeof key === 'string' && typeof value === 'string' && 
-          /^[a-zA-Z0-9\-]+$/.test(key) && 
-          !/[\r\n]/.test(value)) {
-        headers[key] = value;
-      } else {
-        logger.warn('Invalid header in http_header configuration: %s', key);
-      }
-    });
-  }
+  validateAndAddCustomHeaders(headers, widget?.http_header, logger);
 
   if (widget?.username && widget?.password) {
     headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;

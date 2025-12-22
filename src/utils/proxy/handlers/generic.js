@@ -1,6 +1,6 @@
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { formatApiCall, sanitizeErrorURL, validateAndAddCustomHeaders } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
@@ -28,18 +28,7 @@ export default async function genericProxyHandler(req, res, map) {
       const headers = req.extraHeaders ?? widget.headers ?? widgets[widget.type].headers ?? {};
 
       // Add custom headers from widget configuration (http_header)
-      if (widget.http_header) {
-        Object.entries(widget.http_header).forEach(([key, value]) => {
-          // Validate header name and value to prevent injection attacks
-          if (typeof key === 'string' && typeof value === 'string' && 
-              /^[a-zA-Z0-9\-]+$/.test(key) && 
-              !/[\r\n]/.test(value)) {
-            headers[key] = value;
-          } else {
-            logger.warn('Invalid header in http_header configuration: %s', key);
-          }
-        });
-      }
+      validateAndAddCustomHeaders(headers, widget.http_header, logger);
 
       if (widget.username && widget.password) {
         headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;
