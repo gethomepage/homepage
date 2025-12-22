@@ -29,10 +29,17 @@ export default async function credentialedProxyHandler(req, res, map) {
         "Content-Type": "application/json",
       };
 
-      // Add custom headers from widget configuration
+      // Add custom headers from widget configuration (http_header)
       if (widget.http_header) {
         Object.entries(widget.http_header).forEach(([key, value]) => {
-          headers[key] = value;
+          // Validate header name and value to prevent injection attacks
+          if (typeof key === 'string' && typeof value === 'string' && 
+              /^[a-zA-Z0-9\-]+$/.test(key) && 
+              !/[\r\n]/.test(value)) {
+            headers[key] = value;
+          } else {
+            logger.warn('Invalid header in http_header configuration: %s', key);
+          }
         });
       }
 
