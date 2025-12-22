@@ -67,9 +67,9 @@ export function validateAndAddCustomHeaders(headers, customHeaders, logger) {
   
   Object.entries(customHeaders).forEach(([key, value]) => {
     // Validate header name and value to prevent injection attacks
-    // Header names can contain letters, digits, hyphens, and underscores (RFC 7230)
+    // Header names can contain letters, digits, hyphens, underscores, and dots (RFC 7230)
     if (typeof key === 'string' && typeof value === 'string' && 
-        /^[a-zA-Z0-9\-_]+$/.test(key) && 
+        /^[a-zA-Z0-9\-_.]+$/.test(key) && 
         !/[\r\n]/.test(value)) {
       headers[key] = value;
     } else if (logger) {
