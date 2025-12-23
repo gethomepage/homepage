@@ -202,31 +202,22 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const version = widget?.version ?? 1;
-  const useJellyfinV2 = widget?.type === "jellyfin" && version === 2;
-  const sessionsEndpoint = useJellyfinV2 ? "SessionsV2" : "Sessions";
-  const countEndpoint = useJellyfinV2 ? "CountV2" : "Count";
-  const commandMap = {
-    Pause: useJellyfinV2 ? "PauseV2" : "Pause",
-    Unpause: useJellyfinV2 ? "UnpauseV2" : "Unpause",
-  };
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
 
   const {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useWidgetAPI(widget, enableNowPlaying ? sessionsEndpoint : "", {
+  } = useWidgetAPI(widget, enableNowPlaying ? "Sessions" : "", {
     refreshInterval: enableNowPlaying ? 5000 : undefined,
   });
 
-  const { data: countData, error: countError } = useWidgetAPI(widget, countEndpoint, {
+  const { data: countData, error: countError } = useWidgetAPI(widget, "Count", {
     refreshInterval: 60000,
   });
 
   async function handlePlayCommand(session, command) {
-    const mappedCommand = commandMap[command] ?? command;
-    const params = getURLSearchParams(widget, mappedCommand);
+    const params = getURLSearchParams(widget, command);
     params.append(
       "segments",
       JSON.stringify({

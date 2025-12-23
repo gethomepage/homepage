@@ -9,7 +9,6 @@ import { buildHighlightConfig } from "utils/highlights";
 const ALIASED_WIDGETS = {
   pialert: "netalertx",
   hoarder: "karakeep",
-  jellyfin: "emby",
 };
 
 export default function Container({ error = false, children, service }) {
