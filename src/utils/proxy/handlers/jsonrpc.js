@@ -14,8 +14,8 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
     accept: "application/json",
   };
 
-  // Add custom headers from widget configuration (http_header)
-  validateAndAddCustomHeaders(headers, widget?.http_header, logger);
+  // Add custom headers from widget configuration (http-headers)
+  validateAndAddCustomHeaders(headers, widget?.["http-headers"], logger);
 
   if (widget?.username && widget?.password) {
     headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;

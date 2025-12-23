@@ -74,7 +74,7 @@ export function validateAndAddCustomHeaders(headers, customHeaders, logger) {
         !/[\r\n]/.test(value)) {
       headers[key] = value;
     } else if (logger) {
-      logger.warn('Invalid header in http_header configuration: %s', key);
+      logger.warn('Invalid header in http-headers configuration: %s', key);
     }
   });
 }

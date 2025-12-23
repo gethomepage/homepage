@@ -113,12 +113,12 @@ All service widgets support custom HTTP headers for authentication or other purp
       type: servicetype
       url: http://service.host.or.ip
       key: apikeyapikeyapikeyapikeyapikey
-      http_header:
+      http-headers:
         X-Auth-Key: your-auth-key-here
         X-Custom-Header: custom-value
 ```
 
-The `http_header` parameter accepts key-value pairs where keys are header names and values are the header values to send with each API request.
+The `http-headers` parameter accepts key-value pairs where keys are header names and values are the header values to send with each API request.
 
 #### Field Visibility
 

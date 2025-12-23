@@ -255,7 +255,7 @@ export function cleanServiceGroups(groups) {
           fields,
           hideErrors,
           highlight,
-          http_header,
+          "http-headers": httpHeaders,
           type,
 
           // azuredevops
@@ -446,8 +446,8 @@ export function cleanServiceGroups(groups) {
           index,
         };
 
-        if (http_header) {
-          widget.http_header = http_header;
+        if (httpHeaders) {
+          widget["http-headers"] = httpHeaders;
         }
 
         if (highlight) {

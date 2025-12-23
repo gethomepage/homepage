@@ -23,6 +23,6 @@ widget:
   type: changedetectionio
   url: http://changedetection.host.or.ip:port
   key: apikeyapikeyapikeyapikeyapikey
-  http_header:
+  http-headers:
     X-Auth-Key: abcabcabc
 ```
