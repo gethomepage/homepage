@@ -176,9 +176,6 @@ function SessionEntry({ playCommand, session, enableUser, showEpisodeNumber, ena
 
 function CountBlocks({ service, countData }) {
   const { t } = useTranslation();
-  // allows filtering
-  // eslint-disable-next-line no-param-reassign
-  if (service.widget?.type === "jellyfin") service.widget.type = "emby";
 
   if (!countData) {
     return (
@@ -205,22 +202,31 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const version = widget?.version ?? 1;
+  const useJellyfinV2 = widget?.type === "jellyfin" && version === 2;
+  const sessionsEndpoint = useJellyfinV2 ? "SessionsV2" : "Sessions";
+  const countEndpoint = useJellyfinV2 ? "CountV2" : "Count";
+  const commandMap = {
+    Pause: useJellyfinV2 ? "PauseV2" : "Pause",
+    Unpause: useJellyfinV2 ? "UnpauseV2" : "Unpause",
+  };
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
 
   const {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useWidgetAPI(widget, enableNowPlaying ? "Sessions" : "", {
+  } = useWidgetAPI(widget, enableNowPlaying ? sessionsEndpoint : "", {
     refreshInterval: enableNowPlaying ? 5000 : undefined,
   });
 
-  const { data: countData, error: countError } = useWidgetAPI(widget, "Count", {
+  const { data: countData, error: countError } = useWidgetAPI(widget, countEndpoint, {
     refreshInterval: 60000,
   });
 
   async function handlePlayCommand(session, command) {
-    const params = getURLSearchParams(widget, command);
+    const mappedCommand = commandMap[command] ?? command;
+    const params = getURLSearchParams(widget, mappedCommand);
     params.append(
       "segments",
       JSON.stringify({

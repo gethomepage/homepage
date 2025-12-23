@@ -566,6 +566,7 @@ export function cleanServiceGroups(groups) {
             "beszel",
             "glances",
             "immich",
+            "jellyfin",
             "komga",
             "mealie",
             "netalertx",

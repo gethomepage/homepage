@@ -54,6 +54,7 @@ import homebridge from "./homebridge/widget";
 import immich from "./immich/widget";
 import jackett from "./jackett/widget";
 import jdownloader from "./jdownloader/widget";
+import jellyfin from "./jellyfin/widget";
 import jellyseerr from "./jellyseerr/widget";
 import jellystat from "./jellystat/widget";
 import karakeep from "./karakeep/widget";
@@ -207,7 +208,7 @@ const widgets = {
   immich,
   jackett,
   jdownloader,
-  jellyfin: emby,
+  jellyfin,
   jellyseerr,
   jellystat,
   kavita,

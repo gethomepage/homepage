@@ -123,6 +123,8 @@ export default async function credentialedProxyHandler(req, res, map) {
           // v1 does not require a key
           headers.Authorization = `Bearer ${widget.key}`;
         }
+      } else if (widget.type === "jellyfin") {
+        headers["Authorization"] = `MediaBrowser Token=${widget.key}`;
       } else {
         headers["X-API-Key"] = `${widget.key}`;
       }
