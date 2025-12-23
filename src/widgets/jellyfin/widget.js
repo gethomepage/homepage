@@ -1,8 +1,8 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import jellyfinProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}/{endpoint}",
-  proxyHandler: credentialedProxyHandler,
+  proxyHandler: jellyfinProxyHandler,
   mappings: {
     Sessions: {
       endpoint: "emby/Sessions?api_key={key}",
@@ -20,6 +20,7 @@ const widget = {
       endpoint: "emby/Sessions/{sessionId}/Playing/Pause?api_key={key}",
       segments: ["sessionId"],
     },
+    // V2 Endpoints
     SessionsV2: {
       endpoint: "Sessions",
     },
