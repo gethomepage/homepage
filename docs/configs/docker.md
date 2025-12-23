@@ -215,12 +215,11 @@ labels:
   - homepage.group=Infrastructure
   - homepage.name=Gatus
   - homepage.icon=gatus.svg
-  - homepage.href=https://status.example.com
+  - homepage.href=https://gatus.example.com
   - homepage.description=Uptime Monitoring
   - homepage.widget.type=gatus
-  - homepage.widget.url=https://status.example.com
+  - homepage.widget.url=https://gatus.example.com
   - homepage.widget.http-headers.X-Auth-Key=your-auth-key-here
-  - homepage.widget.http-headers.X-Forwarded-User=your-username
 ```
 
 This works with all service widgets that make API requests. See the [Services Configuration](services.md#custom-http-headers) for more details.
