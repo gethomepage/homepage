@@ -15,14 +15,3 @@ widget:
   url: http://changedetection.host.or.ip:port
   key: apikeyapikeyapikeyapikeyapikey
 ```
-
-You can also add custom HTTP headers for authentication (e.g., for services behind a reverse proxy like Traefik):
-
-```yaml
-widget:
-  type: changedetectionio
-  url: http://changedetection.host.or.ip:port
-  key: apikeyapikeyapikeyapikeyapikey
-  http-headers:
-    X-Auth-Key: abcabcabc
-```
