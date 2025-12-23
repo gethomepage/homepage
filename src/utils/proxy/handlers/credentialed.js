@@ -27,6 +27,9 @@ export default async function credentialedProxyHandler(req, res, map) {
 
       const headers = {
         "Content-Type": "application/json",
+        ...(widgets[widget.type].headers ?? {}),
+        ...(widget.headers ?? {}),
+        ...(req.extraHeaders ?? {}),
       };
 
       if (widget.type === "stocks") {
