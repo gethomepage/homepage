@@ -63,18 +63,21 @@ export function sanitizeErrorURL(errorURL) {
 }
 
 export function validateAndAddCustomHeaders(headers, customHeaders, logger) {
-  if (!customHeaders || typeof customHeaders !== 'object' || Array.isArray(customHeaders)) return;
-  
+  if (!customHeaders || typeof customHeaders !== "object" || Array.isArray(customHeaders)) return;
+
   Object.entries(customHeaders).forEach(([key, value]) => {
     // Validate header name and value to prevent injection attacks
     // Header names can contain: letters, digits, hyphens, underscores, dots, and other tchar symbols per RFC 7230
     // For security, we restrict to the most common: alphanumeric, hyphens, underscores, and dots
-    if (typeof key === 'string' && typeof value === 'string' && 
-        /^[a-zA-Z0-9\-_.]+$/.test(key) && 
-        !/[\r\n]/.test(value)) {
+    if (
+      typeof key === "string" &&
+      typeof value === "string" &&
+      /^[a-zA-Z0-9\-_.]+$/.test(key) &&
+      !/[\r\n]/.test(value)
+    ) {
       headers[key] = value;
     } else if (logger) {
-      logger.warn('Invalid header in http-headers configuration: %s', key);
+      logger.warn("Invalid header in http-headers configuration: %s", key);
     }
   });
 }
