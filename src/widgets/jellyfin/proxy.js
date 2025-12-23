@@ -24,11 +24,14 @@ export default async function jellyfinProxyHandler(req, res, map) {
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
+  const deviceIdRaw = widget.deviceId ?? `${widget.service_group || "group"}-${widget.service_name || "service"}`;
+  const deviceId = encodeURIComponent(deviceIdRaw);
+  const authHeader = `MediaBrowser Token="${encodeURIComponent(
+    widget.key,
+  )}", Client="Homepage", Device="Homepage", DeviceId="${deviceId}", Version="1.0.0"`;
+
   const headers = {
-    Authorization: `MediaBrowser Token=${widget.key}`,
-    "Content-Type": "application/json",
-    "X-Emby-Token": widget.key,
-    "X-MediaBrowser-Token": widget.key,
+    Authorization: authHeader,
   };
 
   const params = {
