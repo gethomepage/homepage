@@ -65,7 +65,7 @@ async function fetchFromPlexAPI(endpoint, widget) {
 export default async function plexProxyHandler(req, res) {
   const widget = await getWidget(req);
 
-  const { service } = req.query;
+  const { service, index } = req.query;
 
   if (!widget) {
     return res.status(400).json({ error: "Invalid proxy service type" });
@@ -85,19 +85,19 @@ export default async function plexProxyHandler(req, res) {
     streams = apiData.MediaContainer._attributes.size;
   }
 
-  let libraries = cache.get(`${librariesCacheKey}.${service}`);
+  let libraries = cache.get(`${librariesCacheKey}.${service}.${index}`);
   if (libraries === null) {
     logger.debug("Getting libraries from Plex API");
     [status, apiData] = await fetchFromPlexAPI("/library/sections", widget);
     if (apiData && apiData.MediaContainer) {
       libraries = [].concat(apiData.MediaContainer.Directory);
-      cache.put(`${librariesCacheKey}.${service}`, libraries, 1000 * 60 * 60 * 6);
+      cache.put(`${librariesCacheKey}.${service}.${index}`, libraries, 1000 * 60 * 60 * 6);
     }
   }
 
-  let albums = cache.get(`${albumsCacheKey}.${service}`);
-  let movies = cache.get(`${moviesCacheKey}.${service}`);
-  let tv = cache.get(`${tvCacheKey}.${service}`);
+  let albums = cache.get(`${albumsCacheKey}.${service}.${index}`);
+  let movies = cache.get(`${moviesCacheKey}.${service}.${index}`);
+  let tv = cache.get(`${tvCacheKey}.${service}.${index}`);
   if (albums === null || movies === null || tv === null) {
     albums = 0;
     movies = 0;
@@ -123,9 +123,9 @@ export default async function plexProxyHandler(req, res) {
         }
       }),
     );
-    cache.put(`${albumsCacheKey}.${service}`, albums, 1000 * 60 * 10);
-    cache.put(`${tvCacheKey}.${service}`, tv, 1000 * 60 * 10);
-    cache.put(`${moviesCacheKey}.${service}`, movies, 1000 * 60 * 10);
+    cache.put(`${albumsCacheKey}.${service}.${index}`, albums, 1000 * 60 * 10);
+    cache.put(`${tvCacheKey}.${service}.${index}`, tv, 1000 * 60 * 10);
+    cache.put(`${moviesCacheKey}.${service}.${index}`, movies, 1000 * 60 * 10);
   }
 
   const data = {
