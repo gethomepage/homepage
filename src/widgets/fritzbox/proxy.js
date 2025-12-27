@@ -96,7 +96,10 @@ export default async function fritzboxProxyHandler(req, res) {
         sent: addonInfos?.NewX_AVM_DE_TotalBytesSent64 || 0,
         externalIPAddress: externalIPAddress?.NewExternalIPAddress || null,
         externalIPv6Address: externalIPv6Address?.NewExternalIPv6Address || null,
-        externalIPv6Prefix: externalIPv6Prefix?.NewIPv6Prefix || null,
+        externalIPv6Prefix:
+          externalIPv6Prefix?.NewIPv6Prefix && externalIPv6Prefix?.NewPrefixLength
+            ? `${externalIPv6Prefix.NewIPv6Prefix}/${externalIPv6Prefix.NewPrefixLength}`
+            : externalIPv6Prefix?.NewIPv6Prefix || null,
       });
     })
     .catch((error) => {
