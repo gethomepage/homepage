@@ -8,6 +8,9 @@ const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service }) {
   const todayDate = new Date();
+  // Months in JavaScript Date are 0-indexed, but in PHP they are 1-indexed
+  // So we add 1 to match the PHP style
+  const currentMonthForApi = todayDate.getMonth() + 1;
   const { t } = useTranslation();
   const { widget } = service;
 
@@ -30,7 +33,7 @@ export default function Component({ service }) {
     widget,
     subscriptionsThisMonthlyEndpoint,
     {
-      month: todayDate.getMonth(),
+      month: currentMonthForApi,
       year: todayDate.getFullYear(),
     },
   );
@@ -39,8 +42,8 @@ export default function Component({ service }) {
     widget,
     subscriptionsNextMonthlyEndpoint,
     {
-      month: todayDate.getMonth() + 1,
-      year: todayDate.getFullYear(),
+      month: currentMonthForApi == 12 ? 1 : currentMonthForApi + 1,
+      year: currentMonthForApi == 12 ? todayDate.getFullYear() + 1 : todayDate.getFullYear(),
     },
   );
   const subscriptionsPreviousMonthlyEndpoint = widget.fields.includes("previousMonthlyCost") ? "get_monthly_cost" : "";
@@ -48,8 +51,8 @@ export default function Component({ service }) {
     widget,
     subscriptionsPreviousMonthlyEndpoint,
     {
-      month: todayDate.getMonth() - 1,
-      year: todayDate.getFullYear(),
+      month: currentMonthForApi == 1 ? 12 : currentMonthForApi - 1,
+      year: currentMonthForApi == 1 ? todayDate.getFullYear() - 1 : todayDate.getFullYear(),
     },
   );
 
