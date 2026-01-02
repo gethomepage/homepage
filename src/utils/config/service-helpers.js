@@ -35,7 +35,7 @@ function parseServicesToGroups(services) {
         serviceGroupServices.push({
           name: entryName,
           ...entries[entryName],
-          weight: entries[entryName].weight || serviceGroupServices.length * 100, // default weight
+          weight: entries[entryName].weight ?? serviceGroupServices.length * 100, // default weight
           type: "service",
         });
       }
