@@ -6,11 +6,17 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const MAX_ALLOWED_FIELDS = 4;
 
+const todayDate = new Date();
+function toApiMonthYear(offset = 0) {
+  // API expects 1-indexed months, wrap around if needed
+  const m = todayDate.getMonth() + 1 + offset;
+  return {
+    month: ((m + 11) % 12) + 1,
+    year: todayDate.getFullYear() + Math.floor((m - 1) / 12),
+  };
+}
+
 export default function Component({ service }) {
-  const todayDate = new Date();
-  // Months in JavaScript Date are 0-indexed, but in PHP they are 1-indexed
-  // So we add 1 to match the PHP style
-  const currentMonthForApi = todayDate.getMonth() + 1;
   const { t } = useTranslation();
   const { widget } = service;
 
@@ -32,28 +38,19 @@ export default function Component({ service }) {
   const { data: subscriptionsThisMonthlyCostData, error: subscriptionsThisMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsThisMonthlyEndpoint,
-    {
-      month: currentMonthForApi,
-      year: todayDate.getFullYear(),
-    },
+    toApiMonthYear(), // this month
   );
   const subscriptionsNextMonthlyEndpoint = widget.fields.includes("nextMonthlyCost") ? "get_monthly_cost" : "";
   const { data: subscriptionsNextMonthlyCostData, error: subscriptionsNextMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsNextMonthlyEndpoint,
-    {
-      month: currentMonthForApi == 12 ? 1 : currentMonthForApi + 1,
-      year: currentMonthForApi == 12 ? todayDate.getFullYear() + 1 : todayDate.getFullYear(),
-    },
+    toApiMonthYear(1), // next month
   );
   const subscriptionsPreviousMonthlyEndpoint = widget.fields.includes("previousMonthlyCost") ? "get_monthly_cost" : "";
   const { data: subscriptionsPreviousMonthlyCostData, error: subscriptionsPreviousMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsPreviousMonthlyEndpoint,
-    {
-      month: currentMonthForApi == 1 ? 12 : currentMonthForApi - 1,
-      year: currentMonthForApi == 1 ? todayDate.getFullYear() - 1 : todayDate.getFullYear(),
-    },
+    toApiMonthYear(-1), // previous month
   );
 
   if (
