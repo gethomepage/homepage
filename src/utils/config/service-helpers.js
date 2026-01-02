@@ -35,7 +35,7 @@ function parseServicesToGroups(services) {
         serviceGroupServices.push({
           name: entryName,
           ...entries[entryName],
-          weight: entries[entryName].weight ?? serviceGroupServices.length * 100, // default weight
+          weight: entries[entryName].weight ?? (serviceGroupServices.length + 1) * 100, // default weight
           type: "service",
         });
       }
@@ -107,6 +107,7 @@ export async function servicesFromDocker() {
                 constructedService = {
                   container: containerName.replace(/^\//, ""),
                   server: serverName,
+                  weight: 0,
                   type: "service",
                 };
               }
