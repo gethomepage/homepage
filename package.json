@@ -40,6 +40,7 @@
     "tough-cookie": "^6.0.0",
     "urbackup-server-api": "^0.91.0",
     "winston": "^3.17.0",
+    "ws": "^8.18.3",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
