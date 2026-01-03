@@ -66,7 +66,7 @@ export default async function truenasProxyHandler(req, res) {
     }
 
     const mappingEntry = Object.entries(widgets?.[widget.type]?.mappings).find(
-      ([, value]) => value.endpoint === method
+      ([, value]) => value.endpoint === method,
     );
 
     if (!mappingEntry) {
