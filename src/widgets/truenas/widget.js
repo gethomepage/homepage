@@ -1,23 +1,26 @@
 import { asJson, jsonArrayFilter } from "utils/proxy/api-helpers";
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import truenasProxyHandler from "utils/proxy/handlers/truenas";
 
 const widget = {
-  api: "{url}/api/v2.0/{endpoint}",
-  proxyHandler: credentialedProxyHandler,
+  api: "{url}/api/current",
+  proxyHandler: truenasProxyHandler,
 
   mappings: {
     alerts: {
-      endpoint: "alert/list",
+      endpoint: "alert.list",
+      params: [],
       map: (data) => ({
         pending: jsonArrayFilter(data, (item) => item?.dismissed === false).length,
       }),
     },
     status: {
-      endpoint: "system/info",
+      endpoint: "system.info",
+      params: [],
       validate: ["loadavg", "uptime_seconds"],
     },
     pools: {
-      endpoint: "pool",
+      endpoint: "pool.query",
+      params: [],
       map: (data) =>
         asJson(data).map((entry) => ({
           id: entry.name,
@@ -26,7 +29,8 @@ const widget = {
         })),
     },
     dataset: {
-      endpoint: "pool/dataset",
+      endpoint: "pool.dataset.query",
+      params: [],
     },
   },
 };
