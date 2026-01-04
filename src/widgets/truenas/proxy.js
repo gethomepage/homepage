@@ -173,8 +173,7 @@ export default async function truenasProxyHandler(req, res, map) {
       if (err?.status) {
         return res.status(err.status).json({ error: err.message });
       }
-      logger.warn("Websocket call for TrueNAS failed, falling back to REST: %s", err?.message ?? err);
-      return credentialedProxyHandler(req, res, map);
+      logger.warn("Websocket call for TrueNAS failed: %s", err?.message ?? err);
     }
   } catch (err) {
     logger.error(err);
