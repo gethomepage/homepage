@@ -112,22 +112,6 @@ async function authenticate(ws, widget) {
   throw new Error("TrueNAS authentication failed");
 }
 
-async function callWebsocket(widget, method) {
-  const wsUrl = buildWebsocketUrl(widget);
-  logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
-  const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
-
-  await waitForEvent(ws, () => true, { event: "open", parseJson: false });
-  logger.info("Connected to TrueNAS websocket at %s", wsUrl);
-  try {
-    await authenticate(ws, widget);
-    const result = await sendMethod(ws, method);
-    return result;
-  } finally {
-    ws.close();
-  }
-}
-
 export default async function truenasProxyHandler(req, res, map) {
   const { group, service, endpoint, index } = req.query;
 
@@ -156,7 +140,19 @@ export default async function truenasProxyHandler(req, res, map) {
     }
 
     try {
-      let data = await callWebsocket(widget, wsMethod);
+      let data;
+      const wsUrl = buildWebsocketUrl(widget);
+      logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
+      const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
+
+      await waitForEvent(ws, () => true, { event: "open", parseJson: false });
+      logger.info("Connected to TrueNAS websocket at %s", wsUrl);
+      try {
+        await authenticate(ws, widget);
+        data = await sendMethod(ws, wsMethod);
+      } finally {
+        ws.close();
+      }
 
       if (!validateWidgetData(widget, endpoint, data)) {
         return res.status(500).json({ error: { message: "Invalid data", url: sanitizeErrorURL(widget.url), data } });
