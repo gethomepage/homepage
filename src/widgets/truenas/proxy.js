@@ -19,17 +19,17 @@ function buildWebsocketUrl(baseUrl) {
   return url.toString();
 }
 
-function waitForMessage(ws, matcher) {
+function waitForEvent(ws, matcher, { event = "message", parseJson = true, timeoutMs = 10000 } = {}) {
   return new Promise((resolve, reject) => {
     const timeout = setTimeout(() => {
       cleanup();
-      reject(new Error("TrueNAS websocket request timed out"));
-    }, 10000);
+      reject(new Error("TrueNAS websocket wait timed out"));
+    }, timeoutMs);
 
-    const handleMessage = (data) => {
+    const handleEvent = (payload) => {
       try {
-        const parsed = JSON.parse(data.toString());
-        logger.info("Received TrueNAS websocket message: %o", parsed);
+        const parsed = parseJson ? JSON.parse(payload.toString()) : payload;
+        if (parseJson) logger.info("Received TrueNAS websocket message: %o", parsed);
         const matchResult = matcher(parsed);
         if (matchResult !== undefined) {
           cleanup();
@@ -59,12 +59,12 @@ function waitForMessage(ws, matcher) {
 
     function cleanup() {
       clearTimeout(timeout);
-      ws.off("message", handleMessage);
+      ws.off(event, handleEvent);
       ws.off("error", handleError);
       ws.off("close", handleClose);
     }
 
-    ws.on("message", handleMessage);
+    ws.on(event, handleEvent);
     ws.on("error", handleError);
     ws.on("close", handleClose);
   });
@@ -72,7 +72,7 @@ function waitForMessage(ws, matcher) {
 
 async function ensureConnected(ws) {
   ws.send(JSON.stringify({ msg: "connect", version: "1", support: ["1"] }));
-  await waitForMessage(ws, (message) => (message?.msg === "connected" ? true : undefined));
+  await waitForEvent(ws, (message) => (message?.msg === "connected" ? true : undefined));
 }
 
 let nextId = 1;
@@ -81,7 +81,7 @@ async function sendMethod(ws, method, params = []) {
   logger.info("Sending TrueNAS websocket method %s with id %d", method, id);
   ws.send(JSON.stringify({ id, msg: "method", method, params }));
 
-  return waitForMessage(ws, (message) => {
+  return waitForEvent(ws, (message) => {
     if (message?.msg === "result" && message.id === id) {
       if (message.error) {
         return new Error(message.error.reason || JSON.stringify(message.error));
@@ -115,39 +115,12 @@ async function authenticate(ws, widget) {
   throw new Error("TrueNAS authentication failed");
 }
 
-function waitForOpen(ws) {
-  return new Promise((resolve, reject) => {
-    const handleOpen = () => {
-      cleanup();
-      resolve();
-    };
-    const handleError = (err) => {
-      cleanup();
-      reject(err);
-    };
-    const handleClose = () => {
-      cleanup();
-      reject(new Error("TrueNAS websocket closed before the request was sent"));
-    };
-
-    function cleanup() {
-      ws.off("open", handleOpen);
-      ws.off("error", handleError);
-      ws.off("close", handleClose);
-    }
-
-    ws.once("open", handleOpen);
-    ws.once("error", handleError);
-    ws.once("close", handleClose);
-  });
-}
-
 async function callWebsocket(widget, method) {
   const wsUrl = buildWebsocketUrl(widget.url);
   logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
   const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
 
-  await waitForOpen(ws);
+  await waitForEvent(ws, () => true, { event: "open", parseJson: false });
   logger.info("Connected to TrueNAS websocket at %s", wsUrl);
   try {
     await ensureConnected(ws);
