@@ -2,20 +2,17 @@ import WebSocket from "ws";
 
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { sanitizeErrorURL } from "utils/proxy/api-helpers";
+import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 import validateWidgetData from "utils/proxy/validate-widget-data";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("truenasProxyHandler");
 
-function buildWebsocketUrl(baseUrl) {
-  const url = new URL(baseUrl);
-  const pathname = url.pathname.replace(/\/$/, "");
+function buildWebsocketUrl(widget) {
+  let restUrl = formatApiCall(widgets?.[widget.type]?.wsAPI, { ...widget });
+  const url = new URL(restUrl);
   url.protocol = url.protocol === "https:" ? "wss:" : "ws:";
-  url.pathname = `${pathname}/websocket`;
-  url.search = "";
-  url.hash = "";
   return url.toString();
 }
 
@@ -79,28 +76,19 @@ function waitForEvent(ws, handler, { event = "message", parseJson = true } = {})
   });
 }
 
-async function ensureConnected(ws) {
-  ws.send(JSON.stringify({ msg: "connect", version: "1", support: ["1"] }));
-  await waitForEvent(ws, (message) => (message?.msg === "connected" ? true : undefined));
-}
-
 let nextId = 1;
 async function sendMethod(ws, method, params = []) {
   const id = nextId++;
+  const payload = { jsonrpc: "2.0", id, method, params };
   logger.info("Sending TrueNAS websocket method %s with id %d", method, id);
-  ws.send(JSON.stringify({ id, msg: "method", method, params }));
+  ws.send(JSON.stringify(payload));
 
   return waitForEvent(ws, (message) => {
-    if (message?.msg === "result" && message.id === id) {
-      if (message.error) {
-        return new Error(message.error.reason || JSON.stringify(message.error));
-      }
-      return message.result;
+    if (message?.id !== id) return undefined;
+    if (message?.error) {
+      return new Error(message.error?.message || JSON.stringify(message.error));
     }
-    if (message?.msg === "error" && message.id === id) {
-      return new Error(message.error || "Unknown websocket error");
-    }
-    return undefined;
+    return message?.result ?? message;
   });
 }
 
@@ -125,14 +113,13 @@ async function authenticate(ws, widget) {
 }
 
 async function callWebsocket(widget, method) {
-  const wsUrl = buildWebsocketUrl(widget.url);
+  const wsUrl = buildWebsocketUrl(widget);
   logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
   const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
 
   await waitForEvent(ws, () => true, { event: "open", parseJson: false });
   logger.info("Connected to TrueNAS websocket at %s", wsUrl);
   try {
-    await ensureConnected(ws);
     await authenticate(ws, widget);
     const result = await sendMethod(ws, method);
     return result;
