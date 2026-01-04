@@ -160,6 +160,7 @@ export default async function truenasProxyHandler(req, res, map) {
         return res.status(err.status).json({ error: err.message });
       }
       logger.warn("Websocket call for TrueNAS failed: %s", err?.message ?? err);
+      return res.status(500).json({ error: err?.message ?? "TrueNAS websocket call failed" });
     }
   } catch (err) {
     logger.error(err);
