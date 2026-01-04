@@ -10,9 +10,12 @@ const widget = {
     alerts: {
       endpoint: "alert/list",
       wsMethod: "alert.list",
-      map: (data) => ({
-        pending: jsonArrayFilter(data, (item) => item?.dismissed === false).length,
-      }),
+      map: (data) => {
+        if (Array.isArray(data)) {
+          return { pending: data.filter((item) => item?.dismissed === false).length };
+        }
+        return { pending: jsonArrayFilter(data, (item) => item?.dismissed === false).length };
+      },
     },
     status: {
       endpoint: "system/info",
@@ -22,12 +25,14 @@ const widget = {
     pools: {
       endpoint: "pool",
       wsMethod: "pool.query",
-      map: (data) =>
-        asJson(data).map((entry) => ({
+      map: (data) => {
+        const list = Array.isArray(data) ? data : asJson(data);
+        return list.map((entry) => ({
           id: entry.name,
           name: entry.name,
           healthy: entry.healthy,
-        })),
+        }));
+      },
     },
     dataset: {
       endpoint: "pool/dataset",
