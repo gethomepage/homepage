@@ -115,12 +115,39 @@ async function authenticate(ws, widget) {
   throw new Error("TrueNAS authentication failed");
 }
 
+function waitForOpen(ws) {
+  return new Promise((resolve, reject) => {
+    const handleOpen = () => {
+      cleanup();
+      resolve();
+    };
+    const handleError = (err) => {
+      cleanup();
+      reject(err);
+    };
+    const handleClose = () => {
+      cleanup();
+      reject(new Error("TrueNAS websocket closed before the request was sent"));
+    };
+
+    function cleanup() {
+      ws.off("open", handleOpen);
+      ws.off("error", handleError);
+      ws.off("close", handleClose);
+    }
+
+    ws.once("open", handleOpen);
+    ws.once("error", handleError);
+    ws.once("close", handleClose);
+  });
+}
+
 async function callWebsocket(widget, method) {
   const wsUrl = buildWebsocketUrl(widget.url);
   logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
   const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
 
-  await waitForMessage(ws, (message) => (message === "open" ? true : undefined));
+  await waitForOpen(ws);
   logger.info("Connected to TrueNAS websocket at %s", wsUrl);
   try {
     await ensureConnected(ws);
