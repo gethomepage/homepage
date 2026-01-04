@@ -5,12 +5,10 @@ description: TrueNas Scale Widget Configuration
 
 Learn more about [TrueNas](https://www.truenas.com/).
 
-`version` controls which API the single TrueNAS widget uses (defaults to `1`):
-
-| TrueNAS API            | Homepage widget version |
-| ---------------------- | ----------------------- |
-| REST (pre-26.04)       | 1 (default)             |
-| WebSocket JSON-RPC 2.0 | 2                       |
+| TrueNAS Version         | Homepage widget version |
+| ----------------------- | ----------------------- |
+| < 26 (REST API)         | 1 (default)             |
+| > 25.04 (Websocket API) | 2                       |
 
 Allowed fields: `["load", "uptime", "alerts"]`.
 
