@@ -30,6 +30,7 @@ function waitForEvent(ws, handler, { event = "message", parseJson = true } = {})
       try {
         const parsed = parseJson ? JSON.parse(payload.toString()) : payload;
         if (parseJson) logger.info("Received TrueNAS websocket message: %o", parsed);
+        else logger.info("Received TrueNAS websocket message: %o", payload);
         const handlerResult = handler(parsed);
         if (handlerResult !== undefined) {
           cleanup();
