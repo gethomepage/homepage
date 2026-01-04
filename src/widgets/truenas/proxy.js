@@ -9,13 +9,6 @@ import widgets from "widgets/widgets";
 
 const logger = createLogger("truenasProxyHandler");
 
-function buildWebsocketUrl(widget) {
-  let restUrl = formatApiCall(widgets?.[widget.type]?.wsAPI, { ...widget });
-  const url = new URL(restUrl);
-  url.protocol = url.protocol === "https:" ? "wss:" : "ws:";
-  return url.toString();
-}
-
 function waitForEvent(ws, handler, { event = "message", parseJson = true } = {}) {
   return new Promise((resolve, reject) => {
     const timeout = setTimeout(() => {
@@ -141,7 +134,8 @@ export default async function truenasProxyHandler(req, res, map) {
 
     try {
       let data;
-      const wsUrl = buildWebsocketUrl(widget);
+      const wsUrl = new URL(formatApiCall(widgets?.[widget.type]?.wsAPI, { ...widget }));
+      wsUrl.protocol = wsUrl.protocol === "https:" ? "wss:" : "ws:";
       logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
       const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
 
