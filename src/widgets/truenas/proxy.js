@@ -19,24 +19,24 @@ function buildWebsocketUrl(baseUrl) {
   return url.toString();
 }
 
-function waitForEvent(ws, matcher, { event = "message", parseJson = true, timeoutMs = 10000 } = {}) {
+function waitForEvent(ws, handler, { event = "message", parseJson = true } = {}) {
   return new Promise((resolve, reject) => {
     const timeout = setTimeout(() => {
       cleanup();
       reject(new Error("TrueNAS websocket wait timed out"));
-    }, timeoutMs);
+    }, 10000);
 
     const handleEvent = (payload) => {
       try {
         const parsed = parseJson ? JSON.parse(payload.toString()) : payload;
         if (parseJson) logger.info("Received TrueNAS websocket message: %o", parsed);
-        const matchResult = matcher(parsed);
-        if (matchResult !== undefined) {
+        const handlerResult = handler(parsed);
+        if (handlerResult !== undefined) {
           cleanup();
-          if (matchResult instanceof Error) {
-            reject(matchResult);
+          if (handlerResult instanceof Error) {
+            reject(handlerResult);
           } else {
-            resolve(matchResult);
+            resolve(handlerResult);
           }
         }
       } catch (err) {
