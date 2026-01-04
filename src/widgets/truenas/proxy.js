@@ -29,6 +29,7 @@ function waitForMessage(ws, matcher) {
     const handleMessage = (data) => {
       try {
         const parsed = JSON.parse(data.toString());
+        logger.info("Received TrueNAS websocket message: %o", parsed);
         const matchResult = matcher(parsed);
         if (matchResult !== undefined) {
           cleanup();
@@ -46,11 +47,13 @@ function waitForMessage(ws, matcher) {
 
     const handleError = (err) => {
       cleanup();
+      logger.error("TrueNAS websocket error: %s", err?.message ?? err);
       reject(err);
     };
 
     const handleClose = () => {
       cleanup();
+      logger.error("TrueNAS websocket connection closed unexpectedly");
       reject(new Error("TrueNAS websocket closed the connection"));
     };
 
@@ -75,6 +78,7 @@ async function ensureConnected(ws) {
 let nextId = 1;
 async function sendMethod(ws, method, params = []) {
   const id = nextId++;
+  logger.info("Sending TrueNAS websocket method %s with id %d", method, id);
   ws.send(JSON.stringify({ id, msg: "method", method, params }));
 
   return waitForMessage(ws, (message) => {
@@ -105,6 +109,7 @@ async function authenticate(ws, widget) {
   if (widget?.username && widget?.password) {
     const loginResult = await sendMethod(ws, "auth.login", [widget.username, widget.password]);
     if (loginResult === true) return;
+    logger.warn("TrueNAS username/password authentication failed.");
   }
 
   throw new Error("TrueNAS authentication failed");
@@ -112,10 +117,11 @@ async function authenticate(ws, widget) {
 
 async function callWebsocket(widget, method) {
   const wsUrl = buildWebsocketUrl(widget.url);
+  logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
   const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
 
   await waitForMessage(ws, (message) => (message === "open" ? true : undefined));
-
+  logger.info("Connected to TrueNAS websocket at %s", wsUrl);
   try {
     await ensureConnected(ws);
     await authenticate(ws, widget);
