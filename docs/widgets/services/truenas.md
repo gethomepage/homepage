@@ -7,7 +7,7 @@ Learn more about [TrueNas](https://www.truenas.com/).
 
 | TrueNAS Version         | Homepage widget version |
 | ----------------------- | ----------------------- |
-| < 26 (REST API)         | 1 (default)             |
+| < 26.04 (REST API)      | 1 (default)             |
 | > 25.04 (Websocket API) | 2                       |
 
 Allowed fields: `["load", "uptime", "alerts"]`.
