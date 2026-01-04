@@ -109,20 +109,24 @@ export default async function truenasProxyHandler(req, res, map) {
   const { group, service, endpoint, index } = req.query;
 
   try {
+    const widget = await getServiceWidget(group, service, index);
+    if (!widget || !widgets[widget.type]) {
+      logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
+      return res.status(400).json({ error: "Invalid proxy service type" });
+    }
+
     if (!endpoint) {
       return res.status(204).end();
     }
 
-    const widget = await getServiceWidget(group, service, index);
-    const widgetVersion = Number(widget?.version ?? 1);
+    const version = Number(widget.version ?? 1);
 
-    if (Number.isNaN(widgetVersion) || widgetVersion < 2) {
+    if (Number.isNaN(version) || version < 2) {
       // Use legacy REST proxy for version 1
       return credentialedProxyHandler(req, res, map);
     }
 
-    const widgetDefinition = widgets?.[widget.type];
-    const mappingEntry = Object.values(widgetDefinition?.mappings ?? {}).find(
+    const mappingEntry = Object.values(widgets[widget.type].mappings ?? {}).find(
       (mapping) => mapping.endpoint === endpoint,
     );
     const wsMethod = mappingEntry?.wsMethod;
