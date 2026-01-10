@@ -73,7 +73,7 @@ export function substituteEnvironmentVars(str) {
       } else if (key.startsWith(homepageFilePrefix)) {
         const filename = value;
         const fileContents = readFileSync(filename, "utf8");
-        result = result.replaceAll(`{{${key}}}`, fileContents);
+        result = result.replaceAll(`{{${key}}}`, fileContents.replace(/(\r\n|\n|\r)/gm, ""));
       }
     });
   }
