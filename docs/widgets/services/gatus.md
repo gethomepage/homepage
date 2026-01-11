@@ -4,6 +4,7 @@ description: Gatus Widget Configuration
 ---
 
 Learn more about [Gatus](https://github.com/TwiN/gatus).
+
 Allowed fields: `["up", "down", "uptime"]`.
 
 ```yaml
