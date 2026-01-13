@@ -160,6 +160,63 @@ When your Docker instance has been properly configured, this service will be aut
 
 **When using docker swarm use _deploy/labels_**
 
+### Multiple Service Entries Per Container
+
+A single container can expose multiple services by using numbered label suffixes. This is useful for services that have multiple endpoints or configurations you want separately.
+
+In addition to `homepage.name`, `homepage.group`, etc., you can use `homepage_1.name`, `homepage_1.group`, `homepage_2.name`, `homepage_2.group`, etc. to define multiple service entries for the same container.
+
+**Example:**
+
+```yaml
+services:
+  reverse-proxy:
+    image: caddy:latest
+    container_name: reverse-proxy
+    restart: unless-stopped
+    labels:
+      # First service entry
+      - homepage.group=Web Services
+      - homepage.name=Website A
+      - homepage.icon=mdi-web
+      - homepage.href=https://site-a.example.com
+      - homepage.description=First website
+
+      # Second service entry
+      - homepage_1.group=Web Services
+      - homepage_1.name=Website B
+      - homepage_1.icon=mdi-web
+      - homepage_1.href=https://site-b.example.com
+      - homepage_1.description=Second website
+
+      # Third service entry
+      - homepage_2.group=Web Services
+      - homepage_2.name=Website C
+      - homepage_2.icon=mdi-web
+      - homepage_2.href=https://site-c.example.com
+      - homepage_2.description=Third website
+```
+
+Each numbered entry is treated as an independent service and must include both `group` and `name` labels. You can also add widgets and other configurations to each entry:
+
+```yaml
+labels:
+  # First service with a widget
+  - homepage.group=Services
+  - homepage.name=Service A
+  - homepage.href=http://service-a.local/
+  - homepage.widget.type=ping
+  - homepage.widget.url=http://service-a.local/
+
+  # Second service with different widget
+  - homepage_1.group=Services
+  - homepage_1.name=Service B
+  - homepage_1.href=http://service-b.local/
+  - homepage_1.widget.type=uptimekuma
+  - homepage_1.widget.url=http://uptimekuma.local/
+  - homepage_1.widget.slug=event-slug
+```
+
 ## Widgets
 
 You may also configure widgets, along with the standard service entry, again, using dot notation.

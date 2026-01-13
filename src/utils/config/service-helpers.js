@@ -89,50 +89,74 @@ export async function servicesFromDocker() {
           return [];
         }
 
-        const discovered = containers.map((container) => {
-          let constructedService = null;
+        const discovered = containers.flatMap((container) => {
           const containerLabels = isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels;
           const containerName = isSwarm ? shvl.get(container, "Spec.Name") : container.Names[0];
 
-          Object.keys(containerLabels).forEach((label) => {
-            if (label.startsWith("homepage.")) {
-              let value = label.replace("homepage.", "");
-              if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
-                value = value.replace(`instance.${instanceName}.`, "");
-              } else if (value.startsWith("instance.")) {
-                return;
-              }
+          // Map to collect services by index (0 for base "homepage", 1+ for "homepage_N")
+          const constructedServices = {};
 
-              if (!constructedService) {
-                constructedService = {
-                  container: containerName.replace(/^\//, ""),
-                  server: serverName,
-                  weight: 0,
-                  type: "service",
-                };
-              }
-              let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
-              if (value === "widget.version" || /^widgets\[\d+\]\.version$/.test(value)) {
-                substitutedVal = parseInt(substitutedVal, 10);
-              }
-              shvl.set(constructedService, value, substitutedVal);
+          Object.keys(containerLabels).forEach((label) => {
+            // Extract service index from label (e.g., "homepage" -> 0, "homepage_1" -> 1, "homepage_2" -> 2)
+            let serviceIndex = null;
+            let value = null;
+
+            if (/^homepage_\d+\./.test(label)) {
+              // Numbered entry: "homepage_1.name", "homepage_2.group", etc.
+              const match = label.match(/^homepage_(\d+)\.(.*)/);
+              serviceIndex = parseInt(match[1], 10);
+              value = match[2];
+            } else if (label.startsWith("homepage.")) {
+              // Base entry: "homepage.name", "homepage.group", etc.
+              serviceIndex = 0;
+              value = label.replace("homepage.", "");
+            } else {
+              return; // Not a homepage label, skip
+            }
+
+            // Handle instance filtering
+            if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
+              value = value.replace(`instance.${instanceName}.`, "");
+            } else if (value.startsWith("instance.")) {
+              return; // Skip if label is for different instance
+            }
+
+            // Initialize service object if needed
+            if (!constructedServices[serviceIndex]) {
+              constructedServices[serviceIndex] = {
+                container: containerName.replace(/^\//, ""),
+                server: serverName,
+                weight: 0,
+                type: "service",
+              };
+            }
+
+            let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
+            if (value === "widget.version" || /^widgets\[\d+\]\.version$/.test(value)) {
+              substitutedVal = parseInt(substitutedVal, 10);
+            }
+            shvl.set(constructedServices[serviceIndex], value, substitutedVal);
+          });
+
+          // Validate and collect all services
+          const validServices = [];
+          Object.values(constructedServices).forEach((service) => {
+            if (service && service.name && service.group) {
+              validServices.push(service);
+            } else if (service) {
+              logger.error(
+                `Error constructing service using homepage labels for container '${containerName.replace(
+                  /^\//,
+                  "",
+                )}'. Ensure required labels are present.`,
+              );
             }
           });
 
-          if (constructedService && (!constructedService.name || !constructedService.group)) {
-            logger.error(
-              `Error constructing service using homepage labels for container '${containerName.replace(
-                /^\//,
-                "",
-              )}'. Ensure required labels are present.`,
-            );
-            return null;
-          }
-
-          return constructedService;
+          return validServices;
         });
 
-        return { server: serverName, services: discovered.filter((filteredService) => filteredService) };
+        return { server: serverName, services: discovered };
       } catch (e) {
         logger.error("Error getting services from Docker server '%s': %s", serverName, e);
 
