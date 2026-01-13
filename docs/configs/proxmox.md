@@ -122,4 +122,9 @@ You can also create the user, group, and token via the Proxmox node shell using 
    pveum acl list
    ```
 
-Now, the token `api@pam!homepage` will have only PVEAuditor (read-only) permissions, as described above.
+You can now use the generated token, for example, via a `.env` file and environment variables:
+
+```
+HOMEPAGE_VAR_PROXMOX_USERNAME='api@pam!homepage'
+HOMEPAGE_VAR_PROXMOX_PASSWORD='YOUR_GENERATED_TOKEN_VALUE'
+```
