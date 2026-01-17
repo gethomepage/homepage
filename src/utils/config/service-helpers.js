@@ -314,7 +314,7 @@ export function cleanServiceGroups(groups) {
           // gamedig
           gameToken,
 
-          // authentik, beszel, glances, immich, komga, mealie, pihole, pfsense, speedtest
+          // authentik, beszel, glances, immich, komga, mealie, netalertx, pihole, pfsense, speedtest
           version,
 
           // glances
@@ -559,6 +559,7 @@ export function cleanServiceGroups(groups) {
             "immich",
             "komga",
             "mealie",
+            "netalertx",
             "pfsense",
             "pihole",
             "speedtest",

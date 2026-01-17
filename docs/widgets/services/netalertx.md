@@ -11,9 +11,15 @@ Allowed fields: `["total", "connected", "new_devices", "down_alerts"]`.
 
 If you have enabled a password on your NetAlertX instance, you will need to provide the `SYNC_api_token` as the `key` in your config.
 
+| NetAlertX Version | Homepage Widget Version |
+| ----------------- | ----------------------- |
+| < v26.1.17        | 1 (default)             |
+| > v26.1.17        | 2                       |
+
 ```yaml
 widget:
   type: netalertx
   url: http://ip:port
   key: netalertxsyncapitoken # optional, only if password is enabled
+  version: 2 # optional, default is 1
 ```
