@@ -106,7 +106,23 @@ export default function WorldClock({ options }) {
   const sizeClass = textSizes[textSize] || textSizes.sm;
 
   const getContainerClass = () => {
-    if (isGrid) return `grid ${gridCols[columns] || gridCols[2]} gap-x-4 gap-y-1`;
+    if (isGrid) {
+      const hasValidColumns = Object.prototype.hasOwnProperty.call(gridCols, columns) && !!gridCols[columns];
+      const safeColumns = hasValidColumns ? columns : 2;
+
+      if (!hasValidColumns) {
+        // Warn when an invalid columns value is provided and we fall back to the default.
+        // This helps surface configuration issues without changing existing behavior.
+        // eslint-disable-next-line no-console
+        console.warn(
+          `WorldClock widget: invalid columns value "${String(
+            columns,
+          )}". Falling back to 2 columns.`,
+        );
+      }
+
+      return `grid ${gridCols[safeColumns]} gap-x-4 gap-y-1`;
+    }
     if (isVertical) return "flex flex-col gap-1";
     return "flex flex-row flex-wrap items-center gap-x-4 gap-y-1";
   };
