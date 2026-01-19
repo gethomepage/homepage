@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Горе",
         "pending": "На чекању",
-        "down": "Доле"
+        "down": "Доле",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Сада",
@@ -600,13 +601,13 @@
         "total": "Укупно"
     },
     "pangolin": {
-        "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "orgs": "Организације",
+        "sites": "Сајтови",
+        "resources": "Ресурси",
+        "targets": "Циљеви",
+        "traffic": "Саобраћај",
+        "in": "Улазак",
+        "out": "Излазак"
     },
     "peanut": {
         "battery_charge": "Напуњеност батерије",
@@ -791,6 +792,12 @@
         "authors": "Аутори",
         "categories": "Категорије",
         "series": "Серије"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Ред",
