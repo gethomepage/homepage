@@ -25,9 +25,6 @@ function waitForEvent(ws, handler, { event = "message", parseJson = true } = {})
           } else if (typeof payload === "string") {
             parsed = JSON.parse(payload);
           }
-          logger.info("Received TrueNAS websocket message: %o", parsed);
-        } else {
-          logger.info("Received TrueNAS websocket message: %o", payload);
         }
         const handlerResult = handler(parsed);
         if (handlerResult !== undefined) {
@@ -52,7 +49,7 @@ function waitForEvent(ws, handler, { event = "message", parseJson = true } = {})
 
     const handleClose = () => {
       cleanup();
-      logger.error("TrueNAS websocket connection closed unexpectedly");
+      logger.debug("TrueNAS websocket connection closed unexpectedly");
       reject(new Error("TrueNAS websocket closed the connection"));
     };
 
@@ -73,7 +70,6 @@ let nextId = 1;
 async function sendMethod(ws, method, params = []) {
   const id = nextId++;
   const payload = { jsonrpc: "2.0", id, method, params };
-  logger.info("Sending TrueNAS websocket method %s with id %d", method, id);
   ws.send(JSON.stringify(payload));
 
   return waitForEvent(ws, (message) => {
@@ -92,7 +88,7 @@ async function authenticate(ws, widget) {
       if (apiKeyResult === true) return;
       logger.warn("TrueNAS API key authentication failed, falling back to username/password when available.");
     } catch (err) {
-      logger.warn("TrueNAS API key authentication failed: %s", err?.message ?? err);
+      logger.error("TrueNAS API key authentication failed: %s", err?.message ?? err);
     }
   }
 
@@ -141,13 +137,9 @@ export default async function truenasProxyHandler(req, res, map) {
     let data;
     const wsUrl = new URL(formatApiCall(widgets[widget.type].wsAPI, { ...widget }));
     const useSecure = wsUrl.protocol === "https:" || Boolean(widget.key); // API key requires secure connection
-    if (useSecure && wsUrl.protocol !== "https:")
-      logger.info("Upgrading TrueNAS websocket connection to secure wss://");
     wsUrl.protocol = useSecure ? "wss:" : "ws:";
-    logger.info("Connecting to TrueNAS websocket at %s", wsUrl);
     const ws = new WebSocket(wsUrl, { rejectUnauthorized: false });
     await waitForEvent(ws, () => true, { event: "open", parseJson: false }); // wait for open
-    logger.info("Connected to TrueNAS websocket at %s", wsUrl);
     try {
       await authenticate(ws, widget);
       data = await sendMethod(ws, wsMethod);
@@ -166,7 +158,7 @@ export default async function truenasProxyHandler(req, res, map) {
     if (err?.status) {
       return res.status(err.status).json({ error: err.message });
     }
-    logger.warn("Websocket call for TrueNAS failed: %s", err?.message ?? err);
+    logger.error("Websocket call for TrueNAS failed: %s", err?.message ?? err);
     return res.status(500).json({ error: err?.message ?? "TrueNAS websocket call failed" });
   }
 }
