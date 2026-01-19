@@ -39,7 +39,7 @@ const Version = dynamic(() => import("components/version"), {
   ssr: false,
 });
 
-const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
+const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime", "worldclock"];
 
 // Normalize language codes so older config values like zh-CN still point to Crowdin-provided ones
 const LANGUAGE_ALIASES = {
