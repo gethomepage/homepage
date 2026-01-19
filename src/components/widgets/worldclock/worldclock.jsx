@@ -111,9 +111,11 @@ export default function WorldClock({ options }) {
     return "flex flex-row flex-wrap items-center gap-x-4 gap-y-1";
   };
 
-  const dateElement = showDate && clocks[0] && (
+  const primaryClock = clocks.find((clock) => clock && clock.timezone);
+
+  const dateElement = showDate && primaryClock && primaryClock.timezone && (
     <span className={`text-theme-800 dark:text-theme-200 tabular-nums ${sizeClass}`}>
-      {formatDate(clocks[0].timezone, dateLocale, dateFormat)}
+      {formatDate(primaryClock.timezone, dateLocale, dateFormat)}
     </span>
   );
 
