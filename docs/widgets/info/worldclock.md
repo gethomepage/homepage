@@ -48,28 +48,28 @@ Display multiple time zones with customizable labels and optional flag emojis. I
 
 ## Options
 
-| Option          | Type    | Default                | Description                                                                                                                                   |
-| --------------- | ------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text_size`     | string  | `sm`                   | Size of time text: `4xl`, `3xl`, `2xl`, `xl`, `lg`, `md`, `sm`, `xs`                                                                          |
-| `format`        | string  | `24h`                  | Time format: `24h` or `12h`                                                                                                                   |
-| `show_date`     | boolean | `false`                | Display date using first clock's timezone                                                                                                     |
-| `date_position` | string  | `above`                | Date position: `left`, `right`, `above`, `below`                                                                                              |
-| `show_seconds`  | boolean | `false`                | Include seconds in time display                                                                                                               |
-| `layout`        | string  | `horizontal`           | Display layout: `horizontal`, `vertical`, or `grid`                                                                                           |
-| `columns`       | number  | `2`                    | Number of columns for grid layout (1-8)                                                                                                       |
-| `locale`        | string  | browser locale         | Override locale for formatting                                                                                                                |
-| `date_format`   | object  | `{dateStyle: "short"}` | [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) options for date  |
-| `label_bold`    | boolean | `true`                 | Display label in bold                                                                                                                         |
-| `time_bold`     | boolean | `false`                | Display time in bold                                                                                                                          |
-| `clocks`        | array   | `[]`                   | Array of clock configurations                                                                                                                 |
+| Option          | Type    | Default                | Description                                                                                                                                  |
+| --------------- | ------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text_size`     | string  | `sm`                   | Size of time text: `4xl`, `3xl`, `2xl`, `xl`, `lg`, `md`, `sm`, `xs`                                                                         |
+| `format`        | string  | `24h`                  | Time format: `24h` or `12h`                                                                                                                  |
+| `show_date`     | boolean | `false`                | Display date using first clock's timezone                                                                                                    |
+| `date_position` | string  | `above`                | Date position: `left`, `right`, `above`, `below`                                                                                             |
+| `show_seconds`  | boolean | `false`                | Include seconds in time display                                                                                                              |
+| `layout`        | string  | `horizontal`           | Display layout: `horizontal`, `vertical`, or `grid`                                                                                          |
+| `columns`       | number  | `2`                    | Number of columns for grid layout (1-8)                                                                                                      |
+| `locale`        | string  | browser locale         | Override locale for formatting                                                                                                               |
+| `date_format`   | object  | `{dateStyle: "short"}` | [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) options for date |
+| `label_bold`    | boolean | `true`                 | Display label in bold                                                                                                                        |
+| `time_bold`     | boolean | `false`                | Display time in bold                                                                                                                         |
+| `clocks`        | array   | `[]`                   | Array of clock configurations                                                                                                                |
 
 ## Clock Configuration
 
-| Option     | Type   | Required | Description                                                 |
-| ---------- | ------ | -------- | ----------------------------------------------------------- |
-| `timezone` | string | Yes      | IANA timezone (e.g., `Europe/Berlin`, `America/New_York`)   |
-| `label`    | string | No       | Display label                                               |
-| `flag`     | string | No       | ISO 3166-1 alpha-2 country code for flag emoji              |
+| Option     | Type   | Required | Description                                               |
+| ---------- | ------ | -------- | --------------------------------------------------------- |
+| `timezone` | string | Yes      | IANA timezone (e.g., `Europe/Berlin`, `America/New_York`) |
+| `label`    | string | No       | Display label                                             |
+| `flag`     | string | No       | ISO 3166-1 alpha-2 country code for flag emoji            |
 
 ## Examples
 
