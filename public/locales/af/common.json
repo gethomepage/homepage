@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Op",
         "pending": "Afwagtend",
-        "down": "Af"
+        "down": "Af",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Nuut",
@@ -769,7 +770,7 @@
         "gross_percent_today": "Vandag",
         "gross_percent_1y": "Een jaar",
         "gross_percent_max": "Alle tyd",
-        "net_worth": "Net Worth"
+        "net_worth": "Netto Waarde"
     },
     "audiobookshelf": {
         "podcasts": "Podsendinge",
@@ -791,6 +792,12 @@
         "authors": "Skrywers",
         "categories": "Kategorieë",
         "series": "Reekse"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Tou",

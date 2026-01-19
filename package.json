@@ -20,12 +20,12 @@
     "gamedig": "^5.3.2",
     "i18next": "^25.5.3",
     "ical.js": "^2.1.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.1.1",
     "json-rpc-2.0": "^1.7.0",
     "luxon": "^3.6.1",
     "memory-cache": "^0.2.0",
     "minecraftstatuspinger": "^1.2.2",
-    "next": "^15.5.7",
+    "next": "^15.5.9",
     "next-i18next": "^12.1.0",
     "ping": "^0.4.4",
     "pretty-bytes": "^7.1.0",
@@ -33,18 +33,19 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.5.3",
-    "react-icons": "^5.4.0",
+    "react-icons": "^5.5.0",
     "recharts": "^3.1.2",
     "swr": "^2.3.3",
     "systeminformation": "^5.27.11",
     "tough-cookie": "^6.0.0",
-    "urbackup-server-api": "^0.8.9",
+    "urbackup-server-api": "^0.91.0",
     "winston": "^3.17.0",
+    "ws": "^8.18.3",
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/postcss": "^4.1.14",
+    "@tailwindcss/postcss": "^4.1.18",
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.1.8",
@@ -65,6 +66,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
       "osx-temperature-sensor",
       "sharp"
     ]

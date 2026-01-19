@@ -25,7 +25,11 @@ export default async function genericProxyHandler(req, res, map) {
       }
       const url = new URL(urlString);
 
-      const headers = req.extraHeaders ?? widget.headers ?? widgets[widget.type].headers ?? {};
+      const headers = {
+        ...(widgets[widget.type].headers ?? {}),
+        ...(widget.headers ?? {}),
+        ...(req.extraHeaders ?? {}),
+      };
 
       if (widget.username && widget.password) {
         headers.Authorization = `Basic ${Buffer.from(`${widget.username}:${widget.password}`).toString("base64")}`;

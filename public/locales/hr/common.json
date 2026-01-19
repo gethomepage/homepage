@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Aktivno",
         "pending": "U tijeku",
-        "down": "Neaktivno"
+        "down": "Neaktivno",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Novo",
@@ -791,6 +792,12 @@
         "authors": "Autori",
         "categories": "Kategorije",
         "series": "Serije"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Red čekanja",

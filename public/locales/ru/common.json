@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "В сети",
         "pending": "Ожидают",
-        "down": "Не в сети"
+        "down": "Не в сети",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Новый",
@@ -791,6 +792,12 @@
         "authors": "Авторы",
         "categories": "Категории",
         "series": "Серии"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Очередь",

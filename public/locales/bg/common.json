@@ -63,7 +63,7 @@
         "wlan_users": "WLAN Потребители",
         "up": "UP",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Моля изчакайте",
         "empty_data": "Неизвестен статус на подсистема"
     },
     "docker": {
@@ -83,7 +83,7 @@
         "partial": "Частично"
     },
     "ping": {
-        "error": "Error",
+        "error": "Грешка",
         "ping": "Пинг",
         "down": "Down",
         "up": "Up",
@@ -91,11 +91,11 @@
     },
     "siteMonitor": {
         "http_status": "HTTP статус",
-        "error": "Error",
+        "error": "Грешка",
         "response": "Отговор",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Не е налично"
     },
     "emby": {
         "playing": "Възпроизвежда",
@@ -111,7 +111,7 @@
         "offline": "Offline",
         "offline_alt": "Offline",
         "online": "Онлайн",
-        "total": "Total",
+        "total": "Общо",
         "unknown": "Unknown"
     },
     "evcc": {
@@ -133,7 +133,7 @@
         "unread": "Непрочетени"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
+        "connectionStatus": "Статус",
         "connectionStatusUnconfigured": "Неконфигуриран",
         "connectionStatusConnecting": "Свързване",
         "connectionStatusAuthenticating": "Удостоверяване",
@@ -141,7 +141,7 @@
         "connectionStatusDisconnecting": "Прекъсване на връзката",
         "connectionStatusDisconnected": "Не е свързан",
         "connectionStatusConnected": "Свързан",
-        "uptime": "Uptime",
+        "uptime": "Време на работа",
         "maxDown": "Макс сваляне",
         "maxUp": "Макс качване",
         "down": "Down",
@@ -170,8 +170,8 @@
     "tautulli": {
         "playing": "Playing",
         "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "bitrate": "Битрейт",
+        "no_active": "Няма активни потоци",
         "plex_connection_error": "Провери връзка с Plex"
     },
     "omada": {
@@ -189,7 +189,7 @@
     "plex": {
         "streams": "Активни Потоци",
         "albums": "Албуми",
-        "movies": "Movies",
+        "movies": "Филми",
         "tv": "Сериали"
     },
     "sabnzbd": {
@@ -362,8 +362,8 @@
     },
     "trilium": {
         "version": "Version",
-        "notesCount": "Notes",
-        "dbSize": "Database Size",
+        "notesCount": "Бележки",
+        "dbSize": "Размер на базата данни",
         "unknown": "Unknown"
     },
     "navidrome": {
@@ -373,7 +373,7 @@
     "npm": {
         "enabled": "Активирано",
         "disabled": "Деактивирано",
-        "total": "Total"
+        "total": "Общо"
     },
     "coinmarketcap": {
         "configure": "Настрой за следене една или повече крипто валути",
@@ -384,7 +384,7 @@
     },
     "gotify": {
         "apps": "Приложения",
-        "clients": "Clients",
+        "clients": "Клиенти",
         "messages": "Съобщения"
     },
     "prowlarr": {
@@ -405,7 +405,7 @@
         "transferRate": "Rate"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Потребители",
         "status_count": "Posts",
         "domain_count": "Domains"
     },
@@ -416,17 +416,17 @@
     },
     "minecraft": {
         "players": "Играчи",
-        "version": "Version",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "version": "Версия",
+        "status": "Статус",
+        "up": "Онлайн",
+        "down": "Офлайн"
     },
     "miniflux": {
         "read": "Read",
         "unread": "Unread"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Потребители",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
         "pending": "Pending",
-        "down": "Down"
+        "down": "Down",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Нови",
@@ -791,6 +792,12 @@
         "authors": "Автори",
         "categories": "Categories",
         "series": "Series"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Queue",

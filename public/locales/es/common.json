@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Activo",
         "pending": "Pendiente",
-        "down": "Inactivo"
+        "down": "Inactivo",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Nuevo",
@@ -601,12 +602,12 @@
     },
     "pangolin": {
         "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "sites": "Sitios",
+        "resources": "Recursos",
+        "targets": "Destinos",
+        "traffic": "Tráfico",
+        "in": "Entrante",
+        "out": "Saliente"
     },
     "peanut": {
         "battery_charge": "Carga de la batería",
@@ -769,7 +770,7 @@
         "gross_percent_today": "Hoy",
         "gross_percent_1y": "Un año",
         "gross_percent_max": "Todo el tiempo",
-        "net_worth": "Net Worth"
+        "net_worth": "Patrimonio neto"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
@@ -791,6 +792,12 @@
         "authors": "Autores",
         "categories": "Categorías",
         "series": "Series"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "En cola",

@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Fut",
         "pending": "Függőben lévő",
-        "down": "Leállt"
+        "down": "Leállt",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Új",
@@ -791,6 +792,12 @@
         "authors": "Szerzők",
         "categories": "Categories",
         "series": "Series"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Queue",

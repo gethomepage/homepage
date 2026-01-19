@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Beží",
         "pending": "Čakajúce",
-        "down": "Down"
+        "down": "Down",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Nový",
@@ -791,6 +792,12 @@
         "authors": "Autori",
         "categories": "Kategórie",
         "series": "Series"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Poradie",

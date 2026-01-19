@@ -41,6 +41,7 @@ nav:
           - widgets/services/azuredevops.md
           - widgets/services/backrest.md
           - widgets/services/bazarr.md
+          - widgets/services/booklore.md
           - widgets/services/beszel.md
           - widgets/services/caddy.md
           - widgets/services/calendar.md

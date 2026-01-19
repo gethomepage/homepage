@@ -17,6 +17,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Azure DevOps](azuredevops.md)
 - [Backrest](backrest.md)
 - [Bazarr](bazarr.md)
+- [Booklore](booklore.md)
 - [Beszel](beszel.md)
 - [Caddy](caddy.md)
 - [Calendar](calendar.md)

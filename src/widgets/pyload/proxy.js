@@ -11,6 +11,15 @@ const logger = createLogger(proxyName);
 const sessionCacheKey = `${proxyName}__sessionId`;
 const isNgCacheKey = `${proxyName}__isNg`;
 
+function parsePyloadResponse(url, data) {
+  try {
+    return JSON.parse(Buffer.from(data).toString());
+  } catch (e) {
+    logger.error(`Error communicating with pyload API at ${url}, returned: ${JSON.stringify(data)}`);
+    return data;
+  }
+}
+
 async function fetchFromPyloadAPI(url, sessionId, params, service) {
   const options = {
     body: params
@@ -33,13 +42,33 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
 
   // eslint-disable-next-line no-unused-vars
   const [status, contentType, data, responseHeaders] = await httpProxy(url, options);
-  let returnData;
-  try {
-    returnData = JSON.parse(Buffer.from(data).toString());
-  } catch (e) {
-    logger.error(`Error communicating with pyload API at ${url}, returned: ${JSON.stringify(data)}`);
-    returnData = data;
+  const returnData = parsePyloadResponse(url, data);
+  return [status, returnData, responseHeaders];
+}
+
+async function fetchFromPyloadAPIBasic(url, params, username, password) {
+  const parsedUrl = new URL(url);
+  const isGetRequest = !params || Object.keys(params).length === 0;
+
+  const options = {
+    method: isGetRequest ? "GET" : "POST",
+    headers: {
+      Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString("base64")}`,
+    },
+  };
+
+  if (isGetRequest) {
+    if (params) {
+      Object.keys(params).forEach((key) => parsedUrl.searchParams.append(key, params[key]));
+    }
+  } else {
+    options.headers["Content-Type"] = "application/json";
+    options.body = JSON.stringify(params);
   }
+
+  // eslint-disable-next-line no-unused-vars
+  const [status, contentType, data, responseHeaders] = await httpProxy(parsedUrl, options);
+  const returnData = parsePyloadResponse(parsedUrl, data);
   return [status, returnData, responseHeaders];
 }
 
@@ -66,24 +95,43 @@ async function login(loginUrl, service, username, password = "") {
   return sessionId;
 }
 
-export default async function pyloadProxyHandler(req, res) {
+export default async function pyloadProxyHandler(req, res, map = {}) {
   const { group, service, endpoint, index } = req.query;
+  const { ngEndpoint } = map;
 
   try {
     if (group && service) {
       const widget = await getServiceWidget(group, service, index);
 
       if (widget) {
-        const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
+        const apiTemplate = widgets[widget.type].api;
+        const url = new URL(formatApiCall(apiTemplate, { endpoint, ...widget }));
+        const ngUrl = ngEndpoint ? new URL(formatApiCall(apiTemplate, { endpoint: ngEndpoint, ...widget })) : url;
         const loginUrl = `${widget.url}/api/login`;
+        const hasCredentials = widget.username && widget.password;
+
+        if (hasCredentials) {
+          const [status, data] = await fetchFromPyloadAPIBasic(ngUrl, null, widget.username, widget.password);
+
+          if (status === 200 && !data?.error) {
+            cache.put(`${isNgCacheKey}.${service}`, true);
+            return res.json(data);
+          }
+
+          if (status === 401) {
+            return res
+              .status(status)
+              .send({ error: { message: "Invalid credentials communicating with Pyload API", data } });
+          }
+        }
 
         let sessionId =
           cache.get(`${sessionCacheKey}.${service}`) ??
           (await login(loginUrl, service, widget.username, widget.password));
         let [status, data] = await fetchFromPyloadAPI(url, sessionId, null, service);
 
-        if (status === 403 || status === 401) {
-          logger.info("Failed to retrieve data from Pyload API, trying to login again...");
+        if (status === 403 || status === 401 || (status === 400 && data?.error?.includes("CSRF token"))) {
+          logger.info("Failed to retrieve data from Pyload API with session auth, trying to login again...");
           cache.del(`${sessionCacheKey}.${service}`);
           sessionId = await login(loginUrl, service, widget.username, widget.password);
           [status, data] = await fetchFromPyloadAPI(url, sessionId, null, service);

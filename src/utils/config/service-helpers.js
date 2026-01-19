@@ -35,7 +35,7 @@ function parseServicesToGroups(services) {
         serviceGroupServices.push({
           name: entryName,
           ...entries[entryName],
-          weight: entries[entryName].weight || serviceGroupServices.length * 100, // default weight
+          weight: entries[entryName].weight ?? (serviceGroupServices.length + 1) * 100, // default weight
           type: "service",
         });
       }
@@ -107,6 +107,7 @@ export async function servicesFromDocker() {
                 constructedService = {
                   container: containerName.replace(/^\//, ""),
                   server: serverName,
+                  weight: 0,
                   type: "service",
                 };
               }
@@ -313,7 +314,7 @@ export function cleanServiceGroups(groups) {
           // gamedig
           gameToken,
 
-          // authentik, beszel, glances, immich, komga, mealie, pihole, pfsense, speedtest
+          // authentik, beszel, glances, immich, komga, mealie, netalertx, pihole, pfsense, speedtest
           version,
 
           // glances
@@ -558,6 +559,7 @@ export function cleanServiceGroups(groups) {
             "immich",
             "komga",
             "mealie",
+            "netalertx",
             "pfsense",
             "pihole",
             "speedtest",
