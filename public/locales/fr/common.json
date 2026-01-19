@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "En ligne",
         "pending": "En attente",
-        "down": "Hors ligne"
+        "down": "Hors ligne",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Nouveau",
@@ -791,6 +792,12 @@
         "authors": "Auteurs",
         "categories": "Catégories",
         "series": "Séries"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "File d'attente",

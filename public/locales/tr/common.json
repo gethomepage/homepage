@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Çalışıyor",
         "pending": "Bekleyen",
-        "down": "Çalışmayan"
+        "down": "Çalışmayan",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Yeni",
@@ -791,6 +792,12 @@
         "authors": "Yazarlar",
         "categories": "Kategoriler",
         "series": "Seriler"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Kuyruk",
