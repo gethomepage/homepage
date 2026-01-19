@@ -130,7 +130,9 @@ export default function WorldClock({ options }) {
               {clock.label}
             </span>
           )}
-          <span className={`text-theme-800 dark:text-theme-200 ${timeBold ? "font-bold" : ""} tabular-nums ${sizeClass}`}>
+          <span
+            className={`text-theme-800 dark:text-theme-200 ${timeBold ? "font-bold" : ""} tabular-nums ${sizeClass}`}
+          >
             {formatTime(clock.timezone, dateLocale, format, showSeconds)}
           </span>
         </div>
