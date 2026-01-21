@@ -1,23 +1,17 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-const authEnabled = process.env.HOMEPAGE_AUTH_ENABLED === "true";
+const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
 const authSecret = process.env.NEXTAUTH_SECRET || process.env.HOMEPAGE_AUTH_SECRET;
+let warnedAllowedHosts = false;
 
 export async function middleware(req) {
-  // Host validation (status quo)
-  const host = req.headers.get("host");
-  const port = process.env.PORT || 3000;
-  let allowedHosts = [`localhost:${port}`, `127.0.0.1:${port}`, `[::1]:${port}`];
-  const allowAll = process.env.HOMEPAGE_ALLOWED_HOSTS === "*";
-  if (process.env.HOMEPAGE_ALLOWED_HOSTS) {
-    allowedHosts = allowedHosts.concat(process.env.HOMEPAGE_ALLOWED_HOSTS.split(","));
-  }
-  if (!allowAll && (!host || !allowedHosts.includes(host))) {
-    console.error(
-      `Host validation failed for: ${host}. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.`,
+  if (!warnedAllowedHosts && process.env.HOMEPAGE_ALLOWED_HOSTS) {
+    warnedAllowedHosts = true;
+    // eslint-disable-next-line no-console
+    console.warn(
+      "HOMEPAGE_ALLOWED_HOSTS is deprecated. To secure a publicly accessible homepage, configure authentication instead.",
     );
-    return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
 
   if (authEnabled) {

@@ -1,13 +1,13 @@
 import NextAuth from "next-auth";
 
-const authEnabled = process.env.HOMEPAGE_AUTH_ENABLED === "true";
+const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
 const issuer = process.env.HOMEPAGE_OIDC_ISSUER;
 const clientId = process.env.HOMEPAGE_OIDC_CLIENT_ID;
 const clientSecret = process.env.HOMEPAGE_OIDC_CLIENT_SECRET;
 const homepageAuthSecret = process.env.HOMEPAGE_AUTH_SECRET;
 const homepageExternalUrl = process.env.HOMEPAGE_EXTERNAL_URL;
 
-// Map HOMEPAGE_* envs to what NextAuth expects so users don’t need NEXTAUTH_* explicitly.
+// Map HOMEPAGE_* envs to what NextAuth expects
 if (!process.env.NEXTAUTH_SECRET && homepageAuthSecret) {
   process.env.NEXTAUTH_SECRET = homepageAuthSecret;
 }
@@ -22,9 +22,7 @@ if (
   authEnabled &&
   (!issuer || !clientId || !clientSecret || !process.env.NEXTAUTH_SECRET || !process.env.NEXTAUTH_URL)
 ) {
-  throw new Error(
-    "OIDC auth is enabled but required settings are missing. Please set HOMEPAGE_OIDC_ISSUER, HOMEPAGE_OIDC_CLIENT_ID, HOMEPAGE_OIDC_CLIENT_SECRET, HOMEPAGE_AUTH_SECRET, and HOMEPAGE_EXTERNAL_URL.",
-  );
+  throw new Error("OIDC auth is enabled but required settings are missing.");
 }
 
 let providers = [];
