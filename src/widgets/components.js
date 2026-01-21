@@ -21,6 +21,7 @@ const components = {
   checkmk: dynamic(() => import("./checkmk/component")),
   cloudflared: dynamic(() => import("./cloudflared/component")),
   coinmarketcap: dynamic(() => import("./coinmarketcap/component")),
+  commafeed: dynamic(() => import("./commafeed/component")),
   crowdsec: dynamic(() => import("./crowdsec/component")),
   iframe: dynamic(() => import("./iframe/component")),
   customapi: dynamic(() => import("./customapi/component")),

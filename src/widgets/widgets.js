@@ -18,6 +18,7 @@ import channelsdvrserver from "./channelsdvrserver/widget";
 import checkmk from "./checkmk/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
+import commafeed from "./commafeed/widget";
 import crowdsec from "./crowdsec/widget";
 import customapi from "./customapi/widget";
 import deluge from "./deluge/widget";
@@ -166,6 +167,7 @@ const widgets = {
   checkmk,
   cloudflared,
   coinmarketcap,
+  commafeed,
   crowdsec,
   customapi,
   deluge,
