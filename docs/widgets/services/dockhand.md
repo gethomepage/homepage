@@ -20,7 +20,7 @@ Allowed fields:
   - metricsMemoryUsed
   - metricsMemoryTotal
 
-Field example: `["containersRunning", "containersUnhealthy", "containersPendingUpdates"]`
+Field example: `["containersTotal", "containersRunning", "containersUnhealthy", "containersPendingUpdates"]`
 
 ```yaml
 widget:

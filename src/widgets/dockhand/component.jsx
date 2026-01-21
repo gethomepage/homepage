@@ -4,9 +4,19 @@ import { useTranslation } from "next-i18next";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+const MAX_ALLOWED_FIELDS = 4;
+
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
+
+  if (!widget.fields) {
+    widget.fields = ["containersTotal", "containersRunning", "containersUnhealthy", "containersPendingUpdates"];
+  }
+
+  if (widget.fields.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
 
   const { data, error } = useWidgetAPI(widget);
 
