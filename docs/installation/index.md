@@ -27,7 +27,7 @@ You have a few options for deploying homepage, depending on your needs. We offer
 
 </div>
 
-### Authentication
+### Security & Authentication
 
 Public deployments of Homepage should be secured via a reverse proxy, VPN, or similar. As of version 2.0, Homepage supports a simple OIDC login flow for built-in authorization. Enable it with the following environment variables:
 
