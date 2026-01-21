@@ -70,8 +70,8 @@ For configuration options, examples and more, [please check out the homepage doc
 
 Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system). To keep your information private, if Homepage is reachable from any untrusted network, it:
 
-1. **must** sit behind a reverse proxy (and/or VPN) that enforces authentication, TLS, and strictly validates Host headers. OR
-2. An optional built-in OIDC login flow is available (opt-in) to gate the app without a reverse proxy; it is a simple “authenticated or not” guard.
+1. **must** sit behind a reverse proxy (and/or VPN) that enforces authentication, TLS, and strictly validates Host headers.
+2. An optional built-in OIDC login flow is available (opt-in) offering a simple “authenticated or not” guard.
 
 ## Installation
 
