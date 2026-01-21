@@ -1136,5 +1136,18 @@
       "songs": "Songs",
       "time":  "Time",
       "artists": "Artists"
+    },
+    "dockhand": {
+      "containersTotal": "Total",
+      "containersRunning": "Running",
+      "containersStopped": "Stopped",
+      "containersPaused": "Paused",
+      "containersRestarting": "Restarting",
+      "containersUnhealthy": "Unhealthy",
+      "containersPendingUpdates": "Pending Updates",
+      "metricsCpuPercent": "CPU",
+      "metricsMemoryPercent": "Memory",
+      "metricsMemoryUsed": "Memory Used",
+      "metricsMemoryTotal": "Memory Total"
     }
 }

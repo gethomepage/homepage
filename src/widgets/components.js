@@ -27,6 +27,7 @@ const components = {
   deluge: dynamic(() => import("./deluge/component")),
   develancacheui: dynamic(() => import("./develancacheui/component")),
   diskstation: dynamic(() => import("./diskstation/component")),
+  dockhand: dynamic(() => import("./dockhand/component")),
   downloadstation: dynamic(() => import("./downloadstation/component")),
   docker: dynamic(() => import("./docker/component")),
   kubernetes: dynamic(() => import("./kubernetes/component")),
