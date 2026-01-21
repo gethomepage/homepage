@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { getProviders, signIn } from "next-auth/react";
 import { useEffect } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
+
 import { getSettings } from "utils/config/config";
 
 export default function SignIn({ providers, callbackUrl, settings }) {
