@@ -71,65 +71,11 @@ For configuration options, examples and more, [please check out the homepage doc
 Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system). To keep your information private, if Homepage is reachable from any untrusted network, it:
 
 1. **must** sit behind a reverse proxy (and/or VPN) that enforces authentication, TLS, and strictly validates Host headers. OR
-2. An optional built-in OIDC login flow is available (opt-in) to gate the app without a reverse proxy; it is a simple “authenticated or not” guard (no per-user roles or personalization).
+2. An optional built-in OIDC login flow is available (opt-in) to gate the app without a reverse proxy; it is a simple “authenticated or not” guard.
 
-## With Docker
+## Installation
 
-Using docker compose:
-
-```yaml
-services:
-  homepage:
-    image: ghcr.io/gethomepage/homepage:latest
-    container_name: homepage
-    environment:
-      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
-      PUID: 1000 # optional, your user id
-      PGID: 1000 # optional, your group id
-    ports:
-      - 3000:3000
-    volumes:
-      - /path/to/config:/app/config # Make sure your local config directory exists
-      - /var/run/docker.sock:/var/run/docker.sock:ro # optional, for docker integrations
-    restart: unless-stopped
-```
-
-or docker run:
-
-```bash
-docker run --name homepage \
-  -e HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -p 3000:3000 \
-  -v /path/to/config:/app/config \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  --restart unless-stopped \
-  ghcr.io/gethomepage/homepage:latest
-```
-
-## From Source
-
-First, clone the repository:
-
-```bash
-git clone https://github.com/gethomepage/homepage.git
-```
-
-Then install dependencies and build the production bundle:
-
-```bash
-pnpm install
-pnpm build
-```
-
-If this is your first time starting, copy the `src/skeleton` directory to `config/` to populate initial example config files.
-
-Finally, run the server in production mode:
-
-```bash
-pnpm start
-```
+See the [Installation](https://gethomepage.dev/installation/) section of the docs for instructions on installing Homepage via Docker, Kubernetes, Unraid, or from source.
 
 # Configuration
 
