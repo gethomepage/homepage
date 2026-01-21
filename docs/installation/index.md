@@ -27,21 +27,9 @@ You have a few options for deploying homepage, depending on your needs. We offer
 
 </div>
 
-### `HOMEPAGE_ALLOWED_HOSTS`
+### Authentication
 
-As of v1.0 there is one required environment variable to access homepage via a URL other than `localhost`, <code>HOMEPAGE_ALLOWED_HOSTS</code>. The setting helps prevent certain kinds of attacks when retrieving data from the homepage API proxy.
-
-The value is a comma-separated (no spaces) list of allowed hosts (sometimes with the port) that can host your homepage install. See the [docker](docker.md), [kubernetes](k8s.md) and [source](source.md) installation pages for more information about where / how to set the variable.
-
-`localhost:3000` and `127.0.0.1:3000` are always included, but you can add a domain or IP address to this list to allow that host such as `HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev,192.168.1.2:1234`, etc.
-
-If you are seeing errors about host validation, check the homepage logs and ensure that the host exactly as output in the logs is in the `HOMEPAGE_ALLOWED_HOSTS` list.
-
-This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended. Public deployments must rely on a reverse proxy (and/or VPN) that enforces authentication, TLS, and blocks direct-IP access and unexpected Host headers; the built-in host check is a best-effort guard for local setups and is not a substitute for edge protections.
-
-### Built-in OIDC authentication (optional, opt-in)
-
-Homepage now supports a minimal OIDC login flow (no per-user roles or personalization) so you can deploy without a reverse proxy handling auth. Enable it with:
+Public deployments of Homepage should be secured via a reverse proxy, VPN, or similar. As of version 2.0, Homepage supports a simple OIDC login flow for built-in authorization. Enable it with the following environment variables:
 
 - `HOMEPAGE_AUTH_ENABLED=true`
 - `HOMEPAGE_OIDC_ISSUER` (OIDC issuer URL, e.g., `https://auth.example.com/realms/homepage`)
