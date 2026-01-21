@@ -18,7 +18,7 @@ export async function middleware(req) {
     const token = await getToken({ req, secret: authSecret });
     if (!token) {
       const signInUrl = new URL("/auth/signin", req.url);
-      signInUrl.searchParams.set("callbackUrl", req.url);
+      signInUrl.searchParams.set("callbackUrl", "/");
       return NextResponse.redirect(signInUrl);
     }
   }
