@@ -37,4 +37,18 @@ The value is a comma-separated (no spaces) list of allowed hosts (sometimes with
 
 If you are seeing errors about host validation, check the homepage logs and ensure that the host exactly as output in the logs is in the `HOMEPAGE_ALLOWED_HOSTS` list.
 
-This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended. Public deployments must rely on a reverse proxy (and/or VPN) that enforces authentication, TLS, and unexpected Host headers; the built-in host check is a best-effort guard for local setups and is not a substitute for edge protections.
+This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended. Public deployments must rely on a reverse proxy (and/or VPN) that enforces authentication, TLS, and blocks direct-IP access and unexpected Host headers; the built-in host check is a best-effort guard for local setups and is not a substitute for edge protections.
+
+### Built-in OIDC authentication (optional, opt-in)
+
+Homepage now supports a minimal OIDC login flow (no per-user roles or personalization) so you can deploy without a reverse proxy handling auth. Enable it with:
+
+- `HOMEPAGE_AUTH_ENABLED=true`
+- `HOMEPAGE_OIDC_ISSUER` (OIDC issuer URL, e.g., `https://auth.example.com/realms/homepage`)
+- `HOMEPAGE_OIDC_CLIENT_ID`
+- `HOMEPAGE_OIDC_CLIENT_SECRET`
+- `HOMEPAGE_AUTH_SECRET` (random string for signing/encrypting cookies)
+- `HOMEPAGE_EXTERNAL_URL` (external URL to your Homepage instance; used for callbacks)
+- Optional: `HOMEPAGE_OIDC_NAME` (display name), `HOMEPAGE_OIDC_SCOPE` (defaults to `openid email profile`)
+
+All app pages and `/api` routes will require a signed-in session. Static assets remain public. Homepage still does not implement per-user dashboards or roles; authentication is a simple gate only.
