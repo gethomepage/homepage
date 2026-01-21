@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import { getProviders, signIn } from "next-auth/react";
+import { getProviders } from "next-auth/react";
 import { useEffect } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
 
 import { getSettings } from "utils/config/config";
 
-export default function SignIn({ providers, callbackUrl, settings }) {
+export default function SignIn({ providers, settings }) {
   const theme = settings?.theme || "dark";
   const color = settings?.color || "slate";
   const title = settings?.title || "Homepage";
@@ -136,7 +136,6 @@ export default function SignIn({ providers, callbackUrl, settings }) {
                     <button
                       key={provider.id}
                       type="button"
-                      onClick={() => signIn(provider.id, { callbackUrl: callbackUrl || "/" })}
                       className="group w-full rounded-xl bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-theme-600/20 transition hover:-translate-y-0.5 hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-500"
                     >
                       <span className="flex items-center justify-center gap-2">Login via {provider.name} &rarr;</span>
@@ -154,9 +153,8 @@ export default function SignIn({ providers, callbackUrl, settings }) {
 
 export async function getServerSideProps(context) {
   const providers = await getProviders();
-  const callbackUrl = context?.query?.callbackUrl ?? "/";
   const settings = getSettings();
   return {
-    props: { providers, callbackUrl, settings },
+    props: { providers, settings },
   };
 }
