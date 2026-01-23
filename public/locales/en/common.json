@@ -1136,5 +1136,11 @@
       "songs": "Songs",
       "time":  "Time",
       "artists": "Artists"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory"
     }
 }
