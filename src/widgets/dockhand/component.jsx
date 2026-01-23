@@ -69,6 +69,10 @@ export default function Component({ service }) {
       stacksRunning = environment?.stacks?.running;
       stacksTotal = environment?.stacks?.total;
       eventsToday = environment?.events?.today;
+    } else {
+      return (
+        <Container service={service} error={t("dockhand.environment_not_found", { environment: widget.environment })} />
+      );
     }
   }
 

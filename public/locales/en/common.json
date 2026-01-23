@@ -1147,6 +1147,7 @@
         "events_today": "Events Today",
         "pending_updates": "Pending Updates",
         "stacks": "Stacks",
-        "paused": "Paused"
+        "paused": "Paused",
+        "environment_not_found": "Environment Not Found"
     }
 }
