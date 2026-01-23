@@ -28,10 +28,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block
-        label="snowflake.connections"
-        value={t("common.number", { value: snowflakeData.connections_total })}
-      />
+      <Block label="snowflake.connections" value={t("common.number", { value: snowflakeData.connections_total })} />
       <Block
         label="snowflake.traffic_inbound"
         value={t("common.bytes", { value: snowflakeData.traffic_inbound_bytes })}

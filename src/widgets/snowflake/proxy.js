@@ -25,7 +25,9 @@ function parsePrometheusMetrics(text) {
     }
 
     // Match: tor_snowflake_proxy_connections_total{country="IR"} 10
-    const connectionMatch = trimmedLine.match(/^tor_snowflake_proxy_connections_total(?:\{country="([^"]+)"\})?\s+(\d+)/);
+    const connectionMatch = trimmedLine.match(
+      /^tor_snowflake_proxy_connections_total(?:\{country="([^"]+)"\})?\s+(\d+)/,
+    );
     if (connectionMatch) {
       const country = connectionMatch[1];
       const value = parseInt(connectionMatch[2], 10);
