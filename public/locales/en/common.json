@@ -1136,5 +1136,19 @@
       "songs": "Songs",
       "time":  "Time",
       "artists": "Artists"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Events Today",
+        "pending_updates": "Pending Updates",
+        "stacks": "Stacks",
+        "paused": "Paused",
+        "total": "Total",
+        "environment_not_found": "Environment Not Found"
     }
 }

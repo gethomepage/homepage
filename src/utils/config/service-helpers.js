@@ -298,6 +298,9 @@ export function cleanServiceGroups(groups) {
           container,
           server,
 
+          // dockhand
+          environment,
+
           // emby, jellyfin
           enableBlocks,
           enableNowPlaying,
@@ -604,6 +607,9 @@ export function cleanServiceGroups(groups) {
           if (previousDays) widget.previousDays = previousDays;
           if (showTime) widget.showTime = showTime;
           if (timezone) widget.timezone = timezone;
+        }
+        if (type === "dockhand") {
+          if (environment) widget.environment = environment;
         }
         if (type === "hdhomerun") {
           if (tuner !== undefined) widget.tuner = tuner;
