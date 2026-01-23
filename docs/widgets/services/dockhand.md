@@ -7,8 +7,8 @@ Learn more about [Dockhand](https://dockhand.pro/).
 
 Note: The widget currently supports Dockhand's **local** authentication only.
 
-**Allowed fields:** (max 4): `running`, `stopped`, `paused`, `cpu`, `memory`, `images`, `volumes`, `events_today`, `pending_updates`, `stacks`.
-**Default fields:** `running`, `stopped`, `cpu`, `memory`.
+**Allowed fields:** (max 4): `running`, `stopped`, `paused`, `total`, `cpu`, `memory`, `images`, `volumes`, `events_today`, `pending_updates`, `stacks`.
+**Default fields:** `running`, `total`, `cpu`, `memory`.
 
 ```yaml
 widget:

@@ -11,7 +11,7 @@ export default function Component({ service }) {
   const { widget } = service;
 
   if (!widget.fields) {
-    widget.fields = ["running", "stopped", "cpu", "memory"];
+    widget.fields = ["running", "total", "cpu", "memory"];
   } else if (widget.fields.length > MAX_FIELDS) {
     widget.fields = widget.fields.slice(0, MAX_FIELDS);
   }
@@ -26,6 +26,7 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="dockhand.running" />
+        <Block label="dockhand.total" />
         <Block label="dockhand.stopped" />
         <Block label="dockhand.paused" />
         <Block label="dockhand.pending_updates" />
@@ -42,6 +43,7 @@ export default function Component({ service }) {
   let running;
   let stopped;
   let paused;
+  let totalContainers;
   let pendingUpdates;
   let cpuPercent;
   let memoryPercent;
@@ -62,6 +64,7 @@ export default function Component({ service }) {
       stopped = environment?.containers?.stopped ?? (environment?.containers?.total ?? 0) - (running ?? 0);
       paused = environment?.containers?.paused;
       pendingUpdates = environment?.containers?.pendingUpdates;
+      totalContainers = environment?.containers?.total;
       cpuPercent = environment?.metrics?.cpuPercent;
       memoryPercent = environment?.metrics?.memoryPercent;
       imagesTotal = environment?.images?.total;
@@ -79,8 +82,8 @@ export default function Component({ service }) {
   if (running === undefined) {
     // Aggregate across all environments
     running = stats.reduce((sum, env) => sum + (env?.containers?.running ?? 0), 0);
-    const total = stats.reduce((sum, env) => sum + (env?.containers?.total ?? 0), 0);
-    stopped = total - running;
+    totalContainers = stats.reduce((sum, env) => sum + (env?.containers?.total ?? 0), 0);
+    stopped = totalContainers - running;
     paused = stats.reduce((sum, env) => sum + (env?.containers?.paused ?? 0), 0);
     pendingUpdates = stats.reduce((sum, env) => sum + (env?.containers?.pendingUpdates ?? 0), 0);
     const totalCpu = stats.reduce((sum, env) => sum + (env?.metrics?.cpuPercent ?? 0), 0);
@@ -101,6 +104,7 @@ export default function Component({ service }) {
       <Block label="dockhand.stopped" value={t("common.number", { value: stopped })} />
       <Block label="dockhand.paused" value={t("common.number", { value: paused ?? 0 })} />
       <Block label="dockhand.pending_updates" value={t("common.number", { value: pendingUpdates ?? 0 })} />
+      <Block label="dockhand.total" value={t("common.number", { value: totalContainers })} />
       <Block label="dockhand.cpu" value={t("common.percent", { value: cpuPercent, maximumFractionDigits: 1 })} />
       <Block label="dockhand.memory" value={t("common.percent", { value: memoryPercent, maximumFractionDigits: 1 })} />
       <Block label="dockhand.images" value={t("common.number", { value: imagesTotal ?? 0 })} />

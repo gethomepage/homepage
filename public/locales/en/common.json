@@ -1148,6 +1148,7 @@
         "pending_updates": "Pending Updates",
         "stacks": "Stacks",
         "paused": "Paused",
+        "total": "Total",
         "environment_not_found": "Environment Not Found"
     }
 }
