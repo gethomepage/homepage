@@ -122,6 +122,7 @@ const components = {
   sabnzbd: dynamic(() => import("./sabnzbd/component")),
   scrutiny: dynamic(() => import("./scrutiny/component")),
   slskd: dynamic(() => import("./slskd/component")),
+  snowflake: dynamic(() => import("./snowflake/component")),
   sonarr: dynamic(() => import("./sonarr/component")),
   speedtest: dynamic(() => import("./speedtest/component")),
   spoolman: dynamic(() => import("./spoolman/component")),

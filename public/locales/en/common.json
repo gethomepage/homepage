@@ -1069,6 +1069,11 @@
         "uploads": "Uploads",
         "sharedFiles": "Files"
     },
+    "snowflake": {
+        "connections": "Connections",
+        "traffic": "Traffic",
+        "countries": "Countries"
+    },
     "jellystat": {
         "songs": "Songs",
         "movies": "Movies",
