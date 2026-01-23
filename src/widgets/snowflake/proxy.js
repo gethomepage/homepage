@@ -44,19 +44,19 @@ function parsePrometheusMetrics(text) {
       return;
     }
 
-    // Match: tor_snowflake_proxy_traffic_inbound_bytes_total 1234567890
+    // Match: tor_snowflake_proxy_traffic_inbound_bytes_total 1234567890 or 1.234e+06
     // Note: Despite the name "bytes_total", these metrics are actually in KB
-    const inboundMatch = trimmedLine.match(/^tor_snowflake_proxy_traffic_inbound_bytes_total\s+(\d+)/);
+    const inboundMatch = trimmedLine.match(/^tor_snowflake_proxy_traffic_inbound_bytes_total\s+([\d.e+-]+)/);
     if (inboundMatch) {
-      metrics.traffic_inbound_bytes = parseInt(inboundMatch[1], 10) * 1024; // Convert KB to bytes
+      metrics.traffic_inbound_bytes = Math.round(parseFloat(inboundMatch[1]) * 1024); // Convert KB to bytes
       return;
     }
 
-    // Match: tor_snowflake_proxy_traffic_outbound_bytes_total 987654321
+    // Match: tor_snowflake_proxy_traffic_outbound_bytes_total 987654321 or 9.876e+05
     // Note: Despite the name "bytes_total", these metrics are actually in KB
-    const outboundMatch = trimmedLine.match(/^tor_snowflake_proxy_traffic_outbound_bytes_total\s+(\d+)/);
+    const outboundMatch = trimmedLine.match(/^tor_snowflake_proxy_traffic_outbound_bytes_total\s+([\d.e+-]+)/);
     if (outboundMatch) {
-      metrics.traffic_outbound_bytes = parseInt(outboundMatch[1], 10) * 1024; // Convert KB to bytes
+      metrics.traffic_outbound_bytes = Math.round(parseFloat(outboundMatch[1]) * 1024); // Convert KB to bytes
     }
   });
 
