@@ -19,7 +19,8 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="snowflake.connections" />
-        <Block label="snowflake.traffic" />
+        <Block label="snowflake.traffic_inbound" />
+        <Block label="snowflake.traffic_outbound" />
         <Block label="snowflake.countries" />
       </Container>
     );
@@ -31,7 +32,14 @@ export default function Component({ service }) {
         label="snowflake.connections"
         value={t("common.number", { value: snowflakeData.connections_total })}
       />
-      <Block label="snowflake.traffic" value={t("common.bytes", { value: snowflakeData.traffic_total_bytes })} />
+      <Block
+        label="snowflake.traffic_inbound"
+        value={t("common.bytes", { value: snowflakeData.traffic_inbound_bytes })}
+      />
+      <Block
+        label="snowflake.traffic_outbound"
+        value={t("common.bytes", { value: snowflakeData.traffic_outbound_bytes })}
+      />
       <Block label="snowflake.countries" value={t("common.number", { value: snowflakeData.countries_served })} />
     </Container>
   );

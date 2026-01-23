@@ -1071,7 +1071,8 @@
     },
     "snowflake": {
         "connections": "Connections",
-        "traffic": "Traffic",
+        "traffic_inbound": "Inbound",
+        "traffic_outbound": "Outbound",
         "countries": "Countries"
     },
     "jellystat": {
