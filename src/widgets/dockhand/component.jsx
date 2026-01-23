@@ -31,8 +31,9 @@ export default function Component({ service }) {
   let memoryPercent;
 
   if (widget?.environment) {
-    // Filter by environment if set
-    const environment = stats.find((env) => env.name === widget.environment);
+    const environment = stats.find(
+      (env) => env?.name === widget.environment || env?.id?.toString() === widget.environment.toString(),
+    );
     if (environment) {
       running = environment?.containers?.running;
       stopped = environment?.containers?.stopped ?? (environment?.containers?.total ?? 0) - (running ?? 0);
