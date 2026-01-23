@@ -1141,6 +1141,12 @@
         "running": "Running",
         "stopped": "Stopped",
         "cpu": "CPU",
-        "memory": "Memory"
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Events Today",
+        "pending_updates": "Pending Updates",
+        "stacks": "Stacks",
+        "paused": "Paused"
     }
 }
