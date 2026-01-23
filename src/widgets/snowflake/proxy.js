@@ -29,7 +29,8 @@ function parsePrometheusMetrics(text) {
     if (connectionMatch) {
       const country = connectionMatch[1];
       const value = parseInt(connectionMatch[2], 10);
-      if (country) {
+      // Only count countries with non-empty country codes
+      if (country && country !== "") {
         metrics.connections_by_country[country] = value;
       }
       metrics.connections_total += value;
@@ -44,16 +45,18 @@ function parsePrometheusMetrics(text) {
     }
 
     // Match: tor_snowflake_proxy_traffic_inbound_bytes_total 1234567890
+    // Note: Despite the name "bytes_total", these metrics are actually in KB
     const inboundMatch = trimmedLine.match(/^tor_snowflake_proxy_traffic_inbound_bytes_total\s+(\d+)/);
     if (inboundMatch) {
-      metrics.traffic_inbound_bytes = parseInt(inboundMatch[1], 10);
+      metrics.traffic_inbound_bytes = parseInt(inboundMatch[1], 10) * 1024; // Convert KB to bytes
       return;
     }
 
     // Match: tor_snowflake_proxy_traffic_outbound_bytes_total 987654321
+    // Note: Despite the name "bytes_total", these metrics are actually in KB
     const outboundMatch = trimmedLine.match(/^tor_snowflake_proxy_traffic_outbound_bytes_total\s+(\d+)/);
     if (outboundMatch) {
-      metrics.traffic_outbound_bytes = parseInt(outboundMatch[1], 10);
+      metrics.traffic_outbound_bytes = parseInt(outboundMatch[1], 10) * 1024; // Convert KB to bytes
     }
   });
 
