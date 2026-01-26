@@ -569,6 +569,7 @@ export function cleanServiceGroups(groups) {
             "wgeasy",
             "grafana",
             "gluetun",
+            "vikunja",
           ].includes(type)
         ) {
           if (version) widget.version = parseInt(version, 10);
