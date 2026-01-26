@@ -11,7 +11,7 @@ export async function getServerSideProps({ res }) {
   const manifest = {
     name: settings.title || "Homepage",
     short_name: settings.title || "Homepage",
-    icons: [
+    icons: settings.icons || [
       {
         src: "/android-chrome-192x192.png?v=2",
         sizes: "192x192",
@@ -23,6 +23,7 @@ export async function getServerSideProps({ res }) {
         type: "image/png",
       },
     ],
+    shortcuts: settings.shortcuts,
     theme_color: themes[color][theme],
     background_color: themes[color][theme],
     display: "standalone",
