@@ -29,6 +29,29 @@ You can customize the start_url as required for installable apps. The default is
 startUrl: https://custom.url
 ```
 
+## Shortcuts
+
+You can add shortcuts for installable apps. More information about how you can set them can be found in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/shortcuts).
+
+```yaml
+shortcuts:
+  - name: First
+    url: '/#first' # opens the first tab
+  - name: Second
+    url: '/#second' # opens the second tab
+  - name: Third
+    url: '/#third' # opens the third tab
+
+# ...
+layout:
+  Bookmark Group on First Tab:
+    tab: First
+  Service Group on Second Tab:
+    tab: Second
+  Bookmark Group on Third Tab:
+    tab: Third
+```
+
 ## Background Image
 
 !!! warning "Heads Up!"
@@ -90,6 +113,22 @@ favicon: https://www.google.com/favicon.ico
 ```
 
 Or you may pass the path to a local image relative to the `/app/public` directory. See [Background Image](#background-image) for more detailed information on how to provide your own files.
+
+## App icons
+
+You can set custom icons for installable apps. More information about how you can set them can be found in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/icons).
+
+```yaml
+icons:
+  - src: https://developer.mozilla.org/favicon-192x192.png
+    type: image/png
+    sizes: 192x192
+  - src: https://developer.mozilla.org/favicon-512x512.png
+    type: image/png
+    sizes: 512x512
+```
+
+For icon `src` you can pass either full URL or a local path relative to the `/app/public` directory. See [Background Image](#background-image) for more detailed information on how to provide your own files.
 
 ## Theme
 
