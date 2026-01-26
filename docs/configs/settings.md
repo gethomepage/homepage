@@ -36,11 +36,11 @@ You can add shortcuts for installable apps. More information about how you can s
 ```yaml
 shortcuts:
   - name: First
-    url: '/#first' # opens the first tab
+    url: "/#first" # opens the first tab
   - name: Second
-    url: '/#second' # opens the second tab
+    url: "/#second" # opens the second tab
   - name: Third
-    url: '/#third' # opens the third tab
+    url: "/#third" # opens the third tab
 
 # ...
 layout:
