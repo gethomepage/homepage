@@ -13,6 +13,8 @@ export default function Component({ service }) {
 
   if (projectsError || tasksError) {
     return <Container service={service} error={projectsError ?? tasksError} />;
+  } else if (projectsData?.message || tasksData?.message) {
+    return <Container service={service} error={projectsData?.message ?? tasksData?.message} />;
   }
 
   if (!projectsData || !tasksData) {
