@@ -34,22 +34,13 @@ startUrl: https://custom.url
 You can add shortcuts for installable apps. More information about how you can set them can be found in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/shortcuts).
 
 ```yaml
-shortcuts:
+pwaShortcuts:
   - name: First
     url: "/#first" # opens the first tab
   - name: Second
     url: "/#second" # opens the second tab
   - name: Third
     url: "/#third" # opens the third tab
-
-# ...
-layout:
-  Bookmark Group on First Tab:
-    tab: First
-  Service Group on Second Tab:
-    tab: Second
-  Bookmark Group on Third Tab:
-    tab: Third
 ```
 
 ## Background Image
@@ -119,7 +110,7 @@ Or you may pass the path to a local image relative to the `/app/public` director
 You can set custom icons for installable apps. More information about how you can set them can be found in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/icons).
 
 ```yaml
-icons:
+pwaIcons:
   - src: https://developer.mozilla.org/favicon-192x192.png
     type: image/png
     sizes: 192x192
