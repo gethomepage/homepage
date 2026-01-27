@@ -60,6 +60,24 @@ and then reference that image:
 background: /images/background.png
 ```
 
+### Bing Daily Wallpaper
+
+You can use Bing's daily wallpaper as your background. The wallpaper updates automatically each day and displays the image title and copyright information in the footer.
+
+Simple usage:
+
+```yaml
+background: bing
+```
+
+With additional options:
+
+```yaml
+background:
+  image: bing
+  blur: sm  # other options described below
+```
+
 ### Background Opacity & Filters
 
 You can specify filters to apply over your background image for blur, saturation and brightness as well as opacity to blend with the background color. The first three filter settings use tailwind CSS classes, see notes below regarding the options for each. You do not need to specify all options.

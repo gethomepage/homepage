@@ -39,6 +39,10 @@ const Version = dynamic(() => import("components/version"), {
   ssr: false,
 });
 
+const BingWallpaperInfo = dynamic(() => import("components/bingwallpaperinfo"), {
+  ssr: false,
+});
+
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
 
 // Normalize language codes so older config values like zh-CN still point to Crowdin-provided ones
@@ -497,12 +501,17 @@ function Home({ initialSettings }) {
         {servicesAndBookmarksGroups}
 
         <div id="footer" className="flex flex-col mt-auto p-8 w-full">
-          <div id="style" className="flex w-full justify-end">
+          {(initialSettings?.background === "bing" ||
+            (typeof initialSettings?.background === "object" && initialSettings.background.image === "bing")) && (
+            <BingWallpaperInfo />
+          )}
+
+          <div id="style" className="flex w-full justify-between items-end">
             {!settings?.color && <ColorToggle />}
             <Revalidate />
             {!settings.theme && <ThemeToggle />}
           </div>
-
+          
           <div id="version" className="flex mt-4 w-full justify-end">
             {!settings.hideVersion && <Version disableUpdateCheck={settings.disableUpdateCheck} />}
           </div>
@@ -533,6 +542,16 @@ export default function Wrapper({ initialSettings, fallback }) {
     } else {
       backgroundImage = bg;
     }
+  }
+
+  const isBingBackground = backgroundImage === "bing";
+  const { data: bingData } = useSWR(isBingBackground ? "/api/bing" : null, {
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshInterval: 3600000, // Refresh every hour
+  });
+  if (isBingBackground) {
+    backgroundImage = bingData?.url || "";    
   }
 
   useEffect(() => {
