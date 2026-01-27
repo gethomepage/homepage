@@ -17,7 +17,9 @@ export default function BingWallpaperInfo() {
   return (
     <div id="bg_info" className="flex flex-col items-end gap-1 mb-4">
       {data.title && (
-        <div id="bg_title" className="text-theme-800 dark:text-theme-300 text-xl font-medium">{data.title}</div>
+        <div id="bg_title" className="text-theme-800 dark:text-theme-300 text-xl font-medium">
+          {data.title}
+        </div>
       )}
       {copyrightText && (
         <div id="bg_copyright" className="text-xs text-theme-500 dark:text-theme-400">

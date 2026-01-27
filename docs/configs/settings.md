@@ -75,7 +75,7 @@ With additional options:
 ```yaml
 background:
   image: bing
-  blur: sm  # other options described below
+  blur: sm # other options described below
 ```
 
 ### Background Opacity & Filters

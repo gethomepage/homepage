@@ -511,7 +511,7 @@ function Home({ initialSettings }) {
             <Revalidate />
             {!settings.theme && <ThemeToggle />}
           </div>
-          
+
           <div id="version" className="flex mt-4 w-full justify-end">
             {!settings.hideVersion && <Version disableUpdateCheck={settings.disableUpdateCheck} />}
           </div>
@@ -551,7 +551,7 @@ export default function Wrapper({ initialSettings, fallback }) {
     refreshInterval: 3600000, // Refresh every hour
   });
   if (isBingBackground) {
-    backgroundImage = bingData?.url || "";    
+    backgroundImage = bingData?.url || "";
   }
 
   useEffect(() => {
