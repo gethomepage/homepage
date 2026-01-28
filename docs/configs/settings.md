@@ -129,8 +129,6 @@ A progressive web app is an app that can be installed on a device and provide us
 
 More information on PWAs can be found in [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
 
-Homepage supports subset of the available PWA configurations.
-
 ## App icons
 
 You can set custom icons for installable apps. More information about how you can set them can be found in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/icons).
