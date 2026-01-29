@@ -26,11 +26,14 @@ async function login(loginUrl, username, password, service) {
 
     if (status === 200) {
       cache.put(`${tokenCacheKey}.${service}`, data.access);
+    } else {
+      throw new Error(`HTTP ${status} logging into dispatcharr`);
     }
   } catch (e) {
-    logger.error(`Error ${status} logging into dispatcharr`, JSON.stringify(authResponse[2]));
+    logger.error(`Error ${status} logging into dispatcharr`, JSON.stringify(data));
+    return [status, null];
   }
-  return [status, data.access ?? data];
+  return [status, data.access];
 }
 
 export default async function dispatcharrProxyHandler(req, res) {
@@ -56,9 +59,9 @@ export default async function dispatcharrProxyHandler(req, res) {
       let token = cache.get(`${tokenCacheKey}.${service}`);
       if (!token) {
         [status, token] = await login(loginUrl, widget.username, widget.password, service);
-        if (status !== 200) {
-          logger.debug(`HTTP ${status} logging into Dispatcharr: ${JSON.stringify(token)}`);
-          return res.status(status).send(token);
+        if (!token) {
+          logger.debug(`HTTP ${status} logging into Dispatcharr}`);
+          return res.status(status).send({ error: "Failed to authenticate with Dispatcharr" });
         }
       }
 
@@ -71,14 +74,13 @@ export default async function dispatcharrProxyHandler(req, res) {
       });
 
       const badRequest = [400, 401, 403].includes(status);
-      const text = data.toString("utf-8");
       let isEmpty = false;
 
       try {
-        const json = JSON.parse(text);
+        const json = JSON.parse(data.toString("utf-8"));
         isEmpty = Array.isArray(json.items) && json.items.length === 0;
       } catch (err) {
-        logger.debug("Failed to parse Dispatcharr response JSON:", err);
+        logger.error("Failed to parse Dispatcharr response JSON:", err);
       }
 
       if (badRequest || isEmpty) {
