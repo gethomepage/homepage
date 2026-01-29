@@ -551,7 +551,7 @@ export function cleanServiceGroups(groups) {
           if (volume) widget.volume = volume;
         }
         if (["dispatcharr"].includes(type)) {
-          if (enableActiveStreams) widget.enableActiveStreams = JSON.parse(enableActiveStreams);
+          if (enableActiveStreams) widget.enableActiveStreams = !!JSON.parse(enableActiveStreams);
         }
         if (type === "gamedig") {
           if (gameToken) widget.gameToken = gameToken;
