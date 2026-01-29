@@ -132,9 +132,6 @@
         "subscriptions": "Subscriptions",
         "unread": "Unread"
     },
-    "commafeed": {
-        "unread": "Unread"
-    },
     "fritzbox": {
         "connectionStatus": "Status",
         "connectionStatusUnconfigured": "Unconfigured",
@@ -316,14 +313,14 @@
         "total": "Total"
     },
     "suwayomi": {
-        "download": "Downloaded",
-        "nondownload": "Non-Downloaded",
-        "read": "Read",
-        "unread": "Unread",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+      "download": "Downloaded",
+      "nondownload": "Non-Downloaded",
+      "read": "Read",
+      "unread": "Unread",
+      "downloadedread": "Downloaded & Read",
+      "downloadedunread": "Downloaded & Unread",
+      "nondownloadedread": "Non-Downloaded & Read",
+      "nondownloadedunread": "Non-Downloaded & Unread"
     },
     "tailscale": {
         "address": "Address",
@@ -384,6 +381,10 @@
         "1day": "1 Day",
         "7days": "7 Days",
         "30days": "30 Days"
+    },
+    "commafeed": {
+        "subscriptions": "Subscriptions",
+        "unread": "Unread"
     },
     "gotify": {
         "apps": "Applications",
@@ -838,7 +839,7 @@
         "ping": "Ping"
     },
     "urbackup": {
-        "ok": "Ok",
+        "ok" : "Ok",
         "errored": "Errors",
         "noRecent": "Out of Date",
         "totalUsed": "Used Storage"
@@ -896,14 +897,14 @@
         "totalfilesize": "Total Size"
     },
     "mailcow": {
-        "domains": "Domains",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
-        "storage": "Storage"
+      "domains": "Domains",
+      "mailboxes": "Mailboxes",
+      "mails": "Mails",
+      "storage": "Storage"
     },
     "netdata": {
-        "warnings": "Warnings",
-        "criticals": "Criticals"
+      "warnings": "Warnings",
+      "criticals": "Criticals"
     },
     "plantit": {
         "events": "Events",
@@ -912,10 +913,10 @@
         "species": "Species"
     },
     "gitea": {
-        "notifications": "Notifications",
-        "issues": "Issues",
-        "pulls": "Pull Requests",
-        "repositories": "Repositories"
+      "notifications": "Notifications",
+      "issues": "Issues",
+      "pulls": "Pull Requests",
+      "repositories": "Repositories"
     },
     "stash": {
         "scenes": "Scenes",
@@ -985,48 +986,48 @@
         "tags": "Tags"
     },
     "zabbix": {
-        "unclassified": "Not classified",
-        "information": "Information",
-        "warning": "Warning",
-        "average": "Average",
-        "high": "High",
-        "disaster": "Disaster"
+      "unclassified": "Not classified",
+      "information": "Information",
+      "warning": "Warning",
+      "average": "Average",
+      "high": "High",
+      "disaster": "Disaster"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+      "vehicle": "Vehicle",
+      "vehicles": "Vehicles",
+      "serviceRecords": "Service Records",
+      "reminders": "Reminders",
+      "nextReminder": "Next Reminder",
+      "none": "None"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+      "projects": "Active Projects",
+      "tasks7d": "Tasks Due This Week",
+      "tasksOverdue": "Overdue Tasks",
+      "tasksInProgress": "Tasks In Progress"
     },
     "headscale": {
-        "name": "Name",
-        "address": "Address",
-        "last_seen": "Last Seen",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+      "name": "Name",
+      "address": "Address",
+      "last_seen": "Last Seen",
+      "status": "Status",
+      "online": "Online",
+      "offline": "Offline"
     },
     "beszel": {
-        "name": "Name",
-        "systems": "Systems",
-        "up": "Up",
-        "down": "Down",
-        "paused": "Paused",
-        "pending": "Pending",
-        "status": "Status",
-        "updated": "Updated",
-        "cpu": "CPU",
-        "memory": "MEM",
-        "disk": "Disk",
-        "network": "NET"
+      "name": "Name",
+      "systems": "Systems",
+      "up": "Up",
+      "down": "Down",
+      "paused": "Paused",
+      "pending": "Pending",
+      "status": "Status",
+      "updated": "Updated",
+      "cpu": "CPU",
+      "memory": "MEM",
+      "disk": "Disk",
+      "network": "NET"
     },
     "argocd": {
         "apps": "Apps",
@@ -1050,8 +1051,8 @@
     "apcups": {
         "status": "Status",
         "load": "Load",
-        "bcharge": "Battery Charge",
-        "timeleft": "Time Left"
+        "bcharge":"Battery Charge",
+        "timeleft":"Time Left"
     },
     "karakeep": {
         "bookmarks": "Bookmarks",
@@ -1136,8 +1137,8 @@
         "bytes_added_30": "Bytes Added"
     },
     "yourspotify": {
-        "songs": "Songs",
-        "time": "Time",
-        "artists": "Artists"
+      "songs": "Songs",
+      "time":  "Time",
+      "artists": "Artists"
     }
 }

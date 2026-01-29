@@ -5,25 +5,29 @@ import { useTranslation } from "next-i18next";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
-    const { t } = useTranslation();
-    const { widget } = service;
-    const { data: commafeedData, error: commafeedError } = useWidgetAPI(widget, "counters");
+  const { t } = useTranslation();
 
-    if (commafeedError) {
-        return <Container service={service} error={commafeedError} />;
-    }
+  const { widget } = service;
 
-    if (!commafeedData) {
-        return (
-            <Container service={service}>
-                <Block label="commafeed.unread" />
-            </Container>
-        );
-    }
+  const { data: commafeedData, error: commafeedError } = useWidgetAPI(widget, "counters");
 
+  if (commafeedError) {
+    return <Container service={service} error={commafeedError} />;
+  }
+
+  if (!commafeedData) {
     return (
-        <Container service={service}>
-            <Block label="commafeed.unread" value={t("common.number", { value: commafeedData.unread })} />
-        </Container>
+      <Container service={service}>
+        <Block label="commafeed.subscriptions" />
+        <Block label="commafeed.unread" />
+      </Container>
     );
+  }
+
+  return (
+    <Container service={service}>
+      <Block label="commafeed.subscriptions" value={t("common.number", { value: commafeedData.subscriptions })} />
+      <Block label="commafeed.unread" value={t("common.number", { value: commafeedData.unread })} />
+    </Container>
+  );
 }
