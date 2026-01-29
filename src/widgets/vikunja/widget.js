@@ -1,6 +1,16 @@
 import { asJson } from "utils/proxy/api-helpers";
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
+const map = (data) =>
+  asJson(data).map((task) => ({
+    id: task.id,
+    title: task.title,
+    priority: task.priority,
+    dueDate: task.due_date,
+    dueDateIsDefault: task.due_date === "0001-01-01T00:00:00Z",
+    inProgress: task.percent_done > 0 && task.percent_done < 1,
+  }));
+
 const widget = {
   api: `{url}/api/v1/{endpoint}`,
   proxyHandler: credentialedProxyHandler,
@@ -11,15 +21,11 @@ const widget = {
     },
     tasks: {
       endpoint: "tasks/all?filter=done%3Dfalse&sort_by=due_date",
-      map: (data) =>
-        asJson(data).map((task) => ({
-          id: task.id,
-          title: task.title,
-          priority: task.priority,
-          dueDate: task.due_date,
-          dueDateIsDefault: task.due_date === "0001-01-01T00:00:00Z",
-          inProgress: task.percent_done > 0 && task.percent_done < 1,
-        })),
+      map: map,
+    },
+    tasks_v2: {
+      endpoint: "tasks?filter=done%3Dfalse&sort_by=due_date",
+      map: map,
     },
   },
 };
