@@ -27,13 +27,11 @@ export default function Component({ service }) {
   const { data: channels, error: channelsError } = useWidgetAPI(widget, "channels");
   const { data: streams, error: streamsError } = useWidgetAPI(widget, "streams");
 
-  widget.fields = ["channels", "streams"];
-
   if (channelsError || streamsError) {
-    return <Container service={service} error={channelsError || streamsError} />;
+    return <Container service={service} error={channelsError ?? streamsError} />;
   }
 
-  if (!channels && !streams) {
+  if (!channels || !streams) {
     return (
       <Container service={service}>
         <Block label="dispatcharr.channels" />
@@ -45,8 +43,8 @@ export default function Component({ service }) {
   return (
     <>
       <Container service={service}>
-        <Block label="dispatcharr.channels" value={channels?.length ?? 0} />
-        <Block label="dispatcharr.streams" value={streams?.count ?? 0} />
+        <Block label="dispatcharr.channels" value={t("common.number", { value: channels?.length ?? 0 })} />
+        <Block label="dispatcharr.streams" value={t("common.number", { value: streams?.count ?? 0 })} />
       </Container>
       {widget?.enableActiveStreams &&
         streams?.channels &&
