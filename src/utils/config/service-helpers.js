@@ -294,6 +294,9 @@ export function cleanServiceGroups(groups) {
           // diskstation
           volume,
 
+          // dispatcharr
+          enableActiveStreams,
+
           // docker
           container,
           server,
@@ -546,6 +549,9 @@ export function cleanServiceGroups(groups) {
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) widget.volume = volume;
+        }
+        if (["dispatcharr"].includes(type)) {
+          if (enableActiveStreams) widget.enableActiveStreams = !!JSON.parse(enableActiveStreams);
         }
         if (type === "gamedig") {
           if (gameToken) widget.gameToken = gameToken;
