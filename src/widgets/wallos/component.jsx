@@ -6,8 +6,17 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const MAX_ALLOWED_FIELDS = 4;
 
+const todayDate = new Date();
+function toApiMonthYear(offset = 0) {
+  // API expects 1-indexed months, wrap around if needed
+  const m = todayDate.getMonth() + 1 + offset;
+  return {
+    month: ((m + 11) % 12) + 1,
+    year: todayDate.getFullYear() + Math.floor((m - 1) / 12),
+  };
+}
+
 export default function Component({ service }) {
-  const todayDate = new Date();
   const { t } = useTranslation();
   const { widget } = service;
 
@@ -29,28 +38,19 @@ export default function Component({ service }) {
   const { data: subscriptionsThisMonthlyCostData, error: subscriptionsThisMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsThisMonthlyEndpoint,
-    {
-      month: todayDate.getMonth(),
-      year: todayDate.getFullYear(),
-    },
+    toApiMonthYear(), // this month
   );
   const subscriptionsNextMonthlyEndpoint = widget.fields.includes("nextMonthlyCost") ? "get_monthly_cost" : "";
   const { data: subscriptionsNextMonthlyCostData, error: subscriptionsNextMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsNextMonthlyEndpoint,
-    {
-      month: todayDate.getMonth() + 1,
-      year: todayDate.getFullYear(),
-    },
+    toApiMonthYear(1), // next month
   );
   const subscriptionsPreviousMonthlyEndpoint = widget.fields.includes("previousMonthlyCost") ? "get_monthly_cost" : "";
   const { data: subscriptionsPreviousMonthlyCostData, error: subscriptionsPreviousMonthlyCostError } = useWidgetAPI(
     widget,
     subscriptionsPreviousMonthlyEndpoint,
-    {
-      month: todayDate.getMonth() - 1,
-      year: todayDate.getFullYear(),
-    },
+    toApiMonthYear(-1), // previous month
   );
 
   if (

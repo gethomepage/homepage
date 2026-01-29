@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "למעלה",
         "pending": "ממתין",
-        "down": "למטה"
+        "down": "למטה",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "חדש",
@@ -791,6 +792,12 @@
         "authors": "מחברים",
         "categories": "קטגוריות",
         "series": "סדרות"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "תור",

@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Up",
         "pending": "Pending",
-        "down": "Down"
+        "down": "Down",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "New",
@@ -795,6 +796,12 @@
         "authors": "Authors",
         "categories": "Categories",
         "series": "Series"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Queue",
@@ -1133,5 +1140,19 @@
       "songs": "Songs",
       "time":  "Time",
       "artists": "Artists"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Events Today",
+        "pending_updates": "Pending Updates",
+        "stacks": "Stacks",
+        "paused": "Paused",
+        "total": "Total",
+        "environment_not_found": "Environment Not Found"
     }
 }

@@ -9,6 +9,7 @@ import azuredevops from "./azuredevops/widget";
 import backrest from "./backrest/widget";
 import bazarr from "./bazarr/widget";
 import beszel from "./beszel/widget";
+import booklore from "./booklore/widget";
 import caddy from "./caddy/widget";
 import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
@@ -23,6 +24,7 @@ import deluge from "./deluge/widget";
 import develancacheui from "./develancacheui/widget";
 import diskstation from "./diskstation/widget";
 import dispatcharr from "./dispatcharr/widget";
+import dockhand from "./dockhand/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
 import esphome from "./esphome/widget";
@@ -157,6 +159,7 @@ const widgets = {
   azuredevops,
   backrest,
   bazarr,
+  booklore,
   beszel,
   caddy,
   calibreweb,
@@ -171,6 +174,7 @@ const widgets = {
   develancacheui,
   diskstation,
   dispatcharr,
+  dockhand,
   downloadstation,
   emby,
   esphome,

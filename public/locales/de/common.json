@@ -45,9 +45,9 @@
         "free": "Frei",
         "used": "In Benutzung",
         "load": "Last",
-        "temp": "TEMP",
+        "temp": "Temp",
         "max": "Max",
-        "uptime": "BETRIEBSZEIT"
+        "uptime": "Betriebszeit"
     },
     "unifi": {
         "users": "Benutzer",
@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Online",
         "pending": "Wartend",
-        "down": "Offline"
+        "down": "Offline",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Neu",
@@ -602,7 +603,7 @@
     "pangolin": {
         "orgs": "Orgs",
         "sites": "Sites",
-        "resources": "Resources",
+        "resources": "Ressourcen",
         "targets": "Targets",
         "traffic": "Traffic",
         "in": "In",
@@ -791,6 +792,12 @@
         "authors": "Autoren",
         "categories": "Kategorien",
         "series": "Serien"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Warteschlange",

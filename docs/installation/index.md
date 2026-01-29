@@ -37,4 +37,4 @@ The value is a comma-separated (no spaces) list of allowed hosts (sometimes with
 
 If you are seeing errors about host validation, check the homepage logs and ensure that the host exactly as output in the logs is in the `HOMEPAGE_ALLOWED_HOSTS` list.
 
-This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended.
+This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended. Public deployments must rely on a reverse proxy (and/or VPN) that enforces authentication, TLS, and unexpected Host headers; the built-in host check is a best-effort guard for local setups and is not a substitute for edge protections.

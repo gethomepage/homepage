@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Online",
         "pending": "In afwachting",
-        "down": "Offline"
+        "down": "Offline",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Nieuw",
@@ -791,6 +792,12 @@
         "authors": "Auteurs",
         "categories": "Categorieën",
         "series": "Series"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Wachtrij",

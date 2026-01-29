@@ -532,7 +532,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "업",
         "pending": "대기 중",
-        "down": "다운"
+        "down": "다운",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "신규",
@@ -791,6 +792,12 @@
         "authors": "저자",
         "categories": "카테고리",
         "series": "시리즈"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "대기열",
