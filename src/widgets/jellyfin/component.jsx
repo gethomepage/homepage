@@ -180,20 +180,20 @@ function CountBlocks({ service, countData }) {
   if (!countData) {
     return (
       <Container service={service}>
-        <Block label="emby.movies" />
-        <Block label="emby.series" />
-        <Block label="emby.episodes" />
-        <Block label="emby.songs" />
+        <Block label="jellyfin.movies" />
+        <Block label="jellyfin.series" />
+        <Block label="jellyfin.episodes" />
+        <Block label="jellyfin.songs" />
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="emby.movies" value={t("common.number", { value: countData.MovieCount })} />
-      <Block label="emby.series" value={t("common.number", { value: countData.SeriesCount })} />
-      <Block label="emby.episodes" value={t("common.number", { value: countData.EpisodeCount })} />
-      <Block label="emby.songs" value={t("common.number", { value: countData.SongCount })} />
+      <Block label="jellyfin.movies" value={t("common.number", { value: countData.MovieCount })} />
+      <Block label="jellyfin.series" value={t("common.number", { value: countData.SeriesCount })} />
+      <Block label="jellyfin.episodes" value={t("common.number", { value: countData.EpisodeCount })} />
+      <Block label="jellyfin.songs" value={t("common.number", { value: countData.SongCount })} />
     </Container>
   );
 }
@@ -202,22 +202,31 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const version = widget?.version ?? 1;
+  const useJellyfinV2 = version === 2;
+  const sessionsEndpoint = useJellyfinV2 ? "SessionsV2" : "Sessions";
+  const countEndpoint = useJellyfinV2 ? "CountV2" : "Count";
+  const commandMap = {
+    Pause: useJellyfinV2 ? "PauseV2" : "Pause",
+    Unpause: useJellyfinV2 ? "UnpauseV2" : "Unpause",
+  };
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
 
   const {
     data: sessionsData,
     error: sessionsError,
     mutate: sessionMutate,
-  } = useWidgetAPI(widget, enableNowPlaying ? "Sessions" : "", {
+  } = useWidgetAPI(widget, enableNowPlaying ? sessionsEndpoint : "", {
     refreshInterval: enableNowPlaying ? 5000 : undefined,
   });
 
-  const { data: countData, error: countError } = useWidgetAPI(widget, "Count", {
+  const { data: countData, error: countError } = useWidgetAPI(widget, countEndpoint, {
     refreshInterval: 60000,
   });
 
   async function handlePlayCommand(session, command) {
-    const params = getURLSearchParams(widget, command);
+    const mappedCommand = commandMap[command] ?? command;
+    const params = getURLSearchParams(widget, mappedCommand);
     params.append(
       "segments",
       JSON.stringify({
@@ -281,7 +290,7 @@ export default function Component({ service }) {
           {enableBlocks && <CountBlocks service={service} countData={countData} />}
           <div className="flex flex-col pb-1 mx-1">
             <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
-              <span className="absolute left-2 text-xs mt-[2px]">{t("emby.no_active")}</span>
+              <span className="absolute left-2 text-xs mt-[2px]">{t("jellyfin.no_active")}</span>
             </div>
             {expandOneStreamToTwoRows && (
               <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
