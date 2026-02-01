@@ -47,8 +47,13 @@ export default function Component({ service }) {
       );
       break;
     case 2:
-      loginsLast24H = loginsData[0]?.count || 0;
-      failedLoginsLast24H = failedLoginsData[0]?.count || 0;
+      loginsLast24H =
+        loginsData.reduce?.(
+          (total, current) => (current?.count && current?.action === "login" ? total + current.count : total),
+          0,
+        ) || 0;
+      failedLoginsLast24H =
+        failedLoginsData.reduce?.((total, current) => (current?.count ? total + current.count : total), 0) || 0;
       break;
   }
 
