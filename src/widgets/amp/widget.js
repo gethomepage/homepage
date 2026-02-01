@@ -9,7 +9,6 @@ const widget = {
     },
     getInstance: {
       endpoint: "ADSModule/GetInstance",
-      
     },
   },
 };
