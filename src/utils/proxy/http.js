@@ -1,3 +1,4 @@
+import dns from "node:dns";
 import { createUnzip, constants as zlibConstants } from "node:zlib";
 
 import { http, https } from "follow-redirects";
@@ -106,10 +107,36 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
   return data;
 }
 
+// Custom DNS lookup using Node.js c-ares resolver (dns.resolve) instead of
+// system getaddrinfo (dns.lookup). This fixes DNS resolution issues with
+// Alpine/musl libc in Kubernetes environments where dns.lookup fails with
+// ENOTFOUND but dns.resolve works correctly.
+function createCustomLookup() {
+  return (hostname, options, callback) => {
+    const family = typeof options === "number" ? options : options?.family;
+
+    if (family === 6) {
+      dns.resolve6(hostname, (err, addresses) => {
+        if (err) return callback(err);
+        return callback(null, addresses[0], 6);
+      });
+    } else {
+      dns.resolve4(hostname, (err, addresses) => {
+        if (err) return callback(err);
+        return callback(null, addresses[0], 4);
+      });
+    }
+  };
+}
+
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
-  const agentOptions = disableIpv6 ? { family: 4, autoSelectFamily: false } : { autoSelectFamilyAttemptTimeout: 500 };
+  const useDnsResolve = process.env.HOMEPAGE_PROXY_DNS_RESOLVE === "true";
+  const agentOptions = {
+    ...(disableIpv6 ? { family: 4, autoSelectFamily: false } : { autoSelectFamilyAttemptTimeout: 500 }),
+    ...(useDnsResolve && { lookup: createCustomLookup() }),
+  };
 
   let request = null;
   if (constructedUrl.protocol === "https:") {
