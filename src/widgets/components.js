@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 const components = {
   adguard: dynamic(() => import("./adguard/component")),
+  amp: dynamic(() => import("./amp/component")),
   apcups: dynamic(() => import("./apcups/component")),
   argocd: dynamic(() => import("./argocd/component")),
   atsumeru: dynamic(() => import("./atsumeru/component")),

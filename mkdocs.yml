@@ -32,6 +32,7 @@ nav:
       - "Service Widgets":
           - widgets/services/index.md
           - widgets/services/adguard-home.md
+          - widgets/services/amp.md
           - widgets/services/apcups.md
           - widgets/services/argocd.md
           - widgets/services/atsumeru.md

@@ -1164,5 +1164,12 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "amp": {
+        "cpu": "CPU",
+        "memoryUsed": "MEM",
+        "memoryUsedPercent": "MEM %",
+        "users": "Users",
+        "state": "State"
     }
 }
