@@ -1,4 +1,5 @@
 import dns from "node:dns";
+import net from "node:net";
 import { createUnzip, constants as zlibConstants } from "node:zlib";
 
 import { http, https } from "follow-redirects";
@@ -107,25 +108,81 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
   return data;
 }
 
-// Custom DNS lookup using Node.js c-ares resolver (dns.resolve) instead of
-// system getaddrinfo (dns.lookup). This fixes DNS resolution issues with
-// Alpine/musl libc in Kubernetes environments where dns.lookup fails with
-// ENOTFOUND but dns.resolve works correctly.
+// Custom DNS lookup that falls back to Node.js c-ares resolver (dns.resolve)
+// when system getaddrinfo (dns.lookup) fails with ENOTFOUND/EAI_NONAME.
+// This fixes DNS resolution issues with Alpine/musl libc in Kubernetes
+// environments where dns.lookup fails but dns.resolve works correctly.
 function createCustomLookup() {
   return (hostname, options, callback) => {
-    const family = typeof options === "number" ? options : options?.family;
-
-    if (family === 6) {
-      dns.resolve6(hostname, (err, addresses) => {
-        if (err) return callback(err);
-        return callback(null, addresses[0], 6);
-      });
-    } else {
-      dns.resolve4(hostname, (err, addresses) => {
-        if (err) return callback(err);
-        return callback(null, addresses[0], 4);
-      });
+    // Handle case where options is the callback (2-argument form)
+    if (typeof options === "function") {
+      callback = options;
+      options = {};
     }
+
+    // Normalize options
+    const family = typeof options === "number" ? options : options?.family;
+    const all = typeof options === "object" ? options?.all : false;
+
+    // If hostname is already an IP address, return it directly
+    const ipVersion = net.isIP(hostname);
+    if (ipVersion) {
+      if (all) {
+        callback(null, [{ address: hostname, family: ipVersion }]);
+      } else {
+        callback(null, hostname, ipVersion);
+      }
+      return;
+    }
+
+    // Prepare options for dns.lookup
+    const lookupOptions = typeof options === "number" ? { family: options } : options;
+
+    // Try dns.lookup first (preserves /etc/hosts behavior)
+    dns.lookup(hostname, lookupOptions, (lookupErr, address, lookupFamily) => {
+      if (!lookupErr) {
+        if (all) {
+          // When all=true, address is already an array of { address, family }
+          callback(null, address);
+        } else {
+          callback(null, address, lookupFamily);
+        }
+        return;
+      }
+
+      // Only fallback to dns.resolve on ENOTFOUND or EAI_NONAME
+      if (lookupErr.code !== "ENOTFOUND" && lookupErr.code !== "EAI_NONAME") {
+        callback(lookupErr);
+        return;
+      }
+
+      // Fallback to dns.resolve* (uses c-ares, bypasses musl getaddrinfo)
+      const resolveFunc = family === 6 ? dns.resolve6 : dns.resolve4;
+      const resolveFamily = family === 6 ? 6 : 4;
+
+      resolveFunc(hostname, (resolveErr, addresses) => {
+        if (resolveErr) {
+          callback(resolveErr);
+          return;
+        }
+
+        if (!addresses || addresses.length === 0) {
+          const err = new Error(`No addresses found for hostname: ${hostname}`);
+          err.code = "ENOTFOUND";
+          callback(err);
+          return;
+        }
+
+        if (all) {
+          callback(
+            null,
+            addresses.map((addr) => ({ address: addr, family: resolveFamily })),
+          );
+        } else {
+          callback(null, addresses[0], resolveFamily);
+        }
+      });
+    });
   };
 }
 

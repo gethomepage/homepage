@@ -43,7 +43,7 @@ This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not 
 
 When running Homepage in Kubernetes with Alpine-based images (musl libc), DNS resolution for service widgets may fail with `ENOTFOUND` errors even when the hostname is resolvable. This occurs because Node.js `dns.lookup()` uses the system's `getaddrinfo()` which can behave differently with musl libc in containerized environments.
 
-Set `HOMEPAGE_PROXY_DNS_RESOLVE=true` to use Node.js built-in DNS resolver (`dns.resolve()`) instead of the system resolver (`dns.lookup()`). This bypasses musl's `getaddrinfo()` implementation and uses the c-ares library directly.
+Set `HOMEPAGE_PROXY_DNS_RESOLVE=true` to enable a fallback DNS resolver. When enabled, Homepage will first try the standard `dns.lookup()` (which respects `/etc/hosts`), and if that fails with `ENOTFOUND`, it will automatically retry using Node.js c-ares resolver (`dns.resolve()`). This bypasses musl's `getaddrinfo()` implementation while preserving normal DNS behavior for hosts that work correctly.
 
 ```yaml
 environment:

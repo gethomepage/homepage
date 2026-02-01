@@ -75,7 +75,7 @@ If you are running Homepage in Kubernetes with the default Alpine-based image an
 
 **Solution:**
 
-Set the environment variable `HOMEPAGE_PROXY_DNS_RESOLVE=true` to use Node.js c-ares DNS resolver instead of the system resolver:
+Set the environment variable `HOMEPAGE_PROXY_DNS_RESOLVE=true` to enable automatic fallback to Node.js c-ares DNS resolver when the system resolver fails:
 
 ```yaml
 environment:
