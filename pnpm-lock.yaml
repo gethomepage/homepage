@@ -104,7 +104,7 @@ importers:
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@4.0.9)
+        version: 0.5.10(tailwindcss@4.1.18)
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.1.18
@@ -143,10 +143,10 @@ importers:
         version: 4.3.0(prettier@3.7.3)(typescript@5.7.3)
       tailwind-scrollbar:
         specifier: ^4.0.2
-        version: 4.0.2(react@18.3.1)(tailwindcss@4.0.9)
+        version: 4.0.2(react@18.3.1)(tailwindcss@4.1.18)
       tailwindcss:
-        specifier: ^4.0.9
-        version: 4.0.9
+        specifier: ^4.1.18
+        version: 4.1.18
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -2801,9 +2801,6 @@ packages:
     peerDependencies:
       tailwindcss: 4.x
 
-  tailwindcss@4.0.9:
-    resolution: {integrity: sha512-12laZu+fv1ONDRoNR9ipTOpUD7RN9essRVkX36sjxuRUInpN7hIiHN4lBd/SIFjbISvnXzp8h/hXzmU8SQQYhw==}
-
   tailwindcss@4.1.18:
     resolution: {integrity: sha512-4+Z+0yiYyEtUVCScyfHCxOYP06L5Ne+JiHhY2IjR2KWMIWhJOYZKLSGZaP5HkZ8+bY0cxfzwDE5uOmzFXyIwxw==}
 
@@ -3530,10 +3527,10 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
-  '@tailwindcss/forms@0.5.10(tailwindcss@4.0.9)':
+  '@tailwindcss/forms@0.5.10(tailwindcss@4.1.18)':
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 4.0.9
+      tailwindcss: 4.1.18
 
   '@tailwindcss/node@4.1.18':
     dependencies:
@@ -5910,14 +5907,12 @@ snapshots:
 
   tabbable@6.3.0: {}
 
-  tailwind-scrollbar@4.0.2(react@18.3.1)(tailwindcss@4.0.9):
+  tailwind-scrollbar@4.0.2(react@18.3.1)(tailwindcss@4.1.18):
     dependencies:
       prism-react-renderer: 2.4.1(react@18.3.1)
-      tailwindcss: 4.0.9
+      tailwindcss: 4.1.18
     transitivePeerDependencies:
       - react
-
-  tailwindcss@4.0.9: {}
 
   tailwindcss@4.1.18: {}
 
