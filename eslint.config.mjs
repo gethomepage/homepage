@@ -5,7 +5,7 @@ import { fixupConfigRules } from "@eslint/compat";
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import prettier from "eslint-plugin-prettier";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -65,4 +65,5 @@ export default defineConfig([
       ],
     },
   },
+  globalIgnores(["./config/", "./.venv/", "./.next/", "./site/"]),
 ]);
