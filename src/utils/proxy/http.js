@@ -113,7 +113,7 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
 // fixes DNS resolution issues with Alpine/musl libc in k8s
 const FALLBACK_CODES = new Set(["ENOTFOUND", "EAI_NONAME"]);
 
-function createCustomLookup() {
+function homepageDNSLookupFn() {
   const normalizeOptions = (options) => {
     if (typeof options === "number") {
       return { family: options, all: false, lookupOptions: { family: options } };
@@ -229,7 +229,7 @@ export async function httpProxy(url, params = {}) {
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
   const agentOptions = {
     ...(disableIpv6 ? { family: 4, autoSelectFamily: false } : { autoSelectFamilyAttemptTimeout: 500 }),
-    lookup: createCustomLookup(),
+    lookup: homepageDNSLookupFn(),
   };
 
   let request = null;
