@@ -157,6 +157,10 @@ function createCustomLookup() {
       }
 
       // Fallback to dns.resolve* (uses c-ares, bypasses musl getaddrinfo)
+      // When family is 0 (any) or undefined, default to IPv4. This is intentional:
+      // - IPv4 is more commonly used and reliable in most environments
+      // - Users can use HOMEPAGE_PROXY_DISABLE_IPV6 for explicit IPv4-only mode
+      // - Trying both protocols would add complexity without significant benefit
       const resolveFunc = family === 6 ? dns.resolve6 : dns.resolve4;
       const resolveFamily = family === 6 ? 6 : 4;
 
@@ -172,6 +176,8 @@ function createCustomLookup() {
           callback(err);
           return;
         }
+
+        logger.debug("DNS fallback to c-ares resolver succeeded for %s", hostname);
 
         if (all) {
           callback(
