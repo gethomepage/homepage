@@ -19,7 +19,7 @@ Provide the `API_TOKEN` (f.k.a. `SYNC_api_token`) as the `key` in your config.
 ```yaml
 widget:
   type: netalertx
-  url: http://ip:port
+  url: http://ip:port # use backend port for widget version 2+
   key: yournetalertxapitoken
   version: 2 # optional, default is 1
 ```
