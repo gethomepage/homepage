@@ -135,31 +135,31 @@ function createCustomLookup() {
     }
 
     const { family, all, lookupOptions } = normalizeOptions(options);
+    const sendResponse = (addr, fam) => {
+      if (all) {
+        // dns.lookup with all=true already returns an array of { address, family }
+        const addresses = Array.isArray(addr) ? addr : [{ address: addr, family: fam }];
+        callback(null, addresses);
+      } else {
+        callback(null, addr, fam);
+      }
+    };
 
     // If hostname is already an IP address, return it directly
     const ipVersion = net.isIP(hostname);
     if (ipVersion) {
-      if (all) {
-        callback(null, [{ address: hostname, family: ipVersion }]);
-      } else {
-        callback(null, hostname, ipVersion);
-      }
+      sendResponse(hostname, ipVersion);
       return;
     }
 
     // Try dns.lookup first (preserves /etc/hosts behavior)
     dns.lookup(hostname, lookupOptions, (lookupErr, address, lookupFamily) => {
       if (!lookupErr) {
-        if (all) {
-          // When all=true, address is already an array of { address, family }
-          callback(null, address);
-        } else {
-          callback(null, address, lookupFamily);
-        }
+        sendResponse(address, lookupFamily);
         return;
       }
 
-      // fallback to dns.resolve on ENOTFOUND or EAI_NONAME
+      // if ENOTFOUND or EAI_NONAME try fallback, otherwise return error
       if (!FALLBACK_CODES.has(lookupErr.code)) {
         callback(lookupErr);
         return;
