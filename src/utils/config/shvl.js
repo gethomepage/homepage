@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 /*
 Code primarely based on shvl repository: https://github.com/robinvdvleuten/shvl
 

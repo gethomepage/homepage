@@ -28,9 +28,7 @@ export default async function handler(req, res) {
   try {
     // maintain backwards compatibility with old ping where may be http://...
     hostname = new URL(pingHostOrURL).hostname;
-  } catch (e) {
-    // eslint-disable-line no-empty
-  }
+  } catch (e) {}
 
   try {
     const response = await ping.probe(hostname);

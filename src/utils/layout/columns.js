@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const columnMap = [
   "grid-cols-1 md:grid-cols-1 lg:grid-cols-1",
   "grid-cols-1 md:grid-cols-1 lg:grid-cols-1",

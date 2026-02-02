@@ -22,7 +22,6 @@ async function login(widget) {
     });
   }
 
-  // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);
   return [status, data];
 }

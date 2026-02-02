@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import cache from "memory-cache";
 import { xml2json } from "xml-js";
 

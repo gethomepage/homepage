@@ -79,7 +79,6 @@ export default async function npmProxyHandler(req, res) {
           return res.status(status).send(data);
         }
 
-        // eslint-disable-next-line no-unused-vars
         [status, , data] = await httpProxy(url, {
           method: "GET",
           headers: {

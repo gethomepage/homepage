@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -100,7 +99,6 @@ function convertLayoutGroupToGroup(name, layoutGroup) {
 function mergeSubgroups(configuredGroups, mergedGroup) {
   configuredGroups.forEach((group) => {
     if (group.name === mergedGroup.name) {
-      // eslint-disable-next-line no-param-reassign
       group.services = mergedGroup.services;
     } else if (group.groups) {
       mergeSubgroups(group.groups, mergedGroup);
