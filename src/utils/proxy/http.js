@@ -110,8 +110,7 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
 
 // Custom DNS lookup that falls back to Node.js c-ares resolver (dns.resolve)
 // when system getaddrinfo (dns.lookup) fails with ENOTFOUND/EAI_NONAME.
-// This fixes DNS resolution issues with Alpine/musl libc in Kubernetes
-// environments where dns.lookup fails but dns.resolve works correctly.
+// fixes DNS resolution issues with Alpine/musl libc in k8s
 function createCustomLookup() {
   return (hostname, options, callback) => {
     // Handle case where options is the callback (2-argument form)
@@ -123,6 +122,7 @@ function createCustomLookup() {
     // Normalize options
     const family = typeof options === "number" ? options : options?.family;
     const all = typeof options === "object" ? options?.all : false;
+    const lookupOptions = typeof options === "number" ? { family: options } : options;
 
     // If hostname is already an IP address, return it directly
     const ipVersion = net.isIP(hostname);
@@ -134,9 +134,6 @@ function createCustomLookup() {
       }
       return;
     }
-
-    // Prepare options for dns.lookup
-    const lookupOptions = typeof options === "number" ? { family: options } : options;
 
     // Try dns.lookup first (preserves /etc/hosts behavior)
     dns.lookup(hostname, lookupOptions, (lookupErr, address, lookupFamily) => {
@@ -150,14 +147,14 @@ function createCustomLookup() {
         return;
       }
 
-      // Only fallback to dns.resolve on ENOTFOUND or EAI_NONAME
+      // fallback to dns.resolve on ENOTFOUND or EAI_NONAME
       if (lookupErr.code !== "ENOTFOUND" && lookupErr.code !== "EAI_NONAME") {
         callback(lookupErr);
         return;
       }
 
-      // Helper to finalize successful resolution
       const finalize = (addresses, resolvedFamily) => {
+        // Finalize the resolution and call the callback
         if (!addresses || addresses.length === 0) {
           const err = new Error(`No addresses found for hostname: ${hostname}`);
           err.code = "ENOTFOUND";
@@ -178,16 +175,16 @@ function createCustomLookup() {
         return true;
       };
 
-      // Helper to attempt resolution with a specific resolver
       const resolveOnce = (fn, resolvedFamily, onFail) => {
+        // attempt resolution with a specific resolver
         fn(hostname, (err, addresses) => {
           if (!err && finalize(addresses, resolvedFamily)) return;
           onFail(err);
         });
       };
 
-      // Helper to handle final fallback failure with full context
       const handleFallbackFailure = (resolveErr) => {
+        // handle final fallback failure with full context
         logger.debug(
           "DNS fallback failed for %s: lookup error=%s, resolve error=%s",
           hostname,
