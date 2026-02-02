@@ -112,6 +112,19 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
 // when system getaddrinfo (dns.lookup) fails with ENOTFOUND/EAI_NONAME.
 // fixes DNS resolution issues with Alpine/musl libc in k8s
 function createCustomLookup() {
+  const normalizeOptions = (options) => {
+    if (typeof options === "number") {
+      return { family: options, all: false, lookupOptions: { family: options } };
+    }
+
+    const normalized = options ?? {};
+    return {
+      family: normalized.family,
+      all: Boolean(normalized.all),
+      lookupOptions: normalized,
+    };
+  };
+
   return (hostname, options, callback) => {
     // Handle case where options is the callback (2-argument form)
     if (typeof options === "function") {
@@ -119,10 +132,7 @@ function createCustomLookup() {
       options = {};
     }
 
-    // Normalize options
-    const family = typeof options === "number" ? options : options?.family;
-    const all = typeof options === "object" ? options?.all : false;
-    const lookupOptions = typeof options === "number" ? { family: options } : options;
+    const { family, all, lookupOptions } = normalizeOptions(options);
 
     // If hostname is already an IP address, return it directly
     const ipVersion = net.isIP(hostname);
