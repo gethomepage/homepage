@@ -156,25 +156,13 @@ function createCustomLookup() {
         return;
       }
 
-      // Fallback to dns.resolve* (uses c-ares, bypasses musl getaddrinfo)
-      // When family is 0 (any) or undefined, default to IPv4. This is intentional:
-      // - IPv4 is more commonly used and reliable in most environments
-      // - Users can use HOMEPAGE_PROXY_DISABLE_IPV6 for explicit IPv4-only mode
-      // - Trying both protocols would add complexity without significant benefit
-      const resolveFunc = family === 6 ? dns.resolve6 : dns.resolve4;
-      const resolveFamily = family === 6 ? 6 : 4;
-
-      resolveFunc(hostname, (resolveErr, addresses) => {
-        if (resolveErr) {
-          callback(resolveErr);
-          return;
-        }
-
+      // Helper to finalize successful resolution
+      const finalize = (addresses, resolvedFamily) => {
         if (!addresses || addresses.length === 0) {
           const err = new Error(`No addresses found for hostname: ${hostname}`);
           err.code = "ENOTFOUND";
           callback(err);
-          return;
+          return true;
         }
 
         logger.debug("DNS fallback to c-ares resolver succeeded for %s", hostname);
@@ -182,11 +170,47 @@ function createCustomLookup() {
         if (all) {
           callback(
             null,
-            addresses.map((addr) => ({ address: addr, family: resolveFamily })),
+            addresses.map((addr) => ({ address: addr, family: resolvedFamily })),
           );
         } else {
-          callback(null, addresses[0], resolveFamily);
+          callback(null, addresses[0], resolvedFamily);
         }
+        return true;
+      };
+
+      // Helper to attempt resolution with a specific resolver
+      const resolveOnce = (fn, resolvedFamily, onFail) => {
+        fn(hostname, (err, addresses) => {
+          if (!err && finalize(addresses, resolvedFamily)) return;
+          onFail(err);
+        });
+      };
+
+      // Helper to handle final fallback failure with full context
+      const handleFallbackFailure = (resolveErr) => {
+        logger.debug(
+          "DNS fallback failed for %s: lookup error=%s, resolve error=%s",
+          hostname,
+          lookupErr.code,
+          resolveErr?.code,
+        );
+        callback(resolveErr || lookupErr);
+      };
+
+      // Fallback to c-ares (dns.resolve*). If family isn't specified, try v4 then v6.
+      if (family === 6) {
+        resolveOnce(dns.resolve6, 6, handleFallbackFailure);
+        return;
+      }
+
+      if (family === 4) {
+        resolveOnce(dns.resolve4, 4, handleFallbackFailure);
+        return;
+      }
+
+      // family not specified: try IPv4 first, then IPv6
+      resolveOnce(dns.resolve4, 4, () => {
+        resolveOnce(dns.resolve6, 6, handleFallbackFailure);
       });
     });
   };
