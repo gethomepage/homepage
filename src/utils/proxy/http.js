@@ -164,7 +164,7 @@ function createCustomLookup() {
         return;
       }
 
-      // if ENOTFOUND or EAI_NONAME try fallback, otherwise return error
+      // ENOTFOUND or EAI_NONAME will try fallback, otherwise return error here
       if (!FALLBACK_CODES.has(lookupErr.code)) {
         callback(lookupErr);
         return;
