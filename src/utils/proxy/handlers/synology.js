@@ -48,7 +48,7 @@ async function getApiInfo(serviceWidget, apiName, serviceName) {
   }
 
   const infoUrl = formatApiCall(INFO_ENDPOINT, serviceWidget);
-  // eslint-disable-next-line no-unused-vars
+
   const [status, contentType, data] = await httpProxy(infoUrl);
 
   if (status === 200) {
@@ -74,7 +74,6 @@ async function getApiInfo(serviceWidget, apiName, serviceName) {
 async function handleUnsuccessfulResponse(serviceWidget, url, serviceName) {
   logger.debug(`Attempting login to ${serviceWidget.type}`);
 
-  // eslint-disable-next-line no-unused-vars
   const [apiPath, maxVersion] = await getApiInfo(serviceWidget, AUTH_API_NAME, serviceName);
 
   const authArgs = { path: apiPath ?? "entry.cgi", maxVersion: maxVersion ?? 7, ...serviceWidget };

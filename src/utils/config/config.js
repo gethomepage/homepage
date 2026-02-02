@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from "fs";
 import { join } from "path";
 

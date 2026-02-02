@@ -97,7 +97,6 @@ export default async function dispatcharrProxyHandler(req, res) {
           return res.status(status).send(data);
         }
 
-        // eslint-disable-next-line no-unused-vars
         [status, , data] = await httpProxy(url, {
           method: "GET",
           headers: {

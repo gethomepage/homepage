@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import createLogger from "utils/logger";
 import widgets from "widgets/widgets";
 

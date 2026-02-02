@@ -40,7 +40,6 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
     options.headers.Cookie = cache.get(`${sessionCacheKey}.${service}`);
   }
 
-  // eslint-disable-next-line no-unused-vars
   const [status, contentType, data, responseHeaders] = await httpProxy(url, options);
   const returnData = parsePyloadResponse(url, data);
   return [status, returnData, responseHeaders];
@@ -66,7 +65,6 @@ async function fetchFromPyloadAPIBasic(url, params, username, password) {
     options.body = JSON.stringify(params);
   }
 
-  // eslint-disable-next-line no-unused-vars
   const [status, contentType, data, responseHeaders] = await httpProxy(parsedUrl, options);
   const returnData = parsePyloadResponse(parsedUrl, data);
   return [status, returnData, responseHeaders];
