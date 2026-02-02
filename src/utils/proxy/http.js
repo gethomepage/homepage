@@ -217,7 +217,6 @@ function createCustomLookup() {
         return;
       }
 
-      // family not specified: try IPv4 first, then IPv6
       resolveOnce(dns.resolve4, 4, () => {
         resolveOnce(dns.resolve6, 6, handleFallbackFailure);
       });
