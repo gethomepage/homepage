@@ -63,27 +63,6 @@ All service widgets work essentially the same, that is, homepage makes a proxied
 
     This will return some data which may reveal an issue causing a true bug in the service widget.
 
-## DNS Resolution Failures in Kubernetes / Alpine
-
-If you are running Homepage in Kubernetes with the default Alpine-based image and service widgets fail with `ENOTFOUND` errors for hostnames that should be resolvable, this is likely caused by musl libc's `getaddrinfo()` implementation not handling certain DNS scenarios properly.
-
-**Symptoms:**
-
-- Widget API errors with `ENOTFOUND` for valid hostnames
-- DNS works from the command line (`nslookup`, `dig`) but not from Homepage
-- The issue only affects service widget requests, not the main application
-
-**Solution:**
-
-Set the environment variable `HOMEPAGE_PROXY_DNS_RESOLVE=true` to enable automatic fallback to Node.js c-ares DNS resolver when the system resolver fails:
-
-```yaml
-environment:
-  HOMEPAGE_PROXY_DNS_RESOLVE: "true"
-```
-
-See the [installation docs](../installation/index.md#homepage_proxy_dns_resolve) for more details.
-
 ## Missing custom icons
 
 If, after correctly adding and mapping your custom icons via the [Icons](../configs/services.md#icons) instructions, you are still unable to see your icons please try recreating your container.

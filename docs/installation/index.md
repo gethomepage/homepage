@@ -38,16 +38,3 @@ The value is a comma-separated (no spaces) list of allowed hosts (sometimes with
 If you are seeing errors about host validation, check the homepage logs and ensure that the host exactly as output in the logs is in the `HOMEPAGE_ALLOWED_HOSTS` list.
 
 This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended. Public deployments must rely on a reverse proxy (and/or VPN) that enforces authentication, TLS, and unexpected Host headers; the built-in host check is a best-effort guard for local setups and is not a substitute for edge protections.
-
-### `HOMEPAGE_PROXY_DNS_RESOLVE`
-
-When running Homepage in Kubernetes with Alpine-based images (musl libc), DNS resolution for service widgets may fail with `ENOTFOUND` errors even when the hostname is resolvable. This occurs because Node.js `dns.lookup()` uses the system's `getaddrinfo()` which can behave differently with musl libc in containerized environments.
-
-Set `HOMEPAGE_PROXY_DNS_RESOLVE=true` to enable a fallback DNS resolver. When enabled, Homepage will first try the standard `dns.lookup()` (which respects `/etc/hosts`), and if that fails with `ENOTFOUND`, it will automatically retry using Node.js c-ares resolver (`dns.resolve()`). This bypasses musl's `getaddrinfo()` implementation while preserving normal DNS behavior for hosts that work correctly.
-
-```yaml
-environment:
-  HOMEPAGE_PROXY_DNS_RESOLVE: "true"
-```
-
-This setting only affects service widget API requests and does not change DNS resolution for other parts of the application.

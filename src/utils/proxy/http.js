@@ -195,10 +195,9 @@ function createCustomLookup() {
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
-  const useDnsResolve = process.env.HOMEPAGE_PROXY_DNS_RESOLVE === "true";
   const agentOptions = {
     ...(disableIpv6 ? { family: 4, autoSelectFamily: false } : { autoSelectFamilyAttemptTimeout: 500 }),
-    ...(useDnsResolve && { lookup: createCustomLookup() }),
+    lookup: createCustomLookup(),
   };
 
   let request = null;
