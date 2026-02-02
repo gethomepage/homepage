@@ -137,8 +137,13 @@ function createCustomLookup() {
     const { family, all, lookupOptions } = normalizeOptions(options);
     const sendResponse = (addr, fam) => {
       if (all) {
-        // dns.lookup with all=true already returns an array of { address, family }
-        const addresses = Array.isArray(addr) ? addr : [{ address: addr, family: fam }];
+        let addresses = addr;
+        if (!Array.isArray(addresses)) {
+          addresses = [{ address: addresses, family: fam }];
+        } else if (addresses.length && typeof addresses[0] === "string") {
+          addresses = addresses.map((a) => ({ address: a, family: fam }));
+        }
+
         callback(null, addresses);
       } else {
         callback(null, addr, fam);
@@ -176,14 +181,7 @@ function createCustomLookup() {
 
         logger.debug("DNS fallback to c-ares resolver succeeded for %s", hostname);
 
-        if (all) {
-          callback(
-            null,
-            addresses.map((addr) => ({ address: addr, family: resolvedFamily })),
-          );
-        } else {
-          callback(null, addresses[0], resolvedFamily);
-        }
+        sendResponse(addresses, resolvedFamily);
         return true;
       };
 
