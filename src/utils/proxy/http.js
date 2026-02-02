@@ -110,7 +110,7 @@ export async function cachedRequest(url, duration = 5, ua = "homepage") {
 
 // Custom DNS lookup that falls back to Node.js c-ares resolver (dns.resolve)
 // when system getaddrinfo (dns.lookup) fails with ENOTFOUND/EAI_NONAME.
-// fixes DNS resolution issues with Alpine/musl libc in k8s
+// Fixes DNS resolution issues with Alpine/musl libc in k8s
 const FALLBACK_CODES = new Set(["ENOTFOUND", "EAI_NONAME"]);
 
 function homepageDNSLookupFn() {
