@@ -176,19 +176,21 @@ function createCustomLookup() {
           const err = new Error(`No addresses found for hostname: ${hostname}`);
           err.code = "ENOTFOUND";
           callback(err);
-          return true;
+          return;
         }
 
         logger.debug("DNS fallback to c-ares resolver succeeded for %s", hostname);
 
         sendResponse(addresses, resolvedFamily);
-        return true;
       };
 
       const resolveOnce = (fn, resolvedFamily, onFail) => {
         // attempt resolution with a specific resolver
         fn(hostname, (err, addresses) => {
-          if (!err && finalize(addresses, resolvedFamily)) return;
+          if (!err) {
+            finalize(addresses, resolvedFamily);
+            return;
+          }
           onFail(err);
         });
       };
