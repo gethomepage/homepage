@@ -1,21 +1,12 @@
 // @vitest-environment jsdom
 
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-import { SettingsContext } from "utils/contexts/settings";
+import { renderWithProviders } from "test-utils/render-with-providers";
 
 const { useWidgetAPI } = vi.hoisted(() => ({
   useWidgetAPI: vi.fn(),
-}));
-
-vi.mock("next-i18next", () => ({
-  useTranslation: () => ({
-    t: (key, opts) => {
-      if (key === "common.number") return String(opts?.value ?? "");
-      return key;
-    },
-  }),
 }));
 
 vi.mock("../../utils/proxy/use-widget-api", () => ({
@@ -24,17 +15,13 @@ vi.mock("../../utils/proxy/use-widget-api", () => ({
 
 import Component from "./component";
 
-function renderWithSettings(ui) {
-  return render(
-    <SettingsContext.Provider value={{ settings: {}, setSettings: () => {} }}>{ui}</SettingsContext.Provider>,
-  );
-}
-
 describe("widgets/omada/component", () => {
   it("renders error UI when widget API errors", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: { message: "nope" } });
 
-    renderWithSettings(<Component service={{ widget: { type: "omada", url: "http://x" } }} />);
+    renderWithProviders(<Component service={{ widget: { type: "omada", url: "http://x" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expect(screen.getAllByText(/widget\.api_error/i).length).toBeGreaterThan(0);
   });
@@ -42,7 +29,9 @@ describe("widgets/omada/component", () => {
   it("renders placeholders while loading and defaults fields to 4 visible blocks", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
 
-    const { container } = renderWithSettings(<Component service={{ widget: { type: "omada", url: "http://x" } }} />);
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "omada", url: "http://x" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     // Default fields do not include connectedSwitches, so Container filters it out.
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
@@ -68,7 +57,9 @@ describe("widgets/omada/component", () => {
       error: undefined,
     });
 
-    const { container } = renderWithSettings(<Component service={{ widget: { type: "omada", url: "http://x" } }} />);
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "omada", url: "http://x" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("1")).toBeInTheDocument();
