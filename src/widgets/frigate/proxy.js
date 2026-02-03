@@ -69,7 +69,7 @@ export default async function frigateProxyHandler(req, res, map) {
       data = asJson(data);
 
       if (endpoint == "stats") {
-        res.status(status).send({
+        return res.status(status).send({
           num_cameras: data?.cameras !== undefined ? Object.keys(data?.cameras).length : 0,
           uptime: data?.service?.uptime,
           version: data?.service.version,
