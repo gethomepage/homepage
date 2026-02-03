@@ -21,7 +21,7 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm test
+      - run: pnpm run test:coverage
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
