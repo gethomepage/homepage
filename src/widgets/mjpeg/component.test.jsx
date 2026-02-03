@@ -7,6 +7,8 @@ import { describe, expect, it, vi } from "vitest";
 vi.mock("next/image", () => ({
   default: (props) => {
     const { src, alt, objectFit, className, onError } = props;
+    // This is a unit-test stub for next/image; using <img> is intentional here.
+    // eslint-disable-next-line @next/next/no-img-element
     return <img alt={alt} src={src} data-object-fit={objectFit} className={className} onError={onError} />;
   },
 }));

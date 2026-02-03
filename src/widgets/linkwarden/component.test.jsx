@@ -53,12 +53,7 @@ describe("widgets/linkwarden/component", () => {
     useWidgetAPI.mockImplementation((_widget, endpoint) => {
       if (endpoint === "collections") {
         return {
-          data: [
-            // eslint-disable-next-line no-underscore-dangle
-            { _count: { links: 2 } },
-            // eslint-disable-next-line no-underscore-dangle
-            { _count: { links: 3 } },
-          ],
+          data: [{ _count: { links: 2 } }, { _count: { links: 3 } }],
           error: undefined,
         };
       }
