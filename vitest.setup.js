@@ -18,6 +18,7 @@ vi.mock("next-i18next", () => ({
       if (key === "common.bbytes") return String(opts?.value ?? "");
       if (key === "common.byterate") return String(opts?.value ?? "");
       if (key === "common.duration") return String(opts?.value ?? "");
+      if (key === "common.ms") return String(opts?.value ?? "");
       return key;
     },
   }),
