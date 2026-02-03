@@ -11,6 +11,7 @@ afterEach(() => {
 // implement a couple of common formatters mocked in next-i18next
 vi.mock("next-i18next", () => ({
   useTranslation: () => ({
+    i18n: { language: "en" },
     t: (key, opts) => {
       if (key === "common.number") return String(opts?.value ?? "");
       if (key === "common.percent") return String(opts?.value ?? "");
@@ -19,6 +20,7 @@ vi.mock("next-i18next", () => ({
       if (key === "common.byterate") return String(opts?.value ?? "");
       if (key === "common.duration") return String(opts?.value ?? "");
       if (key === "common.ms") return String(opts?.value ?? "");
+      if (key === "common.relativeDate") return String(opts?.value ?? "");
       return key;
     },
   }),
