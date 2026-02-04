@@ -6,8 +6,8 @@ export function expectWidgetConfigShape(widget) {
 
   if ("api" in widget) {
     expect(widget.api).toBeTypeOf("string");
-    // Widget APIs are template strings that expand to a configured service URL.
-    expect(widget.api).toContain("{url}");
+    // Widget APIs are either service-backed (`{url}` template) or third-party API URLs.
+    expect(widget.api.includes("{url}") || /^https?:\/\//.test(widget.api)).toBe(true);
   }
 
   if ("proxyHandler" in widget) {
