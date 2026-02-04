@@ -24,9 +24,17 @@ export default defineConfig({
     include: ["src/**/*.test.{js,jsx}", "src/**/*.spec.{js,jsx}"],
     coverage: {
       provider: "v8",
+      all: true,
+      include: ["src/**/*.{js,jsx,ts,tsx}"],
       exclude: [
+        // Ignore build artifacts / generated reports
         ".next/**",
         "coverage/**",
+        // Exclude tests and test harness code from coverage totals.
+        "src/**/*.test.{js,jsx,ts,tsx}",
+        "src/**/*.spec.{js,jsx,ts,tsx}",
+        "src/**/__tests__/**",
+        "src/test-utils/**",
         "src/widgets/widgets.js",
         "src/widgets/components.js",
         "src/skeleton/custom.js",
