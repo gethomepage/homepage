@@ -25,6 +25,8 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       exclude: [
+        ".next/**",
+        "coverage/**",
         "src/widgets/widgets.js",
         "src/widgets/components.js",
         "src/skeleton/custom.js",
