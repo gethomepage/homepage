@@ -1151,6 +1151,13 @@
       "time":  "Time",
       "artists": "Artists"
     },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
     "dockhand": {
         "running": "Running",
         "stopped": "Stopped",
