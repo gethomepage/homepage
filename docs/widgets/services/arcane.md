@@ -21,4 +21,5 @@ widget:
 ```
 
 Notes:
+
 - `url` should be the Arcane base URL; the widget appends `/api`.
