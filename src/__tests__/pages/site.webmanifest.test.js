@@ -52,4 +52,41 @@ describe("pages/site.webmanifest", () => {
     expect(manifest.theme_color).toBe(themes.slate.dark);
     expect(manifest.background_color).toBe(themes.slate.dark);
   });
+
+  it("uses sensible defaults when no settings are provided", async () => {
+    getSettings.mockReturnValueOnce({});
+
+    const res = createMockRes();
+
+    await getServerSideProps({ res });
+
+    const manifest = JSON.parse(res.write.mock.calls[0][0]);
+    expect(manifest.name).toBe("Homepage");
+    expect(manifest.short_name).toBe("Homepage");
+    expect(manifest.start_url).toBe("/");
+    expect(manifest.display).toBe("standalone");
+    expect(manifest.theme_color).toBe(themes.slate.dark);
+    expect(manifest.background_color).toBe(themes.slate.dark);
+
+    // Default icon set is used when pwa.icons is not set.
+    expect(manifest.icons).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ src: expect.stringContaining("android-chrome-192x192") }),
+        expect.objectContaining({ src: expect.stringContaining("android-chrome-512x512") }),
+      ]),
+    );
+  });
+
+  it("respects provided pwa.icons even when it is an empty array", async () => {
+    getSettings.mockReturnValueOnce({
+      pwa: { icons: [] },
+    });
+
+    const res = createMockRes();
+
+    await getServerSideProps({ res });
+
+    const manifest = JSON.parse(res.write.mock.calls[0][0]);
+    expect(manifest.icons).toEqual([]);
+  });
 });
