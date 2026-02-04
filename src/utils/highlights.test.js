@@ -47,4 +47,37 @@ describe("utils/highlights", () => {
     const cfg = buildHighlightConfig({ levels: { danger: "danger-class" } }, {}, "x");
     expect(getHighlightClass("danger", cfg)).toBe("danger-class");
   });
+
+  it("supports localized numeric parsing and between/outside operators (with negate)", () => {
+    const cfg = buildHighlightConfig(null, {
+      temp: {
+        numeric: [
+          { when: "between", min: 1000.5, max: 1500.5, level: "warn" },
+          { when: "outside", value: { min: 1234.5, max: 2234.5 }, level: "danger", negate: true },
+        ],
+      },
+    });
+
+    // "1.234,56" should parse as 1234.56 and hit the between rule.
+    expect(evaluateHighlight("temp", "1.234,56", cfg)).toMatchObject({ level: "warn", source: "numeric" });
+
+    // Negated outside => inside the range should match.
+    expect(evaluateHighlight("temp", "2.000,00", cfg)).toMatchObject({ level: "danger", source: "numeric" });
+  });
+
+  it("supports regex string rules, including invalid regex patterns (ignored)", () => {
+    const cfg = buildHighlightConfig(null, {
+      status: {
+        string: [
+          { when: "regex", value: "^up$", level: "good" },
+          { when: "regex", value: "(", level: "danger" }, // invalid; should be ignored
+          { when: "equals", value: "DOWN", level: "warn", caseSensitive: true },
+        ],
+      },
+    });
+
+    expect(evaluateHighlight("status", "Up", cfg)).toMatchObject({ level: "good", source: "string" });
+    expect(evaluateHighlight("status", "DOWN", cfg)).toMatchObject({ level: "warn", source: "string" });
+    expect(evaluateHighlight("status", "Down", cfg)).toBeNull();
+  });
 });

@@ -90,4 +90,46 @@ describe("utils/config/api-response", () => {
     expect(groups.map((g) => g.name)).toEqual(["GroupA"]);
     expect(groups[0].services.map((s) => s.name)).toEqual(["d", "c", "a", "b"]);
   });
+
+  it("servicesResponse merges discovered nested groups into their configured parent layout group", async () => {
+    serviceHelpers.findGroupByName.mockImplementation(function find(groups, name, parent) {
+      for (const group of groups ?? []) {
+        if (group.name === name) {
+          if (parent) group.parent = parent;
+          return group;
+        }
+        const found = find(group.groups, name, group.name);
+        if (found) return found;
+      }
+      return null;
+    });
+
+    serviceHelpers.servicesFromDocker.mockResolvedValueOnce([
+      {
+        name: "Child",
+        services: [
+          { name: "svcB", weight: 50 },
+          { name: "svcA", weight: 10 },
+        ],
+        groups: [],
+      },
+    ]);
+    serviceHelpers.servicesFromKubernetes.mockResolvedValueOnce([]);
+    serviceHelpers.servicesFromConfig.mockResolvedValueOnce([
+      {
+        name: "Top",
+        services: [],
+        groups: [{ name: "Child", services: [], groups: [] }],
+      },
+    ]);
+
+    config.getSettings.mockResolvedValueOnce({ layout: { Top: { Child: {} } } });
+
+    const groups = await servicesResponse();
+
+    expect(groups.map((g) => g.name)).toEqual(["Top"]);
+    expect(groups[0].groups).toHaveLength(1);
+    expect(groups[0].groups[0].name).toBe("Child");
+    expect(groups[0].groups[0].services.map((s) => s.name)).toEqual(["svcA", "svcB"]);
+  });
 });
