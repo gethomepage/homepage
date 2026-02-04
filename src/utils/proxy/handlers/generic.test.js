@@ -114,4 +114,75 @@ describe("utils/proxy/handlers/generic", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.error.message).toBe("Invalid data");
   });
+
+  it("uses string requestBody as-is and prefers req.body over widget.requestBody", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "testservice",
+      url: "http://example",
+      requestBody: '{"a":1}',
+    });
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from("ok")]);
+
+    const req = {
+      method: "POST",
+      body: "override-body",
+      query: { group: "g", service: "svc", endpoint: "api", index: "0" },
+    };
+    const res = createMockRes();
+
+    await genericProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(httpProxy.mock.calls[0][1].body).toBe("override-body");
+  });
+
+  it("ends the response for 204/304 statuses", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "testservice",
+      url: "http://example",
+    });
+    httpProxy.mockResolvedValueOnce([204, "application/json", Buffer.from("")]);
+
+    const req = { method: "GET", query: { group: "g", service: "svc", endpoint: "api", index: "0" } };
+    const res = createMockRes();
+
+    await genericProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(204);
+    expect(res.end).toHaveBeenCalled();
+  });
+
+  it("returns an HTTP Error object for status>=400 and stringifies buffer data", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "testservice",
+      url: "http://example",
+    });
+    httpProxy.mockResolvedValueOnce([500, "application/json", Buffer.from("fail")]);
+
+    const req = { method: "GET", query: { group: "g", service: "svc", endpoint: "api?apikey=secret", index: "0" } };
+    const res = createMockRes();
+
+    await genericProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body.error.message).toBe("HTTP Error");
+    expect(res.body.error.url).toContain("apikey=***");
+    expect(res.body.error.data).toBe("fail");
+  });
+
+  it("applies the response mapping function when provided", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "testservice",
+      url: "http://example",
+    });
+    httpProxy.mockResolvedValueOnce([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "svc", endpoint: "api", index: "0" } };
+    const res = createMockRes();
+
+    await genericProxyHandler(req, res, (data) => ({ mapped: data.ok }));
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ mapped: true });
+  });
 });

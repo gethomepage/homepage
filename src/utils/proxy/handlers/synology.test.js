@@ -49,6 +49,16 @@ describe("utils/proxy/handlers/synology", () => {
     cache._reset();
   });
 
+  it("returns 400 when group/service are missing", async () => {
+    const req = { query: { endpoint: "download", index: "0" } };
+    const res = createMockRes();
+
+    await synologyProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Invalid proxy service type" });
+  });
+
   it("calls the mapped API when api info is available and success is true", async () => {
     getServiceWidget.mockResolvedValue({ type: "synology", url: "http://nas", username: "u", password: "p" });
 
@@ -75,6 +85,20 @@ describe("utils/proxy/handlers/synology", () => {
     expect(httpProxy.mock.calls[1][0]).toContain("/webapi/entry.cgi?api=SYNO.DownloadStation2.Task");
     expect(res.statusCode).toBe(200);
     expect(JSON.parse(res.body.toString()).data.ok).toBe(true);
+  });
+
+  it("returns 400 when the API name is unrecognized", async () => {
+    getServiceWidget.mockResolvedValue({ type: "synology", url: "http://nas", username: "u", password: "p" });
+
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ data: {} }))]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "download", index: "0" } };
+    const res = createMockRes();
+
+    await synologyProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Unrecognized API name: SYNO.DownloadStation2.Task" });
   });
 
   it("attempts login and retries when the initial response is unsuccessful", async () => {
