@@ -15,8 +15,7 @@ widget:
   type: arcane
   url: http://localhost:3552
   env: "0" # default local environment
-  headers:
-    X-API-Key: your-api-key
+  key: your-api-key
   fields: ["running", "stopped", "total", "image_updates"] # optional
 ```
 
