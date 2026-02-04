@@ -5,6 +5,14 @@ import yaml from "js-yaml";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
+export function getDefaultDockerArgs(platform = process.platform) {
+  if (platform !== "win32" && platform !== "darwin") {
+    return { socketPath: "/var/run/docker.sock" };
+  }
+
+  return { host: "127.0.0.1" };
+}
+
 export default function getDockerArguments(server) {
   checkAndCopyConfig("docker.yaml");
 
@@ -14,11 +22,7 @@ export default function getDockerArguments(server) {
   const servers = yaml.load(configData);
 
   if (!server) {
-    if (process.platform !== "win32" && process.platform !== "darwin") {
-      return { socketPath: "/var/run/docker.sock" };
-    }
-
-    return { host: "127.0.0.1" };
+    return getDefaultDockerArgs();
   }
 
   if (servers[server]) {
