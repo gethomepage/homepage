@@ -17,7 +17,7 @@ const getInitialColor = () => {
 export const ColorContext = createContext();
 
 export function ColorProvider({ initialTheme, children }) {
-  const [color, setColor] = useState(getInitialColor);
+  const [color, setColor] = useState(() => initialTheme ?? getInitialColor());
 
   const rawSetColor = (rawColor) => {
     const root = window.document.documentElement;
@@ -30,9 +30,10 @@ export function ColorProvider({ initialTheme, children }) {
     lastColor = rawColor;
   };
 
-  if (initialTheme) {
-    rawSetColor(initialTheme);
-  }
+  useEffect(() => {
+    if (initialTheme !== undefined) setColor(initialTheme ?? getInitialColor());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialTheme]);
 
   useEffect(() => {
     rawSetColor(color);
