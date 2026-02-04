@@ -10,6 +10,8 @@ afterEach(() => {
 
 // implement a couple of common formatters mocked in next-i18next
 vi.mock("next-i18next", () => ({
+  // Keep app/page components importable in unit tests.
+  appWithTranslation: (Component) => Component,
   useTranslation: () => ({
     i18n: { language: "en" },
     t: (key, opts) => {
