@@ -23,7 +23,7 @@ vi.mock("@headlessui/react", async () => {
 
   const DisclosurePanel = React.forwardRef(function DisclosurePanel(props, ref) {
     // HeadlessUI uses a boolean `static` prop; avoid forwarding it to the DOM.
-    const { static: isStatic, ...rest } = props; // eslint-disable-line no-unused-vars
+    const { static: _static, ...rest } = props;
     return <div ref={ref} data-testid="disclosure-panel" {...rest} />;
   });
 
