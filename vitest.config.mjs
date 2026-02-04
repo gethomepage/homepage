@@ -22,5 +22,20 @@ export default defineConfig({
     environment: "node",
     setupFiles: ["./vitest.setup.js"],
     include: ["src/**/*.test.{js,jsx}", "src/**/*.spec.{js,jsx}"],
+    coverage: {
+      provider: "v8",
+      exclude: [
+        "src/widgets/widgets.js",
+        "src/widgets/components.js",
+        "src/skeleton/custom.js",
+        "next-i18next.config.js",
+        "next.config.js",
+        "postcss.config.js",
+        "tailwind.config.js",
+        "eslint.config.mjs",
+        "vitest.config.mjs",
+        ".prettierrc.js",
+      ],
+    },
   },
 });

@@ -74,5 +74,5 @@ export default defineConfig([
       "import/order": "off",
     },
   },
-  globalIgnores(["./config/", "./.venv/", "./.next/", "./site/"]),
+  globalIgnores(["./config/", "./coverage/", "./.venv/", "./.next/", "./site/"]),
 ]);
