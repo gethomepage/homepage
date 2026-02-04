@@ -32,7 +32,20 @@ export function expectWidgetConfigShape(widget) {
         expect(mapping.endpoint.length).toBeGreaterThan(0);
       }
       if ("map" in mapping) {
-        expect(mapping.map).toBeTypeOf("function");
+        const map = mapping.map;
+        const proxyName = widget.proxyHandler?.name ?? "genericProxyHandler";
+
+        // Most handlers treat `map` as a transform function. A small number of custom
+        // proxies treat it as an options object.
+        expect(["function", "object"].includes(typeof map)).toBe(true);
+
+        if (typeof map === "object") {
+          expect(map).not.toBeNull();
+          expect(Array.isArray(map)).toBe(false);
+          // Generic handlers will call `map(resultData)`, so they must never receive an object.
+          expect(proxyName).not.toBe("genericProxyHandler");
+          expect(proxyName).not.toBe("credentialedProxyHandler");
+        }
       }
     }
   }
