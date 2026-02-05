@@ -8,6 +8,12 @@ afterEach(() => {
   if (typeof document !== "undefined") cleanup();
 });
 
+// Avoid NextAuth client-side fetches during unit tests.
+vi.mock("next-auth/react", () => ({
+  SessionProvider: ({ children }) => children ?? null,
+  getProviders: vi.fn(async () => ({})),
+}));
+
 // implement a couple of common formatters mocked in next-i18next
 vi.mock("next-i18next", () => ({
   // Keep app/page components importable in unit tests.
