@@ -16,7 +16,7 @@ export default function Component({ service }) {
     widget.fields = widget.fields.slice(0, MAX_FIELDS);
   }
 
-  if (widget?.env === undefined || widget?.env === null || widget?.env === "") {
+  if (widget?.env == null || widget.env === "") {
     return <Container service={service} error={t("arcane.environment_required")} />;
   }
 
