@@ -16,4 +16,3 @@ widget:
   key: your-api-key
   fields: ["running", "stopped", "total", "image_updates"] # optional
 ```
-
