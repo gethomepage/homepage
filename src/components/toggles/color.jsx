@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { Fragment, useContext } from "react";
 import { IoColorPalette } from "react-icons/io5";
 import { ColorContext } from "utils/contexts/color";
+import { EditContext } from "utils/contexts/edit";
 
 const colors = [
   "slate",
@@ -31,6 +32,7 @@ const colors = [
 
 export default function ColorToggle() {
   const { color: active, setColor } = useContext(ColorContext);
+  const { editMode } = useContext(EditContext);
 
   if (!active) {
     return null;
@@ -39,7 +41,7 @@ export default function ColorToggle() {
   return (
     <div id="color" className="w-full self-center">
       <Popover className="relative flex items-center">
-        <Popover.Button className="outline-hidden">
+        <Popover.Button className="outline-hidden" disabled={editMode}>
           <IoColorPalette
             className="h-5 w-5 text-theme-800 dark:text-theme-200 transition duration-150 ease-in-out"
             aria-hidden="true"

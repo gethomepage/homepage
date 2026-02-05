@@ -9,6 +9,8 @@ import { ColorProvider } from "utils/contexts/color";
 import { SettingsProvider } from "utils/contexts/settings";
 import { TabProvider } from "utils/contexts/tab";
 import { ThemeProvider } from "utils/contexts/theme";
+import { EditProvider } from "utils/contexts/edit";
+import AddEntryModal from "components/edit/addentrymodal";
 
 import nextI18nextConfig from "../../next-i18next.config";
 
@@ -85,7 +87,10 @@ function MyApp({ Component, pageProps }) {
         <ThemeProvider>
           <SettingsProvider>
             <TabProvider>
-              <Component {...pageProps} />
+              <EditProvider>
+                <Component {...pageProps} />
+                <AddEntryModal />
+              </EditProvider>
             </TabProvider>
           </SettingsProvider>
         </ThemeProvider>

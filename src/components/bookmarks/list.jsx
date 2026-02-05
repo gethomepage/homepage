@@ -3,7 +3,7 @@ import Item from "components/bookmarks/item";
 
 import { columnMap } from "../../utils/layout/columns";
 
-export default function List({ bookmarks, layout, bookmarksStyle }) {
+export default function List({ groupName, bookmarks, layout, bookmarksStyle }) {
   let classes = layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col bookmark-list";
   const style = {};
   if (layout?.iconsOnly || bookmarksStyle === "icons") {
@@ -16,6 +16,7 @@ export default function List({ bookmarks, layout, bookmarksStyle }) {
         <Item
           key={`${bookmark.name}-${bookmark.href}`}
           bookmark={bookmark}
+          groupName={groupName}
           iconOnly={layout?.iconsOnly || bookmarksStyle === "icons"}
         />
       ))}

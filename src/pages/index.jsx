@@ -20,6 +20,7 @@ import { ColorContext } from "utils/contexts/color";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
 import { ThemeContext } from "utils/contexts/theme";
+import AddEntryModal from "components/edit/addentrymodal";
 
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import { getSettings } from "utils/config/config";
@@ -34,6 +35,11 @@ const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
 const ColorToggle = dynamic(() => import("components/toggles/color"), {
   ssr: false,
 });
+
+const EditToggle = dynamic(() => import("components/toggles/edit"), {
+  ssr: false,
+});
+
 
 const Version = dynamic(() => import("components/version"), {
   ssr: false,
@@ -498,6 +504,7 @@ function Home({ initialSettings }) {
 
         <div id="footer" className="flex flex-col mt-auto p-8 w-full">
           <div id="style" className="flex w-full justify-end">
+            <EditToggle />
             {!settings?.color && <ColorToggle />}
             <Revalidate />
             {!settings.theme && <ThemeToggle />}

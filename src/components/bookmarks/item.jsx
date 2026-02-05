@@ -2,10 +2,23 @@ import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
 import { useContext } from "react";
 import { SettingsContext } from "utils/contexts/settings";
+import { EditContext } from "utils/contexts/edit";
 
-export default function Item({ bookmark, iconOnly = false }) {
+export default function Item({ bookmark, groupName, iconOnly = false }) {
   const description = bookmark.description ?? new URL(bookmark.href).hostname;
   const { settings } = useContext(SettingsContext);
+  const { editMode, openEditEntryModal } = useContext(EditContext);
+
+  const onEditClick = (e) => {
+    if (!editMode) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openEditEntryModal({
+      type: "bookmarks",
+      groupName,
+      entry: bookmark,
+    });
+  };
 
   return (
     <li
@@ -16,6 +29,7 @@ export default function Item({ bookmark, iconOnly = false }) {
     >
       <a
         href={bookmark.href}
+        onClick={onEditClick}
         title={bookmark.name}
         rel="noreferrer"
         target={bookmark.target ?? settings.target ?? "_blank"}

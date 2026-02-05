@@ -3,8 +3,9 @@ import classNames from "classnames";
 import List from "components/bookmarks/list";
 import ErrorBoundary from "components/errorboundry";
 import ResolvedIcon from "components/resolvedicon";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { EditContext } from "utils/contexts/edit";
 
 export default function BookmarksGroup({
   bookmarks,
@@ -15,10 +16,27 @@ export default function BookmarksGroup({
   maxGroupColumns,
 }) {
   const panel = useRef();
+  const { editMode, openAddEntryModal, draft } = useContext(EditContext);
 
   useEffect(() => {
     if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
   }, [layout, groupsInitiallyCollapsed]);
+
+  // Draft merge for this group
+  const groupDraft = draft?.bookmarks?.[bookmarks.name];
+  const deletes = groupDraft?.deletes ?? {};
+  const edits = groupDraft?.edits ?? {};
+  const adds = groupDraft?.adds ?? [];
+
+  const mergedBookmarks = [
+    ...((bookmarks.bookmarks ?? [])
+      .filter((b) => b?.name && !deletes?.[b.name])
+      .map((b) => {
+        const edited = edits?.[b.name];
+        return edited ? { ...edited, __originalName: b.name } : b;
+      })),
+    ...adds,
+  ];
 
   return (
     <div
@@ -55,7 +73,6 @@ export default function BookmarksGroup({
               </Disclosure.Button>
             )}
             <Transition
-              // Otherwise the transition group does display: none and cancels animation
               className="block!"
               unmount={false}
               beforeLeave={() => {
@@ -73,7 +90,22 @@ export default function BookmarksGroup({
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
                 <ErrorBoundary>
-                  <List bookmarks={bookmarks.bookmarks} layout={layout} bookmarksStyle={bookmarksStyle} />
+                  <List
+                    groupName={bookmarks.name}
+                    bookmarks={mergedBookmarks}
+                    layout={layout}
+                    bookmarksStyle={bookmarksStyle}
+                  />
+
+                  {editMode && (
+                    <button
+                      type="button"
+                      onClick={() => openAddEntryModal({ type: "bookmarks", groupName: bookmarks.name })}
+                      className="-mt-2 w-full cursor-pointer rounded-md border border-dashed border-black/20 dark:border-white/20 bg-transparent px-3 py-2 text-left text-sm text-theme-700 dark:text-theme-300 hover:bg-white/5 transition"
+                    >
+                      + Add entry
+                    </button>
+                  )}
                 </ErrorBoundary>
               </Disclosure.Panel>
             </Transition>

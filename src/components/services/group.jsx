@@ -2,8 +2,9 @@ import { Disclosure, Transition } from "@headlessui/react";
 import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
 import List from "components/services/list";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { EditContext } from "utils/contexts/edit";
 
 import { columnMap } from "../../utils/layout/columns";
 
@@ -17,6 +18,7 @@ export default function ServicesGroup({
   isSubgroup,
 }) {
   const panel = useRef();
+  const { editMode, openAddEntryModal, draft } = useContext(EditContext);
 
   useEffect(() => {
     if (layout?.initiallyCollapsed ?? groupsInitiallyCollapsed) panel.current.style.height = `0`;
@@ -24,6 +26,22 @@ export default function ServicesGroup({
 
   let groupPadding = layout?.header === false ? "px-1" : "p-1 pb-0";
   if (isSubgroup) groupPadding = "";
+
+  // Draft merge for this group (top-level groups only, which matches your YAML)
+  const groupDraft = draft?.services?.[group.name];
+  const deletes = groupDraft?.deletes ?? {};
+  const edits = groupDraft?.edits ?? {};
+  const adds = groupDraft?.adds ?? [];
+
+  const mergedServices = [
+    ...((group.services ?? [])
+      .filter((s) => s?.name && !deletes?.[s.name])
+      .map((s) => {
+        const edited = edits?.[s.name];
+        return edited ? { ...edited, __originalName: s.name } : s;
+      })),
+    ...adds,
+  ];
 
   return (
     <div
@@ -58,8 +76,8 @@ export default function ServicesGroup({
                 />
               </Disclosure.Button>
             )}
+
             <Transition
-              // Otherwise the transition group does display: none and cancels animation
               className="block!"
               unmount={false}
               beforeLeave={() => {
@@ -75,17 +93,28 @@ export default function ServicesGroup({
                 }, 1);
                 setTimeout(() => {
                   panel.current.style.height = "auto";
-                }, 150); // animation is 150ms
+                }, 150);
               }}
             >
               <Disclosure.Panel className="transition-all overflow-hidden duration-300 ease-out" ref={panel} static>
                 <List
                   groupName={group.name}
-                  services={group.services}
+                  services={mergedServices}
                   layout={layout}
                   useEqualHeights={useEqualHeights}
                   header={layout?.header !== false}
                 />
+
+                {editMode && (
+                  <button
+                    type="button"
+                    onClick={() => openAddEntryModal({ type: "services", groupName: group.name })}
+                    className="mt-0 w-full cursor-pointer rounded-md border border-dashed border-black/20 dark:border-white/20 bg-transparent px-3 py-2 text-left text-sm text-theme-700 dark:text-theme-300 hover:bg-white/5 transition"
+                  >
+                    + Add entry
+                  </button>
+                )}
+
                 {group.groups?.length > 0 && (
                   <div
                     className={`grid ${

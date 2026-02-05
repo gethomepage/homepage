@@ -2,6 +2,7 @@ import classNames from "classnames";
 import ResolvedIcon from "components/resolvedicon";
 import { useContext, useState } from "react";
 import { SettingsContext } from "utils/contexts/settings";
+import { EditContext } from "utils/contexts/edit";
 import Docker from "widgets/docker/component";
 import Kubernetes from "widgets/kubernetes/component";
 import ProxmoxVM from "widgets/proxmoxvm/component";
@@ -13,13 +14,27 @@ import SiteMonitor from "./site-monitor";
 import Status from "./status";
 import Widget from "./widget";
 
-export default function Item({ service, groupName, useEqualHeights }) {
+export default function Item({ service, groupName, subgroupName = null, useEqualHeights }) {
   const hasLink = service.href && service.href !== "#";
   const { settings } = useContext(SettingsContext);
+  const { editMode, openEditEntryModal } = useContext(EditContext);
+
   const showStats = service.showStats === false ? false : settings.showStats;
   const statusStyle = service.statusStyle !== undefined ? service.statusStyle : settings.statusStyle;
   const [statsOpen, setStatsOpen] = useState(service.showStats);
   const [statsClosing, setStatsClosing] = useState(false);
+
+  const onEditClick = (e) => {
+    if (!editMode) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openEditEntryModal({
+      type: "services",
+      groupName,
+      subgroupName,
+      entry: service,
+    });
+  };
 
   // set stats to closed after 300ms
   const closeStats = () => {
@@ -46,6 +61,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
             (hasLink ? (
               <a
                 href={service.href}
+                onClick={onEditClick}
                 target={service.target ?? settings.target ?? "_blank"}
                 rel="noreferrer"
                 className="shrink-0 flex items-center justify-center w-12 service-icon z-10"
@@ -62,6 +78,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
           {hasLink ? (
             <a
               href={service.href}
+              onClick={onEditClick}
               target={service.target ?? settings.target ?? "_blank"}
               rel="noreferrer"
               className="flex-1 flex items-center justify-between rounded-r-md service-title-text"
@@ -185,7 +202,7 @@ export default function Item({ service, groupName, useEqualHeights }) {
           </div>
         )}
 
-        {service.widgets.map((widget) => (
+        {(service.widgets ?? []).map((widget) => (
           <Widget widget={widget} service={service} key={widget.index} />
         ))}
       </div>
