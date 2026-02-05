@@ -32,7 +32,13 @@ vi.mock("@headlessui/react", async () => {
       const ctx = useContext(ListboxContext);
       const content = typeof children === "function" ? children({ active: false }) : children;
       return (
-        <div role="option" data-provider={value?.name} onClick={() => ctx?.onChange?.(value)} {...props}>
+        <div
+          role="option"
+          data-provider={value?.name}
+          aria-selected={ctx?.value === value}
+          onClick={() => ctx?.onChange?.(value)}
+          {...props}
+        >
           {content}
         </div>
       );

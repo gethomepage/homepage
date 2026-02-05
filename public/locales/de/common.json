@@ -107,6 +107,16 @@
         "episodes": "Episoden",
         "songs": "Songs"
     },
+    "jellyfin": {
+        "playing": "Playing",
+        "transcoding": "Transkodierung",
+        "bitrate": "Bitrate",
+        "no_active": "Keine aktiven Streams",
+        "movies": "Filme",
+        "series": "Serien",
+        "episodes": "Episoden",
+        "songs": "Songs"
+    },
     "esphome": {
         "offline": "Offline",
         "offline_alt": "Offline",
@@ -604,7 +614,7 @@
         "orgs": "Orgs",
         "sites": "Sites",
         "resources": "Ressourcen",
-        "targets": "Targets",
+        "targets": "Ziele",
         "traffic": "Traffic",
         "in": "In",
         "out": "Out"
@@ -705,6 +715,10 @@
         "uptime": "Betriebszeit",
         "volumeAvailable": "Verfügbar"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Streams"
+    },
     "mylar": {
         "series": "Serien",
         "issues": "Probleme",
@@ -795,7 +809,7 @@
     },
     "booklore": {
         "libraries": "Libraries",
-        "books": "Books",
+        "books": "Bücher",
         "reading": "Reading",
         "finished": "Finished"
     },
@@ -1136,5 +1150,26 @@
         "songs": "Titel",
         "time": "Zeit",
         "artists": "Künstler"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Heutige Ereignisse",
+        "pending_updates": "Ausstehende Updates",
+        "stacks": "Stacks",
+        "paused": "Pausiert",
+        "total": "Total",
+        "environment_not_found": "Umgebung nicht gefunden"
     }
 }
