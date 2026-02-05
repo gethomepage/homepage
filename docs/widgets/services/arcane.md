@@ -3,7 +3,7 @@ title: Arcane
 description: Arcane Widget Configuration
 ---
 
-This widget pulls container, image, and update counts from the Arcane API.
+Learn more about [Arcane](https://github.com/getarcaneapp/arcane).
 
 `env` is required and should be your Arcane environment ID. If your environment ID is `0`, set it as a string (`"0"`).
 
