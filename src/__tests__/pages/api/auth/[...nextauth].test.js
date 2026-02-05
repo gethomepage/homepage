@@ -38,12 +38,26 @@ describe("pages/api/auth/[...nextauth]", () => {
     expect(mod.default.options.secret).toBe("secret");
   });
 
-  it("throws when auth is enabled but required settings are missing", async () => {
+  it("throws when auth is enabled but no provider settings are present", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
 
     await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(
-      /OIDC auth is enabled but required settings are missing/i,
+      /Password auth is enabled but required settings are missing/i,
     );
+  });
+
+  it("builds a password provider when auth is enabled without OIDC config", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+
+    const mod = await import("pages/api/auth/[...nextauth]");
+    const [provider] = mod.default.options.providers;
+
+    expect(provider.id).toBe("homepage-password");
+    expect(provider.name).toBe("Password");
+    expect(provider.type).toBe("credentials");
+    expect(typeof provider.authorize).toBe("function");
   });
 
   it("builds an OIDC provider when enabled and maps profile fields", async () => {
@@ -96,5 +110,15 @@ describe("pages/api/auth/[...nextauth]", () => {
       email: null,
       image: null,
     });
+  });
+
+  it("throws when only partial OIDC settings are provided", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_OIDC_ISSUER = "https://issuer.example";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+
+    await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(
+      /OIDC auth is enabled but required settings are missing/i,
+    );
   });
 });
