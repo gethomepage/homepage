@@ -107,6 +107,16 @@
         "episodes": "Épisodes",
         "songs": "Morceaux"
     },
+    "jellyfin": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
+    },
     "esphome": {
         "offline": "Hors ligne",
         "offline_alt": "Hors ligne",
@@ -705,6 +715,10 @@
         "uptime": "Disponibilité",
         "volumeAvailable": "Disponible"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Streams"
+    },
     "mylar": {
         "series": "Séries",
         "issues": "Anomalies",
@@ -983,11 +997,11 @@
     },
     "zabbix": {
         "unclassified": "Non classé",
-        "information": "Informations",
-        "warning": "Attention",
-        "average": "Moyenne",
-        "high": "Élevé",
-        "disaster": ""
+        "information": "Information",
+        "warning": "Avertissement",
+        "average": "Moyen",
+        "high": "Haut",
+        "disaster": "Désastre"
     },
     "lubelogger": {
         "vehicle": "Véhicule",
@@ -1136,5 +1150,26 @@
         "songs": "Musiques",
         "time": "Durée",
         "artists": "Artistes"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Events Today",
+        "pending_updates": "Pending Updates",
+        "stacks": "Stacks",
+        "paused": "Paused",
+        "total": "Total",
+        "environment_not_found": "Environment Not Found"
     }
 }
