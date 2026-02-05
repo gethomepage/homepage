@@ -249,6 +249,7 @@ export async function httpProxy(url, params = {}) {
     const [status, contentType, data, responseHeaders] = await request;
     return [status, contentType, data, responseHeaders, params];
   } catch (err) {
+    const rawError = Array.isArray(err) ? err[1] : err;
     logger.error(
       "Error calling %s//%s%s%s...",
       constructedUrl.protocol,
@@ -260,7 +261,13 @@ export async function httpProxy(url, params = {}) {
     return [
       500,
       "application/json",
-      { error: { message: err?.message ?? "Unknown error", url: sanitizeErrorURL(url), rawError: err } },
+      {
+        error: {
+          message: rawError?.message ?? "Unknown error",
+          url: sanitizeErrorURL(url),
+          rawError,
+        },
+      },
       null,
     ];
   }

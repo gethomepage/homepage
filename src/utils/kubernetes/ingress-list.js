@@ -20,7 +20,7 @@ export default async function listIngress() {
         logger.debug(error);
         return null;
       });
-    ingressList = ingressData.items;
+    ingressList = ingressData?.items ?? [];
   }
   return ingressList;
 }

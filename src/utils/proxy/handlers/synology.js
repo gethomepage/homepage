@@ -137,6 +137,9 @@ export default async function synologyProxyHandler(req, res) {
   }
 
   const serviceWidget = await getServiceWidget(group, service, index);
+  if (!serviceWidget) {
+    return res.status(400).json({ error: "Invalid proxy service type" });
+  }
   const widget = widgets?.[serviceWidget.type];
   const mapping = widget?.mappings?.[endpoint];
   if (!widget.api || !mapping) {
@@ -158,7 +161,8 @@ export default async function synologyProxyHandler(req, res) {
   let [status, contentType, data] = await httpProxy(url);
   if (status !== 200) {
     logger.debug("Error %d calling url %s", status, url);
-    return res.status(status, data);
+    if (contentType) res.setHeader("Content-Type", contentType);
+    return res.status(status).send(data);
   }
 
   let json = asJson(data);

@@ -65,5 +65,14 @@ export default defineConfig([
       ],
     },
   },
-  globalIgnores(["./config/", "./.venv/", "./.next/", "./site/"]),
+  // Vitest tests often intentionally place imports after `vi.mock(...)` to ensure
+  // modules under test see the mocked dependencies. `import/order` can't safely
+  // auto-fix those cases, so disable it for test files.
+  {
+    files: ["src/**/*.test.{js,jsx}", "src/**/*.spec.{js,jsx}"],
+    rules: {
+      "import/order": "off",
+    },
+  },
+  globalIgnores(["./config/", "./coverage/", "./.venv/", "./.next/", "./site/"]),
 ]);
