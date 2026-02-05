@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
