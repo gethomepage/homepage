@@ -8,7 +8,6 @@ let warnedAllowedHosts = false;
 export async function middleware(req) {
   if (!warnedAllowedHosts && process.env.HOMEPAGE_ALLOWED_HOSTS) {
     warnedAllowedHosts = true;
-    // eslint-disable-next-line no-console
     console.warn(
       "HOMEPAGE_ALLOWED_HOSTS is deprecated. To secure a publicly accessible homepage, configure authentication instead.",
     );
