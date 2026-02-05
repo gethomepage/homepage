@@ -29,13 +29,22 @@ You have a few options for deploying homepage, depending on your needs. We offer
 
 ### Security & Authentication
 
-Public deployments of Homepage should be secured via a reverse proxy, VPN, or similar. As of version 2.0, Homepage supports a simple OIDC login flow for built-in authorization. Enable it with the following environment variables:
+Public deployments of Homepage should be secured via a reverse proxy, VPN, or similar. As of version 2.0, Homepage supports a simple authorization gate with a password or OIDC. When enabled, Homepage will use password login by default unless OIDC variables are provided.
+
+Required environment variables for authentication:
 
 - `HOMEPAGE_AUTH_ENABLED=true`
+- `HOMEPAGE_AUTH_SECRET` (random string for signing/encrypting cookies)
+
+For password-only login:
+
+- `HOMEPAGE_AUTH_PASSWORD` (password-only login; required unless OIDC settings are provided)
+
+For OIDC login (overrides password login):
+
 - `HOMEPAGE_OIDC_ISSUER` (OIDC issuer URL, e.g., `https://auth.example.com/realms/homepage`)
 - `HOMEPAGE_OIDC_CLIENT_ID`
 - `HOMEPAGE_OIDC_CLIENT_SECRET`
-- `HOMEPAGE_AUTH_SECRET` (random string for signing/encrypting cookies)
 - `HOMEPAGE_EXTERNAL_URL` (external URL to your Homepage instance; used for callbacks)
 - Optional: `HOMEPAGE_OIDC_NAME` (display name), `HOMEPAGE_OIDC_SCOPE` (defaults to `openid email profile`)
 
