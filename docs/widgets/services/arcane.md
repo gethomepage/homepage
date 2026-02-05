@@ -17,6 +17,3 @@ widget:
   fields: ["running", "stopped", "total", "image_updates"] # optional
 ```
 
-Notes:
-
-- `url` should be the Arcane base URL; the widget appends `/api`.
