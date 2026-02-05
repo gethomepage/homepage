@@ -25,7 +25,8 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run test:coverage -- --shard ${{ matrix.shard }}/4
+      # Run Vitest directly so `--shard` is parsed as an option
+      - run: pnpm -s exec vitest run --coverage --shard ${{ matrix.shard }}/4 --pool forks
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
