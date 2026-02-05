@@ -64,6 +64,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           "pangolin",
           "tailscale",
           "tandoor",
+          "tracearr",
           "pterodactyl",
           "vikunja",
           "firefly",
