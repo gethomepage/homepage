@@ -339,7 +339,7 @@ describe("pages/index Index routing + SWR branches", () => {
     localStorage.setItem("hash", "old-hash");
 
     const fetchSpy = vi.fn(async () => ({ ok: true }));
-    // eslint-disable-next-line no-global-assign
+
     fetch = fetchSpy;
 
     let reloadSpy;

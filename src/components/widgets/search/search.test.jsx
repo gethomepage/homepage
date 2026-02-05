@@ -32,7 +32,13 @@ vi.mock("@headlessui/react", async () => {
       const ctx = useContext(ListboxContext);
       const content = typeof children === "function" ? children({ active: false }) : children;
       return (
-        <div role="option" data-provider={value?.name} onClick={() => ctx?.onChange?.(value)} {...props}>
+        <div
+          role="option"
+          data-provider={value?.name}
+          aria-selected={ctx?.value === value}
+          onClick={() => ctx?.onChange?.(value)}
+          {...props}
+        >
           {content}
         </div>
       );
@@ -166,7 +172,7 @@ describe("components/widgets/search", () => {
     const fetchSpy = vi.fn(async () => ({
       json: async () => ["hel", ["hello", "help", "helm", "helium", "held"]],
     }));
-    // eslint-disable-next-line no-global-assign
+
     fetch = fetchSpy;
 
     renderWithProviders(<Search options={{ provider: ["google"], showSearchSuggestions: true, target: "_self" }} />, {
@@ -192,7 +198,7 @@ describe("components/widgets/search", () => {
     expect(openSpy).toHaveBeenCalledWith("https://www.google.com/search?q=hello", "_self");
 
     openSpy.mockRestore();
-    // eslint-disable-next-line no-global-assign
+
     fetch = originalFetch;
   });
 });
