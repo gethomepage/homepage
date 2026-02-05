@@ -5,7 +5,6 @@ description: Arcane Widget Configuration
 
 Learn more about [Arcane](https://github.com/getarcaneapp/arcane).
 
-`env` is required and should be your Arcane environment ID. If your environment ID is `0`, set it as a string (`"0"`).
 
 **Allowed fields** (max 4): `running`, `stopped`, `total`, `images`, `images_used`, `images_unused`, `image_updates`.
 **Default fields**: `running`, `stopped`, `total`, `image_updates`.
