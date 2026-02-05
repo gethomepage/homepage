@@ -1,6 +1,7 @@
+import { timingSafeEqual } from "node:crypto";
+
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { timingSafeEqual } from "node:crypto";
 
 const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
 const issuer = process.env.HOMEPAGE_OIDC_ISSUER;
