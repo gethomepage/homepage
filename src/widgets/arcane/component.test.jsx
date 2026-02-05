@@ -34,6 +34,16 @@ describe("widgets/arcane/component", () => {
     expect(screen.getByText("arcane.environment_required")).toBeInTheDocument();
   });
 
+  it("shows an error when API calls return detail errors", () => {
+    useWidgetAPI.mockImplementation(() => ({ data: { detail: "Specific API error" }, error: undefined }));
+
+    renderWithProviders(<Component service={{ widget: { type: "arcane", env: "prod" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getByText("Specific API error")).toBeInTheDocument();
+  });
+
   it("renders placeholders while loading data", () => {
     useWidgetAPI.mockImplementation(() => ({ data: undefined, error: undefined }));
 

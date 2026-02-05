@@ -24,7 +24,8 @@ export default function Component({ service }) {
   const { data: images, error: imagesError } = useWidgetAPI(widget, "images");
   const { data: updates, error: updatesError } = useWidgetAPI(widget, "updates");
 
-  const error = containersError ?? imagesError ?? updatesError;
+  const error =
+    containersError ?? imagesError ?? updatesError ?? containers?.detail ?? images?.detail ?? updates?.detail;
   if (error) {
     return <Container service={service} error={error} />;
   }
