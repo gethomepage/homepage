@@ -102,7 +102,10 @@ export default function SignIn({ providers, settings }) {
     );
   }
 
-  const hasPasswordProvider = Boolean(providers?.["homepage-password"]);
+  const passwordProvider = providers
+    ? Object.values(providers).find((provider) => provider.type === "credentials")
+    : null;
+  const hasPasswordProvider = Boolean(passwordProvider);
 
   return (
     <>
@@ -147,7 +150,7 @@ export default function SignIn({ providers, settings }) {
                       className="space-y-3"
                       onSubmit={async (event) => {
                         event.preventDefault();
-                        await signIn("homepage-password", {
+                        await signIn(passwordProvider?.id ?? "credentials", {
                           redirect: true,
                           callbackUrl,
                           password,

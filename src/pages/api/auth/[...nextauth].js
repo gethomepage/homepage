@@ -67,7 +67,6 @@ if (authEnabled) {
   } else {
     providers = [
       CredentialsProvider({
-        id: "homepage-password",
         name: "Password",
         credentials: {
           password: { label: "Password", type: "password" },
