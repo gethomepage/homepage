@@ -86,7 +86,7 @@ export async function servicesFromDocker() {
         // bad docker connections can result in a <Buffer ...> object?
         // in any case, this ensures the result is the expected array
         if (!Array.isArray(containers)) {
-          return [];
+          return { server: serverName, services: [] };
         }
 
         const discovered = containers.map((container) => {
@@ -188,6 +188,7 @@ export async function servicesFromKubernetes() {
 
     const resources = [...ingressList, ...traefikIngressList, ...httpRouteList];
 
+    /* c8 ignore next 3 -- resources is always an array once the spreads succeed */
     if (!resources) {
       return [];
     }
@@ -258,6 +259,9 @@ export function cleanServiceGroups(groups) {
           highlight,
           type,
 
+          // arcane
+          env,
+
           // azuredevops
           repositoryId,
           userEmail,
@@ -294,9 +298,15 @@ export function cleanServiceGroups(groups) {
           // diskstation
           volume,
 
+          // dispatcharr
+          enableActiveStreams,
+
           // docker
           container,
           server,
+
+          // dockhand
+          environment,
 
           // emby, jellyfin
           enableBlocks,
@@ -466,6 +476,10 @@ export function cleanServiceGroups(groups) {
           if (repositoryId) widget.repositoryId = repositoryId;
         }
 
+        if (type === "arcane") {
+          if (env !== undefined) widget.env = env;
+        }
+
         if (type === "beszel") {
           if (systemId) widget.systemId = systemId;
         }
@@ -544,6 +558,9 @@ export function cleanServiceGroups(groups) {
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) widget.volume = volume;
         }
+        if (["dispatcharr"].includes(type)) {
+          if (enableActiveStreams) widget.enableActiveStreams = !!JSON.parse(enableActiveStreams);
+        }
         if (type === "gamedig") {
           if (gameToken) widget.gameToken = gameToken;
         }
@@ -557,6 +574,7 @@ export function cleanServiceGroups(groups) {
             "beszel",
             "glances",
             "immich",
+            "jellyfin",
             "komga",
             "mealie",
             "netalertx",
@@ -566,6 +584,7 @@ export function cleanServiceGroups(groups) {
             "wgeasy",
             "grafana",
             "gluetun",
+            "vikunja",
           ].includes(type)
         ) {
           if (version) widget.version = parseInt(version, 10);
@@ -604,6 +623,9 @@ export function cleanServiceGroups(groups) {
           if (previousDays) widget.previousDays = previousDays;
           if (showTime) widget.showTime = showTime;
           if (timezone) widget.timezone = timezone;
+        }
+        if (type === "dockhand") {
+          if (environment) widget.environment = environment;
         }
         if (type === "hdhomerun") {
           if (tuner !== undefined) widget.tuner = tuner;

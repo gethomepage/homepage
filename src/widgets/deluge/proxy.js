@@ -65,7 +65,6 @@ export default async function delugeProxyHandler(req, res) {
       return res.status(status).end(data);
     }
 
-    // eslint-disable-next-line no-unused-vars
     [status, contentType, data] = await sendRpc(url, dataMethod, dataParams);
   }
 

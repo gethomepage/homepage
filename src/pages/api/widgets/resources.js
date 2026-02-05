@@ -1,8 +1,8 @@
+import si from "systeminformation";
+
 import createLogger from "utils/logger";
 
 const logger = createLogger("resources");
-
-const si = require("systeminformation");
 
 export default async function handler(req, res) {
   const { type, target, interfaceName = "default" } = req.query;

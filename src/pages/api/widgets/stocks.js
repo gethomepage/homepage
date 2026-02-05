@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Invalid provider" });
   }
 
-  const providersInConfig = getSettings()?.providers;
+  const providersInConfig = getSettings()?.providers ?? {};
 
   let apiKey;
   Object.entries(providersInConfig).forEach(([key, val]) => {
@@ -78,5 +78,6 @@ export default async function handler(req, res) {
     });
   }
 
+  /* c8 ignore next 2 -- provider validation above currently makes this unreachable */
   return res.status(400).json({ error: "Invalid configuration" });
 }

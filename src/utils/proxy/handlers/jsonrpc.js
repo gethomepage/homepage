@@ -30,7 +30,6 @@ export async function sendJsonRpcRequest(url, method, params, widget) {
       body,
     };
 
-    // eslint-disable-next-line no-unused-vars
     const [status, contentType, data] = await httpProxy(url, httpRequestParams);
     if (status === 200) {
       const json = JSON.parse(data.toString());

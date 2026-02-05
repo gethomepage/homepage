@@ -14,6 +14,11 @@ export default async function frigateProxyHandler(req, res, map) {
   if (group && service) {
     const widget = await getServiceWidget(group, service, index);
 
+    if (!widget) {
+      logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
+      return res.status(400).json({ error: "Invalid proxy service type" });
+    }
+
     if (!widgets?.[widget.type]?.api) {
       return res.status(403).json({ error: "Service does not support API calls" });
     }
@@ -69,7 +74,7 @@ export default async function frigateProxyHandler(req, res, map) {
       data = asJson(data);
 
       if (endpoint == "stats") {
-        res.status(status).send({
+        return res.status(status).send({
           num_cameras: data?.cameras !== undefined ? Object.keys(data?.cameras).length : 0,
           uptime: data?.service?.uptime,
           version: data?.service.version,

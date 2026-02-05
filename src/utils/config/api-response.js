@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -100,7 +99,6 @@ function convertLayoutGroupToGroup(name, layoutGroup) {
 function mergeSubgroups(configuredGroups, mergedGroup) {
   configuredGroups.forEach((group) => {
     if (group.name === mergedGroup.name) {
-      // eslint-disable-next-line no-param-reassign
       group.services = mergedGroup.services;
     } else if (group.groups) {
       mergeSubgroups(group.groups, mergedGroup);
@@ -113,7 +111,7 @@ function ensureParentGroupExists(sortedGroups, configuredGroups, group, definedL
   const parentGroupName = group.parent;
   const parentGroup = findGroupByName(configuredGroups, parentGroupName);
   if (parentGroup && parentGroup.parent) {
-    ensureParentGroupExists(sortedGroups, configuredGroups, parentGroup);
+    ensureParentGroupExists(sortedGroups, configuredGroups, parentGroup, definedLayouts);
   } else {
     const parentGroupIndex = definedLayouts.findIndex((layout) => layout === parentGroupName);
     if (parentGroupIndex > -1) {

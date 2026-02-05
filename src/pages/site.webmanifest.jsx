@@ -8,10 +8,12 @@ export async function getServerSideProps({ res }) {
   const color = settings.color || "slate";
   const theme = settings.theme || "dark";
 
+  const pwa = settings.pwa || {};
+
   const manifest = {
     name: settings.title || "Homepage",
     short_name: settings.title || "Homepage",
-    icons: [
+    icons: pwa.icons || [
       {
         src: "/android-chrome-192x192.png?v=2",
         sizes: "192x192",
@@ -23,6 +25,7 @@ export async function getServerSideProps({ res }) {
         type: "image/png",
       },
     ],
+    shortcuts: pwa.shortcuts,
     theme_color: themes[color][theme],
     background_color: themes[color][theme],
     display: "standalone",

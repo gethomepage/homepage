@@ -1,0 +1,37 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  vitest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      # Run Vitest directly so `--shard` is parsed as an option
+      - run: pnpm -s exec vitest run --coverage --shard ${{ matrix.shard }}/4 --pool forks
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
+          flags: vitest,shard-${{ matrix.shard }}
+          name: vitest-shard-${{ matrix.shard }}
+          fail_ci_if_error: true
