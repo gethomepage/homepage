@@ -9,6 +9,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 
 - [Adguard Home](adguard-home.md)
 - [APC UPS](apcups.md)
+- [Arcane](arcane.md)
 - [ArgoCD](argocd.md)
 - [Atsumeru](atsumeru.md)
 - [Audiobookshelf](audiobookshelf.md)
