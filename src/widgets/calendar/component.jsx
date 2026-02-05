@@ -72,7 +72,8 @@ export default function Component({ service }) {
       widget.integrations
         ?.filter((integration) => integration?.type)
         .map((integration) => ({
-          service: dynamic(() => import(`./integrations/${integration.type}`)),
+          // Include the extension so Vite/Vitest can statically validate the import base.
+          service: dynamic(() => import(`./integrations/${integration.type}.jsx`)),
           widget: { ...widget, ...integration },
         })) ?? [],
     [widget],
