@@ -54,8 +54,8 @@ describe("pages/api/auth/[...nextauth]", () => {
     const mod = await import("pages/api/auth/[...nextauth]");
     const [provider] = mod.default.options.providers;
 
-    expect(provider.id).toBe("homepage-password");
-    expect(provider.name).toBe("Password");
+    expect(provider.id).toBe("credentials");
+    expect(provider.name).toBe("Credentials");
     expect(provider.type).toBe("credentials");
     expect(typeof provider.authorize).toBe("function");
   });
