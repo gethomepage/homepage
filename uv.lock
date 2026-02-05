@@ -33,8 +33,8 @@ wheels = [
 ]
 
 [[package]]
-name = "homepage"
-version = "0.1.0"
+name = "homepage-docs"
+version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "zensical" },
