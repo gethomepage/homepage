@@ -277,7 +277,7 @@ describe("components/quicklaunch", () => {
     const fetchSpy = vi.fn(async () => ({
       json: async () => ["test", ["test 1", "test 2", "test 3", "test 4", "test 5"]],
     }));
-    // eslint-disable-next-line no-global-assign
+
     fetch = fetchSpy;
 
     renderWithProviders(<Wrapper />, {
@@ -315,7 +315,6 @@ describe("components/quicklaunch", () => {
 
     expect(input).toHaveValue("test 1");
 
-    // eslint-disable-next-line no-global-assign
     fetch = originalFetch;
   });
 
