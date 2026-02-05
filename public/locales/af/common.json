@@ -107,6 +107,16 @@
         "episodes": "Episodes",
         "songs": "Liedjies"
     },
+    "jellyfin": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
+    },
     "esphome": {
         "offline": "Vanlyn af",
         "offline_alt": "Vanlyn af",
@@ -705,6 +715,10 @@
         "uptime": "Optyd",
         "volumeAvailable": "Beskikbaar"
     },
+    "dispatcharr": {
+        "channels": "Kanale",
+        "streams": "Uitsendings"
+    },
     "mylar": {
         "series": "Reekse",
         "issues": "Kwessies",
@@ -794,10 +808,10 @@
         "series": "Reekse"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "Biblioteke",
+        "books": "Boeke",
+        "reading": "Lees",
+        "finished": "Klaar"
     },
     "jdownloader": {
         "downloadCount": "Tou",
@@ -1136,5 +1150,26 @@
         "songs": "Liedjies",
         "time": "Tyd",
         "artists": "Kunstenaars"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Lopend",
+        "stopped": "Gestop",
+        "cpu": "SVE",
+        "memory": "Geheue",
+        "images": "Beelde",
+        "volumes": "Volumes",
+        "events_today": "Vandag se byeenkomste",
+        "pending_updates": "Hangende opdaterings",
+        "stacks": "Stapels",
+        "paused": "Onderbreek",
+        "total": "Totaal",
+        "environment_not_found": "Omgewing Nie Gevind Nie"
     }
 }

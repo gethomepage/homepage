@@ -107,6 +107,16 @@
         "episodes": "Episodios",
         "songs": "Canciones"
     },
+    "jellyfin": {
+        "playing": "Reproduciendo",
+        "transcoding": "Convirtiendo",
+        "bitrate": "Tasa de Bits",
+        "no_active": "No hay Streams activos",
+        "movies": "Películas",
+        "series": "Series",
+        "episodes": "Episodios",
+        "songs": "Canciones"
+    },
     "esphome": {
         "offline": "Fuera de línea",
         "offline_alt": "Fuera de línea",
@@ -705,6 +715,10 @@
         "uptime": "Tiempo activo",
         "volumeAvailable": "Disponible"
     },
+    "dispatcharr": {
+        "channels": "Canales",
+        "streams": "Transmisiones"
+    },
     "mylar": {
         "series": "Series",
         "issues": "Números",
@@ -794,10 +808,10 @@
         "series": "Series"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "Librerías",
+        "books": "Libros",
+        "reading": "Lectura",
+        "finished": "Finalizado"
     },
     "jdownloader": {
         "downloadCount": "En cola",
@@ -1136,5 +1150,26 @@
         "songs": "Canciones",
         "time": "Tiempo",
         "artists": "Artistas"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Activo",
+        "stopped": "Detenido",
+        "cpu": "CPU",
+        "memory": "Memoria",
+        "images": "Imágenes",
+        "volumes": "Volumen",
+        "events_today": "Eventos de hoy",
+        "pending_updates": "Actualizaciones pendientes",
+        "stacks": "Entornos",
+        "paused": "En Pausa",
+        "total": "Total",
+        "environment_not_found": "Entorno no encontrado"
     }
 }

@@ -107,6 +107,16 @@
         "episodes": "에피소드",
         "songs": "음악"
     },
+    "jellyfin": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
+    },
     "esphome": {
         "offline": "오프라인",
         "offline_alt": "오프라인",
@@ -705,6 +715,10 @@
         "uptime": "가동 시간",
         "volumeAvailable": "사용 가능"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Streams"
+    },
     "mylar": {
         "series": "시리즈",
         "issues": "이슈",
@@ -1136,5 +1150,26 @@
         "songs": "Songs",
         "time": "Time",
         "artists": "Artists"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Events Today",
+        "pending_updates": "Pending Updates",
+        "stacks": "Stacks",
+        "paused": "Paused",
+        "total": "Total",
+        "environment_not_found": "Environment Not Found"
     }
 }
