@@ -9,7 +9,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   pre-commit:
@@ -35,44 +37,34 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v5
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
+          python-version-file: ".python-version"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
       - run: sudo apt-get install pngquant
-      - run: pip install mkdocs-material mkdocs-redirects "mkdocs-material[imaging]"
       - name: Test Docs Build
-        run: MKINSIDERS=false mkdocs build
+        run: uv run --frozen zensical build --clean
   deploy:
     name: Build & Deploy Docs
     if: github.repository == 'gethomepage/homepage' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     needs:
       - pre-commit
     steps:
+      - uses: actions/configure-pages@v5
       - uses: actions/checkout@v6
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - uses: actions/setup-python@v6
         with:
-          python-version: 3.x
-      - run: echo "cache_id=${{github.sha}}" >> $GITHUB_ENV
-      - uses: actions/cache@v5
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
+          python-version-file: ".python-version"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
       - run: sudo apt-get install pngquant
-      - run: pip install git+https://${GH_TOKEN}@github.com/benphelps/mkdocs-material-insiders.git
-      - run: pip install mkdocs-redirects "mkdocs-material[imaging]"
-      - name: Docs Deploy
-        run: MKINSIDERS=true mkdocs gh-deploy --force
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Build Docs
+        run: uv run --frozen zensical build --clean
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        id: deployment

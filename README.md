@@ -156,16 +156,16 @@ This is a [Next.js](https://nextjs.org/) application, see their documentation fo
 
 The homepage documentation is available at [https://gethomepage.dev/](https://gethomepage.dev/).
 
-Homepage uses Material for MkDocs for documentation. To run the documentation locally, first install the dependencies:
+Homepage uses Zensical for documentation. To run the documentation locally, first install the dependencies:
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 Then run the development server:
 
 ```bash
-mkdocs serve # or build, to build the static site
+uv run zensical serve # or build, to build the static site
 ```
 
 # Support & Suggestions
