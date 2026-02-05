@@ -27,6 +27,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       all: true,
+      reporter: ["text", "lcov", "json-summary"],
       include: ["src/**/*.{js,jsx,ts,tsx}"],
       exclude: [
         // Ignore build artifacts / generated reports
