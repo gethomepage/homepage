@@ -8,6 +8,10 @@ on:
 jobs:
   vitest:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v4
 
@@ -21,8 +25,12 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run test:coverage
+      - run: pnpm run test:coverage -- --shard ${{ matrix.shard }}/4
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
+          flags: vitest,shard-${{ matrix.shard }}
+          name: vitest-shard-${{ matrix.shard }}
+          fail_ci_if_error: true
