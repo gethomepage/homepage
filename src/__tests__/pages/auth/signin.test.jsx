@@ -11,6 +11,12 @@ vi.mock("utils/config/config", () => ({
   getSettings: getSettingsMock,
 }));
 
+vi.mock("next/router", () => ({
+  useRouter: () => ({
+    query: {},
+  }),
+}));
+
 import { getProviders } from "next-auth/react";
 import SignInPage, { getServerSideProps } from "pages/auth/signin";
 
