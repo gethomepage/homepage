@@ -138,6 +138,7 @@ const components = {
   tautulli: dynamic(() => import("./tautulli/component")),
   technitium: dynamic(() => import("./technitium/component")),
   tdarr: dynamic(() => import("./tdarr/component")),
+  tracearr: dynamic(() => import("./tracearr/component")),
   traefik: dynamic(() => import("./traefik/component")),
   transmission: dynamic(() => import("./transmission/component")),
   trilium: dynamic(() => import("./trilium/component")),
