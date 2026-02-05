@@ -20,6 +20,8 @@ export default defineConfig({
   },
   test: {
     environment: "node",
+    // Use worker threads instead of forked processes to reduce overhead and avoid noisy per-process Node warnings.
+    pool: "threads",
     setupFiles: ["./vitest.setup.js"],
     include: ["src/**/*.test.{js,jsx}", "src/**/*.spec.{js,jsx}"],
     coverage: {
