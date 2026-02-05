@@ -259,6 +259,9 @@ export function cleanServiceGroups(groups) {
           highlight,
           type,
 
+          // arcane
+          env,
+
           // azuredevops
           repositoryId,
           userEmail,
@@ -471,6 +474,10 @@ export function cleanServiceGroups(groups) {
         if (type === "azuredevops") {
           if (userEmail) widget.userEmail = userEmail;
           if (repositoryId) widget.repositoryId = repositoryId;
+        }
+
+        if (type === "arcane") {
+          if (env !== undefined) widget.env = env;
         }
 
         if (type === "beszel") {
