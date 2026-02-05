@@ -43,4 +43,12 @@ describe("components/widgets/resources/uptime", () => {
       vi.useRealTimers();
     }
   });
+
+  it("renders Error when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    render(<Uptime />);
+
+    expect(Error).toHaveBeenCalled();
+  });
 });

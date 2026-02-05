@@ -25,6 +25,36 @@ describe("components/services/status", () => {
     expect(screen.getByText("docker.unknown")).toBeInTheDocument();
   });
 
+  it("renders error when SWR fails", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    render(<Status service={{ container: "c", server: "s" }} />);
+
+    expect(screen.getByText("docker.error")).toBeInTheDocument();
+  });
+
+  it("renders healthy/unhealthy and partial/exited/not found statuses", () => {
+    useSWR.mockReturnValue({ data: { status: "running", health: "healthy" }, error: undefined });
+    render(<Status service={{ container: "c", server: "s" }} />);
+    expect(screen.getByText("docker.healthy")).toBeInTheDocument();
+
+    useSWR.mockReturnValue({ data: { status: "running", health: "unhealthy" }, error: undefined });
+    render(<Status service={{ container: "c", server: "s" }} />);
+    expect(screen.getByText("docker.unhealthy")).toBeInTheDocument();
+
+    useSWR.mockReturnValue({ data: { status: "partial 1/2" }, error: undefined });
+    render(<Status service={{ container: "c", server: "s" }} />);
+    expect(screen.getByText("docker.partial 1/2")).toBeInTheDocument();
+
+    useSWR.mockReturnValue({ data: { status: "exited" }, error: undefined });
+    render(<Status service={{ container: "c", server: "s" }} />);
+    expect(screen.getByText("docker.exited")).toBeInTheDocument();
+
+    useSWR.mockReturnValue({ data: { status: "not found" }, error: undefined });
+    render(<Status service={{ container: "c", server: "s" }} />);
+    expect(screen.getByText("docker.not_found")).toBeInTheDocument();
+  });
+
   it("renders starting health when container is running and starting", () => {
     useSWR.mockReturnValue({ data: { status: "running", health: "starting" }, error: undefined });
 

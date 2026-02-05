@@ -8,7 +8,7 @@ vi.mock("utils/config/config", () => ({
   getSettings,
 }));
 
-import { getServerSideProps } from "pages/robots.txt.js";
+import RobotsTxt, { getServerSideProps } from "pages/robots.txt.js";
 
 function createMockRes() {
   return {
@@ -37,5 +37,9 @@ describe("pages/robots.txt", () => {
     await getServerSideProps({ res });
 
     expect(res.write).toHaveBeenCalledWith("User-agent: *\nDisallow: /");
+  });
+
+  it("exports a placeholder component", () => {
+    expect(RobotsTxt()).toBeNull();
   });
 });

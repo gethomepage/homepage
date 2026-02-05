@@ -96,4 +96,27 @@ describe("pages/api/widgets/openweathermap", () => {
     );
     expect(res.body).toEqual({ ok: true });
   });
+
+  it("returns 400 when provider=openweathermap but settings do not provide an api key", async () => {
+    getPrivateWidgetOptions.mockResolvedValueOnce({});
+    getSettings.mockReturnValueOnce({ providers: {} });
+
+    const req = {
+      query: {
+        latitude: "1",
+        longitude: "2",
+        units: "metric",
+        lang: "en",
+        provider: "openweathermap",
+        cache: 1,
+        index: "0",
+      },
+    };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Missing API key" });
+  });
 });

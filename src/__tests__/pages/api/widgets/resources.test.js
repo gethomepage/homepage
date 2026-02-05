@@ -115,6 +115,19 @@ describe("pages/api/widgets/resources", () => {
     expect(res.body.network).toEqual({ iface: "en0", rx_bytes: 1 });
   });
 
+  it("returns 404 when the default interface cannot be found in networkStats", async () => {
+    si.networkStats.mockResolvedValueOnce([{ iface: "en0", rx_bytes: 1 }]);
+    si.networkInterfaceDefault.mockResolvedValueOnce("en1");
+
+    const req = { query: { type: "network" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toEqual({ error: "Default interface not found" });
+  });
+
   it("returns 400 for an invalid type", async () => {
     const req = { query: { type: "nope" } };
     const res = createMockRes();

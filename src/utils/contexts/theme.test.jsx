@@ -30,4 +30,35 @@ describe("utils/contexts/theme", () => {
     await waitFor(() => expect(document.documentElement.classList.contains("light")).toBe(true));
     expect(localStorage.getItem("theme-mode")).toBe("light");
   });
+
+  it("falls back to prefers-color-scheme when localStorage is empty", async () => {
+    const matchMedia = vi.fn(() => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }));
+    window.matchMedia = matchMedia;
+    localStorage.removeItem("theme-mode");
+
+    render(
+      <ThemeProvider>
+        <Reader />
+      </ThemeProvider>,
+    );
+
+    expect(matchMedia).toHaveBeenCalledWith("(prefers-color-scheme: dark)");
+    expect(screen.getByTestId("value")).toHaveTextContent("dark");
+  });
+
+  it("defaults to dark when prefers-color-scheme does not match", async () => {
+    const matchMedia = vi.fn(() => ({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() }));
+    window.matchMedia = matchMedia;
+    localStorage.removeItem("theme-mode");
+
+    render(
+      <ThemeProvider>
+        <Reader />
+      </ThemeProvider>,
+    );
+
+    expect(matchMedia).toHaveBeenCalledWith("(prefers-color-scheme: dark)");
+    expect(screen.getByTestId("value")).toHaveTextContent("dark");
+    await waitFor(() => expect(localStorage.getItem("theme-mode")).toBe("dark"));
+  });
 });

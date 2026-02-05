@@ -293,6 +293,46 @@ describe("pages/api/services/proxy", () => {
     expect(res.body).toEqual({ error: "Unmapped proxy request." });
   });
 
+  it("falls back to the service proxy handler when mapping.proxyHandler is not a function", async () => {
+    getServiceWidget.mockResolvedValue({ type: "mapbroken" });
+    handlerFn.handler.mockImplementation(async (req, res) => res.status(200).json({ endpoint: req.query.endpoint }));
+
+    const widgets = (await import("widgets/widgets")).default;
+    widgets.mapbroken = {
+      api: "{url}/{endpoint}",
+      mappings: {
+        x: { endpoint: "ok", proxyHandler: "nope" },
+      },
+    };
+
+    const req = { method: "GET", query: { group: "g", service: "s", index: "0", endpoint: "x" } };
+    const res = createMockRes();
+
+    await servicesProxy(req, res);
+
+    expect(handlerFn.handler).toHaveBeenCalled();
+    expect(res.statusCode).toBe(200);
+    expect(res.body.endpoint).toBe("ok");
+  });
+
+  it("returns 403 when a widget defines a non-function proxyHandler", async () => {
+    getServiceWidget.mockResolvedValue({ type: "brokenhandler" });
+
+    const widgets = (await import("widgets/widgets")).default;
+    widgets.brokenhandler = {
+      api: "{url}/{endpoint}",
+      proxyHandler: "nope",
+    };
+
+    const req = { method: "GET", query: { group: "g", service: "s", index: "0", endpoint: "any" } };
+    const res = createMockRes();
+
+    await servicesProxy(req, res);
+
+    expect(res.statusCode).toBe(403);
+    expect(res.body).toEqual({ error: "Unknown proxy service type" });
+  });
+
   it("returns 500 on unexpected errors", async () => {
     getServiceWidget.mockRejectedValueOnce(new Error("boom"));
 

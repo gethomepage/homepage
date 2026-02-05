@@ -30,4 +30,17 @@ describe("components/toggles/theme", () => {
     fireEvent.click(toggles[1]);
     expect(setTheme).toHaveBeenCalledWith("light");
   });
+
+  it("toggles from light to dark when clicked", () => {
+    const setTheme = vi.fn();
+    render(
+      <ThemeContext.Provider value={{ theme: "light", setTheme }}>
+        <ThemeToggle />
+      </ThemeContext.Provider>,
+    );
+
+    const toggles = document.querySelectorAll("svg");
+    fireEvent.click(toggles[1]);
+    expect(setTheme).toHaveBeenCalledWith("dark");
+  });
 });

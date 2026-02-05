@@ -69,6 +69,13 @@ describe("pages/api/widgets/longhorn", () => {
 
     await handler(req, res);
 
+    expect(httpProxy).toHaveBeenCalledWith(
+      "http://lh/v1/nodes",
+      expect.objectContaining({
+        method: "GET",
+        headers: expect.objectContaining({ Authorization: expect.any(String) }),
+      }),
+    );
     expect(res.headers["Content-Type"]).toBe("application/json");
     expect(res.statusCode).toBe(200);
 
@@ -83,5 +90,37 @@ describe("pages/api/widgets/longhorn", () => {
         scheduled: 10,
       }),
     );
+  });
+
+  it("handles nodes without disks and logs non-200 responses", async () => {
+    getSettings.mockReturnValueOnce({ providers: { longhorn: { url: "http://lh" } } });
+
+    const payload = { data: [{ id: "n1" }] };
+    httpProxy.mockResolvedValueOnce([401, "application/json", JSON.stringify(payload)]);
+
+    const req = { query: {} };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(logger.error).toHaveBeenCalled();
+    expect(res.statusCode).toBe(200);
+    expect(res.body.nodes).toEqual([
+      { id: "n1", available: 0, maximum: 0, reserved: 0, scheduled: 0 },
+      { id: "total", available: 0, maximum: 0, reserved: 0, scheduled: 0 },
+    ]);
+  });
+
+  it("returns nodes=null when the API returns a null payload", async () => {
+    getSettings.mockReturnValueOnce({ providers: { longhorn: { url: "http://lh" } } });
+    httpProxy.mockResolvedValueOnce([200, "application/json", "null"]);
+
+    const req = { query: {} };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ nodes: null });
   });
 });

@@ -42,4 +42,12 @@ describe("components/widgets/resources/memory", () => {
     expect(props.expandedValue).toBe("20");
     expect(props.percentage).toBe(25);
   });
+
+  it("renders Error when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    render(<Memory expanded />);
+
+    expect(Error).toHaveBeenCalled();
+  });
 });

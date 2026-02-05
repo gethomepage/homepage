@@ -44,4 +44,12 @@ describe("components/widgets/resources/cpu", () => {
     expect(props.expandedValue).toBe("1.23");
     expect(props.percentage).toBe(12.3);
   });
+
+  it("renders Error when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    render(<Cpu expanded />);
+
+    expect(Error).toHaveBeenCalled();
+  });
 });

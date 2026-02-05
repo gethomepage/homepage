@@ -27,18 +27,18 @@ describe("pages/api/proxmox/stats/[...service]", () => {
     vi.clearAllMocks();
   });
 
-  it("returns 400 when proxmox node parameter is missing", async () => {
+  it("returns 400 when node param is missing", async () => {
     const req = { query: { service: [], type: "qemu" } };
     const res = createMockRes();
 
     await handler(req, res);
 
     expect(res.statusCode).toBe(400);
-    expect(res.body.error).toContain("Proxmox node");
+    expect(res.body).toEqual({ error: "Proxmox node parameter is required" });
   });
 
   it("returns 500 when proxmox config is missing", async () => {
-    getProxmoxConfig.mockReturnValueOnce(null);
+    getProxmoxConfig.mockReturnValue(null);
 
     const req = { query: { service: ["pve", "100"], type: "qemu" } };
     const res = createMockRes();
@@ -46,11 +46,11 @@ describe("pages/api/proxmox/stats/[...service]", () => {
     await handler(req, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body.error).toContain("configuration");
+    expect(res.body).toEqual({ error: "Proxmox server configuration not found" });
   });
 
-  it("returns 400 when node config is missing and legacy creds are not present", async () => {
-    getProxmoxConfig.mockReturnValueOnce({});
+  it("returns 400 when node config is missing and legacy credentials are not present", async () => {
+    getProxmoxConfig.mockReturnValue({ other: { url: "http://x", token: "t", secret: "s" } });
 
     const req = { query: { service: ["pve", "100"], type: "qemu" } };
     const res = createMockRes();
@@ -58,17 +58,21 @@ describe("pages/api/proxmox/stats/[...service]", () => {
     await handler(req, res);
 
     expect(res.statusCode).toBe(400);
-    expect(res.body.error).toContain("Proxmox config not found");
+    expect(res.body).toEqual(
+      expect.objectContaining({
+        error: expect.stringContaining("Proxmox config not found for the specified node"),
+      }),
+    );
   });
 
-  it("calls proxmox status endpoint and returns normalized stats", async () => {
-    getProxmoxConfig.mockReturnValueOnce({
-      pve: { url: "http://pve", token: "t", secret: "s" },
+  it("returns status/cpu/mem for a successful Proxmox response using per-node credentials", async () => {
+    getProxmoxConfig.mockReturnValue({
+      pve: { url: "http://pve", token: "tok", secret: "sec" },
     });
     httpProxy.mockResolvedValueOnce([
       200,
-      null,
-      Buffer.from(JSON.stringify({ data: { status: "running", cpu: 0.1, mem: 0.2 } })),
+      "application/json",
+      Buffer.from(JSON.stringify({ data: { status: "running", cpu: 0.2, mem: 123 } })),
     ]);
 
     const req = { query: { service: ["pve", "100"], type: "qemu" } };
@@ -76,24 +80,35 @@ describe("pages/api/proxmox/stats/[...service]", () => {
 
     await handler(req, res);
 
-    expect(httpProxy).toHaveBeenCalledWith(
-      "http://pve/api2/json/nodes/pve/qemu/100/status/current",
-      expect.objectContaining({
-        method: "GET",
-        headers: expect.objectContaining({
-          Authorization: "PVEAPIToken=t=s",
-        }),
-      }),
-    );
+    expect(httpProxy).toHaveBeenCalledWith("http://pve/api2/json/nodes/pve/qemu/100/status/current", {
+      method: "GET",
+      headers: { Authorization: "PVEAPIToken=tok=sec" },
+    });
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual({ status: "running", cpu: 0.1, mem: 0.2 });
+    expect(res.body).toEqual({ status: "running", cpu: 0.2, mem: 123 });
   });
 
-  it("returns proxmox http errors as response status codes", async () => {
-    getProxmoxConfig.mockReturnValueOnce({
-      pve: { url: "http://pve", token: "t", secret: "s" },
-    });
-    httpProxy.mockResolvedValueOnce([401, null, Buffer.from("nope")]);
+  it("falls back to legacy top-level credentials when no node block exists", async () => {
+    getProxmoxConfig.mockReturnValue({ url: "http://pve", token: "tok", secret: "sec" });
+    httpProxy.mockResolvedValueOnce([
+      200,
+      "application/json",
+      Buffer.from(JSON.stringify({ data: { cpu: 0.1, mem: 1 } })),
+    ]);
+
+    const req = { query: { service: ["pve", "100"], type: "lxc" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledWith("http://pve/api2/json/nodes/pve/lxc/100/status/current", expect.any(Object));
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ status: "unknown", cpu: 0.1, mem: 1 });
+  });
+
+  it("returns a non-200 status when Proxmox responds with an error", async () => {
+    getProxmoxConfig.mockReturnValue({ url: "http://pve", token: "tok", secret: "sec" });
+    httpProxy.mockResolvedValueOnce([401, "application/json", Buffer.from(JSON.stringify({ error: "no" }))]);
 
     const req = { query: { service: ["pve", "100"], type: "qemu" } };
     const res = createMockRes();
@@ -101,6 +116,33 @@ describe("pages/api/proxmox/stats/[...service]", () => {
     await handler(req, res);
 
     expect(res.statusCode).toBe(401);
-    expect(res.body.error).toContain("Failed to fetch Proxmox");
+    expect(res.body).toEqual({ error: "Failed to fetch Proxmox qemu status" });
+  });
+
+  it("returns 500 when the Proxmox response is missing expected data", async () => {
+    getProxmoxConfig.mockReturnValue({ url: "http://pve", token: "tok", secret: "sec" });
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({}))]);
+
+    const req = { query: { service: ["pve", "100"], type: "qemu" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: "Invalid response from Proxmox API" });
+  });
+
+  it("logs and returns 500 when an unexpected error occurs", async () => {
+    getProxmoxConfig.mockReturnValue({ url: "http://pve", token: "tok", secret: "sec" });
+    httpProxy.mockRejectedValueOnce(new Error("boom"));
+
+    const req = { query: { service: ["pve", "100"], type: "qemu" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(logger.error).toHaveBeenCalled();
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: "Failed to fetch Proxmox status" });
   });
 });

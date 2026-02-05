@@ -42,4 +42,12 @@ describe("components/widgets/resources/disk", () => {
     expect(props.expandedValue).toBe("100");
     expect(props.percentage).toBe(60);
   });
+
+  it("renders Error when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    render(<Disk options={{ disk: "/" }} expanded />);
+
+    expect(Error).toHaveBeenCalled();
+  });
 });

@@ -74,4 +74,33 @@ describe("utils/kubernetes/httproute-list", () => {
     expect(state.core.listNamespace).toHaveBeenCalled();
     expect(state.crd.listNamespacedCustomObject).toHaveBeenCalledTimes(2);
   });
+
+  it("logs and returns [] when namespace listing fails", async () => {
+    state.core.listNamespace.mockRejectedValueOnce({ statusCode: 500, body: "boom", response: "resp" });
+
+    vi.resetModules();
+    const listHttpRoute = (await import("./httproute-list")).default;
+
+    const result = await listHttpRoute();
+
+    expect(result).toEqual([]);
+    expect(logger.error).toHaveBeenCalled();
+    expect(logger.debug).toHaveBeenCalled();
+  });
+
+  it("skips namespaces whose httproute queries fail", async () => {
+    state.crd.listNamespacedCustomObject.mockImplementation(async ({ namespace }) => {
+      if (namespace === "b") throw { statusCode: 500, body: "boom", response: "resp" };
+      return { items: state.routesByNs[namespace] ?? [] };
+    });
+
+    vi.resetModules();
+    const listHttpRoute = (await import("./httproute-list")).default;
+
+    const result = await listHttpRoute();
+
+    expect(result.map((r) => r.metadata.name)).toEqual(["r1"]);
+    expect(logger.error).toHaveBeenCalled();
+    expect(logger.debug).toHaveBeenCalled();
+  });
 });

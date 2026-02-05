@@ -68,4 +68,20 @@ describe("pages/api/config/[path]", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toBe("body{}");
   });
+
+  it("logs and returns 500 when reading the file throws", async () => {
+    fs.existsSync.mockReturnValueOnce(true);
+    fs.readFileSync.mockImplementationOnce(() => {
+      throw new Error("boom");
+    });
+
+    const req = { query: { path: "custom.css" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toBe("Internal Server Error");
+    expect(logger.error).toHaveBeenCalled();
+  });
 });

@@ -36,4 +36,18 @@ describe("utils/contexts/color", () => {
     await waitFor(() => expect(document.documentElement.classList.contains("theme-red")).toBe(true));
     expect(localStorage.getItem("theme-color")).toBe("red");
   });
+
+  it("defaults to slate when localStorage is empty", async () => {
+    localStorage.removeItem("theme-color");
+    document.documentElement.className = "";
+
+    render(
+      <ColorProvider>
+        <Reader />
+      </ColorProvider>,
+    );
+
+    expect(screen.getByTestId("value")).toHaveTextContent("slate");
+    await waitFor(() => expect(document.documentElement.classList.contains("theme-slate")).toBe(true));
+  });
 });

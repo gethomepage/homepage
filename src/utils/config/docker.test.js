@@ -98,4 +98,12 @@ describe("utils/config/docker", () => {
     yaml.load.mockReturnValueOnce({ other: { host: "x" } });
     expect(getDockerArguments("missing")).toBeNull();
   });
+
+  it("returns the raw server config when it has no host/socket overrides", () => {
+    yaml.load.mockReturnValueOnce({
+      raw: { swarm: true, something: "else" },
+    });
+
+    expect(getDockerArguments("raw")).toEqual({ swarm: true, something: "else" });
+  });
 });

@@ -47,6 +47,12 @@ describe("utils/kubernetes/traefik-list", () => {
     state.enabled = true;
     state.containoItems = [];
     state.ioItems = [];
+    state.crd.listClusterCustomObject.mockImplementation(async ({ group }) => {
+      if (group === "traefik.containo.us") return { items: state.containoItems };
+      if (group === "traefik.io") return { items: state.ioItems };
+      return { items: [] };
+    });
+    checkCRD.mockResolvedValue(true);
   });
 
   it("returns an empty list when traefik discovery is disabled", async () => {
@@ -74,5 +80,32 @@ describe("utils/kubernetes/traefik-list", () => {
     expect(result[0].metadata.annotations["gethomepage.dev/href"]).toBe("http://a");
     expect(result[1].metadata.annotations["gethomepage.dev/href"]).toBe("http://b");
     expect(checkCRD).toHaveBeenCalled();
+  });
+
+  it("logs errors when traefik CRDs exist and the API calls fail", async () => {
+    const err = { statusCode: 500, body: "nope", response: "nope" };
+    state.crd.listClusterCustomObject.mockRejectedValue(err);
+
+    vi.resetModules();
+    const listTraefikIngress = (await import("./traefik-list")).default;
+
+    const result = await listTraefikIngress();
+
+    expect(result).toEqual([]);
+    expect(logger.error).toHaveBeenCalled();
+    expect(logger.debug).toHaveBeenCalledWith(err);
+  });
+
+  it("suppresses API errors when the CRD is not installed", async () => {
+    checkCRD.mockResolvedValue(false);
+    state.crd.listClusterCustomObject.mockRejectedValue({ statusCode: 500 });
+
+    vi.resetModules();
+    const listTraefikIngress = (await import("./traefik-list")).default;
+
+    const result = await listTraefikIngress();
+
+    expect(result).toEqual([]);
+    expect(logger.error).not.toHaveBeenCalled();
   });
 });

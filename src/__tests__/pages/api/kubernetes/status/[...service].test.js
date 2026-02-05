@@ -2,25 +2,18 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import createMockRes from "test-utils/create-mock-res";
 
-const { coreApi, kc, getKubeConfig, logger } = vi.hoisted(() => {
-  const coreApi = { listNamespacedPod: vi.fn() };
-  const kc = { makeApiClient: vi.fn(() => coreApi) };
-  const getKubeConfig = vi.fn();
-  const logger = { error: vi.fn() };
-
-  return { coreApi, kc, getKubeConfig, logger };
-});
-
-vi.mock("@kubernetes/client-node", () => ({
-  CoreV1Api: class CoreV1Api {},
-}));
-
-vi.mock("utils/config/kubernetes", () => ({
-  getKubeConfig,
+const { getKubeConfig, coreApi, logger } = vi.hoisted(() => ({
+  getKubeConfig: vi.fn(),
+  coreApi: { listNamespacedPod: vi.fn() },
+  logger: { error: vi.fn() },
 }));
 
 vi.mock("utils/logger", () => ({
   default: () => logger,
+}));
+
+vi.mock("utils/config/kubernetes", () => ({
+  getKubeConfig,
 }));
 
 import handler from "pages/api/kubernetes/status/[...service]";
@@ -28,62 +21,101 @@ import handler from "pages/api/kubernetes/status/[...service]";
 describe("pages/api/kubernetes/status/[...service]", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    getKubeConfig.mockReturnValue({
+      makeApiClient: () => coreApi,
+    });
   });
 
-  it("returns 400 when kubernetes parameters are missing", async () => {
+  it("returns 400 when namespace/appName params are missing", async () => {
     const req = { query: { service: [] } };
     const res = createMockRes();
 
     await handler(req, res);
 
     expect(res.statusCode).toBe(400);
-    expect(res.body.error).toContain("kubernetes query parameters");
+    expect(res.body).toEqual({ error: "kubernetes query parameters are required" });
   });
 
-  it("returns 500 when no kube config is available", async () => {
-    getKubeConfig.mockReturnValueOnce(null);
+  it("returns 500 when kubernetes is not configured", async () => {
+    getKubeConfig.mockReturnValue(null);
 
-    const req = { query: { service: ["ns", "app"] } };
+    const req = { query: { service: ["default", "app"] } };
     const res = createMockRes();
 
     await handler(req, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body.error).toContain("No kubernetes configuration");
+    expect(res.body).toEqual({ error: "No kubernetes configuration" });
   });
 
-  it("returns 404 when no pods are found", async () => {
-    getKubeConfig.mockReturnValueOnce(kc);
-    coreApi.listNamespacedPod.mockResolvedValueOnce({ items: [] });
+  it("returns 500 when listNamespacedPod fails", async () => {
+    coreApi.listNamespacedPod.mockRejectedValue({ statusCode: 500, body: "nope", response: "nope" });
 
-    const req = { query: { service: ["ns", "app"] } };
+    const req = { query: { service: ["default", "app"] } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: "Error communicating with kubernetes" });
+  });
+
+  it("returns 404 when no pods match the selector", async () => {
+    coreApi.listNamespacedPod.mockResolvedValue({ items: [] });
+
+    const req = { query: { service: ["default", "app"] } };
     const res = createMockRes();
 
     await handler(req, res);
 
     expect(res.statusCode).toBe(404);
-    expect(res.body.status).toBe("not found");
+    expect(res.body).toEqual({ status: "not found" });
   });
 
-  it("computes running/partial/down from pod phases", async () => {
-    getKubeConfig.mockReturnValueOnce(kc);
-    coreApi.listNamespacedPod.mockResolvedValueOnce({
-      items: [{ status: { phase: "Running" } }, { status: { phase: "Running" } }],
-    });
-
-    const resRunning = createMockRes();
-    await handler({ query: { service: ["ns", "app"] } }, resRunning);
-    expect(resRunning.statusCode).toBe(200);
-    expect(resRunning.body.status).toBe("running");
-
-    getKubeConfig.mockReturnValueOnce(kc);
-    coreApi.listNamespacedPod.mockResolvedValueOnce({
+  it("returns partial when some pods are ready but not all", async () => {
+    coreApi.listNamespacedPod.mockResolvedValue({
       items: [{ status: { phase: "Running" } }, { status: { phase: "Pending" } }],
     });
 
-    const resPartial = createMockRes();
-    await handler({ query: { service: ["ns", "app"] } }, resPartial);
-    expect(resPartial.statusCode).toBe(200);
-    expect(resPartial.body.status).toBe("partial");
+    const req = { query: { service: ["default", "app"] } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ status: "partial" });
+  });
+
+  it("returns running when all pods are ready", async () => {
+    coreApi.listNamespacedPod.mockResolvedValue({
+      items: [{ status: { phase: "Running" } }, { status: { phase: "Succeeded" } }],
+    });
+
+    const req = { query: { service: ["default", "app"], podSelector: "app=test" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(coreApi.listNamespacedPod).toHaveBeenCalledWith({
+      namespace: "default",
+      labelSelector: "app=test",
+    });
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ status: "running" });
+  });
+
+  it("returns 500 when an unexpected error is thrown", async () => {
+    getKubeConfig.mockImplementationOnce(() => {
+      throw new Error("boom");
+    });
+
+    const req = { query: { service: ["default", "app"] } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: "unknown error" });
+    expect(logger.error).toHaveBeenCalled();
   });
 });

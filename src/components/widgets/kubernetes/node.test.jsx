@@ -24,4 +24,12 @@ describe("components/widgets/kubernetes/node", () => {
 
     expect(screen.getByText("node-1")).toBeInTheDocument();
   });
+
+  it("renders a warning icon when the node is not ready", () => {
+    const data = { name: "node-2", ready: false, cpu: { percent: 1 }, memory: { free: 2, percent: 3 } };
+
+    render(<Node type="node" options={{ showLabel: true }} data={data} />);
+
+    expect(screen.getByText("node-2")).toBeInTheDocument();
+  });
 });

@@ -18,6 +18,11 @@ export default async function credentialedProxyHandler(req, res, map) {
   if (group && service) {
     const widget = await getServiceWidget(group, service, index);
 
+    if (!widget) {
+      logger.debug("Invalid or missing widget for service '%s' in group '%s'", service, group);
+      return res.status(400).json({ error: "Invalid proxy service type" });
+    }
+
     if (!widgets?.[widget.type]?.api) {
       return res.status(403).json({ error: "Service does not support API calls" });
     }

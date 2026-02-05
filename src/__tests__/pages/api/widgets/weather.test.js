@@ -70,4 +70,29 @@ describe("pages/api/widgets/weatherapi", () => {
       "2",
     );
   });
+
+  it("rejects unsupported providers", async () => {
+    getPrivateWidgetOptions.mockResolvedValueOnce({});
+
+    const req = { query: { latitude: "1", longitude: "2", lang: "en", provider: "nope" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Invalid provider for endpoint" });
+  });
+
+  it("returns 400 when a provider is set but no API key can be resolved", async () => {
+    getPrivateWidgetOptions.mockResolvedValueOnce({});
+    getSettings.mockReturnValueOnce({ providers: {} });
+
+    const req = { query: { latitude: "1", longitude: "2", lang: "en", provider: "weatherapi" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Missing API key" });
+  });
 });

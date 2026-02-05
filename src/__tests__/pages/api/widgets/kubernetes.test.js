@@ -75,6 +75,21 @@ describe("pages/api/widgets/kubernetes", () => {
     expect(res.body.error).toContain("fetching nodes");
   });
 
+  it("logs and returns 500 when listing nodes throws", async () => {
+    getKubeConfig.mockReturnValueOnce(kc);
+    coreApi.listNode.mockRejectedValueOnce({ statusCode: 500, body: "nope", response: "nope" });
+
+    const req = { query: {} };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(logger.error).toHaveBeenCalled();
+    expect(logger.debug).toHaveBeenCalled();
+    expect(res.statusCode).toBe(500);
+    expect(res.body.error).toContain("fetching nodes");
+  });
+
   it("returns 500 when metrics lookup fails", async () => {
     getKubeConfig.mockReturnValueOnce(kc);
     parseMemory.mockReturnValue(100);
@@ -143,5 +158,47 @@ describe("pages/api/widgets/kubernetes", () => {
     expect(res.body.cluster.memory.total).toBe(150);
     expect(res.body.nodes).toHaveLength(2);
     expect(res.body.nodes.find((n) => n.name === "n1").cpu.percent).toBeCloseTo(10);
+  });
+
+  it("returns a metrics error when metrics contain an unexpected node name", async () => {
+    getKubeConfig.mockReturnValueOnce(kc);
+    parseMemory.mockReturnValue(100);
+    parseCpu.mockReturnValue(0.1);
+
+    coreApi.listNode.mockResolvedValueOnce({
+      items: [
+        {
+          metadata: { name: "n1" },
+          status: { capacity: { cpu: "1", memory: "100" }, conditions: [{ type: "Ready", status: "True" }] },
+        },
+      ],
+    });
+    metricsApi.getNodeMetrics.mockResolvedValueOnce({
+      items: [{ metadata: { name: "n2" }, usage: { cpu: "100m", memory: "30" } }],
+    });
+
+    const req = { query: {} };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body.error).toContain("Error getting metrics");
+    expect(logger.error).toHaveBeenCalled();
+  });
+
+  it("returns 500 when an unexpected error is thrown", async () => {
+    getKubeConfig.mockImplementationOnce(() => {
+      throw new Error("boom");
+    });
+
+    const req = { query: {} };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: "unknown error" });
+    expect(logger.error).toHaveBeenCalled();
   });
 });

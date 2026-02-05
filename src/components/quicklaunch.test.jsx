@@ -62,6 +62,62 @@ describe("components/quicklaunch", () => {
     state.widgets = {};
   });
 
+  it("uses a custom provider from quicklaunch settings when configured", async () => {
+    renderWithProviders(<Wrapper />, {
+      settings: {
+        quicklaunch: {
+          provider: "custom",
+          name: "MySearch",
+          url: "https://custom.example/?q=",
+          showSearchSuggestions: false,
+        },
+      },
+    });
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "abc" } });
+
+    expect(await screen.findByText("MySearch quicklaunch.search")).toBeInTheDocument();
+  });
+
+  it("uses the search widget's custom provider configuration when quicklaunch settings are not provided", async () => {
+    state.widgets = {
+      w: {
+        type: "search",
+        options: { provider: "custom", name: "WidgetSearch", url: "https://widget.example/?q=" },
+      },
+    };
+
+    renderWithProviders(<Wrapper />, { settings: { quicklaunch: { showSearchSuggestions: false } } });
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "abc" } });
+
+    expect(await screen.findByText("WidgetSearch quicklaunch.search")).toBeInTheDocument();
+  });
+
+  it("uses the search widget's provider setting when quicklaunch settings are not provided", async () => {
+    state.widgets = {
+      w: {
+        type: "search",
+        options: { provider: "duckduckgo" },
+      },
+    };
+
+    renderWithProviders(<Wrapper />, { settings: { quicklaunch: { showSearchSuggestions: false } } });
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "abc" } });
+
+    expect(await screen.findByText("DuckDuckGo quicklaunch.search")).toBeInTheDocument();
+  });
+
   it("renders results for urls and opens the selected result on Enter", async () => {
     const openSpy = vi.spyOn(window, "open").mockImplementation(() => null);
 
@@ -93,6 +149,99 @@ describe("components/quicklaunch", () => {
     expect(openSpy).toHaveBeenCalledWith("https://example.com/", "_self", "noreferrer");
 
     openSpy.mockRestore();
+  });
+
+  it("closes on Escape and clears the search string after the timeout", async () => {
+    renderWithProviders(<Wrapper />, {
+      settings: {
+        quicklaunch: {
+          provider: "duckduckgo",
+          showSearchSuggestions: false,
+        },
+      },
+    });
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "abc" } });
+    expect(input).toHaveValue("abc");
+
+    fireEvent.keyDown(input, { key: "Escape" });
+
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 350));
+    });
+
+    expect(input).toHaveValue("");
+  });
+
+  it("supports ArrowUp/ArrowDown navigation and opens a result on click", async () => {
+    const openSpy = vi.spyOn(window, "open").mockImplementation(() => null);
+
+    renderWithProviders(
+      <Wrapper
+        servicesAndBookmarks={[
+          { name: "Alpha", href: "https://alpha.example", icon: "mdi:test" },
+          { name: "Alpine", href: "https://alpine.example" },
+        ]}
+      />,
+      { settings: { target: "_self", quicklaunch: { showSearchSuggestions: false } } },
+    );
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "al" } });
+
+    await waitFor(() => {
+      expect(document.querySelector('button[data-index="0"]')).toBeTruthy();
+      expect(document.querySelector('button[data-index="1"]')).toBeTruthy();
+    });
+
+    // Icon/abbr container renders when icon is present.
+    expect(screen.getByTestId("resolved-icon")).toBeInTheDocument();
+
+    const button0 = document.querySelector('button[data-index="0"]');
+    const button1 = document.querySelector('button[data-index="1"]');
+    expect(button0.className).toContain("bg-theme-300/50");
+
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    expect(button1.className).toContain("bg-theme-300/50");
+
+    fireEvent.keyDown(input, { key: "ArrowUp" });
+    expect(button0.className).toContain("bg-theme-300/50");
+
+    fireEvent.click(button0);
+
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 350));
+    });
+
+    expect(openSpy).toHaveBeenCalledWith("https://alpha.example", "_self", "noreferrer");
+    openSpy.mockRestore();
+  });
+
+  it("handles Escape on a result button (not just the input)", async () => {
+    renderWithProviders(<Wrapper servicesAndBookmarks={[{ name: "Alpha", href: "https://alpha.example" }]} />, {
+      settings: { quicklaunch: { showSearchSuggestions: false } },
+    });
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "al" } });
+    await waitFor(() => expect(document.querySelector('button[data-index="0"]')).toBeTruthy());
+    const button0 = document.querySelector('button[data-index="0"]');
+
+    button0.focus();
+    fireEvent.keyDown(button0, { key: "Escape" });
+
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 350));
+    });
+
+    expect(input).toHaveValue("");
   });
 
   it("highlights matching description text when searchDescriptions is enabled", async () => {
@@ -233,7 +382,7 @@ describe("components/quicklaunch", () => {
     fireEvent.click(backdrop);
 
     await act(async () => {
-      await new Promise((r) => setTimeout(r, 250));
+      await new Promise((r) => setTimeout(r, 350));
     });
 
     expect(input).toHaveValue("");

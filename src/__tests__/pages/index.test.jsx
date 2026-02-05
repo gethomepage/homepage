@@ -236,7 +236,7 @@ async function renderIndex({
   const setSettings = vi.fn();
   const setActiveTab = vi.fn();
 
-  return render(
+  const renderResult = render(
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <ColorContext.Provider value={{ color, setColor }}>
         <SettingsContext.Provider value={{ settings, setSettings }}>
@@ -247,6 +247,8 @@ async function renderIndex({
       </ColorContext.Provider>
     </ThemeContext.Provider>,
   );
+
+  return { ...renderResult, setTheme, setColor, setSettings, setActiveTab };
 }
 
 describe("pages/index Wrapper", () => {
@@ -284,6 +286,21 @@ describe("pages/index Wrapper", () => {
     expect(document.querySelector("#inner_wrapper")?.className).toContain("backdrop-blur");
     expect(document.querySelector("#inner_wrapper")?.className).toContain("backdrop-saturate-150");
     expect(document.querySelector("#inner_wrapper")?.className).toContain("backdrop-brightness-125");
+  });
+
+  it("supports legacy string backgrounds in settings", async () => {
+    await renderIndex({
+      initialSettings: {
+        title: "Homepage",
+        color: "slate",
+        background: "https://example.com/bg.jpg",
+        layout: {},
+      },
+      theme: "dark",
+      color: "emerald",
+    });
+
+    expect(document.querySelector("#background")).toBeTruthy();
   });
 });
 
@@ -344,6 +361,30 @@ describe("pages/index Index routing + SWR branches", () => {
     });
     expect(document.querySelector(".animate-spin")).toBeTruthy();
   });
+
+  it("mutates the hash when the window regains focus", async () => {
+    state.validateData = [];
+    state.hashData = { hash: "h" };
+    state.windowFocused = true;
+
+    await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
+
+    await waitFor(() => {
+      expect(state.mutateHash).toHaveBeenCalled();
+    });
+  });
+
+  it("stores the initial hash in localStorage when none exists", async () => {
+    state.validateData = [];
+    state.hashData = { hash: "first-hash" };
+    localStorage.removeItem("hash");
+
+    await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
+
+    await waitFor(() => {
+      expect(localStorage.getItem("hash")).toBe("first-hash");
+    });
+  });
 });
 
 describe("pages/index Home behavior", () => {
@@ -382,6 +423,98 @@ describe("pages/index Home behavior", () => {
 
     fireEvent.keyDown(document.body, { key: "Escape" });
     expect(screen.getByTestId("quicklaunch")).toHaveTextContent("closed:3");
+  });
+
+  it("renders services and bookmark groups when present", async () => {
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: {} },
+      settings: { title: "Homepage", layout: {}, language: "en" },
+    });
+
+    expect(await screen.findByTestId("services-group")).toHaveTextContent("Services");
+    expect(screen.getByTestId("bookmarks-group")).toHaveTextContent("Bookmarks");
+  });
+
+  it("renders tab navigation and filters groups by active tab", async () => {
+    state.servicesData = [{ name: "Services", services: [], groups: [] }];
+    state.bookmarksData = [{ name: "Bookmarks", bookmarks: [] }];
+
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: { Services: { tab: "Main" }, Bookmarks: { tab: "Main" } } },
+      settings: { title: "Homepage", layout: { Services: { tab: "Main" }, Bookmarks: { tab: "Main" } } },
+      activeTab: "main",
+    });
+
+    expect(await screen.findAllByTestId("tab")).toHaveLength(1);
+    expect(screen.getAllByTestId("services-group")[0]).toHaveTextContent("Services");
+    expect(screen.getAllByTestId("bookmarks-group")[0]).toHaveTextContent("Bookmarks");
+  });
+
+  it("waits for settings.layout to populate when it differs from initial settings", async () => {
+    state.servicesData = [{ name: "Services", services: [], groups: [] }];
+    state.bookmarksData = [{ name: "Bookmarks", bookmarks: [] }];
+
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: {} },
+      // Missing layout triggers the temporary `<div />` return to avoid eager widget fetches.
+      settings: { title: "Homepage" },
+    });
+
+    expect(screen.queryByTestId("services-group")).toBeNull();
+    expect(screen.queryByTestId("bookmarks-group")).toBeNull();
+  });
+
+  it("applies cardBlur classes for tabs and boxed headers when configured", async () => {
+    state.servicesData = [{ name: "Services", services: [], groups: [] }];
+    state.bookmarksData = [{ name: "Bookmarks", bookmarks: [] }];
+    state.widgetsData = [{ type: "search" }];
+
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: { Services: { tab: "Main" }, Bookmarks: { tab: "Main" } } },
+      settings: {
+        title: "Homepage",
+        layout: { Services: { tab: "Main" }, Bookmarks: { tab: "Main" } },
+        headerStyle: "boxed",
+        cardBlur: "sm",
+      },
+      activeTab: "main",
+    });
+
+    expect(document.querySelector("#myTab")?.className).toContain("backdrop-blur-sm");
+    expect(document.querySelector("#information-widgets")?.className).toContain("backdrop-blur-sm");
+  });
+
+  it("applies settings-driven language/theme/color updates and renders head tags", async () => {
+    state.servicesData = [];
+    state.bookmarksData = [];
+    state.widgetsData = [];
+
+    const { setTheme, setColor, setSettings } = await renderIndex({
+      initialSettings: { title: "Homepage", layout: {} },
+      settings: {
+        title: "Homepage",
+        layout: {},
+        language: "en",
+        theme: "light",
+        color: "emerald",
+        disableIndexing: true,
+        base: "/base/",
+        favicon: "/x.ico",
+      },
+      theme: "dark",
+      color: "slate",
+    });
+
+    await waitFor(() => {
+      expect(setSettings).toHaveBeenCalled();
+    });
+    expect(i18n.changeLanguage).toHaveBeenCalledWith("en");
+    expect(setTheme).toHaveBeenCalledWith("light");
+    expect(setColor).toHaveBeenCalledWith("emerald");
+
+    expect(document.querySelector('meta[name="robots"][content="noindex, nofollow"]')).toBeTruthy();
+    expect(document.querySelector("base")?.getAttribute("href")).toBe("/base/");
+    expect(document.querySelector('link[rel="icon"]')?.getAttribute("href")).toBe("/x.ico");
   });
 
   it("marks information widgets as right-aligned for known widget types", async () => {

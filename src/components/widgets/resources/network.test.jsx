@@ -46,4 +46,12 @@ describe("components/widgets/resources/network", () => {
     expect(props.percentage).toBe(75);
     expect(props.wide).toBe(true);
   });
+
+  it("renders Error when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    render(<Network options={{ network: "en0" }} />);
+
+    expect(Error).toHaveBeenCalled();
+  });
 });

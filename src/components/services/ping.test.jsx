@@ -16,6 +16,34 @@ describe("components/services/ping", () => {
     vi.clearAllMocks();
   });
 
+  it("renders a loading state when data is not available yet", () => {
+    useSWR.mockReturnValue({ data: undefined, error: undefined });
+
+    render(<Ping groupName="g" serviceName="s" />);
+
+    expect(screen.getByText("ping.ping")).toBeInTheDocument();
+    expect(screen.getByText("ping.ping").closest(".ping-status")).toHaveAttribute(
+      "title",
+      expect.stringContaining("ping.not_available"),
+    );
+  });
+
+  it("renders an error label when SWR returns error", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("boom") });
+
+    render(<Ping groupName="g" serviceName="s" />);
+
+    expect(screen.getByText("ping.error")).toBeInTheDocument();
+  });
+
+  it("renders down when the host is not alive", () => {
+    useSWR.mockReturnValue({ data: { alive: false, time: 0 }, error: undefined });
+
+    render(<Ping groupName="g" serviceName="s" />);
+
+    expect(screen.getByText("ping.down")).toBeInTheDocument();
+  });
+
   it("renders the ping time when the host is alive", () => {
     useSWR.mockReturnValue({ data: { alive: true, time: 123 }, error: undefined });
 
@@ -27,6 +55,14 @@ describe("components/services/ping", () => {
       "title",
       expect.stringContaining("ping.up"),
     );
+  });
+
+  it("renders an up label for basic style", () => {
+    useSWR.mockReturnValue({ data: { alive: true, time: 1 }, error: undefined });
+
+    render(<Ping groupName="g" serviceName="s" style="basic" />);
+
+    expect(screen.getByText("ping.up")).toBeInTheDocument();
   });
 
   it("renders a dot when style is dot", () => {

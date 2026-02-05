@@ -22,12 +22,30 @@ vi.mock("utils/config/config", () => ({ getSettings }));
 // Keep the widget registry minimal so the test doesn't import the whole widget graph.
 vi.mock("widgets/widgets", () => ({
   default: {
+    coinmarketcap: { api: "{url}/{endpoint}" },
+    gotify: { api: "{url}/{endpoint}" },
+    plantit: { api: "{url}/{endpoint}" },
+    myspeed: { api: "{url}/{endpoint}" },
+    esphome: { api: "{url}/{endpoint}" },
+    wgeasy: { api: "{url}/{endpoint}" },
     linkwarden: { api: "{url}/api/v1/{endpoint}" },
+    miniflux: { api: "{url}/{endpoint}" },
     nextcloud: { api: "{url}/ocs/v2.php/apps/serverinfo/api/v1/{endpoint}" },
+    paperlessngx: { api: "{url}/api/{endpoint}" },
+    proxmox: { api: "{url}/api2/json/{endpoint}" },
     truenas: { api: "{url}/api/v2.0/{endpoint}" },
     proxmoxbackupserver: { api: "{url}/api2/json/{endpoint}" },
     checkmk: { api: "{url}/{endpoint}" },
     stocks: { api: "{url}/{endpoint}" },
+    speedtest: { api: "{url}/{endpoint}" },
+    tubearchivist: { api: "{url}/{endpoint}" },
+    autobrr: { api: "{url}/{endpoint}" },
+    jellystat: { api: "{url}/{endpoint}" },
+    trilium: { api: "{url}/{endpoint}" },
+    gitlab: { api: "{url}/{endpoint}" },
+    azuredevops: { api: "{url}/{endpoint}" },
+    glances: { api: "{url}/{endpoint}" },
+    withheaders: { api: "{url}/{endpoint}", headers: { "X-Widget": "1" } },
   },
 }));
 
@@ -64,6 +82,40 @@ describe("utils/proxy/handlers/credentialed", () => {
     validateWidgetData.mockReturnValue(true);
   });
 
+  it("returns 400 when group/service are missing", async () => {
+    const req = { method: "GET", query: { endpoint: "e", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Invalid proxy service type" });
+  });
+
+  it("returns 400 when the widget cannot be resolved", async () => {
+    getServiceWidget.mockResolvedValue(false);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "collections", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Invalid proxy service type" });
+  });
+
+  it("returns 403 when the widget type does not support API calls", async () => {
+    getServiceWidget.mockResolvedValue({ type: "noapi", url: "http://example", key: "token" });
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "collections", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(403);
+    expect(res.body).toEqual({ error: "Service does not support API calls" });
+  });
+
   it("uses Bearer auth for linkwarden widgets", async () => {
     getServiceWidget.mockResolvedValue({ type: "linkwarden", url: "http://example", key: "token" });
     httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
@@ -94,6 +146,19 @@ describe("utils/proxy/handlers/credentialed", () => {
     expect(params.headers.Authorization).toBeUndefined();
   });
 
+  it("uses basic auth for nextcloud when key is not provided", async () => {
+    getServiceWidget.mockResolvedValue({ type: "nextcloud", url: "http://example", username: "u", password: "p" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "status", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toMatch(/^Basic /);
+  });
+
   it("uses basic auth for truenas when key is not provided", async () => {
     getServiceWidget.mockResolvedValue({ type: "truenas", url: "http://nas", username: "u", password: "p" });
     httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
@@ -105,6 +170,134 @@ describe("utils/proxy/handlers/credentialed", () => {
 
     const [, params] = httpProxy.mock.calls.at(-1);
     expect(params.headers.Authorization).toMatch(/^Basic /);
+  });
+
+  it("uses Bearer auth for truenas when key is provided", async () => {
+    getServiceWidget.mockResolvedValue({ type: "truenas", url: "http://nas", key: "k" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "system/info", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toBe("Bearer k");
+  });
+
+  it.each([
+    [{ type: "paperlessngx", url: "http://x", key: "k" }, { Authorization: "Token k" }],
+    [
+      { type: "paperlessngx", url: "http://x", username: "u", password: "p" },
+      { Authorization: expect.stringMatching(/^Basic /) },
+    ],
+  ])("sets paperlessngx auth mode for %o", async (widget, expected) => {
+    getServiceWidget.mockResolvedValue(widget);
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "documents", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers).toEqual(expect.objectContaining(expected));
+  });
+
+  it("uses basic auth for esphome when username/password are provided", async () => {
+    getServiceWidget.mockResolvedValue({ type: "esphome", url: "http://x", username: "u", password: "p" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "e", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toMatch(/^Basic /);
+  });
+
+  it("uses basic auth for wgeasy when username/password are provided", async () => {
+    getServiceWidget.mockResolvedValue({ type: "wgeasy", url: "http://x", username: "u", password: "p" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "e", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toMatch(/^Basic /);
+  });
+
+  it("covers additional auth/header modes for common widgets", async () => {
+    const cases = [
+      [{ type: "coinmarketcap", url: "http://x", key: "k" }, { "X-CMC_PRO_API_KEY": "k" }],
+      [{ type: "gotify", url: "http://x", key: "k" }, { "X-gotify-Key": "k" }],
+      [{ type: "plantit", url: "http://x", key: "k" }, { Key: "k" }],
+      [{ type: "myspeed", url: "http://x", password: "p" }, { Password: "p" }],
+      [{ type: "proxmox", url: "http://x", username: "u", password: "p" }, { Authorization: "PVEAPIToken=u=p" }],
+      [{ type: "autobrr", url: "http://x", key: "k" }, { "X-API-Token": "k" }],
+      [{ type: "jellystat", url: "http://x", key: "k" }, { "X-API-Token": "k" }],
+      [{ type: "tubearchivist", url: "http://x", key: "k" }, { Authorization: "Token k" }],
+      [{ type: "miniflux", url: "http://x", key: "k" }, { "X-Auth-Token": "k" }],
+      [{ type: "trilium", url: "http://x", key: "k" }, { Authorization: "k" }],
+      [{ type: "gitlab", url: "http://x", key: "k" }, { "PRIVATE-TOKEN": "k" }],
+      [{ type: "speedtest", url: "http://x", key: "k" }, { Authorization: "Bearer k" }],
+      [
+        { type: "azuredevops", url: "http://x", key: "k" },
+        { Authorization: `Basic ${Buffer.from("$:k").toString("base64")}` },
+      ],
+      [
+        { type: "glances", url: "http://x", username: "u", password: "p" },
+        { Authorization: expect.stringMatching(/^Basic /) },
+      ],
+      [{ type: "wgeasy", url: "http://x", password: "p" }, { Authorization: "p" }],
+      [{ type: "esphome", url: "http://x", key: "cookie" }, { Cookie: "authenticated=cookie" }],
+    ];
+
+    for (const [widget, expected] of cases) {
+      getServiceWidget.mockResolvedValue(widget);
+      httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+      const req = { method: "GET", query: { group: "g", service: "s", endpoint: "e", index: 0 } };
+      const res = createMockRes();
+
+      await credentialedProxyHandler(req, res);
+
+      const [, params] = httpProxy.mock.calls.at(-1);
+      expect(params.headers).toEqual(expect.objectContaining(expected));
+    }
+  });
+
+  it("merges registry/widget/request headers and falls back to X-API-Key for unknown types", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "withheaders",
+      url: "http://example",
+      key: "k",
+      headers: { "X-From-Widget": "2" },
+    });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = {
+      method: "GET",
+      query: { group: "g", service: "s", endpoint: "collections", index: 0 },
+      extraHeaders: { "X-From-Req": "3" },
+    };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers).toEqual(
+      expect.objectContaining({
+        "Content-Type": "application/json",
+        "X-Widget": "1",
+        "X-From-Widget": "2",
+        "X-From-Req": "3",
+        "X-API-Key": "k",
+      }),
+    );
   });
 
   it("sets PBSAPIToken auth and removes content-type for proxmoxbackupserver", async () => {

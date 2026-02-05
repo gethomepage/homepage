@@ -12,7 +12,7 @@ vi.mock("utils/config/config", () => ({
   getSettings,
 }));
 
-import { getServerSideProps } from "pages/site.webmanifest.jsx";
+import Webmanifest, { getServerSideProps } from "pages/site.webmanifest.jsx";
 
 function createMockRes() {
   return {
@@ -88,5 +88,9 @@ describe("pages/site.webmanifest", () => {
 
     const manifest = JSON.parse(res.write.mock.calls[0][0]);
     expect(manifest.icons).toEqual([]);
+  });
+
+  it("exports a placeholder component", () => {
+    expect(Webmanifest()).toBeNull();
   });
 });

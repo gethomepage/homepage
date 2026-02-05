@@ -45,10 +45,32 @@ describe("pages/api/widgets/stocks", () => {
     await handler({ query: { watchlist: "AAPL", provider: "nope" } }, res4);
     expect(res4.statusCode).toBe(400);
     expect(res4.body.error).toContain("Invalid provider");
+
+    const res5 = createMockRes();
+    await handler({ query: { watchlist: "AAPL" } }, res5);
+    expect(res5.statusCode).toBe(400);
+    expect(res5.body.error).toContain("Missing provider");
+
+    const res6 = createMockRes();
+    await handler({ query: { watchlist: "A,B,C,D,E,F,G,H,I", provider: "finnhub" } }, res6);
+    expect(res6.statusCode).toBe(400);
+    expect(res6.body.error).toContain("Max items");
   });
 
   it("returns 400 when API key isn't configured for provider", async () => {
     getSettings.mockReturnValueOnce({ providers: {} });
+
+    const req = { query: { watchlist: "AAPL", provider: "finnhub" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toContain("API Key");
+  });
+
+  it("tolerates missing providers config and returns a helpful error", async () => {
+    getSettings.mockReturnValueOnce({});
 
     const req = { query: { watchlist: "AAPL", provider: "finnhub" } };
     const res = createMockRes();
@@ -78,5 +100,18 @@ describe("pages/api/widgets/stocks", () => {
         { ticker: "MSFT", currentPrice: null, percentChange: null },
       ],
     });
+  });
+
+  it("returns null entries when the watchlist includes empty tickers", async () => {
+    getSettings.mockReturnValueOnce({ providers: { finnhub: "k" } });
+    cachedRequest.mockResolvedValueOnce({ c: 1, dp: 1 });
+
+    const req = { query: { watchlist: "AAPL,", provider: "finnhub" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.body.stocks[0]).toEqual({ ticker: "AAPL", currentPrice: "1.00", percentChange: 1 });
+    expect(res.body.stocks[1]).toEqual({ ticker: null, currentPrice: null, percentChange: null });
   });
 });

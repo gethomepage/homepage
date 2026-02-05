@@ -29,4 +29,13 @@ describe("components/bookmarks/item", () => {
 
     expect(screen.getByTestId("resolved-icon").getAttribute("data-icon")).toBe("mdi-home");
   });
+
+  it("renders the non-icon-only layout with an icon when provided", () => {
+    renderWithProviders(
+      <Item bookmark={{ name: "A", href: "http://example.com/x", abbr: "A", icon: "mdi-home" }} iconOnly={false} />,
+      { settings: { target: "_self", cardBlur: "" } },
+    );
+
+    expect(screen.getByTestId("resolved-icon").getAttribute("data-icon")).toBe("mdi-home");
+  });
 });

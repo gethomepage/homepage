@@ -20,6 +20,14 @@ describe("components/widgets/longhorn", () => {
     vi.clearAllMocks();
   });
 
+  it("renders an error state when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    renderWithProviders(<Longhorn options={{ nodes: true, total: true }} />, { settings: { target: "_self" } });
+
+    expect(screen.getByText("widget.api_error")).toBeInTheDocument();
+  });
+
   it("renders an empty container while loading", () => {
     useSWR.mockReturnValue({ data: undefined, error: undefined });
 
@@ -46,5 +54,19 @@ describe("components/widgets/longhorn", () => {
 
     const nodes = screen.getAllByTestId("longhorn-node");
     expect(nodes.map((n) => n.getAttribute("data-id"))).toEqual(["total", "node1"]);
+  });
+
+  it("omits non-total nodes when options.nodes is false", () => {
+    useSWR.mockReturnValue({
+      data: {
+        nodes: [{ id: "total" }, { id: "node1" }],
+      },
+      error: undefined,
+    });
+
+    renderWithProviders(<Longhorn options={{ nodes: false, total: true }} />, { settings: { target: "_self" } });
+
+    const nodes = screen.getAllByTestId("longhorn-node");
+    expect(nodes.map((n) => n.getAttribute("data-id"))).toEqual(["total"]);
   });
 });

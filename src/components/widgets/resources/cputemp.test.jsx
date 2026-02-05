@@ -42,4 +42,12 @@ describe("components/widgets/resources/cputemp", () => {
     expect(props.expandedValue).toBe("68");
     expect(props.percentage).toBe(74);
   });
+
+  it("renders Error when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    render(<CpuTemp expanded units="metric" />);
+
+    expect(Error).toHaveBeenCalled();
+  });
 });

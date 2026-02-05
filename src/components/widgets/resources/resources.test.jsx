@@ -39,4 +39,11 @@ describe("components/widgets/resources", () => {
     expect(screen.getByTestId("resources-uptime")).toBeInTheDocument();
     expect(screen.getByText("Host A")).toBeInTheDocument();
   });
+
+  it("renders a single disk block when disk is not an array", () => {
+    renderWithProviders(<Resources options={{ disk: true }} />, { settings: { target: "_self" } });
+
+    expect(screen.getAllByTestId("resources-disk")).toHaveLength(1);
+    expect(screen.getByTestId("resources-disk").getAttribute("data-disk")).toBe("true");
+  });
 });

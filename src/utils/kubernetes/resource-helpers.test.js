@@ -82,6 +82,10 @@ describe("utils/kubernetes/resource-helpers", () => {
           [`${base}/external`]: "TRUE",
           [`${base}/description`]: "${DESC}",
           [`${base}/icon`]: "${ICON}",
+          [`${base}/pod-selector`]: "app=test",
+          [`${base}/ping`]: "http://example.com/ping",
+          [`${base}/siteMonitor`]: "http://example.com/health",
+          [`${base}/statusStyle`]: "dot",
           [`${base}/widget.type`]: "kubernetes",
           [`${base}/widget.url`]: "http://x",
         },
@@ -98,6 +102,10 @@ describe("utils/kubernetes/resource-helpers", () => {
     expect(service.external).toBe(true);
     expect(service.description).toBe("desc");
     expect(service.icon).toBe("mdi:test");
+    expect(service.podSelector).toBe("app=test");
+    expect(service.ping).toBe("http://example.com/ping");
+    expect(service.siteMonitor).toBe("http://example.com/health");
+    expect(service.statusStyle).toBe("dot");
     expect(service.widget.type).toBe("kubernetes");
     expect(service.widget.url).toBe("http://x");
     expect(substituteEnvironmentVars).toHaveBeenCalled();
@@ -127,5 +135,65 @@ describe("utils/kubernetes/resource-helpers", () => {
 
     const service = await constructedServiceFromResource(resource);
     expect(service.href).toBe("https://example.com/r");
+  });
+
+  it("falls back to http when the gateway listener protocol cannot be resolved", async () => {
+    const kc = getKubeConfig();
+    const crd = kc.makeApiClient();
+    crd.getNamespacedCustomObject.mockRejectedValueOnce({
+      statusCode: 500,
+      body: "boom",
+      response: "resp",
+    });
+
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "HTTPRoute",
+      metadata: {
+        name: "route",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        hostnames: ["example.com"],
+        parentRefs: [{ namespace: "ns", name: "gw", sectionName: "web" }],
+        rules: [
+          {
+            matches: [{ path: { type: "PathPrefix", value: "/r" } }],
+          },
+        ],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+    expect(service.href).toBe("http://example.com/r");
+    expect(logger.error).toHaveBeenCalled();
+    expect(logger.debug).toHaveBeenCalled();
+  });
+
+  it("logs and recovers when environment substitution yields invalid json", async () => {
+    substituteEnvironmentVars.mockImplementationOnce(() => "{bad json");
+
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Ingress",
+      metadata: {
+        name: "app",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        rules: [{ host: "example.com", http: { paths: [{ path: "/app" }] } }],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+    expect(service.name).toBe("app");
+    expect(logger.error).toHaveBeenCalledWith("Error attempting k8s environment variable substitution.");
+    expect(logger.debug).toHaveBeenCalled();
   });
 });

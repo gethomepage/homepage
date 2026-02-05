@@ -64,4 +64,22 @@ describe("components/version", () => {
     expect(links.find((a) => a.getAttribute("href")?.includes("/releases/tag/1.2.3"))).toBeTruthy();
     expect(links.find((a) => a.getAttribute("href") === "http://example.com/release")).toBeTruthy();
   });
+
+  it("falls back build time to the current date when NEXT_PUBLIC_BUILDTIME is missing", () => {
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date("2021-01-02T12:00:00.000Z"));
+      process.env.NEXT_PUBLIC_BUILDTIME = "";
+
+      cv.validate.mockReturnValue(false);
+      cache.get.mockReturnValue(null);
+      useSWR.mockReturnValue({ data: undefined });
+
+      render(<Version />);
+
+      expect(screen.getByText(/2021/)).toBeInTheDocument();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });

@@ -10,7 +10,7 @@ vi.mock("utils/config/config", () => ({
   getSettings,
 }));
 
-import { getServerSideProps } from "pages/browserconfig.xml.jsx";
+import BrowserConfig, { getServerSideProps } from "pages/browserconfig.xml.jsx";
 
 function createMockRes() {
   return {
@@ -34,5 +34,9 @@ describe("pages/browserconfig.xml", () => {
     expect(xml).toContain('<?xml version="1.0" encoding="utf-8"?>');
     expect(xml).toContain('<square150x150logo src="/mstile-150x150.png?v=2"/>');
     expect(xml).toContain(`<TileColor>${themes.slate.dark}</TileColor>`);
+  });
+
+  it("exports a placeholder component", () => {
+    expect(BrowserConfig()).toBeUndefined();
   });
 });

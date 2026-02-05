@@ -73,4 +73,51 @@ describe("pages/api/widgets/glances", () => {
       fs: [{ mnt_point: "/", percent: 1 }],
     });
   });
+
+  it("does not call optional endpoints unless requested", async () => {
+    getPrivateWidgetOptions.mockResolvedValueOnce({ url: "http://glances" });
+
+    httpProxy
+      .mockResolvedValueOnce([200, null, Buffer.from(JSON.stringify({ total: 1 }))]) // cpu
+      .mockResolvedValueOnce([200, null, Buffer.from(JSON.stringify({ avg: 2 }))]) // load
+      .mockResolvedValueOnce([200, null, Buffer.from(JSON.stringify({ available: 3 }))]); // mem
+
+    const req = { query: { index: "0" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(3);
+    expect(httpProxy.mock.calls[0][1].headers.Authorization).toBeUndefined();
+    expect(res.statusCode).toBe(200);
+  });
+
+  it("returns 400 when glances returns 401", async () => {
+    getPrivateWidgetOptions.mockResolvedValueOnce({ url: "http://glances" });
+    httpProxy.mockResolvedValueOnce([401, null, Buffer.from("nope")]);
+
+    const req = { query: { index: "0" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual(expect.objectContaining({ error: expect.stringContaining("Authorization failure") }));
+  });
+
+  it("returns 400 when glances returns a non-200 status for a downstream call", async () => {
+    getPrivateWidgetOptions.mockResolvedValueOnce({ url: "http://glances" });
+
+    httpProxy
+      .mockResolvedValueOnce([200, null, Buffer.from(JSON.stringify({ total: 1 }))]) // cpu
+      .mockResolvedValueOnce([500, null, Buffer.from("nope")]); // load
+
+    const req = { query: { index: "0" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual(expect.objectContaining({ error: expect.stringContaining("HTTP 500") }));
+  });
 });

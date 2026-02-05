@@ -19,6 +19,16 @@ describe("components/widgets/kubernetes", () => {
     vi.clearAllMocks();
   });
 
+  it("renders an error state when SWR errors", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    renderWithProviders(<Kubernetes options={{ cluster: { show: true }, nodes: { show: true } }} />, {
+      settings: { target: "_self" },
+    });
+
+    expect(screen.getByText("widget.api_error")).toBeInTheDocument();
+  });
+
   it("renders placeholder nodes while loading", () => {
     useSWR.mockReturnValue({ data: undefined, error: undefined });
 

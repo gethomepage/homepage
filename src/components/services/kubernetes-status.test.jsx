@@ -43,4 +43,23 @@ describe("components/services/kubernetes-status", () => {
 
     expect(container.querySelector(".rounded-full")).toBeTruthy();
   });
+
+  it("renders an error label when SWR returns an error", () => {
+    useSWR.mockReturnValue({ data: undefined, error: new Error("nope") });
+
+    const { container } = render(<KubernetesStatus service={{ namespace: "ns", app: "app" }} />);
+
+    expect(screen.getByText("docker.error")).toBeInTheDocument();
+    expect(container.querySelector(".k8s-status")?.getAttribute("title")).toBe("docker.error");
+  });
+
+  it("renders orange status labels when the workload is down/partial/not found", () => {
+    useSWR.mockReturnValue({ data: { status: "down" }, error: undefined });
+
+    const { container } = render(<KubernetesStatus service={{ namespace: "ns", app: "app" }} />);
+
+    expect(screen.getByText("down")).toBeInTheDocument();
+    // Ensure the status is used as a tooltip/title too.
+    expect(container.querySelector(".k8s-status")?.getAttribute("title")).toBe("down");
+  });
 });
