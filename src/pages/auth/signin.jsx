@@ -1,14 +1,22 @@
 import classNames from "classnames";
-import { getProviders } from "next-auth/react";
-import { useEffect } from "react";
+import { getProviders, signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect, useMemo, useState } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
 
 import { getSettings } from "utils/config/config";
 
 export default function SignIn({ providers, settings }) {
+  const router = useRouter();
+  const [password, setPassword] = useState("");
   const theme = settings?.theme || "dark";
   const color = settings?.color || "slate";
   const title = settings?.title || "Homepage";
+  const callbackUrl = useMemo(() => {
+    const value = router.query?.callbackUrl;
+    return typeof value === "string" ? value : "/";
+  }, [router.query?.callbackUrl]);
+  const error = router.query?.error;
 
   let backgroundImage = "";
   let opacity = settings?.backgroundOpacity ?? 0;
@@ -94,6 +102,8 @@ export default function SignIn({ providers, settings }) {
     );
   }
 
+  const hasPasswordProvider = Boolean(providers?.["homepage-password"]);
+
   return (
     <>
       {backgroundImage && (
@@ -132,16 +142,53 @@ export default function SignIn({ providers, settings }) {
               <div className="rounded-2xl border border-white/60 bg-white/70 p-6 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-slate-900/70">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100">Sign in</h2>
                 <div className="mt-6 space-y-3">
-                  {Object.values(providers).map((provider) => (
-                    <button
-                      key={provider.id}
-                      type="button"
-                      className="group w-full rounded-xl bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-theme-600/20 transition hover:-translate-y-0.5 hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-500"
+                  {hasPasswordProvider && (
+                    <form
+                      className="space-y-3"
+                      onSubmit={async (event) => {
+                        event.preventDefault();
+                        await signIn("homepage-password", {
+                          redirect: true,
+                          callbackUrl,
+                          password,
+                        });
+                      }}
                     >
-                      <span className="flex items-center justify-center gap-2">Login via {provider.name} &rarr;</span>
-                    </button>
-                  ))}
+                      <label className="block text-sm font-medium text-gray-700 dark:text-slate-300">Password</label>
+                      <input
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                        autoComplete="current-password"
+                        className="w-full rounded-xl border border-slate-200 bg-white/90 px-4 py-3 text-sm text-gray-900 shadow-sm outline-none ring-0 transition focus:border-theme-500 focus:ring-2 focus:ring-theme-500/30 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100"
+                        required
+                      />
+                      <button
+                        type="submit"
+                        className="group w-full rounded-xl bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-theme-600/20 transition hover:-translate-y-0.5 hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-500"
+                      >
+                        <span className="flex items-center justify-center gap-2">Sign in &rarr;</span>
+                      </button>
+                    </form>
+                  )}
+                  {!hasPasswordProvider &&
+                    Object.values(providers).map((provider) => (
+                      <button
+                        key={provider.id}
+                        type="button"
+                        onClick={() => signIn(provider.id, { callbackUrl })}
+                        className="group w-full rounded-xl bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-theme-600/20 transition hover:-translate-y-0.5 hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-500"
+                      >
+                        <span className="flex items-center justify-center gap-2">Login via {provider.name} &rarr;</span>
+                      </button>
+                    ))}
                 </div>
+                {hasPasswordProvider && error && (
+                  <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700 dark:border-red-800/60 dark:bg-red-950/40 dark:text-red-200">
+                    Invalid password. Please try again.
+                  </p>
+                )}
               </div>
             </section>
           </div>
