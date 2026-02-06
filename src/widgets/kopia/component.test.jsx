@@ -169,10 +169,9 @@ describe("widgets/kopia/component", () => {
       error: undefined,
     });
 
-    const { container } = renderWithProviders(
-      <Component service={{ widget: { type: "kopia" } }} />,
-      { settings: { hideErrors: false } },
-    );
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "kopia" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expectBlockValue(container, "kopia.status", "UPLOADING");
     expectBlockValue(container, "kopia.size", 5000);
@@ -333,10 +332,9 @@ describe("widgets/kopia/component", () => {
         error: undefined,
       });
 
-      const { container } = renderWithProviders(
-        <Component service={{ widget: { type: "kopia" } }} />,
-        { settings: { hideErrors: false } },
-      );
+      const { container } = renderWithProviders(<Component service={{ widget: { type: "kopia" } }} />, {
+        settings: { hideErrors: false },
+      });
 
       expectBlockValue(container, "kopia.lastrun", "2 y");
     });
@@ -359,10 +357,9 @@ describe("widgets/kopia/component", () => {
         error: undefined,
       });
 
-      const { container } = renderWithProviders(
-        <Component service={{ widget: { type: "kopia" } }} />,
-        { settings: { hideErrors: false } },
-      );
+      const { container } = renderWithProviders(<Component service={{ widget: { type: "kopia" } }} />, {
+        settings: { hideErrors: false },
+      });
 
       expectBlockValue(container, "kopia.lastrun", "3 mo");
     });
@@ -385,10 +382,9 @@ describe("widgets/kopia/component", () => {
         error: undefined,
       });
 
-      const { container } = renderWithProviders(
-        <Component service={{ widget: { type: "kopia" } }} />,
-        { settings: { hideErrors: false } },
-      );
+      const { container } = renderWithProviders(<Component service={{ widget: { type: "kopia" } }} />, {
+        settings: { hideErrors: false },
+      });
 
       expectBlockValue(container, "kopia.lastrun", "4 d");
     });
@@ -411,10 +407,9 @@ describe("widgets/kopia/component", () => {
         error: undefined,
       });
 
-      const { container } = renderWithProviders(
-        <Component service={{ widget: { type: "kopia" } }} />,
-        { settings: { hideErrors: false } },
-      );
+      const { container } = renderWithProviders(<Component service={{ widget: { type: "kopia" } }} />, {
+        settings: { hideErrors: false },
+      });
 
       expectBlockValue(container, "kopia.lastrun", "15 s");
     });
