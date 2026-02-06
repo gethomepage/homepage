@@ -12,7 +12,7 @@ Learn more about [Arcane](https://github.com/getarcaneapp/arcane).
 widget:
   type: arcane
   url: http://localhost:3552
-  env: 0 # required, 0 is Arcane default local environment
+  env: "0" # required, 0 is Arcane default local environment
   key: your-api-key
   fields: ["running", "stopped", "total", "image_updates"] # optional
 ```
