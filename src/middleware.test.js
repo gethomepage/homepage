@@ -12,10 +12,19 @@ vi.mock("next/server", () => ({ NextResponse }));
 import { middleware } from "./middleware";
 
 function createReq(host) {
+  return createReqWithPath({ host });
+}
+
+function createReqWithPath({ host, pathname = "/api/test", authorization = null }) {
   return {
     headers: {
-      get: (key) => (key === "host" ? host : null),
+      get: (key) => {
+        if (key === "host") return host;
+        if (key === "authorization") return authorization;
+        return null;
+      },
     },
+    nextUrl: { pathname },
   };
 }
 
@@ -68,5 +77,37 @@ describe("middleware", () => {
 
     expect(NextResponse.next).toHaveBeenCalled();
     expect(res).toEqual({ type: "next" });
+  });
+
+  it("blocks configurator route without auth when password is set", () => {
+    process.env.HOMEPAGE_CONFIGURATOR_PASSWORD = "secret";
+
+    const res = middleware(createReqWithPath({ host: "localhost:3000", pathname: "/configurator" }));
+
+    expect(res.status).toBe(401);
+    expect(res.headers.get("www-authenticate")).toContain("Basic realm=");
+  });
+
+  it("allows configurator route with matching basic auth credentials", () => {
+    process.env.HOMEPAGE_CONFIGURATOR_USERNAME = "me";
+    process.env.HOMEPAGE_CONFIGURATOR_PASSWORD = "secret";
+    const auth = `Basic ${Buffer.from("me:secret").toString("base64")}`;
+
+    const res = middleware(createReqWithPath({ host: "localhost:3000", pathname: "/configurator", authorization: auth }));
+
+    expect(NextResponse.next).toHaveBeenCalled();
+    expect(res).toEqual({ type: "next" });
+  });
+
+  it("blocks config editor api route without auth when password is set", () => {
+    process.env.HOMEPAGE_CONFIGURATOR_PASSWORD = "secret";
+
+    const res = middleware(createReqWithPath({ host: "localhost:3000", pathname: "/api/config-editor/settings" }));
+
+    expect(NextResponse.json).toHaveBeenCalledWith(
+      { error: "Unauthorized configurator access." },
+      { status: 401, headers: { "WWW-Authenticate": 'Basic realm="Homepage Configurator"' } },
+    );
+    expect(res.type).toBe("json");
   });
 });

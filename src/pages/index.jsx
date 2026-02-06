@@ -14,7 +14,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import { useContext, useEffect, useMemo, useState } from "react";
-import { BiError } from "react-icons/bi";
+import { BiCog, BiError } from "react-icons/bi";
 import useSWR, { SWRConfig } from "swr";
 import { ColorContext } from "utils/contexts/color";
 import { SettingsContext } from "utils/contexts/settings";
@@ -498,6 +498,13 @@ function Home({ initialSettings }) {
 
         <div id="footer" className="flex flex-col mt-auto p-8 w-full">
           <div id="style" className="flex w-full justify-end">
+            <a
+              href="/configurator"
+              className="flex items-center rounded-md px-2 hover:bg-theme-500/20"
+              title="Open Configurator"
+            >
+              <BiCog className="w-6 h-6 text-theme-800 dark:text-theme-200" />
+            </a>
             {!settings?.color && <ColorToggle />}
             <Revalidate />
             {!settings.theme && <ThemeToggle />}
