@@ -159,10 +159,10 @@ describe("widgets/kopia/component", () => {
             source: { host: "hostA", path: "/data1" },
             status: "UPLOADING",
             lastSnapshot: {
-              startTime: "2019-12-31T23:00:00Z", // 1 hour ago
+              startTime: "2019-12-31T22:59:59Z", // just over 1 hour ago
               stats: { errorCount: 0, totalSize: 5000 },
             },
-            nextSnapshotTime: "2020-01-01T01:00:00Z", // 1 hour ahead
+            nextSnapshotTime: "2020-01-01T01:00:01Z", // just over 1 hour ahead
           },
         ],
       },
@@ -253,10 +253,10 @@ describe("widgets/kopia/component", () => {
             source: { host: "hostA", path: "/good" },
             status: "OK",
             lastSnapshot: {
-              startTime: "2019-12-31T23:00:00Z", // 1 hour ago — successful
+              startTime: "2019-12-31T22:59:59Z", // just over 1 hour ago — successful
               stats: { errorCount: 0, totalSize: 1024 },
             },
-            nextSnapshotTime: "2020-01-01T01:00:00Z",
+            nextSnapshotTime: "2020-01-01T01:00:01Z",
           },
           {
             source: { host: "hostA", path: "/bad" },

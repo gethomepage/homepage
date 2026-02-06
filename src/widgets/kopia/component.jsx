@@ -74,7 +74,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="kopia.status" value={sources.length === 1 ? sources[0].status : `${sources.length} sources`} />
       <Block label="kopia.size" value={t("common.bbytes", { value: totalSize, maximumFractionDigits: 1 })} />
-      <Block label="kopia.lastrun" value={relativeDate(lastRun)} />
+      <Block label="kopia.lastrun" value={typeof lastRun === "string" ? lastRun : relativeDate(lastRun)} />
       {nextTime && <Block label="kopia.nextrun" value={relativeDate(nextTime)} />}
     </Container>
   );
