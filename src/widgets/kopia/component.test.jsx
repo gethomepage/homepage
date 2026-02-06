@@ -80,4 +80,42 @@ describe("widgets/kopia/component", () => {
     expectBlockValue(container, "kopia.lastrun", "2 h");
     expectBlockValue(container, "kopia.nextrun", "30 m");
   });
+
+  it("aggregates size across multiple matching sources", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        sources: [
+          {
+            source: { host: "hostA", path: "/data1" },
+            status: "OK",
+            lastSnapshot: {
+              startTime: "2019-12-31T22:30:00Z", // 1.5 hours ago
+              stats: { errorCount: 0, totalSize: 2048 },
+            },
+            nextSnapshotTime: "2020-01-01T02:00:00Z", // 2 hours ahead
+          },
+          {
+            source: { host: "hostA", path: "/data2" },
+            status: "OK",
+            lastSnapshot: {
+              startTime: "2019-12-31T22:00:00Z", // 2 hours ago
+              stats: { errorCount: 0, totalSize: 4096 },
+            },
+            nextSnapshotTime: "2020-01-01T00:30:00Z", // 30 minutes ahead
+          },
+        ],
+      },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "kopia", snapshotHost: "hostA" } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expectBlockValue(container, "kopia.status", "2 sources");
+    expectBlockValue(container, "kopia.size", 6144);
+    expectBlockValue(container, "kopia.lastrun", "1 h");
+    expectBlockValue(container, "kopia.nextrun", "30 m");
+  });
 });
