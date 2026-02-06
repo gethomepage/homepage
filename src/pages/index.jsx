@@ -24,6 +24,7 @@ import { ThemeContext } from "utils/contexts/theme";
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import { getSettings } from "utils/config/config";
 import useWindowFocus from "utils/hooks/window-focus";
+import { parseKeyboardShortcut, matchesKeyboardShortcut } from "utils/keyboard";
 import createLogger from "utils/logger";
 import themes from "utils/styles/themes";
 
@@ -247,10 +248,15 @@ function Home({ initialSettings }) {
   const [searching, setSearching] = useState(false);
   const [searchString, setSearchString] = useState("");
   const headerStyle = settings?.headerStyle || "underlined";
+  const shortcutConfig = parseKeyboardShortcut(settings?.quicklaunch?.shortcut);
 
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
+      // Check if keyboard shortcut matches (allow globally except in input fields)
+      if (matchesKeyboardShortcut(e, shortcutConfig)) {
+        e.preventDefault();
+        setSearching((prev) => !prev);
+      } else if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
         if (
           (e.key.length === 1 &&
             e.key.match(/(\w|\s|[à-ü]|[À-Ü]|[\w\u0430-\u044f])/gi) &&
@@ -272,7 +278,7 @@ function Home({ initialSettings }) {
     return function cleanup() {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  });
+  }, [shortcutConfig, setSearching, setSearchString]);
 
   const tabs = useMemo(
     () => [
@@ -316,7 +322,7 @@ function Home({ initialSettings }) {
               className={classNames(
                 "sm:flex rounded-md bg-theme-100/20 dark:bg-white/5",
                 settings.cardBlur !== undefined &&
-                  `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
+                `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
               )}
               id="myTab"
               data-tabs-toggle="#myTabContent"
@@ -455,8 +461,8 @@ function Home({ initialSettings }) {
             "flex flex-row flex-wrap justify-between z-20",
             headerStyles[headerStyle],
             settings.cardBlur !== undefined &&
-              headerStyle === "boxed" &&
-              `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
+            headerStyle === "boxed" &&
+            `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
           )}
         >
           <div id="widgets-wrap" className={classNames("flex flex-row w-full flex-wrap justify-between gap-x-2")}>
@@ -578,7 +584,7 @@ export default function Wrapper({ initialSettings, fallback }) {
           className={classNames(
             "w-full h-full overflow-auto",
             backgroundBlur &&
-              `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
+            `backdrop-blur${initialSettings.background.blur?.length ? `-${initialSettings.background.blur}` : ""}`,
             backgroundSaturate && `backdrop-saturate-${initialSettings.background.saturate}`,
             backgroundBrightness && `backdrop-brightness-${initialSettings.background.brightness}`,
           )}

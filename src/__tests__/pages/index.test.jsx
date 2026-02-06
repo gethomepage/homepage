@@ -166,6 +166,37 @@ vi.mock("components/toggles/revalidate", () => ({
   default: () => null,
 }));
 
+vi.mock("utils/keyboard", () => ({
+  parseKeyboardShortcut: vi.fn((shortcut = "ctrl+k") => {
+    const parts = shortcut.toLowerCase().split("+");
+    const key = parts[parts.length - 1];
+    return {
+      key,
+      modifiers: {
+        ctrl: parts.includes("ctrl"),
+        meta: parts.includes("meta") || parts.includes("cmd"),
+        alt: parts.includes("alt") || parts.includes("option"),
+        shift: parts.includes("shift"),
+      },
+    };
+  }),
+  matchesKeyboardShortcut: vi.fn((event, config) => {
+    if (event.key.toLowerCase() !== config.key) return false;
+    const hasNoModifiers = !config.modifiers.ctrl && !config.modifiers.meta && !config.modifiers.alt && !config.modifiers.shift;
+    if (hasNoModifiers) return event.ctrlKey || event.metaKey;
+    
+    // Allow ctrl and meta to be interchangeable
+    const ctrlMetaMatch = (config.modifiers.ctrl || config.modifiers.meta) 
+      ? (event.ctrlKey || event.metaKey) 
+      : (!event.ctrlKey && !event.metaKey);
+    
+    const altMatch = config.modifiers.alt ? event.altKey : !event.altKey;
+    const shiftMatch = config.modifiers.shift ? event.shiftKey : !event.shiftKey;
+    
+    return ctrlMetaMatch && altMatch && shiftMatch;
+  }),
+}));
+
 describe("pages/index getStaticProps", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -344,11 +375,11 @@ describe("pages/index Index routing + SWR branches", () => {
 
     let reloadSpy;
     try {
-      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => {});
+      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => { });
     } catch {
       // jsdom can make window.location non-configurable in some contexts.
       Object.defineProperty(window, "location", { value: { reload: vi.fn() }, writable: true });
-      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => {});
+      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => { });
     }
 
     await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
@@ -529,5 +560,135 @@ describe("pages/index Home behavior", () => {
 
     const rightAligned = state.widgetCalls.filter((c) => c.style?.isRightAligned).map((c) => c.widget.type);
     expect(rightAligned).toEqual(["search"]);
+  });
+
+  describe("keyboard shortcuts for quicklaunch", () => {
+    beforeEach(() => {
+      state.servicesData = [{ name: "svc", services: [{ name: "service1", href: "http://example.com" }], groups: [] }];
+      state.bookmarksData = [{ name: "bm", bookmarks: [{ name: "bookmark1", href: "http://bookmark.com" }] }];
+      state.widgetsData = [];
+    });
+
+    it("opens quicklaunch dialog when default Ctrl+K is pressed", async () => {
+      await renderIndex({
+        initialSettings: { title: "Homepage", layout: {} },
+        settings: { title: "Homepage", layout: {} },
+      });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps).toBeTruthy();
+      });
+
+      expect(state.quickLaunchProps.isOpen).toBe(false);
+
+      fireEvent.keyDown(document, { key: "k", ctrlKey: true });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps.isOpen).toBe(true);
+      });
+    });
+
+    it("toggles quicklaunch dialog when shortcut is pressed again", async () => {
+      await renderIndex({
+        initialSettings: { title: "Homepage", layout: {} },
+        settings: { title: "Homepage", layout: {} },
+      });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps).toBeTruthy();
+      });
+
+      // Open dialog
+      fireEvent.keyDown(document, { key: "k", ctrlKey: true });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps.isOpen).toBe(true);
+      });
+
+      // Close dialog
+      fireEvent.keyDown(document, { key: "k", ctrlKey: true });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps.isOpen).toBe(false);
+      });
+    });
+
+    it("supports Cmd+K on macOS", async () => {
+      await renderIndex({
+        initialSettings: { title: "Homepage", layout: {} },
+        settings: { title: "Homepage", layout: {} },
+      });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps).toBeTruthy();
+      });
+
+      fireEvent.keyDown(document, { key: "k", metaKey: true });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps.isOpen).toBe(true);
+      });
+    });
+
+    it("uses custom keyboard shortcut from settings", async () => {
+      await renderIndex({
+        initialSettings: { title: "Homepage", layout: {}, quicklaunch: { shortcut: "ctrl+p" } },
+        settings: { title: "Homepage", layout: {}, quicklaunch: { shortcut: "ctrl+p" } },
+      });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps).toBeTruthy();
+      });
+
+      // Ctrl+K should not work with custom shortcut
+      fireEvent.keyDown(document, { key: "k", ctrlKey: true });
+      expect(state.quickLaunchProps.isOpen).toBe(false);
+
+      // Ctrl+P should work
+      fireEvent.keyDown(document, { key: "p", ctrlKey: true });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps.isOpen).toBe(true);
+      });
+    });
+
+    it("supports Alt/Option modifier", async () => {
+      await renderIndex({
+        initialSettings: { title: "Homepage", layout: {}, quicklaunch: { shortcut: "alt+k" } },
+        settings: { title: "Homepage", layout: {}, quicklaunch: { shortcut: "alt+k" } },
+      });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps).toBeTruthy();
+      });
+
+      fireEvent.keyDown(document, { key: "k", altKey: true });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps.isOpen).toBe(true);
+      });
+    });
+
+    it("supports multiple modifiers", async () => {
+      await renderIndex({
+        initialSettings: { title: "Homepage", layout: {}, quicklaunch: { shortcut: "ctrl+shift+k" } },
+        settings: { title: "Homepage", layout: {}, quicklaunch: { shortcut: "ctrl+shift+k" } },
+      });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps).toBeTruthy();
+      });
+
+      // Ctrl+K without shift should not work
+      fireEvent.keyDown(document, { key: "k", ctrlKey: true });
+      expect(state.quickLaunchProps.isOpen).toBe(false);
+
+      // Ctrl+Shift+K should work
+      fireEvent.keyDown(document, { key: "k", ctrlKey: true, shiftKey: true });
+
+      await waitFor(() => {
+        expect(state.quickLaunchProps.isOpen).toBe(true);
+      });
+    });
   });
 });
