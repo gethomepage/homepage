@@ -44,11 +44,11 @@ export default function Component({ service }) {
   const snapshotHost = service.widget?.snapshotHost;
   const snapshotPath = service.widget?.snapshotPath;
 
-  const source = statusData?.sources
+  const sources = statusData?.sources
     .filter((el) => (snapshotHost ? el.source.host === snapshotHost : true))
-    .filter((el) => (snapshotPath ? el.source.path === snapshotPath : true))[0];
+    .filter((el) => (snapshotPath ? el.source.path === snapshotPath : true));
 
-  if (!statusData || !source) {
+  if (!statusData || !sources?.length) {
     return (
       <Container service={service}>
         <Block label="kopia.status" />
@@ -59,17 +59,21 @@ export default function Component({ service }) {
     );
   }
 
+  const totalSize = sources.reduce((sum, s) => sum + s.lastSnapshot.stats.totalSize, 0);
+
+  const successfulSources = sources.filter((s) => s.lastSnapshot.stats.errorCount === 0);
   const lastRun =
-    source.lastSnapshot.stats.errorCount === 0 ? new Date(source.lastSnapshot.startTime) : t("kopia.failed");
-  const nextTime = source.nextSnapshotTime ? new Date(source.nextSnapshotTime) : null;
+    successfulSources.length > 0
+      ? new Date(Math.max(...successfulSources.map((s) => new Date(s.lastSnapshot.startTime).getTime())))
+      : t("kopia.failed");
+
+  const nextTimes = sources.map((s) => s.nextSnapshotTime).filter(Boolean);
+  const nextTime = nextTimes.length > 0 ? new Date(Math.min(...nextTimes.map((t) => new Date(t).getTime()))) : null;
 
   return (
     <Container service={service}>
-      <Block label="kopia.status" value={source.status} />
-      <Block
-        label="kopia.size"
-        value={t("common.bbytes", { value: source.lastSnapshot.stats.totalSize, maximumFractionDigits: 1 })}
-      />
+      <Block label="kopia.status" value={sources.length === 1 ? sources[0].status : `${sources.length} sources`} />
+      <Block label="kopia.size" value={t("common.bbytes", { value: totalSize, maximumFractionDigits: 1 })} />
       <Block label="kopia.lastrun" value={relativeDate(lastRun)} />
       {nextTime && <Block label="kopia.nextrun" value={relativeDate(nextTime)} />}
     </Container>
