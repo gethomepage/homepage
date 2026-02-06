@@ -498,7 +498,7 @@ You can then pass `provider` instead of `apiKey` in your widget configuration.
 
 ## Quick Launch
 
-You can use the 'Quick Launch' feature to search services, perform a web search or open a URL. To use Quick Launch, just start typing while on your homepage (as long as the search widget doesn't have focus).
+You can use the 'Quick Launch' feature to search services, perform a web search or open a URL. To use Quick Launch, just start typing while on your homepage (as long as the search widget doesn't have focus). You can also use the keyboard shortcut (default: `Ctrl+K` or `Cmd+K` on macOS) to open the Quick Launch dialog.
 
 <img width="1000" alt="quicklaunch" src="https://user-images.githubusercontent.com/4887959/216880811-90ff72cb-2990-4475-889b-7c3a31e6beef.png">
 
@@ -510,6 +510,7 @@ There are a few optional settings for the Quick Launch feature:
 - `provider`: search engine provider. If none is specified it will try to use the provider set for the Search Widget, if neither are present then internet search will be disabled.
 - `hideVisitURL`: disable detecting and offering an option to open URLs. This is false by default, enabling the feature.
 - `mobileButtonPosition`: enables and sets the position of the mobile quicklaunch button. Options are `top-left`, `top-right`, `bottom-left`, `bottom-right`. This is empty by default, disabling the feature.
+- `shortcut`: customize the keyboard shortcut to open the Quick Launch dialog. The default is `ctrl+k`. You can use combinations like `ctrl+p`, `alt+k`, `meta+space`, or even multiple modifiers like `ctrl+shift+k`. Press the same shortcut again to close the dialog. Supported modifiers: `ctrl`, `meta` (or `cmd`), `alt` (or `option`), `shift`.
 
 ```yaml
 quicklaunch:
@@ -517,6 +518,7 @@ quicklaunch:
   hideInternetSearch: true
   showSearchSuggestions: true
   hideVisitURL: true
+  shortcut: ctrl+k # or use ctrl+p, alt+k, meta+space, etc.
   provider: google # google, duckduckgo, bing, baidu, brave or custom
 ```
 
@@ -528,6 +530,7 @@ quicklaunch:
   url: https://www.ecosia.org/search?q=
   target: _blank
   suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
+  shortcut: ctrl+shift+f # custom keyboard shortcut
 ```
 
 ## Homepage Version & Update Checking
