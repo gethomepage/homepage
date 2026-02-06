@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseKeyboardShortcut, matchesKeyboardShortcut } from "./keyboard";
+import { matchesKeyboardShortcut, parseKeyboardShortcut } from "./keyboard";
 
 describe("utils/keyboard", () => {
   describe("parseKeyboardShortcut", () => {
@@ -116,20 +116,19 @@ describe("utils/keyboard", () => {
 
     it("defaults to ctrl or meta when no modifiers specified", () => {
       const config = parseKeyboardShortcut("k");
-      
+
       const ctrlEvent = { key: "k", ctrlKey: true, metaKey: false, altKey: false, shiftKey: false };
       expect(matchesKeyboardShortcut(ctrlEvent, config)).toBe(true);
-      
+
       const metaEvent = { key: "k", ctrlKey: false, metaKey: true, altKey: false, shiftKey: false };
       expect(matchesKeyboardShortcut(metaEvent, config)).toBe(true);
-      
+
       const noModEvent = { key: "k", ctrlKey: false, metaKey: false, altKey: false, shiftKey: false };
       expect(matchesKeyboardShortcut(noModEvent, config)).toBe(false);
     });
 
     it("allows ctrl or meta interchangeably when ctrl specified", () => {
       const config = parseKeyboardShortcut("ctrl+k");
-      
       const metaEvent = { key: "k", ctrlKey: false, metaKey: true, altKey: false, shiftKey: false };
       expect(matchesKeyboardShortcut(metaEvent, config)).toBe(true);
     });

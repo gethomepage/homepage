@@ -182,17 +182,19 @@ vi.mock("utils/keyboard", () => ({
   }),
   matchesKeyboardShortcut: vi.fn((event, config) => {
     if (event.key.toLowerCase() !== config.key) return false;
-    const hasNoModifiers = !config.modifiers.ctrl && !config.modifiers.meta && !config.modifiers.alt && !config.modifiers.shift;
+    const hasNoModifiers =
+      !config.modifiers.ctrl && !config.modifiers.meta && !config.modifiers.alt && !config.modifiers.shift;
     if (hasNoModifiers) return event.ctrlKey || event.metaKey;
-    
+
     // Allow ctrl and meta to be interchangeable
-    const ctrlMetaMatch = (config.modifiers.ctrl || config.modifiers.meta) 
-      ? (event.ctrlKey || event.metaKey) 
-      : (!event.ctrlKey && !event.metaKey);
-    
+    const ctrlMetaMatch =
+      config.modifiers.ctrl || config.modifiers.meta
+        ? event.ctrlKey || event.metaKey
+        : !event.ctrlKey && !event.metaKey;
+
     const altMatch = config.modifiers.alt ? event.altKey : !event.altKey;
     const shiftMatch = config.modifiers.shift ? event.shiftKey : !event.shiftKey;
-    
+
     return ctrlMetaMatch && altMatch && shiftMatch;
   }),
 }));
@@ -375,11 +377,11 @@ describe("pages/index Index routing + SWR branches", () => {
 
     let reloadSpy;
     try {
-      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => { });
+      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => {});
     } catch {
       // jsdom can make window.location non-configurable in some contexts.
       Object.defineProperty(window, "location", { value: { reload: vi.fn() }, writable: true });
-      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => { });
+      reloadSpy = vi.spyOn(window.location, "reload").mockImplementation(() => {});
     }
 
     await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
