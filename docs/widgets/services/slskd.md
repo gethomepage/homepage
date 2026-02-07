@@ -20,6 +20,6 @@ Allowed fields: `["slskStatus", "updateStatus", "downloads", "uploads", "sharedF
 ```yaml
 widget:
   type: slskd
-  url: http[s]://slskd.host.or.ip[:5030]
+  url: http[s]://slskd.host.or.ip[:port]
   key: generatedapikey
 ```

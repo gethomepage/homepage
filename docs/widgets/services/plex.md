@@ -12,6 +12,6 @@ Allowed fields: `["streams", "albums", "movies", "tv"]`.
 ```yaml
 widget:
   type: plex
-  url: http://plex.host.or.ip:32400
+  url: http://plex.host.or.ip:port
   key: mytokenhere # see https://www.plexopedia.com/plex-media-server/general/plex-token/
 ```

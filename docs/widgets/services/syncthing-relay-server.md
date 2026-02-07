@@ -12,5 +12,5 @@ Allowed fields: `["numActiveSessions", "numConnections", "bytesProxied"]`.
 ```yaml
 widget:
   type: strelaysrv
-  url: http://syncthing.host.or.ip:22070
+  url: http://syncthing.host.or.ip:port
 ```

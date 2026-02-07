@@ -12,6 +12,6 @@ Allowed fields: `["containers_scanned", "containers_updated", "containers_failed
 ```yaml
 widget:
   type: watchtower
-  url: http://your-ip-address:8080
+  url: http://your-ip-address:port
   key: demotoken
 ```

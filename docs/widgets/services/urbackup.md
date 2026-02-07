@@ -20,6 +20,6 @@ widget:
   type: urbackup
   username: urbackupUsername
   password: urbackupPassword
-  url: http://urbackupUrl:55414
+  url: http://urbackupUrl:port
   maxDays: 5 # optional
 ```
