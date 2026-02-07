@@ -18,7 +18,7 @@ You can set the optional `node` setting when you want to show metrics for a sing
 ```yaml
 widget:
   type: proxmox
-  url: https://proxmox.host.or.ip:8096
+  url: https://proxmox.host.or.ip:8006
   username: api_token_id
   password: api_token_secret
   node: pve-1 # optional
