@@ -1152,11 +1152,11 @@
         "artists": "Kunstenaars"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "Houers",
+        "images": "Beelde",
+        "image_updates": "Beeldopdaterings",
+        "images_unused": "Ongebruik",
+        "environment_required": "Omgewings-ID Vereis"
     },
     "dockhand": {
         "running": "Lopend",

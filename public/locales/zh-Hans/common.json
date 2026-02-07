@@ -1059,10 +1059,10 @@
         "projects": "项目"
     },
     "apcups": {
-        "status": "Status",
-        "load": "Load",
-        "bcharge": "Battery Charge",
-        "timeleft": "Time Left"
+        "status": "状态",
+        "load": "负载",
+        "bcharge": "电池电量",
+        "timeleft": "剩余供电时间"
     },
     "karakeep": {
         "bookmarks": "书签",

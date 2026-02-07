@@ -108,14 +108,14 @@
         "songs": "Piosenki"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Odtwarza",
+        "transcoding": "Transkoduje",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "no_active": "Brak aktywnych strumieni",
+        "movies": "Filmy",
+        "series": "Seriale",
+        "episodes": "Odcinki",
+        "songs": "Piosenki"
     },
     "esphome": {
         "offline": "Offline",
@@ -716,8 +716,8 @@
         "volumeAvailable": "Dostępne"
     },
     "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Streams"
+        "channels": "Kanały",
+        "streams": "Strumienie"
     },
     "mylar": {
         "series": "Seriale",
@@ -1152,11 +1152,11 @@
         "artists": "Wykonawcy"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "Kontenery",
+        "images": "Obrazy",
+        "image_updates": "Aktualizacje obrazów",
+        "images_unused": "Nieużywane",
+        "environment_required": "Wymagane ID środowiska"
     },
     "dockhand": {
         "running": "Działające",
