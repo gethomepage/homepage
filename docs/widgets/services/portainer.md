@@ -15,7 +15,7 @@ Allowed fields:
 ```yaml
 widget:
   type: portainer
-  url: https://portainer.host.or.ip:port
+  url: https://portainer.host.or.ip:9443
   env: 1
   kubernetes: true # optional, defaults to false
   key: ptr_accesskeyaccesskeyaccesskeyaccesskey

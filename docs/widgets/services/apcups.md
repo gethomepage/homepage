@@ -12,5 +12,5 @@ By default apcupsd daemon is bound to 127.0.0.1. Edit `/etc/apcupsd.conf` and ch
 ```yaml
 widget:
   type: apcups
-  url: tcp://your.acpupsd.host:port
+  url: tcp://your.acpupsd.host:3551
 ```
