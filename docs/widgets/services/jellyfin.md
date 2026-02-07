@@ -17,7 +17,7 @@ As of v0.6.11 the widget supports fields `["movies", "series", "episodes", "song
 ```yaml
 widget:
   type: jellyfin
-  url: http://jellyfin.host.or.ip:8096
+  url: http://jellyfin.host.or.ip:port
   key: apikeyapikeyapikeyapikeyapikey
   version: 2 # optional, default is 1
   enableBlocks: true # optional, defaults to false
