@@ -93,7 +93,7 @@
         "http_status": "HTTP stavový kód",
         "error": "Chyba",
         "response": "Odpoveď",
-        "down": "Down",
+        "down": "Nedostupné",
         "up": "Beží",
         "not_available": "Nedostupné"
     },
@@ -108,18 +108,18 @@
         "songs": "Skladby"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Prehráva sa",
+        "transcoding": "Prebieha prekódovanie",
+        "bitrate": "Prenosová rýchlosť",
+        "no_active": "Žiadne aktívne vysielania",
+        "movies": "Filmov",
+        "series": "Seriálov",
+        "episodes": "Epizód",
+        "songs": "Skladieb"
     },
     "esphome": {
-        "offline": "Offline",
-        "offline_alt": "Offline",
+        "offline": "Nedostupné",
+        "offline_alt": "Nedostupné",
         "online": "Online",
         "total": "Celkom",
         "unknown": "Neznáme"
@@ -154,7 +154,7 @@
         "uptime": "Dostupnosť",
         "maxDown": "Max. sťahovanie",
         "maxUp": "Max. nahrávanie",
-        "down": "Down",
+        "down": "Nedostupné",
         "up": "Beží",
         "received": "Prijaté",
         "sent": "Odoslané",
@@ -180,7 +180,7 @@
     "tautulli": {
         "playing": "Playing",
         "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
+        "bitrate": "Prenosová rýchlosť",
         "no_active": "No Active Streams",
         "plex_connection_error": "Skontroluj spojenie s Plex"
     },
@@ -429,7 +429,7 @@
         "version": "Verzia",
         "status": "Stav",
         "up": "Online",
-        "down": "Offline"
+        "down": "Nedostupné"
     },
     "miniflux": {
         "read": "Prečítané",
@@ -450,7 +450,7 @@
         "cpu": "CPU",
         "load": "Záťaž",
         "wait": "Čakajte, prosím",
-        "temp": "TEMP",
+        "temp": "TEPL",
         "_temp": "Teplota",
         "warn": "Upozornení",
         "uptime": "BEŽÍ",
@@ -491,13 +491,13 @@
         "51-day": "Mierne mrholenie",
         "51-night": "Slabé mrholenie",
         "53-day": "Mrholenie",
-        "53-night": "Drizzle",
+        "53-night": "Mrholenie",
         "55-day": "Silné mrholenie",
         "55-night": "Silné mrholenie",
         "56-day": "Mierne mrazivé mrholenie",
-        "56-night": "Light Freezing Drizzle",
+        "56-night": "Jemné mrznúce mrholenie",
         "57-day": "Mrazivé mrholenie",
-        "57-night": "Freezing Drizzle",
+        "57-night": "Mrznúce mrholenie",
         "61-day": "Slabý dážď",
         "61-night": "Slabý dážď",
         "63-day": "Dážď",
@@ -542,14 +542,14 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Beží",
         "pending": "Čakajúce",
-        "down": "Down",
+        "down": "Nedostupné",
         "ok": "Ok"
     },
     "healthchecks": {
         "new": "Nový",
         "up": "Beží",
         "grace": "V dodatočnej lehote",
-        "down": "Down",
+        "down": "Nedostupné",
         "paused": "Pozastavené",
         "status": "Stav",
         "last_ping": "Poslendný ping",
@@ -675,7 +675,7 @@
         "memory": "Využitie pamäte",
         "wanStatus": "Stav WAN",
         "up": "Beží",
-        "down": "Down",
+        "down": "Nedostupné",
         "temp": "Temp",
         "disk": "Využitie disku",
         "wanIP": "IP adresa WAN"
@@ -776,8 +776,8 @@
         "targets_total": "Cieľov spolu"
     },
     "gatus": {
-        "up": "Sites Up",
-        "down": "Sites Down",
+        "up": "Dostupné stránky",
+        "down": "Nedostupné stránky",
         "uptime": "Dostupnosť"
     },
     "ghostfolio": {
@@ -799,7 +799,7 @@
     },
     "whatsupdocker": {
         "monitoring": "Monitoring",
-        "updates": "Updates"
+        "updates": "Aktualizácie"
     },
     "calibreweb": {
         "books": "Books",
@@ -872,7 +872,7 @@
         "uptime": "Dostupnosť",
         "cpuLoad": "Záťaž CPU priem. (5m)",
         "up": "Beží",
-        "down": "Down",
+        "down": "Nedostupné",
         "bytesTx": "Prenesených",
         "bytesRx": "Prijaté"
     },
@@ -881,13 +881,13 @@
         "uptime": "Dostupnosť",
         "lastDown": "Posledný čas nedostupnosti",
         "downDuration": "Trvanie nedostupnosti",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
+        "sitesUp": "Dostupné stránky",
+        "sitesDown": "Nedostupné stránky",
         "paused": "Pozastavené",
         "notyetchecked": "Neskontrolované",
         "up": "Beží",
         "seemsdown": "Javí sa nedostupný",
-        "down": "Down",
+        "down": "Nedostupné",
         "unknown": "Neznáme"
     },
     "calendar": {
@@ -1023,17 +1023,17 @@
         "last_seen": "Last Seen",
         "status": "Stav",
         "online": "Online",
-        "offline": "Offline"
+        "offline": "Nedostupné"
     },
     "beszel": {
         "name": "Name",
         "systems": "Systems",
         "up": "Beží",
-        "down": "Down",
+        "down": "Nedostupné",
         "paused": "Pozastavené",
         "pending": "Čakajúce",
         "status": "Stav",
-        "updated": "Updated",
+        "updated": "Aktualizované",
         "cpu": "CPU",
         "memory": "RAM",
         "disk": "Disk",
@@ -1078,7 +1078,7 @@
         "disconnected": "Odpojené",
         "updateStatus": "Update",
         "update_yes": "Dostupné",
-        "update_no": "Up to Date",
+        "update_no": "Aktuálne",
         "downloads": "Downloads",
         "uploads": "Uploads",
         "sharedFiles": "Files"
@@ -1097,7 +1097,7 @@
         "total": "Celkom",
         "running": "Beží",
         "stopped": "Zastavené",
-        "down": "Down",
+        "down": "Nedostupné",
         "unhealthy": "Nezdravý",
         "unknown": "Neznáme",
         "servers": "Servery",
