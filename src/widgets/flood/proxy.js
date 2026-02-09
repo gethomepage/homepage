@@ -7,7 +7,7 @@ const logger = createLogger("floodProxyHandler");
 
 async function login(widget) {
   logger.debug("flood is rejecting the request, logging in.");
-  
+
   if (!widget.username || !widget.password) {
     logger.debug("No flood credentials configured, skipping login.");
     return [200, null, null];
@@ -25,7 +25,7 @@ async function login(widget) {
   };
 
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);
-  return [status, contentType, data]; // ✅ Include contentType
+  return [status, contentType, data];
 }
 
 export default async function floodProxyHandler(req, res) {
