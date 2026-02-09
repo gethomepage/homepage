@@ -12,7 +12,7 @@ Allowed fields: no configurable fields for this widget.
 ```yaml
 widget:
   type: tautulli
-  url: http://tautulli.host.or.ip
+  url: http://tautulli.host.or.ip:port
   key: apikeyapikeyapikeyapikeyapikey
   enableUser: true # optional, defaults to false
   showEpisodeNumber: true # optional, defaults to false
