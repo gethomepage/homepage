@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
@@ -25,35 +26,35 @@ function millisecondsToString(milliseconds) {
   return parts.map((part) => part.toString().padStart(2, "0")).join(":");
 }
 
-function generateStreamTitle(stream, enableUser, showEpisodeNumber) {
-  let streamTitle = "";
-  const { mediaType, mediaTitle, showTitle, seasonNumber, episodeNumber, username } = stream;
+function generateStreamTitle(session, enableUser, showEpisodeNumber) {
+  let stream_title = "";
+  const { mediaType, mediaTitle, showTitle, seasonNumber, episodeNumber, username } = session;
 
   if (mediaType === "episode" && showEpisodeNumber) {
-    const seasonStr = `S${seasonNumber.toString().padStart(2, "0")}`;
-    const episodeStr = `E${episodeNumber.toString().padStart(2, "0")}`;
-    streamTitle = `${showTitle}: ${seasonStr} · ${episodeStr} - ${mediaTitle}`;
+    const season_str = `S${seasonNumber.toString().padStart(2, "0")}`;
+    const episode_str = `E${episodeNumber.toString().padStart(2, "0")}`;
+    stream_title = `${showTitle}: ${season_str} · ${episode_str} - ${mediaTitle}`;
   } else if (mediaType === "episode") {
-    streamTitle = `${showTitle} - ${mediaTitle}`;
+    stream_title = `${showTitle} - ${mediaTitle}`;
   } else {
-    streamTitle = mediaTitle;
+    stream_title = mediaTitle;
   }
 
-  return enableUser ? `${streamTitle} (${username})` : streamTitle;
+  return enableUser ? `${stream_title} (${username})` : stream_title;
 }
 
-function SingleStreamEntry({ stream, enableUser, showEpisodeNumber }) {
-  const { durationMs, progressMs, state, videoDecision, audioDecision } = stream;
-  const progressPercent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0;
+function SingleSessionEntry({ session, enableUser, showEpisodeNumber }) {
+  const { durationMs, progressMs, state, videoDecision, audioDecision } = session;
+  const progress_percent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0;
 
-  const streamTitle = generateStreamTitle(stream, enableUser, showEpisodeNumber);
+  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
   return (
     <>
       <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
         <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={streamTitle}>
-            {streamTitle}
+          <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={stream_title}>
+            {stream_title}
           </div>
         </div>
         <div className="self-center text-xs flex justify-end mr-1.5 pl-1">
@@ -74,7 +75,7 @@ function SingleStreamEntry({ stream, enableUser, showEpisodeNumber }) {
         <div
           className="absolute h-5 rounded-md bg-theme-200 dark:bg-theme-900/40 z-0"
           style={{
-            width: `${progressPercent}%`,
+            width: `${progress_percent}%`,
           }}
         />
         <div className="text-xs z-10 self-center ml-1">
@@ -96,18 +97,18 @@ function SingleStreamEntry({ stream, enableUser, showEpisodeNumber }) {
   );
 }
 
-function StreamEntry({ stream, enableUser, showEpisodeNumber }) {
-  const { durationMs, progressMs, state, videoDecision, audioDecision } = stream;
-  const progressPercent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0;
+function SessionEntry({ session, enableUser, showEpisodeNumber }) {
+  const { durationMs, progressMs, state, videoDecision, audioDecision } = session;
+  const progress_percent = durationMs > 0 ? (progressMs / durationMs) * 100 : 0;
 
-  const streamTitle = generateStreamTitle(stream, enableUser, showEpisodeNumber);
+  const stream_title = generateStreamTitle(session, enableUser, showEpisodeNumber);
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
       <div
         className="absolute h-5 rounded-md bg-theme-200 dark:bg-theme-900/40 z-0"
         style={{
-          width: `${progressPercent}%`,
+          width: `${progress_percent}%`,
         }}
       />
       <div className="text-xs z-10 self-center ml-1">
@@ -119,12 +120,14 @@ function StreamEntry({ stream, enableUser, showEpisodeNumber }) {
         )}
       </div>
       <div className="text-xs z-10 self-center ml-2 relative w-full h-4 grow mr-2">
-        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={streamTitle}>
-          {streamTitle}
+        <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden" title={stream_title}>
+          {stream_title}
         </div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10">
-        {videoDecision === "directplay" && audioDecision === "directplay" && <MdSmartDisplay className="opacity-50" />}
+        {videoDecision === "directplay" && audioDecision === "directplay" && (
+          <MdSmartDisplay className="opacity-50" />
+        )}
         {videoDecision === "copy" && audioDecision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
         {videoDecision !== "copy" &&
           videoDecision !== "directplay" &&
@@ -149,8 +152,8 @@ function SummaryView({ service, summary, t }) {
   );
 }
 
-function DetailsView({ streams, enableUser, showEpisodeNumber, expandOneStreamToTwoRows, t }) {
-  if (streams.length === 0) {
+function DetailsView({ playing, enableUser, showEpisodeNumber, expandOneStreamToTwoRows, t }) {
+  if (playing.length === 0) {
     return (
       <div className="flex flex-col pb-1 mx-1">
         <div className="text-theme-700 dark:text-theme-200 text-xs relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1">
@@ -165,19 +168,19 @@ function DetailsView({ streams, enableUser, showEpisodeNumber, expandOneStreamTo
     );
   }
 
-  if (expandOneStreamToTwoRows && streams.length === 1) {
-    const stream = streams[0];
+  if (expandOneStreamToTwoRows && playing.length === 1) {
+    const session = playing[0];
     return (
       <div className="flex flex-col pb-1 mx-1">
-        <SingleStreamEntry stream={stream} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
+        <SingleSessionEntry session={session} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
       </div>
     );
   }
 
   return (
     <div className="flex flex-col pb-1 mx-1">
-      {streams.map((stream) => (
-        <StreamEntry key={stream.id} stream={stream} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
+      {playing.map((session) => (
+        <SessionEntry key={session.id} session={session} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
       ))}
     </div>
   );
@@ -188,21 +191,21 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: streamsData, error: streamsError } = useWidgetAPI(widget, "streams", {
+  const { data: activityData, error: activityError } = useWidgetAPI(widget, "streams", {
     refreshInterval: 5000,
   });
 
   const enableUser = !!service.widget?.enableUser;
   const expandOneStreamToTwoRows = service.widget?.expandOneStreamToTwoRows !== false;
   const showEpisodeNumber = !!service.widget?.showEpisodeNumber;
-  const view = service.widget?.view ?? "details"; // "summary", "details", or "both"
+  const view = service.widget?.view ?? "details";
 
-  if (streamsError) {
-    return <Container service={service} error={streamsError} />;
+  if (activityError) {
+    return <Container service={service} error={activityError} />;
   }
 
   // Loading state
-  if (!streamsData || !streamsData.data) {
+  if (!activityData || !activityData.data) {
     if (view === "summary") {
       return (
         <Container service={service}>
@@ -227,8 +230,8 @@ export default function Component({ service }) {
     );
   }
 
-  const streams = streamsData.data.sort((a, b) => a.progressMs - b.progressMs);
-  const { summary } = streamsData;
+  const playing = activityData.data.sort((a, b) => a.progressMs - b.progressMs);
+  const { summary } = activityData;
 
   if (view === "summary") {
     return <SummaryView service={service} summary={summary} t={t} />;
@@ -239,7 +242,7 @@ export default function Component({ service }) {
       <>
         <SummaryView service={service} summary={summary} t={t} />
         <DetailsView
-          streams={streams}
+          playing={playing}
           enableUser={enableUser}
           showEpisodeNumber={showEpisodeNumber}
           expandOneStreamToTwoRows={expandOneStreamToTwoRows}
@@ -252,7 +255,7 @@ export default function Component({ service }) {
   // Default: details view
   return (
     <DetailsView
-      streams={streams}
+      playing={playing}
       enableUser={enableUser}
       showEpisodeNumber={showEpisodeNumber}
       expandOneStreamToTwoRows={expandOneStreamToTwoRows}
