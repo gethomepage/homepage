@@ -5,6 +5,158 @@ import useSWR from "swr";
 
 const fetcher = (resource, init) => fetch(resource, init).then((res) => res.json());
 
+const COMMON_FIELD_HINTS = {
+  url: {
+    description: "Base URL of the service/API endpoint this widget queries.",
+    example: "http://radarr.local:7878",
+  },
+  key: {
+    description: "API key or token expected by the integration.",
+    example: "apikeyapikeyapikeyapikeyapikey",
+  },
+  token: {
+    description: "Access token used by token-based APIs.",
+    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  },
+  username: {
+    description: "Username used for authentication.",
+    example: "admin",
+  },
+  password: {
+    description: "Password used for authentication.",
+    example: "super-secret-password",
+  },
+  slug: {
+    description: "Resource slug/path identifier used by the service.",
+    example: "status-page",
+  },
+  provider: {
+    description: "Provider choice used by the widget.",
+    example: "google",
+  },
+  target: {
+    description: "Link target behavior when opening URLs.",
+    example: "_blank",
+  },
+  refresh: {
+    description: "Refresh interval in milliseconds.",
+    example: "3000",
+  },
+  enablequeue: {
+    description: "Enable expanded queue listing for supported widgets.",
+    example: "true",
+  },
+  firstdayinweek: {
+    description: "First weekday used by calendar view.",
+    example: "monday",
+  },
+  view: {
+    description: "Display mode for the widget.",
+    example: "monthly",
+  },
+  maxevents: {
+    description: "Maximum number of events to show.",
+    example: "10",
+  },
+  showtime: {
+    description: "Show event time in calendar/agenda output.",
+    example: "true",
+  },
+  timezone: {
+    description: "Override timezone if automatic detection is incorrect.",
+    example: "America/Los_Angeles",
+  },
+  integrations: {
+    description: "List of external integrations to pull data from.",
+    example: '[{ "type": "sonarr", "service_group": "Media", "service_name": "Sonarr" }]',
+  },
+  fields: {
+    description: "Optional subset of fields/metrics to display.",
+    example: '["wanted", "queued"]',
+  },
+  label: {
+    description: "Optional label shown for grouped widget sections.",
+    example: "System",
+  },
+  disk: {
+    description: "Disk mount path(s) to monitor.",
+    example: "/mnt/storage",
+  },
+  network: {
+    description: "Enable network metric or specify interface name.",
+    example: "eth0",
+  },
+  cputemp: {
+    description: "Toggle CPU temperature metric.",
+    example: "true",
+  },
+  units: {
+    description: "Unit system used by supported metrics.",
+    example: "imperial",
+  },
+  headers: {
+    description: "Additional HTTP headers sent with requests.",
+    example: '{ "X-Auth-Key": "your-secret" }',
+  },
+};
+
+function formatExampleValue(value) {
+  if (value === undefined) {
+    return null;
+  }
+
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (typeof value === "number" || typeof value === "boolean") {
+    return String(value);
+  }
+
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return null;
+  }
+}
+
+function createFieldHintResolver({ defaults, allowedFields } = {}) {
+  return (fieldPath) => {
+    const fieldKey = String(fieldPath[fieldPath.length - 1] ?? "").toLowerCase();
+    const baseHint = COMMON_FIELD_HINTS[fieldKey];
+    const exampleFromDefaults = formatExampleValue(getAtPath(defaults ?? {}, fieldPath));
+
+    if (fieldKey === "fields" && Array.isArray(allowedFields) && allowedFields.length > 0) {
+      const preview = allowedFields.slice(0, 3).map((item) => `"${item}"`).join(", ");
+      return {
+        description: "Select which widget metrics are shown.",
+        example: `[${preview}]`,
+      };
+    }
+
+    if (!baseHint && !exampleFromDefaults) {
+      return null;
+    }
+
+    return {
+      description: baseHint?.description || "Widget option.",
+      example: baseHint?.example || exampleFromDefaults,
+    };
+  };
+}
+
+function buildTooltipText(hint) {
+  if (!hint) {
+    return "";
+  }
+
+  if (hint.example) {
+    return `${hint.description}\nExample: ${hint.example}`;
+  }
+
+  return hint.description;
+}
+
 function cloneData(value) {
   if (value === undefined) {
     return null;
@@ -197,7 +349,7 @@ function ScalarEditor({ value, onChange }) {
   );
 }
 
-function ValueEditor({ value, path, onChange, onDelete, onRenameKey }) {
+function ValueEditor({ value, path, onChange, onDelete, onRenameKey, fieldHintResolver }) {
   const valueType = getValueType(value);
 
   if (valueType === "object") {
@@ -211,6 +363,21 @@ function ValueEditor({ value, path, onChange, onDelete, onRenameKey }) {
                 value={key}
                 onChange={(event) => onRenameKey(path, key, event.target.value)}
               />
+              {(() => {
+                const hint = fieldHintResolver?.([...path, key]);
+                if (!hint) {
+                  return null;
+                }
+
+                return (
+                  <span
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-theme-300 text-xs font-semibold opacity-80"
+                    title={buildTooltipText(hint)}
+                  >
+                    ?
+                  </span>
+                );
+              })()}
               <button
                 className="rounded-md border border-rose-400 px-2 text-xs text-rose-500"
                 type="button"
@@ -225,6 +392,7 @@ function ValueEditor({ value, path, onChange, onDelete, onRenameKey }) {
               onChange={onChange}
               onDelete={onDelete}
               onRenameKey={onRenameKey}
+              fieldHintResolver={fieldHintResolver}
             />
           </div>
         ))}
@@ -263,6 +431,7 @@ function ValueEditor({ value, path, onChange, onDelete, onRenameKey }) {
               onChange={onChange}
               onDelete={onDelete}
               onRenameKey={onRenameKey}
+              fieldHintResolver={fieldHintResolver}
             />
           </div>
         ))}
@@ -317,6 +486,7 @@ export default function ConfiguratorPage() {
   const [selectedId, setSelectedId] = useState(null);
   const [drafts, setDrafts] = useState({});
   const [saveState, setSaveState] = useState({ status: "idle", message: "" });
+  const [saveIndicators, setSaveIndicators] = useState({});
 
   const [capabilityQuery, setCapabilityQuery] = useState("");
 
@@ -343,6 +513,33 @@ export default function ConfiguratorPage() {
     type: "",
     config: {},
   });
+
+  const selectedServiceCapability = useMemo(
+    () => serviceWidgets.find((item) => item.type === serviceForm.widgetType) ?? null,
+    [serviceForm.widgetType, serviceWidgets],
+  );
+  const selectedInfoCapability = useMemo(
+    () => infoWidgets.find((item) => item.type === infoForm.type) ?? null,
+    [infoForm.type, infoWidgets],
+  );
+
+  const serviceFieldHintResolver = useMemo(
+    () =>
+      createFieldHintResolver({
+        defaults: selectedServiceCapability?.defaults ?? {},
+        allowedFields: selectedServiceCapability?.allowedFields ?? [],
+      }),
+    [selectedServiceCapability],
+  );
+
+  const infoFieldHintResolver = useMemo(
+    () =>
+      createFieldHintResolver({
+        defaults: selectedInfoCapability?.defaults ?? {},
+        allowedFields: [],
+      }),
+    [selectedInfoCapability],
+  );
 
   useEffect(() => {
     if (!selectedId && configs[0]?.id) {
@@ -404,6 +601,53 @@ export default function ConfiguratorPage() {
     );
   }, [capabilityQuery, infoWidgets]);
 
+  function getSaveIndicator(configId) {
+    return saveIndicators[configId] || { status: "idle", message: "", at: null };
+  }
+
+  function getDraftIsDirty(configId) {
+    const config = configs.find((entry) => entry.id === configId);
+    if (!config || !(configId in drafts)) {
+      return false;
+    }
+
+    try {
+      return JSON.stringify(drafts[configId]) !== JSON.stringify(config.data);
+    } catch {
+      return true;
+    }
+  }
+
+  function getSaveIndicatorClass(status) {
+    if (status === "saved") {
+      return "text-emerald-700 dark:text-emerald-300";
+    }
+    if (status === "error") {
+      return "text-rose-700 dark:text-rose-300";
+    }
+    if (status === "saving") {
+      return "text-theme-800 dark:text-theme-200";
+    }
+    return "text-theme-800/70 dark:text-theme-300/70";
+  }
+
+  function getSaveIndicatorText(configId) {
+    const indicator = getSaveIndicator(configId);
+    if (indicator.status === "saving") {
+      return "Saving...";
+    }
+    if (indicator.status === "saved" && indicator.at) {
+      return `Saved at ${new Date(indicator.at).toLocaleTimeString()}`;
+    }
+    if (indicator.status === "error") {
+      return indicator.message || "Save failed";
+    }
+    if (getDraftIsDirty(configId)) {
+      return "Unsaved changes";
+    }
+    return "No pending changes";
+  }
+
   function getConfigData(configId) {
     const config = configs.find((entry) => entry.id === configId);
     if (!config) {
@@ -417,6 +661,10 @@ export default function ConfiguratorPage() {
     setDrafts((current) => ({
       ...current,
       [configId]: nextData,
+    }));
+    setSaveIndicators((current) => ({
+      ...current,
+      [configId]: { status: "idle", message: "", at: null },
     }));
     setSaveState({ status: "idle", message: "" });
   }
@@ -435,6 +683,10 @@ export default function ConfiguratorPage() {
     const payloadData = drafts[configId] ?? cloneData(config.data);
 
     setSaveState({ status: "saving", message: `Saving ${config.filename}...` });
+    setSaveIndicators((current) => ({
+      ...current,
+      [configId]: { status: "saving", message: "", at: Date.now() },
+    }));
 
     const response = await fetch(`/api/config-editor/${configId}`, {
       method: "PUT",
@@ -448,10 +700,18 @@ export default function ConfiguratorPage() {
 
     if (!response.ok) {
       setSaveState({ status: "error", message: payload.error || "Failed to save" });
+      setSaveIndicators((current) => ({
+        ...current,
+        [configId]: { status: "error", message: payload.error || "Failed to save", at: Date.now() },
+      }));
       return;
     }
 
     setSaveState({ status: "saved", message: `Saved ${config.filename}. Backup created: ${payload.backupFile}` });
+    setSaveIndicators((current) => ({
+      ...current,
+      [configId]: { status: "saved", message: "Saved", at: Date.now() },
+    }));
     mutate();
   }
 
@@ -544,6 +804,11 @@ export default function ConfiguratorPage() {
     setSelectedId("widgets");
     setSaveState({ status: "saved", message: "Info widget added to widgets.yaml draft. Save to apply." });
   }
+
+  const servicesSaveIndicator = getSaveIndicator("services");
+  const bookmarksSaveIndicator = getSaveIndicator("bookmarks");
+  const widgetsSaveIndicator = getSaveIndicator("widgets");
+  const selectedSaveIndicator = selectedConfig ? getSaveIndicator(selectedConfig.id) : { status: "idle" };
 
   return (
     <>
@@ -718,6 +983,7 @@ export default function ConfiguratorPage() {
                           widgetConfig: renameObjectKey(current.widgetConfig ?? {}, objectPath, oldKey, newKey),
                         }))
                       }
+                      fieldHintResolver={serviceFieldHintResolver}
                     />
                   </div>
                 )}
@@ -729,10 +995,14 @@ export default function ConfiguratorPage() {
                   <button
                     className="rounded-md border border-theme-400 px-3 py-2 text-sm"
                     type="button"
+                    disabled={servicesSaveIndicator.status === "saving"}
                     onClick={() => saveConfigById("services")}
                   >
-                    Save Services
+                    {servicesSaveIndicator.status === "saving" ? "Saving Services..." : "Save Services"}
                   </button>
+                </div>
+                <div className={`text-xs ${getSaveIndicatorClass(servicesSaveIndicator.status)}`}>
+                  {getSaveIndicatorText("services")}
                 </div>
               </section>
 
@@ -782,10 +1052,14 @@ export default function ConfiguratorPage() {
                   <button
                     className="rounded-md border border-theme-400 px-3 py-2 text-sm"
                     type="button"
+                    disabled={bookmarksSaveIndicator.status === "saving"}
                     onClick={() => saveConfigById("bookmarks")}
                   >
-                    Save Bookmarks
+                    {bookmarksSaveIndicator.status === "saving" ? "Saving Bookmarks..." : "Save Bookmarks"}
                   </button>
+                </div>
+                <div className={`text-xs ${getSaveIndicatorClass(bookmarksSaveIndicator.status)}`}>
+                  {getSaveIndicatorText("bookmarks")}
                 </div>
               </section>
 
@@ -832,6 +1106,7 @@ export default function ConfiguratorPage() {
                       config: renameObjectKey(current.config ?? {}, objectPath, oldKey, newKey),
                     }))
                   }
+                  fieldHintResolver={infoFieldHintResolver}
                 />
 
                 <div className="flex gap-2">
@@ -841,10 +1116,14 @@ export default function ConfiguratorPage() {
                   <button
                     className="rounded-md border border-theme-400 px-3 py-2 text-sm"
                     type="button"
+                    disabled={widgetsSaveIndicator.status === "saving"}
                     onClick={() => saveConfigById("widgets")}
                   >
-                    Save Widgets
+                    {widgetsSaveIndicator.status === "saving" ? "Saving Widgets..." : "Save Widgets"}
                   </button>
+                </div>
+                <div className={`text-xs ${getSaveIndicatorClass(widgetsSaveIndicator.status)}`}>
+                  {getSaveIndicatorText("widgets")}
                 </div>
               </section>
             </div>
@@ -881,11 +1160,14 @@ export default function ConfiguratorPage() {
                     <button
                       className="rounded-md border border-theme-400 px-4 py-2 font-semibold"
                       type="button"
-                      disabled={saveState.status === "saving"}
+                      disabled={selectedSaveIndicator.status === "saving"}
                       onClick={() => saveConfigById(selectedConfig.id)}
                     >
-                      {saveState.status === "saving" ? "Saving..." : "Save"}
+                      {selectedSaveIndicator.status === "saving" ? "Saving..." : "Save"}
                     </button>
+                  </div>
+                  <div className={`text-xs ${getSaveIndicatorClass(selectedSaveIndicator.status)}`}>
+                    {getSaveIndicatorText(selectedConfig.id)}
                   </div>
 
                   {selectedConfig.type === "text" && (
@@ -905,6 +1187,7 @@ export default function ConfiguratorPage() {
                       onRenameKey={(objectPath, oldKey, newKey) =>
                         updateDraft(renameObjectKey(selectedDraft, objectPath, oldKey, newKey))
                       }
+                      fieldHintResolver={null}
                     />
                   )}
                 </>
