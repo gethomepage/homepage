@@ -125,9 +125,7 @@ function SessionEntry({ session, enableUser, showEpisodeNumber }) {
         </div>
       </div>
       <div className="self-center text-xs flex justify-end mr-1.5 pl-1 z-10">
-        {videoDecision === "directplay" && audioDecision === "directplay" && (
-          <MdSmartDisplay className="opacity-50" />
-        )}
+        {videoDecision === "directplay" && audioDecision === "directplay" && <MdSmartDisplay className="opacity-50" />}
         {videoDecision === "copy" && audioDecision === "copy" && <MdOutlineSmartDisplay className="opacity-50" />}
         {videoDecision !== "copy" &&
           videoDecision !== "directplay" &&
@@ -180,7 +178,12 @@ function DetailsView({ playing, enableUser, showEpisodeNumber, expandOneStreamTo
   return (
     <div className="flex flex-col pb-1 mx-1">
       {playing.map((session) => (
-        <SessionEntry key={session.id} session={session} enableUser={enableUser} showEpisodeNumber={showEpisodeNumber} />
+        <SessionEntry
+          key={session.id}
+          session={session}
+          enableUser={enableUser}
+          showEpisodeNumber={showEpisodeNumber}
+        />
       ))}
     </div>
   );
