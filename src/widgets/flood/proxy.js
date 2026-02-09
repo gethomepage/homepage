@@ -7,20 +7,23 @@ const logger = createLogger("floodProxyHandler");
 
 async function login(widget) {
   logger.debug("flood is rejecting the request, logging in.");
+
+  // Flood rejects empty JSON bodies. Skip login if credentials not configured.
+  if (!widget.username || !widget.password) {
+    logger.debug("No flood credentials configured, skipping login.");
+    return [200, null];
+  }
+
   const loginUrl = new URL(`${widget.url}/api/auth/authenticate`).toString();
 
   const loginParams = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: null,
-  };
-
-  if (widget.username && widget.password) {
-    loginParams.body = JSON.stringify({
+    body: JSON.stringify({
       username: widget.username,
       password: widget.password,
-    });
-  }
+    }),
+  };
 
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);
   return [status, data];
@@ -45,7 +48,9 @@ export default async function floodProxyHandler(req, res) {
   const params = { method: "GET", headers: {} };
 
   let [status, contentType, data] = await httpProxy(url, params);
-  if (status === 401) {
+
+  // Only attempt login if credentials exist
+  if (status === 401 && widget.username && widget.password) {
     [status, data] = await login(widget);
 
     if (status !== 200) {
