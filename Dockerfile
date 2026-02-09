@@ -43,6 +43,7 @@ WORKDIR /app
 
 # Copy some files from context
 COPY --link --chown=1000:1000 /public ./public/
+COPY --link --from=builder --chown=1000:1000 /app/docs ./docs
 COPY --link --chmod=755 docker-entrypoint.sh /usr/local/bin/
 
 # Copy only necessary files from the build stage

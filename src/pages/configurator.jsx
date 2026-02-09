@@ -17,6 +17,10 @@ function cloneData(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+function normalizeArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
 function setAtPath(root, path, nextValue) {
   if (path.length === 0) {
     return nextValue;
@@ -87,6 +91,12 @@ function createValueByType(type) {
   return "";
 }
 
+function getValueType(value) {
+  if (Array.isArray(value)) return "array";
+  if (value === null) return "null";
+  return typeof value;
+}
+
 function getNextObjectKey(value) {
   let counter = 1;
   let candidate = `field_${counter}`;
@@ -97,10 +107,53 @@ function getNextObjectKey(value) {
   return candidate;
 }
 
-function getValueType(value) {
-  if (Array.isArray(value)) return "array";
-  if (value === null) return "null";
-  return typeof value;
+function appendServiceGroupEntry(current, groupName, serviceName, serviceConfig) {
+  const groups = normalizeArray(current).map((entry) => (entry && typeof entry === "object" ? { ...entry } : entry));
+
+  const groupIndex = groups.findIndex((entry) => entry && typeof entry === "object" && Object.keys(entry)[0] === groupName);
+
+  if (groupIndex === -1) {
+    groups.push({ [groupName]: [{ [serviceName]: serviceConfig }] });
+    return groups;
+  }
+
+  const groupEntry = groups[groupIndex];
+  const existingItems = normalizeArray(groupEntry[groupName]);
+  groups[groupIndex] = {
+    ...groupEntry,
+    [groupName]: [...existingItems, { [serviceName]: serviceConfig }],
+  };
+
+  return groups;
+}
+
+function appendBookmarkGroupEntry(current, groupName, bookmarkName, bookmarkConfig) {
+  const groups = normalizeArray(current).map((entry) => (entry && typeof entry === "object" ? { ...entry } : entry));
+
+  const groupIndex = groups.findIndex((entry) => entry && typeof entry === "object" && Object.keys(entry)[0] === groupName);
+
+  const bookmarkEntry = {
+    [bookmarkName]: [bookmarkConfig],
+  };
+
+  if (groupIndex === -1) {
+    groups.push({ [groupName]: [bookmarkEntry] });
+    return groups;
+  }
+
+  const groupEntry = groups[groupIndex];
+  const existingItems = normalizeArray(groupEntry[groupName]);
+  groups[groupIndex] = {
+    ...groupEntry,
+    [groupName]: [...existingItems, bookmarkEntry],
+  };
+
+  return groups;
+}
+
+function appendInfoWidgetEntry(current, widgetType, widgetConfig) {
+  const widgets = normalizeArray(current);
+  return [...widgets, { [widgetType]: widgetConfig }];
 }
 
 function ScalarEditor({ value, onChange }) {
@@ -150,8 +203,8 @@ function ValueEditor({ value, path, onChange, onDelete, onRenameKey }) {
   if (valueType === "object") {
     return (
       <div className="space-y-2 rounded-md border border-theme-300 bg-theme-100/30 p-3">
-        {Object.keys(value).map((key) => (
-          <div key={`${path.join(".")}.${key}`} className="rounded-md border border-theme-300/80 bg-theme-50/30 p-2">
+        {Object.keys(value).map((key, index) => (
+          <div key={`${path.join(".")}.${index}`} className="rounded-md border border-theme-300/80 bg-theme-50/30 p-2">
             <div className="mb-2 flex gap-2">
               <input
                 className="flex-1 rounded-md border border-theme-300 bg-theme-100/50 p-2 text-sm"
@@ -254,17 +307,67 @@ export async function getStaticProps({ locale }) {
 export default function ConfiguratorPage() {
   const { data, error, mutate, isLoading } = useSWR("/api/config-editor", fetcher);
   const { data: authData } = useSWR("/api/config-editor/auth-status", fetcher);
-  const configs = data?.configs ?? [];
+  const { data: capabilitiesData } = useSWR("/api/config-editor/capabilities", fetcher);
 
+  const configs = data?.configs ?? [];
+  const serviceWidgets = capabilitiesData?.serviceWidgets ?? [];
+  const infoWidgets = capabilitiesData?.infoWidgets ?? [];
+
+  const [mode, setMode] = useState("builder");
   const [selectedId, setSelectedId] = useState(null);
   const [drafts, setDrafts] = useState({});
   const [saveState, setSaveState] = useState({ status: "idle", message: "" });
+
+  const [capabilityQuery, setCapabilityQuery] = useState("");
+
+  const [serviceForm, setServiceForm] = useState({
+    group: "Applications",
+    name: "",
+    href: "",
+    icon: "",
+    description: "",
+    widgetType: "",
+    widgetConfig: {},
+  });
+
+  const [bookmarkForm, setBookmarkForm] = useState({
+    group: "Quick Links",
+    name: "",
+    href: "",
+    abbr: "",
+    icon: "",
+    description: "",
+  });
+
+  const [infoForm, setInfoForm] = useState({
+    type: "",
+    config: {},
+  });
 
   useEffect(() => {
     if (!selectedId && configs[0]?.id) {
       setSelectedId(configs[0].id);
     }
   }, [configs, selectedId]);
+
+  useEffect(() => {
+    if (!serviceForm.widgetType && serviceWidgets[0]?.type) {
+      setServiceForm((current) => ({
+        ...current,
+        widgetType: serviceWidgets[0].type,
+        widgetConfig: cloneData(serviceWidgets[0].defaults),
+      }));
+    }
+  }, [serviceForm.widgetType, serviceWidgets]);
+
+  useEffect(() => {
+    if (!infoForm.type && infoWidgets[0]?.type) {
+      setInfoForm({
+        type: infoWidgets[0].type,
+        config: cloneData(infoWidgets[0].defaults),
+      });
+    }
+  }, [infoForm.type, infoWidgets]);
 
   const selectedConfig = useMemo(
     () => configs.find((config) => config.id === selectedId) ?? configs[0],
@@ -273,26 +376,72 @@ export default function ConfiguratorPage() {
 
   const selectedDraft = selectedConfig ? drafts[selectedConfig.id] ?? cloneData(selectedConfig.data) : null;
 
-  function updateDraft(nextData) {
-    if (!selectedConfig) return;
+  const filteredServiceCapabilities = useMemo(() => {
+    if (!capabilityQuery.trim()) {
+      return serviceWidgets;
+    }
 
-    setDrafts((current) => ({
-      ...current,
-      [selectedConfig.id]: nextData,
-    }));
+    const query = capabilityQuery.toLowerCase();
+    return serviceWidgets.filter(
+      (item) =>
+        item.title.toLowerCase().includes(query) ||
+        item.type.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query),
+    );
+  }, [capabilityQuery, serviceWidgets]);
+
+  const filteredInfoCapabilities = useMemo(() => {
+    if (!capabilityQuery.trim()) {
+      return infoWidgets;
+    }
+
+    const query = capabilityQuery.toLowerCase();
+    return infoWidgets.filter(
+      (item) =>
+        item.title.toLowerCase().includes(query) ||
+        item.type.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query),
+    );
+  }, [capabilityQuery, infoWidgets]);
+
+  function getConfigData(configId) {
+    const config = configs.find((entry) => entry.id === configId);
+    if (!config) {
+      return null;
+    }
+
+    return drafts[configId] ?? cloneData(config.data);
   }
 
-  async function saveCurrent() {
+  function setConfigData(configId, nextData) {
+    setDrafts((current) => ({
+      ...current,
+      [configId]: nextData,
+    }));
+    setSaveState({ status: "idle", message: "" });
+  }
+
+  function updateDraft(nextData) {
     if (!selectedConfig) return;
+    setConfigData(selectedConfig.id, nextData);
+  }
 
-    setSaveState({ status: "saving", message: "Saving..." });
+  async function saveConfigById(configId) {
+    const config = configs.find((entry) => entry.id === configId);
+    if (!config) {
+      return;
+    }
 
-    const response = await fetch(`/api/config-editor/${selectedConfig.id}`, {
+    const payloadData = drafts[configId] ?? cloneData(config.data);
+
+    setSaveState({ status: "saving", message: `Saving ${config.filename}...` });
+
+    const response = await fetch(`/api/config-editor/${configId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data: selectedDraft }),
+      body: JSON.stringify({ data: payloadData }),
     });
 
     const payload = await response.json();
@@ -302,8 +451,98 @@ export default function ConfiguratorPage() {
       return;
     }
 
-    setSaveState({ status: "saved", message: `Saved. Backup created: ${payload.backupFile}` });
+    setSaveState({ status: "saved", message: `Saved ${config.filename}. Backup created: ${payload.backupFile}` });
     mutate();
+  }
+
+  function addServiceToDraft() {
+    if (!serviceForm.group.trim() || !serviceForm.name.trim() || !serviceForm.href.trim()) {
+      setSaveState({ status: "error", message: "Service group, name, and URL are required." });
+      return;
+    }
+
+    const current = getConfigData("services");
+    if (current === null) {
+      setSaveState({ status: "error", message: "services.yaml was not loaded." });
+      return;
+    }
+
+    const serviceConfig = {
+      href: serviceForm.href.trim(),
+    };
+
+    if (serviceForm.icon.trim()) {
+      serviceConfig.icon = serviceForm.icon.trim();
+    }
+
+    if (serviceForm.description.trim()) {
+      serviceConfig.description = serviceForm.description.trim();
+    }
+
+    if (serviceForm.widgetType) {
+      serviceConfig.widget = {
+        type: serviceForm.widgetType,
+        ...(serviceForm.widgetConfig || {}),
+      };
+    }
+
+    const next = appendServiceGroupEntry(current, serviceForm.group.trim(), serviceForm.name.trim(), serviceConfig);
+
+    setConfigData("services", next);
+    setSelectedId("services");
+    setSaveState({ status: "saved", message: "Service added to services.yaml draft. Save to apply." });
+  }
+
+  function addBookmarkToDraft() {
+    if (!bookmarkForm.group.trim() || !bookmarkForm.name.trim() || !bookmarkForm.href.trim()) {
+      setSaveState({ status: "error", message: "Bookmark group, name, and URL are required." });
+      return;
+    }
+
+    const current = getConfigData("bookmarks");
+    if (current === null) {
+      setSaveState({ status: "error", message: "bookmarks.yaml was not loaded." });
+      return;
+    }
+
+    const bookmarkConfig = {
+      href: bookmarkForm.href.trim(),
+    };
+
+    if (bookmarkForm.icon.trim()) {
+      bookmarkConfig.icon = bookmarkForm.icon.trim();
+    } else if (bookmarkForm.abbr.trim()) {
+      bookmarkConfig.abbr = bookmarkForm.abbr.trim();
+    }
+
+    if (bookmarkForm.description.trim()) {
+      bookmarkConfig.description = bookmarkForm.description.trim();
+    }
+
+    const next = appendBookmarkGroupEntry(current, bookmarkForm.group.trim(), bookmarkForm.name.trim(), bookmarkConfig);
+
+    setConfigData("bookmarks", next);
+    setSelectedId("bookmarks");
+    setSaveState({ status: "saved", message: "Bookmark added to bookmarks.yaml draft. Save to apply." });
+  }
+
+  function addInfoWidgetToDraft() {
+    if (!infoForm.type) {
+      setSaveState({ status: "error", message: "Select an info widget type first." });
+      return;
+    }
+
+    const current = getConfigData("widgets");
+    if (current === null) {
+      setSaveState({ status: "error", message: "widgets.yaml was not loaded." });
+      return;
+    }
+
+    const next = appendInfoWidgetEntry(current, infoForm.type, infoForm.config || {});
+
+    setConfigData("widgets", next);
+    setSelectedId("widgets");
+    setSaveState({ status: "saved", message: "Info widget added to widgets.yaml draft. Save to apply." });
   }
 
   return (
@@ -313,10 +552,29 @@ export default function ConfiguratorPage() {
       </Head>
 
       <div className="mx-auto min-h-screen max-w-7xl p-4 sm:p-8">
-        <div className="mb-4">
-          <h1 className="text-3xl font-bold text-theme-900 dark:text-theme-200">Homepage Configurator</h1>
-          <p className="opacity-80">Edit Homepage configuration files graphically. Every save writes a timestamped backup.</p>
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h1 className="text-3xl font-bold text-theme-900 dark:text-theme-200">Homepage Configurator</h1>
+            <p className="opacity-80">Use Builder mode for guided setup or Raw Editor mode for full direct edits.</p>
+          </div>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              className={`rounded-md border px-3 py-2 text-sm ${mode === "builder" ? "border-theme-500 bg-theme-500/20" : "border-theme-300"}`}
+              onClick={() => setMode("builder")}
+            >
+              Builder
+            </button>
+            <button
+              type="button"
+              className={`rounded-md border px-3 py-2 text-sm ${mode === "editor" ? "border-theme-500 bg-theme-500/20" : "border-theme-300"}`}
+              onClick={() => setMode("editor")}
+            >
+              Raw Editor
+            </button>
+          </div>
         </div>
+
         {authData && (
           <div
             className={`mb-4 rounded-md border p-3 text-sm ${
@@ -331,10 +589,269 @@ export default function ConfiguratorPage() {
           </div>
         )}
 
+        {saveState.message && (
+          <div
+            className={`mb-4 rounded-md border p-3 text-sm ${
+              saveState.status === "error"
+                ? "border-rose-400 bg-rose-500/10 text-rose-700 dark:text-rose-300"
+                : "border-theme-300"
+            }`}
+          >
+            {saveState.message}
+          </div>
+        )}
+
         {isLoading && <div className="rounded-md border border-theme-300 p-4">Loading configuration files...</div>}
         {error && <div className="rounded-md border border-rose-400 p-4 text-rose-500">Failed to load configuration editor.</div>}
 
-        {!isLoading && !error && (
+        {!isLoading && !error && mode === "builder" && (
+          <div className="space-y-4">
+            <div className="rounded-md border border-theme-300 bg-theme-100/20 p-4">
+              <h2 className="mb-2 text-lg font-semibold">Capability Browser</h2>
+              <input
+                className="mb-3 w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                placeholder="Search widgets and capabilities..."
+                value={capabilityQuery}
+                onChange={(event) => setCapabilityQuery(event.target.value)}
+              />
+              <div className="grid gap-4 lg:grid-cols-2">
+                <div>
+                  <h3 className="mb-2 font-semibold">Service Widgets ({filteredServiceCapabilities.length})</h3>
+                  <div className="max-h-72 space-y-2 overflow-auto pr-1">
+                    {filteredServiceCapabilities.map((capability) => (
+                      <div key={`${capability.slug}-${capability.type}`} className="rounded-md border border-theme-300/80 p-2 text-sm">
+                        <div className="font-semibold">{capability.title}</div>
+                        <div className="opacity-70">type: {capability.type}</div>
+                        {capability.description && <div className="mt-1 opacity-80">{capability.description}</div>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="mb-2 font-semibold">Info Widgets ({filteredInfoCapabilities.length})</h3>
+                  <div className="max-h-72 space-y-2 overflow-auto pr-1">
+                    {filteredInfoCapabilities.map((capability) => (
+                      <div key={`${capability.slug}-${capability.type}`} className="rounded-md border border-theme-300/80 p-2 text-sm">
+                        <div className="font-semibold">{capability.title}</div>
+                        <div className="opacity-70">type: {capability.type}</div>
+                        {capability.description && <div className="mt-1 opacity-80">{capability.description}</div>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4 lg:grid-cols-3">
+              <section className="space-y-3 rounded-md border border-theme-300 bg-theme-100/20 p-4">
+                <h2 className="text-lg font-semibold">Add Service</h2>
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Group"
+                  value={serviceForm.group}
+                  onChange={(event) => setServiceForm((current) => ({ ...current, group: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Service name"
+                  value={serviceForm.name}
+                  onChange={(event) => setServiceForm((current) => ({ ...current, name: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Service URL (href)"
+                  value={serviceForm.href}
+                  onChange={(event) => setServiceForm((current) => ({ ...current, href: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Icon (optional)"
+                  value={serviceForm.icon}
+                  onChange={(event) => setServiceForm((current) => ({ ...current, icon: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Description (optional)"
+                  value={serviceForm.description}
+                  onChange={(event) => setServiceForm((current) => ({ ...current, description: event.target.value }))}
+                />
+
+                <div>
+                  <label className="mb-1 block text-sm font-medium">Widget Type</label>
+                  <select
+                    className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                    value={serviceForm.widgetType}
+                    onChange={(event) => {
+                      const nextType = event.target.value;
+                      const selected = serviceWidgets.find((item) => item.type === nextType);
+                      setServiceForm((current) => ({
+                        ...current,
+                        widgetType: nextType,
+                        widgetConfig: cloneData(selected?.defaults ?? {}),
+                      }));
+                    }}
+                  >
+                    <option value="">No widget</option>
+                    {serviceWidgets.map((widget) => (
+                      <option key={`${widget.slug}-${widget.type}`} value={widget.type}>
+                        {widget.title} ({widget.type})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {serviceForm.widgetType && (
+                  <div>
+                    <label className="mb-1 block text-sm font-medium">Widget Options</label>
+                    <ValueEditor
+                      value={serviceForm.widgetConfig ?? {}}
+                      path={[]}
+                      onChange={(path, value) =>
+                        setServiceForm((current) => ({ ...current, widgetConfig: setAtPath(current.widgetConfig ?? {}, path, value) }))
+                      }
+                      onDelete={(path) =>
+                        setServiceForm((current) => ({ ...current, widgetConfig: removeAtPath(current.widgetConfig ?? {}, path) }))
+                      }
+                      onRenameKey={(objectPath, oldKey, newKey) =>
+                        setServiceForm((current) => ({
+                          ...current,
+                          widgetConfig: renameObjectKey(current.widgetConfig ?? {}, objectPath, oldKey, newKey),
+                        }))
+                      }
+                    />
+                  </div>
+                )}
+
+                <div className="flex gap-2">
+                  <button className="rounded-md border border-theme-400 px-3 py-2 text-sm" type="button" onClick={addServiceToDraft}>
+                    Add To Draft
+                  </button>
+                  <button
+                    className="rounded-md border border-theme-400 px-3 py-2 text-sm"
+                    type="button"
+                    onClick={() => saveConfigById("services")}
+                  >
+                    Save Services
+                  </button>
+                </div>
+              </section>
+
+              <section className="space-y-3 rounded-md border border-theme-300 bg-theme-100/20 p-4">
+                <h2 className="text-lg font-semibold">Add Bookmark</h2>
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Group"
+                  value={bookmarkForm.group}
+                  onChange={(event) => setBookmarkForm((current) => ({ ...current, group: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Bookmark name"
+                  value={bookmarkForm.name}
+                  onChange={(event) => setBookmarkForm((current) => ({ ...current, name: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Bookmark URL"
+                  value={bookmarkForm.href}
+                  onChange={(event) => setBookmarkForm((current) => ({ ...current, href: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Abbreviation (optional)"
+                  value={bookmarkForm.abbr}
+                  onChange={(event) => setBookmarkForm((current) => ({ ...current, abbr: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Icon (optional, overrides abbreviation)"
+                  value={bookmarkForm.icon}
+                  onChange={(event) => setBookmarkForm((current) => ({ ...current, icon: event.target.value }))}
+                />
+                <input
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  placeholder="Description (optional)"
+                  value={bookmarkForm.description}
+                  onChange={(event) => setBookmarkForm((current) => ({ ...current, description: event.target.value }))}
+                />
+
+                <div className="flex gap-2">
+                  <button className="rounded-md border border-theme-400 px-3 py-2 text-sm" type="button" onClick={addBookmarkToDraft}>
+                    Add To Draft
+                  </button>
+                  <button
+                    className="rounded-md border border-theme-400 px-3 py-2 text-sm"
+                    type="button"
+                    onClick={() => saveConfigById("bookmarks")}
+                  >
+                    Save Bookmarks
+                  </button>
+                </div>
+              </section>
+
+              <section className="space-y-3 rounded-md border border-theme-300 bg-theme-100/20 p-4">
+                <h2 className="text-lg font-semibold">Add Info Widget</h2>
+
+                <select
+                  className="w-full rounded-md border border-theme-300 bg-theme-100/50 p-2"
+                  value={infoForm.type}
+                  onChange={(event) => {
+                    const type = event.target.value;
+                    const selected = infoWidgets.find((item) => item.type === type);
+                    setInfoForm({
+                      type,
+                      config: cloneData(selected?.defaults ?? {}),
+                    });
+                  }}
+                >
+                  {infoWidgets.map((widget) => (
+                    <option key={`${widget.slug}-${widget.type}`} value={widget.type}>
+                      {widget.title} ({widget.type})
+                    </option>
+                  ))}
+                </select>
+
+                <ValueEditor
+                  value={infoForm.config ?? {}}
+                  path={[]}
+                  onChange={(path, value) =>
+                    setInfoForm((current) => ({
+                      ...current,
+                      config: setAtPath(current.config ?? {}, path, value),
+                    }))
+                  }
+                  onDelete={(path) =>
+                    setInfoForm((current) => ({
+                      ...current,
+                      config: removeAtPath(current.config ?? {}, path),
+                    }))
+                  }
+                  onRenameKey={(objectPath, oldKey, newKey) =>
+                    setInfoForm((current) => ({
+                      ...current,
+                      config: renameObjectKey(current.config ?? {}, objectPath, oldKey, newKey),
+                    }))
+                  }
+                />
+
+                <div className="flex gap-2">
+                  <button className="rounded-md border border-theme-400 px-3 py-2 text-sm" type="button" onClick={addInfoWidgetToDraft}>
+                    Add To Draft
+                  </button>
+                  <button
+                    className="rounded-md border border-theme-400 px-3 py-2 text-sm"
+                    type="button"
+                    onClick={() => saveConfigById("widgets")}
+                  >
+                    Save Widgets
+                  </button>
+                </div>
+              </section>
+            </div>
+          </div>
+        )}
+
+        {!isLoading && !error && mode === "editor" && (
           <div className="grid gap-4 lg:grid-cols-[280px_1fr]">
             <aside className="space-y-2 rounded-md border border-theme-300 bg-theme-100/20 p-2">
               {configs.map((config) => (
@@ -365,7 +882,7 @@ export default function ConfiguratorPage() {
                       className="rounded-md border border-theme-400 px-4 py-2 font-semibold"
                       type="button"
                       disabled={saveState.status === "saving"}
-                      onClick={saveCurrent}
+                      onClick={() => saveConfigById(selectedConfig.id)}
                     >
                       {saveState.status === "saving" ? "Saving..." : "Save"}
                     </button>
@@ -389,16 +906,6 @@ export default function ConfiguratorPage() {
                         updateDraft(renameObjectKey(selectedDraft, objectPath, oldKey, newKey))
                       }
                     />
-                  )}
-
-                  {saveState.message && (
-                    <div
-                      className={`rounded-md border p-2 text-sm ${
-                        saveState.status === "error" ? "border-rose-400 text-rose-600" : "border-theme-300"
-                      }`}
-                    >
-                      {saveState.message}
-                    </div>
                   )}
                 </>
               )}
