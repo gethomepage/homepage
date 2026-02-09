@@ -7,23 +7,25 @@ const logger = createLogger("floodProxyHandler");
 
 async function login(widget) {
   logger.debug("flood is rejecting the request, logging in.");
+  
+  if (!widget.username || !widget.password) {
+    logger.debug("No flood credentials configured, skipping login.");
+    return [200, null, null];
+  }
+
   const loginUrl = new URL(`${widget.url}/api/auth/authenticate`).toString();
 
   const loginParams = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: null,
-  };
-
-  if (widget.username && widget.password) {
-    loginParams.body = JSON.stringify({
+    body: JSON.stringify({
       username: widget.username,
       password: widget.password,
-    });
-  }
+    }),
+  };
 
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);
-  return [status, data];
+  return [status, contentType, data]; // ✅ Include contentType
 }
 
 export default async function floodProxyHandler(req, res) {
@@ -45,8 +47,9 @@ export default async function floodProxyHandler(req, res) {
   const params = { method: "GET", headers: {} };
 
   let [status, contentType, data] = await httpProxy(url, params);
-  if (status === 401) {
-    [status, data] = await login(widget);
+
+  if (status === 401 && widget.username && widget.password) {
+    [status, contentType, data] = await login(widget);
 
     if (status !== 200) {
       logger.error("HTTP %d logging in to flood.  Data: %s", status, data);
