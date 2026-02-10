@@ -312,6 +312,13 @@ describe("utils/config/service-helpers", () => {
               { type: "healthchecks", uuid: "u" },
               { type: "speedtest", bitratePrecision: "3", version: "1" },
               { type: "stocks", watchlist: "AAPL", showUSMarketStatus: true },
+              {
+                type: "tracearr",
+                expandOneStreamToTwoRows: "true",
+                showEpisodeNumber: "true",
+                enableUser: "true",
+                view: "both",
+              },
               { type: "wgeasy", threshold: "10", version: "1" },
               { type: "technitium", range: "24h" },
               { type: "lubelogger", vehicleID: "12" },
@@ -349,6 +356,14 @@ describe("utils/config/service-helpers", () => {
     expect(widgets.find((w) => w.type === "qnap")).toEqual(expect.objectContaining({ volume: "vol1" }));
     expect(widgets.find((w) => w.type === "speedtest")).toEqual(
       expect.objectContaining({ bitratePrecision: 3, version: 1 }),
+    );
+    expect(widgets.find((w) => w.type === "tracearr")).toEqual(
+      expect.objectContaining({
+        expandOneStreamToTwoRows: true,
+        showEpisodeNumber: true,
+        enableUser: true,
+        view: "both",
+      }),
     );
     expect(widgets.find((w) => w.type === "jellystat")).toEqual(expect.objectContaining({ days: 7 }));
     expect(widgets.find((w) => w.type === "lubelogger")).toEqual(expect.objectContaining({ vehicleID: 12 }));
