@@ -39,6 +39,10 @@ const Version = dynamic(() => import("components/version"), {
   ssr: false,
 });
 
+const WidgetConfigToggle = dynamic(() => import("components/toggles/widget-config"), {
+  ssr: false,
+});
+
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
 
 // Normalize language codes so older config values like zh-CN still point to Crowdin-provided ones
@@ -499,6 +503,7 @@ function Home({ initialSettings }) {
         <div id="footer" className="flex flex-col mt-auto p-8 w-full">
           <div id="style" className="flex w-full justify-end">
             {!settings?.color && <ColorToggle />}
+            <WidgetConfigToggle />
             <Revalidate />
             {!settings.theme && <ThemeToggle />}
           </div>
