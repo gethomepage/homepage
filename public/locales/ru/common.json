@@ -108,14 +108,14 @@
         "songs": "Песни"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Воспроизводится",
+        "transcoding": "Перекодирование",
+        "bitrate": "Битрейт",
+        "no_active": "Нет активных потоков",
+        "movies": "Фильмы",
+        "series": "Сериалы",
+        "episodes": "Эпизоды",
+        "songs": "Песни"
     },
     "esphome": {
         "offline": "Не в сети",
