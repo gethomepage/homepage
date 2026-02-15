@@ -7,14 +7,14 @@ import widgets from "widgets/widgets";
 const proxyName = "backrestProxyHandler";
 const logger = createLogger(proxyName);
 
-function sumField(plans, field) {
+export function sumField(plans, field) {
   return plans.reduce((sum, plan) => {
     const num = Number(plan[field]);
     return sum + (Number.isNaN(num) ? 0 : num);
   }, 0);
 }
 
-function buildResponse(plans) {
+export function buildResponse(plans) {
   const numSuccess30Days = sumField(plans, "backupsSuccessLast30days");
   const numFailure30Days = sumField(plans, "backupsFailed30days");
   const bytesAdded30Days = sumField(plans, "bytesAddedLast30days");

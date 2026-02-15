@@ -1,0 +1,8 @@
+[project]
+name = "homepage-docs"
+version = "1.0.0"
+description = "Documentation for the Homepage project"
+requires-python = ">=3.13"
+dependencies = [
+    "zensical>=0.0.21",
+]

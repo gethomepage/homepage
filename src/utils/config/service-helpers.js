@@ -35,7 +35,7 @@ function parseServicesToGroups(services) {
         serviceGroupServices.push({
           name: entryName,
           ...entries[entryName],
-          weight: entries[entryName].weight || serviceGroupServices.length * 100, // default weight
+          weight: entries[entryName].weight ?? (serviceGroupServices.length + 1) * 100, // default weight
           type: "service",
         });
       }
@@ -86,7 +86,7 @@ export async function servicesFromDocker() {
         // bad docker connections can result in a <Buffer ...> object?
         // in any case, this ensures the result is the expected array
         if (!Array.isArray(containers)) {
-          return [];
+          return { server: serverName, services: [] };
         }
 
         const discovered = containers.map((container) => {
@@ -107,6 +107,7 @@ export async function servicesFromDocker() {
                 constructedService = {
                   container: containerName.replace(/^\//, ""),
                   server: serverName,
+                  weight: 0,
                   type: "service",
                 };
               }
@@ -187,6 +188,7 @@ export async function servicesFromKubernetes() {
 
     const resources = [...ingressList, ...traefikIngressList, ...httpRouteList];
 
+    /* c8 ignore next 3 -- resources is always an array once the spreads succeed */
     if (!resources) {
       return [];
     }
@@ -257,6 +259,9 @@ export function cleanServiceGroups(groups) {
           highlight,
           type,
 
+          // arcane
+          env,
+
           // azuredevops
           repositoryId,
           userEmail,
@@ -293,16 +298,22 @@ export function cleanServiceGroups(groups) {
           // diskstation
           volume,
 
+          // dispatcharr
+          enableActiveStreams,
+
           // docker
           container,
           server,
+
+          // dockhand
+          environment,
 
           // emby, jellyfin
           enableBlocks,
           enableNowPlaying,
           enableMediaControl,
 
-          // emby, jellyfin, tautulli
+          // emby, jellyfin, tautulli, tracearr
           enableUser,
           expandOneStreamToTwoRows,
           showEpisodeNumber,
@@ -313,7 +324,7 @@ export function cleanServiceGroups(groups) {
           // gamedig
           gameToken,
 
-          // authentik, beszel, glances, immich, komga, mealie, pihole, pfsense, speedtest
+          // authentik, beszel, glances, immich, komga, mealie, netalertx, pihole, pfsense, speedtest
           version,
 
           // glances
@@ -465,6 +476,10 @@ export function cleanServiceGroups(groups) {
           if (repositoryId) widget.repositoryId = repositoryId;
         }
 
+        if (type === "arcane") {
+          if (env !== undefined) widget.env = env;
+        }
+
         if (type === "beszel") {
           if (systemId) widget.systemId = systemId;
         }
@@ -527,11 +542,14 @@ export function cleanServiceGroups(groups) {
           if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) widget.enableNowPlaying = JSON.parse(enableNowPlaying);
         }
-        if (["emby", "jellyfin", "tautulli"].includes(type)) {
+        if (["emby", "jellyfin", "tautulli", "tracearr"].includes(type)) {
           if (expandOneStreamToTwoRows !== undefined)
             widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
           if (showEpisodeNumber !== undefined) widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
           if (enableUser !== undefined) widget.enableUser = !!JSON.parse(enableUser);
+        }
+        if (type === "tracearr") {
+          if (view !== undefined) widget.view = view;
         }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) widget.enableQueue = JSON.parse(enableQueue);
@@ -542,6 +560,9 @@ export function cleanServiceGroups(groups) {
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) widget.volume = volume;
+        }
+        if (["dispatcharr"].includes(type)) {
+          if (enableActiveStreams) widget.enableActiveStreams = !!JSON.parse(enableActiveStreams);
         }
         if (type === "gamedig") {
           if (gameToken) widget.gameToken = gameToken;
@@ -556,14 +577,17 @@ export function cleanServiceGroups(groups) {
             "beszel",
             "glances",
             "immich",
+            "jellyfin",
             "komga",
             "mealie",
+            "netalertx",
             "pfsense",
             "pihole",
             "speedtest",
             "wgeasy",
             "grafana",
             "gluetun",
+            "vikunja",
           ].includes(type)
         ) {
           if (version) widget.version = parseInt(version, 10);
@@ -602,6 +626,9 @@ export function cleanServiceGroups(groups) {
           if (previousDays) widget.previousDays = previousDays;
           if (showTime) widget.showTime = showTime;
           if (timezone) widget.timezone = timezone;
+        }
+        if (type === "dockhand") {
+          if (environment) widget.environment = environment;
         }
         if (type === "hdhomerun") {
           if (tuner !== undefined) widget.tuner = tuner;

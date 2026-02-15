@@ -8,11 +8,15 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
+  const version = widget.version ?? 1;
+
   const { data: projectsData, error: projectsError } = useWidgetAPI(widget, "projects");
-  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "tasks");
+  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, version === 2 ? "tasks_v2" : "tasks");
 
   if (projectsError || tasksError) {
     return <Container service={service} error={projectsError ?? tasksError} />;
+  } else if (projectsData?.message || tasksData?.message) {
+    return <Container service={service} error={projectsData?.message ?? tasksData?.message} />;
   }
 
   if (!projectsData || !tasksData) {

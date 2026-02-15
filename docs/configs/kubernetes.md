@@ -94,6 +94,7 @@ metadata:
     gethomepage.dev/name: Emby
     gethomepage.dev/widget.type: "emby"
     gethomepage.dev/widget.url: "https://emby.example.com"
+    gethomepage.dev/widget.headers.X-Auth-Key: "your-secret-here"
     gethomepage.dev/pod-selector: ""
     gethomepage.dev/weight: 10 # optional
     gethomepage.dev/instance: "public" # optional

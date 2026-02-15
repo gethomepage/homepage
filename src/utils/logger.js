@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { format as utilFormat } from "node:util";
 
 import winston from "winston";
@@ -9,10 +8,9 @@ let winstonLogger;
 
 function combineMessageAndSplat() {
   return {
-    // eslint-disable-next-line no-unused-vars
     transform: (info, opts) => {
       // combine message and args if any
-      // eslint-disable-next-line no-param-reassign
+
       info.message = utilFormat(info.message, ...(info[Symbol.for("splat")] || []));
       return info;
     },

@@ -12,8 +12,8 @@ export default function Component({ service }) {
 
   const { data: alertData, error: alertError } = useWidgetAPI(widget, "alerts");
   const { data: statusData, error: statusError } = useWidgetAPI(widget, "status");
-  const { data: poolsData, error: poolsError } = useWidgetAPI(widget, widget?.enablePools ? "pools" : null);
-  const { data: datasetData, error: datasetError } = useWidgetAPI(widget, widget?.enablePools ? "dataset" : null);
+  const { data: poolsData, error: poolsError } = useWidgetAPI(widget, widget?.enablePools ? "pools" : "");
+  const { data: datasetData, error: datasetError } = useWidgetAPI(widget, widget?.enablePools ? "dataset" : "");
 
   if (alertError || statusError || poolsError) {
     const finalError = alertError ?? statusError ?? poolsError ?? datasetError;

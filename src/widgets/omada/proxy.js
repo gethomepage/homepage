@@ -20,7 +20,6 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
     };
   }
 
-  // eslint-disable-next-line no-unused-vars
   const [status, contentType, data] = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify(params),
@@ -234,7 +233,6 @@ export default async function omadaProxyHandler(req, res) {
             ? `${url}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`
             : `${url}/${cId}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`;
 
-        // eslint-disable-next-line no-unused-vars
         [status, contentType, data] = await httpProxy(alertUrl, {
           headers: {
             "Csrf-Token": token,

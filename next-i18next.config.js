@@ -1,6 +1,5 @@
 // prettyBytes taken from https://github.com/sindresorhus/pretty-bytes
 
-/* eslint-disable no-param-reassign */
 const BYTE_UNITS = ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
 const BIBYTE_UNITS = ["B", "kiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
@@ -37,7 +36,6 @@ function prettyBytes(number, options) {
     ...options,
   };
 
-  // eslint-disable-next-line no-nested-ternary
   const UNITS = options.bits ? (options.binary ? BIBIT_UNITS : BIT_UNITS) : options.binary ? BIBYTE_UNITS : BYTE_UNITS;
 
   if (options.signed && number === 0) {
@@ -45,7 +43,7 @@ function prettyBytes(number, options) {
   }
 
   const isNegative = number < 0;
-  // eslint-disable-next-line no-nested-ternary
+
   const prefix = isNegative ? "-" : options.signed ? "+" : "";
 
   if (isNegative) {

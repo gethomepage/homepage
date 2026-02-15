@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { Cookie, CookieJar } from "tough-cookie";
 
 const cookieJar = new CookieJar();

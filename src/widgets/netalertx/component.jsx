@@ -9,7 +9,9 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: netalertxData, error: netalertxError } = useWidgetAPI(widget, "data");
+  const dataEndpoint = widget?.version > 1 ? "datav2" : "data";
+
+  const { data: netalertxData, error: netalertxError } = useWidgetAPI(widget, dataEndpoint);
 
   if (netalertxError) {
     return <Container service={service} error={netalertxError} />;

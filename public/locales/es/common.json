@@ -107,6 +107,16 @@
         "episodes": "Episodios",
         "songs": "Canciones"
     },
+    "jellyfin": {
+        "playing": "Reproduciendo",
+        "transcoding": "Convirtiendo",
+        "bitrate": "Tasa de Bits",
+        "no_active": "No hay Streams activos",
+        "movies": "Películas",
+        "series": "Series",
+        "episodes": "Episodios",
+        "songs": "Canciones"
+    },
     "esphome": {
         "offline": "Fuera de línea",
         "offline_alt": "Fuera de línea",
@@ -532,7 +542,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Activo",
         "pending": "Pendiente",
-        "down": "Inactivo"
+        "down": "Inactivo",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Nuevo",
@@ -601,12 +612,12 @@
     },
     "pangolin": {
         "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "sites": "Sitios",
+        "resources": "Recursos",
+        "targets": "Destinos",
+        "traffic": "Tráfico",
+        "in": "Entrante",
+        "out": "Saliente"
     },
     "peanut": {
         "battery_charge": "Carga de la batería",
@@ -704,6 +715,10 @@
         "uptime": "Tiempo activo",
         "volumeAvailable": "Disponible"
     },
+    "dispatcharr": {
+        "channels": "Canales",
+        "streams": "Transmisiones"
+    },
     "mylar": {
         "series": "Series",
         "issues": "Números",
@@ -769,7 +784,7 @@
         "gross_percent_today": "Hoy",
         "gross_percent_1y": "Un año",
         "gross_percent_max": "Todo el tiempo",
-        "net_worth": "Net Worth"
+        "net_worth": "Patrimonio neto"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
@@ -791,6 +806,12 @@
         "authors": "Autores",
         "categories": "Categorías",
         "series": "Series"
+    },
+    "booklore": {
+        "libraries": "Librerías",
+        "books": "Libros",
+        "reading": "Lectura",
+        "finished": "Finalizado"
     },
     "jdownloader": {
         "downloadCount": "En cola",
@@ -1129,5 +1150,26 @@
         "songs": "Canciones",
         "time": "Tiempo",
         "artists": "Artistas"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Activo",
+        "stopped": "Detenido",
+        "cpu": "CPU",
+        "memory": "Memoria",
+        "images": "Imágenes",
+        "volumes": "Volumen",
+        "events_today": "Eventos de hoy",
+        "pending_updates": "Actualizaciones pendientes",
+        "stacks": "Entornos",
+        "paused": "En Pausa",
+        "total": "Total",
+        "environment_not_found": "Entorno no encontrado"
     }
 }

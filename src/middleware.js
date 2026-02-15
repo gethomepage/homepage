@@ -10,7 +10,6 @@ export function middleware(req) {
     allowedHosts = allowedHosts.concat(process.env.HOMEPAGE_ALLOWED_HOSTS.split(","));
   }
   if (!allowAll && (!host || !allowedHosts.includes(host))) {
-    // eslint-disable-next-line no-console
     console.error(
       `Host validation failed for: ${host}. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.`,
     );

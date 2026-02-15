@@ -85,6 +85,9 @@ export default async function fritzboxProxyHandler(req, res) {
     requestExternalIPv6Prefix ? requestEndpoint(apiBaseUrl, "WANIPConnection", "X_AVM_DE_GetIPv6Prefix") : null,
   ])
     .then(([statusInfo, linkProperties, addonInfos, externalIPAddress, externalIPv6Address, externalIPv6Prefix]) => {
+      const ipv6Prefix = externalIPv6Prefix?.NewIPv6Prefix;
+      const ipv6Len = externalIPv6Prefix?.NewPrefixLength;
+
       res.status(200).json({
         connectionStatus: statusInfo?.NewConnectionStatus || "Unconfigured",
         uptime: statusInfo?.NewUptime || 0,
@@ -96,7 +99,7 @@ export default async function fritzboxProxyHandler(req, res) {
         sent: addonInfos?.NewX_AVM_DE_TotalBytesSent64 || 0,
         externalIPAddress: externalIPAddress?.NewExternalIPAddress || null,
         externalIPv6Address: externalIPv6Address?.NewExternalIPv6Address || null,
-        externalIPv6Prefix: externalIPv6Prefix?.NewIPv6Prefix || null,
+        externalIPv6Prefix: ipv6Prefix && ipv6Len != null ? `${ipv6Prefix}/${ipv6Len}` : (ipv6Prefix ?? null),
       });
     })
     .catch((error) => {

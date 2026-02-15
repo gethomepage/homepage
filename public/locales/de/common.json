@@ -45,9 +45,9 @@
         "free": "Frei",
         "used": "In Benutzung",
         "load": "Last",
-        "temp": "TEMP",
+        "temp": "Temp",
         "max": "Max",
-        "uptime": "BETRIEBSZEIT"
+        "uptime": "Betriebszeit"
     },
     "unifi": {
         "users": "Benutzer",
@@ -100,6 +100,16 @@
     "emby": {
         "playing": "Wiedergabe",
         "transcoding": "Transcodiert",
+        "bitrate": "Bitrate",
+        "no_active": "Keine aktiven Streams",
+        "movies": "Filme",
+        "series": "Serien",
+        "episodes": "Episoden",
+        "songs": "Songs"
+    },
+    "jellyfin": {
+        "playing": "Playing",
+        "transcoding": "Transkodierung",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
         "movies": "Filme",
@@ -532,7 +542,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Online",
         "pending": "Wartend",
-        "down": "Offline"
+        "down": "Offline",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Neu",
@@ -602,8 +613,8 @@
     "pangolin": {
         "orgs": "Orgs",
         "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
+        "resources": "Ressourcen",
+        "targets": "Ziele",
         "traffic": "Traffic",
         "in": "In",
         "out": "Out"
@@ -704,6 +715,10 @@
         "uptime": "Betriebszeit",
         "volumeAvailable": "Verfügbar"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Streams"
+    },
     "mylar": {
         "series": "Serien",
         "issues": "Probleme",
@@ -791,6 +806,12 @@
         "authors": "Autoren",
         "categories": "Kategorien",
         "series": "Serien"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Bücher",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Warteschlange",
@@ -1129,5 +1150,26 @@
         "songs": "Titel",
         "time": "Zeit",
         "artists": "Künstler"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Heutige Ereignisse",
+        "pending_updates": "Ausstehende Updates",
+        "stacks": "Stacks",
+        "paused": "Pausiert",
+        "total": "Total",
+        "environment_not_found": "Umgebung nicht gefunden"
     }
 }
