@@ -228,11 +228,21 @@ export async function servicesFromKubernetes() {
 }
 
 export function cleanServiceGroups(groups) {
+  function safeParseBool(value, field, serviceName) {
+    if (typeof value === "boolean") return value;
+    try {
+      return !!JSON.parse(value);
+    } catch (e) {
+      logger.error("Invalid %s value detected in config for service '%s'", field, serviceName);
+      return false;
+    }
+  }
+
   return groups.map((serviceGroup) => ({
     name: serviceGroup.name,
     services: serviceGroup.services.map((service) => {
       const cleanedService = { ...service };
-      if (cleanedService.showStats !== undefined) cleanedService.showStats = JSON.parse(cleanedService.showStats);
+      if (cleanedService.showStats !== undefined) cleanedService.showStats = safeParseBool(cleanedService.showStats, "showStats", service.name);
       if (typeof service.weight === "string") {
         const weight = parseInt(service.weight, 10);
         if (Number.isNaN(weight)) {
@@ -503,7 +513,7 @@ export function cleanServiceGroups(groups) {
           if (site) widget.site = site;
         }
         if (type === "portainer") {
-          if (kubernetes) widget.kubernetes = !!JSON.parse(kubernetes);
+          if (kubernetes) widget.kubernetes = safeParseBool(kubernetes, "kubernetes", service.name);
         }
         if (type === "proxmox") {
           if (node) widget.node = node;
@@ -512,8 +522,8 @@ export function cleanServiceGroups(groups) {
           if (datastore) widget.datastore = datastore;
         }
         if (type === "komodo") {
-          if (showSummary !== undefined) widget.showSummary = !!JSON.parse(showSummary);
-          if (showStacks !== undefined) widget.showStacks = !!JSON.parse(showStacks);
+          if (showSummary !== undefined) widget.showSummary = safeParseBool(showSummary, "showSummary", service.name);
+          if (showStacks !== undefined) widget.showStacks = safeParseBool(showStacks, "showStacks", service.name);
         }
         if (type === "kubernetes") {
           if (namespace) widget.namespace = namespace;
@@ -531,38 +541,38 @@ export function cleanServiceGroups(groups) {
           if (refreshInterval) widget.refreshInterval = refreshInterval;
         }
         if (["deluge", "qbittorrent"].includes(type)) {
-          if (enableLeechProgress !== undefined) widget.enableLeechProgress = JSON.parse(enableLeechProgress);
-          if (enableLeechSize !== undefined) widget.enableLeechSize = JSON.parse(enableLeechSize);
+          if (enableLeechProgress !== undefined) widget.enableLeechProgress = safeParseBool(enableLeechProgress, "enableLeechProgress", service.name);
+          if (enableLeechSize !== undefined) widget.enableLeechSize = safeParseBool(enableLeechSize, "enableLeechSize", service.name);
         }
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) widget.wan = wan;
         }
         if (["emby", "jellyfin"].includes(type)) {
-          if (enableMediaControl !== undefined) widget.enableMediaControl = !!JSON.parse(enableMediaControl);
-          if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
-          if (enableNowPlaying !== undefined) widget.enableNowPlaying = JSON.parse(enableNowPlaying);
+          if (enableMediaControl !== undefined) widget.enableMediaControl = safeParseBool(enableMediaControl, "enableMediaControl", service.name);
+          if (enableBlocks !== undefined) widget.enableBlocks = safeParseBool(enableBlocks, "enableBlocks", service.name);
+          if (enableNowPlaying !== undefined) widget.enableNowPlaying = safeParseBool(enableNowPlaying, "enableNowPlaying", service.name);
         }
         if (["emby", "jellyfin", "tautulli", "tracearr"].includes(type)) {
           if (expandOneStreamToTwoRows !== undefined)
-            widget.expandOneStreamToTwoRows = !!JSON.parse(expandOneStreamToTwoRows);
-          if (showEpisodeNumber !== undefined) widget.showEpisodeNumber = !!JSON.parse(showEpisodeNumber);
-          if (enableUser !== undefined) widget.enableUser = !!JSON.parse(enableUser);
+            widget.expandOneStreamToTwoRows = safeParseBool(expandOneStreamToTwoRows, "expandOneStreamToTwoRows", service.name);
+          if (showEpisodeNumber !== undefined) widget.showEpisodeNumber = safeParseBool(showEpisodeNumber, "showEpisodeNumber", service.name);
+          if (enableUser !== undefined) widget.enableUser = safeParseBool(enableUser, "enableUser", service.name);
         }
         if (type === "tracearr") {
           if (view !== undefined) widget.view = view;
         }
         if (["sonarr", "radarr"].includes(type)) {
-          if (enableQueue !== undefined) widget.enableQueue = JSON.parse(enableQueue);
+          if (enableQueue !== undefined) widget.enableQueue = safeParseBool(enableQueue, "enableQueue", service.name);
         }
         if (type === "truenas") {
-          if (enablePools !== undefined) widget.enablePools = JSON.parse(enablePools);
+          if (enablePools !== undefined) widget.enablePools = safeParseBool(enablePools, "enablePools", service.name);
           if (nasType !== undefined) widget.nasType = nasType;
         }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) widget.volume = volume;
         }
         if (["dispatcharr"].includes(type)) {
-          if (enableActiveStreams) widget.enableActiveStreams = !!JSON.parse(enableActiveStreams);
+          if (enableActiveStreams) widget.enableActiveStreams = safeParseBool(enableActiveStreams, "enableActiveStreams", service.name);
         }
         if (type === "gamedig") {
           if (gameToken) widget.gameToken = gameToken;
