@@ -3,13 +3,13 @@ import Container from "components/services/widget/container";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-export const jellyseerrDefaultFields = ["pending", "approved", "completed"];
+export const seerrDefaultFields = ["pending", "approved", "completed"];
 const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service }) {
   const { widget } = service;
 
-  widget.fields = widget?.fields?.length ? widget.fields.slice(0, MAX_ALLOWED_FIELDS) : jellyseerrDefaultFields;
+  widget.fields = widget?.fields?.length ? widget.fields.slice(0, MAX_ALLOWED_FIELDS) : seerrDefaultFields;
   const isIssueEnabled = widget.fields.includes("issues");
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "request/count");
@@ -21,11 +21,11 @@ export default function Component({ service }) {
   if (!statsData || (isIssueEnabled && !issueData)) {
     return (
       <Container service={service}>
-        <Block label="jellyseerr.pending" />
-        <Block label="jellyseerr.approved" />
-        <Block label="jellyseerr.available" />
-        <Block label="jellyseerr.completed" />
-        <Block label="jellyseerr.issues" />
+        <Block label="seerr.pending" />
+        <Block label="seerr.approved" />
+        <Block label="seerr.available" />
+        <Block label="seerr.completed" />
+        <Block label="seerr.issues" />
       </Container>
     );
   }
@@ -38,11 +38,11 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="jellyseerr.pending" value={statsData.pending} />
-      <Block label="jellyseerr.approved" value={statsData.approved} />
-      <Block label="jellyseerr.available" value={statsData.available} />
-      <Block label="jellyseerr.completed" value={statsData.completed} />
-      <Block label="jellyseerr.issues" value={`${issueData?.open} / ${issueData?.total}`} />
+      <Block label="seerr.pending" value={statsData.pending} />
+      <Block label="seerr.approved" value={statsData.approved} />
+      <Block label="seerr.available" value={statsData.available} />
+      <Block label="seerr.completed" value={statsData.completed} />
+      <Block label="seerr.issues" value={`${issueData?.open} / ${issueData?.total}`} />
     </Container>
   );
 }

@@ -8,9 +8,9 @@ import { renderWithProviders } from "test-utils/render-with-providers";
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
-import Component, { jellyseerrDefaultFields } from "./component";
+import Component, { seerrDefaultFields } from "./component";
 
-describe("widgets/jellyseerr/component", () => {
+describe("widgets/seerr/component", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -20,31 +20,49 @@ describe("widgets/jellyseerr/component", () => {
       .mockReturnValueOnce({ data: undefined, error: undefined }) // request/count
       .mockReturnValueOnce({ data: undefined, error: undefined }); // issue/count disabled (endpoint = "")
 
-    const service = { widget: { type: "jellyseerr", url: "http://x" } };
+    const service = { widget: { type: "seerr", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(jellyseerrDefaultFields);
+    expect(service.widget.fields).toEqual(seerrDefaultFields);
     expect(useWidgetAPI.mock.calls[1][1]).toBe("");
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
-    expect(screen.getByText("jellyseerr.pending")).toBeInTheDocument();
-    expect(screen.getByText("jellyseerr.approved")).toBeInTheDocument();
-    expect(screen.getByText("jellyseerr.available")).toBeInTheDocument();
-    expect(screen.queryByText("jellyseerr.issues")).toBeNull();
+    expect(screen.getByText("seerr.pending")).toBeInTheDocument();
+    expect(screen.getByText("seerr.approved")).toBeInTheDocument();
+    expect(screen.getByText("seerr.completed")).toBeInTheDocument();
+    expect(screen.queryByText("seerr.available")).toBeNull();
+    expect(screen.queryByText("seerr.issues")).toBeNull();
   });
 
   it("renders issues when enabled (and calls the issue/count endpoint)", () => {
     useWidgetAPI
-      .mockReturnValueOnce({ data: { pending: 1, approved: 2, available: 3 }, error: undefined })
+      .mockReturnValueOnce({ data: { pending: 1, approved: 2, available: 3, completed: 4 }, error: undefined })
       .mockReturnValueOnce({ data: { open: 1, total: 2 }, error: undefined });
 
     const service = {
-      widget: { type: "jellyseerr", url: "http://x", fields: ["pending", "approved", "available", "issues"] },
+      widget: { type: "seerr", url: "http://x", fields: ["pending", "approved", "completed", "issues"] },
     };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
     expect(useWidgetAPI.mock.calls[1][1]).toBe("issue/count");
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("1 / 2")).toBeInTheDocument();
+    expect(screen.getByText("4")).toBeInTheDocument();
+  });
+
+  it("falls back from completed to available on older Seerr responses", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({ data: { pending: 1, approved: 2, available: 3 }, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
+
+    const service = {
+      widget: { type: "seerr", url: "http://x", fields: ["pending", "approved", "completed"] },
+    };
+
+    renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(service.widget.fields).toEqual(["pending", "approved", "available"]);
+    expect(screen.getByText("3")).toBeInTheDocument();
+    expect(screen.queryByText("seerr.completed")).toBeNull();
   });
 
   it("renders error UI when issues are enabled and issue/count errors", () => {
@@ -52,10 +70,9 @@ describe("widgets/jellyseerr/component", () => {
       .mockReturnValueOnce({ data: { pending: 0, approved: 0, available: 0 }, error: undefined })
       .mockReturnValueOnce({ data: undefined, error: { message: "nope" } });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "jellyseerr", url: "http://x", fields: ["issues"] } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "seerr", url: "http://x", fields: ["issues"] } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expect(screen.getAllByText(/widget\.api_error/i).length).toBeGreaterThan(0);
     expect(screen.getByText("nope")).toBeInTheDocument();

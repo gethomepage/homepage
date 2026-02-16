@@ -67,7 +67,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Jackett](jackett.md)
 - [JDownloader](jdownloader.md)
 - [Jellyfin](jellyfin.md)
-- [Jellyseerr](jellyseerr.md)
+- [Seerr](seerr.md)
 - [Jellystat](jellystat.md)
 - [Kavita](kavita.md)
 - [Komga](komga.md)

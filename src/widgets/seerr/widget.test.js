@@ -4,7 +4,7 @@ import { expectWidgetConfigShape } from "test-utils/widget-config";
 
 import widget from "./widget";
 
-describe("jellyseerr widget config", () => {
+describe("seerr widget config", () => {
   it("exports a valid widget config", () => {
     expectWidgetConfigShape(widget);
   });

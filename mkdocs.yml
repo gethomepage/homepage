@@ -91,7 +91,6 @@ nav:
           - widgets/services/jackett.md
           - widgets/services/jdownloader.md
           - widgets/services/jellyfin.md
-          - widgets/services/jellyseerr.md
           - widgets/services/jellystat.md
           - widgets/services/kavita.md
           - widgets/services/komga.md
@@ -151,6 +150,7 @@ nav:
           - widgets/services/rutorrent.md
           - widgets/services/sabnzbd.md
           - widgets/services/scrutiny.md
+          - widgets/services/seerr.md
           - widgets/services/slskd.md
           - widgets/services/sonarr.md
           - widgets/services/speedtest-tracker.md
