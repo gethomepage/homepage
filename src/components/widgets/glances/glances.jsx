@@ -11,7 +11,7 @@ import Resource from "../widget/resource";
 import Resources from "../widget/resources";
 import WidgetLabel from "../widget/widget_label";
 
-const cpuSensorLabels = ["cpu_thermal", "Core", "Tctl"];
+const cpuSensorLabels = ["cpu_thermal", "Core", "Tctl", "Temperature"];
 
 function convertToFahrenheit(t) {
   return (t * 9) / 5 + 32;
