@@ -124,7 +124,6 @@ nav:
           - widgets/services/openmediavault.md
           - widgets/services/opnsense.md
           - widgets/services/openwrt.md
-          - widgets/services/overseerr.md
           - widgets/services/pangolin.md
           - widgets/services/paperlessngx.md
           - widgets/services/peanut.md

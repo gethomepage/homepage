@@ -294,13 +294,8 @@
         "approved": "Approved",
         "available": "Available",
         "completed": "Completed",
-        "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
         "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Total",

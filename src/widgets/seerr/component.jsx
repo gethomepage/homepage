@@ -8,7 +8,6 @@ const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service }) {
   const { widget } = service;
-
   widget.fields = widget?.fields?.length ? widget.fields.slice(0, MAX_ALLOWED_FIELDS) : seerrDefaultFields;
   const isIssueEnabled = widget.fields.includes("issues");
 
@@ -21,11 +20,12 @@ export default function Component({ service }) {
   if (!statsData || (isIssueEnabled && !issueData)) {
     return (
       <Container service={service}>
-        <Block label="seerr.pending" />
-        <Block label="seerr.approved" />
-        <Block label="seerr.available" />
-        <Block label="seerr.completed" />
-        <Block label="seerr.issues" />
+        <Block field="seerr.pending" label="seerr.pending" />
+        <Block field="seerr.approved" label="seerr.approved" />
+        <Block field="seerr.available" label="seerr.available" />
+        <Block field="seerr.completed" label="seerr.completed" />
+        <Block field="seerr.processing" label="seerr.processing" />
+        <Block field="seerr.issues" label="seerr.issues" />
       </Container>
     );
   }
@@ -38,11 +38,12 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="seerr.pending" value={statsData.pending} />
-      <Block label="seerr.approved" value={statsData.approved} />
-      <Block label="seerr.available" value={statsData.available} />
-      <Block label="seerr.completed" value={statsData.completed} />
-      <Block label="seerr.issues" value={`${issueData?.open} / ${issueData?.total}`} />
+      <Block field="seerr.pending" label="seerr.pending" value={statsData.pending} />
+      <Block field="seerr.approved" label="seerr.approved" value={statsData.approved} />
+      <Block field="seerr.available" label="seerr.available" value={statsData.available} />
+      <Block field="seerr.completed" label="seerr.completed" value={statsData.completed} />
+      <Block field="seerr.processing" label="seerr.processing" value={statsData.processing} />
+      <Block field="seerr.issues" label="seerr.issues" value={`${issueData?.open} / ${issueData?.total}`} />
     </Container>
   );
 }

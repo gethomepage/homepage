@@ -101,7 +101,6 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [OpenMediaVault](openmediavault.md)
 - [OpenWRT](openwrt.md)
 - [OPNsense](opnsense.md)
-- [Overseerr](overseerr.md)
 - [PaperlessNGX](paperlessngx.md)
 - [Peanut](peanut.md)
 - [pfSense](pfsense.md)
