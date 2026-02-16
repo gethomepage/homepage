@@ -6,7 +6,7 @@ export function formatApiCall(url, args) {
     if (key === "url") {
       value = value.replace(/\/+$/, ""); // remove trailing slashes
     }
-    return value || "";
+    return value?.toString() || "";
   };
 
   return url.replace(find, replace).replace(find, replace);

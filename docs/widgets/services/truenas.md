@@ -5,6 +5,11 @@ description: TrueNas Scale Widget Configuration
 
 Learn more about [TrueNas](https://www.truenas.com/).
 
+| TrueNAS Version         | Homepage widget version |
+| ----------------------- | ----------------------- |
+| < 26.04 (REST API)      | 1 (default)             |
+| > 25.04 (Websocket API) | 2                       |
+
 Allowed fields: `["load", "uptime", "alerts"]`.
 
 To create an API Key, follow [the official TrueNAS documentation](https://www.truenas.com/docs/scale/scaletutorials/toptoolbar/managingapikeys/).
@@ -17,6 +22,7 @@ To use the `enablePools` option with TrueNAS Core, the `nasType` parameter is re
 widget:
   type: truenas
   url: http://truenas.host.or.ip
+  version: 2 # optional, defaults to 1
   username: user # not required if using api key
   password: pass # not required if using api key
   key: yourtruenasapikey # not required if using username / password

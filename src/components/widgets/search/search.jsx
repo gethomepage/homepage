@@ -82,12 +82,10 @@ export function getStoredProvider() {
 export default function Search({ options }) {
   const { t } = useTranslation();
 
-  const availableProviderIds = getAvailableProviderIds(options);
+  const availableProviderIds = getAvailableProviderIds(options) ?? [];
 
   const [query, setQuery] = useState("");
-  const [selectedProvider, setSelectedProvider] = useState(
-    searchProviders[availableProviderIds[0] ?? searchProviders.google],
-  );
+  const [selectedProvider, setSelectedProvider] = useState(searchProviders[availableProviderIds[0] ?? "google"]);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
   useEffect(() => {
@@ -153,7 +151,7 @@ export default function Search({ options }) {
     }
   };
 
-  if (!availableProviderIds) {
+  if (!availableProviderIds.length) {
     return null;
   }
 

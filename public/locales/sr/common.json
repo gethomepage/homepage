@@ -107,6 +107,16 @@
         "episodes": "Епизоде",
         "songs": "Песме"
     },
+    "jellyfin": {
+        "playing": "Playing",
+        "transcoding": "Transcoding",
+        "bitrate": "Bitrate",
+        "no_active": "No Active Streams",
+        "movies": "Movies",
+        "series": "Series",
+        "episodes": "Episodes",
+        "songs": "Songs"
+    },
     "esphome": {
         "offline": "Није на мрежи",
         "offline_alt": "Није на мрежи",
@@ -532,7 +542,8 @@
         "child_bridges_status": "{{ok}}/{{total}}",
         "up": "Горе",
         "pending": "На чекању",
-        "down": "Доле"
+        "down": "Доле",
+        "ok": "Ok"
     },
     "healthchecks": {
         "new": "Сада",
@@ -600,13 +611,13 @@
         "total": "Укупно"
     },
     "pangolin": {
-        "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "orgs": "Организације",
+        "sites": "Сајтови",
+        "resources": "Ресурси",
+        "targets": "Циљеви",
+        "traffic": "Саобраћај",
+        "in": "Улазак",
+        "out": "Излазак"
     },
     "peanut": {
         "battery_charge": "Напуњеност батерије",
@@ -704,6 +715,10 @@
         "uptime": "Време рада",
         "volumeAvailable": "Доступно"
     },
+    "dispatcharr": {
+        "channels": "Channels",
+        "streams": "Streams"
+    },
     "mylar": {
         "series": "Серије",
         "issues": "Издања",
@@ -791,6 +806,12 @@
         "authors": "Аутори",
         "categories": "Категорије",
         "series": "Серије"
+    },
+    "booklore": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
     },
     "jdownloader": {
         "downloadCount": "Ред",
@@ -1129,5 +1150,26 @@
         "songs": "Песме",
         "time": "Време",
         "artists": "Извођачи"
+    },
+    "arcane": {
+        "containers": "Containers",
+        "images": "Images",
+        "image_updates": "Image Updates",
+        "images_unused": "Unused",
+        "environment_required": "Environment ID Required"
+    },
+    "dockhand": {
+        "running": "Running",
+        "stopped": "Stopped",
+        "cpu": "CPU",
+        "memory": "Memory",
+        "images": "Images",
+        "volumes": "Volumes",
+        "events_today": "Events Today",
+        "pending_updates": "Pending Updates",
+        "stacks": "Stacks",
+        "paused": "Paused",
+        "total": "Total",
+        "environment_not_found": "Environment Not Found"
     }
 }

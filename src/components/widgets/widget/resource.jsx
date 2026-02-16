@@ -24,12 +24,12 @@ export default function Resource({
           wide ? " min-w-[120px]" : "min-w-[85px]"
         }`}
       >
-        <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+        <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between gap-2">
           <div className="pl-0.5">{value}</div>
           <div className="pr-1">{label}</div>
         </div>
         {expanded && (
-          <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between">
+          <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between gap-2">
             <div className="pl-0.5">{expandedValue}</div>
             <div className="pr-1">{expandedLabel}</div>
           </div>

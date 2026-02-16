@@ -24,7 +24,6 @@ export default async function xteveProxyHandler(req, res) {
   const payload = { cmd: "status" };
 
   if (widget.username && widget.password) {
-    // eslint-disable-next-line no-unused-vars
     const [status, contentType, data] = await httpProxy(url, {
       method,
       body: JSON.stringify({

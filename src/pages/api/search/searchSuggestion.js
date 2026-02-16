@@ -9,6 +9,10 @@ export default async function handler(req, res) {
 
   const provider = Object.values(searchProviders).find(({ name }) => name === providerName);
 
+  if (!provider) {
+    return res.json([query, []]);
+  }
+
   if (provider.name === "Custom") {
     const widgets = await widgetsFromConfig();
     const searchWidget = widgets.find((w) => w.type === "search");

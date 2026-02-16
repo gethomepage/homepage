@@ -123,6 +123,58 @@ blockHighlights:
 
 Any unspecified level falls back to the built-in defaults.
 
+## Progressive Web App (PWA)
+
+A progressive web app is an app that can be installed on a device and provide user experience like a native app. Homepage comes with built-in support for PWA with some default configurations, but you can customize them.
+
+More information on PWAs can be found in [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
+
+## App icons
+
+You can set custom icons for installable apps. More information about how you can set them can be found in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/icons).
+
+The default value is the Homepage icon in sizes 192x192 and 512x512.
+
+```yaml
+pwa:
+  icons:
+    - src: https://developer.mozilla.org/favicon-192x192.png
+      type: image/png
+      sizes: 192x192
+    - src: https://developer.mozilla.org/favicon-512x512.png
+      type: image/png
+      sizes: 512x512
+```
+
+For icon `src` you can pass either full URL or a local path relative to the `/app/public` directory. See [Background Image](#background-image) for more detailed information on how to provide your own files.
+
+### Shortcuts
+
+Shortcuts can e used to specify links to tabs, to be preselected when the homepage is opened as an app.
+More information about how you can set them can be found in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/shortcuts).
+
+```yaml
+pwa:
+  shortcuts:
+    - name: First
+      url: "/#first" # opens the first tab
+    - name: Second
+      url: "/#second" # opens the second tab
+    - name: Third
+      url: "/#third" # opens the third tab
+```
+
+### Other PWA configurations
+
+Homepage sets few other PWA configurations, that are based on global settings in `settings.yaml`:
+
+- `name`, `short_name` - Both equal to the [`title`](#title) setting.
+- `theme_color`, `background_color` - Both based on the [`color`](#color-palette) and [`theme`](#theme) settings.
+- `display` - It is always set to "standalone".
+- `start_url` - Equal to the [`startUrl`](#start-url) setting.
+
+More information for wach of the PWA configurations can be found in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference).
+
 ## Layout
 
 You can configure service and bookmarks sections to be either "column" or "row" based layouts, like so:

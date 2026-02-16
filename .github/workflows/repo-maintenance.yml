@@ -32,7 +32,7 @@ jobs:
     name: 'Lock Old Threads'
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@v5
+      - uses: dessant/lock-threads@v6
         with:
           issue-inactive-days: '30'
           pr-inactive-days: '30'

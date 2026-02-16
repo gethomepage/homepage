@@ -7,6 +7,7 @@ const widget = {
   mappings: {
     status: {
       endpoint: "statusServer",
+      map: { ngEndpoint: "status_server" },
     },
   },
 };

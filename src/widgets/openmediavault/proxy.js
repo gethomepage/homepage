@@ -125,7 +125,7 @@ export default async function proxyHandler(req, res) {
     if (success) {
       addCookieToJar(url, lResp.headers);
     } else {
-      res.status(lResp.status).json({ error: { message: `HTTP Error ${lResp.status}`, url, data: lResp.data } });
+      return res.status(lResp.status).json({ error: { message: `HTTP Error ${lResp.status}`, url, data: lResp.data } });
     }
 
     logger.debug("Retrying OpenMediaVault request after login.");

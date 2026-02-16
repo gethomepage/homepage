@@ -16,6 +16,8 @@
 <p align="center">
   <a href="https://github.com/gethomepage/homepage/actions/workflows/docker-publish.yml"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/gethomepage/homepage/docker-publish.yml"></a>
   &nbsp;
+  <a href="https://codecov.io/gh/gethomepage/homepage"><img src="https://codecov.io/gh/gethomepage/homepage/graph/badge.svg?token=7SKFL4D9K7"/></a>
+  &nbsp;
   <a href="https://crowdin.com/project/gethomepage" target="_blank"><img src="https://badges.crowdin.net/gethomepage/localized.svg"></a>
   &nbsp;
   <a href="https://discord.gg/k4ruYNrudu"><img alt="Discord" src="https://img.shields.io/discord/1019316731635834932"></a>
@@ -68,7 +70,7 @@ For configuration options, examples and more, [please check out the homepage doc
 
 ## Security Notice 🔒
 
-Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. Thus, we recommend homepage be deployed behind a reverse proxy including authentication, SSL etc, and / or behind a VPN.
+Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. If Homepage is reachable from any untrusted network, it **must** sit behind a reverse proxy (and/or VPN) that enforces authentication, TLS, and strictly validates Host headers. The built-in host check in Homepage is a best-effort guard and should not be treated as security when exposed publicly.
 
 ## With Docker
 
@@ -154,16 +156,16 @@ This is a [Next.js](https://nextjs.org/) application, see their documentation fo
 
 The homepage documentation is available at [https://gethomepage.dev/](https://gethomepage.dev/).
 
-Homepage uses Material for MkDocs for documentation. To run the documentation locally, first install the dependencies:
+Homepage uses Zensical for documentation. To run the documentation locally, first install the dependencies:
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 Then run the development server:
 
 ```bash
-mkdocs serve # or build, to build the static site
+uv run zensical serve # or build, to build the static site
 ```
 
 # Support & Suggestions

@@ -8,8 +8,7 @@ export default function Widget({ widget, service }) {
 
   const ServiceWidget = components[widget.type];
 
-  const fullService = Object.apply({}, service);
-  fullService.widget = widget;
+  const fullService = { ...service, widget };
   if (ServiceWidget) {
     return (
       <ErrorBoundary>

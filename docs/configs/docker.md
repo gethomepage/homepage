@@ -189,6 +189,8 @@ labels: ...
   - homepage.widgets[1].slug=youreventslughere
 ```
 
+To pass custom HTTP headers with a widget request when using labels, use the same dot-notation: `homepage.widget.headers.X-Auth-Key=secret` (or `homepage.widgets[0].headers.X-Auth-Key=secret` when multiple widgets are present).
+
 You can add specify fields for e.g. the [CustomAPI](../widgets/services/customapi.md) widget by using array-style dot notation:
 
 ```yaml

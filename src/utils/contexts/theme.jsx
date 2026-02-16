@@ -19,7 +19,7 @@ const getInitialTheme = () => {
 export const ThemeContext = createContext();
 
 export function ThemeProvider({ initialTheme, children }) {
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState(() => initialTheme ?? getInitialTheme());
 
   const rawSetTheme = (rawTheme) => {
     const root = window.document.documentElement;
@@ -31,9 +31,10 @@ export function ThemeProvider({ initialTheme, children }) {
     localStorage.setItem("theme-mode", rawTheme);
   };
 
-  if (initialTheme) {
-    rawSetTheme(initialTheme);
-  }
+  useEffect(() => {
+    if (initialTheme !== undefined) setTheme(initialTheme ?? getInitialTheme());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialTheme]);
 
   useEffect(() => {
     rawSetTheme(theme);

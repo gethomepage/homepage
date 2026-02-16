@@ -74,6 +74,21 @@ const toNumber = (value) => {
   return undefined;
 };
 
+const extractNumericToken = (value) => {
+  if (typeof value !== "string") return undefined;
+  const match = value.match(/[-+]?\d[\d\s.,]*/);
+  if (!match) return undefined;
+
+  const token = match[0].trim();
+  if (!token) return undefined;
+
+  const prefix = value.slice(0, match.index).trim();
+  const suffix = value.slice((match.index ?? 0) + match[0].length).trim();
+  if (/\d/.test(prefix) || /\d/.test(suffix)) return undefined;
+
+  return token;
+};
+
 const parseNumericValue = (value) => {
   if (value === null || value === undefined) return undefined;
   if (typeof value === "number" && Number.isFinite(value)) return value;
@@ -85,7 +100,9 @@ const parseNumericValue = (value) => {
     const direct = Number(trimmed);
     if (!Number.isNaN(direct)) return direct;
 
-    const compact = trimmed.replace(/\s+/g, "");
+    const candidate = extractNumericToken(trimmed);
+    const numericString = candidate ?? trimmed;
+    const compact = numericString.replace(/\s+/g, "");
     if (!compact || !/^[-+]?[0-9.,]+$/.test(compact)) return undefined;
 
     const commaCount = (compact.match(/,/g) || []).length;
