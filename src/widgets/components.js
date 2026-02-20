@@ -127,6 +127,7 @@ const components = {
   seerr: dynamic(() => import("./seerr/component")),
   slskd: dynamic(() => import("./slskd/component")),
   sonarr: dynamic(() => import("./sonarr/component")),
+  sparkyfitness: dynamic(() => import("./sparkyfitness/component")),
   speedtest: dynamic(() => import("./speedtest/component")),
   spoolman: dynamic(() => import("./spoolman/component")),
   stash: dynamic(() => import("./stash/component")),

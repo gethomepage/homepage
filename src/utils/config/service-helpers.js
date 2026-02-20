@@ -427,6 +427,10 @@ export function cleanServiceGroups(groups) {
           // yourspotify
           interval,
 
+          // sparkyfitness
+          key,
+          url,
+
           // technitium
           range,
 
@@ -683,6 +687,10 @@ export function cleanServiceGroups(groups) {
           if (interval !== undefined) {
             widget.interval = interval;
           }
+        }
+        if (type === "sparkyfitness") {
+          if (key) widget.key = key;
+          if (url) widget.url = url;
         }
         return widget;
       });
