@@ -27,22 +27,10 @@ const SparkyFitness = ({ service }) => {
 
   return (
     <Container service={service}>
-      <Block 
-        label={t("sparkyfitness.eaten", "Eaten")} 
-        value={t("common.number", { value: eaten })} 
-      />
-      <Block 
-        label={t("sparkyfitness.burned", "Burned")} 
-        value={t("common.number", { value: burned })} 
-      />
-      <Block 
-        label={t("sparkyfitness.remaining", "Remaining")} 
-        value={t("common.number", { value: remaining })} 
-      />
-      <Block 
-        label={t("sparkyfitness.steps", "Steps")} 
-        value={t("common.number", { value: steps })} 
-      />
+      <Block label={t("sparkyfitness.eaten", "Eaten")} value={t("common.number", { value: eaten })} />
+      <Block label={t("sparkyfitness.burned", "Burned")} value={t("common.number", { value: burned })} />
+      <Block label={t("sparkyfitness.remaining", "Remaining")} value={t("common.number", { value: remaining })} />
+      <Block label={t("sparkyfitness.steps", "Steps")} value={t("common.number", { value: steps })} />
     </Container>
   );
 };
