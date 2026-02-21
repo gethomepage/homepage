@@ -1,13 +1,12 @@
-import React from 'react';
-import { useTranslation } from "next-i18next";
-import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const SparkyFitness = ({ service }) => {
   const { t } = useTranslation();
   const { widget } = service;
-  const { data, error, isLoading } = useWidgetAPI(widget, 'stats');
+  const { data, error, isLoading } = useWidgetAPI(widget, "stats");
 
   if (error) {
     return <Container service={service} error={error} />;
