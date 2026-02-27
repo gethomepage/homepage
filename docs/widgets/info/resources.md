@@ -15,6 +15,15 @@ _Note: unfortunately, the package used for getting CPU temp ([systeminformation]
 
 **Any disk you wish to access must be mounted to your container as a volume.**
 
+**To monitor a named host network interface** (e.g. `network: enp6s18`), the host sysfs must be accessible inside the container. Add the following volume mount to your Docker Compose service:
+
+```yaml
+volumes:
+  - /sys/class/net:/sys/class/net:ro
+```
+
+Without this mount, the widget can only report statistics for the container's own network interfaces, not the host machine's physical NICs. Using `network: true` (which monitors the container's default interface) works without any additional mounts.
+
 ```yaml
 - resources:
     cpu: true

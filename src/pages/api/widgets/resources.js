@@ -59,17 +59,31 @@ export default async function handler(req, res) {
   }
 
   if (type === "network") {
-    let networkData = await si.networkStats("*");
+    let networkData;
     let interfaceDefault;
-    logger.debug("networkData:", JSON.stringify(networkData));
     if (interfaceName && interfaceName !== "default") {
-      networkData = networkData.filter((network) => network.iface === interfaceName).at(0);
+      // Call networkStats(interfaceName) directly instead of networkStats("*") + filter.
+      //
+      // When Homepage runs inside a Docker container, networkStats("*") enumerates
+      // interfaces via os.networkInterfaces(), which is network-namespace-aware and
+      // only returns the container's own interfaces (e.g. eth0, lo). This causes any
+      // named host NIC (e.g. enp6s18, eth0 on the host) to fail the filter and return
+      // a 404, even when /sys is correctly mounted.
+      //
+      // Calling networkStats(interfaceName) directly bypasses the enumeration step and
+      // reads statistics from /sys/class/net/<iface>/statistics/ via sysfs, which
+      // works correctly when /sys (or /sys/class/net) is bind-mounted from the host.
+      const result = await si.networkStats(interfaceName);
+      logger.debug("networkData:", JSON.stringify(result));
+      networkData = Array.isArray(result) && result.length > 0 ? result[0] : null;
       if (!networkData) {
         return res.status(404).json({
           error: "Interface not found",
         });
       }
     } else {
+      networkData = await si.networkStats("*");
+      logger.debug("networkData:", JSON.stringify(networkData));
       interfaceDefault = await si.networkInterfaceDefault();
       networkData = networkData.filter((network) => network.iface === interfaceDefault).at(0);
       if (!networkData) {

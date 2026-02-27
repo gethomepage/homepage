@@ -90,7 +90,8 @@ describe("pages/api/widgets/resources", () => {
   });
 
   it("returns 404 when requested network interface does not exist", async () => {
-    si.networkStats.mockResolvedValueOnce([{ iface: "en0" }]);
+    // networkStats(interfaceName) returns [] when the interface cannot be found
+    si.networkStats.mockResolvedValueOnce([]);
 
     const req = { query: { type: "network", interfaceName: "missing" } };
     const res = createMockRes();
@@ -99,6 +100,22 @@ describe("pages/api/widgets/resources", () => {
 
     expect(res.statusCode).toBe(404);
     expect(res.body).toEqual({ error: "Interface not found" });
+  });
+
+  it("returns network stats for a named host interface directly (Docker namespace fix)", async () => {
+    // networkStats(interfaceName) is called directly, bypassing os.networkInterfaces()
+    // enumeration which is network-namespace-aware and cannot see host NICs from a container.
+    si.networkStats.mockResolvedValueOnce([{ iface: "enp6s18", rx_bytes: 1000, tx_bytes: 500 }]);
+
+    const req = { query: { type: "network", interfaceName: "enp6s18" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(si.networkStats).toHaveBeenCalledWith("enp6s18");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.interface).toBe("enp6s18");
+    expect(res.body.network).toEqual({ iface: "enp6s18", rx_bytes: 1000, tx_bytes: 500 });
   });
 
   it("returns default interface network stats", async () => {
