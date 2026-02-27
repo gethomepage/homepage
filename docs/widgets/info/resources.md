@@ -7,13 +7,17 @@ You can include all or some of the available resources. If you do not want to se
 
 The disk path is the path reported by `df` (Mounted On), or the mount point of the disk.
 
+!!! note
+
+    Any disk you wish to access must be mounted to your container as a volume.
+
 The cpu and memory resource information are the container's usage while [glances](glances.md) displays statistics for the host machine on which it is installed.
 
 The resources widget primarily relies on a popular tool called [systeminformation](https://systeminformation.io). Thus, any limitiations of that software apply, for example, BRTFS RAID is not supported for the disk usage. In this case users may want to use the [glances widget](glances.md) instead.
 
-_Note: unfortunately, the package used for getting CPU temp ([systeminformation](https://systeminformation.io)) is not compatible with some setups and will not report any value(s) for CPU temp._
+!!! warning
 
-**Any disk you wish to access must be mounted to your container as a volume.**
+    The package used for getting CPU temp ([systeminformation](https://systeminformation.io)) is not compatible with some setups and will not report any value(s) for CPU temp.
 
 ```yaml
 - resources:
@@ -75,3 +79,10 @@ You can additionally supply an optional `expanded` property set to true in order
 ```
 
 ![194136533-c4238c82-4d67-41a4-b3c8-18bf26d33ac2](https://user-images.githubusercontent.com/3441425/194728642-a9885274-922b-4027-acf5-a746f58fdfce.png)
+
+To monitor a named host network interface in Docker (for example `network: eno1`), mount host `/sys` (read-only):
+
+```yaml
+volumes:
+  - /sys:/sys:ro
+```
