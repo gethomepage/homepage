@@ -90,15 +90,72 @@ describe("pages/api/widgets/resources", () => {
   });
 
   it("returns 404 when requested network interface does not exist", async () => {
-    si.networkStats.mockResolvedValueOnce([{ iface: "en0" }]);
+    si.networkStats.mockResolvedValueOnce([{ iface: "en0" }]).mockResolvedValueOnce([
+      {
+        iface: "missing",
+        operstate: "unknown",
+        rx_bytes: 0,
+        rx_dropped: 0,
+        rx_errors: 0,
+        tx_bytes: 0,
+        tx_dropped: 0,
+        tx_errors: 0,
+        rx_sec: null,
+        tx_sec: null,
+        ms: 0,
+      },
+    ]);
 
     const req = { query: { type: "network", interfaceName: "missing" } };
     const res = createMockRes();
 
     await handler(req, res);
 
+    expect(si.networkStats).toHaveBeenNthCalledWith(1, "*");
+    expect(si.networkStats).toHaveBeenNthCalledWith(2, "missing");
     expect(res.statusCode).toBe(404);
     expect(res.body).toEqual({ error: "Interface not found" });
+  });
+
+  it("falls back to direct named interface query when wildcard enumeration misses it", async () => {
+    si.networkStats.mockResolvedValueOnce([{ iface: "eth0", rx_bytes: 1 }]).mockResolvedValueOnce([
+      {
+        iface: "eno1",
+        operstate: "up",
+        rx_bytes: 1000,
+        rx_dropped: 0,
+        rx_errors: 0,
+        tx_bytes: 500,
+        tx_dropped: 0,
+        tx_errors: 0,
+        rx_sec: null,
+        tx_sec: null,
+        ms: 0,
+      },
+    ]);
+
+    const req = { query: { type: "network", interfaceName: "eno1" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(si.networkStats).toHaveBeenNthCalledWith(1, "*");
+    expect(si.networkStats).toHaveBeenNthCalledWith(2, "eno1");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.interface).toBe("eno1");
+    expect(res.body.network).toEqual({
+      iface: "eno1",
+      operstate: "up",
+      rx_bytes: 1000,
+      rx_dropped: 0,
+      rx_errors: 0,
+      tx_bytes: 500,
+      tx_dropped: 0,
+      tx_errors: 0,
+      rx_sec: null,
+      tx_sec: null,
+      ms: 0,
+    });
   });
 
   it("returns default interface network stats", async () => {
