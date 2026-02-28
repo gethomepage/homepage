@@ -151,7 +151,7 @@ describe("widgets/omada/proxy", () => {
     await omadaProxyHandler(req, res);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.error.message).toBe("Error logging in to Oamda controller");
+    expect(res.body.error.message).toBe("Error logging in to Omada controller");
     expect(res.body.error.url).toBe("http://omada/api/v2/login");
     expect(res.body.error.data).toEqual({ errorCode: 1, msg: "nope" });
   });
@@ -288,7 +288,7 @@ describe("widgets/omada/proxy", () => {
     expect(res.body.error.message).toBe("Error switching site");
   });
 
-  it("returns 500 with the raw payload when overview stats retrieval fails (v5)", async () => {
+  it("returns a structured error when overview stats retrieval fails (v5)", async () => {
     getServiceWidget.mockResolvedValue({ url: "http://omada", username: "u", password: "p", site: "Default" });
 
     httpProxy
@@ -316,6 +316,12 @@ describe("widgets/omada/proxy", () => {
     await omadaProxyHandler(req, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body).toBe(JSON.stringify({ errorCode: 1, msg: "bad" }));
+    expect(res.body).toEqual({
+      error: {
+        message: "Error getting stats",
+        url: "http://omada/cid/api/v2/sites/siteid/dashboard/overviewDiagram?token=t&currentPage=1&currentPageSize=1000",
+        data: { errorCode: 1, msg: "bad" },
+      },
+    });
   });
 });
