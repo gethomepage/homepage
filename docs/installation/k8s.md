@@ -223,13 +223,35 @@ spec:
         - name: homepage
           image: "ghcr.io/gethomepage/homepage:latest"
           imagePullPolicy: Always
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
+            # readOnlyRootFilesystem: true # Maximum security but throws a warning
           env:
+            - name: MY_POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+              value: "$(MY_POD_IP):3000,gethomepage.dev" # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+              # Do not remove the value before the comma, required for the k8s probe to work !
           ports:
             - name: http
               containerPort: 3000
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /api/healthcheck
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 15
           volumeMounts:
             - mountPath: /app/config/custom.js
               name: homepage-config
@@ -257,12 +279,18 @@ spec:
               subPath: widgets.yaml
             - mountPath: /app/config/logs
               name: logs
+            - mountPath: /app/config
+              name: config
       volumes:
         - name: homepage-config
           configMap:
             name: homepage
         - name: logs
-          emptyDir: {}
+          emptyDir:
+            {}
+        - name: config
+          emptyDir:
+            {}
 ```
 
 #### Ingress
