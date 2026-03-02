@@ -284,11 +284,7 @@ spec:
           configMap:
             name: homepage
         - name: logs
-          emptyDir:
-            {}
-        - name: config
-          emptyDir:
-            {}
+          emptyDir: {}
 ```
 
 #### Ingress
