@@ -6,6 +6,24 @@ const proxyName = "omadaProxyHandler";
 
 const logger = createLogger(proxyName);
 
+function parseOmadaJson(data, { step, status, contentType, url }) {
+  const body = Buffer.isBuffer(data) ? data.toString() : String(data ?? "");
+
+  try {
+    return JSON.parse(body);
+  } catch (error) {
+    logger.debug(
+      "Failed parsing Omada %s response as JSON (HTTP %d, content-type: %s, url: %s). Body: %s",
+      step,
+      status,
+      contentType ?? "unknown",
+      url,
+      body,
+    );
+    throw error;
+  }
+}
+
 async function login(loginUrl, username, password, controllerVersionMajor) {
   const params = {
     username,
@@ -28,7 +46,7 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
     },
   });
 
-  return [status, JSON.parse(data.toString())];
+  return [status, contentType, data];
 }
 
 export default async function omadaProxyHandler(req, res) {
@@ -86,12 +104,18 @@ export default async function omadaProxyHandler(req, res) {
           break;
       }
 
-      const [loginStatus, loginResponseData] = await login(
+      const [loginStatus, loginContentType, loginData] = await login(
         loginUrl,
         widget.username,
         widget.password,
         controllerVersionMajor,
       );
+      const loginResponseData = parseOmadaJson(loginData, {
+        step: "login",
+        status: loginStatus,
+        contentType: loginContentType,
+        url: loginUrl,
+      });
 
       if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
         return res
@@ -136,7 +160,12 @@ export default async function omadaProxyHandler(req, res) {
         headers,
       });
 
-      const sitesResponseData = JSON.parse(data);
+      const sitesResponseData = parseOmadaJson(data, {
+        step: "sites list",
+        status,
+        contentType,
+        url: sitesUrl,
+      });
 
       if (status !== 200 || sitesResponseData.errorCode > 0) {
         logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData.msg}`);
@@ -183,7 +212,12 @@ export default async function omadaProxyHandler(req, res) {
           headers,
         });
 
-        const switchResponseData = JSON.parse(data);
+        const switchResponseData = parseOmadaJson(data, {
+          step: "switch site",
+          status,
+          contentType,
+          url: switchUrl,
+        });
         if (status !== 200 || switchResponseData.errorCode > 0) {
           logger.error(`HTTP ${status} getting sites list: ${data}`);
           return res.status(status).json({ error: { message: "Error switching site", url: switchUrl, data } });
@@ -199,7 +233,12 @@ export default async function omadaProxyHandler(req, res) {
           headers,
         });
 
-        siteResponseData = JSON.parse(data);
+        siteResponseData = parseOmadaJson(data, {
+          step: "global stats",
+          status,
+          contentType,
+          url: statsUrl,
+        });
 
         if (status !== 200 || siteResponseData.errorCode > 0) {
           return res.status(status).json({ error: { message: "Error getting stats", url: statsUrl, data } });
@@ -221,7 +260,12 @@ export default async function omadaProxyHandler(req, res) {
           },
         });
 
-        siteResponseData = JSON.parse(data);
+        siteResponseData = parseOmadaJson(data, {
+          step: "overview stats",
+          status,
+          contentType,
+          url: siteStatsUrl,
+        });
 
         if (status !== 200 || siteResponseData.errorCode > 0) {
           logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${siteResponseData.msg}`);
@@ -244,7 +288,12 @@ export default async function omadaProxyHandler(req, res) {
             "Csrf-Token": token,
           },
         });
-        const alertResponseData = JSON.parse(data);
+        const alertResponseData = parseOmadaJson(data, {
+          step: "alerts",
+          status,
+          contentType,
+          url: alertUrl,
+        });
 
         activeUser = siteResponseData.result.totalClientNum;
         connectedAp = siteResponseData.result.connectedApNum;
