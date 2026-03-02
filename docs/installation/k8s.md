@@ -233,7 +233,6 @@ spec:
             runAsGroup: 1000
             seccompProfile:
               type: RuntimeDefault
-            # readOnlyRootFilesystem: true # Maximum security but throws a warning
           env:
             - name: MY_POD_IP
               valueFrom:
