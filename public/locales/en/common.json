@@ -1175,6 +1175,10 @@
         "total": "Total",
         "environment_not_found": "Environment Not Found"
     },
+    "docsight": {
+        "docsis_health": "Health",
+        "status": "Status"
+    },
     "sparkyfitness": {
         "eaten": "Eaten",
         "burned": "Burned",
