@@ -277,8 +277,6 @@ spec:
               subPath: widgets.yaml
             - mountPath: /app/config/logs
               name: logs
-            - mountPath: /app/config
-              name: config
       volumes:
         - name: homepage-config
           configMap:
