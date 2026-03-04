@@ -34,19 +34,38 @@ describe("widgets/qbittorrent/component", () => {
     expect(screen.getByText("qbittorrent.upload")).toBeInTheDocument();
   });
 
-  it("computes leech/seed counts and upload/download rates, and can render leech progress entries", () => {
-    useWidgetAPI.mockReturnValue({
-      data: [
-        { name: "A", dlspeed: 10, upspeed: 1, progress: 1, state: "uploading" },
-        { name: "B", dlspeed: 5, upspeed: 2, progress: 0.5, state: "downloading", eta: 60, size: 100, amount_left: 50 },
-      ],
-      error: undefined,
+  it("uses lightweight endpoints for counts/rates and filtered torrents for leech progress", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint, query) => {
+      if (endpoint === "transfer") {
+        return { data: { dl_info_speed: 15, up_info_speed: 3 }, error: undefined };
+      }
+      if (endpoint === "torrentCount" && !query) {
+        return { data: 2, error: undefined };
+      }
+      if (endpoint === "torrentCount" && query?.filter === "completed") {
+        return { data: 1, error: undefined };
+      }
+      if (endpoint === "torrents" && query?.filter === "downloading") {
+        return {
+          data: [
+            {
+              name: "B",
+              progress: 0.5,
+              state: "downloading",
+              eta: 60,
+              size: 100,
+              amount_left: 50,
+            },
+          ],
+          error: undefined,
+        };
+      }
+      return { data: undefined, error: undefined };
     });
 
     const service = { widget: { type: "qbittorrent", enableLeechProgress: true } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    // total=2, completed=1 => leech=1
     expectBlockValue(container, "qbittorrent.leech", 1);
     expectBlockValue(container, "qbittorrent.seed", 1);
     expectBlockValue(container, "qbittorrent.download", 15);
