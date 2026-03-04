@@ -29,7 +29,7 @@
     "memory-cache": "^0.2.0",
     "minecraftstatuspinger": "^1.2.2",
     "next": "^15.5.11",
-    "next-i18next": "^12.1.0",
+    "next-i18next": "^15.4.3",
     "ping": "^0.4.4",
     "pretty-bytes": "^7.1.0",
     "raw-body": "^3.0.2",
