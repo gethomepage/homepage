@@ -65,7 +65,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "jsdom": "^26.1.0",
     "postcss": "^8.5.6",
-    "prettier": "^3.7.3",
+    "prettier": "^3.8.1",
     "prettier-plugin-organize-imports": "^4.3.0",
     "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.18",
