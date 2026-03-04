@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { fireEvent, screen } from "@testing-library/react";
+import { act, fireEvent, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { renderWithProviders } from "test-utils/render-with-providers";
@@ -188,7 +188,9 @@ describe("components/services/item", () => {
     // Still rendered while the close animation runs.
     expect(screen.getByTestId("docker-widget")).toBeInTheDocument();
 
-    await vi.advanceTimersByTimeAsync(300);
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
     expect(screen.queryByTestId("docker-widget")).not.toBeInTheDocument();
 
     vi.useRealTimers();
