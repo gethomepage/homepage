@@ -324,4 +324,73 @@ describe("widgets/omada/proxy", () => {
       },
     });
   });
+
+  it("retries login when sites list returns HTML", async () => {
+    getServiceWidget.mockResolvedValue({ url: "http://omada", username: "u", password: "p", site: "Default" });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "5.0.0" } }),
+      ])
+      // initial login
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t1" } })),
+      ])
+      // sites list unexpectedly returns HTML
+      .mockResolvedValueOnce([200, "text/html;charset=utf-8", "<!DOCTYPE html><html><body>login</body></html>"])
+      // retry login
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t2" } })),
+      ])
+      // retry sites list works
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", id: "siteid" }] } }),
+      ])
+      // overview works
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 11,
+            connectedApNum: 3,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 2,
+          },
+        }),
+      ])
+      // alerts works
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 5 } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await omadaProxyHandler(req, res);
+
+    expect(logger.debug).toHaveBeenCalledWith(
+      "Received HTML response for Omada sites list; retrying with a fresh login.",
+    );
+    expect(httpProxy.mock.calls[1][1].cookieHeader).toBe("X-Bypass-Cookie");
+    expect(httpProxy.mock.calls[2][1].cookieHeader).toBe("X-Bypass-Cookie");
+    expect(httpProxy.mock.calls[3][1].cookieHeader).toBe("X-Bypass-Cookie");
+    expect(httpProxy.mock.calls[4][1].cookieHeader).toBe("X-Bypass-Cookie");
+    expect(res.body).toBe(
+      JSON.stringify({
+        connectedAp: 3,
+        activeUser: 11,
+        alerts: 5,
+        connectedGateways: 1,
+        connectedSwitches: 2,
+      }),
+    );
+  });
 });

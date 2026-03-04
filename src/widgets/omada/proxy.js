@@ -24,6 +24,22 @@ function parseOmadaJson(data, { step, status, contentType, url }) {
   }
 }
 
+function isLikelyHtmlResponse(contentType, data) {
+  const body = Buffer.isBuffer(data) ? data.toString() : String(data ?? "");
+  return contentType?.includes("text/html") || body.startsWith("<!DOCTYPE") || body.startsWith("<html");
+}
+
+function extractCookieHeader(responseHeaders) {
+  const setCookieHeader = responseHeaders?.["set-cookie"];
+  if (!setCookieHeader) return undefined;
+
+  if (Array.isArray(setCookieHeader)) {
+    return setCookieHeader.map((cookie) => cookie.split(";")[0]).join("; ");
+  }
+
+  return String(setCookieHeader).split(";")[0];
+}
+
 async function login(loginUrl, username, password, controllerVersionMajor) {
   const params = {
     username,
@@ -38,15 +54,17 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
     };
   }
 
-  const [status, contentType, data] = await httpProxy(loginUrl, {
+  const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
     method: "POST",
+    cookieHeader: "X-Bypass-Cookie",
     body: JSON.stringify(params),
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json",
     },
   });
 
-  return [status, contentType, data];
+  return [status, contentType, data, extractCookieHeader(responseHeaders)];
 }
 
 export default async function omadaProxyHandler(req, res) {
@@ -104,7 +122,7 @@ export default async function omadaProxyHandler(req, res) {
           break;
       }
 
-      const [loginStatus, loginContentType, loginData] = await login(
+      const [loginStatus, loginContentType, loginData, loginCookieHeader] = await login(
         loginUrl,
         widget.username,
         widget.password,
@@ -124,11 +142,13 @@ export default async function omadaProxyHandler(req, res) {
       }
 
       const { token } = loginResponseData.result;
+      let omadaCookieHeader = loginCookieHeader;
 
       let sitesUrl;
       let body = {};
       let params = { token };
       let headers = { "Csrf-Token": token };
+      if (omadaCookieHeader) headers.Cookie = omadaCookieHeader;
       let method = "GET";
 
       switch (controllerVersionMajor) {
@@ -158,14 +178,72 @@ export default async function omadaProxyHandler(req, res) {
         params,
         body: JSON.stringify(body),
         headers,
+        cookieHeader: "X-Bypass-Cookie",
       });
 
-      const sitesResponseData = parseOmadaJson(data, {
-        step: "sites list",
-        status,
-        contentType,
-        url: sitesUrl,
-      });
+      let sitesResponseData;
+      try {
+        sitesResponseData = parseOmadaJson(data, {
+          step: "sites list",
+          status,
+          contentType,
+          url: sitesUrl,
+        });
+      } catch (parseError) {
+        if (!isLikelyHtmlResponse(contentType, data)) {
+          throw parseError;
+        }
+
+        logger.debug("Received HTML response for Omada sites list; retrying with a fresh login.");
+
+        const [retryLoginStatus, retryLoginContentType, retryLoginData, retryLoginCookieHeader] = await login(
+          loginUrl,
+          widget.username,
+          widget.password,
+          controllerVersionMajor,
+        );
+        const retryLoginResponseData = parseOmadaJson(retryLoginData, {
+          step: "login (retry)",
+          status: retryLoginStatus,
+          contentType: retryLoginContentType,
+          url: loginUrl,
+        });
+
+        if (retryLoginStatus !== 200 || retryLoginResponseData.errorCode > 0) {
+          return res.status(retryLoginStatus).json({
+            error: {
+              message: "Error re-authenticating to Omada controller",
+              url: loginUrl,
+              data: retryLoginResponseData,
+            },
+          });
+        }
+
+        const retryToken = retryLoginResponseData.result?.token;
+        omadaCookieHeader = retryLoginCookieHeader;
+        const retrySitesUrlObj = new URL(sitesUrl);
+        retrySitesUrlObj.searchParams.set("token", retryToken);
+        const retrySitesUrl = retrySitesUrlObj.toString();
+
+        [status, contentType, data] = await httpProxy(retrySitesUrl, {
+          method,
+          params: { token: retryToken },
+          body: JSON.stringify(body),
+          headers: {
+            ...headers,
+            "Csrf-Token": retryToken,
+            ...(omadaCookieHeader ? { Cookie: omadaCookieHeader } : {}),
+          },
+          cookieHeader: "X-Bypass-Cookie",
+        });
+
+        sitesResponseData = parseOmadaJson(data, {
+          step: "sites list (retry)",
+          status,
+          contentType,
+          url: retrySitesUrl,
+        });
+      }
 
       if (status !== 200 || sitesResponseData.errorCode > 0) {
         logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData.msg}`);
@@ -203,6 +281,7 @@ export default async function omadaProxyHandler(req, res) {
           },
         };
         headers = { "Content-Type": "application/json" };
+        if (omadaCookieHeader) headers.Cookie = omadaCookieHeader;
         params = { token };
 
         [status, contentType, data] = await httpProxy(switchUrl, {
@@ -210,6 +289,7 @@ export default async function omadaProxyHandler(req, res) {
           params,
           body: JSON.stringify(body),
           headers,
+          cookieHeader: "X-Bypass-Cookie",
         });
 
         const switchResponseData = parseOmadaJson(data, {
@@ -231,6 +311,7 @@ export default async function omadaProxyHandler(req, res) {
             method: "getGlobalStat",
           }),
           headers,
+          cookieHeader: "X-Bypass-Cookie",
         });
 
         siteResponseData = parseOmadaJson(data, {
@@ -257,7 +338,9 @@ export default async function omadaProxyHandler(req, res) {
         [status, contentType, data] = await httpProxy(siteStatsUrl, {
           headers: {
             "Csrf-Token": token,
+            ...(omadaCookieHeader ? { Cookie: omadaCookieHeader } : {}),
           },
+          cookieHeader: "X-Bypass-Cookie",
         });
 
         siteResponseData = parseOmadaJson(data, {
@@ -286,7 +369,9 @@ export default async function omadaProxyHandler(req, res) {
         [status, contentType, data] = await httpProxy(alertUrl, {
           headers: {
             "Csrf-Token": token,
+            ...(omadaCookieHeader ? { Cookie: omadaCookieHeader } : {}),
           },
+          cookieHeader: "X-Bypass-Cookie",
         });
         const alertResponseData = parseOmadaJson(data, {
           step: "alerts",
