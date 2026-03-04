@@ -33,8 +33,8 @@ importers:
         specifier: ^25.8.0
         version: 25.8.0(typescript@5.7.3)
       ical.js:
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.2.1
+        version: 2.2.1
       js-yaml:
         specifier: ^4.1.1
         version: 4.1.1
@@ -2392,8 +2392,8 @@ packages:
       typescript:
         optional: true
 
-  ical.js@2.1.0:
-    resolution: {integrity: sha512-BOVfrH55xQ6kpS3muGvIXIg2l7p+eoe12/oS7R5yrO3TL/j/bLsR0PR+tYQESFbyTbvGgPHn9zQ6tI4FWyuSaQ==}
+  ical.js@2.2.1:
+    resolution: {integrity: sha512-yK/UlPbEs316igb/tjRgbFA8ZV75rCsBJp/hWOatpyaPNlgw0dGDmU+FoicOcwX4xXkeXOkYiOmCqNPFpNPkQg==}
 
   iconv-lite@0.7.0:
     resolution: {integrity: sha512-cf6L2Ds3h57VVmkZe+Pn+5APsT7FpqJtEhhieDCvrE2MK5Qk9MyffgQyuxQTm6BChfeZNtcOLHp9IcWRVcIcBQ==}
@@ -6216,7 +6216,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.7.3
 
-  ical.js@2.1.0: {}
+  ical.js@2.2.1: {}
 
   iconv-lite@0.7.0:
     dependencies:
