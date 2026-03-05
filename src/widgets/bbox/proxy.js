@@ -88,7 +88,7 @@ async function apiCall(widget, endpoint, service) {
 
   if (status !== 200) {
     logger.error("Error getting data from Bbox: %s status %d. Data: %s", url, status, JSON.stringify(data));
-    return { status, contentType, data: null, responseHeaders };
+    return { status, contentType, data: [], responseHeaders };
   }
 
   return { status, contentType, data: JSON.parse(data.toString()), responseHeaders };
