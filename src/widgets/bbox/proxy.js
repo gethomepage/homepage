@@ -1,16 +1,15 @@
 import cache from "memory-cache";
 
-import { httpProxy } from "utils/proxy/http";
-import { formatApiCall } from "utils/proxy/api-helpers";
-import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
+import { formatApiCall } from "utils/proxy/api-helpers";
+import { addCookieToJar, setCookieHeader } from "utils/proxy/cookie-jar";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const proxyName = "bboxProxyHandler";
 const sessionTokenCacheKey = `${proxyName}__sessionToken`;
 const logger = createLogger(proxyName);
-
 
 async function fetchBboxCookie(widget) {
   const endpoint = "login";
@@ -48,7 +47,7 @@ async function getToken(widget, service) {
 
   try {
     const { access_token: token, expires_in: expires } = JSON.parse(data[0].device.toString());
-    logger.info(JSON.parse(data.toString()))
+    logger.info(JSON.parse(data.toString()));
 
     cache.put(`${sessionTokenCacheKey}.${service}`, token, expires * 1000 - 5 * 60 * 1000); // expiresIn (s) - 5m
     return { token };
@@ -128,6 +127,6 @@ export default async function bboxProxyHandler(req, res) {
     modelname: deviceData[0]?.device?.modelname,
     uptime: deviceData[0]?.device?.uptime,
     wanIPAddress: wanData[0]?.wan?.ip?.address,
-    devices: hostData[0]?.hosts?.list
+    devices: hostData[0]?.hosts?.list,
   });
 }

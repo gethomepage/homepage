@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next";
 
-import Container from "components/services/widget/container";
 import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
@@ -10,7 +10,6 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: bboxData, error: bboxError } = useWidgetAPI(widget, "info");
-
 
   if (bboxError) {
     return <Container service={service} error={bboxError} />;
@@ -23,12 +22,12 @@ export default function Component({ service }) {
         <Block label="bbox.modelname" />
         <Block label="bbox.uptime" />
         <Block label="bbbox.wanIPAddress" />
-        <Block label="bbox.devices"  />
+        <Block label="bbox.devices" />
       </Container>
     );
   }
 
-  const connectedDevices = bboxData.devices.filter(element => element.active === 1).length;;
+  const connectedDevices = bboxData.devices.filter((element) => element.active === 1).length;
 
   return (
     <Container service={service}>
