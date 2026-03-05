@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { renderWithProviders } from "test-utils/render-with-providers";
@@ -21,7 +21,9 @@ describe("components/widgets/datetime", () => {
       // `render` wraps in `act`, so effects should flush synchronously.
       expect(screen.getByText(expected0)).toBeInTheDocument();
 
-      await vi.advanceTimersByTimeAsync(1000);
+      act(() => {
+        vi.advanceTimersByTime(1000);
+      });
       const expected1 = new Intl.DateTimeFormat("en-US", format).format(new Date());
 
       expect(screen.getByText(expected1)).toBeInTheDocument();
