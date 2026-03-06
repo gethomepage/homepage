@@ -993,6 +993,9 @@
         "uptime": "Uptime",
         "version": "Version"
     },
+    "leafwiki": {
+        "pages": "Pages"
+    },
     "linkwarden": {
         "links": "Links",
         "collections": "Collections",

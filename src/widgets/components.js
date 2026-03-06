@@ -71,6 +71,7 @@ const components = {
   komga: dynamic(() => import("./komga/component")),
   komodo: dynamic(() => import("./komodo/component")),
   kopia: dynamic(() => import("./kopia/component")),
+  leafwiki: dynamic(() => import("./leafwiki/component")),
   lidarr: dynamic(() => import("./lidarr/component")),
   linkwarden: dynamic(() => import("./linkwarden/component")),
   lubelogger: dynamic(() => import("./lubelogger/component")),
