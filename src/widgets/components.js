@@ -125,6 +125,7 @@ const components = {
   sabnzbd: dynamic(() => import("./sabnzbd/component")),
   scrutiny: dynamic(() => import("./scrutiny/component")),
   seerr: dynamic(() => import("./seerr/component")),
+  shelfmark: dynamic(() => import("./shelfmark/component")),
   slskd: dynamic(() => import("./slskd/component")),
   sonarr: dynamic(() => import("./sonarr/component")),
   sparkyfitness: dynamic(() => import("./sparkyfitness/component")),

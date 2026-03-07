@@ -816,6 +816,18 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "shelfmark": {
+        "requested": "Requested",
+        "available": "Available",
+        "cancelled": "Cancelled",
+        "complete": "Complete",
+        "done": "Done",
+        "downloading": "Downloading",
+        "error": "Error",
+        "locating": "Locating",
+        "queued": "Queued",
+        "resolving": "Resolving"
+    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",

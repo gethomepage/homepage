@@ -115,6 +115,7 @@ import rutorrent from "./rutorrent/widget";
 import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
 import seerr from "./seerr/widget";
+import shelfmark from "./shelfmark/widget";
 import slskd from "./slskd/widget";
 import sonarr from "./sonarr/widget";
 import sparkyfitness from "./sparkyfitness/widget";
@@ -273,6 +274,7 @@ const widgets = {
   sabnzbd,
   scrutiny,
   seerr,
+  shelfmark,
   slskd,
   sonarr,
   sparkyfitness,
