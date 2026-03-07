@@ -54,7 +54,10 @@ export default function Component({ service }) {
         <Block label="beszel.cpu" value={t("common.percent", { value: system.info.cpu, maximumFractionDigits: 2 })} />
         <Block label="beszel.memory" value={t("common.percent", { value: system.info.mp, maximumFractionDigits: 2 })} />
         <Block label="beszel.disk" value={t("common.percent", { value: system.info.dp, maximumFractionDigits: 2 })} />
-        <Block label="beszel.network" value={t("common.percent", { value: system.info.b, maximumFractionDigits: 2 })} />
+        <Block
+          label="beszel.network"
+          value={t("common.byterate", { value: system.info.bb, maximumFractionDigits: 2 })}
+        />
       </Container>
     );
   }

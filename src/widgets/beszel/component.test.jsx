@@ -76,6 +76,35 @@ describe("widgets/beszel/component", () => {
     expect(screen.queryByText("beszel.updated")).toBeNull();
   });
 
+  it("renders optional fields", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        totalItems: 1,
+        items: [
+          {
+            id: "sys1",
+            name: "MySystem",
+            status: "up",
+            updated: 123,
+            info: { cpu: 10, mp: 20, dp: 30, b: 40, bb: 14.5 },
+          },
+        ],
+      },
+      error: undefined,
+    });
+
+    const service = {
+      widget: { type: "beszel", systemId: "sys1", fields: ["name", "disk", "network"] },
+    };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(service.widget.fields).toEqual(["name", "disk", "network"]);
+    expect(container.querySelectorAll(".service-block")).toHaveLength(3);
+    expectBlockValue(container, "beszel.name", "MySystem");
+    expectBlockValue(container, "beszel.disk", 30);
+    expectBlockValue(container, "beszel.network", 14.5);
+  });
+
   it("renders error when systemId is not found", () => {
     useWidgetAPI.mockReturnValue({
       data: { totalItems: 1, items: [{ id: "sys1", name: "MySystem", status: "up", info: {} }] },
