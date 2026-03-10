@@ -15,6 +15,7 @@ const widgetMappings = {
   longhorn: dynamic(() => import("components/widgets/longhorn/longhorn")),
   kubernetes: dynamic(() => import("components/widgets/kubernetes/kubernetes")),
   stocks: dynamic(() => import("components/widgets/stocks/stocks")),
+  snippets: dynamic(() => import("components/widgets/snippets/snippets")),
 };
 
 export default function Widget({ widget, style }) {
