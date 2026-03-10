@@ -26,13 +26,13 @@ The widget is configured in `widgets.yaml` under the `snippets` type:
 
 ## Options
 
-| Option | Type | Required | Description |
-|--------|------|----------|-------------|
-| `groups` | array | Yes | List of snippet groups |
-| `groups[].name` | string | No | Group heading (omit for ungrouped snippets) |
-| `groups[].items` | array | Yes | List of snippet items |
-| `groups[].items[].command` | string | Yes | The text to display and copy |
-| `groups[].items[].description` | string | No | Short description shown next to the command |
+| Option                         | Type   | Required | Description                                 |
+| ------------------------------ | ------ | -------- | ------------------------------------------- |
+| `groups`                       | array  | Yes      | List of snippet groups                      |
+| `groups[].name`                | string | No       | Group heading (omit for ungrouped snippets) |
+| `groups[].items`               | array  | Yes      | List of snippet items                       |
+| `groups[].items[].command`     | string | Yes      | The text to display and copy                |
+| `groups[].items[].description` | string | No       | Short description shown next to the command |
 
 ## Behavior
 
