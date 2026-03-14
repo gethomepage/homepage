@@ -25,13 +25,25 @@ async function login(widget, service) {
     }),
   });
 
-  const dataParsed = JSON.parse(data);
+  let dataParsed;
+  try {
+    dataParsed = JSON.parse(data);
+  } catch {
+    logger.error("Failed to parse Crowdsec login response, status: %d", status);
+    cache.del(`${sessionTokenCacheKey}.${service}`);
+    return null;
+  }
 
-  if (!(status === 200) || !dataParsed.token) {
+  if (status !== 200 || !dataParsed.token) {
     logger.error("Failed to login to Crowdsec API, status: %d", status);
     cache.del(`${sessionTokenCacheKey}.${service}`);
+    return null;
   }
-  cache.put(`${sessionTokenCacheKey}.${service}`, dataParsed.token, new Date(dataParsed.expire) - new Date());
+
+  const ttl = Math.max(new Date(dataParsed.expire) - new Date(), 1);
+  cache.put(`${sessionTokenCacheKey}.${service}`, dataParsed.token, ttl);
+
+  return dataParsed.token;
 }
 
 export default async function crowdsecProxyHandler(req, res) {
@@ -48,11 +60,10 @@ export default async function crowdsecProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid widget configuration" });
   }
 
-  if (!cache.get(`${sessionTokenCacheKey}.${service}`)) {
-    await login(widget, service);
+  let token = cache.get(`${sessionTokenCacheKey}.${service}`);
+  if (!token) {
+    token = await login(widget, service);
   }
-
-  const token = cache.get(`${sessionTokenCacheKey}.${service}`);
   if (!token) {
     return res.status(500).json({ error: "Failed to authenticate with Crowdsec" });
   }
@@ -71,7 +82,20 @@ export default async function crowdsecProxyHandler(req, res) {
 
     logger.debug("Calling Crowdsec API endpoint: %s", endpoint);
 
-    const [status, , data] = await httpProxy(url, params);
+    let [status, , data] = await httpProxy(url, params);
+
+    if (status === 401) {
+      logger.debug("Crowdsec API returned 401, refreshing token and retrying request");
+      cache.del(`${sessionTokenCacheKey}.${service}`);
+      const refreshedToken = await login(widget, service);
+
+      if (!refreshedToken) {
+        return res.status(500).json({ error: "Failed to authenticate with Crowdsec" });
+      }
+
+      params.headers.Authorization = `Bearer ${refreshedToken}`;
+      [status, , data] = await httpProxy(url, params);
+    }
 
     if (status !== 200) {
       logger.error("Error calling Crowdsec API: %d. Data: %s", status, data);
