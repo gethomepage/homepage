@@ -4,6 +4,7 @@ import { screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { renderWithProviders } from "test-utils/render-with-providers";
+import { expectBlockValue } from "test-utils/widget-assertions";
 
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 
@@ -12,13 +13,6 @@ vi.mock("utils/proxy/use-widget-api", () => ({
 }));
 
 import Component from "./component";
-
-function expectBlockValue(container, label, value) {
-  const blocks = Array.from(container.querySelectorAll(".service-block"));
-  const block = blocks.find((b) => b.textContent?.includes(label));
-  expect(block, `missing block for ${label}`).toBeTruthy();
-  expect(block.textContent).toContain(String(value));
-}
 
 describe("widgets/autobrr/component", () => {
   beforeEach(() => {

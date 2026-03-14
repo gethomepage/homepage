@@ -9,11 +9,11 @@ coverage:
     project:
       default:
         target: 100%
-        threshold: 25%
+        threshold: 15%
     patch:
       default:
         target: 100%
-        threshold: 25%
+        threshold: 10%
 
 comment:
   layout: "reach,diff,flags,files"

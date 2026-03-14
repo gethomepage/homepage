@@ -91,7 +91,6 @@ nav:
           - widgets/services/jackett.md
           - widgets/services/jdownloader.md
           - widgets/services/jellyfin.md
-          - widgets/services/jellyseerr.md
           - widgets/services/jellystat.md
           - widgets/services/kavita.md
           - widgets/services/komga.md
@@ -125,7 +124,6 @@ nav:
           - widgets/services/openmediavault.md
           - widgets/services/opnsense.md
           - widgets/services/openwrt.md
-          - widgets/services/overseerr.md
           - widgets/services/pangolin.md
           - widgets/services/paperlessngx.md
           - widgets/services/peanut.md
@@ -151,8 +149,10 @@ nav:
           - widgets/services/rutorrent.md
           - widgets/services/sabnzbd.md
           - widgets/services/scrutiny.md
+          - widgets/services/seerr.md
           - widgets/services/slskd.md
           - widgets/services/sonarr.md
+          - widgets/services/sparkyfitness.md
           - widgets/services/speedtest-tracker.md
           - widgets/services/spoolman.md
           - widgets/services/stash.md
@@ -165,6 +165,7 @@ nav:
           - widgets/services/technitium.md
           - widgets/services/tdarr.md
           - widgets/services/traefik.md
+          - widgets/services/tracearr.md
           - widgets/services/transmission.md
           - widgets/services/trilium.md
           - widgets/services/truenas.md

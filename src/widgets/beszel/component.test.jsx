@@ -4,19 +4,13 @@ import { screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { renderWithProviders } from "test-utils/render-with-providers";
-import { findServiceBlockByLabel } from "test-utils/widget-assertions";
+import { expectBlockValue } from "test-utils/widget-assertions";
 
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
 import Component from "./component";
-
-function expectBlockValue(container, label, value) {
-  const block = findServiceBlockByLabel(container, label);
-  expect(block, `missing block for ${label}`).toBeTruthy();
-  expect(block.textContent).toContain(String(value));
-}
 
 describe("widgets/beszel/component", () => {
   beforeEach(() => {
@@ -80,6 +74,35 @@ describe("widgets/beszel/component", () => {
     expectBlockValue(container, "beszel.cpu", 10);
     expectBlockValue(container, "beszel.memory", 20);
     expect(screen.queryByText("beszel.updated")).toBeNull();
+  });
+
+  it("renders optional fields", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        totalItems: 1,
+        items: [
+          {
+            id: "sys1",
+            name: "MySystem",
+            status: "up",
+            updated: 123,
+            info: { cpu: 10, mp: 20, dp: 30, b: 40, bb: 14.5 },
+          },
+        ],
+      },
+      error: undefined,
+    });
+
+    const service = {
+      widget: { type: "beszel", systemId: "sys1", fields: ["name", "disk", "network"] },
+    };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(service.widget.fields).toEqual(["name", "disk", "network"]);
+    expect(container.querySelectorAll(".service-block")).toHaveLength(3);
+    expectBlockValue(container, "beszel.name", "MySystem");
+    expectBlockValue(container, "beszel.disk", 30);
+    expectBlockValue(container, "beszel.network", 14.5);
   });
 
   it("renders error when systemId is not found", () => {

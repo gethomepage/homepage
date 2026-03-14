@@ -58,6 +58,26 @@ describe("components/services/widget/container", () => {
     expect(screen.getByTestId("karakeep.count")).toBeInTheDocument();
   });
 
+  it("supports seerr aliases when filtering (jellyseerr/overseerr -> seerr)", () => {
+    renderWithProviders(
+      <Container service={{ widget: { type: "jellyseerr", fields: ["pending"] } }}>
+        <Dummy label="seerr.pending" />
+      </Container>,
+      { settings: {} },
+    );
+
+    expect(screen.getByTestId("seerr.pending")).toBeInTheDocument();
+
+    renderWithProviders(
+      <Container service={{ widget: { type: "overseerr", fields: ["processing"] } }}>
+        <Dummy label="seerr.processing" />
+      </Container>,
+      { settings: {} },
+    );
+
+    expect(screen.getByTestId("seerr.processing")).toBeInTheDocument();
+  });
+
   it("returns null when errors are hidden via settings.hideErrors", () => {
     const { container } = renderWithProviders(
       <Container error="nope" service={{ widget: { type: "omada", hide_errors: false } }}>

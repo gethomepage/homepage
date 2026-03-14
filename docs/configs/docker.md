@@ -177,6 +177,16 @@ labels:
   - homepage.widget.fields=["field1","field2"] # optional
 ```
 
+!!! note
+
+    If you use mapping syntax (`:`) for labels instead of list syntax (`-`), array values like `fields` must be wrapped in single quotes so they are passed as a string:
+
+    ```yaml
+    labels:
+      ...
+      homepage.widget.fields: '["field1","field2"]'
+    ```
+
 Multiple widgets can be specified by incrementing the index, e.g.
 
 ```yaml

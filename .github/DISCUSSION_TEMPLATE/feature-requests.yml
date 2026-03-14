@@ -1,6 +1,10 @@
 title: "[Feature Request] "
 labels: ["enhancement"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        #### ⚠️ Don't forget to search [existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) and [discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions) (including closed ones!).
   - type: textarea
     id: description
     attributes:

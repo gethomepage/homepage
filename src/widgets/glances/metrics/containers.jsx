@@ -8,7 +8,9 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const statusMap = {
   running: <ResolvedIcon icon="mdi-circle" width={32} height={32} />,
+  healthy: <ResolvedIcon icon="mdi-circle" width={32} height={32} />,
   paused: <ResolvedIcon icon="mdi-circle-outline" width={32} height={32} />,
+  stopped: <ResolvedIcon icon="mdi-circle-double" width={32} height={32} />,
 };
 
 const defaultInterval = 1000;

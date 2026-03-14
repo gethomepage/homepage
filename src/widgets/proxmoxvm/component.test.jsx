@@ -4,18 +4,12 @@ import { screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { renderWithProviders } from "test-utils/render-with-providers";
-import { findServiceBlockByLabel } from "test-utils/widget-assertions";
+import { expectBlockValue } from "test-utils/widget-assertions";
 
 const { useSWR } = vi.hoisted(() => ({ useSWR: vi.fn() }));
 vi.mock("swr", () => ({ default: useSWR }));
 
 import Component from "./component";
-
-function expectBlockValue(container, label, value) {
-  const block = findServiceBlockByLabel(container, label);
-  expect(block, `missing block for ${label}`).toBeTruthy();
-  expect(block.textContent).toContain(String(value));
-}
 
 describe("widgets/proxmoxvm/component", () => {
   beforeEach(() => {

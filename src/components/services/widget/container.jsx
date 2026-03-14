@@ -9,6 +9,8 @@ import { buildHighlightConfig } from "utils/highlights";
 const ALIASED_WIDGETS = {
   pialert: "netalertx",
   hoarder: "karakeep",
+  jellyseerr: "seerr",
+  overseerr: "seerr",
 };
 
 export default function Container({ error = false, children, service }) {

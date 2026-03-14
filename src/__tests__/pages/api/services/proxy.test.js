@@ -344,4 +344,17 @@ describe("pages/api/services/proxy", () => {
     expect(res.statusCode).toBe(500);
     expect(res.body).toEqual({ error: "Unexpected error" });
   });
+
+  it("returns 500 when an async proxy handler throws", async () => {
+    getServiceWidget.mockResolvedValue({ type: "linkwarden" });
+    handlerFn.handler.mockRejectedValueOnce(new Error("proxy boom"));
+
+    const req = { method: "GET", query: { group: "g", service: "s", index: "0" } };
+    const res = createMockRes();
+
+    await servicesProxy(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: "Unexpected error" });
+  });
 });

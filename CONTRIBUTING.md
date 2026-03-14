@@ -38,11 +38,11 @@ People _love_ thorough bug reports. I'm not even kidding.
 
 ## Development Guidelines
 
-Please see the [documentation regarding development](https://gethomepage.dev/more/development/) and specifically the [guidelines for new service widgets](https://gethomepage.dev/more/development/#service-widget-guidelines) if you are considering making one.
+Please see the [documentation regarding development](https://gethomepage.dev/widgets/authoring/getting-started/#development) and specifically the [guidelines for new service widgets](https://gethomepage.dev/widgets/authoring/getting-started/#service-widget-guidelines) if you are considering making one.
 
 ## Use a Consistent Coding Style
 
-Please see information in the docs regarding [code formatting with pre-commit hooks](https://gethomepage.dev/more/development/#code-formatting-with-pre-commit-hooks).
+Please see information in the docs regarding [code formatting with pre-commit hooks](https://gethomepage.dev/widgets/authoring/getting-started/#code-formatting-with-pre-commit-hooks).
 
 ## License
 

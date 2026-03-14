@@ -136,6 +136,9 @@ describe("utils/highlights", () => {
     const cfg = buildHighlightConfig(null, {
       // string numeric rule values go through toNumber()
       gt: { numeric: { when: "gt", value: "5", level: "warn" } },
+      withUnitSuffix: { numeric: { when: "gt", value: 5, level: "warn" } },
+      withUnitPrefix: { numeric: { when: "gt", value: 5, level: "warn" } },
+      localizedUnitSuffix: { numeric: { when: "gt", value: 0.5, level: "warn" } },
       commaGrouped: { numeric: { when: "eq", value: 1234, level: "good" } },
       commaDecimal: { numeric: { when: "eq", value: 12.34, level: "good" } },
       dotDecimal: { numeric: { when: "eq", value: 12.34, level: "good" } },
@@ -143,6 +146,12 @@ describe("utils/highlights", () => {
     });
 
     expect(evaluateHighlight("gt", "6", cfg)).toMatchObject({ level: "warn", source: "numeric" });
+    expect(evaluateHighlight("withUnitSuffix", "5.2 ms", cfg)).toMatchObject({ level: "warn", source: "numeric" });
+    expect(evaluateHighlight("withUnitPrefix", "ms 5.2", cfg)).toMatchObject({ level: "warn", source: "numeric" });
+    expect(evaluateHighlight("localizedUnitSuffix", "0,71\u202Fms", cfg)).toMatchObject({
+      level: "warn",
+      source: "numeric",
+    });
     expect(evaluateHighlight("commaGrouped", "1,234", cfg)).toMatchObject({ level: "good", source: "numeric" });
     expect(evaluateHighlight("commaDecimal", "12,34", cfg)).toMatchObject({ level: "good", source: "numeric" });
     // Include a space so Number(trimmed) fails and we exercise the dot parsing branch.
@@ -160,6 +169,9 @@ describe("utils/highlights", () => {
 
     // "1.2.3" is not a valid grouped or decimal number for our parser.
     expect(evaluateHighlight("num", "1.2.3", cfg)).toBeNull();
+
+    // Multiple numbers in one string should not be treated as a single numeric value.
+    expect(evaluateHighlight("num", "5/10 ms", cfg)).toBeNull();
 
     // JSX-ish values should not be treated as numeric.
     expect(evaluateHighlight("num", { props: { children: "x" } }, cfg)).toBeNull();
