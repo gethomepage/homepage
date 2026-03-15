@@ -184,6 +184,13 @@
         "no_active": "No Active Streams",
         "plex_connection_error": "Tjek Plex-forbindelse"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "Forbundne APs",
         "activeUser": "Aktive enheder",
@@ -282,17 +289,13 @@
         "approved": "Godkendt",
         "available": "Tilgængelig"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "processing": "Behandler",
-        "approved": "Approved",
-        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

@@ -108,14 +108,14 @@
         "songs": "Liedjies"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "Speel",
+        "transcoding": "Transkodering",
+        "bitrate": "Bistempo",
+        "no_active": "Geen Aktiewe Strome",
         "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "series": "Reekse",
+        "episodes": "Episode",
+        "songs": "Liedjies"
     },
     "esphome": {
         "offline": "Vanlyn af",
@@ -183,6 +183,13 @@
         "bitrate": "Bistempo",
         "no_active": "Geen aktiewe strome nie",
         "plex_connection_error": "Gaan Plex-verbinding Na"
+    },
+    "tracearr": {
+        "no_active": "Geen Aktiewe Strome",
+        "streams": "Uitsendings",
+        "transcodes": "Transkodering",
+        "directplay": "Direkte Speel",
+        "bitrate": "Bistempo"
     },
     "omada": {
         "connectedAp": "Gekoppelde APs",
@@ -282,17 +289,13 @@
         "approved": "Goedgekeur",
         "available": "Beskikbaar"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Afwagtend",
         "approved": "Goedgekeur",
         "available": "Beskikbaar",
-        "issues": "Oop Kwessies"
-    },
-    "overseerr": {
-        "pending": "Afwagtend",
+        "completed": "Afgehandel",
         "processing": "Verwerking",
-        "approved": "Goedgekeur",
-        "available": "Beskikbaar"
+        "issues": "Oop Kwessies"
     },
     "netalertx": {
         "total": "Totaal",
@@ -1152,11 +1155,11 @@
         "artists": "Kunstenaars"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "Houers",
+        "images": "Beelde",
+        "image_updates": "Beeldopdaterings",
+        "images_unused": "Ongebruik",
+        "environment_required": "Omgewings-ID Vereis"
     },
     "dockhand": {
         "running": "Lopend",
@@ -1171,5 +1174,11 @@
         "paused": "Onderbreek",
         "total": "Totaal",
         "environment_not_found": "Omgewing Nie Gevind Nie"
+    },
+    "sparkyfitness": {
+        "eaten": "Geëet",
+        "burned": "Verbrand",
+        "remaining": "Oorblywende",
+        "steps": "Stappe"
     }
 }

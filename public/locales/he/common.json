@@ -184,6 +184,13 @@
         "no_active": "אין הזרמות פעילות",
         "plex_connection_error": "בדוק חיבור ל-Plex"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "נקודות גישה מחוברות",
         "activeUser": "מכשירים פעילים",
@@ -282,17 +289,13 @@
         "approved": "מאושר",
         "available": "זמין"
     },
-    "jellyseerr": {
-        "pending": "ממתין לאישור",
-        "approved": "מאושר",
-        "available": "זמין",
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "ממתין לאישור",
-        "processing": "מעבד",
-        "approved": "מאושר",
-        "available": "זמין"
     },
     "netalertx": {
         "total": "סה\"כ",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

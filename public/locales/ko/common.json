@@ -184,6 +184,13 @@
         "no_active": "활성 스트림 없음",
         "plex_connection_error": "Plex 연결 확인"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "연결된 AP",
         "activeUser": "활성 장치",
@@ -282,17 +289,13 @@
         "approved": "승인됨",
         "available": "이용 가능"
     },
-    "jellyseerr": {
-        "pending": "대기 중",
-        "approved": "승인됨",
-        "available": "이용 가능",
-        "issues": "열린 이슈"
-    },
-    "overseerr": {
-        "pending": "대기 중",
-        "processing": "처리 중",
-        "approved": "승인됨",
-        "available": "이용 가능"
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "전체",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

@@ -184,6 +184,13 @@
         "no_active": "Немає активних потоків",
         "plex_connection_error": "Перевірте з'єднання Plex"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "Підключені точки доступу",
         "activeUser": "Активні пристрої",
@@ -282,17 +289,13 @@
         "approved": "Затверджено",
         "available": "Доступно"
     },
-    "jellyseerr": {
-        "pending": "Очікує",
-        "approved": "Схвалено",
-        "available": "Доступно",
-        "issues": "Проблеми до усунення"
-    },
-    "overseerr": {
-        "pending": "Очікує",
-        "processing": "Обробка",
-        "approved": "Схвалено",
-        "available": "Доступно"
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Усього",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

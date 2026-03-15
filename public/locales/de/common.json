@@ -108,7 +108,7 @@
         "songs": "Songs"
     },
     "jellyfin": {
-        "playing": "Playing",
+        "playing": "Wiedergabe",
         "transcoding": "Transkodierung",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
@@ -183,6 +183,13 @@
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
         "plex_connection_error": "Prüfe Plex-Verbindung"
+    },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
     },
     "omada": {
         "connectedAp": "Verbundene APs",
@@ -282,17 +289,13 @@
         "approved": "Genehmigt",
         "available": "Verfügbar"
     },
-    "jellyseerr": {
-        "pending": "Wartend",
-        "approved": "Genehmigt",
-        "available": "Verfügbar",
-        "issues": "Offene Issues"
-    },
-    "overseerr": {
-        "pending": "Wartend",
-        "processing": "Wird verarbeitet",
-        "approved": "Genehmigt",
-        "available": "Verfügbar"
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Total",
@@ -1159,17 +1162,23 @@
         "environment_required": "Environment ID Required"
     },
     "dockhand": {
-        "running": "Running",
-        "stopped": "Stopped",
+        "running": "Wird ausgeführt",
+        "stopped": "Gestoppt",
         "cpu": "CPU",
-        "memory": "Memory",
+        "memory": "RAM",
         "images": "Images",
         "volumes": "Volumes",
         "events_today": "Heutige Ereignisse",
         "pending_updates": "Ausstehende Updates",
         "stacks": "Stacks",
         "paused": "Pausiert",
-        "total": "Total",
+        "total": "Gesamt",
         "environment_not_found": "Umgebung nicht gefunden"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

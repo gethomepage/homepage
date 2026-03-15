@@ -184,6 +184,13 @@
         "no_active": "Geen Actieve Streams",
         "plex_connection_error": "Controleer Plex Connectie"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "Verbonden APs",
         "activeUser": "Actieve apparaten",
@@ -282,17 +289,13 @@
         "approved": "Goedgekeurd",
         "available": "Beschikbaar"
     },
-    "jellyseerr": {
-        "pending": "In afwachting",
-        "approved": "Goedgekeurd",
-        "available": "Beschikbaar",
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "In afwachting",
-        "processing": "Verwerken",
-        "approved": "Goedgekeurd",
-        "available": "Beschikbaar"
     },
     "netalertx": {
         "total": "Totaal",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }
