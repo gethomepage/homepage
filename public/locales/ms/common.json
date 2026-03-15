@@ -184,6 +184,13 @@
         "no_active": "No Active Streams",
         "plex_connection_error": "Check Plex Connection"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "Connected APs",
         "activeUser": "Peranti aktif",
@@ -282,17 +289,13 @@
         "approved": "Lulus",
         "available": "Sudah Ada"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
-        "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
+        "completed": "Completed",
         "processing": "Processing",
-        "approved": "Approved",
-        "available": "Available"
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Total",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

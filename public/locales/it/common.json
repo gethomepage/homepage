@@ -113,7 +113,7 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",
         "movies": "Movies",
-        "series": "Series",
+        "series": "Serie",
         "episodes": "Episodes",
         "songs": "Songs"
     },
@@ -183,6 +183,13 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",
         "plex_connection_error": "Controllare la connessione a Plex"
+    },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
     },
     "omada": {
         "connectedAp": "AP Connessi",
@@ -282,17 +289,13 @@
         "approved": "Approvati",
         "available": "Disponibili"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "processing": "In lavorazione",
-        "approved": "Approved",
-        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
@@ -318,7 +321,7 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
+        "running": "In esecuzione",
         "stopped": "Fermati",
         "total": "Total"
     },
@@ -713,7 +716,7 @@
     "diskstation": {
         "days": "Days",
         "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "volumeAvailable": "Disponibili"
     },
     "dispatcharr": {
         "channels": "Channels",
@@ -1084,9 +1087,9 @@
         "sharedFiles": "Files"
     },
     "jellystat": {
-        "songs": "Songs",
-        "movies": "Movies",
-        "episodes": "Episodes",
+        "songs": "Brani",
+        "movies": "Film",
+        "episodes": "Episodi",
         "other": "Altro"
     },
     "checkmk": {
@@ -1110,11 +1113,11 @@
         "total": "Total"
     },
     "wallos": {
-        "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
+        "activeSubscriptions": "Abbonamenti",
+        "thisMonthlyCost": "Questo Mese",
+        "nextMonthlyCost": "Mese Prossimo",
         "previousMonthlyCost": "Prev. Month",
-        "nextRenewingSubscription": "Next Payment"
+        "nextRenewingSubscription": ""
     },
     "unraid": {
         "STARTED": "Started",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

@@ -184,6 +184,13 @@
         "no_active": "No Active Streams",
         "plex_connection_error": "Preveri Plex povezavo"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "Povezanih AP",
         "activeUser": "Aktivne naprave",
@@ -282,17 +289,13 @@
         "approved": "Odobreno",
         "available": "Na voljo"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "processing": "Procesiram",
-        "approved": "Approved",
-        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

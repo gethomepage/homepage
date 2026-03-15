@@ -108,14 +108,14 @@
         "songs": "曲目"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "正在播放",
+        "transcoding": "轉碼",
+        "bitrate": "位元率",
+        "no_active": "無播放活動",
+        "movies": "電影",
+        "series": "系列",
+        "episodes": "劇集",
+        "songs": "曲目"
     },
     "esphome": {
         "offline": "Offline",
@@ -183,6 +183,13 @@
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",
         "plex_connection_error": "檢查Plex的連接狀態"
+    },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
     },
     "omada": {
         "connectedAp": "已連接的存取點",
@@ -282,17 +289,13 @@
         "approved": "批准",
         "available": "可用"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "processing": "處理中",
-        "approved": "Approved",
-        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
@@ -318,9 +321,9 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
+        "running": "執行中",
         "stopped": "暫停",
-        "total": "Total"
+        "total": "全部"
     },
     "suwayomi": {
         "download": "Downloaded",
@@ -383,7 +386,7 @@
     "npm": {
         "enabled": "啟用",
         "disabled": "停用咗",
-        "total": "Total"
+        "total": "全部"
     },
     "coinmarketcap": {
         "configure": "配置一個或多個加密貨幣以進行跟蹤",
@@ -448,19 +451,19 @@
     },
     "glances": {
         "cpu": "CPU",
-        "load": "Load",
-        "wait": "Please wait",
-        "temp": "TEMP",
+        "load": "負載",
+        "wait": "請稍候",
+        "temp": "溫度",
         "_temp": "溫度",
         "warn": "警告",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "days": "d",
-        "hours": "h",
+        "uptime": "運作時間",
+        "total": "全部",
+        "free": "剩餘",
+        "used": "已使用",
+        "days": "日",
+        "hours": "時",
         "crit": "重大的",
-        "read": "Read",
+        "read": "已讀",
         "write": "寫入",
         "gpu": "GPU",
         "mem": "記憶體",
@@ -1084,10 +1087,10 @@
         "sharedFiles": "Files"
     },
     "jellystat": {
-        "songs": "Songs",
-        "movies": "Movies",
-        "episodes": "Episodes",
-        "other": "Other"
+        "songs": "曲目",
+        "movies": "電影",
+        "episodes": "劇集",
+        "other": "其它"
     },
     "checkmk": {
         "serviceErrors": "Service issues",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

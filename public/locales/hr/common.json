@@ -108,14 +108,14 @@
         "songs": "Pjesme"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
+        "playing": "Reprodukcija u tijeku",
+        "transcoding": "Prekodiranje",
+        "bitrate": "Stopa bitova",
         "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmovi",
+        "series": "Serije",
+        "episodes": "Epizode",
+        "songs": "Pjesme"
     },
     "esphome": {
         "offline": "Offline",
@@ -183,6 +183,13 @@
         "bitrate": "Stopa bitova",
         "no_active": "Nema aktivnih prijenosa",
         "plex_connection_error": "Provjeri Plex vezu"
+    },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Prekodiranja",
+        "directplay": "Izravna reprodukcija",
+        "bitrate": "Stopa bitova"
     },
     "omada": {
         "connectedAp": "Povezani AP-ovi",
@@ -282,17 +289,13 @@
         "approved": "Odobreno",
         "available": "Dostupno"
     },
-    "jellyseerr": {
-        "pending": "U tijeku",
+    "seerr": {
+        "pending": "Na čekanju",
         "approved": "Odobreno",
         "available": "Dostupno",
-        "issues": "Otvoreni problemi"
-    },
-    "overseerr": {
-        "pending": "U tijeku",
+        "completed": "Dovršeno",
         "processing": "Obrada",
-        "approved": "Odobreno",
-        "available": "Dostupno"
+        "issues": "Otvoreni problemi"
     },
     "netalertx": {
         "total": "Ukupno",
@@ -543,7 +546,7 @@
         "up": "Aktivno",
         "pending": "U tijeku",
         "down": "Neaktivno",
-        "ok": "Ok"
+        "ok": "U redu"
     },
     "healthchecks": {
         "new": "Novo",
@@ -611,11 +614,11 @@
         "total": "Ukupno"
     },
     "pangolin": {
-        "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
+        "orgs": "Organizacije",
+        "sites": "Web-stranice",
+        "resources": "Resursi",
+        "targets": "Ciljevi",
+        "traffic": "Promet",
         "in": "In",
         "out": "Out"
     },
@@ -716,7 +719,7 @@
         "volumeAvailable": "Dostupno"
     },
     "dispatcharr": {
-        "channels": "Channels",
+        "channels": "Kanali",
         "streams": "Streams"
     },
     "mylar": {
@@ -808,10 +811,10 @@
         "series": "Serije"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "Knjižnice",
+        "books": "Knjige",
+        "reading": "Čitanje",
+        "finished": "Završeno"
     },
     "jdownloader": {
         "downloadCount": "Red čekanja",
@@ -1152,24 +1155,30 @@
         "artists": "Izvođači"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "Kontejneri",
+        "images": "Slike",
+        "image_updates": "Aktualizirane slike",
+        "images_unused": "Nekorišteno",
+        "environment_required": "ID okruženja se mora navesti"
     },
     "dockhand": {
-        "running": "Running",
-        "stopped": "Stopped",
+        "running": "Pokreće se",
+        "stopped": "Zaustavljeno",
         "cpu": "CPU",
-        "memory": "Memory",
-        "images": "Images",
-        "volumes": "Volumes",
-        "events_today": "Events Today",
-        "pending_updates": "Pending Updates",
+        "memory": "Memorija",
+        "images": "Slike",
+        "volumes": "Jedinice memorije",
+        "events_today": "Događanja danas",
+        "pending_updates": "Aktualiziranja na čekanju",
         "stacks": "Stacks",
-        "paused": "Paused",
-        "total": "Total",
-        "environment_not_found": "Environment Not Found"
+        "paused": "Pauzirano",
+        "total": "Ukupno",
+        "environment_not_found": "Okruženje nije pronađeno"
+    },
+    "sparkyfitness": {
+        "eaten": "Pojedeno",
+        "burned": "Potrošeno",
+        "remaining": "Preostalo",
+        "steps": "Koraci"
     }
 }
