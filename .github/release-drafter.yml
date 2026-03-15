@@ -71,6 +71,7 @@ autolabeler:
       - 'Dockerfile*'
       - 'docker-entrypoint.sh'
       - 'k3d/**'
+      - 'public/locales/**'
 
 template: |
   ## What's Changed
