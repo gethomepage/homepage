@@ -619,7 +619,19 @@ export function cleanServiceGroups(groups) {
           if (refreshInterval) widget.refreshInterval = refreshInterval;
         }
         if (type === "calendar") {
-          if (integrations) widget.integrations = integrations;
+          if (integrations) {
+            if (Array.isArray(integrations)) {
+              widget.integrations = integrations.map((integration) => {
+                if (!integration || typeof integration !== "object") {
+                  return integration;
+                }
+                const { url, ...integrationWithoutUrl } = integration;
+                return integrationWithoutUrl;
+              });
+            } else {
+              widget.integrations = integrations;
+            }
+          }
           if (firstDayInWeek) widget.firstDayInWeek = firstDayInWeek;
           if (view) widget.view = view;
           if (maxEvents) widget.maxEvents = maxEvents;
