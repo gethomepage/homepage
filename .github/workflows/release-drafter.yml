@@ -14,7 +14,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -24,6 +24,7 @@ jobs:
       - uses: release-drafter/release-drafter@v6
         with:
           config-name: release-drafter.yml
+          disable-releaser: ${{ github.event_name == 'pull_request_target' }}
           version: ${{ github.event.inputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

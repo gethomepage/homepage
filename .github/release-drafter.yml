@@ -65,6 +65,7 @@ autolabeler:
       - 'src/components/**'
       - 'src/widgets/**'
       - 'src/pages/**'
+      - 'src/utils/**'
 
   - label: 'chore'
     files:
