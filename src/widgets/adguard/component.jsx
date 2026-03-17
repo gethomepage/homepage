@@ -37,6 +37,7 @@ export default function Component({ service }) {
       <Block
         label="adguard.latency"
         value={t("common.ms", { value: adguardData.avg_processing_time * 1000, style: "unit", unit: "millisecond" })}
+        highlightValue={adguardData.avg_processing_time * 1000}
       />
     </Container>
   );

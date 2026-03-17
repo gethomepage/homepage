@@ -74,9 +74,17 @@ export default function Component({ service }) {
     <>
       <Container service={service}>
         <Block label="qbittorrent.leech" value={t("common.number", { value: leech })} />
-        <Block label="qbittorrent.download" value={t("common.bibyterate", { value: rateDl, decimals: 1 })} />
+        <Block
+          label="qbittorrent.download"
+          value={t("common.bibyterate", { value: rateDl, decimals: 1 })}
+          highlightValue={rateDl}
+        />
         <Block label="qbittorrent.seed" value={t("common.number", { value: completedCount })} />
-        <Block label="qbittorrent.upload" value={t("common.bibyterate", { value: rateUl, decimals: 1 })} />
+        <Block
+          label="qbittorrent.upload"
+          value={t("common.bibyterate", { value: rateUl, decimals: 1 })}
+          highlightValue={rateUl}
+        />
       </Container>
       {widget?.enableLeechProgress &&
         leechTorrents.map((queueEntry) => (

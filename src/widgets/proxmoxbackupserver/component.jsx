@@ -47,10 +47,22 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="proxmoxbackupserver.datastore_usage" value={t("common.percent", { value: datastoreUsage })} />
+      <Block
+        label="proxmoxbackupserver.datastore_usage"
+        value={t("common.percent", { value: datastoreUsage })}
+        highlightValue={datastoreUsage}
+      />
       <Block label="proxmoxbackupserver.failed_tasks_24h" value={failedTasks} />
-      <Block label="proxmoxbackupserver.cpu_usage" value={t("common.percent", { value: cpuUsage })} />
-      <Block label="proxmoxbackupserver.memory_usage" value={t("common.percent", { value: memoryUsage })} />
+      <Block
+        label="proxmoxbackupserver.cpu_usage"
+        value={t("common.percent", { value: cpuUsage })}
+        highlightValue={cpuUsage}
+      />
+      <Block
+        label="proxmoxbackupserver.memory_usage"
+        value={t("common.percent", { value: memoryUsage })}
+        highlightValue={memoryUsage}
+      />
     </Container>
   );
 }

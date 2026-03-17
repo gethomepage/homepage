@@ -38,4 +38,27 @@ describe("components/services/widget/block", () => {
     expect(el.getAttribute("data-highlight-level")).toBe("danger");
     expect(el.className).toContain("danger-class");
   });
+
+  it("prefers highlightValue over the rendered value for numeric highlighting", () => {
+    const highlightConfig = {
+      levels: { warn: "warn-class" },
+      fields: {
+        foo: {
+          numeric: { when: "gt", value: 5, level: "warn" },
+        },
+      },
+    };
+
+    const { container } = renderWithProviders(
+      <BlockHighlightContext.Provider value={highlightConfig}>
+        <Block label="foo.label" field="foo" value="5.791 ms" highlightValue={5.791} />
+      </BlockHighlightContext.Provider>,
+      { settings: {} },
+    );
+
+    const el = container.querySelector(".service-block");
+    expect(el).not.toBeNull();
+    expect(el.getAttribute("data-highlight-level")).toBe("warn");
+    expect(el.className).toContain("warn-class");
+  });
 });

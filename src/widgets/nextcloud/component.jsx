@@ -56,12 +56,23 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       {showCpuLoad && (
-        <Block label="nextcloud.cpuload" value={t("common.percent", { value: nextcloudInfo.system.cpuload[0] })} />
+        <Block
+          label="nextcloud.cpuload"
+          value={t("common.percent", { value: nextcloudInfo.system.cpuload[0] })}
+          highlightValue={nextcloudInfo.system.cpuload[0]}
+        />
       )}
-      {showMemoryUsage && <Block label="nextcloud.memoryusage" value={t("common.percent", { value: memoryUsage })} />}
+      {showMemoryUsage && (
+        <Block
+          label="nextcloud.memoryusage"
+          value={t("common.percent", { value: memoryUsage })}
+          highlightValue={memoryUsage}
+        />
+      )}
       <Block
         label="nextcloud.freespace"
         value={t("common.bbytes", { value: nextcloudInfo.system.freespace, maximumFractionDigits: 1 })}
+        highlightValue={nextcloudInfo.system.freespace}
       />
       <Block label="nextcloud.activeusers" value={t("common.number", { value: activeUsers.last24hours })} />
       <Block label="nextcloud.numfiles" value={t("common.number", { value: nextcloudInfo.storage.num_files })} />
