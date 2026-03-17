@@ -54,6 +54,7 @@ export default function Component({ service }) {
           style: "unit",
           unit: "millisecond",
         })}
+        highlightValue={speedtestData.data.ping}
       />
     </Container>
   );

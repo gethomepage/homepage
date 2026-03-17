@@ -58,7 +58,7 @@ export default function Component({ service }) {
       <Block label="gamedig.players" value={players} />
       <Block label="gamedig.maxPlayers" value={maxPlayers} />
       <Block label="gamedig.bots" value={bots} />
-      <Block label="gamedig.ping" value={ping} />
+      <Block label="gamedig.ping" value={ping} highlightValue={serverData.online ? serverData.ping : undefined} />
     </Container>
   );
 }
