@@ -51,14 +51,25 @@ export default function Component({ service }) {
         label="pfsense.load"
         value={version === 1 ? systemData.data.load_avg[0] : systemData.data.cpu_load_avg[0]}
       />
-      <Block label="pfsense.memory" value={t("common.percent", { value: memUsage.toFixed(2) })} />
+      <Block
+        label="pfsense.memory"
+        value={t("common.percent", { value: memUsage.toFixed(2) })}
+        highlightValue={memUsage}
+      />
       <Block
         label="pfsense.temp"
         value={t("common.number", { value: systemData.data.temp_c, style: "unit", unit: "celsius" })}
+        highlightValue={systemData.data.temp_c}
       />
       <Block label="pfsense.wanStatus" value={wan.status === "up" ? t("pfsense.up") : t("pfsense.down")} />
       {showWanIP && <Block label="pfsense.wanIP" value={wan.ipaddr} />}
-      {showDiskUsage && <Block label="pfsense.disk" value={t("common.percent", { value: diskUsage.toFixed(2) })} />}
+      {showDiskUsage && (
+        <Block
+          label="pfsense.disk"
+          value={t("common.percent", { value: diskUsage.toFixed(2) })}
+          highlightValue={diskUsage}
+        />
+      )}
     </Container>
   );
 }

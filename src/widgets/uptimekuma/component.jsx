@@ -50,7 +50,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="uptimekuma.up" value={t("common.number", { value: sitesUp })} />
       <Block label="uptimekuma.down" value={t("common.number", { value: sitesDown })} />
-      <Block label="uptimekuma.uptime" value={t("common.percent", { value: uptime })} />
+      <Block label="uptimekuma.uptime" value={t("common.percent", { value: uptime })} highlightValue={Number(uptime)} />
       {incidentTime && (
         <Block
           label="uptimekuma.incident"
