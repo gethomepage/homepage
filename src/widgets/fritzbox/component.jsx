@@ -47,12 +47,36 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="fritzbox.connectionStatus" value={t(`fritzbox.connectionStatus${fritzboxData.connectionStatus}`)} />
       <Block label="fritzbox.uptime" value={t("common.duration", { value: fritzboxData.uptime })} />
-      <Block label="fritzbox.maxDown" value={t("common.byterate", { value: fritzboxData.maxDown / 8, decimals: 1 })} />
-      <Block label="fritzbox.maxUp" value={t("common.byterate", { value: fritzboxData.maxUp / 8, decimals: 1 })} />
-      <Block label="fritzbox.down" value={t("common.byterate", { value: fritzboxData.down, decimals: 1 })} />
-      <Block label="fritzbox.up" value={t("common.byterate", { value: fritzboxData.up, decimals: 1 })} />
-      <Block label="fritzbox.received" value={t("common.bytes", { value: fritzboxData.received })} />
-      <Block label="fritzbox.sent" value={t("common.bytes", { value: fritzboxData.sent })} />
+      <Block
+        label="fritzbox.maxDown"
+        value={t("common.byterate", { value: fritzboxData.maxDown / 8, decimals: 1 })}
+        highlightValue={fritzboxData.maxDown / 8}
+      />
+      <Block
+        label="fritzbox.maxUp"
+        value={t("common.byterate", { value: fritzboxData.maxUp / 8, decimals: 1 })}
+        highlightValue={fritzboxData.maxUp / 8}
+      />
+      <Block
+        label="fritzbox.down"
+        value={t("common.byterate", { value: fritzboxData.down, decimals: 1 })}
+        highlightValue={fritzboxData.down}
+      />
+      <Block
+        label="fritzbox.up"
+        value={t("common.byterate", { value: fritzboxData.up, decimals: 1 })}
+        highlightValue={fritzboxData.up}
+      />
+      <Block
+        label="fritzbox.received"
+        value={t("common.bytes", { value: fritzboxData.received })}
+        highlightValue={fritzboxData.received}
+      />
+      <Block
+        label="fritzbox.sent"
+        value={t("common.bytes", { value: fritzboxData.sent })}
+        highlightValue={fritzboxData.sent}
+      />
       <Block label="fritzbox.externalIPAddress" value={fritzboxData.externalIPAddress} />
       <Block label="fritzbox.externalIPv6Address" value={fritzboxData.externalIPv6Address} />
       <Block label="fritzbox.externalIPv6Prefix" value={fritzboxData.externalIPv6Prefix} />
