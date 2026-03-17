@@ -43,14 +43,23 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       {(statsData.stats.cpuLimit && (
-        <Block label="docker.cpu" value={t("common.percent", { value: statsData.stats.cpuUsage })} />
+        <Block
+          label="docker.cpu"
+          value={t("common.percent", { value: statsData.stats.cpuUsage })}
+          highlightValue={statsData.stats.cpuUsage}
+        />
       )) || (
         <Block
           label="docker.cpu"
           value={t("common.number", { value: statsData.stats.cpu, maximumFractionDigits: 4 })}
+          highlightValue={statsData.stats.cpu}
         />
       )}
-      <Block label="docker.mem" value={t("common.bytes", { value: statsData.stats.mem })} />
+      <Block
+        label="docker.mem"
+        value={t("common.bytes", { value: statsData.stats.mem })}
+        highlightValue={statsData.stats.mem}
+      />
     </Container>
   );
 }
