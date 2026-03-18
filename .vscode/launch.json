@@ -3,6 +3,7 @@
     {
       "name": "Debug homepage",
       "type": "node",
+      "preLaunchTask": "pnpm install",
       "request": "launch",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run", "dev"],
