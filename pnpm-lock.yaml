@@ -90,8 +90,8 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
       urbackup-server-api:
-        specifier: ^0.91.0
-        version: 0.91.0
+        specifier: ^0.92.2
+        version: 0.92.2
       winston:
         specifier: ^3.19.0
         version: 3.19.0
@@ -3674,8 +3674,8 @@ packages:
   unrs-resolver@1.3.3:
     resolution: {integrity: sha512-PFLAGQzYlyjniXdbmQ3dnGMZJXX5yrl2YS4DLRfR3BhgUsE1zpRIrccp9XMOGRfIHpdFvCn/nr5N1KMVda4x3A==}
 
-  urbackup-server-api@0.91.0:
-    resolution: {integrity: sha512-N1CSnGSCSHjwWfGOp6jE56mHYoZor/p++ii8yPsN9P/3cKLBgCvrAZxAbfi+IgK9FZpQEx/kPX1R8OTJRy+x6A==}
+  urbackup-server-api@0.92.2:
+    resolution: {integrity: sha512-IAillb3OVONurnh4CULwXpJ0jZXTsWKEBfp88qjf7k2vEzRDtBQqffMxanZkwRwYJ48LkOr5mz+QgPwWbkiVkw==}
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
@@ -7555,7 +7555,7 @@ snapshots:
       '@unrs/resolver-binding-win32-ia32-msvc': 1.3.3
       '@unrs/resolver-binding-win32-x64-msvc': 1.3.3
 
-  urbackup-server-api@0.91.0:
+  urbackup-server-api@0.92.2:
     dependencies:
       async-mutex: 0.5.0
 
