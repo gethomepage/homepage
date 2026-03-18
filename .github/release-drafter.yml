@@ -17,6 +17,7 @@ version-resolver:
       - 'bug'
       - 'fix'
       - 'dependencies'
+      - 'translation'
       - 'documentation'
   default: patch
 
@@ -38,6 +39,9 @@ categories:
       - 'dependencies'
       - 'ci'
       - 'chore'
+  - title: '🌐 Translations'
+    labels:
+      - 'translation'
   - title: '📚 Documentation'
     labels:
       - 'documentation'
@@ -72,6 +76,9 @@ autolabeler:
       - 'Dockerfile*'
       - 'docker-entrypoint.sh'
       - 'k3d/**'
+
+  - label: 'translation'
+    files:
       - 'public/locales/**'
 
 template: |
