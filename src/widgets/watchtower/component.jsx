@@ -18,7 +18,7 @@ export default function Component({ service }) {
   if (!watchData) {
     return (
       <Container service={service}>
-        <Block label="watchtower.containers_scanned " />
+        <Block label="watchtower.containers_scanned" />
         <Block label="watchtower.containers_updated" />
         <Block label="watchtower.containers_failed" />
       </Container>
