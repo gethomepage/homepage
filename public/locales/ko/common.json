@@ -108,14 +108,14 @@
         "songs": "음악"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "재생 중",
+        "transcoding": "트랜스코딩 중",
+        "bitrate": "비트레이트",
+        "no_active": "활성 스트림 없음",
+        "movies": "영상",
+        "series": "시리즈",
+        "episodes": "에피소드",
+        "songs": "음악"
     },
     "esphome": {
         "offline": "오프라인",
@@ -185,11 +185,11 @@
         "plex_connection_error": "Plex 연결 확인"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
-        "streams": "Streams",
-        "transcodes": "Transcodes",
-        "directplay": "Direct Play",
-        "bitrate": "Bitrate"
+        "no_active": "활성 스트림 없음",
+        "streams": "스트림",
+        "transcodes": "트랜스코드",
+        "directplay": "다이렉트 플레이",
+        "bitrate": "비트레이트"
     },
     "omada": {
         "connectedAp": "연결된 AP",
@@ -290,12 +290,12 @@
         "available": "이용 가능"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
-        "processing": "Processing",
-        "issues": "Open Issues"
+        "pending": "대기 중",
+        "approved": "승인됨",
+        "available": "사용 가능",
+        "completed": "완료됨",
+        "processing": "처리 중",
+        "issues": "열린 이슈"
     },
     "netalertx": {
         "total": "전체",
@@ -546,7 +546,7 @@
         "up": "업",
         "pending": "대기 중",
         "down": "다운",
-        "ok": "Ok"
+        "ok": "확인"
     },
     "healthchecks": {
         "new": "신규",
@@ -618,9 +618,9 @@
         "sites": "Sites",
         "resources": "Resources",
         "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "traffic": "트래픽",
+        "in": "수신",
+        "out": "송신"
     },
     "peanut": {
         "battery_charge": "배터리 충전",
@@ -719,8 +719,8 @@
         "volumeAvailable": "사용 가능"
     },
     "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Streams"
+        "channels": "채널",
+        "streams": "스트림"
     },
     "mylar": {
         "series": "시리즈",
@@ -787,7 +787,7 @@
         "gross_percent_today": "오늘",
         "gross_percent_1y": "1년",
         "gross_percent_max": "전체 기간",
-        "net_worth": "Net Worth"
+        "net_worth": "순자산"
     },
     "audiobookshelf": {
         "podcasts": "팟캐스트",
@@ -811,10 +811,10 @@
         "series": "시리즈"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "라이브러리",
+        "books": "책",
+        "reading": "읽는 중",
+        "finished": "완료"
     },
     "jdownloader": {
         "downloadCount": "대기열",
@@ -1150,30 +1150,30 @@
         "bytes_added_30": "추가된 용량"
     },
     "yourspotify": {
-        "songs": "Songs",
-        "time": "Time",
-        "artists": "Artists"
+        "songs": "음악",
+        "time": "시간",
+        "artists": "아티스트"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "컨테이너",
+        "images": "이미지",
+        "image_updates": "이미지 업데이트",
+        "images_unused": "미사용",
+        "environment_required": "환경 ID 필요"
     },
     "dockhand": {
-        "running": "Running",
-        "stopped": "Stopped",
+        "running": "실행 중",
+        "stopped": "정지됨",
         "cpu": "CPU",
-        "memory": "Memory",
-        "images": "Images",
-        "volumes": "Volumes",
-        "events_today": "Events Today",
-        "pending_updates": "Pending Updates",
-        "stacks": "Stacks",
-        "paused": "Paused",
-        "total": "Total",
-        "environment_not_found": "Environment Not Found"
+        "memory": "메모리",
+        "images": "이미지",
+        "volumes": "볼륨",
+        "events_today": "오늘의 이벤트",
+        "pending_updates": "대기 중인 업데이트",
+        "stacks": "스택",
+        "paused": "일시정지됨",
+        "total": "전체",
+        "environment_not_found": "환경 없음"
     },
     "sparkyfitness": {
         "eaten": "Eaten",
