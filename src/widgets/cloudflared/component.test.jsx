@@ -29,11 +29,9 @@ describe("widgets/cloudflared/component", () => {
     expect(screen.getByText("cloudflared.origin_ip")).toBeInTheDocument();
   });
 
-  it("renders status capitalization and origin_ip from nested connections", () => {
+  it("renders status capitalization and origin_ip for single tunnel", () => {
     useWidgetAPI.mockReturnValue({
-      data: {
-        result: { status: "healthy", connections: { origin_ip: "1.2.3.4" } },
-      },
+      data: { mode: "single", status: "healthy", origin_ip: "1.2.3.4" },
       error: undefined,
     });
 
@@ -45,11 +43,9 @@ describe("widgets/cloudflared/component", () => {
     expectBlockValue(container, "cloudflared.origin_ip", "1.2.3.4");
   });
 
-  it("falls back to origin_ip from first connection entry", () => {
+  it("falls back to N/A when origin_ip is null", () => {
     useWidgetAPI.mockReturnValue({
-      data: {
-        result: { status: "down", connections: [{ origin_ip: "5.6.7.8" }] },
-      },
+      data: { mode: "single", status: "down", origin_ip: null },
       error: undefined,
     });
 
@@ -57,6 +53,37 @@ describe("widgets/cloudflared/component", () => {
       settings: { hideErrors: false },
     });
 
-    expectBlockValue(container, "cloudflared.origin_ip", "5.6.7.8");
+    expectBlockValue(container, "cloudflared.status", "Down");
+    expectBlockValue(container, "cloudflared.origin_ip", "N/A");
+  });
+
+  it("renders aggregate tunnel counts", () => {
+    useWidgetAPI.mockReturnValue({
+      data: { mode: "aggregate", healthy: 3, unhealthy: 1, total: 4 },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "cloudflared" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "cloudflared.healthy", "3");
+    expectBlockValue(container, "cloudflared.unhealthy", "1");
+    expectBlockValue(container, "cloudflared.total", "4");
+  });
+
+  it("renders aggregate with zero unhealthy", () => {
+    useWidgetAPI.mockReturnValue({
+      data: { mode: "aggregate", healthy: 5, unhealthy: 0, total: 5 },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "cloudflared" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "cloudflared.healthy", "5");
+    expectBlockValue(container, "cloudflared.unhealthy", "0");
+    expectBlockValue(container, "cloudflared.total", "5");
   });
 });

@@ -1,13 +1,12 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import cloudflaredProxyHandler from "./proxy";
 
 const widget = {
-  api: "https://api.cloudflare.com/client/v4/accounts/{accountid}/{endpoint}/{tunnelid}",
-  proxyHandler: credentialedProxyHandler,
+  api: "https://api.cloudflare.com/client/v4/accounts/{accountid}/cfd_tunnel",
+  proxyHandler: cloudflaredProxyHandler,
 
   mappings: {
-    cfd_tunnel: {
-      endpoint: "cfd_tunnel",
-      validate: ["success", "result"],
+    status: {
+      endpoint: "/",
     },
   },
 };
