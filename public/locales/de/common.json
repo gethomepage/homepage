@@ -670,8 +670,11 @@
         "job_completion": "Fortschritt"
     },
     "cloudflared": {
-        "origin_ip": "Ursprüngliche IP",
-        "status": "Status"
+        "origin_ip": "Ursprungs-IP",
+        "status": "Status",
+        "healthy": "Gesund",
+        "unhealthy": "Gestört",
+        "total": "Gesamt"
     },
     "pfsense": {
         "load": "Durchschnittliche Last",

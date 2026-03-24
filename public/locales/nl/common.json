@@ -671,7 +671,10 @@
     },
     "cloudflared": {
         "origin_ip": "Bron IP",
-        "status": "Status"
+        "status": "Status",
+        "healthy": "Gezond",
+        "unhealthy": "Ongezond",
+        "total": "Totaal"
     },
     "pfsense": {
         "load": "Gem. Load",

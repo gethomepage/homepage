@@ -671,7 +671,10 @@
     },
     "cloudflared": {
         "origin_ip": "Origin IP",
-        "status": "Status"
+        "status": "Status",
+        "healthy": "Healthy",
+        "unhealthy": "Unhealthy",
+        "total": "Total"
     },
     "pfsense": {
         "load": "Load Avg",
