@@ -165,7 +165,7 @@ describe("widgets/cloudflared/proxy", () => {
     });
   });
 
-  it("forwards error status on API failure", async () => {
+  it("forwards error status on aggregate API failure", async () => {
     getServiceWidget.mockResolvedValue({
       accountid: "abc123",
       key: "token-xyz",
@@ -178,5 +178,21 @@ describe("widgets/cloudflared/proxy", () => {
 
     expect(res.status).toHaveBeenCalledWith(403);
     expect(res.end).toHaveBeenCalledWith("Forbidden");
+  });
+
+  it("forwards error status on single tunnel API failure", async () => {
+    getServiceWidget.mockResolvedValue({
+      accountid: "abc123",
+      tunnelid: "tunnel-1",
+      key: "token-xyz",
+    });
+
+    httpProxy.mockResolvedValue([502, "text/plain", "Bad Gateway"]);
+
+    const res = mockRes();
+    await cloudflaredProxyHandler(mockReq(), res);
+
+    expect(res.status).toHaveBeenCalledWith(502);
+    expect(res.end).toHaveBeenCalledWith("Bad Gateway");
   });
 });
