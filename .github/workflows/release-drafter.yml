@@ -1,0 +1,54 @@
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Optional explicit version override (for example: 2.0.0)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  update_release_draft:
+    name: Update Release Draft
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: write
+      pull-requests: read
+    runs-on: ubuntu-latest
+    steps:
+      - if: github.event_name == 'workflow_dispatch' && github.event.inputs.version != ''
+        uses: release-drafter/release-drafter@v7
+        with:
+          config-name: release-drafter.yml
+          version: ${{ github.event.inputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - if: github.event_name != 'workflow_dispatch' || github.event.inputs.version == ''
+        uses: release-drafter/release-drafter@v7
+        with:
+          config-name: release-drafter.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  auto_label:
+    name: Auto Label PR
+    if: github.event_name == 'pull_request_target'
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter/autolabeler@ebb69bb56f1b0ebd19897745035726b19bef973e
+        with:
+          config-name: release-drafter.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

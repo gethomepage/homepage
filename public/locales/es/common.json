@@ -184,6 +184,13 @@
         "no_active": "Sin transmisiones activas",
         "plex_connection_error": "Comprueba la conexión a Plex"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "AP conectados",
         "activeUser": "Dispositivos activos",
@@ -282,17 +289,13 @@
         "approved": "Aprobado",
         "available": "Disponible"
     },
-    "jellyseerr": {
-        "pending": "Pendiente",
-        "approved": "Aprobado",
-        "available": "Disponible",
-        "issues": "Issues Abiertos"
-    },
-    "overseerr": {
-        "pending": "Pendiente",
-        "processing": "Procesando",
-        "approved": "Aprobado",
-        "available": "Disponible"
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Total",
@@ -1171,5 +1174,11 @@
         "paused": "En Pausa",
         "total": "Total",
         "environment_not_found": "Entorno no encontrado"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

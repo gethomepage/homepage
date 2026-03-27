@@ -61,7 +61,7 @@
         "wlan_devices": "Dispositius WLAN",
         "lan_users": "Usuaris LAN",
         "wlan_users": "Usuaris WLAN",
-        "up": "UP",
+        "up": "ACTIU",
         "down": "INACTIU",
         "wait": "Si us plau espera",
         "empty_data": "Estat del subsistema desconegut"
@@ -93,8 +93,8 @@
         "http_status": "Estat HTTP",
         "error": "Error",
         "response": "Resposta",
-        "down": "Down",
-        "up": "Up",
+        "down": "Inactiu",
+        "up": "Actiu",
         "not_available": "No disponible"
     },
     "emby": {
@@ -108,21 +108,21 @@
         "songs": "Cançons"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Reproduïnt",
+        "transcoding": "Transcodificant",
+        "bitrate": "Taxa de bits",
+        "no_active": "Sense reproduccions actives",
+        "movies": "Pel·lícules",
+        "series": "Sèries",
+        "episodes": "Episodis",
+        "songs": "Cançons"
     },
     "esphome": {
-        "offline": "Offline",
-        "offline_alt": "Offline",
+        "offline": "Desconnectat",
+        "offline_alt": "Desconnectat",
         "online": "En línia",
         "total": "Total",
-        "unknown": "Unknown"
+        "unknown": "Desconegut"
     },
     "evcc": {
         "pv_power": "Producció",
@@ -143,7 +143,7 @@
         "unread": "Sense llegir"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
+        "connectionStatus": "Estat",
         "connectionStatusUnconfigured": "Sense configurar",
         "connectionStatusConnecting": "Connectant",
         "connectionStatusAuthenticating": "Autenticant",
@@ -151,11 +151,11 @@
         "connectionStatusDisconnecting": "Desconnectant",
         "connectionStatusDisconnected": "Desconnectat",
         "connectionStatusConnected": "Connectat",
-        "uptime": "Uptime",
+        "uptime": "Temps en funcionament",
         "maxDown": "Màx. Descàrrega",
         "maxUp": "Màx. Càrrega",
-        "down": "Down",
-        "up": "Up",
+        "down": "Inactiu",
+        "up": "Actiu",
         "received": "Rebuts",
         "sent": "Enviats",
         "externalIPAddress": "IP ext.",
@@ -178,17 +178,24 @@
         "passes": "Aprovat"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "Reproduïnt",
+        "transcoding": "Transcodificant",
+        "bitrate": "Taxa de bits",
+        "no_active": "Sense reproduccions actives",
         "plex_connection_error": "Comprova la connexió de Plex"
+    },
+    "tracearr": {
+        "no_active": "Sense reproduccions actives",
+        "streams": "Transmissions",
+        "transcodes": "Transcodificacions",
+        "directplay": "Reproducció directa",
+        "bitrate": "Taxa de bits"
     },
     "omada": {
         "connectedAp": "AP connectats",
         "activeUser": "Dispositius actius",
         "alerts": "Alertes",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "Pasarel·les connectades",
         "connectedSwitches": "Conmutadors connectats"
     },
     "nzbget": {
@@ -199,24 +206,24 @@
     "plex": {
         "streams": "Transmissions actives",
         "albums": "Àlbums",
-        "movies": "Movies",
+        "movies": "Pel·lícules",
         "tv": "Sèries"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Taxa",
         "queue": "Cua",
         "timeleft": "Temps restant"
     },
     "rutorrent": {
         "active": "Actiu",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Pujada",
+        "download": "Baixada"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Baixada",
+        "upload": "Pujada",
+        "leech": "Sangonera",
+        "seed": "Sembrat"
     },
     "qbittorrent": {
         "download": "Download",
@@ -282,17 +289,13 @@
         "approved": "Aprovat",
         "available": "Disponible"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "processing": "Processant",
-        "approved": "Approved",
-        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
@@ -323,10 +326,10 @@
         "total": "Total"
     },
     "suwayomi": {
-        "download": "Downloaded",
+        "download": "Descarregat",
         "nondownload": "No descarregat",
-        "read": "Read",
-        "unread": "Unread",
+        "read": "Llegits",
+        "unread": "No llegits",
         "downloadedread": "Descarregat i llegit",
         "downloadedunread": "Descarregat i per llegir",
         "nondownloadedread": "No descarregat i llegit",
@@ -347,7 +350,7 @@
         "ago": "Fa {{value}}"
     },
     "technitium": {
-        "totalQueries": "Queries",
+        "totalQueries": "Consultes",
         "totalNoError": "Èxits",
         "totalServerFailure": "Fallades",
         "totalNxDomain": "Dominis NX",
@@ -355,12 +358,12 @@
         "totalAuthoritative": "Autoritatiu",
         "totalRecursive": "Recursiu",
         "totalCached": "A la memòria cau",
-        "totalBlocked": "Blocked",
+        "totalBlocked": "Bloquejats",
         "totalDropped": "Abandonat",
         "totalClients": "Clients"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "Cua",
         "processed": "Processat",
         "errored": "Error",
         "saved": "Estalviat"
@@ -371,13 +374,13 @@
         "middleware": "Intermediari"
     },
     "trilium": {
-        "version": "Version",
+        "version": "Versió",
         "notesCount": "Notes",
-        "dbSize": "Database Size",
-        "unknown": "Unknown"
+        "dbSize": "Tamany de la base de dades",
+        "unknown": "Desconegut"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
+        "nothing_streaming": "Sense reproduccions actives",
         "please_wait": "Espereu si us plau"
     },
     "npm": {
@@ -400,43 +403,43 @@
     "prowlarr": {
         "enableIndexers": "Indexadors",
         "numberOfGrabs": "Captures",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "Consultes",
         "numberOfFailGrabs": "Captures fallides",
         "numberOfFailQueries": "Consultes fallides"
     },
     "jackett": {
         "configured": "Configurat",
-        "errored": "Errored"
+        "errored": "Errors"
     },
     "strelaysrv": {
         "numActiveSessions": "Sessions",
         "numConnections": "Connexions",
         "dataRelayed": "Transmès",
-        "transferRate": "Rate"
+        "transferRate": "Taxa"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "Usuaris",
         "status_count": "Publicacions",
         "domain_count": "Dominis"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "Volguts",
+        "queued": "Encuat",
+        "series": "Sèries"
     },
     "minecraft": {
         "players": "Jugadors",
         "version": "Versió",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "status": "Estat",
+        "up": "En línia",
+        "down": "Fora de línia"
     },
     "miniflux": {
         "read": "Llegit",
-        "unread": "Unread"
+        "unread": "No llegits"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Usuaris",
         "loginsLast24H": "Inicis de sessió (24h)",
         "failedLoginsLast24H": "Errors d'inici de sessió (24h)"
     },
@@ -448,19 +451,19 @@
     },
     "glances": {
         "cpu": "CPU",
-        "load": "Load",
-        "wait": "Please wait",
+        "load": "Càrrega",
+        "wait": "Si us plau espera",
         "temp": "TEMP",
         "_temp": "Temp",
         "warn": "Avís",
-        "uptime": "UP",
+        "uptime": "ACTIU",
         "total": "Total",
-        "free": "Free",
-        "used": "Used",
+        "free": "Lliure",
+        "used": "Utilitzat",
         "days": "d",
         "hours": "h",
         "crit": "Crític",
-        "read": "Read",
+        "read": "Lectura",
         "write": "Escriptura",
         "gpu": "GPU",
         "mem": "Mem",
@@ -481,25 +484,25 @@
         "1-day": "Majorment assolellat",
         "1-night": "Majorment clar",
         "2-day": "Parcialment ennuvolat",
-        "2-night": "Partly Cloudy",
+        "2-night": "Parcialment ennuvolat",
         "3-day": "Ennuvolat",
-        "3-night": "Cloudy",
+        "3-night": "Ennuvolat",
         "45-day": "Boirós",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "45-night": "Emboirat",
+        "48-day": "Boirós",
+        "48-night": "Emboirat",
         "51-day": "Ruixats lleugers",
-        "51-night": "Light Drizzle",
+        "51-night": "Plugim lleuger",
         "53-day": "Ruixat",
-        "53-night": "Drizzle",
+        "53-night": "Plugim",
         "55-day": "Ruixat intens",
-        "55-night": "Heavy Drizzle",
+        "55-night": "Plovisqueig intens",
         "56-day": "Lleuger ruixat gelat",
-        "56-night": "Light Freezing Drizzle",
+        "56-night": "Lleuger ruixat gelat",
         "57-day": "Ruixat gelat",
-        "57-night": "Freezing Drizzle",
+        "57-night": "Plugim gelat",
         "61-day": "Pluja lleugera",
-        "61-night": "Light Rain",
+        "61-night": "Pluja lleugera",
         "63-day": "Pluja",
         "63-night": "Rain",
         "65-day": "Pluja intensa",
@@ -634,12 +637,12 @@
     "mikrotik": {
         "cpuLoad": "Càrrega de CPU",
         "memoryUsed": "Memoria en ús",
-        "uptime": "Uptime",
+        "uptime": "Temps en funcionament",
         "numberOfLeases": "IPs assignades"
     },
     "xteve": {
         "streams_all": "Tots els streams",
-        "streams_active": "Active Streams",
+        "streams_active": "Transmissions actives",
         "streams_xepg": "Canals XEPG"
     },
     "opendtu": {
@@ -649,7 +652,7 @@
         "limit": "Límit"
     },
     "opnsense": {
-        "cpu": "CPU Load",
+        "cpu": "Càrrega de CPU",
         "memory": "Memòria activa",
         "wanUpload": "Pujada WAN",
         "wanDownload": "Baixada WAN"
@@ -661,21 +664,21 @@
         "layers": "Capes"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "Estat",
         "temp_tool": "Temperatura capçal",
         "temp_bed": "Temperatura llit",
         "job_completion": "Finalització"
     },
     "cloudflared": {
         "origin_ip": "IP Origen",
-        "status": "Status"
+        "status": "Estat"
     },
     "pfsense": {
         "load": "Càrrega mitjana",
         "memory": "Ús Memòria",
         "wanStatus": "Estat WAN",
-        "up": "Up",
-        "down": "Down",
+        "up": "Actiu",
+        "down": "Inactiu",
         "temp": "Temp",
         "disk": "Ús Disc",
         "wanIP": "IP WAN"
@@ -687,58 +690,58 @@
         "memory_usage": "Memòria"
     },
     "immich": {
-        "users": "Users",
+        "users": "Usuaris",
         "photos": "Fotos",
-        "videos": "Videos",
+        "videos": "Vídeos",
         "storage": "Emmagatzematge"
     },
     "uptimekuma": {
         "up": "Actius",
         "down": "Caiguts",
-        "uptime": "Uptime",
+        "uptime": "Temps en funcionament",
         "incident": "Incidència",
         "m": "m"
     },
     "atsumeru": {
-        "series": "Series",
+        "series": "Sèries",
         "archives": "Arxius",
         "chapters": "Capítols",
         "categories": "Categories"
     },
     "komga": {
         "libraries": "Biblioteques",
-        "series": "Series",
-        "books": "Books"
+        "series": "Sèries",
+        "books": "Llibres"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "Dies",
+        "uptime": "Temps en funcionament",
+        "volumeAvailable": "Disponible"
     },
     "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Streams"
+        "channels": "Canals",
+        "streams": "Transmissions"
     },
     "mylar": {
-        "series": "Series",
+        "series": "Sèries",
         "issues": "Problemes",
-        "wanted": "Wanted"
+        "wanted": "Volguts"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
+        "albums": "Àlbums",
+        "photos": "Fotos",
+        "videos": "Vídeos",
         "people": "Gent"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
+        "queue": "Cua",
+        "processing": "Processant",
+        "processed": "Processat",
         "time": "Temps"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "Valor Net",
+        "budget": "Pressupost"
     },
     "grafana": {
         "dashboards": "Taulells",
@@ -755,11 +758,11 @@
         "numshares": "Elements compartits"
     },
     "kopia": {
-        "status": "Status",
+        "status": "Estat",
         "size": "Mida",
         "lastrun": "Darrera execució",
         "nextrun": "Següent execució",
-        "failed": "Failed"
+        "failed": "Error"
     },
     "unmanic": {
         "active_workers": "Treballadors actius",
@@ -776,21 +779,21 @@
         "targets_total": "Objectius Totals"
     },
     "gatus": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime"
+        "up": "Actius",
+        "down": "Caiguts",
+        "uptime": "Temps en funcionament"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "Avui",
         "gross_percent_1y": "Un any",
         "gross_percent_max": "Sempre",
-        "net_worth": "Net Worth"
+        "net_worth": "Valor Net"
     },
     "audiobookshelf": {
         "podcasts": "Pòdcasts",
-        "books": "Books",
+        "books": "Llibres",
         "podcastsDuration": "Durada",
-        "booksDuration": "Duration"
+        "booksDuration": "Durada"
     },
     "homeassistant": {
         "people_home": "Gent a casa",
@@ -799,23 +802,23 @@
     },
     "whatsupdocker": {
         "monitoring": "Supervisió",
-        "updates": "Updates"
+        "updates": "Actualitzacions"
     },
     "calibreweb": {
-        "books": "Books",
+        "books": "Llibres",
         "authors": "Autors",
         "categories": "Categories",
-        "series": "Series"
+        "series": "Sèries"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "Biblioteques",
+        "books": "Llibres",
+        "reading": "Llegint",
+        "finished": "Acabats"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
-        "downloadBytesRemaining": "Remaining",
+        "downloadCount": "Cua",
+        "downloadBytesRemaining": "Restant",
         "downloadTotalBytes": "Size",
         "downloadSpeed": "Speed"
     },
@@ -987,17 +990,17 @@
     },
     "frigate": {
         "cameras": "Càmeres",
-        "uptime": "Uptime",
-        "version": "Version"
+        "uptime": "Temps en funcionament",
+        "version": "Versió"
     },
     "linkwarden": {
         "links": "Enllaços",
         "collections": "Col·leccions",
-        "tags": "Tags"
+        "tags": "Etiquetes"
     },
     "zabbix": {
         "unclassified": "No classificat",
-        "information": "Information",
+        "information": "Informació",
         "warning": "Avís",
         "average": "Mitjana",
         "high": "Alt",
@@ -1018,22 +1021,22 @@
         "tasksInProgress": "Tasques en marxa"
     },
     "headscale": {
-        "name": "Name",
-        "address": "Address",
-        "last_seen": "Last Seen",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "name": "Nom",
+        "address": "Adreça",
+        "last_seen": "Vist per darrera vegada",
+        "status": "Estat",
+        "online": "En línia",
+        "offline": "Desconnectat"
     },
     "beszel": {
-        "name": "Name",
+        "name": "Nom",
         "systems": "Sistemes",
-        "up": "Up",
-        "down": "Down",
-        "paused": "Paused",
-        "pending": "Pending",
-        "status": "Status",
-        "updated": "Updated",
+        "up": "Actiu",
+        "down": "Inactiu",
+        "paused": "Pausat",
+        "pending": "Pendent",
+        "status": "Estat",
+        "updated": "Actualitzat",
         "cpu": "CPU",
         "memory": "MEM",
         "disk": "Disc",
@@ -1043,34 +1046,34 @@
         "apps": "Apps",
         "synced": "Sincronitzats",
         "outOfSync": "Dessincronitzats",
-        "healthy": "Healthy",
+        "healthy": "Sa",
         "degraded": "Degradats",
         "progressing": "Progressant",
-        "missing": "Missing",
+        "missing": "Falten",
         "suspended": "Suspesos"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "Carregant"
     },
     "gitlab": {
         "groups": "Grups",
-        "issues": "Issues",
+        "issues": "Problemes",
         "merges": "Merge Requests",
         "projects": "Projectes"
     },
     "apcups": {
-        "status": "Status",
-        "load": "Load",
-        "bcharge": "Battery Charge",
-        "timeleft": "Time Left"
+        "status": "Estat",
+        "load": "Càrrega",
+        "bcharge": "Càrrega de la bateria",
+        "timeleft": "Temps restant"
     },
     "karakeep": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
-        "tags": "Tags"
+        "bookmarks": "Marcadors",
+        "favorites": "Preferits",
+        "archived": "Arxivats",
+        "highlights": "Destacats",
+        "lists": "Llistes",
+        "tags": "Etiquetes"
     },
     "slskd": {
         "slskStatus": "Network",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

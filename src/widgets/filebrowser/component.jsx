@@ -25,14 +25,21 @@ export default function Component({ service }) {
     );
   }
 
+  const available = (usage?.total ?? 0) - (usage?.used ?? 0);
+
   return (
     <Container service={service}>
+      <Block label="filebrowser.available" value={t("common.bytes", { value: available })} highlightValue={available} />
       <Block
-        label="filebrowser.available"
-        value={t("common.bytes", { value: (usage?.total ?? 0) - (usage?.used ?? 0) })}
+        label="filebrowser.used"
+        value={t("common.bytes", { value: usage?.used ?? 0 })}
+        highlightValue={usage?.used ?? 0}
       />
-      <Block label="filebrowser.used" value={t("common.bytes", { value: usage?.used ?? 0 })} />
-      <Block label="filebrowser.total" value={t("common.bytes", { value: usage?.total ?? 0 })} />
+      <Block
+        label="filebrowser.total"
+        value={t("common.bytes", { value: usage?.total ?? 0 })}
+        highlightValue={usage?.total ?? 0}
+      />
     </Container>
   );
 }

@@ -51,12 +51,25 @@ export default function Component({ service }) {
         <Block label="beszel.name" value={system.name} />
         <Block label="beszel.status" value={t(`beszel.${system.status}`)} />
         <Block label="beszel.updated" value={t("common.relativeDate", { value: system.updated })} />
-        <Block label="beszel.cpu" value={t("common.percent", { value: system.info.cpu, maximumFractionDigits: 2 })} />
-        <Block label="beszel.memory" value={t("common.percent", { value: system.info.mp, maximumFractionDigits: 2 })} />
-        <Block label="beszel.disk" value={t("common.percent", { value: system.info.dp, maximumFractionDigits: 2 })} />
+        <Block
+          label="beszel.cpu"
+          value={t("common.percent", { value: system.info.cpu, maximumFractionDigits: 2 })}
+          highlightValue={system.info.cpu}
+        />
+        <Block
+          label="beszel.memory"
+          value={t("common.percent", { value: system.info.mp, maximumFractionDigits: 2 })}
+          highlightValue={system.info.mp}
+        />
+        <Block
+          label="beszel.disk"
+          value={t("common.percent", { value: system.info.dp, maximumFractionDigits: 2 })}
+          highlightValue={system.info.dp}
+        />
         <Block
           label="beszel.network"
           value={t("common.byterate", { value: system.info.bb, maximumFractionDigits: 2 })}
+          highlightValue={system.info.bb}
         />
       </Container>
     );

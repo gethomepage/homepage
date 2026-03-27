@@ -1,0 +1,87 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
+change-title-escapes: '\\<*_&'
+
+version-resolver:
+  major:
+    labels:
+      - 'major'
+      - 'breaking-change'
+  minor:
+    labels:
+      - 'enhancement'
+      - 'feature'
+  patch:
+    labels:
+      - 'bug'
+      - 'fix'
+      - 'dependencies'
+      - 'translation'
+      - 'documentation'
+  default: patch
+
+categories:
+  - title: '⚠️ Breaking Changes'
+    labels:
+      - 'major'
+      - 'breaking-change'
+  - title: '🚀 Features'
+    labels:
+      - 'enhancement'
+      - 'feature'
+  - title: '🐛 Fixes'
+    labels:
+      - 'bug'
+      - 'fix'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'dependencies'
+      - 'ci'
+      - 'chore'
+  - title: '🌐 Translations'
+    labels:
+      - 'translation'
+  - title: '📚 Documentation'
+    labels:
+      - 'documentation'
+
+autolabeler:
+  - label: 'documentation'
+    files:
+      - 'docs/**'
+      - '*.md'
+      - '.github/**/*.md'
+
+  - label: 'ci'
+    files:
+      - '.github/workflows/**'
+
+  - label: 'dependencies'
+    files:
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pyproject.toml'
+      - 'uv.lock'
+
+  - label: 'feature'
+    files:
+      - 'src/components/**'
+      - 'src/widgets/**'
+      - 'src/pages/**'
+      - 'src/utils/**'
+
+  - label: 'chore'
+    files:
+      - 'Dockerfile*'
+      - 'docker-entrypoint.sh'
+      - 'k3d/**'
+
+  - label: 'translation'
+    files:
+      - 'public/locales/**'
+
+template: |
+  ## What's Changed
+
+  $CHANGES

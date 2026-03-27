@@ -21,8 +21,8 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="widget.status" value={up ? t("openwrt.up") : t("openwrt.down")} />
-      <Block label="openwrt.bytesTx" value={t("common.bytes", { value: bytesTx })} />
-      <Block label="openwrt.bytesRx" value={t("common.bytes", { value: bytesRx })} />
+      <Block label="openwrt.bytesTx" value={t("common.bytes", { value: bytesTx })} highlightValue={bytesTx} />
+      <Block label="openwrt.bytesRx" value={t("common.bytes", { value: bytesRx })} highlightValue={bytesRx} />
     </Container>
   );
 }

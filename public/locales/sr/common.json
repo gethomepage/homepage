@@ -108,14 +108,14 @@
         "songs": "Песме"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Репродукција",
+        "transcoding": "Транскодирање",
+        "bitrate": "Проток",
+        "no_active": "Нема активних стримова",
+        "movies": "Филмови",
+        "series": "Серије",
+        "episodes": "Епизоде",
+        "songs": "Песме"
     },
     "esphome": {
         "offline": "Није на мрежи",
@@ -183,6 +183,13 @@
         "bitrate": "Проток",
         "no_active": "Нема активних стримова",
         "plex_connection_error": "Провери везу са Plex-ом"
+    },
+    "tracearr": {
+        "no_active": "Нема активних стримова",
+        "streams": "Стримови",
+        "transcodes": "Транскодирање",
+        "directplay": "Директно репродуковање",
+        "bitrate": "Проток"
     },
     "omada": {
         "connectedAp": "Повезани АПи",
@@ -282,17 +289,13 @@
         "approved": "Одобрено",
         "available": "Доступно"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "На чекању",
         "approved": "Одобрено",
         "available": "Доступно",
-        "issues": "Отворених питања"
-    },
-    "overseerr": {
-        "pending": "На чекању",
+        "completed": "Завршено",
         "processing": "Обрада",
-        "approved": "Одобрено",
-        "available": "Доступно"
+        "issues": "Отворених питања"
     },
     "netalertx": {
         "total": "Укупно",
@@ -543,7 +546,7 @@
         "up": "Горе",
         "pending": "На чекању",
         "down": "Доле",
-        "ok": "Ok"
+        "ok": "Ок"
     },
     "healthchecks": {
         "new": "Сада",
@@ -716,8 +719,8 @@
         "volumeAvailable": "Доступно"
     },
     "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Streams"
+        "channels": "Канали",
+        "streams": "Стримови"
     },
     "mylar": {
         "series": "Серије",
@@ -808,10 +811,10 @@
         "series": "Серије"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "Библиотеке",
+        "books": "Књиге",
+        "reading": "Читање",
+        "finished": "Завршено"
     },
     "jdownloader": {
         "downloadCount": "Ред",
@@ -1152,24 +1155,30 @@
         "artists": "Извођачи"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "Контејнера",
+        "images": "Слике",
+        "image_updates": "Ажурирања слика",
+        "images_unused": "Неискоришћено",
+        "environment_required": "ИД окружења је обавезан"
     },
     "dockhand": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "cpu": "CPU",
-        "memory": "Memory",
-        "images": "Images",
-        "volumes": "Volumes",
-        "events_today": "Events Today",
-        "pending_updates": "Pending Updates",
-        "stacks": "Stacks",
-        "paused": "Paused",
-        "total": "Total",
-        "environment_not_found": "Environment Not Found"
+        "running": "Покренуто",
+        "stopped": "Заустављено",
+        "cpu": "Процесор",
+        "memory": "Меморија",
+        "images": "Слике",
+        "volumes": "Јачине звука",
+        "events_today": "Данашњи догађаји",
+        "pending_updates": "Ажурирања на чекању",
+        "stacks": "Стекови",
+        "paused": "Паузирано",
+        "total": "Укупно",
+        "environment_not_found": "Окружење није пронађено"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

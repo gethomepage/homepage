@@ -45,7 +45,7 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="gatus.up" value={t("common.number", { value: sitesUp })} />
       <Block label="gatus.down" value={t("common.number", { value: sitesDown })} />
-      <Block label="gatus.uptime" value={t("common.percent", { value: uptime })} />
+      <Block label="gatus.uptime" value={t("common.percent", { value: uptime })} highlightValue={Number(uptime)} />
     </Container>
   );
 }

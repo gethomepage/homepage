@@ -108,8 +108,8 @@
         "songs": "Morceaux"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "En cours",
+        "transcoding": "En cours d'encodage",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",
         "movies": "Movies",
@@ -183,6 +183,13 @@
         "bitrate": "Débit",
         "no_active": "Aucune lecture en cours",
         "plex_connection_error": "Vérifier la connexion à Plex"
+    },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
     },
     "omada": {
         "connectedAp": "APs connectées",
@@ -282,17 +289,13 @@
         "approved": "Approuvé",
         "available": "Disponible"
     },
-    "jellyseerr": {
-        "pending": "En attente",
-        "approved": "Approuvé",
-        "available": "Disponible",
-        "issues": "Problèmes non résolus"
-    },
-    "overseerr": {
-        "pending": "En attente",
-        "processing": "En cours de traitement",
-        "approved": "Approuvé",
-        "available": "Disponible"
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Total",
@@ -613,9 +616,9 @@
     "pangolin": {
         "orgs": "Orgs",
         "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
+        "resources": "Ressources",
+        "targets": "Cibles",
+        "traffic": "Trafique",
         "in": "In",
         "out": "Out"
     },
@@ -712,7 +715,7 @@
     },
     "diskstation": {
         "days": "Jours",
-        "uptime": "Disponibilité",
+        "uptime": "Démarré depuis",
         "volumeAvailable": "Disponible"
     },
     "dispatcharr": {
@@ -743,7 +746,7 @@
     "grafana": {
         "dashboards": "Tableau de bord",
         "datasources": "Sources données",
-        "totalalerts": "Total alertes",
+        "totalalerts": "Alertes totales",
         "alertstriggered": "Alertes déclenchées"
     },
     "nextcloud": {
@@ -942,7 +945,7 @@
         "studios": "Studios",
         "movies": "Films",
         "tags": "Tags",
-        "oCount": "0 Compte"
+        "oCount": "O-mètre"
     },
     "tandoor": {
         "users": "Utilisateurs",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

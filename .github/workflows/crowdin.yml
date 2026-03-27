@@ -25,6 +25,7 @@ jobs:
         download_translations: true
         crowdin_branch_name: dev
         localization_branch_name: l10n_dev
+        pull_request_labels: translation
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}

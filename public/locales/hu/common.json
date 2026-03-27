@@ -184,6 +184,13 @@
         "no_active": "Nincs aktív lejátszás",
         "plex_connection_error": "Plex kapcsolat ellenőrzése"
     },
+    "tracearr": {
+        "no_active": "No Active Streams",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "Bitrate"
+    },
     "omada": {
         "connectedAp": "Csatlakoztatott AP-k",
         "activeUser": "Aktív eszközök",
@@ -282,17 +289,13 @@
         "approved": "Engedélyezett",
         "available": "Elérhető"
     },
-    "jellyseerr": {
-        "pending": "Függőben lévő",
-        "approved": "Jóváhagyott",
-        "available": "Elérhető",
-        "issues": "Nyitott problémák"
-    },
-    "overseerr": {
-        "pending": "Függőben lévő",
-        "processing": "Feldolgozás",
-        "approved": "Jóváhagyott",
-        "available": "Elérhető"
+    "seerr": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
+        "issues": "Open Issues"
     },
     "netalertx": {
         "total": "Összes",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

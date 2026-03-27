@@ -61,7 +61,7 @@
         "wlan_devices": "无线局域网设备",
         "lan_users": "局域网用户",
         "wlan_users": "无线局域网用户",
-        "up": "UP",
+        "up": "在线",
         "down": "离线",
         "wait": "请稍候",
         "empty_data": "子系统状态未知"
@@ -108,21 +108,21 @@
         "songs": "歌曲"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "播放中",
+        "transcoding": "转码",
+        "bitrate": "比特率",
+        "no_active": "暂无播放",
+        "movies": "电影",
+        "series": "系列",
+        "episodes": "剧集",
+        "songs": "歌曲"
     },
     "esphome": {
         "offline": "离线",
         "offline_alt": "离线",
         "online": "在线的",
-        "total": "Total",
-        "unknown": "Unknown"
+        "total": "总计",
+        "unknown": "未知"
     },
     "evcc": {
         "pv_power": "正式环境",
@@ -143,7 +143,7 @@
         "unread": "未读"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
+        "connectionStatus": "状态",
         "connectionStatusUnconfigured": "未配置",
         "connectionStatusConnecting": "连接中",
         "connectionStatusAuthenticating": "认证中",
@@ -151,11 +151,11 @@
         "connectionStatusDisconnecting": "正在断开连接",
         "connectionStatusDisconnected": "未连接",
         "connectionStatusConnected": "已连接",
-        "uptime": "Uptime",
+        "uptime": "运行时间",
         "maxDown": "最大下载速度",
         "maxUp": "最大上传速度",
-        "down": "Down",
-        "up": "Up",
+        "down": "离线",
+        "up": "在线",
         "received": "已接收",
         "sent": "已发送",
         "externalIPAddress": "外部IP",
@@ -178,17 +178,24 @@
         "passes": "通行证"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "播放中",
+        "transcoding": "转码",
+        "bitrate": "比特率",
+        "no_active": "暂无播放",
         "plex_connection_error": "Check Plex Connection"
+    },
+    "tracearr": {
+        "no_active": "暂无播放",
+        "streams": "Streams",
+        "transcodes": "Transcodes",
+        "directplay": "Direct Play",
+        "bitrate": "比特率"
     },
     "omada": {
         "connectedAp": "连接中的AP",
         "activeUser": "活跃设备",
         "alerts": "警报",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "已连接网关",
         "connectedSwitches": "已连接开关"
     },
     "nzbget": {
@@ -203,13 +210,13 @@
         "tv": "电视节目"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "速率",
         "queue": "队列",
         "timeleft": "剩余时间"
     },
     "rutorrent": {
         "active": "活动中",
-        "upload": "Upload",
+        "upload": "上传",
         "download": "下载"
     },
     "transmission": {
@@ -226,7 +233,7 @@
     },
     "qnap": {
         "cpuUsage": "处理器",
-        "memUsage": "内存",
+        "memUsage": "内存使用",
         "systemTempC": "系统温度",
         "poolUsage": "存储池",
         "volumeUsage": "Volume Usage",
@@ -245,7 +252,7 @@
     "downloadstation": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "",
         "seed": "做种"
     },
     "sonarr": {
@@ -282,17 +289,13 @@
         "approved": "已批准",
         "available": "可用"
     },
-    "jellyseerr": {
-        "pending": "待办的",
+    "seerr": {
+        "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "processing": "处理中",
-        "approved": "Approved",
-        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
@@ -318,9 +321,9 @@
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
+        "running": "运行中",
         "stopped": "停止",
-        "total": "Total"
+        "total": "总计"
     },
     "suwayomi": {
         "download": "Downloaded",
@@ -377,13 +380,13 @@
         "unknown": "未知"
     },
     "navidrome": {
-        "nothing_streaming": "",
+        "nothing_streaming": "暂无播放",
         "please_wait": "请等待"
     },
     "npm": {
         "enabled": "已启用",
         "disabled": "禁用",
-        "total": "Total"
+        "total": "总计"
     },
     "coinmarketcap": {
         "configure": "配置一个或多个需要追踪的加密",
@@ -406,7 +409,7 @@
     },
     "jackett": {
         "configured": "已配置",
-        "errored": "Errored"
+        "errored": "出错"
     },
     "strelaysrv": {
         "numActiveSessions": "会话",
@@ -420,7 +423,7 @@
         "domain_count": "域"
     },
     "medusa": {
-        "wanted": "Wanted",
+        "wanted": "",
         "queued": "Queued",
         "series": "Series"
     },
@@ -441,7 +444,7 @@
         "failedLoginsLast24H": "登录失败 (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "内存",
         "cpu": "CPU",
         "lxc": "容器",
         "vms": "虚拟机"
@@ -450,7 +453,7 @@
         "cpu": "CPU",
         "load": "负载",
         "wait": "请稍候",
-        "temp": "温度",
+        "temp": "转速",
         "_temp": "Temp",
         "warn": "Warn",
         "uptime": "运行时间",
@@ -460,7 +463,7 @@
         "days": "日",
         "hours": "时",
         "crit": "Crit",
-        "read": "Read",
+        "read": "读取",
         "write": "写入",
         "gpu": "GPU",
         "mem": "Mem",
@@ -481,57 +484,57 @@
         "1-day": "主要是晴天",
         "1-night": "大部晴朗",
         "2-day": "多云",
-        "2-night": "Partly Cloudy",
+        "2-night": "多云",
         "3-day": "阴天",
-        "3-night": "Cloudy",
+        "3-night": "阴天",
         "45-day": "有雾",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "45-night": "雾",
+        "48-day": "雾",
+        "48-night": "雾",
         "51-day": "小雨",
-        "51-night": "Light Drizzle",
+        "51-night": "小细雨",
         "53-day": "小雨",
-        "53-night": "Drizzle",
+        "53-night": "细雨",
         "55-day": "毛毛雨",
-        "55-night": "Heavy Drizzle",
+        "55-night": "大细雨",
         "56-day": "小冻毛雨",
-        "56-night": "Light Freezing Drizzle",
+        "56-night": "小冻毛雨",
         "57-day": "冻毛雨",
-        "57-night": "Freezing Drizzle",
+        "57-night": "冻毛雨",
         "61-day": "小雨",
-        "61-night": "Light Rain",
+        "61-night": "小雨",
         "63-day": "雨",
-        "63-night": "Rain",
+        "63-night": "雨天",
         "65-day": "大雨",
-        "65-night": "Heavy Rain",
+        "65-night": "大雨",
         "66-day": "冻雨",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "66-night": "冻雨",
+        "67-day": "冻雨",
+        "67-night": "冻雨",
         "71-day": "小雪",
-        "71-night": "Light Snow",
+        "71-night": "小雪",
         "73-day": "中雪",
-        "73-night": "Snow",
+        "73-night": "中雪",
         "75-day": "大雪",
-        "75-night": "Heavy Snow",
+        "75-night": "大雪",
         "77-day": "雪粒",
-        "77-night": "Snow Grains",
+        "77-night": "雪粒",
         "80-day": "微阵雨",
-        "80-night": "Light Showers",
+        "80-night": "小阵雨",
         "81-day": "阵雨",
-        "81-night": "Showers",
+        "81-night": "阵雨",
         "82-day": "强阵雨",
-        "82-night": "Heavy Showers",
+        "82-night": "强阵雨",
         "85-day": "阵雪",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
+        "85-night": "阵雪",
+        "86-day": "阵雪",
+        "86-night": "阵雪",
         "95-day": "雷雨",
-        "95-night": "Thunderstorm",
+        "95-night": "雷雨",
         "96-day": "雷雨伴随冰雹",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "96-night": "雷雨伴随冰雹",
+        "99-day": "雷雨伴随冰雹",
+        "99-night": "雷雨伴随冰雹"
     },
     "homebridge": {
         "available_update": "System",
@@ -687,9 +690,9 @@
         "memory_usage": "内存"
     },
     "immich": {
-        "users": "Users",
+        "users": "用户",
         "photos": "照片",
-        "videos": "Videos",
+        "videos": "影片",
         "storage": "储存空间"
     },
     "uptimekuma": {
@@ -987,8 +990,8 @@
     },
     "frigate": {
         "cameras": "摄像头",
-        "uptime": "Uptime",
-        "version": "Version"
+        "uptime": "运行时间",
+        "version": "版本"
     },
     "linkwarden": {
         "links": "链接",
@@ -1035,7 +1038,7 @@
         "status": "Status",
         "updated": "Updated",
         "cpu": "CPU",
-        "memory": "MEM",
+        "memory": "内存",
         "disk": "磁盘",
         "network": "网络"
     },
@@ -1059,10 +1062,10 @@
         "projects": "项目"
     },
     "apcups": {
-        "status": "Status",
-        "load": "Load",
-        "bcharge": "Battery Charge",
-        "timeleft": "Time Left"
+        "status": "状态",
+        "load": "负载",
+        "bcharge": "电池电量",
+        "timeleft": "剩余供电时间"
     },
     "karakeep": {
         "bookmarks": "书签",
@@ -1084,9 +1087,9 @@
         "sharedFiles": "Files"
     },
     "jellystat": {
-        "songs": "Songs",
-        "movies": "Movies",
-        "episodes": "Episodes",
+        "songs": "歌曲",
+        "movies": "电影",
+        "episodes": "剧集",
         "other": "其他"
     },
     "checkmk": {
@@ -1131,8 +1134,8 @@
         "notifications": "Notifications",
         "status": "Status",
         "cpu": "CPU",
-        "memoryUsed": "Memory Used",
-        "memoryAvailable": "Memory Available",
+        "memoryUsed": "已用内存",
+        "memoryAvailable": "可用内存",
         "arrayUsed": "Array Used",
         "arrayFree": "Array Free",
         "poolUsed": "{{pool}} Used",
@@ -1159,11 +1162,11 @@
         "environment_required": "Environment ID Required"
     },
     "dockhand": {
-        "running": "Running",
-        "stopped": "Stopped",
+        "running": "运行中",
+        "stopped": "停止",
         "cpu": "CPU",
-        "memory": "Memory",
-        "images": "Images",
+        "memory": "内存",
+        "images": "图片",
         "volumes": "Volumes",
         "events_today": "Events Today",
         "pending_updates": "Pending Updates",
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }

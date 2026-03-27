@@ -58,35 +58,59 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="unraid.status" value={t(`unraid.${data.arrayState}`)} />
-      <Block label="unraid.memoryAvailable" value={t("common.bbytes", { value: data.memoryAvailable })} />
-      <Block label="unraid.memoryUsed" value={t("common.bbytes", { value: data.memoryUsed })} />
+      <Block
+        label="unraid.memoryAvailable"
+        value={t("common.bbytes", { value: data.memoryAvailable })}
+        highlightValue={data.memoryAvailable}
+      />
+      <Block
+        label="unraid.memoryUsed"
+        value={t("common.bbytes", { value: data.memoryUsed })}
+        highlightValue={data.memoryUsed}
+      />
       <Block
         field="unraid.memoryPercent"
         label="unraid.memoryUsed"
         value={t("common.percent", { value: data.memoryUsedPercent })}
+        highlightValue={data.memoryUsedPercent}
       />
-      <Block label="unraid.cpu" value={t("common.percent", { value: data.cpuPercent })} />
+      <Block
+        label="unraid.cpu"
+        value={t("common.percent", { value: data.cpuPercent })}
+        highlightValue={data.cpuPercent}
+      />
       <Block label="unraid.notifications" value={t("common.number", { value: data.unreadNotifications })} />
       <Block
         field="unraid.arrayUsedSpace"
         label="unraid.arrayUsed"
         value={t("common.bytes", { value: data.arrayUsed })}
+        highlightValue={data.arrayUsed}
       />
-      <Block label="unraid.arrayFree" value={t("common.bytes", { value: data.arrayFree })} />
+      <Block
+        label="unraid.arrayFree"
+        value={t("common.bytes", { value: data.arrayFree })}
+        highlightValue={data.arrayFree}
+      />
       <Block
         field="unraid.arrayUsedPercent"
         label="unraid.arrayUsed"
         value={t("common.percent", { value: data.arrayUsedPercent })}
+        highlightValue={data.arrayUsedPercent}
       />
       {...POOLS.flatMap((pool) =>
-        POOL_FIELDS.map(({ param, label, valueKey, valueType }) => (
-          <Block
-            key={`${pool}-${param}`}
-            field={`unraid.${pool}${param}`}
-            label={t(`unraid.${label}`, { pool: widget?.[pool] || pool })}
-            value={t(valueType, { value: data.caches?.[widget?.[pool]]?.[valueKey] || "-" })}
-          />
-        )),
+        POOL_FIELDS.map(({ param, label, valueKey, valueType }) => {
+          const poolValue = data.caches?.[widget?.[pool]]?.[valueKey] || "-";
+
+          return (
+            <Block
+              key={`${pool}-${param}`}
+              field={`unraid.${pool}${param}`}
+              label={t(`unraid.${label}`, { pool: widget?.[pool] || pool })}
+              value={t(valueType, { value: poolValue })}
+              highlightValue={poolValue}
+            />
+          );
+        }),
       )}
     </Container>
   );
