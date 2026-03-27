@@ -7,7 +7,9 @@ Learn more about [UniFi Drive](https://ui.com/integrations/network-storage).
 
 ## Configuration
 
-Displays storage statistics from your UniFi Network Attached Storage (UNAS) device.
+Displays storage statistics from your UniFi Network Attached Storage (UNAS) device. Requires a local UniFi account with at least read privileges.
+
+Allowed fields: `["total", "used", "available", "status"]`
 
 ```yaml
 widget:
@@ -17,21 +19,6 @@ widget:
   password: your_password
 ```
 
-Allowed fields: `["url", "username", "password"]`
-
-!!! warning
-
-    Requires a local UniFi account with at least read privileges.
-
 !!! hint
 
-    If you receive an "API Error" with incorrect credentials, you may need to recreate the container or restart the service to clear the cache.
-
-## Fields
-
-The widget displays the following storage statistics:
-
-- `total` - Total storage capacity
-- `used` - Used storage amount
-- `available` - Free storage space
-- `status` - Health status (Healthy/Degraded)
+    If you enter incorrect credentials and receive an "API Error", you may need to recreate the container or restart the service to clear the cache.
