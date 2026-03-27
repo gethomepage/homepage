@@ -5,7 +5,7 @@ const widget = {
   proxyHandler: unifiDriveProxyHandler,
 
   mappings: {
-    "v1/systems/storage?type=detail": {
+    storage: {
       endpoint: "v1/systems/storage?type=detail",
     },
   },

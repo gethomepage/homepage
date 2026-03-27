@@ -9,7 +9,7 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: storageData, error: storageError } = useWidgetAPI(widget, "v1/systems/storage?type=detail");
+  const { data: storageData, error: storageError } = useWidgetAPI(widget, "storage");
 
   if (storageError) {
     return <Container service={service} error={storageError} />;

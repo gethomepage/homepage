@@ -40,7 +40,7 @@ describe("widgets/unifi_drive/component", () => {
 
   it("renders no_data when storage data is missing", () => {
     useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "v1/systems/storage?type=detail") {
+      if (endpoint === "storage") {
         return { data: { data: null }, error: undefined };
       }
       return { data: undefined, error: undefined };
@@ -54,7 +54,7 @@ describe("widgets/unifi_drive/component", () => {
 
   it("renders storage statistics when data is loaded", () => {
     useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "v1/systems/storage?type=detail") {
+      if (endpoint === "storage") {
         return {
           data: {
             data: {
@@ -77,7 +77,7 @@ describe("widgets/unifi_drive/component", () => {
 
   it("renders degraded status", () => {
     useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "v1/systems/storage?type=detail") {
+      if (endpoint === "storage") {
         return {
           data: {
             data: {
@@ -100,7 +100,7 @@ describe("widgets/unifi_drive/component", () => {
 
   it("handles zero totalQuota gracefully", () => {
     useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "v1/systems/storage?type=detail") {
+      if (endpoint === "storage") {
         return {
           data: {
             data: {
