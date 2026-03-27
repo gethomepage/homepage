@@ -147,6 +147,7 @@ const components = {
   tubearchivist: dynamic(() => import("./tubearchivist/component")),
   truenas: dynamic(() => import("./truenas/component")),
   unifi: dynamic(() => import("./unifi/component")),
+  unifi_drive: dynamic(() => import("./unifi_drive/component")),
   unmanic: dynamic(() => import("./unmanic/component")),
   unraid: dynamic(() => import("./unraid/component")),
   uptimekuma: dynamic(() => import("./uptimekuma/component")),
