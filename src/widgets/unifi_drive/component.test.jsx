@@ -4,6 +4,7 @@ import { screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { renderWithProviders } from "test-utils/render-with-providers";
+import { expectBlockValue } from "test-utils/widget-assertions";
 
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 
@@ -23,10 +24,10 @@ describe("widgets/unifi_drive/component", () => {
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
-    expect(screen.getByText("unifi_drive.total")).toBeInTheDocument();
-    expect(screen.getByText("unifi_drive.used")).toBeInTheDocument();
-    expect(screen.getByText("unifi_drive.available")).toBeInTheDocument();
-    expect(screen.getByText("unifi_drive.status")).toBeInTheDocument();
+    expect(screen.getByText("resources.total")).toBeInTheDocument();
+    expect(screen.getByText("resources.used")).toBeInTheDocument();
+    expect(screen.getByText("resources.free")).toBeInTheDocument();
+    expect(screen.getByText("widget.status")).toBeInTheDocument();
   });
 
   it("renders error when API fails", () => {
@@ -39,12 +40,7 @@ describe("widgets/unifi_drive/component", () => {
   });
 
   it("renders no_data when storage data is missing", () => {
-    useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "storage") {
-        return { data: { data: null }, error: undefined };
-      }
-      return { data: undefined, error: undefined };
-    });
+    useWidgetAPI.mockReturnValue({ data: { data: null }, error: undefined });
 
     const service = { widget: { type: "unifi_drive" } };
     renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
@@ -53,71 +49,44 @@ describe("widgets/unifi_drive/component", () => {
   });
 
   it("renders storage statistics when data is loaded", () => {
-    useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "storage") {
-        return {
-          data: {
-            data: {
-              totalQuota: 1000000000000,
-              usage: { system: 100000000000, myDrives: 200000000000, sharedDrives: 50000000000 },
-              status: "healthy",
-            },
-          },
-          error: undefined,
-        };
-      }
-      return { data: undefined, error: undefined };
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: {
+          totalQuota: 1000000000000,
+          usage: { system: 100000000000, myDrives: 200000000000, sharedDrives: 50000000000 },
+          status: "healthy",
+        },
+      },
+      error: undefined,
     });
 
     const service = { widget: { type: "unifi_drive" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expectBlockValue(container, "resources.total", 1000000000000);
+    expectBlockValue(container, "resources.used", 350000000000);
+    expectBlockValue(container, "resources.free", 650000000000);
+    expectBlockValue(container, "widget.status", "unifi_drive.healthy");
   });
 
   it("renders degraded status", () => {
-    useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "storage") {
-        return {
-          data: {
-            data: {
-              totalQuota: 1000000000000,
-              usage: { system: 100000000000, myDrives: 200000000000, sharedDrives: 50000000000 },
-              status: "degraded",
-            },
-          },
-          error: undefined,
-        };
-      }
-      return { data: undefined, error: undefined };
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: {
+          totalQuota: 100,
+          usage: { system: 10, myDrives: 20, sharedDrives: 5 },
+          status: "degraded",
+        },
+      },
+      error: undefined,
     });
 
     const service = { widget: { type: "unifi_drive" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
-  });
-
-  it("handles zero totalQuota gracefully", () => {
-    useWidgetAPI.mockImplementation((widget, endpoint) => {
-      if (endpoint === "storage") {
-        return {
-          data: {
-            data: {
-              totalQuota: 0,
-              usage: { system: 0, myDrives: 0, sharedDrives: 0 },
-              status: "healthy",
-            },
-          },
-          error: undefined,
-        };
-      }
-      return { data: undefined, error: undefined };
-    });
-
-    const service = { widget: { type: "unifi_drive" } };
-    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
-
-    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expectBlockValue(container, "widget.status", "unifi_drive.degraded");
+    expectBlockValue(container, "resources.free", 65);
   });
 });
