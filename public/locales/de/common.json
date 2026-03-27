@@ -66,6 +66,11 @@
         "wait": "Bitte warten",
         "empty_data": "Subsystem-Status unbekannt"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -115,7 +120,7 @@
         "movies": "Filme",
         "series": "Serien",
         "episodes": "Episoden",
-        "songs": "Songs"
+        "songs": "Titel"
     },
     "esphome": {
         "offline": "Offline",
@@ -185,10 +190,10 @@
         "plex_connection_error": "Prüfe Plex-Verbindung"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
+        "no_active": "Keine aktiven Streams",
         "streams": "Streams",
-        "transcodes": "Transcodes",
-        "directplay": "Direct Play",
+        "transcodes": "Transkodieren",
+        "directplay": "Direkte Wiedergabe",
         "bitrate": "Bitrate"
     },
     "omada": {
@@ -290,10 +295,10 @@
         "available": "Verfügbar"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
+        "pending": "Ausstehend",
+        "approved": "Bestätigt",
+        "available": "Verfügbar",
+        "completed": "Abgeschlossen",
         "processing": "Processing",
         "issues": "Open Issues"
     },
@@ -811,7 +816,7 @@
         "series": "Serien"
     },
     "booklore": {
-        "libraries": "Libraries",
+        "libraries": "Bibliotheken",
         "books": "Bücher",
         "reading": "Reading",
         "finished": "Finished"
@@ -1176,7 +1181,7 @@
         "environment_not_found": "Umgebung nicht gefunden"
     },
     "sparkyfitness": {
-        "eaten": "Eaten",
+        "eaten": "",
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"

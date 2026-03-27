@@ -66,6 +66,11 @@
         "wait": "请稍候",
         "empty_data": "子系统状态未知"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
     "docker": {
         "rx": "接收",
         "tx": "发送",
