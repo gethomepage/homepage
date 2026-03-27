@@ -66,6 +66,11 @@
         "wait": "Si us plau espera",
         "empty_data": "Estat del subsistema desconegut"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
     "docker": {
         "rx": "Rebut",
         "tx": "Transmès",

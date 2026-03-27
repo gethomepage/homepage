@@ -66,6 +66,11 @@
         "wait": "Vui lòng chờ",
         "empty_data": "Trạng thái hệ thống phụ không xác định"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
