@@ -89,4 +89,58 @@ describe("widgets/unifi/proxy", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual(Buffer.from("data"));
   });
+
+  it("uses unifi_console private widget config for the info widget path", async () => {
+    getPrivateWidgetOptions.mockResolvedValue({
+      url: "http://console",
+      username: "u",
+      password: "p",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([200, "text/html", Buffer.from(""), { "x-csrf-token": "csrf" }])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from("data"), {}]);
+
+    const req = {
+      query: {
+        group: "unifi_console",
+        service: "unifi_console",
+        endpoint: "self",
+        query: JSON.stringify({ index: 2 }),
+      },
+    };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(getPrivateWidgetOptions).toHaveBeenCalledWith("unifi_console", 2);
+    expect(httpProxy.mock.calls[1][0].toString()).toContain("/proxy/network/api/self");
+    expect(res.statusCode).toBe(200);
+  });
+
+  it("uses the API key flow without attempting login", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "unifi",
+      key: "secret",
+      url: "http://unifi",
+    });
+
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from("data"), {}]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "self", index: "0" } };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(httpProxy.mock.calls[0][0].toString()).toContain("/proxy/network/api/self");
+    expect(httpProxy.mock.calls[0][1]).toMatchObject({
+      headers: {
+        Accept: "application/json",
+        "X-API-KEY": "secret",
+      },
+      method: "GET",
+    });
+    expect(res.statusCode).toBe(200);
+  });
 });
