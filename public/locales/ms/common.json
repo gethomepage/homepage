@@ -66,6 +66,11 @@
         "wait": "Please wait",
         "empty_data": "Status subsistem tak diketahui"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",

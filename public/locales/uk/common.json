@@ -66,6 +66,11 @@
         "wait": "Будь ласка, зачекайте",
         "empty_data": "Статус підсистеми невідомий"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",

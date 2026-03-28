@@ -14,7 +14,7 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "M",
+        "months": "mo",
         "days": "d",
         "hours": "h",
         "minutes": "m",
@@ -66,9 +66,14 @@
         "wait": "Por favor, aguarde",
         "empty_data": "Status do Subsistema desconhecido"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
     "docker": {
-        "rx": "Rx",
-        "tx": "Tx",
+        "rx": "RX",
+        "tx": "TX",
         "mem": "MEM",
         "cpu": "CPU",
         "running": "Executando",
@@ -101,21 +106,21 @@
         "playing": "A reproduzir",
         "transcoding": "Transcodificação",
         "bitrate": "Taxa de bits",
-        "no_active": "Sem Streams Ativos",
+        "no_active": "Sem Transmissões Ativas",
         "movies": "Filmes",
         "series": "Séries",
         "episodes": "Episódios",
         "songs": "Canções"
     },
     "jellyfin": {
-        "playing": "Playing",
+        "playing": "Jogando",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "movies": "Filmes",
+        "series": "Séries",
+        "episodes": "Episódios",
+        "songs": "Músicas"
     },
     "esphome": {
         "offline": "Offline",
@@ -290,12 +295,12 @@
         "available": "Disponível"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
-        "processing": "Processing",
-        "issues": "Open Issues"
+        "pending": "Pendente",
+        "approved": "Aprovado",
+        "available": "Disponível",
+        "completed": "Concluído",
+        "processing": "Processando",
+        "issues": "Erros pendentes"
     },
     "netalertx": {
         "total": "Total",
@@ -616,7 +621,7 @@
     "pangolin": {
         "orgs": "Orgs",
         "sites": "Sites",
-        "resources": "Resources",
+        "resources": "Recursos",
         "targets": "Targets",
         "traffic": "Traffic",
         "in": "In",
@@ -719,8 +724,8 @@
         "volumeAvailable": "Disponível"
     },
     "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Streams"
+        "channels": "Canais",
+        "streams": "Transmissões"
     },
     "mylar": {
         "series": "Séries",
@@ -811,10 +816,10 @@
         "series": "Séries"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "Bibliotecas",
+        "books": "Livros",
+        "reading": "Lendo",
+        "finished": "Finalizado"
     },
     "jdownloader": {
         "downloadCount": "Fila de espera",
@@ -1155,23 +1160,23 @@
         "artists": "Artistas"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
+        "containers": "Recipientes",
+        "images": "Imagens",
+        "image_updates": "Atualizações de Imagem",
+        "images_unused": "Não utilizado",
         "environment_required": "Environment ID Required"
     },
     "dockhand": {
-        "running": "Running",
+        "running": "Executando",
         "stopped": "Stopped",
         "cpu": "CPU",
-        "memory": "Memory",
-        "images": "Images",
-        "volumes": "Volumes",
-        "events_today": "Events Today",
-        "pending_updates": "Pending Updates",
-        "stacks": "Stacks",
-        "paused": "Paused",
+        "memory": "Memória",
+        "images": "Imagens",
+        "volumes": "Quantidades",
+        "events_today": "Eventos hoje",
+        "pending_updates": "Atualizações pendentes",
+        "stacks": "Pilhas",
+        "paused": "Pausado",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
     },
