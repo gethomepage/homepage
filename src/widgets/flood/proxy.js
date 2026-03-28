@@ -12,7 +12,7 @@ async function login(widget) {
   const loginParams = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: null,
+    body: "{}",
   };
 
   if (widget.username && widget.password) {
