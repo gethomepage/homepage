@@ -14,25 +14,11 @@ permissions:
   id-token: write
 
 jobs:
-  pre-commit:
-    name: Linting Checks
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - name: Install python
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
-        with:
-          python-version: 3.x
-      - name: Check files
-        uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
 
   test:
     name: Test Build Docs
     if: github.repository == 'gethomepage/homepage' && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    needs:
-      - pre-commit
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
@@ -50,8 +36,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs:
-      - pre-commit
     steps:
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
