@@ -26,14 +26,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: github.event_name == 'workflow_dispatch' && github.event.inputs.version != ''
-        uses: release-drafter/release-drafter@v7
+        uses: release-drafter/release-drafter@a6acf82562eee06318b77ab8cb0b11ed81c677a7 # v7
         with:
           config-name: release-drafter.yml
           version: ${{ github.event.inputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - if: github.event_name != 'workflow_dispatch' || github.event.inputs.version == ''
-        uses: release-drafter/release-drafter@v7
+        uses: release-drafter/release-drafter@a6acf82562eee06318b77ab8cb0b11ed81c677a7 # v7
         with:
           config-name: release-drafter.yml
         env:
