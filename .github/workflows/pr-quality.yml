@@ -13,6 +13,6 @@ jobs:
   anti-slop:
     runs-on: ubuntu-latest
     steps:
-      - uses: peakoss/anti-slop@v0
+      - uses: peakoss/anti-slop@a5a4b2440c9de6f65b64f0718a0136a1fdb04f6f # v0
         with:
           max-failures: 4
