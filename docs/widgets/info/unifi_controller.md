@@ -13,7 +13,7 @@ You can display general connectivity status from your Unifi (Network) Controller
 
 An optional 'site' parameter can be supplied, if it is not the widget will use the default site for the controller.
 
-!!! hint
+!!! tip
 
     If you enter e.g. incorrect credentials and receive an "API Error", you may need to recreate the container to clear the cache.
 
