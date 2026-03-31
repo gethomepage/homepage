@@ -39,7 +39,7 @@
         "placeholder": "Hledat…"
     },
     "resources": {
-        "cpu": "Zatížení procesoru",
+        "cpu": "Využití procesoru",
         "mem": "Využití paměti",
         "total": "Celkem",
         "free": "Volné",
@@ -67,15 +67,15 @@
         "empty_data": "Stav podsystému neznámý"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Zdravý",
+        "degraded": "Degradováno",
+        "no_data": "Nejsou k dispozici žádná data úložiště"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
         "mem": "Využití paměti",
-        "cpu": "Zatížení procesoru",
+        "cpu": "Využití procesoru",
         "running": "Běží",
         "offline": "Offline",
         "error": "Chyba",
@@ -237,7 +237,7 @@
         "seed": "Seedované"
     },
     "qnap": {
-        "cpuUsage": "Zatížení procesoru",
+        "cpuUsage": "Využití procesoru",
         "memUsage": "Využití paměti",
         "systemTempC": "Teplota systému",
         "poolUsage": "Využití fondu",
@@ -450,12 +450,12 @@
     },
     "proxmox": {
         "mem": "Využití paměti",
-        "cpu": "Zatížení procesoru",
+        "cpu": "Využití procesoru",
         "lxc": "LXC",
         "vms": "Virtuální Stroje"
     },
     "glances": {
-        "cpu": "Zatížení procesoru",
+        "cpu": "Využití procesoru",
         "load": "Zatížení",
         "wait": "Čekejte prosím",
         "temp": "TEPLOTA",
@@ -640,7 +640,7 @@
         "no_devices": "Žádná přijatá data zařízení"
     },
     "mikrotik": {
-        "cpuLoad": "Zatížení procesoru",
+        "cpuLoad": "Využití procesoru",
         "memoryUsed": "Využití paměti",
         "uptime": "Doba provozu",
         "numberOfLeases": "Pronájmy"
@@ -691,7 +691,7 @@
     "proxmoxbackupserver": {
         "datastore_usage": "Datové úložiště",
         "failed_tasks_24h": "Neúspěšné úlohy 24h",
-        "cpu_usage": "Zatížení procesoru",
+        "cpu_usage": "Využití procesoru",
         "memory_usage": "Využití paměti"
     },
     "immich": {
@@ -755,7 +755,7 @@
         "alertstriggered": "Spuštěné výstrahy"
     },
     "nextcloud": {
-        "cpuload": "Zatížení procesoru",
+        "cpuload": "Využití procesoru",
         "memoryusage": "Využití paměti",
         "freespace": "Volný prostor",
         "activeusers": "Aktivní uživatelé",
@@ -878,7 +878,7 @@
     },
     "openwrt": {
         "uptime": "Doba provozu",
-        "cpuLoad": "Prům. zatížení procesoru (5m)",
+        "cpuLoad": "Prům. využití procesoru (5m)",
         "up": "Běží",
         "down": "Výpadek",
         "bytesTx": "Přeneseno",
@@ -1042,7 +1042,7 @@
         "pending": "Čekající",
         "status": "Stav",
         "updated": "Aktualizováno",
-        "cpu": "Zatížení procesoru",
+        "cpu": "Využití procesoru",
         "memory": "Využití paměti",
         "disk": "Disk",
         "network": "Síť"
@@ -1138,7 +1138,7 @@
         "NO_DATA_DISKS": "Žádné datové disky",
         "notifications": "Upozornění",
         "status": "Stav",
-        "cpu": "Zatížení procesoru",
+        "cpu": "Využití procesoru",
         "memoryUsed": "Využití paměti",
         "memoryAvailable": "Volná paměť",
         "arrayUsed": "Využito pole",
@@ -1169,7 +1169,7 @@
     "dockhand": {
         "running": "Běží",
         "stopped": "Zastaveno",
-        "cpu": "Zatížení procesoru",
+        "cpu": "Využití procesoru",
         "memory": "Využití paměti",
         "images": "Obrazy",
         "volumes": "Úložiště",
