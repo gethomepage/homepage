@@ -146,6 +146,7 @@ const components = {
   trilium: dynamic(() => import("./trilium/component")),
   tubearchivist: dynamic(() => import("./tubearchivist/component")),
   truenas: dynamic(() => import("./truenas/component")),
+  ugreen: dynamic(() => import("./ugreen/component")),
   unifi: dynamic(() => import("./unifi/component")),
   unifi_drive: dynamic(() => import("./unifi_drive/component")),
   unmanic: dynamic(() => import("./unmanic/component")),

@@ -585,6 +585,17 @@
         "uptime": "Uptime",
         "alerts": "Alerts"
     },
+    "ugreen": {
+        "cpu": "CPU",
+        "mem": "MEM",
+        "uptime": "Uptime",
+        "cpuTemp": "CPU Temp",
+        "netRx": "Net Down",
+        "netTx": "Net Up",
+        "fanSpeed": "Fan",
+        "diskRead": "Disk Read",
+        "diskWrite": "Disk Write"
+    },
     "pyload": {
         "speed": "Speed",
         "active": "Active",
