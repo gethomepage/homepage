@@ -110,6 +110,7 @@ import qbittorrent from "./qbittorrent/widget";
 import qnap from "./qnap/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
+import remnawave from "./remnawave/widget";
 import romm from "./romm/widget";
 import rutorrent from "./rutorrent/widget";
 import sabnzbd from "./sabnzbd/widget";
@@ -269,6 +270,7 @@ const widgets = {
   qnap,
   radarr,
   readarr,
+  remnawave,
   romm,
   rutorrent,
   sabnzbd,
