@@ -45,7 +45,7 @@ describe("widgets/flood/proxy", () => {
     expect(httpProxy).toHaveBeenCalledTimes(3);
     expect(httpProxy.mock.calls[0][0].toString()).toBe("http://flood/api/stats");
     expect(httpProxy.mock.calls[1][0]).toBe("http://flood/api/auth/authenticate");
-    expect(httpProxy.mock.calls[1][1].body).toBeNull();
+    expect(httpProxy.mock.calls[1][1].body).toBe("{}");
     expect(httpProxy.mock.calls[2][0].toString()).toBe("http://flood/api/stats");
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual(Buffer.from("data"));

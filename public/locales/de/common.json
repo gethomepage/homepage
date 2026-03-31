@@ -67,9 +67,9 @@
         "empty_data": "Subsystem-Status unbekannt"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Gesund",
+        "degraded": "Beeinträchtigt",
+        "no_data": "Keine Speicherdaten verfügbar"
     },
     "docker": {
         "rx": "RX",
@@ -299,8 +299,8 @@
         "approved": "Bestätigt",
         "available": "Verfügbar",
         "completed": "Abgeschlossen",
-        "processing": "Processing",
-        "issues": "Open Issues"
+        "processing": "Wird verarbeitet",
+        "issues": "Offene Probleme"
     },
     "netalertx": {
         "total": "Total",
@@ -620,7 +620,7 @@
     },
     "pangolin": {
         "orgs": "Orgs",
-        "sites": "Sites",
+        "sites": "Seiten",
         "resources": "Ressourcen",
         "targets": "Ziele",
         "traffic": "Traffic",
@@ -724,7 +724,7 @@
         "volumeAvailable": "Verfügbar"
     },
     "dispatcharr": {
-        "channels": "Channels",
+        "channels": "Kanäle",
         "streams": "Streams"
     },
     "mylar": {
@@ -818,8 +818,8 @@
     "booklore": {
         "libraries": "Bibliotheken",
         "books": "Bücher",
-        "reading": "Reading",
-        "finished": "Finished"
+        "reading": "Am Lesen",
+        "finished": "Fertig"
     },
     "jdownloader": {
         "downloadCount": "Warteschlange",
@@ -1160,11 +1160,11 @@
         "artists": "Künstler"
     },
     "arcane": {
-        "containers": "Containers",
+        "containers": "Container",
         "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "image_updates": "Image-Updates",
+        "images_unused": "Ungenutzt",
+        "environment_required": "Umgebungs-ID erforderlich"
     },
     "dockhand": {
         "running": "Wird ausgeführt",
@@ -1182,8 +1182,8 @@
     },
     "sparkyfitness": {
         "eaten": "",
-        "burned": "Burned",
-        "remaining": "Remaining",
-        "steps": "Steps"
+        "burned": "Verbrannt",
+        "remaining": "Verbleibend",
+        "steps": "Schritte"
     }
 }
