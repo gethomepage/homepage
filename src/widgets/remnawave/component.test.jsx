@@ -39,6 +39,57 @@ describe("widgets/remnawave/component", () => {
     expect(screen.getByText(/boom/)).toBeInTheDocument();
   });
 
+  it("renders error when only bandwidth endpoint fails", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "stats") {
+        return { data: { response: {} }, error: undefined };
+      }
+      return { data: undefined, error: { message: "bandwidth failed" } };
+    });
+
+    const service = { widget: { type: "remnawave" } };
+    renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(screen.getByText(/widget\.api_error\s+widget\.information/)).toBeInTheDocument();
+    expect(screen.getByText(/bandwidth failed/)).toBeInTheDocument();
+  });
+
+  it("renders placeholders when stats loads but bandwidth is still loading", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "stats") {
+        return { data: { response: {} }, error: undefined };
+      }
+      return { data: undefined, error: undefined };
+    });
+
+    const service = { widget: { type: "remnawave" } };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expect(screen.getByText("remnawave.onlineNow")).toBeInTheDocument();
+  });
+
+  it("falls back to zero when response fields are missing", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "stats") {
+        return { data: { response: {} }, error: undefined };
+      }
+      if (endpoint === "stats/bandwidth") {
+        return { data: { response: {} }, error: undefined };
+      }
+      return { data: undefined, error: undefined };
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "remnawave" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "remnawave.onlineNow", 0);
+    expectBlockValue(container, "remnawave.nodesOnline", 0);
+    expectBlockValue(container, "remnawave.bandwidthToday", 0);
+    expectBlockValue(container, "remnawave.bandwidthSevenDays", 0);
+  });
+
   it("renders stats and bandwidth data", () => {
     useWidgetAPI.mockImplementation((_widget, endpoint) => {
       if (endpoint === "stats") {
