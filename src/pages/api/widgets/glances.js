@@ -1,5 +1,6 @@
 import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 import createLogger from "utils/logger";
+import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("glances");
@@ -45,7 +46,7 @@ export default async function handler(req, res) {
   const { index, cputemp: includeCpuTemp, uptime: includeUptime, disk: includeDisks, version } = req.query;
 
   const privateWidgetOptions = await getPrivateWidgetOptions("glances", index);
-  privateWidgetOptions.version = version ?? 3;
+  privateWidgetOptions.version = parseVersionForUrl(version, 3);
 
   try {
     const cpuData = await retrieveFromGlancesAPI(privateWidgetOptions, "cpu");

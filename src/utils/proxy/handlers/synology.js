@@ -2,7 +2,7 @@ import cache from "memory-cache";
 
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
-import { asJson, formatApiCall } from "utils/proxy/api-helpers";
+import { asJson, formatApiCall, parseVersionForUrl } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
@@ -56,7 +56,7 @@ async function getApiInfo(serviceWidget, apiName, serviceName) {
       const json = asJson(data);
       if (json?.data?.[apiName]) {
         cgiPath = json.data[apiName].path;
-        maxVersion = json.data[apiName].maxVersion;
+        maxVersion = parseVersionForUrl(json.data[apiName].maxVersion);
         logger.debug(
           `Detected ${serviceWidget.type}: apiName '${apiName}', cgiPath '${cgiPath}', and maxVersion ${maxVersion}`,
         );

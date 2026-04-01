@@ -7,6 +7,7 @@ import {
   getURLSearchParams,
   jsonArrayFilter,
   jsonArrayTransform,
+  parseVersionForUrl,
   sanitizeErrorURL,
 } from "./api-helpers";
 
@@ -19,6 +20,20 @@ describe("utils/proxy/api-helpers", () => {
 
   it("formatApiCall replaces repeated placeholders", () => {
     expect(formatApiCall("{a}-{a}-{missing}", { a: "x" })).toBe("x-x-");
+  });
+
+  it("parseVersionForUrl accepts canonical non-negative integers", () => {
+    expect(parseVersionForUrl("3")).toBe(3);
+    expect(parseVersionForUrl(4)).toBe(4);
+    expect(parseVersionForUrl(undefined, 3)).toBe(3);
+  });
+
+  it("parseVersionForUrl rejects non-canonical values", () => {
+    expect(parseVersionForUrl("3/../../path", 3)).toBe(3);
+    expect(parseVersionForUrl("1e2", 3)).toBe(3);
+    expect(parseVersionForUrl("0x10", 3)).toBe(3);
+    expect(parseVersionForUrl(-1, 3)).toBe(3);
+    expect(parseVersionForUrl(Number.NaN, 3)).toBe(3);
   });
 
   it("getURLSearchParams includes group/service/index and optionally endpoint", () => {

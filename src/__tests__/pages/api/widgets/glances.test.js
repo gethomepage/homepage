@@ -92,6 +92,23 @@ describe("pages/api/widgets/glances", () => {
     expect(res.statusCode).toBe(200);
   });
 
+  it("falls back to version 3 when version is invalid", async () => {
+    getPrivateWidgetOptions.mockResolvedValueOnce({ url: "http://glances" });
+
+    httpProxy
+      .mockResolvedValueOnce([200, null, Buffer.from(JSON.stringify({ total: 1 }))])
+      .mockResolvedValueOnce([200, null, Buffer.from(JSON.stringify({ avg: 2 }))])
+      .mockResolvedValueOnce([200, null, Buffer.from(JSON.stringify({ available: 3 }))]);
+
+    const req = { query: { index: "0", version: "3/../../secret-endpoint" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledWith("http://glances/api/3/cpu", expect.any(Object));
+    expect(res.statusCode).toBe(200);
+  });
+
   it("returns 400 when glances returns 401", async () => {
     getPrivateWidgetOptions.mockResolvedValueOnce({ url: "http://glances" });
     httpProxy.mockResolvedValueOnce([401, null, Buffer.from("nope")]);
