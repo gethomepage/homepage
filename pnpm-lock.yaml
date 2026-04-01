@@ -30,8 +30,8 @@ importers:
         specifier: ^5.3.2
         version: 5.3.2
       i18next:
-        specifier: ^25.8.0
-        version: 25.8.0(typescript@5.7.3)
+        specifier: ^25.10.9
+        version: 25.10.9(typescript@5.7.3)
       ical.js:
         specifier: ^2.2.1
         version: 2.2.1
@@ -55,7 +55,7 @@ importers:
         version: 16.1.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       next-i18next:
         specifier: ^15.4.3
-        version: 15.4.3(@types/react@19.0.10)(i18next@25.8.0(typescript@5.7.3))(next@16.1.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-i18next@15.5.3(i18next@25.8.0(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3))(react@19.2.4)
+        version: 15.4.3(@types/react@19.0.10)(i18next@25.10.9(typescript@5.7.3))(next@16.1.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-i18next@15.5.3(i18next@25.10.9(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3))(react@19.2.4)
       ping:
         specifier: ^0.4.4
         version: 0.4.4
@@ -73,7 +73,7 @@ importers:
         version: 19.2.4(react@19.2.4)
       react-i18next:
         specifier: ^15.5.3
-        version: 15.5.3(i18next@25.8.0(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3)
+        version: 15.5.3(i18next@25.10.9(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3)
       react-icons:
         specifier: ^5.6.0
         version: 5.6.0(react@19.2.4)
@@ -2393,10 +2393,10 @@ packages:
   i18next-fs-backend@2.6.1:
     resolution: {integrity: sha512-eYWTX7QT7kJ0sZyCPK6x1q+R63zvNKv2D6UdbMf15A8vNb2ZLyw4NNNZxPFwXlIv/U+oUtg8SakW6ZgJZcoqHQ==}
 
-  i18next@25.8.0:
-    resolution: {integrity: sha512-urrg4HMFFMQZ2bbKRK7IZ8/CTE7D8H4JRlAwqA2ZwDRFfdd0K/4cdbNNLgfn9mo+I/h9wJu61qJzH7jCFAhUZQ==}
+  i18next@25.10.9:
+    resolution: {integrity: sha512-hQY9/bFoQKGlSKMlaCuLR8w1h5JjieqrsnZvEmj1Ja6Ec7fbyc4cTrCsY9mb9Sd8YQ/swsrKz1S9M8AcvVI70w==}
     peerDependencies:
-      typescript: ^5
+      typescript: ^5 || ^6
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -6194,9 +6194,9 @@ snapshots:
 
   i18next-fs-backend@2.6.1: {}
 
-  i18next@25.8.0(typescript@5.7.3):
+  i18next@25.10.9(typescript@5.7.3):
     dependencies:
-      '@babel/runtime': 7.28.6
+      '@babel/runtime': 7.29.2
     optionalDependencies:
       typescript: 5.7.3
 
@@ -6639,17 +6639,17 @@ snapshots:
 
   net@1.0.2: {}
 
-  next-i18next@15.4.3(@types/react@19.0.10)(i18next@25.8.0(typescript@5.7.3))(next@16.1.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-i18next@15.5.3(i18next@25.8.0(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3))(react@19.2.4):
+  next-i18next@15.4.3(@types/react@19.0.10)(i18next@25.10.9(typescript@5.7.3))(next@16.1.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-i18next@15.5.3(i18next@25.10.9(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3))(react@19.2.4):
     dependencies:
       '@babel/runtime': 7.28.6
       '@types/hoist-non-react-statics': 3.3.7(@types/react@19.0.10)
       core-js: 3.48.0
       hoist-non-react-statics: 3.3.2
-      i18next: 25.8.0(typescript@5.7.3)
+      i18next: 25.10.9(typescript@5.7.3)
       i18next-fs-backend: 2.6.1
       next: 16.1.7(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react: 19.2.4
-      react-i18next: 15.5.3(i18next@25.8.0(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3)
+      react-i18next: 15.5.3(i18next@25.10.9(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -6887,11 +6887,11 @@ snapshots:
       react: 19.2.4
       scheduler: 0.27.0
 
-  react-i18next@15.5.3(i18next@25.8.0(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3):
+  react-i18next@15.5.3(i18next@25.10.9(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3):
     dependencies:
       '@babel/runtime': 7.27.6
       html-parse-stringify: 3.0.1
-      i18next: 25.8.0(typescript@5.7.3)
+      i18next: 25.10.9(typescript@5.7.3)
       react: 19.2.4
     optionalDependencies:
       react-dom: 19.2.4(react@19.2.4)
