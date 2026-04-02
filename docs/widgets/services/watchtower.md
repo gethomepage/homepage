@@ -3,7 +3,7 @@ title: Watchtower
 description: Watchtower Widget Configuration
 ---
 
-Learn more about [Watchtower](https://github.com/containrrr/watchtower).*
+Learn more about [Watchtower](https://github.com/containrrr/watchtower).
 
 To use this widget, Watchtower needs to be configured to [enable metrics](https://containrrr.dev/watchtower/metrics/).
 
@@ -15,4 +15,4 @@ widget:
   url: http://your-ip-address:8080
   key: demotoken
 ```
-*Watchtower is no longer maintained, you can read more about it [here](https://github.com/containrrr/watchtower/discussions/2135)
+_*Watchtower is no longer maintained, you can read more about it [here](https://github.com/containrrr/watchtower/discussions/2135)_
