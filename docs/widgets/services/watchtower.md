@@ -15,4 +15,4 @@ widget:
   url: http://your-ip-address:8080
   key: demotoken
 ```
-_*Watchtower is no longer maintained, you can read more about it [here](https://github.com/containrrr/watchtower/discussions/2135)_
+_Watchtower is no longer maintained, you can read more about it [here](https://github.com/containrrr/watchtower/discussions/2135)_
