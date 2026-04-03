@@ -37,7 +37,7 @@ Create an ACL named `homepage.json` in `/usr/share/rpcd/acl.d/`, the following p
         "network.device": ["status"],
         "system": ["info"]
       }
-    }
+    },
   }
 }
 ```
