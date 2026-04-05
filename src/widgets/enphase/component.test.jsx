@@ -107,6 +107,27 @@ describe("widgets/enphase/component", () => {
     expect(screen.queryByText("enphase.imported_today")).toBeNull();
   });
 
+  it("renders dashes when wNow and whToday are null", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        wNow: null,
+        whToday: null,
+        consumptionWhToday: null,
+        exportedToday: null,
+        importedToday: null,
+      },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(<Component service={service} />, {
+      settings: { hideErrors: false },
+    });
+
+    const blocks = container.querySelectorAll(".service-block");
+    expect(blocks).toHaveLength(2);
+    blocks.forEach((b) => expect(b.textContent).toContain("-"));
+  });
+
   it("formats sub-kW power in watts", () => {
     useWidgetAPI.mockReturnValue({
       data: {
