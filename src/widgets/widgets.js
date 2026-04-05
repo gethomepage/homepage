@@ -28,6 +28,7 @@ import dispatcharr from "./dispatcharr/widget";
 import dockhand from "./dockhand/widget";
 import downloadstation from "./downloadstation/widget";
 import emby from "./emby/widget";
+import enphase from "./enphase/widget";
 import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
 import filebrowser from "./filebrowser/widget";
@@ -182,6 +183,7 @@ const widgets = {
   dockhand,
   downloadstation,
   emby,
+  enphase,
   esphome,
   evcc,
   filebrowser,

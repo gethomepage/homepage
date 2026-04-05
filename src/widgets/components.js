@@ -34,6 +34,7 @@ const components = {
   dockhand: dynamic(() => import("./dockhand/component")),
   kubernetes: dynamic(() => import("./kubernetes/component")),
   emby: dynamic(() => import("./emby/component")),
+  enphase: dynamic(() => import("./enphase/component")),
   esphome: dynamic(() => import("./esphome/component")),
   evcc: dynamic(() => import("./evcc/component")),
   filebrowser: dynamic(() => import("./filebrowser/component")),

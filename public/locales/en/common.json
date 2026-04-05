@@ -112,6 +112,13 @@
         "episodes": "Episodes",
         "songs": "Songs"
     },
+    "enphase": {
+        "produced_today": "Produced Today",
+        "consumed_today": "Consumed Today",
+        "producing": "Current Production",
+        "imported_today": "Imported Today",
+        "exported_today": "Exported Today"
+    },
     "jellyfin": {
         "playing": "Playing",
         "transcoding": "Transcoding",
