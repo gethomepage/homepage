@@ -26,14 +26,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: github.event_name == 'workflow_dispatch' && github.event.inputs.version != ''
-        uses: release-drafter/release-drafter@a6acf82562eee06318b77ab8cb0b11ed81c677a7 # v7
+        uses: release-drafter/release-drafter@139054aeaa9adc52ab36ddf67437541f039b88e2 # v7
         with:
           config-name: release-drafter.yml
           version: ${{ github.event.inputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - if: github.event_name != 'workflow_dispatch' || github.event.inputs.version == ''
-        uses: release-drafter/release-drafter@a6acf82562eee06318b77ab8cb0b11ed81c677a7 # v7
+        uses: release-drafter/release-drafter@139054aeaa9adc52ab36ddf67437541f039b88e2 # v7
         with:
           config-name: release-drafter.yml
         env:
@@ -47,7 +47,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter/autolabeler@ebb69bb56f1b0ebd19897745035726b19bef973e
+      - uses: release-drafter/release-drafter/autolabeler@139054aeaa9adc52ab36ddf67437541f039b88e2
         with:
           config-name: release-drafter.yml
         env:
