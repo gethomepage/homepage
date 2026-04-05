@@ -29,7 +29,7 @@ import enphaseProxyHandler from "./proxy";
 
 const makeReq = () => ({ query: { group: "g", service: "svc", index: "0" } });
 
-const makeProductionJson = ({ hasConsumption = true, netWhToday = -5000 } = {}) => ({
+const makeProductionJson = ({ hasConsumption = true, netWhToday = 0 } = {}) => ({
   production: [
     { type: "inverters", wNow: 100, whToday: 800 },
     { type: "eim", wNow: 2400, whToday: 14500 },
@@ -59,8 +59,8 @@ describe("widgets/enphase/proxy", () => {
       wNow: 2400,
       whToday: 14500,
       consumptionWhToday: 12000,
-      importedToday: 0,       // net-consumption whToday (grid import)
-      exportedToday: 2500,    // 14500 produced - 12000 consumed
+      importedToday: 0, // net-consumption whToday (grid import)
+      exportedToday: 2500, // 14500 produced - 12000 consumed
     });
   });
 
@@ -157,4 +157,16 @@ describe("widgets/enphase/proxy", () => {
 
     expect(res.body.error.url).not.toContain("supersecret");
   });
+
+  it("passes through non-Buffer error data as-is", async () => {
+    getServiceWidget.mockResolvedValue({ type: "enphase", url: "https://10.9.8.242" });
+    httpProxy.mockResolvedValue([503, "application/json", { message: "unavailable" }]);
+
+    const res = createMockRes();
+    await enphaseProxyHandler(makeReq(), res);
+
+    expect(res.statusCode).toBe(503);
+    expect(res.body.error.data).toEqual({ message: "unavailable" });
+  });
+
 });

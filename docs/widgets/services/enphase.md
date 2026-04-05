@@ -26,6 +26,6 @@ The token is valid for one year.
 ```yaml
 widget:
   type: enphase
-  url: https://192.168.1.x    # gateway IP, always HTTPS
-  token: <jwt>                 # only required for firmware 7.x+
+  url: https://192.168.1.x # gateway IP, always HTTPS
+  token: <jwt> # only required for firmware 7.x+
 ```

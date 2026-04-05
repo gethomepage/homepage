@@ -43,8 +43,7 @@ export default async function enphaseProxyHandler(req, res) {
   // net-consumption whToday only measures grid import (never negative).
   // Exported energy must be calculated from produced - consumed.
   const importedToday = netConsumption != null ? (netConsumption.whToday ?? 0) : null;
-  const exportedToday =
-    consumedToday !== null ? Math.max(0, producedToday - consumedToday) : null;
+  const exportedToday = consumedToday !== null ? Math.max(0, producedToday - consumedToday) : null;
 
   return res.status(200).json({
     wNow: production?.wNow ?? 0,
