@@ -115,12 +115,12 @@
     "jellyfin": {
         "playing": "En cours",
         "transcoding": "En cours d'encodage",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "bitrate": "Débit",
+        "no_active": "Aucune lecture en cours",
+        "movies": "Films",
+        "series": "Séries",
+        "episodes": "Épisodes",
+        "songs": "Morceaux"
     },
     "esphome": {
         "offline": "Hors ligne",
