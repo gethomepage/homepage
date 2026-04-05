@@ -36,9 +36,9 @@ const makeProductionJson = ({ hasConsumption = true, netWhToday = 0 } = {}) => (
   ],
   consumption: hasConsumption
     ? [
-      { measurementType: "total-consumption", wNow: 1800, whToday: 12000 },
-      { measurementType: "net-consumption", wNow: -600, whToday: netWhToday },
-    ]
+        { measurementType: "total-consumption", wNow: 1800, whToday: 12000 },
+        { measurementType: "net-consumption", wNow: -600, whToday: netWhToday },
+      ]
     : undefined,
 });
 
