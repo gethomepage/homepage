@@ -18,6 +18,19 @@ describe("ensureUrlProtocol", () => {
   it("keeps custom schemes unchanged", () => {
     expect(ensureUrlProtocol("mailto:test@example.com")).toBe("mailto:test@example.com");
   });
+
+  it("returns non-string values unchanged", () => {
+    expect(ensureUrlProtocol(undefined)).toBe(undefined);
+    expect(ensureUrlProtocol(null)).toBe(null);
+  });
+
+  it("returns empty trimmed strings unchanged", () => {
+    expect(ensureUrlProtocol("   ")).toBe("");
+  });
+
+  it("trims protocol-less values before adding https", () => {
+    expect(ensureUrlProtocol("  example.com/test  ")).toBe("https://example.com/test");
+  });
 });
 
 describe("safeHostnameFromUrl", () => {
@@ -31,5 +44,9 @@ describe("safeHostnameFromUrl", () => {
 
   it("falls back to the original value when parsing fails", () => {
     expect(safeHostnameFromUrl("not a valid url value")).toBe("not a valid url value");
+  });
+
+  it("returns undefined unchanged for invalid input", () => {
+    expect(safeHostnameFromUrl(undefined)).toBe(undefined);
   });
 });
