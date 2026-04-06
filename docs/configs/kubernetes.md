@@ -122,7 +122,7 @@ Use the `gethomepage.dev/pod-selector` selector to specify the pod used for the 
 
 ### Traefik IngressRoute support
 
-Once you've set `traefik: true` in `kubernetes.yaml`, homepage can also read ingresses defined using the Traefik IngressRoute custom resource definition. Due to the complex nature of Traefik routing rules, it is required for the `gethomepage.dev/href` annotation to be set:
+If enabled (with `traefik: true` in kubernetes.yaml), homepage can also read ingresses defined using the Traefik IngressRoute custom resource definition. Due to the complex nature of Traefik routing rules, it is required for the `gethomepage.dev/href` annotation to be set:
 
 ```yaml
 apiVersion: traefik.io/v1alpha1
