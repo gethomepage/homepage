@@ -1,8 +1,8 @@
 import classNames from "classnames";
-import { useState } from "react";
 import { useTranslation } from "next-i18next";
+import { useState } from "react";
+import { FiGlobe, FiShare2 } from "react-icons/fi";
 import { MdOutlineSecurity } from "react-icons/md";
-import { FiShare2, FiGlobe } from "react-icons/fi";
 
 export default function Device({ name, address, online, isExitNode, hasSubnets, sshEnabled }) {
   const { t } = useTranslation();
@@ -31,15 +31,9 @@ export default function Device({ name, address, online, isExitNode, hasSubnets, 
         <div className="absolute w-full whitespace-nowrap text-ellipsis overflow-hidden text-left">{name}</div>
       </div>
       <div className="self-center flex items-center gap-1 mr-1.5 pl-1 z-10">
-        {sshEnabled && (
-          <MdOutlineSecurity className="w-3 h-3 opacity-60" title={t("tailscale.ssh")} />
-        )}
-        {hasSubnets && (
-          <FiShare2 className="w-3 h-3 opacity-60" title={t("tailscale.subnets")} />
-        )}
-        {isExitNode && (
-          <FiGlobe className="w-3 h-3 opacity-60" title={t("tailscale.exit_node")} />
-        )}
+        {sshEnabled && <MdOutlineSecurity className="w-3 h-3 opacity-60" title={t("tailscale.ssh")} />}
+        {hasSubnets && <FiShare2 className="w-3 h-3 opacity-60" title={t("tailscale.subnets")} />}
+        {isExitNode && <FiGlobe className="w-3 h-3 opacity-60" title={t("tailscale.exit_node")} />}
         <button
           type="button"
           onClick={handleCopy}

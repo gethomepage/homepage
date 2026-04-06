@@ -1,5 +1,5 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 import { asJson } from "utils/proxy/api-helpers";
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
   api: "https://api.tailscale.com/api/v2/{endpoint}",

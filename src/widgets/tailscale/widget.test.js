@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { expectWidgetConfigShape } from "test-utils/widget-config";
 import { formatApiCall } from "utils/proxy/api-helpers";

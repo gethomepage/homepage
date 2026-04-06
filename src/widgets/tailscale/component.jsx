@@ -2,8 +2,8 @@ import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next";
 
-import Device from "widgets/tailscale/device";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import Device from "widgets/tailscale/device";
 
 function compareDifferenceInTwoDates(t, priorDate, futureDate) {
   const diff = futureDate.getTime() - priorDate.getTime();

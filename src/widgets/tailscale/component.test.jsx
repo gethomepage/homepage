@@ -134,10 +134,9 @@ describe("widgets/tailscale/component", () => {
   it("uses devices endpoint when tailnet is configured", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expect(useWidgetAPI).toHaveBeenCalledWith(expect.objectContaining({ tailnet: "-" }), "devices");
   });
@@ -145,10 +144,9 @@ describe("widgets/tailscale/component", () => {
   it("renders summary placeholders while loading", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
 
-    const { container } = renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />,
-      { settings: { hideErrors: false } },
-    );
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("tailscale.total_devices")).toBeInTheDocument();
@@ -159,10 +157,9 @@ describe("widgets/tailscale/component", () => {
   it("renders summary counts from connectedToControl field", () => {
     useWidgetAPI.mockReturnValue({ data: MOCK_DEVICES, error: undefined });
 
-    const { container } = renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />,
-      { settings: { hideErrors: false } },
-    );
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expectBlockValue(container, "tailscale.total_devices", "3");
     expectBlockValue(container, "tailscale.online", "2");
@@ -176,10 +173,9 @@ describe("widgets/tailscale/component", () => {
   it("renders device rows when summaryView is false", () => {
     useWidgetAPI.mockReturnValue({ data: MOCK_DEVICES, error: undefined });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />, {
+      settings: { hideErrors: false },
+    });
 
     const deviceRows = screen.getAllByTestId("tailscale-device");
     expect(deviceRows).toHaveLength(3);
@@ -188,10 +184,9 @@ describe("widgets/tailscale/component", () => {
   it("sorts online devices before offline, then alphabetical", () => {
     useWidgetAPI.mockReturnValue({ data: MOCK_DEVICES, error: undefined });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />, {
+      settings: { hideErrors: false },
+    });
 
     const deviceRows = screen.getAllByTestId("tailscale-device");
     const names = deviceRows.map((d) => d.getAttribute("data-name"));
@@ -202,10 +197,9 @@ describe("widgets/tailscale/component", () => {
   it("derives exit node flag from advertisedRoutes", () => {
     useWidgetAPI.mockReturnValue({ data: MOCK_DEVICES, error: undefined });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />, {
+      settings: { hideErrors: false },
+    });
 
     const deviceRows = screen.getAllByTestId("tailscale-device");
     const exitNodes = deviceRows.filter((d) => d.getAttribute("data-exit-node") === "true");
@@ -216,10 +210,9 @@ describe("widgets/tailscale/component", () => {
   it("derives subnet flag from enabledRoutes excluding exit node routes", () => {
     useWidgetAPI.mockReturnValue({ data: MOCK_DEVICES, error: undefined });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />, {
+      settings: { hideErrors: false },
+    });
 
     const deviceRows = screen.getAllByTestId("tailscale-device");
     const subnetRouters = deviceRows.filter((d) => d.getAttribute("data-subnets") === "true");
@@ -230,10 +223,9 @@ describe("widgets/tailscale/component", () => {
   it("passes sshEnabled from API response", () => {
     useWidgetAPI.mockReturnValue({ data: MOCK_DEVICES, error: undefined });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-", summaryView: false } }} />, {
+      settings: { hideErrors: false },
+    });
 
     const deviceRows = screen.getAllByTestId("tailscale-device");
     const sshDevices = deviceRows.filter((d) => d.getAttribute("data-ssh") === "true");
@@ -246,10 +238,9 @@ describe("widgets/tailscale/component", () => {
   it("renders error when API returns an error", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: { message: "Unauthorized" } });
 
-    renderWithProviders(
-      <Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />,
-      { settings: { hideErrors: false } },
-    );
+    renderWithProviders(<Component service={{ widget: { type: "tailscale", tailnet: "-" } }} />, {
+      settings: { hideErrors: false },
+    });
 
     expect(screen.queryByText("tailscale.total_devices")).not.toBeInTheDocument();
   });
