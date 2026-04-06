@@ -352,7 +352,13 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Ago",
+        "total_devices": "Devices",
+        "online": "Online",
+        "offline": "Offline",
+        "ssh": "SSH",
+        "subnets": "Subnet Router",
+        "exit_node": "Exit Node"
     },
     "technitium": {
         "totalQueries": "Queries",
