@@ -428,6 +428,10 @@ export function cleanServiceGroups(groups) {
           // yourspotify
           interval,
 
+          // tailscale
+          tailnet,
+          summaryView,
+
           // technitium
           range,
 
@@ -554,6 +558,10 @@ export function cleanServiceGroups(groups) {
         }
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) widget.enableQueue = JSON.parse(enableQueue);
+        }
+        if (type === "tailscale") {
+          if (tailnet) widget.tailnet = tailnet;
+          if (summaryView !== undefined) widget.summaryView = JSON.parse(summaryView);
         }
         if (type === "truenas") {
           if (enablePools !== undefined) widget.enablePools = JSON.parse(enablePools);

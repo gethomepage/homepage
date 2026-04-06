@@ -101,7 +101,7 @@ function TailnetDevices({ service }) {
   }
 
   const devices = Array.isArray(devicesData) ? devicesData : [];
-  const online = devices.filter((d) => d.online).length;
+  const online = devices.filter((d) => d.connectedToControl).length;
   const offline = devices.length - online;
 
   if (summaryView) {
@@ -123,7 +123,7 @@ function TailnetDevices({ service }) {
       </Container>
       {devices
         .sort((a, b) => {
-          if (a.online !== b.online) return a.online ? -1 : 1;
+          if (a.connectedToControl !== b.connectedToControl) return a.connectedToControl ? -1 : 1;
           return a.name.localeCompare(b.name);
         })
         .map((device) => {
@@ -138,7 +138,7 @@ function TailnetDevices({ service }) {
               key={device.id}
               name={device.name}
               address={device.addresses?.[0]}
-              online={device.online}
+              online={device.connectedToControl}
               isExitNode={isExitNode}
               hasSubnets={hasSubnets}
               sshEnabled={device.sshEnabled}

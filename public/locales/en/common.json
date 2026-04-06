@@ -358,7 +358,9 @@
         "offline": "Offline",
         "ssh": "SSH",
         "subnets": "Subnet Router",
-        "exit_node": "Exit Node"
+        "exit_node": "Exit Node",
+        "copy": "Copy",
+        "copied": "Copied!"
     },
     "technitium": {
         "totalQueries": "Queries",
