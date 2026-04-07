@@ -8,6 +8,7 @@ const { state, cache, logger, dns, net, cookieJar } = vi.hoisted(() => ({
       body: Buffer.from(""),
     },
     error: null,
+    lastAgent: null,
     lastAgentOptions: null,
     lastRequestParams: null,
     lastWrittenBody: null,
@@ -59,6 +60,7 @@ vi.mock("follow-redirects", async () => {
         state.lastWrittenBody = chunk;
       });
       req.end = vi.fn(() => {
+        state.lastAgent = params?.agent ?? null;
         state.lastAgentOptions = params?.agent?.opts ?? null;
         if (state.error) {
           req.emit("error", state.error);
@@ -104,6 +106,7 @@ describe("utils/proxy/http cachedRequest", () => {
       headers: { "content-type": "application/json" },
       body: Buffer.from(""),
     };
+    state.lastAgent = null;
     state.lastAgentOptions = null;
     state.lastRequestParams = null;
     state.lastWrittenBody = null;
@@ -307,6 +310,7 @@ describe("utils/proxy/http httpProxy", () => {
       headers: { "content-type": "application/json" },
       body: Buffer.from("ok"),
     };
+    state.lastAgent = null;
     state.lastAgentOptions = null;
     state.lastRequestParams = null;
     state.lastWrittenBody = null;
@@ -397,6 +401,7 @@ describe("utils/proxy/http httpProxy", () => {
 
     await httpMod.httpProxy("http://example.com");
 
+    expect(state.lastAgentOptions.keepAlive).toBe(true);
     expect(state.lastAgentOptions.family).toBe(4);
     expect(state.lastAgentOptions.autoSelectFamily).toBe(false);
   });
@@ -407,6 +412,17 @@ describe("utils/proxy/http httpProxy", () => {
     await httpMod.httpProxy("https://example.com");
 
     expect(state.lastAgentOptions.rejectUnauthorized).toBe(false);
+  });
+
+  it("reuses the same keep-alive agent for repeated http requests", async () => {
+    const httpMod = await import("./http");
+
+    await httpMod.httpProxy("http://example.com/first");
+    const firstAgent = state.lastAgent;
+    await httpMod.httpProxy("http://example.com/second");
+
+    expect(state.lastAgentOptions.keepAlive).toBe(true);
+    expect(state.lastAgent).toBe(firstAgent);
   });
 
   it("returns a sanitized error response when the request fails", async () => {
