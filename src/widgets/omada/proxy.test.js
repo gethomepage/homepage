@@ -2,14 +2,24 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import createMockRes from "test-utils/create-mock-res";
 
-const { httpProxy, getServiceWidget, logger } = vi.hoisted(() => ({
-  httpProxy: vi.fn(),
-  getServiceWidget: vi.fn(),
-  logger: {
-    debug: vi.fn(),
-    error: vi.fn(),
-  },
-}));
+const { httpProxy, getServiceWidget, cache, logger } = vi.hoisted(() => {
+  const store = new Map();
+
+  return {
+    httpProxy: vi.fn(),
+    getServiceWidget: vi.fn(),
+    cache: {
+      get: vi.fn((k) => store.get(k)),
+      put: vi.fn((k, v) => store.set(k, v)),
+      del: vi.fn((k) => store.delete(k)),
+      _reset: () => store.clear(),
+    },
+    logger: {
+      debug: vi.fn(),
+      error: vi.fn(),
+    },
+  };
+});
 
 vi.mock("utils/logger", () => ({
   default: () => logger,
@@ -20,15 +30,19 @@ vi.mock("utils/config/service-helpers", () => ({
 vi.mock("utils/proxy/http", () => ({
   httpProxy,
 }));
+vi.mock("memory-cache", () => ({
+  default: cache,
+  ...cache,
+}));
 
 import omadaProxyHandler from "./proxy";
 
 describe("widgets/omada/proxy", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    // Clear one-off implementations between tests (some branches return early).
     httpProxy.mockReset();
     getServiceWidget.mockReset();
+    cache._reset();
   });
 
   it("fetches controller info, logs in, selects site, and returns overview stats (v4)", async () => {
@@ -51,6 +65,7 @@ describe("widgets/omada/proxy", () => {
         200,
         "application/json",
         Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
       ])
       // sites list
       .mockResolvedValueOnce([
@@ -91,6 +106,12 @@ describe("widgets/omada/proxy", () => {
         connectedSwitches: 3,
       }),
     );
+    expect(httpProxy.mock.calls[2][1]).toMatchObject({
+      headers: {
+        "Csrf-Token": "t",
+        Cookie: "TPOMADA_SESSIONID=sid",
+      },
+    });
   });
 
   it("returns an error when controller info cannot be retrieved", async () => {
@@ -169,6 +190,7 @@ describe("widgets/omada/proxy", () => {
         200,
         "application/json",
         Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
       ])
       .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 2, msg: "bad" })]);
 
@@ -195,6 +217,7 @@ describe("widgets/omada/proxy", () => {
         200,
         "application/json",
         Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
       ])
       .mockResolvedValueOnce([
         200,
@@ -222,6 +245,7 @@ describe("widgets/omada/proxy", () => {
         200,
         "application/json",
         Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
       ])
       // getUserSites
       .mockResolvedValueOnce([
@@ -271,6 +295,7 @@ describe("widgets/omada/proxy", () => {
         200,
         "application/json",
         Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
       ])
       .mockResolvedValueOnce([
         200,
@@ -301,6 +326,7 @@ describe("widgets/omada/proxy", () => {
         200,
         "application/json",
         Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
       ])
       .mockResolvedValueOnce([
         200,
@@ -323,5 +349,415 @@ describe("widgets/omada/proxy", () => {
         data: { errorCode: 1, msg: "bad" },
       },
     });
+  });
+
+  it("reuses a cached Omada session across polls", async () => {
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+
+    await omadaProxyHandler(req, createMockRes());
+    await omadaProxyHandler(req, createMockRes());
+
+    const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
+    expect(loginCalls).toHaveLength(1);
+    expect(httpProxy.mock.calls[6][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid");
+  });
+
+  it("does not reuse a cached session across different widget identities", async () => {
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t1" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid1; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t2" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid2; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    await omadaProxyHandler({ query: { group: "g1", service: "svc", index: "0" } }, createMockRes());
+    await omadaProxyHandler({ query: { group: "g2", service: "svc", index: "0" } }, createMockRes());
+
+    const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
+    expect(loginCalls).toHaveLength(2);
+    expect(httpProxy.mock.calls[2][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid1");
+    expect(httpProxy.mock.calls[7][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid2");
+  });
+
+  it("keeps the latest value when Omada sets the same cookie more than once during login", async () => {
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        {
+          "set-cookie": [
+            "TPOMADA_SESSIONID=deleteMe; Path=/; Max-Age=0",
+            "TPOMADA_SESSIONID=sid; Path=/; HttpOnly",
+            "rememberMe=deleteMe; Path=/; Max-Age=0",
+          ],
+        },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await omadaProxyHandler(req, res);
+
+    expect(httpProxy.mock.calls[2][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid; rememberMe=deleteMe");
+    expect(res.body).toBe(
+      JSON.stringify({
+        connectedAp: 2,
+        activeUser: 10,
+        alerts: 4,
+        connectedGateways: 1,
+        connectedSwitches: 3,
+      }),
+    );
+  });
+
+  it("does not reuse a mutated content-length header on later GET requests", async () => {
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    const responses = [
+      [200, "application/json", JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } })],
+      [
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid; Path=/; HttpOnly"] },
+      ],
+      [
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ],
+      [
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ],
+      [200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })],
+    ];
+
+    httpProxy.mockImplementation(async (_url, params = {}) => {
+      if (params.body) {
+        params.headers["content-length"] = Buffer.byteLength(params.body);
+      }
+
+      return responses.shift();
+    });
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await omadaProxyHandler(req, res);
+
+    expect(httpProxy.mock.calls[2][1].headers["content-length"]).toBe(2);
+    expect(httpProxy.mock.calls[3][1].headers["content-length"]).toBeUndefined();
+    expect(httpProxy.mock.calls[4][1].headers["content-length"]).toBeUndefined();
+    expect(res.body).toBe(
+      JSON.stringify({
+        connectedAp: 2,
+        activeUser: 10,
+        alerts: 4,
+        connectedGateways: 1,
+        connectedSwitches: 3,
+      }),
+    );
+  });
+
+  it("clears the cached session and re-authenticates when an authenticated response is not JSON", async () => {
+    cache.put("omadaProxyHandler__session.g.svc.0", {
+      token: "stale-token",
+      cookieHeader: "TPOMADA_SESSIONID=stale",
+    });
+
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([200, "text/html", Buffer.from("<!DOCTYPE html>login")])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "fresh-token" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=fresh; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await omadaProxyHandler(req, res);
+
+    expect(cache.del).toHaveBeenCalledWith("omadaProxyHandler__session.g.svc.0");
+    const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
+    expect(loginCalls).toHaveLength(1);
+    expect(res.body).toBe(
+      JSON.stringify({
+        connectedAp: 2,
+        activeUser: 10,
+        alerts: 4,
+        connectedGateways: 1,
+        connectedSwitches: 3,
+      }),
+    );
+  });
+
+  it("clears the cached session and re-authenticates when a cached session returns a JSON auth error", async () => {
+    cache.put("omadaProxyHandler__session.g.svc.0", {
+      token: "stale-token",
+      cookieHeader: "TPOMADA_SESSIONID=stale",
+    });
+
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 1, msg: "Login required" })])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "fresh-token" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=fresh; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await omadaProxyHandler(req, res);
+
+    expect(cache.del).toHaveBeenCalledWith("omadaProxyHandler__session.g.svc.0");
+    const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
+    expect(loginCalls).toHaveLength(1);
+    expect(res.body).toBe(
+      JSON.stringify({
+        connectedAp: 2,
+        activeUser: 10,
+        alerts: 4,
+        connectedGateways: 1,
+        connectedSwitches: 3,
+      }),
+    );
   });
 });
