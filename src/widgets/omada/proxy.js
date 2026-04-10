@@ -1,12 +1,30 @@
+import cache from "memory-cache";
+
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
 
 const proxyName = "omadaProxyHandler";
+const sessionCacheKey = `${proxyName}__session`;
 
 const logger = createLogger(proxyName);
 
-async function login(loginUrl, username, password, controllerVersionMajor) {
+function getSessionCacheId(service) {
+  return `${sessionCacheKey}.${service}`;
+}
+
+function getCookieHeader(responseHeaders) {
+  const setCookie = responseHeaders?.["set-cookie"];
+  if (!setCookie) return null;
+
+  const cookies = (Array.isArray(setCookie) ? setCookie : [setCookie])
+    .map((cookie) => cookie.split(";")[0])
+    .filter(Boolean);
+
+  return cookies.length > 0 ? cookies.join("; ") : null;
+}
+
+async function login(loginUrl, username, password, controllerVersionMajor, service) {
   const params = {
     username,
     password,
@@ -20,7 +38,7 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
     };
   }
 
-  const [status, contentType, data] = await httpProxy(loginUrl, {
+  const [status, contentType, data, responseHeaders] = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify(params),
     headers: {
@@ -28,7 +46,20 @@ async function login(loginUrl, username, password, controllerVersionMajor) {
     },
   });
 
-  return [status, JSON.parse(data.toString())];
+  const loginResponseData = JSON.parse(data.toString());
+
+  if (status === 200 && loginResponseData.errorCode === 0) {
+    cache.put(
+      getSessionCacheId(service),
+      {
+        token: loginResponseData.result.token,
+        cookieHeader: getCookieHeader(responseHeaders),
+      },
+      55 * 60 * 1000, // Cache session for 55 minutes
+    );
+  }
+
+  return [status, loginResponseData];
 }
 
 export default async function omadaProxyHandler(req, res) {
@@ -86,25 +117,34 @@ export default async function omadaProxyHandler(req, res) {
           break;
       }
 
-      const [loginStatus, loginResponseData] = await login(
-        loginUrl,
-        widget.username,
-        widget.password,
-        controllerVersionMajor,
-      );
+      let session = cache.get(getSessionCacheId(service));
+      if (!session) {
+        const [loginStatus, loginResponseData] = await login(
+          loginUrl,
+          widget.username,
+          widget.password,
+          controllerVersionMajor,
+          service,
+        );
 
-      if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
-        return res
-          .status(loginStatus)
-          .json({ error: { message: "Error logging in to Omada controller", url: loginUrl, data: loginResponseData } });
+        if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
+          return res.status(loginStatus).json({
+            error: { message: "Error logging in to Omada controller", url: loginUrl, data: loginResponseData },
+          });
+        }
+
+        session = cache.get(getSessionCacheId(service));
       }
 
-      const { token } = loginResponseData.result;
+      const { token, cookieHeader } = session;
 
       let sitesUrl;
       let body = {};
       let params = { token };
       let headers = { "Csrf-Token": token };
+      if (cookieHeader) {
+        headers.Cookie = cookieHeader;
+      }
       let method = "GET";
 
       switch (controllerVersionMajor) {
@@ -116,6 +156,10 @@ export default async function omadaProxyHandler(req, res) {
               userName: widget.username,
             },
           };
+          headers = { "Content-Type": "application/json" };
+          if (cookieHeader) {
+            headers.Cookie = cookieHeader;
+          }
           method = "POST";
           break;
         case 4:
@@ -174,6 +218,9 @@ export default async function omadaProxyHandler(req, res) {
           },
         };
         headers = { "Content-Type": "application/json" };
+        if (cookieHeader) {
+          headers.Cookie = cookieHeader;
+        }
         params = { token };
 
         [status, contentType, data] = await httpProxy(switchUrl, {
@@ -216,9 +263,7 @@ export default async function omadaProxyHandler(req, res) {
             : `${url}/${cId}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`;
 
         [status, contentType, data] = await httpProxy(siteStatsUrl, {
-          headers: {
-            "Csrf-Token": token,
-          },
+          headers,
         });
 
         siteResponseData = JSON.parse(data);
@@ -240,9 +285,7 @@ export default async function omadaProxyHandler(req, res) {
             : `${url}/${cId}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`;
 
         [status, contentType, data] = await httpProxy(alertUrl, {
-          headers: {
-            "Csrf-Token": token,
-          },
+          headers,
         });
         const alertResponseData = JSON.parse(data);
 
