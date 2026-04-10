@@ -180,7 +180,7 @@ export default async function omadaProxyHandler(req, res) {
             method,
             params,
             body: JSON.stringify(body),
-            headers,
+            headers: { ...headers },
           });
 
           const sitesResponseData = JSON.parse(data);
@@ -232,7 +232,7 @@ export default async function omadaProxyHandler(req, res) {
               method,
               params,
               body: JSON.stringify(body),
-              headers,
+              headers: { ...headers },
             });
 
             const switchResponseData = JSON.parse(data);
@@ -248,7 +248,7 @@ export default async function omadaProxyHandler(req, res) {
               body: JSON.stringify({
                 method: "getGlobalStat",
               }),
-              headers,
+              headers: { ...headers },
             });
 
             siteResponseData = JSON.parse(data);
@@ -268,7 +268,7 @@ export default async function omadaProxyHandler(req, res) {
                 : `${url}/${cId}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`;
 
             [status, contentType, data] = await httpProxy(siteStatsUrl, {
-              headers,
+              headers: { ...headers },
             });
 
             siteResponseData = JSON.parse(data);
@@ -290,7 +290,7 @@ export default async function omadaProxyHandler(req, res) {
                 : `${url}/${cId}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`;
 
             [status, contentType, data] = await httpProxy(alertUrl, {
-              headers,
+              headers: { ...headers },
             });
             const alertResponseData = JSON.parse(data);
 
