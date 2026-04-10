@@ -9,8 +9,12 @@ const sessionCacheKey = `${proxyName}__session`;
 
 const logger = createLogger(proxyName);
 
-function getSessionCacheId(service) {
-  return `${sessionCacheKey}.${service}`;
+function getSessionCacheId(group, service, index) {
+  return [sessionCacheKey, group, service, index ?? "0"].join(".");
+}
+
+function shouldRetryWithFreshSession(status, responseData, attempt, usedCachedSession) {
+  return attempt === 0 && usedCachedSession && (status === 401 || status === 403 || responseData?.errorCode > 0);
 }
 
 function getCookieHeader(responseHeaders) {
@@ -30,7 +34,7 @@ function getCookieHeader(responseHeaders) {
   return cookies.size > 0 ? Array.from(cookies.values()).join("; ") : null;
 }
 
-async function login(loginUrl, username, password, controllerVersionMajor, service) {
+async function login(loginUrl, username, password, controllerVersionMajor, sessionCacheId) {
   const params = {
     username,
     password,
@@ -56,7 +60,7 @@ async function login(loginUrl, username, password, controllerVersionMajor, servi
 
   if (status === 200 && loginResponseData.errorCode === 0) {
     cache.put(
-      getSessionCacheId(service),
+      sessionCacheId,
       {
         token: loginResponseData.result.token,
         cookieHeader: getCookieHeader(responseHeaders),
@@ -123,17 +127,20 @@ export default async function omadaProxyHandler(req, res) {
           break;
       }
 
-      let session = cache.get(getSessionCacheId(service));
+      const sessionCacheId = getSessionCacheId(group, service, index);
+      let session = cache.get(sessionCacheId);
 
       for (let attempt = 0; attempt < 2; attempt += 1) {
         try {
+          const usedCachedSession = Boolean(session);
+
           if (!session) {
             const [loginStatus, loginResponseData] = await login(
               loginUrl,
               widget.username,
               widget.password,
               controllerVersionMajor,
-              service,
+              sessionCacheId,
             );
 
             if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
@@ -142,7 +149,7 @@ export default async function omadaProxyHandler(req, res) {
               });
             }
 
-            session = cache.get(getSessionCacheId(service));
+            session = cache.get(sessionCacheId);
           }
 
           const { token, cookieHeader } = session;
@@ -193,6 +200,11 @@ export default async function omadaProxyHandler(req, res) {
 
           if (status !== 200 || sitesResponseData.errorCode > 0) {
             logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData.msg}`);
+            if (shouldRetryWithFreshSession(status, sitesResponseData, attempt, usedCachedSession)) {
+              cache.del(sessionCacheId);
+              session = null;
+              continue;
+            }
             return res
               .status(status)
               .json({ error: { message: "Error getting sites list", url, data: sitesResponseData } });
@@ -244,6 +256,11 @@ export default async function omadaProxyHandler(req, res) {
             const switchResponseData = JSON.parse(data);
             if (status !== 200 || switchResponseData.errorCode > 0) {
               logger.error(`HTTP ${status} getting sites list: ${data}`);
+              if (shouldRetryWithFreshSession(status, switchResponseData, attempt, usedCachedSession)) {
+                cache.del(sessionCacheId);
+                session = null;
+                continue;
+              }
               return res.status(status).json({ error: { message: "Error switching site", url: switchUrl, data } });
             }
 
@@ -260,6 +277,11 @@ export default async function omadaProxyHandler(req, res) {
             siteResponseData = JSON.parse(data);
 
             if (status !== 200 || siteResponseData.errorCode > 0) {
+              if (shouldRetryWithFreshSession(status, siteResponseData, attempt, usedCachedSession)) {
+                cache.del(sessionCacheId);
+                session = null;
+                continue;
+              }
               return res.status(status).json({ error: { message: "Error getting stats", url: statsUrl, data } });
             }
 
@@ -281,6 +303,11 @@ export default async function omadaProxyHandler(req, res) {
 
             if (status !== 200 || siteResponseData.errorCode > 0) {
               logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${siteResponseData.msg}`);
+              if (shouldRetryWithFreshSession(status, siteResponseData, attempt, usedCachedSession)) {
+                cache.del(sessionCacheId);
+                session = null;
+                continue;
+              }
               return res.status(status === 200 ? 500 : status).json({
                 error: {
                   message: "Error getting stats",
@@ -300,6 +327,21 @@ export default async function omadaProxyHandler(req, res) {
             });
             const alertResponseData = JSON.parse(data);
 
+            if (status !== 200 || alertResponseData.errorCode > 0) {
+              if (shouldRetryWithFreshSession(status, alertResponseData, attempt, usedCachedSession)) {
+                cache.del(sessionCacheId);
+                session = null;
+                continue;
+              }
+              return res.status(status === 200 ? 500 : status).json({
+                error: {
+                  message: "Error getting alerts",
+                  url: alertUrl,
+                  data: alertResponseData,
+                },
+              });
+            }
+
             activeUser = siteResponseData.result.totalClientNum;
             connectedAp = siteResponseData.result.connectedApNum;
             connectedGateways = siteResponseData.result.connectedGatewayNum;
@@ -318,7 +360,7 @@ export default async function omadaProxyHandler(req, res) {
           );
         } catch (error) {
           if (error instanceof SyntaxError && attempt === 0) {
-            cache.del(getSessionCacheId(service));
+            cache.del(sessionCacheId);
             session = null;
             continue;
           }

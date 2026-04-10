@@ -425,6 +425,85 @@ describe("widgets/omada/proxy", () => {
     expect(httpProxy.mock.calls[6][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid");
   });
 
+  it("does not reuse a cached session across different widget identities", async () => {
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t1" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid1; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "t2" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=sid2; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    await omadaProxyHandler({ query: { group: "g1", service: "svc", index: "0" } }, createMockRes());
+    await omadaProxyHandler({ query: { group: "g2", service: "svc", index: "0" } }, createMockRes());
+
+    const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
+    expect(loginCalls).toHaveLength(2);
+    expect(httpProxy.mock.calls[2][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid1");
+    expect(httpProxy.mock.calls[7][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid2");
+  });
+
   it("keeps the latest value when Omada sets the same cookie more than once during login", async () => {
     getServiceWidget.mockResolvedValue({
       url: "http://omada",
@@ -553,7 +632,7 @@ describe("widgets/omada/proxy", () => {
   });
 
   it("clears the cached session and re-authenticates when an authenticated response is not JSON", async () => {
-    cache.put("omadaProxyHandler__session.svc", {
+    cache.put("omadaProxyHandler__session.g.svc.0", {
       token: "stale-token",
       cookieHeader: "TPOMADA_SESSIONID=stale",
     });
@@ -603,7 +682,72 @@ describe("widgets/omada/proxy", () => {
 
     await omadaProxyHandler(req, res);
 
-    expect(cache.del).toHaveBeenCalledWith("omadaProxyHandler__session.svc");
+    expect(cache.del).toHaveBeenCalledWith("omadaProxyHandler__session.g.svc.0");
+    const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
+    expect(loginCalls).toHaveLength(1);
+    expect(res.body).toBe(
+      JSON.stringify({
+        connectedAp: 2,
+        activeUser: 10,
+        alerts: 4,
+        connectedGateways: 1,
+        connectedSwitches: 3,
+      }),
+    );
+  });
+
+  it("clears the cached session and re-authenticates when a cached session returns a JSON auth error", async () => {
+    cache.put("omadaProxyHandler__session.g.svc.0", {
+      token: "stale-token",
+      cookieHeader: "TPOMADA_SESSIONID=stale",
+    });
+
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 1, msg: "Login required" })])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "fresh-token" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=fresh; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await omadaProxyHandler(req, res);
+
+    expect(cache.del).toHaveBeenCalledWith("omadaProxyHandler__session.g.svc.0");
     const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
     expect(loginCalls).toHaveLength(1);
     expect(res.body).toBe(
