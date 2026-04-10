@@ -424,4 +424,69 @@ describe("widgets/omada/proxy", () => {
     expect(loginCalls).toHaveLength(1);
     expect(httpProxy.mock.calls[6][1].headers.Cookie).toBe("TPOMADA_SESSIONID=sid");
   });
+
+  it("clears the cached session and re-authenticates when an authenticated response is not JSON", async () => {
+    cache.put("omadaProxyHandler__session.svc", {
+      token: "stale-token",
+      cookieHeader: "TPOMADA_SESSIONID=stale",
+    });
+
+    getServiceWidget.mockResolvedValue({
+      url: "http://omada",
+      username: "u",
+      password: "p",
+      site: "Default",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
+      ])
+      .mockResolvedValueOnce([200, "text/html", Buffer.from("<!DOCTYPE html>login")])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ errorCode: 0, result: { token: "fresh-token" } })),
+        { "set-cookie": ["TPOMADA_SESSIONID=fresh; Path=/; HttpOnly"] },
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ errorCode: 0, result: { data: [{ name: "Default", key: "sitekey" }] } }),
+      ])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          errorCode: 0,
+          result: {
+            totalClientNum: 10,
+            connectedApNum: 2,
+            connectedGatewayNum: 1,
+            connectedSwitchNum: 3,
+          },
+        }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { alertNum: 4 } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await omadaProxyHandler(req, res);
+
+    expect(cache.del).toHaveBeenCalledWith("omadaProxyHandler__session.svc");
+    const loginCalls = httpProxy.mock.calls.filter(([url]) => url.toString().includes("/api/v2/login"));
+    expect(loginCalls).toHaveLength(1);
+    expect(res.body).toBe(
+      JSON.stringify({
+        connectedAp: 2,
+        activeUser: 10,
+        alerts: 4,
+        connectedGateways: 1,
+        connectedSwitches: 3,
+      }),
+    );
+  });
 });

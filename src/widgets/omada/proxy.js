@@ -118,193 +118,208 @@ export default async function omadaProxyHandler(req, res) {
       }
 
       let session = cache.get(getSessionCacheId(service));
-      if (!session) {
-        const [loginStatus, loginResponseData] = await login(
-          loginUrl,
-          widget.username,
-          widget.password,
-          controllerVersionMajor,
-          service,
-        );
 
-        if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
-          return res.status(loginStatus).json({
-            error: { message: "Error logging in to Omada controller", url: loginUrl, data: loginResponseData },
-          });
-        }
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          if (!session) {
+            const [loginStatus, loginResponseData] = await login(
+              loginUrl,
+              widget.username,
+              widget.password,
+              controllerVersionMajor,
+              service,
+            );
 
-        session = cache.get(getSessionCacheId(service));
-      }
+            if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
+              return res.status(loginStatus).json({
+                error: { message: "Error logging in to Omada controller", url: loginUrl, data: loginResponseData },
+              });
+            }
 
-      const { token, cookieHeader } = session;
+            session = cache.get(getSessionCacheId(service));
+          }
 
-      let sitesUrl;
-      let body = {};
-      let params = { token };
-      let headers = { "Csrf-Token": token };
-      if (cookieHeader) {
-        headers.Cookie = cookieHeader;
-      }
-      let method = "GET";
+          const { token, cookieHeader } = session;
 
-      switch (controllerVersionMajor) {
-        case 3:
-          sitesUrl = `${url}/web/v1/controller?ajax=&token=${token}`;
-          body = {
-            method: "getUserSites",
-            params: {
-              userName: widget.username,
-            },
-          };
-          headers = { "Content-Type": "application/json" };
+          let sitesUrl;
+          let body = {};
+          let params = { token };
+          let headers = { "Csrf-Token": token };
           if (cookieHeader) {
             headers.Cookie = cookieHeader;
           }
-          method = "POST";
-          break;
-        case 4:
-          sitesUrl = `${url}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
-          break;
-        case 5:
-        case 6:
-          sitesUrl = `${url}/${cId}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
-          break;
-        default:
-          break;
-      }
+          let method = "GET";
 
-      [status, contentType, data] = await httpProxy(sitesUrl, {
-        method,
-        params,
-        body: JSON.stringify(body),
-        headers,
-      });
+          switch (controllerVersionMajor) {
+            case 3:
+              sitesUrl = `${url}/web/v1/controller?ajax=&token=${token}`;
+              body = {
+                method: "getUserSites",
+                params: {
+                  userName: widget.username,
+                },
+              };
+              headers = { "Content-Type": "application/json" };
+              if (cookieHeader) {
+                headers.Cookie = cookieHeader;
+              }
+              method = "POST";
+              break;
+            case 4:
+              sitesUrl = `${url}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
+              break;
+            case 5:
+            case 6:
+              sitesUrl = `${url}/${cId}/api/v2/sites?token=${token}&currentPage=1&currentPageSize=1000`;
+              break;
+            default:
+              break;
+          }
 
-      const sitesResponseData = JSON.parse(data);
-
-      if (status !== 200 || sitesResponseData.errorCode > 0) {
-        logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData.msg}`);
-        return res
-          .status(status)
-          .json({ error: { message: "Error getting sites list", url, data: sitesResponseData } });
-      }
-
-      const site =
-        controllerVersionMajor === 3
-          ? sitesResponseData.result.siteList.find((s) => s.name === widget.site)
-          : sitesResponseData.result.data.find((s) => s.name === widget.site);
-
-      if (!site) {
-        return res.status(status).json({ error: { message: `Site ${widget.site} is not found`, url: sitesUrl, data } });
-      }
-
-      let siteResponseData;
-
-      let connectedAp;
-      let activeUser;
-      let connectedSwitches;
-      let connectedGateways;
-      let alerts;
-
-      if (controllerVersionMajor === 3) {
-        // Omada v3 controller requires switching site
-        const switchUrl = `${url}/web/v1/controller?ajax=&token=${token}`;
-        method = "POST";
-        body = {
-          method: "switchSite",
-          params: {
-            siteName: site.siteName,
-            userName: widget.username,
-          },
-        };
-        headers = { "Content-Type": "application/json" };
-        if (cookieHeader) {
-          headers.Cookie = cookieHeader;
-        }
-        params = { token };
-
-        [status, contentType, data] = await httpProxy(switchUrl, {
-          method,
-          params,
-          body: JSON.stringify(body),
-          headers,
-        });
-
-        const switchResponseData = JSON.parse(data);
-        if (status !== 200 || switchResponseData.errorCode > 0) {
-          logger.error(`HTTP ${status} getting sites list: ${data}`);
-          return res.status(status).json({ error: { message: "Error switching site", url: switchUrl, data } });
-        }
-
-        const statsUrl = `${url}/web/v1/controller?getGlobalStat=&token=${token}`;
-        [status, contentType, data] = await httpProxy(statsUrl, {
-          method,
-          params,
-          body: JSON.stringify({
-            method: "getGlobalStat",
-          }),
-          headers,
-        });
-
-        siteResponseData = JSON.parse(data);
-
-        if (status !== 200 || siteResponseData.errorCode > 0) {
-          return res.status(status).json({ error: { message: "Error getting stats", url: statsUrl, data } });
-        }
-
-        connectedAp = siteResponseData.result.connectedAp;
-        activeUser = siteResponseData.result.activeUser;
-        alerts = siteResponseData.result.alerts;
-      } else if ([4, 5, 6].includes(controllerVersionMajor)) {
-        const siteName = controllerVersionMajor > 4 ? site.id : site.key;
-        const siteStatsUrl =
-          controllerVersionMajor === 4
-            ? `${url}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`
-            : `${url}/${cId}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`;
-
-        [status, contentType, data] = await httpProxy(siteStatsUrl, {
-          headers,
-        });
-
-        siteResponseData = JSON.parse(data);
-
-        if (status !== 200 || siteResponseData.errorCode > 0) {
-          logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${siteResponseData.msg}`);
-          return res.status(status === 200 ? 500 : status).json({
-            error: {
-              message: "Error getting stats",
-              url: siteStatsUrl,
-              data: siteResponseData,
-            },
+          [status, contentType, data] = await httpProxy(sitesUrl, {
+            method,
+            params,
+            body: JSON.stringify(body),
+            headers,
           });
+
+          const sitesResponseData = JSON.parse(data);
+
+          if (status !== 200 || sitesResponseData.errorCode > 0) {
+            logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData.msg}`);
+            return res
+              .status(status)
+              .json({ error: { message: "Error getting sites list", url, data: sitesResponseData } });
+          }
+
+          const site =
+            controllerVersionMajor === 3
+              ? sitesResponseData.result.siteList.find((s) => s.name === widget.site)
+              : sitesResponseData.result.data.find((s) => s.name === widget.site);
+
+          if (!site) {
+            return res
+              .status(status)
+              .json({ error: { message: `Site ${widget.site} is not found`, url: sitesUrl, data } });
+          }
+
+          let siteResponseData;
+
+          let connectedAp;
+          let activeUser;
+          let connectedSwitches;
+          let connectedGateways;
+          let alerts;
+
+          if (controllerVersionMajor === 3) {
+            // Omada v3 controller requires switching site
+            const switchUrl = `${url}/web/v1/controller?ajax=&token=${token}`;
+            method = "POST";
+            body = {
+              method: "switchSite",
+              params: {
+                siteName: site.siteName,
+                userName: widget.username,
+              },
+            };
+            headers = { "Content-Type": "application/json" };
+            if (cookieHeader) {
+              headers.Cookie = cookieHeader;
+            }
+            params = { token };
+
+            [status, contentType, data] = await httpProxy(switchUrl, {
+              method,
+              params,
+              body: JSON.stringify(body),
+              headers,
+            });
+
+            const switchResponseData = JSON.parse(data);
+            if (status !== 200 || switchResponseData.errorCode > 0) {
+              logger.error(`HTTP ${status} getting sites list: ${data}`);
+              return res.status(status).json({ error: { message: "Error switching site", url: switchUrl, data } });
+            }
+
+            const statsUrl = `${url}/web/v1/controller?getGlobalStat=&token=${token}`;
+            [status, contentType, data] = await httpProxy(statsUrl, {
+              method,
+              params,
+              body: JSON.stringify({
+                method: "getGlobalStat",
+              }),
+              headers,
+            });
+
+            siteResponseData = JSON.parse(data);
+
+            if (status !== 200 || siteResponseData.errorCode > 0) {
+              return res.status(status).json({ error: { message: "Error getting stats", url: statsUrl, data } });
+            }
+
+            connectedAp = siteResponseData.result.connectedAp;
+            activeUser = siteResponseData.result.activeUser;
+            alerts = siteResponseData.result.alerts;
+          } else if ([4, 5, 6].includes(controllerVersionMajor)) {
+            const siteName = controllerVersionMajor > 4 ? site.id : site.key;
+            const siteStatsUrl =
+              controllerVersionMajor === 4
+                ? `${url}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`
+                : `${url}/${cId}/api/v2/sites/${siteName}/dashboard/overviewDiagram?token=${token}&currentPage=1&currentPageSize=1000`;
+
+            [status, contentType, data] = await httpProxy(siteStatsUrl, {
+              headers,
+            });
+
+            siteResponseData = JSON.parse(data);
+
+            if (status !== 200 || siteResponseData.errorCode > 0) {
+              logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${siteResponseData.msg}`);
+              return res.status(status === 200 ? 500 : status).json({
+                error: {
+                  message: "Error getting stats",
+                  url: siteStatsUrl,
+                  data: siteResponseData,
+                },
+              });
+            }
+
+            const alertUrl =
+              controllerVersionMajor === 4
+                ? `${url}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`
+                : `${url}/${cId}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`;
+
+            [status, contentType, data] = await httpProxy(alertUrl, {
+              headers,
+            });
+            const alertResponseData = JSON.parse(data);
+
+            activeUser = siteResponseData.result.totalClientNum;
+            connectedAp = siteResponseData.result.connectedApNum;
+            connectedGateways = siteResponseData.result.connectedGatewayNum;
+            connectedSwitches = siteResponseData.result.connectedSwitchNum;
+            alerts = alertResponseData.result.alertNum;
+          }
+
+          return res.send(
+            JSON.stringify({
+              connectedAp,
+              activeUser,
+              alerts,
+              connectedGateways,
+              connectedSwitches,
+            }),
+          );
+        } catch (error) {
+          if (error instanceof SyntaxError && attempt === 0) {
+            cache.del(getSessionCacheId(service));
+            session = null;
+            continue;
+          }
+
+          throw error;
         }
-
-        const alertUrl =
-          controllerVersionMajor === 4
-            ? `${url}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`
-            : `${url}/${cId}/api/v2/sites/${siteName}/alerts/num?token=${token}&currentPage=1&currentPageSize=1000`;
-
-        [status, contentType, data] = await httpProxy(alertUrl, {
-          headers,
-        });
-        const alertResponseData = JSON.parse(data);
-
-        activeUser = siteResponseData.result.totalClientNum;
-        connectedAp = siteResponseData.result.connectedApNum;
-        connectedGateways = siteResponseData.result.connectedGatewayNum;
-        connectedSwitches = siteResponseData.result.connectedSwitchNum;
-        alerts = alertResponseData.result.alertNum;
       }
-
-      return res.send(
-        JSON.stringify({
-          connectedAp,
-          activeUser,
-          alerts,
-          connectedGateways,
-          connectedSwitches,
-        }),
-      );
     }
   }
 
