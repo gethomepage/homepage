@@ -17,11 +17,17 @@ function getCookieHeader(responseHeaders) {
   const setCookie = responseHeaders?.["set-cookie"];
   if (!setCookie) return null;
 
-  const cookies = (Array.isArray(setCookie) ? setCookie : [setCookie])
-    .map((cookie) => cookie.split(";")[0])
-    .filter(Boolean);
+  const cookies = new Map();
+  (Array.isArray(setCookie) ? setCookie : [setCookie]).forEach((cookie) => {
+    const cookiePair = cookie.split(";")[0];
+    if (!cookiePair) return;
 
-  return cookies.length > 0 ? cookies.join("; ") : null;
+    const separatorIndex = cookiePair.indexOf("=");
+    const cookieName = separatorIndex === -1 ? cookiePair : cookiePair.slice(0, separatorIndex);
+    cookies.set(cookieName, cookiePair);
+  });
+
+  return cookies.size > 0 ? Array.from(cookies.values()).join("; ") : null;
 }
 
 async function login(loginUrl, username, password, controllerVersionMajor, service) {
