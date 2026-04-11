@@ -17,13 +17,13 @@ describe("widgets/awscostexplorer/component", () => {
     vi.clearAllMocks();
   });
 
-  it("renders without crashing while loading (data undefined)", () => {
+  it("shows placeholder while loading (data undefined)", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
 
     renderWithProviders(<Component service={SERVICE} />, { settings: { hideErrors: false } });
 
-    // The skeleton container should be in the DOM.
-    expect(document.body).toBeInTheDocument();
+    // Loading branch renders the "..." placeholder value.
+    expect(screen.getByText("...")).toBeInTheDocument();
   });
 
   it("renders error UI when widget API returns an error", () => {

@@ -7,15 +7,6 @@ const proxyName = "awsCostExplorerProxyHandler";
 const logger = createLogger(proxyName);
 
 /**
- * Format a Date as YYYY-MM-DD (required by the Cost Explorer API).
- * @param {Date} date
- * @returns {string}
- */
-function toISODateString(date) {
-  return date.toISOString().slice(0, 10);
-}
-
-/**
  * Return { start, end } for the current calendar month.
  * End is always one day after today so Start < End holds even on the 1st.
  * @returns {{ start: string, end: string }}
