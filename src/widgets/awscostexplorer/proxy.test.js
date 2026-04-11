@@ -33,7 +33,6 @@ const MOCK_WIDGET = {
   accessKeyId: "AKIAIOSFODNN7EXAMPLE",
   secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
   region: "us-east-1",
-  currency: "USD",
 };
 
 const MOCK_AWS_RESPONSE = {
@@ -73,6 +72,30 @@ describe("widgets/awscostexplorer/proxy", () => {
 
   it("returns 400 when accessKeyId is missing", async () => {
     getServiceWidget.mockResolvedValue({ type: "awscostexplorer", secretAccessKey: "secret" });
+
+    const req = makeReq();
+    const res = createMockRes();
+
+    await awsCostExplorerProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toMatch(/credentials/i);
+  });
+
+  it("returns 400 when widget is not found", async () => {
+    getServiceWidget.mockResolvedValue(null);
+
+    const req = makeReq();
+    const res = createMockRes();
+
+    await awsCostExplorerProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toBe("Invalid proxy service type");
+  });
+
+  it("returns 400 when secretAccessKey is missing", async () => {
+    getServiceWidget.mockResolvedValue({ type: "awscostexplorer", accessKeyId: "AKIAIOSFODNN7EXAMPLE" });
 
     const req = makeReq();
     const res = createMockRes();

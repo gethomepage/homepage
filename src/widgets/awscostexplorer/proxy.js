@@ -22,10 +22,15 @@ function toISODateString(date) {
  */
 function currentMonthRange() {
   const now = new Date();
-  const start = new Date(now.getFullYear(), now.getMonth(), 1);
-  // End is exclusive in the AWS API; use tomorrow to ensure start < end.
-  const end = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-  return { start: toISODateString(start), end: toISODateString(end) };
+  const year = now.getUTCFullYear();
+  const month = now.getUTCMonth();
+  const day = now.getUTCDate();
+  const pad = (n) => String(n).padStart(2, "0");
+  const start = `${year}-${pad(month + 1)}-01`;
+  // End is exclusive in the AWS API; use tomorrow in UTC to ensure start < end.
+  const endDate = new Date(Date.UTC(year, month, day + 1));
+  const end = `${endDate.getUTCFullYear()}-${pad(endDate.getUTCMonth() + 1)}-${pad(endDate.getUTCDate())}`;
+  return { start, end };
 }
 
 export default async function awsCostExplorerProxyHandler(req, res) {
