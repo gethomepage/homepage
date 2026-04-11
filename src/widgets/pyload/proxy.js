@@ -138,7 +138,7 @@ export default async function pyloadProxyHandler(req, res, map = {}) {
           let status, data;
           if (hasApiKey) {
             [status, data] = await fetchFromPyloadAPIKey(ngUrl, null, widget.key);
-          } else  {
+          } else {
             [status, data] = await fetchFromPyloadAPIBasic(ngUrl, null, widget.username, widget.password);
           }
           if (status === 200 && !data?.error) {
