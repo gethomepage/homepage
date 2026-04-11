@@ -12,5 +12,6 @@ widget:
   type: pyload
   url: http://pyload.host.or.ip:port
   username: username
-  password: password # only needed if set
+  password: password # only needed if username is set
+  key: apikey # newer 0.5.0 versions uses API keys not username/password
 ```

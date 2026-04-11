@@ -45,6 +45,31 @@ async function fetchFromPyloadAPI(url, sessionId, params, service) {
   return [status, returnData, responseHeaders];
 }
 
+async function fetchFromPyloadAPIKey(url, params, key) {
+  const parsedUrl = new URL(url);
+  const isGetRequest = !params || Object.keys(params).length === 0;
+
+  const options = {
+    method: isGetRequest ? "GET" : "POST",
+    headers: {
+      "X-API-Key": key,
+    },
+  };
+
+  if (isGetRequest) {
+    if (params) {
+      Object.keys(params).forEach((key) => parsedUrl.searchParams.append(key, params[key]));
+    }
+  } else {
+    options.headers["Content-Type"] = "application/json";
+    options.body = JSON.stringify(params);
+  }
+
+  const [status, contentType, data, responseHeaders] = await httpProxy(parsedUrl, options);
+  const returnData = parsePyloadResponse(parsedUrl, data);
+  return [status, returnData, responseHeaders];
+}
+
 async function fetchFromPyloadAPIBasic(url, params, username, password) {
   const parsedUrl = new URL(url);
   const isGetRequest = !params || Object.keys(params).length === 0;
@@ -107,10 +132,15 @@ export default async function pyloadProxyHandler(req, res, map = {}) {
         const ngUrl = ngEndpoint ? new URL(formatApiCall(apiTemplate, { endpoint: ngEndpoint, ...widget })) : url;
         const loginUrl = `${widget.url}/api/login`;
         const hasCredentials = widget.username && widget.password;
+        const hasApiKey = widget.key;
 
-        if (hasCredentials) {
-          const [status, data] = await fetchFromPyloadAPIBasic(ngUrl, null, widget.username, widget.password);
-
+        if (hasCredentials || hasApiKey) {
+          let status, data;
+          if (hasApiKey) {
+            [status, data] = await fetchFromPyloadAPIKey(ngUrl, null, widget.key);
+          } else {
+            [status, data] = await fetchFromPyloadAPIBasic(ngUrl, null, widget.username, widget.password);
+          }
           if (status === 200 && !data?.error) {
             cache.put(`${isNgCacheKey}.${service}`, true);
             return res.json(data);
