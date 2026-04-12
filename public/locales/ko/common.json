@@ -67,9 +67,9 @@
         "empty_data": "서브시스템 상태 알 수 없음"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "정상",
+        "degraded": "성능 저하",
+        "no_data": "저장소 데이터 없음"
     },
     "docker": {
         "rx": "수신",

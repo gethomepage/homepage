@@ -67,9 +67,9 @@
         "empty_data": "Status do Subsistema desconhecido"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Saudável",
+        "degraded": "Degradado",
+        "no_data": "Sem dados de armazenamento disponíveis"
     },
     "docker": {
         "rx": "RX",
@@ -114,9 +114,9 @@
     },
     "jellyfin": {
         "playing": "Jogando",
-        "transcoding": "Transcoding",
+        "transcoding": "Transcodificando",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "no_active": "Sem Transmissões Ativas",
         "movies": "Filmes",
         "series": "Séries",
         "episodes": "Episódios",
@@ -190,10 +190,10 @@
         "plex_connection_error": "Verifique a conexão do Plex"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
-        "streams": "Streams",
-        "transcodes": "Transcodes",
-        "directplay": "Direct Play",
+        "no_active": "Sem Transmissões Ativas",
+        "streams": "Transmissões",
+        "transcodes": "Transcodificações",
+        "directplay": "Reprodução direta",
         "bitrate": "Bitrate"
     },
     "omada": {
@@ -619,13 +619,13 @@
         "total": "Total"
     },
     "pangolin": {
-        "orgs": "Orgs",
+        "orgs": "Organizações",
         "sites": "Sites",
         "resources": "Recursos",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "targets": "Alvos",
+        "traffic": "Tráfego",
+        "in": "Em",
+        "out": "Saída"
     },
     "peanut": {
         "battery_charge": "Carga da bateria",
@@ -1164,11 +1164,11 @@
         "images": "Imagens",
         "image_updates": "Atualizações de Imagem",
         "images_unused": "Não utilizado",
-        "environment_required": "Environment ID Required"
+        "environment_required": "ID do ambiente necessário"
     },
     "dockhand": {
         "running": "Executando",
-        "stopped": "Stopped",
+        "stopped": "Parado",
         "cpu": "CPU",
         "memory": "Memória",
         "images": "Imagens",
@@ -1178,12 +1178,12 @@
         "stacks": "Pilhas",
         "paused": "Pausado",
         "total": "Total",
-        "environment_not_found": "Environment Not Found"
+        "environment_not_found": "Ambiente não encontrado"
     },
     "sparkyfitness": {
-        "eaten": "Eaten",
-        "burned": "Burned",
-        "remaining": "Remaining",
-        "steps": "Steps"
+        "eaten": "Comido",
+        "burned": "Queimado",
+        "remaining": "Restante",
+        "steps": "Passos"
     }
 }

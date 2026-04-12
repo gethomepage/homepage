@@ -61,15 +61,15 @@
         "wlan_devices": "Dispositivi WLAN",
         "lan_users": "Utenti LAN",
         "wlan_users": "Utenti WLAN",
-        "up": "UP",
+        "up": "SU",
         "down": "DOWN",
-        "wait": "Please wait",
+        "wait": "Attendere prego",
         "empty_data": "Stato del sottosistema sconosciuto"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Sano",
+        "degraded": "Degradato",
+        "no_data": "Nessun dato di archiviazione disponibile"
     },
     "docker": {
         "rx": "RX",
@@ -88,7 +88,7 @@
         "partial": "Parziale"
     },
     "ping": {
-        "error": "Error",
+        "error": "Errore",
         "ping": "Ping",
         "down": "Down",
         "up": "Up",
@@ -96,11 +96,11 @@
     },
     "siteMonitor": {
         "http_status": "Stato HTTP",
-        "error": "Error",
+        "error": "Errore",
         "response": "Risposta",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Giù",
+        "up": "Su",
+        "not_available": "Non disponibile"
     },
     "emby": {
         "playing": "In riproduzione",
@@ -113,21 +113,21 @@
         "songs": "Canzoni"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
+        "playing": "In riproduzione",
+        "transcoding": "Transcodifica",
+        "bitrate": "Velocità in bit",
+        "no_active": "Nessuna Trasmissione Attiva",
+        "movies": "Film",
         "series": "Serie",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "episodes": "Episodi",
+        "songs": "Canzoni"
     },
     "esphome": {
-        "offline": "Offline",
-        "offline_alt": "Offline",
+        "offline": "Disconnesso",
+        "offline_alt": "Disconnesso",
         "online": "Online",
-        "total": "Total",
-        "unknown": "Unknown"
+        "total": "Totale",
+        "unknown": "Sconosciuto"
     },
     "evcc": {
         "pv_power": "Produzione",
@@ -148,7 +148,7 @@
         "unread": "Non letto"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
+        "connectionStatus": "Stato",
         "connectionStatusUnconfigured": "Non configurato",
         "connectionStatusConnecting": "Connessione in corso",
         "connectionStatusAuthenticating": "In fase di autenticazione",
@@ -156,11 +156,11 @@
         "connectionStatusDisconnecting": "Disconnessione in corso",
         "connectionStatusDisconnected": "Disconnesso",
         "connectionStatusConnected": "Connesso",
-        "uptime": "Uptime",
+        "uptime": "Tempo di funzionamento",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
+        "down": "Giù",
+        "up": "Su",
         "received": "Ricevuti",
         "sent": "Inviati",
         "externalIPAddress": "IP Esterno",
@@ -184,17 +184,17 @@
     },
     "tautulli": {
         "playing": "In riproduzione",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "transcoding": "Transcodifica",
+        "bitrate": "Velocità in bit",
+        "no_active": "Nessuna Trasmissione Attiva",
         "plex_connection_error": "Controllare la connessione a Plex"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
-        "streams": "Streams",
-        "transcodes": "Transcodes",
-        "directplay": "Direct Play",
-        "bitrate": "Bitrate"
+        "no_active": "Nessuna Trasmissione Attiva",
+        "streams": "Flussi",
+        "transcodes": "Transcodifiche",
+        "directplay": "Riproduzione diretta",
+        "bitrate": "Velocità in bit"
     },
     "omada": {
         "connectedAp": "AP Connessi",
@@ -211,11 +211,11 @@
     "plex": {
         "streams": "Trasmissioni attive",
         "albums": "Album",
-        "movies": "Movies",
+        "movies": "Film",
         "tv": "Programmi televisivi"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Rapporto",
         "queue": "Coda",
         "timeleft": "Tempo Rimanente"
     },
@@ -227,13 +227,13 @@
     "transmission": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "In download",
         "seed": "Seed"
     },
     "qbittorrent": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "In download",
         "seed": "Seed"
     },
     "qnap": {
@@ -430,21 +430,21 @@
     "medusa": {
         "wanted": "Wanted",
         "queued": "Queued",
-        "series": "Series"
+        "series": "Serie"
     },
     "minecraft": {
         "players": "Giocatori",
         "version": "Versione",
-        "status": "Status",
+        "status": "Stato",
         "up": "Online",
-        "down": "Offline"
+        "down": "Disconnesso"
     },
     "miniflux": {
         "read": "Letti",
-        "unread": "Unread"
+        "unread": "Non letto"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Utenti",
         "loginsLast24H": "Accessi (24h)",
         "failedLoginsLast24H": "Accessi Falliti (24h)"
     },
@@ -456,19 +456,19 @@
     },
     "glances": {
         "cpu": "CPU",
-        "load": "Load",
-        "wait": "Please wait",
+        "load": "Carico",
+        "wait": "Attendere prego",
         "temp": "TEMP",
         "_temp": "Temp.",
         "warn": "Avviso",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "days": "d",
-        "hours": "h",
+        "uptime": "SU",
+        "total": "Totale",
+        "free": "Libero",
+        "used": "Utilizzato",
+        "days": "g",
+        "hours": "o",
         "crit": "Critico",
-        "read": "Read",
+        "read": "Letti",
         "write": "Scrittura",
         "gpu": "GPU",
         "mem": "Mem.",
@@ -489,57 +489,57 @@
         "1-day": "Prevalentemente Soleggiato",
         "1-night": "Prevalentemente Sereno",
         "2-day": "Parzialmente Nuvoloso",
-        "2-night": "Partly Cloudy",
+        "2-night": "Parzialmente Nuvoloso",
         "3-day": "Nuvoloso",
-        "3-night": "Cloudy",
+        "3-night": "Nuvoloso",
         "45-day": "Nebbioso",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "45-night": "Nebbioso",
+        "48-day": "Nebbioso",
+        "48-night": "Nebbioso",
         "51-day": "Pioggerella Leggera",
-        "51-night": "Light Drizzle",
+        "51-night": "Pioggerella Leggera",
         "53-day": "Pioggerella",
-        "53-night": "Drizzle",
+        "53-night": "Pioggerella",
         "55-day": "Pioggerella Pesante",
-        "55-night": "Heavy Drizzle",
+        "55-night": "Pioggerella Pesante",
         "56-day": "Leggera Pioggia Gelata",
-        "56-night": "Light Freezing Drizzle",
+        "56-night": "Leggera Pioggia Gelata",
         "57-day": "Pioggerella Gelata",
-        "57-night": "Freezing Drizzle",
+        "57-night": "Pioggerella Gelata",
         "61-day": "Pioggia Leggera",
-        "61-night": "Light Rain",
+        "61-night": "Pioggia Leggera",
         "63-day": "Pioggia",
-        "63-night": "Rain",
+        "63-night": "Pioggia",
         "65-day": "Pioggia Intensa",
-        "65-night": "Heavy Rain",
+        "65-night": "Pioggia Intensa",
         "66-day": "Grandine",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "66-night": "Grandine",
+        "67-day": "Grandine",
+        "67-night": "Grandine",
         "71-day": "Leggera Nevicata",
-        "71-night": "Light Snow",
+        "71-night": "Leggera Nevicata",
         "73-day": "Neve",
-        "73-night": "Snow",
+        "73-night": "Neve",
         "75-day": "Nevicata Intensa",
-        "75-night": "Heavy Snow",
+        "75-night": "Nevicata Intensa",
         "77-day": "Fiocchi di Neve",
-        "77-night": "Snow Grains",
+        "77-night": "Fiocchi di Neve",
         "80-day": "Leggeri Rovesci",
-        "80-night": "Light Showers",
+        "80-night": "Leggeri Rovesci",
         "81-day": "Rovesci",
-        "81-night": "Showers",
+        "81-night": "Rovesci",
         "82-day": "Intensi Rovesci",
-        "82-night": "Heavy Showers",
+        "82-night": "Intensi Rovesci",
         "85-day": "Rovesci di Neve",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
+        "85-night": "Rovesci di Neve",
+        "86-day": "Rovesci di Neve",
+        "86-night": "Rovesci di Neve",
         "95-day": "Temporale",
-        "95-night": "Thunderstorm",
+        "95-night": "Temporale",
         "96-day": "Temporale con grandine",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "96-night": "Temporale con grandine",
+        "99-day": "Temporale con grandine",
+        "99-night": "Temporale con grandine"
     },
     "homebridge": {
         "available_update": "Sistema",
