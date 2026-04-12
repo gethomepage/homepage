@@ -92,7 +92,7 @@ export async function servicesFromDocker() {
 
         const discovered = containers.map((container) => {
           let constructedService = null;
-          const containerLabels = isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels;
+          const containerLabels = (isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels) ?? {};
           const containerName = isSwarm ? shvl.get(container, "Spec.Name") : container.Names[0];
 
           Object.keys(containerLabels).forEach((label) => {

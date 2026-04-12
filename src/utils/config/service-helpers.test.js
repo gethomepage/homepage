@@ -587,6 +587,59 @@ describe("utils/config/service-helpers", () => {
     expect(state.logger.error).toHaveBeenCalled();
   });
 
+  it("servicesFromDocker skips containers and swarm services with missing labels", async () => {
+    state.dockerYaml = {
+      "docker-local": {},
+      "docker-swarm": { swarm: true },
+    };
+
+    state.dockerContainersByServer["docker-local"] = [
+      {
+        Names: ["/nolabels"],
+      },
+      {
+        Names: ["/c1"],
+        Labels: {
+          "homepage.group": "G",
+          "homepage.name": "Svc",
+        },
+      },
+    ];
+
+    state.dockerServicesByServer["docker-swarm"] = [
+      {
+        Spec: {
+          Name: "swarm-no-labels",
+        },
+      },
+      {
+        Spec: {
+          Name: "swarm1",
+          Labels: {
+            "homepage.group": "G2",
+            "homepage.name": "SwarmSvc",
+          },
+        },
+      },
+    ];
+
+    const mod = await import("./service-helpers");
+    const discoveredGroups = await mod.servicesFromDocker();
+
+    expect(discoveredGroups).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "G",
+          services: [expect.objectContaining({ name: "Svc", container: "c1" })],
+        }),
+        expect.objectContaining({
+          name: "G2",
+          services: [expect.objectContaining({ name: "SwarmSvc", container: "swarm1" })],
+        }),
+      ]),
+    );
+  });
+
   it("servicesFromDocker tolerates per-server failures and still returns other results", async () => {
     state.dockerYaml = { "docker-a": {}, "docker-b": {} };
 
