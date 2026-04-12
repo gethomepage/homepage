@@ -436,6 +436,9 @@ export function cleanServiceGroups(groups) {
 
           // grafana
           alerts,
+ 
+          // adguard
+          abbreviate,
         } = widgetData;
 
         let fieldsList = fields;
@@ -696,6 +699,9 @@ export function cleanServiceGroups(groups) {
           if (interval !== undefined) {
             widget.interval = interval;
           }
+        }
+        if (type === "adguard") {
+          if (abbreviate !== undefined) widget.abbreviate = abbreviate === true || abbreviate === "true";
         }
         return widget;
       });

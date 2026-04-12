@@ -8,6 +8,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const { abbreviate } = widget;
 
   const { data: adguardData, error: adguardError } = useWidgetAPI(widget, "stats");
 
@@ -29,14 +30,28 @@ export default function Component({ service }) {
   const filtered =
     adguardData.num_replaced_safebrowsing + adguardData.num_replaced_safesearch + adguardData.num_replaced_parental;
 
+  const formatNumber = (value) => {
+    if (abbreviate) {
+      return new Intl.NumberFormat(undefined, {
+        notation: "compact",
+        maximumFractionDigits: 1,
+      }).format(value);
+    }
+    return t("common.number", { value });
+  };
+
   return (
     <Container service={service}>
-      <Block label="adguard.queries" value={t("common.number", { value: adguardData.num_dns_queries })} />
-      <Block label="adguard.blocked" value={t("common.number", { value: adguardData.num_blocked_filtering })} />
-      <Block label="adguard.filtered" value={t("common.number", { value: filtered })} />
+      <Block label="adguard.queries" value={formatNumber(adguardData.num_dns_queries)} />
+      <Block label="adguard.blocked" value={formatNumber(adguardData.num_blocked_filtering)} />
+      <Block label="adguard.filtered" value={formatNumber(filtered)} />
       <Block
         label="adguard.latency"
-        value={t("common.ms", { value: adguardData.avg_processing_time * 1000, style: "unit", unit: "millisecond" })}
+        value={
+          abbreviate
+            ? `${Math.round(adguardData.avg_processing_time * 1000)} ms`
+            : t("common.ms", { value: adguardData.avg_processing_time * 1000, style: "unit", unit: "millisecond" })
+        }
         highlightValue={adguardData.avg_processing_time * 1000}
       />
     </Container>

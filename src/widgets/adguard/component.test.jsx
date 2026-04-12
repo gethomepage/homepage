@@ -60,4 +60,27 @@ describe("widgets/adguard/component", () => {
     expect(screen.getByText("6")).toBeInTheDocument(); // filtered sum
     expect(screen.getByText("10")).toBeInTheDocument(); // 0.01s -> 10ms
   });
+  it("renders abbreviated counts and rounded latency when abbreviate flag is true", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        num_dns_queries: 1500,
+        num_blocked_filtering: 2000,
+        num_replaced_safebrowsing: 100,
+        num_replaced_safesearch: 200,
+        num_replaced_parental: 300,
+        avg_processing_time: 0.008697,
+      },
+      error: undefined,
+    });
+
+    renderWithProviders(<Component service={{ widget: { type: "adguard", abbreviate: true } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    // In 'en' locale, compact notation for 1500 is 1.5K
+    expect(screen.getByText("1.5K")).toBeInTheDocument();
+    expect(screen.getByText("2K")).toBeInTheDocument();
+    expect(screen.getByText("600")).toBeInTheDocument(); // 100+200+300
+    expect(screen.getByText("9")).toBeInTheDocument(); // 8.697ms -> 9ms
+  });
 });
