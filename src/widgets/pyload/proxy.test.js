@@ -95,6 +95,26 @@ describe("widgets/pyload/proxy", () => {
     expect(res.body).toEqual({ ok: true });
   });
 
+  it("returns error if login fails", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "pyload",
+      url: "http://pyload",
+      username: "u",
+      password: "p",
+    });
+
+    httpProxy.mockResolvedValueOnce([401, "application/json", Buffer.from(JSON.stringify({ error: "bad" })), {}]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "status", index: "0" } };
+    const res = createMockRes();
+
+    await pyloadProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(res.statusCode).toBe(401);
+    expect(res.body).toMatchObject({ error: "Invalid credentials communicating with Pyload API" });
+  });
+
   it("retries after 403 by clearing session and logging in again", async () => {
     getServiceWidget.mockResolvedValue({
       type: "pyload",
