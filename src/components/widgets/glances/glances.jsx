@@ -57,7 +57,10 @@ export default function Widget({ options }) {
   let mainTemp = 0;
   let maxTemp = 80;
   const cpuSensors = data.sensors?.filter(
-    (s) => cpuSensorLabels.some((label) => s.label.startsWith(label)) && s.type === "temperature_core",
+    (s) =>
+      s?.type === "temperature_core" &&
+      typeof s?.label === "string" &&
+      cpuSensorLabels.some((label) => s.label.startsWith(label)),
   );
   if (options.cputemp && cpuSensors) {
     try {

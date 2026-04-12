@@ -93,6 +93,27 @@ describe("components/widgets/glances", () => {
     expect(screen.getByText("glances.cpu")).toBeInTheDocument();
   });
 
+  it("ignores undefined cpu sensor entries instead of crashing", () => {
+    useSWR.mockReturnValue({
+      data: {
+        cpu: { total: 1 },
+        load: { min15: 1 },
+        mem: { available: 1, total: 1, percent: 1 },
+        fs: [],
+        sensors: [
+          undefined,
+          { label: "cpu_thermal-0", type: "temperature_core", value: 40, warning: 90 },
+        ],
+      },
+      error: undefined,
+    });
+
+    renderWithProviders(<Glances options={{ cputemp: true }} />, { settings: { target: "_self" } });
+
+    expect(screen.getByText("40")).toBeInTheDocument();
+    expect(screen.getByText("glances.temp")).toBeInTheDocument();
+  });
+
   it("renders temperature in fahrenheit for matching cpu sensors and marks the widget expanded", () => {
     useSWR.mockReturnValue({
       data: {
