@@ -13,4 +13,5 @@ widget:
   url: http://pyload.host.or.ip:port
   username: username
   password: password # only needed if set
+  key: pyloadapikey # only needed if set, takes precedence over username/password
 ```

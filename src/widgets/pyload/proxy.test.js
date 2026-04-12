@@ -75,6 +75,46 @@ describe("widgets/pyload/proxy", () => {
     expect(res.body).toEqual({ ok: true });
   });
 
+  it("uses api key auth and returns data", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "pyload",
+      url: "http://pyload",
+      key: "apikey",
+    });
+
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ ok: true })), {}]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "status", index: "0" } };
+    const res = createMockRes();
+
+    await pyloadProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(httpProxy.mock.calls[0][1].headers["X-API-Key"]).toBe("apikey");
+    expect(cache.put).toHaveBeenCalledWith("pyloadProxyHandler__isNg.svc", true);
+    expect(res.body).toEqual({ ok: true });
+  });
+
+  it("returns error if login fails", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "pyload",
+      url: "http://pyload",
+      username: "u",
+      password: "p",
+    });
+
+    httpProxy.mockResolvedValueOnce([401, "application/json", Buffer.from(JSON.stringify({ error: "bad" })), {}]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "status", index: "0" } };
+    const res = createMockRes();
+
+    await pyloadProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(res.statusCode).toBe(401);
+    expect(res.body).toMatchObject({ error: "Invalid credentials communicating with Pyload API" });
+  });
+
   it("retries after 403 by clearing session and logging in again", async () => {
     getServiceWidget.mockResolvedValue({
       type: "pyload",
