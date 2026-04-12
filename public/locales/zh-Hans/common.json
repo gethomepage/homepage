@@ -458,7 +458,7 @@
         "cpu": "CPU",
         "load": "负载",
         "wait": "请稍候",
-        "temp": "转速",
+        "temp": "温度",
         "_temp": "Temp",
         "warn": "Warn",
         "uptime": "运行时间",

@@ -67,9 +67,9 @@
         "empty_data": "Substelsel status onbekend"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Gesond",
+        "degraded": "Gedegradeer",
+        "no_data": "Geen bergingsdata beskikbaar nie"
     },
     "docker": {
         "rx": "RX",

@@ -67,9 +67,9 @@
         "empty_data": "Stanje podsustava nepoznato"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Zdrav",
+        "degraded": "Degradirano",
+        "no_data": "Nema dostupnih podataka spremišta"
     },
     "docker": {
         "rx": "RX",
@@ -624,8 +624,8 @@
         "resources": "Resursi",
         "targets": "Ciljevi",
         "traffic": "Promet",
-        "in": "In",
-        "out": "Out"
+        "in": "Ulaz",
+        "out": "Izlaz"
     },
     "peanut": {
         "battery_charge": "Napunjenost baterije",

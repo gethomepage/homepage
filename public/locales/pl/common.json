@@ -67,9 +67,9 @@
         "empty_data": "Status podsystemu nieznany"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Zdrowy",
+        "degraded": "Zdegradowany",
+        "no_data": "Brak danych o miejscu przechowywania"
     },
     "docker": {
         "rx": "Rx",
