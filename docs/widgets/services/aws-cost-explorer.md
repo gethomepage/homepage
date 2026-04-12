@@ -41,11 +41,11 @@ Allowed fields: no configurable fields for this widget.
 
 ## Configuration Options
 
-| Field | Required | Default | Description |
-| --- | --- | --- | --- |
-| `accessKeyId` | Yes | — | AWS IAM access key ID |
-| `secretAccessKey` | Yes | — | AWS IAM secret access key |
-| `region` | No | `us-east-1` | AWS region for the SDK client. Cost Explorer is a global service but its API endpoint is always `us-east-1`. |
+| Field             | Required | Default     | Description                                                                                                  |
+| ----------------- | -------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
+| `accessKeyId`     | Yes      | —           | AWS IAM access key ID                                                                                        |
+| `secretAccessKey` | Yes      | —           | AWS IAM secret access key                                                                                    |
+| `region`          | No       | `us-east-1` | AWS region for the SDK client. Cost Explorer is a global service but its API endpoint is always `us-east-1`. |
 
 ## Refresh Behavior
 
