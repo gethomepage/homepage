@@ -255,7 +255,12 @@ export async function servicesResponse(reqHeaders) {
   let allGroups = [...sortedGroups.filter((g) => g), ...unsortedGroups];
 
   const definedGroupFilterHeader = initialSettings.groupFilterHeader ? initialSettings.groupFilterHeader : null;
-  if (definedGroupFilterHeader && typeof definedGroupFilterHeader === "string" && definedGroupFilterHeader !== "") {
+  if (
+    definedGroupFilterHeader &&
+    typeof definedGroupFilterHeader === "string" &&
+    definedGroupFilterHeader !== "" &&
+    reqHeaders
+  ) {
     //  filtering groups if header is in request headers
     const groupFilter = reqHeaders[definedGroupFilterHeader.toLowerCase()];
     if (groupFilter && typeof groupFilter === "string" && groupFilter !== "") {
