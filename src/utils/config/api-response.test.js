@@ -23,6 +23,7 @@ const { fs, yaml, config, widgetHelpers, serviceHelpers } = vi.hoisted(() => ({
     servicesFromConfig: vi.fn(),
     cleanServiceGroups: vi.fn((g) => g),
     findGroupByName: vi.fn(),
+    filterGroupByNames: vi.fn(),
   },
 }));
 
@@ -261,5 +262,113 @@ describe("utils/config/api-response", () => {
     expect(groups.map((g) => g.name)).toEqual(["Top"]);
     expect(groups[0].groups[0].name).toBe("Child");
     expect(groups[0].groups[0].services).toEqual([{ name: "svc", weight: 1 }]);
+  });
+
+  it("servicesResponse filters groups if header was provided", async () => {
+    serviceHelpers.findGroupByName.mockImplementation(function find(groups, name, parent) {
+      for (const group of groups ?? []) {
+        if (group.name === name) {
+          if (parent) group.parent = parent;
+          return group;
+        }
+        const found = find(group.groups, name, group.name);
+        if (found) return found;
+      }
+      return null;
+    });
+    serviceHelpers.filterGroupByNames.mockImplementation(function filter(groups, allowedNames) {
+      return groups
+        .filter((group) => allowedNames.includes(group.name))
+        .map((group) => {
+          if (group.groups && group.groups.length > 0) {
+            return {
+              ...group,
+              groups: filter(group.groups, allowedNames),
+            };
+          }
+          return group;
+        });
+    });
+
+    serviceHelpers.servicesFromDocker.mockResolvedValueOnce([
+      { name: "GroupA", services: [{ name: "svc", weight: 1 }], groups: [] },
+    ]);
+    serviceHelpers.servicesFromKubernetes.mockResolvedValueOnce([
+      { name: "GroupB", services: [{ name: "svc", weight: 1 }], groups: [] },
+    ]);
+    serviceHelpers.servicesFromConfig.mockResolvedValueOnce([
+      { name: "GroupC", services: [{ name: "svc", weight: 1 }], groups: [] },
+    ]);
+    config.getSettings.mockResolvedValueOnce({ groupFilterHeader: "x-groups" });
+
+    const headers = { "x-groups": "GroupA|GroupB" };
+
+    const groups = await servicesResponse(headers);
+
+    expect(groups.map((g) => g.name)).toEqual(["GroupA", "GroupB"]);
+  });
+
+  it("servicesResponse filters nested groups if header was provided", async () => {
+    serviceHelpers.findGroupByName.mockImplementation(function find(groups, name, parent) {
+      for (const group of groups ?? []) {
+        if (group.name === name) {
+          if (parent) group.parent = parent;
+          return group;
+        }
+        const found = find(group.groups, name, group.name);
+        if (found) return found;
+      }
+      return null;
+    });
+
+    serviceHelpers.filterGroupByNames.mockImplementation(function filter(groups, allowedNames) {
+      return groups
+        .filter((group) => allowedNames.includes(group.name))
+        .map((group) => {
+          if (group.groups && group.groups.length > 0) {
+            return {
+              ...group,
+              groups: filter(group.groups, allowedNames),
+            };
+          }
+          return group;
+        });
+    });
+
+    serviceHelpers.servicesFromDocker.mockResolvedValueOnce([
+      {
+        name: "GroupA",
+        services: [{ name: "svc", weight: 1 }],
+        groups: [
+          { name: "ChildAA", services: [{ name: "svcA", weight: 1 }], groups: [] },
+          { name: "ChildAB", services: [{ name: "svcB", weight: 2 }], groups: [] },
+        ],
+      },
+    ]);
+    serviceHelpers.servicesFromKubernetes.mockResolvedValueOnce([
+      {
+        name: "GroupB",
+        services: [{ name: "svc", weight: 1 }],
+        groups: [],
+      },
+    ]);
+    serviceHelpers.servicesFromConfig.mockResolvedValueOnce([
+      {
+        name: "GroupC",
+        services: [{ name: "svc", weight: 1 }],
+        groups: [
+          { name: "ChildCA", services: [{ name: "svcA", weight: 1 }], groups: [] },
+          { name: "ChildCB", services: [{ name: "svcB", weight: 2 }], groups: [] },
+        ],
+      },
+    ]);
+    config.getSettings.mockResolvedValueOnce({ groupFilterHeader: "x-groups", groupFilterDelimiter: "#" });
+
+    const headers = { "x-groups": "GroupA#GroupC#ChildCA" };
+    const groups = await servicesResponse(headers);
+
+    expect(groups.map((g) => g.name)).toEqual(["GroupA", "GroupC"]);
+    expect(groups[1].groups).toHaveLength(1);
+    expect(groups[1].groups[0].name).toBe("ChildCA");
   });
 });
