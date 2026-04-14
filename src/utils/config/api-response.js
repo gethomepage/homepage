@@ -6,6 +6,7 @@ import yaml from "js-yaml";
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import {
   cleanServiceGroups,
+  filterGroupByNames,
   findGroupByName,
   servicesFromConfig,
   servicesFromDocker,
@@ -155,7 +156,7 @@ function mergeLayoutGroupsIntoConfigured(configuredGroups, layoutGroups) {
   }
 }
 
-export async function servicesResponse() {
+export async function servicesResponse(reqHeaders) {
   let discoveredDockerServices;
   let discoveredKubernetesServices;
   let configuredServices;
@@ -251,6 +252,20 @@ export async function servicesResponse() {
     }
   });
 
-  const allGroups = [...sortedGroups.filter((g) => g), ...unsortedGroups];
+  let allGroups = [...sortedGroups.filter((g) => g), ...unsortedGroups];
+
+  const definedGroupFilterHeader = initialSettings.groupFilterHeader ? initialSettings.groupFilterHeader : null;
+  if (definedGroupFilterHeader && typeof definedGroupFilterHeader === "string" && definedGroupFilterHeader !== "") {
+    //  filtering groups if header is in request headers
+    const groupFilter = reqHeaders[definedGroupFilterHeader.toLowerCase()];
+    if (groupFilter && typeof groupFilter === "string" && groupFilter !== "") {
+      const definedGroupFilterDelimiter = initialSettings.groupFilterDelimiter
+        ? initialSettings.groupFilterDelimiter
+        : "|";
+      const parsedGroupFilter = groupFilter.split(definedGroupFilterDelimiter);
+      allGroups = filterGroupByNames(allGroups, parsedGroupFilter);
+    }
+  }
+
   return pruneEmptyGroups(allGroups);
 }

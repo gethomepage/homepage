@@ -723,6 +723,21 @@ export function findGroupByName(groups, name) {
   return null;
 }
 
+export function filterGroupByNames(groups, allowedNames) {
+  // Deep filter for a group by name.
+  return groups
+    .filter((group) => allowedNames.includes(group.name))
+    .map((group) => {
+      if (group.groups && group.groups.length > 0) {
+        return {
+          ...group,
+          groups: filterGroupsByAllowedNames(group.groups, allowedNames),
+        };
+      }
+      return group;
+    });
+}
+
 export async function getServiceItem(group, service) {
   const configuredServices = await servicesFromConfig();
 
