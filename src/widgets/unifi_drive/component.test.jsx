@@ -39,8 +39,8 @@ describe("widgets/unifi_drive/component", () => {
     expect(screen.getAllByText("widget.api_error", { exact: false }).length).toBeGreaterThan(0);
   });
 
-  it("renders no_data when storage data is missing", () => {
-    useWidgetAPI.mockReturnValue({ data: { data: null }, error: undefined });
+  it("renders no_data when pools array is empty", () => {
+    useWidgetAPI.mockReturnValue({ data: { pools: [] }, error: undefined });
 
     const service = { widget: { type: "unifi_drive" } };
     renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
@@ -48,14 +48,19 @@ describe("widgets/unifi_drive/component", () => {
     expect(screen.getByText("unifi_drive.no_data")).toBeInTheDocument();
   });
 
-  it("renders storage statistics when data is loaded", () => {
+  it("renders no_data when pools is missing", () => {
+    useWidgetAPI.mockReturnValue({ data: {}, error: undefined });
+
+    const service = { widget: { type: "unifi_drive" } };
+    renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(screen.getByText("unifi_drive.no_data")).toBeInTheDocument();
+  });
+
+  it("renders storage statistics from single pool", () => {
     useWidgetAPI.mockReturnValue({
       data: {
-        data: {
-          totalQuota: 1000000000000,
-          usage: { system: 100000000000, myDrives: 200000000000, sharedDrives: 50000000000 },
-          status: "healthy",
-        },
+        pools: [{ capacity: 1000000000000, usage: 350000000000, status: "fullyOperational" }],
       },
       error: undefined,
     });
@@ -70,14 +75,34 @@ describe("widgets/unifi_drive/component", () => {
     expectBlockValue(container, "widget.status", "unifi_drive.healthy");
   });
 
-  it("renders degraded status", () => {
+  it("aggregates storage across multiple pools", () => {
     useWidgetAPI.mockReturnValue({
       data: {
-        data: {
-          totalQuota: 100,
-          usage: { system: 10, myDrives: 20, sharedDrives: 5 },
-          status: "degraded",
-        },
+        pools: [
+          { capacity: 1000000000000, usage: 300000000000, status: "fullyOperational" },
+          { capacity: 500000000000, usage: 100000000000, status: "noDataProtectionYet" },
+        ],
+      },
+      error: undefined,
+    });
+
+    const service = { widget: { type: "unifi_drive" } };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expectBlockValue(container, "resources.total", 1500000000000);
+    expectBlockValue(container, "resources.used", 400000000000);
+    expectBlockValue(container, "resources.free", 1100000000000);
+    expectBlockValue(container, "widget.status", "unifi_drive.healthy");
+  });
+
+  it("renders degraded status when any pool is degraded", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        pools: [
+          { capacity: 1000, usage: 400, status: "fullyOperational" },
+          { capacity: 500, usage: 100, status: "degraded" },
+        ],
       },
       error: undefined,
     });
@@ -87,6 +112,20 @@ describe("widgets/unifi_drive/component", () => {
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expectBlockValue(container, "widget.status", "unifi_drive.degraded");
-    expectBlockValue(container, "resources.free", 65);
+    expectBlockValue(container, "resources.free", 1000);
+  });
+
+  it("renders noDataProtectionYet as healthy", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        pools: [{ capacity: 1000, usage: 200, status: "noDataProtectionYet" }],
+      },
+      error: undefined,
+    });
+
+    const service = { widget: { type: "unifi_drive" } };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expectBlockValue(container, "widget.status", "unifi_drive.healthy");
   });
 });
