@@ -13,6 +13,12 @@ on:
   pull_request:
     branches: [ "dev" ]
   merge_group:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag to build'
+        required: true
+        default: 'manual-build'
 
 env:
   IMAGE_NAME: ${{ github.repository }}
@@ -22,7 +28,7 @@ jobs:
 
   build:
     name: Docker Build & Push
-    if: github.repository == 'gethomepage/homepage'
+    if: github.repository == 'morriswinkler/homepage'
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -38,7 +44,6 @@ jobs:
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6
         with:
           images: |
-            ${{ env.IMAGE_NAME }}
             ghcr.io/${{ env.IMAGE_NAME }}
           tags: |
             # Default tags
@@ -89,13 +94,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Login to Docker Hub
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Setup QEMU
         uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a # v4.0.0
