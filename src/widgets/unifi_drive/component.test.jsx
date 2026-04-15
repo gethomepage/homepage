@@ -128,4 +128,21 @@ describe("widgets/unifi_drive/component", () => {
 
     expectBlockValue(container, "widget.status", "unifi_drive.healthy");
   });
+
+  it("handles pools with missing capacity or usage", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        pools: [{ status: "fullyOperational" }],
+      },
+      error: undefined,
+    });
+
+    const service = { widget: { type: "unifi_drive" } };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expectBlockValue(container, "resources.total", 0);
+    expectBlockValue(container, "resources.used", 0);
+    expectBlockValue(container, "resources.free", 0);
+  });
 });
