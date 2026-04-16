@@ -8,7 +8,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  const { version = 1 } = widget;
+  const { version = 2 } = widget;
 
   const versionEndpoint = version === 2 ? "version_v2" : "version";
 

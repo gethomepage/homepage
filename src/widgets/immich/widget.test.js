@@ -9,5 +9,7 @@ describe("immich widget config", () => {
     expectWidgetConfigShape(widget);
     expect(widget.api).toContain("/api/");
     expect(widget.mappings?.version?.endpoint).toBe("server-info/version");
+    expect(widget.mappings?.version_v2?.endpoint).toBe("server/version");
+    expect(widget.mappings?.statistics_v2?.endpoint).toBe("server/statistics");
   });
 });

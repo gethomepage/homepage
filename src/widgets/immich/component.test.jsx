@@ -16,7 +16,7 @@ describe("widgets/immich/component", () => {
     vi.clearAllMocks();
   });
 
-  it("uses v1 endpoints and renders placeholders while loading", () => {
+  it("uses v2 endpoints by default and renders placeholders while loading", () => {
     useWidgetAPI
       .mockReturnValueOnce({ data: undefined, error: undefined }) // version
       .mockReturnValueOnce({ data: undefined, error: undefined }); // stats
@@ -25,8 +25,8 @@ describe("widgets/immich/component", () => {
       settings: { hideErrors: false },
     });
 
-    expect(useWidgetAPI.mock.calls[0][1]).toBe("version");
-    expect(useWidgetAPI.mock.calls[1][1]).toBe("stats");
+    expect(useWidgetAPI.mock.calls[0][1]).toBe("version_v2");
+    expect(useWidgetAPI.mock.calls[1][1]).toBe("statistics_v2");
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("immich.users")).toBeInTheDocument();
     expect(screen.getByText("immich.photos")).toBeInTheDocument();
@@ -34,15 +34,16 @@ describe("widgets/immich/component", () => {
     expect(screen.getByText("immich.storage")).toBeInTheDocument();
   });
 
-  it("selects the v1 statistics endpoint when version is > 1.84", () => {
+  it("selects the v1 statistics endpoint when version is > 1.84 (legacy version: 1)", () => {
     useWidgetAPI.mockReturnValueOnce({ data: { major: 1, minor: 85 }, error: undefined }).mockReturnValueOnce({
       data: { usageByUser: [{ id: 1 }, { id: 2 }], photos: 3, videos: 4, usage: "9 GiB" },
       error: undefined,
     });
 
-    const { container } = renderWithProviders(<Component service={{ widget: { type: "immich", url: "http://x" } }} />, {
-      settings: { hideErrors: false },
-    });
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "immich", url: "http://x", version: 1 } }} />,
+      { settings: { hideErrors: false } },
+    );
 
     expect(useWidgetAPI.mock.calls[1][1]).toBe("statistics");
     expectBlockValue(container, "immich.users", 2);
