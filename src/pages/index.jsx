@@ -58,7 +58,13 @@ export async function getStaticProps() {
     logger = createLogger("index");
     const { providers, ...settings } = getSettings();
 
-    const services = await servicesResponse();
+    let reqHeaders = {};
+    if (settings.groupFilterHeader && typeof settings.groupFilterHeader === "string") {
+      // pass empty groupFilterHeader to prevent loading all groups
+      reqHeaders[settings.groupFilterHeader] = "";
+    }
+
+    const services = await servicesResponse(reqHeaders);
     const bookmarks = await bookmarksResponse();
     const widgets = await widgetsResponse();
     const language = normalizeLanguage(settings.language);
