@@ -1,8 +1,7 @@
-import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+import stocksProxyHandler from "./proxy";
 
 const widget = {
-  api: `https://finnhub.io/api/{endpoint}`,
-  proxyHandler: credentialedProxyHandler,
+  proxyHandler: stocksProxyHandler,
 
   mappings: {
     quote: {
@@ -14,6 +13,11 @@ const widget = {
       // https://finnhub.io/docs/api/market-status
       endpoint: "v1/stock/market-status",
       params: ["exchange"],
+    },
+    sentiment: {
+      endpoint: "compare",
+      params: ["tickers"],
+      optionalParams: ["days"],
     },
   },
 };

@@ -3,10 +3,6 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const { httpProxy } = vi.hoisted(() => ({ httpProxy: vi.fn() }));
 const { validateWidgetData } = vi.hoisted(() => ({ validateWidgetData: vi.fn(() => true) }));
 const { getServiceWidget } = vi.hoisted(() => ({ getServiceWidget: vi.fn() }));
-const { getSettings } = vi.hoisted(() => ({
-  getSettings: vi.fn(() => ({ providers: { finnhub: "finnhub-token" } })),
-}));
-
 vi.mock("utils/logger", () => ({
   default: () => ({
     debug: vi.fn(),
@@ -17,7 +13,6 @@ vi.mock("utils/logger", () => ({
 vi.mock("utils/proxy/http", () => ({ httpProxy }));
 vi.mock("utils/proxy/validate-widget-data", () => ({ default: validateWidgetData }));
 vi.mock("utils/config/service-helpers", () => ({ default: getServiceWidget }));
-vi.mock("utils/config/config", () => ({ getSettings }));
 
 // Keep the widget registry minimal so the test doesn't import the whole widget graph.
 vi.mock("widgets/widgets", () => ({
@@ -334,19 +329,6 @@ describe("utils/proxy/handlers/credentialed", () => {
     const [, params] = httpProxy.mock.calls.at(-1);
     expect(params.headers.Accept).toBe("application/json");
     expect(params.headers.Authorization).toBe("Bearer u p");
-  });
-
-  it("injects the configured finnhub provider token for stocks widgets", async () => {
-    getServiceWidget.mockResolvedValue({ type: "stocks", url: "http://stocks", provider: "finnhub" });
-    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
-
-    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "quote", index: 0 } };
-    const res = createMockRes();
-
-    await credentialedProxyHandler(req, res);
-
-    const [, params] = httpProxy.mock.calls.at(-1);
-    expect(params.headers["X-Finnhub-Token"]).toBe("finnhub-token");
   });
 
   it("sanitizes embedded query params when a downstream error contains a url", async () => {

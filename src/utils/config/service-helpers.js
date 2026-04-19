@@ -403,6 +403,9 @@ export function cleanServiceGroups(groups) {
           enableQueue,
 
           // stocks
+          sentimentDays,
+          sentimentSource,
+          showSentiment,
           watchlist,
           showUSMarketStatus,
 
@@ -655,6 +658,9 @@ export function cleanServiceGroups(groups) {
           }
         }
         if (type === "stocks") {
+          if (sentimentDays !== undefined) widget.sentimentDays = parseInt(sentimentDays, 10);
+          if (sentimentSource) widget.sentimentSource = sentimentSource;
+          if (showSentiment !== undefined) widget.showSentiment = !!JSON.parse(showSentiment);
           if (watchlist) widget.watchlist = watchlist;
           if (showUSMarketStatus) widget.showUSMarketStatus = showUSMarketStatus;
         }

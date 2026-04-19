@@ -1,4 +1,3 @@
-import { getSettings } from "utils/config/config";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
@@ -37,12 +36,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         ...(req.extraHeaders ?? {}),
       };
 
-      if (widget.type === "stocks") {
-        const { providers } = getSettings();
-        if (widget.provider === "finnhub" && providers?.finnhub) {
-          headers["X-Finnhub-Token"] = `${providers?.finnhub}`;
-        }
-      } else if (widget.type === "coinmarketcap") {
+      if (widget.type === "coinmarketcap") {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {
         headers["X-gotify-Key"] = `${widget.key}`;

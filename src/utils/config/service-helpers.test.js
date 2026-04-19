@@ -311,7 +311,14 @@ describe("utils/config/service-helpers", () => {
               { type: "hdhomerun", tuner: 1 },
               { type: "healthchecks", uuid: "u" },
               { type: "speedtest", bitratePrecision: "3", version: "1" },
-              { type: "stocks", watchlist: "AAPL", showUSMarketStatus: true },
+              {
+                type: "stocks",
+                watchlist: "AAPL",
+                showUSMarketStatus: true,
+                showSentiment: "true",
+                sentimentSource: "news_stocks",
+                sentimentDays: "14",
+              },
               {
                 type: "tracearr",
                 expandOneStreamToTwoRows: "true",
@@ -356,6 +363,9 @@ describe("utils/config/service-helpers", () => {
     expect(widgets.find((w) => w.type === "qnap")).toEqual(expect.objectContaining({ volume: "vol1" }));
     expect(widgets.find((w) => w.type === "speedtest")).toEqual(
       expect.objectContaining({ bitratePrecision: 3, version: 1 }),
+    );
+    expect(widgets.find((w) => w.type === "stocks")).toEqual(
+      expect.objectContaining({ sentimentDays: 14, sentimentSource: "news_stocks", showSentiment: true }),
     );
     expect(widgets.find((w) => w.type === "tracearr")).toEqual(
       expect.objectContaining({

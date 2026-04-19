@@ -481,6 +481,7 @@ The `providers` section allows you to define shared API provider options and sec
 providers:
   openweathermap: openweathermapapikey
   finnhub: yourfinnhubapikeyhere
+  adanos: youradanosapikeyhere
   longhorn:
     url: https://longhorn.example.com
     username: admin
