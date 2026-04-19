@@ -14,6 +14,7 @@
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
 */
+
 @layer base {
   *,
   ::after,
@@ -62,7 +63,7 @@ body {
 }
 
 .light {
-  --bg-color: var(--color-50);
+  --bg-color: 240 244 248;
   --scrollbar-thumb: rgb(var(--color-300));
   --scrollbar-track: rgb(var(--color-200));
 }
