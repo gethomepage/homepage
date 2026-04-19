@@ -74,4 +74,23 @@ describe("widgets/proxmoxbackupserver/component", () => {
     expect(screen.getByText("25")).toBeInTheDocument(); // memory usage
     expect(screen.getByText("99+")).toBeInTheDocument();
   });
+
+  it("requests failed tasks with a 24 hour since filter in epoch seconds", () => {
+    vi.spyOn(Date, "now").mockReturnValue(1_776_519_498_000);
+
+    useWidgetAPI
+      .mockReturnValueOnce({ data: undefined, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "proxmoxbackupserver" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useWidgetAPI).toHaveBeenNthCalledWith(2, { type: "proxmoxbackupserver" }, "nodes/localhost/tasks", {
+      errors: true,
+      limit: 100,
+      since: 1_776_433_098,
+    });
+  });
 });
