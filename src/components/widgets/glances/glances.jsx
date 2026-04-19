@@ -38,7 +38,6 @@ export default function Widget({ options }) {
       <Resources options={options} additionalClassNames="information-widget-glances">
         {options.cpu !== false && <Resource icon={FiCpu} label={t("glances.wait")} percentage="0" />}
         {options.mem !== false && <Resource icon={FaMemory} label={t("glances.wait")} percentage="0" />}
-        {options.cputemp && <Resource icon={FaThermometerHalf} label={t("glances.wait")} percentage="0" />}
         {options.disk && !Array.isArray(options.disk) && (
           <Resource key={options.disk} icon={FiHardDrive} label={t("glances.wait")} percentage="0" />
         )}
@@ -47,6 +46,7 @@ export default function Widget({ options }) {
           options.disk.map((disk) => (
             <Resource key={`disk_${disk}`} icon={FiHardDrive} label={t("glances.wait")} percentage="0" />
           ))}
+        {options.cputemp && <Resource icon={FaThermometerHalf} label={t("glances.wait")} percentage="0" />}
         {options.uptime && <Resource icon={FaRegClock} label={t("glances.wait")} percentage="0" />}
         {options.label && <WidgetLabel label={options.label} />}
       </Resources>

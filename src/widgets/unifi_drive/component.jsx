@@ -25,9 +25,9 @@ export default function Component({ service }) {
     );
   }
 
-  const { data: storage } = storageData;
+  const { pools } = storageData;
 
-  if (!storage) {
+  if (!Array.isArray(pools) || pools.length === 0) {
     return (
       <Container service={service}>
         <Block value={t("unifi_drive.no_data")} />
@@ -35,12 +35,13 @@ export default function Component({ service }) {
     );
   }
 
-  const { totalQuota, usage, status } = storage;
-  const totalBytes = totalQuota ?? 0;
-  const usedBytes = (usage?.system || 0) + (usage?.myDrives || 0) + (usage?.sharedDrives || 0);
+  const totalBytes = pools.reduce((sum, p) => sum + (p.capacity ?? 0), 0);
+  const usedBytes = pools.reduce((sum, p) => sum + (p.usage ?? 0), 0);
   const availableBytes = Math.max(0, totalBytes - usedBytes);
+
+  const status = pools.some((p) => p.status === "degraded") ? "degraded" : pools[0]?.status;
   let statusValue = status;
-  if (status === "healthy") statusValue = t("unifi_drive.healthy");
+  if (status === "fullyOperational" || status === "noDataProtectionYet") statusValue = t("unifi_drive.healthy");
   else if (status === "degraded") statusValue = t("unifi_drive.degraded");
 
   return (
