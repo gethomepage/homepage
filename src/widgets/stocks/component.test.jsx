@@ -84,6 +84,59 @@ describe("widgets/stocks/component", () => {
     expect(screen.getByText("/73")).toBeInTheDocument();
   });
 
+  it("renders alternate Adanos payload shapes and missing sentiment rows", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "sentiment") {
+        return {
+          data: {
+            data: [{ symbol: "$TSLA", sentiment: -0.51 }, { ticker: "MSFT", buzz_score: 9 }, { ticker: "GOOG" }],
+          },
+          error: undefined,
+        };
+      }
+      return { data: undefined, error: undefined };
+    });
+
+    renderWithProviders(
+      <Component
+        service={{
+          widget: {
+            type: "stocks",
+            watchlist: ["TSLA", "MSFT", "GOOG", "AAPL"],
+            showSentiment: true,
+          },
+        }}
+      />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(screen.getByText("-0.51")).toBeInTheDocument();
+    expect(screen.getByText("-")).toBeInTheDocument();
+    expect(screen.getByText("/9")).toBeInTheDocument();
+    expect(screen.getByText("GOOG")).toBeInTheDocument();
+    expect(screen.getByText("widget.api_error")).toBeInTheDocument();
+  });
+
+  it("renders loading and error states for Adanos sentiment mode", () => {
+    useWidgetAPI.mockReturnValueOnce({ data: undefined, error: undefined });
+
+    renderWithProviders(
+      <Component service={{ widget: { type: "stocks", watchlist: ["AAPL"], showSentiment: true } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(screen.getByText("stocks.loading")).toBeInTheDocument();
+
+    useWidgetAPI.mockReturnValueOnce({ data: undefined, error: { message: "missing key" } });
+
+    renderWithProviders(
+      <Component service={{ widget: { type: "stocks", watchlist: ["MSFT"], showSentiment: true } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(screen.getByText("missing key")).toBeInTheDocument();
+  });
+
   it("rejects Adanos sentiment watchlists above the compare endpoint limit", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
 
