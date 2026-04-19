@@ -75,11 +75,10 @@ describe("widgets/stocks/component", () => {
       { settings: { hideErrors: false } },
     );
 
-    expect(useWidgetAPI).toHaveBeenCalledWith(
-      expect.objectContaining({ showSentiment: true }),
-      "sentiment",
-      { tickers: "AAPL", days: 14 },
-    );
+    expect(useWidgetAPI).toHaveBeenCalledWith(expect.objectContaining({ showSentiment: true }), "sentiment", {
+      tickers: "AAPL",
+      days: 14,
+    });
     expect(screen.getByText("AAPL")).toBeInTheDocument();
     expect(screen.getByText("0.42")).toBeInTheDocument();
     expect(screen.getByText("/73")).toBeInTheDocument();

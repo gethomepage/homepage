@@ -144,7 +144,10 @@ export default function Component({ service }) {
   const { sentimentDays, showSentiment, showUSMarketStatus, watchlist } = widget;
   const maxWatchlistItems = showSentiment === true ? MAX_SENTIMENT_WATCHLIST_ITEMS : MAX_PRICE_WATCHLIST_ITEMS;
   const validWatchlist =
-    watchlist && watchlist.length && watchlist.length <= maxWatchlistItems && new Set(watchlist).size === watchlist.length;
+    watchlist &&
+    watchlist.length &&
+    watchlist.length <= maxWatchlistItems &&
+    new Set(watchlist).size === watchlist.length;
 
   const { data: sentimentData, error: sentimentError } = useWidgetAPI(
     widget,
