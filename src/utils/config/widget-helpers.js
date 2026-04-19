@@ -77,3 +77,8 @@ export async function getPrivateWidgetOptions(type, widgetIndex) {
     ? privateOptions.find((o) => o.type === type && o.options.index === parseInt(widgetIndex, 10))?.options
     : privateOptions;
 }
+
+export async function getWidgetOptions(type) {
+  const widgets = await widgetsFromConfig();
+  return type !== undefined ? widgets.find((o) => o.type === type)?.options : widgets;
+}

@@ -15,6 +15,7 @@ const widgetMappings = {
   longhorn: dynamic(() => import("components/widgets/longhorn/longhorn")),
   kubernetes: dynamic(() => import("components/widgets/kubernetes/kubernetes")),
   stocks: dynamic(() => import("components/widgets/stocks/stocks")),
+  forward_auth_user: dynamic(() => import("components/widgets/forward_auth_user/forward_auth_user")),
 };
 
 export default function Widget({ widget, style }) {
