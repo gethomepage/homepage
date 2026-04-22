@@ -91,7 +91,11 @@ describe("widgets/tailscale/component", () => {
       useWidgetAPI.mockReturnValue({ data: fullData, error: undefined });
 
       const { container } = renderWithProviders(
-        <Component service={{ widget: { type: "tailscale", fields: ["created", "authorized", "is_external", "update_available"] } }} />,
+        <Component
+          service={{
+            widget: { type: "tailscale", fields: ["created", "authorized", "is_external", "update_available"] },
+          }}
+        />,
         { settings: { hideErrors: false } },
       );
 
@@ -123,7 +127,9 @@ describe("widgets/tailscale/component", () => {
       useWidgetAPI.mockReturnValue({ data: fullData, error: undefined });
 
       const { container } = renderWithProviders(
-        <Component service={{ widget: { type: "tailscale", fields: ["address", "last_seen", "expires", "user", "hostname"] } }} />,
+        <Component
+          service={{ widget: { type: "tailscale", fields: ["address", "last_seen", "expires", "user", "hostname"] } }}
+        />,
         { settings: { hideErrors: false } },
       );
 
@@ -134,10 +140,9 @@ describe("widgets/tailscale/component", () => {
     it("defaults to address, last_seen, expires when fields is empty", () => {
       useWidgetAPI.mockReturnValue({ data: fullData, error: undefined });
 
-      const { container } = renderWithProviders(
-        <Component service={{ widget: { type: "tailscale", fields: [] } }} />,
-        { settings: { hideErrors: false } },
-      );
+      const { container } = renderWithProviders(<Component service={{ widget: { type: "tailscale", fields: [] } }} />, {
+        settings: { hideErrors: false },
+      });
 
       expect(container.querySelectorAll(".service-block")).toHaveLength(3);
       expectBlockValue(container, "tailscale.address", "127.0.0.1");
@@ -146,7 +151,7 @@ describe("widgets/tailscale/component", () => {
     });
   });
 
-  it ("renders never for expires if key expiry is disabled", () => {
+  it("renders never for expires if key expiry is disabled", () => {
     useWidgetAPI.mockReturnValue({
       data: { ...fullData, keyExpiryDisabled: true },
       error: undefined,
@@ -159,7 +164,7 @@ describe("widgets/tailscale/component", () => {
     expectBlockValue(container, "tailscale.expires", "tailscale.never");
   });
 
-  it ("renders error message when API returns an error", () => {
+  it("renders error message when API returns an error", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: { message: "API error" } });
 
     const { container } = renderWithProviders(<Component service={{ widget: { type: "tailscale" } }} />, {
