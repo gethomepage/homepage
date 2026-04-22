@@ -9,13 +9,13 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: statsData, error: statsError } = useWidgetAPI(widget, "device");
+  const { data: tailscaleData, error: tailscaleError } = useWidgetAPI(widget, "device");
 
-  if (statsError || statsData?.message) {
-    return <Container service={service} error={statsError ?? statsData} />;
+  if (tailscaleError || tailscaleData?.message) {
+    return <Container service={service} error={tailscaleError ?? tailscaleData} />;
   }
 
-  if (!statsData) {
+  if (!tailscaleData) {
     return (
       <Container service={service}>
         <Block label="tailscale.address" />
@@ -25,12 +25,29 @@ export default function Component({ service }) {
     );
   }
 
+  const MAX_ALLOWED_FIELDS = 4;
+  if (widget.fields?.length == 0 || !widget.fields) {
+    widget.fields = ["address", "last_seen", "expires"];
+  } else if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
+
   const {
     addresses: [address],
     keyExpiryDisabled,
     lastSeen,
     expires,
-  } = statsData;
+    user,
+    hostname,
+    name,
+    clientVersion,
+    os,
+    created,
+    authorized,
+    isExternal,
+    updateAvailable,
+    tags,
+  } = tailscaleData;
 
   const now = new Date();
   const compareDifferenceInTwoDates = (priorDate, futureDate) => {
@@ -62,11 +79,28 @@ export default function Component({ service }) {
     return compareDifferenceInTwoDates(now, date);
   };
 
+  const getBooleanAsString = (value) => {
+    return value ? t("tailscale.true") : t("tailscale.false");
+  };
+
+  const clientVersionString = clientVersion ? clientVersion.toString() : "-";
+  const tagsString = tags && Array.isArray(tags) ? tags.join(", ") : "-";
+
   return (
     <Container service={service}>
       <Block label="tailscale.address" value={address} />
       <Block label="tailscale.last_seen" value={getLastSeen()} />
       <Block label="tailscale.expires" value={getExpiry()} />
+      <Block label="tailscale.user" value={user} />
+      <Block label="tailscale.hostname" value={hostname} />
+      <Block label="tailscale.name" value={name} />
+      <Block label="tailscale.client_version" value={clientVersionString} />
+      <Block label="tailscale.os" value={os} />
+      <Block label="tailscale.created" value={created} />
+      <Block label="tailscale.authorized" value={getBooleanAsString(authorized)} />
+      <Block label="tailscale.is_external" value={getBooleanAsString(isExternal)} />
+      <Block label="tailscale.update_available" value={getBooleanAsString(updateAvailable)} />
+      <Block label="tailscale.tags" value={tagsString} />
     </Container>
   );
 }
