@@ -2390,8 +2390,8 @@ packages:
     resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
     engines: {node: '>= 14'}
 
-  i18next-fs-backend@2.6.1:
-    resolution: {integrity: sha512-eYWTX7QT7kJ0sZyCPK6x1q+R63zvNKv2D6UdbMf15A8vNb2ZLyw4NNNZxPFwXlIv/U+oUtg8SakW6ZgJZcoqHQ==}
+  i18next-fs-backend@2.6.4:
+    resolution: {integrity: sha512-lzbUnowXYd5RFO8flpQhd9khYWNgrzwtxHw1kktJCiTRBaAEiLB2t9EPSXRj8qlC7WcEgFDIsmBUixyludcznw==}
 
   i18next@25.10.9:
     resolution: {integrity: sha512-hQY9/bFoQKGlSKMlaCuLR8w1h5JjieqrsnZvEmj1Ja6Ec7fbyc4cTrCsY9mb9Sd8YQ/swsrKz1S9M8AcvVI70w==}
@@ -6192,7 +6192,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  i18next-fs-backend@2.6.1: {}
+  i18next-fs-backend@2.6.4: {}
 
   i18next@25.10.9(typescript@5.7.3):
     dependencies:
@@ -6646,7 +6646,7 @@ snapshots:
       core-js: 3.48.0
       hoist-non-react-statics: 3.3.2
       i18next: 25.10.9(typescript@5.7.3)
-      i18next-fs-backend: 2.6.1
+      i18next-fs-backend: 2.6.4
       next: 16.2.3(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react: 19.2.4
       react-i18next: 15.5.3(i18next@25.10.9(typescript@5.7.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.7.3)
