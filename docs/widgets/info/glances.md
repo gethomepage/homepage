@@ -32,3 +32,5 @@ disk:
   - /boot
   ...
 ```
+
+The `cputemp` sensor label reported by glances must be one of the following: `cpu_thermal`, `Core`, `Tctl` or `Temperature` in order to be displayed by the widget. If the default sensors have no matching names, you can edit them in the `glances.conf` file by assign them a matching alias, see the [glances sensors docs](https://glances.readthedocs.io/en/latest/aoa/sensors.html#sensors).
