@@ -120,6 +120,26 @@ describe("components/widgets/glances", () => {
     expect(screen.getByRole("link")).toHaveClass("expanded");
   });
 
+  it("renders temperature for custom cpu sensor labels", () => {
+    useSWR.mockReturnValue({
+      data: {
+        cpu: { total: 1 },
+        load: { min15: 1 },
+        mem: { available: 1, total: 1, percent: 1 },
+        fs: [],
+        sensors: [{ label: "Package id 0", type: "temperature_core", value: 42, warning: 90 }],
+      },
+      error: undefined,
+    });
+
+    renderWithProviders(<Glances options={{ cputemp: true, cpuSensorLabel: "Package id", url: "http://glances" }} />, {
+      settings: { target: "_self" },
+    });
+
+    expect(screen.getByText("42")).toBeInTheDocument();
+    expect(screen.getByText("glances.temp")).toBeInTheDocument();
+  });
+
   it("renders disk resources for an array of mount points and filters missing mounts", () => {
     useSWR.mockReturnValue({
       data: {

@@ -11,10 +11,14 @@ import Resource from "../widget/resource";
 import Resources from "../widget/resources";
 import WidgetLabel from "../widget/widget_label";
 
-const cpuSensorLabels = ["cpu_thermal", "Core", "Tctl", "Temperature"];
+const defaultCpuSensorLabels = ["cpu_thermal", "Core", "Tctl", "Temperature"];
 
 function convertToFahrenheit(t) {
   return (t * 9) / 5 + 32;
+}
+
+function getCpuSensorLabels(options) {
+  return [...defaultCpuSensorLabels, options.cpuSensorLabel].filter(Boolean);
 }
 
 export default function Widget({ options }) {
@@ -56,6 +60,7 @@ export default function Widget({ options }) {
   const unit = options.units === "imperial" ? "fahrenheit" : "celsius";
   let mainTemp = 0;
   let maxTemp = 80;
+  const cpuSensorLabels = getCpuSensorLabels(options);
   const cpuSensors = data.sensors?.filter(
     (s) => cpuSensorLabels.some((label) => s.label.startsWith(label)) && s.type === "temperature_core",
   );
