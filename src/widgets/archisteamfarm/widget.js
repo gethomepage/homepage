@@ -1,5 +1,4 @@
 import { asJson } from "utils/proxy/api-helpers";
-
 import archisteamfarmProxyHandler from "./proxy";
 
 const widget = {

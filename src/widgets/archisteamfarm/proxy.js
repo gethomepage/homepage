@@ -22,12 +22,17 @@ export default async function archisteamfarmProxyHandler(req, res, map) {
     return res.status(403).json({ error: "Service does not support API calls" });
   }
 
+  const password = widget.password?.toString().trim();
+  if (!password) {
+    return res.status(400).json({ error: { message: "ArchiSteamFarm widget requires widget.password." } });
+  }
+
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
   const headers = {
     ...(widgets[widget.type].headers ?? {}),
     ...(widget.headers ?? {}),
     ...(req.extraHeaders ?? {}),
-    Authentication: widget.password,
+    Authentication: password,
   };
 
   const [status, contentType, data] = await httpProxy(url, {
