@@ -47,6 +47,17 @@ describe("widgets/navidrome/component", () => {
     expect(screen.getByText("nope")).toBeInTheDocument();
   });
 
+  it("renders an error when both now playing and library blocks are disabled", () => {
+    useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
+
+    renderWithProviders(
+      <Component service={{ widget: { type: "navidrome", enableBlocks: false, enableNowPlaying: false } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(screen.getByText("navidrome.enable_one")).toBeInTheDocument();
+  });
+
   it("renders now playing entries when present", () => {
     useWidgetAPI.mockReturnValue({
       data: {
@@ -66,13 +77,36 @@ describe("widgets/navidrome/component", () => {
     expect(screen.getByText("Artist - Song — Album (user)")).toBeInTheDocument();
   });
 
-  it("renders library totals when enableBlocks is true and now playing is disabled", () => {
+  it("renders a no active streams row when nothing is playing", () => {
     useWidgetAPI
-      .mockReturnValueOnce({ data: undefined, error: undefined })
+      .mockReturnValueOnce({
+        data: {
+          "subsonic-response": {
+            nowPlaying: {},
+          },
+        },
+        error: undefined,
+      })
       .mockReturnValueOnce({
         data: { totalSongs: 461, totalAlbums: 411, totalArtists: 304 },
         error: undefined,
       });
+
+    renderWithProviders(<Component service={{ widget: { type: "navidrome", enableBlocks: true } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getByText("navidrome.nothing_streaming")).toBeInTheDocument();
+    expect(screen.getByText("461")).toBeInTheDocument();
+    expect(screen.getByText("411")).toBeInTheDocument();
+    expect(screen.getByText("304")).toBeInTheDocument();
+  });
+
+  it("renders library totals when enableBlocks is true and now playing is disabled", () => {
+    useWidgetAPI.mockReturnValueOnce({ data: undefined, error: undefined }).mockReturnValueOnce({
+      data: { totalSongs: 461, totalAlbums: 411, totalArtists: 304 },
+      error: undefined,
+    });
 
     renderWithProviders(
       <Component service={{ widget: { type: "navidrome", enableBlocks: true, enableNowPlaying: false } }} />,

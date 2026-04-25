@@ -68,7 +68,7 @@ function getTokenTtl(sessionToken) {
 async function login(widget, cacheKey) {
   const user = getWidgetUser(widget);
   if (!user || !widget.password) {
-    return createErrorResponse("Navidrome library stats require widget.user and widget.password.");
+    return createErrorResponse("Navidrome library stats require widget.user or widget.username and widget.password.");
   }
 
   const loginUrl = new URL(`${widget.url.replace(/\/+$/, "")}/auth/login`);
@@ -122,7 +122,7 @@ function buildSubsonicToken(widget) {
 async function proxyNowPlaying(widget) {
   const user = getWidgetUser(widget);
   if (!user) {
-    return createErrorResponse("Navidrome now playing requires widget.user.");
+    return createErrorResponse("Navidrome now playing requires widget.user or widget.username.");
   }
 
   const credentials = buildSubsonicToken(widget);
@@ -160,9 +160,9 @@ function aggregateLibraryData(libraries) {
 async function proxyLibrary(widget, cacheKey) {
   let sessionToken = cache.get(cacheKey);
   if (!sessionToken) {
-    const [loginStatus, , loginData] = await login(widget, cacheKey);
+    const [loginStatus, loginContentType, loginData] = await login(widget, cacheKey);
     if (loginStatus !== 200) {
-      return [loginStatus, "application/json", loginData];
+      return [loginStatus, loginContentType ?? "application/json", loginData];
     }
     sessionToken = loginData.token;
   }
@@ -174,9 +174,9 @@ async function proxyLibrary(widget, cacheKey) {
   });
 
   if (status === 401 || status === 403) {
-    const [loginStatus, , loginData] = await login(widget, cacheKey);
+    const [loginStatus, loginContentType, loginData] = await login(widget, cacheKey);
     if (loginStatus !== 200) {
-      return [loginStatus, "application/json", loginData];
+      return [loginStatus, loginContentType ?? "application/json", loginData];
     }
 
     [status, contentType, data] = await httpProxy(libraryUrl, {

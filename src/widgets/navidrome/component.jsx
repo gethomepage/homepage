@@ -46,7 +46,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
-  const enableBlocks = service.widget?.enableBlocks;
+  const enableBlocks = service.widget?.enableBlocks ?? false;
   const enableNowPlaying = service.widget?.enableNowPlaying ?? true;
 
   const { data: navidromeData, error: navidromeError } = useWidgetAPI(widget, enableNowPlaying ? "getNowPlaying" : "", {
@@ -55,6 +55,10 @@ export default function Component({ service }) {
   const { data: libraryData, error: libraryError } = useWidgetAPI(widget, enableBlocks ? "Library" : "", {
     refreshInterval: enableBlocks ? 60000 : undefined,
   });
+
+  if (!enableNowPlaying && !enableBlocks) {
+    return <Container service={service} error={t("navidrome.enable_one")} />;
+  }
 
   if (navidromeError || libraryError || navidromeData?.["subsonic-response"]?.error) {
     return (

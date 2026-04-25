@@ -399,6 +399,7 @@
     "navidrome": {
         "albums": "Albums",
         "artists": "Artists",
+        "enable_one": "Enable now playing or library blocks for the Navidrome widget.",
         "nothing_streaming": "No Active Streams",
         "please_wait": "Please Wait",
         "songs": "Songs"
