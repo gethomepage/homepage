@@ -71,6 +71,13 @@
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
+    "archisteamfarm": {
+        "bots": "Bots",
+        "version": "Version",
+        "memory": "Memory",
+        "uptime": "Uptime",
+        "unknown": "Unknown"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",

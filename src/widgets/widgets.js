@@ -1,6 +1,7 @@
 import adguard from "./adguard/widget";
 import apcups from "./apcups/widget";
 import arcane from "./arcane/widget";
+import archisteamfarm from "./archisteamfarm/widget";
 import argocd from "./argocd/widget";
 import atsumeru from "./atsumeru/widget";
 import audiobookshelf from "./audiobookshelf/widget";
@@ -156,6 +157,7 @@ const widgets = {
   adguard,
   apcups,
   arcane,
+  archisteamfarm,
   argocd,
   atsumeru,
   audiobookshelf,
