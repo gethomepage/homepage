@@ -397,8 +397,11 @@
         "unknown": "Unknown"
     },
     "navidrome": {
+        "albums": "Albums",
+        "artists": "Artists",
         "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "please_wait": "Please Wait",
+        "songs": "Songs"
     },
     "npm": {
         "enabled": "Enabled",

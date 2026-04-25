@@ -309,9 +309,11 @@ export function cleanServiceGroups(groups) {
           // dockhand
           environment,
 
-          // emby, jellyfin
+          // emby, jellyfin, navidrome
           enableBlocks,
           enableNowPlaying,
+
+          // emby, jellyfin
           enableMediaControl,
 
           // emby, jellyfin, tautulli, tracearr
@@ -538,10 +540,12 @@ export function cleanServiceGroups(groups) {
         if (["opnsense", "pfsense"].includes(type)) {
           if (wan) widget.wan = wan;
         }
-        if (["emby", "jellyfin"].includes(type)) {
-          if (enableMediaControl !== undefined) widget.enableMediaControl = !!JSON.parse(enableMediaControl);
+        if (["emby", "jellyfin", "navidrome"].includes(type)) {
           if (enableBlocks !== undefined) widget.enableBlocks = JSON.parse(enableBlocks);
           if (enableNowPlaying !== undefined) widget.enableNowPlaying = JSON.parse(enableNowPlaying);
+        }
+        if (["emby", "jellyfin"].includes(type)) {
+          if (enableMediaControl !== undefined) widget.enableMediaControl = !!JSON.parse(enableMediaControl);
         }
         if (["emby", "jellyfin", "tautulli", "tracearr"].includes(type)) {
           if (expandOneStreamToTwoRows !== undefined)

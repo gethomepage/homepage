@@ -286,6 +286,7 @@ describe("utils/config/service-helpers", () => {
               { type: "qbittorrent", enableLeechProgress: "true", enableLeechSize: "true" },
               { type: "opnsense", wan: "wan1" },
               { type: "emby", enableBlocks: "true", enableNowPlaying: "false", enableMediaControl: "true" },
+              { type: "navidrome", enableBlocks: "true", enableNowPlaying: "false" },
               { type: "tautulli", expandOneStreamToTwoRows: "true", showEpisodeNumber: "true", enableUser: "true" },
               { type: "radarr", enableQueue: "true" },
               { type: "truenas", enablePools: "true", nasType: "scale" },
@@ -354,6 +355,9 @@ describe("utils/config/service-helpers", () => {
       expect.objectContaining({ namespace: "default", app: "app", podSelector: "app=test" }),
     );
     expect(widgets.find((w) => w.type === "qnap")).toEqual(expect.objectContaining({ volume: "vol1" }));
+    expect(widgets.find((w) => w.type === "navidrome")).toEqual(
+      expect.objectContaining({ enableBlocks: true, enableNowPlaying: false }),
+    );
     expect(widgets.find((w) => w.type === "speedtest")).toEqual(
       expect.objectContaining({ bitratePrecision: 3, version: 1 }),
     );

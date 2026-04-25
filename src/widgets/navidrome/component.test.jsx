@@ -23,6 +23,21 @@ describe("widgets/navidrome/component", () => {
     expect(screen.getByText("navidrome.please_wait")).toBeInTheDocument();
   });
 
+  it("renders library block placeholders while loading when enableBlocks is true", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({ data: undefined, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "navidrome", enableBlocks: true } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getByText("navidrome.songs")).toBeInTheDocument();
+    expect(screen.getByText("navidrome.albums")).toBeInTheDocument();
+    expect(screen.getByText("navidrome.artists")).toBeInTheDocument();
+    expect(screen.getAllByText("-").length).toBeGreaterThan(0);
+  });
+
   it("renders an error container when the API errors", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: { message: "nope" } });
 
@@ -49,5 +64,23 @@ describe("widgets/navidrome/component", () => {
     renderWithProviders(<Component service={{ widget: { type: "navidrome" } }} />, { settings: { hideErrors: false } });
 
     expect(screen.getByText("Artist - Song — Album (user)")).toBeInTheDocument();
+  });
+
+  it("renders library totals when enableBlocks is true and now playing is disabled", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({ data: undefined, error: undefined })
+      .mockReturnValueOnce({
+        data: { totalSongs: 461, totalAlbums: 411, totalArtists: 304 },
+        error: undefined,
+      });
+
+    renderWithProviders(
+      <Component service={{ widget: { type: "navidrome", enableBlocks: true, enableNowPlaying: false } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(screen.getByText("461")).toBeInTheDocument();
+    expect(screen.getByText("411")).toBeInTheDocument();
+    expect(screen.getByText("304")).toBeInTheDocument();
   });
 });
