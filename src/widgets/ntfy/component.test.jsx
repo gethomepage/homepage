@@ -167,6 +167,26 @@ describe("widgets/ntfy/component", () => {
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
   });
 
+  it("falls back to default priority label when priority is out of range", () => {
+    useWidgetAPI.mockImplementation(() => ({
+      data: {
+        title: "Alert",
+        message: "Body",
+        priority: 99,
+        time: 1700000000,
+        tags: [],
+      },
+      error: undefined,
+    }));
+
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "ntfy", url: "https://ntfy.example.com", topic: "alerts" } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expectBlockValue(container, "ntfy.priority", "ntfy.default");
+  });
+
   it("renders optional message field when included", () => {
     useWidgetAPI.mockImplementation(() => ({
       data: {
