@@ -55,6 +55,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Gluetun](gluetun.md)
 - [Gotify](gotify.md)
 - [Grafana](grafana.md)
+- [Grimmory](grimmory.md)
 - [HDHomeRun](hdhomerun.md)
 - [Headscale](headscale.md)
 - [Healthchecks](healthchecks.md)

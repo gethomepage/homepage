@@ -200,6 +200,7 @@ const widgets = {
   gluetun,
   gotify,
   grafana,
+  grimmory: booklore,
   hdhomerun,
   headscale,
   hoarder: karakeep,
