@@ -116,6 +116,7 @@ nav:
           - widgets/services/nextcloud.md
           - widgets/services/nextdns.md
           - widgets/services/nginx-proxy-manager.md
+          - widgets/services/ntfy.md
           - widgets/services/nzbget.md
           - widgets/services/octoprint.md
           - widgets/services/omada.md
