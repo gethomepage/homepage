@@ -96,8 +96,8 @@ describe("widgets/ntfy/component", () => {
     );
 
     expectBlockValue(container, "ntfy.title", "ntfy.none");
-    expectBlockValue(container, "ntfy.message", "ntfy.noMessages");
-    expectBlockValue(container, "ntfy.lastReceived", "ntfy.noMessages");
+    expectBlockValue(container, "ntfy.message", "ntfy.none");
+    expectBlockValue(container, "ntfy.lastReceived", "ntfy.none");
   });
 
   it("renders error when API fails", () => {

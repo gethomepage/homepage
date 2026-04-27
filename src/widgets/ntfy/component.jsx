@@ -32,39 +32,32 @@ export default function Component({ service }) {
 
   if (!widget.fields || widget.fields.length === 0) {
     widget.fields = ["title", "message", "priority", "lastReceived"];
-  } else if (widget.fields.length > 4) {
+  } else if (widget.fields?.length > 4) {
     widget.fields = widget.fields.slice(0, 4);
   }
 
   if (!messagesData) {
     return (
       <Container service={service}>
-        {widget.fields.map((field) => (
-          <Block key={field} label={`ntfy.${field}`} />
-        ))}
+        <Block label="ntfy.title" />
+        <Block label="ntfy.message" />
+        <Block label="ntfy.priority" />
+        <Block label="ntfy.lastReceived" />
+        <Block label="ntfy.tags" />
       </Container>
     );
   }
 
-  const titleText = messagesData.title ?? t("ntfy.none");
-  const messageText = messagesData.message ?? t("ntfy.noMessages");
-  const tagsText = messagesData.tags?.length > 0 ? messagesData.tags.join(", ") : t("ntfy.none");
-
-  const fieldValues = {
-    title: <Truncated text={titleText} />,
-    message: <Truncated text={messageText} />,
-    priority: t(`ntfy.${priorityLabels[messagesData.priority] ?? "default"}`),
-    lastReceived: messagesData.time
-      ? t("common.relativeDate", { value: messagesData.time * 1000 })
-      : t("ntfy.noMessages"),
-    tags: <Truncated text={tagsText} />,
-  };
-
   return (
     <Container service={service}>
-      {widget.fields.map((field) => (
-        <Block key={field} label={`ntfy.${field}`} value={fieldValues[field]} />
-      ))}
+      <Block label="ntfy.title" value={<Truncated text={messagesData.title ?? t("ntfy.none")} />} />
+      <Block label="ntfy.message" value={<Truncated text={messagesData.message ?? t("ntfy.none")} />} />
+      <Block label="ntfy.priority" value={t(`ntfy.${priorityLabels[messagesData.priority] ?? "default"}`)} />
+      <Block
+        label="ntfy.lastReceived"
+        value={messagesData.time ? t("common.relativeDate", { value: messagesData.time * 1000 }) : t("ntfy.none")}
+      />
+      <Block label="ntfy.tags" value={messagesData.tags?.length > 0 ? messagesData.tags.join(", ") : t("ntfy.none")} />
     </Container>
   );
 }
