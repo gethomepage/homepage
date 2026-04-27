@@ -936,6 +936,19 @@
       "warnings": "Warnings",
       "criticals": "Criticals"
     },
+    "ntfy": {
+      "title": "Title",
+      "priority": "Priority",
+      "lastReceived": "Last Received",
+      "message": "Message",
+      "tags": "Tags",
+      "none": "None",
+      "min": "Min",
+      "low": "Low",
+      "default": "Default",
+      "high": "High",
+      "urgent": "Urgent"
+    },
     "plantit": {
         "events": "Events",
         "plants": "Plants",

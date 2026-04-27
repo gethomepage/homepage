@@ -34,6 +34,7 @@ vi.mock("widgets/widgets", () => ({
     paperlessngx: { api: "{url}/api/{endpoint}" },
     proxmox: { api: "{url}/api2/json/{endpoint}" },
     truenas: { api: "{url}/api/v2.0/{endpoint}" },
+    ntfy: { api: "{url}/{endpoint}" },
     proxmoxbackupserver: { api: "{url}/api2/json/{endpoint}" },
     checkmk: { api: "{url}/{endpoint}" },
     stocks: { api: "{url}/{endpoint}" },
@@ -183,6 +184,51 @@ describe("utils/proxy/handlers/credentialed", () => {
 
     const [, params] = httpProxy.mock.calls.at(-1);
     expect(params.headers.Authorization).toBe("Bearer k");
+  });
+
+  it("uses Bearer auth for ntfy when key is provided", async () => {
+    getServiceWidget.mockResolvedValue({ type: "ntfy", url: "http://ntfy", topic: "alerts", key: "tk_test" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "alerts/json", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toBe("Bearer tk_test");
+  });
+
+  it("uses Basic auth for ntfy when username/password are provided", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "ntfy",
+      url: "http://ntfy",
+      topic: "alerts",
+      username: "u",
+      password: "p",
+    });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "alerts/json", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toMatch(/^Basic /);
+  });
+
+  it("sends no auth header for ntfy when no credentials are configured", async () => {
+    getServiceWidget.mockResolvedValue({ type: "ntfy", url: "http://ntfy", topic: "alerts" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "alerts/json", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toBeUndefined();
   });
 
   it.each([

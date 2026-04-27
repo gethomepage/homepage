@@ -77,6 +77,12 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = basicAuthHeader(widget);
         }
+      } else if (widget.type === "ntfy") {
+        if (widget.key) {
+          headers.Authorization = `Bearer ${widget.key}`;
+        } else if (widget.username && widget.password) {
+          headers.Authorization = basicAuthHeader(widget);
+        }
       } else if (widget.type === "proxmox") {
         headers.Authorization = `PVEAPIToken=${widget.username}=${widget.password}`;
       } else if (widget.type === "proxmoxbackupserver") {
