@@ -12,6 +12,14 @@ const priorityLabels = {
   5: "urgent",
 };
 
+function Truncated({ text }) {
+  return (
+    <span className="grid w-full" title={text}>
+      <span className="truncate">{text}</span>
+    </span>
+  );
+}
+
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
@@ -38,14 +46,18 @@ export default function Component({ service }) {
     );
   }
 
+  const titleText = messagesData.title ?? t("ntfy.none");
+  const messageText = messagesData.message ?? t("ntfy.noMessages");
+  const tagsText = messagesData.tags?.length > 0 ? messagesData.tags.join(", ") : t("ntfy.none");
+
   const fieldValues = {
-    title: messagesData.title ?? t("ntfy.none"),
-    message: messagesData.message ?? t("ntfy.noMessages"),
+    title: <Truncated text={titleText} />,
+    message: <Truncated text={messageText} />,
     priority: t(`ntfy.${priorityLabels[messagesData.priority] ?? "default"}`),
     lastReceived: messagesData.time
       ? t("common.relativeDate", { value: messagesData.time * 1000 })
       : t("ntfy.noMessages"),
-    tags: messagesData.tags?.length > 0 ? messagesData.tags.join(", ") : t("ntfy.none"),
+    tags: <Truncated text={tagsText} />,
   };
 
   return (
