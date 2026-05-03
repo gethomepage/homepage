@@ -6,6 +6,7 @@ import * as shvl from "utils/config/shvl";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const defaultFields = ["itemsHandled", "episodesHandled", "moviesHandled", "reclaimable"];
+const MAX_ALLOWED_FIELDS = 4;
 
 const fields = [
   {
@@ -64,35 +65,6 @@ const fields = [
   },
 ];
 
-function getConfiguredFields(widgetFields) {
-  if (!widgetFields) {
-    return null;
-  }
-
-  if (typeof widgetFields === "string") {
-    try {
-      return JSON.parse(widgetFields);
-    } catch {
-      return null;
-    }
-  }
-
-  return Array.isArray(widgetFields) ? widgetFields : null;
-}
-
-function getVisibleFields(widgetFields) {
-  const configuredFields = getConfiguredFields(widgetFields);
-
-  if (!configuredFields?.length) {
-    return fields.filter((item) => defaultFields.includes(item.field));
-  }
-
-  const selectedFields = configuredFields.slice(0, 4).map((field) => String(field).replace(/^maintainerr\./, ""));
-  return selectedFields
-    .map((field) => fields.find((item) => item.field === field))
-    .filter(Boolean);
-}
-
 function formatValue(t, format, value) {
   switch (format) {
     case "bytes":
@@ -108,7 +80,12 @@ export default function Component({ service }) {
 
   const { widget } = service;
   const { data: maintainerrData, error: maintainerrError } = useWidgetAPI(widget);
-  const visibleFields = getVisibleFields(widget.fields);
+
+  if (!widget.fields?.length > 0) {
+    widget.fields = defaultFields;
+  } else if (widget.fields.length > MAX_ALLOWED_FIELDS) {
+    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
+  }
 
   if (maintainerrError) {
     return <Container service={service} error={maintainerrError} />;
@@ -116,7 +93,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      {visibleFields.map((item) => (
+      {fields.map((item) => (
         <Block
           key={item.field}
           field={item.label}
