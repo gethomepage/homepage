@@ -67,9 +67,9 @@
         "empty_data": "Subsysteem status onbekend"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Gezond",
+        "degraded": "Gedegradeerd",
+        "no_data": "Geen opslaggegevens beschikbaar"
     },
     "docker": {
         "rx": "RX",
@@ -113,14 +113,14 @@
         "songs": "Nummers"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
+        "playing": "Speelt",
+        "transcoding": "Bezig met transcoderen",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
+        "no_active": "Geen Actieve Streams",
+        "movies": "Films",
         "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "episodes": "Afleveringen",
+        "songs": "Nummers"
     },
     "esphome": {
         "offline": "Offline",
@@ -190,10 +190,10 @@
         "plex_connection_error": "Controleer Plex Connectie"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
+        "no_active": "Geen Actieve Streams",
         "streams": "Streams",
         "transcodes": "Transcodes",
-        "directplay": "Direct Play",
+        "directplay": "Directe Afspelen",
         "bitrate": "Bitrate"
     },
     "omada": {
@@ -295,12 +295,12 @@
         "available": "Beschikbaar"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
-        "processing": "Processing",
-        "issues": "Open Issues"
+        "pending": "In afwachting",
+        "approved": "Goedgekeurd",
+        "available": "Beschikbaar",
+        "completed": "Voltooid",
+        "processing": "Verwerken",
+        "issues": "Openstaande issues"
     },
     "netalertx": {
         "total": "Totaal",
@@ -344,6 +344,16 @@
         "address": "Adres",
         "expires": "Verloopt",
         "never": "Nooit",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Laatst Gezien",
         "now": "Nu",
         "years": "{{number}}j",
@@ -352,7 +362,9 @@
         "hours": "{{number}}u",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Geleden"
+        "ago": "{{value}} Geleden",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Verzoeken",
@@ -621,11 +633,11 @@
     "pangolin": {
         "orgs": "Orgs",
         "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
+        "resources": "Bronnen",
+        "targets": "Doelen",
+        "traffic": "Netwerkverkeer",
         "in": "In",
-        "out": "Out"
+        "out": "Uit"
     },
     "peanut": {
         "battery_charge": "Batterij opladen",
@@ -724,7 +736,7 @@
         "volumeAvailable": "Beschikbaar"
     },
     "dispatcharr": {
-        "channels": "Channels",
+        "channels": "Kanalen",
         "streams": "Streams"
     },
     "mylar": {
@@ -792,7 +804,7 @@
         "gross_percent_today": "Vandaag",
         "gross_percent_1y": "Een jaar",
         "gross_percent_max": "Altijd",
-        "net_worth": "Net Worth"
+        "net_worth": "Totaal eigen vermogen"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
@@ -816,8 +828,8 @@
         "series": "Series"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
+        "libraries": "Bibliotheken",
+        "books": "Boeken",
         "reading": "Reading",
         "finished": "Finished"
     },
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Waarschuwingen",
         "criticals": "Kritiek"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Gebeurtenissen",

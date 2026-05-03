@@ -67,9 +67,9 @@
         "empty_data": "Status podsystemu nieznany"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Zdrowy",
+        "degraded": "Zdegradowany",
+        "no_data": "Brak danych o miejscu przechowywania"
     },
     "docker": {
         "rx": "Rx",
@@ -344,6 +344,16 @@
         "address": "Adres",
         "expires": "Wygasa za",
         "never": "Nigdy",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Ostatnio dostępny",
         "now": "Teraz",
         "years": "{{number}}rok/lat",
@@ -352,7 +362,9 @@
         "hours": "{{number}}godzin",
         "minutes": "{{number}}miesięcy",
         "seconds": "{{number}}sekund",
-        "ago": "{{value}} temu"
+        "ago": "{{value}} temu",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Zapytania",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Ostrzeżenia",
         "criticals": "Krytyczny"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Wydarzenia",
