@@ -101,6 +101,7 @@ nav:
           - widgets/services/lubelogger.md
           - widgets/services/mastodon.md
           - widgets/services/mailcow.md
+          - widgets/services/maintainerr.md
           - widgets/services/mealie.md
           - widgets/services/medusa.md
           - widgets/services/mikrotik.md

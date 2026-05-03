@@ -932,6 +932,17 @@
       "mails": "Mails",
       "storage": "Storage"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
       "warnings": "Warnings",
       "criticals": "Criticals"
