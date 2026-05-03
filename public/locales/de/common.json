@@ -344,6 +344,16 @@
         "address": "Adresse",
         "expires": "Läuft ab",
         "never": "Nie",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Zuletzt gesehen",
         "now": "Jetzt",
         "years": "{{number}}a",
@@ -352,7 +362,9 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}min",
         "seconds": "{{number}}s",
-        "ago": "Vor {{value}}"
+        "ago": "Vor {{value}}",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Anfragen",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Warnungen",
         "criticals": "Kritisch"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Ereignisse",

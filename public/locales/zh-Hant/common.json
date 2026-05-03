@@ -344,6 +344,16 @@
         "address": "位址",
         "expires": "已過期",
         "never": "未曾",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "上次連線",
         "now": "現在",
         "years": "{{number}} 年",
@@ -352,7 +362,9 @@
         "hours": "{{number}} 小時",
         "minutes": "{{number}} 分鐘",
         "seconds": "{{number}} 秒",
-        "ago": "{{value}} 前"
+        "ago": "{{value}} 前",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Queries",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "警告",
         "criticals": "嚴重"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "事件",

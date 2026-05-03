@@ -67,9 +67,9 @@
         "empty_data": "서브시스템 상태 알 수 없음"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "정상",
+        "degraded": "성능 저하",
+        "no_data": "저장소 데이터 없음"
     },
     "docker": {
         "rx": "수신",
@@ -344,6 +344,16 @@
         "address": "주소",
         "expires": "만료",
         "never": "없음",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "마지막 접속",
         "now": "지금",
         "years": "{{number}}년",
@@ -352,7 +362,9 @@
         "hours": "{{number}}시간",
         "minutes": "{{number}}분",
         "seconds": "{{number}}초",
-        "ago": "{{value}} 전"
+        "ago": "{{value}} 전",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "총 쿼리",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "경고",
         "criticals": "심각"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "이벤트",

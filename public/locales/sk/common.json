@@ -295,12 +295,12 @@
         "available": "Dostupné"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
+        "pending": "Čakajúce",
+        "approved": "Schválené",
+        "available": "Dostupné",
+        "completed": "Dokončené",
         "processing": "Processing",
-        "issues": "Open Issues"
+        "issues": "Neriešené problémy"
     },
     "netalertx": {
         "total": "Celkom",
@@ -344,6 +344,16 @@
         "address": "Adresa",
         "expires": "Vyprší",
         "never": "Nikdy",
+        "user": "Používateľ",
+        "hostname": "Názov hostiteľa",
+        "name": "Názov",
+        "client_version": "Verzia klienta",
+        "os": "Operačný systém",
+        "created": "Vytvorené",
+        "authorized": "Autorizované",
+        "is_external": "Je externý",
+        "update_available": "Dostupná aktualizácia",
+        "tags": "Štítky",
         "last_seen": "Naposledy videné",
         "now": "Teraz",
         "years": "{{number}}r",
@@ -352,7 +362,9 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "Pred {{value}}"
+        "ago": "Pred {{value}}",
+        "true": "Áno",
+        "false": "Nie"
     },
     "technitium": {
         "totalQueries": "Požiadaviek",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Upozornenia",
         "criticals": "Kritické"
+    },
+    "ntfy": {
+        "title": "Názov",
+        "priority": "Priorita",
+        "lastReceived": "Posledná prijatá",
+        "message": "Správa",
+        "tags": "Štítky",
+        "none": "Žiadna",
+        "min": "Min",
+        "low": "Nízka",
+        "default": "Predvolená",
+        "high": "Vysoká",
+        "urgent": "Naliehavá"
     },
     "plantit": {
         "events": "Udalosti",

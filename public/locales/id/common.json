@@ -344,6 +344,16 @@
         "address": "Alamat",
         "expires": "Kedaluwarsa",
         "never": "Tidak Pernah",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Terakhir terlihat",
         "now": "Sekarang",
         "years": "{{number}}thn",
@@ -352,7 +362,9 @@
         "hours": "{{number}}j",
         "minutes": "{{number}}m",
         "seconds": "{{number}}d",
-        "ago": "{{value}} Yang Lalu"
+        "ago": "{{value}} Yang Lalu",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Queries",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Peringatan",
         "criticals": "Kritis"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Acara",
