@@ -24,7 +24,7 @@
     "i18next": "^25.10.9",
     "ical.js": "^2.2.1",
     "js-yaml": "^4.1.1",
-    "json-rpc-2.0": "^1.7.0",
+    "json-rpc-2.0": "^1.7.1",
     "luxon": "^3.6.1",
     "memory-cache": "^0.2.0",
     "minecraftstatuspinger": "^1.2.2",
