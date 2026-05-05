@@ -250,6 +250,25 @@ describe("utils/proxy/handlers/credentialed", () => {
     expect(params.headers).toEqual(expect.objectContaining(expected));
   });
 
+  it("normalizes non-200 JSON responses into widget error payloads", async () => {
+    getServiceWidget.mockResolvedValue({ type: "paperlessngx", url: "http://x", key: "k" });
+    httpProxy.mockResolvedValue([401, "application/json", { detail: "Invalid token." }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "statistics", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(401);
+    expect(res.body).toEqual({
+      error: {
+        message: "HTTP Error",
+        url: "http://x/api/statistics",
+        data: { detail: "Invalid token." },
+      },
+    });
+  });
+
   it("uses basic auth for esphome when username/password are provided", async () => {
     getServiceWidget.mockResolvedValue({ type: "esphome", url: "http://x", username: "u", password: "p" });
     httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
