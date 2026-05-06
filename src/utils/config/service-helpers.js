@@ -665,6 +665,7 @@ export function cleanServiceGroups(groups) {
           if (enableRecentEvents !== undefined) widget.enableRecentEvents = enableRecentEvents;
         }
         if (type === "technitium") {
+          if (node !== undefined) widget.node = node;
           if (range !== undefined) widget.range = range;
         }
         if (type === "lubelogger") {
