@@ -8,7 +8,7 @@ const widget = {
     stats: {
       endpoint: "dashboard/stats/get",
       validate: ["response", "status"],
-      params: ["type"],
+      params: ["node", "type"],
       map: (data) => asJson(data).response?.stats,
     },
   },

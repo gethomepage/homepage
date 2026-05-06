@@ -14,6 +14,7 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const params = {
+    node: widget.cluster ?? "",
     type: widget.range ?? "LastHour",
   };
 

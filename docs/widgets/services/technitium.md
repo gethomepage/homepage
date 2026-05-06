@@ -14,12 +14,17 @@ widget:
   type: technitium
   url: <url to dns server>
   key: biglongapitoken
+  node: <node dns name or cluster> # optional, defaults to current node
   range: LastDay # optional, defaults to LastHour
 ```
 
 #### API Key
 
 This can be generated via the Technitium DNS Dashboard, and should be generated from a special API specific user.
+
+#### Node
+
+`node` value determines which Technitium cluster node the statistics are returned for. Specifying a value of `cluster` returns aggregrate stats for all nodes in the cluster. Specify a node domain name to return specific node stats, no value returns stats for the node against which the API is executed.
 
 #### Range
 
