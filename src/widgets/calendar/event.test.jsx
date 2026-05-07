@@ -48,6 +48,56 @@ describe("widgets/calendar/event", () => {
     expect(link.querySelector("svg")).toBeTruthy();
   });
 
+  it("keeps additional text visible after repeated mouse enter events", () => {
+    const date = DateTime.fromISO("2099-01-01T13:00:00.000Z").setZone("utc");
+
+    render(
+      <Event
+        event={{
+          title: "Primary",
+          additional: "More info",
+          date,
+          color: "gray",
+          url: "https://example.com",
+        }}
+        colorVariants={{ gray: "bg-gray-500" }}
+      />,
+    );
+
+    const link = screen.getByRole("link", { name: /primary/i });
+
+    fireEvent.mouseEnter(link);
+    fireEvent.mouseEnter(link);
+    expect(screen.getByText("More info")).toBeInTheDocument();
+    expect(screen.queryByText("Primary")).toBeNull();
+  });
+
+  it("keeps title visible after repeated mouse leave events", () => {
+    const date = DateTime.fromISO("2099-01-01T13:00:00.000Z").setZone("utc");
+
+    render(
+      <Event
+        event={{
+          title: "Primary",
+          additional: "More info",
+          date,
+          color: "gray",
+        }}
+        colorVariants={{ gray: "bg-gray-500" }}
+      />,
+    );
+
+    const event = screen.getByText("Primary").closest("div.flex");
+
+    fireEvent.mouseEnter(event);
+    expect(screen.getByText("More info")).toBeInTheDocument();
+
+    fireEvent.mouseLeave(event);
+    fireEvent.mouseLeave(event);
+    expect(screen.getByText("Primary")).toBeInTheDocument();
+    expect(screen.queryByText("More info")).toBeNull();
+  });
+
   it("compareDateTimezone matches dates by day", () => {
     const day = DateTime.fromISO("2099-01-01T00:00:00.000Z").setZone("utc");
     expect(compareDateTimezone(day, { date: DateTime.fromISO("2099-01-01T23:59:00.000Z").setZone("utc") })).toBe(true);
