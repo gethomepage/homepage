@@ -344,6 +344,16 @@
         "address": "Adresse",
         "expires": "Udløber",
         "never": "Aldrig",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Sidst Set",
         "now": "Nu",
         "years": "{{number}}å",
@@ -352,7 +362,9 @@
         "hours": "{{number}}t",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Siden"
+        "ago": "{{value}} Siden",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Queries",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Advarsler",
         "criticals": "Criticals"
+    },
+    "ntfy": {
+        "title": "Titel",
+        "priority": "Prioritet",
+        "lastReceived": "Sidst modtaget",
+        "message": "Besked",
+        "tags": "Tags",
+        "none": "Ingen",
+        "min": "Min",
+        "low": "Lav",
+        "default": "Standard",
+        "high": "Høj",
+        "urgent": "Akut"
     },
     "plantit": {
         "events": "Events",

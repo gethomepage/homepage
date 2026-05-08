@@ -344,6 +344,16 @@
         "address": "Адреса",
         "expires": "Дійсний до",
         "never": "Ніколи",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Востаннє у мережі",
         "now": "Зараз",
         "years": "{{number}}р",
@@ -352,7 +362,9 @@
         "hours": "{{number}}год",
         "minutes": "{{number}}хв",
         "seconds": "{{number}}с",
-        "ago": "{{value}} тому"
+        "ago": "{{value}} тому",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Queries",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Попередження",
         "criticals": "Критичні"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Події",

@@ -344,6 +344,16 @@
         "address": "Cím",
         "expires": "Lejár",
         "never": "Soha",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Utoljára látott",
         "now": "Most",
         "years": "{{number}}év",
@@ -352,7 +362,9 @@
         "hours": "{{number}}ó",
         "minutes": "{{number}}p",
         "seconds": "{{number}}mp",
-        "ago": "{{value}} Ezelőtt"
+        "ago": "{{value}} Ezelőtt",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Lekérdezések",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Figyelmeztetések",
         "criticals": "Kritikusok"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Események",

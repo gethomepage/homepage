@@ -67,9 +67,9 @@
         "empty_data": "Substelsel status onbekend"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Gesond",
+        "degraded": "Gedegradeer",
+        "no_data": "Geen bergingsdata beskikbaar nie"
     },
     "docker": {
         "rx": "RX",
@@ -344,6 +344,16 @@
         "address": "Adres",
         "expires": "Verval",
         "never": "Nooit",
+        "user": "Gebruiker",
+        "hostname": "Gasheernaam",
+        "name": "Naam",
+        "client_version": "Kliënt Weergawe",
+        "os": "OS",
+        "created": "Geskep",
+        "authorized": "Gemagtig",
+        "is_external": "Is Extern",
+        "update_available": "Opdatering Beskikbaar",
+        "tags": "Merkers",
         "last_seen": "Laaste Gesien",
         "now": "Nou",
         "years": "{{number}}y",
@@ -352,7 +362,9 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Terug"
+        "ago": "{{value}} Terug",
+        "true": "Ja",
+        "false": "Nee"
     },
     "technitium": {
         "totalQueries": "Navraë",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Waarskuwings",
         "criticals": "Kritici"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "Gebeure",

@@ -344,6 +344,16 @@
         "address": "Адрес",
         "expires": "Истекает",
         "never": "Никогда",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Последнее посещение",
         "now": "Только что",
         "years": "{{number}}г",
@@ -352,7 +362,9 @@
         "hours": "{{number}}ч",
         "minutes": "{{number}}м",
         "seconds": "{{number}}с",
-        "ago": "{{value}} назад"
+        "ago": "{{value}} назад",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Запросы",
@@ -923,6 +935,19 @@
     "netdata": {
         "warnings": "Предупреждения",
         "criticals": "Критические"
+    },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "plantit": {
         "events": "События",

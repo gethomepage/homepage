@@ -67,9 +67,9 @@
         "empty_data": "Статус подсистема непознат"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Здрав",
+        "degraded": "Деградирано",
+        "no_data": "Нема доступних података о складиштењу"
     },
     "docker": {
         "rx": "RX",
@@ -344,6 +344,16 @@
         "address": "Адреса",
         "expires": "Истиче",
         "never": "Никада",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Последње виђен",
         "now": "Сада",
         "years": "{{number}}г",
@@ -352,7 +362,9 @@
         "hours": "{{number}}ч",
         "minutes": "{{number}}м",
         "seconds": "{{number}}с",
-        "ago": "Пре {{value}}"
+        "ago": "Пре {{value}}",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Упити",
@@ -924,6 +936,19 @@
         "warnings": "Упозорења",
         "criticals": "Критично"
     },
+    "ntfy": {
+        "title": "Title",
+        "priority": "Priority",
+        "lastReceived": "Last Received",
+        "message": "Message",
+        "tags": "Tags",
+        "none": "None",
+        "min": "Min",
+        "low": "Low",
+        "default": "Default",
+        "high": "High",
+        "urgent": "Urgent"
+    },
     "plantit": {
         "events": "Догађаји",
         "plants": "Биљке",
@@ -1181,9 +1206,9 @@
         "environment_not_found": "Окружење није пронађено"
     },
     "sparkyfitness": {
-        "eaten": "Eaten",
-        "burned": "Burned",
-        "remaining": "Remaining",
-        "steps": "Steps"
+        "eaten": "Поједено",
+        "burned": "Спаљено",
+        "remaining": "Преостало",
+        "steps": "Кораци"
     }
 }
