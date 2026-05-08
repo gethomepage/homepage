@@ -1,0 +1,9 @@
+allowBuilds:
+  "@tailwindcss/oxide": true
+  core-js: false
+  cpu-features: false
+  esbuild: false
+  osx-temperature-sensor: true
+  protobufjs: false
+  sharp: true
+  ssh2: false
