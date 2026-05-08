@@ -1,3 +1,6 @@
+packages:
+  - .
+
 allowBuilds:
   "@tailwindcss/oxide": true
   core-js: false
