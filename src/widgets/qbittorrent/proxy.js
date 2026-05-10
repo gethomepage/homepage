@@ -41,12 +41,12 @@ export default async function qbittorrentProxyHandler(req, res) {
   if (status === 403) {
     [status, data] = await login(widget);
 
-    if (status !== 200) {
+    if (![200, 204].includes(status)) {
       logger.error("HTTP %d logging in to qBittorrent.  Data: %s", status, data);
       return res.status(status).end(data);
     }
 
-    if (data.toString() !== "Ok.") {
+    if (status === 200 && data.toString() !== "Ok.") {
       logger.error("Error logging in to qBittorrent: Data: %s", data);
       return res.status(401).end(data);
     }
