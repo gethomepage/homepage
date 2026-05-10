@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { loggerError } = vi.hoisted(() => ({
   loggerError: vi.fn(),
@@ -18,6 +18,10 @@ vi.mock("widgets/widgets", () => ({
           endpoint: "foo",
           validate: ["a", "b"],
         },
+        empty: {
+          endpoint: "empty",
+          allowEmpty: true,
+        },
       },
     },
   },
@@ -26,6 +30,10 @@ vi.mock("widgets/widgets", () => ({
 import validateWidgetData from "./validate-widget-data";
 
 describe("utils/proxy/validate-widget-data", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("returns false when buffer JSON cannot be parsed", () => {
     expect(validateWidgetData({ type: "test" }, "foo", Buffer.from("not json"))).toBe(false);
     expect(loggerError).toHaveBeenCalled();
@@ -40,5 +48,10 @@ describe("utils/proxy/validate-widget-data", () => {
   it("returns false when required validate keys are missing", () => {
     expect(validateWidgetData({ type: "test" }, "foo", Buffer.from(JSON.stringify({ a: 1 })))).toBe(false);
     expect(loggerError).toHaveBeenCalled();
+  });
+
+  it("allows empty buffer responses for mappings that explicitly allow them", () => {
+    expect(validateWidgetData({ type: "test" }, "empty", Buffer.from(""))).toBe(true);
+    expect(loggerError).not.toHaveBeenCalled();
   });
 });

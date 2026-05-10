@@ -1,4 +1,13 @@
+import { asJson } from "utils/proxy/api-helpers";
 import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
+
+const noMessages = {
+  title: null,
+  message: null,
+  priority: 3,
+  time: null,
+  tags: [],
+};
 
 const widget = {
   api: "{url}/{endpoint}",
@@ -7,6 +16,14 @@ const widget = {
   mappings: {
     messages: {
       endpoint: "{topic}/json?poll=1&since=latest",
+      allowEmpty: true,
+      map: (data) => {
+        if (Buffer.isBuffer(data) && data.length === 0) {
+          return noMessages;
+        }
+
+        return asJson(data);
+      },
     },
   },
 };
