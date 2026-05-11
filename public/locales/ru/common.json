@@ -67,14 +67,14 @@
         "empty_data": "Статус подсистемы неизвестен"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Здоров",
+        "degraded": "Деградация",
+        "no_data": "Нет доступных данных о хранилище"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "Память",
+        "mem": "ОЗУ",
         "cpu": "ЦП",
         "running": "Запущено",
         "offline": "Не в сети",
@@ -184,15 +184,15 @@
     },
     "tautulli": {
         "playing": "Играет",
-        "transcoding": "Транскодируется",
+        "transcoding": "Перекодируется",
         "bitrate": "Битрейт",
-        "no_active": "Нет активных стримов",
+        "no_active": "Нет активных потоков",
         "plex_connection_error": "Проверка соединения Plex"
     },
     "tracearr": {
         "no_active": "Нет активных потоков",
         "streams": "Потоки",
-        "transcodes": "Transcodes",
+        "transcodes": "Перекодирования",
         "directplay": "Прямое воспроизведение",
         "bitrate": "Битрейт"
     },
@@ -215,18 +215,18 @@
         "tv": "Сериалы"
     },
     "sabnzbd": {
-        "rate": "",
+        "rate": "Скорость",
         "queue": "Очередь",
         "timeleft": "Осталось"
     },
     "rutorrent": {
         "active": "Активно",
-        "upload": "Загрузка",
+        "upload": "Отдача",
         "download": "Скачивание"
     },
     "transmission": {
         "download": "Скачивание",
-        "upload": "Загрузка",
+        "upload": "Отдача",
         "leech": "Лич",
         "seed": "Сид"
     },
@@ -295,7 +295,7 @@
         "available": "Доступно"
     },
     "seerr": {
-        "pending": "Pending",
+        "pending": "Ожидают",
         "approved": "Одобрено",
         "available": "Доступно",
         "completed": "Завершено",
@@ -344,16 +344,16 @@
         "address": "Адрес",
         "expires": "Истекает",
         "never": "Никогда",
-        "user": "User",
-        "hostname": "Hostname",
-        "name": "Name",
-        "client_version": "Client Version",
-        "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
-        "tags": "Tags",
+        "user": "Пользователь",
+        "hostname": "Имя хоста",
+        "name": "Имя",
+        "client_version": "Версия клиента",
+        "os": "ОС",
+        "created": "Создано",
+        "authorized": "Авторизовано",
+        "is_external": "Внешний",
+        "update_available": "Доступно обновление",
+        "tags": "Теги",
         "last_seen": "Последнее посещение",
         "now": "Только что",
         "years": "{{number}}г",
@@ -363,8 +363,8 @@
         "minutes": "{{number}}м",
         "seconds": "{{number}}с",
         "ago": "{{value}} назад",
-        "true": "Yes",
-        "false": "No"
+        "true": "Да",
+        "false": "Нет"
     },
     "technitium": {
         "totalQueries": "Запросы",
@@ -632,12 +632,12 @@
     },
     "pangolin": {
         "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "sites": "Сайты",
+        "resources": "Ресурсы",
+        "targets": "Цели",
+        "traffic": "Трафик",
+        "in": "Входящий",
+        "out": "Исходящий"
     },
     "peanut": {
         "battery_charge": "Заряд батареи",
@@ -736,8 +736,8 @@
         "volumeAvailable": "Доступно"
     },
     "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Streams"
+        "channels": "Каналы",
+        "streams": "Потоки"
     },
     "mylar": {
         "series": "Серии",
@@ -828,10 +828,10 @@
         "series": "Серии"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "Библиотеки",
+        "books": "Книги",
+        "reading": "Читаю",
+        "finished": "Завершено"
     },
     "jdownloader": {
         "downloadCount": "Очередь",
@@ -937,17 +937,17 @@
         "criticals": "Критические"
     },
     "ntfy": {
-        "title": "Title",
-        "priority": "Priority",
+        "title": "Название",
+        "priority": "Приоритет",
         "lastReceived": "Last Received",
-        "message": "Message",
-        "tags": "Tags",
-        "none": "None",
-        "min": "Min",
-        "low": "Low",
-        "default": "Default",
-        "high": "High",
-        "urgent": "Urgent"
+        "message": "Сообщение",
+        "tags": "Теги",
+        "none": "Отсутствует",
+        "min": "Минимальный",
+        "low": "Низкий",
+        "default": "По-умолчанию",
+        "high": "Высокий",
+        "urgent": "Срочный"
     },
     "plantit": {
         "events": "События",
@@ -1087,7 +1087,7 @@
     },
     "gitlab": {
         "groups": "Группы",
-        "issues": "Issues",
+        "issues": "Задачи",
         "merges": "Мердж-реквесты",
         "projects": "Проекты"
     },
@@ -1150,26 +1150,26 @@
         "nextRenewingSubscription": "Следующая оплата"
     },
     "unraid": {
-        "STARTED": "Started",
-        "STOPPED": "Stopped",
+        "STARTED": "Запущено",
+        "STOPPED": "Остановлено",
         "NEW_ARRAY": "Новый массив",
-        "RECON_DISK": "Reconstructing Disk",
-        "DISABLE_DISK": "Disk Disabled",
-        "SWAP_DSBL": "Swap Disable",
-        "INVALID_EXPANSION": "Invalid Expansion",
+        "RECON_DISK": "Восстановление Диска",
+        "DISABLE_DISK": "Диск отключен",
+        "SWAP_DSBL": "Swap отключён",
+        "INVALID_EXPANSION": "Неверное Расширение",
         "PARITY_NOT_BIGGEST": "Parity Not Biggest",
-        "TOO_MANY_MISSING_DISKS": "Too Many Missing Disks",
-        "NEW_DISK_TOO_SMALL": "New Disk Too Small",
-        "NO_DATA_DISKS": "No Data Disks",
+        "TOO_MANY_MISSING_DISKS": "Слишком много отсутствующих дисков",
+        "NEW_DISK_TOO_SMALL": "Новый диск слишком мал",
+        "NO_DATA_DISKS": "Нет дисков данных",
         "notifications": "Уведомления",
         "status": "Статус",
         "cpu": "ЦП",
         "memoryUsed": "Использовано ОЗУ",
-        "memoryAvailable": "Memory Available",
+        "memoryAvailable": "Доступная память",
         "arrayUsed": "Array Used",
         "arrayFree": "Array Free",
-        "poolUsed": "{{pool}} Used",
-        "poolFree": "{{pool}} Free"
+        "poolUsed": "{{pool}} Использовано",
+        "poolFree": "{{pool}} Свободно"
     },
     "backrest": {
         "num_plans": "Plans",
@@ -1180,29 +1180,29 @@
         "bytes_added_30": "Bytes Added"
     },
     "yourspotify": {
-        "songs": "Songs",
+        "songs": "Треков",
         "time": "Время",
-        "artists": "Artists"
+        "artists": "Исполнителей"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "Контейнеров",
+        "images": "Образов",
+        "image_updates": "Обновлений",
+        "images_unused": "Не используется",
+        "environment_required": "Требуется ID окружения"
     },
     "dockhand": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "cpu": "CPU",
-        "memory": "Memory",
-        "images": "Images",
-        "volumes": "Volumes",
-        "events_today": "Events Today",
-        "pending_updates": "Pending Updates",
-        "stacks": "Stacks",
-        "paused": "Paused",
-        "total": "Total",
+        "running": "Запущено",
+        "stopped": "Остановлено",
+        "cpu": "ЦП",
+        "memory": "ОЗУ",
+        "images": "Образов",
+        "volumes": "Томов",
+        "events_today": "Событий сегодня",
+        "pending_updates": "Обновлений",
+        "stacks": "Стеков",
+        "paused": "На паузе",
+        "total": "Всего",
         "environment_not_found": "Среда не найдена"
     },
     "sparkyfitness": {
