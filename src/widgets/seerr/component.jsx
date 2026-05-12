@@ -30,10 +30,11 @@ export default function Component({ service }) {
     );
   }
 
-  if (statsData.completed === undefined) {
-    // Newer versions added "completed", fallback to available
-    widget.fields = widget.fields.filter((field) => field !== "completed");
-    widget.fields.push("available");
+  if (statsData.completed === undefined && widget.fields.includes("completed")) {
+    // Fallback only when the user explicitly requested "completed"
+    widget.fields = widget.fields.map((field) =>
+      field === "completed" ? "available" : field,
+    );
   }
 
   return (
