@@ -30,7 +30,10 @@ export default function Component({ service }) {
     );
   }
 
-  if (statsData.completed === undefined && (widget.fields.includes("completed") || widget.fields.includes("available"))) {
+  if (
+    statsData.completed === undefined &&
+    (widget.fields.includes("completed") || widget.fields.includes("available"))
+  ) {
     // Fallback to "available" if "completed" requested but not available
     widget.fields = widget.fields.map((field) => (field === "completed" ? "available" : field));
   }
