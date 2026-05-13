@@ -64,7 +64,7 @@ export default function ServicesGroup({
                     className="cursor-pointer bg-slate-500 rounded-md px-2 text-sm text-center"
                     onClick={openAll}
                   >
-                      Open All
+                    Open All
                   </span>
                   <MdKeyboardArrowDown
                     className={classNames(
