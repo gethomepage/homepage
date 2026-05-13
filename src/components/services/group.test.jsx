@@ -42,11 +42,17 @@ vi.mock("components/services/list", () => ({
     return (
       <div data-testid="services-list-mock">
         {groupName}:{services?.length ?? 0}
+        {services?.map((s, i) => (
+          <a key={i} href={s.url}>
+            {s.name}
+          </a>
+        ))}
       </div>
     );
   },
 }));
 
+import { fireEvent } from "@testing-library/react";
 import ServicesGroup from "./group";
 
 describe("components/services/group", () => {
@@ -55,7 +61,7 @@ describe("components/services/group", () => {
       <ServicesGroup
         group={{
           name: "Main",
-          services: [{ name: "svc" }],
+          services: [{ name: "svc", url: "https://example.com" }],
           groups: [{ name: "Sub", services: [], groups: [] }],
         }}
         layout={{ icon: "mdi:test" }}
@@ -83,5 +89,40 @@ describe("components/services/group", () => {
     await waitFor(() => {
       expect(panel.style.height).toBe("0px");
     });
+  });
+
+  it("opens all links when 'Open All' is clicked", () => {
+    const windowOpenSpy = vi.spyOn(window, "open").mockImplementation(() => ({}));
+    const stopPropagationSpy = vi.fn();
+
+    render(
+      <ServicesGroup
+        group={{
+          name: "Main",
+          services: [
+            { name: "S1", url: "https://s1.com" },
+            { name: "S2", url: "https://s2.com" },
+          ],
+          groups: [
+            {
+              name: "Sub",
+              services: [{ name: "S3", url: "https://s3.com" }],
+              groups: [],
+            },
+          ],
+        }}
+        groupsInitiallyCollapsed={false}
+      />,
+    );
+
+    const openAllBtn = screen.getAllByText("Open All")[0];
+    fireEvent.click(openAllBtn, { stopPropagation: stopPropagationSpy });
+
+    expect(windowOpenSpy).toHaveBeenCalledTimes(3);
+    expect(windowOpenSpy).toHaveBeenCalledWith("https://s1.com/", "_blank", "noopener,noreferrer");
+    expect(windowOpenSpy).toHaveBeenCalledWith("https://s2.com/", "_blank", "noopener,noreferrer");
+    expect(windowOpenSpy).toHaveBeenCalledWith("https://s3.com/", "_blank", "noopener,noreferrer");
+
+    windowOpenSpy.mockRestore();
   });
 });

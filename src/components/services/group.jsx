@@ -25,6 +25,15 @@ export default function ServicesGroup({
   let groupPadding = layout?.header === false ? "px-1" : "p-1 pb-0";
   if (isSubgroup) groupPadding = "";
 
+  const openAll = (e) => {
+    e.stopPropagation();
+    if (!panel.current) return;
+    const links = panel.current.querySelectorAll("a");
+    links.forEach((link) => {
+      window.open(link.href, "_blank", "noopener,noreferrer");
+    });
+  };
+
   return (
     <div
       key={group.name}
@@ -49,13 +58,16 @@ export default function ServicesGroup({
                 <h2 className="flex text-theme-800 dark:text-theme-300 text-xl font-medium service-group-name">
                   {group.name}
                 </h2>
-                <MdKeyboardArrowDown
-                  className={classNames(
-                    disableCollapse ? "hidden" : "",
-                    "transition-all opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl",
-                    open ? "" : "rotate-180",
-                  )}
-                />
+                <div className="flex ml-auto">
+                  <span role="button" className="cursor-pointer bg-slate-500 rounded-md px-2 text-sm text-center" onClick={openAll} >Open All</span>
+                  <MdKeyboardArrowDown
+                    className={classNames(
+                      disableCollapse ? "hidden" : "",
+                      "transition-all opacity-0 group-hover:opacity-100 ml-auto text-theme-800 dark:text-theme-300 text-xl",
+                      open ? "" : "rotate-180",
+                    )}
+                  />
+                </div>
               </Disclosure.Button>
             )}
             <Transition
@@ -88,9 +100,8 @@ export default function ServicesGroup({
                 />
                 {group.groups?.length > 0 && (
                   <div
-                    className={`grid ${
-                      layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col"
-                    } gap-2`}
+                    className={`grid ${layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col"
+                      } gap-2`}
                   >
                     {group.groups.map((subgroup) => (
                       <ServicesGroup
