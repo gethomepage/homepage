@@ -100,8 +100,9 @@ export default function ServicesGroup({
                 />
                 {group.groups?.length > 0 && (
                   <div
-                    className={`grid ${layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col"
-                      } gap-2`}
+                    className={`grid ${
+                      layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col"
+                    } gap-2`}
                   >
                     {group.groups.map((subgroup) => (
                       <ServicesGroup
