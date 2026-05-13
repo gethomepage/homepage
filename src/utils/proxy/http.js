@@ -18,7 +18,7 @@ function addCookieHandler(url, params) {
   // handle cookies during redirects
   params.beforeRedirect = (options, responseInfo) => {
     addCookieToJar(options.href, responseInfo.headers);
-    setCookieHeader(options.href, options);
+    setCookieHeader(options.href, options, { overwrite: true });
   };
 }
 

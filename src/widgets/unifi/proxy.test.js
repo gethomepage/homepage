@@ -86,6 +86,9 @@ describe("widgets/unifi/proxy", () => {
     expect(httpProxy).toHaveBeenCalledTimes(4);
     expect(httpProxy.mock.calls[1][0].toString()).toContain("/proxy/network/api/self");
     expect(cookieJar.addCookieToJar).toHaveBeenCalled();
+    expect(cookieJar.setCookieHeader).toHaveBeenLastCalledWith(expect.any(URL), expect.any(Object), {
+      overwrite: true,
+    });
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual(Buffer.from("data"));
   });

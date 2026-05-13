@@ -348,7 +348,9 @@ describe("utils/proxy/http httpProxy", () => {
     );
 
     expect(cookieJar.addCookieToJar).toHaveBeenCalledWith("http://example.com/redirect", { "set-cookie": ["a=b"] });
-    expect(cookieJar.setCookieHeader).toHaveBeenCalledWith("http://example.com/redirect", expect.any(Object));
+    expect(cookieJar.setCookieHeader).toHaveBeenCalledWith("http://example.com/redirect", expect.any(Object), {
+      overwrite: true,
+    });
   });
 
   it("supports gzip-compressed responses", async () => {

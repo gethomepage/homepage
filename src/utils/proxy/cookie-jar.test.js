@@ -54,4 +54,17 @@ describe("utils/proxy/cookie-jar", () => {
 
     expect(params.headers.Cookie).toBe("manual=1");
   });
+
+  it("overwrites an existing cookie header when requested", async () => {
+    const { addCookieToJar, setCookieHeader } = await import("./cookie-jar");
+
+    const url = new URL("http://example5.test/path");
+    addCookieToJar(url, { "set-cookie": ["sid=1; Path=/"] });
+
+    const params = { headers: { Cookie: "stale=1" } };
+    setCookieHeader(url, params, { overwrite: true });
+
+    expect(params.headers.Cookie).toContain("sid=1");
+    expect(params.headers.Cookie).not.toContain("stale=1");
+  });
 });
