@@ -59,7 +59,13 @@ export default function ServicesGroup({
                   {group.name}
                 </h2>
                 <div className="flex ml-auto">
-                  <span role="button" className="cursor-pointer bg-slate-500 rounded-md px-2 text-sm text-center" onClick={openAll} >Open All</span>
+                  <span
+                    role="button"
+                    className="cursor-pointer bg-slate-500 rounded-md px-2 text-sm text-center"
+                    onClick={openAll}
+                  >
+                      Open All
+                  </span>
                   <MdKeyboardArrowDown
                     className={classNames(
                       disableCollapse ? "hidden" : "",
