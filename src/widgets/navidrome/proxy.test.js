@@ -89,6 +89,18 @@ describe("navidrome proxy", () => {
     expect(httpProxy).not.toHaveBeenCalled();
   });
 
+  it("rejects services with an unsupported widget type", async () => {
+    getServiceWidget.mockResolvedValueOnce({ type: "unsupported" });
+    const req = { query: { group: "g", service: "s", index: "0", endpoint: "libraryStats" } };
+    const res = createMockRes();
+
+    await navidromeProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(403);
+    expect(res.body).toEqual({ error: "Service does not support API calls" });
+    expect(httpProxy).not.toHaveBeenCalled();
+  });
+
   it("aggregates library stats from Subsonic-compatible responses", async () => {
     httpProxy
       .mockResolvedValueOnce(
@@ -134,6 +146,21 @@ describe("navidrome proxy", () => {
     expect(httpProxy.mock.calls[1][0].searchParams.get("type")).toBe("alphabeticalByName");
     expect(httpProxy.mock.calls[1][0].searchParams.get("size")).toBe("500");
     expect(httpProxy.mock.calls[1][0].searchParams.get("offset")).toBe("0");
+  });
+
+  it("aggregates library stats from already-parsed JSON responses", async () => {
+    httpProxy
+      .mockResolvedValueOnce([200, "application/json", { indexes: { index: [{ artist: [{ id: "1" }] }] } }])
+      .mockResolvedValueOnce([200, "application/json", { albumList2: { album: [{ id: "a", songCount: 2 }] } }])
+      .mockResolvedValueOnce([200, "application/json", { playlists: { playlist: [{ id: "p1" }] } }]);
+
+    const req = { query: { group: "g", service: "s", index: "0", endpoint: "libraryStats" } };
+    const res = createMockRes();
+
+    await navidromeProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ artists: 1, albums: 1, songs: 2, playlists: 1 });
   });
 
   it("aggregates album and song stats across multiple album pages", async () => {
@@ -224,6 +251,42 @@ describe("navidrome proxy", () => {
     expect(res.body).toEqual({ artists: 0, albums: 1, songs: null, playlists: 0 });
   });
 
+  it("returns a sanitized Subsonic error when every upstream call reports one", async () => {
+    httpProxy
+      .mockResolvedValueOnce(
+        jsonResponse({
+          "subsonic-response": {
+            error: { code: 40, message: "Wrong username or password" },
+          },
+        }),
+      )
+      .mockResolvedValueOnce(
+        jsonResponse({
+          "subsonic-response": {
+            error: { code: 40, message: "Wrong username or password" },
+          },
+        }),
+      )
+      .mockResolvedValueOnce(
+        jsonResponse({
+          "subsonic-response": {
+            error: { code: 40, message: "Wrong username or password" },
+          },
+        }),
+      );
+
+    const req = { query: { group: "g", service: "s", index: "0", endpoint: "libraryStats" } };
+    const res = createMockRes();
+
+    await navidromeProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body.error.data).toEqual({ code: 40, message: "Wrong username or password" });
+    expect(res.body.error.url).toContain("t=***");
+    expect(res.body.error.url).toContain("u=***");
+    expect(res.body.error.url).toContain("s=***");
+  });
+
   it("returns partial stats when album pagination does not advance", async () => {
     httpProxy
       .mockResolvedValueOnce(jsonResponse({ "subsonic-response": { indexes: { index: [] } } }))
@@ -260,6 +323,21 @@ describe("navidrome proxy", () => {
     httpProxy
       .mockResolvedValueOnce(jsonResponse({ "subsonic-response": { indexes: { index: [{ artist: [{ id: "1" }] }] } } }))
       .mockResolvedValueOnce([500, "application/json", Buffer.from(JSON.stringify({ error: "boom" }))])
+      .mockResolvedValueOnce(jsonResponse({ "subsonic-response": { playlists: { playlist: [{ id: "p1" }] } } }));
+
+    const req = { query: { group: "g", service: "s", index: "0", endpoint: "libraryStats" } };
+    const res = createMockRes();
+
+    await navidromeProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ artists: 1, albums: null, songs: null, playlists: 1 });
+  });
+
+  it("returns partial stats when one upstream call throws", async () => {
+    httpProxy
+      .mockResolvedValueOnce(jsonResponse({ "subsonic-response": { indexes: { index: [{ artist: [{ id: "1" }] }] } } }))
+      .mockRejectedValueOnce(new Error("connection reset"))
       .mockResolvedValueOnce(jsonResponse({ "subsonic-response": { playlists: { playlist: [{ id: "p1" }] } } }));
 
     const req = { query: { group: "g", service: "s", index: "0", endpoint: "libraryStats" } };

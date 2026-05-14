@@ -87,6 +87,39 @@ describe("widgets/navidrome/component", () => {
     expect(screen.getByText("Artist - Song")).toBeInTheDocument();
   });
 
+  it("renders array now playing entries without ids", () => {
+    mockWidgetAPI({
+      nowPlayingData: {
+        "subsonic-response": {
+          nowPlaying: {
+            entry: [{ title: "First Song" }, { title: "Second Song", album: "Second Album", username: "listener" }],
+          },
+        },
+      },
+      libraryStats: { artists: 1, albums: 2, songs: 3, playlists: 4 },
+    });
+
+    renderWithProviders(<Component service={{ widget: { type: "navidrome" } }} />, { settings: { hideErrors: false } });
+
+    expect(screen.getByText("First Song")).toBeInTheDocument();
+    expect(screen.getByText("Second Song — Second Album (listener)")).toBeInTheDocument();
+  });
+
+  it("renders a Subsonic error container when the payload contains an error", () => {
+    mockWidgetAPI({
+      nowPlayingData: {
+        "subsonic-response": {
+          error: { message: "Wrong username or password" },
+        },
+      },
+    });
+
+    renderWithProviders(<Component service={{ widget: { type: "navidrome" } }} />, { settings: { hideErrors: false } });
+
+    expect(screen.getAllByText(/widget\.api_error/i).length).toBeGreaterThan(0);
+    expect(screen.getByText("Wrong username or password")).toBeInTheDocument();
+  });
+
   it("renders library counts with no active streams", () => {
     mockWidgetAPI({
       nowPlayingData: {

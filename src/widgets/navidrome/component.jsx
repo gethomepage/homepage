@@ -94,8 +94,8 @@ export default function Component({ service }) {
     <>
       <LibraryStats libraryStats={libraryStats} service={service} />
       <div className="flex flex-col pb-1 mx-1">
-        {nowPlayingEntries.map((entry) => (
-          <SinglePlayingEntry key={entry.id} entry={entry} />
+        {nowPlayingEntries.map((entry, index) => (
+          <SinglePlayingEntry key={entry.id ?? `${entry.title ?? "entry"}-${index}`} entry={entry} />
         ))}
       </div>
     </>
