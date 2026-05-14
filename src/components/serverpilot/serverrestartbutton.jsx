@@ -8,6 +8,19 @@ export default function ServerRestartButton({ sshKeyPath, sshUser = "ubuntu" }) 
   const [success, setSuccess] = useState(false);
   const [countdown, setCountdown] = useState(5);
 
+  // Timer ref to track the countdown interval
+  const countdownRef = useRef(null);
+
+  // Cleanup interval on unmount
+  useEffect(() => {
+    return () => {
+      if (countdownRef.current) {
+        clearInterval(countdownRef.current);
+        countdownRef.current = null;
+      }
+    };
+  }, []);
+
   const handleRestart = async () => {
     if (loading) return;
     setLoading(true);
@@ -34,16 +47,22 @@ export default function ServerRestartButton({ sshKeyPath, sshUser = "ubuntu" }) 
   const openConfirm = () => {
     setConfirmOpen(true);
     setCountdown(5);
-    const timer = setInterval(() => {
+    // Clear any existing interval first
+    if (countdownRef.current) {
+      clearInterval(countdownRef.current);
+    }
+    countdownRef.current = setInterval(() => {
       setCountdown((c) => {
         if (c <= 1) {
-          clearInterval(timer);
+          if (countdownRef.current) {
+            clearInterval(countdownRef.current);
+            countdownRef.current = null;
+          }
           return 0;
         }
         return c - 1;
       });
     }, 1000);
-    return () => clearInterval(timer);
   };
 
   return (

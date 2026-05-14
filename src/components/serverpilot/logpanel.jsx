@@ -9,8 +9,15 @@ export default function LogPanel({ containerName, server, lines = 100 }) {
   const [allContainers, setAllContainers] = useState([]);
   const [selectedContainer, setSelectedContainer] = useState(containerName || null);
   const logsEndRef = useRef(null);
+  const eventSourceRef = useRef(null);
 
   const fetchLogs = async (cName, cServer, lineCount = lines, stream = false) => {
+    // Close any existing EventSource before creating a new one
+    if (eventSourceRef.current) {
+      eventSourceRef.current.close();
+      eventSourceRef.current = null;
+    }
+
     const params = cServer ? [cName, cServer] : [cName];
     const url = `/api/docker/logs/${params.join("/")}?lines=${lineCount}&stream=${stream}`;
     setLoading(true);
@@ -20,6 +27,7 @@ export default function LogPanel({ containerName, server, lines = 100 }) {
       if (stream) {
         setStreaming(true);
         const eventSource = new EventSource(url);
+        eventSourceRef.current = eventSource;
 
         eventSource.onmessage = (event) => {
           setLogs((prev) => [...prev.slice(-500), event.data]);
@@ -27,11 +35,7 @@ export default function LogPanel({ containerName, server, lines = 100 }) {
 
         eventSource.onerror = () => {
           eventSource.close();
-          setStreaming(false);
-        };
-
-        return () => {
-          eventSource.close();
+          eventSourceRef.current = null;
           setStreaming(false);
         };
       } else {
@@ -46,6 +50,15 @@ export default function LogPanel({ containerName, server, lines = 100 }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (eventSourceRef.current) {
+        eventSourceRef.current.close();
+        eventSourceRef.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (selectedContainer) {

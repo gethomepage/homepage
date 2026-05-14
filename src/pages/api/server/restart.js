@@ -7,6 +7,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  const { sshKeyPath, sshUser } = req.query || {};
+
   // Validate sshKeyPath is an absolute path with no shell metacharacters
   if (!sshKeyPath || typeof sshKeyPath !== 'string') {
     return res.status(400).json({ error: "SSH key path is required" });
@@ -17,6 +19,9 @@ export default async function handler(req, res) {
   // Block shell metacharacters that could enable command injection
   if (/[;&|`$(){}[\]<>\\!?"' \t\n\r]/.test(sshKeyPath)) {
     return res.status(400).json({ error: "SSH key path contains invalid characters" });
+  }
+  if (!sshUser || typeof sshUser !== 'string') {
+    return res.status(400).json({ error: "SSH user is required" });
   }
   if (/[;&|`$(){}[\]<>\\!?"' \t\n\r]/.test(sshUser)) {
     return res.status(400).json({ error: "SSH user contains invalid characters" });
