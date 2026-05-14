@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Attendere prego"
+        "nothing_streaming": "Nessuno streaming attivo",
+        "please_wait": "Attendere prego",
+        "albums": "Album",
+        "artists": "Artisti",
+        "playlists": "Playlist",
+        "songs": "Brani"
     },
     "npm": {
         "enabled": "Abilitato",

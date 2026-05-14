@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "ไม่มีสตรีมที่ใช้งานอยู่",
+        "please_wait": "โปรดรอสักครู่",
+        "albums": "อัลบั้ม",
+        "artists": "ศิลปิน",
+        "playlists": "เพลย์ลิสต์",
+        "songs": "เพลง"
     },
     "npm": {
         "enabled": "เปิด",

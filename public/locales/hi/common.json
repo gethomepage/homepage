@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "कोई सक्रिय स्ट्रीम नहीं",
+        "please_wait": "कृपया प्रतीक्षा करें",
+        "albums": "एल्बम",
+        "artists": "कलाकार",
+        "playlists": "प्लेलिस्ट",
+        "songs": "गीत"
     },
     "npm": {
         "enabled": "Enabled",

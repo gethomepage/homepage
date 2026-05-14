@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Sila tunggu"
+        "nothing_streaming": "Tiada strim aktif",
+        "please_wait": "Sila tunggu",
+        "albums": "Album",
+        "artists": "Artis",
+        "playlists": "Senarai main",
+        "songs": "Lagu"
     },
     "npm": {
         "enabled": "Didayakan",

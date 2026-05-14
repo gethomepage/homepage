@@ -397,8 +397,12 @@
         "unknown": "Onbekend"
     },
     "navidrome": {
-        "nothing_streaming": "Geen Aktiewe Strome",
-        "please_wait": "Wag Asseblief"
+        "nothing_streaming": "Geen aktiewe strome",
+        "please_wait": "Wag asseblief",
+        "albums": "Albums",
+        "artists": "Kunstenaars",
+        "playlists": "Snitlyste",
+        "songs": "Liedjies"
     },
     "npm": {
         "enabled": "Geaktiveer",

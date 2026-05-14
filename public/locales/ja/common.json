@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "お待ちください"
+        "nothing_streaming": "アクティブなストリームはありません",
+        "please_wait": "お待ちください",
+        "albums": "アルバム",
+        "artists": "アーティスト",
+        "playlists": "プレイリスト",
+        "songs": "曲"
     },
     "npm": {
         "enabled": "有効",

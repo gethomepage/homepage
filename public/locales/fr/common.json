@@ -398,7 +398,11 @@
     },
     "navidrome": {
         "nothing_streaming": "Aucune lecture en cours",
-        "please_wait": "Merci de patienter"
+        "please_wait": "Merci de patienter",
+        "albums": "Albums",
+        "artists": "Artistes",
+        "playlists": "Listes de lecture",
+        "songs": "Titres"
     },
     "npm": {
         "enabled": "Activé",

@@ -398,7 +398,11 @@
     },
     "navidrome": {
         "nothing_streaming": "אין הזרמות פעילות",
-        "please_wait": "המתן בבקשה"
+        "please_wait": "נא להמתין",
+        "albums": "אלבומים",
+        "artists": "אמנים",
+        "playlists": "רשימות השמעה",
+        "songs": "שירים"
     },
     "npm": {
         "enabled": "מופעל",

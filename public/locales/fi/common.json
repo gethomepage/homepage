@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Odota, ole hyvä"
+        "nothing_streaming": "Ei aktiivisia suoratoistoja",
+        "please_wait": "Odota hetki",
+        "albums": "Albumit",
+        "artists": "Artistit",
+        "playlists": "Soittolistat",
+        "songs": "Kappaleet"
     },
     "npm": {
         "enabled": "Käytössä",

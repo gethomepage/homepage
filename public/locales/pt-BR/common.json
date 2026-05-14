@@ -362,8 +362,12 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "Sem transmissões ativas",
-        "please_wait": "Por favor aguarde"
+        "nothing_streaming": "Nenhuma transmissão ativa",
+        "please_wait": "Aguarde",
+        "albums": "Álbuns",
+        "artists": "Artistas",
+        "playlists": "Playlists",
+        "songs": "Músicas"
     },
     "pyload": {
         "speed": "Velocidade",

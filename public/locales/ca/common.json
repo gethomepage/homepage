@@ -397,8 +397,12 @@
         "unknown": "Desconegut"
     },
     "navidrome": {
-        "nothing_streaming": "Sense reproduccions actives",
-        "please_wait": "Espereu si us plau"
+        "nothing_streaming": "No hi ha reproduccions actives",
+        "please_wait": "Espereu",
+        "albums": "Àlbums",
+        "artists": "Artistes",
+        "playlists": "Llistes de reproducció",
+        "songs": "Cançons"
     },
     "npm": {
         "enabled": "Activat",

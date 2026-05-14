@@ -397,8 +397,12 @@
         "unknown": "Neznámý"
     },
     "navidrome": {
-        "nothing_streaming": "Nic se nepřehrává",
-        "please_wait": "Čekejte prosím"
+        "nothing_streaming": "Žádné aktivní streamy",
+        "please_wait": "Čekejte prosím",
+        "albums": "Alba",
+        "artists": "Interpreti",
+        "playlists": "Playlisty",
+        "songs": "Skladby"
     },
     "npm": {
         "enabled": "Povoleno",

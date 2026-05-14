@@ -397,8 +397,12 @@
         "unknown": "Bilinmeyen"
     },
     "navidrome": {
-        "nothing_streaming": "Etkin akış yok",
-        "please_wait": "Lütfen Bekleyin"
+        "nothing_streaming": "Etkin yayın yok",
+        "please_wait": "Lütfen bekleyin",
+        "albums": "Albümler",
+        "artists": "Sanatçılar",
+        "playlists": "Çalma listeleri",
+        "songs": "Şarkılar"
     },
     "npm": {
         "enabled": "Etkin",

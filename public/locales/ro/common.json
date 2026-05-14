@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Nu există fluxuri active",
+        "please_wait": "Vă rugăm să așteptați",
+        "albums": "Albume",
+        "artists": "Artiști",
+        "playlists": "Liste de redare",
+        "songs": "Melodii"
     },
     "npm": {
         "enabled": "Activat",

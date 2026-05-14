@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Prosim počakajte"
+        "nothing_streaming": "Ni aktivnih pretokov",
+        "please_wait": "Počakajte prosim",
+        "albums": "Albumi",
+        "artists": "Izvajalci",
+        "playlists": "Seznami predvajanja",
+        "songs": "Pesmi"
     },
     "npm": {
         "enabled": "Omogočen",

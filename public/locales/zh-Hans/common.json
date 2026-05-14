@@ -397,8 +397,12 @@
         "unknown": "未知"
     },
     "navidrome": {
-        "nothing_streaming": "暂无播放",
-        "please_wait": "请等待"
+        "nothing_streaming": "暂无活跃串流",
+        "please_wait": "请稍候",
+        "albums": "专辑",
+        "artists": "艺术家",
+        "playlists": "播放列表",
+        "songs": "歌曲"
     },
     "npm": {
         "enabled": "已启用",
