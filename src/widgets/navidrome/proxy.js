@@ -1,8 +1,8 @@
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { formatApiCall, sanitizeErrorURL } from "utils/proxy/api-helpers";
-import { httpProxy } from "utils/proxy/http";
 import genericProxyHandler from "utils/proxy/handlers/generic";
+import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
 const logger = createLogger("navidromeProxyHandler");
