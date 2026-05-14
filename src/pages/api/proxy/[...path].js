@@ -16,9 +16,15 @@ export default async function handler(req, res) {
   // Load services config to find target URL
   checkAndCopyConfig("services.yaml");
   const servicesFile = path.join(CONF_DIR, "services.yaml");
-  const rawData = readFileSync(servicesFile, "utf8");
-  const servicesData = substituteEnvironmentVars(rawData);
-  const servicesConfig = yaml.load(servicesData);
+  let servicesConfig;
+  try {
+    const rawData = readFileSync(servicesFile, "utf8");
+    const servicesData = substituteEnvironmentVars(rawData);
+    servicesConfig = yaml.load(servicesData);
+  } catch (e) {
+    logger.error(e);
+    return res.status(500).json({ error: "Failed to load services config" });
+  }
 
   // Find the service with API key for auto-login
   const targetService = servicesConfig
@@ -33,12 +39,17 @@ export default async function handler(req, res) {
   const targetUrl = new URL(targetService.href);
   const proxyUrl = `${targetUrl.origin}/${servicePath.join("/")}`;
 
+  let response;
   try {
-    const response = await fetch(proxyUrl, {
+    response = await fetch(proxyUrl, {
       headers: {
         ...(targetService.apikey && { "X-Api-Key": targetService.apikey }),
       },
     });
+  } catch (e) {
+    logger.error(e);
+    return res.status(502).json({ error: "Failed to reach target service" });
+  }
 
     // Strip CSP and X-Frame-Options headers
     const headers = new Headers();
