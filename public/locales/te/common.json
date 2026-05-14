@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "సక్రియ స్ట్రీమ్‌లు లేవు",
+        "please_wait": "దయచేసి వేచి ఉండండి",
+        "albums": "ఆల్బమ్‌లు",
+        "artists": "కళాకారులు",
+        "playlists": "ప్లేలిస్ట్‌లు",
+        "songs": "పాటలు"
     },
     "npm": {
         "enabled": "ప్రారంభించబడింది",

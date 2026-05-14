@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Inga aktiva strömmar",
+        "please_wait": "Vänta",
+        "albums": "Album",
+        "artists": "Artister",
+        "playlists": "Spellistor",
+        "songs": "Låtar"
     },
     "npm": {
         "enabled": "Aktiverad",

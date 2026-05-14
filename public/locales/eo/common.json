@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Neniuj aktivaj fluoj",
+        "please_wait": "Bonvolu atendi",
+        "albums": "Albumoj",
+        "artists": "Artistoj",
+        "playlists": "Ludlistoj",
+        "songs": "Kantoj"
     },
     "npm": {
         "enabled": "Enabled",

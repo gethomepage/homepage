@@ -398,7 +398,11 @@
     },
     "navidrome": {
         "nothing_streaming": "활성 스트림 없음",
-        "please_wait": "잠시만 기다리세요"
+        "please_wait": "잠시만 기다려 주세요",
+        "albums": "앨범",
+        "artists": "아티스트",
+        "playlists": "재생목록",
+        "songs": "곡"
     },
     "npm": {
         "enabled": "활성",

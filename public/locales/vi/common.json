@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Không có luồng đang hoạt động",
+        "please_wait": "Vui lòng chờ",
+        "albums": "Album",
+        "artists": "Nghệ sĩ",
+        "playlists": "Danh sách phát",
+        "songs": "Bài hát"
     },
     "npm": {
         "enabled": "Enabled",

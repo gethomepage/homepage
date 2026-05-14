@@ -397,8 +397,12 @@
         "unknown": "Desconocido"
     },
     "navidrome": {
-        "nothing_streaming": "Sin transmisiones activas",
-        "please_wait": "Por favor, espera"
+        "nothing_streaming": "No hay transmisiones activas",
+        "please_wait": "Espera por favor",
+        "albums": "Álbumes",
+        "artists": "Artistas",
+        "playlists": "Listas de reproducción",
+        "songs": "Canciones"
     },
     "npm": {
         "enabled": "Activos",

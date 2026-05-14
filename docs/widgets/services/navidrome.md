@@ -7,7 +7,9 @@ Learn more about [Navidrome](https://github.com/navidrome/navidrome).
 
 For detailed information about how to generate the token see http://www.subsonic.org/pages/api.jsp.
 
-Allowed fields: no configurable fields for this widget.
+Displayed fields: now playing entries plus library counts for `artists`, `albums`, `songs`, and `playlists`.
+
+The displayed fields are not configurable. The library counts use Navidrome's Subsonic-compatible API and may depend on the server returning compatible album, artist, and playlist responses.
 
 ```yaml
 widget:

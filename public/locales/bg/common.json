@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Моля Изчакайте"
+        "nothing_streaming": "Няма активни потоци",
+        "please_wait": "Моля, изчакайте",
+        "albums": "Албуми",
+        "artists": "Изпълнители",
+        "playlists": "Плейлисти",
+        "songs": "Песни"
     },
     "npm": {
         "enabled": "Активирано",

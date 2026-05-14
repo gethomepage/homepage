@@ -398,7 +398,11 @@
     },
     "navidrome": {
         "nothing_streaming": "Brak aktywnych strumieni",
-        "please_wait": "Proszę czekać"
+        "please_wait": "Proszę czekać",
+        "albums": "Albumy",
+        "artists": "Artyści",
+        "playlists": "Listy odtwarzania",
+        "songs": "Utwory"
     },
     "npm": {
         "enabled": "Włączone",

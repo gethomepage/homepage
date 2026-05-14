@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "請稍後"
+        "nothing_streaming": "冇活躍串流",
+        "please_wait": "請稍候",
+        "albums": "專輯",
+        "artists": "藝人",
+        "playlists": "播放清單",
+        "songs": "歌曲"
     },
     "npm": {
         "enabled": "啟用",

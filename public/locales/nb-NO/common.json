@@ -362,8 +362,12 @@
         "time": "{{value, number(style: unit; unitDisplay: long;)}}"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Ingen aktive strømmer",
+        "please_wait": "Vennligst vent",
+        "albums": "Album",
+        "artists": "Artister",
+        "playlists": "Spillelister",
+        "songs": "Sanger"
     },
     "pyload": {
         "speed": "Speed",

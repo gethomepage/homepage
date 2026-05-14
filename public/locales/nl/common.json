@@ -397,8 +397,12 @@
         "unknown": "Onbekend"
     },
     "navidrome": {
-        "nothing_streaming": "Geen Actieve Streams",
-        "please_wait": "Even geduld aub"
+        "nothing_streaming": "Geen actieve streams",
+        "please_wait": "Even geduld",
+        "albums": "Albums",
+        "artists": "Artiesten",
+        "playlists": "Afspeellijsten",
+        "songs": "Nummers"
     },
     "npm": {
         "enabled": "Ingeschakeld",

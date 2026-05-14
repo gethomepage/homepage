@@ -397,8 +397,12 @@
         "unknown": "Neznáme"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Počkajte prosím"
+        "nothing_streaming": "Žiadne aktívne streamy",
+        "please_wait": "Čakajte, prosím",
+        "albums": "Albumy",
+        "artists": "Interpreti",
+        "playlists": "Playlisty",
+        "songs": "Skladby"
     },
     "npm": {
         "enabled": "Povolené",

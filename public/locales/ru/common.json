@@ -397,8 +397,12 @@
         "unknown": "Неизвестно"
     },
     "navidrome": {
-        "nothing_streaming": "Нет активных стримов",
-        "please_wait": "Пожалуйста, подождите"
+        "nothing_streaming": "Нет активных потоков",
+        "please_wait": "Пожалуйста, подождите",
+        "albums": "Альбомы",
+        "artists": "Исполнители",
+        "playlists": "Плейлисты",
+        "songs": "Композиции"
     },
     "npm": {
         "enabled": "Включено",

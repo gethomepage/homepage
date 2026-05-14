@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Mohon menunggu"
+        "nothing_streaming": "Tidak ada streaming aktif",
+        "please_wait": "Mohon tunggu",
+        "albums": "Album",
+        "artists": "Artis",
+        "playlists": "Daftar putar",
+        "songs": "Lagu"
     },
     "npm": {
         "enabled": "Aktif",

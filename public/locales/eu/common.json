@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Please Wait"
+        "nothing_streaming": "Ez dago erreprodukzio aktiborik",
+        "please_wait": "Itxaron mesedez",
+        "albums": "Albumak",
+        "artists": "Artistak",
+        "playlists": "Erreprodukzio-zerrendak",
+        "songs": "Abestiak"
     },
     "npm": {
         "enabled": "Enabled",

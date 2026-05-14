@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "الرجاء الإنتظار"
+        "nothing_streaming": "لا توجد بثوث نشطة",
+        "please_wait": "يرجى الانتظار",
+        "albums": "الألبومات",
+        "artists": "الفنانون",
+        "playlists": "قوائم التشغيل",
+        "songs": "الأغاني"
     },
     "npm": {
         "enabled": "مفعل",

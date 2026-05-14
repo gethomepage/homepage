@@ -397,8 +397,12 @@
         "unknown": "Ismeretlen"
     },
     "navidrome": {
-        "nothing_streaming": "Nincs aktív lejátszás",
-        "please_wait": "Kérjük Várjon"
+        "nothing_streaming": "Nincs aktív stream",
+        "please_wait": "Kérjük, várjon",
+        "albums": "Albumok",
+        "artists": "Előadók",
+        "playlists": "Lejátszási listák",
+        "songs": "Dalok"
     },
     "npm": {
         "enabled": "Bekapcsolva",

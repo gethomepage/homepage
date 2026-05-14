@@ -397,8 +397,12 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
-        "please_wait": "Vennligst vent"
+        "nothing_streaming": "Ingen aktive strømmer",
+        "please_wait": "Vennligst vent",
+        "albums": "Album",
+        "artists": "Artister",
+        "playlists": "Spillelister",
+        "songs": "Sanger"
     },
     "npm": {
         "enabled": "Aktivert",
