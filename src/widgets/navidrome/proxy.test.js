@@ -104,7 +104,10 @@ describe("navidrome proxy", () => {
         jsonResponse({
           "subsonic-response": {
             albumList2: {
-              album: [{ id: "a", songCount: 5 }, { id: "b", songCount: 7 }],
+              album: [
+                { id: "a", songCount: 5 },
+                { id: "b", songCount: 7 },
+              ],
             },
           },
         }),
