@@ -1,0 +1,57 @@
+# ServerPilot — Homelab Dashboard Config
+# This file configures the ServerPilot dashboard behavior.
+# Copy this to your config directory as serverpilot.yaml
+
+auth:
+  # bcrypt hash of the dashboard PIN
+  password: ""
+
+server:
+  # SSH key path for server restart (absolute path inside container or host)
+  ssh_key_path: "/keys/id_ed25519"
+  # SSH user for localhost restart
+  ssh_user: "ubuntu"
+
+vpn:
+  # VPN type: "auto" (best effort), "tailscale", or "gluetun"
+  type: "auto"
+  # Expected Gluetun exit IP (optional — enables definitive VPN detection)
+  expected_ip: ""
+
+services:
+  - name: Jellyfin
+    type: docker
+    container: jellyfin
+    port: 8096
+    target: "http://localhost:8096"
+    icon: ""  # auto-scrape from Clearbit if empty
+
+  - name: Plex
+    type: docker
+    container: plex
+    port: 32400
+    target: "http://localhost:32400"
+    icon: ""
+
+  - name: Sonarr
+    type: docker
+    container: sonarr
+    port: 8989
+    target: "http://localhost:8989"
+    icon: ""
+    # API key for auto-login (Sonarr/Radarr/Lidarr/Prowlarr support X-Api-Key)
+    apikey: ""
+
+  - name: Radarr
+    type: docker
+    container: radarr
+    port: 7878
+    target: "http://localhost:7878"
+    icon: ""
+    apikey: ""
+
+  - name: Pihole
+    type: bare-metal
+    port: 80
+    target: "http://192.168.1.100/admin"
+    icon: ""
