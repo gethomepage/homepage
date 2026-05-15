@@ -961,6 +961,13 @@
         "pulls": "Solicitar pull",
         "repositories": "Repositories"
     },
+    "forgejo": {
+        "notifications": "Notificações",
+        "issues": "Issues",
+        "pulls": "Solicitar pull",
+        "repositories": "Repositories",
+        "commits": "Commits"
+    },
     "stash": {
         "scenes": "Cenas",
         "scenesPlayed": "Cenas reproduzidas",

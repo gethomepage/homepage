@@ -34,6 +34,7 @@ import filebrowser from "./filebrowser/widget";
 import fileflows from "./fileflows/widget";
 import firefly from "./firefly/widget";
 import flood from "./flood/widget";
+import forgejo from "./forgejo/widget";
 import freshrss from "./freshrss/widget";
 import frigate from "./frigate/widget";
 import fritzbox from "./fritzbox/widget";
@@ -189,6 +190,7 @@ const widgets = {
   fileflows,
   firefly,
   flood,
+  forgejo,
   freshrss,
   frigate,
   fritzbox,
