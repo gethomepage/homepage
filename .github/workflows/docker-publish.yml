@@ -37,7 +37,6 @@ jobs:
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6
         with:
           images: |
-            ${{ env.IMAGE_NAME }}
             ghcr.io/${{ env.IMAGE_NAME }}
           tags: |
             # Default tags
