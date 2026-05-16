@@ -33,6 +33,7 @@ describe("widgets/dispatcharr/component", () => {
       data: {
         count: 1,
         channels: [{ channel_name: "Stream1", clients: [{}, {}], avg_bitrate: "1000kbps" }],
+        channels: [{ stream_name: "Stream1", clients: [{}, {}], avg_bitrate: "1000kbps" }],
       },
       error: undefined,
     });
