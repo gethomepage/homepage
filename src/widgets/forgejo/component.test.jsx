@@ -27,13 +27,12 @@ describe("widgets/forgejo/component", () => {
       settings: { hideErrors: false },
     });
 
-    expect(container.querySelectorAll(".service-block")).toHaveLength(5);
+    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("forgejo.notifications")).toBeInTheDocument();
-    expect(screen.getByText("forgejo.issues")).toBeInTheDocument();
-    expect(screen.getByText("forgejo.pulls")).toBeInTheDocument();
+    expect(screen.getByText("forgejo.open_issues")).toBeInTheDocument();
     expect(screen.getByText("forgejo.repositories")).toBeInTheDocument();
     expect(screen.getByText("forgejo.commits")).toBeInTheDocument();
-    expect(screen.getAllByText("-")).toHaveLength(5);
+    expect(screen.getAllByText("-")).toHaveLength(4);
   });
 
   it("renders error UI when any endpoint errors", () => {
@@ -66,8 +65,7 @@ describe("widgets/forgejo/component", () => {
     });
 
     expectBlockValue(container, "forgejo.notifications", 2);
-    expectBlockValue(container, "forgejo.issues", 1);
-    expectBlockValue(container, "forgejo.pulls", 3);
+    expectBlockValue(container, "forgejo.open_issues", 4);
     expectBlockValue(container, "forgejo.repositories", 1);
     expectBlockValue(container, "forgejo.commits", 42);
   });

@@ -963,8 +963,7 @@
     },
     "forgejo": {
         "notifications": "Notificações",
-        "issues": "Issues",
-        "pulls": "Solicitar pull",
+        "open_issues": "Issues/PRs em Aberto",
         "repositories": "Repositories",
         "commits": "Commits"
     },
