@@ -50,10 +50,10 @@ export default function Component({ service }) {
         streams?.channels &&
         streams.channels.map((activeStream) => (
           <StreamEntry
-            title={activeStream.stream_name}
+            title={activeStream.channel_name ?? activeStream.stream_name}
             clients={activeStream.clients.length}
             bitrate={activeStream.avg_bitrate}
-            key={activeStream.stream_name}
+            key={activeStream.channel_name ?? activeStream.stream_name}
           />
         ))}
     </>
