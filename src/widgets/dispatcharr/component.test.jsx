@@ -32,7 +32,7 @@ describe("widgets/dispatcharr/component", () => {
     useWidgetAPI.mockReturnValueOnce({ data: [{}, {}, {}], error: undefined }).mockReturnValueOnce({
       data: {
         count: 1,
-        channels: [{ stream_name: "Stream1", clients: [{}, {}], avg_bitrate: "1000kbps" }],
+        channels: [{ channel_name: "Stream1", clients: [{}, {}], avg_bitrate: "1000kbps" }],
       },
       error: undefined,
     });
