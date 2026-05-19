@@ -96,8 +96,8 @@ importers:
         specifier: ^3.19.0
         version: 3.19.0
       ws:
-        specifier: ^8.18.3
-        version: 8.18.3
+        specifier: ^8.20.1
+        version: 8.20.1
       xml-js:
         specifier: ^1.6.11
         version: 1.6.11
@@ -3856,8 +3856,8 @@ packages:
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  ws@8.18.3:
-    resolution: {integrity: sha512-PEIGCY5tSlUt50cqyMXfCzX+oOPqN0vuGqWzbcJ2xvnkzkq46oOpz7dQaTDBdfICb4N14+GARUDw2XV2N4tvzg==}
+  ws@8.20.1:
+    resolution: {integrity: sha512-It4dO0K5v//JtTXuPkfEOaI3uUN87iYPnqo/ZzqCoG3g8uhA66QUMs/SrM0YK7/NAu+r4LMh/9dq2A7k+rHs+w==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -4382,7 +4382,7 @@ snapshots:
       '@types/tar': 6.1.13
       '@types/ws': 8.5.14
       form-data: 4.0.2
-      isomorphic-ws: 5.0.0(ws@8.18.3)
+      isomorphic-ws: 5.0.0(ws@8.20.1)
       js-yaml: 4.1.1
       jsonpath-plus: 10.3.0
       node-fetch: 2.7.0
@@ -4392,7 +4392,7 @@ snapshots:
       tar: 7.5.11
       tmp-promise: 3.0.3
       tslib: 2.8.1
-      ws: 8.18.3
+      ws: 8.20.1
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -6352,9 +6352,9 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  isomorphic-ws@5.0.0(ws@8.18.3):
+  isomorphic-ws@5.0.0(ws@8.20.1):
     dependencies:
-      ws: 8.18.3
+      ws: 8.20.1
 
   istanbul-lib-coverage@3.2.2: {}
 
@@ -7801,7 +7801,7 @@ snapshots:
 
   wrappy@1.0.2: {}
 
-  ws@8.18.3: {}
+  ws@8.20.1: {}
 
   xml-js@1.6.11:
     dependencies:
