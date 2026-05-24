@@ -366,6 +366,12 @@
         "true": "Yes",
         "false": "No"
     },
+    "teamspeak": {
+        "name": "Name",
+        "activeusers": "Active Users",
+        "status": "Status",
+        "uptime": "Uptime"
+    },
     "technitium": {
         "totalQueries": "Queries",
         "totalNoError": "Success",

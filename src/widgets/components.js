@@ -140,6 +140,7 @@ const components = {
   tandoor: dynamic(() => import("./tandoor/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
   technitium: dynamic(() => import("./technitium/component")),
+  teamspeak: dynamic(() => import("./teamspeak/component")),
   tdarr: dynamic(() => import("./tdarr/component")),
   tracearr: dynamic(() => import("./tracearr/component")),
   traefik: dynamic(() => import("./traefik/component")),
