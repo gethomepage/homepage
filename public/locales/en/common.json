@@ -766,6 +766,11 @@
         "totalalerts": "Total Alerts",
         "alertstriggered": "Alerts Triggered"
     },
+    "graylog": {
+        "messages": "Messages",
+        "throughput": "Throughput",
+        "notifications": "Notifications"
+    },
     "nextcloud": {
         "cpuload": "Cpu Load",
         "memoryusage": "Memory Usage",
