@@ -43,6 +43,7 @@ nav:
           - widgets/services/backrest.md
           - widgets/services/bazarr.md
           - widgets/services/booklore.md
+          - widgets/services/grimmory.md
           - widgets/services/beszel.md
           - widgets/services/caddy.md
           - widgets/services/calendar.md
