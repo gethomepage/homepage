@@ -14,6 +14,7 @@ const components = {
   bazarr: dynamic(() => import("./bazarr/component")),
   beszel: dynamic(() => import("./beszel/component")),
   booklore: dynamic(() => import("./booklore/component")),
+  grimmory: dynamic(() => import("./grimmory/component")),
   caddy: dynamic(() => import("./caddy/component")),
   calendar: dynamic(() => import("./calendar/component")),
   calibreweb: dynamic(() => import("./calibreweb/component")),

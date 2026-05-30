@@ -833,6 +833,12 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "grimmory": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
