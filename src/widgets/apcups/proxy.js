@@ -15,17 +15,17 @@ function parseResponse(buffer) {
     output.push(asciiData);
     ptr += 2 + lineLen;
   }
-
   return output;
 }
 
 function statusAsJSON(statusOutput) {
   return statusOutput?.reduce((output, line) => {
     if (!line || line.startsWith("END APC")) return output;
-    const [key, value] = line.trim().split(":");
-    const newOutput = { ...output };
-    newOutput[key.trim()] = value?.trim();
-    return newOutput;
+    const colonIdx = line.indexOf(":");
+    if (colonIdx === -1) return output;
+    const key = line.slice(0, colonIdx).trim();
+    const value = line.slice(colonIdx + 1).trim();
+    return { ...output, [key]: value };
   }, {});
 }
 
@@ -99,10 +99,33 @@ export default async function apcupsProxyHandler(req, res) {
     const statusData = await getStatus(url.hostname, url.port);
     const jsonData = statusAsJSON(statusData);
 
-    data.status = jsonData.STATUS;
-    data.load = jsonData.LOADPCT;
-    data.bcharge = jsonData.BCHARGE;
-    data.timeleft = jsonData.TIMELEFT;
+    data.status    = jsonData.STATUS;
+    data.load      = jsonData.LOADPCT;
+    data.bcharge   = jsonData.BCHARGE;
+    data.timeleft  = jsonData.TIMELEFT;
+    data.linev     = jsonData.LINEV;
+    data.battv     = jsonData.BATTV;
+    data.nominv    = jsonData.NOMINV;
+    data.nombattv  = jsonData.NOMBATTV;
+    data.nompower  = jsonData.NOMPOWER;
+    data.sense     = jsonData.SENSE;
+    data.lotrans   = jsonData.LOTRANS;
+    data.hitrans   = jsonData.HITRANS;
+    data.mbattchg  = jsonData.MBATTCHG;
+    data.mintimel  = jsonData.MINTIMEL;
+    data.maxtime   = jsonData.MAXTIME;
+    data.alarmdel  = jsonData.ALARMDEL;
+    data.lastxfer  = jsonData.LASTXFER;
+    data.numxfers  = jsonData.NUMXFERS;
+    data.tonbatt   = jsonData.TONBATT;
+    data.cumonbatt = jsonData.CUMONBATT;
+    data.selftest  = jsonData.SELFTEST;
+    data.battdate  = jsonData.BATTDATE;
+    data.model     = jsonData.MODEL;
+    data.upsname   = jsonData.UPSNAME;
+    data.cable     = jsonData.CABLE;
+    data.driver    = jsonData.DRIVER;
+    data.starttime = jsonData.STARTTIME;
   } catch (e) {
     logger.error(e);
     return res.status(500).json({ error: e.message });
