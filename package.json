@@ -70,7 +70,7 @@
     "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.7.3",
-    "vitest": "^3.2.4"
+    "vitest": "^4.1.0"
   },
   "optionalDependencies": {
     "osx-temperature-sensor": "^1.0.8"
