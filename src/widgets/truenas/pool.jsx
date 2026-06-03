@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 export default function Pool({ name, free, allocated, healthy }) {
   const { t } = useTranslation();

@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { FaThermometerHalf } from "react-icons/fa";
 import useSWR from "swr";
 

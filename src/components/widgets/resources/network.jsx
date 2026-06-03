@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { FaNetworkWired } from "react-icons/fa";
 import useSWR from "swr";
 

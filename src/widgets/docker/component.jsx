@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import useSWR from "swr";
 
 import { calculateCPUPercent, calculateThroughput, calculateUsedMemory } from "./stats-helpers";

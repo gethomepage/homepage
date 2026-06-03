@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { FaMemory } from "react-icons/fa";
 import { FiAlertTriangle, FiCpu, FiServer } from "react-icons/fi";
 import { SiKubernetes } from "react-icons/si";

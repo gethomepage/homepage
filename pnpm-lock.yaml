@@ -54,8 +54,8 @@ importers:
         specifier: ^16.2.6
         version: 16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       next-i18next:
-        specifier: ^15.4.3
-        version: 15.4.3(@types/react@19.0.10)(i18next@26.3.0(typescript@5.7.3))(next@16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-i18next@15.5.3(i18next@26.3.0(typescript@5.7.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@5.7.3))(react@19.2.5)
+        specifier: ^16.0.7
+        version: 16.0.7(@types/react@19.0.10)(i18next@26.3.0(typescript@5.7.3))(next@16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-i18next@15.5.3(i18next@26.3.0(typescript@5.7.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@5.7.3))(react@19.2.5)
       ping:
         specifier: ^0.4.4
         version: 0.4.4
@@ -228,10 +228,6 @@ packages:
 
   '@babel/runtime@7.27.6':
     resolution: {integrity: sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/runtime@7.28.6':
-    resolution: {integrity: sha512-05WQkdpL9COIMz4LjTxGpPNCdlpyimKppYNoJ5Di5EUObifl8t4tuLuUBBZEpoLYOmfvIWrsp9fCl0HoPRVTdA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/runtime@7.29.2':
@@ -1728,9 +1724,6 @@ packages:
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
-  core-js@3.48.0:
-    resolution: {integrity: sha512-zpEHTy1fjTMZCKLHUZoVeylt9XrzaIN2rbPXEt0k+q7JE5CkCZdo6bNq55bn24a69CH7ErAVLKijxJja4fw+UQ==}
-
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
@@ -2397,8 +2390,8 @@ packages:
     resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
     engines: {node: '>= 14'}
 
-  i18next-fs-backend@2.6.4:
-    resolution: {integrity: sha512-lzbUnowXYd5RFO8flpQhd9khYWNgrzwtxHw1kktJCiTRBaAEiLB2t9EPSXRj8qlC7WcEgFDIsmBUixyludcznw==}
+  i18next-resources-to-backend@1.2.1:
+    resolution: {integrity: sha512-okHbVA+HZ7n1/76MsfhPqDou0fptl2dAlhRDu2ideXloRRduzHsqDOznJBef+R3DFZnbvWoBW+KxJ7fnFjd6Yw==}
 
   i18next@26.3.0:
     resolution: {integrity: sha512-gHSgGpUXVmuqE2El1W61DmxeyeTlFfZgdJRWMo9jScAn5pu7TuTuiccb1zh3E2J9hEBVGJ23+96x0ieBhfuIHA==}
@@ -2897,14 +2890,14 @@ packages:
   net@1.0.2:
     resolution: {integrity: sha512-kbhcj2SVVR4caaVnGLJKmlk2+f+oLkjqdKeQlmUtz6nGzOpbcobwVIeSURNgraV/v3tlmGIX82OcPCl0K6RbHQ==}
 
-  next-i18next@15.4.3:
-    resolution: {integrity: sha512-ZRmiz72o1Jvh2ZghCUQX1Ua5F/f2W1/Ila/L1ZeKVuSWiH7J4zfUedfDxNBEhj9lajREC7aoJuPXMFtKi2bdIg==}
-    engines: {node: '>=14'}
+  next-i18next@16.0.7:
+    resolution: {integrity: sha512-IyH9aDsDFqifndvHYQyJMJq0syLBm/E7MNrdCkAFl/5wlQ4bk4JUeLIIJC1wybWjEhYQLwWB6/dPeEf7LmqLTg==}
+    engines: {node: '>=20'}
     peerDependencies:
       i18next: '>= 23.7.13'
-      next: '>= 12.0.0'
-      react: '>= 17.0.2'
-      react-i18next: '>= 13.5.0'
+      next: '>= 14.1.0'
+      react: '>= 18.0.0'
+      react-i18next: '>= 14.0.0'
 
   next@16.2.6:
     resolution: {integrity: sha512-qOVgKJg1+At15NpeUP+eJgCHvTCgXsogweq87Ri/Ix7PkqQHg4sdaXmSFqKlgaIXE4kW0g25LE68W87UANlHtw==}
@@ -3979,8 +3972,6 @@ snapshots:
       '@babel/types': 7.29.0
 
   '@babel/runtime@7.27.6': {}
-
-  '@babel/runtime@7.28.6': {}
 
   '@babel/runtime@7.29.2': {}
 
@@ -5324,8 +5315,6 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  core-js@3.48.0: {}
-
   core-util-is@1.0.3: {}
 
   cpu-features@0.0.10:
@@ -6225,7 +6214,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  i18next-fs-backend@2.6.4: {}
+  i18next-resources-to-backend@1.2.1:
+    dependencies:
+      '@babel/runtime': 7.29.7
 
   i18next@26.3.0(typescript@5.7.3):
     optionalDependencies:
@@ -6676,14 +6667,12 @@ snapshots:
 
   net@1.0.2: {}
 
-  next-i18next@15.4.3(@types/react@19.0.10)(i18next@26.3.0(typescript@5.7.3))(next@16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-i18next@15.5.3(i18next@26.3.0(typescript@5.7.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@5.7.3))(react@19.2.5):
+  next-i18next@16.0.7(@types/react@19.0.10)(i18next@26.3.0(typescript@5.7.3))(next@16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-i18next@15.5.3(i18next@26.3.0(typescript@5.7.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@5.7.3))(react@19.2.5):
     dependencies:
-      '@babel/runtime': 7.28.6
       '@types/hoist-non-react-statics': 3.3.7(@types/react@19.0.10)
-      core-js: 3.48.0
       hoist-non-react-statics: 3.3.2
       i18next: 26.3.0(typescript@5.7.3)
-      i18next-fs-backend: 2.6.4
+      i18next-resources-to-backend: 1.2.1
       next: 16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       react: 19.2.5
       react-i18next: 15.5.3(i18next@26.3.0(typescript@5.7.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@5.7.3)

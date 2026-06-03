@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { DateTime, Info } from "luxon";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { useMemo } from "react";
 
 import Event, { compareDateTimezone } from "./event";

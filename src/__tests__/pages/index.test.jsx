@@ -92,14 +92,14 @@ vi.mock("next/head", () => ({ default: ({ children }) => children }));
 vi.mock("next/script", () => ({ default: () => null }));
 vi.mock("next/router", () => ({ useRouter: () => router }));
 
-vi.mock("next-i18next", () => ({
+vi.mock("next-i18next/pages", () => ({
   useTranslation: () => ({
     i18n,
     t: (k) => k,
   }),
 }));
 
-vi.mock("next-i18next/serverSideTranslations", () => ({
+vi.mock("next-i18next/pages/serverSideTranslations", () => ({
   serverSideTranslations,
 }));
 

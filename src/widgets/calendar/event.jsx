@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { DateTime } from "luxon";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { useState } from "react";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 

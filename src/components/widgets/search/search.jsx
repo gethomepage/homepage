@@ -10,7 +10,7 @@ import {
   Transition,
 } from "@headlessui/react";
 import classNames from "classnames";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { Fragment, useEffect, useState } from "react";
 import { BiLogoBing } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";

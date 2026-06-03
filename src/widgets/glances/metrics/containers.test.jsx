@@ -11,7 +11,7 @@ vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 // Avoid pulling Next/Image + ThemeContext requirements into these unit tests.
 vi.mock("components/resolvedicon", () => ({ default: () => <span data-testid="resolvedicon" /> }));
 
-vi.mock("next-i18next", () => ({
+vi.mock("next-i18next/pages", () => ({
   useTranslation: () => ({
     t: (key, opts) => (key === "common.bytes" ? `${key}:${opts?.value}` : key),
   }),
