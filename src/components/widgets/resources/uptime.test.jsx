@@ -3,15 +3,15 @@
 import { render } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const { useSWR, Resource, Error } = vi.hoisted(() => ({
+const { useSWR, Resource, ErrorComponent } = vi.hoisted(() => ({
   useSWR: vi.fn(),
   Resource: vi.fn(() => <div data-testid="resource" />),
-  Error: vi.fn(() => <div data-testid="error" />),
+  ErrorComponent: vi.fn(() => <div data-testid="error" />),
 }));
 
 vi.mock("swr", () => ({ default: useSWR }));
 vi.mock("../widget/resource", () => ({ default: Resource }));
-vi.mock("../widget/error", () => ({ default: Error }));
+vi.mock("../widget/error", () => ({ default: ErrorComponent }));
 
 import Uptime from "./uptime";
 
@@ -49,6 +49,6 @@ describe("components/widgets/resources/uptime", () => {
 
     render(<Uptime />);
 
-    expect(Error).toHaveBeenCalled();
+    expect(ErrorComponent).toHaveBeenCalled();
   });
 });

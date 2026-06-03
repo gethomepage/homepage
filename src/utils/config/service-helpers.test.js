@@ -40,10 +40,12 @@ const { state, fs, yaml, config, Docker, dockerCfg, kubeCfg, kubeApi } = vi.hois
     default: vi.fn(),
   };
 
-  const Docker = vi.fn((conn) => ({
+  const Docker = vi.fn(function Docker(conn) {
+    return {
     listContainers: vi.fn(async () => state.dockerContainersByServer[conn?.serverName] ?? state.dockerContainers),
     listServices: vi.fn(async () => state.dockerServicesByServer[conn?.serverName] ?? state.dockerContainers),
-  }));
+    };
+  });
 
   const dockerCfg = {
     default: vi.fn((serverName) => ({ conn: { serverName } })),

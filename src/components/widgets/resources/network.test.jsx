@@ -3,15 +3,15 @@
 import { render } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const { useSWR, Resource, Error } = vi.hoisted(() => ({
+const { useSWR, Resource, ErrorComponent } = vi.hoisted(() => ({
   useSWR: vi.fn(),
   Resource: vi.fn(() => <div data-testid="resource" />),
-  Error: vi.fn(() => <div data-testid="error" />),
+  ErrorComponent: vi.fn(() => <div data-testid="error" />),
 }));
 
 vi.mock("swr", () => ({ default: useSWR }));
 vi.mock("../widget/resource", () => ({ default: Resource }));
-vi.mock("../widget/error", () => ({ default: Error }));
+vi.mock("../widget/error", () => ({ default: ErrorComponent }));
 
 import Network from "./network";
 
@@ -52,6 +52,6 @@ describe("components/widgets/resources/network", () => {
 
     render(<Network options={{ network: "en0" }} />);
 
-    expect(Error).toHaveBeenCalled();
+    expect(ErrorComponent).toHaveBeenCalled();
   });
 });

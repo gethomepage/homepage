@@ -5,7 +5,7 @@ import createMockRes from "test-utils/create-mock-res";
 const { UrbackupServer, state, getServiceWidget } = vi.hoisted(() => {
   const state = { instances: [] };
 
-  const UrbackupServer = vi.fn((opts) => {
+  const UrbackupServer = vi.fn(function UrbackupServer(opts) {
     const instance = {
       opts,
       getStatus: vi.fn(),
