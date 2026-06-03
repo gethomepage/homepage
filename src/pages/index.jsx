@@ -7,7 +7,7 @@ import ServicesGroup from "components/services/group";
 import Tab, { slugifyAndEncode } from "components/tab";
 import Revalidate from "components/toggles/revalidate";
 import Widget from "components/widgets/widget";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import dynamic from "next/dynamic";
 import Head from "next/head";

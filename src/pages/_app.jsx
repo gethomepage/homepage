@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { appWithTranslation } from "next-i18next";
+import { appWithTranslation } from "next-i18next/pages";
 import Head from "next/head";
 import "styles/globals.css";
 import "styles/manrope.css";

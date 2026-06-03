@@ -1,6 +1,6 @@
 import ICAL from "ical.js";
 import { DateTime } from "luxon";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { useEffect } from "react";
 
 import Error from "../../../components/services/widget/error";

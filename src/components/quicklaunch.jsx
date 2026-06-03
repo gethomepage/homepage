@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import useSWR from "swr";

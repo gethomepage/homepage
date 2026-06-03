@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { BiError } from "react-icons/bi";
 
 import Container from "./container";

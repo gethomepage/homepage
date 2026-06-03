@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { FiHardDrive } from "react-icons/fi";
 
 import Resource from "../widget/resource";

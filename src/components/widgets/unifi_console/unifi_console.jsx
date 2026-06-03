@@ -1,4 +1,4 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { BiCheckCircle, BiError, BiNetworkChart, BiWifi, BiXCircle } from "react-icons/bi";
 import { MdSettingsEthernet } from "react-icons/md";
 import { SiUbiquiti } from "react-icons/si";
