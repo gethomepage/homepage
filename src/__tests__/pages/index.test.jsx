@@ -99,7 +99,7 @@ vi.mock("next-i18next", () => ({
   }),
 }));
 
-vi.mock("next-i18next/serverSideTranslations", () => ({
+vi.mock("next-i18next/pages/serverSideTranslations", () => ({
   serverSideTranslations,
 }));
 
