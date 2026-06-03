@@ -15,4 +15,4 @@ jobs:
   action:
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/reaction-comments@ad821bc1ff5c53496225a7dc5ac6d4232227a234 # v5.0.0
+      - uses: dessant/reaction-comments@170a79b6e2538a1df7ba669ac527d7457cd3b128 # v5.0.1
