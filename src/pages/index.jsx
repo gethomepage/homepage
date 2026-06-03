@@ -167,11 +167,13 @@ function Index({ initialSettings, fallback }) {
             >
               <div className="bg-amber-200 text-amber-800 dark:text-amber-200 dark:bg-amber-800 p-2 rounded-md font-bold">
                 <BiError className="float-right w-6 h-6" />
-                {error.config}
+                {error.name} - {error.config}
               </div>
               <div className="p-2 text-theme-100 dark:text-theme-200">
-                <pre className="opacity-50 font-bold pb-2">{error.reason}</pre>
-                <pre className="text-sm">{error.mark.snippet}</pre>
+                <pre className="opacity-50 font-bold pb-2">
+                  Reason: "{error.reason}" at line {error.mark?.line}
+                </pre>
+                <pre className="font-italic">Check logs for details.</pre>
               </div>
             </div>
           ))}
