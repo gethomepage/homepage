@@ -46,7 +46,7 @@ describe("widgets/urbackup/proxy", () => {
       maxDays: 5,
     });
 
-    UrbackupServer.mockImplementationOnce((opts) => {
+    UrbackupServer.mockImplementationOnce(function UrbackupServer(opts) {
       const instance = {
         opts,
         getStatus: vi.fn().mockResolvedValue([{ id: 1 }]),
@@ -76,7 +76,7 @@ describe("widgets/urbackup/proxy", () => {
       fields: ["totalUsed"],
     });
 
-    UrbackupServer.mockImplementationOnce((opts) => {
+    UrbackupServer.mockImplementationOnce(function UrbackupServer(opts) {
       const instance = {
         opts,
         getStatus: vi.fn().mockResolvedValue([{ id: 1 }]),
@@ -99,7 +99,7 @@ describe("widgets/urbackup/proxy", () => {
   it("returns 500 on server errors", async () => {
     getServiceWidget.mockResolvedValue({ url: "http://ur", username: "u", password: "p" });
 
-    UrbackupServer.mockImplementationOnce((opts) => {
+    UrbackupServer.mockImplementationOnce(function UrbackupServer(opts) {
       const instance = {
         opts,
         getStatus: vi.fn().mockRejectedValue(new Error("nope")),
