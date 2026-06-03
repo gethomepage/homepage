@@ -42,8 +42,8 @@ importers:
         specifier: ^1.7.1
         version: 1.7.1
       luxon:
-        specifier: ^3.6.1
-        version: 3.6.1
+        specifier: ^3.7.2
+        version: 3.7.2
       memory-cache:
         specifier: ^0.2.0
         version: 0.2.0
@@ -2776,8 +2776,8 @@ packages:
     resolution: {integrity: sha512-ESL2CrkS/2wTPfuend7Zhkzo2u0daGJ/A2VucJOgQ/C48S/zB8MMeMHSGKYpXhIjbPxfuezITkaBH1wqv00DDQ==}
     engines: {node: 20 || >=22}
 
-  luxon@3.6.1:
-    resolution: {integrity: sha512-tJLxrKJhO2ukZ5z0gyjY1zPh3Rh88Ej9P7jNrZiHMUXHae1yvI2imgOZtL1TO8TW6biMMKfTtAOoEJANgtWBMQ==}
+  luxon@3.7.2:
+    resolution: {integrity: sha512-vtEhXh/gNjI9Yg1u4jX/0YVPMvxzHuGgCm6tC5kZyb08yjGWGnqAjGJvcXbqQR2P3MyMEFnRbpcdFS6PBcLqew==}
     engines: {node: '>=12'}
 
   lz-string@1.5.0:
@@ -6570,7 +6570,7 @@ snapshots:
 
   lru-cache@11.2.6: {}
 
-  luxon@3.6.1: {}
+  luxon@3.7.2: {}
 
   lz-string@1.5.0: {}
 
