@@ -1,5 +1,5 @@
 import ResolvedIcon from "components/resolvedicon";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 
 import Block from "../components/block";
 import Container from "../components/container";

@@ -1,6 +1,6 @@
 import { compareVersions, validate } from "compare-versions";
 import cache from "memory-cache";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 import { MdNewReleases } from "react-icons/md";
 import useSWR from "swr";
 

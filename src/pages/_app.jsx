@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { appWithTranslation } from "next-i18next";
 import Head from "next/head";
 import "styles/globals.css";
 import "styles/manrope.css";
@@ -9,8 +8,6 @@ import { ColorProvider } from "utils/contexts/color";
 import { SettingsProvider } from "utils/contexts/settings";
 import { TabProvider } from "utils/contexts/tab";
 import { ThemeProvider } from "utils/contexts/theme";
-
-import nextI18nextConfig from "../../next-i18next.config";
 
 // eslint-disable-next-line no-unused-vars
 const tailwindSafelist = [
@@ -97,4 +94,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default appWithTranslation(MyApp, nextI18nextConfig);
+export default MyApp;

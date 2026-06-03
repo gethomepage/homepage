@@ -8,10 +8,8 @@ afterEach(() => {
   if (typeof document !== "undefined") cleanup();
 });
 
-// implement a couple of common formatters mocked in next-i18next
-vi.mock("next-i18next", () => ({
-  // Keep app/page components importable in unit tests.
-  appWithTranslation: (Component) => Component,
+// implement a couple of common formatters mocked in i18next hooks
+vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     i18n: { language: "en" },
     t: (key, opts) => {
