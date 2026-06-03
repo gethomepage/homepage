@@ -2,11 +2,9 @@ import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { useTranslation } from "react-i18next";
 
-import { i18n } from "../../../next-i18next.config";
-
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
-function formatDate(dateString) {
+function formatDate(dateString, language) {
   const date = new Date(dateString);
   const now = new Date();
   let dateOptions = {
@@ -24,7 +22,7 @@ function formatDate(dateString) {
     dateOptions = { timeStyle: "short" };
   }
 
-  return new Intl.DateTimeFormat(i18n.language, dateOptions).format(date);
+  return new Intl.DateTimeFormat(language, dateOptions).format(date);
 }
 
 function countStatus(data) {
@@ -45,7 +43,7 @@ function countStatus(data) {
 }
 
 export default function Component({ service }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { widget } = service;
 
   const { data, error } = useWidgetAPI(widget, "checks");
@@ -72,7 +70,7 @@ export default function Component({ service }) {
       <Block label="healthchecks.status" value={t(`healthchecks.${data.status}`)} />
       <Block
         label="healthchecks.last_ping"
-        value={data.last_ping ? formatDate(data.last_ping) : t("healthchecks.never")}
+        value={data.last_ping ? formatDate(data.last_ping, i18n.language) : t("healthchecks.never")}
       />
     </Container>
   ) : (
