@@ -32,6 +32,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/lcov.info
-          flags: vitest,shard-${{ matrix.shard }}
+          flags: vitest-shard-${{ matrix.shard }}
           name: vitest-shard-${{ matrix.shard }}
           fail_ci_if_error: true
