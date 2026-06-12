@@ -60,7 +60,42 @@ When writes are enabled, YAML files are parsed before they are saved so a syntac
 | `read_config_file`     | Reads one supported config file from `HOMEPAGE_CONFIG_DIR`.                                           |
 | `validate_config_file` | Validates YAML from a file or supplied content and returns line and column details for syntax errors. |
 | `write_config_file`    | Replaces a supported config file when `HOMEPAGE_MCP_ALLOW_WRITE=true`.                                |
+| `add_service`          | Appends a service to a group in `services.yaml` when `HOMEPAGE_MCP_ALLOW_WRITE=true`.                 |
+| `add_info_widget`      | Appends an information widget to `widgets.yaml` when `HOMEPAGE_MCP_ALLOW_WRITE=true`.                 |
 | `homepage_docs`        | Returns focused Homepage documentation links for common setup topics.                                 |
+
+The structured write tools are safer than replacing an entire file because they parse the existing YAML, preserve the expected top-level structure, and only append a Homepage-shaped entry. For example, an assistant can add a service with:
+
+```json
+{
+  "group": "Media",
+  "name": "Plex",
+  "service": {
+    "href": "https://plex.example.com",
+    "icon": "plex.png",
+    "description": "Movies and TV",
+    "widget": {
+      "type": "plex",
+      "url": "https://plex.example.com",
+      "key": "your-api-key"
+    }
+  }
+}
+```
+
+Or add an info widget with:
+
+```json
+{
+  "type": "openmeteo",
+  "options": {
+    "label": "Current",
+    "latitude": 36.66,
+    "longitude": -117.51,
+    "cache": 5
+  }
+}
+```
 
 ## Supported resources
 

@@ -46,6 +46,8 @@ describe("utils/mcp/homepage-mcp", () => {
 
     expect(response.result.tools.map((tool) => tool.name)).toContain("validate_config_file");
     expect(response.result.tools.map((tool) => tool.name)).toContain("write_config_file");
+    expect(response.result.tools.map((tool) => tool.name)).toContain("add_service");
+    expect(response.result.tools.map((tool) => tool.name)).toContain("add_info_widget");
   });
 
   it("validates YAML and reports line and column details", async () => {
@@ -138,5 +140,136 @@ describe("utils/mcp/homepage-mcp", () => {
     });
 
     expect(response.result.contents[0].text).toBe("- Links: []\n");
+  });
+
+  it("adds a service to a new group when write mode is enabled", async () => {
+    process.env.HOMEPAGE_MCP_ALLOW_WRITE = "true";
+    const configDir = mkdtempSync(path.join(tmpdir(), "homepage-mcp-test-"));
+    const mod = await loadMcpWithConfigDir(configDir);
+
+    const response = mod.handleMcpRequest({
+      jsonrpc: "2.0",
+      id: 8,
+      method: "tools/call",
+      params: {
+        name: "add_service",
+        arguments: {
+          group: "Media",
+          name: "Plex",
+          service: {
+            href: "https://plex.example.com",
+            icon: "plex.png",
+            description: "Movies and TV",
+            widget: {
+              type: "plex",
+              url: "https://plex.example.com",
+              key: "secret",
+            },
+          },
+        },
+      },
+    });
+
+    expect(response.result.isError).toBeUndefined();
+    expect(readFileSync(path.join(configDir, "services.yaml"), "utf8")).toBe(
+      "- Media:\n" +
+        "    - Plex:\n" +
+        "        href: https://plex.example.com\n" +
+        "        icon: plex.png\n" +
+        "        description: Movies and TV\n" +
+        "        widget:\n" +
+        "          type: plex\n" +
+        "          url: https://plex.example.com\n" +
+        "          key: secret\n",
+    );
+  });
+
+  it("does not add a duplicate service in the same group", async () => {
+    process.env.HOMEPAGE_MCP_ALLOW_WRITE = "true";
+    const configDir = mkdtempSync(path.join(tmpdir(), "homepage-mcp-test-"));
+    const mod = await loadMcpWithConfigDir(configDir);
+    const request = {
+      jsonrpc: "2.0",
+      method: "tools/call",
+      params: {
+        name: "add_service",
+        arguments: {
+          group: "Media",
+          name: "Plex",
+          service: { href: "https://plex.example.com" },
+        },
+      },
+    };
+
+    mod.handleMcpRequest({ ...request, id: 9 });
+    const response = mod.handleMcpRequest({ ...request, id: 10 });
+
+    expect(response.result.isError).toBe(true);
+    expect(response.result.content[0].text).toContain("already exists");
+  });
+
+  it("adds an info widget when write mode is enabled", async () => {
+    process.env.HOMEPAGE_MCP_ALLOW_WRITE = "true";
+    const configDir = mkdtempSync(path.join(tmpdir(), "homepage-mcp-test-"));
+    const mod = await loadMcpWithConfigDir(configDir);
+
+    const response = mod.handleMcpRequest({
+      jsonrpc: "2.0",
+      id: 11,
+      method: "tools/call",
+      params: {
+        name: "add_info_widget",
+        arguments: {
+          type: "openmeteo",
+          options: {
+            label: "Current",
+            latitude: 36.66,
+            longitude: -117.51,
+            cache: 5,
+          },
+        },
+      },
+    });
+
+    expect(response.result.isError).toBeUndefined();
+    expect(readFileSync(path.join(configDir, "widgets.yaml"), "utf8")).toBe(
+      "- openmeteo:\n" +
+        "    label: Current\n" +
+        "    latitude: 36.66\n" +
+        "    longitude: -117.51\n" +
+        "    cache: 5\n",
+    );
+  });
+
+  it("does not add services or info widgets unless write mode is enabled", async () => {
+    const configDir = mkdtempSync(path.join(tmpdir(), "homepage-mcp-test-"));
+    const mod = await loadMcpWithConfigDir(configDir);
+
+    const serviceResponse = mod.handleMcpRequest({
+      jsonrpc: "2.0",
+      id: 12,
+      method: "tools/call",
+      params: {
+        name: "add_service",
+        arguments: {
+          group: "Media",
+          name: "Plex",
+        },
+      },
+    });
+    const widgetResponse = mod.handleMcpRequest({
+      jsonrpc: "2.0",
+      id: 13,
+      method: "tools/call",
+      params: {
+        name: "add_info_widget",
+        arguments: {
+          type: "resources",
+        },
+      },
+    });
+
+    expect(serviceResponse.result.isError).toBe(true);
+    expect(widgetResponse.result.isError).toBe(true);
   });
 });

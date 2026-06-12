@@ -108,6 +108,11 @@ function readConfig(file) {
   return existsSync(path) ? readFileSync(path, "utf8") : "";
 }
 
+function parseYamlConfig(file) {
+  const parsed = yaml.load(readConfig(file) || "");
+  return parsed ?? [];
+}
+
 function validateYaml(file, content) {
   if (!YAML_CONFIG_FILES.includes(file)) {
     return { valid: true };
@@ -129,6 +134,116 @@ function validateYaml(file, content) {
         : undefined,
     };
   }
+}
+
+function isPlainObject(value) {
+  return value && typeof value === "object" && !Array.isArray(value);
+}
+
+function assertPlainObject(value, name) {
+  if (!isPlainObject(value)) {
+    throw new Error(`${name} must be an object`);
+  }
+}
+
+function ensureWriteEnabled() {
+  if (!writeEnabled()) {
+    return {
+      isError: true,
+      ...textContent("Writing is disabled. Set HOMEPAGE_MCP_ALLOW_WRITE=true to enable MCP config edits."),
+    };
+  }
+  return null;
+}
+
+function dumpYamlConfig(file, content) {
+  const dumped = yaml.dump(content, { lineWidth: -1, noRefs: true });
+  mkdirSync(CONF_DIR, { recursive: true });
+  writeFileSync(configPath(file), dumped, "utf8");
+  return dumped;
+}
+
+function addService(args) {
+  const disabled = ensureWriteEnabled();
+  if (disabled) return disabled;
+
+  if (typeof args.group !== "string" || !args.group.trim()) {
+    throw new Error("group must be a non-empty string");
+  }
+  if (typeof args.name !== "string" || !args.name.trim()) {
+    throw new Error("name must be a non-empty string");
+  }
+
+  const validation = validateYaml("services.yaml", readConfig("services.yaml"));
+  if (!validation.valid) {
+    return {
+      isError: true,
+      ...textContent(JSON.stringify(validation, null, 2)),
+    };
+  }
+
+  const services = parseYamlConfig("services.yaml");
+  if (!Array.isArray(services)) {
+    throw new Error("services.yaml must contain a top-level array");
+  }
+
+  const groupName = args.group.trim();
+  const serviceName = args.name.trim();
+  const serviceConfig = args.service ?? {};
+  assertPlainObject(serviceConfig, "service");
+
+  let group = services.find((entry) => isPlainObject(entry) && Object.keys(entry)[0] === groupName);
+  if (!group) {
+    group = { [groupName]: [] };
+    services.push(group);
+  }
+
+  if (!Array.isArray(group[groupName])) {
+    throw new Error(`Group '${groupName}' must contain an array`);
+  }
+
+  if (group[groupName].some((entry) => isPlainObject(entry) && Object.keys(entry)[0] === serviceName)) {
+    return {
+      isError: true,
+      ...textContent(`Service '${serviceName}' already exists in group '${groupName}'.`),
+    };
+  }
+
+  group[groupName].push({ [serviceName]: serviceConfig });
+  const content = dumpYamlConfig("services.yaml", services);
+  return textContent(
+    JSON.stringify({ written: "services.yaml", added: { group: groupName, service: serviceName }, content }, null, 2),
+  );
+}
+
+function addInfoWidget(args) {
+  const disabled = ensureWriteEnabled();
+  if (disabled) return disabled;
+
+  if (typeof args.type !== "string" || !args.type.trim()) {
+    throw new Error("type must be a non-empty string");
+  }
+
+  const validation = validateYaml("widgets.yaml", readConfig("widgets.yaml"));
+  if (!validation.valid) {
+    return {
+      isError: true,
+      ...textContent(JSON.stringify(validation, null, 2)),
+    };
+  }
+
+  const widgets = parseYamlConfig("widgets.yaml");
+  if (!Array.isArray(widgets)) {
+    throw new Error("widgets.yaml must contain a top-level array");
+  }
+
+  const type = args.type.trim();
+  const options = args.options ?? {};
+  assertPlainObject(options, "options");
+
+  widgets.push({ [type]: options });
+  const content = dumpYamlConfig("widgets.yaml", widgets);
+  return textContent(JSON.stringify({ written: "widgets.yaml", added: { type }, content }, null, 2));
 }
 
 function listConfigFiles() {
@@ -210,6 +325,44 @@ function toolDefinitions() {
       },
     },
     {
+      name: "add_service",
+      description:
+        "Append a service to a group in services.yaml, creating the group if needed. Disabled unless HOMEPAGE_MCP_ALLOW_WRITE=true.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          group: { type: "string", description: "Existing or new Homepage service group name." },
+          name: { type: "string", description: "Service display name." },
+          service: {
+            type: "object",
+            description:
+              "Homepage service properties such as href, icon, description, server, container, widget, or widgets.",
+            additionalProperties: true,
+          },
+        },
+        required: ["group", "name"],
+      },
+    },
+    {
+      name: "add_info_widget",
+      description: "Append an information widget to widgets.yaml. Disabled unless HOMEPAGE_MCP_ALLOW_WRITE=true.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          type: {
+            type: "string",
+            description: "Homepage info widget type, for example resources, search, datetime, or openmeteo.",
+          },
+          options: {
+            type: "object",
+            description: "Widget options for the selected info widget type.",
+            additionalProperties: true,
+          },
+        },
+        required: ["type"],
+      },
+    },
+    {
       name: "homepage_docs",
       description: "Return focused Homepage documentation links for config files and troubleshooting.",
       inputSchema: {
@@ -239,12 +392,9 @@ function callTool(name, args = {}) {
       return textContent(JSON.stringify(validateYaml(args.file, content), null, 2));
     }
     case "write_config_file": {
-      if (!writeEnabled()) {
-        return {
-          isError: true,
-          ...textContent("Writing is disabled. Set HOMEPAGE_MCP_ALLOW_WRITE=true to enable MCP config edits."),
-        };
-      }
+      const disabled = ensureWriteEnabled();
+      if (disabled) return disabled;
+
       assertKnownConfigFile(args.file);
       if (typeof args.content !== "string") {
         throw new Error("content must be a string");
@@ -262,6 +412,10 @@ function callTool(name, args = {}) {
         JSON.stringify({ written: args.file, bytes: Buffer.byteLength(args.content, "utf8") }, null, 2),
       );
     }
+    case "add_service":
+      return addService(args);
+    case "add_info_widget":
+      return addInfoWidget(args);
     case "homepage_docs": {
       const topic = args.topic || "overview";
       const links = {
