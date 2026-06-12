@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { NextResponse, getToken } = vi.hoisted(() => ({
   NextResponse: {
+    json: vi.fn((body, init) => ({ type: "json", body, init })),
     next: vi.fn(() => ({ type: "next" })),
     redirect: vi.fn((url) => ({ type: "redirect", url })),
   },
@@ -17,45 +18,71 @@ async function loadMiddleware() {
   return mod.middleware;
 }
 
-function createReq(url = "http://localhost:3000/") {
+function createReq(host = "localhost:3000", url = "http://localhost:3000/") {
   return {
     url,
     headers: {
-      get: () => null,
+      get: (key) => (key === "host" ? host : null),
     },
   };
 }
 
 describe("middleware", () => {
   const originalEnv = process.env;
-  const originalConsoleWarn = console.warn;
+  const originalConsoleError = console.error;
 
   beforeEach(() => {
     vi.clearAllMocks();
     process.env = { ...originalEnv };
-    console.warn = originalConsoleWarn;
+    console.error = originalConsoleError;
   });
 
-  it("allows requests when auth is disabled", async () => {
+  it("allows requests for default localhost hosts when auth is disabled", async () => {
+    process.env.PORT = "3000";
+
     const middleware = await loadMiddleware();
-    const res = await middleware(createReq());
+    const res = await middleware(createReq("localhost:3000"));
 
     expect(NextResponse.next).toHaveBeenCalled();
     expect(res).toEqual({ type: "next" });
   });
 
-  it("warns once when HOMEPAGE_ALLOWED_HOSTS is set, but does not block", async () => {
-    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-    process.env.HOMEPAGE_ALLOWED_HOSTS = "example.com";
+  it("blocks requests when host is not allowed", async () => {
+    process.env.PORT = "3000";
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
     const middleware = await loadMiddleware();
-    const res1 = await middleware(createReq());
-    const res2 = await middleware(createReq());
+    const res = await middleware(createReq("evil.com"));
 
-    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(errSpy).toHaveBeenCalled();
+    expect(NextResponse.json).toHaveBeenCalledWith(
+      { error: "Host validation failed. See logs for more details." },
+      { status: 400 },
+    );
+    expect(getToken).not.toHaveBeenCalled();
+    expect(res.type).toBe("json");
+    expect(res.init.status).toBe(400);
+  });
+
+  it("allows requests when HOMEPAGE_ALLOWED_HOSTS is '*'", async () => {
+    process.env.HOMEPAGE_ALLOWED_HOSTS = "*";
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("anything.example"));
+
     expect(NextResponse.next).toHaveBeenCalled();
-    expect(res1).toEqual({ type: "next" });
-    expect(res2).toEqual({ type: "next" });
+    expect(res).toEqual({ type: "next" });
+  });
+
+  it("allows requests when host is included in HOMEPAGE_ALLOWED_HOSTS", async () => {
+    process.env.PORT = "3000";
+    process.env.HOMEPAGE_ALLOWED_HOSTS = "example.com:3000,other:3000";
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("example.com:3000", "http://example.com:3000/"));
+
+    expect(NextResponse.next).toHaveBeenCalled();
+    expect(res).toEqual({ type: "next" });
   });
 
   it("redirects to signin when auth is enabled and no token is present", async () => {
@@ -65,7 +92,7 @@ describe("middleware", () => {
     getToken.mockResolvedValueOnce(null);
 
     const middleware = await loadMiddleware();
-    const res = await middleware(createReq("http://localhost:3000/some"));
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/some"));
 
     expect(getToken).toHaveBeenCalledWith({
       req: expect.objectContaining({ url: "http://localhost:3000/some" }),
@@ -83,7 +110,7 @@ describe("middleware", () => {
     getToken.mockResolvedValueOnce({ sub: "user" });
 
     const middleware = await loadMiddleware();
-    const res = await middleware(createReq("http://localhost:3000/"));
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/"));
 
     expect(NextResponse.next).toHaveBeenCalled();
     expect(res).toEqual({ type: "next" });
