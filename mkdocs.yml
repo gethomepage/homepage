@@ -26,6 +26,7 @@ nav:
       - configs/kubernetes.md
       - configs/docker.md
       - configs/proxmox.md
+      - configs/mcp.md
       - configs/custom-css-js.md
   - "Widgets":
       - widgets/index.md
