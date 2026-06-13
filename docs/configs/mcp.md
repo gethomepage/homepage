@@ -6,6 +6,10 @@ Homepage includes an optional, lightweight [Model Context Protocol](https://mode
 
 This endpoint is **disabled by default**. Do not expose it to an untrusted network unless you put Homepage behind authentication, TLS, and a reverse proxy that validates Host headers.
 
+Once enabled you can use the endpoint to help an assistant understand your current Homepage configuration, add new services or widgets, and get links to relevant documentation. For example, an assistant could add a new media service to your dashboard by appending it to `services.yaml` via the MCP endpoint instead of you having to manually edit the file. For example, you can ask an assistant to add a new service entry for Paperless-ngx:
+
+![Example of Claude Request](../../assets/claude_mcp.png)
+
 ## Enable the MCP endpoint
 
 Set the following environment variable and restart Homepage:
@@ -67,7 +71,7 @@ When writes are enabled, YAML files are parsed before they are saved so a syntac
 | `add_info_widget`      | Appends an information widget to `widgets.yaml` when `HOMEPAGE_MCP_ALLOW_WRITE=true`.                 |
 | `homepage_docs`        | Returns focused Homepage documentation links for common setup topics.                                 |
 
-The structured write tools are safer than replacing an entire file because they parse the existing YAML, preserve the expected top-level structure, and only append a Homepage-shaped entry. For example, an assistant can add a service with:
+For example, an assistant can add a service with:
 
 ```json
 {
