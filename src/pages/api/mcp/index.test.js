@@ -1,5 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+const { getServerSession } = vi.hoisted(() => ({
+  getServerSession: vi.fn(),
+}));
+
+vi.mock("next-auth/next", () => ({ getServerSession }));
+
 function mockResponse() {
   const res = {
     statusCode: 200,
@@ -34,6 +40,7 @@ describe("pages/api/mcp", () => {
 
   beforeEach(() => {
     vi.resetModules();
+    getServerSession.mockReset();
     process.env = { ...originalEnv };
   });
 
@@ -79,6 +86,59 @@ describe("pages/api/mcp", () => {
 
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.body.result.tools.length).toBeGreaterThan(0);
+  });
+
+  it("allows requests with a NextAuth session when Homepage auth is enabled", async () => {
+    process.env.HOMEPAGE_MCP_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "password";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    getServerSession.mockResolvedValueOnce({ user: { name: "Homepage" } });
+    const handler = await loadHandler();
+    const res = mockResponse();
+
+    await handler({ method: "POST", headers: {}, body: { jsonrpc: "2.0", id: 1, method: "tools/list" } }, res);
+
+    expect(getServerSession).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.body.result.tools.length).toBeGreaterThan(0);
+  });
+
+  it("rejects requests without a token or session when Homepage auth is enabled", async () => {
+    process.env.HOMEPAGE_MCP_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "password";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    getServerSession.mockResolvedValueOnce(null);
+    const handler = await loadHandler();
+    const res = mockResponse();
+
+    await handler({ method: "POST", headers: {}, body: { jsonrpc: "2.0", id: 1, method: "tools/list" } }, res);
+
+    expect(getServerSession).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(401);
+  });
+
+  it("allows bearer token requests when Homepage auth is enabled", async () => {
+    process.env.HOMEPAGE_MCP_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "password";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_MCP_TOKEN = "secret";
+    const handler = await loadHandler();
+    const res = mockResponse();
+
+    await handler(
+      {
+        method: "POST",
+        headers: { authorization: "Bearer secret" },
+        body: { jsonrpc: "2.0", id: 1, method: "tools/list" },
+      },
+      res,
+    );
+
+    expect(getServerSession).not.toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(200);
   });
 
   it("rejects non-POST requests", async () => {

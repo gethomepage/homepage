@@ -4,6 +4,13 @@ import { NextResponse } from "next/server";
 const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
 const authSecret = process.env.NEXTAUTH_SECRET || process.env.HOMEPAGE_AUTH_SECRET;
 
+function hasMcpToken(req) {
+  const token = process.env.HOMEPAGE_MCP_TOKEN;
+  if (!token) return false;
+
+  return req.headers.get("authorization") === `Bearer ${token}` || req.headers.get("x-homepage-mcp-token") === token;
+}
+
 export async function middleware(req) {
   // Check the Host header, if HOMEPAGE_ALLOWED_HOSTS is set
   const host = req.headers.get("host");
@@ -21,6 +28,10 @@ export async function middleware(req) {
   }
 
   if (authEnabled) {
+    if (new URL(req.url).pathname === "/api/mcp" && hasMcpToken(req)) {
+      return NextResponse.next();
+    }
+
     const token = await getToken({ req, secret: authSecret });
     if (!token) {
       const signInUrl = new URL("/auth/signin", req.url);

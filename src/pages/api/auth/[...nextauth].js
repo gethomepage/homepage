@@ -91,7 +91,7 @@ if (authEnabled) {
   }
 }
 
-export default NextAuth({
+export const authOptions = {
   providers,
   session: {
     strategy: "jwt",
@@ -111,4 +111,6 @@ export default NextAuth({
     signOut: async (message) => console.debug("[nextauth][event][signOut]", message),
     error: async (message) => console.error("[nextauth][event][error]", message),
   },
-});
+};
+
+export default NextAuth(authOptions);

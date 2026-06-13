@@ -18,11 +18,14 @@ async function loadMiddleware() {
   return mod.middleware;
 }
 
-function createReq(host = "localhost:3000", url = "http://localhost:3000/") {
+function createReq(host = "localhost:3000", url = "http://localhost:3000/", headers = {}) {
   return {
     url,
     headers: {
-      get: (key) => (key === "host" ? host : null),
+      get: (key) => {
+        if (key === "host") return host;
+        return headers[key] ?? null;
+      },
     },
   };
 }
@@ -112,6 +115,21 @@ describe("middleware", () => {
     const middleware = await loadMiddleware();
     const res = await middleware(createReq("localhost:3000", "http://localhost:3000/"));
 
+    expect(NextResponse.next).toHaveBeenCalled();
+    expect(res).toEqual({ type: "next" });
+  });
+
+  it("allows MCP requests with a bearer token when auth is enabled", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+    process.env.HOMEPAGE_MCP_TOKEN = "mcp-secret";
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(
+      createReq("localhost:3000", "http://localhost:3000/api/mcp", { authorization: "Bearer mcp-secret" }),
+    );
+
+    expect(getToken).not.toHaveBeenCalled();
     expect(NextResponse.next).toHaveBeenCalled();
     expect(res).toEqual({ type: "next" });
   });

@@ -22,7 +22,9 @@ http://your-homepage-instance/api/mcp
 
 ## Authentication
 
-If `HOMEPAGE_MCP_TOKEN` is set, MCP requests must include either of the following headers:
+If Homepage auth is enabled with `HOMEPAGE_AUTH_ENABLED`, requests from an authenticated Homepage session are allowed.
+
+For MCP clients that cannot use the browser session, set `HOMEPAGE_MCP_TOKEN`. Requests can then include either of the following headers:
 
 ```txt
 Authorization: Bearer your-token
@@ -39,6 +41,7 @@ Example Docker Compose environment block:
 ```yaml
 environment:
   HOMEPAGE_MCP_ENABLED: "true"
+  HOMEPAGE_AUTH_ENABLED: "true"
   HOMEPAGE_MCP_TOKEN: "change-me"
 ```
 
