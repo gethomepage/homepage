@@ -17,12 +17,14 @@ widget:
   fields: ["running", "stopped", "total", "image_updates"] # optional
 ```
 
-## Arcane manager V2.*
+## Arcane manager V2.\*
 
-If you mived to Arcane manager V2.* the authorization for the API keys has changed.
+If you moved to Arcane manager V2.\* the authorization for the API keys has changed.
 
-You can edit the permissions on the existing key, but you will need the following:
+you will need the following permissions:
 
 - **containers:list** for `running`, `stopped`, `total`
 - **images:list** for `images`, `images_used`, `images_unused`, `image_updates`
 - **image-updates:read** for `image_updates`
+
+You can also edit the permissions on the existing key instead of generating a new one.
