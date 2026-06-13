@@ -141,6 +141,17 @@ describe("pages/api/mcp", () => {
     expect(res.status).toHaveBeenCalledWith(200);
   });
 
+  it("returns 202 for JSON-RPC notifications", async () => {
+    process.env.HOMEPAGE_MCP_ENABLED = "true";
+    const handler = await loadHandler();
+    const res = mockResponse();
+
+    await handler({ method: "POST", headers: {}, body: { jsonrpc: "2.0", method: "notifications/initialized" } }, res);
+
+    expect(res.status).toHaveBeenCalledWith(202);
+    expect(res.end).toHaveBeenCalledWith();
+  });
+
   it("rejects non-POST requests", async () => {
     process.env.HOMEPAGE_MCP_ENABLED = "true";
     const handler = await loadHandler();
