@@ -128,8 +128,6 @@ export default function SignIn({ providers, settings }) {
             backgroundBrightness && `backdrop-brightness-${settings.background.brightness}`,
           )}
         >
-          <div className="pointer-events-none absolute -left-24 -top-20 h-64 w-64 rounded-full bg-theme-500/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-theme-500/10 blur-3xl" />
           <div className="grid gap-10 px-8 py-12 md:grid-cols-[1.2fr_1fr] md:px-12">
             <section className="flex flex-col justify-between">
               <div>

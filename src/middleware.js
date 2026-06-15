@@ -27,7 +27,7 @@ export async function middleware(req) {
     return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
 
-  if (authEnabled) {
+  if (authEnabled && !new URL(req.url).pathname.startsWith("/api/healthcheck")) {
     if (new URL(req.url).pathname === "/api/mcp" && hasMcpToken(req)) {
       return NextResponse.next();
     }
