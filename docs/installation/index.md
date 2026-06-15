@@ -60,6 +60,6 @@ For OIDC login (overrides password login):
 - `HOMEPAGE_EXTERNAL_URL` (external URL to your Homepage instance; used for callbacks)
 - Optional: `HOMEPAGE_OIDC_NAME` (display name), `HOMEPAGE_OIDC_SCOPE` (defaults to `openid email profile`)
 
-All app pages and `/api` routes will require a signed-in session. Static assets remain public.
+All app pages and `/api` routes except `/api/healthcheck` will require a signed-in session. Static assets remain public.
 
 Configure your OIDC provider with the a callback URI like `https://homepage.example.com/api/auth/callback/homepage-oidc`.

@@ -85,6 +85,18 @@ describe("middleware", () => {
     expect(res).toEqual({ type: "next" });
   });
 
+  it("allows healthcheck requests without auth when host is allowed", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/api/healthcheck"));
+
+    expect(getToken).not.toHaveBeenCalled();
+    expect(NextResponse.next).toHaveBeenCalled();
+    expect(res).toEqual({ type: "next" });
+  });
+
   it("redirects to signin when auth is enabled and no token is present", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_SECRET = "secret";

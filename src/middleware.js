@@ -20,7 +20,7 @@ export async function middleware(req) {
     return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
 
-  if (authEnabled) {
+  if (authEnabled && !new URL(req.url).pathname.startsWith("/api/healthcheck")) {
     const token = await getToken({ req, secret: authSecret });
     if (!token) {
       const signInUrl = new URL("/auth/signin", req.url);
