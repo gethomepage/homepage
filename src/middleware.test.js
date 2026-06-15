@@ -85,6 +85,20 @@ describe("middleware", () => {
     expect(res).toEqual({ type: "next" });
   });
 
+  it("allows healthcheck requests regardless of host and auth", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("10.1.2.3:3000", "http://10.1.2.3:3000/api/healthcheck"));
+
+    expect(NextResponse.next).toHaveBeenCalled();
+    expect(errSpy).not.toHaveBeenCalled();
+    expect(getToken).not.toHaveBeenCalled();
+    expect(res).toEqual({ type: "next" });
+  });
+
   it("redirects to signin when auth is enabled and no token is present", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_SECRET = "secret";

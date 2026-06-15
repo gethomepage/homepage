@@ -5,6 +5,11 @@ const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
 const authSecret = process.env.NEXTAUTH_SECRET || process.env.HOMEPAGE_AUTH_SECRET;
 
 export async function middleware(req) {
+  // Allow healthcheck through before host and auth checks; orchestrator probes use the pod IP as Host
+  if (new URL(req.url).pathname === "/api/healthcheck") {
+    return NextResponse.next();
+  }
+
   // Check the Host header, if HOMEPAGE_ALLOWED_HOSTS is set
   const host = req.headers.get("host");
   const port = process.env.PORT || 3000;
