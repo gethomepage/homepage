@@ -48,4 +48,12 @@ describe("widgets/pulse/component", () => {
     expectBlockValue(container, "pulse.vms", "2/3");
     expectBlockValue(container, "pulse.lxcs", "1/2");
   });
+
+  it("renders error state", () => {
+    useWidgetAPI.mockReturnValue({ data: undefined, error: { message: "HTTP Error 401" } });
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "pulse" } }} />, {
+      settings: { hideErrors: false },
+    });
+    expect(container.querySelector(".service-block")).toBeNull();
+  });
 });
