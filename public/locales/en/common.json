@@ -790,6 +790,11 @@
         "servers": "Servers",
         "nodes": "Nodes"
     },
+    "pulse": {
+        "nodes": "Nodes online",
+        "vms": "VMs running",
+        "lxcs": "LXCs running"
+    },
     "prometheus": {
         "targets_up": "Targets Up",
         "targets_down": "Targets Down",

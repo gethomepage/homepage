@@ -116,6 +116,7 @@ const components = {
   prowlarr: dynamic(() => import("./prowlarr/component")),
   proxmox: dynamic(() => import("./proxmox/component")),
   pterodactyl: dynamic(() => import("./pterodactyl/component")),
+  pulse: dynamic(() => import("./pulse/component")),
   pyload: dynamic(() => import("./pyload/component")),
   qbittorrent: dynamic(() => import("./qbittorrent/component")),
   qnap: dynamic(() => import("./qnap/component")),
