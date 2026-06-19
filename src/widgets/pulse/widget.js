@@ -1,15 +1,12 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
   api: "{url}/{endpoint}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: credentialedProxyHandler,
 
   mappings: {
     resources: {
       endpoint: "api/resources",
-      headers: {
-        "X-API-Token": "{key}",
-      },
     },
   },
 };
