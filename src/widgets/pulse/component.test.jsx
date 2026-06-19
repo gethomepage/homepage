@@ -116,4 +116,27 @@ describe("widgets/pulse/component", () => {
     expectBlockValue(container, "pulse.vms", 0);
     expectBlockValue(container, "pulse.lxcs", 0);
   });
+
+  it("falls back to resources length when stats totals are not returned", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        resources: [
+          { type: "node", status: "online" },
+          { type: "node", status: "offline" },
+          { type: "vm", status: "running" },
+          { type: "vm", status: "stopped" },
+          { type: "container", status: "running" },
+        ],
+      },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "pulse" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "pulse.nodes", 2);
+    expectBlockValue(container, "pulse.vms", 2);
+    expectBlockValue(container, "pulse.lxcs", 1);
+  });
 });
