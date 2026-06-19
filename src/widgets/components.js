@@ -110,6 +110,7 @@ const components = {
   pihole: dynamic(() => import("./pihole/component")),
   plantit: dynamic(() => import("./plantit/component")),
   plex: dynamic(() => import("./plex/component")),
+  pulse: dynamic(() => import("./pulse/component")),
   portainer: dynamic(() => import("./portainer/component")),
   prometheus: dynamic(() => import("./prometheus/component")),
   prometheusmetric: dynamic(() => import("./prometheusmetric/component")),

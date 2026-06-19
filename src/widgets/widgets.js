@@ -106,6 +106,7 @@ import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pterodactyl from "./pterodactyl/widget";
+import pulse from "./pulse/widget";
 import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
 import qnap from "./qnap/widget";
@@ -266,6 +267,7 @@ const widgets = {
   prowlarr,
   proxmox,
   pterodactyl,
+  pulse,
   pyload,
   qbittorrent,
   qnap,
