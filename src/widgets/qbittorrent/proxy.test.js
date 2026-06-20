@@ -100,7 +100,6 @@ describe("widgets/qbittorrent/proxy", () => {
     expect(httpProxy).toHaveBeenCalledTimes(3);
     expect(httpProxy.mock.calls[1][0]).toBe("http://qb/api/v2/auth/login");
     expect(httpProxy.mock.calls[1][1].headers.Authorization).toBe("Bearer abc123");
-    expect(httpProxy.mock.calls[1][1].body).toBeNull();
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual(Buffer.from("data"));
   });

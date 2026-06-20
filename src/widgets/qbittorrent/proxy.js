@@ -13,7 +13,6 @@ async function login(widget) {
   const loginParams = {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: null,
   };
 
   if (widget.key) {
