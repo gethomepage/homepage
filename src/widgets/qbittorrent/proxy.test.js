@@ -83,4 +83,25 @@ describe("widgets/qbittorrent/proxy", () => {
     expect(res.statusCode).toBe(401);
     expect(res.body).toEqual(Buffer.from("Denied"));
   });
+
+  it("supports API keys by including them in the Authorization header and not the body", async () => {
+    getServiceWidget.mockResolvedValue({ url: "http://qb", key: "abc123" });
+
+    httpProxy
+      .mockResolvedValueOnce([403, "application/json", Buffer.from("nope")])
+      .mockResolvedValueOnce([200, "text/plain", Buffer.from("Ok.")])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from("data")]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "torrents/info", index: "0" } };
+    const res = createMockRes();
+
+    await qbittorrentProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(3);
+    expect(httpProxy.mock.calls[1][0]).toBe("http://qb/api/v2/auth/login");
+    expect(httpProxy.mock.calls[1][1].headers.Authorization).toBe("Bearer abc123");
+    expect(httpProxy.mock.calls[1][1].body).toBeNull();
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual(Buffer.from("data"));
+  });
 });
