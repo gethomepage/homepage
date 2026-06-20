@@ -19,7 +19,7 @@ async function login(widget) {
   if (widget.key) {
     loginParams.headers.Authorization = `Bearer ${loginKey}`;
   } else if (widget.username && widget.password) {
-    loginParams.body = loginBody
+    loginParams.body = loginBody;
   }
 
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);
