@@ -9,11 +9,18 @@ async function login(widget) {
   logger.debug("qBittorrent is rejecting the request, logging in.");
   const loginUrl = new URL(`${widget.url}/api/v2/auth/login`).toString();
   const loginBody = `username=${encodeURIComponent(widget.username)}&password=${encodeURIComponent(widget.password)}`;
+  const loginKey = `${encodeURIComponent(widget.key)}`;
   const loginParams = {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: loginBody,
+    body: null,
   };
+
+  if (widget.key) {
+    loginParams.headers.Authorization = `Bearer ${loginKey}`;
+  } else if (widget.username && widget.password) {
+    loginParams.body = loginBody
+  }
 
   const [status, contentType, data] = await httpProxy(loginUrl, loginParams);
   return [status, data];
