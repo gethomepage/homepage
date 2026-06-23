@@ -66,6 +66,7 @@ export default async function credentialedProxyHandler(req, res, map) {
           "tandoor",
           "tracearr",
           "pterodactyl",
+          "ticktick",
           "vikunja",
           "firefly",
         ].includes(widget.type)

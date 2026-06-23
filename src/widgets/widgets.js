@@ -145,6 +145,7 @@ import unraid from "./unraid/widget";
 import uptimekuma from "./uptimekuma/widget";
 import uptimerobot from "./uptimerobot/widget";
 import urbackup from "./urbackup/widget";
+import ticktick from "./ticktick/widget";
 import vikunja from "./vikunja/widget";
 import wallos from "./wallos/widget";
 import watchtower from "./watchtower/widget";
@@ -307,6 +308,7 @@ const widgets = {
   uptimekuma,
   uptimerobot,
   urbackup,
+  ticktick,
   vikunja,
   wallos,
   watchtower,

@@ -1215,5 +1215,13 @@
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"
+    },
+    "ticktick": {
+        "totalTasks": "Total",
+        "openTasks": "Open",
+        "completedTasks": "Done",
+        "overdueTasks": "Overdue",
+        "dueTodayTasks": "Due Today",
+        "highPriorityTasks": "High Priority"
     }
 }

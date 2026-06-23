@@ -422,6 +422,16 @@ export function cleanServiceGroups(groups) {
           // vikunja
           enableTaskList,
 
+          // ticktick
+          projectId,
+          taskListEnabled,
+          taskFetchLimit,
+          taskFilter,
+          taskLink,
+          taskListHeight,
+          completedLookbackDays,
+          enableTaskLinks,
+
           // wgeasy
           threshold,
 
@@ -673,6 +683,16 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "vikunja") {
           if (enableTaskList !== undefined) widget.enableTaskList = !!enableTaskList;
+        }
+        if (type === "ticktick") {
+          if (projectId !== undefined) widget.projectId = projectId;
+          if (taskListEnabled !== undefined) widget.taskListEnabled = !!taskListEnabled;
+          if (taskFetchLimit !== undefined) widget.taskFetchLimit = parseInt(taskFetchLimit, 10);
+          if (taskListHeight !== undefined) widget.taskListHeight = taskListHeight;
+          if (fields !== undefined) widget.fields = Array.isArray(fields) ? fields : [fields];
+          if (taskFilter !== undefined) widget.taskFilter = taskFilter;
+          if (taskLink !== undefined) widget.taskLink = taskLink;
+          if (completedLookbackDays !== undefined) widget.completedLookbackDays = parseInt(completedLookbackDays, 10);
         }
         if (type === "prometheusmetric") {
           if (metrics) widget.metrics = metrics;
