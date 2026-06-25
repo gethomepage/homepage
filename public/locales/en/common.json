@@ -214,6 +214,10 @@
         "movies": "Movies",
         "tv": "TV Shows"
     },
+    "pocketid": {
+        "users": "Users",
+        "oidcClients": "OIDC Clients"
+    },
     "sabnzbd": {
         "rate": "Rate",
         "queue": "Queue",
