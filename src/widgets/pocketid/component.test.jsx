@@ -53,6 +53,33 @@ describe("widgets/pocketid/component", () => {
     expect(screen.getByText("invalid api key")).toBeInTheDocument();
   });
 
+  it("surfaces the OIDC clients error when the users endpoint succeeds", () => {
+    mockEndpoints({
+      users: { data: { pagination: { totalItems: 3 } }, error: undefined },
+      oidcClients: { data: undefined, error: { message: "clients unavailable" } },
+    });
+
+    renderWithProviders(<Component service={{ widget: { type: "pocketid" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getByText("clients unavailable")).toBeInTheDocument();
+  });
+
+  it("renders placeholders when only the OIDC clients endpoint is still loading", () => {
+    mockEndpoints({
+      users: { data: { pagination: { totalItems: 3 } }, error: undefined },
+      oidcClients: { data: undefined, error: undefined },
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "pocketid" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(container.querySelectorAll(".service-block")).toHaveLength(2);
+    expect(screen.getByText("pocketid.oidcClients")).toBeInTheDocument();
+  });
+
   it("renders user and OIDC client counts", () => {
     mockEndpoints({
       users: { data: { pagination: { totalItems: 42 } }, error: undefined },
