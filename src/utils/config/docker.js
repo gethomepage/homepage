@@ -3,7 +3,7 @@ import path from "path";
 
 import yaml from "js-yaml";
 
-import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
+import checkAndCopyConfig, { CONF_DIR, getConfigPath, substituteEnvironmentVars } from "utils/config/config";
 
 export function getDefaultDockerArgs(platform = process.platform) {
   if (platform !== "win32" && platform !== "darwin") {
@@ -16,7 +16,7 @@ export function getDefaultDockerArgs(platform = process.platform) {
 export default function getDockerArguments(server) {
   checkAndCopyConfig("docker.yaml");
 
-  const configFile = path.join(CONF_DIR, "docker.yaml");
+  const configFile = getConfigPath("docker.yaml");
   const rawConfigData = readFileSync(configFile, "utf8");
   const configData = substituteEnvironmentVars(rawConfigData);
   const servers = yaml.load(configData);

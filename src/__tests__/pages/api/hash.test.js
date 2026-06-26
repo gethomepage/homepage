@@ -7,10 +7,11 @@ function sha256(input) {
   return createHash("sha256").update(input).digest("hex");
 }
 
-const { readFileSync, checkAndCopyConfig, CONF_DIR } = vi.hoisted(() => ({
+const { readFileSync, checkAndCopyConfig, CONF_DIR, getConfigPath } = vi.hoisted(() => ({
   readFileSync: vi.fn(),
   checkAndCopyConfig: vi.fn(),
   CONF_DIR: "/conf",
+  getConfigPath: vi.fn((c) => `/conf/${c}`),
 }));
 
 vi.mock("fs", () => ({
@@ -20,6 +21,7 @@ vi.mock("fs", () => ({
 vi.mock("utils/config/config", () => ({
   default: checkAndCopyConfig,
   CONF_DIR,
+  getConfigPath,
 }));
 
 import handler from "pages/api/hash";

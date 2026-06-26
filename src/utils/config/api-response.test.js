@@ -9,6 +9,7 @@ const { fs, yaml, config, widgetHelpers, serviceHelpers } = vi.hoisted(() => ({
   },
   config: {
     CONF_DIR: "/conf",
+    getConfigPath: vi.fn((c) => `/conf/${c}`),
     getSettings: vi.fn(),
     substituteEnvironmentVars: vi.fn((s) => s),
     default: vi.fn(),

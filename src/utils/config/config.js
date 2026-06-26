@@ -12,6 +12,21 @@ export const CONF_DIR = process.env.HOMEPAGE_CONFIG_DIR
   ? process.env.HOMEPAGE_CONFIG_DIR
   : join(process.cwd(), "config");
 
+export const SKELETON_DIR = join(process.cwd(), "src", "skeleton");
+
+// Resolve the path a config file should be read from. The user's config
+// directory is preferred, falling back to the bundled skeleton when the file
+// is not present there. This keeps Homepage working when the config directory
+// is read-only and only some files are provided — e.g. individual files
+// mounted via subPath from a Kubernetes ConfigMap. See #2040 and #2172.
+export function getConfigPath(config) {
+  const configYaml = join(CONF_DIR, config);
+  if (existsSync(configYaml)) {
+    return configYaml;
+  }
+  return join(SKELETON_DIR, config);
+}
+
 export default function checkAndCopyConfig(config) {
   // Ensure config directory exists
   if (!existsSync(CONF_DIR)) {
@@ -27,15 +42,22 @@ export default function checkAndCopyConfig(config) {
 
   // If the config file doesn't exist, try to copy the skeleton
   if (!existsSync(configYaml)) {
-    const configSkeleton = join(process.cwd(), "src", "skeleton", config);
+    const configSkeleton = join(SKELETON_DIR, config);
     try {
       copyFileSync(configSkeleton, configYaml);
       console.info("%s was copied to the config folder", config);
     } catch (err) {
-      console.error("❌ Failed to initialize required config: %s", configYaml);
-      console.error("Reason: %s", err.message);
-      console.error("Hint: Make /app/config writable or manually place the config file.");
-      process.exit(1);
+      // The config directory may be read-only — for example when individual
+      // files are mounted via subPath from a Kubernetes ConfigMap. In that
+      // case we cannot seed the default file, but we can still run using the
+      // bundled skeleton (see getConfigPath), so warn and continue instead of
+      // crashing the whole app. See #2040 and #2172.
+      console.warn(
+        "Could not copy default %s into %s (%s); falling back to the bundled skeleton.",
+        config,
+        CONF_DIR,
+        err.code || err.message,
+      );
     }
 
     return true;
@@ -82,7 +104,7 @@ export function substituteEnvironmentVars(str) {
 export function getSettings() {
   checkAndCopyConfig("settings.yaml");
 
-  const settingsYaml = join(CONF_DIR, "settings.yaml");
+  const settingsYaml = getConfigPath("settings.yaml");
   const rawFileContents = readFileSync(settingsYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
   const initialSettings = yaml.load(fileContents) ?? {};

@@ -35,6 +35,7 @@ const { state, fs, yaml, config, Docker, dockerCfg, kubeCfg, kubeApi } = vi.hois
 
   const config = {
     CONF_DIR: "/conf",
+    getConfigPath: vi.fn((c) => `/conf/${c}`),
     getSettings: vi.fn(() => ({ instanceName: undefined })),
     substituteEnvironmentVars: vi.fn((s) => s),
     default: vi.fn(),
