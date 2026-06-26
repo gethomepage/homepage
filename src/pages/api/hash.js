@@ -1,8 +1,7 @@
 import { createHash } from "crypto";
 import { readFileSync } from "fs";
-import { join } from "path";
 
-import checkAndCopyConfig, { CONF_DIR } from "utils/config/config";
+import checkAndCopyConfig, { getConfigPath } from "utils/config/config";
 
 const configs = [
   "docker.yaml",
@@ -23,7 +22,7 @@ function hash(buffer) {
 export default async function handler(req, res) {
   const hashes = configs.map((config) => {
     checkAndCopyConfig(config);
-    const configYaml = join(CONF_DIR, config);
+    const configYaml = getConfigPath(config);
     return hash(readFileSync(configYaml, "utf8"));
   });
 

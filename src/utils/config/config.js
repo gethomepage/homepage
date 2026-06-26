@@ -12,6 +12,18 @@ export const CONF_DIR = process.env.HOMEPAGE_CONFIG_DIR
   ? process.env.HOMEPAGE_CONFIG_DIR
   : join(process.cwd(), "config");
 
+export const SKELETON_DIR = join(process.cwd(), "src", "skeleton");
+
+// Prefer the user's config file, falling back to the bundled skeleton when it
+// is absent (e.g. a read-only config dir from subPath ConfigMap mounts). #2172
+export function getConfigPath(config) {
+  const configYaml = join(CONF_DIR, config);
+  if (existsSync(configYaml)) {
+    return configYaml;
+  }
+  return join(SKELETON_DIR, config);
+}
+
 export default function checkAndCopyConfig(config) {
   // Ensure config directory exists
   if (!existsSync(CONF_DIR)) {
@@ -27,15 +39,19 @@ export default function checkAndCopyConfig(config) {
 
   // If the config file doesn't exist, try to copy the skeleton
   if (!existsSync(configYaml)) {
-    const configSkeleton = join(process.cwd(), "src", "skeleton", config);
+    const configSkeleton = join(SKELETON_DIR, config);
     try {
       copyFileSync(configSkeleton, configYaml);
       console.info("%s was copied to the config folder", config);
     } catch (err) {
-      console.error("❌ Failed to initialize required config: %s", configYaml);
-      console.error("Reason: %s", err.message);
-      console.error("Hint: Make /app/config writable or manually place the config file.");
-      process.exit(1);
+      // Config dir may be read-only (e.g. subPath ConfigMap mounts); fall back
+      // to the bundled skeleton via getConfigPath instead of crashing. #2172
+      console.warn(
+        "Could not copy default %s into %s (%s); falling back to the bundled skeleton.",
+        config,
+        CONF_DIR,
+        err.code || err.message,
+      );
     }
 
     return true;
@@ -82,7 +98,7 @@ export function substituteEnvironmentVars(str) {
 export function getSettings() {
   checkAndCopyConfig("settings.yaml");
 
-  const settingsYaml = join(CONF_DIR, "settings.yaml");
+  const settingsYaml = getConfigPath("settings.yaml");
   const rawFileContents = readFileSync(settingsYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
   const initialSettings = yaml.load(fileContents) ?? {};

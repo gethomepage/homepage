@@ -20,6 +20,7 @@ const { fs, yaml, config, checkAndCopyConfig, kube, apiExt } = vi.hoisted(() => 
     },
     config: {
       CONF_DIR: "/conf",
+      getConfigPath: vi.fn((c) => `/conf/${c}`),
       substituteEnvironmentVars: vi.fn((s) => s),
     },
     checkAndCopyConfig: vi.fn(),

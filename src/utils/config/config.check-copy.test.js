@@ -53,25 +53,25 @@ describe("utils/config/config checkAndCopyConfig", () => {
     infoSpy.mockRestore();
   });
 
-  it("exits the process when copying the skeleton fails", async () => {
+  it("warns and continues when copying the skeleton fails (read-only config dir)", async () => {
     const exitSpy = vi.spyOn(process, "exit").mockImplementation(() => {
       throw new Error("exit");
     });
-    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
 
     fs.existsSync.mockReturnValueOnce(true);
     fs.existsSync.mockReturnValueOnce(false);
     fs.copyFileSync.mockImplementationOnce(() => {
-      throw new Error("copy failed");
+      throw Object.assign(new Error("read-only file system"), { code: "EROFS" });
     });
 
     const mod = await import("./config");
-    expect(() => mod.default("services.yaml")).toThrow("exit");
-    expect(exitSpy).toHaveBeenCalledWith(1);
-    expect(errSpy).toHaveBeenCalled();
+    expect(mod.default("services.yaml")).toBe(true);
+    expect(exitSpy).not.toHaveBeenCalled();
+    expect(warnSpy).toHaveBeenCalled();
 
     exitSpy.mockRestore();
-    errSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it("returns a parse error with config name when YAML is invalid", async () => {
@@ -86,5 +86,25 @@ describe("utils/config/config checkAndCopyConfig", () => {
     const result = mod.default("services.yaml");
 
     expect(result).toEqual(expect.objectContaining({ name: "YAMLException", config: "services.yaml" }));
+  });
+});
+
+describe("utils/config/config getConfigPath", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.resetModules();
+    process.env = { ...process.env, HOMEPAGE_CONFIG_DIR: "/conf" };
+  });
+
+  it("returns the config-dir path when the file exists there", async () => {
+    fs.existsSync.mockReturnValueOnce(true);
+    const mod = await import("./config");
+    expect(mod.getConfigPath("services.yaml")).toBe("/conf/services.yaml");
+  });
+
+  it("falls back to the bundled skeleton when the file is missing", async () => {
+    fs.existsSync.mockReturnValueOnce(false);
+    const mod = await import("./config");
+    expect(mod.getConfigPath("services.yaml")).toBe(mod.SKELETON_DIR + "/services.yaml");
   });
 });
