@@ -29,7 +29,7 @@ export default function Item({ bookmark, iconOnly = false }) {
           <div className="flex items-center justify-center text-theme-700 hover:text-theme-700 dark:text-theme-200 text-xl font-medium rounded-md bookmark-icon py-0.5">
             {bookmark.icon && (
               <div className="w-7 h-7">
-                <ResolvedIcon icon={bookmark.icon} alt={bookmark.abbr} />
+                <ResolvedIcon icon={bookmark.icon} alt={bookmark.abbr} crop={bookmark.crop} />
               </div>
             )}
             {!bookmark.icon && bookmark.abbr}
@@ -39,7 +39,7 @@ export default function Item({ bookmark, iconOnly = false }) {
             <div className="shrink-0 flex items-center justify-center w-11 bg-theme-500/10 dark:bg-theme-900/50 text-theme-700 hover:text-theme-700 dark:text-theme-200 text-sm font-medium rounded-l-md bookmark-icon">
               {bookmark.icon && (
                 <div className="shrink-0 w-5 h-5">
-                  <ResolvedIcon icon={bookmark.icon} alt={bookmark.abbr} />
+                  <ResolvedIcon icon={bookmark.icon} alt={bookmark.abbr} crop={bookmark.crop} />
                 </div>
               )}
               {!bookmark.icon && bookmark.abbr}

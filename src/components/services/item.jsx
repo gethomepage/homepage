@@ -51,11 +51,11 @@ export default function Item({ service, groupName, useEqualHeights }) {
                 className="shrink-0 flex items-center justify-center w-12 service-icon z-10"
                 aria-label={service.icon}
               >
-                <ResolvedIcon icon={service.icon} />
+                <ResolvedIcon icon={service.icon} crop={service.crop} />
               </a>
             ) : (
               <div className="shrink-0 flex items-center justify-center w-12 service-icon z-10">
-                <ResolvedIcon icon={service.icon} />
+                <ResolvedIcon icon={service.icon} crop={service.crop} />
               </div>
             ))}
 

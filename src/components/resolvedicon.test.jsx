@@ -7,7 +7,7 @@ import { SettingsContext } from "utils/contexts/settings";
 import { ThemeContext } from "utils/contexts/theme";
 
 vi.mock("next/image", () => ({
-  default: ({ src, alt }) => <div data-testid="next-image" data-src={src} data-alt={alt} />,
+  default: ({ src, alt, style }) => <div data-testid="next-image" data-src={src} data-alt={alt} style={style} />,
 }));
 
 import ResolvedIcon from "./resolvedicon";
@@ -19,6 +19,13 @@ function renderWithContexts(ui, { settings = {}, theme = "dark" } = {}) {
     </SettingsContext.Provider>,
   );
 }
+
+const cropCases = [
+  ["rounded", "0.5rem"],
+  ["circle", "50%"],
+  [undefined, ""],
+  ["invalid", ""],
+];
 
 describe("components/resolvedicon", () => {
   it("renders direct URL icons via next/image", () => {
@@ -78,5 +85,21 @@ describe("components/resolvedicon", () => {
 
     renderWithContexts(<ResolvedIcon icon="foo.png" />);
     expect(screen.getAllByTestId("next-image")[1].getAttribute("data-src")).toContain("/dashboard-icons/png/foo.png");
+  });
+
+  describe.each([
+    ["direct URL", "http://example.com/x.png"],
+    ["relative URL", "/icons/x.png"],
+    ["selfh.st", "sh-test.png"],
+    ["dashboard-icons svg", "foo.svg"],
+    ["dashboard-icons webp", "foo.webp"],
+    ["dashboard-icons png", "foo.png"],
+    ["Material Design Icons", "mdi-home"],
+    ["Simple Icons", "si-github"],
+  ])("%s", (_type, icon) => {
+    it.each(cropCases)("crop: %s", (crop, expected) => {
+      const { container } = renderWithContexts(<ResolvedIcon icon={icon} crop={crop} />);
+      expect(container.querySelector("div").style.borderRadius).toBe(expected);
+    });
   });
 });

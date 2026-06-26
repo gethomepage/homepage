@@ -12,7 +12,7 @@ export default function Logo({ options }) {
       <Raw>
         {options.icon ? (
           <div className="resolved mr-3">
-            <ResolvedIcon icon={options.icon} width={48} height={48} />
+            <ResolvedIcon icon={options.icon} width={48} height={48} crop={options.crop} />
           </div>
         ) : (
           // fallback to homepage logo

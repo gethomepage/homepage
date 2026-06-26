@@ -304,7 +304,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
                         <div className="flex flex-row items-center mr-4 pointer-events-none">
                           {(r.icon || r.abbr) && (
                             <div className="w-5 text-xs mr-4">
-                              {r.icon && <ResolvedIcon icon={r.icon} />}
+                              {r.icon && <ResolvedIcon icon={r.icon} crop={r.crop} />}
                               {r.abbr && r.abbr}
                             </div>
                           )}

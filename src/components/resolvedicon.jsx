@@ -8,9 +8,12 @@ const iconSetURLs = {
   si: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/",
 };
 
-export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "logo" }) {
+const cropStyles = { rounded: "0.5rem", circle: "50%" };
+
+export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "logo", crop }) {
   const { settings } = useContext(SettingsContext);
   const { theme } = useContext(ThemeContext);
+  const borderRadius = Object.hasOwn(cropStyles, crop) ? cropStyles[crop] : undefined;
 
   // direct or relative URLs
   if (icon.startsWith("http") || icon.startsWith("/")) {
@@ -25,6 +28,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           objectFit: "contain",
           maxHeight: "100%",
           maxWidth: "100%",
+          borderRadius,
         }}
         alt={alt}
       />
@@ -57,6 +61,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           objectFit: "contain",
           maxHeight: "100%",
           maxWidth: "100%",
+          borderRadius,
         }}
         alt={alt}
       />
@@ -90,6 +95,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           background: `${iconColor}`,
           mask: `url(${iconSource}) no-repeat center / contain`,
           WebkitMask: `url(${iconSource}) no-repeat center / contain`,
+          borderRadius,
         }}
       />
     );
@@ -109,6 +115,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           objectFit: "contain",
           maxHeight: "100%",
           maxWidth: "100%",
+          borderRadius,
         }}
         alt={alt}
       />
@@ -128,6 +135,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
           objectFit: "contain",
           maxHeight: "100%",
           maxWidth: "100%",
+          borderRadius,
         }}
         alt={alt}
       />
@@ -146,6 +154,7 @@ export default function ResolvedIcon({ icon, width = 32, height = 32, alt = "log
         objectFit: "contain",
         maxHeight: "100%",
         maxWidth: "100%",
+        borderRadius,
       }}
       alt={alt}
     />

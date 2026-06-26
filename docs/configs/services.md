@@ -251,6 +251,19 @@ To use a local icon, first create a Docker mount to `/app/public/icons` and then
 
 <img width="1038" alt="Service Icons" src="https://user-images.githubusercontent.com/82196/187040777-da1361d7-f0c4-4531-95db-136cd00a1611.png">
 
+You can crop an icon by setting the `crop` option:
+
+- `crop: rounded` applies a slight rounding to the icon
+- `crop: circle` clips the icon to a circle
+
+```yaml
+- Group A:
+    - My Service:
+        icon: /icons/avatar.png
+        href: http://localhost/
+        crop: circle
+```
+
 ## Ping
 
 Services may have an optional `ping` property that allows you to monitor the availability of an external host. As of v0.8.0, the ping feature attempts to use a true (ICMP) ping command on the underlying host. Currently, only IPv4 is supported.
