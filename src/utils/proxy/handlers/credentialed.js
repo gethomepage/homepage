@@ -51,6 +51,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = `Bearer ${widget.username} ${widget.password}`;
       } else if (
         [
+          "airtrail",
           "argocd",
           "authentik",
           "cloudflared",

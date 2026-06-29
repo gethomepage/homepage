@@ -22,6 +22,7 @@ vi.mock("utils/config/config", () => ({ getSettings }));
 // Keep the widget registry minimal so the test doesn't import the whole widget graph.
 vi.mock("widgets/widgets", () => ({
   default: {
+    airtrail: { api: "{url}/{endpoint}" },
     coinmarketcap: { api: "{url}/{endpoint}" },
     gotify: { api: "{url}/{endpoint}" },
     plantit: { api: "{url}/{endpoint}" },
@@ -115,6 +116,21 @@ describe("utils/proxy/handlers/credentialed", () => {
 
     expect(res.statusCode).toBe(403);
     expect(res.body).toEqual({ error: "Service does not support API calls" });
+  });
+
+  it("uses Bearer auth for airtrail widgets", async () => {
+    getServiceWidget.mockResolvedValue({ type: "airtrail", url: "http://example", key: "my-api-key" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "api/stats", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalled();
+    const [, params] = httpProxy.mock.calls[0];
+    expect(params.headers.Authorization).toBe("Bearer my-api-key");
+    expect(res.statusCode).toBe(200);
   });
 
   it("uses Bearer auth for linkwarden widgets", async () => {
