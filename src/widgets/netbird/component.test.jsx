@@ -22,9 +22,12 @@ describe("widgets/netbird/component", () => {
   it("renders placeholders while loading", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
 
-    const { container } = renderWithProviders(<Component service={{ widget: { type: "netbird", url: "http://x" } }} />, {
-      settings: { hideErrors: false },
-    });
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "netbird", url: "http://x" } }} />,
+      {
+        settings: { hideErrors: false },
+      },
+    );
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("netbird.online")).toBeInTheDocument();
@@ -71,9 +74,12 @@ describe("widgets/netbird/component", () => {
       return { data: undefined, error: undefined };
     });
 
-    const { container } = renderWithProviders(<Component service={{ widget: { type: "netbird", url: "http://x" } }} />, {
-      settings: { hideErrors: false },
-    });
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "netbird", url: "http://x" } }} />,
+      {
+        settings: { hideErrors: false },
+      },
+    );
 
     expectBlockValue(container, "netbird.online", 2);
     expectBlockValue(container, "netbird.offline", 1);
