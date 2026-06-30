@@ -941,6 +941,12 @@
       "warnings": "Warnings",
       "criticals": "Criticals"
     },
+    "netbird": {
+      "online": "Online",
+      "offline": "Offline",
+      "total": "Total",
+      "routes": "Routes"
+    },
     "ntfy": {
       "title": "Title",
       "priority": "Priority",

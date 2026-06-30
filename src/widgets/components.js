@@ -87,6 +87,7 @@ const components = {
   myspeed: dynamic(() => import("./myspeed/component")),
   navidrome: dynamic(() => import("./navidrome/component")),
   netalertx: dynamic(() => import("./netalertx/component")),
+  netbird: dynamic(() => import("./netbird/component")),
   netdata: dynamic(() => import("./netdata/component")),
   nextcloud: dynamic(() => import("./nextcloud/component")),
   nextdns: dynamic(() => import("./nextdns/component")),

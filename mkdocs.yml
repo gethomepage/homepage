@@ -112,6 +112,7 @@ nav:
           - widgets/services/mylar.md
           - widgets/services/myspeed.md
           - widgets/services/navidrome.md
+          - widgets/services/netbird.md
           - widgets/services/netdata.md
           - widgets/services/netalertx.md
           - widgets/services/nextcloud.md

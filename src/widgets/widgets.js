@@ -78,6 +78,7 @@ import mylar from "./mylar/widget";
 import myspeed from "./myspeed/widget";
 import navidrome from "./navidrome/widget";
 import netalertx from "./netalertx/widget";
+import netbird from "./netbird/widget";
 import netdata from "./netdata/widget";
 import nextcloud from "./nextcloud/widget";
 import nextdns from "./nextdns/widget";
@@ -237,6 +238,7 @@ const widgets = {
   myspeed,
   navidrome,
   netalertx,
+  netbird,
   netdata,
   nextcloud,
   nextdns,
