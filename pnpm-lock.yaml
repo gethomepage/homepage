@@ -60,8 +60,8 @@ importers:
         specifier: ^16.0.7
         version: 16.0.7(@types/react@19.0.10)(i18next@26.3.0(typescript@5.7.3))(next@16.2.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-i18next@15.5.3(i18next@26.3.0(typescript@5.7.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@5.7.3))(react@19.2.5)
       ping:
-        specifier: ^0.4.4
-        version: 0.4.4
+        specifier: ^1.0.0
+        version: 1.0.0
       pretty-bytes:
         specifier: ^7.1.0
         version: 7.1.0
@@ -3021,9 +3021,9 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
-  ping@0.4.4:
-    resolution: {integrity: sha512-56ZMC0j7SCsMMLdOoUg12VZCfj/+ZO+yfOSjaNCRrmZZr6GLbN2X/Ui56T15dI8NhiHckaw5X2pvyfAomanwqQ==}
-    engines: {node: '>=4.0.0'}
+  ping@1.0.0:
+    resolution: {integrity: sha512-3dxdgGtV+7P/EVo42JhkGSomeO/0GGicSz3mI/yK+AI+VGNAOfakw5XfcbGI4IjyBY+ZZwvuRXdhnNF2uliKew==}
+    engines: {node: '>=22.0.0'}
 
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
@@ -6752,7 +6752,7 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  ping@0.4.4: {}
+  ping@1.0.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
