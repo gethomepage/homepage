@@ -55,7 +55,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
-    "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/coverage-v8": "^4.1.9",
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.5.11",
     "eslint-config-prettier": "^10.1.8",
