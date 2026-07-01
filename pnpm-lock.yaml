@@ -146,7 +146,7 @@ importers:
         version: 6.10.2(eslint@9.25.1(jiti@2.6.1))
       eslint-plugin-prettier:
         specifier: ^5.5.5
-        version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.25.1(jiti@2.6.1)))(eslint@9.25.1(jiti@2.6.1))(prettier@3.8.1)
+        version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.25.1(jiti@2.6.1)))(eslint@9.25.1(jiti@2.6.1))(prettier@3.8.4)
       eslint-plugin-react:
         specifier: ^7.37.4
         version: 7.37.4(eslint@9.25.1(jiti@2.6.1))
@@ -160,11 +160,11 @@ importers:
         specifier: ^8.5.15
         version: 8.5.16
       prettier:
-        specifier: ^3.8.1
-        version: 3.8.1
+        specifier: ^3.8.4
+        version: 3.8.4
       prettier-plugin-organize-imports:
         specifier: ^4.3.0
-        version: 4.3.0(prettier@3.8.1)(typescript@5.7.3)
+        version: 4.3.0(prettier@3.8.4)(typescript@5.7.3)
       tailwind-scrollbar:
         specifier: ^4.0.2
         version: 4.0.2(react@19.2.5)(tailwindcss@4.3.0)
@@ -3063,8 +3063,8 @@ packages:
       vue-tsc:
         optional: true
 
-  prettier@3.8.1:
-    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
+  prettier@3.8.4:
+    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5750,10 +5750,10 @@ snapshots:
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-prettier@5.5.5(eslint-config-prettier@10.1.8(eslint@9.25.1(jiti@2.6.1)))(eslint@9.25.1(jiti@2.6.1))(prettier@3.8.1):
+  eslint-plugin-prettier@5.5.5(eslint-config-prettier@10.1.8(eslint@9.25.1(jiti@2.6.1)))(eslint@9.25.1(jiti@2.6.1))(prettier@3.8.4):
     dependencies:
       eslint: 9.25.1(jiti@2.6.1)
-      prettier: 3.8.1
+      prettier: 3.8.4
       prettier-linter-helpers: 1.0.1
       synckit: 0.11.12
     optionalDependencies:
@@ -6781,12 +6781,12 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier-plugin-organize-imports@4.3.0(prettier@3.8.1)(typescript@5.7.3):
+  prettier-plugin-organize-imports@4.3.0(prettier@3.8.4)(typescript@5.7.3):
     dependencies:
-      prettier: 3.8.1
+      prettier: 3.8.4
       typescript: 5.7.3
 
-  prettier@3.8.1: {}
+  prettier@3.8.4: {}
 
   pretty-bytes@7.1.0: {}
 
