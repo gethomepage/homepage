@@ -11,8 +11,8 @@ As of v0.6.11 the widget supports fields `["movies", "series", "episodes", "song
 
 | Jellyfin Version | Homepage Widget Version |
 | ---------------- | ----------------------- |
-| < 10.12          | 1 (default)             |
-| >= 10.12         | 2                       |
+| < 12.0           | 1 (default)             |
+| >= 12.0          | 2                       |
 
 ```yaml
 widget:
