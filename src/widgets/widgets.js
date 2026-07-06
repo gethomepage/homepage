@@ -46,6 +46,7 @@ import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
 import grafana from "./grafana/widget";
+import guacamole from "./guacamole/widget";
 import hdhomerun from "./hdhomerun/widget";
 import headscale from "./headscale/widget";
 import healthchecks from "./healthchecks/widget";
@@ -202,6 +203,7 @@ const widgets = {
   gluetun,
   gotify,
   grafana,
+  guacamole,
   hdhomerun,
   headscale,
   hoarder: karakeep,

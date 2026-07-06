@@ -52,6 +52,7 @@ const components = {
   gluetun: dynamic(() => import("./gluetun/component")),
   gotify: dynamic(() => import("./gotify/component")),
   grafana: dynamic(() => import("./grafana/component")),
+  guacamole: dynamic(() => import("./guacamole/component")),
   hdhomerun: dynamic(() => import("./hdhomerun/component")),
   headscale: dynamic(() => import("./headscale/component")),
   hoarder: dynamic(() => import("./karakeep/component")),

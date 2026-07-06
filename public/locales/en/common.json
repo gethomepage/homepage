@@ -771,6 +771,11 @@
         "totalalerts": "Total Alerts",
         "alertstriggered": "Alerts Triggered"
     },
+    "guacamole": {
+        "active": "Active Sessions",
+        "connections": "Connections",
+        "users": "Users"
+    },
     "nextcloud": {
         "cpuload": "Cpu Load",
         "memoryusage": "Memory Usage",
