@@ -221,7 +221,7 @@ You can also specify prefixed icons from:
 
 You can specify a custom color for `mdi` and `si` icons by adding a hex color code as a suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
 
-Please note that none of these icons are bundled with Homepage; they are fetched at runtime from `cdn.jsdelivr.net` and **will not load in offline or air-gapped setups**.
+Note that these icon sets are not bundled with Homepage, they are fetched in the browser from remote CDN servers. To use the icons offline you may download the icons and serve them locally, or rely on browser caching when applicable.
 
 To use a remote icon, use the absolute URL (e.g. `https://...`).
 
