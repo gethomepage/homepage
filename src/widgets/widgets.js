@@ -110,6 +110,7 @@ import pulse from "./pulse/widget";
 import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
 import qnap from "./qnap/widget";
+import qui from "./qui/widget";
 import radarr from "./radarr/widget";
 import readarr from "./readarr/widget";
 import romm from "./romm/widget";
@@ -271,6 +272,7 @@ const widgets = {
   pyload,
   qbittorrent,
   qnap,
+  qui,
   radarr,
   readarr,
   romm,

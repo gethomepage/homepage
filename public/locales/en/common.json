@@ -236,6 +236,16 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "CPU Usage",
         "memUsage": "MEM Usage",

@@ -146,6 +146,7 @@ nav:
           - widgets/services/pyload.md
           - widgets/services/qbittorrent.md
           - widgets/services/qnap.md
+          - widgets/services/qui.md
           - widgets/services/radarr.md
           - widgets/services/readarr.md
           - widgets/services/romm.md

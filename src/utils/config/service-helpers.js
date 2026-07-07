@@ -396,6 +396,9 @@ export function cleanServiceGroups(groups) {
           // proxmoxbackupserver
           datastore,
 
+          // qui
+          instance,
+
           // speedtest
           bitratePrecision,
 
@@ -505,6 +508,9 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "portainer") {
           if (kubernetes) widget.kubernetes = !!JSON.parse(kubernetes);
+        }
+        if (type === "qui") {
+          if (instance !== undefined) widget.instance = instance;
         }
         if (type === "proxmox") {
           if (node) widget.node = node;

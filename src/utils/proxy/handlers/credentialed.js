@@ -88,6 +88,8 @@ export default async function credentialedProxyHandler(req, res, map) {
       } else if (widget.type === "proxmoxbackupserver") {
         delete headers["Content-Type"];
         headers.Authorization = `PBSAPIToken=${widget.username}:${widget.password}`;
+      } else if (widget.type === "qui") {
+        headers["X-API-Key"] = `${widget.key}`;
       } else if (["autobrr", "jellystat", "pulse"].includes(widget.type)) {
         headers["X-API-Token"] = `${widget.key}`;
       } else if (widget.type === "tubearchivist") {
