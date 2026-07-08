@@ -466,6 +466,11 @@
         "lxc": "LXC",
         "vms": "가상머신"
     },
+    "pulse": {
+        "nodes": "노드",
+        "vms": "가상머신",
+        "lxcs": "LXC"
+    },
     "glances": {
         "cpu": "CPU",
         "load": "부하",
