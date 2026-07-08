@@ -17,4 +17,5 @@ widget:
   environment: local # optional: name or id; aggregates all when omitted
   username: your-user # required for local auth
   password: your-pass # required for local auth
+  key: dockhandapikey # optional, if using API key auth instead of username/password
 ```
