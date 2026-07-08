@@ -59,6 +59,45 @@ describe("widgets/dockhand/proxy", () => {
     expect(res.body).toEqual(Buffer.from("data"));
   });
 
+  it("sends a bearer token and does not log in when a key is configured", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "dockhand",
+      url: "http://dockhand/",
+      key: "dh_abc123",
+    });
+
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from("data")]);
+
+    const req = { method: "GET", query: { group: "g", service: "svc", endpoint: "api/v1/status", index: "0" } };
+    const res = createMockRes();
+
+    await dockhandProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(httpProxy.mock.calls[0][1].headers).toEqual({ Authorization: "Bearer dh_abc123" });
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual(Buffer.from("data"));
+  });
+
+  it("does not fall back to login on a 401 when a key is configured", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "dockhand",
+      url: "http://dockhand/",
+      key: "dh_bad",
+    });
+
+    httpProxy.mockResolvedValueOnce([401, "application/json", Buffer.from("nope")]);
+
+    const req = { method: "GET", query: { group: "g", service: "svc", endpoint: "api/v1/status", index: "0" } };
+    const res = createMockRes();
+
+    await dockhandProxyHandler(req, res);
+
+    // Only the initial request — no login attempt, no retry.
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(res.statusCode).toBe(401);
+  });
+
   it("returns a sanitized error response for HTTP errors", async () => {
     getServiceWidget.mockResolvedValue({
       type: "dockhand",

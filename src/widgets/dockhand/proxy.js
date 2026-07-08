@@ -38,12 +38,18 @@ export default async function dockhandProxyHandler(req, res) {
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
+  // A Dockhand API token (Bearer) takes precedence over username/password. See
+  // https://dockhand.pro/manual/#api-authentication
+  const headers = widget.key ? { Authorization: `Bearer ${widget.key}` } : {};
+
   let [status, contentType, data] = await httpProxy(url, {
     method: req.method,
+    headers,
   });
 
-  // Attempt login and retrying once
-  if (status === 401) {
+  // Fall back to a username/password session login and retry once. Skipped when a
+  // token is configured, since a 401 there means the token itself is invalid.
+  if (status === 401 && !widget.key) {
     const loggedIn = await login(widget);
     if (loggedIn) {
       [status, contentType, data] = await httpProxy(url, {
