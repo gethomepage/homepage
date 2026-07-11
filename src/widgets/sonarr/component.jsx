@@ -1,14 +1,37 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
-import { useCallback } from "react";
 
 import QueueEntry from "../../components/widgets/queue/queueEntry";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function getProgress(sizeLeft, size) {
-  return sizeLeft === 0 ? 100 : (1 - sizeLeft / size) * 100;
+  if (!Number.isFinite(size) || size <= 0) return 0;
+  return Math.min(100, Math.max(0, (1 - sizeLeft / size) * 100));
+}
+
+function formatDownloadState(downloadState) {
+  switch (downloadState) {
+    case "importBlocked":
+      return "import blocked";
+    case "importPending":
+      return "import pending";
+    case "failedPending":
+      return "failed pending";
+    default:
+      return downloadState;
+  }
+}
+
+function getActivity(status, trackedDownloadState) {
+  const completedStates = ["importBlocked", "importPending", "importing", "failedPending"];
+  const downloadState =
+    status === "completed" && completedStates.includes(trackedDownloadState)
+      ? trackedDownloadState
+      : (status ?? trackedDownloadState);
+
+  return formatDownloadState(downloadState);
 }
 
 function getTitle(queueEntry, seriesData) {
@@ -29,17 +52,6 @@ export default function Component({ service }) {
   const { data: queuedData, error: queuedError } = useWidgetAPI(widget, "queue");
   const { data: seriesData, error: seriesError } = useWidgetAPI(widget, "series");
   const { data: queueDetailsData, error: queueDetailsError } = useWidgetAPI(widget, "queue/details");
-
-  const formatDownloadState = useCallback((downloadState) => {
-    switch (downloadState) {
-      case "importPending":
-        return "import pending";
-      case "failedPending":
-        return "failed pending";
-      default:
-        return downloadState;
-    }
-  }, []);
 
   if (wantedError || queuedError || seriesError || queueDetailsError) {
     const finalError = wantedError ?? queuedError ?? seriesError ?? queueDetailsError;
@@ -71,7 +83,7 @@ export default function Component({ service }) {
             progress={getProgress(queueEntry.sizeLeft, queueEntry.size)}
             timeLeft={queueEntry.timeLeft}
             title={getTitle(queueEntry, seriesData) ?? t("sonarr.unknown")}
-            activity={formatDownloadState(queueEntry.trackedDownloadState)}
+            activity={getActivity(queueEntry.status, queueEntry.trackedDownloadState)}
             key={`${queueEntry.seriesId}-${queueEntry.episodeId}`}
           />
         ))}
