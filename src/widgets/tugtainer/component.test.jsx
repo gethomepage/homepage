@@ -90,4 +90,44 @@ describe("widgets/tugtainer/component", () => {
     expect(screen.getAllByText(/widget\.api_error/i).length).toBeGreaterThan(0);
     expect(screen.getByText("Invalid data")).toBeInTheDocument();
   });
+
+  it("renders error UI when summary payload is malformed", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "summary") {
+        return {
+          data: [{ total_containers: "22", by_status: null }],
+          error: undefined,
+        };
+      }
+
+      return { data: { total_updates: 1 }, error: undefined };
+    });
+
+    renderWithProviders(<Component service={{ widget: { type: "tugtainer" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getAllByText(/widget\.api_error/i).length).toBeGreaterThan(0);
+    expect(screen.getByText("Invalid data")).toBeInTheDocument();
+  });
+
+  it("renders error UI when update_count payload is malformed", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "summary") {
+        return {
+          data: [{ total_containers: 22, by_status: { running: 20 } }],
+          error: undefined,
+        };
+      }
+
+      return { data: { total_updates: "3" }, error: undefined };
+    });
+
+    renderWithProviders(<Component service={{ widget: { type: "tugtainer" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getAllByText(/widget\.api_error/i).length).toBeGreaterThan(0);
+    expect(screen.getByText("Invalid data")).toBeInTheDocument();
+  });
 });
