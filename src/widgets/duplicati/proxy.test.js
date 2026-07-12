@@ -89,7 +89,7 @@ describe("widgets/duplicati/proxy", () => {
     await duplicatiProxyHandler({ query: { group: "g", service: "s" } }, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body.error.data).toEqual({ hasUrl: true, hasPassword: false });
+    expect(res.body.error.message).toBe("Duplicati widget is missing required url and password");
   });
 
   it("fails login when the token is missing from the response", async () => {

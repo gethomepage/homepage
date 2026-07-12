@@ -1,9 +1,12 @@
 import { DateTime } from "luxon";
 
 import getServiceWidget from "utils/config/service-helpers";
+import createLogger from "utils/logger";
 import { asJson, formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
+
+const logger = createLogger("duplicatiProxyHandler");
 
 function buildSummary(backups, notifications, serverstate, progressstate) {
   const backupNotifications = notifications.filter((notification) => notification.BackupID);
@@ -117,10 +120,10 @@ export default async function duplicatiProxyHandler(req, res) {
 
     return res.status(200).json(summary);
   } catch (error) {
+    logger.error("Error communicating with Duplicati: %s", error);
     return res.status(500).json({
       error: {
         message: "Error communicating with Duplicati",
-        rawError: error,
       },
     });
   }
