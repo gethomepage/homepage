@@ -12,6 +12,8 @@ export default function Component({ service }) {
 
   if (!widget.fields?.length) {
     widget.fields = DEFAULT_FIELDS;
+  } else if (widget.fields?.length > 4) {
+    widget.fields = widget.fields.slice(0, 4);
   }
 
   const { data, error } = useWidgetAPI(widget);
