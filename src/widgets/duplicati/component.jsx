@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next/pages";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const DEFAULT_FIELDS = ["jobs", "errors", "lastBackup", "nextRun"];
-const ALL_FIELDS = ["jobs", "stored", "lastBackup", "nextRun", "running", "warnings", "errors"];
 
 export default function Component({ service }) {
   const { t } = useTranslation();
@@ -24,9 +23,13 @@ export default function Component({ service }) {
   if (!data) {
     return (
       <Container service={{ ...service, widget: { ...widget, fields: widget.fields ?? DEFAULT_FIELDS } }}>
-        {ALL_FIELDS.map((field) => (
-          <Block key={field} field={`duplicati.${field}`} label={`duplicati.${field}`} />
-        ))}
+        <Block label="duplicati.jobs" />
+        <Block label="duplicati.stored" />
+        <Block label="duplicati.lastBackup" />
+        <Block label="duplicati.nextRun" />
+        <Block label="duplicati.running" />
+        <Block label="duplicati.warnings" />
+        <Block label="duplicati.errors" />
       </Container>
     );
   }

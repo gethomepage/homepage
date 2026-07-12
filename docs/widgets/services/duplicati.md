@@ -3,9 +3,7 @@ title: Duplicati
 description: Duplicati Widget Configuration
 ---
 
-[Duplicati](https://www.duplicati.com/) is a self-hosted backup client.
-
-This widget logs in with the normal Duplicati UI password on every refresh. It does not require a forever JWT token.
+Learn more about [Duplicati](https://www.duplicati.com/).
 
 Allowed fields: `["jobs", "stored", "lastBackup", "nextRun", "running", "warnings", "errors"]`
 

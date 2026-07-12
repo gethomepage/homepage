@@ -3,8 +3,6 @@ import { asJson, formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
 
-const API_ERROR = "Error communicating with Duplicati";
-
 function parseDate(value) {
   if (!value) return null;
   if (typeof value === "string" && /^\d{8}T\d{6}Z$/.test(value)) {
@@ -14,11 +12,6 @@ function parseDate(value) {
 
   const parsed = new Date(value);
   return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
-function toNumber(value) {
-  const number = Number(value);
-  return Number.isFinite(number) ? number : 0;
 }
 
 function toIsoString(value) {
@@ -91,7 +84,7 @@ function buildSummary(backups, notifications, serverstate, progressstate) {
     const lastBackup = parseDate(metadata?.LastBackupFinished);
     const nextRun = parseDate(backup?.Schedule?.Time);
 
-    summary.stored += toNumber(metadata?.TargetFilesSize);
+    summary.stored += Number(metadata?.TargetFilesSize) || 0;
 
     if (lastBackup && (!latestBackupTime || lastBackup > latestBackupTime)) {
       latestBackupTime = lastBackup;
@@ -165,11 +158,7 @@ export default async function duplicatiProxyHandler(req, res) {
   if (!widget.url || !widget.password) {
     return res.status(500).json({
       error: {
-        message: API_ERROR,
-        data: {
-          hasUrl: !!widget.url,
-          hasPassword: !!widget.password,
-        },
+        message: `Duplicati widget is missing required url and password`,
       },
     });
   }
@@ -194,8 +183,8 @@ export default async function duplicatiProxyHandler(req, res) {
   } catch (error) {
     return res.status(500).json({
       error: {
-        message: API_ERROR,
-        data: error.message,
+        message: "Error communicating with Duplicati",
+        rawError: error,
       },
     });
   }
