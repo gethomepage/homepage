@@ -40,7 +40,8 @@ export default function Component({ service }) {
   const { data: summaryData, error: summaryError } = useWidgetAPI(widget, "summary");
   const { data: updateCountData, error: updateCountError } = useWidgetAPI(widget, "update_count");
 
-  const dataError = summaryError ?? updateCountError ?? getSummaryError(summaryData) ?? getUpdateCountError(updateCountData);
+  const dataError =
+    summaryError ?? updateCountError ?? getSummaryError(summaryData) ?? getUpdateCountError(updateCountData);
   if (dataError) {
     return <Container service={service} error={dataError} />;
   }
