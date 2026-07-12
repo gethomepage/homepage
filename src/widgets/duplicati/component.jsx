@@ -22,7 +22,7 @@ export default function Component({ service }) {
 
   if (!data) {
     return (
-      <Container service={{ ...service, widget: { ...widget, fields: widget.fields ?? DEFAULT_FIELDS } }}>
+      <Container service={service}>
         <Block label="duplicati.jobs" />
         <Block label="duplicati.stored" />
         <Block label="duplicati.lastBackup" />
