@@ -138,6 +138,7 @@ import transmission from "./transmission/widget";
 import trilium from "./trilium/widget";
 import truenas from "./truenas/widget";
 import tubearchivist from "./tubearchivist/widget";
+import tugtainer from "./tugtainer/widget";
 import unifi from "./unifi/widget";
 import unifi_drive from "./unifi_drive/widget";
 import unmanic from "./unmanic/widget";
@@ -298,6 +299,7 @@ const widgets = {
   transmission,
   trilium,
   tubearchivist,
+  tugtainer,
   truenas,
   unifi,
   unifi_console: unifi,

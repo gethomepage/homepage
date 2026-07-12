@@ -585,6 +585,11 @@
         "containers_updated": "Updated",
         "containers_failed": "Failed"
     },
+    "tugtainer": {
+        "total_containers": "Total",
+        "running_containers": "Running",
+        "update_count": "Updates"
+    },
     "autobrr": {
         "approvedPushes": "Approved",
         "rejectedPushes": "Rejected",
