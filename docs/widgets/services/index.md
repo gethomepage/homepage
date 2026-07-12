@@ -141,6 +141,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Trilium](trilium.md)
 - [TrueNAS](truenas.md)
 - [TubeArchivist](tubearchivist.md)
+- [Tugtainer](tugtainer.md)
 - [UniFi Controller](unifi-controller.md)
 - [Unmanic](unmanic.md)
 - [Unraid](unraid.md)
