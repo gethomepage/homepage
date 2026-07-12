@@ -78,14 +78,7 @@
         "nextRun": "Next Run",
         "running": "Running",
         "warnings": "Warnings",
-        "errors": "Errors",
-        "jobDetails": "Job Details",
-        "issue": "Issue",
-        "status_running": "Running",
-        "status_error": "Error",
-        "status_warning": "Warning",
-        "status_ok": "OK",
-        "status_idle": "Idle"
+        "errors": "Errors"
     },
     "docker": {
         "rx": "RX",
