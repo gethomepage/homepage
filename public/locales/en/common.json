@@ -71,6 +71,22 @@
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Backup",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors",
+        "jobDetails": "Job Details",
+        "issue": "Issue",
+        "status_running": "Running",
+        "status_error": "Error",
+        "status_warning": "Warning",
+        "status_ok": "OK",
+        "status_idle": "Idle"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",

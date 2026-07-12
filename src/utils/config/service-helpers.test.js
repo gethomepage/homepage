@@ -293,6 +293,7 @@ describe("utils/config/service-helpers", () => {
               { type: "truenas", enablePools: "true", nasType: "scale" },
               { type: "qnap", volume: "vol1" },
               { type: "dispatcharr", enableActiveStreams: "true" },
+              { type: "duplicati" },
               { type: "gamedig", gameToken: "t" },
               { type: "kopia", snapshotHost: "h", snapshotPath: "/p" },
               { type: "glances", version: "4", metric: "cpu", refreshInterval: 2000, pointsLimit: 5, diskUnits: "gb" },
@@ -346,6 +347,7 @@ describe("utils/config/service-helpers", () => {
     );
     expect(widgets.find((w) => w.type === "beszel")).toEqual(expect.objectContaining({ version: 2, systemId: "sys" }));
     expect(widgets.find((w) => w.type === "crowdsec")).toEqual(expect.objectContaining({ limit24h: true }));
+    expect(widgets.find((w) => w.type === "duplicati")).toEqual(expect.objectContaining({ type: "duplicati" }));
     expect(widgets.find((w) => w.type === "docker")).toEqual(
       expect.objectContaining({ server: "docker-local", container: "c1" }),
     );

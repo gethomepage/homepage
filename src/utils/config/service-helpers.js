@@ -436,6 +436,9 @@ export function cleanServiceGroups(groups) {
 
           // grafana
           alerts,
+
+          // duplicati
+          showJobs,
         } = widgetData;
 
         let fieldsList = fields;

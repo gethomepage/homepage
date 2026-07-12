@@ -59,6 +59,7 @@ nav:
           - widgets/services/develancacheui.md
           - widgets/services/diskstation.md
           - widgets/services/dispatcharr.md
+          - widgets/services/duplicati.md
           - widgets/services/dockhand.md
           - widgets/services/downloadstation.md
           - widgets/services/emby.md

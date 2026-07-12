@@ -71,6 +71,22 @@
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
+    "duplicati": {
+        "jobs": "Tareas",
+        "stored": "Almacenado",
+        "lastBackup": "Última copia",
+        "nextRun": "Próxima ejecución",
+        "running": "En ejecución",
+        "warnings": "Avisos",
+        "errors": "Errores",
+        "jobDetails": "Detalles de tareas",
+        "issue": "Problema",
+        "status_running": "En ejecución",
+        "status_error": "Error",
+        "status_warning": "Aviso",
+        "status_ok": "OK",
+        "status_idle": "Inactiva"
+    },
     "docker": {
         "rx": "Recibido",
         "tx": "Transmitido",
