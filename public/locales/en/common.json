@@ -74,7 +74,7 @@
     "duplicati": {
         "jobs": "Jobs",
         "stored": "Stored",
-        "lastBackup": "Last Backup",
+        "lastBackup": "Last Run",
         "nextRun": "Next Run",
         "running": "Running",
         "warnings": "Warnings",
