@@ -1,23 +1,9 @@
+import { DateTime } from "luxon";
+
 import getServiceWidget from "utils/config/service-helpers";
 import { asJson, formatApiCall } from "utils/proxy/api-helpers";
 import { httpProxy } from "utils/proxy/http";
 import widgets from "widgets/widgets";
-
-function parseDate(value) {
-  if (!value) return null;
-  if (typeof value === "string" && /^\d{8}T\d{6}Z$/.test(value)) {
-    const iso = `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}T${value.slice(9, 11)}:${value.slice(11, 13)}:${value.slice(13, 15)}Z`;
-    return new Date(iso);
-  }
-
-  const parsed = new Date(value);
-  return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
-function toIsoString(value) {
-  const date = parseDate(value);
-  return date ? date.toISOString() : null;
-}
 
 function buildSummary(backups, notifications, serverstate, progressstate) {
   const backupNotifications = notifications.filter((notification) => notification.BackupID);
@@ -35,24 +21,24 @@ function buildSummary(backups, notifications, serverstate, progressstate) {
 
   backups.forEach((backup) => {
     const metadata = backup?.Backup?.Metadata ?? {};
-    const lastBackup = parseDate(metadata?.LastBackupFinished);
-    const nextRun = parseDate(backup?.Schedule?.Time);
+    const lastBackup = DateTime.fromFormat(metadata.LastBackupFinished ?? "", "yyyyMMdd'T'HHmmss'Z'", { zone: "utc" });
+    const nextRun = DateTime.fromISO(backup?.Schedule?.Time ?? "");
 
     summary.stored += Number(metadata?.TargetFilesSize) || 0;
 
-    if (lastBackup && (!latestBackupTime || lastBackup > latestBackupTime)) {
+    if (lastBackup.isValid && (!latestBackupTime || lastBackup > latestBackupTime)) {
       latestBackupTime = lastBackup;
     }
 
-    if (nextRun && (!nextRunTime || nextRun < nextRunTime)) {
+    if (nextRun.isValid && (!nextRunTime || nextRun < nextRunTime)) {
       nextRunTime = nextRun;
     }
   });
 
   return {
     ...summary,
-    lastBackup: toIsoString(latestBackupTime),
-    nextRun: toIsoString(nextRunTime),
+    lastBackup: latestBackupTime?.toUTC().toISO() ?? null,
+    nextRun: nextRunTime?.toUTC().toISO() ?? null,
   };
 }
 
