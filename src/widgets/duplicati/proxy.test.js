@@ -104,7 +104,7 @@ describe("widgets/duplicati/proxy", () => {
     );
   });
 
-  it("derives summary state from active task, metadata errors and fresh notifications", () => {
+  it("summarizes backups, active tasks, and notifications", () => {
     const summary = buildSummary(
       [
         {
@@ -141,7 +141,10 @@ describe("widgets/duplicati/proxy", () => {
           Schedule: { Time: "2026-07-13T14:00:00Z" },
         },
       ],
-      [{ BackupID: "2", Type: "Warning", Timestamp: "2026-07-12T11:00:00Z" }],
+      [
+        { BackupID: "2", Type: "Warning" },
+        { BackupID: "3", Type: "Error" },
+      ],
       { ActiveTask: { Item1: 7 } },
       { BackupID: "1" },
     );

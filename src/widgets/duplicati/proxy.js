@@ -19,68 +19,22 @@ function toIsoString(value) {
   return date ? date.toISOString() : null;
 }
 
-function getLatestNotificationByBackupId(notifications) {
-  const latest = new Map();
-
-  notifications.forEach((notification) => {
-    if (!notification?.BackupID) return;
-    const previous = latest.get(notification.BackupID);
-    const notificationTime = parseDate(notification.Timestamp);
-    const previousTime = parseDate(previous?.Timestamp);
-
-    if (
-      !previous ||
-      (notificationTime && previousTime && notificationTime > previousTime) ||
-      (notificationTime && !previousTime)
-    ) {
-      latest.set(notification.BackupID, notification);
-    }
-  });
-
-  return latest;
-}
-
-function computeBackupStatus(backup, notificationByBackupId, activeBackupId) {
-  const backupId = backup?.Backup?.ID;
-  const lastFinished = parseDate(backup?.Backup?.Metadata?.LastBackupFinished);
-  const lastErrorDate = parseDate(backup?.Backup?.Metadata?.LastErrorDate);
-  const notification = notificationByBackupId.get(backupId);
-  const notificationTime = parseDate(notification?.Timestamp);
-
-  if (activeBackupId && backupId === activeBackupId) return "running";
-
-  if (lastErrorDate && (!lastFinished || lastErrorDate > lastFinished)) {
-    return "error";
-  }
-
-  if (notification && notificationTime && (!lastFinished || notificationTime > lastFinished)) {
-    if (notification.Type === "Error") return "error";
-    if (notification.Type === "Warning") return "warning";
-  }
-
-  if (lastFinished) return "ok";
-
-  return "idle";
-}
-
 function buildSummary(backups, notifications, serverstate, progressstate) {
-  const notificationByBackupId = getLatestNotificationByBackupId(notifications);
-  const activeBackupId = serverstate?.ActiveTask ? progressstate?.BackupID : null;
+  const backupNotifications = notifications.filter((notification) => notification.BackupID);
   const summary = {
     jobs: backups.length,
     stored: 0,
     lastBackup: null,
     nextRun: null,
-    running: 0,
-    warnings: 0,
-    errors: 0,
+    running: serverstate?.ActiveTask && progressstate?.BackupID ? 1 : 0,
+    warnings: backupNotifications.filter((notification) => notification.Type === "Warning").length,
+    errors: backupNotifications.filter((notification) => notification.Type === "Error").length,
   };
   let latestBackupTime = null;
   let nextRunTime = null;
 
   backups.forEach((backup) => {
     const metadata = backup?.Backup?.Metadata ?? {};
-    const status = computeBackupStatus(backup, notificationByBackupId, activeBackupId);
     const lastBackup = parseDate(metadata?.LastBackupFinished);
     const nextRun = parseDate(backup?.Schedule?.Time);
 
@@ -93,10 +47,6 @@ function buildSummary(backups, notifications, serverstate, progressstate) {
     if (nextRun && (!nextRunTime || nextRun < nextRunTime)) {
       nextRunTime = nextRun;
     }
-
-    if (status === "running") summary.running += 1;
-    if (status === "warning") summary.warnings += 1;
-    if (status === "error") summary.errors += 1;
   });
 
   return {
@@ -190,4 +140,4 @@ export default async function duplicatiProxyHandler(req, res) {
   }
 }
 
-export { buildSummary, computeBackupStatus, getLatestNotificationByBackupId, login };
+export { buildSummary, login };
