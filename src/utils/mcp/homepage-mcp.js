@@ -1,4 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { createHash, timingSafeEqual } from "node:crypto";
 import { join } from "path";
 
 import yaml from "js-yaml";
@@ -59,6 +60,12 @@ function writeEnabled() {
 
 function requiredToken() {
   return process.env.HOMEPAGE_MCP_TOKEN;
+}
+
+function tokenMatches(provided, expectedDigest) {
+  if (typeof provided !== "string") return false;
+  const providedDigest = createHash("sha256").update(provided, "utf8").digest();
+  return timingSafeEqual(providedDigest, expectedDigest);
 }
 
 function jsonRpcResult(id, result) {
@@ -440,7 +447,9 @@ export function mcpTokenAuthorized(req) {
   if (!token) return false;
 
   const authHeader = req.headers.authorization;
-  return authHeader === `Bearer ${token}` || req.headers["x-homepage-mcp-token"] === token;
+  const bearerToken = typeof authHeader === "string" && authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
+  const expectedDigest = createHash("sha256").update(token, "utf8").digest();
+  return tokenMatches(bearerToken, expectedDigest) || tokenMatches(req.headers["x-homepage-mcp-token"], expectedDigest);
 }
 
 export function handleMcpRequest(message) {

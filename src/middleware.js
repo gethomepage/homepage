@@ -4,13 +4,6 @@ import { NextResponse } from "next/server";
 const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
 const authSecret = process.env.NEXTAUTH_SECRET || process.env.HOMEPAGE_AUTH_SECRET;
 
-function hasMcpToken(req) {
-  const token = process.env.HOMEPAGE_MCP_TOKEN;
-  if (!token) return false;
-
-  return req.headers.get("authorization") === `Bearer ${token}` || req.headers.get("x-homepage-mcp-token") === token;
-}
-
 export async function middleware(req) {
   // Check the Host header, if HOMEPAGE_ALLOWED_HOSTS is set
   const host = req.headers.get("host");
@@ -27,8 +20,10 @@ export async function middleware(req) {
     return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
 
-  if (authEnabled && !new URL(req.url).pathname.startsWith("/api/healthcheck")) {
-    if (new URL(req.url).pathname === "/api/mcp" && hasMcpToken(req)) {
+  const pathname = new URL(req.url).pathname;
+  if (authEnabled && !pathname.startsWith("/api/healthcheck")) {
+    // The MCP API handler authorizes both bearer tokens and Homepage sessions.
+    if (pathname === "/api/mcp") {
       return NextResponse.next();
     }
 

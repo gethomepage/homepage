@@ -131,15 +131,12 @@ describe("middleware", () => {
     expect(res).toEqual({ type: "next" });
   });
 
-  it("allows MCP requests with a bearer token when auth is enabled", async () => {
+  it("delegates MCP authorization to the API handler", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_SECRET = "secret";
-    process.env.HOMEPAGE_MCP_TOKEN = "mcp-secret";
 
     const middleware = await loadMiddleware();
-    const res = await middleware(
-      createReq("localhost:3000", "http://localhost:3000/api/mcp", { authorization: "Bearer mcp-secret" }),
-    );
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/api/mcp"));
 
     expect(getToken).not.toHaveBeenCalled();
     expect(NextResponse.next).toHaveBeenCalled();

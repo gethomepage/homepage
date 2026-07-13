@@ -626,5 +626,9 @@ describe("utils/mcp/homepage-mcp", () => {
     expect(mod.mcpTokenAuthorized({ headers: { authorization: "Bearer secret" } })).toBe(true);
     expect(mod.mcpTokenAuthorized({ headers: { "x-homepage-mcp-token": "secret" } })).toBe(true);
     expect(mod.mcpTokenAuthorized({ headers: { authorization: "Bearer wrong" } })).toBe(false);
+
+    process.env.HOMEPAGE_MCP_TOKEN = "é";
+    expect(mod.mcpTokenAuthorized({ headers: { authorization: "Bearer a" } })).toBe(false);
+    expect(mod.mcpTokenAuthorized({ headers: { authorization: "Bearer é" } })).toBe(true);
   });
 });
