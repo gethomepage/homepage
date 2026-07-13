@@ -136,7 +136,7 @@ module.exports = {
 
           const dm = options.decimals ? options.decimals : 0;
 
-          const i = options.binary ? 2 : Math.floor(Math.log(value) / Math.log(k));
+          const i = Math.floor(Math.log(value) / Math.log(k));
 
           const formatted = new Intl.NumberFormat(lng, { maximumFractionDigits: dm, minimumFractionDigits: dm }).format(
             parseFloat(value / k ** i),
