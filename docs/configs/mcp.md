@@ -26,9 +26,9 @@ http://your-homepage-instance/api/mcp
 
 ## Authentication
 
-If Homepage auth is enabled with `HOMEPAGE_AUTH_ENABLED`, requests from an authenticated Homepage session are allowed.
+The MCP endpoint requires authentication. Requests from an authenticated Homepage session are allowed when Homepage auth is enabled with `HOMEPAGE_AUTH_ENABLED`.
 
-For MCP clients that cannot use the browser session, set `HOMEPAGE_MCP_TOKEN`. Requests can then include either of the following headers:
+For MCP clients that cannot use the browser session, set `HOMEPAGE_MCP_TOKEN`. An MCP token is required when Homepage auth is not enabled. Requests can include either of the following headers:
 
 ```txt
 Authorization: Bearer your-token

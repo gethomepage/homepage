@@ -617,19 +617,14 @@ describe("utils/mcp/homepage-mcp", () => {
     });
   });
 
-  it("checks MCP token and auth mode authorization", async () => {
+  it("requires a matching MCP token for token authorization", async () => {
     const mod = await loadMcpWithConfigDir(mkdtempSync(path.join(tmpdir(), "homepage-mcp-test-")));
 
     expect(mod.mcpTokenAuthorized({ headers: {} })).toBe(false);
-    expect(mod.mcpAuthorized({ headers: {} })).toBe(true);
-
-    process.env.HOMEPAGE_AUTH_ENABLED = "true";
-    expect(mod.mcpAuthorized({ headers: {} })).toBe(false);
 
     process.env.HOMEPAGE_MCP_TOKEN = "secret";
     expect(mod.mcpTokenAuthorized({ headers: { authorization: "Bearer secret" } })).toBe(true);
     expect(mod.mcpTokenAuthorized({ headers: { "x-homepage-mcp-token": "secret" } })).toBe(true);
     expect(mod.mcpTokenAuthorized({ headers: { authorization: "Bearer wrong" } })).toBe(false);
-    expect(mod.mcpAuthorized({ headers: { authorization: "Bearer secret" } })).toBe(true);
   });
 });

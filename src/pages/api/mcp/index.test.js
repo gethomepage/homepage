@@ -69,6 +69,19 @@ describe("pages/api/mcp", () => {
     expect(res.status).toHaveBeenCalledWith(401);
   });
 
+  it("rejects requests when neither Homepage auth nor an MCP token is configured", async () => {
+    process.env.HOMEPAGE_MCP_ENABLED = "true";
+    delete process.env.HOMEPAGE_AUTH_ENABLED;
+    delete process.env.HOMEPAGE_MCP_TOKEN;
+    const handler = await loadHandler();
+    const res = mockResponse();
+
+    await handler({ method: "POST", headers: {}, body: { jsonrpc: "2.0", id: 1, method: "tools/list" } }, res);
+
+    expect(getServerSession).not.toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(401);
+  });
+
   it("handles JSON-RPC requests when enabled and authorized", async () => {
     process.env.HOMEPAGE_MCP_ENABLED = "true";
     process.env.HOMEPAGE_MCP_TOKEN = "secret";
@@ -143,10 +156,18 @@ describe("pages/api/mcp", () => {
 
   it("returns 202 for JSON-RPC notifications", async () => {
     process.env.HOMEPAGE_MCP_ENABLED = "true";
+    process.env.HOMEPAGE_MCP_TOKEN = "secret";
     const handler = await loadHandler();
     const res = mockResponse();
 
-    await handler({ method: "POST", headers: {}, body: { jsonrpc: "2.0", method: "notifications/initialized" } }, res);
+    await handler(
+      {
+        method: "POST",
+        headers: { authorization: "Bearer secret" },
+        body: { jsonrpc: "2.0", method: "notifications/initialized" },
+      },
+      res,
+    );
 
     expect(res.status).toHaveBeenCalledWith(202);
     expect(res.end).toHaveBeenCalledWith();
@@ -154,10 +175,11 @@ describe("pages/api/mcp", () => {
 
   it("rejects non-POST requests", async () => {
     process.env.HOMEPAGE_MCP_ENABLED = "true";
+    process.env.HOMEPAGE_MCP_TOKEN = "secret";
     const handler = await loadHandler();
     const res = mockResponse();
 
-    await handler({ method: "GET", headers: {}, body: {} }, res);
+    await handler({ method: "GET", headers: { authorization: "Bearer secret" }, body: {} }, res);
 
     expect(res.status).toHaveBeenCalledWith(405);
     expect(res.setHeader).toHaveBeenCalledWith("Allow", "POST");

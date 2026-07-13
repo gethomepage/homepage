@@ -61,10 +61,6 @@ function requiredToken() {
   return process.env.HOMEPAGE_MCP_TOKEN;
 }
 
-function authEnabled() {
-  return Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
-}
-
 function jsonRpcResult(id, result) {
   return { jsonrpc: "2.0", id, result };
 }
@@ -445,10 +441,6 @@ export function mcpTokenAuthorized(req) {
 
   const authHeader = req.headers.authorization;
   return authHeader === `Bearer ${token}` || req.headers["x-homepage-mcp-token"] === token;
-}
-
-export function mcpAuthorized(req) {
-  return mcpTokenAuthorized(req) || (!requiredToken() && !authEnabled());
 }
 
 export function handleMcpRequest(message) {
