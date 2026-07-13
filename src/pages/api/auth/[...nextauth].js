@@ -1,4 +1,4 @@
-import { timingSafeEqual } from "node:crypto";
+import { createHash, timingSafeEqual } from "node:crypto";
 
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -12,6 +12,9 @@ const clientSecret = process.env.HOMEPAGE_OIDC_CLIENT_SECRET;
 const homepageAuthSecret = process.env.HOMEPAGE_AUTH_SECRET;
 const homepageExternalUrl = process.env.HOMEPAGE_EXTERNAL_URL;
 const homepageAuthPassword = process.env.HOMEPAGE_AUTH_PASSWORD;
+const homepageAuthPasswordDigest = homepageAuthPassword
+  ? createHash("sha256").update(homepageAuthPassword, "utf8").digest()
+  : null;
 
 // Map HOMEPAGE_* envs to what NextAuth expects
 if (!process.env.NEXTAUTH_SECRET && homepageAuthSecret) {
@@ -97,12 +100,12 @@ if (authEnabled) {
           password: { label: "Password", type: "password" },
         },
         async authorize(credentials) {
-          const provided = credentials?.password ?? "";
-          const expected = homepageAuthPassword ?? "";
-          if (!expected || provided.length !== expected.length) {
+          const provided = credentials?.password;
+          if (!homepageAuthPasswordDigest || typeof provided !== "string") {
             return null;
           }
-          const isMatch = timingSafeEqual(Buffer.from(provided), Buffer.from(expected));
+          const providedDigest = createHash("sha256").update(provided, "utf8").digest();
+          const isMatch = timingSafeEqual(providedDigest, homepageAuthPasswordDigest);
           if (!isMatch) {
             return null;
           }

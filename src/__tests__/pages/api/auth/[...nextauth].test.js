@@ -140,6 +140,28 @@ describe("pages/api/auth/[...nextauth]", () => {
     expect(provider.type).toBe("credentials");
     expect(typeof provider.authorize).toBe("function");
     expect(mod.default.options.useSecureCookies).toBe(true);
+    await expect(provider.options.authorize({ password: "secret" })).resolves.toEqual({
+      id: "homepage",
+      name: "Homepage",
+    });
+    await expect(provider.options.authorize({ password: "wrong" })).resolves.toBeNull();
+    await expect(provider.options.authorize({ password: 123 })).resolves.toBeNull();
+  });
+
+  it("compares multibyte passwords without throwing on unequal byte lengths", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "é";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
+
+    const mod = await import("pages/api/auth/[...nextauth]");
+    const [provider] = mod.default.options.providers;
+
+    await expect(provider.options.authorize({ password: "a" })).resolves.toBeNull();
+    await expect(provider.options.authorize({ password: "é" })).resolves.toEqual({
+      id: "homepage",
+      name: "Homepage",
+    });
   });
 
   it("supports trusted HTTP deployments without Secure cookies", async () => {
