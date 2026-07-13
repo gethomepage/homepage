@@ -128,6 +128,7 @@ import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
 import suwayomi from "./suwayomi/widget";
 import swagdashboard from "./swagdashboard/widget";
+import syncthing from "./syncthing/widget";
 import tailscale from "./tailscale/widget";
 import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
@@ -290,6 +291,7 @@ const widgets = {
   strelaysrv,
   swagdashboard,
   suwayomi,
+  syncthing,
   tailscale,
   tandoor,
   tautulli,
