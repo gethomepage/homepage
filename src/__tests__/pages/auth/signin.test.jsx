@@ -60,9 +60,22 @@ describe("pages/auth/signin", () => {
     expect(screen.getByRole("button", { name: /login via oidc/i })).toBeInTheDocument();
   });
 
-  it("getServerSideProps returns providers and settings", async () => {
+  it("getServerSideProps returns providers and only public sign-in settings", async () => {
     getProviders.mockResolvedValueOnce({ foo: { id: "foo", name: "Foo" } });
-    getSettingsMock.mockReturnValueOnce({ theme: "dark" });
+    getSettingsMock.mockReturnValueOnce({
+      theme: "dark",
+      color: "slate",
+      title: "Homepage",
+      background: { image: "background.jpg", opacity: 20 },
+      backgroundOpacity: 10,
+      providers: {
+        longhorn: {
+          username: "admin",
+          password: "secret",
+        },
+      },
+      layout: { Internal: { style: "row" } },
+    });
 
     const res = await getServerSideProps({});
 
@@ -71,8 +84,16 @@ describe("pages/auth/signin", () => {
     expect(res).toEqual({
       props: {
         providers: { foo: { id: "foo", name: "Foo" } },
-        settings: { theme: "dark" },
+        settings: {
+          theme: "dark",
+          color: "slate",
+          title: "Homepage",
+          background: { image: "background.jpg", opacity: 20 },
+          backgroundOpacity: 10,
+        },
       },
     });
+    expect(res.props.settings).not.toHaveProperty("providers");
+    expect(res.props.settings).not.toHaveProperty("layout");
   });
 });

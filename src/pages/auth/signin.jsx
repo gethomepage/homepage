@@ -6,6 +6,8 @@ import { BiShieldQuarter } from "react-icons/bi";
 
 import { getSettings } from "utils/config/config";
 
+const PUBLIC_SIGN_IN_SETTINGS = ["theme", "color", "title", "background", "backgroundOpacity"];
+
 export default function SignIn({ providers, settings }) {
   const router = useRouter();
   const [password, setPassword] = useState("");
@@ -201,7 +203,13 @@ export default function SignIn({ providers, settings }) {
 
 export async function getServerSideProps(context) {
   const providers = await getProviders();
-  const settings = getSettings();
+  const homepageSettings = getSettings();
+  const settings = Object.fromEntries(
+    PUBLIC_SIGN_IN_SETTINGS.filter((key) => Object.prototype.hasOwnProperty.call(homepageSettings, key)).map((key) => [
+      key,
+      homepageSettings[key],
+    ]),
+  );
   return {
     props: { providers, settings },
   };
