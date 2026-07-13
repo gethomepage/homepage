@@ -7,6 +7,40 @@ import widgets from "widgets/widgets";
 
 const logger = createLogger("servicesProxy");
 
+function getSafeSegments(rawSegments, allowedSegments) {
+  if (typeof rawSegments !== "string" || !Array.isArray(allowedSegments)) return null;
+
+  let segments;
+  try {
+    segments = JSON.parse(rawSegments);
+  } catch {
+    return null;
+  }
+
+  if (!segments || typeof segments !== "object" || Array.isArray(segments)) return null;
+
+  const keys = Object.keys(segments);
+  if (keys.length !== allowedSegments.length || !keys.every((key) => allowedSegments.includes(key))) return null;
+
+  const safeSegments = {};
+  for (const key of allowedSegments) {
+    const value = segments[key];
+    if (
+      typeof value !== "string" ||
+      value.length === 0 ||
+      value.includes("%") ||
+      value.includes("/") ||
+      value.includes("\\") ||
+      value.includes("..")
+    ) {
+      return null;
+    }
+    safeSegments[key] = encodeURIComponent(value);
+  }
+
+  return safeSegments;
+}
+
 export default async function handler(req, res) {
   try {
     const { service, group, index } = req.query;
@@ -55,19 +89,12 @@ export default async function handler(req, res) {
         if (mapping?.body) req.body = mapping?.body;
         req.query.endpoint = endpoint;
 
-        if (req.query.segments) {
-          const segments = JSON.parse(req.query.segments);
-          let validSegments = true;
-          Object.keys(segments).forEach((key) => {
-            if (!mapping.segments.includes(key)) {
-              logger.debug("Unsupported segment: %s", key);
-              validSegments = false;
-            } else if (segments[key].includes("/") || segments[key].includes("\\") || segments[key].includes("..")) {
-              logger.debug("Unsupported segment value: %s", segments[key]);
-              validSegments = false;
-            }
-          });
-          if (!validSegments) return res.status(403).json({ error: "Unsupported segment" });
+        if (mapping.segments || req.query.segments) {
+          const segments = getSafeSegments(req.query.segments, mapping.segments);
+          if (!segments) {
+            logger.debug("Unsupported segments");
+            return res.status(403).json({ error: "Unsupported segment" });
+          }
           req.query.endpoint = formatApiCall(endpoint, segments);
         }
 
