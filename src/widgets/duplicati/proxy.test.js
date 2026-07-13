@@ -2,11 +2,15 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import createMockRes from "test-utils/create-mock-res";
 
-const { getServiceWidget, httpProxy } = vi.hoisted(() => ({
+const { getServiceWidget, httpProxy, logger } = vi.hoisted(() => ({
   getServiceWidget: vi.fn(),
   httpProxy: vi.fn(),
+  logger: { error: vi.fn() },
 }));
 
+vi.mock("utils/logger", () => ({
+  default: () => logger,
+}));
 vi.mock("utils/config/service-helpers", () => ({ default: getServiceWidget }));
 vi.mock("utils/proxy/http", () => ({ httpProxy }));
 vi.mock("widgets/widgets", () => ({
