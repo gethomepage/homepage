@@ -1,11 +1,18 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const { nextAuthMock } = vi.hoisted(() => ({
+const { debugMock, errorMock, nextAuthMock, warnMock } = vi.hoisted(() => ({
+  debugMock: vi.fn(),
+  errorMock: vi.fn(),
   nextAuthMock: vi.fn((options) => ({ options })),
+  warnMock: vi.fn(),
 }));
 
 vi.mock("next-auth", () => ({
   default: nextAuthMock,
+}));
+
+vi.mock("utils/logger", () => ({
+  default: vi.fn(() => ({ debug: debugMock, error: errorMock, warn: warnMock })),
 }));
 
 describe("pages/api/auth/[...nextauth]", () => {
@@ -13,7 +20,10 @@ describe("pages/api/auth/[...nextauth]", () => {
 
   beforeEach(() => {
     vi.resetModules();
+    debugMock.mockClear();
+    errorMock.mockClear();
     nextAuthMock.mockClear();
+    warnMock.mockClear();
     process.env = { ...originalEnv };
     delete process.env.NEXTAUTH_SECRET;
     delete process.env.NEXTAUTH_URL;
@@ -25,6 +35,50 @@ describe("pages/api/auth/[...nextauth]", () => {
     expect(nextAuthMock).toHaveBeenCalledTimes(1);
     expect(mod.default.options.providers).toEqual([]);
     expect(mod.default.options.pages?.signIn).toBe("/auth/signin");
+  });
+
+  it("does not enable NextAuth's raw debug logger", async () => {
+    const mod = await import("pages/api/auth/[...nextauth]");
+
+    expect(mod.default.options).not.toHaveProperty("debug");
+  });
+
+  it("routes sanitized NextAuth logs through the Homepage logger", async () => {
+    const mod = await import("pages/api/auth/[...nextauth]");
+    const sensitiveMetadata = {
+      clientSecret: "sensitive-client-secret",
+      access_token: "sensitive-access-token",
+      id_token: "sensitive-id-token",
+    };
+
+    mod.default.options.logger.error("OAUTH_CALLBACK_ERROR", sensitiveMetadata);
+    mod.default.options.logger.warn("NEXTAUTH_URL", sensitiveMetadata);
+    mod.default.options.logger.debug("OAUTH_CALLBACK_RESPONSE", sensitiveMetadata);
+
+    expect(errorMock).toHaveBeenCalledWith("%s", "OAUTH_CALLBACK_ERROR");
+    expect(warnMock).toHaveBeenCalledWith("%s", "NEXTAUTH_URL");
+    expect(debugMock).toHaveBeenCalledWith("%s", "OAUTH_CALLBACK_RESPONSE");
+    expect(JSON.stringify([...errorMock.mock.calls, ...warnMock.mock.calls, ...debugMock.mock.calls])).not.toContain(
+      "sensitive",
+    );
+  });
+
+  it("logs only sanitized authentication lifecycle events", async () => {
+    const mod = await import("pages/api/auth/[...nextauth]");
+
+    await mod.default.options.events.signIn({
+      account: {
+        provider: "homepage-oidc",
+        access_token: "sensitive-access-token",
+        id_token: "sensitive-id-token",
+      },
+      user: { email: "sensitive@example.com" },
+    });
+    await mod.default.options.events.signOut({ token: { sub: "sensitive-user-id" } });
+
+    expect(debugMock).toHaveBeenNthCalledWith(1, "Sign in via provider '%s'", "homepage-oidc");
+    expect(debugMock).toHaveBeenNthCalledWith(2, "Sign out");
+    expect(JSON.stringify(debugMock.mock.calls)).not.toContain("sensitive");
   });
 
   it("maps HOMEPAGE_AUTH_SECRET and HOMEPAGE_EXTERNAL_URL to NextAuth envs", async () => {

@@ -3,6 +3,8 @@ import { timingSafeEqual } from "node:crypto";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+import createLogger from "utils/logger";
+
 const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
 const issuer = process.env.HOMEPAGE_OIDC_ISSUER;
 const clientId = process.env.HOMEPAGE_OIDC_CLIENT_ID;
@@ -100,16 +102,15 @@ export const authOptions = {
   pages: {
     signIn: "/auth/signin",
   },
-  debug: true,
   logger: {
-    error: (...args) => console.error("[nextauth][error]", ...args),
-    warn: (...args) => console.warn("[nextauth][warn]", ...args),
-    debug: (...args) => console.debug("[nextauth][debug]", ...args),
+    error: (code) => createLogger("nextauth").error("%s", code),
+    warn: (code) => createLogger("nextauth").warn("%s", code),
+    debug: (code) => createLogger("nextauth").debug("%s", code),
   },
   events: {
-    signIn: async (message) => console.debug("[nextauth][event][signIn]", message),
-    signOut: async (message) => console.debug("[nextauth][event][signOut]", message),
-    error: async (message) => console.error("[nextauth][event][error]", message),
+    signIn: async ({ account }) =>
+      createLogger("nextauth").debug("Sign in via provider '%s'", account?.provider ?? "unknown"),
+    signOut: async () => createLogger("nextauth").debug("Sign out"),
   },
 };
 
