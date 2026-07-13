@@ -25,6 +25,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     nextAuthMock.mockClear();
     warnMock.mockClear();
     process.env = { ...originalEnv };
+    delete process.env.HOMEPAGE_EXTERNAL_URL;
     delete process.env.NEXTAUTH_SECRET;
     delete process.env.NEXTAUTH_URL;
   });
@@ -92,8 +93,33 @@ describe("pages/api/auth/[...nextauth]", () => {
     expect(mod.default.options.secret).toBe("secret");
   });
 
+  it("throws when auth is enabled without an external URL", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+
+    await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(/HOMEPAGE_EXTERNAL_URL.*is missing/i);
+  });
+
+  it.each([
+    "homepage.example",
+    "ftp://homepage.example",
+    "https://user:password@homepage.example",
+    "https://homepage.example/?unexpected=true",
+    "https://homepage.example/#unexpected",
+  ])("rejects invalid external URL %s", async (externalUrl) => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_EXTERNAL_URL = externalUrl;
+
+    await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(/absolute HTTP\(S\) URL/i);
+  });
+
   it("throws when auth is enabled but no provider settings are present", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(
       /Password auth is enabled but required settings are missing/i,
@@ -104,6 +130,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
     process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
     const [provider] = mod.default.options.providers;
@@ -112,6 +139,30 @@ describe("pages/api/auth/[...nextauth]", () => {
     expect(provider.name).toBe("Credentials");
     expect(provider.type).toBe("credentials");
     expect(typeof provider.authorize).toBe("function");
+    expect(mod.default.options.useSecureCookies).toBe(true);
+  });
+
+  it("supports trusted HTTP deployments without Secure cookies", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_EXTERNAL_URL = "http://192.168.1.20:3000";
+
+    const mod = await import("pages/api/auth/[...nextauth]");
+
+    expect(process.env.NEXTAUTH_URL).toBe("http://192.168.1.20:3000");
+    expect(mod.default.options.useSecureCookies).toBe(false);
+  });
+
+  it("accepts an explicitly configured NEXTAUTH_URL", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.NEXTAUTH_URL = "https://homepage.example";
+
+    const mod = await import("pages/api/auth/[...nextauth]");
+
+    expect(mod.default.options.useSecureCookies).toBe(true);
   });
 
   it("builds an OIDC provider when enabled and maps profile fields", async () => {
@@ -170,6 +221,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_OIDC_ISSUER = "https://issuer.example";
     process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(
       /OIDC auth is enabled but required settings are missing/i,

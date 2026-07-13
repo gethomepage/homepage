@@ -47,6 +47,9 @@ Required environment variables for authentication:
 
 - `HOMEPAGE_AUTH_ENABLED=true`
 - `HOMEPAGE_AUTH_SECRET` (random string for signing/encrypting cookies)
+- `HOMEPAGE_EXTERNAL_URL` (the absolute URL used to access Homepage, including scheme and port when needed)
+
+Use an `https://` URL for public or TLS-terminated deployments so authentication cookies are marked `Secure`. Trusted HTTP-only LAN deployments may use an `http://` URL.
 
 For password-only login:
 
@@ -57,7 +60,6 @@ For OIDC login (overrides password login):
 - `HOMEPAGE_OIDC_ISSUER` (OIDC issuer URL, e.g., `https://auth.example.com/realms/homepage`)
 - `HOMEPAGE_OIDC_CLIENT_ID`
 - `HOMEPAGE_OIDC_CLIENT_SECRET`
-- `HOMEPAGE_EXTERNAL_URL` (external URL to your Homepage instance; used for callbacks)
 - Optional: `HOMEPAGE_OIDC_NAME` (display name), `HOMEPAGE_OIDC_SCOPE` (defaults to `openid email profile`)
 
 All app pages and `/api` routes except `/api/healthcheck` will require a signed-in session. Static assets remain public.

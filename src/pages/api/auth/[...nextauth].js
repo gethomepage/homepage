@@ -25,10 +25,33 @@ const defaultScope = process.env.HOMEPAGE_OIDC_SCOPE || "openid email profile";
 const cleanedIssuer = issuer ? issuer.replace(/\/+$/, "") : issuer;
 const hasOidcConfig = Boolean(issuer && clientId && clientSecret);
 const hasAnyOidcConfig = Boolean(issuer || clientId || clientSecret);
+let parsedAuthUrl;
 
 if (authEnabled) {
+  if (!process.env.NEXTAUTH_URL) {
+    throw new Error("Homepage auth is enabled but HOMEPAGE_EXTERNAL_URL (or NEXTAUTH_URL) is missing.");
+  }
+
+  try {
+    parsedAuthUrl = new URL(process.env.NEXTAUTH_URL);
+  } catch {
+    throw new Error("HOMEPAGE_EXTERNAL_URL (or NEXTAUTH_URL) must be an absolute HTTP(S) URL.");
+  }
+
+  if (
+    !["http:", "https:"].includes(parsedAuthUrl.protocol) ||
+    parsedAuthUrl.username ||
+    parsedAuthUrl.password ||
+    parsedAuthUrl.search ||
+    parsedAuthUrl.hash
+  ) {
+    throw new Error(
+      "HOMEPAGE_EXTERNAL_URL (or NEXTAUTH_URL) must be an absolute HTTP(S) URL without credentials, query, or fragment.",
+    );
+  }
+
   if (hasOidcConfig) {
-    if (!process.env.NEXTAUTH_SECRET || !process.env.NEXTAUTH_URL) {
+    if (!process.env.NEXTAUTH_SECRET) {
       throw new Error("OIDC auth is enabled but required settings are missing.");
     }
   } else if (hasAnyOidcConfig) {
@@ -99,6 +122,7 @@ export const authOptions = {
     strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
+  useSecureCookies: parsedAuthUrl?.protocol === "https:",
   pages: {
     signIn: "/auth/signin",
   },
