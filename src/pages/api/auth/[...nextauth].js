@@ -73,6 +73,7 @@ if (authEnabled) {
         name: process.env.HOMEPAGE_OIDC_NAME || "Homepage OIDC",
         type: "oauth",
         idToken: true,
+        checks: ["pkce", "state"],
         issuer: cleanedIssuer,
         wellKnown: `${cleanedIssuer}/.well-known/openid-configuration`,
         clientId,
