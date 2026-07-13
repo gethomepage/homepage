@@ -53,7 +53,11 @@ Use an `https://` URL for public or TLS-terminated deployments so authentication
 
 For password-only login:
 
-- `HOMEPAGE_AUTH_PASSWORD` (password-only login; required unless OIDC settings are provided)
+- `HOMEPAGE_AUTH_PASSWORD` (a strong, unique password; required unless OIDC settings are provided)
+
+!!! warning
+
+    Homepage does not apply application-level rate limiting to password attempts. Deployments exposed outside a trusted network should configure their reverse proxy or ingress to rate limit POST requests to `/api/auth/callback/credentials`.
 
 For OIDC login (overrides password login):
 
