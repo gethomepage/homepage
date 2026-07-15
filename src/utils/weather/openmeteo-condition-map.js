@@ -139,8 +139,8 @@ const conditions = [
   {
     code: 80,
     icon: {
-      day: Icons.WiDayShowers,
-      night: Icons.WiNightAltShowers,
+      day: Icons.WiDaySprinkle,
+      night: Icons.WiNightAltSprinkle,
     },
   },
   {
@@ -153,8 +153,8 @@ const conditions = [
   {
     code: 82,
     icon: {
-      day: Icons.WiDayShowers,
-      night: Icons.WiNightAltShowers,
+      day: Icons.WiDayStormShowers,
+      night: Icons.WiNightAltStormShowers,
     },
   },
   {
