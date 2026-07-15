@@ -10,7 +10,6 @@ describe("utils/weather/openmeteo-condition-map", () => {
   });
 
   it("maps rain shower codes (80, 81, 82) to shower icons, not snow", () => {
-    // WMO codes 80/81/82 are "Rain showers: slight/moderate/violent" per https://open-meteo.com/en/docs
     [80, 81, 82].forEach((code) => {
       expect(mapIcon(code, "day")).toBe(Icons.WiDayShowers);
       expect(mapIcon(code, "night")).toBe(Icons.WiNightAltShowers);
