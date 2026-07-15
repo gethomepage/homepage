@@ -9,6 +9,21 @@ describe("utils/weather/openmeteo-condition-map", () => {
     expect(mapIcon(95, "night")).toBe(Icons.WiNightAltThunderstorm);
   });
 
+  it("maps rain shower codes (80, 81, 82) to shower icons, not snow", () => {
+    // WMO codes 80/81/82 are "Rain showers: slight/moderate/violent" per https://open-meteo.com/en/docs
+    [80, 81, 82].forEach((code) => {
+      expect(mapIcon(code, "day")).toBe(Icons.WiDayShowers);
+      expect(mapIcon(code, "night")).toBe(Icons.WiNightAltShowers);
+    });
+  });
+
+  it("still maps snow shower codes (85, 86) to snow icons", () => {
+    [85, 86].forEach((code) => {
+      expect(mapIcon(code, "day")).toBe(Icons.WiDaySnow);
+      expect(mapIcon(code, "night")).toBe(Icons.WiNightAltSnow);
+    });
+  });
+
   it("falls back to a default icon for unknown codes", () => {
     expect(mapIcon(999999, "day")).toBe(Icons.WiDaySunny);
   });
