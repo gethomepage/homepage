@@ -139,22 +139,22 @@ const conditions = [
   {
     code: 80,
     icon: {
-      day: Icons.WiDaySnow,
-      night: Icons.WiNightAltSnow,
+      day: Icons.WiDaySprinkle,
+      night: Icons.WiNightAltSprinkle,
     },
   },
   {
     code: 81,
     icon: {
-      day: Icons.WiDaySnow,
-      night: Icons.WiNightAltSnow,
+      day: Icons.WiDayShowers,
+      night: Icons.WiNightAltShowers,
     },
   },
   {
     code: 82,
     icon: {
-      day: Icons.WiDaySnow,
-      night: Icons.WiNightAltSnow,
+      day: Icons.WiDayStormShowers,
+      night: Icons.WiNightAltStormShowers,
     },
   },
   {
