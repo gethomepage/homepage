@@ -4,6 +4,11 @@ import { describe, expect, it } from "vitest";
 import mapIcon from "./openmeteo-condition-map";
 
 describe("utils/weather/openmeteo-condition-map", () => {
+  it("maps clear sky (code 0) to sun during the day and clear-night icon at night", () => {
+    expect(mapIcon(0, "day")).toBe(Icons.WiDaySunny);
+    expect(mapIcon(0, "night")).toBe(Icons.WiNightClear);
+  });
+
   it("maps known condition codes to day/night icons", () => {
     expect(mapIcon(95, "day")).toBe(Icons.WiDayThunderstorm);
     expect(mapIcon(95, "night")).toBe(Icons.WiNightAltThunderstorm);

@@ -4,6 +4,13 @@ import * as Icons from "react-icons/wi";
 
 const conditions = [
   {
+    code: 0,
+    icon: {
+      day: Icons.WiDaySunny,
+      night: Icons.WiNightClear,
+    },
+  },
+  {
     code: 1,
     icon: {
       day: Icons.WiDayCloudy,
