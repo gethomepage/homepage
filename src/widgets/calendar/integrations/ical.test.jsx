@@ -61,4 +61,43 @@ describe("widgets/calendar/integrations/ical", () => {
     expect(event.url).toBe("https://example.com");
     expect(event.isCompleted).toBe(false);
   });
+
+  it("adds an all-day event on every day before its exclusive end date", async () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Homepage Test//iCal Multi-Day Event//EN",
+          "BEGIN:VEVENT",
+          "UID:multi-day-all-day@example.test",
+          "DTSTAMP:20260716T000000Z",
+          "DTSTART;VALUE=DATE:20260716",
+          "DTEND;VALUE=DATE:20260719",
+          "SUMMARY:Three-day PTO",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "PTO", type: "ical", color: "red" }}
+        params={{ start: "2026-04-16", end: "2026-10-16" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="America/Los_Angeles"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const updater = setEvents.mock.calls[0][0];
+    const entries = Object.values(updater({}));
+    expect(entries.map((event) => event.date.toISODate()).sort()).toEqual(["2026-07-16", "2026-07-17", "2026-07-18"]);
+  });
 });
