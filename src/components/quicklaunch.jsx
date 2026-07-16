@@ -142,19 +142,19 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
 
     if (searchString.trim().length === 0) setResults([]);
     else {
-      let newResults = servicesAndBookmarks.filter((r) => {
-        const nameMatch = r.name.toLowerCase().includes(searchString);
-        let descriptionMatch;
-        if (searchDescriptions) {
-          descriptionMatch = r.description?.toLowerCase().includes(searchString);
-          r.priority = nameMatch ? 2 * +nameMatch : +descriptionMatch; // eslint-disable-line no-param-reassign
-        }
-        return nameMatch || descriptionMatch;
-      });
+      let newResults = servicesAndBookmarks
+        .map((r) => {
+          const nameMatch = r.name.toLowerCase().includes(searchString);
+          const keywordMatch =
+            Array.isArray(r.keywords) &&
+            r.keywords.some((keyword) => typeof keyword === "string" && keyword.toLowerCase().includes(searchString));
+          const descriptionMatch = searchDescriptions && r.description?.toLowerCase().includes(searchString);
+          const priority = nameMatch ? 3 : keywordMatch ? 2 : +descriptionMatch;
 
-      if (searchDescriptions) {
-        newResults = newResults.sort((a, b) => b.priority - a.priority);
-      }
+          return priority ? { ...r, priority } : null;
+        })
+        .filter((r) => r)
+        .sort((a, b) => b.priority - a.priority);
 
       if (searchProvider) {
         newResults.push({

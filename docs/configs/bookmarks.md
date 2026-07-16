@@ -17,6 +17,8 @@ By default, the description will use the hostname of the link, but you can overr
     - Github:
         - abbr: GH
           href: https://github.com/
+          keywords:
+            - octocat
 
 - Social:
     - Reddit:

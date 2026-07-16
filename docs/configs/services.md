@@ -46,6 +46,9 @@ Services are defined as array entries on groups,
 - Group A:
     - Service A:
         href: http://localhost/
+        keywords:
+          - loopback
+          - 127.0.0.1
 
     - Service B:
         href: http://localhost/

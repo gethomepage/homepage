@@ -500,6 +500,8 @@ You can then pass `provider` instead of `apiKey` in your widget configuration.
 
 You can use the 'Quick Launch' feature to search services, perform a web search or open a URL. To use Quick Launch, just start typing while on your homepage (as long as the search widget doesn't have focus).
 
+Name matches are shown before keyword matches, followed by description matches when enabled.
+
 <img width="1000" alt="quicklaunch" src="https://user-images.githubusercontent.com/4887959/216880811-90ff72cb-2990-4475-889b-7c3a31e6beef.png">
 
 There are a few optional settings for the Quick Launch feature:

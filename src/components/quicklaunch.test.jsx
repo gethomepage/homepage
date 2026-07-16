@@ -272,6 +272,38 @@ describe("components/quicklaunch", () => {
     expect(highlight.closest("span")?.className).toContain("bg-theme-300/10");
   });
 
+  it("searches service and bookmark keywords and ranks name, keyword, then description matches", async () => {
+    renderWithProviders(
+      <Wrapper
+        servicesAndBookmarks={[
+          { name: "IPv6 Localhost", description: "Loopback address", href: "http://[::1]/" },
+          {
+            name: "Localhost",
+            keywords: ["loopback", "127.0.0.1"],
+            href: "http://localhost/",
+            type: "service",
+          },
+          { name: "IPv4 Localhost", keywords: ["LOOPBACK"], href: "http://127.0.0.1/" },
+          { name: "Loopback Dashboard", href: "http://127.0.0.1:3000/", type: "service" },
+        ]}
+      />,
+      { settings: { quicklaunch: { searchDescriptions: true, showSearchSuggestions: false } } },
+    );
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+    fireEvent.change(input, { target: { value: "loopback" } });
+
+    await waitFor(() => expect(document.querySelectorAll("button[data-index]")).toHaveLength(4));
+    const results = Array.from(document.querySelectorAll("button[data-index]")).map((button) => button.textContent);
+    expect(results).toEqual([
+      "Loopback Dashboardquicklaunch.service",
+      "Localhostquicklaunch.service",
+      "IPv4 Localhostquicklaunch.bookmark",
+      "IPv6 LocalhostLoopback addressquicklaunch.bookmark",
+    ]);
+  });
+
   it("fetches search suggestions and ArrowRight autocompletes the selected suggestion", async () => {
     const originalFetch = globalThis.fetch;
     const fetchSpy = vi.fn(async () => ({
