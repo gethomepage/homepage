@@ -323,4 +323,208 @@ describe("widgets/calendar/integrations/ical", () => {
     const entries = Object.values(setEvents.mock.calls[0][0]({}));
     expect(entries.length).toBeLessThanOrEqual(32);
   });
+
+  it("emits a single day for a same-day timed event", async () => {
+    // Start and end fall on the same calendar day, so the zero/negative-span
+    // guard collapses the expansion to just the start day.
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:uid-sameday",
+          "DTSTAMP:20990101T000000Z",
+          "DTSTART:20990105T090000Z",
+          "DTEND:20990105T093000Z",
+          "SUMMARY:Standup",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-02-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    expect(entries).toHaveLength(1);
+    expect(entries[0].date.toUTC().toISODate()).toBe("2099-01-05");
+  });
+
+  it("produces no entries for an event entirely outside the range", async () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:uid-outofrange",
+          "DTSTAMP:20990101T000000Z",
+          "DTSTART;VALUE=DATE:20990601",
+          "DTEND;VALUE=DATE:20990603",
+          "SUMMARY:Later",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-02-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    expect(entries).toHaveLength(0);
+  });
+
+  it("expands a multi-day recurring event across each day of every occurrence", async () => {
+    // A weekly 3-day (DTEND exclusive) recurring event. Each weekly occurrence
+    // within the range should contribute one entry per covered day.
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:uid-recur-multi",
+          "DTSTAMP:20990101T000000Z",
+          "RRULE:FREQ=WEEKLY;COUNT=2",
+          "DTSTART;VALUE=DATE:20990105",
+          "DTEND;VALUE=DATE:20990108",
+          "SUMMARY:Workshop",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-02-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    const days = entries.map((e) => e.date.toISODate()).sort();
+    // Week 1: Jan 5, 6, 7. Week 2: Jan 12, 13, 14.
+    expect(days).toEqual(["2099-01-05", "2099-01-06", "2099-01-07", "2099-01-12", "2099-01-13", "2099-01-14"]);
+  });
+
+  it("emits a single day for a zero-length all-day event", async () => {
+    // DTEND equals DTSTART. Treating the all-day DTEND as exclusive would step
+    // the last day before the start, so the zero/negative-span guard clamps it
+    // back to the start day (one entry).
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:uid-zerolen",
+          "DTSTAMP:20990101T000000Z",
+          "DTSTART;VALUE=DATE:20990105",
+          "DTEND;VALUE=DATE:20990105",
+          "SUMMARY:Marker",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-02-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    expect(entries).toHaveLength(1);
+    expect(entries[0].date.toISODate()).toBe("2099-01-05");
+  });
+
+  it("marks a completed VTODO as completed", async () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VTODO",
+          "UID:uid-todo",
+          "DTSTAMP:20990101T000000Z",
+          "DTSTART:20990105T090000Z",
+          "DUE:20990105T100000Z",
+          "STATUS:COMPLETED",
+          "SUMMARY:Task",
+          "END:VTODO",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-02-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    expect(entries).toHaveLength(1);
+    expect(entries[0].isCompleted).toBe(true);
+  });
 });
