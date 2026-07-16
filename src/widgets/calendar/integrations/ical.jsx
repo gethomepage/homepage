@@ -82,10 +82,63 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     const rangeStart = ICAL.Time.fromJSDate(startDate.toJSDate());
     const rangeEnd = ICAL.Time.fromJSDate(endDate.toJSDate());
 
+    // Expands a single (occurrence) start into one entry per day it spans,
+    // clipped to the visible range. `duration` is the length of the event.
+    // For all-day (date-only) events, DTEND is exclusive per the iCal spec,
+    // so the last displayed day is the day before dtend.
+    const expandDays = (start, duration, occurrences) => {
+      // Compute the last covered instant, then normalize to day granularity so
+      // the per-day loop and range clipping work identically for all-day and
+      // timed events (downstream views compare at day granularity anyway).
+      const end = start.clone();
+      end.addDuration(duration);
+
+      const startDay = start.clone();
+      startDay.isDate = true;
+
+      const lastDay = end.clone();
+      lastDay.isDate = true;
+      if (start.isDate) {
+        // All-day events have an exclusive DTEND per the iCal spec, so step
+        // back one day to reach the last day actually covered by the event.
+        lastDay.day -= 1;
+      }
+      // Guard against zero/negative spans (e.g. same-day timed events, where
+      // truncating to day granularity leaves start === end): emit the start day.
+      if (lastDay.compare(startDay) < 0) {
+        lastDay.day = startDay.day;
+        lastDay.month = startDay.month;
+        lastDay.year = startDay.year;
+      }
+
+      const rangeStartDay = rangeStart.clone();
+      rangeStartDay.isDate = true;
+      const rangeEndDay = rangeEnd.clone();
+      rangeEndDay.isDate = true;
+
+      const firstDayNum = startDay.dayOfYear();
+      const firstYear = startDay.year;
+      for (const day = startDay; day.compare(lastDay) <= 0; day.day += 1) {
+        const isFirst = day.year === firstYear && day.dayOfYear() === firstDayNum;
+        if (day.compare(rangeStartDay) < 0 || day.compare(rangeEndDay) > 0) {
+          continue;
+        }
+        // Preserve the original start time on the first day so timed events keep
+        // their time-of-day (used by the `showTime` option); subsequent days of
+        // a multi-day event are represented as plain dates.
+        occurrences.push(isFirst ? start.clone() : day.clone());
+      }
+    };
+
     const getOcurrencesFromRange = (event) => {
+      const duration = event.dtend.subtractDate(event.dtstart);
+
       if (!event.rrule) {
-        if (event.dtstart.compare(rangeStart) >= 0 && event.dtend.compare(rangeEnd) <= 0) {
-          return [event.dtstart];
+        // Include the event if it overlaps the visible range at all.
+        if (event.dtstart.compare(rangeEnd) <= 0 && event.dtend.compare(rangeStart) >= 0) {
+          const occurrences = [];
+          expandDays(event.dtstart, duration, occurrences);
+          return occurrences;
         }
 
         return [];
@@ -95,11 +148,14 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
 
       const occurrences = [];
       for (let next = iterator.next(); next && next.compare(rangeEnd) < 0; next = iterator.next()) {
-        if (next.compare(rangeStart) < 0) {
+        // Each recurrence spans the same duration as the original event.
+        const occurrenceEnd = next.clone();
+        occurrenceEnd.addDuration(duration);
+        if (occurrenceEnd.compare(rangeStart) < 0) {
           continue;
         }
 
-        occurrences.push(next.clone());
+        expandDays(next, duration, occurrences);
       }
 
       return occurrences;
