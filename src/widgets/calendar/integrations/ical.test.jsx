@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
 
 import { render, waitFor } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import ICAL from "ical.js";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 const { useWidgetAPI } = vi.hoisted(() => ({
   useWidgetAPI: vi.fn(),
@@ -12,6 +13,9 @@ vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 import Integration from "./ical";
 
 describe("widgets/calendar/integrations/ical", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
   it("adds parsed events within the date range", async () => {
     useWidgetAPI.mockReturnValue({
       data: {
@@ -229,5 +233,94 @@ describe("widgets/calendar/integrations/ical", () => {
     const entries = Object.values(setEvents.mock.calls[0][0]({}));
     expect(entries).toHaveLength(1);
     expect(entries[0].date.toUTC().toISODate()).toBe("2099-01-05");
+  });
+
+  it("only emits in-range days for an event starting before the window", async () => {
+    // Event starts before the visible window and ends far in the future. Only
+    // the days within the visible range should be produced.
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:uid-farfuture",
+          "DTSTAMP:20000101T000000Z",
+          "DTSTART;VALUE=DATE:20980101",
+          "DTEND;VALUE=DATE:22200101",
+          "SUMMARY:Long",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-01-04T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    const days = entries.map((e) => e.date.toISODate()).sort();
+    expect(days).toEqual(["2099-01-01", "2099-01-02", "2099-01-03", "2099-01-04"]);
+  });
+
+  it("does not iterate beyond the visible range for a far-future end date", async () => {
+    // A single all-day event spanning ~120 years. The per-day expansion must be
+    // bounded by the visible window, not the event's full duration, otherwise it
+    // performs tens of thousands of wasted iterations.
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:uid-perf",
+          "DTSTAMP:20000101T000000Z",
+          "DTSTART;VALUE=DATE:20990101",
+          "DTEND;VALUE=DATE:22200101",
+          "SUMMARY:Forever",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const compareSpy = vi.spyOn(ICAL.Time.prototype, "compare");
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-02-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    // The visible window is ~31 days. Allow generous headroom for the range
+    // overlap checks, but far below the ~44,000 iterations a full 120-year span
+    // would require if the loop were not clipped to the range.
+    expect(compareSpy.mock.calls.length).toBeLessThan(500);
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    expect(entries.length).toBeLessThanOrEqual(32);
   });
 });

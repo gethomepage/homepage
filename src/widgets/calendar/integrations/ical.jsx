@@ -123,11 +123,14 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
 
       const firstDayNum = startDay.dayOfYear();
       const firstYear = startDay.year;
-      for (const day = startDay; day.compare(lastDay) <= 0; day.day += 1) {
+      // Clip the loop bounds to the visible range so iteration is bounded by the
+      // window, not the (potentially very long) event duration. `isFirst` is
+      // still compared against the true start day so the start time is only
+      // emitted when the event's real first day is within view.
+      const loopStart = startDay.compare(rangeStartDay) < 0 ? rangeStartDay.clone() : startDay;
+      const loopEnd = lastDay.compare(rangeEndDay) > 0 ? rangeEndDay.clone() : lastDay;
+      for (const day = loopStart; day.compare(loopEnd) <= 0; day.day += 1) {
         const isFirst = day.year === firstYear && day.dayOfYear() === firstDayNum;
-        if (day.compare(rangeStartDay) < 0 || day.compare(rangeEndDay) > 0) {
-          continue;
-        }
         // Preserve the original start time on the first day so timed events keep
         // their time-of-day (used by the `showTime` option); subsequent days of
         // a multi-day event are represented as plain dates.
