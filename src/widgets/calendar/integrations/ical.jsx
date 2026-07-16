@@ -102,6 +102,10 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
         // All-day events have an exclusive DTEND per the iCal spec, so step
         // back one day to reach the last day actually covered by the event.
         lastDay.day -= 1;
+      } else if (end.hour === 0 && end.minute === 0 && end.second === 0 && end.compare(start) > 0) {
+        // A timed event ending exactly at midnight ends the instant the next
+        // day begins, so it does not actually occupy that day.
+        lastDay.day -= 1;
       }
       // Guard against zero/negative spans (e.g. same-day timed events, where
       // truncating to day granularity leaves start === end): emit the start day.

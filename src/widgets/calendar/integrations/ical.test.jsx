@@ -189,4 +189,45 @@ describe("widgets/calendar/integrations/ical", () => {
     expect(entries[0].date.toISODate()).toBe("2099-02-15");
     expect(entries[0].title).toBe("Birthday");
   });
+
+  it("does not spill a timed event ending at midnight into the next day", async () => {
+    // Monday 20:00 through Tuesday 00:00. The event ends the instant Tuesday
+    // begins, so it should only occupy Monday.
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:uid-midnight",
+          "DTSTAMP:20990101T000000Z",
+          "DTSTART:20990105T200000Z",
+          "DTEND:20990106T000000Z",
+          "SUMMARY:Evening",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Calendar", type: "ical", color: "green", params: {} }}
+        params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-02-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="utc"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    expect(entries).toHaveLength(1);
+    expect(entries[0].date.toUTC().toISODate()).toBe("2099-01-05");
+  });
 });
