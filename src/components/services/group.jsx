@@ -28,6 +28,7 @@ export default function ServicesGroup({
   return (
     <div
       key={group.name}
+      data-group={group.name || ""}
       className={classNames(
         "services-group flex-1",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
