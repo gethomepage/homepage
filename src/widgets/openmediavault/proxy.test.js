@@ -145,6 +145,39 @@ describe("widgets/openmediavault/proxy", () => {
     expect(res.body).toEqual(Buffer.from(JSON.stringify({ response: { ok: true } })));
   });
 
+  it("accepts the OpenMediaVault 8 authenticated status after login", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "openmediavault",
+      url: "http://omv",
+      username: "u",
+      password: "p",
+      method: "foo.bar",
+    });
+
+    httpProxy
+      // initial rpc unauthorized
+      .mockResolvedValueOnce([401, "application/json", Buffer.from(JSON.stringify({ response: {} })), {}])
+      // OMV 8 login rpc
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ response: { status: "authenticated" } })),
+        { "set-cookie": ["sid=1"] },
+      ])
+      // retry rpc
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ response: { ok: true } })), {}]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createMockRes();
+
+    await openmediavaultProxyHandler(req, res);
+
+    expect(cookieJar.addCookieToJar).toHaveBeenCalled();
+    expect(httpProxy).toHaveBeenCalledTimes(3);
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual(Buffer.from(JSON.stringify({ response: { ok: true } })));
+  });
+
   it("returns after a failed login attempt (non-200 response)", async () => {
     getServiceWidget.mockResolvedValue({
       type: "openmediavault",
