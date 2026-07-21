@@ -5,7 +5,7 @@ description: qBittorrent Widget Configuration
 
 Learn more about [qBittorrent](https://github.com/qbittorrent/qBittorrent).
 
-Authenticate using the WebUI username and password or the API key `(qBittorrent ≥ v5.2.0)`. If both are provided, the API key will be used.
+Authenticate using the WebUI username and password or the API Key `(qBittorrent ≥ v5.2.0)`.
 
 API Key is located in `Options > WebUI > Authentication > API Key`.
 
@@ -17,15 +17,7 @@ widget:
   url: http://qbittorrent.host.or.ip
   username: username
   password: password
-  enableLeechProgress: true # optional, defaults to false
-  enableLeechSize: true # optional, defaults to false
-```
-
-```yaml
-widget:
-  type: qbittorrent
-  url: http://qbittorrent.host.or.ip
-  key: qbt_apikey
+  key: qbt_apikey # required if using API key instead of username/password
   enableLeechProgress: true # optional, defaults to false
   enableLeechSize: true # optional, defaults to false
 ```
