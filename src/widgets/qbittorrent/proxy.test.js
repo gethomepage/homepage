@@ -45,6 +45,11 @@ describe("widgets/qbittorrent/proxy", () => {
 
     expect(httpProxy).toHaveBeenCalledTimes(3);
     expect(httpProxy.mock.calls[1][0]).toBe("http://qb/api/v2/auth/login");
+    expect(httpProxy.mock.calls[1][1]).toEqual({
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: "username=u&password=p",
+    });
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual(Buffer.from("data"));
   });
@@ -84,23 +89,39 @@ describe("widgets/qbittorrent/proxy", () => {
     expect(res.body).toEqual(Buffer.from("Denied"));
   });
 
-  it("supports API keys by including them in the Authorization header and not the body", async () => {
+  it("uses an API key on the WebAPI request without attempting login", async () => {
     getServiceWidget.mockResolvedValue({ url: "http://qb", key: "abc123" });
 
-    httpProxy
-      .mockResolvedValueOnce([403, "application/json", Buffer.from("nope")])
-      .mockResolvedValueOnce([200, "text/plain", Buffer.from("Ok.")])
-      .mockResolvedValueOnce([200, "application/json", Buffer.from("data")]);
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from("data")]);
 
     const req = { query: { group: "g", service: "svc", endpoint: "torrents/info", index: "0" } };
     const res = createMockRes();
 
     await qbittorrentProxyHandler(req, res);
 
-    expect(httpProxy).toHaveBeenCalledTimes(3);
-    expect(httpProxy.mock.calls[1][0]).toBe("http://qb/api/v2/auth/login");
-    expect(httpProxy.mock.calls[1][1].headers.Authorization).toBe("Bearer abc123");
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(httpProxy.mock.calls[0][0].toString()).toBe("http://qb/api/v2/torrents/info");
+    expect(httpProxy.mock.calls[0][1]).toMatchObject({
+      headers: { Authorization: "Bearer abc123" },
+      method: "GET",
+    });
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual(Buffer.from("data"));
+  });
+
+  it("does not attempt username/password login when an API key is rejected", async () => {
+    getServiceWidget.mockResolvedValue({ url: "http://qb", username: "u", password: "p", key: "invalid" });
+
+    httpProxy.mockResolvedValueOnce([403, "application/json", Buffer.from("nope")]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "torrents/info", index: "0" } };
+    const res = createMockRes();
+
+    await qbittorrentProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(httpProxy.mock.calls[0][1].headers.Authorization).toBe("Bearer invalid");
+    expect(res.statusCode).toBe(403);
+    expect(res.body).toEqual(Buffer.from("nope"));
   });
 });
