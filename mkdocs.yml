@@ -95,6 +95,7 @@ nav:
           - widgets/services/jellyfin.md
           - widgets/services/jellystat.md
           - widgets/services/kavita.md
+          - widgets/services/kimai.md
           - widgets/services/komga.md
           - widgets/services/komodo.md
           - widgets/services/kopia.md

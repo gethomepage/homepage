@@ -857,6 +857,13 @@
         "seriesCount": "Series",
         "totalFiles": "Files"
     },
+    "kimai": {
+        "active": "Active",
+        "today": "Today",
+        "week": "Week",
+        "idle": "No timer running",
+        "tracking": "Tracking"
+    },
     "azuredevops": {
         "result": "Result",
         "status": "Status",
