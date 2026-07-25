@@ -227,6 +227,103 @@ describe("components/services/item", () => {
     expect(screen.getByTestId("proxmoxvm-widget")).toBeInTheDocument();
   });
 
+  it("renders custom data-* attributes from service.data", () => {
+    const { container } = renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "s1",
+          name: "Test",
+          data: { foo: "bar", track: "main" },
+          widgets: [],
+        }}
+      />,
+      { settings: { showStats: false, statusStyle: "basic" } },
+    );
+
+    const li = container.querySelector('[data-name="Test"]');
+    expect(li).toHaveAttribute("data-foo", "bar");
+    expect(li).toHaveAttribute("data-track", "main");
+  });
+
+  it("does not add unexpected data-* attributes when service.data is undefined", () => {
+    const { container } = renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "s1",
+          name: "Test",
+          widgets: [],
+        }}
+      />,
+      { settings: { showStats: false, statusStyle: "basic" } },
+    );
+
+    const li = container.querySelector('[data-name="Test"]');
+    expect(li).toHaveAttribute("data-name", "Test");
+    expect(li).not.toHaveAttribute("data-foo");
+  });
+
+  it("renders service.class on the li element", () => {
+    const { container } = renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "s1",
+          name: "Test",
+          class: "highlighted",
+          widgets: [],
+        }}
+      />,
+      { settings: { showStats: false, statusStyle: "basic" } },
+    );
+
+    const li = container.querySelector('[data-name="Test"]');
+    expect(li).toHaveClass("highlighted");
+  });
+
+  it("service.class merges with default class", () => {
+    const { container } = renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "s1",
+          name: "Test",
+          class: "highlighted",
+          widgets: [],
+        }}
+      />,
+      { settings: { showStats: false, statusStyle: "basic" } },
+    );
+
+    const li = container.querySelector('[data-name="Test"]');
+    expect(li).toHaveClass("service");
+    expect(li).toHaveClass("highlighted");
+  });
+
+  it("service.class handles undefined without error", () => {
+    const { container } = renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "s1",
+          name: "Test",
+          widgets: [],
+        }}
+      />,
+      { settings: { showStats: false, statusStyle: "basic" } },
+    );
+
+    const li = container.querySelector('[data-name="Test"]');
+    expect(li).toBeInTheDocument();
+    expect(li).toHaveClass("service");
+  });
+
   it("does not render the app status tag when the service is marked external", () => {
     renderWithProviders(
       <Item
