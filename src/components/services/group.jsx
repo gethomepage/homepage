@@ -25,15 +25,22 @@ export default function ServicesGroup({
   let groupPadding = layout?.header === false ? "px-1" : "p-1 pb-0";
   if (isSubgroup) groupPadding = "";
 
+  const dataAttrs = Object.fromEntries(
+    Object.entries(layout?.data ?? {}).map(([key, value]) => [`data-${key}`, value]),
+  );
+
   return (
     <div
       key={group.name}
+      data-group={group.name || ""}
+      {...dataAttrs}
       className={classNames(
         "services-group flex-1",
         layout?.style === "row" ? "basis-full" : "basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4",
         layout?.style !== "row" && maxGroupColumns ? `3xl:basis-1/${maxGroupColumns}` : "",
         groupPadding,
         isSubgroup ? "subgroup" : "",
+        layout?.class,
       )}
     >
       <Disclosure defaultOpen={!(layout?.initiallyCollapsed ?? groupsInitiallyCollapsed)}>
