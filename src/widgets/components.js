@@ -131,6 +131,7 @@ const components = {
   sparkyfitness: dynamic(() => import("./sparkyfitness/component")),
   speedtest: dynamic(() => import("./speedtest/component")),
   spoolman: dynamic(() => import("./spoolman/component")),
+  sportarr: dynamic(() => import("./sportarr/component")),
   stash: dynamic(() => import("./stash/component")),
   stocks: dynamic(() => import("./stocks/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
