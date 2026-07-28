@@ -76,6 +76,7 @@ const components = {
   linkwarden: dynamic(() => import("./linkwarden/component")),
   lubelogger: dynamic(() => import("./lubelogger/component")),
   mailcow: dynamic(() => import("./mailcow/component")),
+  maintainerr: dynamic(() => import("./maintainerr/component")),
   mastodon: dynamic(() => import("./mastodon/component")),
   mealie: dynamic(() => import("./mealie/component")),
   medusa: dynamic(() => import("./medusa/component")),
