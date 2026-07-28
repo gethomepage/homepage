@@ -13,5 +13,5 @@ Allowed fields: `["wanted", "queued", "leagues"]`.
 widget:
   type: sportarr
   url: http://sportarr.host.or.ip:1867
-  key: apikeyapikeyapikeyapikeyapikey
+  key: sportarrapikeyapikeyapikeyapikeyapikey
 ```
