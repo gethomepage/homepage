@@ -247,7 +247,7 @@
     "deluge": {
         "download": "Download",
         "upload": "Upload",
-        "leech": "Leech",
+        "leech": "Leecher",
         "seed": "Seed"
     },
     "develancacheui": {
@@ -350,9 +350,9 @@
         "client_version": "Client Version",
         "os": "OS",
         "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
+        "authorized": "Autorizzato",
+        "is_external": "È esterno",
+        "update_available": "Aggiornamento Disponibile",
         "tags": "Tags",
         "last_seen": "Ultima visualizzazione",
         "now": "Adesso",
@@ -363,11 +363,11 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Fa",
-        "true": "Yes",
+        "true": "Si",
         "false": "No"
     },
     "technitium": {
-        "totalQueries": "Queries",
+        "totalQueries": "Richieste",
         "totalNoError": "Successo",
         "totalServerFailure": "Fallimenti",
         "totalNxDomain": "Domini NX",
@@ -375,12 +375,12 @@
         "totalAuthoritative": "Autoritario",
         "totalRecursive": "Ricorsivo",
         "totalCached": "In cache",
-        "totalBlocked": "Blocked",
+        "totalBlocked": "Bloccato",
         "totalDropped": "Saltati",
         "totalClients": "Client"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "Coda",
         "processed": "Elaborati",
         "errored": "In errore",
         "saved": "Salvati"
@@ -391,7 +391,7 @@
         "middleware": "Middleware"
     },
     "trilium": {
-        "version": "Version",
+        "version": "Versione",
         "notesCount": "Notes",
         "dbSize": "Database Size",
         "unknown": "Unknown"
@@ -440,8 +440,8 @@
         "domain_count": "Domini"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "Richiesti/o",
+        "queued": "In coda",
         "series": "Serie"
     },
     "minecraft": {
@@ -560,9 +560,9 @@
         "up_to_date": "Aggiornato",
         "child_bridges": "Bridge Figli",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down",
+        "up": "Su",
+        "pending": "In attesa",
+        "down": "Giù",
         "ok": "Ok"
     },
     "healthchecks": {
@@ -571,7 +571,7 @@
         "grace": "Periodo di Tolleranza",
         "down": "Down",
         "paused": "In Pausa",
-        "status": "Status",
+        "status": "Stato",
         "last_ping": "Ultimo Ping",
         "never": "Ancora nessun ping"
     },
@@ -581,27 +581,27 @@
         "containers_failed": "Fallito"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
+        "approvedPushes": "Approvati",
         "rejectedPushes": "Rifiutato",
         "filters": "Filtri",
-        "indexers": "Indexers"
+        "indexers": "Indicizzatori"
     },
     "tubearchivist": {
-        "downloads": "Queue",
+        "downloads": "Coda",
         "videos": "Video",
         "channels": "Canali",
         "playlists": "Playlist"
     },
     "truenas": {
         "load": "Carico di Sistema",
-        "uptime": "Uptime",
-        "alerts": "Alerts"
+        "uptime": "Tempo di attività",
+        "alerts": "Allarmi"
     },
     "pyload": {
         "speed": "Velocità",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "active": "Attivo",
+        "queue": "Coda",
+        "total": "Totale"
     },
     "gluetun": {
         "public_ip": "IP pubblico",
@@ -610,34 +610,34 @@
         "port_forwarded": "Port Forwarded"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "Canali",
         "hd": "HD",
         "tunerCount": "Regolatori",
         "channelNumber": "Canale",
         "channelNetwork": "Rete",
         "signalStrength": "Intensità",
         "signalQuality": "Qualità",
-        "symbolQuality": "Quality",
+        "symbolQuality": "Qualità",
         "networkRate": "Bitrate",
         "clientIP": "Client"
     },
     "scrutiny": {
         "passed": "Passati",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "failed": "Fallito",
+        "unknown": "Sconosciuto"
     },
     "paperlessngx": {
         "inbox": "In arrivo",
-        "total": "Total"
+        "total": "Totale"
     },
     "pangolin": {
-        "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "orgs": "Organizzazioni",
+        "sites": "Siti",
+        "resources": "Risorse",
+        "targets": "Obiettivi",
+        "traffic": "Traffico dati",
+        "in": "In entrata",
+        "out": "In Uscita"
     },
     "peanut": {
         "battery_charge": "Carica Batteria",
@@ -648,18 +648,18 @@
         "low_battery": "Batteria Quasi Scarica"
     },
     "nextdns": {
-        "wait": "Please Wait",
+        "wait": "Attendere prego",
         "no_devices": "Nessun dato del dispositivo ricevuto"
     },
     "mikrotik": {
         "cpuLoad": "Carico della CPU",
         "memoryUsed": "Memoria Utilizzata",
-        "uptime": "Uptime",
+        "uptime": "Tempo di funzionamento",
         "numberOfLeases": "Rilasci"
     },
     "xteve": {
         "streams_all": "Tutti gli stream",
-        "streams_active": "Active Streams",
+        "streams_active": "Trasmissioni attive",
         "streams_xepg": "Canali XEPG"
     },
     "opendtu": {
@@ -669,7 +669,7 @@
         "limit": "Limite"
     },
     "opnsense": {
-        "cpu": "CPU Load",
+        "cpu": "Carico della CPU",
         "memory": "Memoria in uso",
         "wanUpload": "WAN Upload",
         "wanDownload": "WAN Download"
@@ -681,14 +681,14 @@
         "layers": "Livelli"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "Stato",
         "temp_tool": "Temp. utensile",
         "temp_bed": "Temp. letto",
         "job_completion": "Completamento"
     },
     "cloudflared": {
         "origin_ip": "IP sorgente",
-        "status": "Status"
+        "status": "Stato"
     },
     "pfsense": {
         "load": "Carico Medio",

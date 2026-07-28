@@ -221,6 +221,8 @@ You can also specify prefixed icons from:
 
 You can specify a custom color for `mdi` and `si` icons by adding a hex color code as a suffix e.g. `mdi-XX-#f0d453` or `si-XX-#a712a2`.
 
+Note that these icon sets are not bundled with Homepage, they are fetched in the browser from remote CDN servers. To use the icons offline you may download the icons and serve them locally, or rely on browser caching when applicable.
+
 To use a remote icon, use the absolute URL (e.g. `https://...`).
 
 To use a local icon, first create a Docker mount to `/app/public/icons` and then reference your icon as `/icons/myicon.png`. You will need to restart the container when adding new icons.

@@ -27,6 +27,7 @@ import diskstation from "./diskstation/widget";
 import dispatcharr from "./dispatcharr/widget";
 import dockhand from "./dockhand/widget";
 import downloadstation from "./downloadstation/widget";
+import duplicati from "./duplicati/widget";
 import emby from "./emby/widget";
 import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
@@ -106,6 +107,7 @@ import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pterodactyl from "./pterodactyl/widget";
+import pulse from "./pulse/widget";
 import pyload from "./pyload/widget";
 import qbittorrent from "./qbittorrent/widget";
 import qnap from "./qnap/widget";
@@ -127,6 +129,7 @@ import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
 import suwayomi from "./suwayomi/widget";
 import swagdashboard from "./swagdashboard/widget";
+import syncthing from "./syncthing/widget";
 import tailscale from "./tailscale/widget";
 import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
@@ -180,6 +183,7 @@ const widgets = {
   deluge,
   develancacheui,
   diskstation,
+  duplicati,
   dispatcharr,
   dockhand,
   downloadstation,
@@ -267,6 +271,7 @@ const widgets = {
   prowlarr,
   proxmox,
   pterodactyl,
+  pulse,
   pyload,
   qbittorrent,
   qnap,
@@ -288,6 +293,7 @@ const widgets = {
   strelaysrv,
   swagdashboard,
   suwayomi,
+  syncthing,
   tailscale,
   tandoor,
   tautulli,

@@ -36,8 +36,8 @@ const widget = {
             status: entry.status,
           }))
           .sort((a, b) => {
-            const downloadingA = a.trackedDownloadState === "downloading";
-            const downloadingB = b.trackedDownloadState === "downloading";
+            const downloadingA = (a.status ?? a.trackedDownloadState) === "downloading";
+            const downloadingB = (b.status ?? b.trackedDownloadState) === "downloading";
             if (downloadingA && !downloadingB) {
               return -1;
             }
@@ -45,8 +45,8 @@ const widget = {
               return 1;
             }
 
-            const percentA = a.sizeLeft / a.size;
-            const percentB = b.sizeLeft / b.size;
+            const percentA = a.size > 0 ? a.sizeLeft / a.size : 1;
+            const percentB = b.size > 0 ? b.sizeLeft / b.size : 1;
             if (percentA < percentB) {
               return -1;
             }

@@ -295,10 +295,10 @@
         "available": "Kullanılabilir"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
+        "pending": "Bekleyen",
+        "approved": "Onaylanan",
+        "available": "Kullanılabilir",
+        "completed": "Tamamlanan",
         "processing": "Processing",
         "issues": "Open Issues"
     },

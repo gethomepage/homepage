@@ -63,7 +63,10 @@ For configuration options, examples and more, [please check out the homepage doc
 
 ## Security Notice 🔒
 
-Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. If Homepage is reachable from any untrusted network, it **must** sit behind a reverse proxy (and/or VPN) that enforces authentication, TLS, and strictly validates Host headers. The built-in host check in Homepage is a best-effort guard and should not be treated as security when exposed publicly.
+Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system). To keep your information private, if Homepage is reachable from any untrusted network, it:
+
+1. **must** sit behind a reverse proxy (and/or VPN) that enforces authentication, TLS, and strictly validates Host headers.
+2. An optional built-in OIDC login flow or simple password login is available (opt-in) offering a simple “authenticated or not” guard.
 
 ## With Docker
 
@@ -120,7 +123,7 @@ If this is your first time starting, copy the `src/skeleton` directory to `confi
 Finally, run the server in production mode:
 
 ```bash
-pnpm start
+HOMEPAGE_ALLOWED_HOSTS=gethomepage.dev:1234 pnpm start
 ```
 
 # Configuration

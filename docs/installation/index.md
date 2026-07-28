@@ -38,3 +38,38 @@ The value is a comma-separated (no spaces) list of allowed hosts (sometimes with
 If you are seeing errors about host validation, check the homepage logs and ensure that the host exactly as output in the logs is in the `HOMEPAGE_ALLOWED_HOSTS` list.
 
 This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended. Public deployments must rely on a reverse proxy (and/or VPN) that enforces authentication, TLS, and unexpected Host headers; the built-in host check is a best-effort guard for local setups and is not a substitute for edge protections.
+
+### Security & Authentication
+
+Public deployments of Homepage should be secured via a reverse proxy, VPN, or similar. As of version 2.0, Homepage supports a simple authorization gate with a password or OIDC. When enabled, Homepage will use password login by default unless OIDC variables are provided.
+
+Required environment variables for authentication:
+
+- `HOMEPAGE_AUTH_ENABLED=true`
+- `HOMEPAGE_AUTH_SECRET` (random string for signing/encrypting cookies)
+- `HOMEPAGE_EXTERNAL_URL` (the absolute URL used to access Homepage, including scheme and port when needed)
+
+Use an `https://` URL for public or TLS-terminated deployments so authentication cookies are marked `Secure`. Trusted HTTP-only LAN deployments may use an `http://` URL.
+
+For password-only login:
+
+- `HOMEPAGE_AUTH_PASSWORD` (a strong, unique password; required unless OIDC settings are provided)
+
+!!! warning
+
+    Homepage does not apply application-level rate limiting to password attempts. Deployments exposed outside a trusted network should configure their reverse proxy or ingress to rate limit POST requests to `/api/auth/callback/credentials`.
+
+For OIDC login (overrides password login):
+
+- `HOMEPAGE_OIDC_ISSUER` (OIDC issuer URL, e.g., `https://auth.example.com/realms/homepage`)
+- `HOMEPAGE_OIDC_CLIENT_ID`
+- `HOMEPAGE_OIDC_CLIENT_SECRET`
+- Optional: `HOMEPAGE_OIDC_NAME` (display name), `HOMEPAGE_OIDC_SCOPE` (defaults to `openid email profile`)
+
+!!! warning
+
+    Homepage grants access to any identity that the configured OIDC provider authorizes for this client. Configure client assignments, groups, or access policies at the identity provider. Homepage does not apply additional claim-based authorization.
+
+All app pages and `/api` routes except `/api/healthcheck` will require a signed-in session. Static assets remain public.
+
+Configure your OIDC provider with the a callback URI like `https://homepage.example.com/api/auth/callback/homepage-oidc`.

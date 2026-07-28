@@ -73,7 +73,7 @@ async function tryLogin(widget) {
   }
 
   const json = JSON.parse(resp.data.toString());
-  if (json.response.authenticated !== true) {
+  if (json.response.authenticated !== true && json.response.status !== "authenticated") {
     logger.error("Login error in OpenMediaVault. Data: %s", resp.data);
     resp.status = 401;
     return [false, resp];

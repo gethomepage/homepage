@@ -38,12 +38,18 @@ export default async function dockhandProxyHandler(req, res) {
 
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
 
+  const headers = {};
+  if (widget.key) {
+    headers.Authorization = `Bearer ${widget.key}`;
+  }
+
   let [status, contentType, data] = await httpProxy(url, {
     method: req.method,
+    headers,
   });
 
-  // Attempt login and retrying once
-  if (status === 401) {
+  // Attempt login (username + password only) and retry once
+  if (status === 401 && !widget.key) {
     const loggedIn = await login(widget);
     if (loggedIn) {
       [status, contentType, data] = await httpProxy(url, {
