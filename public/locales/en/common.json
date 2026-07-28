@@ -1230,5 +1230,10 @@
         "synced": "Synced",
         "errors": "Errors",
         "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

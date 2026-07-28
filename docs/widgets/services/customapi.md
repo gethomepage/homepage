@@ -146,6 +146,10 @@ The widget supports different display modes that can be set using the `display` 
 
 The default display mode is `block`, which shows fields in a block format.
 
+!!! note
+
+    The Custom API widget does not currently support [block highlighting](../../configs/services.md#block-highlighting) in any display mode.
+
 ### List View
 
 You can change the default block view to a list view by setting the `display` option to `list`.

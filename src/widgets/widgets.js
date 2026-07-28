@@ -123,6 +123,7 @@ import sonarr from "./sonarr/widget";
 import sparkyfitness from "./sparkyfitness/widget";
 import speedtest from "./speedtest/widget";
 import spoolman from "./spoolman/widget";
+import sportarr from "./sportarr/widget";
 import stash from "./stash/widget";
 import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
@@ -286,6 +287,7 @@ const widgets = {
   sparkyfitness,
   speedtest,
   spoolman,
+  sportarr,
   stash,
   stocks,
   strelaysrv,
