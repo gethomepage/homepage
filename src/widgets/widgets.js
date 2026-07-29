@@ -11,6 +11,7 @@ import backrest from "./backrest/widget";
 import bazarr from "./bazarr/widget";
 import beszel from "./beszel/widget";
 import booklore from "./booklore/widget";
+import bookorbit from "./bookorbit/widget";
 import caddy from "./caddy/widget";
 import calendar from "./calendar/widget";
 import calibreweb from "./calibreweb/widget";
@@ -67,7 +68,6 @@ import lidarr from "./lidarr/widget";
 import linkwarden from "./linkwarden/widget";
 import lubelogger from "./lubelogger/widget";
 import mailcow from "./mailcow/widget";
-import maintainerr from "./maintainerr/widget";
 import mastodon from "./mastodon/widget";
 import mealie from "./mealie/widget";
 import medusa from "./medusa/widget";
@@ -124,7 +124,6 @@ import sonarr from "./sonarr/widget";
 import sparkyfitness from "./sparkyfitness/widget";
 import speedtest from "./speedtest/widget";
 import spoolman from "./spoolman/widget";
-import sportarr from "./sportarr/widget";
 import stash from "./stash/widget";
 import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
@@ -171,6 +170,7 @@ const widgets = {
   backrest,
   bazarr,
   booklore,
+  bookorbit,
   beszel,
   caddy,
   calibreweb,
@@ -230,7 +230,6 @@ const widgets = {
   linkwarden,
   lubelogger,
   mailcow,
-  maintainerr,
   mastodon,
   mealie,
   medusa,
@@ -289,7 +288,6 @@ const widgets = {
   sparkyfitness,
   speedtest,
   spoolman,
-  sportarr,
   stash,
   stocks,
   strelaysrv,

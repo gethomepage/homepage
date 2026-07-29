@@ -847,6 +847,12 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "bookorbit": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
@@ -945,17 +951,6 @@
       "mailboxes": "Mailboxes",
       "mails": "Mails",
       "storage": "Storage"
-    },
-    "maintainerr": {
-      "itemsHandled": "Items Handled",
-      "episodesHandled": "Episodes Handled",
-      "moviesHandled": "Movies Handled",
-      "showsHandled": "Shows Handled",
-      "seasonsHandled": "Seasons Handled",
-      "reclaimable": "Reclaimable",
-      "movieReclaimable": "Movie Reclaimable",
-      "showReclaimable": "Show Reclaimable",
-      "totalCapacity": "Total Capacity"
     },
     "netdata": {
       "warnings": "Warnings",
@@ -1241,10 +1236,5 @@
         "synced": "Synced",
         "errors": "Errors",
         "storage": "Storage"
-    },
-    "sportarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "leagues": "Leagues"
     }
 }
