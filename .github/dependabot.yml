@@ -11,9 +11,20 @@ updates:
       interval: "weekly"
     cooldown:
       default-days: 7
+
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "monthly"
     cooldown:
       default-days: 7
+    groups:
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+
+      testing-library:
+        patterns:
+          - "@testing-library/jest-dom"
+          - "@testing-library/dom"
