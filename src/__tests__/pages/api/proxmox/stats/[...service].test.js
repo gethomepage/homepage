@@ -37,6 +37,33 @@ describe("pages/api/proxmox/stats/[...service]", () => {
     expect(res.body).toEqual({ error: "Proxmox node parameter is required" });
   });
 
+  it.each([
+    ["type", { service: ["pve", "100"], type: "../../cluster/resources#" }, "Invalid Proxmox type parameter"],
+    ["node", { service: ["../pve", "100"], type: "qemu" }, "Invalid Proxmox node parameter"],
+    ["VMID", { service: ["pve", "../../../cluster/resources#"], type: "qemu" }, "Invalid Proxmox VMID parameter"],
+  ])("rejects an invalid %s path parameter", async (_parameter, query, error) => {
+    const req = { query };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error });
+    expect(getProxmoxConfig).not.toHaveBeenCalled();
+    expect(httpProxy).not.toHaveBeenCalled();
+  });
+
+  it("rejects an array-valued type parameter", async () => {
+    const req = { query: { service: ["pve", "100"], type: ["qemu", "../../cluster/resources#"] } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Invalid Proxmox type parameter" });
+    expect(httpProxy).not.toHaveBeenCalled();
+  });
+
   it("returns 500 when proxmox config is missing", async () => {
     getProxmoxConfig.mockReturnValue(null);
 
