@@ -85,4 +85,20 @@ describe("utils/config/widget-helpers", () => {
     expect(Array.isArray(all)).toBe(true);
     expect(all[0].options.url).toBe("http://x");
   });
+
+  it("getPrivateWidgetOptions passes site and version through to the proxy", async () => {
+    fs.readFile.mockResolvedValueOnce("ignored");
+    yaml.load.mockReturnValueOnce([{ unifi_console: { url: "http://x", key: "k", site: "Site", version: 2 } }]);
+
+    const options = await getPrivateWidgetOptions("unifi_console", 0);
+    expect(options).toEqual(
+      expect.objectContaining({
+        index: 0,
+        url: "http://x",
+        key: "k",
+        site: "Site",
+        version: 2,
+      }),
+    );
+  });
 });

@@ -43,6 +43,7 @@ vi.mock("widgets/widgets", () => ({
   default: {
     unifi: {
       api: "{url}{prefix}/api/{endpoint}",
+      apiv2: "{url}/proxy/network/integration/v1/{endpoint}",
     },
   },
 }));
@@ -145,5 +146,197 @@ describe("widgets/unifi/proxy", () => {
       method: "GET",
     });
     expect(res.statusCode).toBe(200);
+  });
+
+  it("reshapes integration API responses into the legacy stat/sites structure", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "unifi",
+      url: "http://unifi",
+      key: "secret",
+      version: 2,
+    });
+
+    httpProxy
+      // sites
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ totalCount: 1, data: [{ id: "site-1", name: "Mahrnet" }] })),
+        {},
+      ])
+      // wired client count
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ totalCount: 0, data: [] })), {}])
+      // wireless client count
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ totalCount: 28, data: [] })), {}])
+      // devices
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(
+          JSON.stringify({
+            totalCount: 1,
+            data: [{ id: "ap-1", name: "ap01", model: "U6 Pro", state: "ONLINE", features: ["accessPoint"] }],
+          }),
+        ),
+        {},
+      ]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "stat/sites", index: "0" } };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(4);
+    expect(httpProxy.mock.calls[0][0].toString()).toBe("http://unifi/proxy/network/integration/v1/sites");
+    expect(httpProxy.mock.calls[1][0].toString()).toContain("/sites/site-1/clients?limit=1&filter=type.eq(");
+    expect(httpProxy.mock.calls[3][0].toString()).toContain("/sites/site-1/devices?offset=0&limit=200");
+    expect(httpProxy.mock.calls[0][1]).toMatchObject({
+      headers: { "X-API-KEY": "secret", Accept: "application/json" },
+      method: "GET",
+    });
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({
+      meta: { rc: "ok" },
+      data: [
+        {
+          name: "default",
+          desc: "Mahrnet",
+          health: [
+            { subsystem: "wan", status: "unknown" },
+            { subsystem: "lan", status: "unknown", num_user: 0, num_adopted: 0 },
+            { subsystem: "wlan", status: "ok", num_user: 28, num_adopted: 1 },
+          ],
+        },
+      ],
+    });
+  });
+
+  it("reports gateway uptime and wan status when a gateway is adopted", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "unifi",
+      url: "http://unifi",
+      key: "secret",
+      version: 2,
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ totalCount: 1, data: [{ id: "site-1", name: "Mahrnet" }] })),
+        {},
+      ])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ totalCount: 3, data: [] })), {}])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ totalCount: 28, data: [] })), {}])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(
+          JSON.stringify({
+            totalCount: 2,
+            data: [
+              { id: "ap-1", name: "ap01", model: "U6 Pro", state: "ONLINE", features: ["accessPoint"] },
+              { id: "gw-1", name: "gw", model: "UCG-Ultra", state: "ONLINE", features: [] },
+            ],
+          }),
+        ),
+        {},
+      ])
+      // latest statistics for the gateway
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ uptimeSec: 172800 })), {}]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "stat/sites", index: "0" } };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(5);
+    expect(httpProxy.mock.calls[4][0].toString()).toContain("/devices/gw-1/statistics/latest");
+    expect(res.body.data[0].health[0]).toEqual({
+      subsystem: "wan",
+      status: "ok",
+      "gw_system-stats": { uptime: 172800 },
+    });
+    expect(res.body.data[0].health[1]).toMatchObject({ status: "ok", num_user: 3 });
+  });
+
+  it("returns 404 when the configured site name doesn't exist", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "unifi",
+      url: "http://unifi",
+      key: "secret",
+      version: 2,
+      site: "Nope",
+    });
+
+    httpProxy.mockResolvedValueOnce([
+      200,
+      "application/json",
+      Buffer.from(JSON.stringify({ totalCount: 1, data: [{ id: "site-1", name: "Mahrnet" }] })),
+      {},
+    ]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "stat/sites", index: "0" } };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(res.statusCode).toBe(404);
+    expect(res.body.error.message).toContain("Nope");
+  });
+
+  it("returns 400 when version 2 is configured without an API key", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "unifi",
+      url: "http://unifi",
+      username: "u",
+      password: "p",
+      version: 2,
+    });
+
+    const req = { query: { group: "g", service: "svc", endpoint: "stat/sites", index: "0" } };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(httpProxy).not.toHaveBeenCalled();
+    expect(res.statusCode).toBe(400);
+  });
+
+  it("propagates upstream errors from the integration API", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "unifi",
+      url: "http://unifi",
+      key: "secret",
+      version: 2,
+    });
+
+    httpProxy.mockResolvedValueOnce([403, "application/json", Buffer.from("denied"), {}]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "stat/sites", index: "0" } };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(403);
+  });
+
+  it("uses the legacy API when version is 1", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "unifi",
+      url: "http://unifi",
+      key: "secret",
+      version: 1,
+    });
+
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from("data"), {}]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "stat/sites", index: "0" } };
+    const res = createMockRes();
+
+    await unifiProxyHandler(req, res);
+
+    expect(httpProxy.mock.calls[0][0].toString()).toContain("/proxy/network/api/stat/sites");
   });
 });
