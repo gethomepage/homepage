@@ -585,6 +585,7 @@ export function cleanServiceGroups(groups) {
             "pfsense",
             "pihole",
             "speedtest",
+            "unifi",
             "wgeasy",
             "grafana",
             "gluetun",

@@ -58,7 +58,7 @@ export async function getPrivateWidgetOptions(type, widgetIndex) {
 
   const privateOptions =
     widgets.map((widget) => {
-      const { index, url, username, password, key, apiKey } = widget.options;
+      const { index, url, username, password, key, apiKey, site, version } = widget.options;
 
       return {
         type: widget.type,
@@ -69,6 +69,8 @@ export async function getPrivateWidgetOptions(type, widgetIndex) {
           password,
           key,
           apiKey,
+          site,
+          version,
         },
       };
     }) || {};
