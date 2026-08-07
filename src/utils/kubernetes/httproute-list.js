@@ -20,7 +20,7 @@ export default async function listHttpRoute() {
       })
       .then((response) => {
         logger.debug("Retrieved httproutes: %d", response?.items?.length ?? 0);
-        return response?.items;
+        return response?.items ?? [];
       })
       .catch((error) => {
         logger.error("Error getting httproutes: %d %s %s", error.statusCode, error.body, error.response);
