@@ -21,7 +21,7 @@
     "dockerode": "^5.0.0",
     "follow-redirects": "^1.16.0",
     "gamedig": "^5.3.3",
-    "i18next": "^26.3.0",
+    "i18next": "^26.3.6",
     "ical.js": "^2.2.1",
     "js-yaml": "^4.3.0",
     "json-rpc-2.0": "^1.7.1",
