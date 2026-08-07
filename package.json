@@ -28,7 +28,7 @@
     "luxon": "^3.7.2",
     "memory-cache": "^0.2.0",
     "minecraftstatuspinger": "^1.2.2",
-    "next": "^16.2.11",
+    "next": "^16.2.12",
     "next-auth": "^4.24.15",
     "next-i18next": "^16.0.8",
     "ping": "^1.0.0",
