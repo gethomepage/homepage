@@ -32,7 +32,7 @@
     "next-auth": "^4.24.15",
     "next-i18next": "^16.0.8",
     "ping": "^1.0.0",
-    "pretty-bytes": "^7.1.0",
+    "pretty-bytes": "^7.1.1",
     "raw-body": "^4.0.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
