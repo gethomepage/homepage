@@ -263,7 +263,7 @@ describe("utils/proxy/handlers/credentialed", () => {
     expect(res.body).toEqual({
       error: {
         message: "HTTP Error",
-        url: "http://x/api/statistics",
+        url: "x (see logs for details)",
         data: { detail: "Invalid token." },
       },
     });
@@ -414,7 +414,7 @@ describe("utils/proxy/handlers/credentialed", () => {
     expect(params.headers["X-Finnhub-Token"]).toBe("finnhub-token");
   });
 
-  it("sanitizes embedded query params when a downstream error contains a url", async () => {
+  it("replaces embedded error urls with the hostname when a downstream error contains a url", async () => {
     getServiceWidget.mockResolvedValue({ type: "linkwarden", url: "http://example", key: "token" });
     httpProxy.mockResolvedValue([500, "application/json", { error: { message: "oops", url: "http://bad" } }]);
 
@@ -424,7 +424,7 @@ describe("utils/proxy/handlers/credentialed", () => {
     await credentialedProxyHandler(req, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body.error.url).toContain("apikey=***");
+    expect(res.body.error.url).toBe("example (see logs for details)");
   });
 
   it("ends the response for 204/304 statuses", async () => {
@@ -451,7 +451,7 @@ describe("utils/proxy/handlers/credentialed", () => {
 
     expect(res.statusCode).toBe(500);
     expect(res.body.error.message).toBe("Invalid data");
-    expect(res.body.error.url).toContain("http://example/api/v1/collections");
+    expect(res.body.error.url).toBe("example (see logs for details)");
   });
 
   it("applies the response mapping function when provided", async () => {

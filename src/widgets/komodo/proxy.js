@@ -34,7 +34,8 @@ export default async function komodoProxyHandler(req, res) {
       let resultData = data;
 
       if (status >= 400) {
-        logger.error("HTTP Error %d calling %s", status, sanitizeErrorURL(url));
+        const errorURL = new URL(url);
+        logger.error("HTTP Error %d calling %s//%s%s...", status, errorURL.protocol, errorURL.host, errorURL.pathname);
       }
 
       if (status === 200) {

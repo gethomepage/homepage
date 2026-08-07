@@ -83,25 +83,14 @@ describe("utils/proxy/api-helpers", () => {
     expect(jsonArrayFilter(data, (item) => item.a > 1)).toEqual([{ a: 2 }]);
   });
 
-  it("sanitizeErrorURL redacts sensitive query params and hash fragments", () => {
-    const input = "https://example.com/path?apikey=123&token=abc#access_token=xyz&other=1";
-    const output = sanitizeErrorURL(input);
-
-    const url = new URL(output);
-    expect(url.searchParams.get("apikey")).toBe("***");
-    expect(url.searchParams.get("token")).toBe("***");
-    expect(url.hash).toContain("access_token=***");
-    expect(url.hash).toContain("other=1");
+  it("sanitizeErrorURL returns only the hostname regardless of where credentials appear", () => {
+    const input = "https://user:pass@example.com/secret-path-key/status?custom_secret=abc#token=xyz";
+    expect(sanitizeErrorURL(input)).toBe("example.com (see logs for details)");
   });
 
-  it("sanitizeErrorURL only redacts known keys", () => {
-    const input = "https://example.com/path?api_key=123&safe=ok#auth=abc&safe_hash=1";
-    const output = sanitizeErrorURL(input);
-
-    const url = new URL(output);
-    expect(url.searchParams.get("api_key")).toBe("***");
-    expect(url.searchParams.get("safe")).toBe("ok");
-    expect(url.hash).toContain("auth=***");
-    expect(url.hash).toContain("safe_hash=1");
+  it("sanitizeErrorURL accepts URL objects and omits the port", () => {
+    expect(sanitizeErrorURL(new URL("http://192.168.1.10:8080/api?apikey=123"))).toBe(
+      "192.168.1.10 (see logs for details)",
+    );
   });
 });

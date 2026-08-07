@@ -99,7 +99,7 @@ describe("widgets/frigate/proxy", () => {
       expect.objectContaining({
         error: expect.objectContaining({
           message: "HTTP Error 401 from Frigate",
-          url: "http://frigate/api/stats",
+          url: "frigate (see logs for details)",
         }),
       }),
     );
@@ -162,7 +162,7 @@ describe("widgets/frigate/proxy", () => {
       expect.objectContaining({
         error: expect.objectContaining({
           message: "HTTP Error 401 while trying to login to Frigate",
-          url: "http://frigate/api/stats",
+          url: "frigate (see logs for details)",
         }),
       }),
     );

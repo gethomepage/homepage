@@ -436,6 +436,6 @@ describe("utils/proxy/http httpProxy", () => {
     expect(status).toBe(500);
     expect(contentType).toBe("application/json");
     expect(data.error.message).toBe("boom");
-    expect(data.error.url).toContain("apikey=***");
+    expect(data.error.url).toBe("example.com (see logs for details)");
   });
 });

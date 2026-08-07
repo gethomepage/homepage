@@ -77,7 +77,7 @@ describe("widgets/dockhand/proxy", () => {
 
     expect(res.statusCode).toBe(500);
     expect(res.body.error.message).toBe("HTTP Error");
-    expect(res.body.error.url).toContain("token=***");
+    expect(res.body.error.url).toBe("dockhand (see logs for details)");
   });
 
   it("supports token auth", async () => {

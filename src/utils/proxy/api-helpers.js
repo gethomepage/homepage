@@ -69,11 +69,5 @@ export function jsonArrayFilter(data, filter) {
 }
 
 export function sanitizeErrorURL(errorURL) {
-  // Dont display sensitive params on frontend
-  const url = new URL(errorURL);
-  ["apikey", "api_key", "token", "t", "access_token", "auth"].forEach((key) => {
-    if (url.searchParams.has(key)) url.searchParams.set(key, "***");
-    if (url.hash.includes(key)) url.hash = url.hash.replace(new RegExp(`${key}=[^&]+`), `${key}=***`);
-  });
-  return url.toString();
+  return `${new URL(errorURL).hostname} (see logs for details)`;
 }
