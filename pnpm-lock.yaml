@@ -12,7 +12,7 @@ importers:
         specifier: ^2.2.10
         version: 2.2.10(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@kubernetes/client-node':
-        specifier: ^1.0.0
+        specifier: ^1.4.0
         version: 1.4.0(supports-color@7.2.0)
       classnames:
         specifier: ^2.5.1
