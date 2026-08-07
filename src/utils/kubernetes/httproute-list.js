@@ -25,7 +25,7 @@ export default async function listHttpRoute() {
         .catch((error) => {
           logger.error("Error getting httproutes: %d %s %s", error.statusCode, error.body, error.response);
           logger.debug(error);
-          return null;
+          return [];
         });
 
     return httpRoutes;
