@@ -46,7 +46,7 @@ Public deployments of Homepage should be secured via a reverse proxy, VPN, or si
 Required environment variables for authentication:
 
 - `HOMEPAGE_AUTH_ENABLED=true`
-- `HOMEPAGE_AUTH_SECRET` (random string for signing/encrypting cookies)
+- `HOMEPAGE_AUTH_SECRET` (random string for signing/encrypting cookies, at least 32 characters; generate one with `openssl rand -base64 32`)
 - `HOMEPAGE_EXTERNAL_URL` (the absolute URL used to access Homepage, including scheme and port when needed)
 
 Use an `https://` URL for public or TLS-terminated deployments so authentication cookies are marked `Secure`. Trusted HTTP-only LAN deployments may use an `http://` URL.

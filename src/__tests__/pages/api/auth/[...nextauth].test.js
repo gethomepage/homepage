@@ -122,7 +122,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("throws when auth is enabled without an external URL", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
 
     await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(/HOMEPAGE_EXTERNAL_URL.*is missing/i);
   });
@@ -136,7 +136,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   ])("rejects invalid external URL %s", async (externalUrl) => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = externalUrl;
 
     await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(/absolute HTTP\(S\) URL/i);
@@ -144,7 +144,7 @@ describe("pages/api/auth/[...nextauth]", () => {
 
   it("throws when auth is enabled but no provider settings are present", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(
@@ -152,10 +152,38 @@ describe("pages/api/auth/[...nextauth]", () => {
     );
   });
 
+  it.each(["short", "a".repeat(31)])("throws when the auth secret is too weak (%j)", async (secret) => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = secret;
+    process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
+
+    await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(/at least 32 characters/i);
+  });
+
+  it("accepts an auth secret at exactly the minimum length", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "a".repeat(32);
+    process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
+
+    const mod = await import("pages/api/auth/[...nextauth]");
+
+    expect(mod.authOptions.providers).toHaveLength(1);
+  });
+
+  it("does not enforce the secret length when auth is disabled", async () => {
+    process.env.HOMEPAGE_AUTH_SECRET = "short";
+
+    const mod = await import("pages/api/auth/[...nextauth]");
+
+    expect(mod.authOptions.providers).toEqual([]);
+  });
+
   it("builds a password provider when auth is enabled without OIDC config", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
@@ -177,7 +205,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("logs failed password sign-in attempts without recording client-supplied data", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
@@ -199,7 +227,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("compares multibyte passwords without throwing on unequal byte lengths", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "é";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
@@ -215,7 +243,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("supports trusted HTTP deployments without Secure cookies", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "http://192.168.1.20:3000";
 
     const mod = await import("pages/api/auth/[...nextauth]");
@@ -227,7 +255,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("accepts an explicitly configured NEXTAUTH_URL", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.NEXTAUTH_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
@@ -240,7 +268,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     process.env.HOMEPAGE_OIDC_ISSUER = "https://issuer.example/";
     process.env.HOMEPAGE_OIDC_CLIENT_ID = "client-id";
     process.env.HOMEPAGE_OIDC_CLIENT_SECRET = "client-secret";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
     process.env.HOMEPAGE_OIDC_NAME = "My OIDC";
     process.env.HOMEPAGE_OIDC_SCOPE = "openid email";
@@ -291,7 +319,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("throws when only partial OIDC settings are provided", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_OIDC_ISSUER = "https://issuer.example";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     await expect(import("pages/api/auth/[...nextauth]")).rejects.toThrow(

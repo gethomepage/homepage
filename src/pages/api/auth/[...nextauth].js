@@ -6,6 +6,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { isAuthEnabled } from "utils/env";
 import createLogger from "utils/logger";
 
+const MIN_AUTH_SECRET_LENGTH = 32;
+
 const authEnabled = isAuthEnabled();
 const issuer = process.env.HOMEPAGE_OIDC_ISSUER;
 const clientId = process.env.HOMEPAGE_OIDC_CLIENT_ID;
@@ -62,6 +64,12 @@ if (authEnabled) {
     throw new Error("OIDC auth is enabled but required settings are missing.");
   } else if (!homepageAuthPassword || !process.env.NEXTAUTH_SECRET) {
     throw new Error("Password auth is enabled but required settings are missing.");
+  }
+
+  if (process.env.NEXTAUTH_SECRET.length < MIN_AUTH_SECRET_LENGTH) {
+    throw new Error(
+      `HOMEPAGE_AUTH_SECRET (or NEXTAUTH_SECRET) must be at least ${MIN_AUTH_SECRET_LENGTH} characters. Generate one with: openssl rand -base64 32`,
+    );
   }
 }
 

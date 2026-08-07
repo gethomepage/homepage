@@ -105,7 +105,7 @@ describe("pages/api/mcp", () => {
     process.env.HOMEPAGE_MCP_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "password";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
     getServerSession.mockResolvedValueOnce({ user: { name: "Homepage" } });
     const handler = await loadHandler();
@@ -122,7 +122,7 @@ describe("pages/api/mcp", () => {
     process.env.HOMEPAGE_MCP_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "password";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
     getServerSession.mockResolvedValueOnce(null);
     const handler = await loadHandler();
@@ -138,7 +138,7 @@ describe("pages/api/mcp", () => {
     process.env.HOMEPAGE_MCP_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "password";
-    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "rk3Xk9wQ0mVJt7cZbN2yLpA8sHdF4gRuEwTiOaSvBnM=";
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
     process.env.HOMEPAGE_MCP_TOKEN = "secret";
     const handler = await loadHandler();
