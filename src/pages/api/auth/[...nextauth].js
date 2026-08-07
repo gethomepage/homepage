@@ -3,9 +3,10 @@ import { createHash, timingSafeEqual } from "node:crypto";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+import { isAuthEnabled } from "utils/env";
 import createLogger from "utils/logger";
 
-const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
+const authEnabled = isAuthEnabled();
 const issuer = process.env.HOMEPAGE_OIDC_ISSUER;
 const clientId = process.env.HOMEPAGE_OIDC_CLIENT_ID;
 const clientSecret = process.env.HOMEPAGE_OIDC_CLIENT_SECRET;

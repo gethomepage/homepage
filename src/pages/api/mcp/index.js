@@ -1,10 +1,11 @@
 import { getServerSession } from "next-auth/next";
 
 import { authOptions } from "pages/api/auth/[...nextauth]";
+import { isAuthEnabled } from "utils/env";
 import { handleMcpRequest, mcpEnabled, mcpTokenAuthorized } from "utils/mcp/homepage-mcp";
 
 async function hasHomepageSession(req, res) {
-  if (!process.env.HOMEPAGE_AUTH_ENABLED) return false;
+  if (!isAuthEnabled()) return false;
   return Boolean(await getServerSession(req, res, authOptions));
 }
 

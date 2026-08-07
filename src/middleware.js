@@ -1,7 +1,9 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-const authEnabled = Boolean(process.env.HOMEPAGE_AUTH_ENABLED);
+import { isAuthEnabled } from "utils/env";
+
+const authEnabled = isAuthEnabled();
 const authSecret = process.env.NEXTAUTH_SECRET || process.env.HOMEPAGE_AUTH_SECRET;
 
 export async function middleware(req) {
