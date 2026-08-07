@@ -39,6 +39,10 @@ If you are seeing errors about host validation, check the homepage logs and ensu
 
 This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not recommended. Public deployments must rely on a reverse proxy (and/or VPN) that enforces authentication, TLS, and unexpected Host headers; the built-in host check is a best-effort guard for local setups and is not a substitute for edge protections.
 
+!!! note
+
+    The NextAuth routes (`/api/auth/*`) and sign-in pages (`/auth/*`) are exempt from this check so that authentication continues to work, they do not access the API proxy.
+
 ### Security & Authentication
 
 Public deployments of Homepage should be secured via a reverse proxy, VPN, or similar. As of version 2.0, Homepage supports a simple authorization gate with a password or OIDC. When enabled, Homepage will use password login by default unless OIDC variables are provided.
