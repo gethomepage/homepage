@@ -59,6 +59,8 @@ For password-only login:
 
     Homepage does not apply application-level rate limiting to password attempts. Deployments exposed outside a trusted network should configure their reverse proxy or ingress to rate limit POST requests to `/api/auth/callback/credentials`.
 
+    Each failed attempt is logged at `warn` level as `<nextauth> Failed password sign-in attempt`, which can be used as a fail2ban or CrowdSec filter. Note that a failed and a successful sign-in are both a `302` response, so a reverse proxy access log alone cannot distinguish them. No client address is recorded in this message: `X-Forwarded-For` is caller-supplied and a ban rule keyed on it could be tricked into blocking arbitrary addresses. Correlate the log timestamp with your reverse proxy's access log to identify the source.
+
 For OIDC login (overrides password login):
 
 - `HOMEPAGE_OIDC_ISSUER` (OIDC issuer URL, e.g., `https://auth.example.com/realms/homepage`)

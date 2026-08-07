@@ -148,6 +148,28 @@ describe("pages/api/auth/[...nextauth]", () => {
     await expect(provider.options.authorize({ password: 123 })).resolves.toBeNull();
   });
 
+  it("logs failed password sign-in attempts without recording client-supplied data", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_PASSWORD = "secret";
+    process.env.HOMEPAGE_AUTH_SECRET = "auth-secret";
+    process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
+
+    const mod = await import("pages/api/auth/[...nextauth]");
+    const [provider] = mod.default.options.providers;
+
+    await provider.options.authorize({ password: "wrong" });
+    await provider.options.authorize({ password: 123 });
+
+    expect(warnMock).toHaveBeenCalledTimes(2);
+    expect(warnMock).toHaveBeenCalledWith("Failed password sign-in attempt");
+    // the attempted password must never reach the logs
+    expect(JSON.stringify(warnMock.mock.calls)).not.toContain("wrong");
+
+    warnMock.mockClear();
+    await provider.options.authorize({ password: "secret" });
+    expect(warnMock).not.toHaveBeenCalled();
+  });
+
   it("compares multibyte passwords without throwing on unequal byte lengths", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_PASSWORD = "é";

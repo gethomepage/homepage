@@ -65,6 +65,11 @@ if (authEnabled) {
   }
 }
 
+// Give fail2ban / CrowdSec etc something to match on
+function logFailedPasswordSignIn() {
+  createLogger("nextauth").warn("Failed password sign-in attempt");
+}
+
 let providers = [];
 if (authEnabled) {
   if (hasOidcConfig) {
@@ -104,11 +109,13 @@ if (authEnabled) {
         async authorize(credentials) {
           const provided = credentials?.password;
           if (!homepageAuthPasswordDigest || typeof provided !== "string") {
+            logFailedPasswordSignIn();
             return null;
           }
           const providedDigest = createHash("sha256").update(provided, "utf8").digest();
           const isMatch = timingSafeEqual(providedDigest, homepageAuthPasswordDigest);
           if (!isMatch) {
+            logFailedPasswordSignIn();
             return null;
           }
           return {
