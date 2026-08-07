@@ -8,7 +8,7 @@ You have a few options for deploying homepage, depending on your needs. We offer
 
 !!! info
 
-    Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system) and Homepage currently does not (and is not planned to) include any authentication layer itself. Thus, we recommend homepage be deployed behind a reverse proxy including authentication, SSL etc, and / or behind a VPN.
+    Please note that when using features such as widgets, Homepage can access personal information (for example from your home automation system). As of v2.0 Homepage includes a simple authentication gate with a password or OIDC, described in Security & Authentication below. We still recommend homepage be deployed behind a reverse proxy including authentication, SSL etc, and / or behind a VPN.
 
 <br>
 
