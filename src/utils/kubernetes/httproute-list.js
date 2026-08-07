@@ -19,7 +19,6 @@ export default async function listHttpRoute() {
         plural: "httproutes",
       })
       .then((response) => {
-        logger.debug("Retrieved httproutes: %d", response?.items?.length ?? 0);
         return response?.items ?? [];
       })
       .catch((error) => {
