@@ -50,16 +50,19 @@ describe("pages/api/auth/[...nextauth]", () => {
     expect(nextAuthMock).toHaveBeenCalledTimes(1); // built at import, never invoked per-request
   });
 
-  it("404s other auth endpoints when auth is disabled", async () => {
-    const mod = await import("pages/api/auth/[...nextauth]");
-    const end = vi.fn();
-    const res = { status: vi.fn(() => ({ end, json: vi.fn() })) };
+  it.each([["providers"], ["csrf"], ["signin"]])(
+    "answers the %s endpoint with parseable JSON when auth is disabled",
+    async (endpoint) => {
+      const mod = await import("pages/api/auth/[...nextauth]");
+      const json = vi.fn();
+      const res = { status: vi.fn(() => ({ json, end: vi.fn() })) };
 
-    await mod.default({ query: { nextauth: ["csrf"] } }, res);
+      await mod.default({ query: { nextauth: [endpoint] } }, res);
 
-    expect(res.status).toHaveBeenCalledWith(404);
-    expect(end).toHaveBeenCalled();
-  });
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(json).toHaveBeenCalledWith({});
+    },
+  );
 
   it("does not enable NextAuth's raw debug logger", async () => {
     const mod = await import("pages/api/auth/[...nextauth]");
