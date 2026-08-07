@@ -34,14 +34,37 @@ describe("pages/api/auth/[...nextauth]", () => {
     const mod = await import("pages/api/auth/[...nextauth]");
 
     expect(nextAuthMock).toHaveBeenCalledTimes(1);
-    expect(mod.default.options.providers).toEqual([]);
-    expect(mod.default.options.pages?.signIn).toBe("/auth/signin");
+    expect(mod.authOptions.providers).toEqual([]);
+    expect(mod.authOptions.pages?.signIn).toBe("/auth/signin");
+  });
+
+  it("answers the session endpoint with an empty session when auth is disabled", async () => {
+    const mod = await import("pages/api/auth/[...nextauth]");
+    const json = vi.fn();
+    const res = { status: vi.fn(() => ({ json, end: vi.fn() })) };
+
+    await mod.default({ query: { nextauth: ["session"] } }, res);
+
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(json).toHaveBeenCalledWith({});
+    expect(nextAuthMock).toHaveBeenCalledTimes(1); // built at import, never invoked per-request
+  });
+
+  it("404s other auth endpoints when auth is disabled", async () => {
+    const mod = await import("pages/api/auth/[...nextauth]");
+    const end = vi.fn();
+    const res = { status: vi.fn(() => ({ end, json: vi.fn() })) };
+
+    await mod.default({ query: { nextauth: ["csrf"] } }, res);
+
+    expect(res.status).toHaveBeenCalledWith(404);
+    expect(end).toHaveBeenCalled();
   });
 
   it("does not enable NextAuth's raw debug logger", async () => {
     const mod = await import("pages/api/auth/[...nextauth]");
 
-    expect(mod.default.options).not.toHaveProperty("debug");
+    expect(mod.authOptions).not.toHaveProperty("debug");
   });
 
   it("routes sanitized NextAuth logs through the Homepage logger", async () => {
@@ -52,9 +75,9 @@ describe("pages/api/auth/[...nextauth]", () => {
       id_token: "sensitive-id-token",
     };
 
-    mod.default.options.logger.error("OAUTH_CALLBACK_ERROR", sensitiveMetadata);
-    mod.default.options.logger.warn("NEXTAUTH_URL", sensitiveMetadata);
-    mod.default.options.logger.debug("OAUTH_CALLBACK_RESPONSE", sensitiveMetadata);
+    mod.authOptions.logger.error("OAUTH_CALLBACK_ERROR", sensitiveMetadata);
+    mod.authOptions.logger.warn("NEXTAUTH_URL", sensitiveMetadata);
+    mod.authOptions.logger.debug("OAUTH_CALLBACK_RESPONSE", sensitiveMetadata);
 
     expect(errorMock).toHaveBeenCalledWith("%s", "OAUTH_CALLBACK_ERROR");
     expect(warnMock).toHaveBeenCalledWith("%s", "NEXTAUTH_URL");
@@ -67,7 +90,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("logs only sanitized authentication lifecycle events", async () => {
     const mod = await import("pages/api/auth/[...nextauth]");
 
-    await mod.default.options.events.signIn({
+    await mod.authOptions.events.signIn({
       account: {
         provider: "homepage-oidc",
         access_token: "sensitive-access-token",
@@ -75,7 +98,7 @@ describe("pages/api/auth/[...nextauth]", () => {
       },
       user: { email: "sensitive@example.com" },
     });
-    await mod.default.options.events.signOut({ token: { sub: "sensitive-user-id" } });
+    await mod.authOptions.events.signOut({ token: { sub: "sensitive-user-id" } });
 
     expect(debugMock).toHaveBeenNthCalledWith(1, "Sign in via provider '%s'", "homepage-oidc");
     expect(debugMock).toHaveBeenNthCalledWith(2, "Sign out");
@@ -90,7 +113,7 @@ describe("pages/api/auth/[...nextauth]", () => {
 
     expect(process.env.NEXTAUTH_SECRET).toBe("secret");
     expect(process.env.NEXTAUTH_URL).toBe("https://homepage.example");
-    expect(mod.default.options.secret).toBe("secret");
+    expect(mod.authOptions.secret).toBe("secret");
   });
 
   it("throws when auth is enabled without an external URL", async () => {
@@ -133,13 +156,13 @@ describe("pages/api/auth/[...nextauth]", () => {
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
-    const [provider] = mod.default.options.providers;
+    const [provider] = mod.authOptions.providers;
 
     expect(provider.id).toBe("credentials");
     expect(provider.name).toBe("Credentials");
     expect(provider.type).toBe("credentials");
     expect(typeof provider.authorize).toBe("function");
-    expect(mod.default.options.useSecureCookies).toBe(true);
+    expect(mod.authOptions.useSecureCookies).toBe(true);
     await expect(provider.options.authorize({ password: "secret" })).resolves.toEqual({
       id: "homepage",
       name: "Homepage",
@@ -155,7 +178,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
-    const [provider] = mod.default.options.providers;
+    const [provider] = mod.authOptions.providers;
 
     await provider.options.authorize({ password: "wrong" });
     await provider.options.authorize({ password: 123 });
@@ -177,7 +200,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     process.env.HOMEPAGE_EXTERNAL_URL = "https://homepage.example";
 
     const mod = await import("pages/api/auth/[...nextauth]");
-    const [provider] = mod.default.options.providers;
+    const [provider] = mod.authOptions.providers;
 
     await expect(provider.options.authorize({ password: "a" })).resolves.toBeNull();
     await expect(provider.options.authorize({ password: "é" })).resolves.toEqual({
@@ -195,7 +218,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     const mod = await import("pages/api/auth/[...nextauth]");
 
     expect(process.env.NEXTAUTH_URL).toBe("http://192.168.1.20:3000");
-    expect(mod.default.options.useSecureCookies).toBe(false);
+    expect(mod.authOptions.useSecureCookies).toBe(false);
   });
 
   it("accepts an explicitly configured NEXTAUTH_URL", async () => {
@@ -206,7 +229,7 @@ describe("pages/api/auth/[...nextauth]", () => {
 
     const mod = await import("pages/api/auth/[...nextauth]");
 
-    expect(mod.default.options.useSecureCookies).toBe(true);
+    expect(mod.authOptions.useSecureCookies).toBe(true);
   });
 
   it("builds an OIDC provider when enabled and maps profile fields", async () => {
@@ -220,7 +243,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     process.env.HOMEPAGE_OIDC_SCOPE = "openid email";
 
     const mod = await import("pages/api/auth/[...nextauth]");
-    const [provider] = mod.default.options.providers;
+    const [provider] = mod.authOptions.providers;
 
     expect(provider).toMatchObject({
       id: "homepage-oidc",

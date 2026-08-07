@@ -150,4 +150,16 @@ export const authOptions = {
   },
 };
 
-export default NextAuth(authOptions);
+const nextAuthHandler = NextAuth(authOptions);
+
+export default async function handler(req, res) {
+  // Just pass empty session if auth not enabled
+  if (!authEnabled) {
+    if (req.query.nextauth?.[0] === "session") {
+      return res.status(200).json({});
+    }
+    return res.status(404).end("Not Found");
+  }
+
+  return nextAuthHandler(req, res);
+}
