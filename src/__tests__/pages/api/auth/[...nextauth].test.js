@@ -281,7 +281,7 @@ describe("pages/api/auth/[...nextauth]", () => {
       name: "My OIDC",
       type: "oauth",
       idToken: true,
-      checks: ["pkce", "state"],
+      checks: ["pkce", "state", "nonce"],
       issuer: "https://issuer.example",
       wellKnown: "https://issuer.example/.well-known/openid-configuration",
       clientId: "client-id",
