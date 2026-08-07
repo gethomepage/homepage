@@ -2,9 +2,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { NextResponse, getToken } = vi.hoisted(() => ({
   NextResponse: {
-    json: vi.fn((body, init) => ({ type: "json", body, init })),
-    next: vi.fn(() => ({ type: "next" })),
-    redirect: vi.fn((url) => ({ type: "redirect", url })),
+    json: vi.fn((body, init) => ({ type: "json", body, init, headers: new Headers() })),
+    next: vi.fn(() => ({ type: "next", headers: new Headers() })),
+    redirect: vi.fn((url) => ({ type: "redirect", url, headers: new Headers() })),
   },
   getToken: vi.fn(),
 }));
@@ -47,7 +47,7 @@ describe("middleware", () => {
     const res = await middleware(createReq("localhost:3000"));
 
     expect(NextResponse.next).toHaveBeenCalled();
-    expect(res).toEqual({ type: "next" });
+    expect(res.type).toBe("next");
   });
 
   it("blocks requests when host is not allowed", async () => {
@@ -74,7 +74,7 @@ describe("middleware", () => {
     const res = await middleware(createReq("anything.example"));
 
     expect(NextResponse.next).toHaveBeenCalled();
-    expect(res).toEqual({ type: "next" });
+    expect(res.type).toBe("next");
   });
 
   it("allows requests when host is included in HOMEPAGE_ALLOWED_HOSTS", async () => {
@@ -85,7 +85,7 @@ describe("middleware", () => {
     const res = await middleware(createReq("example.com:3000", "http://example.com:3000/"));
 
     expect(NextResponse.next).toHaveBeenCalled();
-    expect(res).toEqual({ type: "next" });
+    expect(res.type).toBe("next");
   });
 
   it("allows healthcheck requests without auth when host is allowed", async () => {
@@ -97,7 +97,7 @@ describe("middleware", () => {
 
     expect(getToken).not.toHaveBeenCalled();
     expect(NextResponse.next).toHaveBeenCalled();
-    expect(res).toEqual({ type: "next" });
+    expect(res.type).toBe("next");
   });
 
   it.each(["false", "0", "no", "off", ""])("treats HOMEPAGE_AUTH_ENABLED=%j as disabled", async (value) => {
@@ -107,7 +107,7 @@ describe("middleware", () => {
     const res = await middleware(createReq("localhost:3000", "http://localhost:3000/some"));
 
     expect(getToken).not.toHaveBeenCalled();
-    expect(res).toEqual({ type: "next" });
+    expect(res.type).toBe("next");
   });
 
   it("redirects to signin when auth is enabled and no token is present", async () => {
@@ -138,7 +138,39 @@ describe("middleware", () => {
     const res = await middleware(createReq("localhost:3000", "http://localhost:3000/"));
 
     expect(NextResponse.next).toHaveBeenCalled();
-    expect(res).toEqual({ type: "next" });
+    expect(res.type).toBe("next");
+  });
+
+  it("marks responses private so shared caches cannot store them when auth is enabled", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+
+    getToken.mockResolvedValueOnce({ sub: "user" });
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/"));
+
+    expect(res.headers.get("Cache-Control")).toBe("private, no-store");
+  });
+
+  it("marks the signin redirect private as well", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+
+    getToken.mockResolvedValueOnce(null);
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/some"));
+
+    expect(res.type).toBe("redirect");
+    expect(res.headers.get("Cache-Control")).toBe("private, no-store");
+  });
+
+  it("leaves cache headers alone when auth is disabled", async () => {
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/"));
+
+    expect(res.headers.get("Cache-Control")).toBeNull();
   });
 
   it("delegates MCP authorization to the API handler", async () => {
@@ -150,6 +182,6 @@ describe("middleware", () => {
 
     expect(getToken).not.toHaveBeenCalled();
     expect(NextResponse.next).toHaveBeenCalled();
-    expect(res).toEqual({ type: "next" });
+    expect(res.type).toBe("next");
   });
 });
