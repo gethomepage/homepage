@@ -23,6 +23,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Caddy](caddy.md)
 - [Calendar](calendar.md)
 - [Calibre-Web](calibre-web.md)
+- [Clash](clash.md)
 - [ChangeDetection.io](changedetectionio.md)
 - [Channels DVR Server](channelsdvrserver.md)
 - [Checkmk](checkmk.md)

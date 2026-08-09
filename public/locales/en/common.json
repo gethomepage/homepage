@@ -685,6 +685,15 @@
         "relativePower": "Power %",
         "limit": "Limit"
     },
+    "clash": {
+        "mode": "Mode",
+        "active": "Active",
+        "up": "Up",
+        "down": "Down",
+        "connections": "Connections",
+        "latency": "Latency",
+        "version": "Version"
+    },
     "opnsense": {
         "cpu": "CPU Load",
         "memory": "Active Memory",

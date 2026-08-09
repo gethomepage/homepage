@@ -27,6 +27,7 @@ vi.mock("widgets/widgets", () => ({
     plantit: { api: "{url}/{endpoint}" },
     myspeed: { api: "{url}/{endpoint}" },
     esphome: { api: "{url}/{endpoint}" },
+    clash: { api: "{url}/{endpoint}" },
     wgeasy: { api: "{url}/{endpoint}" },
     linkwarden: { api: "{url}/api/v1/{endpoint}" },
     miniflux: { api: "{url}/{endpoint}" },
@@ -295,6 +296,32 @@ describe("utils/proxy/handlers/credentialed", () => {
     expect(params.headers.Authorization).toMatch(/^Basic /);
   });
 
+  it("uses Bearer auth for clash when key is provided", async () => {
+    getServiceWidget.mockResolvedValue({ type: "clash", url: "http://x", key: "secret" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "proxies", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toBe("Bearer secret");
+  });
+
+  it("sends no auth header for clash when no key is configured", async () => {
+    getServiceWidget.mockResolvedValue({ type: "clash", url: "http://x" });
+    httpProxy.mockResolvedValue([200, "application/json", { ok: true }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "configs", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toBeUndefined();
+  });
+
   it("covers additional auth/header modes for common widgets", async () => {
     const cases = [
       [{ type: "coinmarketcap", url: "http://x", key: "k" }, { "X-CMC_PRO_API_KEY": "k" }],
@@ -309,6 +336,7 @@ describe("utils/proxy/handlers/credentialed", () => {
       [{ type: "trilium", url: "http://x", key: "k" }, { Authorization: "k" }],
       [{ type: "gitlab", url: "http://x", key: "k" }, { "PRIVATE-TOKEN": "k" }],
       [{ type: "speedtest", url: "http://x", key: "k" }, { Authorization: "Bearer k" }],
+      [{ type: "clash", url: "http://x", key: "k" }, { Authorization: "Bearer k" }],
       [
         { type: "azuredevops", url: "http://x", key: "k" },
         { Authorization: `Basic ${Buffer.from("$:k").toString("base64")}` },

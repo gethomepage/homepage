@@ -298,6 +298,7 @@ describe("utils/config/service-helpers", () => {
               { type: "glances", version: "4", metric: "cpu", refreshInterval: 2000, pointsLimit: 5, diskUnits: "gb" },
               { type: "mjpeg", stream: "s", fit: "contain" },
               { type: "openmediavault", method: "foo.bar" },
+              { type: "clash", group: "PROXY" },
               { type: "customapi", mappings: { x: 1 }, display: { y: 2 }, refreshInterval: 5000 },
               {
                 type: "calendar",
@@ -369,6 +370,7 @@ describe("utils/config/service-helpers", () => {
     );
     expect(widgets.find((w) => w.type === "jellystat")).toEqual(expect.objectContaining({ days: 7 }));
     expect(widgets.find((w) => w.type === "lubelogger")).toEqual(expect.objectContaining({ vehicleID: 12 }));
+    expect(widgets.find((w) => w.type === "clash")).toEqual(expect.objectContaining({ group: "PROXY" }));
   });
 
   it("cleanServiceGroups removes calendar integration urls from frontend widget payload", async () => {

@@ -42,6 +42,10 @@ export default async function credentialedProxyHandler(req, res, map) {
         if (widget.provider === "finnhub" && providers?.finnhub) {
           headers["X-Finnhub-Token"] = `${providers?.finnhub}`;
         }
+      } else if (widget.type === "clash") {
+        if (widget.key) {
+          headers.Authorization = `Bearer ${widget.key}`;
+        }
       } else if (widget.type === "coinmarketcap") {
         headers["X-CMC_PRO_API_KEY"] = `${widget.key}`;
       } else if (widget.type === "gotify") {

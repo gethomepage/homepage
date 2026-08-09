@@ -375,6 +375,9 @@ export function cleanServiceGroups(groups) {
           fit,
           stream,
 
+          // clash
+          group,
+
           // openmediavault
           method,
 
@@ -607,6 +610,9 @@ export function cleanServiceGroups(groups) {
         if (type === "mjpeg") {
           if (stream) widget.stream = stream;
           if (fit) widget.fit = fit;
+        }
+        if (type === "clash") {
+          if (group) widget.group = group;
         }
         if (type === "openmediavault") {
           if (method) widget.method = method;

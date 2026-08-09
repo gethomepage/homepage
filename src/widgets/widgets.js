@@ -17,6 +17,7 @@ import calibreweb from "./calibreweb/widget";
 import changedetectionio from "./changedetectionio/widget";
 import channelsdvrserver from "./channelsdvrserver/widget";
 import checkmk from "./checkmk/widget";
+import clash from "./clash/widget";
 import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import crowdsec from "./crowdsec/widget";
@@ -174,6 +175,7 @@ const widgets = {
   beszel,
   caddy,
   calibreweb,
+  clash,
   changedetectionio,
   channelsdvrserver,
   checkmk,
