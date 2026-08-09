@@ -473,6 +473,7 @@
         "failedLoginsLast24H": "Failed Logins (24h)"
     },
     "proxmox": {
+        "title": "Proxmox",
         "mem": "MEM",
         "cpu": "CPU",
         "lxc": "LXC",

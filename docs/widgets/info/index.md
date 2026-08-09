@@ -15,6 +15,7 @@ You can also find a list of all available info widgets in the sidebar navigation
 - [Longhorn](longhorn.md)
 - [OpenMeteo](openmeteo.md)
 - [OpenWeatherMap](openweathermap.md)
+- [Proxmox](proxmox.md)
 - [Resources](resources.md)
 - [Search](search.md)
 - [Stocks](stocks.md)

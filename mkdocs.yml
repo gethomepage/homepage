@@ -202,6 +202,7 @@ nav:
           - widgets/info/longhorn.md
           - widgets/info/openmeteo.md
           - widgets/info/openweathermap.md
+          - widgets/info/proxmox.md
           - widgets/info/resources.md
           - widgets/info/search.md
           - widgets/info/stocks.md
