@@ -35,8 +35,8 @@ export default function Component({ service }) {
   const memoryUsed = 100 - (statsData["free-memory"] / statsData["total-memory"]) * 100;
 
   const numberOfLeases = leasesData.length;
-  const cpuTemperature = parseFloat(healthData?.find((item) => item.name === "cpu-temperature")?.value);
-  const sfpTemperature = parseFloat(sfpData?.find((item) => item.name === "sfp-temperature")?.value);
+  const cpuTemperature = healthData?.find((item) => item.name === "cpu-temperature")?.value;
+  const sfpTemperature = sfpData?.find((item) => item.name === "sfp-temperature")?.value;
 
   return (
     <Container service={service}>
@@ -52,11 +52,11 @@ export default function Component({ service }) {
         highlightValue={memoryUsed}
       />
       <Block label="mikrotik.numberOfLeases" value={t("common.number", { value: numberOfLeases })} />
-      {cpuTemperature !== undefined && (
-        <Block label="mikrotik.cpuTemperature" value={t("common.number", { value: cpuTemperature })} />
+      {cpuTemperature && (
+        <Block label="mikrotik.cpuTemperature" value={`${cpuTemperature}°C`} />
       )}
-      {sfpTemperature !== undefined && (
-        <Block label="mikrotik.sfpTemperature" value={t("common.number", { value: sfpTemperature })} />
+      {sfpTemperature && (
+        <Block label="mikrotik.sfpTemperature" value={`${sfpTemperature}°C`} />
       )}
     </Container>
   );

@@ -82,7 +82,7 @@ describe("widgets/mikrotik/component", () => {
     expectBlockValue(container, "mikrotik.cpuLoad", 10);
     expectBlockValue(container, "mikrotik.memoryUsed", 75);
     expectBlockValue(container, "mikrotik.numberOfLeases", 3);
-    expectBlockValue(container, "mikrotik.cpuTemperature", 45);
-    expectBlockValue(container, "mikrotik.sfpTemperature", 30);
+    expectBlockValue(container, "mikrotik.cpuTemperature", "45°C");
+    expectBlockValue(container, "mikrotik.sfpTemperature", "30°C");
   });
 });
