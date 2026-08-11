@@ -12,10 +12,9 @@ export default function Component({ service }) {
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "system");
   const { data: leasesData, error: leasesError } = useWidgetAPI(widget, "leases");
   const { data: healthData, error: healthError } = useWidgetAPI(widget, "health");
-  const { data: sfpData, error: sfpError } = useWidgetAPI(widget, "sfp");
 
-  if (statsError || leasesError || healthError || sfpError) {
-    const finalError = statsError ?? leasesError ?? healthError ?? sfpError;
+  if (statsError || leasesError || healthError) {
+    const finalError = statsError ?? leasesError ?? healthError;
     return <Container service={service} error={finalError} />;
   }
 
@@ -36,7 +35,7 @@ export default function Component({ service }) {
 
   const numberOfLeases = leasesData.length;
   const cpuTemperature = healthData?.find((item) => item.name === "cpu-temperature")?.value;
-  const sfpTemperature = sfpData?.find((item) => item.name === "sfp-temperature")?.value;
+  const sfpTemperature = healthData?.find((item) => item.name === "sfp-temperature")?.value;
 
   return (
     <Container service={service}>

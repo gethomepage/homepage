@@ -15,9 +15,6 @@ const widget = {
     health: {
       endpoint: "system/health",
     },
-    sfp: {
-      endpoint: "interface/ethernet?.proplist=sfp-temperature",
-    },
   },
 };
 
