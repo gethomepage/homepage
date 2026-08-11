@@ -5,7 +5,7 @@ description: Mikrotik Widget Configuration
 
 HTTPS may be required, [per the documentation](https://help.mikrotik.com/docs/display/ROS/REST+API#RESTAPI-Overview)
 
-Allowed fields: `["uptime", "cpuLoad", "memoryUsed", "numberOfLeases"]`.
+Allowed fields: `["uptime", "cpuLoad", "memoryUsed", "numberOfLeases", "cpuTemperature", "sfpTemperature"]`.
 
 ```yaml
 widget:

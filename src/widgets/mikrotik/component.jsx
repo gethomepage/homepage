@@ -11,19 +11,23 @@ export default function Component({ service }) {
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "system");
   const { data: leasesData, error: leasesError } = useWidgetAPI(widget, "leases");
+  const { data: healthData, error: healthError } = useWidgetAPI(widget, "health");
+  const { data: sfpData, error: sfpError } = useWidgetAPI(widget, "sfp");
 
-  if (statsError || leasesError) {
-    const finalError = statsError ?? leasesError;
+  if (statsError || leasesError || healthError || sfpError) {
+    const finalError = statsError ?? leasesError ?? healthError ?? sfpError;
     return <Container service={service} error={finalError} />;
   }
 
-  if (!statsData || !leasesData) {
+  if (!statsData || !leasesData || !healthData) {
     return (
       <Container service={service}>
         <Block label="mikrotik.uptime" />
         <Block label="mikrotik.cpuLoad" />
         <Block label="mikrotik.memoryUsed" />
         <Block label="mikrotik.numberOfLeases" />
+        <Block label="mikrotik.cpuTemperature" />
+        <Block label="mikrotik.sfpTemperature" />
       </Container>
     );
   }
@@ -31,6 +35,8 @@ export default function Component({ service }) {
   const memoryUsed = 100 - (statsData["free-memory"] / statsData["total-memory"]) * 100;
 
   const numberOfLeases = leasesData.length;
+  const cpuTemperature = healthData["cpu-temperature"];
+  const sfpTemperature = sfpData?.[0]?.["sfp-temperature"];
 
   return (
     <Container service={service}>
@@ -46,6 +52,12 @@ export default function Component({ service }) {
         highlightValue={memoryUsed}
       />
       <Block label="mikrotik.numberOfLeases" value={t("common.number", { value: numberOfLeases })} />
+      {cpuTemperature !== undefined && (
+        <Block label="mikrotik.cpuTemperature" value={t("common.number", { value: cpuTemperature })} />
+      )}
+      {sfpTemperature !== undefined && (
+        <Block label="mikrotik.sfpTemperature" value={t("common.number", { value: sfpTemperature })} />
+      )}
     </Container>
   );
 }

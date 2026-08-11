@@ -12,6 +12,13 @@ const widget = {
     leases: {
       endpoint: "ip/dhcp-server/lease?.proplist=address",
     },
+    health: {
+      endpoint: "system/health",
+      validate: ["cpu-temperature"],
+    },
+    sfp: {
+      endpoint: "interface/ethernet?.proplist=sfp-temperature",
+    },
   },
 };
 

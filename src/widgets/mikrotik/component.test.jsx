@@ -23,11 +23,13 @@ describe("widgets/mikrotik/component", () => {
       settings: { hideErrors: false },
     });
 
-    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expect(container.querySelectorAll(".service-block")).toHaveLength(6);
     expect(screen.getByText("mikrotik.uptime")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.cpuLoad")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.memoryUsed")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.numberOfLeases")).toBeInTheDocument();
+    expect(screen.getByText("mikrotik.cpuTemperature")).toBeInTheDocument();
+    expect(screen.getByText("mikrotik.sfpTemperature")).toBeInTheDocument();
   });
 
   it("renders error UI when either endpoint errors", () => {
@@ -42,7 +44,7 @@ describe("widgets/mikrotik/component", () => {
     expect(screen.getByText("nope")).toBeInTheDocument();
   });
 
-  it("renders uptime, cpu load, memory used, and lease count", () => {
+  it("renders uptime, cpu load, memory used, lease count, and temperatures", () => {
     useWidgetAPI.mockImplementation((_widget, endpoint) => {
       if (endpoint === "system") {
         return {
@@ -60,6 +62,14 @@ describe("widgets/mikrotik/component", () => {
         return { data: [{ id: 1 }, { id: 2 }, { id: 3 }], error: undefined };
       }
 
+      if (endpoint === "health") {
+        return { data: { "cpu-temperature": 45 }, error: undefined };
+      }
+
+      if (endpoint === "sfp") {
+        return { data: [{ "sfp-temperature": 30 }], error: undefined };
+      }
+
       return { data: undefined, error: undefined };
     });
 
@@ -72,5 +82,7 @@ describe("widgets/mikrotik/component", () => {
     expectBlockValue(container, "mikrotik.cpuLoad", 10);
     expectBlockValue(container, "mikrotik.memoryUsed", 75);
     expectBlockValue(container, "mikrotik.numberOfLeases", 3);
+    expectBlockValue(container, "mikrotik.cpuTemperature", 45);
+    expectBlockValue(container, "mikrotik.sfpTemperature", 30);
   });
 });

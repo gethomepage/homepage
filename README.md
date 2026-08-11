@@ -75,7 +75,7 @@ Using docker compose:
 ```yaml
 services:
   homepage:
-    image: ghcr.io/gethomepage/homepage:latest
+    image: dulcow/homepage-mikrotik:latest
     container_name: homepage
     environment:
       HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
@@ -100,7 +100,7 @@ docker run --name homepage \
   -v /path/to/config:/app/config \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   --restart unless-stopped \
-  ghcr.io/gethomepage/homepage:latest
+  dulcow/homepage-mikrotik:latest
 ```
 
 ## From Source
