@@ -35,8 +35,8 @@ export default function Component({ service }) {
   const memoryUsed = 100 - (statsData["free-memory"] / statsData["total-memory"]) * 100;
 
   const numberOfLeases = leasesData.length;
-  const cpuTemperature = healthData["cpu-temperature"];
-  const sfpTemperature = sfpData?.[0]?.["sfp-temperature"];
+  const cpuTemperature = parseFloat(healthData?.find((item) => item.name === "cpu-temperature")?.value);
+  const sfpTemperature = parseFloat(sfpData?.find((item) => item.name === "sfp-temperature")?.value);
 
   return (
     <Container service={service}>

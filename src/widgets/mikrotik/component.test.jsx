@@ -63,11 +63,11 @@ describe("widgets/mikrotik/component", () => {
       }
 
       if (endpoint === "health") {
-        return { data: { "cpu-temperature": 45 }, error: undefined };
+        return { data: [{ name: "cpu-temperature", value: "45" }], error: undefined };
       }
 
       if (endpoint === "sfp") {
-        return { data: [{ "sfp-temperature": 30 }], error: undefined };
+        return { data: [{ name: "sfp-temperature", value: "30" }], error: undefined };
       }
 
       return { data: undefined, error: undefined };
