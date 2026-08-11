@@ -33,6 +33,7 @@ describe("widgets/jellyfin/component", () => {
     expect(screen.getByText("jellyfin.series")).toBeInTheDocument();
     expect(screen.getByText("jellyfin.episodes")).toBeInTheDocument();
     expect(screen.getByText("jellyfin.songs")).toBeInTheDocument();
+    expect(screen.getByText("jellyfin.albums")).toBeInTheDocument();
     expect(screen.getAllByText("-").length).toBeGreaterThan(0);
   });
 
