@@ -176,31 +176,28 @@ function SessionEntry({ playCommand, session, enableUser, showEpisodeNumber, ena
 
 function CountBlocks({ service, countData }) {
   const { t } = useTranslation();
-  const mappings = [
-    { key: "jellyfin.movies", dataKey: "MovieCount" },
-    { key: "jellyfin.series", dataKey: "SeriesCount" },
-    { key: "jellyfin.episodes", dataKey: "EpisodeCount" },
-    { key: "jellyfin.albums", dataKey: "AlbumCount" },
-    { key: "jellyfin.songs", dataKey: "SongCount" },
-  ];
 
-  if (!countData) {
-    return (
-      <Container service={service}>
-        {mappings.slice(0, 4).map(({ key }) => (
-          <Block label={key} />
-        ))}
-      </Container>
-    );
-  }
+  const availableFields = {
+    movies: "MovieCount",
+    series: "SeriesCount",
+    episodes: "EpisodeCount",
+    albums: "AlbumCount",
+    songs: "SongCount"
+  };
+
+  const userFields = service?.widget?.fields || Object.keys(availableFields);
+  const displayFields = userFields
+    .filter((field) => availableFields[field])
+    .slice(0, 4);
+
 
   return (
     <Container service={service}>
-      {mappings.slice(0, 4).map(({ key, dataKey }) => (
+      {displayFields.map((field) => (
         <Block
-          key={key}
-          label={key}
-          value={countData ? t("common.number", { value: countData[dataKey] }) : undefined}
+          key={`jellyfin.${field}`}
+          label={`jellyfin.${field}`}
+          value={countData ? t("common.number", { value: countData[availableFields[field]] }) : undefined}
         />
       ))}
     </Container>
