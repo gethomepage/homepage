@@ -182,14 +182,11 @@ function CountBlocks({ service, countData }) {
     series: "SeriesCount",
     episodes: "EpisodeCount",
     albums: "AlbumCount",
-    songs: "SongCount"
+    songs: "SongCount",
   };
 
   const userFields = service?.widget?.fields || Object.keys(availableFields);
-  const displayFields = userFields
-    .filter((field) => availableFields[field])
-    .slice(0, 4);
-
+  const displayFields = userFields.filter((field) => availableFields[field]).slice(0, 4);
 
   return (
     <Container service={service}>
