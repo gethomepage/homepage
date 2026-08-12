@@ -181,7 +181,7 @@ function CountBlocks({ service, countData }) {
     { key: "jellyfin.series", dataKey: "SeriesCount" },
     { key: "jellyfin.episodes", dataKey: "EpisodeCount" },
     { key: "jellyfin.albums", dataKey: "AlbumCount" },
-    { key: "jellyfin.songs", dataKey: "SongCount" }
+    { key: "jellyfin.songs", dataKey: "SongCount" },
   ];
 
   if (!countData) {
@@ -200,7 +200,7 @@ function CountBlocks({ service, countData }) {
         <Block
           key={key}
           label={key}
-          value={countData ? t("common.number", { value: countData[dataKey] }) : undefined} 
+          value={countData ? t("common.number", { value: countData[dataKey] }) : undefined}
         />
       ))}
     </Container>
