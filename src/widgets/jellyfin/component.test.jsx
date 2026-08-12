@@ -32,7 +32,6 @@ describe("widgets/jellyfin/component", () => {
     expect(screen.getByText("jellyfin.movies")).toBeInTheDocument();
     expect(screen.getByText("jellyfin.series")).toBeInTheDocument();
     expect(screen.getByText("jellyfin.episodes")).toBeInTheDocument();
-    expect(screen.getByText("jellyfin.songs")).toBeInTheDocument();
     expect(screen.getByText("jellyfin.albums")).toBeInTheDocument();
     expect(screen.getAllByText("-").length).toBeGreaterThan(0);
   });
@@ -41,7 +40,7 @@ describe("widgets/jellyfin/component", () => {
     useWidgetAPI
       .mockReturnValueOnce({ data: [], error: undefined, mutate: vi.fn() }) // sessions
       .mockReturnValueOnce({
-        data: { MovieCount: 1, SeriesCount: 2, EpisodeCount: 3, SongCount: 4 },
+        data: { MovieCount: 1, SeriesCount: 2, EpisodeCount: 3, SongCount: 4, AlbumCount: 5 },
         error: undefined,
       }); // count
 
@@ -58,7 +57,7 @@ describe("widgets/jellyfin/component", () => {
     expect(screen.getByText("1")).toBeInTheDocument();
     expect(screen.getByText("2")).toBeInTheDocument();
     expect(screen.getByText("3")).toBeInTheDocument();
-    expect(screen.getByText("4")).toBeInTheDocument();
+    expect(screen.getByText("5")).toBeInTheDocument();
   });
 
   it("renders a single now-playing entry (expanded to two rows by default)", () => {

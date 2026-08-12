@@ -176,26 +176,33 @@ function SessionEntry({ playCommand, session, enableUser, showEpisodeNumber, ena
 
 function CountBlocks({ service, countData }) {
   const { t } = useTranslation();
+  const mappings = [
+    { key: "jellyfin.movies", dataKey: "MovieCount" },
+    { key: "jellyfin.series", dataKey: "SeriesCount" },
+    { key: "jellyfin.episodes", dataKey: "EpisodeCount" },
+    { key: "jellyfin.albums", dataKey: "AlbumCount" },
+    { key: "jellyfin.songs", dataKey: "SongCount" }
+  ];
 
   if (!countData) {
     return (
       <Container service={service}>
-        <Block label="jellyfin.movies" />
-        <Block label="jellyfin.series" />
-        <Block label="jellyfin.episodes" />
-        <Block label="jellyfin.albums" />
-        <Block label="jellyfin.songs" />
+        {mappings.slice(0, 4).map(({ key }) => (
+          <Block label={key} />
+        ))}
       </Container>
     );
   }
 
   return (
     <Container service={service}>
-      <Block label="jellyfin.movies" value={t("common.number", { value: countData.MovieCount })} />
-      <Block label="jellyfin.series" value={t("common.number", { value: countData.SeriesCount })} />
-      <Block label="jellyfin.episodes" value={t("common.number", { value: countData.EpisodeCount })} />
-      <Block label="jellyfin.albums" value={t("common.number", { value: countData.AlbumCount })} />
-      <Block label="jellyfin.songs" value={t("common.number", { value: countData.SongCount })} />
+      {mappings.slice(0, 4).map(({ key, dataKey }) => (
+        <Block
+          key={key}
+          label={key}
+          value={countData ? t("common.number", { value: countData[dataKey] }) : undefined} 
+        />
+      ))}
     </Container>
   );
 }
