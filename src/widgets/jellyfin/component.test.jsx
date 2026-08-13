@@ -90,20 +90,28 @@ describe("widgets/jellyfin/component", () => {
     expect(screen.getByText(/01:00/)).toBeInTheDocument();
   });
 
-  it("renders optional albums field when included", () => {
+  it("renders the optional albums field and caps configured fields at four", () => {
     useWidgetAPI
       .mockReturnValueOnce({ data: [], error: undefined, mutate: vi.fn() }) // sessions
-      .mockImplementation(() => ({
+      .mockReturnValueOnce({
         data: { MovieCount: 1, SeriesCount: 2, EpisodeCount: 3, SongCount: 4, AlbumCount: 5 },
         error: undefined,
-      }));
+      }); // count
 
-    renderWithProviders(
-      <Component
-        service={{
-          widget: { type: "jellyfin", url: "http://x", fields: ["movies", "series", "episodes", "albums"] },
-        }}
-      />,
-    );
+    const service = {
+      widget: {
+        type: "jellyfin",
+        url: "http://x",
+        enableBlocks: true,
+        fields: ["movies", "series", "episodes", "albums", "songs"],
+      },
+    };
+
+    renderWithProviders(<Component service={service} />);
+
+    expect(service.widget.fields).toEqual(["movies", "series", "episodes", "albums"]);
+    expect(screen.getByText("jellyfin.albums")).toBeInTheDocument();
+    expect(screen.getByText("5")).toBeInTheDocument();
+    expect(screen.queryByText("jellyfin.songs")).not.toBeInTheDocument();
   });
 });
