@@ -32,7 +32,7 @@ describe("widgets/jellyfin/component", () => {
     expect(screen.getByText("jellyfin.movies")).toBeInTheDocument();
     expect(screen.getByText("jellyfin.series")).toBeInTheDocument();
     expect(screen.getByText("jellyfin.episodes")).toBeInTheDocument();
-    expect(screen.getByText("jellyfin.albums")).toBeInTheDocument();
+    expect(screen.getByText("jellyfin.songs")).toBeInTheDocument();
     expect(screen.getAllByText("-").length).toBeGreaterThan(0);
   });
 
@@ -57,7 +57,7 @@ describe("widgets/jellyfin/component", () => {
     expect(screen.getByText("1")).toBeInTheDocument();
     expect(screen.getByText("2")).toBeInTheDocument();
     expect(screen.getByText("3")).toBeInTheDocument();
-    expect(screen.getByText("5")).toBeInTheDocument();
+    expect(screen.getByText("4")).toBeInTheDocument();
   });
 
   it("renders a single now-playing entry (expanded to two rows by default)", () => {
@@ -88,5 +88,22 @@ describe("widgets/jellyfin/component", () => {
     // Time strings are rendered in a combined node (e.g. "00:00/01:00").
     expect(screen.getByText(/00:00/)).toBeInTheDocument();
     expect(screen.getByText(/01:00/)).toBeInTheDocument();
+  });
+
+  it("renders optional albums field when included", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({ data: [], error: undefined, mutate: vi.fn() }) // sessions
+      .mockImplementation(() => ({
+        data: { MovieCount: 1, SeriesCount: 2, EpisodeCount: 3, SongCount: 4, AlbumCount: 5 },
+        error: undefined,
+      }));
+
+    renderWithProviders(
+      <Component
+        service={{
+          widget: { type: "jellyfin", url: "http://x", fields: ["movies", "series", "episodes", "albums"] },
+        }}
+      />,
+    );
   });
 });
