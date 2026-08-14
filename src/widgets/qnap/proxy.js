@@ -47,7 +47,7 @@ async function apiCall(widget, endpoint, service) {
 
   if (status === 404) {
     logger.error("QNAP API rejected the request, attempting to obtain new session token");
-    key = await login(widget, service);
+    ({ token: key } = await login(widget, service));
     apiUrl = new URL(formatApiCall(`${endpoint}&sid=${key}`, widget));
     [status, contentType, data, responseHeaders] = await httpProxy(apiUrl);
   }
@@ -61,7 +61,7 @@ async function apiCall(widget, endpoint, service) {
 
   if (dataDecoded.QDocRoot.authPassed._cdata === "0") {
     logger.error("QNAP API rejected the request, attempting to obtain new session token");
-    key = await login(widget, service);
+    ({ token: key } = await login(widget, service));
     apiUrl = new URL(formatApiCall(`${endpoint}&sid=${key}`, widget));
     [status, contentType, data, responseHeaders] = await httpProxy(apiUrl);
 

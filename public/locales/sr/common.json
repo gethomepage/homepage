@@ -20,6 +20,9 @@
         "minutes": "м",
         "seconds": "с"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Недостаје тип виџета: {{type}}",
         "api_error": "API Грешка",
@@ -71,6 +74,15 @@
         "degraded": "Деградирано",
         "no_data": "Нема доступних података о складиштењу"
     },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -120,7 +132,8 @@
         "movies": "Филмови",
         "series": "Серије",
         "episodes": "Епизоде",
-        "songs": "Песме"
+        "songs": "Песме",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Није на мрежи",
@@ -344,16 +357,16 @@
         "address": "Адреса",
         "expires": "Истиче",
         "never": "Никада",
-        "user": "User",
-        "hostname": "Hostname",
-        "name": "Name",
-        "client_version": "Client Version",
-        "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
-        "tags": "Tags",
+        "user": "Корисник",
+        "hostname": "Име хоста",
+        "name": "Назив",
+        "client_version": "Верзија клијента",
+        "os": "ОС",
+        "created": "Креирано",
+        "authorized": "Овлашћено",
+        "is_external": "Је спољни",
+        "update_available": "Доступно ажурирање",
+        "tags": "Ознаке",
         "last_seen": "Последње виђен",
         "now": "Сада",
         "years": "{{number}}г",
@@ -363,8 +376,8 @@
         "minutes": "{{number}}м",
         "seconds": "{{number}}с",
         "ago": "Пре {{value}}",
-        "true": "Yes",
-        "false": "No"
+        "true": "Да",
+        "false": "Не"
     },
     "technitium": {
         "totalQueries": "Упити",
@@ -465,6 +478,11 @@
         "cpu": "Процесор",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "Процесор",
@@ -932,22 +950,33 @@
         "mails": "Пошта",
         "storage": "Складиште"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Упозорења",
         "criticals": "Критично"
     },
     "ntfy": {
-        "title": "Title",
-        "priority": "Priority",
-        "lastReceived": "Last Received",
-        "message": "Message",
-        "tags": "Tags",
-        "none": "None",
-        "min": "Min",
-        "low": "Low",
-        "default": "Default",
-        "high": "High",
-        "urgent": "Urgent"
+        "title": "Назив",
+        "priority": "Приоритет",
+        "lastReceived": "Последње примљено",
+        "message": "Порука",
+        "tags": "Ознаке",
+        "none": "Без",
+        "min": "Мин",
+        "low": "Ниско",
+        "default": "Подразумевано",
+        "high": "Високо",
+        "urgent": "Хитно"
     },
     "plantit": {
         "events": "Догађаји",
@@ -1210,5 +1239,16 @@
         "burned": "Спаљено",
         "remaining": "Преостало",
         "steps": "Кораци"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

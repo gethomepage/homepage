@@ -60,4 +60,35 @@ describe("widgets/scrutiny/component", () => {
     expectBlockValue(container, "scrutiny.failed", 1);
     expectBlockValue(container, "scrutiny.unknown", 1);
   });
+
+  it("excludes archived devices", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "settings") {
+        return { data: { settings: { metrics: { status_threshold: 2 } } }, error: undefined };
+      }
+      if (endpoint === "summary") {
+        return {
+          data: {
+            data: {
+              summary: {
+                active: { device: { archived: false, device_status: 0 } },
+                archivedPassed: { device: { archived: true, device_status: 0 } },
+                archivedFailed: { device: { archived: true, device_status: 2 } },
+              },
+            },
+          },
+          error: undefined,
+        };
+      }
+      return { data: undefined, error: undefined };
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "scrutiny" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "scrutiny.passed", 1);
+    expectBlockValue(container, "scrutiny.failed", 0);
+    expectBlockValue(container, "scrutiny.unknown", 0);
+  });
 });

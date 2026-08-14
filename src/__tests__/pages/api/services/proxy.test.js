@@ -193,42 +193,61 @@ describe("pages/api/services/proxy", () => {
     widgets.linkwarden.mappings.collections.method = originalMethod;
   });
 
-  it("replaces endpoint segments and rejects unsupported segment keys/values", async () => {
+  it("replaces and encodes endpoint segments", async () => {
     getServiceWidget.mockResolvedValue({ type: "segments" });
     handlerFn.handler.mockImplementation(async (req, res) => res.status(200).json({ endpoint: req.query.endpoint }));
 
-    const res1 = createMockRes();
+    const res = createMockRes();
     await servicesProxy(
       {
         method: "GET",
-        query: { group: "g", service: "s", index: "0", endpoint: "item", segments: JSON.stringify({ id: "123" }) },
+        query: {
+          group: "g",
+          service: "s",
+          index: "0",
+          endpoint: "item",
+          segments: JSON.stringify({ id: "session:123" }),
+        },
       },
-      res1,
+      res,
     );
-    expect(res1.statusCode).toBe(200);
-    expect(res1.body).toEqual({ endpoint: "items/123" });
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ endpoint: "items/session%3A123" });
+  });
 
-    const res2 = createMockRes();
-    await servicesProxy(
-      {
-        method: "GET",
-        query: { group: "g", service: "s", index: "0", endpoint: "item", segments: JSON.stringify({ nope: "123" }) },
-      },
-      res2,
-    );
-    expect(res2.statusCode).toBe(403);
-    expect(res2.body).toEqual({ error: "Unsupported segment" });
+  it.each([
+    ["omitted segments", undefined],
+    ["duplicate segment parameters", [JSON.stringify({ id: "123" }), JSON.stringify({ id: "456" })]],
+    ["unsupported keys", JSON.stringify({ nope: "123" })],
+    ["missing keys", JSON.stringify({})],
+    ["extra keys", JSON.stringify({ id: "123", extra: "value" })],
+    ["empty values", JSON.stringify({ id: "" })],
+    ["non-string values", JSON.stringify({ id: 123 })],
+    ["literal traversal", JSON.stringify({ id: "../123" })],
+    ["encoded traversal", JSON.stringify({ id: "%2e%2e%2f123" })],
+    ["double-encoded traversal", JSON.stringify({ id: "%252e%252e%252f123" })],
+    ["encoded slash", JSON.stringify({ id: "session%2f123" })],
+    ["encoded backslash", JSON.stringify({ id: "session%5c123" })],
+    ["malformed encoding", JSON.stringify({ id: "%ZZ" })],
+    ["invalid JSON", "{"],
+    ["arrays", JSON.stringify(["123"])],
+    ["null", "null"],
+  ])("rejects %s in endpoint segments", async (_, segments) => {
+    getServiceWidget.mockResolvedValue({ type: "segments" });
+    handlerFn.handler.mockImplementation(async (req, res) => res.status(200).json({ endpoint: req.query.endpoint }));
 
-    const res3 = createMockRes();
+    const res = createMockRes();
     await servicesProxy(
       {
         method: "GET",
-        query: { group: "g", service: "s", index: "0", endpoint: "item", segments: JSON.stringify({ id: "../123" }) },
+        query: { group: "g", service: "s", index: "0", endpoint: "item", segments },
       },
-      res3,
+      res,
     );
-    expect(res3.statusCode).toBe(403);
-    expect(res3.body).toEqual({ error: "Unsupported segment" });
+
+    expect(res.statusCode).toBe(403);
+    expect(res.body).toEqual({ error: "Unsupported segment" });
+    expect(handlerFn.handler).not.toHaveBeenCalled();
   });
 
   it("adds query params based on mapping params + optionalParams", async () => {

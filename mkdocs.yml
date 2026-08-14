@@ -26,6 +26,7 @@ nav:
       - configs/kubernetes.md
       - configs/docker.md
       - configs/proxmox.md
+      - configs/mcp.md
       - configs/custom-css-js.md
   - "Widgets":
       - widgets/index.md
@@ -60,6 +61,7 @@ nav:
           - widgets/services/dispatcharr.md
           - widgets/services/dockhand.md
           - widgets/services/downloadstation.md
+          - widgets/services/duplicati.md
           - widgets/services/emby.md
           - widgets/services/esphome.md
           - widgets/services/evcc.md
@@ -101,6 +103,7 @@ nav:
           - widgets/services/lubelogger.md
           - widgets/services/mastodon.md
           - widgets/services/mailcow.md
+          - widgets/services/maintainerr.md
           - widgets/services/mealie.md
           - widgets/services/medusa.md
           - widgets/services/mikrotik.md
@@ -141,6 +144,7 @@ nav:
           - widgets/services/proxmox.md
           - widgets/services/proxmoxbackupserver.md
           - widgets/services/pterodactyl.md
+          - widgets/services/pulse.md
           - widgets/services/pyload.md
           - widgets/services/qbittorrent.md
           - widgets/services/qnap.md
@@ -156,11 +160,13 @@ nav:
           - widgets/services/sparkyfitness.md
           - widgets/services/speedtest-tracker.md
           - widgets/services/spoolman.md
+          - widgets/services/sportarr.md
           - widgets/services/stash.md
           - widgets/services/stocks.md
           - widgets/services/suwayomi.md
           - widgets/services/swagdashboard.md
           - widgets/services/syncthing-relay-server.md
+          - widgets/services/syncthing.md
           - widgets/services/tailscale.md
           - widgets/services/tandoor.md
           - widgets/services/technitium.md

@@ -46,7 +46,7 @@ export default function Component({ service }) {
     );
   }
 
-  const deviceIds = Object.values(scrutinyData.data.summary);
+  const deviceIds = Object.values(scrutinyData.data.summary).filter(({ device }) => !device.archived);
   const statusThreshold = scrutinySettings.settings.metrics.status_threshold;
 
   const failed =

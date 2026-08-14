@@ -151,7 +151,7 @@ describe("utils/proxy/handlers/generic", () => {
     await genericProxyHandler(req, res);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.error.url).toContain("apikey=***");
+    expect(res.body.error.url).toBe("example (see logs for details)");
   });
 
   it("returns an Invalid data error when validation fails", async () => {
@@ -223,7 +223,7 @@ describe("utils/proxy/handlers/generic", () => {
 
     expect(res.statusCode).toBe(500);
     expect(res.body.error.message).toBe("HTTP Error");
-    expect(res.body.error.url).toContain("apikey=***");
+    expect(res.body.error.url).toBe("example (see logs for details)");
     expect(res.body.error.data).toBe("fail");
   });
 

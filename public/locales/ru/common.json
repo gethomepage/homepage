@@ -20,6 +20,9 @@
         "minutes": "мин",
         "seconds": "сек"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Отсутствует тип виджета: {{type}}",
         "api_error": "Ошибка API",
@@ -71,6 +74,15 @@
         "degraded": "Деградация",
         "no_data": "Нет доступных данных о хранилище"
     },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -120,7 +132,8 @@
         "movies": "Фильмы",
         "series": "Сериалы",
         "episodes": "Эпизоды",
-        "songs": "Песни"
+        "songs": "Песни",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Не в сети",
@@ -432,7 +445,7 @@
         "numActiveSessions": "Сессии",
         "numConnections": "Соединения",
         "dataRelayed": "Ретранслировано",
-        "transferRate": "Rate"
+        "transferRate": "Цена"
     },
     "mastodon": {
         "user_count": "Пользователи",
@@ -465,6 +478,11 @@
         "cpu": "ЦП",
         "lxc": "LXC",
         "vms": "Виртуальные машины"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "ЦП",
@@ -932,6 +950,17 @@
         "mails": "Письма",
         "storage": "Хранилище"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Предупреждения",
         "criticals": "Критические"
@@ -1210,5 +1239,16 @@
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

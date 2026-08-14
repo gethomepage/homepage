@@ -20,6 +20,9 @@
         "minutes": "分",
         "seconds": "秒"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "遺失小工具的類型: {{type}}",
         "api_error": "API 錯誤",
@@ -71,6 +74,15 @@
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
+    },
     "docker": {
         "rx": "接收",
         "tx": "傳送",
@@ -120,7 +132,8 @@
         "movies": "電影",
         "series": "系列",
         "episodes": "劇集",
-        "songs": "曲目"
+        "songs": "曲目",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Offline",
@@ -231,10 +244,10 @@
         "seed": "Seed"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "下載速率",
+        "upload": "上傳速率",
+        "leech": "未完成下載",
+        "seed": "已完成下載"
     },
     "qnap": {
         "cpuUsage": "CPU 使用率",
@@ -465,6 +478,11 @@
         "cpu": "CPU",
         "lxc": "Linux 容器",
         "vms": "虛擬機"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "CPU",
@@ -834,10 +852,10 @@
         "finished": "Finished"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size",
-        "downloadSpeed": "Speed"
+        "downloadCount": "佇列",
+        "downloadBytesRemaining": "剩餘大小",
+        "downloadTotalBytes": "檔案大小",
+        "downloadSpeed": "下載速度"
     },
     "kavita": {
         "seriesCount": "Series",
@@ -882,11 +900,11 @@
     },
     "openmediavault": {
         "downloading": "下載中",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "total": "全部",
+        "running": "執行中",
+        "stopped": "已停止",
+        "passed": "通過",
+        "failed": "失敗"
     },
     "openwrt": {
         "uptime": "Uptime",
@@ -931,6 +949,17 @@
         "mailboxes": "信箱",
         "mails": "郵件數",
         "storage": "Storage"
+    },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
     },
     "netdata": {
         "warnings": "警告",
@@ -1143,11 +1172,11 @@
         "total": "Total"
     },
     "wallos": {
-        "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
-        "previousMonthlyCost": "Prev. Month",
-        "nextRenewingSubscription": "Next Payment"
+        "activeSubscriptions": "訂閱",
+        "thisMonthlyCost": "這個月",
+        "nextMonthlyCost": "下個月",
+        "previousMonthlyCost": "上個月",
+        "nextRenewingSubscription": "下次付款"
     },
     "unraid": {
         "STARTED": "Started",
@@ -1210,5 +1239,16 @@
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

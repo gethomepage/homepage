@@ -20,6 +20,9 @@
         "minutes": "m",
         "seconds": "पल"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Missing Widget Type: {{type}}",
         "api_error": "API Error",
@@ -71,6 +74,15 @@
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -120,7 +132,8 @@
         "movies": "Movies",
         "series": "Series",
         "episodes": "Episodes",
-        "songs": "Songs"
+        "songs": "Songs",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Offline",
@@ -465,6 +478,11 @@
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "CPU",
@@ -932,6 +950,17 @@
         "mails": "Mails",
         "storage": "Storage"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Warnings",
         "criticals": "Criticals"
@@ -1210,5 +1239,16 @@
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

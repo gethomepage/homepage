@@ -10,6 +10,7 @@ allowBuilds:
   protobufjs: false
   sharp: true
   ssh2: false
+  unrs-resolver: true
 
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'

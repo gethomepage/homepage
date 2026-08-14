@@ -20,6 +20,9 @@
         "minutes": "dk",
         "seconds": "s"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Eksik Araç Türü: {{type}}",
         "api_error": "API Hatası",
@@ -71,6 +74,15 @@
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
+    },
     "docker": {
         "rx": "Gelen Veri",
         "tx": "Giden Veri",
@@ -120,7 +132,8 @@
         "movies": "Film",
         "series": "Dizi",
         "episodes": "Bölüm",
-        "songs": "Şarkı"
+        "songs": "Şarkı",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Çevrimdışı",
@@ -295,10 +308,10 @@
         "available": "Kullanılabilir"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
+        "pending": "Bekleyen",
+        "approved": "Onaylanan",
+        "available": "Kullanılabilir",
+        "completed": "Tamamlanan",
         "processing": "Processing",
         "issues": "Open Issues"
     },
@@ -465,6 +478,11 @@
         "cpu": "İşlemci",
         "lxc": "LXC",
         "vms": "Sanal Makineler"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "İşlemci",
@@ -932,6 +950,17 @@
         "mails": "Postalar",
         "storage": "Depolama"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Uyarılar",
         "criticals": "Kritik"
@@ -1210,5 +1239,16 @@
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

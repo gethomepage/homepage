@@ -47,7 +47,14 @@ export default async function frigateProxyHandler(req, res, map) {
         });
 
         if (loginStatus !== 200) {
-          logger.error("HTTP Error %d calling %s", loginStatus, sanitizeErrorURL(loginUrl));
+          const errorURL = new URL(loginUrl);
+          logger.error(
+            "HTTP Error %d calling %s//%s%s...",
+            loginStatus,
+            errorURL.protocol,
+            errorURL.host,
+            errorURL.pathname,
+          );
           return res.status(status).json({
             error: {
               message: `HTTP Error ${status} while trying to login to Frigate`,
@@ -63,7 +70,8 @@ export default async function frigateProxyHandler(req, res, map) {
       }
 
       if (status >= 400) {
-        logger.error("HTTP Error %d calling %s", status, sanitizeErrorURL(url));
+        const errorURL = new URL(url);
+        logger.error("HTTP Error %d calling %s//%s%s...", status, errorURL.protocol, errorURL.host, errorURL.pathname);
         return res.status(status).json({
           error: {
             message: `HTTP Error ${status} from Frigate`,

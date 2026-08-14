@@ -77,6 +77,29 @@ describe("widgets/dockhand/proxy", () => {
 
     expect(res.statusCode).toBe(500);
     expect(res.body.error.message).toBe("HTTP Error");
-    expect(res.body.error.url).toContain("token=***");
+    expect(res.body.error.url).toBe("dockhand (see logs for details)");
+  });
+
+  it("supports token auth", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "dockhand",
+      url: "http://dockhand",
+      key: "abc",
+    });
+
+    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from("ok")]);
+
+    const req = {
+      method: "GET",
+      query: { group: "g", service: "svc", endpoint: "api/v1/status", index: "0" },
+    };
+    const res = createMockRes();
+
+    await dockhandProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledWith(
+      new URL("http://dockhand/api/v1/status"),
+      expect.objectContaining({ method: "GET", headers: { Authorization: "Bearer abc" } }),
+    );
   });
 });

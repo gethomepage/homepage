@@ -10,7 +10,11 @@ const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
 vi.mock("../../components/widgets/queue/queueEntry", () => ({
-  default: ({ title }) => <div data-testid="queue-entry">{title}</div>,
+  default: ({ title, activity, progress }) => (
+    <div data-testid="queue-entry" data-activity={activity} data-progress={progress}>
+      {title}
+    </div>
+  ),
 }));
 
 import Component from "./component";
@@ -44,10 +48,19 @@ describe("widgets/sonarr/component", () => {
             {
               seriesId: 10,
               episodeId: 1,
-              episodeTitle: "Ep",
-              sizeLeft: 50,
+              episodeTitle: "Queued Ep",
+              sizeLeft: 0,
+              size: 0,
+              status: "queued",
+              trackedDownloadState: "downloading",
+            },
+            {
+              seriesId: 10,
+              episodeId: 2,
+              episodeTitle: "Imported Ep",
+              sizeLeft: 0,
               size: 100,
-              timeLeft: "1m",
+              status: "completed",
               trackedDownloadState: "importPending",
             },
           ],
@@ -63,6 +76,11 @@ describe("widgets/sonarr/component", () => {
     expectBlockValue(container, "sonarr.wanted", 1);
     expectBlockValue(container, "sonarr.queued", 2);
     expectBlockValue(container, "sonarr.series", 1);
-    expect(screen.getAllByTestId("queue-entry").map((el) => el.textContent)).toEqual(["Show: Ep"]);
+    const queueEntries = screen.getAllByTestId("queue-entry");
+    expect(queueEntries.map((el) => el.textContent)).toEqual(["Show: Queued Ep", "Show: Imported Ep"]);
+    expect(queueEntries.map((el) => [el.dataset.activity, el.dataset.progress])).toEqual([
+      ["queued", "0"],
+      ["import pending", "100"],
+    ]);
   });
 });

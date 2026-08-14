@@ -3,15 +3,36 @@ import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("proxmoxStatsService");
+const VALID_VM_TYPES = new Set(["qemu", "lxc"]);
+const VALID_NODE = /^[A-Za-z0-9._-]+$/;
+const VALID_VMID = /^\d+$/;
 
 export default async function handler(req, res) {
   const { service, type: vmType } = req.query;
 
-  const [node, vmid] = service;
+  const [node, vmid] = service || [];
 
   if (!node) {
     return res.status(400).send({
       error: "Proxmox node parameter is required",
+    });
+  }
+
+  if (typeof node !== "string" || !VALID_NODE.test(node) || node.includes("..")) {
+    return res.status(400).send({
+      error: "Invalid Proxmox node parameter",
+    });
+  }
+
+  if (typeof vmid !== "string" || !VALID_VMID.test(vmid)) {
+    return res.status(400).send({
+      error: "Invalid Proxmox VMID parameter",
+    });
+  }
+
+  if (typeof vmType !== "string" || !VALID_VM_TYPES.has(vmType)) {
+    return res.status(400).send({
+      error: "Invalid Proxmox type parameter",
     });
   }
 

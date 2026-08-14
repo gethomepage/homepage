@@ -20,9 +20,12 @@
         "minutes": "m",
         "seconds": "s"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Tipo de Widget ausente: {{type}}",
-        "api_error": "Erros de API",
+        "api_error": "Erro da API",
         "information": "Informação",
         "status": "Status",
         "url": "Endereço URL",
@@ -70,6 +73,15 @@
         "healthy": "Saudável",
         "degraded": "Degradado",
         "no_data": "Sem dados de armazenamento disponíveis"
+    },
+    "duplicati": {
+        "jobs": "Trabalhos",
+        "stored": "Armazenado",
+        "lastBackup": "Última corrida",
+        "nextRun": "Próxima corrida",
+        "running": "Correndo",
+        "warnings": "Avisos",
+        "errors": "Erros"
     },
     "docker": {
         "rx": "RX",
@@ -120,7 +132,8 @@
         "movies": "Filmes",
         "series": "Séries",
         "episodes": "Episódios",
-        "songs": "Músicas"
+        "songs": "Músicas",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Offline",
@@ -344,16 +357,16 @@
         "address": "Endereço",
         "expires": "Expira em",
         "never": "Nunca",
-        "user": "User",
-        "hostname": "Hostname",
-        "name": "Name",
-        "client_version": "Client Version",
-        "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
-        "tags": "Tags",
+        "user": "Usuário",
+        "hostname": "Nome do host",
+        "name": "Nome",
+        "client_version": "Versão do cliente",
+        "os": "SO",
+        "created": "Criado",
+        "authorized": "Autorizado",
+        "is_external": "É Externo",
+        "update_available": "Atualização disponível",
+        "tags": "Marcadores",
         "last_seen": "Visto por último",
         "now": "Agora",
         "years": "{{number}}a",
@@ -363,8 +376,8 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Atrás",
-        "true": "Yes",
-        "false": "No"
+        "true": "Sim",
+        "false": "Não"
     },
     "technitium": {
         "totalQueries": "Consultas",
@@ -465,6 +478,11 @@
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "CPU",
@@ -932,22 +950,33 @@
         "mails": "Mensagens",
         "storage": "Armazenamento"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Alertas",
         "criticals": "Críticos"
     },
     "ntfy": {
-        "title": "Title",
-        "priority": "Priority",
-        "lastReceived": "Last Received",
-        "message": "Message",
-        "tags": "Tags",
-        "none": "None",
-        "min": "Min",
-        "low": "Low",
-        "default": "Default",
-        "high": "High",
-        "urgent": "Urgent"
+        "title": "Título",
+        "priority": "Prioridade",
+        "lastReceived": "Atualização mais recente em",
+        "message": "Mensagem",
+        "tags": "Marcadores",
+        "none": "Nenhum",
+        "min": "Mín",
+        "low": "Baixo",
+        "default": "Padrão",
+        "high": "Alto",
+        "urgent": "Urgente"
     },
     "plantit": {
         "events": "Eventos",
@@ -1210,5 +1239,16 @@
         "burned": "Queimado",
         "remaining": "Restante",
         "steps": "Passos"
+    },
+    "syncthing": {
+        "connected": "Conectado",
+        "synced": "Sincronizado",
+        "errors": "Erros",
+        "storage": "Armazenagem"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

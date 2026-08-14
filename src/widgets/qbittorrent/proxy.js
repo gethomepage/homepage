@@ -1,6 +1,7 @@
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { formatApiCall } from "utils/proxy/api-helpers";
+import { setCookieHeader } from "utils/proxy/cookie-jar";
 import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("qbittorrentProxyHandler");
@@ -36,9 +37,10 @@ export default async function qbittorrentProxyHandler(req, res) {
 
   const url = new URL(formatApiCall("{url}/api/v2/{endpoint}", { endpoint, ...widget }));
   const params = { method: "GET", headers: {} };
+  if (widget.key) params.headers.Authorization = `Bearer ${widget.key}`;
 
   let [status, contentType, data] = await httpProxy(url, params);
-  if (status === 403) {
+  if (status === 403 && !widget.key) {
     [status, data] = await login(widget);
 
     if (![200, 204].includes(status)) {
@@ -51,6 +53,8 @@ export default async function qbittorrentProxyHandler(req, res) {
       return res.status(401).end(data);
     }
 
+    // refresh the cookie header from the jar, otherwise the retry reuses the stale session cookie
+    setCookieHeader(url, params, { overwrite: true });
     [status, contentType, data] = await httpProxy(url, params);
   }
 

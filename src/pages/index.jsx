@@ -35,6 +35,10 @@ const ColorToggle = dynamic(() => import("components/toggles/color"), {
   ssr: false,
 });
 
+const SignOut = dynamic(() => import("components/toggles/signout"), {
+  ssr: false,
+});
+
 const Version = dynamic(() => import("components/version"), {
   ssr: false,
 });
@@ -502,6 +506,7 @@ function Home({ initialSettings }) {
           <div id="style" className="flex w-full justify-end">
             {!settings?.color && <ColorToggle />}
             <Revalidate />
+            <SignOut />
             {!settings.theme && <ThemeToggle />}
           </div>
 
